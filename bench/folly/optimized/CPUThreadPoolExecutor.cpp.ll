@@ -11333,7 +11333,11 @@ define linkonce_odr noundef i32 @_ZN5folly6detail11LifoSemBaseINS_19SaturatingSe
 entry:
   %cmp17 = icmp eq i32 %idx, 0
   %idxprom.i.i.i = zext i32 %idx to i64
-  br i1 %cmp17, label %while.body.us, label %while.body
+  br i1 %cmp17, label %while.body.us, label %while.body.preheader
+
+while.body.preheader:                             ; preds = %entry
+  %invariant.op = or disjoint i64 %idxprom.i.i.i, 4294967296
+  br label %while.body
 
 while.body.us:                                    ; preds = %entry, %while.body.us.backedge
   %0 = load atomic i64, ptr %this acquire, align 64
@@ -11368,7 +11372,7 @@ if.then6.us:                                      ; preds = %land.lhs.true.us
 while.body.us.backedge:                           ; preds = %if.then6.us, %if.then.us
   br label %while.body.us, !llvm.loop !431
 
-while.body:                                       ; preds = %entry, %while.body.backedge
+while.body:                                       ; preds = %while.body.backedge, %while.body.preheader
   %4 = load atomic i64, ptr %this acquire, align 64
   %and.i = and i64 %4, 17179869184
   %cmp.i.not = icmp eq i64 %and.i, 0
@@ -11429,9 +11433,8 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %spec.select = select i1 %cmp.i51.not, i32 0, i32 %conv.i59
   store atomic i32 %spec.select, ptr %next monotonic, align 4
   %and.i60 = and i64 %4, -34359738368
-  %or.i = or disjoint i64 %and.i60, %idxprom.i.i.i
-  %or3.i = or disjoint i64 %or.i, 4294967296
-  %11 = cmpxchg ptr %this, i64 %4, i64 %or3.i seq_cst seq_cst, align 8
+  %or3.i.reass = or disjoint i64 %and.i60, %invariant.op
+  %11 = cmpxchg ptr %this, i64 %4, i64 %or3.i.reass seq_cst seq_cst, align 8
   %12 = extractvalue { i64, i1 } %11, 1
   br i1 %12, label %return, label %while.body.backedge
 

@@ -17604,6 +17604,7 @@ _ZN4llvm14SmallBitVectorC2Ejb.exit:               ; preds = %156, %160
   %198 = lshr i64 %.fr23, 58
   %199 = shl nsw i64 -1, %198
   %200 = xor i64 %199, -1
+  %invariant.op = and i64 %197, %200
   %201 = inttoptr i64 %.fr23 to ptr
   br i1 %.not.i.i, label %.lr.ph20.split.us, label %.lr.ph20.split
 
@@ -17635,7 +17636,7 @@ _ZNK4llvm14SmallBitVector9referencecvbEv.exit.us: ; preds = %.lr.ph20.split.us
   br i1 %.not55.us, label %._crit_edge, label %.lr.ph20.split.us, !llvm.loop !46
 
 .lr.ph20.split:                                   ; preds = %.lr.ph20, %.critedge
-  %.14717 = phi i32 [ %225, %.critedge ], [ %.04612, %.lr.ph20 ]
+  %.14717 = phi i32 [ %223, %.critedge ], [ %.04612, %.lr.ph20 ]
   %217 = zext i32 %.14717 to i64
   %218 = getelementptr inbounds %"class.clang::DeducedTemplateArgument", ptr %195, i64 %217
   %219 = load i32, ptr %218, align 8
@@ -17645,94 +17646,93 @@ _ZNK4llvm14SmallBitVector9referencecvbEv.exit.us: ; preds = %.lr.ph20.split.us
 
 _ZNK4llvm14SmallBitVector9referencecvbEv.exit:    ; preds = %.lr.ph20.split
   %222 = shl nuw i64 1, %217
-  %223 = and i64 %197, %222
-  %224 = and i64 %223, %200
-  %.0.i.i.not = icmp eq i64 %224, 0
+  %.reass = and i64 %222, %invariant.op
+  %.0.i.i.not = icmp eq i64 %.reass, 0
   br i1 %.0.i.i.not, label %.critedge, label %._crit_edge
 
 .critedge:                                        ; preds = %_ZNK4llvm14SmallBitVector9referencecvbEv.exit, %.lr.ph20.split
-  %225 = add i32 %.14717, 1
-  %.not55 = icmp eq i32 %225, %140
+  %223 = add i32 %.14717, 1
+  %.not55 = icmp eq i32 %223, %140
   br i1 %.not55, label %._crit_edge, label %.lr.ph20.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm14SmallBitVector9referencecvbEv.exit, %.critedge, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit.us, %.critedge.us, %.loopexit
   %.not55.lcssa = phi i1 [ true, %.loopexit ], [ true, %.critedge.us ], [ false, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit.us ], [ true, %.critedge ], [ false, %_ZNK4llvm14SmallBitVector9referencecvbEv.exit ]
-  %226 = and i64 %.fr23, 1
-  %.not.i73 = icmp eq i64 %226, 0
-  br i1 %.not.i73, label %227, label %_ZN4llvm14SmallBitVectorD2Ev.exit
+  %224 = and i64 %.fr23, 1
+  %.not.i73 = icmp eq i64 %224, 0
+  br i1 %.not.i73, label %225, label %_ZN4llvm14SmallBitVectorD2Ev.exit
 
-227:                                              ; preds = %._crit_edge
-  %228 = inttoptr i64 %.fr23 to ptr
-  %229 = icmp eq i64 %.fr23, 0
-  br i1 %229, label %_ZN4llvm14SmallBitVectorD2Ev.exit, label %230
+225:                                              ; preds = %._crit_edge
+  %226 = inttoptr i64 %.fr23 to ptr
+  %227 = icmp eq i64 %.fr23, 0
+  br i1 %227, label %_ZN4llvm14SmallBitVectorD2Ev.exit, label %228
 
-230:                                              ; preds = %227
-  %231 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %228) #21
-  %232 = load ptr, ptr %228, align 8
-  %233 = getelementptr inbounds i8, ptr %228, i64 16
-  %234 = icmp eq ptr %232, %233
-  br i1 %234, label %_ZN4llvm9BitVectorD2Ev.exit.i, label %235
+228:                                              ; preds = %225
+  %229 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %226) #21
+  %230 = load ptr, ptr %226, align 8
+  %231 = getelementptr inbounds i8, ptr %226, i64 16
+  %232 = icmp eq ptr %230, %231
+  br i1 %232, label %_ZN4llvm9BitVectorD2Ev.exit.i, label %233
 
-235:                                              ; preds = %230
-  call void @free(ptr noundef %232) #21
+233:                                              ; preds = %228
+  call void @free(ptr noundef %230) #21
   br label %_ZN4llvm9BitVectorD2Ev.exit.i
 
-_ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %235, %230
-  call void @_ZdlPvm(ptr noundef nonnull %228, i64 noundef 72) #22
+_ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %233, %228
+  call void @_ZdlPvm(ptr noundef nonnull %226, i64 noundef 72) #22
   br label %_ZN4llvm14SmallBitVectorD2Ev.exit
 
-_ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %148, %138, %_ZN4llvm9BitVectorD2Ev.exit.i, %227, %._crit_edge, %122, %111
-  %.2 = phi i1 [ false, %111 ], [ false, %122 ], [ %.not55.lcssa, %._crit_edge ], [ %.not55.lcssa, %227 ], [ %.not55.lcssa, %_ZN4llvm9BitVectorD2Ev.exit.i ], [ true, %138 ], [ true, %148 ]
+_ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %148, %138, %_ZN4llvm9BitVectorD2Ev.exit.i, %225, %._crit_edge, %122, %111
+  %.2 = phi i1 [ false, %111 ], [ false, %122 ], [ %.not55.lcssa, %._crit_edge ], [ %.not55.lcssa, %225 ], [ %.not55.lcssa, %_ZN4llvm9BitVectorD2Ev.exit.i ], [ true, %138 ], [ true, %148 ]
   call void @_ZN5clang4Sema21InstantiatingTemplate5ClearEv(ptr noundef nonnull align 8 dereferenceable(10) %17) #21
-  %236 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
-  %237 = load ptr, ptr %16, align 8
-  %238 = icmp eq ptr %237, %115
-  br i1 %238, label %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit, label %239
+  %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  %235 = load ptr, ptr %16, align 8
+  %236 = icmp eq ptr %235, %115
+  br i1 %236, label %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit, label %237
 
-239:                                              ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit
-  call void @free(ptr noundef %237) #21
+237:                                              ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit
+  call void @free(ptr noundef %235) #21
   br label %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit: ; preds = %239, %_ZN4llvm14SmallBitVectorD2Ev.exit, %105
-  %.1 = phi i1 [ false, %105 ], [ %.2, %_ZN4llvm14SmallBitVectorD2Ev.exit ], [ %.2, %239 ]
-  %240 = load i64, ptr %15, align 8
-  %241 = and i64 %240, 1
-  %.not.i74 = icmp eq i64 %241, 0
-  br i1 %.not.i74, label %242, label %_ZN4llvm14SmallBitVectorD2Ev.exit76
+_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit: ; preds = %237, %_ZN4llvm14SmallBitVectorD2Ev.exit, %105
+  %.1 = phi i1 [ false, %105 ], [ %.2, %_ZN4llvm14SmallBitVectorD2Ev.exit ], [ %.2, %237 ]
+  %238 = load i64, ptr %15, align 8
+  %239 = and i64 %238, 1
+  %.not.i74 = icmp eq i64 %239, 0
+  br i1 %.not.i74, label %240, label %_ZN4llvm14SmallBitVectorD2Ev.exit76
 
-242:                                              ; preds = %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit
-  %243 = inttoptr i64 %240 to ptr
-  %244 = icmp eq i64 %240, 0
-  br i1 %244, label %_ZN4llvm14SmallBitVectorD2Ev.exit76, label %245
+240:                                              ; preds = %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit
+  %241 = inttoptr i64 %238 to ptr
+  %242 = icmp eq i64 %238, 0
+  br i1 %242, label %_ZN4llvm14SmallBitVectorD2Ev.exit76, label %243
 
-245:                                              ; preds = %242
-  %246 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %243) #21
-  %247 = load ptr, ptr %243, align 8
-  %248 = getelementptr inbounds i8, ptr %243, i64 16
-  %249 = icmp eq ptr %247, %248
-  br i1 %249, label %_ZN4llvm9BitVectorD2Ev.exit.i75, label %250
+243:                                              ; preds = %240
+  %244 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %241) #21
+  %245 = load ptr, ptr %241, align 8
+  %246 = getelementptr inbounds i8, ptr %241, i64 16
+  %247 = icmp eq ptr %245, %246
+  br i1 %247, label %_ZN4llvm9BitVectorD2Ev.exit.i75, label %248
 
-250:                                              ; preds = %245
-  call void @free(ptr noundef %247) #21
+248:                                              ; preds = %243
+  call void @free(ptr noundef %245) #21
   br label %_ZN4llvm9BitVectorD2Ev.exit.i75
 
-_ZN4llvm9BitVectorD2Ev.exit.i75:                  ; preds = %250, %245
-  call void @_ZdlPvm(ptr noundef nonnull %243, i64 noundef 72) #22
+_ZN4llvm9BitVectorD2Ev.exit.i75:                  ; preds = %248, %243
+  call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef 72) #22
   br label %_ZN4llvm14SmallBitVectorD2Ev.exit76
 
-_ZN4llvm14SmallBitVectorD2Ev.exit76:              ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i75, %242, %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit, %97
-  %.0 = phi i1 [ false, %97 ], [ %.1, %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit ], [ %.1, %242 ], [ %.1, %_ZN4llvm9BitVectorD2Ev.exit.i75 ]
+_ZN4llvm14SmallBitVectorD2Ev.exit76:              ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i75, %240, %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit, %97
+  %.0 = phi i1 [ false, %97 ], [ %.1, %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit ], [ %.1, %240 ], [ %.1, %_ZN4llvm9BitVectorD2Ev.exit.i75 ]
   call void @_ZN5clang4sema21TemplateDeductionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %13) #21
-  %251 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
-  %252 = load ptr, ptr %12, align 8
-  %253 = icmp eq ptr %252, %73
-  br i1 %253, label %_ZN4llvm11SmallVectorIN5clang23DeducedTemplateArgumentELj4EED2Ev.exit, label %254
+  %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
+  %250 = load ptr, ptr %12, align 8
+  %251 = icmp eq ptr %250, %73
+  br i1 %251, label %_ZN4llvm11SmallVectorIN5clang23DeducedTemplateArgumentELj4EED2Ev.exit, label %252
 
-254:                                              ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit76
-  call void @free(ptr noundef %252) #21
+252:                                              ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit76
+  call void @free(ptr noundef %250) #21
   br label %_ZN4llvm11SmallVectorIN5clang23DeducedTemplateArgumentELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang23DeducedTemplateArgumentELj4EED2Ev.exit: ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit76, %254
+_ZN4llvm11SmallVectorIN5clang23DeducedTemplateArgumentELj4EED2Ev.exit: ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit76, %252
   ret i1 %.0
 }
 

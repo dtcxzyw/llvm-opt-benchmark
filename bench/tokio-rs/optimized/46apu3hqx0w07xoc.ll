@@ -3964,16 +3964,16 @@ define void @_ZN5tokio3net3tcp8listener11TcpListener11poll_accept17h682a991023af
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.847b8f12f691ee51e4721496cb17e98d.53.llvm.7600499188078001995, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.59.llvm.7600499188078001995) #37, !noalias !328
   unreachable
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %57
-  %20 = phi i8 [ %58, %57 ], [ %9, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %55
+  %20 = phi i8 [ %56, %55 ], [ %9, %.lr.ph ]
   %.sroa.08.0.copyload = load ptr, ptr %7, align 8
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 8
   %21 = icmp eq i8 %20, 2
   br i1 %21, label %.split.us, label %"_ZN89_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h95d19ab11113535dE.exit"
 
-._crit_edge:                                      ; preds = %57, %3
+._crit_edge:                                      ; preds = %55, %3
   store i64 3, ptr %0, align 8
-  br label %69
+  br label %67
 
 "_ZN89_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h95d19ab11113535dE.exit": ; preds = %.lr.ph.split
   %22 = ptrtoint ptr %.sroa.08.0.copyload to i64
@@ -3991,7 +3991,7 @@ define void @_ZN5tokio3net3tcp8listener11TcpListener11poll_accept17h682a991023af
   store i64 2, ptr %0, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.us-phi, ptr %.sroa.441.0..sroa_idx, align 8
-  br label %69
+  br label %67
 
 25:                                               ; preds = %"_ZN89_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h95d19ab11113535dE.exit"
   %26 = getelementptr inbounds i8, ptr %6, i64 4
@@ -4004,13 +4004,13 @@ define void @_ZN5tokio3net3tcp8listener11TcpListener11poll_accept17h682a991023af
   %.val = load ptr, ptr %14, align 8, !nonnull !16, !noundef !16
   %29 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE(ptr nonnull %.val)
   %30 = icmp eq i8 %29, 13
-  br i1 %30, label %42, label %54
+  br i1 %30, label %42, label %52
 
 31:                                               ; preds = %25
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = icmp eq i32 %23, 0
-  br i1 %33, label %65, label %66
+  br i1 %33, label %63, label %64
 
 34:                                               ; preds = %25
   %35 = load i64, ptr %5, align 8, !range !333, !noundef !16
@@ -4041,91 +4041,91 @@ define void @_ZN5tokio3net3tcp8listener11TcpListener11poll_accept17h682a991023af
   store ptr %38, ptr %.sroa.448.0..sroa_idx, align 8
   br label %41
 
-41:                                               ; preds = %54, %40, %39
+41:                                               ; preds = %52, %40, %39
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %64
+  br label %62
 
 42:                                               ; preds = %28
-  %43 = and i64 %22, 51
-  %44 = load atomic i64, ptr %17 acquire, align 8, !noalias !334
+  %43 = load atomic i64, ptr %17 acquire, align 8, !noalias !334
+  %44 = and i64 %22, 51
+  %invariant.op.i.i.i = xor i64 %44, 63
   %45 = zext i8 %.sroa.3.0.copyload to i64
   %46 = shl nuw nsw i64 %45, 16
-  %47 = xor i64 %43, 63
-  br label %48
+  br label %47
 
-48:                                               ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i, %42
-  %.0.us.i.i.i = phi i64 [ %44, %42 ], [ %.sroa.07.0.i.us.i.i.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i ]
+47:                                               ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i, %42
+  %.0.us.i.i.i = phi i64 [ %43, %42 ], [ %.sroa.07.0.i.us.i.i.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i ]
   %.0.fr.us.i.i.i = freeze i64 %.0.us.i.i.i
-  %49 = lshr i64 %.0.fr.us.i.i.i, 16
-  %50 = trunc i64 %49 to i8
-  %.not.us.i.i.i = icmp eq i8 %.sroa.3.0.copyload, %50
+  %48 = lshr i64 %.0.fr.us.i.i.i, 16
+  %49 = trunc i64 %48 to i8
+  %.not.us.i.i.i = icmp eq i8 %.sroa.3.0.copyload, %49
   br i1 %.not.us.i.i.i, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i, label %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit
 
-_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i: ; preds = %48
-  %51 = and i64 %.0.fr.us.i.i.i, %47
-  %52 = or disjoint i64 %51, %46
-  %53 = cmpxchg ptr %17, i64 %.0.fr.us.i.i.i, i64 %52 acq_rel acquire, align 8, !noalias !334
-  %.sroa.18.0.in.i.us.i.i.i = extractvalue { i64, i1 } %53, 1
-  %.sroa.07.0.i.us.i.i.i = extractvalue { i64, i1 } %53, 0
-  br i1 %.sroa.18.0.in.i.us.i.i.i, label %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit, label %48
+_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i: ; preds = %47
+  %.reass.us.i.i.i = and i64 %.0.fr.us.i.i.i, %invariant.op.i.i.i
+  %50 = or disjoint i64 %.reass.us.i.i.i, %46
+  %51 = cmpxchg ptr %17, i64 %.0.fr.us.i.i.i, i64 %50 acq_rel acquire, align 8, !noalias !334
+  %.sroa.18.0.in.i.us.i.i.i = extractvalue { i64, i1 } %51, 1
+  %.sroa.07.0.i.us.i.i.i = extractvalue { i64, i1 } %51, 0
+  br i1 %.sroa.18.0.in.i.us.i.i.i, label %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit, label %47
 
-54:                                               ; preds = %28
+52:                                               ; preds = %28
   store i64 2, ptr %0, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.val, ptr %.sroa.434.0..sroa_idx, align 8
   br label %41
 
-_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit: ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i, %48
-  %55 = load i32, ptr %6, align 8, !range !331, !noundef !16
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %60
+_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit: ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i, %47
+  %53 = load i32, ptr %6, align 8, !range !331, !noundef !16
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit", %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit
+55:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit", %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN5tokio7runtime2io12registration12Registration10poll_ready17h5d9385252a49fdfaE(ptr noalias nocapture noundef nonnull sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
-  %58 = load i8, ptr %8, align 1, !range !144, !noundef !16
-  %59 = icmp eq i8 %58, 3
-  br i1 %59, label %._crit_edge, label %.lr.ph.split
+  %56 = load i8, ptr %8, align 1, !range !144, !noundef !16
+  %57 = icmp eq i8 %56, 3
+  br i1 %57, label %._crit_edge, label %.lr.ph.split
 
-60:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit
+58:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !351
-  %61 = load ptr, ptr %14, align 8, !alias.scope !351, !nonnull !16, !noundef !16
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %61), !noalias !351
-  %62 = load i8, ptr %4, align 8, !range !144, !alias.scope !352, !noalias !351, !noundef !16
-  %switch.not.i.i.i.i = icmp eq i8 %62, 3
-  br i1 %switch.not.i.i.i.i, label %63, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
+  %59 = load ptr, ptr %14, align 8, !alias.scope !351, !nonnull !16, !noundef !16
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %59), !noalias !351
+  %60 = load i8, ptr %4, align 8, !range !144, !alias.scope !352, !noalias !351, !noundef !16
+  %switch.not.i.i.i.i = icmp eq i8 %60, 3
+  br i1 %switch.not.i.i.i.i, label %61, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
 
-63:                                               ; preds = %60
+61:                                               ; preds = %58
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18), !noalias !351
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit": ; preds = %60, %63
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit": ; preds = %58, %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !351
-  br label %57
+  br label %55
 
-64:                                               ; preds = %69, %41
+62:                                               ; preds = %67, %41
   ret void
 
-65:                                               ; preds = %66, %31
+63:                                               ; preds = %64, %31
   resume { ptr, i32 } %32
 
-66:                                               ; preds = %31
+64:                                               ; preds = %31
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #38
-          to label %65 unwind label %67
+          to label %63 unwind label %65
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+65:                                               ; preds = %64
+  %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39
   unreachable
 
-69:                                               ; preds = %.split.us, %._crit_edge
+67:                                               ; preds = %.split.us, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %64
+  br label %62
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5315,7 +5315,8 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load atomic i64, ptr %5 acquire, align 16
   %7 = load i64, ptr %3, align 8, !noalias !540, !noundef !16
-  %8 = xor i64 %7, -1
+  %8 = and i64 %7, 63
+  %invariant.op = xor i64 %8, 63
   br i1 %1, label %.split.us.split, label %.split
 
 .split.us.split:                                  ; preds = %4
@@ -5332,29 +5333,27 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
   br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split15.us
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %11
-  %14 = and i64 %.0.fr.us, 63
-  %15 = and i64 %14, %8
-  %16 = or disjoint i64 %10, %15
-  %17 = cmpxchg ptr %5, i64 %.0.fr.us, i64 %16 acq_rel acquire, align 8
-  %.sroa.18.0.in.i.us = extractvalue { i64, i1 } %17, 1
-  %.sroa.07.0.i.us = extractvalue { i64, i1 } %17, 0
+  %.reass.us = and i64 %.0.fr.us, %invariant.op
+  %14 = or disjoint i64 %10, %.reass.us
+  %15 = cmpxchg ptr %5, i64 %.0.fr.us, i64 %14 acq_rel acquire, align 8
+  %.sroa.18.0.in.i.us = extractvalue { i64, i1 } %15, 1
+  %.sroa.07.0.i.us = extractvalue { i64, i1 } %15, 0
   br i1 %.sroa.18.0.in.i.us, label %.split15.us, label %11
 
 .split:                                           ; preds = %4, %.split
   %.0 = phi i64 [ %.sroa.07.0.i, %.split ], [ %6, %4 ]
   %.0.fr = freeze i64 %.0
-  %18 = lshr i64 %.0.fr, 16
-  %19 = and i64 %18, 32767
-  %.cmp.not = icmp eq i64 %19, 32767
-  %20 = shl nuw nsw i64 %19, 16
-  %21 = add nuw nsw i64 %20, 65536
-  %22 = and i64 %.0.fr, 63
-  %23 = and i64 %22, %8
-  %24 = select i1 %.cmp.not, i64 0, i64 %21
-  %25 = or disjoint i64 %24, %23
-  %26 = cmpxchg ptr %5, i64 %.0.fr, i64 %25 acq_rel acquire, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %26, 1
-  %.sroa.07.0.i = extractvalue { i64, i1 } %26, 0
+  %16 = lshr i64 %.0.fr, 16
+  %17 = and i64 %16, 32767
+  %.cmp.not = icmp eq i64 %17, 32767
+  %18 = shl nuw nsw i64 %17, 16
+  %19 = add nuw nsw i64 %18, 65536
+  %.reass = and i64 %.0.fr, %invariant.op
+  %20 = select i1 %.cmp.not, i64 0, i64 %19
+  %21 = or disjoint i64 %20, %.reass
+  %22 = cmpxchg ptr %5, i64 %.0.fr, i64 %21 acq_rel acquire, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %22, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %22, 0
   br i1 %.sroa.18.0.in.i, label %.split15.us, label %.split
 
 .split15.us:                                      ; preds = %.split, %11, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us
@@ -5372,6 +5371,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
 .split.us.split:                                  ; preds = %4
   %8 = zext i8 %2 to i64
   %9 = shl nuw nsw i64 %8, 16
+  %invariant.op = or i64 %9, %.masked
   br label %10
 
 10:                                               ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, %.split.us.split
@@ -5384,28 +5384,27 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %10
   %13 = and i64 %.0.fr.us, 63
-  %14 = or disjoint i64 %13, %9
-  %15 = or i64 %14, %.masked
-  %16 = cmpxchg ptr %5, i64 %.0.fr.us, i64 %15 acq_rel acquire, align 8
-  %.sroa.18.0.in.i.us = extractvalue { i64, i1 } %16, 1
-  %.sroa.07.0.i.us = extractvalue { i64, i1 } %16, 0
+  %.reass.reass = or i64 %13, %invariant.op
+  %14 = cmpxchg ptr %5, i64 %.0.fr.us, i64 %.reass.reass acq_rel acquire, align 8
+  %.sroa.18.0.in.i.us = extractvalue { i64, i1 } %14, 1
+  %.sroa.07.0.i.us = extractvalue { i64, i1 } %14, 0
   br i1 %.sroa.18.0.in.i.us, label %.split15.us, label %10
 
 .split:                                           ; preds = %4, %.split
   %.0 = phi i64 [ %.sroa.07.0.i, %.split ], [ %6, %4 ]
   %.0.fr = freeze i64 %.0
-  %17 = lshr i64 %.0.fr, 16
-  %18 = and i64 %17, 32767
-  %.cmp.not = icmp eq i64 %18, 32767
-  %19 = shl nuw nsw i64 %18, 16
-  %20 = add nuw nsw i64 %19, 65536
-  %21 = and i64 %.0.fr, 63
-  %22 = select i1 %.cmp.not, i64 0, i64 %20
-  %23 = or disjoint i64 %21, %22
-  %24 = or i64 %23, %.masked
-  %25 = cmpxchg ptr %5, i64 %.0.fr, i64 %24 acq_rel acquire, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %25, 1
-  %.sroa.07.0.i = extractvalue { i64, i1 } %25, 0
+  %15 = lshr i64 %.0.fr, 16
+  %16 = and i64 %15, 32767
+  %.cmp.not = icmp eq i64 %16, 32767
+  %17 = shl nuw nsw i64 %16, 16
+  %18 = add nuw nsw i64 %17, 65536
+  %19 = and i64 %.0.fr, 63
+  %20 = select i1 %.cmp.not, i64 0, i64 %18
+  %21 = or disjoint i64 %19, %20
+  %22 = or i64 %21, %.masked
+  %23 = cmpxchg ptr %5, i64 %.0.fr, i64 %22 acq_rel acquire, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %23, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %23, 0
   br i1 %.sroa.18.0.in.i, label %.split15.us, label %.split
 
 .split15.us:                                      ; preds = %.split, %10, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us

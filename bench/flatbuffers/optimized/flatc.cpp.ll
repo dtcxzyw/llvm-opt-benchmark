@@ -19536,10 +19536,14 @@ if.end228:                                        ; preds = %invoke.cont222, %in
   %79 = load ptr, ptr %generators, align 8
   %80 = load ptr, ptr %_M_finish.i155, align 8
   %cmp.i156.not241 = icmp eq ptr %79, %80
-  br i1 %cmp.i156.not241, label %for.end, label %for.body235
+  br i1 %cmp.i156.not241, label %for.end, label %for.body235.preheader
 
-for.body235:                                      ; preds = %if.end228, %for.inc
-  %__begin2.sroa.0.0242 = phi ptr [ %incdec.ptr.i219, %for.inc ], [ %79, %if.end228 ]
+for.body235.preheader:                            ; preds = %if.end228
+  %invariant.op = or i1 %11, %cmp.i104
+  br label %for.body235
+
+for.body235:                                      ; preds = %for.body235.preheader, %for.inc
+  %__begin2.sroa.0.0242 = phi ptr [ %incdec.ptr.i219, %for.inc ], [ %79, %for.body235.preheader ]
   %81 = load i8, ptr %print_make_rules, align 2
   %tobool237 = trunc i8 %81 to i1
   br i1 %tobool237, label %if.then238, label %if.else285
@@ -19850,9 +19854,8 @@ if.else338:                                       ; preds = %invoke.cont291
 
 invoke.cont342:                                   ; preds = %if.else338
   %call343.not = xor i1 %call343, true
-  %brmerge98 = or i1 %11, %call343.not
-  %brmerge99 = or i1 %cmp.i104, %brmerge98
-  br i1 %brmerge99, label %land.lhs.true348, label %if.end386
+  %brmerge99.reass.reass.reass = or i1 %call343.not, %invariant.op
+  br i1 %brmerge99.reass.reass.reass, label %land.lhs.true348, label %if.end386
 
 land.lhs.true348:                                 ; preds = %invoke.cont342
   %113 = load ptr, ptr %__begin2.sroa.0.0242, align 8

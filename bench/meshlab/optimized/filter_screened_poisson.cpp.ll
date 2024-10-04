@@ -22677,6 +22677,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %44 = or disjoint i64 %indvars.iv69, %36
   %45 = shl nuw nsw i64 %44, 5
   %46 = trunc nuw nsw i64 %indvars.iv69 to i32
+  %invariant.op82 = or i64 %45, %38
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.split.us.us.us, %.preheader41.us
@@ -22684,83 +22685,82 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %indvars.iv66 = phi i64 [ 1, %.split.us.us.us ], [ 0, %.preheader41.us ]
   %48 = or disjoint i64 %indvars.iv66, %41
   %49 = shl nuw nsw i64 %48, 24
-  %50 = or disjoint i64 %45, %49
-  %51 = trunc nuw nsw i64 %indvars.iv66 to i32
-  br label %52
+  %50 = trunc nuw nsw i64 %indvars.iv66 to i32
+  %invariant.op.reass83 = or i64 %49, %invariant.op82
+  br label %51
 
-52:                                               ; preds = %52, %.preheader.us.us
-  %53 = phi i1 [ false, %52 ], [ true, %.preheader.us.us ]
-  %indvars.iv63 = phi i64 [ 1, %52 ], [ 0, %.preheader.us.us ]
-  %54 = trunc nuw nsw i64 %indvars.iv63 to i32
-  %55 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %46, i32 noundef %51, i32 noundef %54)
-  %56 = load ptr, ptr %33, align 8
-  %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %class.OctNode, ptr %56, i64 %57, i32 1
-  store ptr %0, ptr %58, align 8
-  %59 = load ptr, ptr %33, align 8
-  %60 = getelementptr inbounds %class.OctNode, ptr %59, i64 %57, i32 2
-  store ptr null, ptr %60, align 8
-  %61 = or disjoint i64 %indvars.iv63, %42
-  %62 = shl nuw nsw i64 %61, 43
-  %63 = or disjoint i64 %50, %62
-  %64 = or disjoint i64 %63, %38
-  %65 = load ptr, ptr %33, align 8
-  %66 = getelementptr inbounds %class.OctNode, ptr %65, i64 %57
-  store i64 %64, ptr %66, align 8
-  br i1 %53, label %52, label %.split.us.us.us, !llvm.loop !228
+51:                                               ; preds = %51, %.preheader.us.us
+  %52 = phi i1 [ false, %51 ], [ true, %.preheader.us.us ]
+  %indvars.iv63 = phi i64 [ 1, %51 ], [ 0, %.preheader.us.us ]
+  %53 = trunc nuw nsw i64 %indvars.iv63 to i32
+  %54 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %46, i32 noundef %50, i32 noundef %53)
+  %55 = load ptr, ptr %33, align 8
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds %class.OctNode, ptr %55, i64 %56, i32 1
+  store ptr %0, ptr %57, align 8
+  %58 = load ptr, ptr %33, align 8
+  %59 = getelementptr inbounds %class.OctNode, ptr %58, i64 %56, i32 2
+  store ptr null, ptr %59, align 8
+  %60 = or disjoint i64 %indvars.iv63, %42
+  %61 = shl nuw nsw i64 %60, 43
+  %.reass81 = or i64 %61, %invariant.op.reass83
+  %62 = load ptr, ptr %33, align 8
+  %63 = getelementptr inbounds %class.OctNode, ptr %62, i64 %56
+  store i64 %.reass81, ptr %63, align 8
+  br i1 %52, label %51, label %.split.us.us.us, !llvm.loop !228
 
-.split.us.us.us:                                  ; preds = %52
+.split.us.us.us:                                  ; preds = %51
   br i1 %47, label %.preheader.us.us, label %.split49.us.us, !llvm.loop !229
 
 .split49.us.us:                                   ; preds = %.split.us.us.us
   br i1 %43, label %.preheader41.us, label %.split53.us, !llvm.loop !230
 
 .preheader41:                                     ; preds = %.preheader41.preheader, %.split49
-  %67 = phi i1 [ true, %.preheader41.preheader ], [ false, %.split49 ]
+  %64 = phi i1 [ true, %.preheader41.preheader ], [ false, %.split49 ]
   %indvars.iv60 = phi i64 [ 0, %.preheader41.preheader ], [ 1, %.split49 ]
-  %68 = or disjoint i64 %indvars.iv60, %36
-  %69 = shl nuw nsw i64 %68, 5
-  %70 = trunc nuw nsw i64 %indvars.iv60 to i32
+  %65 = or disjoint i64 %indvars.iv60, %36
+  %66 = shl nuw nsw i64 %65, 5
+  %67 = trunc nuw nsw i64 %indvars.iv60 to i32
+  %invariant.op80 = or i64 %66, %38
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader41, %.split
-  %71 = phi i1 [ true, %.preheader41 ], [ false, %.split ]
+  %68 = phi i1 [ true, %.preheader41 ], [ false, %.split ]
   %indvars.iv57 = phi i64 [ 0, %.preheader41 ], [ 1, %.split ]
-  %72 = or disjoint i64 %indvars.iv57, %40
-  %73 = shl nuw nsw i64 %72, 24
-  %74 = or disjoint i64 %69, %73
-  %75 = trunc nuw nsw i64 %indvars.iv57 to i32
-  br label %76
+  %69 = or disjoint i64 %indvars.iv57, %40
+  %70 = shl nuw nsw i64 %69, 24
+  %71 = trunc nuw nsw i64 %indvars.iv57 to i32
+  %invariant.op.reass = or i64 %70, %invariant.op80
+  br label %72
 
-76:                                               ; preds = %.preheader, %76
-  %77 = phi i1 [ true, %.preheader ], [ false, %76 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %76 ]
-  %78 = trunc nuw nsw i64 %indvars.iv to i32
-  %79 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %70, i32 noundef %75, i32 noundef %78)
-  %80 = load ptr, ptr %33, align 8
-  %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds %class.OctNode, ptr %80, i64 %81, i32 1
-  store ptr %0, ptr %82, align 8
-  %83 = load ptr, ptr %33, align 8
-  %84 = getelementptr inbounds %class.OctNode, ptr %83, i64 %81, i32 2
-  store ptr null, ptr %84, align 8
+72:                                               ; preds = %.preheader, %72
+  %73 = phi i1 [ true, %.preheader ], [ false, %72 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %72 ]
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
+  %75 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %67, i32 noundef %71, i32 noundef %74)
+  %76 = load ptr, ptr %33, align 8
+  %77 = sext i32 %75 to i64
+  %78 = getelementptr inbounds %class.OctNode, ptr %76, i64 %77, i32 1
+  store ptr %0, ptr %78, align 8
+  %79 = load ptr, ptr %33, align 8
+  %80 = getelementptr inbounds %class.OctNode, ptr %79, i64 %77, i32 2
+  store ptr null, ptr %80, align 8
+  %81 = load ptr, ptr %33, align 8
+  %82 = getelementptr inbounds %class.OctNode, ptr %81, i64 %77
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %82)
+  %83 = or disjoint i64 %indvars.iv, %39
+  %84 = shl nuw nsw i64 %83, 43
+  %.reass = or i64 %84, %invariant.op.reass
   %85 = load ptr, ptr %33, align 8
-  %86 = getelementptr inbounds %class.OctNode, ptr %85, i64 %81
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %86)
-  %87 = or disjoint i64 %indvars.iv, %39
-  %88 = shl nuw nsw i64 %87, 43
-  %89 = or disjoint i64 %74, %88
-  %90 = or disjoint i64 %89, %38
-  %91 = load ptr, ptr %33, align 8
-  %92 = getelementptr inbounds %class.OctNode, ptr %91, i64 %81
-  store i64 %90, ptr %92, align 8
-  br i1 %77, label %76, label %.split, !llvm.loop !228
+  %86 = getelementptr inbounds %class.OctNode, ptr %85, i64 %77
+  store i64 %.reass, ptr %86, align 8
+  br i1 %73, label %72, label %.split, !llvm.loop !228
 
-.split:                                           ; preds = %76
-  br i1 %71, label %.preheader, label %.split49, !llvm.loop !229
+.split:                                           ; preds = %72
+  br i1 %68, label %.preheader, label %.split49, !llvm.loop !229
 
 .split49:                                         ; preds = %.split
-  br i1 %67, label %.preheader41, label %.split53.us, !llvm.loop !230
+  br i1 %64, label %.preheader41, label %.split53.us, !llvm.loop !230
 
 .split53.us:                                      ; preds = %.split49, %.split49.us.us
   ret i32 1

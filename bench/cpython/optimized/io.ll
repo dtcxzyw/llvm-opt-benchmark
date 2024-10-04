@@ -2203,6 +2203,7 @@ entry:
   %add.ptr = getelementptr i8, ptr %dest, i64 1
   store i8 0, ptr %add.ptr, align 1
   %dec = add i32 %nmemb, -1
+  %invariant.op = and i32 %flags, 954
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -2217,8 +2218,8 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %and4 = and i32 %and, 954
-  %tobool5.not = icmp eq i32 %and4, 0
+  %and4.reass = and i32 %shl, %invariant.op
+  %tobool5.not = icmp eq i32 %and4.reass, 0
   br i1 %tobool5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.then3

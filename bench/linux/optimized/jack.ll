@@ -569,62 +569,62 @@ define dso_local void @snd_jack_report(ptr noundef %0, i32 noundef %1) #0 align 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %0, i64 76
   %46 = getelementptr inbounds i8, ptr %0, i64 180
+  %invariant.op = and i32 %35, %1
   br label %47
 
-47:                                               ; preds = %61, %44
-  %48 = phi i64 [ 0, %44 ], [ %62, %61 ]
+47:                                               ; preds = %60, %44
+  %48 = phi i64 [ 0, %44 ], [ %61, %60 ]
   %49 = trunc i64 %48 to i32
   %50 = lshr exact i32 16384, %49
-  %51 = and i32 %50, %35
-  %52 = load i32, ptr %45, align 4
-  %53 = and i32 %51, %52
+  %51 = load i32, ptr %45, align 4
+  %52 = and i32 %35, %51
+  %53 = and i32 %52, %50
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %61, label %55
+  br i1 %54, label %60, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr [6 x i32], ptr %46, i64 0, i64 %48
   %57 = load i32, ptr %56, align 4
-  %58 = and i32 %51, %1
-  %59 = icmp ne i32 %58, 0
-  %60 = zext i1 %59 to i32
-  tail call void @input_event(ptr noundef nonnull %42, i32 noundef 1, i32 noundef %57, i32 noundef %60) #4
-  br label %61
+  %.reass = and i32 %50, %invariant.op
+  %58 = icmp ne i32 %.reass, 0
+  %59 = zext i1 %58 to i32
+  tail call void @input_event(ptr noundef nonnull %42, i32 noundef 1, i32 noundef %57, i32 noundef %59) #4
+  br label %60
 
-61:                                               ; preds = %55, %47
-  %62 = add nuw nsw i64 %48, 1
-  %63 = icmp eq i64 %62, 6
-  br i1 %63, label %.preheader, label %47, !llvm.loop !21
+60:                                               ; preds = %55, %47
+  %61 = add nuw nsw i64 %48, 1
+  %62 = icmp eq i64 %61, 6
+  br i1 %62, label %.preheader, label %47, !llvm.loop !21
 
-.preheader:                                       ; preds = %61, %77
-  %64 = phi i64 [ %78, %77 ], [ 0, %61 ]
-  %65 = trunc i64 %64 to i32
-  %66 = shl nuw nsw i32 1, %65
-  %67 = and i32 %66, %35
-  %68 = load i32, ptr %45, align 4
-  %69 = and i32 %67, %68
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %77, label %71
+.preheader:                                       ; preds = %60, %75
+  %63 = phi i64 [ %76, %75 ], [ 0, %60 ]
+  %64 = trunc i64 %63 to i32
+  %65 = shl nuw nsw i32 1, %64
+  %66 = load i32, ptr %45, align 4
+  %67 = and i32 %66, %65
+  %68 = and i32 %67, %35
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %75, label %70
 
-71:                                               ; preds = %.preheader
-  %72 = getelementptr [6 x i32], ptr @jack_switch_types, i64 0, i64 %64
-  %73 = load i32, ptr %72, align 4
-  %74 = and i32 %67, %1
-  %75 = icmp ne i32 %74, 0
-  %76 = zext i1 %75 to i32
-  tail call void @input_event(ptr noundef nonnull %42, i32 noundef 5, i32 noundef %73, i32 noundef %76) #4
-  br label %77
+70:                                               ; preds = %.preheader
+  %71 = getelementptr [6 x i32], ptr @jack_switch_types, i64 0, i64 %63
+  %72 = load i32, ptr %71, align 4
+  %73 = lshr i32 %invariant.op, %64
+  %74 = and i32 %73, 1
+  tail call void @input_event(ptr noundef nonnull %42, i32 noundef 5, i32 noundef %72, i32 noundef %74) #4
+  br label %75
 
-77:                                               ; preds = %71, %.preheader
-  %78 = add nuw nsw i64 %64, 1
-  %79 = icmp eq i64 %78, 6
-  br i1 %79, label %80, label %.preheader, !llvm.loop !22
+75:                                               ; preds = %70, %.preheader
+  %76 = add nuw nsw i64 %63, 1
+  %77 = icmp eq i64 %76, 6
+  br i1 %77, label %78, label %.preheader, !llvm.loop !22
 
-80:                                               ; preds = %77
+78:                                               ; preds = %75
   tail call void @input_event(ptr noundef nonnull %42, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   tail call void @put_device(ptr noundef %41) #4
   br label %.thread
 
-.thread:                                          ; preds = %34, %80, %39, %2
+.thread:                                          ; preds = %34, %78, %39, %2
   ret void
 }
 

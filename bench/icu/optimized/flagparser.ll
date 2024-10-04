@@ -154,8 +154,8 @@ if.then18.i.us:                                   ; preds = %if.end17.i.us, %if.
 if.end20.i.us:                                    ; preds = %if.then18.i.us, %if.end17.i.us
   %offset.023.i.us = phi i32 [ %offset.024.i.us, %if.then18.i.us ], [ %offset.2.i.i.us, %if.end17.i.us ]
   %cmp22.i.us = icmp sgt i32 %offset.023.i.us, 0
-  %or.cond.i.us = and i1 %cmp21.i, %cmp22.i.us
-  br i1 %or.cond.i.us, label %for.body.lr.ph.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
+  %or.cond47.i.reass.us = and i1 %cmp22.i.us, %cmp21.i
+  br i1 %or.cond47.i.reass.us, label %for.body.lr.ph.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
 
 for.body.lr.ph.i.us:                              ; preds = %if.end20.i.us
   %dec.i.us = add nsw i32 %offset.023.i.us, -1

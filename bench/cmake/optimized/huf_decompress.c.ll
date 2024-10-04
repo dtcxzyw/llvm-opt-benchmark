@@ -821,9 +821,9 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %168 = load i8, ptr %.074108.i.i, align 1
   %169 = zext i8 %168 to i32
   %170 = shl nuw nsw i32 %169, 8
-  %.reass112.i.i.reass = or disjoint i32 %170, %invariant.op135.reass
+  %.reass112.reass.i.reass.i.reass = or disjoint i32 %170, %invariant.op135.reass
   %171 = getelementptr inbounds i8, ptr %.0109.i.i, i64 4
-  store i32 %.reass112.i.i.reass, ptr %.0109.i.i, align 2
+  store i32 %.reass112.reass.i.reass.i.reass, ptr %.0109.i.i, align 2
   %172 = getelementptr inbounds i8, ptr %.074108.i.i, i64 1
   %.not81.i.i = icmp eq ptr %172, %157
   br i1 %.not81.i.i, label %HUF_fillDTableX2ForWeight.exit.i, label %167, !llvm.loop !27
@@ -834,10 +834,10 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %174 = load i8, ptr %.175102.i.i, align 1
   %175 = zext i8 %174 to i32
   %176 = shl nuw nsw i32 %175, 8
-  %.reass106.i.i.reass = or disjoint i32 %176, %invariant.op134.reass
-  store i32 %.reass106.i.i.reass, ptr %.1103.i.i, align 2
+  %.reass106.reass.i.reass.i.reass = or disjoint i32 %176, %invariant.op134.reass
+  store i32 %.reass106.reass.i.reass.i.reass, ptr %.1103.i.i, align 2
   %177 = getelementptr inbounds i8, ptr %.1103.i.i, i64 4
-  store i32 %.reass106.i.i.reass, ptr %177, align 2
+  store i32 %.reass106.reass.i.reass.i.reass, ptr %177, align 2
   %178 = getelementptr inbounds i8, ptr %.1103.i.i, i64 8
   %179 = getelementptr inbounds i8, ptr %.175102.i.i, i64 1
   %.not80.i.i = icmp eq ptr %179, %157
@@ -849,8 +849,8 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %181 = load i8, ptr %.27696.i.i, align 1
   %182 = zext i8 %181 to i32
   %183 = shl nuw nsw i32 %182, 8
-  %.reass100.i.i.reass = or disjoint i32 %183, %invariant.op133.reass
-  %184 = zext i32 %.reass100.i.i.reass to i64
+  %.reass100.reass.i.reass.i.reass = or disjoint i32 %183, %invariant.op133.reass
+  %184 = zext i32 %.reass100.reass.i.reass.i.reass to i64
   %185 = mul nuw i64 %184, 4294967297
   store i64 %185, ptr %.297.i.i, align 2
   %186 = getelementptr inbounds i8, ptr %.297.i.i, i64 8
@@ -866,8 +866,8 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %190 = load i8, ptr %.37793.i.i, align 1
   %191 = zext i8 %190 to i32
   %192 = shl nuw nsw i32 %191, 8
-  %.reass.i.i.reass = or disjoint i32 %192, %invariant.op.reass
-  %193 = zext i32 %.reass.i.i.reass to i64
+  %.reass.reass.i.reass.i.reass = or disjoint i32 %192, %invariant.op.reass
+  %193 = zext i32 %.reass.reass.i.reass.i.reass to i64
   %194 = mul nuw i64 %193, 4294967297
   store i64 %194, ptr %.394.i.i, align 2
   %195 = getelementptr inbounds i8, ptr %.394.i.i, i64 8
@@ -887,8 +887,8 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %200 = load i8, ptr %.478117.i.i, align 1
   %201 = zext i8 %200 to i32
   %202 = shl nuw nsw i32 %201, 8
-  %.reass = or disjoint i32 %202, %invariant.op136.reass
-  %203 = zext i32 %.reass to i64
+  %.reass.i.reass = or disjoint i32 %202, %invariant.op136.reass
+  %203 = zext i32 %.reass.i.reass to i64
   %204 = mul nuw i64 %203, 4294967297
   %205 = getelementptr inbounds %struct.HUF_DEltX2, ptr %.4118.i.i, i64 %166
   br label %.lr.ph115.i.i

@@ -173,6 +173,7 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.pr
   %lock_wait_call_count.0.ph101 = phi i32 [ %inc, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ 0, %while.body.lr.ph.preheader ]
   %wait_cycles.0.ph100 = phi i32 [ %retval.0.i83, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ 0, %while.body.lr.ph.preheader ]
   %lock_value.0.ph99 = phi i32 [ %retval.0.i86, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ %retval.0.i108, %while.body.lr.ph.preheader ]
+  %invariant.op = or i32 %wait_cycles.0.ph100, 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -193,9 +194,8 @@ if.else16:                                        ; preds = %if.then12
   br i1 %cmp18, label %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50, label %if.else21
 
 _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50: ; preds = %if.else16
-  %or8.i = or i32 %wait_cycles.0.ph100, %13
-  %or9.i49 = or i32 %or8.i, 1
-  %14 = cmpxchg ptr %this, i32 %13, i32 %or9.i49 acquire monotonic, align 4
+  %or9.i49.reass = or i32 %13, %invariant.op
+  %14 = cmpxchg ptr %this, i32 %13, i32 %or9.i49.reass acquire monotonic, align 4
   %15 = extractvalue { i32, i1 } %14, 0
   br label %while.cond.backedge
 

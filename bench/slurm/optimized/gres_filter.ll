@@ -36,9 +36,9 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   %23 = tail call ptr @slurm_xcalloc(i64 noundef %22, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 177, ptr noundef nonnull @__func__.gres_filter_sock_core) #5
   store ptr %23, ptr @avail_cores_per_sock, align 8
   %24 = zext i16 %3 to i32
-  %.not816 = icmp eq i16 %3, 0
-  %.pre901 = zext i16 %4 to i32
-  br i1 %.not816, label %._crit_edge, label %.lr.ph
+  %.not818 = icmp eq i16 %3, 0
+  %.pre903 = zext i16 %4 to i32
+  br i1 %.not818, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %25 = zext i16 %4 to i64
@@ -48,10 +48,10 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.0469734 = phi i32 [ 0, %.lr.ph ], [ %39, %26 ]
-  %indvars858 = trunc i64 %indvars.iv to i32
+  %indvars860 = trunc i64 %indvars.iv to i32
   %27 = mul nuw nsw i64 %indvars.iv, %25
-  %28 = add i32 %indvars858, 1
-  %29 = mul nuw i32 %28, %.pre901
+  %28 = add i32 %indvars860, 1
+  %29 = mul nuw i32 %28, %.pre903
   %30 = trunc nuw nsw i64 %27 to i32
   %31 = tail call i32 @bit_set_count_range(ptr noundef %13, i32 noundef %30, i32 noundef %29) #5
   %32 = trunc i32 %31 to i16
@@ -68,7 +68,7 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %26, %21
-  %.pre-phi903 = phi i64 [ 0, %21 ], [ %wide.trip.count, %26 ]
+  %.pre-phi905 = phi i64 [ 0, %21 ], [ %wide.trip.count, %26 ]
   %.0469.lcssa = phi i32 [ 0, %21 ], [ %39, %26 ]
   %40 = load i32, ptr %7, align 4
   %41 = tail call ptr @slurm_xcalloc(i64 noundef %22, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @__func__.gres_filter_sock_core) #5
@@ -84,7 +84,7 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   %48 = add nsw i32 %47, -1
   %49 = getelementptr inbounds i8, ptr %1, i64 12
   %50 = getelementptr inbounds i8, ptr %0, i64 392
-  %.not819 = icmp eq i16 %4, 0
+  %.not821 = icmp eq i16 %4, 0
   %brmerge638 = or i1 %11, %12
   %51 = getelementptr inbounds i8, ptr %1, i64 22
   %52 = and i16 %15, 2
@@ -93,7 +93,8 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   %54 = zext i16 %4 to i64
   %not. = xor i1 %12, true
   %brmerge642.not = xor i1 %brmerge638, true
-  %55 = or i1 %.not816, %brmerge642.not
+  %55 = or i1 %.not818, %brmerge642.not
+  %invariant.op1058 = or i1 %12, %.not611
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %._crit_edge
@@ -110,20 +111,20 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   %59 = getelementptr inbounds i8, ptr %57, i64 72
   %60 = load i64, ptr %59, align 8
   %.not577 = icmp eq i64 %60, 0
-  %or.cond955 = select i1 %12, i1 %.not577, i1 false
+  %or.cond958 = select i1 %12, i1 %.not577, i1 false
   %61 = getelementptr inbounds i8, ptr %57, i64 64
-  br i1 %or.cond955, label %62, label %._crit_edge889
+  br i1 %or.cond958, label %62, label %._crit_edge891
 
 62:                                               ; preds = %58
   %63 = load i64, ptr %61, align 8
   store i64 %63, ptr %59, align 8
   br label %64
 
-._crit_edge889:                                   ; preds = %58
+._crit_edge891:                                   ; preds = %58
   store i64 %60, ptr %61, align 8
   br label %64
 
-64:                                               ; preds = %._crit_edge889, %62
+64:                                               ; preds = %._crit_edge891, %62
   %65 = getelementptr inbounds i8, ptr %57, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not579 = icmp eq ptr %66, null
@@ -166,8 +167,8 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %84, label %.loopexit704.sink.split, label %86
 
 85:                                               ; preds = %77
-  %.phi.trans.insert890 = getelementptr inbounds i8, ptr %71, i64 32
-  %.pre891 = load i64, ptr %.phi.trans.insert890, align 8
+  %.phi.trans.insert892 = getelementptr inbounds i8, ptr %71, i64 32
+  %.pre893 = load i64, ptr %.phi.trans.insert892, align 8
   br label %92
 
 86:                                               ; preds = %80
@@ -181,7 +182,7 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %91, label %.loopexit704.sink.split, label %92
 
 92:                                               ; preds = %85, %86
-  %93 = phi i64 [ %83, %86 ], [ %.pre891, %85 ]
+  %93 = phi i64 [ %83, %86 ], [ %.pre893, %85 ]
   %.0491678 = phi i64 [ %spec.select682, %86 ], [ 0, %85 ]
   %94 = getelementptr inbounds i8, ptr %71, i64 32
   %.not584 = icmp eq i64 %93, 0
@@ -325,24 +326,24 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   %.2472 = phi i8 [ %.0470.ph, %126 ], [ %.0470.ph, %131 ], [ %.0470.ph, %156 ], [ %.0470.ph, %_estimate_cpus_per_gres.exit ], [ 1, %114 ], [ %.mux685, %128 ]
   %162 = getelementptr inbounds i8, ptr %57, i64 16
   %163 = load i64, ptr %162, align 8
-  %.pre894 = load ptr, ptr %18, align 8
-  br i1 %.not816, label %._crit_edge743.thread, label %.lr.ph742
+  %.pre896 = load ptr, ptr %18, align 8
+  br i1 %.not818, label %._crit_edge743.thread, label %.lr.ph742
 
 ._crit_edge743.thread:                            ; preds = %161
-  tail call void @qsort(ptr noundef %.pre894, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
+  tail call void @qsort(ptr noundef %.pre896, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
   br label %._crit_edge760
 
 .lr.ph742:                                        ; preds = %161, %.lr.ph742
-  %indvars.iv859 = phi i64 [ %indvars.iv.next860, %.lr.ph742 ], [ 0, %161 ]
-  %164 = getelementptr inbounds i32, ptr %.pre894, i64 %indvars.iv859
-  %165 = trunc nuw nsw i64 %indvars.iv859 to i32
+  %indvars.iv861 = phi i64 [ %indvars.iv.next862, %.lr.ph742 ], [ 0, %161 ]
+  %164 = getelementptr inbounds i32, ptr %.pre896, i64 %indvars.iv861
+  %165 = trunc nuw nsw i64 %indvars.iv861 to i32
   store i32 %165, ptr %164, align 4
-  %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
-  %exitcond863.not = icmp eq i64 %indvars.iv.next860, %.pre-phi903
-  br i1 %exitcond863.not, label %._crit_edge743, label %.lr.ph742, !llvm.loop !9
+  %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
+  %exitcond865.not = icmp eq i64 %indvars.iv.next862, %.pre-phi905
+  br i1 %exitcond865.not, label %._crit_edge743, label %.lr.ph742, !llvm.loop !9
 
 ._crit_edge743:                                   ; preds = %.lr.ph742
-  tail call void @qsort(ptr noundef nonnull %.pre894, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
+  tail call void @qsort(ptr noundef nonnull %.pre896, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
   %166 = getelementptr inbounds i8, ptr %57, i64 24
   %167 = icmp ne i16 %.0672, 0
   %or.cond = select i1 %12, i1 %167, i1 false
@@ -353,13 +354,13 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   br label %171
 
 171:                                              ; preds = %._crit_edge743, %248
-  %indvars.iv867 = phi i64 [ 0, %._crit_edge743 ], [ %indvars.iv.next868, %248 ]
+  %indvars.iv869 = phi i64 [ 0, %._crit_edge743 ], [ %indvars.iv.next870, %248 ]
   %.2757 = phi i32 [ %.1.ph, %._crit_edge743 ], [ %.3, %248 ]
   %.0483756 = phi i1 [ false, %._crit_edge743 ], [ %.1484, %248 ]
   %.0485755 = phi i64 [ %163, %._crit_edge743 ], [ %.1486, %248 ]
   %.0494754 = phi i16 [ 0, %._crit_edge743 ], [ %231, %248 ]
   %.0505753 = phi i32 [ 0, %._crit_edge743 ], [ %249, %248 ]
-  %172 = getelementptr inbounds i32, ptr %.pre894, i64 %indvars.iv867
+  %172 = getelementptr inbounds i32, ptr %.pre896, i64 %indvars.iv869
   %173 = load i32, ptr %172, align 4
   %174 = load ptr, ptr %166, align 8
   %.not620 = icmp ne ptr %174, null
@@ -421,21 +422,21 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
 205:                                              ; preds = %198, %199
   %206 = icmp sle i32 %.2757, %120
   %or.cond637 = select i1 %not., i1 true, i1 %206
-  %brmerge809 = or i1 %or.cond637, %.not819
-  br i1 %brmerge809, label %.loopexit692, label %.lr.ph748
+  %brmerge811 = or i1 %or.cond637, %.not821
+  br i1 %brmerge811, label %.loopexit692, label %.lr.ph748
 
 .lr.ph748:                                        ; preds = %205
-  %207 = mul nsw i32 %173, %.pre901
+  %207 = mul nsw i32 %173, %.pre903
   %208 = sext i32 %173 to i64
   %209 = sext i32 %207 to i64
   %invariant.op949 = add nsw i64 %209, -1
   br label %210
 
 210:                                              ; preds = %.lr.ph748, %225
-  %indvars.iv864 = phi i64 [ %53, %.lr.ph748 ], [ %indvars.iv.next865, %225 ]
+  %indvars.iv866 = phi i64 [ %53, %.lr.ph748 ], [ %indvars.iv.next867, %225 ]
   %.4745 = phi i32 [ %.2757, %.lr.ph748 ], [ %.5, %225 ]
-  %indvars.iv.next865 = add nsw i64 %indvars.iv864, -1
-  %.reass950 = add i64 %indvars.iv864, %invariant.op949
+  %indvars.iv.next867 = add nsw i64 %indvars.iv866, -1
+  %.reass950 = add i64 %indvars.iv866, %invariant.op949
   %211 = tail call i32 @bit_test(ptr noundef %13, i64 noundef %.reass950) #5
   %.not622 = icmp eq i32 %211, 0
   br i1 %.not622, label %225, label %212
@@ -465,7 +466,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
 
 225:                                              ; preds = %224, %210
   %.5 = phi i32 [ %217, %224 ], [ %.4745, %210 ]
-  %226 = icmp sgt i64 %indvars.iv864, 1
+  %226 = icmp sgt i64 %indvars.iv866, 1
   br i1 %226, label %210, label %.loopexit692, !llvm.loop !10
 
 .loopexit692:                                     ; preds = %225, %224, %205, %192
@@ -518,9 +519,9 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   %.1486 = phi i64 [ %235, %247 ], [ %235, %244 ], [ %.0485755, %.loopexit692 ]
   %.1484 = phi i1 [ true, %247 ], [ %.0483756, %244 ], [ %.0483756, %.loopexit692 ]
   %249 = freeze i32 %.1506
-  %indvars.iv.next868 = add nuw nsw i64 %indvars.iv867, 1
-  %exitcond870.not = icmp eq i64 %indvars.iv.next868, %.pre-phi903
-  br i1 %exitcond870.not, label %._crit_edge760, label %171, !llvm.loop !11
+  %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
+  %exitcond872.not = icmp eq i64 %indvars.iv.next870, %.pre-phi905
+  br i1 %exitcond872.not, label %._crit_edge760, label %171, !llvm.loop !11
 
 ._crit_edge760:                                   ; preds = %248, %._crit_edge743.thread
   %.0505.lcssa = phi i32 [ 0, %._crit_edge743.thread ], [ %249, %248 ]
@@ -557,12 +558,12 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
 
 264:                                              ; preds = %260, %257, %255
   store i32 0, ptr %8, align 4
-  %.phi.trans.insert895 = getelementptr inbounds i8, ptr %71, i64 48
-  %.pre896 = load i64, ptr %.phi.trans.insert895, align 8
+  %.phi.trans.insert897 = getelementptr inbounds i8, ptr %71, i64 48
+  %.pre898 = load i64, ptr %.phi.trans.insert897, align 8
   br label %265
 
 265:                                              ; preds = %264, %260
-  %266 = phi i64 [ %.pre896, %264 ], [ %262, %260 ]
+  %266 = phi i64 [ %.pre898, %264 ], [ %262, %260 ]
   %267 = getelementptr inbounds i8, ptr %71, i64 48
   %.not592 = icmp eq i64 %266, 0
   br i1 %.not592, label %390, label %268
@@ -883,32 +884,32 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 424:                                              ; preds = %416
   %.not595 = icmp eq i32 %.0505.lcssa, %24
-  %brmerge811 = or i1 %55, %.not595
-  br i1 %brmerge811, label %.loopexit697, label %.lr.ph773.preheader
+  %brmerge813 = or i1 %55, %.not595
+  br i1 %brmerge813, label %.loopexit697, label %.lr.ph773.preheader
 
 .lr.ph773.preheader:                              ; preds = %424
-  %.pre897 = load ptr, ptr %17, align 8
+  %.pre899 = load ptr, ptr %17, align 8
   br label %.lr.ph773
 
 .lr.ph773:                                        ; preds = %.lr.ph773.preheader, %.loopexit691
-  %indvars.iv873 = phi i64 [ 0, %.lr.ph773.preheader ], [ %indvars.iv.next874, %.loopexit691 ]
+  %indvars.iv875 = phi i64 [ 0, %.lr.ph773.preheader ], [ %indvars.iv.next876, %.loopexit691 ]
   %.2496771 = phi i16 [ %.0494.lcssa, %.lr.ph773.preheader ], [ %.3497, %.loopexit691 ]
-  %425 = getelementptr inbounds i8, ptr %.pre897, i64 %indvars.iv873
+  %425 = getelementptr inbounds i8, ptr %.pre899, i64 %indvars.iv875
   %426 = load i8, ptr %425, align 1
   %427 = trunc i8 %426 to i1
-  %brmerge813 = or i1 %.not819, %427
-  br i1 %brmerge813, label %.loopexit691, label %.lr.ph769
+  %brmerge815 = or i1 %.not821, %427
+  br i1 %brmerge815, label %.loopexit691, label %.lr.ph769
 
 .lr.ph769:                                        ; preds = %.lr.ph773
-  %428 = mul nuw nsw i64 %indvars.iv873, %54
+  %428 = mul nuw nsw i64 %indvars.iv875, %54
   %invariant.op951 = add nsw i64 %428, -1
   br label %429
 
 429:                                              ; preds = %.lr.ph769, %444
-  %indvars.iv871 = phi i64 [ %53, %.lr.ph769 ], [ %indvars.iv.next872, %444 ]
+  %indvars.iv873 = phi i64 [ %53, %.lr.ph769 ], [ %indvars.iv.next874, %444 ]
   %.4498766 = phi i16 [ %.2496771, %.lr.ph769 ], [ %.5499, %444 ]
-  %indvars.iv.next872 = add nsw i64 %indvars.iv871, -1
-  %.reass952 = add i64 %indvars.iv871, %invariant.op951
+  %indvars.iv.next874 = add nsw i64 %indvars.iv873, -1
+  %.reass952 = add i64 %indvars.iv873, %invariant.op951
   %430 = tail call i32 @bit_test(ptr noundef %13, i64 noundef %.reass952) #5
   %.not619 = icmp eq i32 %430, 0
   br i1 %.not619, label %444, label %431
@@ -917,7 +918,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   tail call void @bit_clear(ptr noundef %13, i64 noundef %.reass952) #5
   %432 = add i16 %.4498766, -1
   %433 = load ptr, ptr @avail_cores_per_sock, align 8
-  %434 = getelementptr inbounds i16, ptr %433, i64 %indvars.iv873
+  %434 = getelementptr inbounds i16, ptr %433, i64 %indvars.iv875
   %435 = load i16, ptr %434, align 2
   %436 = add i16 %435, -1
   store i16 %436, ptr %434, align 2
@@ -935,21 +936,21 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 444:                                              ; preds = %431, %442, %429
   %.5499 = phi i16 [ %432, %442 ], [ %432, %431 ], [ %.4498766, %429 ]
-  %445 = icmp sgt i64 %indvars.iv871, 1
+  %445 = icmp sgt i64 %indvars.iv873, 1
   br i1 %445, label %429, label %.loopexit691, !llvm.loop !13
 
 .loopexit691:                                     ; preds = %444, %.lr.ph773
   %.3497 = phi i16 [ %.2496771, %.lr.ph773 ], [ %.5499, %444 ]
-  %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
-  %exitcond876.not = icmp eq i64 %indvars.iv.next874, %.pre-phi903
-  br i1 %exitcond876.not, label %.loopexit697.loopexit, label %.lr.ph773, !llvm.loop !14
+  %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 1
+  %exitcond878.not = icmp eq i64 %indvars.iv.next876, %.pre-phi905
+  br i1 %exitcond878.not, label %.loopexit697.loopexit, label %.lr.ph773, !llvm.loop !14
 
 .loopexit697.loopexit:                            ; preds = %.loopexit691
-  %.pre898 = load i32, ptr %8, align 4
+  %.pre900 = load i32, ptr %8, align 4
   br label %.loopexit697
 
 .loopexit697:                                     ; preds = %.loopexit697.loopexit, %424
-  %446 = phi i32 [ %422, %424 ], [ %.pre898, %.loopexit697.loopexit ]
+  %446 = phi i32 [ %422, %424 ], [ %.pre900, %.loopexit697.loopexit ]
   %.1495 = phi i16 [ %.0494.lcssa, %424 ], [ %.3497, %.loopexit697.loopexit ]
   %447 = icmp eq i32 %446, -2
   br i1 %447, label %448, label %462
@@ -989,11 +990,11 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 465:                                              ; preds = %462
   %466 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.gres_filter_sock_core, ptr noundef %14, i32 noundef %463, i32 noundef %446) #5
-  %.pre899 = load i32, ptr %8, align 4
+  %.pre901 = load i32, ptr %8, align 4
   br label %467
 
 467:                                              ; preds = %465, %462
-  %468 = phi i32 [ %.pre899, %465 ], [ %446, %462 ]
+  %468 = phi i32 [ %.pre901, %465 ], [ %446, %462 ]
   %469 = load i16, ptr %46, align 2
   %470 = zext i16 %469 to i32
   %471 = load i16, ptr %51, align 2
@@ -1257,37 +1258,36 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 600:                                              ; preds = %585
   %601 = icmp sge i32 %.2503, %576
-  %or.cond648.not689 = or i1 %.not611, %601
-  %brmerge650 = or i1 %12, %or.cond648.not689
-  %brmerge651 = or i1 %.not595, %brmerge650
+  %brmerge650.reass.reass.reass.reass = or i1 %601, %invariant.op1058
+  %brmerge651 = or i1 %.not595, %brmerge650.reass.reass.reass.reass
   br i1 %brmerge651, label %.loopexit694, label %.preheader693
 
 .preheader693:                                    ; preds = %600
-  br i1 %.not816, label %.lr.ph804, label %.lr.ph793.preheader
+  br i1 %.not818, label %.lr.ph804, label %.lr.ph793.preheader
 
 .lr.ph793.preheader:                              ; preds = %.preheader693
-  %.pre900 = load ptr, ptr %17, align 8
+  %.pre902 = load ptr, ptr %17, align 8
   br label %.lr.ph793
 
 .lr.ph793:                                        ; preds = %.lr.ph793.preheader, %.loopexit690
-  %indvars.iv879 = phi i64 [ 0, %.lr.ph793.preheader ], [ %indvars.iv.next880, %.loopexit690 ]
+  %indvars.iv881 = phi i64 [ 0, %.lr.ph793.preheader ], [ %indvars.iv.next882, %.loopexit690 ]
   %.7791 = phi i16 [ %.1495, %.lr.ph793.preheader ], [ %.8, %.loopexit690 ]
-  %602 = getelementptr inbounds i8, ptr %.pre900, i64 %indvars.iv879
+  %602 = getelementptr inbounds i8, ptr %.pre902, i64 %indvars.iv881
   %603 = load i8, ptr %602, align 1
   %604 = trunc i8 %603 to i1
-  %brmerge815 = or i1 %.not819, %604
-  br i1 %brmerge815, label %.loopexit690, label %.lr.ph786
+  %brmerge817 = or i1 %.not821, %604
+  br i1 %brmerge817, label %.loopexit690, label %.lr.ph786
 
 .lr.ph786:                                        ; preds = %.lr.ph793
-  %605 = mul nuw nsw i64 %indvars.iv879, %54
+  %605 = mul nuw nsw i64 %indvars.iv881, %54
   %invariant.op953 = add nsw i64 %605, -1
   br label %606
 
 606:                                              ; preds = %.lr.ph786, %623
-  %indvars.iv877 = phi i64 [ %53, %.lr.ph786 ], [ %indvars.iv.next878, %623 ]
+  %indvars.iv879 = phi i64 [ %53, %.lr.ph786 ], [ %indvars.iv.next880, %623 ]
   %.9783 = phi i16 [ %.7791, %.lr.ph786 ], [ %.10, %623 ]
-  %indvars.iv.next878 = add nsw i64 %indvars.iv877, -1
-  %.reass954 = add i64 %indvars.iv877, %invariant.op953
+  %indvars.iv.next880 = add nsw i64 %indvars.iv879, -1
+  %.reass954 = add i64 %indvars.iv879, %invariant.op953
   %607 = tail call i32 @bit_test(ptr noundef %13, i64 noundef %.reass954) #5
   %.not612 = icmp eq i32 %607, 0
   br i1 %.not612, label %623, label %608
@@ -1296,7 +1296,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   tail call void @bit_clear(ptr noundef %13, i64 noundef %.reass954) #5
   %609 = add i16 %.9783, -1
   %610 = load ptr, ptr @avail_cores_per_sock, align 8
-  %611 = getelementptr inbounds i16, ptr %610, i64 %indvars.iv879
+  %611 = getelementptr inbounds i16, ptr %610, i64 %indvars.iv881
   %612 = load i16, ptr %611, align 2
   %613 = add i16 %612, -1
   store i16 %613, ptr %611, align 2
@@ -1318,13 +1318,13 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 623:                                              ; preds = %621, %606
   %.10 = phi i16 [ %609, %621 ], [ %.9783, %606 ]
-  %624 = icmp sgt i64 %indvars.iv877, 1
+  %624 = icmp sgt i64 %indvars.iv879, 1
   br i1 %624, label %606, label %.loopexit690, !llvm.loop !16
 
 .loopexit690:                                     ; preds = %621, %623, %.lr.ph793
   %.8 = phi i16 [ %.7791, %.lr.ph793 ], [ %609, %621 ], [ %.10, %623 ]
-  %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
-  %625 = icmp uge i64 %indvars.iv.next880, %.pre-phi903
+  %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
+  %625 = icmp uge i64 %indvars.iv.next882, %.pre-phi905
   %626 = zext i16 %.8 to i32
   %627 = icmp eq i32 %.3504, %626
   %or.cond654 = select i1 %625, i1 true, i1 %627
@@ -1336,31 +1336,31 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 .lr.ph804:                                        ; preds = %.preheader693, %.loopexit694
   %.6909 = phi i16 [ %.6, %.loopexit694 ], [ %.1495, %.preheader693 ]
-  %.not823 = icmp eq i32 %.0505.lcssa, 0
-  br i1 %.not823, label %.critedge, label %.lr.ph804.split.preheader
+  %.not825 = icmp eq i32 %.0505.lcssa, 0
+  br i1 %.not825, label %.critedge, label %.lr.ph804.split.preheader
 
 .lr.ph804.split.preheader:                        ; preds = %.lr.ph804
   %628 = zext i16 %.6909 to i32
   %629 = icmp sge i32 %.3504, %628
-  %brmerge957992 = or i1 %629, %.not816
-  br i1 %brmerge957992, label %.critedge, label %.lr.ph798
+  %brmerge960995 = or i1 %629, %.not818
+  br i1 %brmerge960995, label %.critedge, label %.lr.ph798
 
 .lr.ph798:                                        ; preds = %.lr.ph804.split.preheader, %.loopexit
-  %.11802993 = phi i16 [ %.12, %.loopexit ], [ %.6909, %.lr.ph804.split.preheader ]
+  %.11802996 = phi i16 [ %.12, %.loopexit ], [ %.6909, %.lr.ph804.split.preheader ]
   %630 = load ptr, ptr %17, align 8
   %631 = load ptr, ptr @avail_cores_per_sock, align 8
   br label %632
 
 632:                                              ; preds = %.lr.ph798, %649
-  %indvars.iv881 = phi i64 [ 0, %.lr.ph798 ], [ %indvars.iv.next882, %649 ]
+  %indvars.iv883 = phi i64 [ 0, %.lr.ph798 ], [ %indvars.iv.next884, %649 ]
   %.0475796 = phi i32 [ -1, %.lr.ph798 ], [ %.1476, %649 ]
-  %633 = getelementptr inbounds i8, ptr %630, i64 %indvars.iv881
+  %633 = getelementptr inbounds i8, ptr %630, i64 %indvars.iv883
   %634 = load i8, ptr %633, align 1
   %635 = trunc i8 %634 to i1
   br i1 %635, label %636, label %649
 
 636:                                              ; preds = %632
-  %637 = getelementptr inbounds i16, ptr %631, i64 %indvars.iv881
+  %637 = getelementptr inbounds i16, ptr %631, i64 %indvars.iv883
   %638 = load i16, ptr %637, align 2
   %639 = icmp eq i16 %638, 0
   br i1 %639, label %649, label %640
@@ -1377,32 +1377,32 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br i1 %646, label %647, label %649
 
 647:                                              ; preds = %642, %640
-  %648 = trunc nuw nsw i64 %indvars.iv881 to i32
+  %648 = trunc nuw nsw i64 %indvars.iv883 to i32
   br label %649
 
 649:                                              ; preds = %642, %647, %632, %636
   %.1476 = phi i32 [ %.0475796, %636 ], [ %648, %647 ], [ %.0475796, %642 ], [ %.0475796, %632 ]
-  %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
-  %exitcond885.not = icmp eq i64 %indvars.iv.next882, %.pre-phi903
-  br i1 %exitcond885.not, label %._crit_edge799.split, label %632, !llvm.loop !18
+  %indvars.iv.next884 = add nuw nsw i64 %indvars.iv883, 1
+  %exitcond887.not = icmp eq i64 %indvars.iv.next884, %.pre-phi905
+  br i1 %exitcond887.not, label %._crit_edge799.split, label %632, !llvm.loop !18
 
 ._crit_edge799.split:                             ; preds = %649
   %650 = icmp eq i32 %.1476, -1
   br i1 %650, label %.critedge, label %651
 
 651:                                              ; preds = %._crit_edge799.split
-  %652 = mul nsw i32 %.1476, %.pre901
+  %652 = mul nsw i32 %.1476, %.pre903
   %invariant.op = add i32 %652, -1
   br label %653
 
 653:                                              ; preds = %655, %651
-  %indvars.iv886 = phi i64 [ %indvars.iv.next887, %655 ], [ %53, %651 ]
-  %654 = icmp sgt i64 %indvars.iv886, 0
+  %indvars.iv888 = phi i64 [ %indvars.iv.next889, %655 ], [ %53, %651 ]
+  %654 = icmp sgt i64 %indvars.iv888, 0
   br i1 %654, label %655, label %.loopexit
 
 655:                                              ; preds = %653
-  %indvars.iv.next887 = add nsw i64 %indvars.iv886, -1
-  %656 = trunc nuw nsw i64 %indvars.iv886 to i32
+  %indvars.iv.next889 = add nsw i64 %indvars.iv888, -1
+  %656 = trunc nuw nsw i64 %indvars.iv888 to i32
   %.reass = add i32 %invariant.op, %656
   %657 = sext i32 %.reass to i64
   %658 = tail call i32 @bit_test(ptr noundef %13, i64 noundef %657) #5
@@ -1417,7 +1417,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   %663 = load i16, ptr %662, align 2
   %664 = add i16 %663, -1
   store i16 %664, ptr %662, align 2
-  %665 = add i16 %.11802993, -1
+  %665 = add i16 %.11802996, -1
   %666 = zext i16 %665 to i32
   %667 = mul nuw nsw i32 %666, %47
   %668 = load i16, ptr %6, align 2
@@ -1431,11 +1431,11 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %653, %659, %671
-  %.12 = phi i16 [ %665, %671 ], [ %665, %659 ], [ %.11802993, %653 ]
+  %.12 = phi i16 [ %665, %671 ], [ %665, %659 ], [ %.11802996, %653 ]
   %673 = zext i16 %.12 to i32
   %674 = icmp sge i32 %.3504, %673
-  %brmerge957 = or i1 %674, %.not816
-  br i1 %brmerge957, label %.critedge, label %.lr.ph798
+  %brmerge960 = or i1 %674, %.not818
+  br i1 %brmerge960, label %.critedge, label %.lr.ph798
 
 .critedge:                                        ; preds = %.loopexit, %._crit_edge799.split, %.lr.ph804.split.preheader, %.lr.ph804, %.loopexit694
   br i1 %.not591, label %687, label %675

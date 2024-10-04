@@ -4891,182 +4891,233 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   %36 = icmp sgt i32 %1, 15
   %37 = icmp sgt i32 %3, 15
   %38 = getelementptr inbounds i8, ptr %0, i64 612
-  %39 = and i1 %27, %26
-  br i1 %39, label %.split, label %.split.us
+  %invariant.op = and i1 %26, %27
+  %invariant.op1 = and i1 %28, %29
+  %invariant.op3 = and i1 %30, %31
+  %invariant.op5 = and i1 %32, %33
+  %invariant.op7 = and i1 %34, %35
+  %invariant.op9 = and i1 %36, %37
+  br i1 %invariant.op, label %.split, label %.split.us
 
-.split.us:                                        ; preds = %7, %60
-  %40 = phi i32 [ %68, %60 ], [ %24, %7 ]
-  %41 = icmp slt i32 %40, 3
-  %42 = and i1 %28, %41
-  %43 = and i1 %29, %42
-  br i1 %43, label %60, label %44
+.split.us:                                        ; preds = %7, %49
+  %39 = phi i32 [ %57, %49 ], [ %24, %7 ]
+  %40 = icmp slt i32 %39, 3
+  %.reass2.us = and i1 %40, %invariant.op1
+  br i1 %.reass2.us, label %49, label %41
 
-44:                                               ; preds = %.split.us
-  %45 = icmp slt i32 %40, 5
-  %46 = and i1 %30, %45
-  %47 = and i1 %31, %46
-  br i1 %47, label %60, label %48
+41:                                               ; preds = %.split.us
+  %42 = icmp slt i32 %39, 5
+  %.reass4.us = and i1 %42, %invariant.op3
+  br i1 %.reass4.us, label %49, label %43
 
-48:                                               ; preds = %44
-  %49 = icmp slt i32 %40, 9
-  %50 = and i1 %32, %49
-  %51 = and i1 %33, %50
-  br i1 %51, label %60, label %52
+43:                                               ; preds = %41
+  %44 = icmp slt i32 %39, 9
+  %.reass6.us = and i1 %44, %invariant.op5
+  br i1 %.reass6.us, label %49, label %45
 
-52:                                               ; preds = %48
-  %53 = icmp slt i32 %40, 13
-  %54 = and i1 %34, %53
-  %55 = and i1 %35, %54
-  br i1 %55, label %60, label %56
+45:                                               ; preds = %43
+  %46 = icmp slt i32 %39, 13
+  %.reass8.us = and i1 %46, %invariant.op7
+  br i1 %.reass8.us, label %49, label %47
 
-56:                                               ; preds = %52
-  %57 = icmp slt i32 %40, 17
-  %58 = and i1 %36, %57
-  %59 = and i1 %37, %58
-  br i1 %59, label %60, label %.loopexit
+47:                                               ; preds = %45
+  %48 = icmp slt i32 %39, 17
+  %.reass10.us = and i1 %48, %invariant.op9
+  br i1 %.reass10.us, label %49, label %.loopexit
 
-60:                                               ; preds = %56, %52, %48, %44, %.split.us
-  %61 = phi i32 [ 2, %.split.us ], [ 4, %44 ], [ 8, %48 ], [ 12, %52 ], [ 16, %56 ]
-  %62 = load i16, ptr %38, align 4
-  %63 = zext i16 %62 to i32
-  %64 = add nsw i32 %61, -1
-  %65 = add nuw nsw i32 %64, %63
-  %66 = udiv i32 %65, %61
-  %67 = icmp slt i32 %66, %25
-  %68 = or disjoint i32 %61, 1
-  br i1 %67, label %.loopexit, label %.split.us, !llvm.loop !166
+49:                                               ; preds = %47, %45, %43, %41, %.split.us
+  %50 = phi i32 [ 2, %.split.us ], [ 4, %41 ], [ 8, %43 ], [ 12, %45 ], [ 16, %47 ]
+  %51 = load i16, ptr %38, align 4
+  %52 = zext i16 %51 to i32
+  %53 = add nsw i32 %50, -1
+  %54 = add nuw nsw i32 %53, %52
+  %55 = udiv i32 %54, %50
+  %56 = icmp slt i32 %55, %25
+  %57 = or disjoint i32 %50, 1
+  br i1 %56, label %.loopexit, label %.split.us, !llvm.loop !166
 
 .split:                                           ; preds = %7
-  %69 = and i1 %29, %28
-  br i1 %69, label %.split.split, label %.split.split.us
+  br i1 %invariant.op1, label %.split.split, label %.split.split.us
 
-.split.split.us:                                  ; preds = %.split, %88
-  %70 = phi i32 [ %96, %88 ], [ %24, %.split ]
-  %71 = icmp slt i32 %70, 2
-  br i1 %71, label %88, label %72
+.split.split.us:                                  ; preds = %.split, %68
+  %58 = phi i32 [ %76, %68 ], [ %24, %.split ]
+  %59 = icmp slt i32 %58, 2
+  br i1 %59, label %68, label %60
 
-72:                                               ; preds = %.split.split.us
-  %73 = icmp ult i32 %70, 5
-  %74 = and i1 %30, %73
-  %75 = and i1 %31, %74
-  br i1 %75, label %88, label %76
+60:                                               ; preds = %.split.split.us
+  %61 = icmp ult i32 %58, 5
+  %.reass4.us12 = and i1 %61, %invariant.op3
+  br i1 %.reass4.us12, label %68, label %62
 
-76:                                               ; preds = %72
-  %77 = icmp ult i32 %70, 9
-  %78 = and i1 %32, %77
-  %79 = and i1 %33, %78
-  br i1 %79, label %88, label %80
+62:                                               ; preds = %60
+  %63 = icmp ult i32 %58, 9
+  %.reass6.us13 = and i1 %63, %invariant.op5
+  br i1 %.reass6.us13, label %68, label %64
 
-80:                                               ; preds = %76
-  %81 = icmp ult i32 %70, 13
-  %82 = and i1 %34, %81
-  %83 = and i1 %35, %82
-  br i1 %83, label %88, label %84
+64:                                               ; preds = %62
+  %65 = icmp ult i32 %58, 13
+  %.reass8.us14 = and i1 %65, %invariant.op7
+  br i1 %.reass8.us14, label %68, label %66
 
-84:                                               ; preds = %80
-  %85 = icmp ult i32 %70, 17
-  %86 = and i1 %36, %85
-  %87 = and i1 %37, %86
-  br i1 %87, label %88, label %.loopexit
+66:                                               ; preds = %64
+  %67 = icmp ult i32 %58, 17
+  %.reass10.us15 = and i1 %67, %invariant.op9
+  br i1 %.reass10.us15, label %68, label %.loopexit
 
-88:                                               ; preds = %84, %80, %76, %72, %.split.split.us
-  %89 = phi i32 [ 1, %.split.split.us ], [ 4, %72 ], [ 8, %76 ], [ 12, %80 ], [ 16, %84 ]
-  %90 = load i16, ptr %38, align 4
-  %91 = zext i16 %90 to i32
-  %92 = add nsw i32 %89, -1
-  %93 = add nuw nsw i32 %92, %91
-  %94 = udiv i32 %93, %89
-  %95 = icmp slt i32 %94, %25
-  %96 = add nuw nsw i32 %89, 1
-  br i1 %95, label %.loopexit, label %.split.split.us, !llvm.loop !166
+68:                                               ; preds = %66, %64, %62, %60, %.split.split.us
+  %69 = phi i32 [ 1, %.split.split.us ], [ 4, %60 ], [ 8, %62 ], [ 12, %64 ], [ 16, %66 ]
+  %70 = load i16, ptr %38, align 4
+  %71 = zext i16 %70 to i32
+  %72 = add nsw i32 %69, -1
+  %73 = add nuw nsw i32 %72, %71
+  %74 = udiv i32 %73, %69
+  %75 = icmp slt i32 %74, %25
+  %76 = add nuw nsw i32 %69, 1
+  br i1 %75, label %.loopexit, label %.split.split.us, !llvm.loop !166
 
 .split.split:                                     ; preds = %.split
-  %97 = and i1 %31, %30
-  br i1 %97, label %.split.split.split, label %.split.split.split.us
+  br i1 %invariant.op3, label %.split.split.split, label %.split.split.split.us
 
-.split.split.split.us:                            ; preds = %.split.split, %114
-  %98 = phi i32 [ %122, %114 ], [ %24, %.split.split ]
-  %99 = icmp slt i32 %98, 2
-  br i1 %99, label %114, label %100
+.split.split.split.us:                            ; preds = %.split.split
+  br i1 %invariant.op5, label %.split.split.split.us.split, label %.split.split.split.us.split.us
 
-100:                                              ; preds = %.split.split.split.us
-  %101 = icmp eq i32 %98, 2
-  br i1 %101, label %114, label %102
+.split.split.split.us.split.us:                   ; preds = %.split.split.split.us, %85
+  %77 = phi i32 [ %93, %85 ], [ %24, %.split.split.split.us ]
+  %78 = icmp slt i32 %77, 2
+  br i1 %78, label %85, label %79
 
-102:                                              ; preds = %100
-  %103 = icmp ult i32 %98, 9
-  %104 = and i1 %32, %103
-  %105 = and i1 %33, %104
-  br i1 %105, label %114, label %106
+79:                                               ; preds = %.split.split.split.us.split.us
+  %80 = icmp eq i32 %77, 2
+  br i1 %80, label %85, label %81
 
-106:                                              ; preds = %102
-  %107 = icmp ult i32 %98, 13
-  %108 = and i1 %34, %107
-  %109 = and i1 %35, %108
-  br i1 %109, label %114, label %110
+81:                                               ; preds = %79
+  %82 = icmp ult i32 %77, 13
+  %.reass8.us20.us = and i1 %82, %invariant.op7
+  br i1 %.reass8.us20.us, label %85, label %83
 
-110:                                              ; preds = %106
-  %111 = icmp ult i32 %98, 17
-  %112 = and i1 %36, %111
-  %113 = and i1 %37, %112
-  br i1 %113, label %114, label %.loopexit
+83:                                               ; preds = %81
+  %84 = icmp ult i32 %77, 17
+  %.reass10.us21.us = and i1 %84, %invariant.op9
+  br i1 %.reass10.us21.us, label %85, label %.loopexit
 
-114:                                              ; preds = %110, %106, %102, %100, %.split.split.split.us
-  %115 = phi i32 [ 1, %.split.split.split.us ], [ 2, %100 ], [ 8, %102 ], [ 12, %106 ], [ 16, %110 ]
-  %116 = load i16, ptr %38, align 4
-  %117 = zext i16 %116 to i32
-  %118 = add nsw i32 %115, -1
-  %119 = add nuw nsw i32 %118, %117
-  %120 = udiv i32 %119, %115
-  %121 = icmp slt i32 %120, %25
-  %122 = add nuw nsw i32 %115, 1
-  br i1 %121, label %.loopexit, label %.split.split.split.us, !llvm.loop !166
+85:                                               ; preds = %83, %81, %79, %.split.split.split.us.split.us
+  %86 = phi i32 [ 1, %.split.split.split.us.split.us ], [ 2, %79 ], [ 12, %81 ], [ 16, %83 ]
+  %87 = load i16, ptr %38, align 4
+  %88 = zext i16 %87 to i32
+  %89 = add nsw i32 %86, -1
+  %90 = add nuw nsw i32 %89, %88
+  %91 = udiv i32 %90, %86
+  %92 = icmp slt i32 %91, %25
+  %93 = add nuw nsw i32 %86, 1
+  br i1 %92, label %.loopexit, label %.split.split.split.us.split.us, !llvm.loop !166
 
-.split.split.split:                               ; preds = %.split.split, %141
-  %123 = phi i32 [ %149, %141 ], [ %24, %.split.split ]
-  %124 = icmp slt i32 %123, 2
-  br i1 %124, label %141, label %125
+.split.split.split.us.split:                      ; preds = %.split.split.split.us
+  br i1 %invariant.op7, label %.split.split.split.us.split.split, label %.split.split.split.us.split.split.us
 
-125:                                              ; preds = %.split.split.split
-  %126 = icmp eq i32 %123, 2
-  br i1 %126, label %141, label %127
+.split.split.split.us.split.split.us:             ; preds = %.split.split.split.us.split, %102
+  %94 = phi i32 [ %110, %102 ], [ %24, %.split.split.split.us.split ]
+  %95 = icmp slt i32 %94, 2
+  br i1 %95, label %102, label %96
 
-127:                                              ; preds = %125
-  %128 = icmp ult i32 %123, 5
-  br i1 %128, label %141, label %129
+96:                                               ; preds = %.split.split.split.us.split.split.us
+  %97 = icmp eq i32 %94, 2
+  br i1 %97, label %102, label %98
 
-129:                                              ; preds = %127
-  %130 = icmp ult i32 %123, 9
-  %131 = and i1 %32, %130
-  %132 = and i1 %33, %131
-  br i1 %132, label %141, label %133
+98:                                               ; preds = %96
+  %99 = icmp ult i32 %94, 9
+  br i1 %99, label %102, label %100
 
-133:                                              ; preds = %129
-  %134 = icmp ult i32 %123, 13
-  %135 = and i1 %34, %134
-  %136 = and i1 %35, %135
-  br i1 %136, label %141, label %137
+100:                                              ; preds = %98
+  %101 = icmp ult i32 %94, 17
+  %.reass10.us21.us26 = and i1 %101, %invariant.op9
+  br i1 %.reass10.us21.us26, label %102, label %.loopexit
 
-137:                                              ; preds = %133
-  %138 = icmp ult i32 %123, 17
-  %139 = and i1 %36, %138
-  %140 = and i1 %37, %139
-  br i1 %140, label %141, label %.loopexit
+102:                                              ; preds = %100, %98, %96, %.split.split.split.us.split.split.us
+  %103 = phi i32 [ 1, %.split.split.split.us.split.split.us ], [ 2, %96 ], [ 8, %98 ], [ 16, %100 ]
+  %104 = load i16, ptr %38, align 4
+  %105 = zext i16 %104 to i32
+  %106 = add nsw i32 %103, -1
+  %107 = add nuw nsw i32 %106, %105
+  %108 = udiv i32 %107, %103
+  %109 = icmp slt i32 %108, %25
+  %110 = add nuw nsw i32 %103, 1
+  br i1 %109, label %.loopexit, label %.split.split.split.us.split.split.us, !llvm.loop !166
 
-141:                                              ; preds = %137, %133, %129, %127, %125, %.split.split.split
-  %142 = phi i32 [ 1, %.split.split.split ], [ 2, %125 ], [ 4, %127 ], [ 8, %129 ], [ 12, %133 ], [ 16, %137 ]
-  %143 = load i16, ptr %38, align 4
-  %144 = zext i16 %143 to i32
-  %145 = add nsw i32 %142, -1
-  %146 = add nuw nsw i32 %145, %144
-  %147 = udiv i32 %146, %142
-  %148 = icmp slt i32 %147, %25
-  %149 = add nuw nsw i32 %142, 1
-  br i1 %148, label %.loopexit, label %.split.split.split, !llvm.loop !166
+.split.split.split.us.split.split:                ; preds = %.split.split.split.us.split, %121
+  %111 = phi i32 [ %129, %121 ], [ %24, %.split.split.split.us.split ]
+  %112 = icmp slt i32 %111, 2
+  br i1 %112, label %121, label %113
 
-.loopexit:                                        ; preds = %60, %56, %84, %88, %114, %110, %137, %141, %5
-  %150 = phi i32 [ 0, %5 ], [ %142, %141 ], [ 0, %137 ], [ %115, %114 ], [ 0, %110 ], [ %89, %88 ], [ 0, %84 ], [ %61, %60 ], [ 0, %56 ]
-  ret i32 %150
+113:                                              ; preds = %.split.split.split.us.split.split
+  %114 = icmp eq i32 %111, 2
+  br i1 %114, label %121, label %115
+
+115:                                              ; preds = %113
+  %116 = icmp ult i32 %111, 9
+  br i1 %116, label %121, label %117
+
+117:                                              ; preds = %115
+  %118 = icmp ult i32 %111, 13
+  br i1 %118, label %121, label %119
+
+119:                                              ; preds = %117
+  %120 = icmp ult i32 %111, 17
+  %.reass10.us21 = and i1 %120, %invariant.op9
+  br i1 %.reass10.us21, label %121, label %.loopexit
+
+121:                                              ; preds = %119, %117, %115, %113, %.split.split.split.us.split.split
+  %122 = phi i32 [ 1, %.split.split.split.us.split.split ], [ 2, %113 ], [ 8, %115 ], [ 12, %117 ], [ 16, %119 ]
+  %123 = load i16, ptr %38, align 4
+  %124 = zext i16 %123 to i32
+  %125 = add nsw i32 %122, -1
+  %126 = add nuw nsw i32 %125, %124
+  %127 = udiv i32 %126, %122
+  %128 = icmp slt i32 %127, %25
+  %129 = add nuw nsw i32 %122, 1
+  br i1 %128, label %.loopexit, label %.split.split.split.us.split.split, !llvm.loop !166
+
+.split.split.split:                               ; preds = %.split.split, %142
+  %130 = phi i32 [ %150, %142 ], [ %24, %.split.split ]
+  %131 = icmp slt i32 %130, 2
+  br i1 %131, label %142, label %132
+
+132:                                              ; preds = %.split.split.split
+  %133 = icmp eq i32 %130, 2
+  br i1 %133, label %142, label %134
+
+134:                                              ; preds = %132
+  %135 = icmp ult i32 %130, 5
+  br i1 %135, label %142, label %136
+
+136:                                              ; preds = %134
+  %137 = icmp ult i32 %130, 9
+  %.reass6 = and i1 %137, %invariant.op5
+  br i1 %.reass6, label %142, label %138
+
+138:                                              ; preds = %136
+  %139 = icmp ult i32 %130, 13
+  %.reass8 = and i1 %139, %invariant.op7
+  br i1 %.reass8, label %142, label %140
+
+140:                                              ; preds = %138
+  %141 = icmp ult i32 %130, 17
+  %.reass10 = and i1 %141, %invariant.op9
+  br i1 %.reass10, label %142, label %.loopexit
+
+142:                                              ; preds = %140, %138, %136, %134, %132, %.split.split.split
+  %143 = phi i32 [ 1, %.split.split.split ], [ 2, %132 ], [ 4, %134 ], [ 8, %136 ], [ 12, %138 ], [ 16, %140 ]
+  %144 = load i16, ptr %38, align 4
+  %145 = zext i16 %144 to i32
+  %146 = add nsw i32 %143, -1
+  %147 = add nuw nsw i32 %146, %145
+  %148 = udiv i32 %147, %143
+  %149 = icmp slt i32 %148, %25
+  %150 = add nuw nsw i32 %143, 1
+  br i1 %149, label %.loopexit, label %.split.split.split, !llvm.loop !166
+
+.loopexit:                                        ; preds = %49, %47, %66, %68, %83, %85, %102, %100, %121, %119, %140, %142, %5
+  %151 = phi i32 [ 0, %5 ], [ %143, %142 ], [ 0, %140 ], [ %122, %121 ], [ 0, %119 ], [ %103, %102 ], [ 0, %100 ], [ %86, %85 ], [ 0, %83 ], [ %69, %68 ], [ 0, %66 ], [ %50, %49 ], [ 0, %47 ]
+  ret i32 %151
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)

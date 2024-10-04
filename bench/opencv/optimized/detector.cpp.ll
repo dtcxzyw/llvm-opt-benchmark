@@ -6898,9 +6898,9 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %12 = load float, ptr %1, align 4
   %13 = sitofp i32 %7 to float
   %14 = fcmp olt float %12, %13
-  br i1 %14, label %.lr.ph133, label %.critedge
+  br i1 %14, label %.lr.ph131, label %.critedge
 
-.lr.ph133:                                        ; preds = %4
+.lr.ph131:                                        ; preds = %4
   %15 = load float, ptr %2, align 4
   %16 = sitofp i32 %9 to float
   %17 = fcmp olt float %15, %16
@@ -6908,9 +6908,9 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %or.cond93 = and i1 %18, %17
   %19 = fcmp ogt float %15, 0.000000e+00
   %or.cond94 = and i1 %19, %or.cond93
-  br i1 %or.cond94, label %.lr.ph133.split, label %.critedge
+  br i1 %or.cond94, label %.lr.ph131.split, label %.critedge
 
-.lr.ph133.split:                                  ; preds = %.lr.ph133
+.lr.ph131.split:                                  ; preds = %.lr.ph131
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 312
   %22 = getelementptr inbounds i8, ptr %20, i64 12
@@ -6925,247 +6925,248 @@ define hidden void @_ZN5zxing6qrcode8Detector19fixAlignmentPatternERfS2_f(ptr no
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 %30
   %33 = load i8, ptr %32, align 1
-  %.fr136 = freeze i8 %33
-  %.not = icmp eq i8 %.fr136, 0
-  br i1 %.not, label %.lr.ph133.split.split.preheader, label %.critedge
+  %.fr134 = freeze i8 %33
+  %.not = icmp eq i8 %.fr134, 0
+  br i1 %.not, label %.lr.ph131.split.split.preheader, label %.critedge
 
-.lr.ph133.split.split.preheader:                  ; preds = %.lr.ph133.split
+.lr.ph131.split.split.preheader:                  ; preds = %.lr.ph131.split
   %34 = sext i32 %7 to i64
-  %35 = sext i32 %9 to i64
-  %36 = sext i32 %25 to i64
+  %35 = sext i32 %25 to i64
+  %36 = sext i32 %9 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
-  %exitcond.not237 = icmp slt i32 %11, 1
-  br i1 %exitcond.not237, label %.critedge, label %.lr.ph239
+  %exitcond.not242 = icmp slt i32 %11, 1
+  br i1 %exitcond.not242, label %.critedge, label %.lr.ph244
 
-.loopexit97:                                      ; preds = %..loopexit_crit_edge, %.loopexit.us.us126, %.loopexit.us.us, %.lr.ph109.split.us.split, %.lr.ph239
+.loopexit97:                                      ; preds = %..loopexit_crit_edge, %.loopexit.us.us124, %.loopexit.us.us, %.lr.ph108.split.us.split, %.lr.ph244
   %exitcond.not = icmp eq i32 %37, %smax
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph239
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph244
 
-.lr.ph239:                                        ; preds = %.lr.ph133.split.split.preheader, %.loopexit97
-  %.082132238 = phi i32 [ %37, %.loopexit97 ], [ 0, %.lr.ph133.split.split.preheader ]
-  %37 = add nuw i32 %.082132238, 1
+.lr.ph244:                                        ; preds = %.lr.ph131.split.split.preheader, %.loopexit97
+  %.082130243 = phi i32 [ %37, %.loopexit97 ], [ 0, %.lr.ph131.split.split.preheader ]
+  %37 = add nuw i32 %.082130243, 1
   %38 = uitofp nneg i32 %37 to float
   %39 = fsub float %15, %38
   %40 = fptosi float %39 to i32
-  %.fr = freeze i32 %40
   %41 = fadd float %15, %38
-  %42 = sitofp i32 %.fr to float
+  %42 = sitofp i32 %40 to float
   %43 = fcmp ult float %41, %42
-  br i1 %43, label %.loopexit97, label %.lr.ph109
+  br i1 %43, label %.loopexit97, label %.lr.ph108
 
-.lr.ph109:                                        ; preds = %.lr.ph239
+.lr.ph108:                                        ; preds = %.lr.ph244
   %44 = fsub float %12, %38
   %45 = fptosi float %44 to i32
-  %.fr137 = freeze i32 %45
-  %46 = icmp sgt i32 %7, %.fr137
-  %47 = icmp sgt i32 %.fr137, 0
+  %.fr135 = freeze i32 %45
+  %46 = icmp sgt i32 %7, %.fr135
+  %47 = icmp sgt i32 %.fr135, 0
   %48 = fadd float %12, %38
-  %.fr175 = freeze float %48
-  %49 = fptosi float %.fr175 to i32
-  %.fr138 = freeze i32 %49
-  %50 = icmp sgt i32 %7, %.fr138
-  %51 = icmp sgt i32 %.fr138, 0
-  %52 = sitofp i32 %.fr137 to float
-  %53 = fcmp ult float %.fr175, %52
-  br i1 %53, label %.lr.ph109.split.us, label %.lr.ph109.split.preheader
+  %.fr176 = freeze float %48
+  %49 = fptosi float %.fr176 to i32
+  %.fr136 = freeze i32 %49
+  %50 = icmp sgt i32 %7, %.fr136
+  %51 = icmp sgt i32 %.fr136, 0
+  %52 = sitofp i32 %.fr135 to float
+  %53 = fcmp ult float %.fr176, %52
+  br i1 %53, label %.lr.ph108.split.us, label %.lr.ph108.split.preheader
 
-.lr.ph109.split.preheader:                        ; preds = %.lr.ph109
-  %54 = sext i32 %.fr137 to i64
-  br label %.lr.ph109.split
+.lr.ph108.split.preheader:                        ; preds = %.lr.ph108
+  %54 = sext i32 %.fr135 to i64
+  %55 = sext i32 %40 to i64
+  %56 = sext i32 %.fr136 to i64
+  %57 = sext i32 %.fr135 to i64
+  %invariant.gep204 = getelementptr i8, ptr %31, i64 %57
+  %invariant.gep206 = getelementptr i8, ptr %31, i64 %56
+  br label %.lr.ph108.split
 
-.lr.ph109.split.us:                               ; preds = %.lr.ph109
-  br i1 %46, label %.lr.ph109.split.us.split.us.preheader, label %.lr.ph109.split.us.split
+.lr.ph108.split.us:                               ; preds = %.lr.ph108
+  br i1 %46, label %.lr.ph108.split.us.split.us.preheader, label %.lr.ph108.split.us.split
 
-.lr.ph109.split.us.split.us.preheader:            ; preds = %.lr.ph109.split.us
-  %55 = sext i32 %.fr to i64
-  %56 = sext i32 %.fr137 to i64
-  %57 = sext i32 %.fr138 to i64
-  %invariant.gep205 = getelementptr i8, ptr %31, i64 %56
-  %invariant.gep207 = getelementptr i8, ptr %31, i64 %57
-  br label %.lr.ph109.split.us.split.us
+.lr.ph108.split.us.split.us.preheader:            ; preds = %.lr.ph108.split.us
+  %58 = sext i32 %40 to i64
+  %59 = sext i32 %.fr135 to i64
+  %60 = sext i32 %.fr136 to i64
+  %invariant.gep210 = getelementptr i8, ptr %31, i64 %59
+  %invariant.gep212 = getelementptr i8, ptr %31, i64 %60
+  %invariant.op294 = and i1 %51, %50
+  br label %.lr.ph108.split.us.split.us
 
-.lr.ph109.split.us.split.us:                      ; preds = %.lr.ph109.split.us.split.us.preheader, %.loopexit.us.us
-  %indvars.iv172 = phi i64 [ %55, %.lr.ph109.split.us.split.us.preheader ], [ %indvars.iv.next173, %.loopexit.us.us ]
-  %58 = phi float [ %42, %.lr.ph109.split.us.split.us.preheader ], [ %73, %.loopexit.us.us ]
-  %59 = fcmp oeq float %39, %58
-  %60 = fcmp oeq float %41, %58
-  %or.cond96.us.us = or i1 %59, %60
-  br i1 %or.cond96.us.us, label %.loopexit.us.us, label %61
+.lr.ph108.split.us.split.us:                      ; preds = %.lr.ph108.split.us.split.us.preheader, %.loopexit.us.us
+  %indvars.iv173 = phi i64 [ %58, %.lr.ph108.split.us.split.us.preheader ], [ %indvars.iv.next174, %.loopexit.us.us ]
+  %61 = phi float [ %42, %.lr.ph108.split.us.split.us.preheader ], [ %76, %.loopexit.us.us ]
+  %62 = fcmp oeq float %39, %61
+  %63 = fcmp oeq float %41, %61
+  %or.cond96.us.us = or i1 %62, %63
+  br i1 %or.cond96.us.us, label %.loopexit.us.us, label %64
 
-61:                                               ; preds = %.lr.ph109.split.us.split.us
-  %62 = icmp slt i64 %indvars.iv172, %35
-  %63 = icmp sgt i64 %indvars.iv172, 0
-  %64 = and i1 %62, %63
-  %or.cond7.us.us = and i1 %64, %47
-  br i1 %or.cond7.us.us, label %65, label %68
+64:                                               ; preds = %.lr.ph108.split.us.split.us
+  %65 = icmp slt i64 %indvars.iv173, %36
+  %66 = icmp sgt i64 %indvars.iv173, 0
+  %67 = and i1 %65, %66
+  %or.cond7.us.us = and i1 %67, %47
+  br i1 %or.cond7.us.us, label %68, label %71
 
-65:                                               ; preds = %61
-  %66 = mul nsw i64 %indvars.iv172, %36
-  %gep206 = getelementptr i8, ptr %invariant.gep205, i64 %66
-  %67 = load i8, ptr %gep206, align 1
-  %.not90.us.us = icmp eq i8 %67, 0
-  br i1 %.not90.us.us, label %68, label %.split.us
+68:                                               ; preds = %64
+  %69 = mul nsw i64 %indvars.iv173, %35
+  %gep211 = getelementptr i8, ptr %invariant.gep210, i64 %69
+  %70 = load i8, ptr %gep211, align 1
+  %.not90.us.us = icmp eq i8 %70, 0
+  br i1 %.not90.us.us, label %71, label %.split.us
 
-68:                                               ; preds = %65, %61
-  %or.cond11.us.us = and i1 %64, %51
-  %or.cond209 = and i1 %50, %or.cond11.us.us
-  br i1 %or.cond209, label %69, label %.loopexit.us.us
+71:                                               ; preds = %68, %64
+  %or.cond214.reass = and i1 %67, %invariant.op294
+  br i1 %or.cond214.reass, label %72, label %.loopexit.us.us
 
-69:                                               ; preds = %68
-  %70 = mul nsw i64 %indvars.iv172, %36
-  %gep208 = getelementptr i8, ptr %invariant.gep207, i64 %70
-  %71 = load i8, ptr %gep208, align 1
-  %.not91.us.us = icmp eq i8 %71, 0
-  br i1 %.not91.us.us, label %.loopexit.us.us, label %.split112.us
+72:                                               ; preds = %71
+  %73 = mul nsw i64 %indvars.iv173, %35
+  %gep213 = getelementptr i8, ptr %invariant.gep212, i64 %73
+  %74 = load i8, ptr %gep213, align 1
+  %.not91.us.us = icmp eq i8 %74, 0
+  br i1 %.not91.us.us, label %.loopexit.us.us, label %.split111.us
 
-.loopexit.us.us:                                  ; preds = %.lr.ph109.split.us.split.us, %69, %68
-  %indvars.iv.next173 = add nsw i64 %indvars.iv172, 1
-  %72 = trunc nsw i64 %indvars.iv.next173 to i32
-  %73 = sitofp i32 %72 to float
-  %74 = fcmp ult float %41, %73
-  br i1 %74, label %.loopexit97, label %.lr.ph109.split.us.split.us, !llvm.loop !16
+.loopexit.us.us:                                  ; preds = %.lr.ph108.split.us.split.us, %72, %71
+  %indvars.iv.next174 = add nsw i64 %indvars.iv173, 1
+  %75 = trunc nsw i64 %indvars.iv.next174 to i32
+  %76 = sitofp i32 %75 to float
+  %77 = fcmp ult float %41, %76
+  br i1 %77, label %.loopexit97, label %.lr.ph108.split.us.split.us, !llvm.loop !16
 
-.lr.ph109.split.us.split:                         ; preds = %.lr.ph109.split.us
-  br i1 %50, label %.lr.ph109.split.us.split.split.us.preheader, label %.loopexit97
+.lr.ph108.split.us.split:                         ; preds = %.lr.ph108.split.us
+  br i1 %50, label %.lr.ph108.split.us.split.split.us.preheader, label %.loopexit97
 
-.lr.ph109.split.us.split.split.us.preheader:      ; preds = %.lr.ph109.split.us.split
-  %75 = sext i32 %.fr to i64
-  %76 = sext i32 %.fr138 to i64
-  %invariant.gep203 = getelementptr i8, ptr %31, i64 %76
-  br label %.lr.ph109.split.us.split.split.us
+.lr.ph108.split.us.split.split.us.preheader:      ; preds = %.lr.ph108.split.us.split
+  %78 = sext i32 %40 to i64
+  %79 = sext i32 %.fr136 to i64
+  %invariant.gep208 = getelementptr i8, ptr %31, i64 %79
+  br label %.lr.ph108.split.us.split.split.us
 
-.lr.ph109.split.us.split.split.us:                ; preds = %.lr.ph109.split.us.split.split.us.preheader, %.loopexit.us.us126
-  %indvars.iv169 = phi i64 [ %75, %.lr.ph109.split.us.split.split.us.preheader ], [ %indvars.iv.next170, %.loopexit.us.us126 ]
-  %77 = phi float [ %42, %.lr.ph109.split.us.split.split.us.preheader ], [ %88, %.loopexit.us.us126 ]
-  %78 = fcmp oeq float %39, %77
-  %79 = fcmp oeq float %41, %77
-  %or.cond96.us.us122 = or i1 %78, %79
-  br i1 %or.cond96.us.us122, label %.loopexit.us.us126, label %80
+.lr.ph108.split.us.split.split.us:                ; preds = %.lr.ph108.split.us.split.split.us.preheader, %.loopexit.us.us124
+  %indvars.iv170 = phi i64 [ %78, %.lr.ph108.split.us.split.split.us.preheader ], [ %indvars.iv.next171, %.loopexit.us.us124 ]
+  %80 = phi float [ %42, %.lr.ph108.split.us.split.split.us.preheader ], [ %91, %.loopexit.us.us124 ]
+  %81 = fcmp oeq float %39, %80
+  %82 = fcmp oeq float %41, %80
+  %or.cond96.us.us120 = or i1 %81, %82
+  br i1 %or.cond96.us.us120, label %.loopexit.us.us124, label %83
 
-80:                                               ; preds = %.lr.ph109.split.us.split.split.us
-  %81 = icmp slt i64 %indvars.iv169, %35
-  %82 = icmp sgt i64 %indvars.iv169, 0
-  %83 = and i1 %81, %82
-  %or.cond11.us.us124 = and i1 %83, %51
-  br i1 %or.cond11.us.us124, label %84, label %.loopexit.us.us126
+83:                                               ; preds = %.lr.ph108.split.us.split.split.us
+  %84 = icmp slt i64 %indvars.iv170, %36
+  %85 = icmp sgt i64 %indvars.iv170, 0
+  %86 = and i1 %84, %85
+  %or.cond11.us.us122 = and i1 %86, %51
+  br i1 %or.cond11.us.us122, label %87, label %.loopexit.us.us124
 
-84:                                               ; preds = %80
-  %85 = mul nsw i64 %indvars.iv169, %36
-  %gep204 = getelementptr i8, ptr %invariant.gep203, i64 %85
-  %86 = load i8, ptr %gep204, align 1
-  %.not91.us.us125 = icmp eq i8 %86, 0
-  br i1 %.not91.us.us125, label %.loopexit.us.us126, label %.split112.us
+87:                                               ; preds = %83
+  %88 = mul nsw i64 %indvars.iv170, %35
+  %gep209 = getelementptr i8, ptr %invariant.gep208, i64 %88
+  %89 = load i8, ptr %gep209, align 1
+  %.not91.us.us123 = icmp eq i8 %89, 0
+  br i1 %.not91.us.us123, label %.loopexit.us.us124, label %.split111.us
 
-.loopexit.us.us126:                               ; preds = %.lr.ph109.split.us.split.split.us, %84, %80
-  %indvars.iv.next170 = add nsw i64 %indvars.iv169, 1
-  %87 = trunc nsw i64 %indvars.iv.next170 to i32
-  %88 = sitofp i32 %87 to float
-  %89 = fcmp ult float %41, %88
-  br i1 %89, label %.loopexit97, label %.lr.ph109.split.us.split.split.us, !llvm.loop !16
+.loopexit.us.us124:                               ; preds = %.lr.ph108.split.us.split.split.us, %87, %83
+  %indvars.iv.next171 = add nsw i64 %indvars.iv170, 1
+  %90 = trunc nsw i64 %indvars.iv.next171 to i32
+  %91 = sitofp i32 %90 to float
+  %92 = fcmp ult float %41, %91
+  br i1 %92, label %.loopexit97, label %.lr.ph108.split.us.split.split.us, !llvm.loop !16
 
-.lr.ph109.split:                                  ; preds = %.lr.ph109.split.preheader, %..loopexit_crit_edge
-  %90 = phi float [ %132, %..loopexit_crit_edge ], [ %42, %.lr.ph109.split.preheader ]
-  %.081107 = phi i32 [ %131, %..loopexit_crit_edge ], [ %.fr, %.lr.ph109.split.preheader ]
-  %91 = fcmp oeq float %39, %90
-  %92 = fcmp oeq float %41, %90
-  %or.cond96 = or i1 %91, %92
-  br i1 %or.cond96, label %.lr.ph, label %107
+.lr.ph108.split:                                  ; preds = %.lr.ph108.split.preheader, %..loopexit_crit_edge
+  %indvars.iv167 = phi i64 [ %55, %.lr.ph108.split.preheader ], [ %indvars.iv.next168, %..loopexit_crit_edge ]
+  %93 = phi float [ %42, %.lr.ph108.split.preheader ], [ %127, %..loopexit_crit_edge ]
+  %94 = fcmp oeq float %39, %93
+  %95 = fcmp oeq float %41, %93
+  %or.cond96 = or i1 %94, %95
+  br i1 %or.cond96, label %.lr.ph, label %108
 
-.lr.ph:                                           ; preds = %.lr.ph109.split
-  %93 = icmp slt i32 %.081107, %9
-  %94 = icmp sgt i32 %.081107, 0
-  %95 = and i1 %94, %93
-  br i1 %95, label %.lr.ph.split.preheader, label %..loopexit_crit_edge
+.lr.ph:                                           ; preds = %.lr.ph108.split
+  %96 = icmp slt i64 %indvars.iv167, %36
+  %97 = icmp sgt i64 %indvars.iv167, 0
+  %invariant.op = and i1 %96, %97
+  %invariant.op.fr = freeze i1 %invariant.op
+  br i1 %invariant.op.fr, label %.lr.ph.split.preheader, label %..loopexit_crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %96 = mul nsw i32 %.081107, %25
-  %97 = sext i32 %96 to i64
-  %invariant.gep = getelementptr i8, ptr %31, i64 %97
+  %98 = mul nsw i64 %indvars.iv167, %35
+  %invariant.gep = getelementptr i8, ptr %31, i64 %98
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %103
-  %indvars.iv = phi i64 [ %54, %.lr.ph.split.preheader ], [ %indvars.iv.next, %103 ]
-  %98 = phi float [ %52, %.lr.ph.split.preheader ], [ %105, %103 ]
-  %99 = icmp slt i64 %indvars.iv, %34
-  %100 = icmp sgt i64 %indvars.iv, 0
-  %or.cond = and i1 %99, %100
-  br i1 %or.cond, label %101, label %103
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %104
+  %indvars.iv = phi i64 [ %54, %.lr.ph.split.preheader ], [ %indvars.iv.next, %104 ]
+  %99 = phi float [ %52, %.lr.ph.split.preheader ], [ %106, %104 ]
+  %100 = icmp slt i64 %indvars.iv, %34
+  %101 = icmp sgt i64 %indvars.iv, 0
+  %or.cond = and i1 %100, %101
+  br i1 %or.cond, label %102, label %104
 
-101:                                              ; preds = %.lr.ph.split
+102:                                              ; preds = %.lr.ph.split
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %102 = load i8, ptr %gep, align 1
-  %.not92 = icmp eq i8 %102, 0
-  br i1 %.not92, label %103, label %.critedge.sink.split
+  %103 = load i8, ptr %gep, align 1
+  %.not92 = icmp eq i8 %103, 0
+  br i1 %.not92, label %104, label %.critedge.sink.split
 
-103:                                              ; preds = %.lr.ph.split, %101
+104:                                              ; preds = %.lr.ph.split, %102
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %104 = trunc nsw i64 %indvars.iv.next to i32
-  %105 = sitofp i32 %104 to float
-  %106 = fcmp ult float %.fr175, %105
-  br i1 %106, label %..loopexit_crit_edge, label %.lr.ph.split, !llvm.loop !17
+  %105 = trunc nsw i64 %indvars.iv.next to i32
+  %106 = sitofp i32 %105 to float
+  %107 = fcmp ult float %.fr176, %106
+  br i1 %107, label %..loopexit_crit_edge, label %.lr.ph.split, !llvm.loop !17
 
-107:                                              ; preds = %.lr.ph109.split
-  br i1 %46, label %108, label %119
+108:                                              ; preds = %.lr.ph108.split
+  br i1 %46, label %109, label %117
 
-108:                                              ; preds = %107
-  %109 = icmp slt i32 %.081107, %9
-  %110 = icmp sgt i32 %.081107, 0
-  %111 = and i1 %109, %110
-  %or.cond7 = and i1 %111, %47
-  br i1 %or.cond7, label %112, label %119
+109:                                              ; preds = %108
+  %110 = icmp slt i64 %indvars.iv167, %36
+  %111 = icmp sgt i64 %indvars.iv167, 0
+  %112 = and i1 %110, %111
+  %or.cond7 = and i1 %112, %47
+  br i1 %or.cond7, label %113, label %117
 
-112:                                              ; preds = %108
-  %113 = mul nsw i32 %.081107, %25
-  %114 = add nsw i32 %113, %.fr137
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %31, i64 %115
-  %117 = load i8, ptr %116, align 1
-  %.not90 = icmp eq i8 %117, 0
-  br i1 %.not90, label %119, label %.split.us
+113:                                              ; preds = %109
+  %114 = mul nsw i64 %indvars.iv167, %35
+  %gep205 = getelementptr i8, ptr %invariant.gep204, i64 %114
+  %115 = load i8, ptr %gep205, align 1
+  %.not90 = icmp eq i8 %115, 0
+  br i1 %.not90, label %117, label %.split.us
 
-.split.us:                                        ; preds = %112, %65
-  %.us-phi = phi float [ %58, %65 ], [ %90, %112 ]
-  %118 = uitofp nneg i32 %.fr137 to float
+.split.us:                                        ; preds = %113, %68
+  %.us-phi = phi float [ %61, %68 ], [ %93, %113 ]
+  %116 = uitofp nneg i32 %.fr135 to float
   br label %.critedge.sink.split
 
-119:                                              ; preds = %112, %108, %107
-  br i1 %50, label %120, label %..loopexit_crit_edge
+117:                                              ; preds = %113, %109, %108
+  br i1 %50, label %118, label %..loopexit_crit_edge
 
-120:                                              ; preds = %119
-  %121 = icmp slt i32 %.081107, %9
-  %122 = icmp sgt i32 %.081107, 0
-  %123 = and i1 %121, %122
-  %or.cond11 = and i1 %123, %51
-  br i1 %or.cond11, label %124, label %..loopexit_crit_edge
+118:                                              ; preds = %117
+  %119 = icmp slt i64 %indvars.iv167, %36
+  %120 = icmp sgt i64 %indvars.iv167, 0
+  %121 = and i1 %119, %120
+  %or.cond11 = and i1 %121, %51
+  br i1 %or.cond11, label %122, label %..loopexit_crit_edge
 
-124:                                              ; preds = %120
-  %125 = mul nsw i32 %.081107, %25
-  %126 = add nsw i32 %125, %.fr138
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr %31, i64 %127
-  %129 = load i8, ptr %128, align 1
-  %.not91 = icmp eq i8 %129, 0
-  br i1 %.not91, label %..loopexit_crit_edge, label %.split112.us
+122:                                              ; preds = %118
+  %123 = mul nsw i64 %indvars.iv167, %35
+  %gep207 = getelementptr i8, ptr %invariant.gep206, i64 %123
+  %124 = load i8, ptr %gep207, align 1
+  %.not91 = icmp eq i8 %124, 0
+  br i1 %.not91, label %..loopexit_crit_edge, label %.split111.us
 
-.split112.us:                                     ; preds = %124, %84, %69
-  %.us-phi113 = phi float [ %58, %69 ], [ %77, %84 ], [ %90, %124 ]
-  %130 = uitofp nneg i32 %.fr138 to float
+.split111.us:                                     ; preds = %122, %87, %72
+  %.us-phi112 = phi float [ %61, %72 ], [ %80, %87 ], [ %93, %122 ]
+  %125 = uitofp nneg i32 %.fr136 to float
   br label %.critedge.sink.split
 
-..loopexit_crit_edge:                             ; preds = %103, %.lr.ph, %124, %120, %119
-  %131 = add i32 %.081107, 1
-  %132 = sitofp i32 %131 to float
-  %133 = fcmp ult float %41, %132
-  br i1 %133, label %.loopexit97, label %.lr.ph109.split, !llvm.loop !16
+..loopexit_crit_edge:                             ; preds = %104, %.lr.ph, %122, %118, %117
+  %indvars.iv.next168 = add nsw i64 %indvars.iv167, 1
+  %126 = trunc nsw i64 %indvars.iv.next168 to i32
+  %127 = sitofp i32 %126 to float
+  %128 = fcmp ult float %41, %127
+  br i1 %128, label %.loopexit97, label %.lr.ph108.split, !llvm.loop !16
 
-.critedge.sink.split:                             ; preds = %101, %.split.us, %.split112.us
-  %.sink = phi float [ %130, %.split112.us ], [ %118, %.split.us ], [ %98, %101 ]
-  %.us-phi113.sink = phi float [ %.us-phi113, %.split112.us ], [ %.us-phi, %.split.us ], [ %90, %101 ]
+.critedge.sink.split:                             ; preds = %102, %.split.us, %.split111.us
+  %.sink = phi float [ %125, %.split111.us ], [ %116, %.split.us ], [ %99, %102 ]
+  %.us-phi112.sink = phi float [ %.us-phi112, %.split111.us ], [ %.us-phi, %.split.us ], [ %93, %102 ]
   store float %.sink, ptr %1, align 4
-  store float %.us-phi113.sink, ptr %2, align 4
+  store float %.us-phi112.sink, ptr %2, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.loopexit97, %.lr.ph133.split.split.preheader, %.critedge.sink.split, %4, %.lr.ph133.split, %.lr.ph133
+.critedge:                                        ; preds = %.loopexit97, %.lr.ph131.split.split.preheader, %.critedge.sink.split, %4, %.lr.ph131.split, %.lr.ph131
   ret void
 }
 

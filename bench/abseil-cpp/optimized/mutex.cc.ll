@@ -900,13 +900,17 @@ _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %if.th
 if.end26:                                         ; preds = %if.end19, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
   %h.0 = phi ptr [ %head.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit ], [ %3, %if.end19 ]
   %cmp31.not = icmp eq ptr %h.0, null
-  %41 = ptrtoint ptr %h.0 to i64
   %readers = getelementptr inbounds i8, ptr %h.0, i64 40
   %maybe_unlocking = getelementptr inbounds i8, ptr %h.0, i64 19
-  br i1 %cmp31.not, label %do.body27.us.preheader, label %do.body27
+  br i1 %cmp31.not, label %do.body27.us.preheader, label %do.body27.preheader
 
 do.body27.us.preheader:                           ; preds = %if.then, %if.end26
   br label %do.body27.us
+
+do.body27.preheader:                              ; preds = %if.end26
+  %41 = ptrtoint ptr %h.0 to i64
+  %invariant.op = or i64 %41, 4
+  br label %do.body27
 
 do.body27.us:                                     ; preds = %do.body27.us.preheader, %do.body27.us
   %42 = load atomic i64, ptr %this monotonic, align 8
@@ -915,14 +919,13 @@ do.body27.us:                                     ; preds = %do.body27.us.prehea
   %44 = extractvalue { i64, i1 } %43, 1
   br i1 %44, label %if.end40, label %do.body27.us, !llvm.loop !11
 
-do.body27:                                        ; preds = %if.end26, %do.body27
+do.body27:                                        ; preds = %do.body27.preheader, %do.body27
   %45 = load atomic i64, ptr %this monotonic, align 8
   %and30 = and i64 %45, 18
-  %or33 = or i64 %and30, %41
-  %or34 = or i64 %or33, 4
+  %or34.reass = or i64 %and30, %invariant.op
   store i64 0, ptr %readers, align 8
   store i8 0, ptr %maybe_unlocking, align 1
-  %46 = cmpxchg weak ptr %this, i64 %45, i64 %or34 release monotonic, align 8
+  %46 = cmpxchg weak ptr %this, i64 %45, i64 %or34.reass release monotonic, align 8
   %47 = extractvalue { i64, i1 } %46, 1
   br i1 %47, label %if.end40, label %do.body27, !llvm.loop !11
 
@@ -2680,14 +2683,14 @@ do.end165:                                        ; preds = %if.then144
   %wr_wait.0 = select i1 %or.cond237, i64 0, i64 32
   %38 = ptrtoint ptr %call150 to i64
   %or179 = or i64 %wr_wait.0, %38
+  %invariant.op = or i64 %or179, 4
   br label %do.body173
 
 do.body173:                                       ; preds = %do.body173, %do.end165
   %39 = load atomic i64, ptr %this monotonic, align 8
   %and178 = and i64 %39, 187
-  %or180 = or i64 %or179, %and178
-  %or181 = or i64 %or180, 4
-  %40 = cmpxchg weak ptr %this, i64 %39, i64 %or181 release monotonic, align 8
+  %or181.reass = or i64 %and178, %invariant.op
+  %40 = cmpxchg weak ptr %this, i64 %39, i64 %or181.reass release monotonic, align 8
   %41 = extractvalue { i64, i1 } %40, 1
   br i1 %41, label %if.then189, label %do.body173, !llvm.loop !22
 
@@ -4184,6 +4187,7 @@ if.then67:                                        ; preds = %_ZNSt13__atomic_bas
 
 do.body89.preheader:                              ; preds = %if.then67
   %15 = ptrtoint ptr %call73 to i64
+  %invariant.op = or i64 %15, 4
   br label %do.body89
 
 do.body78:                                        ; preds = %if.then67
@@ -4193,9 +4197,8 @@ do.body78:                                        ; preds = %if.then67
 do.body89:                                        ; preds = %do.body89.preheader, %do.body89
   %16 = load atomic i64, ptr %this monotonic, align 8
   %and95 = and i64 %16, 187
-  %or96 = or i64 %and95, %15
-  %or97 = or i64 %or96, 4
-  %17 = cmpxchg weak ptr %this, i64 %16, i64 %or97 release monotonic, align 8
+  %or97.reass = or i64 %and95, %invariant.op
+  %17 = cmpxchg weak ptr %this, i64 %16, i64 %or97.reass release monotonic, align 8
   %18 = extractvalue { i64, i1 } %17, 1
   br i1 %18, label %cleanup, label %do.body89, !llvm.loop !31
 

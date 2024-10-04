@@ -956,10 +956,10 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br label %.thread18
 
 76:                                               ; preds = %.loopexit, %38
-  %77 = phi i32 [ 0, %38 ], [ %117, %.loopexit ]
-  %78 = phi i16 [ 0, %38 ], [ %149, %.loopexit ]
-  %79 = phi i32 [ 0, %38 ], [ %148, %.loopexit ]
-  %80 = phi i32 [ 0, %38 ], [ %150, %.loopexit ]
+  %77 = phi i32 [ 0, %38 ], [ %116, %.loopexit ]
+  %78 = phi i16 [ 0, %38 ], [ %148, %.loopexit ]
+  %79 = phi i32 [ 0, %38 ], [ %147, %.loopexit ]
+  %80 = phi i32 [ 0, %38 ], [ %149, %.loopexit ]
   %81 = and i32 %80, %33
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %106
@@ -1008,97 +1008,97 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %109 = icmp eq i32 %108, 0
   %110 = and i32 %107, %37
   %111 = trunc nuw nsw i32 %110 to i16
-  %112 = and i32 %110, 65535
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %116
+  %.reass = and i32 %107, %37
+  %112 = icmp eq i32 %.reass, 0
+  br i1 %112, label %113, label %115
 
-114:                                              ; preds = %106
-  %115 = icmp eq i32 %77, 0
-  br i1 %115, label %116, label %.thread18
+113:                                              ; preds = %106
+  %114 = icmp eq i32 %77, 0
+  br i1 %114, label %115, label %.thread18
 
-116:                                              ; preds = %114, %106
-  %117 = phi i32 [ 1, %114 ], [ %77, %106 ]
-  %118 = lshr i32 %107, %32
-  store i32 %118, ptr %7, align 4
-  br i1 %109, label %139, label %119
+115:                                              ; preds = %113, %106
+  %116 = phi i32 [ 1, %113 ], [ %77, %106 ]
+  %117 = lshr i32 %107, %32
+  store i32 %117, ptr %7, align 4
+  br i1 %109, label %138, label %118
 
-119:                                              ; preds = %116
-  %120 = icmp ne i16 %78, 0
-  %121 = zext nneg i16 %78 to i32
-  %122 = icmp ugt i32 %112, %121
-  %123 = select i1 %120, i1 %122, i1 false
-  br i1 %123, label %.preheader, label %132
+118:                                              ; preds = %115
+  %119 = icmp ne i16 %78, 0
+  %120 = zext nneg i16 %78 to i32
+  %121 = icmp ugt i32 %.reass, %120
+  %122 = select i1 %119, i1 %121, i1 false
+  br i1 %122, label %.preheader, label %131
 
-.preheader:                                       ; preds = %119
-  %124 = add nuw i16 %78, 1
+.preheader:                                       ; preds = %118
+  %123 = add nuw i16 %78, 1
   br i1 %43, label %.preheader.split.us, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %125 = sext i32 %79 to i64
+  %124 = sext i32 %79 to i64
   %smax = call i32 @llvm.smax.i32(i32 %79, i32 %3)
   %wide.trip.count = sext i32 %smax to i64
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %126 = phi i16 [ %129, %.preheader.split.us ], [ %124, %.preheader ]
-  %127 = phi i32 [ %128, %.preheader.split.us ], [ %79, %.preheader ]
-  %128 = add i32 %127, 1
-  %129 = add i16 %126, 1
-  %130 = zext i16 %129 to i32
-  %131 = icmp ult i32 %112, %130
-  br i1 %131, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
+  %125 = phi i16 [ %128, %.preheader.split.us ], [ %123, %.preheader ]
+  %126 = phi i32 [ %127, %.preheader.split.us ], [ %79, %.preheader ]
+  %127 = add i32 %126, 1
+  %128 = add i16 %125, 1
+  %129 = zext i16 %128 to i32
+  %130 = icmp ult i32 %.reass, %129
+  br i1 %130, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
-132:                                              ; preds = %119
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %121, i32 noundef %112) #10
+131:                                              ; preds = %118
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %120, i32 noundef %.reass) #10
   br label %.loopexit
 
-.preheader.split:                                 ; preds = %.preheader.split.preheader, %134
-  %indvars.iv = phi i64 [ %125, %.preheader.split.preheader ], [ %indvars.iv.next, %134 ]
-  %133 = phi i16 [ %124, %.preheader.split.preheader ], [ %136, %134 ]
+.preheader.split:                                 ; preds = %.preheader.split.preheader, %133
+  %indvars.iv = phi i64 [ %124, %.preheader.split.preheader ], [ %indvars.iv.next, %133 ]
+  %132 = phi i16 [ %123, %.preheader.split.preheader ], [ %135, %133 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.thread18, label %134
+  br i1 %exitcond.not, label %.thread18, label %133
 
-134:                                              ; preds = %.preheader.split
-  %135 = getelementptr i16, ptr %2, i64 %indvars.iv
-  store i16 %133, ptr %135, align 2
+133:                                              ; preds = %.preheader.split
+  %134 = getelementptr i16, ptr %2, i64 %indvars.iv
+  store i16 %132, ptr %134, align 2
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %136 = add i16 %133, 1
-  %137 = zext i16 %136 to i32
-  %138 = icmp ult i32 %112, %137
-  br i1 %138, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !16
+  %135 = add i16 %132, 1
+  %136 = zext i16 %135 to i32
+  %137 = icmp ult i32 %.reass, %136
+  br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !16
 
-139:                                              ; preds = %116
-  br i1 %43, label %145, label %140
+138:                                              ; preds = %115
+  br i1 %43, label %144, label %139
 
-140:                                              ; preds = %139
-  %141 = icmp slt i32 %79, %3
-  br i1 %141, label %142, label %.thread18
+139:                                              ; preds = %138
+  %140 = icmp slt i32 %79, %3
+  br i1 %140, label %141, label %.thread18
 
-142:                                              ; preds = %140
-  %143 = sext i32 %79 to i64
-  %144 = getelementptr i16, ptr %2, i64 %143
-  store i16 %111, ptr %144, align 2
-  br label %145
+141:                                              ; preds = %139
+  %142 = sext i32 %79 to i64
+  %143 = getelementptr i16, ptr %2, i64 %142
+  store i16 %111, ptr %143, align 2
+  br label %144
 
-145:                                              ; preds = %142, %139
-  %146 = add i32 %79, 1
+144:                                              ; preds = %141, %138
+  %145 = add i32 %79, 1
   br label %.loopexit
 
-.loopexit.loopexit20:                             ; preds = %134
-  %147 = trunc nsw i64 %indvars.iv.next to i32
+.loopexit.loopexit20:                             ; preds = %133
+  %146 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.split.us, %.loopexit.loopexit20, %132, %145
-  %148 = phi i32 [ %79, %132 ], [ %146, %145 ], [ %147, %.loopexit.loopexit20 ], [ %128, %.preheader.split.us ]
-  %149 = phi i16 [ %78, %132 ], [ %111, %145 ], [ %111, %.loopexit.loopexit20 ], [ %111, %.preheader.split.us ]
-  %150 = add nuw nsw i32 %80, 1
-  %151 = icmp eq i32 %150, %34
-  br i1 %151, label %.thread18, label %76, !llvm.loop !17
+.loopexit:                                        ; preds = %.preheader.split.us, %.loopexit.loopexit20, %131, %144
+  %147 = phi i32 [ %79, %131 ], [ %145, %144 ], [ %146, %.loopexit.loopexit20 ], [ %127, %.preheader.split.us ]
+  %148 = phi i16 [ %78, %131 ], [ %111, %144 ], [ %111, %.loopexit.loopexit20 ], [ %111, %.preheader.split.us ]
+  %149 = add nuw nsw i32 %80, 1
+  %150 = icmp eq i32 %149, %34
+  br i1 %150, label %.thread18, label %76, !llvm.loop !17
 
-.thread18:                                        ; preds = %140, %114, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
-  %152 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %4 ], [ 0, %20 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %114 ], [ -28, %140 ], [ %148, %.loopexit ]
+.thread18:                                        ; preds = %139, %113, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
+  %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %4 ], [ 0, %20 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %113 ], [ -28, %139 ], [ %147, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  ret i32 %152
+  ret i32 %151
 }
 
 ; Function Attrs: cold null_pointer_is_valid

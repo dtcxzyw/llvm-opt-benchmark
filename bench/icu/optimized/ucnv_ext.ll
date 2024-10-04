@@ -808,6 +808,8 @@ if.then27:                                        ; preds = %if.end25
   %cmp2.i = icmp ult i32 %10, -6400
   %11 = add i32 %firstCP, -1114112
   %cmp5.i = icmp ult i32 %11, -131072
+  %invariant.op = and i1 %tobool.i, %cmp2.i
+  %invariant.op165 = and i1 %invariant.op, %cmp5.i
   br label %for.cond
 
 for.cond:                                         ; preds = %if.else66, %if.then27
@@ -829,12 +831,10 @@ for.cond:                                         ; preds = %if.else66, %if.then
 
 land.lhs.true:                                    ; preds = %for.cond
   %cmp.i = icmp ult i32 %13, 1073741824
-  %or.cond.i.not87 = and i1 %tobool.i, %cmp.i
-  %or.cond3.i.not86 = and i1 %cmp2.i, %or.cond.i.not87
-  %or.cond4.i.not85 = and i1 %cmp5.i, %or.cond3.i.not86
+  %or.cond4.i.not85.reass.reass.reass = and i1 %cmp.i, %invariant.op165
   %and6.i = and i32 %13, 536870912
   %cmp7.i = icmp ne i32 %and6.i, 0
-  %narrow.i.not = or i1 %cmp7.i, %or.cond4.i.not85
+  %narrow.i.not = or i1 %cmp7.i, %or.cond4.i.not85.reass.reass.reass
   br i1 %narrow.i.not, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true

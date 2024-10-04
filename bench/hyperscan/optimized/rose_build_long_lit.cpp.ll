@@ -1155,6 +1155,7 @@ for.body.lr.ph.i:                                 ; preds = %call5.i.i.i.i3.i.i4
   %3 = shl nsw i32 -1, %sub.i.i.i
   %4 = xor i32 %3, -1
   %sub.i.i = select i1 %tobool.not.i.i.i, i32 0, i32 %4
+  %invariant.op = and i32 %sub.i.i, 7
   br i1 %cmp.not.i.i.i.i, label %for.body.lr.ph.i.split.us, label %for.body.i
 
 for.body.lr.ph.i.split.us:                        ; preds = %for.body.lr.ph.i
@@ -1190,8 +1191,8 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %shr.i.i.i.i.us.us.us = lshr i64 %mul.i.i.i.i.us.us.us, 32
   %conv.i.i20.i.i.us.us.us = trunc nuw i64 %shr.i.i.i.i.us.us.us to i32
   %and.i.i.us.us.us = and i32 %sub.i.i, %conv.i.i20.i.i.us.us.us
-  %rem.i.i.us.us.us = and i32 %and.i.i.us.us.us, 7
-  %shl6.i.i.us.us.us = shl nuw nsw i32 1, %rem.i.i.us.us.us
+  %rem.i.i.reass.us.us.us = and i32 %invariant.op, %conv.i.i20.i.i.us.us.us
+  %shl6.i.i.us.us.us = shl nuw nsw i32 1, %rem.i.i.reass.us.us.us
   %div16.i.i.us.us.us = lshr i32 %and.i.i.us.us.us, 3
   %conv7.i.i.us.us.us = zext nneg i32 %div16.i.i.us.us.us to i64
   %add.ptr.i17.i.i.us.us.us = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.i.i.us.us.us
@@ -1206,8 +1207,8 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %shr.i.i25.i.i.us.us.us = lshr i64 %mul.i.i24.i.i.us.us.us, 32
   %conv.i.i26.i.i.us.us.us = trunc nuw i64 %shr.i.i25.i.i.us.us.us to i32
   %and.1.i.i.us.us.us = and i32 %sub.i.i, %conv.i.i26.i.i.us.us.us
-  %rem.1.i.i.us.us.us = and i32 %and.1.i.i.us.us.us, 7
-  %shl6.1.i.i.us.us.us = shl nuw nsw i32 1, %rem.1.i.i.us.us.us
+  %rem.1.i.i.reass.us.us.us = and i32 %invariant.op, %conv.i.i26.i.i.us.us.us
+  %shl6.1.i.i.us.us.us = shl nuw nsw i32 1, %rem.1.i.i.reass.us.us.us
   %div16.1.i.i.us.us.us = lshr i32 %and.1.i.i.us.us.us, 3
   %conv7.1.i.i.us.us.us = zext nneg i32 %div16.1.i.i.us.us.us to i64
   %add.ptr.i17.1.i.i.us.us.us = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.1.i.i.us.us.us
@@ -1222,8 +1223,8 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %shr.i.i32.i.i.us.us.us = lshr i64 %mul.i.i31.i.i.us.us.us, 32
   %conv.i.i33.i.i.us.us.us = trunc nuw i64 %shr.i.i32.i.i.us.us.us to i32
   %and.2.i.i.us.us.us = and i32 %sub.i.i, %conv.i.i33.i.i.us.us.us
-  %rem.2.i.i.us.us.us = and i32 %and.2.i.i.us.us.us, 7
-  %shl6.2.i.i.us.us.us = shl nuw nsw i32 1, %rem.2.i.i.us.us.us
+  %rem.2.i.i.reass.us.us.us = and i32 %invariant.op, %conv.i.i33.i.i.us.us.us
+  %shl6.2.i.i.us.us.us = shl nuw nsw i32 1, %rem.2.i.i.reass.us.us.us
   %div16.2.i.i.us.us.us = lshr i32 %and.2.i.i.us.us.us, 3
   %conv7.2.i.i.us.us.us = zext nneg i32 %div16.2.i.i.us.us.us to i64
   %add.ptr.i17.2.i.i.us.us.us = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.2.i.i.us.us.us
@@ -1250,65 +1251,65 @@ for.cond12.preheader.i.us:                        ; preds = %for.body.i.us
   %19 = load i64, ptr %_M_string_length.i.i.us, align 8, !noalias !33
   %add45.i.us = add i64 %19, %sub.i
   %cmp1546.i.us = icmp ugt i64 %add45.i.us, 1
-  br i1 %cmp1546.i.us, label %for.body17.i.us6, label %cleanup.i.us
+  br i1 %cmp1546.i.us, label %for.body17.i.us8, label %cleanup.i.us
 
-for.body17.i.us6:                                 ; preds = %for.cond12.preheader.i.us, %for.body17.i.us6
-  %conv1348.i.us7 = phi i64 [ %conv13.i.us43, %for.body17.i.us6 ], [ 1, %for.cond12.preheader.i.us ]
-  %offset.047.i.us8 = phi i32 [ %inc.i.us42, %for.body17.i.us6 ], [ 1, %for.cond12.preheader.i.us ]
+for.body17.i.us8:                                 ; preds = %for.cond12.preheader.i.us, %for.body17.i.us8
+  %conv1348.i.us9 = phi i64 [ %conv13.i.us45, %for.body17.i.us8 ], [ 1, %for.cond12.preheader.i.us ]
+  %offset.047.i.us10 = phi i32 [ %inc.i.us44, %for.body17.i.us8 ], [ 1, %for.cond12.preheader.i.us ]
   %20 = load ptr, ptr %__begin1.sroa.0.050.i.us, align 8, !noalias !33
-  %add.ptr.i.us9 = getelementptr inbounds i8, ptr %20, i64 %conv1348.i.us7
-  %21 = load i64, ptr %add.ptr.i.us9, align 1, !noalias !33
-  %mul.i.i.i.i.us10 = mul i64 %21, 814605021516865831
-  %shr.i.i.i.i.us11 = lshr i64 %mul.i.i.i.i.us10, 32
-  %conv.i.i20.i.i.us12 = trunc nuw i64 %shr.i.i.i.i.us11 to i32
-  %and.i.i.us13 = and i32 %sub.i.i, %conv.i.i20.i.i.us12
-  %rem.i.i.us14 = and i32 %and.i.i.us13, 7
-  %shl6.i.i.us15 = shl nuw nsw i32 1, %rem.i.i.us14
-  %div16.i.i.us16 = lshr i32 %and.i.i.us13, 3
-  %conv7.i.i.us17 = zext nneg i32 %div16.i.i.us16 to i64
-  %add.ptr.i17.i.i.us18 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.i.i.us17
-  %22 = load i8, ptr %add.ptr.i17.i.i.us18, align 1, !noalias !33
-  %23 = trunc nuw i32 %shl6.i.i.us15 to i8
-  %conv10.i.i.us19 = or i8 %22, %23
-  store i8 %conv10.i.i.us19, ptr %add.ptr.i17.i.i.us18, align 1, !noalias !33
-  %add.ptr.i.i.i41.i.us20 = getelementptr inbounds i8, ptr %add.ptr.i.us9, i64 4
-  %24 = load i64, ptr %add.ptr.i.i.i41.i.us20, align 1, !noalias !33
-  %mul.i.i24.i.i.us21 = mul i64 %24, 1561142276182578161
-  %shr.i.i25.i.i.us22 = lshr i64 %mul.i.i24.i.i.us21, 32
-  %conv.i.i26.i.i.us23 = trunc nuw i64 %shr.i.i25.i.i.us22 to i32
-  %and.1.i.i.us24 = and i32 %sub.i.i, %conv.i.i26.i.i.us23
-  %rem.1.i.i.us25 = and i32 %and.1.i.i.us24, 7
-  %shl6.1.i.i.us26 = shl nuw nsw i32 1, %rem.1.i.i.us25
-  %div16.1.i.i.us27 = lshr i32 %and.1.i.i.us24, 3
-  %conv7.1.i.i.us28 = zext nneg i32 %div16.1.i.i.us27 to i64
-  %add.ptr.i17.1.i.i.us29 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.1.i.i.us28
-  %25 = load i8, ptr %add.ptr.i17.1.i.i.us29, align 1, !noalias !33
-  %26 = trunc nuw i32 %shl6.1.i.i.us26 to i8
-  %conv10.1.i.i.us30 = or i8 %25, %26
-  store i8 %conv10.1.i.i.us30, ptr %add.ptr.i17.1.i.i.us29, align 1, !noalias !33
-  %add.ptr.i.i27.i.i.us31 = getelementptr inbounds i8, ptr %add.ptr.i.us9, i64 8
-  %27 = load i64, ptr %add.ptr.i.i27.i.i.us31, align 1, !noalias !33
-  %mul.i.i31.i.i.us32 = mul i64 %27, -9046039763781739849
-  %shr.i.i32.i.i.us33 = lshr i64 %mul.i.i31.i.i.us32, 32
-  %conv.i.i33.i.i.us34 = trunc nuw i64 %shr.i.i32.i.i.us33 to i32
-  %and.2.i.i.us35 = and i32 %sub.i.i, %conv.i.i33.i.i.us34
-  %rem.2.i.i.us36 = and i32 %and.2.i.i.us35, 7
-  %shl6.2.i.i.us37 = shl nuw nsw i32 1, %rem.2.i.i.us36
-  %div16.2.i.i.us38 = lshr i32 %and.2.i.i.us35, 3
-  %conv7.2.i.i.us39 = zext nneg i32 %div16.2.i.i.us38 to i64
-  %add.ptr.i17.2.i.i.us40 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.2.i.i.us39
-  %28 = load i8, ptr %add.ptr.i17.2.i.i.us40, align 1, !noalias !33
-  %29 = trunc nuw i32 %shl6.2.i.i.us37 to i8
-  %conv10.2.i.i.us41 = or i8 %28, %29
-  store i8 %conv10.2.i.i.us41, ptr %add.ptr.i17.2.i.i.us40, align 1, !noalias !33
-  %inc.i.us42 = add i32 %offset.047.i.us8, 1
-  %conv13.i.us43 = zext i32 %inc.i.us42 to i64
+  %add.ptr.i.us11 = getelementptr inbounds i8, ptr %20, i64 %conv1348.i.us9
+  %21 = load i64, ptr %add.ptr.i.us11, align 1, !noalias !33
+  %mul.i.i.i.i.us12 = mul i64 %21, 814605021516865831
+  %shr.i.i.i.i.us13 = lshr i64 %mul.i.i.i.i.us12, 32
+  %conv.i.i20.i.i.us14 = trunc nuw i64 %shr.i.i.i.i.us13 to i32
+  %and.i.i.us15 = and i32 %sub.i.i, %conv.i.i20.i.i.us14
+  %rem.i.i.reass.us16 = and i32 %invariant.op, %conv.i.i20.i.i.us14
+  %shl6.i.i.us17 = shl nuw nsw i32 1, %rem.i.i.reass.us16
+  %div16.i.i.us18 = lshr i32 %and.i.i.us15, 3
+  %conv7.i.i.us19 = zext nneg i32 %div16.i.i.us18 to i64
+  %add.ptr.i17.i.i.us20 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.i.i.us19
+  %22 = load i8, ptr %add.ptr.i17.i.i.us20, align 1, !noalias !33
+  %23 = trunc nuw i32 %shl6.i.i.us17 to i8
+  %conv10.i.i.us21 = or i8 %22, %23
+  store i8 %conv10.i.i.us21, ptr %add.ptr.i17.i.i.us20, align 1, !noalias !33
+  %add.ptr.i.i.i41.i.us22 = getelementptr inbounds i8, ptr %add.ptr.i.us11, i64 4
+  %24 = load i64, ptr %add.ptr.i.i.i41.i.us22, align 1, !noalias !33
+  %mul.i.i24.i.i.us23 = mul i64 %24, 1561142276182578161
+  %shr.i.i25.i.i.us24 = lshr i64 %mul.i.i24.i.i.us23, 32
+  %conv.i.i26.i.i.us25 = trunc nuw i64 %shr.i.i25.i.i.us24 to i32
+  %and.1.i.i.us26 = and i32 %sub.i.i, %conv.i.i26.i.i.us25
+  %rem.1.i.i.reass.us27 = and i32 %invariant.op, %conv.i.i26.i.i.us25
+  %shl6.1.i.i.us28 = shl nuw nsw i32 1, %rem.1.i.i.reass.us27
+  %div16.1.i.i.us29 = lshr i32 %and.1.i.i.us26, 3
+  %conv7.1.i.i.us30 = zext nneg i32 %div16.1.i.i.us29 to i64
+  %add.ptr.i17.1.i.i.us31 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.1.i.i.us30
+  %25 = load i8, ptr %add.ptr.i17.1.i.i.us31, align 1, !noalias !33
+  %26 = trunc nuw i32 %shl6.1.i.i.us28 to i8
+  %conv10.1.i.i.us32 = or i8 %25, %26
+  store i8 %conv10.1.i.i.us32, ptr %add.ptr.i17.1.i.i.us31, align 1, !noalias !33
+  %add.ptr.i.i27.i.i.us33 = getelementptr inbounds i8, ptr %add.ptr.i.us11, i64 8
+  %27 = load i64, ptr %add.ptr.i.i27.i.i.us33, align 1, !noalias !33
+  %mul.i.i31.i.i.us34 = mul i64 %27, -9046039763781739849
+  %shr.i.i32.i.i.us35 = lshr i64 %mul.i.i31.i.i.us34, 32
+  %conv.i.i33.i.i.us36 = trunc nuw i64 %shr.i.i32.i.i.us35 to i32
+  %and.2.i.i.us37 = and i32 %sub.i.i, %conv.i.i33.i.i.us36
+  %rem.2.i.i.reass.us38 = and i32 %invariant.op, %conv.i.i33.i.i.us36
+  %shl6.2.i.i.us39 = shl nuw nsw i32 1, %rem.2.i.i.reass.us38
+  %div16.2.i.i.us40 = lshr i32 %and.2.i.i.us37, 3
+  %conv7.2.i.i.us41 = zext nneg i32 %div16.2.i.i.us40 to i64
+  %add.ptr.i17.2.i.i.us42 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.2.i.i.us41
+  %28 = load i8, ptr %add.ptr.i17.2.i.i.us42, align 1, !noalias !33
+  %29 = trunc nuw i32 %shl6.2.i.i.us39 to i8
+  %conv10.2.i.i.us43 = or i8 %28, %29
+  store i8 %conv10.2.i.i.us43, ptr %add.ptr.i17.2.i.i.us42, align 1, !noalias !33
+  %inc.i.us44 = add i32 %offset.047.i.us10, 1
+  %conv13.i.us45 = zext i32 %inc.i.us44 to i64
   %30 = load i64, ptr %_M_string_length.i.i.us, align 8, !noalias !33
-  %add.i.us44 = add i64 %30, %sub.i
-  %cmp15.i.us45 = icmp ugt i64 %add.i.us44, %conv13.i.us43
-  br i1 %cmp15.i.us45, label %for.body17.i.us6, label %cleanup.i.us, !llvm.loop !37
+  %add.i.us46 = add i64 %30, %sub.i
+  %cmp15.i.us47 = icmp ugt i64 %add.i.us46, %conv13.i.us45
+  br i1 %cmp15.i.us47, label %for.body17.i.us8, label %cleanup.i.us, !llvm.loop !37
 
-cleanup.i.us:                                     ; preds = %for.body17.i.us6, %for.cond12.preheader.i.us, %for.body.i.us
+cleanup.i.us:                                     ; preds = %for.body17.i.us8, %for.cond12.preheader.i.us, %for.body.i.us
   %incdec.ptr.i.i.us = getelementptr inbounds i8, ptr %__begin1.sroa.0.050.i.us, i64 40
   %cmp.i.not.i.us = icmp eq ptr %incdec.ptr.i.i.us, %2
   br i1 %cmp.i.not.i.us, label %invoke.cont, label %for.body.i.us
@@ -1382,7 +1383,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i.i.i.i.i, 
 
 for.body.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
   %min.iters.check = icmp ult i64 %.pre, 8
-  br i1 %min.iters.check, label %for.body.i.i.i.preheader61, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i.i.i.preheader63, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
   %n.vec = and i64 %.pre, -8
@@ -1433,16 +1434,16 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <4 x i32> %63, %62
   %65 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx)
   %cmp.n = icmp eq i64 %.pre, %n.vec
-  br i1 %cmp.n, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", label %for.body.i.i.i.preheader61
+  br i1 %cmp.n, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", label %for.body.i.i.i.preheader63
 
-for.body.i.i.i.preheader61:                       ; preds = %middle.block, %for.body.i.i.i.preheader
+for.body.i.i.i.preheader63:                       ; preds = %middle.block, %for.body.i.i.i.preheader
   %__init.addr.011.i.i.i.ph = phi i32 [ %65, %middle.block ], [ 0, %for.body.i.i.i.preheader ]
   %__first.sroa.0.010.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %ref.tmp.sroa.0.2, %for.body.i.i.i.preheader ]
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader61, %for.body.i.i.i
-  %__init.addr.011.i.i.i = phi i32 [ %add.i.i.i.i, %for.body.i.i.i ], [ %__init.addr.011.i.i.i.ph, %for.body.i.i.i.preheader61 ]
-  %__first.sroa.0.010.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %__first.sroa.0.010.i.i.i.ph, %for.body.i.i.i.preheader61 ]
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader63, %for.body.i.i.i
+  %__init.addr.011.i.i.i = phi i32 [ %add.i.i.i.i, %for.body.i.i.i ], [ %__init.addr.011.i.i.i.ph, %for.body.i.i.i.preheader63 ]
+  %__first.sroa.0.010.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %__first.sroa.0.010.i.i.i.ph, %for.body.i.i.i.preheader63 ]
   %66 = load i8, ptr %__first.sroa.0.010.i.i.i, align 1
   %conv.i.i.i.i14 = zext i8 %66 to i32
   %shr.i.i.i.i.i = lshr i32 %conv.i.i.i.i14, 1

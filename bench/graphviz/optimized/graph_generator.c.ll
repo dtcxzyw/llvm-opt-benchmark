@@ -461,10 +461,11 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   %25 = icmp ne i32 %.0131.us, 0
   %26 = icmp eq i32 %.0131.us, %15
   %27 = icmp eq i32 %.0131.us, 0
+  %invariant.op = and i1 %25, %26
   br label %28
 
-28:                                               ; preds = %.preheader.us, %63
-  %.0108130.us = phi i32 [ 0, %.preheader.us ], [ %64, %63 ]
+28:                                               ; preds = %.preheader.us, %62
+  %.0108130.us = phi i32 [ 0, %.preheader.us ], [ %63, %62 ]
   %29 = add nuw nsw i32 %.0108130.us, %19
   %30 = add nuw nsw i32 %29, 1
   %31 = icmp slt i32 %.0108130.us, %8
@@ -493,73 +494,72 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br label %39
 
 39:                                               ; preds = %37, %36
-  switch i32 %2, label %63 [
-    i32 1, label %52
+  switch i32 %2, label %62 [
+    i32 1, label %51
     i32 2, label %40
   ]
 
 40:                                               ; preds = %39
   %41 = or i32 %.0108130.us, %.0131.us
   %or.cond5.us = icmp eq i32 %41, 0
-  br i1 %or.cond5.us, label %50, label %42
+  br i1 %or.cond5.us, label %49, label %42
 
 42:                                               ; preds = %40
   %43 = icmp eq i32 %.0108130.us, 0
   %or.cond7.us = and i1 %26, %43
-  br i1 %or.cond7.us, label %48, label %44
+  br i1 %or.cond7.us, label %47, label %44
 
 44:                                               ; preds = %42
   %45 = icmp eq i32 %.0108130.us, %8
-  %46 = and i1 %25, %45
-  %or.cond129.us = and i1 %26, %46
-  %47 = icmp slt i32 %29, %16
-  %or.cond133 = select i1 %or.cond129.us, i1 %47, i1 false
-  br i1 %or.cond133, label %.sink.split, label %63
+  %or.cond129.reass.us.reass.reass = and i1 %45, %invariant.op
+  %46 = icmp slt i32 %29, %16
+  %or.cond133 = select i1 %or.cond129.reass.us.reass.reass, i1 %46, i1 false
+  br i1 %or.cond133, label %.sink.split, label %62
 
-48:                                               ; preds = %42
-  %49 = icmp slt i32 %30, %18
-  br i1 %49, label %.sink.split, label %63
+47:                                               ; preds = %42
+  %48 = icmp slt i32 %30, %18
+  br i1 %48, label %.sink.split, label %62
 
-50:                                               ; preds = %40
-  %51 = icmp slt i32 %30, %1
-  br i1 %51, label %.sink.split, label %63
+49:                                               ; preds = %40
+  %50 = icmp slt i32 %30, %1
+  br i1 %50, label %.sink.split, label %62
 
-52:                                               ; preds = %39
-  %53 = or i32 %.0108130.us, %.0131.us
-  %or.cond.us = icmp eq i32 %53, 0
-  br i1 %or.cond.us, label %61, label %54
+51:                                               ; preds = %39
+  %52 = or i32 %.0108130.us, %.0131.us
+  %or.cond.us = icmp eq i32 %52, 0
+  br i1 %or.cond.us, label %60, label %53
 
-54:                                               ; preds = %52
-  %55 = icmp eq i32 %.0108130.us, 0
-  %or.cond3.us = and i1 %26, %55
-  br i1 %or.cond3.us, label %59, label %56
+53:                                               ; preds = %51
+  %54 = icmp eq i32 %.0108130.us, 0
+  %or.cond3.us = and i1 %26, %54
+  br i1 %or.cond3.us, label %58, label %55
 
-56:                                               ; preds = %54
-  %57 = icmp eq i32 %.0108130.us, %8
-  %or.cond124.us = and i1 %27, %57
-  %58 = icmp slt i32 %29, %16
-  %or.cond = select i1 %or.cond124.us, i1 %58, i1 false
-  br i1 %or.cond, label %.sink.split, label %63
+55:                                               ; preds = %53
+  %56 = icmp eq i32 %.0108130.us, %8
+  %or.cond124.us = and i1 %27, %56
+  %57 = icmp slt i32 %29, %16
+  %or.cond = select i1 %or.cond124.us, i1 %57, i1 false
+  br i1 %or.cond, label %.sink.split, label %62
 
-59:                                               ; preds = %54
-  %60 = icmp slt i32 %30, %1
-  br i1 %60, label %.sink.split, label %63
+58:                                               ; preds = %53
+  %59 = icmp slt i32 %30, %1
+  br i1 %59, label %.sink.split, label %62
 
-61:                                               ; preds = %52
-  %62 = icmp slt i32 %30, %18
-  br i1 %62, label %.sink.split, label %63
+60:                                               ; preds = %51
+  %61 = icmp slt i32 %30, %18
+  br i1 %61, label %.sink.split, label %62
 
-.sink.split:                                      ; preds = %61, %59, %56, %50, %48, %44
-  %.sink = phi i32 [ %17, %44 ], [ %18, %48 ], [ %1, %50 ], [ %17, %56 ], [ %1, %59 ], [ %18, %61 ]
+.sink.split:                                      ; preds = %60, %58, %55, %49, %47, %44
+  %.sink = phi i32 [ %17, %44 ], [ %18, %47 ], [ %1, %49 ], [ %17, %55 ], [ %1, %58 ], [ %18, %60 ]
   tail call void %4(i32 noundef %30, i32 noundef %.sink) #14
-  br label %63
+  br label %62
 
-63:                                               ; preds = %.sink.split, %56, %61, %59, %50, %48, %44, %39
-  %64 = add nuw nsw i32 %.0108130.us, 1
-  %exitcond.not = icmp eq i32 %64, %1
+62:                                               ; preds = %.sink.split, %55, %60, %58, %49, %47, %44, %39
+  %63 = add nuw nsw i32 %.0108130.us, 1
+  %exitcond.not = icmp eq i32 %63, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %28
 
-._crit_edge.us:                                   ; preds = %63
+._crit_edge.us:                                   ; preds = %62
   %exitcond141.not = icmp eq i32 %22, %0
   br i1 %exitcond141.not, label %._crit_edge132, label %.preheader.us
 

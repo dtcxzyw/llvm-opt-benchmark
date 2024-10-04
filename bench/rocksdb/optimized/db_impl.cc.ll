@@ -37148,6 +37148,7 @@ _ZN7rocksdb6StatusD2Ev.exit114:                   ; preds = %_ZNKSt14default_del
   %value_mask_.i = getelementptr inbounds i8, ptr %50, i64 3848
   %51 = load i64, ptr %skip_mask_.i.i, align 8
   %52 = load i64, ptr %invalid_mask_.i.i, align 8
+  %invariant.op = or i64 %51, %52
   %53 = add i64 %mget_iter.sroa.5.0477, 1
   %umax = call i64 @llvm.umax.i64(i64 %49, i64 %53)
   %54 = add i64 %umax, -1
@@ -37162,9 +37163,8 @@ land.rhs.i119:                                    ; preds = %while.cond.i
   %inc.i117 = add i64 %55, 1
   %shl.i = shl nuw i64 1, %inc.i117
   %56 = load i64, ptr %value_mask_.i, align 8
-  %or.i = or i64 %51, %56
-  %or6.i = or i64 %or.i, %52
-  %and.i = and i64 %or6.i, %shl.i
+  %or6.i.reass = or i64 %56, %invariant.op
+  %and.i = and i64 %or6.i.reass, %shl.i
   %tobool.not.i120 = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i120, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %while.cond.i, !llvm.loop !301
 

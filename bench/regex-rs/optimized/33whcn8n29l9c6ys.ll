@@ -2665,6 +2665,7 @@ define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18c
   %24 = getelementptr inbounds i8, ptr %1, i64 792
   %25 = zext i32 %12 to i64
   %26 = shl i64 %25, 43
+  %invariant.op = or i64 %26, %4
   br label %28
 
 27:                                               ; preds = %5
@@ -2676,7 +2677,7 @@ define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18c
   store i32 %12, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.318.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.318, i64 116, i1 false)
-  br label %52
+  br label %50
 
 28:                                               ; preds = %.backedge, %13
   %29 = call i32 @"_ZN115_$LT$regex_automata..util..alphabet..ByteClassRepresentatives$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h973295a2a9affafbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
@@ -2688,13 +2689,13 @@ define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18c
   %trunc.i.i.i.i.i = trunc i32 %29 to i1
   br i1 %trunc.i.i.i.i.i, label %.backedge, label %33
 
-.backedge:                                        ; preds = %31, %53, %_ZN14regex_automata3dfa7onepass3DFA14set_transition17he0b34ad8891b1d43E.exit
+.backedge:                                        ; preds = %31, %51, %_ZN14regex_automata3dfa7onepass3DFA14set_transition17he0b34ad8891b1d43E.exit
   br label %28
 
 32:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   store i64 -9223372036854775794, ptr %0, align 8
-  br label %52
+  br label %50
 
 33:                                               ; preds = %31
   %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i32 %29, 8
@@ -2722,30 +2723,29 @@ _ZN14regex_automata3dfa7onepass3DFA10transition17hd230cc2c96e6e830E.exit: ; pred
   %47 = load i8, ptr %24, align 8, !range !276, !noundef !4
   %48 = trunc nuw i8 %47 to i1
   %..i = select i1 %48, i64 4398046511104, i64 0
-  %49 = or disjoint i64 %..i, %26
-  %50 = or i64 %49, %4
-  %51 = icmp ult i64 %46, 8796093022208
-  br i1 %51, label %_ZN14regex_automata3dfa7onepass3DFA14set_transition17he0b34ad8891b1d43E.exit, label %53
+  %.reass = or i64 %..i, %invariant.op
+  %49 = icmp ult i64 %46, 8796093022208
+  br i1 %49, label %_ZN14regex_automata3dfa7onepass3DFA14set_transition17he0b34ad8891b1d43E.exit, label %51
 
-52:                                               ; preds = %54, %32, %27
+50:                                               ; preds = %52, %32, %27
   ret void
 
 _ZN14regex_automata3dfa7onepass3DFA14set_transition17he0b34ad8891b1d43E.exit: ; preds = %_ZN14regex_automata3dfa7onepass3DFA10transition17hd230cc2c96e6e830E.exit
-  store i64 %50, ptr %45, align 8, !noalias !315
+  store i64 %.reass, ptr %45, align 8, !noalias !315
   br label %.backedge
 
-53:                                               ; preds = %_ZN14regex_automata3dfa7onepass3DFA10transition17hd230cc2c96e6e830E.exit
-  %.not = icmp eq i64 %46, %50
-  br i1 %.not, label %.backedge, label %54
+51:                                               ; preds = %_ZN14regex_automata3dfa7onepass3DFA10transition17hd230cc2c96e6e830E.exit
+  %.not = icmp eq i64 %46, %.reass
+  br i1 %.not, label %.backedge, label %52
 
-54:                                               ; preds = %53
+52:                                               ; preds = %51
   store i64 -9223372036854775795, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.451e762c733db03501c72f969938ebf7.36, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 22, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %52
+  br label %50
 }
 
 ; Function Attrs: nonlazybind uwtable

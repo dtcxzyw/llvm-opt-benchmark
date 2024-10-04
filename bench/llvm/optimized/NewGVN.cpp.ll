@@ -46619,8 +46619,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E12getHashValueERKS5_.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %magicptr9.i = ptrtoint ptr %0 to i64
-  switch i64 %magicptr9.i, label %.lr.ph.i.i [
+  %magicptr = ptrtoint ptr %0 to i64
+  switch i64 %magicptr, label %.lr.ph.i.i [
     i64 -8, label %.lr.ph.i.us.i.preheader
     i64 34359738352, label %.lr.ph.i.us.i.preheader
   ]

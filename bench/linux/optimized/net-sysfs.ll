@@ -1214,85 +1214,85 @@ define internal fastcc noundef range(i32 -12, 1) i32 @netdev_rx_queue_set_rps_ma
   %9 = zext i32 %8 to i64
   %10 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %9, i32 noundef 3520) #12
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %50, label %12
+  br i1 %11, label %48, label %12
 
 12:                                               ; preds = %2
   %13 = load i64, ptr @__cpu_online_mask, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 24
   %15 = load i64, ptr %1, align 8
+  %invariant.op = and i64 %13, %15
   br label %16
 
-16:                                               ; preds = %12, %27
-  %17 = phi i64 [ 0, %12 ], [ %33, %27 ]
-  %18 = phi i32 [ 0, %12 ], [ %29, %27 ]
+16:                                               ; preds = %12, %25
+  %17 = phi i64 [ 0, %12 ], [ %31, %25 ]
+  %18 = phi i32 [ 0, %12 ], [ %27, %25 ]
   %19 = shl nsw i64 -1, %17
-  %20 = and i64 %19, %13
-  %21 = and i64 %20, %15
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.thread, label %23
+  %.reass = and i64 %19, %invariant.op
+  %20 = icmp eq i64 %.reass, 0
+  br i1 %20, label %.thread, label %21
 
-23:                                               ; preds = %16
-  %24 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %21) #13, !srcloc !29
-  %25 = and i64 %24, 4294967232
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %.thread
+21:                                               ; preds = %16
+  %22 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass) #13, !srcloc !29
+  %23 = and i64 %22, 4294967232
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %.thread
 
-27:                                               ; preds = %23
-  %28 = trunc i64 %24 to i16
-  %29 = add i32 %18, 1
-  %30 = sext i32 %18 to i64
-  %31 = getelementptr [0 x i16], ptr %14, i64 0, i64 %30
-  store i16 %28, ptr %31, align 2
-  %32 = add nuw nsw i64 %24, 1
-  %33 = and i64 %32, 127
-  %34 = icmp ugt i64 %33, 63
-  br i1 %34, label %.thread, label %16, !prof !30, !llvm.loop !31
+25:                                               ; preds = %21
+  %26 = trunc i64 %22 to i16
+  %27 = add i32 %18, 1
+  %28 = sext i32 %18 to i64
+  %29 = getelementptr [0 x i16], ptr %14, i64 0, i64 %28
+  store i16 %26, ptr %29, align 2
+  %30 = add nuw nsw i64 %22, 1
+  %31 = and i64 %30, 127
+  %32 = icmp ugt i64 %31, 63
+  br i1 %32, label %.thread, label %16, !prof !30, !llvm.loop !31
 
-.thread:                                          ; preds = %16, %27, %23
-  %.lcssa = phi i32 [ %18, %16 ], [ %29, %27 ], [ %18, %23 ]
-  %35 = icmp eq i32 %.lcssa, 0
-  br i1 %35, label %37, label %36
+.thread:                                          ; preds = %16, %25, %21
+  %.lcssa = phi i32 [ %18, %16 ], [ %27, %25 ], [ %18, %21 ]
+  %33 = icmp eq i32 %.lcssa, 0
+  br i1 %33, label %35, label %34
 
-36:                                               ; preds = %.thread
+34:                                               ; preds = %.thread
   store i32 %.lcssa, ptr %10, align 8
-  br label %38
+  br label %36
 
-37:                                               ; preds = %.thread
+35:                                               ; preds = %.thread
   tail call void @kfree(ptr noundef nonnull %10) #10
-  br label %38
+  br label %36
 
-38:                                               ; preds = %37, %36
-  %39 = phi ptr [ %10, %36 ], [ null, %37 ]
+36:                                               ; preds = %35, %34
+  %37 = phi ptr [ %10, %34 ], [ null, %35 ]
   tail call void @mutex_lock(ptr noundef nonnull @netdev_rx_queue_set_rps_mask.rps_map_mutex) #10
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
-  %41 = load ptr, ptr %40, align 64
+  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = load ptr, ptr %38, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !32
-  store volatile ptr %39, ptr %40, align 64
-  %42 = icmp eq ptr %39, null
-  br i1 %42, label %45, label %43
+  store volatile ptr %37, ptr %38, align 64
+  %40 = icmp eq ptr %37, null
+  br i1 %40, label %43, label %41
 
-43:                                               ; preds = %38
-  %44 = tail call zeroext i1 @static_key_slow_inc(ptr noundef nonnull @rps_needed) #10
-  br label %45
+41:                                               ; preds = %36
+  %42 = tail call zeroext i1 @static_key_slow_inc(ptr noundef nonnull @rps_needed) #10
+  br label %43
 
-45:                                               ; preds = %43, %38
-  %46 = icmp eq ptr %41, null
-  br i1 %46, label %49, label %47
+43:                                               ; preds = %41, %36
+  %44 = icmp eq ptr %39, null
+  br i1 %44, label %47, label %45
 
-47:                                               ; preds = %45
+45:                                               ; preds = %43
   tail call void @static_key_slow_dec(ptr noundef nonnull @rps_needed) #10
   tail call void @mutex_unlock(ptr noundef nonnull @netdev_rx_queue_set_rps_mask.rps_map_mutex) #10
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
-  tail call void @kvfree_call_rcu(ptr noundef %48, ptr noundef nonnull %41) #10
-  br label %50
+  %46 = getelementptr inbounds i8, ptr %39, i64 8
+  tail call void @kvfree_call_rcu(ptr noundef %46, ptr noundef nonnull %39) #10
+  br label %48
 
-49:                                               ; preds = %45
+47:                                               ; preds = %43
   tail call void @mutex_unlock(ptr noundef nonnull @netdev_rx_queue_set_rps_mask.rps_map_mutex) #10
-  br label %50
+  br label %48
 
-50:                                               ; preds = %49, %47, %2
-  %51 = phi i32 [ -12, %2 ], [ 0, %49 ], [ 0, %47 ]
-  ret i32 %51
+48:                                               ; preds = %47, %45, %2
+  %49 = phi i32 [ -12, %2 ], [ 0, %47 ], [ 0, %45 ]
+  ret i32 %49
 }
 
 ; Function Attrs: null_pointer_is_valid

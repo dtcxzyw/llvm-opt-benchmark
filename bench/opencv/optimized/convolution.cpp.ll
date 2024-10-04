@@ -7343,6 +7343,7 @@ _ZN2cv3dnn16convBlockMR1_F32EiPKfS2_Pffbffbii.exit.i.i.i: ; preds = %.loopexit.t
   %499 = sext i32 %491 to i64
   %500 = getelementptr inbounds float, ptr %79, i64 %499
   %501 = icmp sgt i32 %.sroa.speculated.us.i.i.i, 0
+  %invariant.op.us.i.i.i = and i1 %477, %501
   %502 = zext nneg i32 %.sroa.speculated.us.i.i.i to i64
   %503 = shl nuw nsw i64 %502, 2
   br label %504
@@ -7372,9 +7373,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i262.us.i.i.i: ; preds =
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i.i.us.i.i.i: ; preds = %.noexc62.i.i.us.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i262.us.i.i.i
   %.sroa.0.0.i.i.us.i.i.i = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i262.us.i.i.i ], [ %512, %.noexc62.i.i.us.i.i.i ]
   %513 = icmp sgt i32 %505, 0
-  %or.cond.i.i.us.i.i.i = and i1 %477, %513
-  %or.cond124.i.i.us.i.i.i = and i1 %501, %or.cond.i.i.us.i.i.i
-  br i1 %or.cond124.i.i.us.i.i.i, label %.preheader71.us.us.preheader.i.i.us.i.i.i, label %._crit_edge.i.i.us.i.i.i
+  %or.cond124.i.i.reass.us.i.i.i = and i1 %invariant.op.us.i.i.i, %513
+  br i1 %or.cond124.i.i.reass.us.i.i.i, label %.preheader71.us.us.preheader.i.i.us.i.i.i, label %._crit_edge.i.i.us.i.i.i
 
 .preheader71.us.us.preheader.i.i.us.i.i.i:        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.i.i.us.i.i.i
   %514 = zext nneg i32 %505 to i64

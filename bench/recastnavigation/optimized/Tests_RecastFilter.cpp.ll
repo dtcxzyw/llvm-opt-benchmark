@@ -1757,8 +1757,8 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_7v() #1 personality ptr @__gxx_p
   %48 = icmp sgt i32 %47, 0
   %49 = load i32, ptr %27, align 4
   %50 = icmp sgt i32 %49, 0
-  %or.cond147 = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond147, label %.preheader122, label %._crit_edge128
+  %or.cond = select i1 %48, i1 %50, i1 false
+  br i1 %or.cond, label %.preheader122, label %._crit_edge128
 
 .preheader122:                                    ; preds = %.preheader125, %._crit_edge
   %51 = phi i32 [ %68, %._crit_edge ], [ %47, %.preheader125 ]
@@ -1902,14 +1902,15 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_7v() #1 personality ptr @__gxx_p
 .lr.ph130:                                        ; preds = %.preheader117
   %127 = icmp eq i32 %.077132, 0
   %128 = icmp eq i32 %.077132, 9
+  %invariant.op = or i1 %127, %128
   br label %131
 
 .preheader115:                                    ; preds = %._crit_edge131
   %129 = icmp sgt i32 %313, 0
   %.pr = load i32, ptr %27, align 4
   %130 = icmp sgt i32 %.pr, 0
-  %or.cond148 = select i1 %129, i1 %130, i1 false
-  br i1 %or.cond148, label %.preheader, label %.loopexit116
+  %or.cond147 = select i1 %129, i1 %130, i1 false
+  br i1 %or.cond147, label %.preheader, label %.loopexit116
 
 131:                                              ; preds = %.lr.ph130, %_ZN5Catch16AssertionHandlerD2Ev.exit109
   %.078129 = phi i32 [ 0, %.lr.ph130 ], [ %305, %_ZN5Catch16AssertionHandlerD2Ev.exit109 ]
@@ -1984,10 +1985,9 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_7v() #1 personality ptr @__gxx_p
 
 _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %149, %152
   %160 = icmp eq i32 %.078129, 0
-  %or.cond = or i1 %127, %160
-  %or.cond3 = or i1 %128, %or.cond
+  %or.cond3.reass = or i1 %160, %invariant.op
   %161 = icmp eq i32 %.078129, 9
-  %or.cond5 = or i1 %161, %or.cond3
+  %or.cond5 = or i1 %161, %or.cond3.reass
   br i1 %or.cond5, label %162, label %196
 
 162:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit

@@ -824,9 +824,9 @@ for.body.i43.i:                                   ; preds = %for.body.i43.i, %fo
   %31 = load i8, ptr %ptr.0117.i.i, align 1
   %conv.i44.i = zext i8 %31 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i44.i, 8
-  %add4.i.i.reass.i.i.reass = or disjoint i32 %shl.i.i.i.i, %invariant.op89.reass
+  %add4.i.i.reass.reass.i.reass.i.reass = or disjoint i32 %shl.i.i.i.i, %invariant.op89.reass
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %DTableRank.addr.0118.i.i, i64 4
-  store i32 %add4.i.i.reass.i.i.reass, ptr %DTableRank.addr.0118.i.i, align 2
+  store i32 %add4.i.i.reass.reass.i.reass.i.reass, ptr %DTableRank.addr.0118.i.i, align 2
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.0117.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr2.i.i, %add.ptr34.i.i
   br i1 %cmp.not.i.i, label %HUF_fillDTableX2ForWeight.exit.i, label %for.body.i43.i, !llvm.loop !26
@@ -837,10 +837,10 @@ for.body7.i.i:                                    ; preds = %for.body7.i.i, %for
   %32 = load i8, ptr %ptr.1113.i.i, align 1
   %conv10.i.i = zext i8 %32 to i32
   %shl.i.i64.i.i = shl nuw nsw i32 %conv10.i.i, 8
-  %add4.i.i70.reass.i.i.reass = or disjoint i32 %shl.i.i64.i.i, %invariant.op88.reass
-  store i32 %add4.i.i70.reass.i.i.reass, ptr %DTableRank.addr.1114.i.i, align 2
+  %add4.i.i70.reass.reass.i.reass.i.reass = or disjoint i32 %shl.i.i64.i.i, %invariant.op88.reass
+  store i32 %add4.i.i70.reass.reass.i.reass.i.reass, ptr %DTableRank.addr.1114.i.i, align 2
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %DTableRank.addr.1114.i.i, i64 4
-  store i32 %add4.i.i70.reass.i.i.reass, ptr %arrayidx13.i.i, align 2
+  store i32 %add4.i.i70.reass.reass.i.reass.i.reass, ptr %arrayidx13.i.i, align 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %DTableRank.addr.1114.i.i, i64 8
   %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.1113.i.i, i64 1
   %cmp5.not.i.i = icmp eq ptr %incdec.ptr15.i.i, %add.ptr34.i.i
@@ -852,8 +852,8 @@ for.body21.i.i:                                   ; preds = %for.body21.i.i, %fo
   %33 = load i8, ptr %ptr.2109.i.i, align 1
   %conv23.i.i = zext i8 %33 to i32
   %shl.i.i72.i.i = shl nuw nsw i32 %conv23.i.i, 8
-  %add4.i.i78.reass.i.i.reass = or disjoint i32 %shl.i.i72.i.i, %invariant.op87.reass
-  %conv1.i.i38.i = zext i32 %add4.i.i78.reass.i.i.reass to i64
+  %add4.i.i78.reass.reass.i.reass.i.reass = or disjoint i32 %shl.i.i72.i.i, %invariant.op87.reass
+  %conv1.i.i38.i = zext i32 %add4.i.i78.reass.reass.i.reass.i.reass to i64
   %add.i.i39.i = mul nuw i64 %conv1.i.i38.i, 4294967297
   store i64 %add.i.i39.i, ptr %DTableRank.addr.2110.i.i, align 2
   %add.ptr26.i.i = getelementptr inbounds i8, ptr %DTableRank.addr.2110.i.i, i64 8
@@ -869,8 +869,8 @@ for.body35.i.i:                                   ; preds = %for.body35.i.i, %fo
   %34 = load i8, ptr %ptr.3106.i.i, align 1
   %conv38.i.i = zext i8 %34 to i32
   %shl.i.i81.i.i = shl nuw nsw i32 %conv38.i.i, 8
-  %add4.i.i87.reass.i.i.reass = or disjoint i32 %shl.i.i81.i.i, %invariant.op.reass
-  %conv1.i88.i.i = zext i32 %add4.i.i87.reass.i.i.reass to i64
+  %add4.i.i87.reass.reass.i.reass.i.reass = or disjoint i32 %shl.i.i81.i.i, %invariant.op.reass
+  %conv1.i88.i.i = zext i32 %add4.i.i87.reass.reass.i.reass.i.reass to i64
   %add.i89.i.i = mul nuw i64 %conv1.i88.i.i, 4294967297
   store i64 %add.i89.i.i, ptr %DTableRank.addr.3107.i.i, align 2
   %add.ptr41.i.i = getelementptr inbounds i8, ptr %DTableRank.addr.3107.i.i, i64 8
@@ -890,8 +890,8 @@ for.body60.preheader.i.i:                         ; preds = %for.inc68.i.i, %for
   %35 = load i8, ptr %ptr.4123.i.i, align 1
   %conv54.i.i = zext i8 %35 to i32
   %shl.i.i92.i.i = shl nuw nsw i32 %conv54.i.i, 8
-  %add4.i.i98.i.i.reass = or disjoint i32 %shl.i.i92.i.i, %invariant.op90.reass
-  %conv1.i99.i.i = zext i32 %add4.i.i98.i.i.reass to i64
+  %add4.i.i98.i.reass.i.reass = or disjoint i32 %shl.i.i92.i.i, %invariant.op90.reass
+  %conv1.i99.i.i = zext i32 %add4.i.i98.i.reass.i.reass to i64
   %add.i100.i.i = mul nuw i64 %conv1.i99.i.i, 4294967297
   %add.ptr56.i.i = getelementptr inbounds %struct.HUF_DEltX2, ptr %DTableRank.addr.4124.i.i, i64 %idx.ext.i.i
   br label %for.body60.i.i

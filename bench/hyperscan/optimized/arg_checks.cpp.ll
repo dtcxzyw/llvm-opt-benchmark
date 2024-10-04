@@ -9070,6 +9070,7 @@ for.body32:                                       ; preds = %for.cond29.loopexit
 for.body36.lr.ph:                                 ; preds = %for.body32
   %arrayidx39 = getelementptr inbounds [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %i28.0308
   %40 = load i32, ptr %arrayidx39, align 4
+  %invariant.op = or i32 %40, 2
   br label %for.body36
 
 for.body36:                                       ; preds = %cleanup.cont103, %for.body36.lr.ph
@@ -9080,10 +9081,9 @@ for.body36:                                       ; preds = %cleanup.cont103, %f
   store ptr null, ptr %compile_err38, align 8
   %arrayidx40 = getelementptr inbounds [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %j.0307
   %41 = load i32, ptr %arrayidx40, align 4
-  %or41 = or i32 %41, %40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err42) #28
-  %or43 = or i32 %or41, 2
-  %call44 = call i32 @hs_compile(ptr noundef nonnull @.str.305, i32 noundef 256, i32 noundef %or43, ptr noundef null, ptr noundef nonnull %db37, ptr noundef nonnull %compile_err38)
+  %or43.reass = or i32 %41, %invariant.op
+  %call44 = call i32 @hs_compile(ptr noundef nonnull @.str.305, i32 noundef 256, i32 noundef %or43.reass, ptr noundef null, ptr noundef nonnull %db37, ptr noundef nonnull %compile_err38)
   store i32 %call44, ptr %err42, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar45) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp46) #28
@@ -9095,6 +9095,7 @@ for.body36:                                       ; preds = %cleanup.cont103, %f
   br i1 %tobool.i194.not, label %if.else49, label %cleanup.cont74.critedge
 
 if.else49:                                        ; preds = %for.body36
+  %or41.le = or i32 %41, %40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp50) #28
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50)
           to label %invoke.cont52 unwind label %lpad51
@@ -9108,7 +9109,7 @@ invoke.cont52:                                    ; preds = %if.else49
 invoke.cont54:                                    ; preds = %invoke.cont52
   %44 = load ptr, ptr %ref.tmp50, align 8
   %add.ptr.i196 = getelementptr inbounds i8, ptr %44, i64 16
-  %conv.i.i = zext i32 %or41 to i64
+  %conv.i.i = zext i32 %or41.le to i64
   %call.i.i197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i196, i64 noundef %conv.i.i)
           to label %invoke.cont56 unwind label %lpad53
 

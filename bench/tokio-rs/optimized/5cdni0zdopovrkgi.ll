@@ -9551,30 +9551,30 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo15clear_readi
   %5 = load i8, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.18090272232049510573(ptr noundef nonnull %6, i8 noundef 2), !noalias !1636
-  %8 = lshr i64 %7, 16
-  %9 = trunc i64 %8 to i8
-  %.not.us21.i = icmp eq i8 %5, %9
-  br i1 %.not.us21.i, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17h0217fa951bf66eb3E.exit
+  %8 = and i64 %3, 51
+  %invariant.op.i = xor i64 %8, 63
+  %9 = lshr i64 %7, 16
+  %10 = trunc i64 %9 to i8
+  %.not.us24.i = icmp eq i8 %5, %10
+  br i1 %.not.us24.i, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17h0217fa951bf66eb3E.exit
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i: ; preds = %2
-  %10 = and i64 %3, 51
   %11 = zext i8 %5 to i64
   %12 = shl nuw nsw i64 %11, 16
-  %.pn23.i = xor i64 %10, 63
   br label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i: ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i
-  %.0.fr.us22.i = phi i64 [ %7, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i ], [ %.fca.1.extract.us.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i ]
-  %13 = and i64 %.pn23.i, %.0.fr.us22.i
-  %14 = or disjoint i64 %13, %12
-  %15 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %6, i64 noundef %.0.fr.us22.i, i64 noundef %14, i8 noundef 3, i8 noundef 2), !noalias !1636
-  %.fr24.i = freeze { i64, i64 } %15
-  %.fca.0.extract.us.i = extractvalue { i64, i64 } %.fr24.i, 0
+  %.0.fr.us25.i = phi i64 [ %7, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i ], [ %.fca.1.extract.us.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i ]
+  %.reass.us26.i = and i64 %.0.fr.us25.i, %invariant.op.i
+  %13 = or disjoint i64 %.reass.us26.i, %12
+  %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %6, i64 noundef %.0.fr.us25.i, i64 noundef %13, i8 noundef 3, i8 noundef 2), !noalias !1636
+  %.fr27.i = freeze { i64, i64 } %14
+  %.fca.0.extract.us.i = extractvalue { i64, i64 } %.fr27.i, 0
   %switch11.us.i = icmp ne i64 %.fca.0.extract.us.i, 0
-  %.fca.1.extract.us.i = extractvalue { i64, i64 } %.fr24.i, 1
-  %16 = lshr i64 %.fca.1.extract.us.i, 16
-  %17 = trunc i64 %16 to i8
-  %.not.us.i = icmp eq i8 %5, %17
+  %.fca.1.extract.us.i = extractvalue { i64, i64 } %.fr27.i, 1
+  %15 = lshr i64 %.fca.1.extract.us.i, 16
+  %16 = trunc i64 %15 to i8
+  %.not.us.i = icmp eq i8 %5, %16
   %or.cond.i = and i1 %switch11.us.i, %.not.us.i
   br i1 %or.cond.i, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17h0217fa951bf66eb3E.exit
 

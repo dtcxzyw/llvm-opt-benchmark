@@ -3257,6 +3257,10 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %93 = freeze i1 %92
   br i1 %93, label %.preheader14, label %.preheader17
 
+.preheader17:                                     ; preds = %90
+  %invariant.op = and i32 %77, %75
+  br label %101
+
 .preheader14:                                     ; preds = %90, %97
   %94 = phi i16 [ %99, %97 ], [ %54, %90 ]
   %95 = zext i16 %94 to i64
@@ -3271,54 +3275,54 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %100 = icmp ugt i16 %99, %58
   br i1 %100, label %.loopexit13, label %.preheader14, !llvm.loop !237
 
-.preheader17:                                     ; preds = %90, %124
-  %101 = phi i16 [ %125, %124 ], [ %54, %90 ]
-  %102 = zext i16 %101 to i64
-  %103 = icmp ugt i64 %38, %102
-  br i1 %103, label %104, label %.loopexit
+101:                                              ; preds = %.preheader17, %124
+  %102 = phi i16 [ %125, %124 ], [ %54, %.preheader17 ]
+  %103 = zext i16 %102 to i64
+  %104 = icmp ugt i64 %38, %103
+  br i1 %104, label %105, label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader17, %.preheader14, %.preheader
+.loopexit:                                        ; preds = %101, %.preheader14, %.preheader
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.52, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE5setupEbb) #14
   unreachable
 
-104:                                              ; preds = %.preheader17
-  %105 = getelementptr inbounds i32, ptr %34, i64 %102
-  store i32 %69, ptr %105, align 4, !tbaa !47
-  %106 = load i8, ptr %40, align 1, !range !121
-  %107 = icmp ne i8 %106, 0
-  %108 = select i1 %68, i1 true, i1 %107
-  br i1 %108, label %109, label %120
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds i32, ptr %34, i64 %103
+  store i32 %69, ptr %106, align 4, !tbaa !47
+  %107 = load i8, ptr %40, align 1, !range !121
+  %108 = icmp ne i8 %107, 0
+  %109 = select i1 %68, i1 true, i1 %108
+  br i1 %109, label %110, label %120
 
-109:                                              ; preds = %104
-  store i32 %70, ptr %105, align 4, !tbaa !47
-  br i1 %71, label %124, label %110
-
-110:                                              ; preds = %109
-  br i1 %68, label %111, label %120
+110:                                              ; preds = %105
+  store i32 %70, ptr %106, align 4, !tbaa !47
+  br i1 %71, label %124, label %111
 
 111:                                              ; preds = %110
+  br i1 %68, label %112, label %120
+
+112:                                              ; preds = %111
   tail call void @llvm.assume(i1 %72)
-  %112 = zext i16 %101 to i32
-  %113 = lshr i32 %112, %73
-  %114 = and i32 %113, %75
-  %115 = and i32 %114, %77
-  %116 = icmp eq i32 %115, 0
+  %113 = zext i16 %102 to i32
+  %114 = lshr i32 %113, %73
+  %115 = and i32 %114, %75
+  %.reass = and i32 %114, %invariant.op
+  %116 = icmp eq i32 %.reass, 0
   %117 = select i1 %116, i32 %78, i32 0
-  %118 = add nsw i32 %117, %114
+  %118 = add nsw i32 %117, %115
   %119 = shl nsw i32 %118, 9
   br label %120
 
-120:                                              ; preds = %111, %110, %104
-  %121 = phi i32 [ %70, %111 ], [ %70, %110 ], [ %69, %104 ]
-  %122 = phi i32 [ %119, %111 ], [ -16777216, %110 ], [ -16777216, %104 ]
+120:                                              ; preds = %112, %111, %105
+  %121 = phi i32 [ %70, %112 ], [ %70, %111 ], [ %69, %105 ]
+  %122 = phi i32 [ %119, %112 ], [ -16777216, %111 ], [ -16777216, %105 ]
   %123 = or i32 %122, %121
-  store i32 %123, ptr %105, align 4, !tbaa !47
+  store i32 %123, ptr %106, align 4, !tbaa !47
   br label %124
 
-124:                                              ; preds = %120, %109
-  %125 = add i16 %101, 1
+124:                                              ; preds = %120, %110
+  %125 = add i16 %102, 1
   %126 = icmp ugt i16 %125, %58
-  br i1 %126, label %.loopexit13, label %.preheader17, !llvm.loop !237
+  br i1 %126, label %.loopexit13, label %101, !llvm.loop !237
 
 .loopexit13:                                      ; preds = %124, %97, %86, %49
   %127 = add nuw i64 %43, 1

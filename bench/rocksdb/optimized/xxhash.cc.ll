@@ -4575,15 +4575,15 @@ while.end:                                        ; preds = %while.body
 
 for.body.lr.ph:                                   ; preds = %while.end
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %1)
+  %invariant.op = xor i64 %or19.i.i, %or19.i2.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %n.038 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %sub.i.i.i = sub nuw nsw i64 6455697860950631241, %n.038
   %add.i.i.i = add nuw nsw i64 %n.038, -4466874330221494952
-  %2 = xor i64 %or19.i.i, %sub.i.i.i
-  %xor20.i.i.i = xor i64 %2, %or19.i2.i
-  %conv.i.i.i.i = zext i64 %xor20.i.i.i to i128
+  %xor20.i.i.i.reass.reass = xor i64 %sub.i.i.i, %invariant.op
+  %conv.i.i.i.i = zext i64 %xor20.i.i.i.reass.reass to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11400714785074694791
   %conv2.i.i.i.i = trunc i128 %mul.i.i.i.i to i64
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -4614,13 +4614,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = shl nuw i64 %n.038, 4
   %add.ptr15 = getelementptr inbounds i8, ptr %secretBuffer, i64 %mul
   %dst.val.i = load i64, ptr %add.ptr15, align 1
-  %3 = xor i64 %shr.i4.i.i.i.i, %dst.val.i
-  %xor.i = xor i64 %3, %mul.i28.i.i.i
+  %2 = xor i64 %shr.i4.i.i.i.i, %dst.val.i
+  %xor.i = xor i64 %2, %mul.i28.i.i.i
   store i64 %xor.i, ptr %add.ptr15, align 1
   %add.ptr.i25 = getelementptr inbounds i8, ptr %add.ptr15, i64 8
   %add.ptr.val.i = load i64, ptr %add.ptr.i25, align 1
-  %4 = xor i64 %shr4.i68.i.i, %add.ptr.val.i
-  %xor3.i = xor i64 %4, %mul.i31.i.i.i
+  %3 = xor i64 %shr4.i68.i.i, %add.ptr.val.i
+  %xor3.i = xor i64 %3, %mul.i31.i.i.i
   store i64 %xor3.i, ptr %add.ptr.i25, align 1
   %inc = add nuw nsw i64 %n.038, 1
   %exitcond.not = icmp eq i64 %inc, %div22

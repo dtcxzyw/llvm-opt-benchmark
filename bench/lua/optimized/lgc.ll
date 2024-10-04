@@ -1803,6 +1803,7 @@ markold.exit72.i.i:                               ; preds = %for.inc.i66.i.i, %m
 while.body.lr.ph.i.i.i:                           ; preds = %markold.exit72.i.i
   %g.val.i.i = load i8, ptr %85, align 4
   %87 = and i8 %g.val.i.i, 24
+  %invariant.op = or disjoint i8 %87, 1
   br label %while.body.i.i67.i
 
 while.body.i.i67.i:                               ; preds = %if.end40.i.i.i, %while.body.lr.ph.i.i.i
@@ -1828,9 +1829,8 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i67.i
 
 if.then11.i.i.i:                                  ; preds = %if.else.i.i.i
   %and15.i.i.i = and i8 %89, -64
-  %or.i.i.i = or disjoint i8 %87, %and15.i.i.i
-  %or16.i.i.i = or disjoint i8 %or.i.i.i, 1
-  store i8 %or16.i.i.i, ptr %marked.i73.i.i, align 1
+  %or16.reass.i.reass.i.reass.i.reass = or disjoint i8 %and15.i.i.i, %invariant.op
+  store i8 %or16.reass.i.reass.i.reass.i.reass, ptr %marked.i73.i.i, align 1
   br label %if.end40.i.i.i
 
 if.else19.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -1869,62 +1869,62 @@ sweepgen.exit.i.i:                                ; preds = %if.end40.i.i.i, %ma
 while.body.lr.ph.i78.i.i:                         ; preds = %sweepgen.exit.i.i
   %g.val45.i.i = load i8, ptr %85, align 4
   %96 = and i8 %g.val45.i.i, 24
-  br label %while.body.i79.i.i
+  %invariant.op42 = or disjoint i8 %96, 1
+  br label %while.body.i80.i.i
 
-while.body.i79.i.i:                               ; preds = %if.end40.i86.i.i, %while.body.lr.ph.i78.i.i
-  %97 = phi ptr [ %94, %while.body.lr.ph.i78.i.i ], [ %102, %if.end40.i86.i.i ]
-  %p.addr.02.i80.i.i = phi ptr [ %p.addr.0.lcssa.i.i.i, %while.body.lr.ph.i78.i.i ], [ %p.addr.1.i87.i.i, %if.end40.i86.i.i ]
-  %marked.i81.i.i = getelementptr inbounds i8, ptr %97, i64 9
-  %98 = load i8, ptr %marked.i81.i.i, align 1
-  %conv4.i82.i.i = zext i8 %98 to i32
-  %and5.i83.i.i = and i32 %conv4.i82.i.i, 24
-  %tobool.not.i84.i.i = icmp eq i32 %and5.i83.i.i, 0
-  br i1 %tobool.not.i84.i.i, label %if.else.i90.i.i, label %if.then.i85.i.i
+while.body.i80.i.i:                               ; preds = %if.end40.i87.i.i, %while.body.lr.ph.i78.i.i
+  %97 = phi ptr [ %94, %while.body.lr.ph.i78.i.i ], [ %102, %if.end40.i87.i.i ]
+  %p.addr.02.i81.i.i = phi ptr [ %p.addr.0.lcssa.i.i.i, %while.body.lr.ph.i78.i.i ], [ %p.addr.1.i88.i.i, %if.end40.i87.i.i ]
+  %marked.i82.i.i = getelementptr inbounds i8, ptr %97, i64 9
+  %98 = load i8, ptr %marked.i82.i.i, align 1
+  %conv4.i83.i.i = zext i8 %98 to i32
+  %and5.i84.i.i = and i32 %conv4.i83.i.i, 24
+  %tobool.not.i85.i.i = icmp eq i32 %and5.i84.i.i, 0
+  br i1 %tobool.not.i85.i.i, label %if.else.i91.i.i, label %if.then.i86.i.i
 
-if.then.i85.i.i:                                  ; preds = %while.body.i79.i.i
+if.then.i86.i.i:                                  ; preds = %while.body.i80.i.i
   %99 = load ptr, ptr %97, align 8
-  store ptr %99, ptr %p.addr.02.i80.i.i, align 8
+  store ptr %99, ptr %p.addr.02.i81.i.i, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %97)
-  br label %if.end40.i86.i.i
+  br label %if.end40.i87.i.i
 
-if.else.i90.i.i:                                  ; preds = %while.body.i79.i.i
-  %and8.i91.i.i = and i32 %conv4.i82.i.i, 7
-  %cmp9.i92.i.i = icmp eq i32 %and8.i91.i.i, 0
-  br i1 %cmp9.i92.i.i, label %if.then11.i102.i.i, label %if.else19.i93.i.i
+if.else.i91.i.i:                                  ; preds = %while.body.i80.i.i
+  %and8.i92.i.i = and i32 %conv4.i83.i.i, 7
+  %cmp9.i93.i.i = icmp eq i32 %and8.i92.i.i, 0
+  br i1 %cmp9.i93.i.i, label %if.then11.i103.i.i, label %if.else19.i94.i.i
 
-if.then11.i102.i.i:                               ; preds = %if.else.i90.i.i
-  %and15.i103.i.i = and i8 %98, -64
-  %or.i104.i.i = or disjoint i8 %96, %and15.i103.i.i
-  %or16.i105.i.i = or disjoint i8 %or.i104.i.i, 1
-  store i8 %or16.i105.i.i, ptr %marked.i81.i.i, align 1
-  br label %if.end40.i86.i.i
+if.then11.i103.i.i:                               ; preds = %if.else.i91.i.i
+  %and15.i104.i.i = and i8 %98, -64
+  %or16.reass.i105.reass.i.reass.i.reass = or disjoint i8 %and15.i104.i.i, %invariant.op42
+  store i8 %or16.reass.i105.reass.i.reass.i.reass, ptr %marked.i82.i.i, align 1
+  br label %if.end40.i87.i.i
 
-if.else19.i93.i.i:                                ; preds = %if.else.i90.i.i
-  %and22.i94.i.i = and i8 %98, -32
-  %idxprom.i95.i.i = zext nneg i32 %and8.i91.i.i to i64
-  %arrayidx.i96.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i95.i.i
-  %100 = load i8, ptr %arrayidx.i96.i.i, align 1
-  %or27.i97.i.i = or i8 %100, %and22.i94.i.i
-  store i8 %or27.i97.i.i, ptr %marked.i81.i.i, align 1
-  %cmp33.i98.i.i = icmp ult i32 %and8.i91.i.i, 3
-  br i1 %cmp33.i98.i.i, label %land.lhs.true.i99.i.i, label %if.end40.i86.i.i
+if.else19.i94.i.i:                                ; preds = %if.else.i91.i.i
+  %and22.i95.i.i = and i8 %98, -32
+  %idxprom.i96.i.i = zext nneg i32 %and8.i92.i.i to i64
+  %arrayidx.i97.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i96.i.i
+  %100 = load i8, ptr %arrayidx.i97.i.i, align 1
+  %or27.i98.i.i = or i8 %100, %and22.i95.i.i
+  store i8 %or27.i98.i.i, ptr %marked.i82.i.i, align 1
+  %cmp33.i99.i.i = icmp ult i32 %and8.i92.i.i, 3
+  br i1 %cmp33.i99.i.i, label %land.lhs.true.i100.i.i, label %if.end40.i87.i.i
 
-land.lhs.true.i99.i.i:                            ; preds = %if.else19.i93.i.i
+land.lhs.true.i100.i.i:                           ; preds = %if.else19.i94.i.i
   %101 = load ptr, ptr %firstold1.i.i, align 8
-  %cmp35.i100.i.i = icmp eq ptr %101, null
-  br i1 %cmp35.i100.i.i, label %if.then37.i101.i.i, label %if.end40.i86.i.i
+  %cmp35.i101.i.i = icmp eq ptr %101, null
+  br i1 %cmp35.i101.i.i, label %if.then37.i102.i.i, label %if.end40.i87.i.i
 
-if.then37.i101.i.i:                               ; preds = %land.lhs.true.i99.i.i
+if.then37.i102.i.i:                               ; preds = %land.lhs.true.i100.i.i
   store ptr %97, ptr %firstold1.i.i, align 8
-  br label %if.end40.i86.i.i
+  br label %if.end40.i87.i.i
 
-if.end40.i86.i.i:                                 ; preds = %if.then37.i101.i.i, %land.lhs.true.i99.i.i, %if.else19.i93.i.i, %if.then11.i102.i.i, %if.then.i85.i.i
-  %p.addr.1.i87.i.i = phi ptr [ %p.addr.02.i80.i.i, %if.then.i85.i.i ], [ %97, %if.else19.i93.i.i ], [ %97, %land.lhs.true.i99.i.i ], [ %97, %if.then37.i101.i.i ], [ %97, %if.then11.i102.i.i ]
-  %102 = load ptr, ptr %p.addr.1.i87.i.i, align 8
-  %cmp.not.i88.i.i = icmp eq ptr %102, %95
-  br i1 %cmp.not.i88.i.i, label %sweepgen.exit106.loopexit.i.i, label %while.body.i79.i.i, !llvm.loop !19
+if.end40.i87.i.i:                                 ; preds = %if.then37.i102.i.i, %land.lhs.true.i100.i.i, %if.else19.i94.i.i, %if.then11.i103.i.i, %if.then.i86.i.i
+  %p.addr.1.i88.i.i = phi ptr [ %p.addr.02.i81.i.i, %if.then.i86.i.i ], [ %97, %if.else19.i94.i.i ], [ %97, %land.lhs.true.i100.i.i ], [ %97, %if.then37.i102.i.i ], [ %97, %if.then11.i103.i.i ]
+  %102 = load ptr, ptr %p.addr.1.i88.i.i, align 8
+  %cmp.not.i89.i.i = icmp eq ptr %102, %95
+  br i1 %cmp.not.i89.i.i, label %sweepgen.exit106.loopexit.i.i, label %while.body.i80.i.i, !llvm.loop !19
 
-sweepgen.exit106.loopexit.i.i:                    ; preds = %if.end40.i86.i.i
+sweepgen.exit106.loopexit.i.i:                    ; preds = %if.end40.i87.i.i
   %.pre.i.i = load ptr, ptr %old1.i.i, align 8
   br label %sweepgen.exit106.i.i
 
@@ -1945,54 +1945,54 @@ sweepgen.exit106.i.i:                             ; preds = %sweepgen.exit106.lo
 while.body.lr.ph.i108.i.i:                        ; preds = %sweepgen.exit106.i.i
   %g.val46.i.i = load i8, ptr %85, align 4
   %108 = and i8 %g.val46.i.i, 24
-  br label %while.body.i109.i.i
+  %invariant.op43 = or disjoint i8 %108, 1
+  br label %while.body.i110.i.i
 
-while.body.i109.i.i:                              ; preds = %if.end40.i116.i.i, %while.body.lr.ph.i108.i.i
-  %109 = phi ptr [ %107, %while.body.lr.ph.i108.i.i ], [ %113, %if.end40.i116.i.i ]
-  %p.addr.02.i110.i.i = phi ptr [ %finobj.i.i, %while.body.lr.ph.i108.i.i ], [ %p.addr.1.i117.i.i, %if.end40.i116.i.i ]
-  %marked.i111.i.i = getelementptr inbounds i8, ptr %109, i64 9
-  %110 = load i8, ptr %marked.i111.i.i, align 1
-  %conv4.i112.i.i = zext i8 %110 to i32
-  %and5.i113.i.i = and i32 %conv4.i112.i.i, 24
-  %tobool.not.i114.i.i = icmp eq i32 %and5.i113.i.i, 0
-  br i1 %tobool.not.i114.i.i, label %if.else.i120.i.i, label %if.then.i115.i.i
+while.body.i110.i.i:                              ; preds = %if.end40.i117.i.i, %while.body.lr.ph.i108.i.i
+  %109 = phi ptr [ %107, %while.body.lr.ph.i108.i.i ], [ %113, %if.end40.i117.i.i ]
+  %p.addr.02.i111.i.i = phi ptr [ %finobj.i.i, %while.body.lr.ph.i108.i.i ], [ %p.addr.1.i118.i.i, %if.end40.i117.i.i ]
+  %marked.i112.i.i = getelementptr inbounds i8, ptr %109, i64 9
+  %110 = load i8, ptr %marked.i112.i.i, align 1
+  %conv4.i113.i.i = zext i8 %110 to i32
+  %and5.i114.i.i = and i32 %conv4.i113.i.i, 24
+  %tobool.not.i115.i.i = icmp eq i32 %and5.i114.i.i, 0
+  br i1 %tobool.not.i115.i.i, label %if.else.i121.i.i, label %if.then.i116.i.i
 
-if.then.i115.i.i:                                 ; preds = %while.body.i109.i.i
+if.then.i116.i.i:                                 ; preds = %while.body.i110.i.i
   %111 = load ptr, ptr %109, align 8
-  store ptr %111, ptr %p.addr.02.i110.i.i, align 8
+  store ptr %111, ptr %p.addr.02.i111.i.i, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %109)
-  br label %if.end40.i116.i.i
+  br label %if.end40.i117.i.i
 
-if.else.i120.i.i:                                 ; preds = %while.body.i109.i.i
-  %and8.i121.i.i = and i32 %conv4.i112.i.i, 7
-  %cmp9.i122.i.i = icmp eq i32 %and8.i121.i.i, 0
-  br i1 %cmp9.i122.i.i, label %if.then11.i132.i.i, label %if.else19.i123.i.i
+if.else.i121.i.i:                                 ; preds = %while.body.i110.i.i
+  %and8.i122.i.i = and i32 %conv4.i113.i.i, 7
+  %cmp9.i123.i.i = icmp eq i32 %and8.i122.i.i, 0
+  br i1 %cmp9.i123.i.i, label %if.then11.i133.i.i, label %if.else19.i124.i.i
 
-if.then11.i132.i.i:                               ; preds = %if.else.i120.i.i
-  %and15.i133.i.i = and i8 %110, -64
-  %or.i134.i.i = or disjoint i8 %108, %and15.i133.i.i
-  %or16.i135.i.i = or disjoint i8 %or.i134.i.i, 1
-  store i8 %or16.i135.i.i, ptr %marked.i111.i.i, align 1
-  br label %if.end40.i116.i.i
+if.then11.i133.i.i:                               ; preds = %if.else.i121.i.i
+  %and15.i134.i.i = and i8 %110, -64
+  %or16.reass.i135.reass.i.reass.i.reass = or disjoint i8 %and15.i134.i.i, %invariant.op43
+  store i8 %or16.reass.i135.reass.i.reass.i.reass, ptr %marked.i112.i.i, align 1
+  br label %if.end40.i117.i.i
 
-if.else19.i123.i.i:                               ; preds = %if.else.i120.i.i
-  %and22.i124.i.i = and i8 %110, -32
-  %idxprom.i125.i.i = zext nneg i32 %and8.i121.i.i to i64
-  %arrayidx.i126.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i125.i.i
-  %112 = load i8, ptr %arrayidx.i126.i.i, align 1
-  %or27.i127.i.i = or i8 %112, %and22.i124.i.i
-  store i8 %or27.i127.i.i, ptr %marked.i111.i.i, align 1
-  br label %if.end40.i116.i.i
+if.else19.i124.i.i:                               ; preds = %if.else.i121.i.i
+  %and22.i125.i.i = and i8 %110, -32
+  %idxprom.i126.i.i = zext nneg i32 %and8.i122.i.i to i64
+  %arrayidx.i127.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i126.i.i
+  %112 = load i8, ptr %arrayidx.i127.i.i, align 1
+  %or27.i128.i.i = or i8 %112, %and22.i125.i.i
+  store i8 %or27.i128.i.i, ptr %marked.i112.i.i, align 1
+  br label %if.end40.i117.i.i
 
-if.end40.i116.i.i:                                ; preds = %if.else19.i123.i.i, %if.then11.i132.i.i, %if.then.i115.i.i
-  %p.addr.1.i117.i.i = phi ptr [ %109, %if.then11.i132.i.i ], [ %p.addr.02.i110.i.i, %if.then.i115.i.i ], [ %109, %if.else19.i123.i.i ]
-  %113 = load ptr, ptr %p.addr.1.i117.i.i, align 8
-  %cmp.not.i118.i.i = icmp eq ptr %113, %106
-  br i1 %cmp.not.i118.i.i, label %sweepgen.exit136.i.i, label %while.body.i109.i.i, !llvm.loop !19
+if.end40.i117.i.i:                                ; preds = %if.else19.i124.i.i, %if.then11.i133.i.i, %if.then.i116.i.i
+  %p.addr.1.i118.i.i = phi ptr [ %109, %if.then11.i133.i.i ], [ %p.addr.02.i111.i.i, %if.then.i116.i.i ], [ %109, %if.else19.i124.i.i ]
+  %113 = load ptr, ptr %p.addr.1.i118.i.i, align 8
+  %cmp.not.i119.i.i = icmp eq ptr %113, %106
+  br i1 %cmp.not.i119.i.i, label %sweepgen.exit136.i.i, label %while.body.i110.i.i, !llvm.loop !19
 
-sweepgen.exit136.i.i:                             ; preds = %if.end40.i116.i.i, %sweepgen.exit106.i.i
-  %114 = phi ptr [ %107, %sweepgen.exit106.i.i ], [ %113, %if.end40.i116.i.i ]
-  %p.addr.0.lcssa.i119.i.i = phi ptr [ %finobj.i.i, %sweepgen.exit106.i.i ], [ %p.addr.1.i117.i.i, %if.end40.i116.i.i ]
+sweepgen.exit136.i.i:                             ; preds = %if.end40.i117.i.i, %sweepgen.exit106.i.i
+  %114 = phi ptr [ %107, %sweepgen.exit106.i.i ], [ %113, %if.end40.i117.i.i ]
+  %p.addr.0.lcssa.i120.i.i = phi ptr [ %finobj.i.i, %sweepgen.exit106.i.i ], [ %p.addr.1.i118.i.i, %if.end40.i117.i.i ]
   %finobjold1.i.i = getelementptr inbounds i8, ptr %0, i64 232
   %115 = load ptr, ptr %finobjold1.i.i, align 8
   %cmp.not1.i137.i.i = icmp eq ptr %114, %115
@@ -2001,59 +2001,59 @@ sweepgen.exit136.i.i:                             ; preds = %if.end40.i116.i.i, 
 while.body.lr.ph.i138.i.i:                        ; preds = %sweepgen.exit136.i.i
   %g.val47.i.i = load i8, ptr %85, align 4
   %116 = and i8 %g.val47.i.i, 24
-  br label %while.body.i139.i.i
+  %invariant.op44 = or disjoint i8 %116, 1
+  br label %while.body.i140.i.i
 
-while.body.i139.i.i:                              ; preds = %if.end40.i146.i.i, %while.body.lr.ph.i138.i.i
-  %117 = phi ptr [ %114, %while.body.lr.ph.i138.i.i ], [ %121, %if.end40.i146.i.i ]
-  %p.addr.02.i140.i.i = phi ptr [ %p.addr.0.lcssa.i119.i.i, %while.body.lr.ph.i138.i.i ], [ %p.addr.1.i147.i.i, %if.end40.i146.i.i ]
-  %marked.i141.i.i = getelementptr inbounds i8, ptr %117, i64 9
-  %118 = load i8, ptr %marked.i141.i.i, align 1
-  %conv4.i142.i.i = zext i8 %118 to i32
-  %and5.i143.i.i = and i32 %conv4.i142.i.i, 24
-  %tobool.not.i144.i.i = icmp eq i32 %and5.i143.i.i, 0
-  br i1 %tobool.not.i144.i.i, label %if.else.i150.i.i, label %if.then.i145.i.i
+while.body.i140.i.i:                              ; preds = %if.end40.i147.i.i, %while.body.lr.ph.i138.i.i
+  %117 = phi ptr [ %114, %while.body.lr.ph.i138.i.i ], [ %121, %if.end40.i147.i.i ]
+  %p.addr.02.i141.i.i = phi ptr [ %p.addr.0.lcssa.i120.i.i, %while.body.lr.ph.i138.i.i ], [ %p.addr.1.i148.i.i, %if.end40.i147.i.i ]
+  %marked.i142.i.i = getelementptr inbounds i8, ptr %117, i64 9
+  %118 = load i8, ptr %marked.i142.i.i, align 1
+  %conv4.i143.i.i = zext i8 %118 to i32
+  %and5.i144.i.i = and i32 %conv4.i143.i.i, 24
+  %tobool.not.i145.i.i = icmp eq i32 %and5.i144.i.i, 0
+  br i1 %tobool.not.i145.i.i, label %if.else.i151.i.i, label %if.then.i146.i.i
 
-if.then.i145.i.i:                                 ; preds = %while.body.i139.i.i
+if.then.i146.i.i:                                 ; preds = %while.body.i140.i.i
   %119 = load ptr, ptr %117, align 8
-  store ptr %119, ptr %p.addr.02.i140.i.i, align 8
+  store ptr %119, ptr %p.addr.02.i141.i.i, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %117)
-  br label %if.end40.i146.i.i
+  br label %if.end40.i147.i.i
 
-if.else.i150.i.i:                                 ; preds = %while.body.i139.i.i
-  %and8.i151.i.i = and i32 %conv4.i142.i.i, 7
-  %cmp9.i152.i.i = icmp eq i32 %and8.i151.i.i, 0
-  br i1 %cmp9.i152.i.i, label %if.then11.i162.i.i, label %if.else19.i153.i.i
+if.else.i151.i.i:                                 ; preds = %while.body.i140.i.i
+  %and8.i152.i.i = and i32 %conv4.i143.i.i, 7
+  %cmp9.i153.i.i = icmp eq i32 %and8.i152.i.i, 0
+  br i1 %cmp9.i153.i.i, label %if.then11.i163.i.i, label %if.else19.i154.i.i
 
-if.then11.i162.i.i:                               ; preds = %if.else.i150.i.i
-  %and15.i163.i.i = and i8 %118, -64
-  %or.i164.i.i = or disjoint i8 %116, %and15.i163.i.i
-  %or16.i165.i.i = or disjoint i8 %or.i164.i.i, 1
-  store i8 %or16.i165.i.i, ptr %marked.i141.i.i, align 1
-  br label %if.end40.i146.i.i
+if.then11.i163.i.i:                               ; preds = %if.else.i151.i.i
+  %and15.i164.i.i = and i8 %118, -64
+  %or16.reass.i165.reass.i.reass.i.reass = or disjoint i8 %and15.i164.i.i, %invariant.op44
+  store i8 %or16.reass.i165.reass.i.reass.i.reass, ptr %marked.i142.i.i, align 1
+  br label %if.end40.i147.i.i
 
-if.else19.i153.i.i:                               ; preds = %if.else.i150.i.i
-  %and22.i154.i.i = and i8 %118, -32
-  %idxprom.i155.i.i = zext nneg i32 %and8.i151.i.i to i64
-  %arrayidx.i156.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i155.i.i
-  %120 = load i8, ptr %arrayidx.i156.i.i, align 1
-  %or27.i157.i.i = or i8 %120, %and22.i154.i.i
-  store i8 %or27.i157.i.i, ptr %marked.i141.i.i, align 1
-  br label %if.end40.i146.i.i
+if.else19.i154.i.i:                               ; preds = %if.else.i151.i.i
+  %and22.i155.i.i = and i8 %118, -32
+  %idxprom.i156.i.i = zext nneg i32 %and8.i152.i.i to i64
+  %arrayidx.i157.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i156.i.i
+  %120 = load i8, ptr %arrayidx.i157.i.i, align 1
+  %or27.i158.i.i = or i8 %120, %and22.i155.i.i
+  store i8 %or27.i158.i.i, ptr %marked.i142.i.i, align 1
+  br label %if.end40.i147.i.i
 
-if.end40.i146.i.i:                                ; preds = %if.else19.i153.i.i, %if.then11.i162.i.i, %if.then.i145.i.i
-  %p.addr.1.i147.i.i = phi ptr [ %117, %if.then11.i162.i.i ], [ %p.addr.02.i140.i.i, %if.then.i145.i.i ], [ %117, %if.else19.i153.i.i ]
-  %121 = load ptr, ptr %p.addr.1.i147.i.i, align 8
-  %cmp.not.i148.i.i = icmp eq ptr %121, %115
-  br i1 %cmp.not.i148.i.i, label %sweepgen.exit166.loopexit.i.i, label %while.body.i139.i.i, !llvm.loop !19
+if.end40.i147.i.i:                                ; preds = %if.else19.i154.i.i, %if.then11.i163.i.i, %if.then.i146.i.i
+  %p.addr.1.i148.i.i = phi ptr [ %117, %if.then11.i163.i.i ], [ %p.addr.02.i141.i.i, %if.then.i146.i.i ], [ %117, %if.else19.i154.i.i ]
+  %121 = load ptr, ptr %p.addr.1.i148.i.i, align 8
+  %cmp.not.i149.i.i = icmp eq ptr %121, %115
+  br i1 %cmp.not.i149.i.i, label %sweepgen.exit166.loopexit.i.i, label %while.body.i140.i.i, !llvm.loop !19
 
-sweepgen.exit166.loopexit.i.i:                    ; preds = %if.end40.i146.i.i
+sweepgen.exit166.loopexit.i.i:                    ; preds = %if.end40.i147.i.i
   %.pre203.i.i = load ptr, ptr %finobjold1.i.i, align 8
   br label %sweepgen.exit166.i.i
 
 sweepgen.exit166.i.i:                             ; preds = %sweepgen.exit166.loopexit.i.i, %sweepgen.exit136.i.i
   %122 = phi ptr [ %115, %sweepgen.exit136.i.i ], [ %.pre203.i.i, %sweepgen.exit166.loopexit.i.i ]
   store ptr %122, ptr %finobjrold.i.i, align 8
-  %123 = load ptr, ptr %p.addr.0.lcssa.i119.i.i, align 8
+  %123 = load ptr, ptr %p.addr.0.lcssa.i120.i.i, align 8
   store ptr %123, ptr %finobjold1.i.i, align 8
   %124 = load ptr, ptr %finobj.i.i, align 8
   store ptr %124, ptr %finobjsur.i.i, align 8
@@ -2064,52 +2064,52 @@ sweepgen.exit166.i.i:                             ; preds = %sweepgen.exit166.lo
 while.body.lr.ph.i168.i.i:                        ; preds = %sweepgen.exit166.i.i
   %g.val48.i.i = load i8, ptr %85, align 4
   %126 = and i8 %g.val48.i.i, 24
-  br label %while.body.i169.i.i
+  %invariant.op45 = or disjoint i8 %126, 1
+  br label %while.body.i170.i.i
 
-while.body.i169.i.i:                              ; preds = %if.end40.i176.i.i, %while.body.lr.ph.i168.i.i
-  %127 = phi ptr [ %125, %while.body.lr.ph.i168.i.i ], [ %131, %if.end40.i176.i.i ]
-  %p.addr.02.i170.i.i = phi ptr [ %tobefnz.i.i, %while.body.lr.ph.i168.i.i ], [ %p.addr.1.i177.i.i, %if.end40.i176.i.i ]
-  %marked.i171.i.i = getelementptr inbounds i8, ptr %127, i64 9
-  %128 = load i8, ptr %marked.i171.i.i, align 1
-  %conv4.i172.i.i = zext i8 %128 to i32
-  %and5.i173.i.i = and i32 %conv4.i172.i.i, 24
-  %tobool.not.i174.i.i = icmp eq i32 %and5.i173.i.i, 0
-  br i1 %tobool.not.i174.i.i, label %if.else.i180.i.i, label %if.then.i175.i.i
+while.body.i170.i.i:                              ; preds = %if.end40.i177.i.i, %while.body.lr.ph.i168.i.i
+  %127 = phi ptr [ %125, %while.body.lr.ph.i168.i.i ], [ %131, %if.end40.i177.i.i ]
+  %p.addr.02.i171.i.i = phi ptr [ %tobefnz.i.i, %while.body.lr.ph.i168.i.i ], [ %p.addr.1.i178.i.i, %if.end40.i177.i.i ]
+  %marked.i172.i.i = getelementptr inbounds i8, ptr %127, i64 9
+  %128 = load i8, ptr %marked.i172.i.i, align 1
+  %conv4.i173.i.i = zext i8 %128 to i32
+  %and5.i174.i.i = and i32 %conv4.i173.i.i, 24
+  %tobool.not.i175.i.i = icmp eq i32 %and5.i174.i.i, 0
+  br i1 %tobool.not.i175.i.i, label %if.else.i181.i.i, label %if.then.i176.i.i
 
-if.then.i175.i.i:                                 ; preds = %while.body.i169.i.i
+if.then.i176.i.i:                                 ; preds = %while.body.i170.i.i
   %129 = load ptr, ptr %127, align 8
-  store ptr %129, ptr %p.addr.02.i170.i.i, align 8
+  store ptr %129, ptr %p.addr.02.i171.i.i, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %127)
-  br label %if.end40.i176.i.i
+  br label %if.end40.i177.i.i
 
-if.else.i180.i.i:                                 ; preds = %while.body.i169.i.i
-  %and8.i181.i.i = and i32 %conv4.i172.i.i, 7
-  %cmp9.i182.i.i = icmp eq i32 %and8.i181.i.i, 0
-  br i1 %cmp9.i182.i.i, label %if.then11.i192.i.i, label %if.else19.i183.i.i
+if.else.i181.i.i:                                 ; preds = %while.body.i170.i.i
+  %and8.i182.i.i = and i32 %conv4.i173.i.i, 7
+  %cmp9.i183.i.i = icmp eq i32 %and8.i182.i.i, 0
+  br i1 %cmp9.i183.i.i, label %if.then11.i193.i.i, label %if.else19.i184.i.i
 
-if.then11.i192.i.i:                               ; preds = %if.else.i180.i.i
-  %and15.i193.i.i = and i8 %128, -64
-  %or.i194.i.i = or disjoint i8 %126, %and15.i193.i.i
-  %or16.i195.i.i = or disjoint i8 %or.i194.i.i, 1
-  store i8 %or16.i195.i.i, ptr %marked.i171.i.i, align 1
-  br label %if.end40.i176.i.i
+if.then11.i193.i.i:                               ; preds = %if.else.i181.i.i
+  %and15.i194.i.i = and i8 %128, -64
+  %or16.reass.i195.reass.i.reass.i.reass = or disjoint i8 %and15.i194.i.i, %invariant.op45
+  store i8 %or16.reass.i195.reass.i.reass.i.reass, ptr %marked.i172.i.i, align 1
+  br label %if.end40.i177.i.i
 
-if.else19.i183.i.i:                               ; preds = %if.else.i180.i.i
-  %and22.i184.i.i = and i8 %128, -32
-  %idxprom.i185.i.i = zext nneg i32 %and8.i181.i.i to i64
-  %arrayidx.i186.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i185.i.i
-  %130 = load i8, ptr %arrayidx.i186.i.i, align 1
-  %or27.i187.i.i = or i8 %130, %and22.i184.i.i
-  store i8 %or27.i187.i.i, ptr %marked.i171.i.i, align 1
-  br label %if.end40.i176.i.i
+if.else19.i184.i.i:                               ; preds = %if.else.i181.i.i
+  %and22.i185.i.i = and i8 %128, -32
+  %idxprom.i186.i.i = zext nneg i32 %and8.i182.i.i to i64
+  %arrayidx.i187.i.i = getelementptr inbounds [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %idxprom.i186.i.i
+  %130 = load i8, ptr %arrayidx.i187.i.i, align 1
+  %or27.i188.i.i = or i8 %130, %and22.i185.i.i
+  store i8 %or27.i188.i.i, ptr %marked.i172.i.i, align 1
+  br label %if.end40.i177.i.i
 
-if.end40.i176.i.i:                                ; preds = %if.else19.i183.i.i, %if.then11.i192.i.i, %if.then.i175.i.i
-  %p.addr.1.i177.i.i = phi ptr [ %127, %if.then11.i192.i.i ], [ %p.addr.02.i170.i.i, %if.then.i175.i.i ], [ %127, %if.else19.i183.i.i ]
-  %131 = load ptr, ptr %p.addr.1.i177.i.i, align 8
-  %cmp.not.i178.i.i = icmp eq ptr %131, null
-  br i1 %cmp.not.i178.i.i, label %youngcollection.exit.i, label %while.body.i169.i.i, !llvm.loop !19
+if.end40.i177.i.i:                                ; preds = %if.else19.i184.i.i, %if.then11.i193.i.i, %if.then.i176.i.i
+  %p.addr.1.i178.i.i = phi ptr [ %127, %if.then11.i193.i.i ], [ %p.addr.02.i171.i.i, %if.then.i176.i.i ], [ %127, %if.else19.i184.i.i ]
+  %131 = load ptr, ptr %p.addr.1.i178.i.i, align 8
+  %cmp.not.i179.i.i = icmp eq ptr %131, null
+  br i1 %cmp.not.i179.i.i, label %youngcollection.exit.i, label %while.body.i170.i.i, !llvm.loop !19
 
-youngcollection.exit.i:                           ; preds = %if.end40.i176.i.i, %sweepgen.exit166.i.i
+youngcollection.exit.i:                           ; preds = %if.end40.i177.i.i, %sweepgen.exit166.i.i
   tail call fastcc void @finishgencycle(ptr noundef %L, ptr noundef %0)
   %totalbytes.i68.i = getelementptr inbounds i8, ptr %0, i64 16
   %132 = load i64, ptr %totalbytes.i68.i, align 8

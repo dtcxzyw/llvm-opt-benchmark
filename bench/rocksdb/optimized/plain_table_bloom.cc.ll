@@ -159,8 +159,8 @@ if.then.i:                                        ; preds = %for.body
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %h.addr.015.i.i = phi i32 [ %add10.i.i, %for.body.i.i ], [ %2, %if.then.i ]
   %i.014.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then.i ]
-  %rem.i.i = and i32 %h.addr.015.i.i, 7
-  %shl3.i.i = shl nuw nsw i32 1, %rem.i.i
+  %rem.reass.i.i = and i32 %h.addr.015.i.i, 7
+  %shl3.i.i = shl nuw nsw i32 1, %rem.reass.i.i
   %and.i.i = lshr i32 %h.addr.015.i.i, 3
   %div12.i.i = and i32 %and.i.i, 63
   %idxprom.i.i = zext nneg i32 %div12.i.i to i64
@@ -185,21 +185,21 @@ if.else.i:                                        ; preds = %for.body
 
 for.body.i3.i:                                    ; preds = %if.else.i, %for.body.i3.i
   %h.addr.09.i.i = phi i32 [ %add.i.i, %for.body.i3.i ], [ %2, %if.else.i ]
-  %i.08.i.i = phi i32 [ %inc.i7.i, %for.body.i3.i ], [ 0, %if.else.i ]
-  %rem.i4.i = urem i32 %h.addr.09.i.i, %8
-  %rem1.i.i = and i32 %rem.i4.i, 7
+  %i.08.i.i = phi i32 [ %inc.i6.i, %for.body.i3.i ], [ 0, %if.else.i ]
+  %rem.i.i = urem i32 %h.addr.09.i.i, %8
+  %rem1.i.i = and i32 %rem.i.i, 7
   %shl2.i.i = shl nuw nsw i32 1, %rem1.i.i
-  %div6.i.i = lshr i32 %rem.i4.i, 3
-  %idxprom.i5.i = zext nneg i32 %div6.i.i to i64
-  %arrayidx.i6.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i5.i
-  %11 = load i8, ptr %arrayidx.i6.i, align 1
+  %div6.i.i = lshr i32 %rem.i.i, 3
+  %idxprom.i4.i = zext nneg i32 %div6.i.i to i64
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i4.i
+  %11 = load i8, ptr %arrayidx.i5.i, align 1
   %12 = trunc nuw i32 %shl2.i.i to i8
   %conv4.i.i = or i8 %11, %12
-  store i8 %conv4.i.i, ptr %arrayidx.i6.i, align 1
+  store i8 %conv4.i.i, ptr %arrayidx.i5.i, align 1
   %add.i.i = add i32 %h.addr.09.i.i, %or.i2.i
-  %inc.i7.i = add nuw nsw i32 %i.08.i.i, 1
-  %exitcond.not.i8.i = icmp eq i32 %inc.i7.i, %9
-  br i1 %exitcond.not.i8.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %for.body.i3.i, !llvm.loop !6
+  %inc.i6.i = add nuw nsw i32 %i.08.i.i, 1
+  %exitcond.not.i7.i = icmp eq i32 %inc.i6.i, %9
+  br i1 %exitcond.not.i7.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %for.body.i3.i, !llvm.loop !6
 
 _ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %for.body.i.i, %for.body.i3.i, %if.then.i, %if.else.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 4

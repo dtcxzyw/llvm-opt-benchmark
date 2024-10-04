@@ -7244,6 +7244,7 @@ lex_check.exit:                                   ; preds = %bcreg_reserve.exit
   %nkgc.i = getelementptr inbounds i8, ptr %0, i64 64
   %bcbase = getelementptr inbounds i8, ptr %0, i64 72
   %idxprom = zext i32 %call to i64
+  %invariant.op = or disjoint i32 %shl, 53
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end105, %lex_check.exit
@@ -7447,11 +7448,10 @@ const_gc.exit:                                    ; preds = %if.then.i121, %if.e
   %retval.0.i = phi i32 [ %30, %if.then.i121 ], [ %32, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
   %shl61 = shl i32 %retval.0.i, 16
-  %or60 = or i32 %shl, %shl61
-  %or62 = or disjoint i32 %or60, 53
+  %or62.reass = or i32 %shl61, %invariant.op
   %33 = load ptr, ptr %bcbase, align 8
   %arrayidx = getelementptr inbounds %struct.BCInsLine, ptr %33, i64 %idxprom
-  store i32 %or62, ptr %arrayidx, align 4
+  store i32 %or62.reass, ptr %arrayidx, align 4
   %.pre = load i32, ptr %k1.i.i, align 8
   br label %if.end63
 

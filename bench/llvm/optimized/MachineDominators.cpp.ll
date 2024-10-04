@@ -8821,6 +8821,7 @@ _ZN4llvm14SmallBitVector9referenceaSEb.exit:      ; preds = %_ZNK4llvm17Dominato
   %190 = lshr i64 %.fr98, 58
   %191 = shl nsw i64 -1, %190
   %192 = xor i64 %191, -1
+  %invariant.op = and i64 %189, %192
   %193 = inttoptr i64 %.fr98 to ptr
   br i1 %.not.i.i61, label %.lr.ph96.split.us, label %.lr.ph96.split
 
@@ -8898,9 +8899,9 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.ex
   %.not44.us = icmp eq ptr %230, %185
   br i1 %.not44.us, label %._crit_edge97, label %.lr.ph96.split.us
 
-.lr.ph96.split:                                   ; preds = %.lr.ph96, %261
-  %.194 = phi i64 [ %262, %261 ], [ 0, %.lr.ph96 ]
-  %.04293 = phi ptr [ %263, %261 ], [ %183, %.lr.ph96 ]
+.lr.ph96.split:                                   ; preds = %.lr.ph96, %259
+  %.194 = phi i64 [ %260, %259 ], [ 0, %.lr.ph96 ]
+  %.04293 = phi ptr [ %261, %259 ], [ %183, %.lr.ph96 ]
   %231 = getelementptr inbounds nuw i8, ptr %.04293, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = load ptr, ptr %.04293, align 8
@@ -8932,110 +8933,109 @@ _ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE11addNewBlockEPS1_S3_.ex
   %244 = tail call noundef ptr @_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE10createNodeEPS1_PNS_15DomTreeNodeBaseIS1_EE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef %232, ptr noundef %.0.i.i58)
   %245 = and i64 %.194, 4294967295
   %246 = shl nuw i64 1, %245
-  %247 = and i64 %189, %246
-  %248 = and i64 %247, %192
-  %.0.i.i62.not = icmp eq i64 %248, 0
-  br i1 %.0.i.i62.not, label %261, label %249
+  %.reass = and i64 %246, %invariant.op
+  %.0.i.i62.not = icmp eq i64 %.reass, 0
+  br i1 %.0.i.i62.not, label %259, label %247
 
-249:                                              ; preds = %_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE11addNewBlockEPS1_S3_.exit
-  %250 = getelementptr inbounds nuw i8, ptr %.04293, i64 8
-  %251 = load ptr, ptr %250, align 8
-  %.not.i.i63 = icmp eq ptr %251, null
+247:                                              ; preds = %_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE11addNewBlockEPS1_S3_.exit
+  %248 = getelementptr inbounds nuw i8, ptr %.04293, i64 8
+  %249 = load ptr, ptr %248, align 8
+  %.not.i.i63 = icmp eq ptr %249, null
   br i1 %.not.i.i63, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i65, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64
 
-_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64: ; preds = %249
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
-  %253 = load i32, ptr %252, align 8
-  %254 = add i32 %253, 1
-  %255 = zext i32 %254 to i64
+_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64: ; preds = %247
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
+  %251 = load i32, ptr %250, align 8
+  %252 = add i32 %251, 1
+  %253 = zext i32 %252 to i64
   br label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i65
 
-_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i65: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64, %249
-  %.sroa.0.0.extract.trunc9.i66 = phi i64 [ %255, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64 ], [ 0, %249 ]
-  %256 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %186) #17
-  %257 = icmp ugt i64 %256, %.sroa.0.0.extract.trunc9.i66
-  tail call void @llvm.assume(i1 %257)
-  %258 = load ptr, ptr %186, align 8
-  %259 = getelementptr inbounds %"class.std::unique_ptr", ptr %258, i64 %.sroa.0.0.extract.trunc9.i66
-  %260 = load ptr, ptr %259, align 8
+_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i65: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64, %247
+  %.sroa.0.0.extract.trunc9.i66 = phi i64 [ %253, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i64 ], [ 0, %247 ]
+  %254 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %186) #17
+  %255 = icmp ugt i64 %254, %.sroa.0.0.extract.trunc9.i66
+  tail call void @llvm.assume(i1 %255)
+  %256 = load ptr, ptr %186, align 8
+  %257 = getelementptr inbounds %"class.std::unique_ptr", ptr %256, i64 %.sroa.0.0.extract.trunc9.i66
+  %258 = load ptr, ptr %257, align 8
   store i8 0, ptr %187, align 8
-  tail call void @_ZN4llvm15DomTreeNodeBaseINS_17MachineBasicBlockEE7setIDomEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %260, ptr noundef %244)
-  br label %261
+  tail call void @_ZN4llvm15DomTreeNodeBaseINS_17MachineBasicBlockEE7setIDomEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %258, ptr noundef %244)
+  br label %259
 
-261:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i65, %_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE11addNewBlockEPS1_S3_.exit
-  %262 = add nuw nsw i64 %.194, 1
-  %263 = getelementptr inbounds i8, ptr %.04293, i64 24
-  %.not44 = icmp eq ptr %263, %185
+259:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i65, %_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE11addNewBlockEPS1_S3_.exit
+  %260 = add nuw nsw i64 %.194, 1
+  %261 = getelementptr inbounds i8, ptr %.04293, i64 24
+  %.not44 = icmp eq ptr %261, %185
   br i1 %.not44, label %._crit_edge97, label %.lr.ph96.split
 
-._crit_edge97:                                    ; preds = %261, %228, %._crit_edge
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %266 = load ptr, ptr %265, align 8
-  %267 = load ptr, ptr %264, align 8
-  %268 = icmp eq ptr %266, %267
-  br i1 %268, label %284, label %269
+._crit_edge97:                                    ; preds = %259, %228, %._crit_edge
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %264 = load ptr, ptr %263, align 8
+  %265 = load ptr, ptr %262, align 8
+  %266 = icmp eq ptr %264, %265
+  br i1 %266, label %282, label %267
 
-269:                                              ; preds = %._crit_edge97
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %271 = load i32, ptr %270, align 4
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %273 = load i32, ptr %272, align 8
-  %274 = sub i32 %271, %273
-  %275 = shl i32 %274, 2
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %277 = load i32, ptr %276, align 8
-  %278 = icmp ult i32 %275, %277
-  %279 = icmp ugt i32 %277, 32
-  %or.cond.i69 = and i1 %279, %278
-  br i1 %or.cond.i69, label %280, label %281
+267:                                              ; preds = %._crit_edge97
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %269 = load i32, ptr %268, align 4
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %271 = load i32, ptr %270, align 8
+  %272 = sub i32 %269, %271
+  %273 = shl i32 %272, 2
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %275 = load i32, ptr %274, align 8
+  %276 = icmp ult i32 %273, %275
+  %277 = icmp ugt i32 %275, 32
+  %or.cond.i69 = and i1 %277, %276
+  br i1 %or.cond.i69, label %278, label %279
 
-280:                                              ; preds = %269
-  tail call void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(28) %264) #17
+278:                                              ; preds = %267
+  tail call void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(28) %262) #17
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
-281:                                              ; preds = %269
-  %282 = zext i32 %277 to i64
-  %283 = shl nuw nsw i64 %282, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %266, i8 -1, i64 %283, i1 false)
-  br label %284
+279:                                              ; preds = %267
+  %280 = zext i32 %275 to i64
+  %281 = shl nuw nsw i64 %280, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %264, i8 -1, i64 %281, i1 false)
+  br label %282
 
-284:                                              ; preds = %281, %._crit_edge97
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 0, ptr %285, align 4
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 936
+282:                                              ; preds = %279, %._crit_edge97
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 0, ptr %283, align 4
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 0, ptr %284, align 8
+  br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
+
+_ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %278, %282
+  %285 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %286, align 8
-  br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
+  %287 = and i64 %.fr98, 1
+  %.not.i70 = icmp eq i64 %287, 0
+  br i1 %.not.i70, label %288, label %_ZN4llvm14SmallBitVectorD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %280, %284
-  %287 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %288, align 8
-  %289 = and i64 %.fr98, 1
-  %.not.i70 = icmp eq i64 %289, 0
-  br i1 %.not.i70, label %290, label %_ZN4llvm14SmallBitVectorD2Ev.exit
+288:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
+  %289 = inttoptr i64 %.fr98 to ptr
+  %290 = icmp eq i64 %.fr98, 0
+  br i1 %290, label %_ZN4llvm14SmallBitVectorD2Ev.exit, label %291
 
-290:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
-  %291 = inttoptr i64 %.fr98 to ptr
-  %292 = icmp eq i64 %.fr98, 0
-  br i1 %292, label %_ZN4llvm14SmallBitVectorD2Ev.exit, label %293
+291:                                              ; preds = %288
+  %292 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %289) #17
+  %293 = load ptr, ptr %289, align 8
+  %294 = getelementptr inbounds i8, ptr %289, i64 16
+  %295 = icmp eq ptr %293, %294
+  br i1 %295, label %_ZN4llvm9BitVectorD2Ev.exit.i, label %296
 
-293:                                              ; preds = %290
-  %294 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %291) #17
-  %295 = load ptr, ptr %291, align 8
-  %296 = getelementptr inbounds i8, ptr %291, i64 16
-  %297 = icmp eq ptr %295, %296
-  br i1 %297, label %_ZN4llvm9BitVectorD2Ev.exit.i, label %298
-
-298:                                              ; preds = %293
-  tail call void @free(ptr noundef %295) #17
+296:                                              ; preds = %291
+  tail call void @free(ptr noundef %293) #17
   br label %_ZN4llvm9BitVectorD2Ev.exit.i
 
-_ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %298, %293
-  tail call void @_ZdlPvm(ptr noundef nonnull %291, i64 noundef 72) #18
+_ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %296, %291
+  tail call void @_ZdlPvm(ptr noundef nonnull %289, i64 noundef 72) #18
   br label %_ZN4llvm14SmallBitVectorD2Ev.exit
 
-_ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i, %290, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit, %1
+_ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i, %288, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit, %1
   ret void
 }
 

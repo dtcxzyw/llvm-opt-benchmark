@@ -32195,6 +32195,7 @@ _ZN15rustfmt_nightly7visitor10FmtVisitor7snippet17h7162b969155e9325E.exit: ; pre
   %128 = getelementptr inbounds i8, ptr %16, i64 8
   %129 = getelementptr inbounds i8, ptr %16, i64 16
   %.not = xor i1 %2, true
+  %invariant.op = or i1 %.0, %.not
   %130 = getelementptr inbounds i8, ptr %0, i64 104
   %131 = getelementptr inbounds i8, ptr %46, i64 184
   %132 = getelementptr inbounds i8, ptr %46, i64 193
@@ -32589,9 +32590,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
 
 278:                                              ; preds = %.critedge120
   %279 = trunc nuw i8 %.0101.ph569 to i1
-  %brmerge = or i1 %.not, %279
-  %brmerge123 = or i1 %.0, %brmerge
-  br i1 %brmerge123, label %395, label %403
+  %brmerge123.reass = or i1 %invariant.op, %279
+  br i1 %brmerge123.reass, label %395, label %403
 
 280:                                              ; preds = %.critedge120
   %.sroa.0.0.i154 = load ptr, ptr %111, align 8, !alias.scope !5559, !nonnull !10, !noundef !10

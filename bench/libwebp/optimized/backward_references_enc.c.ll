@@ -951,6 +951,7 @@ GetBackwardReferencesLowEffort.exit.thread53:     ; preds = %26, %GetBackwardRef
   %118 = getelementptr inbounds i8, ptr %9, i64 48
   %119 = getelementptr inbounds i8, ptr %9, i64 72
   %120 = getelementptr inbounds i8, ptr %23, i64 4
+  %invariant.op = or i64 %.sroa.3.0.insert.shift.i.i.i, 2
   br label %126
 
 .preheader.loopexit.i:                            ; preds = %.loopexit205.i
@@ -1168,8 +1169,7 @@ BackwardRefsNewBlock.exit.i.i.i:                  ; preds = %202, %199
 218:                                              ; preds = %214
   %219 = shl i32 %175, 16
   %.sroa.22.0.insert.shift.i68.i.i = zext i32 %219 to i64
-  %invariant.op = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, %.sroa.22.0.insert.shift.i68.i.i
-  %.sroa.0.0.insert.insert.i70.reass.i.reass.i.reass = or disjoint i64 %invariant.op, 2
+  %.sroa.0.0.insert.insert.i70.reass.reass.i.reass.reass.i.reass.reass.reass = or i64 %.sroa.22.0.insert.shift.i68.i.i, %invariant.op
   br i1 %217, label %225, label %220
 
 220:                                              ; preds = %218
@@ -1231,7 +1231,7 @@ BackwardRefsNewBlock.exit.i72.i.i:                ; preds = %240, %237
   store i32 %249, ptr %248, align 8
   %250 = sext i32 %245 to i64
   %251 = getelementptr inbounds %struct.PixOrCopy, ptr %247, i64 %250
-  store i64 %.sroa.0.0.insert.insert.i70.reass.i.reass.i.reass, ptr %251, align 4
+  store i64 %.sroa.0.0.insert.insert.i70.reass.reass.i.reass.reass.i.reass.reass.reass, ptr %251, align 4
   br label %VP8LBackwardRefsCursorAdd.exit.i.i
 
 252:                                              ; preds = %214
@@ -1384,8 +1384,8 @@ BackwardReferencesRle.exit.i:                     ; preds = %VP8LBackwardRefsCur
 318:                                              ; preds = %315
   %319 = sdiv i32 %316, %0
   %320 = mul nsw i32 %319, %0
-  %.recomposed135 = srem i32 %316, %0
-  %321 = icmp slt i32 %.recomposed135, 9
+  %.recomposed136 = srem i32 %316, %0
+  %321 = icmp slt i32 %.recomposed136, 9
   %322 = icmp slt i32 %319, 8
   %or.cond.i.i.i31 = and i1 %322, %321
   br i1 %or.cond.i.i.i31, label %323, label %326
@@ -1396,7 +1396,7 @@ BackwardReferencesRle.exit.i:                     ; preds = %VP8LBackwardRefsCur
   br label %VP8LDistanceToPlaneCode.exit.i.i46
 
 326:                                              ; preds = %318
-  %327 = icmp sgt i32 %.recomposed135, %97
+  %327 = icmp sgt i32 %.recomposed136, %97
   %328 = icmp slt i32 %319, 7
   %or.cond3.i.i.i32 = and i1 %328, %327
   br i1 %or.cond3.i.i.i32, label %329, label %VP8LDistanceToPlaneCode.exit.thread.i.i
@@ -1408,7 +1408,7 @@ BackwardReferencesRle.exit.i:                     ; preds = %VP8LBackwardRefsCur
 
 VP8LDistanceToPlaneCode.exit.i.i46:               ; preds = %329, %323
   %.pn192.i.i = phi i32 [ %325, %323 ], [ %331, %329 ]
-  %.pn191.in.i.i = sub i32 %.pn192.i.i, %.recomposed135
+  %.pn191.in.i.i = sub i32 %.pn192.i.i, %.recomposed136
   %.pn191.i.i = sext i32 %.pn191.in.i.i to i64
   %.0.i.in.in.in.i.i = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %.pn191.i.i
   %.0.i.in.in.i.i = load i8, ptr %.0.i.in.in.in.i.i, align 1
@@ -2432,8 +2432,8 @@ VP8LRefsCursorInit.exit.i167.i:                   ; preds = %739
   %750 = load i32, ptr %749, align 4
   %751 = sdiv i32 %750, %0
   %752 = mul nsw i32 %751, %0
-  %.recomposed136 = srem i32 %750, %0
-  %753 = icmp slt i32 %.recomposed136, 9
+  %.recomposed137 = srem i32 %750, %0
+  %753 = icmp slt i32 %.recomposed137, 9
   %754 = icmp slt i32 %751, 8
   %or.cond.i.i173.i = and i1 %754, %753
   br i1 %or.cond.i.i173.i, label %755, label %764
@@ -2441,7 +2441,7 @@ VP8LRefsCursorInit.exit.i167.i:                   ; preds = %739
 755:                                              ; preds = %748
   %756 = shl nsw i32 %751, 4
   %757 = or disjoint i32 %756, 8
-  %758 = sub i32 %757, %.recomposed136
+  %758 = sub i32 %757, %.recomposed137
   %759 = sext i32 %758 to i64
   %760 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %759
   %761 = load i8, ptr %760, align 1
@@ -2450,7 +2450,7 @@ VP8LRefsCursorInit.exit.i167.i:                   ; preds = %739
   br label %VP8LDistanceToPlaneCode.exit.i175.i
 
 764:                                              ; preds = %748
-  %765 = icmp sgt i32 %.recomposed136, %.pre-phi.i
+  %765 = icmp sgt i32 %.recomposed137, %.pre-phi.i
   %766 = icmp slt i32 %751, 7
   %or.cond3.i.i174.i = and i1 %766, %765
   br i1 %or.cond3.i.i174.i, label %767, label %776
@@ -2458,7 +2458,7 @@ VP8LRefsCursorInit.exit.i167.i:                   ; preds = %739
 767:                                              ; preds = %764
   %768 = shl i32 %751, 4
   %769 = add i32 %768, %.pre-phi244.i
-  %770 = sub i32 %769, %.recomposed136
+  %770 = sub i32 %769, %.recomposed137
   %771 = sext i32 %770 to i64
   %772 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %771
   %773 = load i8, ptr %772, align 1

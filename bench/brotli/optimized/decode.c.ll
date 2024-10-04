@@ -2389,6 +2389,7 @@ for.body4.i:                                      ; preds = %for.body4.i.lr.ph, 
   %shl.i654 = shl i64 %i.i.11739, 6
   %arrayidx5.i = getelementptr inbounds i8, ptr %265, i64 %shl.i654
   %266 = load i8, ptr %arrayidx5.i, align 1
+  %invariant.op = or disjoint i64 %shl.i654, 3
   br label %for.body9.i
 
 for.body9.i:                                      ; preds = %for.body4.i, %for.body9.i
@@ -2408,8 +2409,8 @@ for.body9.i:                                      ; preds = %for.body4.i, %for.b
   %xor26.i535 = xor i8 %271, %266
   %272 = or i8 %270, %xor26.i535
   %inc29.i = add nuw nsw i64 %j.i.01736, 4
-  %add30.i = or disjoint i64 %add.i660, 3
-  %arrayidx31.i = getelementptr inbounds i8, ptr %265, i64 %add30.i
+  %add30.i.reass = or i64 %j.i.01736, %invariant.op
+  %arrayidx31.i = getelementptr inbounds i8, ptr %265, i64 %add30.i.reass
   %273 = load i8, ptr %arrayidx31.i, align 1
   %xor33.i536 = xor i8 %273, %266
   %274 = or i8 %272, %xor33.i536

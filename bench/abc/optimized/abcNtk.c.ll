@@ -8132,17 +8132,18 @@ define void @Abc_NtkDropSatOutputs(ptr noundef %0, ptr nocapture noundef readonl
 .lr.ph:                                           ; preds = %3
   %8 = ptrtoint ptr %4 to i64
   %9 = getelementptr i8, ptr %1, i64 8
+  %invariant.op = xor i64 %8, 1
   br label %10
 
-10:                                               ; preds = %.lr.ph, %32
-  %.val1728 = phi ptr [ %.val1722, %.lr.ph ], [ %.val17, %32 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.025 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
+10:                                               ; preds = %.lr.ph, %30
+  %.val1728 = phi ptr [ %.val1722, %.lr.ph ], [ %.val17, %30 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %.025 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
   %.val = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %32, label %14
+  br i1 %13, label %30, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %.val1728, i64 8
@@ -8155,47 +8156,46 @@ define void @Abc_NtkDropSatOutputs(ptr noundef %0, ptr nocapture noundef readonl
   %20 = lshr i32 %.val21, 10
   %21 = and i32 %20, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = xor i64 %8, %22
-  %24 = xor i64 %23, 1
-  %25 = inttoptr i64 %24 to ptr
+  %.reass.reass = xor i64 %22, %invariant.op
+  %23 = inttoptr i64 %.reass.reass to ptr
   %.val19 = load ptr, ptr %17, align 8
-  %26 = getelementptr i8, ptr %17, i64 32
-  %.val20 = load ptr, ptr %26, align 8
-  %27 = getelementptr i8, ptr %.val19, i64 32
-  %.val19.val = load ptr, ptr %27, align 8
+  %24 = getelementptr i8, ptr %17, i64 32
+  %.val20 = load ptr, ptr %24, align 8
+  %25 = getelementptr i8, ptr %.val19, i64 32
+  %.val19.val = load ptr, ptr %25, align 8
   %.val20.val = load i32, ptr %.val20, align 4
-  %28 = getelementptr i8, ptr %.val19.val, i64 8
-  %.val19.val.val = load ptr, ptr %28, align 8
-  %29 = sext i32 %.val20.val to i64
-  %30 = getelementptr inbounds ptr, ptr %.val19.val.val, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %17, ptr noundef %31, ptr noundef %25) #17
+  %26 = getelementptr i8, ptr %.val19.val, i64 8
+  %.val19.val.val = load ptr, ptr %26, align 8
+  %27 = sext i32 %.val20.val to i64
+  %28 = getelementptr inbounds ptr, ptr %.val19.val.val, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %17, ptr noundef %29, ptr noundef %23) #17
   %.val17.pre = load ptr, ptr %5, align 8
-  br label %32
+  br label %30
 
-32:                                               ; preds = %10, %14
+30:                                               ; preds = %10, %14
   %.val17 = phi ptr [ %.val1728, %10 ], [ %.val17.pre, %14 ]
   %.1 = phi i32 [ %.025, %10 ], [ %18, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr i8, ptr %.val17, i64 4
-  %.val17.val = load i32, ptr %33, align 4
-  %34 = sext i32 %.val17.val to i64
-  %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %10, label %.critedge, !llvm.loop !114
+  %31 = getelementptr i8, ptr %.val17, i64 4
+  %.val17.val = load i32, ptr %31, align 4
+  %32 = sext i32 %.val17.val to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %10, label %.critedge, !llvm.loop !114
 
-.critedge:                                        ; preds = %32, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %32 ]
+.critedge:                                        ; preds = %30, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %30 ]
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %38, label %36
+  br i1 %.not, label %36, label %34
 
-36:                                               ; preds = %.critedge
-  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %.0.lcssa)
-  br label %38
+34:                                               ; preds = %.critedge
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %.0.lcssa)
+  br label %36
 
-38:                                               ; preds = %36, %.critedge
-  %39 = getelementptr inbounds i8, ptr %0, i64 256
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 @Abc_AigCleanup(ptr noundef %40) #17
+36:                                               ; preds = %34, %.critedge
+  %37 = getelementptr inbounds i8, ptr %0, i64 256
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i32 @Abc_AigCleanup(ptr noundef %38) #17
   ret void
 }
 

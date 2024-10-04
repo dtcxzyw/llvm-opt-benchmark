@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %1, 5
-  br i1 %6, label %110, label %7
+  br i1 %6, label %108, label %7
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %3, align 4
@@ -80,9 +80,9 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %49 = or disjoint i32 %48, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge104, %97, %46
-  %.sink = phi i64 [ 5, %._crit_edge104 ], [ 1, %97 ], [ 1, %46 ]
-  %.082.be = phi i32 [ %.183, %._crit_edge104 ], [ %100, %97 ], [ %49, %46 ]
+.backedge:                                        ; preds = %._crit_edge104, %95, %46
+  %.sink = phi i64 [ 5, %._crit_edge104 ], [ 1, %95 ], [ 1, %46 ]
+  %.082.be = phi i32 [ %.183, %._crit_edge104 ], [ %98, %95 ], [ %49, %46 ]
   %50 = getelementptr i8, ptr %0, i64 %25
   %51 = getelementptr i8, ptr %50, i64 %.sink
   %52 = icmp ult ptr %51, %12
@@ -92,7 +92,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %.183 = phi i32 [ %32, %33 ], [ 0, %28 ], [ 0, %23 ]
   %54 = getelementptr inbounds i8, ptr %.08193, i64 4
   %55 = load i8, ptr %54, align 1
-  switch i8 %55, label %97 [
+  switch i8 %55, label %95 [
     i8 0, label %56
     i8 -1, label %56
   ]
@@ -131,6 +131,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %82 = sub nsw i32 24, %81
   %83 = sub nsw i32 32, %81
   %notmask = shl nsw i32 -1, %83
+  %invariant.op = xor i32 %notmask, -1
   br label %84
 
 84:                                               ; preds = %86, %.lr.ph103
@@ -143,51 +144,50 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   ]
 
 86:                                               ; preds = %84, %84
-  %87 = xor i32 %.077101, %notmask
-  %88 = xor i32 %87, -1
-  %.077 = add i32 %.077.p, %88
+  %.reass.reass.reass = xor i32 %.077101, %invariant.op
+  %.077 = add i32 %.077.p, %.reass.reass.reass
   br label %84
 
 ._crit_edge104:                                   ; preds = %84, %56
   %.077.lcssa = phi i32 [ %.077100, %56 ], [ %.077101, %84 ]
-  %89 = shl i32 %.077.lcssa, 7
-  %90 = ashr i32 %89, 31
-  %91 = trunc nsw i32 %90 to i8
-  store i8 %91, ptr %54, align 1
-  %92 = lshr i32 %.077.lcssa, 16
+  %87 = shl i32 %.077.lcssa, 7
+  %88 = ashr i32 %87, 31
+  %89 = trunc nsw i32 %88 to i8
+  store i8 %89, ptr %54, align 1
+  %90 = lshr i32 %.077.lcssa, 16
+  %91 = trunc i32 %90 to i8
+  store i8 %91, ptr %59, align 1
+  %92 = lshr i32 %.077.lcssa, 8
   %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %59, align 1
-  %94 = lshr i32 %.077.lcssa, 8
-  %95 = trunc i32 %94 to i8
-  store i8 %95, ptr %64, align 1
-  %96 = trunc i32 %.077.lcssa to i8
-  store i8 %96, ptr %69, align 1
+  store i8 %93, ptr %64, align 1
+  %94 = trunc i32 %.077.lcssa to i8
+  store i8 %94, ptr %69, align 1
   br label %.backedge
 
-97:                                               ; preds = %53
-  %98 = shl nuw nsw i32 %.183, 1
-  %99 = and i32 %98, 6
-  %100 = or disjoint i32 %99, 1
+95:                                               ; preds = %53
+  %96 = shl nuw nsw i32 %.183, 1
+  %97 = and i32 %96, 6
+  %98 = or disjoint i32 %97, 1
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %20, %7
   %.082.lcssa = phi i32 [ %9, %7 ], [ %.082109, %20 ], [ %.082.be, %.backedge ]
   %.080.lcssa = phi i64 [ -1, %7 ], [ %.080110, %20 ], [ %25, %.backedge ]
   %.081.lcssa = phi ptr [ %0, %7 ], [ %21, %20 ], [ %51, %.backedge ]
-  %101 = ptrtoint ptr %.081.lcssa to i64
-  %102 = sub i64 %101, %14
-  %103 = sub i64 %102, %.080.lcssa
-  %104 = icmp ugt i64 %103, 3
-  %105 = trunc nuw nsw i64 %103 to i32
-  %106 = add nsw i32 %105, -1
-  %107 = shl nuw nsw i32 %.082.lcssa, %106
-  %108 = and i32 %107, 7
-  %109 = select i1 %104, i32 0, i32 %108
-  store i32 %109, ptr %3, align 4
-  br label %110
+  %99 = ptrtoint ptr %.081.lcssa to i64
+  %100 = sub i64 %99, %14
+  %101 = sub i64 %100, %.080.lcssa
+  %102 = icmp ugt i64 %101, 3
+  %103 = trunc nuw nsw i64 %101 to i32
+  %104 = add nsw i32 %103, -1
+  %105 = shl nuw nsw i32 %.082.lcssa, %104
+  %106 = and i32 %105, 7
+  %107 = select i1 %102, i32 0, i32 %106
+  store i32 %107, ptr %3, align 4
+  br label %108
 
-110:                                              ; preds = %5, %._crit_edge
-  %.0 = phi i64 [ %102, %._crit_edge ], [ 0, %5 ]
+108:                                              ; preds = %5, %._crit_edge
+  %.0 = phi i64 [ %100, %._crit_edge ], [ 0, %5 ]
   ret i64 %.0
 }
 

@@ -318318,6 +318318,7 @@ indexIteratorFirst.exit:                          ; preds = %sqlite3VdbeAddOp0.e
   %or.cond24 = and i1 %15, %1098
   %1099 = trunc nuw i32 %.0551 to i16
   %1100 = add nsw i32 %.0568, 1
+  %invariant.op = and i1 %1084, %15
   br label %1101
 
 1101:                                             ; preds = %.lr.ph1943, %indexIteratorNext.exit
@@ -320238,9 +320239,8 @@ tailrecurse.i861._crit_edge:                      ; preds = %growOpArray.exit113
 
 sqlite3VdbeAddOp3.exit865:                        ; preds = %1926, %1935, %sqlite3DbRealloc.exit1349, %.lr.ph.i1339, %.lr.ph.i.i1131, %1968, %1961, %1951, %1947, %1898, %1891, %1881, %1877, %tailrecurse.i861._crit_edge
   %2010 = icmp eq ptr %.0532, %.31940
-  %or.cond16 = and i1 %1084, %2010
-  %or.cond1950 = and i1 %15, %or.cond16
-  br i1 %or.cond1950, label %2011, label %2012
+  %or.cond1950.reass = and i1 %2010, %invariant.op
+  br i1 %or.cond1950.reass, label %2011, label %2012
 
 2011:                                             ; preds = %sqlite3VdbeAddOp3.exit865
   call fastcc void @sqlite3VdbeResolveLabel(ptr noundef %18, i32 noundef %1126)

@@ -5979,8 +5979,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1009 = icmp eq i64 %1002, %966
   %1010 = freeze i1 %1009
   %1011 = or i1 %1008, %1010
-  %brmerge509 = select i1 %1011, i1 true, i1 %968
-  br i1 %brmerge509, label %.loopexit240, label %1012
+  %brmerge511 = select i1 %1011, i1 true, i1 %968
+  br i1 %brmerge511, label %.loopexit240, label %1012
 
 1012:                                             ; preds = %1004
   %1013 = getelementptr inbounds float, ptr %3, i64 %1003
@@ -6339,59 +6339,59 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %999, label %.loopexit237, label %.preheader236.preheader
 
 .preheader236.preheader:                          ; preds = %.loopexit238.thread, %.loopexit238
-  %.ph = phi ptr [ %1244, %.loopexit238 ], [ %1162, %.loopexit238.thread ]
-  %.ph569 = phi ptr [ %1243, %.loopexit238 ], [ %1161, %.loopexit238.thread ]
+  %1246 = phi ptr [ %1162, %.loopexit238.thread ], [ %1244, %.loopexit238 ]
+  %1247 = phi ptr [ %1161, %.loopexit238.thread ], [ %1243, %.loopexit238 ]
+  %invariant.op459 = or i1 %.fr, %1157
   br label %.preheader236
 
 .preheader236:                                    ; preds = %.preheader236.preheader, %1319
-  %1246 = phi float [ %1321, %1319 ], [ 1.000000e+00, %.preheader236.preheader ]
-  %1247 = phi ptr [ %1251, %1319 ], [ %.ph, %.preheader236.preheader ]
-  %1248 = phi i32 [ %1322, %1319 ], [ %1000, %.preheader236.preheader ]
-  %1249 = phi ptr [ %1250, %1319 ], [ %.ph569, %.preheader236.preheader ]
-  %1250 = getelementptr inbounds float, ptr %1249, i64 %993
-  %1251 = getelementptr inbounds float, ptr %1247, i64 %993
-  %1252 = shl i32 %1248, 1
-  %1253 = and i32 %1252, 14
-  %1254 = or disjoint i32 %1253, %1156
-  %1255 = shl nuw nsw i32 %1254, 1
-  %1256 = lshr i32 %39, %1255
-  %1257 = and i32 %1256, 3
-  %1258 = zext nneg i32 %1257 to i64
-  %1259 = getelementptr inbounds float, ptr %33, i64 %1258
-  %1260 = load float, ptr %1259, align 4, !tbaa !21
-  %1261 = add i32 %1252, 2
-  %1262 = and i32 %1261, 14
-  %1263 = or disjoint i32 %1262, %1156
-  %1264 = shl nuw nsw i32 %1263, 1
-  %1265 = lshr i32 %39, %1264
-  %1266 = and i32 %1265, 3
-  %1267 = zext nneg i32 %1266 to i64
-  %1268 = getelementptr inbounds float, ptr %33, i64 %1267
-  %1269 = load float, ptr %1268, align 4, !tbaa !21
-  %1270 = icmp eq i32 %1248, 0
-  %1271 = or i1 %.fr, %1270
-  %1272 = or i1 %1157, %1271
-  %1273 = load float, ptr %1251, align 4, !tbaa !21
-  br i1 %1272, label %1319, label %1274
+  %1248 = phi float [ %1321, %1319 ], [ 1.000000e+00, %.preheader236.preheader ]
+  %1249 = phi ptr [ %1253, %1319 ], [ %1246, %.preheader236.preheader ]
+  %1250 = phi i32 [ %1322, %1319 ], [ %1000, %.preheader236.preheader ]
+  %1251 = phi ptr [ %1252, %1319 ], [ %1247, %.preheader236.preheader ]
+  %1252 = getelementptr inbounds float, ptr %1251, i64 %993
+  %1253 = getelementptr inbounds float, ptr %1249, i64 %993
+  %1254 = shl i32 %1250, 1
+  %1255 = and i32 %1254, 14
+  %1256 = or disjoint i32 %1255, %1156
+  %1257 = shl nuw nsw i32 %1256, 1
+  %1258 = lshr i32 %39, %1257
+  %1259 = and i32 %1258, 3
+  %1260 = zext nneg i32 %1259 to i64
+  %1261 = getelementptr inbounds float, ptr %33, i64 %1260
+  %1262 = load float, ptr %1261, align 4, !tbaa !21
+  %1263 = add i32 %1254, 2
+  %1264 = and i32 %1263, 14
+  %1265 = or disjoint i32 %1264, %1156
+  %1266 = shl nuw nsw i32 %1265, 1
+  %1267 = lshr i32 %39, %1266
+  %1268 = and i32 %1267, 3
+  %1269 = zext nneg i32 %1268 to i64
+  %1270 = getelementptr inbounds float, ptr %33, i64 %1269
+  %1271 = load float, ptr %1270, align 4, !tbaa !21
+  %1272 = icmp eq i32 %1250, 0
+  %.reass460 = or i1 %1272, %invariant.op459
+  %1273 = load float, ptr %1253, align 4, !tbaa !21
+  br i1 %.reass460, label %1319, label %1274
 
 1274:                                             ; preds = %.preheader236
-  %1275 = fcmp reassoc nsz arcp contract afn olt float %1273, %1260
+  %1275 = fcmp reassoc nsz arcp contract afn olt float %1273, %1262
   %1276 = fcmp reassoc nsz arcp contract afn ogt float %1273, 0x3EE4F8B580000000
   %1277 = and i1 %1275, %1276
   br i1 %1277, label %1278, label %1296
 
 1278:                                             ; preds = %1274
-  %1279 = getelementptr inbounds float, ptr %1251, i64 %993
+  %1279 = getelementptr inbounds float, ptr %1253, i64 %993
   %1280 = load float, ptr %1279, align 4, !tbaa !21
-  %1281 = fcmp reassoc nsz arcp contract afn olt float %1280, %1269
+  %1281 = fcmp reassoc nsz arcp contract afn olt float %1280, %1271
   %1282 = fcmp reassoc nsz arcp contract afn ogt float %1280, 0x3EE4F8B580000000
   %1283 = and i1 %1281, %1282
   br i1 %1283, label %1284, label %1296
 
 1284:                                             ; preds = %1278
-  %1285 = and i32 %1248, 1
+  %1285 = and i32 %1250, 1
   %1286 = icmp eq i32 %1285, 0
-  %1287 = fmul reassoc nsz arcp contract afn float %1246, 3.000000e+00
+  %1287 = fmul reassoc nsz arcp contract afn float %1248, 3.000000e+00
   br i1 %1286, label %1292, label %1288
 
 1288:                                             ; preds = %1284
@@ -6407,24 +6407,24 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %1296
 
 1296:                                             ; preds = %1292, %1288, %1278, %1274
-  %1297 = phi float [ %1291, %1288 ], [ %1295, %1292 ], [ %1246, %1278 ], [ %1246, %1274 ]
-  %1298 = fadd reassoc nsz arcp contract afn float %1260, 0xBEE4F8B580000000
+  %1297 = phi float [ %1291, %1288 ], [ %1295, %1292 ], [ %1248, %1278 ], [ %1248, %1274 ]
+  %1298 = fadd reassoc nsz arcp contract afn float %1262, 0xBEE4F8B580000000
   %1299 = fcmp reassoc nsz arcp contract afn ult float %1273, %1298
   br i1 %1299, label %1319, label %1300
 
 1300:                                             ; preds = %1296
-  %1301 = getelementptr inbounds float, ptr %1251, i64 %993
+  %1301 = getelementptr inbounds float, ptr %1253, i64 %993
   %1302 = load float, ptr %1301, align 4, !tbaa !21
-  %1303 = fadd reassoc nsz arcp contract afn float %1269, 0xBEE4F8B580000000
+  %1303 = fadd reassoc nsz arcp contract afn float %1271, 0xBEE4F8B580000000
   %1304 = fcmp reassoc nsz arcp contract afn ult float %1302, %1303
   br i1 %1304, label %1307, label %1305
 
 1305:                                             ; preds = %1300
-  %1306 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1260, float %1269)
+  %1306 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1262, float %1271)
   br label %1314
 
 1307:                                             ; preds = %1300
-  %1308 = and i32 %1248, 1
+  %1308 = and i32 %1250, 1
   %1309 = icmp eq i32 %1308, 0
   br i1 %1309, label %1312, label %1310
 
@@ -6438,17 +6438,17 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 1314:                                             ; preds = %1312, %1310, %1305
   %1315 = phi float [ %1306, %1305 ], [ %1311, %1310 ], [ %1313, %1312 ]
-  %1316 = load float, ptr %1250, align 4, !tbaa !21
+  %1316 = load float, ptr %1252, align 4, !tbaa !21
   %1317 = fadd reassoc nsz arcp contract afn float %1316, %1315
   %1318 = fmul reassoc nsz arcp contract afn float %1317, 2.500000e-01
   br label %1319
 
 1319:                                             ; preds = %1314, %1296, %.preheader236
   %1320 = phi float [ %1318, %1314 ], [ %1273, %1296 ], [ %1273, %.preheader236 ]
-  %1321 = phi float [ %1297, %1314 ], [ %1297, %1296 ], [ %1246, %.preheader236 ]
-  store float %1320, ptr %1250, align 4, !tbaa !21
-  %1322 = add nsw i32 %1248, -1
-  br i1 %1270, label %.loopexit237, label %.preheader236, !llvm.loop !350
+  %1321 = phi float [ %1297, %1314 ], [ %1297, %1296 ], [ %1248, %.preheader236 ]
+  store float %1320, ptr %1252, align 4, !tbaa !21
+  %1322 = add nsw i32 %1250, -1
+  br i1 %1272, label %.loopexit237, label %.preheader236, !llvm.loop !350
 
 .loopexit237:                                     ; preds = %1319, %.loopexit238, %1165, %1151
   %1323 = add nuw nsw i64 %1152, 1
@@ -7260,14 +7260,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %1983
 
 1983:                                             ; preds = %1843, %1648
-  %.sink476.in = phi ptr [ %1982, %1843 ], [ %1773, %1648 ]
-  %.sink473.in = getelementptr inbounds float, ptr %1480, i64 %1368
-  %.sink473 = load float, ptr %.sink473.in, align 4, !tbaa !21
-  %.sink476 = load i8, ptr %.sink476.in, align 1, !tbaa !325
-  %1984 = zext i8 %.sink476 to i64
+  %.sink478.in = phi ptr [ %1982, %1843 ], [ %1773, %1648 ]
+  %.sink475.in = getelementptr inbounds float, ptr %1480, i64 %1368
+  %.sink475 = load float, ptr %.sink475.in, align 4, !tbaa !21
+  %.sink478 = load i8, ptr %.sink478.in, align 1, !tbaa !325
+  %1984 = zext i8 %.sink478 to i64
   %1985 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 %1984
   %1986 = load float, ptr %1985, align 4, !tbaa !21
-  %1987 = fadd reassoc nsz arcp contract afn float %1986, %.sink473
+  %1987 = fadd reassoc nsz arcp contract afn float %1986, %.sink475
   store float %1987, ptr %1985, align 4, !tbaa !21
   %1988 = getelementptr inbounds [3 x i32], ptr %30, i64 0, i64 %1984
   %1989 = load i32, ptr %1988, align 4, !tbaa !30
@@ -7275,8 +7275,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i32 %1990, ptr %1988, align 4, !tbaa !30
   %1991 = getelementptr inbounds [4 x float], ptr %29, i64 0, i64 %1984
   %1992 = load float, ptr %1991, align 4, !tbaa !21
-  %1993 = fcmp reassoc nsz arcp contract afn ogt float %1992, %.sink473
-  %1994 = select reassoc nsz arcp contract afn i1 %1993, float %1992, float %.sink473
+  %1993 = fcmp reassoc nsz arcp contract afn ogt float %1992, %.sink475
+  %1994 = select reassoc nsz arcp contract afn i1 %1993, float %1992, float %.sink475
   store float %1994, ptr %1991, align 4, !tbaa !21
   %1995 = load float, ptr %29, align 16, !tbaa !21
   %1996 = load float, ptr %1345, align 4, !tbaa !21
@@ -10394,7 +10394,7 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
   %4404 = add i64 %4403, %3931
   %4405 = sub i64 %4402, %3932
   %4406 = mul i64 %4405, %4309
-  br i1 %4400, label %.preheader589, label %4407
+  br i1 %4400, label %.preheader590, label %4407
 
 4407:                                             ; preds = %4401
   %4408 = add i64 %4406, %4341
@@ -10426,18 +10426,18 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
 
 4429:                                             ; preds = %4410
   %4430 = add i64 %4404, %4341
-  br i1 %4343, label %.loopexit272, label %.preheader589
+  br i1 %4343, label %.loopexit272, label %.preheader590
 
-.preheader589:                                    ; preds = %4429, %4401
-  %.ph590 = phi i64 [ %4408, %4429 ], [ %4406, %4401 ]
+.preheader590:                                    ; preds = %4429, %4401
+  %.ph = phi i64 [ %4408, %4429 ], [ %4406, %4401 ]
   %.ph591 = phi i64 [ %4430, %4429 ], [ %4404, %4401 ]
   %.ph592 = phi i64 [ %4342, %4429 ], [ %3931, %4401 ]
   br label %4431
 
-4431:                                             ; preds = %.preheader589, %4443
-  %4432 = phi i64 [ %4446, %4443 ], [ %.ph590, %.preheader589 ]
-  %4433 = phi i64 [ %4445, %4443 ], [ %.ph591, %.preheader589 ]
-  %4434 = phi i64 [ %4444, %4443 ], [ %.ph592, %.preheader589 ]
+4431:                                             ; preds = %.preheader590, %4443
+  %4432 = phi i64 [ %4446, %4443 ], [ %.ph, %.preheader590 ]
+  %4433 = phi i64 [ %4445, %4443 ], [ %.ph591, %.preheader590 ]
+  %4434 = phi i64 [ %4444, %4443 ], [ %.ph592, %.preheader590 ]
   %4435 = getelementptr inbounds i32, ptr %3752, i64 %4433
   %4436 = load i32, ptr %4435, align 4, !tbaa !30
   %4437 = zext i32 %4436 to i64

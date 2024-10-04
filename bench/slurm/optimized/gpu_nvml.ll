@@ -734,6 +734,7 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %176, %174
   %198 = getelementptr inbounds i32, ptr %196, i64 %197
   store i32 -1, ptr %198, align 4
   %199 = icmp ne i32 %194, 0
+  %invariant.op.i.i = and i1 %148, %199
   br label %200
 
 200:                                              ; preds = %241, %193
@@ -802,9 +803,8 @@ _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %223, %221
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %25)
   store ptr %226, ptr %29, align 8
   %227 = icmp ne ptr %226, null
-  %or.cond.not18.i.i.i = and i1 %148, %227
-  %or.cond16.i.i.i = and i1 %199, %or.cond.not18.i.i.i
-  br i1 %or.cond16.i.i.i, label %.lr.ph.i.i.i, label %_get_index_from_str_arr.exit.thread.i.i
+  %or.cond16.i.reass.i.i = and i1 %invariant.op.i.i, %227
+  br i1 %or.cond16.i.reass.i.i, label %.lr.ph.i.i.i, label %_get_index_from_str_arr.exit.thread.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_nvml_get_nvlink_remote_pcie.exit.i.i, %232
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %232 ], [ 0, %_nvml_get_nvlink_remote_pcie.exit.i.i ]

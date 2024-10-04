@@ -186,9 +186,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %12, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
+  %invariant.op = or i32 %c.sroa.5.0, %c.sroa.6.0
   %c.sroa.5.0.insert.insert = or disjoint i32 %c.sroa.0.0, %c.sroa.4.0
-  %c.sroa.4.0.insert.insert = or i32 %c.sroa.5.0.insert.insert, %c.sroa.5.0
-  %c.sroa.0.0.insert.insert = or i32 %c.sroa.4.0.insert.insert, %c.sroa.6.0
+  %c.sroa.0.0.insert.insert.reass = or i32 %c.sroa.5.0.insert.insert, %invariant.op
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end63
@@ -284,7 +284,7 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %i
   %add.ptr49.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 8
   store float 0.000000e+00, ptr %add.ptr49.us.i, align 4
   %add.ptr52.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 12
-  store i32 %c.sroa.0.0.insert.insert, ptr %add.ptr52.us.i, align 1
+  store i32 %c.sroa.0.0.insert.insert.reass, ptr %add.ptr52.us.i, align 1
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 16
   %inc.us.i = add nuw nsw i32 %j.025.us.i, 1
   %exitcond40.not.i = icmp eq i32 %inc.us.i, 4
@@ -354,7 +354,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %if.t
   %add.ptr49.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store float 0.000000e+00, ptr %add.ptr49.i, align 4
   %add.ptr52.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
-  store i32 %c.sroa.0.0.insert.insert, ptr %add.ptr52.i, align 1
+  store i32 %c.sroa.0.0.insert.insert.reass, ptr %add.ptr52.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 16
   %inc.i = add nuw nsw i32 %j.025.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 4

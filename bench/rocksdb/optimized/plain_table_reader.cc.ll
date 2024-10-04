@@ -2418,8 +2418,8 @@ if.then.i.i142:                                   ; preds = %for.body.i
 for.body.i.i.i:                                   ; preds = %if.then.i.i142, %for.body.i.i.i
   %h.addr.015.i.i.i = phi i32 [ %add10.i.i.i, %for.body.i.i.i ], [ %90, %if.then.i.i142 ]
   %i.014.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i.i142 ]
-  %rem.i.i.i = and i32 %h.addr.015.i.i.i, 7
-  %shl3.i.i.i = shl nuw nsw i32 1, %rem.i.i.i
+  %rem.reass.i.i.i = and i32 %h.addr.015.i.i.i, 7
+  %shl3.i.i.i = shl nuw nsw i32 1, %rem.reass.i.i.i
   %and.i.i.i = lshr i32 %h.addr.015.i.i.i, 3
   %div12.i.i.i = and i32 %and.i.i.i, 63
   %idxprom.i.i.i = zext nneg i32 %div12.i.i.i to i64
@@ -2444,21 +2444,21 @@ if.else.i.i:                                      ; preds = %for.body.i
 
 for.body.i3.i.i:                                  ; preds = %if.else.i.i, %for.body.i3.i.i
   %h.addr.09.i.i.i = phi i32 [ %add.i.i.i, %for.body.i3.i.i ], [ %90, %if.else.i.i ]
-  %i.08.i.i.i = phi i32 [ %inc.i7.i.i, %for.body.i3.i.i ], [ 0, %if.else.i.i ]
-  %rem.i4.i.i = urem i32 %h.addr.09.i.i.i, %96
-  %rem1.i.i.i = and i32 %rem.i4.i.i, 7
+  %i.08.i.i.i = phi i32 [ %inc.i6.i.i, %for.body.i3.i.i ], [ 0, %if.else.i.i ]
+  %rem.i.i.i = urem i32 %h.addr.09.i.i.i, %96
+  %rem1.i.i.i = and i32 %rem.i.i.i, 7
   %shl2.i.i.i = shl nuw nsw i32 1, %rem1.i.i.i
-  %div6.i.i.i = lshr i32 %rem.i4.i.i, 3
-  %idxprom.i5.i.i = zext nneg i32 %div6.i.i.i to i64
-  %arrayidx.i6.i.i = getelementptr inbounds i8, ptr %98, i64 %idxprom.i5.i.i
-  %99 = load i8, ptr %arrayidx.i6.i.i, align 1
+  %div6.i.i.i = lshr i32 %rem.i.i.i, 3
+  %idxprom.i4.i.i = zext nneg i32 %div6.i.i.i to i64
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %98, i64 %idxprom.i4.i.i
+  %99 = load i8, ptr %arrayidx.i5.i.i, align 1
   %100 = trunc nuw i32 %shl2.i.i.i to i8
   %conv4.i.i.i = or i8 %99, %100
-  store i8 %conv4.i.i.i, ptr %arrayidx.i6.i.i, align 1
+  store i8 %conv4.i.i.i, ptr %arrayidx.i5.i.i, align 1
   %add.i.i.i = add i32 %h.addr.09.i.i.i, %or.i2.i.i
-  %inc.i7.i.i = add nuw nsw i32 %i.08.i.i.i, 1
-  %exitcond.not.i8.i.i = icmp eq i32 %inc.i7.i.i, %97
-  br i1 %exitcond.not.i8.i.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit.i, label %for.body.i3.i.i, !llvm.loop !11
+  %inc.i6.i.i = add nuw nsw i32 %i.08.i.i.i, 1
+  %exitcond.not.i7.i.i = icmp eq i32 %inc.i6.i.i, %97
+  br i1 %exitcond.not.i7.i.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit.i, label %for.body.i3.i.i, !llvm.loop !11
 
 _ZN7rocksdb17PlainTableBloomV17AddHashEj.exit.i:  ; preds = %for.body.i.i.i, %for.body.i3.i.i, %if.else.i.i, %if.then.i.i142
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 4
@@ -3179,8 +3179,8 @@ if.then.i:                                        ; preds = %invoke.cont13
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %h.addr.015.i.i = phi i32 [ %add10.i.i, %for.body.i.i ], [ %call2.i14, %if.then.i ]
   %i.014.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then.i ]
-  %rem.i.i = and i32 %h.addr.015.i.i, 7
-  %shl3.i.i = shl nuw nsw i32 1, %rem.i.i
+  %rem.reass.i.i = and i32 %h.addr.015.i.i, 7
+  %shl3.i.i = shl nuw nsw i32 1, %rem.reass.i.i
   %and.i.i = lshr i32 %h.addr.015.i.i, 3
   %div12.i.i = and i32 %and.i.i, 63
   %idxprom.i.i = zext nneg i32 %div12.i.i to i64
@@ -3205,21 +3205,21 @@ if.else.i:                                        ; preds = %invoke.cont13
 
 for.body.i3.i:                                    ; preds = %if.else.i, %for.body.i3.i
   %h.addr.09.i.i = phi i32 [ %add.i.i, %for.body.i3.i ], [ %call2.i14, %if.else.i ]
-  %i.08.i.i = phi i32 [ %inc.i7.i, %for.body.i3.i ], [ 0, %if.else.i ]
-  %rem.i4.i = urem i32 %h.addr.09.i.i, %27
-  %rem1.i.i = and i32 %rem.i4.i, 7
+  %i.08.i.i = phi i32 [ %inc.i6.i, %for.body.i3.i ], [ 0, %if.else.i ]
+  %rem.i.i = urem i32 %h.addr.09.i.i, %27
+  %rem1.i.i = and i32 %rem.i.i, 7
   %shl2.i.i = shl nuw nsw i32 1, %rem1.i.i
-  %div6.i.i = lshr i32 %rem.i4.i, 3
-  %idxprom.i5.i = zext nneg i32 %div6.i.i to i64
-  %arrayidx.i6.i = getelementptr inbounds i8, ptr %29, i64 %idxprom.i5.i
-  %30 = load i8, ptr %arrayidx.i6.i, align 1
+  %div6.i.i = lshr i32 %rem.i.i, 3
+  %idxprom.i4.i = zext nneg i32 %div6.i.i to i64
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %29, i64 %idxprom.i4.i
+  %30 = load i8, ptr %arrayidx.i5.i, align 1
   %31 = trunc nuw i32 %shl2.i.i to i8
   %conv4.i.i = or i8 %30, %31
-  store i8 %conv4.i.i, ptr %arrayidx.i6.i, align 1
+  store i8 %conv4.i.i, ptr %arrayidx.i5.i, align 1
   %add.i.i = add i32 %h.addr.09.i.i, %or.i2.i
-  %inc.i7.i = add nuw nsw i32 %i.08.i.i, 1
-  %exitcond.not.i8.i = icmp eq i32 %inc.i7.i, %28
-  br i1 %exitcond.not.i8.i, label %if.end38, label %for.body.i3.i, !llvm.loop !11
+  %inc.i6.i = add nuw nsw i32 %i.08.i.i, 1
+  %exitcond.not.i7.i = icmp eq i32 %inc.i6.i, %28
+  br i1 %exitcond.not.i7.i, label %if.end38, label %for.body.i3.i, !llvm.loop !11
 
 if.else:                                          ; preds = %invoke.cont10
   %tobool16 = trunc nuw i8 %is_first_record.0119 to i1
@@ -3809,8 +3809,8 @@ if.then.i:                                        ; preds = %for.body
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %h.addr.015.i.i = phi i32 [ %add10.i.i, %for.body.i.i ], [ %2, %if.then.i ]
   %i.014.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then.i ]
-  %rem.i.i = and i32 %h.addr.015.i.i, 7
-  %shl3.i.i = shl nuw nsw i32 1, %rem.i.i
+  %rem.reass.i.i = and i32 %h.addr.015.i.i, 7
+  %shl3.i.i = shl nuw nsw i32 1, %rem.reass.i.i
   %and.i.i = lshr i32 %h.addr.015.i.i, 3
   %div12.i.i = and i32 %and.i.i, 63
   %idxprom.i.i = zext nneg i32 %div12.i.i to i64
@@ -3835,21 +3835,21 @@ if.else.i:                                        ; preds = %for.body
 
 for.body.i3.i:                                    ; preds = %if.else.i, %for.body.i3.i
   %h.addr.09.i.i = phi i32 [ %add.i.i, %for.body.i3.i ], [ %2, %if.else.i ]
-  %i.08.i.i = phi i32 [ %inc.i7.i, %for.body.i3.i ], [ 0, %if.else.i ]
-  %rem.i4.i = urem i32 %h.addr.09.i.i, %8
-  %rem1.i.i = and i32 %rem.i4.i, 7
+  %i.08.i.i = phi i32 [ %inc.i6.i, %for.body.i3.i ], [ 0, %if.else.i ]
+  %rem.i.i = urem i32 %h.addr.09.i.i, %8
+  %rem1.i.i = and i32 %rem.i.i, 7
   %shl2.i.i = shl nuw nsw i32 1, %rem1.i.i
-  %div6.i.i = lshr i32 %rem.i4.i, 3
-  %idxprom.i5.i = zext nneg i32 %div6.i.i to i64
-  %arrayidx.i6.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i5.i
-  %11 = load i8, ptr %arrayidx.i6.i, align 1
+  %div6.i.i = lshr i32 %rem.i.i, 3
+  %idxprom.i4.i = zext nneg i32 %div6.i.i to i64
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i4.i
+  %11 = load i8, ptr %arrayidx.i5.i, align 1
   %12 = trunc nuw i32 %shl2.i.i to i8
   %conv4.i.i = or i8 %11, %12
-  store i8 %conv4.i.i, ptr %arrayidx.i6.i, align 1
+  store i8 %conv4.i.i, ptr %arrayidx.i5.i, align 1
   %add.i.i = add i32 %h.addr.09.i.i, %or.i2.i
-  %inc.i7.i = add nuw nsw i32 %i.08.i.i, 1
-  %exitcond.not.i8.i = icmp eq i32 %inc.i7.i, %9
-  br i1 %exitcond.not.i8.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %for.body.i3.i, !llvm.loop !11
+  %inc.i6.i = add nuw nsw i32 %i.08.i.i, 1
+  %exitcond.not.i7.i = icmp eq i32 %inc.i6.i, %9
+  br i1 %exitcond.not.i7.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %for.body.i3.i, !llvm.loop !11
 
 _ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %for.body.i.i, %for.body.i3.i, %if.then.i, %if.else.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 4
@@ -5222,8 +5222,8 @@ for.body.i.i.i:                                   ; preds = %if.then.i, %if.end.
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv16.i.i.i = zext i8 %4 to i32
-  %rem.i4.i.i = and i32 %h.addr.012.i.i.i, 7
-  %shl2.i.i.i = shl nuw nsw i32 1, %rem.i4.i.i
+  %rem.reass.i.i.i = and i32 %h.addr.012.i.i.i, 7
+  %shl2.i.i.i = shl nuw nsw i32 1, %rem.reass.i.i.i
   %and3.i.i.i = and i32 %shl2.i.i.i, %conv16.i.i.i
   %cmp4.not.i.not.i.not.i = icmp eq i32 %and3.i.i.i, 0
   br i1 %cmp4.not.i.not.i.not.i, label %if.else, label %if.end.i.i.i

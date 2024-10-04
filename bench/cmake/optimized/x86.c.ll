@@ -50,7 +50,7 @@ declare i32 @lzma_simple_coder_init(ptr noundef, ptr noundef, ptr noundef, ptr n
 define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i64 noundef %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = icmp ult i64 %4, 5
-  br i1 %7, label %89, label %8
+  br i1 %7, label %87, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 4
@@ -118,7 +118,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %35 = zext i8 %34 to i32
   %36 = add i8 %34, 1
   %or.cond5 = icmp ult i8 %36, 2
-  br i1 %or.cond5, label %37, label %86
+  br i1 %or.cond5, label %37, label %84
 
 37:                                               ; preds = %.loopexit
   %38 = lshr i32 %.1, 1
@@ -129,7 +129,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %43 = trunc i8 %42 to i1
   %44 = icmp ult i32 %.1, 32
   %or.cond99 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond99, label %45, label %86
+  br i1 %or.cond99, label %45, label %84
 
 45:                                               ; preds = %37
   %46 = shl nuw i32 %35, 24
@@ -164,6 +164,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %70 = zext nneg i32 %69 to i64
   %notmask = shl nsw i64 -1, %70
   %71 = trunc i64 %notmask to i32
+  %invariant.op = xor i32 %71, -1
   br label %72
 
 72:                                               ; preds = %74, %.lr.ph117
@@ -176,54 +177,53 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   ]
 
 74:                                               ; preds = %72, %72
-  %75 = xor i32 %.088115, %71
-  %76 = xor i32 %75, -1
-  %.088 = add i32 %.088.p, %76
+  %.reass.reass.reass = xor i32 %.088115, %invariant.op
+  %.088 = add i32 %.088.p, %.reass.reass.reass
   br label %72
 
 ._crit_edge118:                                   ; preds = %72, %45
   %.088.lcssa = phi i32 [ %.088114, %45 ], [ %.088115, %72 ]
-  %77 = shl i32 %.088.lcssa, 7
-  %78 = ashr i32 %77, 31
-  %79 = trunc nsw i32 %78 to i8
-  store i8 %79, ptr %33, align 1
-  %80 = lshr i32 %.088.lcssa, 16
+  %75 = shl i32 %.088.lcssa, 7
+  %76 = ashr i32 %75, 31
+  %77 = trunc nsw i32 %76 to i8
+  store i8 %77, ptr %33, align 1
+  %78 = lshr i32 %.088.lcssa, 16
+  %79 = trunc i32 %78 to i8
+  store i8 %79, ptr %47, align 1
+  %80 = lshr i32 %.088.lcssa, 8
   %81 = trunc i32 %80 to i8
-  store i8 %81, ptr %47, align 1
-  %82 = lshr i32 %.088.lcssa, 8
-  %83 = trunc i32 %82 to i8
-  store i8 %83, ptr %52, align 1
-  %84 = trunc i32 %.088.lcssa to i8
-  store i8 %84, ptr %57, align 1
-  %85 = add nuw i64 %.092104, 5
+  store i8 %81, ptr %52, align 1
+  %82 = trunc i32 %.088.lcssa to i8
+  store i8 %82, ptr %57, align 1
+  %83 = add nuw i64 %.092104, 5
   br label %.outer
 
-86:                                               ; preds = %.loopexit, %37
+84:                                               ; preds = %.loopexit, %37
   %spec.select100.v = phi i32 [ 1, %.loopexit ], [ 17, %37 ]
-  %87 = add nuw i64 %.092104, 1
+  %85 = add nuw i64 %.092104, 1
   %spec.select100 = or i32 %spec.select100.v, %.1
   br label %.outer
 
-.outer:                                           ; preds = %86, %._crit_edge118
-  %.193 = phi i64 [ %85, %._crit_edge118 ], [ %87, %86 ]
-  %.3 = phi i32 [ 0, %._crit_edge118 ], [ %spec.select100, %86 ]
+.outer:                                           ; preds = %84, %._crit_edge118
+  %.193 = phi i64 [ %83, %._crit_edge118 ], [ %85, %84 ]
+  %.3 = phi i32 [ 0, %._crit_edge118 ], [ %spec.select100, %84 ]
   %.not103 = icmp ugt i64 %.193, %14
   br i1 %.not103, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge.loopexit:                       ; preds = %22
   %umax.le = tail call i64 @llvm.umax.i64(i64 %.092.ph124, i64 %14)
-  %88 = add i64 %umax.le, 1
+  %86 = add i64 %umax.le, 1
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer._crit_edge.loopexit
   %.195.ph.lcssa = phi i32 [ %.195.ph123, %.outer._crit_edge.loopexit ], [ %27, %.outer ]
   %.091.ph.lcssa = phi i32 [ %.091.ph125, %.outer._crit_edge.loopexit ], [ %.3, %.outer ]
-  %.092.lcssa = phi i64 [ %88, %.outer._crit_edge.loopexit ], [ %.193, %.outer ]
+  %.092.lcssa = phi i64 [ %86, %.outer._crit_edge.loopexit ], [ %.193, %.outer ]
   store i32 %.091.ph.lcssa, ptr %0, align 4
   store i32 %.195.ph.lcssa, ptr %6, align 4
-  br label %89
+  br label %87
 
-89:                                               ; preds = %5, %.outer._crit_edge
+87:                                               ; preds = %5, %.outer._crit_edge
   %.0 = phi i64 [ %.092.lcssa, %.outer._crit_edge ], [ 0, %5 ]
   ret i64 %.0
 }

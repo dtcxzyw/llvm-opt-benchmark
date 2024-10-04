@@ -1146,6 +1146,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr21.i = lshr i32 %conv, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
@@ -1155,8 +1156,8 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
   %xor10.i = xor i32 %mul.i, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %4 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %4, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i
@@ -1183,9 +1184,9 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %cmp.i = icmp sgt i32 %0, -1
-  %5 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
-  %6 = icmp eq i64 %5, 0
-  %or.cond1.i = select i1 %cmp.i, i1 %6, i1 false
+  %4 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
+  %5 = icmp eq i64 %4, 0
+  %or.cond1.i = select i1 %cmp.i, i1 %5, i1 false
   br i1 %or.cond1.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
@@ -1201,8 +1202,8 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit:          ; preds = %_ZN4pbrt18Permutati
   %rem9.i = and i64 %p.sroa.3.0.extract.shift.i, 127
   %idxprom.i = zext nneg i32 %rem.i1 to i64
   %arrayidx13.i = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i, i64 %rem6.i, i64 %rem9.i
-  %7 = load i16, ptr %arrayidx13.i, align 2
-  %conv14.i = uitofp i16 %7 to float
+  %6 = load i16, ptr %arrayidx13.i, align 2
+  %conv14.i = uitofp i16 %6 to float
   %div.i = fdiv float %conv14.i, 6.553500e+04
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
@@ -1280,6 +1281,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr21.i = lshr i32 %conv, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
@@ -1289,8 +1291,8 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
   %xor10.i = xor i32 %mul.i, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %4 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %4, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i
@@ -1323,9 +1325,9 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
 if.end:                                           ; preds = %entry, %_ZN4pbrt18PermutationElementEjjj.exit
   %index.0 = phi i32 [ %rem.i, %_ZN4pbrt18PermutationElementEjjj.exit ], [ %0, %entry ]
   %cmp.i = icmp sgt i32 %1, -1
-  %5 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
-  %6 = icmp eq i64 %5, 0
-  %or.cond1.i = select i1 %cmp.i, i1 %6, i1 false
+  %4 = and i64 %agg.tmp.sroa.0.0.copyload, -9223372034707292160
+  %5 = icmp eq i64 %4, 0
+  %or.cond1.i = select i1 %cmp.i, i1 %5, i1 false
   br i1 %or.cond1.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
@@ -1339,13 +1341,13 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18:        ; preds = %if.end
   %rem1.i = srem i32 %index.0, 65536
   %idxprom2.i = sext i32 %rem1.i to i64
   %arrayidx3.i = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %idxprom.i, i64 %idxprom2.i
-  %7 = load i32, ptr %arrayidx3.i, align 8
-  %conv.i = uitofp i32 %7 to double
+  %6 = load i32, ptr %arrayidx3.i, align 8
+  %conv.i = uitofp i32 %6 to double
   %mul.i4 = fmul double %conv.i, 0x3DF0000000000000
   %conv5.i = fptrunc double %mul.i4 to float
   %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 4
-  %8 = load i32, ptr %arrayidx10.i, align 4
-  %conv11.i = uitofp i32 %8 to double
+  %7 = load i32, ptr %arrayidx10.i, align 4
+  %conv11.i = uitofp i32 %7 to double
   %mul12.i = fmul double %conv11.i, 0x3DF0000000000000
   %conv13.i = fptrunc double %mul12.i to float
   %p.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp.sroa.0.0.copyload, 32
@@ -1354,20 +1356,20 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18:        ; preds = %if.end
   %rem9.i = and i64 %p.sroa.3.0.extract.shift.i, 127
   %idxprom.i6 = zext nneg i32 %rem.i5 to i64
   %arrayidx13.i = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i6, i64 %rem6.i, i64 %rem9.i
-  %9 = load i16, ptr %arrayidx13.i, align 2
-  %conv14.i = uitofp i16 %9 to float
+  %8 = load i16, ptr %arrayidx13.i, align 2
+  %conv14.i = uitofp i16 %8 to float
   %div.i = fdiv float %conv14.i, 6.553500e+04
   %add = add nuw nsw i32 %1, 1
   %rem.i11 = urem i32 %add, 48
   %idxprom.i14 = zext nneg i32 %rem.i11 to i64
   %arrayidx13.i15 = getelementptr inbounds [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %idxprom.i14, i64 %rem6.i, i64 %rem9.i
-  %10 = load i16, ptr %arrayidx13.i15, align 2
-  %conv14.i16 = uitofp i16 %10 to float
+  %9 = load i16, ptr %arrayidx13.i15, align 2
+  %conv14.i16 = uitofp i16 %9 to float
   %div.i17 = fdiv float %conv14.i16, 6.553500e+04
   %add.i19 = fadd float %div.i, %conv5.i
-  %11 = insertelement <2 x float> poison, float %add.i19, i64 0
+  %10 = insertelement <2 x float> poison, float %add.i19, i64 0
   %add4.i = fadd float %div.i17, %conv13.i
-  %u.sroa.0.4.vec.insert = insertelement <2 x float> %11, float %add4.i, i64 1
+  %u.sroa.0.4.vec.insert = insertelement <2 x float> %10, float %add4.i, i64 1
   %cmp20 = fcmp ult float %add.i19, 1.000000e+00
   %sub = fadd float %add.i19, -1.000000e+00
   %u.sroa.0.0.vec.insert = insertelement <2 x float> %u.sroa.0.4.vec.insert, float %sub, i64 0
@@ -1380,12 +1382,12 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit18:        ; preds = %if.end
   store i32 %add30, ptr %dimension, align 4
   %u.sroa.0.0.vec.extract44 = extractelement <2 x float> %u.sroa.0.1, i64 0
   %cmp.i20 = fcmp ogt float %u.sroa.0.0.vec.extract44, 0x3FEFFFFFE0000000
-  %12 = select i1 %cmp.i20, float 0x3FEFFFFFE0000000, float %u.sroa.0.0.vec.extract44
+  %11 = select i1 %cmp.i20, float 0x3FEFFFFFE0000000, float %u.sroa.0.0.vec.extract44
   %u.sroa.0.4.vec.extract47 = extractelement <2 x float> %u.sroa.0.1, i64 1
   %cmp.i21 = fcmp ogt float %u.sroa.0.4.vec.extract47, 0x3FEFFFFFE0000000
-  %13 = select i1 %cmp.i21, float 0x3FEFFFFFE0000000, float %u.sroa.0.4.vec.extract47
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %12, i64 0
-  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %13, i64 1
+  %12 = select i1 %cmp.i21, float 0x3FEFFFFFE0000000, float %u.sroa.0.4.vec.extract47
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %11, i64 0
+  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %12, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }
 
@@ -3038,6 +3040,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr21.i = lshr i32 %conv, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
@@ -3047,8 +3050,8 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
   %xor10.i = xor i32 %mul.i1, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %5 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %5, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i1
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i
@@ -3077,23 +3080,23 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
   %jitter = getelementptr inbounds i8, ptr %this, i64 12
-  %6 = load i8, ptr %jitter, align 4
-  %tobool = trunc i8 %6 to i1
+  %5 = load i8, ptr %jitter, align 4
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
   %rng = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %rng, align 8
-  %mul.i.i = mul i64 %7, 6364136223846793005
+  %6 = load i64, ptr %rng, align 8
+  %mul.i.i = mul i64 %6, 6364136223846793005
   %inc.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %inc.i.i, align 8
-  %add.i.i = add i64 %mul.i.i, %8
+  %7 = load i64, ptr %inc.i.i, align 8
+  %add.i.i = add i64 %mul.i.i, %7
   store i64 %add.i.i, ptr %rng, align 8
-  %9 = lshr i64 %7, 45
-  %10 = lshr i64 %7, 27
-  %shr3.i.i = xor i64 %9, %10
+  %8 = lshr i64 %6, 45
+  %9 = lshr i64 %6, 27
+  %shr3.i.i = xor i64 %8, %9
   %conv.i.i = trunc i64 %shr3.i.i to i32
-  %shr4.i.i = lshr i64 %7, 59
+  %shr4.i.i = lshr i64 %6, 59
   %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
@@ -3177,6 +3180,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr21.i = lshr i32 %conv, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
@@ -3186,8 +3190,8 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
   %xor10.i = xor i32 %mul.i2, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %5 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %5, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i2
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i
@@ -3216,22 +3220,22 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %add = add nsw i32 %0, 2
   store i32 %add, ptr %dimension, align 4
   %jitter = getelementptr inbounds i8, ptr %this, i64 12
-  %6 = load i8, ptr %jitter, align 4
-  %tobool = trunc i8 %6 to i1
+  %5 = load i8, ptr %jitter, align 4
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %cond.true9, label %cond.end13
 
 cond.true9:                                       ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
   %rng = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %rng, align 8
-  %mul.i.i = mul i64 %7, 6364136223846793005
+  %6 = load i64, ptr %rng, align 8
+  %mul.i.i = mul i64 %6, 6364136223846793005
   %inc.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %inc.i.i, align 8
-  %add.i.i = add i64 %mul.i.i, %8
-  %9 = lshr i64 %7, 45
-  %10 = lshr i64 %7, 27
-  %shr3.i.i = xor i64 %9, %10
+  %7 = load i64, ptr %inc.i.i, align 8
+  %add.i.i = add i64 %mul.i.i, %7
+  %8 = lshr i64 %6, 45
+  %9 = lshr i64 %6, 27
+  %shr3.i.i = xor i64 %8, %9
   %conv.i.i = trunc i64 %shr3.i.i to i32
-  %shr4.i.i = lshr i64 %7, 59
+  %shr4.i.i = lshr i64 %6, 59
   %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
@@ -3239,11 +3243,11 @@ cond.true9:                                       ; preds = %_ZN4pbrt18Permutati
   %cmp.i.i = fcmp olt float %mul.i3, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %cmp.i.i, float %mul.i3, float 0x3FEFFFFFE0000000
   %mul.i.i4 = mul i64 %add.i.i, 6364136223846793005
-  %add.i.i6 = add i64 %mul.i.i4, %8
+  %add.i.i6 = add i64 %mul.i.i4, %7
   store i64 %add.i.i6, ptr %rng, align 8
-  %11 = lshr i64 %add.i.i, 45
-  %12 = lshr i64 %add.i.i, 27
-  %shr3.i.i7 = xor i64 %11, %12
+  %10 = lshr i64 %add.i.i, 45
+  %11 = lshr i64 %add.i.i, 27
+  %shr3.i.i7 = xor i64 %10, %11
   %conv.i.i8 = trunc i64 %shr3.i.i7 to i32
   %shr4.i.i9 = lshr i64 %add.i.i, 59
   %conv5.i.i10 = trunc nuw nsw i64 %shr4.i.i9 to i32
@@ -4197,6 +4201,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shr21.i = lshr i32 %conv12, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %while.body
@@ -4206,8 +4211,8 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
   %xor10.i = xor i32 %mul.i18, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %1 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %1, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i18
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i
@@ -4242,8 +4247,8 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %sub4 = fsub float 1.000000e+00, %mul17
   %cmp = fcmp olt float %sub4, 1.000000e+00
   %cmp5 = icmp ult i64 %add, %sub
-  %2 = select i1 %cmp, i1 %cmp5, i1 false
-  br i1 %2, label %while.body, label %while.end, !llvm.loop !74
+  %1 = select i1 %cmp, i1 %cmp5, i1 false
+  br i1 %1, label %while.body, label %while.end, !llvm.loop !74
 
 while.end:                                        ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
   %conv18 = uitofp i64 %add to float
@@ -4857,6 +4862,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr21.i = lshr i32 %conv, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
@@ -4866,8 +4872,8 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
   %xor10.i = xor i32 %mul.i, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %4 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %4, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i
@@ -4964,6 +4970,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr21.i = lshr i32 %conv, 27
   %or22.i = or i32 %shr21.i, 1
   %mul23.i = mul i32 %or22.i, 1765145193
+  %invariant.op = xor i32 %shr13.i, %shr9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
@@ -4973,8 +4980,8 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
   %xor10.i = xor i32 %mul.i, %shr9.i
   %and.i = and i32 %xor10.i, %or8.i
   %shr11.i = lshr i32 %and.i, 4
-  %4 = xor i32 %shr13.i, %shr11.i
-  %xor14.i = xor i32 %4, %xor10.i
+  %.reass.reass = xor i32 %shr11.i, %invariant.op
+  %xor14.i = xor i32 %.reass.reass, %mul.i
   %mul15.i = mul i32 %xor14.i, 153742143
   %xor17.i = xor i32 %mul15.i, %shr16.i
   %and18.i = and i32 %xor17.i, %or8.i

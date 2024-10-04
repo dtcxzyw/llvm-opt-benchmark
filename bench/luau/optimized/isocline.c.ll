@@ -9825,61 +9825,63 @@ define internal fastcc void @attrbuf_update_set_at(ptr nocapture noundef %0, i64
   br i1 %73, label %.lr.ph.split.us.split.split.us, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split
-  br i1 %.not26.i, label %.lr.ph.split.us.split.split.split.us, label %.lr.ph.split.us.split.split.split
+  %invariant.op52 = and i64 %.fr41, 1152921500580315135
+  br i1 %.not26.i, label %.lr.ph.split.us.split.split.split.us, label %.lr.ph.split.us.split.split.split.preheader
+
+.lr.ph.split.us.split.split.split.preheader:      ; preds = %.lr.ph.split.us.split.split
+  %invariant.op50 = and i64 %.fr41, 1152921501385621503
+  br label %.lr.ph.split.us.split.split.split
 
 .lr.ph.split.us.split.split.split.us:             ; preds = %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.split.us
-  %.129.us.us36 = phi i64 [ %86, %.lr.ph.split.us.split.split.split.us ], [ %1, %.lr.ph.split.us.split.split ]
+  %.129.us.us36 = phi i64 [ %84, %.lr.ph.split.us.split.split.split.us ], [ %1, %.lr.ph.split.us.split.split ]
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds %union.attr_s, ptr %74, i64 %.129.us.us36
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, -1152921500580315136
-  %78 = or disjoint i64 %77, %38
-  %79 = or disjoint i64 %78, %39
-  %80 = and i64 %79, 4611686018427387903
-  %81 = or disjoint i64 %80, %41
-  %.sroa.013.3.i.us.us38 = select i1 %.not27.i, i64 %79, i64 %81
-  %82 = and i64 %.sroa.013.3.i.us.us38, -3221225473
-  %83 = or disjoint i64 %82, %42
-  %.sroa.013.4.i.us.us39 = select i1 %.not28.i, i64 %.sroa.013.3.i.us.us38, i64 %83
-  %84 = and i64 %.sroa.013.4.i.us.us39, -3458764513820540929
-  %85 = or disjoint i64 %84, %43
-  %.sroa.013.5.i.us.us40 = select i1 %.not29.i, i64 %.sroa.013.4.i.us.us39, i64 %85
+  %.reass = or disjoint i64 %77, %invariant.op52
+  %78 = and i64 %.reass, 4611686018427387903
+  %79 = or disjoint i64 %78, %41
+  %.sroa.013.3.i.us.us38 = select i1 %.not27.i, i64 %.reass, i64 %79
+  %80 = and i64 %.sroa.013.3.i.us.us38, -3221225473
+  %81 = or disjoint i64 %80, %42
+  %.sroa.013.4.i.us.us39 = select i1 %.not28.i, i64 %.sroa.013.3.i.us.us38, i64 %81
+  %82 = and i64 %.sroa.013.4.i.us.us39, -3458764513820540929
+  %83 = or disjoint i64 %82, %43
+  %.sroa.013.5.i.us.us40 = select i1 %.not29.i, i64 %.sroa.013.4.i.us.us39, i64 %83
   store i64 %.sroa.013.5.i.us.us40, ptr %75, align 8
-  %86 = add nsw i64 %.129.us.us36, 1
-  %87 = icmp slt i64 %86, %6
-  br i1 %87, label %.lr.ph.split.us.split.split.split.us, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
+  %84 = add nsw i64 %.129.us.us36, 1
+  %85 = icmp slt i64 %84, %6
+  br i1 %85, label %.lr.ph.split.us.split.split.split.us, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
 
-.lr.ph.split.us.split.split.split:                ; preds = %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.split
-  %.129.us = phi i64 [ %101, %.lr.ph.split.us.split.split.split ], [ %1, %.lr.ph.split.us.split.split ]
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds %union.attr_s, ptr %88, i64 %.129.us
-  %90 = load i64, ptr %89, align 8
-  %91 = and i64 %90, -1152921501385621504
-  %92 = or disjoint i64 %91, %38
-  %93 = or disjoint i64 %92, %39
-  %94 = or disjoint i64 %93, %40
-  %95 = and i64 %94, 4611686018427387903
-  %96 = or disjoint i64 %95, %41
-  %.sroa.013.3.i.us = select i1 %.not27.i, i64 %94, i64 %96
-  %97 = and i64 %.sroa.013.3.i.us, -3221225473
-  %98 = or disjoint i64 %97, %42
-  %.sroa.013.4.i.us = select i1 %.not28.i, i64 %.sroa.013.3.i.us, i64 %98
-  %99 = and i64 %.sroa.013.4.i.us, -3458764513820540929
-  %100 = or disjoint i64 %99, %43
-  %.sroa.013.5.i.us = select i1 %.not29.i, i64 %.sroa.013.4.i.us, i64 %100
-  store i64 %.sroa.013.5.i.us, ptr %89, align 8
-  %101 = add nsw i64 %.129.us, 1
-  %102 = icmp slt i64 %101, %6
-  br i1 %102, label %.lr.ph.split.us.split.split.split, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
+.lr.ph.split.us.split.split.split:                ; preds = %.lr.ph.split.us.split.split.split.preheader, %.lr.ph.split.us.split.split.split
+  %.129.us = phi i64 [ %96, %.lr.ph.split.us.split.split.split ], [ %1, %.lr.ph.split.us.split.split.split.preheader ]
+  %86 = load ptr, ptr %0, align 8
+  %87 = getelementptr inbounds %union.attr_s, ptr %86, i64 %.129.us
+  %88 = load i64, ptr %87, align 8
+  %89 = and i64 %88, -1152921501385621504
+  %.reass51 = or disjoint i64 %89, %invariant.op50
+  %90 = and i64 %.reass51, 4611686018427387903
+  %91 = or disjoint i64 %90, %41
+  %.sroa.013.3.i.us = select i1 %.not27.i, i64 %.reass51, i64 %91
+  %92 = and i64 %.sroa.013.3.i.us, -3221225473
+  %93 = or disjoint i64 %92, %42
+  %.sroa.013.4.i.us = select i1 %.not28.i, i64 %.sroa.013.3.i.us, i64 %93
+  %94 = and i64 %.sroa.013.4.i.us, -3458764513820540929
+  %95 = or disjoint i64 %94, %43
+  %.sroa.013.5.i.us = select i1 %.not29.i, i64 %.sroa.013.4.i.us, i64 %95
+  store i64 %.sroa.013.5.i.us, ptr %87, align 8
+  %96 = add nsw i64 %.129.us, 1
+  %97 = icmp slt i64 %96, %6
+  br i1 %97, label %.lr.ph.split.us.split.split.split, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.129 = phi i64 [ %105, %.lr.ph.split ], [ %1, %.lr.ph ]
-  %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds %union.attr_s, ptr %103, i64 %.129
-  store i64 %.fr41, ptr %104, align 8
-  %105 = add nsw i64 %.129, 1
-  %106 = icmp slt i64 %105, %6
-  br i1 %106, label %.lr.ph.split, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
+  %.129 = phi i64 [ %100, %.lr.ph.split ], [ %1, %.lr.ph ]
+  %98 = load ptr, ptr %0, align 8
+  %99 = getelementptr inbounds %union.attr_s, ptr %98, i64 %.129
+  store i64 %.fr41, ptr %99, align 8
+  %100 = add nsw i64 %.129, 1
+  %101 = icmp slt i64 %100, %6
+  br i1 %101, label %.lr.ph.split, label %attrbuf_ensure_capacity.exit, !llvm.loop !58
 
 attrbuf_ensure_capacity.exit:                     ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split.split, %.lr.ph.split.us.split.split.split.us, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us, %36, %17
   ret void

@@ -28024,7 +28024,14 @@ if.then10:                                        ; preds = %if.end
   %y.i = getelementptr inbounds i8, ptr %picker_size, i64 4
   store float %cond.i, ptr %y.i, align 4
   tail call void @_ZN5ImGui13PushItemWidthEf(float noundef %mul)
+  %invariant.op = or disjoint i32 %and1, 67108864
   %ColorEditOptions = getelementptr inbounds i8, ptr %2, i64 24012
+  %tobool37.not = icmp eq i32 %and1, 0
+  %mul38 = select i1 %tobool37.not, i64 16, i64 12
+  %7 = shl nuw nsw i32 %and1, 1
+  %8 = zext nneg i32 %7 to i64
+  %mul38.sroa.sel.v = select i1 %tobool37.not, i64 16, i64 12
+  %mul38.sroa.sel = getelementptr inbounds i8, ptr %previewing_ref_col, i64 %mul38.sroa.sel.v
   br label %for.body
 
 for.body:                                         ; preds = %if.then10, %if.end35
@@ -28034,41 +28041,40 @@ for.body:                                         ; preds = %if.then10, %if.end3
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %for.body
-  %7 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds i8, ptr %7, i64 16392
-  %8 = load ptr, ptr %CurrentWindow.i, align 8
-  %SkipItems.i = getelementptr inbounds i8, ptr %8, i64 195
-  %9 = load i8, ptr %SkipItems.i, align 1
-  %tobool.i = trunc i8 %9 to i1
+  %9 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %9, i64 16392
+  %10 = load ptr, ptr %CurrentWindow.i, align 8
+  %SkipItems.i = getelementptr inbounds i8, ptr %10, i64 195
+  %11 = load i8, ptr %SkipItems.i, align 1
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %if.end18, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then17
-  %LayoutType.i = getelementptr inbounds i8, ptr %8, i64 452
-  %10 = load i32, ptr %LayoutType.i, align 4
-  %cmp.i23 = icmp eq i32 %10, 0
+  %LayoutType.i = getelementptr inbounds i8, ptr %10, i64 452
+  %12 = load i32, ptr %LayoutType.i, align 4
+  %cmp.i23 = icmp eq i32 %12, 0
   %cond.i24 = select i1 %cmp.i23, i32 2, i32 1
-  %CurrentColumns.i = getelementptr inbounds i8, ptr %8, i64 440
-  %11 = load ptr, ptr %CurrentColumns.i, align 8
-  %tobool2.not.i = icmp eq ptr %11, null
+  %CurrentColumns.i = getelementptr inbounds i8, ptr %10, i64 440
+  %13 = load ptr, ptr %CurrentColumns.i, align 8
+  %tobool2.not.i = icmp eq ptr %13, null
   %or.i = or disjoint i32 %cond.i24, 4
   %spec.select.i = select i1 %tobool2.not.i, i32 %cond.i24, i32 %or.i
   call void @_ZN5ImGui11SeparatorExEif(i32 noundef %spec.select.i, float noundef 1.000000e+00)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end.i, %if.then17, %for.body
+  %picker_flags.1.v = phi i32 [ %invariant.op, %if.end.i ], [ %invariant.op, %if.then17 ], [ %and1, %for.body ]
   call void @_ZN5ImGui6PushIDEi(i32 noundef %picker_type.037)
   %spec.select.v = select i1 %cmp20, i32 33554856, i32 424
-  %spec.select = or disjoint i32 %spec.select.v, %and1
-  %or26 = or disjoint i32 %spec.select, 67108864
-  %picker_flags.1 = select i1 %cmp16, i32 %or26, i32 %spec.select
+  %picker_flags.1 = or disjoint i32 %spec.select.v, %picker_flags.1.v
   %call28 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %call28, ptr %backup_pos, align 8
   %call29 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.92, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %picker_size)
   br i1 %call29, label %if.then30, label %if.end35
 
 if.then30:                                        ; preds = %if.end18
-  %12 = load i32, ptr %ColorEditOptions, align 4
-  %and31 = and i32 %12, -100663297
+  %14 = load i32, ptr %ColorEditOptions, align 4
+  %and31 = and i32 %14, -100663297
   %and32 = and i32 %picker_flags.1, 100663296
   %or33 = or disjoint i32 %and31, %and32
   store i32 %or33, ptr %ColorEditOptions, align 4
@@ -28076,14 +28082,7 @@ if.then30:                                        ; preds = %if.end18
 
 if.end35:                                         ; preds = %if.then30, %if.end18
   call void @_ZN5ImGui18SetCursorScreenPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %backup_pos)
-  %and36 = and i32 %picker_flags.1, 2
-  %tobool37.not = icmp eq i32 %and36, 0
-  %mul38 = select i1 %tobool37.not, i64 16, i64 12
-  %13 = shl nuw nsw i32 %and36, 1
-  %14 = zext nneg i32 %13 to i64
-  %mul38.sroa.sel.v = select i1 %tobool37.not, i64 16, i64 12
-  %mul38.sroa.sel = getelementptr inbounds i8, ptr %previewing_ref_col, i64 %mul38.sroa.sel.v
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %mul38.sroa.sel, i8 0, i64 %14, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %mul38.sroa.sel, i8 0, i64 %8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %previewing_ref_col, ptr noundef nonnull align 4 dereferenceable(12) %ref_col, i64 %mul38, i1 false)
   %call40 = call noundef zeroext i1 @_ZN5ImGui12ColorPicker4EPKcPfiPKf(ptr noundef nonnull @.str.93, ptr noundef nonnull %previewing_ref_col, i32 noundef %picker_flags.1, ptr noundef null)
   call void @_ZN5ImGui5PopIDEv()

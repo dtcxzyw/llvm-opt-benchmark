@@ -256,15 +256,15 @@ define void @AxestoTranspose(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 .lr.ph65.preheader:                               ; preds = %49
   %51 = add nsw i32 %2, -2
   %52 = zext nneg i32 %51 to i64
+  %invariant.op = xor i32 %50, %42
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv76 = phi i64 [ %52, %.lr.ph65.preheader ], [ %indvars.iv.next77, %.lr.ph65 ]
   %53 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv76
   %54 = load i32, ptr %53, align 4
-  %55 = xor i32 %50, %54
-  %56 = xor i32 %55, %42
-  store i32 %56, ptr %53, align 4
+  %.reass.reass = xor i32 %54, %invariant.op
+  store i32 %.reass.reass, ptr %53, align 4
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, -1
   %.not81 = icmp eq i64 %indvars.iv76, 0
   br i1 %.not81, label %._crit_edge66, label %.lr.ph65, !llvm.loop !14

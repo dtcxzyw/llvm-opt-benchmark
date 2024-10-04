@@ -13066,7 +13066,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
 
 11:                                               ; preds = %7
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59) #44
-  br label %96
+  br label %92
 
 13:                                               ; preds = %7, %2
   store i64 0, ptr %3, align 8, !annotation !27
@@ -13077,7 +13077,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
 
 17:                                               ; preds = %13
   %18 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.60) #44
-  br label %96
+  br label %92
 
 19:                                               ; preds = %13
   %20 = load i64, ptr @__cpu_possible_mask, align 8
@@ -13119,6 +13119,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
 .preheader12:                                     ; preds = %.thread14, %38
   %41 = phi i64 [ %34, %.thread14 ], [ %40, %38 ]
   %42 = phi i64 [ %32, %.thread14 ], [ %.pr, %38 ]
+  %invariant.op = and i64 %42, %1
   br label %57
 
 .preheader:                                       ; preds = %38, %51
@@ -13143,75 +13144,74 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   %56 = icmp ult i64 %55, 9
   br i1 %56, label %.preheader, label %.thread, !prof !51, !llvm.loop !301
 
-57:                                               ; preds = %.preheader12, %70
-  %58 = phi i64 [ %75, %70 ], [ 0, %.preheader12 ]
+57:                                               ; preds = %.preheader12, %68
+  %58 = phi i64 [ %73, %68 ], [ 0, %.preheader12 ]
   %59 = and i64 %58, 4294967295
   %60 = icmp ult i64 %59, 9
   br i1 %60, label %61, label %.thread7, !prof !18
 
 61:                                               ; preds = %57
   %62 = shl nsw i64 -1, %59
-  %63 = and i64 %1, %62
-  %64 = and i64 %63, %42
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.thread7, label %66
+  %.reass.reass = and i64 %62, %invariant.op
+  %63 = icmp eq i64 %.reass.reass, 0
+  br i1 %63, label %.thread7, label %64
 
-66:                                               ; preds = %61
-  %67 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %64) #43, !srcloc !46
-  %68 = trunc i64 %67 to i32
-  %69 = icmp ugt i32 %68, 8
-  br i1 %69, label %.thread7, label %70
+64:                                               ; preds = %61
+  %65 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass.reass) #43, !srcloc !46
+  %66 = trunc i64 %65 to i32
+  %67 = icmp ugt i32 %66, 8
+  br i1 %67, label %.thread7, label %68
 
-70:                                               ; preds = %66
-  %71 = and i64 %67, 15
-  %72 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %71
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp eq i64 %41, %73
-  %75 = add nuw nsw i64 %67, 1
-  br i1 %74, label %57, label %.thread10, !llvm.loop !302
+68:                                               ; preds = %64
+  %69 = and i64 %65, 15
+  %70 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %69
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp eq i64 %41, %71
+  %73 = add nuw nsw i64 %65, 1
+  br i1 %72, label %57, label %.thread10, !llvm.loop !302
 
-.thread10:                                        ; preds = %70
-  %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #44
-  br label %96
+.thread10:                                        ; preds = %68
+  %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #44
+  br label %92
 
-.thread7:                                         ; preds = %61, %57, %66
-  %77 = xor i64 %42, -1
-  br label %78
+.thread7:                                         ; preds = %61, %57, %64
+  %75 = xor i64 %42, -1
+  %invariant.op20 = and i64 %75, %1
+  br label %76
 
-78:                                               ; preds = %.thread7, %88
-  %79 = phi i64 [ 0, %.thread7 ], [ %92, %88 ]
-  %80 = shl nsw i64 -1, %79
-  %81 = and i64 %80, %77
-  %82 = and i64 %81, %1
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %.thread, label %84
+76:                                               ; preds = %.thread7, %84
+  %77 = phi i64 [ 0, %.thread7 ], [ %88, %84 ]
+  %78 = shl nsw i64 -1, %77
+  %.reass17.reass = and i64 %78, %invariant.op20
+  %79 = icmp eq i64 %.reass17.reass, 0
+  br i1 %79, label %.thread, label %80
 
-84:                                               ; preds = %78
-  %85 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %82) #43, !srcloc !46
-  %86 = trunc i64 %85 to i32
-  %87 = icmp ult i32 %86, 9
-  br i1 %87, label %88, label %.thread
+80:                                               ; preds = %76
+  %81 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass17.reass) #43, !srcloc !46
+  %82 = trunc i64 %81 to i32
+  %83 = icmp ult i32 %82, 9
+  br i1 %83, label %84, label %.thread
 
-88:                                               ; preds = %84
-  %89 = and i64 %85, 15
-  %90 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %89
-  store i64 %41, ptr %90, align 8
-  %91 = add nuw nsw i64 %85, 1
-  %92 = and i64 %91, 31
-  %93 = icmp ult i64 %92, 9
-  br i1 %93, label %78, label %.thread, !prof !51, !llvm.loop !303
+84:                                               ; preds = %80
+  %85 = and i64 %81, 15
+  %86 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %85
+  store i64 %41, ptr %86, align 8
+  %87 = add nuw nsw i64 %81, 1
+  %88 = and i64 %87, 31
+  %89 = icmp ult i64 %88, 9
+  br i1 %89, label %76, label %.thread, !prof !51, !llvm.loop !303
 
-.thread:                                          ; preds = %84, %78, %88, %.preheader, %51, %47
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
-  %95 = or i64 %94, %1
-  store i64 %95, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
-  br label %96
+.thread:                                          ; preds = %80, %76, %84, %.preheader, %51, %47
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
+  %91 = or i64 %90, %1
+  store i64 %91, ptr getelementptr inbounds (i8, ptr @housekeeping, i64 72), align 8
+  br label %92
 
-96:                                               ; preds = %.thread10, %.thread, %17, %11
-  %97 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 1, %.thread ], [ 0, %.thread10 ]
+92:                                               ; preds = %.thread10, %.thread, %17, %11
+  %93 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 1, %.thread ], [ 0, %.thread10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #42
-  ret i32 %97
+  ret i32 %93
 }
 
 ; Function Attrs: null_pointer_is_valid

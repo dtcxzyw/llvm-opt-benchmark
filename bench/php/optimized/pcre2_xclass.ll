@@ -97,6 +97,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %65 = icmp eq i32 %0, 96
   %66 = zext i1 %65 to i32
   %67 = icmp ugt i32 %0, 127
+  %invariant.op = and i1 %58, %60
   br label %68
 
 68:                                               ; preds = %.backedge, %37
@@ -832,9 +833,8 @@ switch.early.test:                                ; preds = %538
 
 554:                                              ; preds = %550
   %555 = icmp eq i8 %548, 1
-  %or.cond13 = and i1 %58, %555
-  %narrow = and i1 %or.cond13, %60
-  %spec.select293 = zext i1 %narrow to i32
+  %narrow.reass.reass = and i1 %555, %invariant.op
+  %spec.select293 = zext i1 %narrow.reass.reass to i32
   br label %556
 
 556:                                              ; preds = %554, %550, %546

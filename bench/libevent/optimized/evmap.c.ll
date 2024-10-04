@@ -477,20 +477,25 @@ if.end:                                           ; preds = %lor.lhs.false
 for.cond.preheader:                               ; preds = %if.end
   %ev.010 = load ptr, ptr %2, align 8
   %cmp7.not11 = icmp eq ptr %ev.010, null
-  br i1 %cmp7.not11, label %for.end, label %for.body
+  br i1 %cmp7.not11, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %ev.012 = phi ptr [ %ev.0, %for.inc ], [ %ev.010, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %conv8 = sext i16 %events to i32
+  %invariant.op = and i32 %conv8, -33
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %ev.012 = phi ptr [ %ev.010, %for.body.lr.ph ], [ %ev.0, %for.inc ]
   %ev_events = getelementptr inbounds i8, ptr %ev.012, i64 60
   %3 = load i16, ptr %ev_events, align 4
-  %and13 = and i16 %3, %events
-  %and = sext i16 %and13 to i32
-  %and9 = and i32 %and, -33
-  %tobool.not = icmp eq i32 %and9, 0
+  %conv = sext i16 %3 to i32
+  %and9.reass = and i32 %invariant.op, %conv
+  %tobool.not = icmp eq i32 %and9.reass, 0
   br i1 %tobool.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %for.body
-  tail call void @event_active_nolock_(ptr noundef nonnull %ev.012, i32 noundef %and, i16 noundef signext 1) #7
+  %and14 = and i32 %conv, %conv8
+  tail call void @event_active_nolock_(ptr noundef nonnull %ev.012, i32 noundef %and14, i16 noundef signext 1) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then10

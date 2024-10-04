@@ -914,6 +914,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %call = tail call zeroext i1 @have_mmap_lock() #16
   %conv = zext i1 %call to i32
+  %invariant.op = and i32 %flags, -3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end3
@@ -951,12 +952,12 @@ if.end18:                                         ; preds = %if.end13
   %flags19 = getelementptr inbounds i8, ptr %p.0, i64 64
   %1 = load i32, ptr %flags19, align 8
   %not = xor i32 %1, -1
-  %and = and i32 %flags, %not
-  %and20 = and i32 %and, -3
-  %tobool21.not = icmp eq i32 %and20, 0
+  %and20.reass = and i32 %invariant.op, %not
+  %tobool21.not = icmp eq i32 %and20.reass, 0
   br i1 %tobool21.not, label %if.end23, label %while.end
 
 if.end23:                                         ; preds = %if.end18
+  %and = and i32 %flags, %not
   %tobool25.not = icmp eq i32 %and, 0
   br i1 %tobool25.not, label %if.end42, label %if.then26
 

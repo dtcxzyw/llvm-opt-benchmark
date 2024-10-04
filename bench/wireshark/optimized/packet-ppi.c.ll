@@ -590,20 +590,20 @@ define internal i32 @dissect_ppi(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %62 = zext i16 %61 to i32
   %63 = add nuw nsw i32 %62, 4
   %64 = sub nsw i32 %.0323364, %63
-  switch i16 %59, label %558 [
+  switch i16 %59, label %557 [
     i16 2, label %65
-    i16 3, label %223
-    i16 4, label %224
-    i16 5, label %443
-    i16 6, label %447
-    i16 7, label %451
-    i16 8, label %455
-    i16 9, label %472
-    i16 30002, label %503
-    i16 30003, label %514
-    i16 30004, label %525
-    i16 30005, label %536
-    i16 -16361, label %547
+    i16 3, label %222
+    i16 4, label %223
+    i16 5, label %442
+    i16 6, label %446
+    i16 7, label %450
+    i16 8, label %454
+    i16 9, label %471
+    i16 30002, label %502
+    i16 30003, label %513
+    i16 30004, label %524
+    i16 30005, label %535
+    i16 -16361, label %546
   ]
 
 65:                                               ; preds = %58
@@ -800,741 +800,741 @@ ptvcursor_add_invalid_check.exit.i:               ; preds = %96, %89
   br label %156
 
 156:                                              ; preds = %._crit_edge389, %155, %154, %153, %152, %151, %150, %149, %148
-  %157 = phi i8 [ 3, %._crit_edge389 ], [ 3, %155 ], [ 35, %154 ], [ 3, %153 ], [ 3, %152 ], [ 3, %151 ], [ 3, %150 ], [ 3, %149 ], [ 3, %148 ]
-  %158 = phi i1 [ %147, %._crit_edge389 ], [ false, %155 ], [ false, %154 ], [ false, %153 ], [ false, %152 ], [ false, %151 ], [ false, %150 ], [ false, %149 ], [ true, %148 ]
-  %159 = load i32, ptr @hf_80211_common_chan_flags, align 4
-  %160 = load i32, ptr @ett_dot11_common_channel_flags, align 4
-  %161 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %83, i32 noundef %159, i32 noundef 2, i32 noundef -2147483648, i32 noundef %160) #3
-  %162 = load i32, ptr @hf_80211_common_chan_flags_turbo, align 4
-  %163 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %162, i32 noundef 2, i32 noundef -2147483648) #3
-  %164 = load i32, ptr @hf_80211_common_chan_flags_cck, align 4
-  %165 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %164, i32 noundef 2, i32 noundef -2147483648) #3
-  %166 = load i32, ptr @hf_80211_common_chan_flags_ofdm, align 4
-  %167 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %166, i32 noundef 2, i32 noundef -2147483648) #3
-  %168 = load i32, ptr @hf_80211_common_chan_flags_2ghz, align 4
-  %169 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %168, i32 noundef 2, i32 noundef -2147483648) #3
-  %170 = load i32, ptr @hf_80211_common_chan_flags_5ghz, align 4
-  %171 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %170, i32 noundef 2, i32 noundef -2147483648) #3
-  %172 = load i32, ptr @hf_80211_common_chan_flags_passive, align 4
-  %173 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %172, i32 noundef 2, i32 noundef -2147483648) #3
-  %174 = load i32, ptr @hf_80211_common_chan_flags_dynamic, align 4
-  %175 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %174, i32 noundef 2, i32 noundef -2147483648) #3
-  %176 = load i32, ptr @hf_80211_common_chan_flags_gfsk, align 4
-  %177 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %176, i32 noundef 2, i32 noundef -2147483648) #3
+  %.reass = phi i8 [ 3, %._crit_edge389 ], [ 3, %155 ], [ 35, %154 ], [ 3, %153 ], [ 3, %152 ], [ 3, %151 ], [ 3, %150 ], [ 3, %149 ], [ 3, %148 ]
+  %157 = phi i1 [ %147, %._crit_edge389 ], [ false, %155 ], [ false, %154 ], [ false, %153 ], [ false, %152 ], [ false, %151 ], [ false, %150 ], [ false, %149 ], [ true, %148 ]
+  %158 = load i32, ptr @hf_80211_common_chan_flags, align 4
+  %159 = load i32, ptr @ett_dot11_common_channel_flags, align 4
+  %160 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %83, i32 noundef %158, i32 noundef 2, i32 noundef -2147483648, i32 noundef %159) #3
+  %161 = load i32, ptr @hf_80211_common_chan_flags_turbo, align 4
+  %162 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %161, i32 noundef 2, i32 noundef -2147483648) #3
+  %163 = load i32, ptr @hf_80211_common_chan_flags_cck, align 4
+  %164 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %163, i32 noundef 2, i32 noundef -2147483648) #3
+  %165 = load i32, ptr @hf_80211_common_chan_flags_ofdm, align 4
+  %166 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %165, i32 noundef 2, i32 noundef -2147483648) #3
+  %167 = load i32, ptr @hf_80211_common_chan_flags_2ghz, align 4
+  %168 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %167, i32 noundef 2, i32 noundef -2147483648) #3
+  %169 = load i32, ptr @hf_80211_common_chan_flags_5ghz, align 4
+  %170 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #3
+  %171 = load i32, ptr @hf_80211_common_chan_flags_passive, align 4
+  %172 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %171, i32 noundef 2, i32 noundef -2147483648) #3
+  %173 = load i32, ptr @hf_80211_common_chan_flags_dynamic, align 4
+  %174 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %173, i32 noundef 2, i32 noundef -2147483648) #3
+  %175 = load i32, ptr @hf_80211_common_chan_flags_gfsk, align 4
+  %176 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %175, i32 noundef 2, i32 noundef -2147483648) #3
   tail call void @ptvcursor_pop_subtree(ptr noundef %83) #3
-  br i1 %158, label %181, label %178
+  br i1 %157, label %180, label %177
 
-178:                                              ; preds = %156
-  %179 = load i32, ptr @hf_80211_common_fhss_hopset, align 4
-  %180 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %179, i32 noundef 1, i32 noundef -2147483648) #3
-  br label %190
+177:                                              ; preds = %156
+  %178 = load i32, ptr @hf_80211_common_fhss_hopset, align 4
+  %179 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %178, i32 noundef 1, i32 noundef -2147483648) #3
+  br label %189
 
-181:                                              ; preds = %156
-  %182 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
-  %183 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
-  %184 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %182, i32 noundef %183) #3
-  store i8 %184, ptr %54, align 1
-  %185 = load i32, ptr @hf_80211_common_fhss_hopset, align 4
-  %186 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %185, i32 noundef 1, i32 noundef -2147483648) #3
-  store i8 %157, ptr %45, align 4
-  %187 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
-  %188 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
-  %189 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %187, i32 noundef %188) #3
-  store i8 %189, ptr %46, align 2
-  br label %190
+180:                                              ; preds = %156
+  %181 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
+  %182 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
+  %183 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %181, i32 noundef %182) #3
+  store i8 %183, ptr %54, align 1
+  %184 = load i32, ptr @hf_80211_common_fhss_hopset, align 4
+  %185 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %184, i32 noundef 1, i32 noundef -2147483648) #3
+  store i8 %.reass, ptr %45, align 4
+  %186 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
+  %187 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
+  %188 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %186, i32 noundef %187) #3
+  store i8 %188, ptr %46, align 2
+  br label %189
 
-190:                                              ; preds = %178, %181
-  %191 = load i32, ptr @hf_80211_common_fhss_pattern, align 4
-  %192 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %191, i32 noundef 1, i32 noundef -2147483648) #3
-  %193 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
-  %194 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %193) #3
-  %195 = and i8 %194, 127
-  %or.cond.not.i = icmp eq i8 %195, 0
-  br i1 %or.cond.not.i, label %201, label %196
+189:                                              ; preds = %177, %180
+  %190 = load i32, ptr @hf_80211_common_fhss_pattern, align 4
+  %191 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %190, i32 noundef 1, i32 noundef -2147483648) #3
+  %192 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
+  %193 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %192) #3
+  %194 = and i8 %193, 127
+  %or.cond.not.i = icmp eq i8 %194, 0
+  br i1 %or.cond.not.i, label %200, label %195
 
-196:                                              ; preds = %190
-  %197 = sext i8 %194 to i32
-  %198 = load ptr, ptr %10, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %198, i32 noundef 22, ptr noundef nonnull @.str.318, i32 noundef %197) #3
-  %199 = load i16, ptr %48, align 4
-  %200 = or i16 %199, 32
-  store i16 %200, ptr %48, align 4
-  store i8 %194, ptr %55, align 8
-  br label %201
+195:                                              ; preds = %189
+  %196 = sext i8 %193 to i32
+  %197 = load ptr, ptr %10, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %197, i32 noundef 22, ptr noundef nonnull @.str.318, i32 noundef %196) #3
+  %198 = load i16, ptr %48, align 4
+  %199 = or i16 %198, 32
+  store i16 %199, ptr %48, align 4
+  store i8 %193, ptr %55, align 8
+  br label %200
 
-201:                                              ; preds = %196, %190
-  %202 = load i32, ptr @hf_80211_common_dbm_antsignal, align 4
-  %203 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
-  %204 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
-  %205 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %203, i32 noundef %204) #3
-  %206 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %202, i32 noundef 1, i32 noundef -2147483648) #3
-  %207 = icmp eq i8 %205, -128
-  br i1 %207, label %208, label %ptvcursor_add_invalid_check.exit149.i
+200:                                              ; preds = %195, %189
+  %201 = load i32, ptr @hf_80211_common_dbm_antsignal, align 4
+  %202 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
+  %203 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
+  %204 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %202, i32 noundef %203) #3
+  %205 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %201, i32 noundef 1, i32 noundef -2147483648) #3
+  %206 = icmp eq i8 %204, -128
+  br i1 %206, label %207, label %ptvcursor_add_invalid_check.exit149.i
 
-208:                                              ; preds = %201
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %206, ptr noundef nonnull @.str.315) #3
+207:                                              ; preds = %200
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %205, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit149.i
 
-ptvcursor_add_invalid_check.exit149.i:            ; preds = %208, %201
-  %209 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
-  %210 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %209) #3
-  %211 = and i8 %210, 127
-  %or.cond5.not.i = icmp eq i8 %211, 0
-  br i1 %or.cond5.not.i, label %215, label %212
+ptvcursor_add_invalid_check.exit149.i:            ; preds = %207, %200
+  %208 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
+  %209 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %208) #3
+  %210 = and i8 %209, 127
+  %or.cond5.not.i = icmp eq i8 %210, 0
+  br i1 %or.cond5.not.i, label %214, label %211
 
-212:                                              ; preds = %ptvcursor_add_invalid_check.exit149.i
-  %213 = load i16, ptr %48, align 4
-  %214 = or i16 %213, 64
-  store i16 %214, ptr %48, align 4
-  store i8 %210, ptr %56, align 1
-  br label %215
+211:                                              ; preds = %ptvcursor_add_invalid_check.exit149.i
+  %212 = load i16, ptr %48, align 4
+  %213 = or i16 %212, 64
+  store i16 %213, ptr %48, align 4
+  store i8 %209, ptr %56, align 1
+  br label %214
 
-215:                                              ; preds = %212, %ptvcursor_add_invalid_check.exit149.i
-  %216 = load i32, ptr @hf_80211_common_dbm_antnoise, align 4
-  %217 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
-  %218 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
-  %219 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %217, i32 noundef %218) #3
-  %220 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %216, i32 noundef 1, i32 noundef -2147483648) #3
-  %221 = icmp eq i8 %219, -128
-  br i1 %221, label %222, label %ptvcursor_add_invalid_check.exit150.i
+214:                                              ; preds = %211, %ptvcursor_add_invalid_check.exit149.i
+  %215 = load i32, ptr @hf_80211_common_dbm_antnoise, align 4
+  %216 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
+  %217 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
+  %218 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %216, i32 noundef %217) #3
+  %219 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %215, i32 noundef 1, i32 noundef -2147483648) #3
+  %220 = icmp eq i8 %218, -128
+  br i1 %220, label %221, label %ptvcursor_add_invalid_check.exit150.i
 
-222:                                              ; preds = %215
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.315) #3
+221:                                              ; preds = %214
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %219, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit150.i
 
-ptvcursor_add_invalid_check.exit150.i:            ; preds = %222, %215
+ptvcursor_add_invalid_check.exit150.i:            ; preds = %221, %214
   tail call void @ptvcursor_free(ptr noundef %83) #3
   br label %dissect_80211_common.exit
 
-223:                                              ; preds = %58
+222:                                              ; preds = %58
   call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %.0317, i32 noundef %.0325363, i32 noundef %63, i32 noundef 1, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %dissect_80211_common.exit
 
-224:                                              ; preds = %58
-  %225 = load i32, ptr @ett_dot11n_mac_phy, align 4
-  %226 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %225, ptr noundef null, ptr noundef nonnull @.str.322) #3
-  %227 = tail call ptr @wmem_packet_scope() #3
-  %228 = tail call ptr @ptvcursor_new(ptr noundef %227, ptr noundef %226, ptr noundef %0, i32 noundef %.0325363) #3
-  %229 = load i32, ptr @hf_ppi_field_type, align 4
-  %230 = tail call ptr @ptvcursor_add(ptr noundef %228, i32 noundef %229, i32 noundef 2, i32 noundef -2147483648) #3
-  %231 = load i32, ptr @hf_ppi_field_len, align 4
-  %232 = tail call ptr @ptvcursor_add(ptr noundef %228, i32 noundef %231, i32 noundef 2, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_free(ptr noundef %228) #3
-  %233 = tail call i32 @ptvcursor_current_offset(ptr noundef %228) #3
+223:                                              ; preds = %58
+  %224 = load i32, ptr @ett_dot11n_mac_phy, align 4
+  %225 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.322) #3
+  %226 = tail call ptr @wmem_packet_scope() #3
+  %227 = tail call ptr @ptvcursor_new(ptr noundef %226, ptr noundef %225, ptr noundef %0, i32 noundef %.0325363) #3
+  %228 = load i32, ptr @hf_ppi_field_type, align 4
+  %229 = tail call ptr @ptvcursor_add(ptr noundef %227, i32 noundef %228, i32 noundef 2, i32 noundef -2147483648) #3
+  %230 = load i32, ptr @hf_ppi_field_len, align 4
+  %231 = tail call ptr @ptvcursor_add(ptr noundef %227, i32 noundef %230, i32 noundef 2, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_free(ptr noundef %227) #3
+  %232 = tail call i32 @ptvcursor_current_offset(ptr noundef %227) #3
   %.not.i351 = icmp eq i16 %61, 48
-  br i1 %.not.i351, label %236, label %234
+  br i1 %.not.i351, label %235, label %233
 
-234:                                              ; preds = %224
-  %235 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %226, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %233, i32 noundef %62, ptr noundef nonnull @.str.313, i32 noundef %62) #3
+233:                                              ; preds = %223
+  %234 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %225, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %232, i32 noundef %62, ptr noundef nonnull @.str.313, i32 noundef %62) #3
   br label %dissect_80211_common.exit
 
-236:                                              ; preds = %224
-  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %233, i32 noundef 12, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %237 = add i32 %233, 9
-  %238 = load ptr, ptr %44, align 8
-  %239 = tail call ptr @ptvcursor_new(ptr noundef %238, ptr noundef %226, ptr noundef %0, i32 noundef %237) #3
-  %240 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %241 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %240) #3
-  %.not78.i = icmp eq i8 %241, -1
-  br i1 %.not78.i, label %246, label %242
+235:                                              ; preds = %223
+  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %225, i32 noundef %232, i32 noundef 12, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %236 = add i32 %232, 9
+  %237 = load ptr, ptr %44, align 8
+  %238 = tail call ptr @ptvcursor_new(ptr noundef %237, ptr noundef %225, ptr noundef %0, i32 noundef %236) #3
+  %239 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %240 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %239) #3
+  %.not78.i = icmp eq i8 %240, -1
+  br i1 %.not78.i, label %245, label %241
 
-242:                                              ; preds = %236
-  %243 = load i8, ptr %45, align 4
-  %244 = or i8 %243, 1
-  store i8 %244, ptr %45, align 4
-  %245 = zext i8 %241 to i16
-  store i16 %245, ptr %46, align 2
-  br label %246
+241:                                              ; preds = %235
+  %242 = load i8, ptr %45, align 4
+  %243 = or i8 %242, 1
+  store i8 %243, ptr %45, align 4
+  %244 = zext i8 %240 to i16
+  store i16 %244, ptr %46, align 2
+  br label %245
 
-246:                                              ; preds = %242, %236
-  %247 = load i32, ptr @hf_80211n_mac_phy_mcs, align 4
-  %248 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %249 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %250 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %248, i32 noundef %249) #3
-  %251 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %247, i32 noundef 1, i32 noundef -2147483648) #3
-  %252 = icmp eq i8 %250, -1
-  br i1 %252, label %253, label %ptvcursor_add_invalid_check.exit.i352
+245:                                              ; preds = %241, %235
+  %246 = load i32, ptr @hf_80211n_mac_phy_mcs, align 4
+  %247 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %248 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %249 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %247, i32 noundef %248) #3
+  %250 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %246, i32 noundef 1, i32 noundef -2147483648) #3
+  %251 = icmp eq i8 %249, -1
+  br i1 %251, label %252, label %ptvcursor_add_invalid_check.exit.i352
 
-253:                                              ; preds = %246
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %251, ptr noundef nonnull @.str.315) #3
+252:                                              ; preds = %245
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit.i352
 
-ptvcursor_add_invalid_check.exit.i352:            ; preds = %253, %246
-  %254 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %255 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %254) #3
-  %256 = load i8, ptr %45, align 4
-  %257 = or i8 %256, 64
-  store i8 %257, ptr %45, align 4
-  %258 = zext i8 %255 to i32
-  store i32 %258, ptr %47, align 8
-  %259 = load i32, ptr @hf_80211n_mac_phy_num_streams, align 4
-  %260 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %259, i32 noundef 1, i32 noundef -2147483648) #3
-  %261 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %262 = add i32 %261, -1
-  %263 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %262) #3
-  %264 = icmp eq i8 %263, 0
-  br i1 %264, label %265, label %266
+ptvcursor_add_invalid_check.exit.i352:            ; preds = %252, %245
+  %253 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %254 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %253) #3
+  %255 = load i8, ptr %45, align 4
+  %256 = or i8 %255, 64
+  store i8 %256, ptr %45, align 4
+  %257 = zext i8 %254 to i32
+  store i32 %257, ptr %47, align 8
+  %258 = load i32, ptr @hf_80211n_mac_phy_num_streams, align 4
+  %259 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %258, i32 noundef 1, i32 noundef -2147483648) #3
+  %260 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %261 = add i32 %260, -1
+  %262 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %261) #3
+  %263 = icmp eq i8 %262, 0
+  br i1 %263, label %264, label %265
 
-265:                                              ; preds = %ptvcursor_add_invalid_check.exit.i352
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.323) #3
-  br label %266
+264:                                              ; preds = %ptvcursor_add_invalid_check.exit.i352
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %259, ptr noundef nonnull @.str.323) #3
+  br label %265
 
-266:                                              ; preds = %265, %ptvcursor_add_invalid_check.exit.i352
-  %267 = load i32, ptr @hf_80211n_mac_phy_rssi_combined, align 4
-  %268 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %269 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %270 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %268, i32 noundef %269) #3
-  %271 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %267, i32 noundef 1, i32 noundef -2147483648) #3
-  %272 = icmp eq i8 %270, -1
-  br i1 %272, label %273, label %ptvcursor_add_invalid_check.exit79.i
+265:                                              ; preds = %264, %ptvcursor_add_invalid_check.exit.i352
+  %266 = load i32, ptr @hf_80211n_mac_phy_rssi_combined, align 4
+  %267 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %268 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %269 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %267, i32 noundef %268) #3
+  %270 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %266, i32 noundef 1, i32 noundef -2147483648) #3
+  %271 = icmp eq i8 %269, -1
+  br i1 %271, label %272, label %ptvcursor_add_invalid_check.exit79.i
 
-273:                                              ; preds = %266
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef nonnull @.str.315) #3
+272:                                              ; preds = %265
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %270, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit79.i
 
-ptvcursor_add_invalid_check.exit79.i:             ; preds = %273, %266
-  %274 = load i32, ptr @hf_80211n_mac_phy_rssi_ant0_ctl, align 4
-  %275 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %276 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %277 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %275, i32 noundef %276) #3
-  %278 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %274, i32 noundef 1, i32 noundef -2147483648) #3
-  %279 = icmp eq i8 %277, -1
-  br i1 %279, label %280, label %ptvcursor_add_invalid_check.exit80.i
+ptvcursor_add_invalid_check.exit79.i:             ; preds = %272, %265
+  %273 = load i32, ptr @hf_80211n_mac_phy_rssi_ant0_ctl, align 4
+  %274 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %275 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %276 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %274, i32 noundef %275) #3
+  %277 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %273, i32 noundef 1, i32 noundef -2147483648) #3
+  %278 = icmp eq i8 %276, -1
+  br i1 %278, label %279, label %ptvcursor_add_invalid_check.exit80.i
 
-280:                                              ; preds = %ptvcursor_add_invalid_check.exit79.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %278, ptr noundef nonnull @.str.315) #3
+279:                                              ; preds = %ptvcursor_add_invalid_check.exit79.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %277, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit80.i
 
-ptvcursor_add_invalid_check.exit80.i:             ; preds = %280, %ptvcursor_add_invalid_check.exit79.i
-  %281 = load i32, ptr @hf_80211n_mac_phy_rssi_ant1_ctl, align 4
-  %282 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %283 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %284 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %282, i32 noundef %283) #3
-  %285 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %281, i32 noundef 1, i32 noundef -2147483648) #3
-  %286 = icmp eq i8 %284, -1
-  br i1 %286, label %287, label %ptvcursor_add_invalid_check.exit81.i
+ptvcursor_add_invalid_check.exit80.i:             ; preds = %279, %ptvcursor_add_invalid_check.exit79.i
+  %280 = load i32, ptr @hf_80211n_mac_phy_rssi_ant1_ctl, align 4
+  %281 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %282 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %283 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %281, i32 noundef %282) #3
+  %284 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %280, i32 noundef 1, i32 noundef -2147483648) #3
+  %285 = icmp eq i8 %283, -1
+  br i1 %285, label %286, label %ptvcursor_add_invalid_check.exit81.i
 
-287:                                              ; preds = %ptvcursor_add_invalid_check.exit80.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %285, ptr noundef nonnull @.str.315) #3
+286:                                              ; preds = %ptvcursor_add_invalid_check.exit80.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %284, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit81.i
 
-ptvcursor_add_invalid_check.exit81.i:             ; preds = %287, %ptvcursor_add_invalid_check.exit80.i
-  %288 = load i32, ptr @hf_80211n_mac_phy_rssi_ant2_ctl, align 4
-  %289 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %290 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %291 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %289, i32 noundef %290) #3
-  %292 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %288, i32 noundef 1, i32 noundef -2147483648) #3
-  %293 = icmp eq i8 %291, -1
-  br i1 %293, label %294, label %ptvcursor_add_invalid_check.exit82.i
+ptvcursor_add_invalid_check.exit81.i:             ; preds = %286, %ptvcursor_add_invalid_check.exit80.i
+  %287 = load i32, ptr @hf_80211n_mac_phy_rssi_ant2_ctl, align 4
+  %288 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %289 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %290 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %288, i32 noundef %289) #3
+  %291 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %287, i32 noundef 1, i32 noundef -2147483648) #3
+  %292 = icmp eq i8 %290, -1
+  br i1 %292, label %293, label %ptvcursor_add_invalid_check.exit82.i
 
-294:                                              ; preds = %ptvcursor_add_invalid_check.exit81.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %292, ptr noundef nonnull @.str.315) #3
+293:                                              ; preds = %ptvcursor_add_invalid_check.exit81.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %291, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit82.i
 
-ptvcursor_add_invalid_check.exit82.i:             ; preds = %294, %ptvcursor_add_invalid_check.exit81.i
-  %295 = load i32, ptr @hf_80211n_mac_phy_rssi_ant3_ctl, align 4
-  %296 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %297 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %298 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %296, i32 noundef %297) #3
-  %299 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %295, i32 noundef 1, i32 noundef -2147483648) #3
-  %300 = icmp eq i8 %298, -1
-  br i1 %300, label %301, label %ptvcursor_add_invalid_check.exit83.i
+ptvcursor_add_invalid_check.exit82.i:             ; preds = %293, %ptvcursor_add_invalid_check.exit81.i
+  %294 = load i32, ptr @hf_80211n_mac_phy_rssi_ant3_ctl, align 4
+  %295 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %296 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %295, i32 noundef %296) #3
+  %298 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %294, i32 noundef 1, i32 noundef -2147483648) #3
+  %299 = icmp eq i8 %297, -1
+  br i1 %299, label %300, label %ptvcursor_add_invalid_check.exit83.i
 
-301:                                              ; preds = %ptvcursor_add_invalid_check.exit82.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %299, ptr noundef nonnull @.str.315) #3
+300:                                              ; preds = %ptvcursor_add_invalid_check.exit82.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %298, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit83.i
 
-ptvcursor_add_invalid_check.exit83.i:             ; preds = %301, %ptvcursor_add_invalid_check.exit82.i
-  %302 = load i32, ptr @hf_80211n_mac_phy_rssi_ant0_ext, align 4
-  %303 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %304 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %305 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %303, i32 noundef %304) #3
-  %306 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %302, i32 noundef 1, i32 noundef -2147483648) #3
-  %307 = icmp eq i8 %305, -1
-  br i1 %307, label %308, label %ptvcursor_add_invalid_check.exit84.i
+ptvcursor_add_invalid_check.exit83.i:             ; preds = %300, %ptvcursor_add_invalid_check.exit82.i
+  %301 = load i32, ptr @hf_80211n_mac_phy_rssi_ant0_ext, align 4
+  %302 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %303 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %304 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %302, i32 noundef %303) #3
+  %305 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %301, i32 noundef 1, i32 noundef -2147483648) #3
+  %306 = icmp eq i8 %304, -1
+  br i1 %306, label %307, label %ptvcursor_add_invalid_check.exit84.i
 
-308:                                              ; preds = %ptvcursor_add_invalid_check.exit83.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %306, ptr noundef nonnull @.str.315) #3
+307:                                              ; preds = %ptvcursor_add_invalid_check.exit83.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %305, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit84.i
 
-ptvcursor_add_invalid_check.exit84.i:             ; preds = %308, %ptvcursor_add_invalid_check.exit83.i
-  %309 = load i32, ptr @hf_80211n_mac_phy_rssi_ant1_ext, align 4
-  %310 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %311 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %312 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %310, i32 noundef %311) #3
-  %313 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %309, i32 noundef 1, i32 noundef -2147483648) #3
-  %314 = icmp eq i8 %312, -1
-  br i1 %314, label %315, label %ptvcursor_add_invalid_check.exit85.i
+ptvcursor_add_invalid_check.exit84.i:             ; preds = %307, %ptvcursor_add_invalid_check.exit83.i
+  %308 = load i32, ptr @hf_80211n_mac_phy_rssi_ant1_ext, align 4
+  %309 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %310 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %311 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %309, i32 noundef %310) #3
+  %312 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %308, i32 noundef 1, i32 noundef -2147483648) #3
+  %313 = icmp eq i8 %311, -1
+  br i1 %313, label %314, label %ptvcursor_add_invalid_check.exit85.i
 
-315:                                              ; preds = %ptvcursor_add_invalid_check.exit84.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %313, ptr noundef nonnull @.str.315) #3
+314:                                              ; preds = %ptvcursor_add_invalid_check.exit84.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %312, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit85.i
 
-ptvcursor_add_invalid_check.exit85.i:             ; preds = %315, %ptvcursor_add_invalid_check.exit84.i
-  %316 = load i32, ptr @hf_80211n_mac_phy_rssi_ant2_ext, align 4
-  %317 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %318 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %319 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %317, i32 noundef %318) #3
-  %320 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %316, i32 noundef 1, i32 noundef -2147483648) #3
-  %321 = icmp eq i8 %319, -1
-  br i1 %321, label %322, label %ptvcursor_add_invalid_check.exit86.i
+ptvcursor_add_invalid_check.exit85.i:             ; preds = %314, %ptvcursor_add_invalid_check.exit84.i
+  %315 = load i32, ptr @hf_80211n_mac_phy_rssi_ant2_ext, align 4
+  %316 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %317 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %318 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %316, i32 noundef %317) #3
+  %319 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %315, i32 noundef 1, i32 noundef -2147483648) #3
+  %320 = icmp eq i8 %318, -1
+  br i1 %320, label %321, label %ptvcursor_add_invalid_check.exit86.i
 
-322:                                              ; preds = %ptvcursor_add_invalid_check.exit85.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %320, ptr noundef nonnull @.str.315) #3
+321:                                              ; preds = %ptvcursor_add_invalid_check.exit85.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %319, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit86.i
 
-ptvcursor_add_invalid_check.exit86.i:             ; preds = %322, %ptvcursor_add_invalid_check.exit85.i
-  %323 = load i32, ptr @hf_80211n_mac_phy_rssi_ant3_ext, align 4
-  %324 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %325 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %326 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef %325) #3
-  %327 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %323, i32 noundef 1, i32 noundef -2147483648) #3
-  %328 = icmp eq i8 %326, -1
-  br i1 %328, label %329, label %ptvcursor_add_invalid_check.exit87.i
+ptvcursor_add_invalid_check.exit86.i:             ; preds = %321, %ptvcursor_add_invalid_check.exit85.i
+  %322 = load i32, ptr @hf_80211n_mac_phy_rssi_ant3_ext, align 4
+  %323 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %324 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %325 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %323, i32 noundef %324) #3
+  %326 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %322, i32 noundef 1, i32 noundef -2147483648) #3
+  %327 = icmp eq i8 %325, -1
+  br i1 %327, label %328, label %ptvcursor_add_invalid_check.exit87.i
 
-329:                                              ; preds = %ptvcursor_add_invalid_check.exit86.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.315) #3
+328:                                              ; preds = %ptvcursor_add_invalid_check.exit86.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %326, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit87.i
 
-ptvcursor_add_invalid_check.exit87.i:             ; preds = %329, %ptvcursor_add_invalid_check.exit86.i
-  %330 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %331 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %332 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %330, i32 noundef %331) #3
-  %333 = zext i16 %332 to i32
-  %334 = tail call ptr @ieee80211_mhz_to_str(i32 noundef %333) #3
-  %335 = tail call ptr @ptvcursor_tree(ptr noundef %239) #3
-  %336 = load i32, ptr @hf_80211n_mac_phy_ext_chan_freq, align 4
-  %337 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %338 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %339 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %335, i32 noundef %336, ptr noundef %337, i32 noundef %338, i32 noundef 2, i32 noundef %333, ptr noundef nonnull @.str.324, ptr noundef %334) #3
-  tail call void @g_free(ptr noundef %334) #3
-  tail call void @ptvcursor_advance(ptr noundef %239, i32 noundef 2) #3
-  %340 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags, align 4
-  %341 = load i32, ptr @ett_dot11n_mac_phy_ext_channel_flags, align 4
-  %342 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %239, i32 noundef %340, i32 noundef 2, i32 noundef -2147483648, i32 noundef %341) #3
-  %343 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_turbo, align 4
-  %344 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %343, i32 noundef 2, i32 noundef -2147483648) #3
-  %345 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_cck, align 4
-  %346 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %345, i32 noundef 2, i32 noundef -2147483648) #3
-  %347 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_ofdm, align 4
-  %348 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %347, i32 noundef 2, i32 noundef -2147483648) #3
-  %349 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_2ghz, align 4
-  %350 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %349, i32 noundef 2, i32 noundef -2147483648) #3
-  %351 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_5ghz, align 4
-  %352 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %351, i32 noundef 2, i32 noundef -2147483648) #3
-  %353 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_passive, align 4
-  %354 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %353, i32 noundef 2, i32 noundef -2147483648) #3
-  %355 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_dynamic, align 4
-  %356 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %239, i32 noundef %355, i32 noundef 2, i32 noundef -2147483648) #3
-  %357 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_gfsk, align 4
-  %358 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %357, i32 noundef 2, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_pop_subtree(ptr noundef %239) #3
-  %359 = load i32, ptr @hf_80211n_mac_phy_dbm_ant0signal, align 4
-  %360 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %361 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %362 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %360, i32 noundef %361) #3
-  %363 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %359, i32 noundef 1, i32 noundef -2147483648) #3
-  %364 = icmp eq i8 %362, -128
-  br i1 %364, label %365, label %ptvcursor_add_invalid_check.exit88.i
+ptvcursor_add_invalid_check.exit87.i:             ; preds = %328, %ptvcursor_add_invalid_check.exit86.i
+  %329 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %330 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %331 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %329, i32 noundef %330) #3
+  %332 = zext i16 %331 to i32
+  %333 = tail call ptr @ieee80211_mhz_to_str(i32 noundef %332) #3
+  %334 = tail call ptr @ptvcursor_tree(ptr noundef %238) #3
+  %335 = load i32, ptr @hf_80211n_mac_phy_ext_chan_freq, align 4
+  %336 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %337 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %338 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %334, i32 noundef %335, ptr noundef %336, i32 noundef %337, i32 noundef 2, i32 noundef %332, ptr noundef nonnull @.str.324, ptr noundef %333) #3
+  tail call void @g_free(ptr noundef %333) #3
+  tail call void @ptvcursor_advance(ptr noundef %238, i32 noundef 2) #3
+  %339 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags, align 4
+  %340 = load i32, ptr @ett_dot11n_mac_phy_ext_channel_flags, align 4
+  %341 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %238, i32 noundef %339, i32 noundef 2, i32 noundef -2147483648, i32 noundef %340) #3
+  %342 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_turbo, align 4
+  %343 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %342, i32 noundef 2, i32 noundef -2147483648) #3
+  %344 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_cck, align 4
+  %345 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %344, i32 noundef 2, i32 noundef -2147483648) #3
+  %346 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_ofdm, align 4
+  %347 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %346, i32 noundef 2, i32 noundef -2147483648) #3
+  %348 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_2ghz, align 4
+  %349 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %348, i32 noundef 2, i32 noundef -2147483648) #3
+  %350 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_5ghz, align 4
+  %351 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %350, i32 noundef 2, i32 noundef -2147483648) #3
+  %352 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_passive, align 4
+  %353 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %352, i32 noundef 2, i32 noundef -2147483648) #3
+  %354 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_dynamic, align 4
+  %355 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %238, i32 noundef %354, i32 noundef 2, i32 noundef -2147483648) #3
+  %356 = load i32, ptr @hf_80211n_mac_phy_ext_chan_flags_gfsk, align 4
+  %357 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %356, i32 noundef 2, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_pop_subtree(ptr noundef %238) #3
+  %358 = load i32, ptr @hf_80211n_mac_phy_dbm_ant0signal, align 4
+  %359 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %360 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %361 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %359, i32 noundef %360) #3
+  %362 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %358, i32 noundef 1, i32 noundef -2147483648) #3
+  %363 = icmp eq i8 %361, -128
+  br i1 %363, label %364, label %ptvcursor_add_invalid_check.exit88.i
 
-365:                                              ; preds = %ptvcursor_add_invalid_check.exit87.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %363, ptr noundef nonnull @.str.315) #3
+364:                                              ; preds = %ptvcursor_add_invalid_check.exit87.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %362, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit88.i
 
-ptvcursor_add_invalid_check.exit88.i:             ; preds = %365, %ptvcursor_add_invalid_check.exit87.i
-  %366 = load i32, ptr @hf_80211n_mac_phy_dbm_ant0noise, align 4
-  %367 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %368 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %369 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %367, i32 noundef %368) #3
-  %370 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %366, i32 noundef 1, i32 noundef -2147483648) #3
-  %371 = icmp eq i8 %369, -128
-  br i1 %371, label %372, label %ptvcursor_add_invalid_check.exit89.i
+ptvcursor_add_invalid_check.exit88.i:             ; preds = %364, %ptvcursor_add_invalid_check.exit87.i
+  %365 = load i32, ptr @hf_80211n_mac_phy_dbm_ant0noise, align 4
+  %366 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %367 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %368 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %366, i32 noundef %367) #3
+  %369 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %365, i32 noundef 1, i32 noundef -2147483648) #3
+  %370 = icmp eq i8 %368, -128
+  br i1 %370, label %371, label %ptvcursor_add_invalid_check.exit89.i
 
-372:                                              ; preds = %ptvcursor_add_invalid_check.exit88.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %370, ptr noundef nonnull @.str.315) #3
+371:                                              ; preds = %ptvcursor_add_invalid_check.exit88.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %369, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit89.i
 
-ptvcursor_add_invalid_check.exit89.i:             ; preds = %372, %ptvcursor_add_invalid_check.exit88.i
-  %373 = load i32, ptr @hf_80211n_mac_phy_dbm_ant1signal, align 4
-  %374 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %375 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %376 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %374, i32 noundef %375) #3
-  %377 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %373, i32 noundef 1, i32 noundef -2147483648) #3
-  %378 = icmp eq i8 %376, -128
-  br i1 %378, label %379, label %ptvcursor_add_invalid_check.exit90.i
+ptvcursor_add_invalid_check.exit89.i:             ; preds = %371, %ptvcursor_add_invalid_check.exit88.i
+  %372 = load i32, ptr @hf_80211n_mac_phy_dbm_ant1signal, align 4
+  %373 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %374 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %375 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %373, i32 noundef %374) #3
+  %376 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %372, i32 noundef 1, i32 noundef -2147483648) #3
+  %377 = icmp eq i8 %375, -128
+  br i1 %377, label %378, label %ptvcursor_add_invalid_check.exit90.i
 
-379:                                              ; preds = %ptvcursor_add_invalid_check.exit89.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %377, ptr noundef nonnull @.str.315) #3
+378:                                              ; preds = %ptvcursor_add_invalid_check.exit89.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %376, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit90.i
 
-ptvcursor_add_invalid_check.exit90.i:             ; preds = %379, %ptvcursor_add_invalid_check.exit89.i
-  %380 = load i32, ptr @hf_80211n_mac_phy_dbm_ant1noise, align 4
-  %381 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %382 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %383 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %381, i32 noundef %382) #3
-  %384 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %380, i32 noundef 1, i32 noundef -2147483648) #3
-  %385 = icmp eq i8 %383, -128
-  br i1 %385, label %386, label %ptvcursor_add_invalid_check.exit91.i
+ptvcursor_add_invalid_check.exit90.i:             ; preds = %378, %ptvcursor_add_invalid_check.exit89.i
+  %379 = load i32, ptr @hf_80211n_mac_phy_dbm_ant1noise, align 4
+  %380 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %381 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %382 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %380, i32 noundef %381) #3
+  %383 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %379, i32 noundef 1, i32 noundef -2147483648) #3
+  %384 = icmp eq i8 %382, -128
+  br i1 %384, label %385, label %ptvcursor_add_invalid_check.exit91.i
 
-386:                                              ; preds = %ptvcursor_add_invalid_check.exit90.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %384, ptr noundef nonnull @.str.315) #3
+385:                                              ; preds = %ptvcursor_add_invalid_check.exit90.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %383, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit91.i
 
-ptvcursor_add_invalid_check.exit91.i:             ; preds = %386, %ptvcursor_add_invalid_check.exit90.i
-  %387 = load i32, ptr @hf_80211n_mac_phy_dbm_ant2signal, align 4
-  %388 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %389 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %390 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %388, i32 noundef %389) #3
-  %391 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %387, i32 noundef 1, i32 noundef -2147483648) #3
-  %392 = icmp eq i8 %390, -128
-  br i1 %392, label %393, label %ptvcursor_add_invalid_check.exit92.i
+ptvcursor_add_invalid_check.exit91.i:             ; preds = %385, %ptvcursor_add_invalid_check.exit90.i
+  %386 = load i32, ptr @hf_80211n_mac_phy_dbm_ant2signal, align 4
+  %387 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %388 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %389 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %387, i32 noundef %388) #3
+  %390 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %386, i32 noundef 1, i32 noundef -2147483648) #3
+  %391 = icmp eq i8 %389, -128
+  br i1 %391, label %392, label %ptvcursor_add_invalid_check.exit92.i
 
-393:                                              ; preds = %ptvcursor_add_invalid_check.exit91.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %391, ptr noundef nonnull @.str.315) #3
+392:                                              ; preds = %ptvcursor_add_invalid_check.exit91.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %390, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit92.i
 
-ptvcursor_add_invalid_check.exit92.i:             ; preds = %393, %ptvcursor_add_invalid_check.exit91.i
-  %394 = load i32, ptr @hf_80211n_mac_phy_dbm_ant2noise, align 4
-  %395 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %396 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %397 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %395, i32 noundef %396) #3
-  %398 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %394, i32 noundef 1, i32 noundef -2147483648) #3
-  %399 = icmp eq i8 %397, -128
-  br i1 %399, label %400, label %ptvcursor_add_invalid_check.exit93.i
+ptvcursor_add_invalid_check.exit92.i:             ; preds = %392, %ptvcursor_add_invalid_check.exit91.i
+  %393 = load i32, ptr @hf_80211n_mac_phy_dbm_ant2noise, align 4
+  %394 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %395 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %396 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %394, i32 noundef %395) #3
+  %397 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %393, i32 noundef 1, i32 noundef -2147483648) #3
+  %398 = icmp eq i8 %396, -128
+  br i1 %398, label %399, label %ptvcursor_add_invalid_check.exit93.i
 
-400:                                              ; preds = %ptvcursor_add_invalid_check.exit92.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %398, ptr noundef nonnull @.str.315) #3
+399:                                              ; preds = %ptvcursor_add_invalid_check.exit92.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %397, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit93.i
 
-ptvcursor_add_invalid_check.exit93.i:             ; preds = %400, %ptvcursor_add_invalid_check.exit92.i
-  %401 = load i32, ptr @hf_80211n_mac_phy_dbm_ant3signal, align 4
-  %402 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %403 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %404 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %402, i32 noundef %403) #3
-  %405 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %401, i32 noundef 1, i32 noundef -2147483648) #3
-  %406 = icmp eq i8 %404, -128
-  br i1 %406, label %407, label %ptvcursor_add_invalid_check.exit94.i
+ptvcursor_add_invalid_check.exit93.i:             ; preds = %399, %ptvcursor_add_invalid_check.exit92.i
+  %400 = load i32, ptr @hf_80211n_mac_phy_dbm_ant3signal, align 4
+  %401 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %402 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %403 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %401, i32 noundef %402) #3
+  %404 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %400, i32 noundef 1, i32 noundef -2147483648) #3
+  %405 = icmp eq i8 %403, -128
+  br i1 %405, label %406, label %ptvcursor_add_invalid_check.exit94.i
 
-407:                                              ; preds = %ptvcursor_add_invalid_check.exit93.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %405, ptr noundef nonnull @.str.315) #3
+406:                                              ; preds = %ptvcursor_add_invalid_check.exit93.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %404, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit94.i
 
-ptvcursor_add_invalid_check.exit94.i:             ; preds = %407, %ptvcursor_add_invalid_check.exit93.i
-  %408 = load i32, ptr @hf_80211n_mac_phy_dbm_ant3noise, align 4
-  %409 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %410 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %411 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %409, i32 noundef %410) #3
-  %412 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %408, i32 noundef 1, i32 noundef -2147483648) #3
-  %413 = icmp eq i8 %411, -128
-  br i1 %413, label %414, label %ptvcursor_add_invalid_check.exit95.i
+ptvcursor_add_invalid_check.exit94.i:             ; preds = %406, %ptvcursor_add_invalid_check.exit93.i
+  %407 = load i32, ptr @hf_80211n_mac_phy_dbm_ant3noise, align 4
+  %408 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %409 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %410 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %408, i32 noundef %409) #3
+  %411 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %407, i32 noundef 1, i32 noundef -2147483648) #3
+  %412 = icmp eq i8 %410, -128
+  br i1 %412, label %413, label %ptvcursor_add_invalid_check.exit95.i
 
-414:                                              ; preds = %ptvcursor_add_invalid_check.exit94.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %412, ptr noundef nonnull @.str.315) #3
+413:                                              ; preds = %ptvcursor_add_invalid_check.exit94.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %411, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit95.i
 
-ptvcursor_add_invalid_check.exit95.i:             ; preds = %414, %ptvcursor_add_invalid_check.exit94.i
-  %415 = load i32, ptr @hf_80211n_mac_phy_evm0, align 4
-  %416 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %417 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %418 = tail call i32 @tvb_get_letohl(ptr noundef %416, i32 noundef %417) #3
-  %419 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %415, i32 noundef 4, i32 noundef -2147483648) #3
-  %420 = icmp eq i32 %418, 0
-  br i1 %420, label %421, label %ptvcursor_add_invalid_check.exit96.i
+ptvcursor_add_invalid_check.exit95.i:             ; preds = %413, %ptvcursor_add_invalid_check.exit94.i
+  %414 = load i32, ptr @hf_80211n_mac_phy_evm0, align 4
+  %415 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %416 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %417 = tail call i32 @tvb_get_letohl(ptr noundef %415, i32 noundef %416) #3
+  %418 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %414, i32 noundef 4, i32 noundef -2147483648) #3
+  %419 = icmp eq i32 %417, 0
+  br i1 %419, label %420, label %ptvcursor_add_invalid_check.exit96.i
 
-421:                                              ; preds = %ptvcursor_add_invalid_check.exit95.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %419, ptr noundef nonnull @.str.315) #3
+420:                                              ; preds = %ptvcursor_add_invalid_check.exit95.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %418, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit96.i
 
-ptvcursor_add_invalid_check.exit96.i:             ; preds = %421, %ptvcursor_add_invalid_check.exit95.i
-  %422 = load i32, ptr @hf_80211n_mac_phy_evm1, align 4
-  %423 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %424 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %425 = tail call i32 @tvb_get_letohl(ptr noundef %423, i32 noundef %424) #3
-  %426 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %422, i32 noundef 4, i32 noundef -2147483648) #3
-  %427 = icmp eq i32 %425, 0
-  br i1 %427, label %428, label %ptvcursor_add_invalid_check.exit97.i
+ptvcursor_add_invalid_check.exit96.i:             ; preds = %420, %ptvcursor_add_invalid_check.exit95.i
+  %421 = load i32, ptr @hf_80211n_mac_phy_evm1, align 4
+  %422 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %423 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %424 = tail call i32 @tvb_get_letohl(ptr noundef %422, i32 noundef %423) #3
+  %425 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %421, i32 noundef 4, i32 noundef -2147483648) #3
+  %426 = icmp eq i32 %424, 0
+  br i1 %426, label %427, label %ptvcursor_add_invalid_check.exit97.i
 
-428:                                              ; preds = %ptvcursor_add_invalid_check.exit96.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %426, ptr noundef nonnull @.str.315) #3
+427:                                              ; preds = %ptvcursor_add_invalid_check.exit96.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %425, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit97.i
 
-ptvcursor_add_invalid_check.exit97.i:             ; preds = %428, %ptvcursor_add_invalid_check.exit96.i
-  %429 = load i32, ptr @hf_80211n_mac_phy_evm2, align 4
-  %430 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %431 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %432 = tail call i32 @tvb_get_letohl(ptr noundef %430, i32 noundef %431) #3
-  %433 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %429, i32 noundef 4, i32 noundef -2147483648) #3
-  %434 = icmp eq i32 %432, 0
-  br i1 %434, label %435, label %ptvcursor_add_invalid_check.exit98.i
+ptvcursor_add_invalid_check.exit97.i:             ; preds = %427, %ptvcursor_add_invalid_check.exit96.i
+  %428 = load i32, ptr @hf_80211n_mac_phy_evm2, align 4
+  %429 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %430 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %431 = tail call i32 @tvb_get_letohl(ptr noundef %429, i32 noundef %430) #3
+  %432 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %428, i32 noundef 4, i32 noundef -2147483648) #3
+  %433 = icmp eq i32 %431, 0
+  br i1 %433, label %434, label %ptvcursor_add_invalid_check.exit98.i
 
-435:                                              ; preds = %ptvcursor_add_invalid_check.exit97.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.315) #3
+434:                                              ; preds = %ptvcursor_add_invalid_check.exit97.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %432, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit98.i
 
-ptvcursor_add_invalid_check.exit98.i:             ; preds = %435, %ptvcursor_add_invalid_check.exit97.i
-  %436 = load i32, ptr @hf_80211n_mac_phy_evm3, align 4
-  %437 = tail call ptr @ptvcursor_tvbuff(ptr noundef %239) #3
-  %438 = tail call i32 @ptvcursor_current_offset(ptr noundef %239) #3
-  %439 = tail call i32 @tvb_get_letohl(ptr noundef %437, i32 noundef %438) #3
-  %440 = tail call ptr @ptvcursor_add(ptr noundef %239, i32 noundef %436, i32 noundef 4, i32 noundef -2147483648) #3
-  %441 = icmp eq i32 %439, 0
-  br i1 %441, label %442, label %ptvcursor_add_invalid_check.exit99.i
+ptvcursor_add_invalid_check.exit98.i:             ; preds = %434, %ptvcursor_add_invalid_check.exit97.i
+  %435 = load i32, ptr @hf_80211n_mac_phy_evm3, align 4
+  %436 = tail call ptr @ptvcursor_tvbuff(ptr noundef %238) #3
+  %437 = tail call i32 @ptvcursor_current_offset(ptr noundef %238) #3
+  %438 = tail call i32 @tvb_get_letohl(ptr noundef %436, i32 noundef %437) #3
+  %439 = tail call ptr @ptvcursor_add(ptr noundef %238, i32 noundef %435, i32 noundef 4, i32 noundef -2147483648) #3
+  %440 = icmp eq i32 %438, 0
+  br i1 %440, label %441, label %ptvcursor_add_invalid_check.exit99.i
 
-442:                                              ; preds = %ptvcursor_add_invalid_check.exit98.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %440, ptr noundef nonnull @.str.315) #3
+441:                                              ; preds = %ptvcursor_add_invalid_check.exit98.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %439, ptr noundef nonnull @.str.315) #3
   br label %ptvcursor_add_invalid_check.exit99.i
 
-ptvcursor_add_invalid_check.exit99.i:             ; preds = %442, %ptvcursor_add_invalid_check.exit98.i
-  tail call void @ptvcursor_free(ptr noundef %239) #3
+ptvcursor_add_invalid_check.exit99.i:             ; preds = %441, %ptvcursor_add_invalid_check.exit98.i
+  tail call void @ptvcursor_free(ptr noundef %238) #3
   br label %dissect_80211_common.exit
 
-443:                                              ; preds = %58
-  br i1 %20, label %444, label %dissect_80211_common.exit
+442:                                              ; preds = %58
+  br i1 %20, label %443, label %dissect_80211_common.exit
 
-444:                                              ; preds = %443
-  %445 = load i32, ptr @hf_spectrum_map, align 4
-  %446 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %445, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+443:                                              ; preds = %442
+  %444 = load i32, ptr @hf_spectrum_map, align 4
+  %445 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %444, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-447:                                              ; preds = %58
-  br i1 %20, label %448, label %dissect_80211_common.exit
+446:                                              ; preds = %58
+  br i1 %20, label %447, label %dissect_80211_common.exit
 
-448:                                              ; preds = %447
-  %449 = load i32, ptr @hf_process_info, align 4
-  %450 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %449, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+447:                                              ; preds = %446
+  %448 = load i32, ptr @hf_process_info, align 4
+  %449 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %448, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-451:                                              ; preds = %58
-  br i1 %20, label %452, label %dissect_80211_common.exit
+450:                                              ; preds = %58
+  br i1 %20, label %451, label %dissect_80211_common.exit
 
-452:                                              ; preds = %451
-  %453 = load i32, ptr @hf_capture_info, align 4
-  %454 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %453, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+451:                                              ; preds = %450
+  %452 = load i32, ptr @hf_capture_info, align 4
+  %453 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %452, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-455:                                              ; preds = %58
-  %456 = load i32, ptr @ett_aggregation_extension, align 4
-  %457 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %456, ptr noundef null, ptr noundef nonnull @.str.284) #3
-  %458 = tail call ptr @wmem_packet_scope() #3
-  %459 = tail call ptr @ptvcursor_new(ptr noundef %458, ptr noundef %457, ptr noundef %0, i32 noundef %.0325363) #3
-  %460 = load i32, ptr @hf_ppi_field_type, align 4
-  %461 = tail call ptr @ptvcursor_add(ptr noundef %459, i32 noundef %460, i32 noundef 2, i32 noundef -2147483648) #3
-  %462 = load i32, ptr @hf_ppi_field_len, align 4
-  %463 = tail call ptr @ptvcursor_add(ptr noundef %459, i32 noundef %462, i32 noundef 2, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_free(ptr noundef %459) #3
-  %464 = tail call i32 @ptvcursor_current_offset(ptr noundef %459) #3
+454:                                              ; preds = %58
+  %455 = load i32, ptr @ett_aggregation_extension, align 4
+  %456 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %455, ptr noundef null, ptr noundef nonnull @.str.284) #3
+  %457 = tail call ptr @wmem_packet_scope() #3
+  %458 = tail call ptr @ptvcursor_new(ptr noundef %457, ptr noundef %456, ptr noundef %0, i32 noundef %.0325363) #3
+  %459 = load i32, ptr @hf_ppi_field_type, align 4
+  %460 = tail call ptr @ptvcursor_add(ptr noundef %458, i32 noundef %459, i32 noundef 2, i32 noundef -2147483648) #3
+  %461 = load i32, ptr @hf_ppi_field_len, align 4
+  %462 = tail call ptr @ptvcursor_add(ptr noundef %458, i32 noundef %461, i32 noundef 2, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_free(ptr noundef %458) #3
+  %463 = tail call i32 @ptvcursor_current_offset(ptr noundef %458) #3
   %.not.i353 = icmp eq i16 %61, 4
-  br i1 %.not.i353, label %467, label %465
+  br i1 %.not.i353, label %466, label %464
 
-465:                                              ; preds = %455
-  %466 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %457, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %464, i32 noundef %62, ptr noundef nonnull @.str.313, i32 noundef %62) #3
+464:                                              ; preds = %454
+  %465 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %456, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %463, i32 noundef %62, ptr noundef nonnull @.str.313, i32 noundef %62) #3
   br label %dissect_80211_common.exit
 
-467:                                              ; preds = %455
-  %468 = load ptr, ptr %44, align 8
-  %469 = tail call ptr @ptvcursor_new(ptr noundef %468, ptr noundef %457, ptr noundef %0, i32 noundef %464) #3
-  %470 = load i32, ptr @hf_aggregation_extension_interface_id, align 4
-  %471 = tail call ptr @ptvcursor_add(ptr noundef %469, i32 noundef %470, i32 noundef 4, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_free(ptr noundef %469) #3
+466:                                              ; preds = %454
+  %467 = load ptr, ptr %44, align 8
+  %468 = tail call ptr @ptvcursor_new(ptr noundef %467, ptr noundef %456, ptr noundef %0, i32 noundef %463) #3
+  %469 = load i32, ptr @hf_aggregation_extension_interface_id, align 4
+  %470 = tail call ptr @ptvcursor_add(ptr noundef %468, i32 noundef %469, i32 noundef 4, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_free(ptr noundef %468) #3
   br label %dissect_80211_common.exit
 
-472:                                              ; preds = %58
-  %473 = load i32, ptr @ett_8023_extension, align 4
-  %474 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %473, ptr noundef null, ptr noundef nonnull @.str.285) #3
-  %475 = tail call ptr @wmem_packet_scope() #3
-  %476 = tail call ptr @ptvcursor_new(ptr noundef %475, ptr noundef %474, ptr noundef %0, i32 noundef %.0325363) #3
-  %477 = load i32, ptr @hf_ppi_field_type, align 4
-  %478 = tail call ptr @ptvcursor_add(ptr noundef %476, i32 noundef %477, i32 noundef 2, i32 noundef -2147483648) #3
-  %479 = load i32, ptr @hf_ppi_field_len, align 4
-  %480 = tail call ptr @ptvcursor_add(ptr noundef %476, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_free(ptr noundef %476) #3
-  %481 = tail call i32 @ptvcursor_current_offset(ptr noundef %476) #3
+471:                                              ; preds = %58
+  %472 = load i32, ptr @ett_8023_extension, align 4
+  %473 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef %472, ptr noundef null, ptr noundef nonnull @.str.285) #3
+  %474 = tail call ptr @wmem_packet_scope() #3
+  %475 = tail call ptr @ptvcursor_new(ptr noundef %474, ptr noundef %473, ptr noundef %0, i32 noundef %.0325363) #3
+  %476 = load i32, ptr @hf_ppi_field_type, align 4
+  %477 = tail call ptr @ptvcursor_add(ptr noundef %475, i32 noundef %476, i32 noundef 2, i32 noundef -2147483648) #3
+  %478 = load i32, ptr @hf_ppi_field_len, align 4
+  %479 = tail call ptr @ptvcursor_add(ptr noundef %475, i32 noundef %478, i32 noundef 2, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_free(ptr noundef %475) #3
+  %480 = tail call i32 @ptvcursor_current_offset(ptr noundef %475) #3
   %.not.i354 = icmp eq i16 %61, 8
-  br i1 %.not.i354, label %484, label %482
+  br i1 %.not.i354, label %483, label %481
 
-482:                                              ; preds = %472
-  %483 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %474, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %481, i32 noundef %62, ptr noundef nonnull @.str.313, i32 noundef %62) #3
+481:                                              ; preds = %471
+  %482 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %473, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %480, i32 noundef %62, ptr noundef nonnull @.str.313, i32 noundef %62) #3
   br label %dissect_80211_common.exit
 
-484:                                              ; preds = %472
-  %485 = load ptr, ptr %44, align 8
-  %486 = tail call ptr @ptvcursor_new(ptr noundef %485, ptr noundef %474, ptr noundef %0, i32 noundef %481) #3
-  %487 = load i32, ptr @hf_8023_extension_flags, align 4
-  %488 = load i32, ptr @ett_8023_extension_flags, align 4
-  %489 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %486, i32 noundef %487, i32 noundef 4, i32 noundef -2147483648, i32 noundef %488) #3
-  %490 = load i32, ptr @hf_8023_extension_flags_fcs_present, align 4
-  %491 = tail call ptr @ptvcursor_add(ptr noundef %486, i32 noundef %490, i32 noundef 4, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_pop_subtree(ptr noundef %486) #3
-  %492 = load i32, ptr @hf_8023_extension_errors, align 4
-  %493 = load i32, ptr @ett_8023_extension_errors, align 4
-  %494 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %486, i32 noundef %492, i32 noundef 4, i32 noundef -2147483648, i32 noundef %493) #3
-  %495 = load i32, ptr @hf_8023_extension_errors_fcs, align 4
-  %496 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %486, i32 noundef %495, i32 noundef 4, i32 noundef -2147483648) #3
-  %497 = load i32, ptr @hf_8023_extension_errors_sequence, align 4
-  %498 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %486, i32 noundef %497, i32 noundef 4, i32 noundef -2147483648) #3
-  %499 = load i32, ptr @hf_8023_extension_errors_symbol, align 4
-  %500 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %486, i32 noundef %499, i32 noundef 4, i32 noundef -2147483648) #3
-  %501 = load i32, ptr @hf_8023_extension_errors_data, align 4
-  %502 = tail call ptr @ptvcursor_add(ptr noundef %486, i32 noundef %501, i32 noundef 4, i32 noundef -2147483648) #3
-  tail call void @ptvcursor_pop_subtree(ptr noundef %486) #3
-  tail call void @ptvcursor_free(ptr noundef %486) #3
+483:                                              ; preds = %471
+  %484 = load ptr, ptr %44, align 8
+  %485 = tail call ptr @ptvcursor_new(ptr noundef %484, ptr noundef %473, ptr noundef %0, i32 noundef %480) #3
+  %486 = load i32, ptr @hf_8023_extension_flags, align 4
+  %487 = load i32, ptr @ett_8023_extension_flags, align 4
+  %488 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %485, i32 noundef %486, i32 noundef 4, i32 noundef -2147483648, i32 noundef %487) #3
+  %489 = load i32, ptr @hf_8023_extension_flags_fcs_present, align 4
+  %490 = tail call ptr @ptvcursor_add(ptr noundef %485, i32 noundef %489, i32 noundef 4, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_pop_subtree(ptr noundef %485) #3
+  %491 = load i32, ptr @hf_8023_extension_errors, align 4
+  %492 = load i32, ptr @ett_8023_extension_errors, align 4
+  %493 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %485, i32 noundef %491, i32 noundef 4, i32 noundef -2147483648, i32 noundef %492) #3
+  %494 = load i32, ptr @hf_8023_extension_errors_fcs, align 4
+  %495 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %485, i32 noundef %494, i32 noundef 4, i32 noundef -2147483648) #3
+  %496 = load i32, ptr @hf_8023_extension_errors_sequence, align 4
+  %497 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %485, i32 noundef %496, i32 noundef 4, i32 noundef -2147483648) #3
+  %498 = load i32, ptr @hf_8023_extension_errors_symbol, align 4
+  %499 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %485, i32 noundef %498, i32 noundef 4, i32 noundef -2147483648) #3
+  %500 = load i32, ptr @hf_8023_extension_errors_data, align 4
+  %501 = tail call ptr @ptvcursor_add(ptr noundef %485, i32 noundef %500, i32 noundef 4, i32 noundef -2147483648) #3
+  tail call void @ptvcursor_pop_subtree(ptr noundef %485) #3
+  tail call void @ptvcursor_free(ptr noundef %485) #3
   br label %dissect_80211_common.exit
 
-503:                                              ; preds = %58
-  %504 = load ptr, ptr @ppi_gps_handle, align 8
-  %505 = icmp eq ptr %504, null
-  br i1 %505, label %506, label %509
+502:                                              ; preds = %58
+  %503 = load ptr, ptr @ppi_gps_handle, align 8
+  %504 = icmp eq ptr %503, null
+  br i1 %504, label %505, label %508
 
-506:                                              ; preds = %503
-  %507 = load i32, ptr @hf_ppi_gps, align 4
-  %508 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %507, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+505:                                              ; preds = %502
+  %506 = load i32, ptr @hf_ppi_gps, align 4
+  %507 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %506, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-509:                                              ; preds = %503
-  %510 = add i32 %.0325363, 4
-  %511 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %510, i32 noundef %62, i32 noundef -1) #3
-  %512 = load ptr, ptr @ppi_gps_handle, align 8
-  %513 = tail call i32 @call_dissector(ptr noundef %512, ptr noundef %511, ptr noundef %1, ptr noundef %.0317) #3
+508:                                              ; preds = %502
+  %509 = add i32 %.0325363, 4
+  %510 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %509, i32 noundef %62, i32 noundef -1) #3
+  %511 = load ptr, ptr @ppi_gps_handle, align 8
+  %512 = tail call i32 @call_dissector(ptr noundef %511, ptr noundef %510, ptr noundef %1, ptr noundef %.0317) #3
   br label %dissect_80211_common.exit
 
-514:                                              ; preds = %58
-  %515 = load ptr, ptr @ppi_vector_handle, align 8
-  %516 = icmp eq ptr %515, null
-  br i1 %516, label %517, label %520
+513:                                              ; preds = %58
+  %514 = load ptr, ptr @ppi_vector_handle, align 8
+  %515 = icmp eq ptr %514, null
+  br i1 %515, label %516, label %519
 
-517:                                              ; preds = %514
-  %518 = load i32, ptr @hf_ppi_vector, align 4
-  %519 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %518, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+516:                                              ; preds = %513
+  %517 = load i32, ptr @hf_ppi_vector, align 4
+  %518 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %517, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-520:                                              ; preds = %514
-  %521 = add i32 %.0325363, 4
-  %522 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %521, i32 noundef %62, i32 noundef -1) #3
-  %523 = load ptr, ptr @ppi_vector_handle, align 8
-  %524 = tail call i32 @call_dissector(ptr noundef %523, ptr noundef %522, ptr noundef %1, ptr noundef %.0317) #3
+519:                                              ; preds = %513
+  %520 = add i32 %.0325363, 4
+  %521 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %520, i32 noundef %62, i32 noundef -1) #3
+  %522 = load ptr, ptr @ppi_vector_handle, align 8
+  %523 = tail call i32 @call_dissector(ptr noundef %522, ptr noundef %521, ptr noundef %1, ptr noundef %.0317) #3
   br label %dissect_80211_common.exit
 
-525:                                              ; preds = %58
-  %526 = load ptr, ptr @ppi_sensor_handle, align 8
-  %527 = icmp eq ptr %526, null
-  br i1 %527, label %528, label %531
+524:                                              ; preds = %58
+  %525 = load ptr, ptr @ppi_sensor_handle, align 8
+  %526 = icmp eq ptr %525, null
+  br i1 %526, label %527, label %530
 
-528:                                              ; preds = %525
-  %529 = load i32, ptr @hf_ppi_harris, align 4
-  %530 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %529, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+527:                                              ; preds = %524
+  %528 = load i32, ptr @hf_ppi_harris, align 4
+  %529 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %528, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-531:                                              ; preds = %525
-  %532 = add i32 %.0325363, 4
-  %533 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %532, i32 noundef %62, i32 noundef -1) #3
-  %534 = load ptr, ptr @ppi_sensor_handle, align 8
-  %535 = tail call i32 @call_dissector(ptr noundef %534, ptr noundef %533, ptr noundef %1, ptr noundef %.0317) #3
+530:                                              ; preds = %524
+  %531 = add i32 %.0325363, 4
+  %532 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %531, i32 noundef %62, i32 noundef -1) #3
+  %533 = load ptr, ptr @ppi_sensor_handle, align 8
+  %534 = tail call i32 @call_dissector(ptr noundef %533, ptr noundef %532, ptr noundef %1, ptr noundef %.0317) #3
   br label %dissect_80211_common.exit
 
-536:                                              ; preds = %58
-  %537 = load ptr, ptr @ppi_antenna_handle, align 8
-  %538 = icmp eq ptr %537, null
-  br i1 %538, label %539, label %542
+535:                                              ; preds = %58
+  %536 = load ptr, ptr @ppi_antenna_handle, align 8
+  %537 = icmp eq ptr %536, null
+  br i1 %537, label %538, label %541
 
-539:                                              ; preds = %536
-  %540 = load i32, ptr @hf_ppi_antenna, align 4
-  %541 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %540, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+538:                                              ; preds = %535
+  %539 = load i32, ptr @hf_ppi_antenna, align 4
+  %540 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %539, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-542:                                              ; preds = %536
-  %543 = add i32 %.0325363, 4
-  %544 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %543, i32 noundef %62, i32 noundef -1) #3
-  %545 = load ptr, ptr @ppi_antenna_handle, align 8
-  %546 = tail call i32 @call_dissector(ptr noundef %545, ptr noundef %544, ptr noundef %1, ptr noundef %.0317) #3
+541:                                              ; preds = %535
+  %542 = add i32 %.0325363, 4
+  %543 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %542, i32 noundef %62, i32 noundef -1) #3
+  %544 = load ptr, ptr @ppi_antenna_handle, align 8
+  %545 = tail call i32 @call_dissector(ptr noundef %544, ptr noundef %543, ptr noundef %1, ptr noundef %.0317) #3
   br label %dissect_80211_common.exit
 
-547:                                              ; preds = %58
-  %548 = load ptr, ptr @ppi_fnet_handle, align 8
-  %549 = icmp eq ptr %548, null
-  br i1 %549, label %550, label %553
+546:                                              ; preds = %58
+  %547 = load ptr, ptr @ppi_fnet_handle, align 8
+  %548 = icmp eq ptr %547, null
+  br i1 %548, label %549, label %552
 
-550:                                              ; preds = %547
-  %551 = load i32, ptr @hf_ppi_fnet, align 4
-  %552 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %551, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+549:                                              ; preds = %546
+  %550 = load i32, ptr @hf_ppi_fnet, align 4
+  %551 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %550, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-553:                                              ; preds = %547
-  %554 = add i32 %.0325363, 4
-  %555 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %554, i32 noundef %62, i32 noundef -1) #3
-  %556 = load ptr, ptr @ppi_fnet_handle, align 8
-  %557 = tail call i32 @call_dissector(ptr noundef %556, ptr noundef %555, ptr noundef %1, ptr noundef %.0317) #3
+552:                                              ; preds = %546
+  %553 = add i32 %.0325363, 4
+  %554 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %553, i32 noundef %62, i32 noundef -1) #3
+  %555 = load ptr, ptr @ppi_fnet_handle, align 8
+  %556 = tail call i32 @call_dissector(ptr noundef %555, ptr noundef %554, ptr noundef %1, ptr noundef %.0317) #3
   br label %dissect_80211_common.exit
 
-558:                                              ; preds = %58
-  %559 = load i32, ptr @hf_ppi_reserved, align 4
-  %560 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %559, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
+557:                                              ; preds = %58
+  %558 = load i32, ptr @hf_ppi_reserved, align 4
+  %559 = tail call ptr @proto_tree_add_item(ptr noundef %.0317, i32 noundef %558, ptr noundef %0, i32 noundef %.0325363, i32 noundef %63, i32 noundef 0) #3
   br label %dissect_80211_common.exit
 
-dissect_80211_common.exit:                        ; preds = %484, %482, %467, %465, %ptvcursor_add_invalid_check.exit99.i, %234, %ptvcursor_add_invalid_check.exit150.i, %75, %550, %553, %539, %542, %528, %531, %517, %520, %506, %509, %451, %452, %447, %448, %443, %444, %558, %223
-  %561 = add i32 %63, %.0325363
-  %562 = add i32 %561, 3
-  %563 = and i32 %562, -4
-  %.1326 = select i1 %.not350, i32 %561, i32 %563
-  %564 = icmp sgt i32 %64, 0
-  br i1 %564, label %58, label %._crit_edge, !llvm.loop !4
+dissect_80211_common.exit:                        ; preds = %483, %481, %466, %464, %ptvcursor_add_invalid_check.exit99.i, %233, %ptvcursor_add_invalid_check.exit150.i, %75, %549, %552, %538, %541, %527, %530, %516, %519, %505, %508, %450, %451, %446, %447, %442, %443, %557, %222
+  %560 = add i32 %63, %.0325363
+  %561 = add i32 %560, 3
+  %562 = and i32 %561, -4
+  %.1326 = select i1 %.not350, i32 %560, i32 %562
+  %563 = icmp sgt i32 %64, 0
+  br i1 %563, label %58, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %dissect_80211_common.exit
   %.pre390 = load i16, ptr %48, align 4
   %.pr.pre.pre = load i32, ptr %42, align 8
-  %565 = and i16 %.pre390, 4
-  %.not = icmp eq i16 %565, 0
-  br i1 %.not, label %thread-pre-split, label %566
+  %564 = and i16 %.pre390, 4
+  %.not = icmp eq i16 %564, 0
+  br i1 %.not, label %thread-pre-split, label %565
 
-566:                                              ; preds = %._crit_edge
+565:                                              ; preds = %._crit_edge
   switch i32 %.pr.pre.pre, label %.thread [
-    i32 0, label %567
-    i32 6, label %578
+    i32 0, label %566
+    i32 6, label %577
     i32 4, label %.thread357
   ]
 
-567:                                              ; preds = %566
-  %568 = getelementptr inbounds i8, ptr %9, i64 36
-  %569 = load i16, ptr %568, align 4
-  switch i16 %569, label %.thread [
+566:                                              ; preds = %565
+  %567 = getelementptr inbounds i8, ptr %9, i64 36
+  %568 = load i16, ptr %567, align 4
+  switch i16 %568, label %.thread [
     i16 66, label %.thread357.sink.split
     i16 44, label %.thread357.sink.split
     i16 22, label %.thread357.sink.split
     i16 11, label %.thread357.sink.split
     i16 4, label %.thread357.sink.split
     i16 2, label %.thread357.sink.split
-    i16 108, label %570
-    i16 96, label %570
-    i16 72, label %570
-    i16 48, label %570
-    i16 36, label %570
-    i16 24, label %570
-    i16 18, label %570
-    i16 12, label %570
+    i16 108, label %569
+    i16 96, label %569
+    i16 72, label %569
+    i16 48, label %569
+    i16 36, label %569
+    i16 24, label %569
+    i16 18, label %569
+    i16 12, label %569
   ]
 
-570:                                              ; preds = %567, %567, %567, %567, %567, %567, %567, %567
-  %571 = and i16 %.pre390, 2
-  %.not334 = icmp eq i16 %571, 0
-  br i1 %.not334, label %.thread, label %572
+569:                                              ; preds = %566, %566, %566, %566, %566, %566, %566, %566
+  %570 = and i16 %.pre390, 2
+  %.not334 = icmp eq i16 %570, 0
+  br i1 %.not334, label %.thread, label %571
 
-572:                                              ; preds = %570
-  %573 = getelementptr inbounds i8, ptr %9, i64 32
-  %574 = load i32, ptr %573, align 8
-  %575 = icmp ult i32 %574, 2485
-  br i1 %575, label %576, label %577
+571:                                              ; preds = %569
+  %572 = getelementptr inbounds i8, ptr %9, i64 32
+  %573 = load i32, ptr %572, align 8
+  %574 = icmp ult i32 %573, 2485
+  br i1 %574, label %575, label %576
 
-576:                                              ; preds = %572
+575:                                              ; preds = %571
   store i32 6, ptr %42, align 8
   br label %.thread
 
-577:                                              ; preds = %572
+576:                                              ; preds = %571
   store i32 5, ptr %42, align 8
   br label %.thread
 
-578:                                              ; preds = %566
-  %579 = getelementptr inbounds i8, ptr %9, i64 36
-  %580 = load i16, ptr %579, align 4
-  switch i16 %580, label %.thread [
+577:                                              ; preds = %565
+  %578 = getelementptr inbounds i8, ptr %9, i64 36
+  %579 = load i16, ptr %578, align 4
+  switch i16 %579, label %.thread [
     i16 66, label %.thread357.sink.split
     i16 44, label %.thread357.sink.split
     i16 22, label %.thread357.sink.split
@@ -1544,259 +1544,259 @@ dissect_80211_common.exit:                        ; preds = %484, %482, %467, %4
   ]
 
 thread-pre-split:                                 ; preds = %._crit_edge
-  %581 = icmp eq i32 %.pr.pre.pre, 4
-  br i1 %581, label %.thread357, label %.thread
+  %580 = icmp eq i32 %.pr.pre.pre, 4
+  br i1 %580, label %.thread357, label %.thread
 
-.thread357.sink.split:                            ; preds = %578, %578, %578, %578, %578, %578, %567, %567, %567, %567, %567, %567
+.thread357.sink.split:                            ; preds = %577, %577, %577, %577, %577, %577, %566, %566, %566, %566, %566, %566
   store i32 4, ptr %42, align 8
   br label %.thread357
 
-.thread357:                                       ; preds = %.thread357.sink.split, %566, %thread-pre-split
-  %582 = getelementptr inbounds i8, ptr %9, i64 12
-  %583 = load i8, ptr %582, align 4
-  %584 = and i8 %583, -2
-  store i8 %584, ptr %582, align 4
+.thread357:                                       ; preds = %.thread357.sink.split, %565, %thread-pre-split
+  %581 = getelementptr inbounds i8, ptr %9, i64 12
+  %582 = load i8, ptr %581, align 4
+  %583 = and i8 %582, -2
+  store i8 %583, ptr %581, align 4
   br label %.thread
 
-.thread:                                          ; preds = %566, %40, %570, %577, %576, %578, %567, %.thread357, %thread-pre-split
-  %.0323.lcssa408 = phi i32 [ %64, %577 ], [ %64, %576 ], [ %64, %578 ], [ %64, %567 ], [ %64, %.thread357 ], [ %64, %thread-pre-split ], [ %64, %570 ], [ %41, %40 ], [ %64, %566 ]
-  %.0325.lcssa404 = phi i32 [ %.1326, %577 ], [ %.1326, %576 ], [ %.1326, %578 ], [ %.1326, %567 ], [ %.1326, %.thread357 ], [ %.1326, %thread-pre-split ], [ %.1326, %570 ], [ 8, %40 ], [ %.1326, %566 ]
-  %585 = load i32, ptr @ppi_ampdu_reassemble, align 4
-  %.not335 = icmp eq i32 %585, 0
-  br i1 %.not335, label %679, label %586
+.thread:                                          ; preds = %565, %40, %569, %576, %575, %577, %566, %.thread357, %thread-pre-split
+  %.0323.lcssa408 = phi i32 [ %64, %576 ], [ %64, %575 ], [ %64, %577 ], [ %64, %566 ], [ %64, %.thread357 ], [ %64, %thread-pre-split ], [ %64, %569 ], [ %41, %40 ], [ %64, %565 ]
+  %.0325.lcssa404 = phi i32 [ %.1326, %576 ], [ %.1326, %575 ], [ %.1326, %577 ], [ %.1326, %566 ], [ %.1326, %.thread357 ], [ %.1326, %thread-pre-split ], [ %.1326, %569 ], [ 8, %40 ], [ %.1326, %565 ]
+  %584 = load i32, ptr @ppi_ampdu_reassemble, align 4
+  %.not335 = icmp eq i32 %584, 0
+  br i1 %.not335, label %678, label %585
 
-586:                                              ; preds = %.thread
-  %587 = load i32, ptr %7, align 4
-  %588 = and i32 %587, 16
-  %.not336 = icmp eq i32 %588, 0
-  br i1 %.not336, label %679, label %589
+585:                                              ; preds = %.thread
+  %586 = load i32, ptr %7, align 4
+  %587 = and i32 %586, 16
+  %.not336 = icmp eq i32 %587, 0
+  br i1 %.not336, label %678, label %588
 
-589:                                              ; preds = %586
-  %590 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0325.lcssa404) #3
-  %591 = getelementptr inbounds i8, ptr %1, i64 272
-  store i32 1, ptr %591, align 8
-  %592 = load i32, ptr %8, align 4
-  %593 = tail call ptr @fragment_get(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %1, i32 noundef %592, ptr noundef null) #3
-  %.not337 = icmp eq ptr %593, null
+588:                                              ; preds = %585
+  %589 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0325.lcssa404) #3
+  %590 = getelementptr inbounds i8, ptr %1, i64 272
+  store i32 1, ptr %590, align 8
+  %591 = load i32, ptr %8, align 4
+  %592 = tail call ptr @fragment_get(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %1, i32 noundef %591, ptr noundef null) #3
+  %.not337 = icmp eq ptr %592, null
   br i1 %.not337, label %.thread358, label %.preheader
 
-.preheader:                                       ; preds = %589
-  %.0320366 = load ptr, ptr %593, align 8
+.preheader:                                       ; preds = %588
+  %.0320366 = load ptr, ptr %592, align 8
   %.not338367 = icmp eq ptr %.0320366, null
   br i1 %.not338367, label %.thread358, label %.lr.ph370
 
 .lr.ph370:                                        ; preds = %.preheader, %.lr.ph370
   %.0320369 = phi ptr [ %.0320, %.lr.ph370 ], [ %.0320366, %.preheader ]
-  %.1368 = phi i32 [ %599, %.lr.ph370 ], [ 0, %.preheader ]
-  %594 = getelementptr inbounds i8, ptr %.0320369, i64 16
-  %595 = load i32, ptr %594, align 8
-  %596 = add i32 %595, 3
-  %597 = and i32 %596, -4
-  %598 = add i32 %.1368, 4
-  %599 = add i32 %598, %597
+  %.1368 = phi i32 [ %598, %.lr.ph370 ], [ 0, %.preheader ]
+  %593 = getelementptr inbounds i8, ptr %.0320369, i64 16
+  %594 = load i32, ptr %593, align 8
+  %595 = add i32 %594, 3
+  %596 = and i32 %595, -4
+  %597 = add i32 %.1368, 4
+  %598 = add i32 %597, %596
   %.0320 = load ptr, ptr %.0320369, align 8
   %.not338 = icmp eq ptr %.0320, null
   br i1 %.not338, label %._crit_edge371, label %.lr.ph370, !llvm.loop !6
 
 ._crit_edge371:                                   ; preds = %.lr.ph370
-  %600 = icmp sgt i32 %599, 65535
-  br i1 %600, label %601, label %.thread358
+  %599 = icmp sgt i32 %598, 65535
+  br i1 %599, label %600, label %.thread358
 
-601:                                              ; preds = %._crit_edge371
-  %602 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0317, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %.0325.lcssa404, i32 noundef -1, ptr noundef nonnull @.str.301, i32 noundef 65535) #3
-  br label %685
+600:                                              ; preds = %._crit_edge371
+  %601 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0317, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %.0325.lcssa404, i32 noundef -1, ptr noundef nonnull @.str.301, i32 noundef 65535) #3
+  br label %684
 
-.thread358:                                       ; preds = %.preheader, %589, %._crit_edge371
-  %.0360 = phi i32 [ %599, %._crit_edge371 ], [ 0, %589 ], [ 0, %.preheader ]
-  %603 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %0, i32 noundef %.0325.lcssa404, ptr noundef %1, i32 noundef %592, ptr noundef null, i32 noundef %590, i32 noundef 1) #3
-  store i32 1, ptr %591, align 8
-  %604 = tail call ptr @fragment_get(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %1, i32 noundef %592, ptr noundef null) #3
-  %605 = icmp ne ptr %604, null
-  %or.cond69 = and i1 %20, %605
-  br i1 %or.cond69, label %606, label %._crit_edge378.thread
+.thread358:                                       ; preds = %.preheader, %588, %._crit_edge371
+  %.0360 = phi i32 [ %598, %._crit_edge371 ], [ 0, %588 ], [ 0, %.preheader ]
+  %602 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %0, i32 noundef %.0325.lcssa404, ptr noundef %1, i32 noundef %591, ptr noundef null, i32 noundef %589, i32 noundef 1) #3
+  store i32 1, ptr %590, align 8
+  %603 = tail call ptr @fragment_get(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %1, i32 noundef %591, ptr noundef null) #3
+  %604 = icmp ne ptr %603, null
+  %or.cond69 = and i1 %20, %604
+  br i1 %or.cond69, label %605, label %._crit_edge378.thread
 
-606:                                              ; preds = %.thread358
-  %607 = load ptr, ptr %604, align 8
-  %608 = load i32, ptr @ett_ampdu_segments, align 4
-  %609 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325.lcssa404, i32 noundef -1, i32 noundef %608, ptr noundef nonnull %5, ptr noundef nonnull @.str.302, i32 noundef %.0360) #3
-  %610 = load ptr, ptr %5, align 8
-  %.not.i355 = icmp eq ptr %610, null
-  br i1 %.not.i355, label %proto_item_set_generated.exit, label %611
+605:                                              ; preds = %.thread358
+  %606 = load ptr, ptr %603, align 8
+  %607 = load i32, ptr @ett_ampdu_segments, align 4
+  %608 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325.lcssa404, i32 noundef -1, i32 noundef %607, ptr noundef nonnull %5, ptr noundef nonnull @.str.302, i32 noundef %.0360) #3
+  %609 = load ptr, ptr %5, align 8
+  %.not.i355 = icmp eq ptr %609, null
+  br i1 %.not.i355, label %proto_item_set_generated.exit, label %610
 
-611:                                              ; preds = %606
-  %612 = getelementptr inbounds i8, ptr %610, i64 32
-  %613 = load ptr, ptr %612, align 8
-  %.not5.i = icmp eq ptr %613, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %614
+610:                                              ; preds = %605
+  %611 = getelementptr inbounds i8, ptr %609, i64 32
+  %612 = load ptr, ptr %611, align 8
+  %.not5.i = icmp eq ptr %612, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %613
 
-614:                                              ; preds = %611
-  %615 = getelementptr inbounds i8, ptr %613, i64 28
-  %616 = load i32, ptr %615, align 4
-  %617 = or i32 %616, 2
-  store i32 %617, ptr %615, align 4
+613:                                              ; preds = %610
+  %614 = getelementptr inbounds i8, ptr %612, i64 28
+  %615 = load i32, ptr %614, align 4
+  %616 = or i32 %615, 2
+  store i32 %616, ptr %614, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %606, %611, %614
-  %.not339373 = icmp eq ptr %607, null
+proto_item_set_generated.exit:                    ; preds = %605, %610, %613
+  %.not339373 = icmp eq ptr %606, null
   br i1 %.not339373, label %._crit_edge378.thread, label %.lr.ph377
 
-.lr.ph377:                                        ; preds = %proto_item_set_generated.exit, %636
-  %.0313376 = phi i32 [ %.1314, %636 ], [ 0, %proto_item_set_generated.exit ]
-  %.0315375 = phi i32 [ %.1316, %636 ], [ 1, %proto_item_set_generated.exit ]
-  %.1321374 = phi ptr [ %637, %636 ], [ %607, %proto_item_set_generated.exit ]
-  %618 = getelementptr inbounds i8, ptr %.1321374, i64 24
-  %619 = load ptr, ptr %618, align 8
-  %.not347 = icmp eq ptr %619, null
-  br i1 %.not347, label %636, label %620
+.lr.ph377:                                        ; preds = %proto_item_set_generated.exit, %635
+  %.0313376 = phi i32 [ %.1314, %635 ], [ 0, %proto_item_set_generated.exit ]
+  %.0315375 = phi i32 [ %.1316, %635 ], [ 1, %proto_item_set_generated.exit ]
+  %.1321374 = phi ptr [ %636, %635 ], [ %606, %proto_item_set_generated.exit ]
+  %617 = getelementptr inbounds i8, ptr %.1321374, i64 24
+  %618 = load ptr, ptr %617, align 8
+  %.not347 = icmp eq ptr %618, null
+  br i1 %.not347, label %635, label %619
 
-620:                                              ; preds = %.lr.ph377
-  %621 = getelementptr inbounds i8, ptr %.1321374, i64 16
-  %622 = load i32, ptr %621, align 8
-  %.not348 = icmp eq i32 %622, 0
-  br i1 %.not348, label %636, label %623
+619:                                              ; preds = %.lr.ph377
+  %620 = getelementptr inbounds i8, ptr %.1321374, i64 16
+  %621 = load i32, ptr %620, align 8
+  %.not348 = icmp eq i32 %621, 0
+  br i1 %.not348, label %635, label %622
 
-623:                                              ; preds = %620
-  %624 = getelementptr inbounds i8, ptr %.1321374, i64 8
-  %625 = load i32, ptr %624, align 8
+622:                                              ; preds = %619
+  %623 = getelementptr inbounds i8, ptr %.1321374, i64 8
+  %624 = load i32, ptr %623, align 8
   %.not349 = icmp eq i32 %.0315375, 0
   %.pre392 = load ptr, ptr %5, align 8
-  br i1 %.not349, label %626, label %627
+  br i1 %.not349, label %625, label %626
 
-626:                                              ; preds = %623
+625:                                              ; preds = %622
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.pre392, ptr noundef nonnull @.str.303) #3
   %.pre391 = load ptr, ptr %5, align 8
-  %.pre393 = load i32, ptr %624, align 8
-  %.pre394 = load i32, ptr %621, align 8
-  br label %627
+  %.pre393 = load i32, ptr %623, align 8
+  %.pre394 = load i32, ptr %620, align 8
+  br label %626
 
-627:                                              ; preds = %626, %623
-  %628 = phi i32 [ %.pre394, %626 ], [ %622, %623 ]
-  %629 = phi i32 [ %.pre393, %626 ], [ %625, %623 ]
-  %630 = phi ptr [ %.pre391, %626 ], [ %.pre392, %623 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.304, i32 noundef %629, i32 noundef %628) #3
-  %631 = load i32, ptr @hf_ampdu_segment, align 4
-  %632 = load i32, ptr %621, align 8
-  %633 = icmp eq i32 %632, 1
-  %634 = select i1 %633, ptr @.str.306, ptr @.str.307
-  %635 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %609, i32 noundef %631, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %625, ptr noundef nonnull @.str.305, i32 noundef %625, i32 noundef %632, ptr noundef nonnull %634) #3
-  br label %636
+626:                                              ; preds = %625, %622
+  %627 = phi i32 [ %.pre394, %625 ], [ %621, %622 ]
+  %628 = phi i32 [ %.pre393, %625 ], [ %624, %622 ]
+  %629 = phi ptr [ %.pre391, %625 ], [ %.pre392, %622 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %629, ptr noundef nonnull @.str.304, i32 noundef %628, i32 noundef %627) #3
+  %630 = load i32, ptr @hf_ampdu_segment, align 4
+  %631 = load i32, ptr %620, align 8
+  %632 = icmp eq i32 %631, 1
+  %633 = select i1 %632, ptr @.str.306, ptr @.str.307
+  %634 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %608, i32 noundef %630, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %624, ptr noundef nonnull @.str.305, i32 noundef %624, i32 noundef %631, ptr noundef nonnull %633) #3
+  br label %635
 
-636:                                              ; preds = %627, %620, %.lr.ph377
-  %.1316 = phi i32 [ 0, %627 ], [ %.0315375, %620 ], [ %.0315375, %.lr.ph377 ]
-  %.1314 = phi i32 [ %625, %627 ], [ %.0313376, %620 ], [ %.0313376, %.lr.ph377 ]
-  %637 = load ptr, ptr %.1321374, align 8
-  %.not339 = icmp eq ptr %637, null
+635:                                              ; preds = %626, %619, %.lr.ph377
+  %.1316 = phi i32 [ 0, %626 ], [ %.0315375, %619 ], [ %.0315375, %.lr.ph377 ]
+  %.1314 = phi i32 [ %624, %626 ], [ %.0313376, %619 ], [ %.0313376, %.lr.ph377 ]
+  %636 = load ptr, ptr %.1321374, align 8
+  %.not339 = icmp eq ptr %636, null
   br i1 %.not339, label %._crit_edge378, label %.lr.ph377, !llvm.loop !7
 
-._crit_edge378:                                   ; preds = %636
+._crit_edge378:                                   ; preds = %635
   %.not340 = icmp eq i32 %.1314, 0
-  br i1 %.not340, label %._crit_edge378.thread, label %638
+  br i1 %.not340, label %._crit_edge378.thread, label %637
 
-638:                                              ; preds = %._crit_edge378
-  %639 = getelementptr inbounds i8, ptr %1, i64 20
-  %640 = load i32, ptr %639, align 4
-  %.not341 = icmp eq i32 %.1314, %640
-  br i1 %.not341, label %._crit_edge378.thread, label %641
+637:                                              ; preds = %._crit_edge378
+  %638 = getelementptr inbounds i8, ptr %1, i64 20
+  %639 = load i32, ptr %638, align 4
+  %.not341 = icmp eq i32 %.1314, %639
+  br i1 %.not341, label %._crit_edge378.thread, label %640
 
-641:                                              ; preds = %638
-  %642 = load i32, ptr @hf_ampdu_reassembled_in, align 4
-  %643 = call ptr @proto_tree_add_uint(ptr noundef %609, i32 noundef %642, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.1314) #3
+640:                                              ; preds = %637
+  %641 = load i32, ptr @hf_ampdu_reassembled_in, align 4
+  %642 = call ptr @proto_tree_add_uint(ptr noundef %608, i32 noundef %641, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.1314) #3
   br label %._crit_edge378.thread
 
-._crit_edge378.thread:                            ; preds = %proto_item_set_generated.exit, %._crit_edge378, %638, %641, %.thread358
-  %.0322 = phi ptr [ %609, %641 ], [ %609, %638 ], [ %609, %._crit_edge378 ], [ null, %.thread358 ], [ %609, %proto_item_set_generated.exit ]
-  %644 = and i32 %587, 96
-  %or.cond = icmp ne i32 %644, 32
-  %or.cond362.not = and i1 %or.cond, %605
-  br i1 %or.cond362.not, label %645, label %672
+._crit_edge378.thread:                            ; preds = %proto_item_set_generated.exit, %._crit_edge378, %637, %640, %.thread358
+  %.0322 = phi ptr [ %608, %640 ], [ %608, %637 ], [ %608, %._crit_edge378 ], [ null, %.thread358 ], [ %608, %proto_item_set_generated.exit ]
+  %643 = and i32 %586, 96
+  %or.cond = icmp ne i32 %643, 32
+  %or.cond362.not = and i1 %or.cond, %604
+  br i1 %or.cond362.not, label %644, label %671
 
-645:                                              ; preds = %._crit_edge378.thread
-  br i1 %20, label %646, label %651
+644:                                              ; preds = %._crit_edge378.thread
+  br i1 %20, label %645, label %650
 
-646:                                              ; preds = %645
-  %647 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.308) #3
-  %648 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %647, ptr noundef %0, i32 noundef 0, i32 noundef %.0323.lcssa408, ptr noundef nonnull @.str.309) #3
-  store ptr %648, ptr %5, align 8
-  %649 = load i32, ptr @ett_ampdu, align 4
-  %650 = call ptr @proto_item_add_subtree(ptr noundef %648, i32 noundef %649) #3
-  br label %651
+645:                                              ; preds = %644
+  %646 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.308) #3
+  %647 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %646, ptr noundef %0, i32 noundef 0, i32 noundef %.0323.lcssa408, ptr noundef nonnull @.str.309) #3
+  store ptr %647, ptr %5, align 8
+  %648 = load i32, ptr @ett_ampdu, align 4
+  %649 = call ptr @proto_item_add_subtree(ptr noundef %647, i32 noundef %648) #3
+  br label %650
 
-651:                                              ; preds = %646, %645
-  %.0324 = phi ptr [ %650, %646 ], [ null, %645 ]
-  %.2380 = load ptr, ptr %604, align 8
+650:                                              ; preds = %645, %644
+  %.0324 = phi ptr [ %649, %645 ], [ null, %644 ]
+  %.2380 = load ptr, ptr %603, align 8
   %.not344381 = icmp eq ptr %.2380, null
   br i1 %.not344381, label %._crit_edge386, label %.lr.ph385
 
-.lr.ph385:                                        ; preds = %651
-  %652 = getelementptr inbounds i8, ptr %1, i64 408
-  br label %653
+.lr.ph385:                                        ; preds = %650
+  %651 = getelementptr inbounds i8, ptr %1, i64 408
+  br label %652
 
-653:                                              ; preds = %.lr.ph385, %669
-  %.2383 = phi ptr [ %.2380, %.lr.ph385 ], [ %.2, %669 ]
-  %.0318382 = phi i32 [ 0, %.lr.ph385 ], [ %.1319, %669 ]
-  %654 = getelementptr inbounds i8, ptr %.2383, i64 24
-  %655 = load ptr, ptr %654, align 8
-  %.not345 = icmp eq ptr %655, null
-  br i1 %.not345, label %669, label %656
+652:                                              ; preds = %.lr.ph385, %668
+  %.2383 = phi ptr [ %.2380, %.lr.ph385 ], [ %.2, %668 ]
+  %.0318382 = phi i32 [ 0, %.lr.ph385 ], [ %.1319, %668 ]
+  %653 = getelementptr inbounds i8, ptr %.2383, i64 24
+  %654 = load ptr, ptr %653, align 8
+  %.not345 = icmp eq ptr %654, null
+  br i1 %.not345, label %668, label %655
 
-656:                                              ; preds = %653
-  %657 = getelementptr inbounds i8, ptr %.2383, i64 16
-  %658 = load i32, ptr %657, align 8
-  %.not346 = icmp eq i32 %658, 0
-  br i1 %.not346, label %669, label %659
+655:                                              ; preds = %652
+  %656 = getelementptr inbounds i8, ptr %.2383, i64 16
+  %657 = load i32, ptr %656, align 8
+  %.not346 = icmp eq i32 %657, 0
+  br i1 %.not346, label %668, label %658
 
-659:                                              ; preds = %656
-  %660 = add i32 %.0318382, 1
-  %661 = load ptr, ptr %652, align 8
-  %662 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %661, ptr noundef nonnull @.str.310, i32 noundef %660) #3
-  %663 = load ptr, ptr %654, align 8
-  %664 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %663) #3
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %664, ptr noundef %662) #3
-  %665 = load i32, ptr @ett_ampdu_segment, align 4
-  %666 = call ptr @proto_tree_add_subtree(ptr noundef %.0324, ptr noundef %664, i32 noundef 0, i32 noundef -1, i32 noundef %665, ptr noundef null, ptr noundef %662) #3
-  %667 = load ptr, ptr @ieee80211_radio_handle, align 8
-  %668 = call i32 @call_dissector_with_data(ptr noundef %667, ptr noundef %664, ptr noundef %1, ptr noundef %666, ptr noundef nonnull %9) #3
-  br label %669
+658:                                              ; preds = %655
+  %659 = add i32 %.0318382, 1
+  %660 = load ptr, ptr %651, align 8
+  %661 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %660, ptr noundef nonnull @.str.310, i32 noundef %659) #3
+  %662 = load ptr, ptr %653, align 8
+  %663 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %662) #3
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %663, ptr noundef %661) #3
+  %664 = load i32, ptr @ett_ampdu_segment, align 4
+  %665 = call ptr @proto_tree_add_subtree(ptr noundef %.0324, ptr noundef %663, i32 noundef 0, i32 noundef -1, i32 noundef %664, ptr noundef null, ptr noundef %661) #3
+  %666 = load ptr, ptr @ieee80211_radio_handle, align 8
+  %667 = call i32 @call_dissector_with_data(ptr noundef %666, ptr noundef %663, ptr noundef %1, ptr noundef %665, ptr noundef nonnull %9) #3
+  br label %668
 
-669:                                              ; preds = %653, %656, %659
-  %.1319 = phi i32 [ %660, %659 ], [ %.0318382, %656 ], [ %.0318382, %653 ]
+668:                                              ; preds = %652, %655, %658
+  %.1319 = phi i32 [ %659, %658 ], [ %.0318382, %655 ], [ %.0318382, %652 ]
   %.2 = load ptr, ptr %.2383, align 8
   %.not344 = icmp eq ptr %.2, null
-  br i1 %.not344, label %._crit_edge386, label %653, !llvm.loop !8
+  br i1 %.not344, label %._crit_edge386, label %652, !llvm.loop !8
 
-._crit_edge386:                                   ; preds = %669, %651
-  %.0318.lcssa = phi i32 [ 0, %651 ], [ %.1319, %669 ]
-  %670 = load i32, ptr @hf_ampdu_count, align 4
-  %671 = call ptr @proto_tree_add_uint(ptr noundef %.0322, i32 noundef %670, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0318.lcssa) #3
-  store i32 0, ptr %591, align 8
-  br label %677
+._crit_edge386:                                   ; preds = %668, %650
+  %.0318.lcssa = phi i32 [ 0, %650 ], [ %.1319, %668 ]
+  %669 = load i32, ptr @hf_ampdu_count, align 4
+  %670 = call ptr @proto_tree_add_uint(ptr noundef %.0322, i32 noundef %669, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0318.lcssa) #3
+  store i32 0, ptr %590, align 8
+  br label %676
 
-672:                                              ; preds = %._crit_edge378.thread
-  %673 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa404) #3
+671:                                              ; preds = %._crit_edge378.thread
+  %672 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa404) #3
+  %673 = load ptr, ptr %10, align 8
+  call void @col_set_str(ptr noundef %673, i32 noundef 34, ptr noundef nonnull @.str.311) #3
   %674 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %674, i32 noundef 34, ptr noundef nonnull @.str.311) #3
-  %675 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %675, i32 noundef 25, ptr noundef nonnull @.str.312) #3
-  %676 = call i32 @call_data_dissector(ptr noundef %673, ptr noundef %1, ptr noundef %2) #3
-  br label %677
+  call void @col_set_str(ptr noundef %674, i32 noundef 25, ptr noundef nonnull @.str.312) #3
+  %675 = call i32 @call_data_dissector(ptr noundef %672, ptr noundef %1, ptr noundef %2) #3
+  br label %676
 
-677:                                              ; preds = %672, %._crit_edge386
-  %678 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %685
+676:                                              ; preds = %671, %._crit_edge386
+  %677 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %684
 
-679:                                              ; preds = %586, %.thread
-  %680 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa404) #3
-  %681 = icmp eq i32 %18, 105
-  %. = select i1 %681, ptr %9, ptr %6
+678:                                              ; preds = %585, %.thread
+  %679 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa404) #3
+  %680 = icmp eq i32 %18, 105
+  %. = select i1 %680, ptr %9, ptr %6
   %ieee80211_radio_handle.val = load ptr, ptr @ieee80211_radio_handle, align 8
   %pcap_pktdata_handle.val = load ptr, ptr @pcap_pktdata_handle, align 8
-  %682 = select i1 %681, ptr %ieee80211_radio_handle.val, ptr %pcap_pktdata_handle.val
-  %683 = call i32 @call_dissector_with_data(ptr noundef %682, ptr noundef %680, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.) #3
-  %684 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %685
+  %681 = select i1 %680, ptr %ieee80211_radio_handle.val, ptr %pcap_pktdata_handle.val
+  %682 = call i32 @call_dissector_with_data(ptr noundef %681, ptr noundef %679, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.) #3
+  %683 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %684
 
-685:                                              ; preds = %679, %677, %601
-  %.0312 = phi i32 [ %.0325.lcssa404, %601 ], [ %678, %677 ], [ %684, %679 ]
+684:                                              ; preds = %678, %676, %600
+  %.0312 = phi i32 [ %.0325.lcssa404, %600 ], [ %677, %676 ], [ %683, %678 ]
   ret i32 %.0312
 }
 

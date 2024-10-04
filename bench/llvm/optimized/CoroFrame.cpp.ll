@@ -26706,10 +26706,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AllocaUseVisitor13visitCallBaseE
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = ptrtoint ptr %1 to i64
   %wide.trip.count = and i64 %14, 4294967295
+  %invariant.op = or disjoint i64 %17, 4
   br label %18
 
-18:                                               ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
+18:                                               ; preds = %.lr.ph, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
   %19 = load ptr, ptr %15, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %4, align 4
@@ -26720,7 +26721,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AllocaUseVisitor13visitCallBaseE
   %26 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %20, %27
-  br i1 %28, label %29, label %73
+  br i1 %28, label %29, label %71
 
 29:                                               ; preds = %18
   %30 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
@@ -26740,7 +26741,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AllocaUseVisitor13visitCallBaseE
 
 43:                                               ; preds = %29
   %44 = tail call noundef zeroext i1 @_ZNK4llvm8CallBase12paramHasAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %42, i32 noundef 24) #19
-  br i1 %44, label %73, label %_ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread
+  br i1 %44, label %71, label %_ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread
 
 45:                                               ; preds = %29
   %46 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm8CallBase25getBundleOpInfoForOperandEj(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %42) #19
@@ -26771,36 +26772,35 @@ _ZNK4llvm8CallBase14doesNotCaptureEj.exit:        ; preds = %45
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 255
   %69 = icmp eq i32 %68, 14
-  br i1 %69, label %73, label %_ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread
+  br i1 %69, label %71, label %_ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread
 
 _ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread: ; preds = %45, %43, %_ZNK4llvm8CallBase14doesNotCaptureEj.exit
   %.0.copyload.i.i.i.i = load i64, ptr %16, align 8
   %70 = and i64 %.0.copyload.i.i.i.i, 3
-  %71 = or disjoint i64 %70, %17
-  %72 = or disjoint i64 %71, 4
-  store i64 %72, ptr %16, align 8
-  br label %73
+  %.reass = or disjoint i64 %70, %invariant.op
+  store i64 %.reass, ptr %16, align 8
+  br label %71
 
-73:                                               ; preds = %43, %18, %_ZNK4llvm8CallBase14doesNotCaptureEj.exit, %_ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread
+71:                                               ; preds = %43, %18, %_ZNK4llvm8CallBase14doesNotCaptureEj.exit, %_ZNK4llvm8CallBase14doesNotCaptureEj.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !450
 
-._crit_edge:                                      ; preds = %73, %2
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 360
+._crit_edge:                                      ; preds = %71, %2
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %75, ptr noundef %78, ptr noundef nonnull %1) #19
-  br i1 %79, label %_ZN12_GLOBAL__N_116AllocaUseVisitor14handleMayWriteERKN4llvm11InstructionE.exit, label %80
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %73, ptr noundef %76, ptr noundef nonnull %1) #19
+  br i1 %77, label %_ZN12_GLOBAL__N_116AllocaUseVisitor14handleMayWriteERKN4llvm11InstructionE.exit, label %78
 
-80:                                               ; preds = %._crit_edge
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store i8 1, ptr %81, align 8
+78:                                               ; preds = %._crit_edge
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store i8 1, ptr %79, align 8
   br label %_ZN12_GLOBAL__N_116AllocaUseVisitor14handleMayWriteERKN4llvm11InstructionE.exit
 
-_ZN12_GLOBAL__N_116AllocaUseVisitor14handleMayWriteERKN4llvm11InstructionE.exit: ; preds = %._crit_edge, %80
+_ZN12_GLOBAL__N_116AllocaUseVisitor14handleMayWriteERKN4llvm11InstructionE.exit: ; preds = %._crit_edge, %78
   ret void
 }
 

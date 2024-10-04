@@ -2776,6 +2776,7 @@ while.end154:                                     ; preds = %while.cond107.loope
   %shl155 = shl nuw nsw i32 1, %table_bits.addr.0
   %sub161 = add nsw i32 %shl155, -1
   %invariant.op = add nuw nsw i32 %table_bits.addr.0, 1
+  %invariant.op188 = or disjoint i32 %table_bits.addr.0, 49152
   br label %for.cond156.outer
 
 for.cond156.outer:                                ; preds = %while.body226, %while.end154
@@ -2829,11 +2830,10 @@ while.end181:                                     ; preds = %while.body174, %if.
   %shl184 = shl i32 %cur_table_end.4, 16
   %shl187 = shl i32 %subtable_bits.0.lcssa, 8
   %24 = or i32 %shl184, %shl187
-  %or188 = or disjoint i32 %24, %table_bits.addr.0
-  %or189 = or i32 %or188, 49152
+  %or189.reass = or i32 %24, %invariant.op188
   %idxprom190 = zext nneg i32 %and162 to i64
   %arrayidx191 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom190
-  store i32 %or189, ptr %arrayidx191, align 4
+  store i32 %or189.reass, ptr %arrayidx191, align 4
   br label %if.end192
 
 if.end192:                                        ; preds = %for.cond156, %while.end181

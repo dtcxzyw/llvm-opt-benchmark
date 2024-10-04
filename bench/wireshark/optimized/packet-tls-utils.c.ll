@@ -10213,11 +10213,12 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %234 = getelementptr inbounds i8, ptr %0, i64 220
   %235 = getelementptr inbounds i8, ptr %11, i64 4
   %236 = getelementptr inbounds i8, ptr %0, i64 92
+  %invariant.op = and i1 %cond.i473, %129
   br label %237
 
 237:                                              ; preds = %.lr.ph, %ssl_end_vector.exit
   %.0518 = phi ptr [ @.str.503, %.lr.ph ], [ %.1, %ssl_end_vector.exit ]
-  %.0401517 = phi i32 [ %71, %.lr.ph ], [ %1226, %ssl_end_vector.exit ]
+  %.0401517 = phi i32 [ %71, %.lr.ph ], [ %1225, %ssl_end_vector.exit ]
   %238 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0401517) #23
   %239 = add i32 %.0401517, 2
   %240 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %239) #23
@@ -10287,7 +10288,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %275 = add i32 %.0401517, 4
   %276 = load i32, ptr %57, align 4
   %277 = add i32 %276, %275
-  switch i16 %238, label %1210 [
+  switch i16 %238, label %1209 [
     i16 0, label %278
     i16 1, label %312
     i16 5, label %316
@@ -10315,23 +10316,23 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
     i16 -91, label %608
     i16 57, label %608
     i16 35, label %891
-    i16 40, label %902
-    i16 51, label %902
-    i16 41, label %942
-    i16 42, label %987
-    i16 46, label %987
-    i16 43, label %994
-    i16 44, label %1078
-    i16 45, label %1087
-    i16 47, label %1098
-    i16 48, label %1100
+    i16 40, label %901
+    i16 51, label %901
+    i16 41, label %941
+    i16 42, label %986
+    i16 46, label %986
+    i16 43, label %993
+    i16 44, label %1077
+    i16 45, label %1086
+    i16 47, label %1097
+    i16 48, label %1099
     i16 49, label %ssl_dissect_hnd_hello_ext_early_data.exit
-    i16 13172, label %1102
-    i16 17513, label %1117
-    i16 -255, label %1139
-    i16 -50, label %1151
-    i16 53, label %1180
-    i16 54, label %1181
+    i16 13172, label %1101
+    i16 17513, label %1116
+    i16 -255, label %1138
+    i16 -50, label %1150
+    i16 53, label %1179
+    i16 54, label %1180
   ]
 
 278:                                              ; preds = %274
@@ -11547,300 +11548,299 @@ ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit: ; preds = %644, %ssl_e
 
 891:                                              ; preds = %274
   %892 = icmp ne i32 %276, 0
-  %893 = and i1 %129, %892
-  %or.cond3.i = and i1 %893, %cond.i473
-  br i1 %or.cond3.i, label %894, label %ssl_dissect_hnd_hello_ext_session_ticket.exit
+  %or.cond3.i.reass.reass = and i1 %892, %invariant.op
+  br i1 %or.cond3.i.reass.reass, label %893, label %ssl_dissect_hnd_hello_ext_session_ticket.exit
 
-894:                                              ; preds = %891
+893:                                              ; preds = %891
   call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %275, i32 noundef %276) #23
-  %895 = call ptr @wmem_file_scope() #23
-  %896 = load ptr, ptr %130, align 8
-  %897 = zext i32 %276 to i64
-  %898 = call noalias ptr @wmem_realloc(ptr noundef %895, ptr noundef %896, i64 noundef %897) #23
-  store ptr %898, ptr %130, align 8
+  %894 = call ptr @wmem_file_scope() #23
+  %895 = load ptr, ptr %130, align 8
+  %896 = zext i32 %276 to i64
+  %897 = call noalias ptr @wmem_realloc(ptr noundef %894, ptr noundef %895, i64 noundef %896) #23
+  store ptr %897, ptr %130, align 8
   store i32 %276, ptr %131, align 8
-  %899 = call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %898, i32 noundef %275, i64 noundef %897) #23
+  %898 = call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %897, i32 noundef %275, i64 noundef %896) #23
   br label %ssl_dissect_hnd_hello_ext_session_ticket.exit
 
-ssl_dissect_hnd_hello_ext_session_ticket.exit:    ; preds = %891, %894
-  %900 = load i32, ptr %132, align 4
-  %901 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %900, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef 0) #23
+ssl_dissect_hnd_hello_ext_session_ticket.exit:    ; preds = %891, %893
+  %899 = load i32, ptr %132, align 4
+  %900 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %899, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef 0) #23
   br label %ssl_end_vector.exit
 
-902:                                              ; preds = %274, %274
+901:                                              ; preds = %274, %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr null, ptr %28, align 8
   %.not.i443 = icmp ugt i32 %277, %275
-  br i1 %.not.i443, label %903, label %ssl_dissect_hnd_hello_ext_key_share.exit
+  br i1 %.not.i443, label %902, label %ssl_dissect_hnd_hello_ext_key_share.exit
 
-903:                                              ; preds = %902
-  %904 = load i32, ptr %126, align 4
-  %905 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %904, ptr noundef null, ptr noundef nonnull @.str.1597) #23
+902:                                              ; preds = %901
+  %903 = load i32, ptr %126, align 4
+  %904 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %903, ptr noundef null, ptr noundef nonnull @.str.1597) #23
   switch i8 %6, label %ssl_dissect_hnd_hello_ext_key_share.exit [
-    i8 1, label %906
-    i8 2, label %932
-    i8 6, label %936
+    i8 1, label %905
+    i8 2, label %931
+    i8 6, label %935
   ]
 
-906:                                              ; preds = %903
-  %907 = load i32, ptr %128, align 4
-  %908 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %905, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %26, i32 noundef %907, i32 noundef 0, i32 noundef 65535)
-  %.not62.i = icmp eq i32 %908, 0
-  br i1 %.not62.i, label %ssl_dissect_hnd_hello_ext_key_share.exit, label %909
+905:                                              ; preds = %902
+  %906 = load i32, ptr %128, align 4
+  %907 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %904, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %26, i32 noundef %906, i32 noundef 0, i32 noundef 65535)
+  %.not62.i = icmp eq i32 %907, 0
+  br i1 %.not62.i, label %ssl_dissect_hnd_hello_ext_key_share.exit, label %908
 
-909:                                              ; preds = %906
-  %910 = add i32 %.0401517, 6
-  %911 = load i32, ptr %26, align 4
-  %912 = add i32 %911, %910
-  %913 = add i32 %.0401517, 10
-  %.not6368.i = icmp ugt i32 %913, %912
+908:                                              ; preds = %905
+  %909 = add i32 %.0401517, 6
+  %910 = load i32, ptr %26, align 4
+  %911 = add i32 %910, %909
+  %912 = add i32 %.0401517, 10
+  %.not6368.i = icmp ugt i32 %912, %911
   br i1 %.not6368.i, label %._crit_edge.i447, label %.lr.ph.i445
 
-.lr.ph.i445:                                      ; preds = %909, %917
-  %.070.i = phi ptr [ %.1.i446, %917 ], [ @.str.1598, %909 ]
-  %.05269.i = phi i32 [ %914, %917 ], [ %910, %909 ]
-  %914 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %905, i32 noundef %.05269.i, i32 noundef %912, ptr noundef nonnull %28)
-  %915 = load ptr, ptr %28, align 8
-  %.not65.i = icmp eq ptr %915, null
-  br i1 %.not65.i, label %917, label %916
+.lr.ph.i445:                                      ; preds = %908, %916
+  %.070.i = phi ptr [ %.1.i446, %916 ], [ @.str.1598, %908 ]
+  %.05269.i = phi i32 [ %913, %916 ], [ %909, %908 ]
+  %913 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %904, i32 noundef %.05269.i, i32 noundef %911, ptr noundef nonnull %28)
+  %914 = load ptr, ptr %28, align 8
+  %.not65.i = icmp eq ptr %914, null
+  br i1 %.not65.i, label %916, label %915
 
-916:                                              ; preds = %.lr.ph.i445
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1599, ptr noundef %.070.i, ptr noundef nonnull %915) #23
-  br label %917
+915:                                              ; preds = %.lr.ph.i445
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1599, ptr noundef %.070.i, ptr noundef nonnull %914) #23
+  br label %916
 
-917:                                              ; preds = %916, %.lr.ph.i445
-  %.1.i446 = phi ptr [ @.str.1600, %916 ], [ %.070.i, %.lr.ph.i445 ]
-  %918 = add i32 %914, 4
-  %.not63.i = icmp ugt i32 %918, %912
+916:                                              ; preds = %915, %.lr.ph.i445
+  %.1.i446 = phi ptr [ @.str.1600, %915 ], [ %.070.i, %.lr.ph.i445 ]
+  %917 = add i32 %913, 4
+  %.not63.i = icmp ugt i32 %917, %911
   br i1 %.not63.i, label %._crit_edge.i447, label %.lr.ph.i445, !llvm.loop !40
 
-._crit_edge.i447:                                 ; preds = %917, %909
-  %.052.lcssa.i = phi i32 [ %910, %909 ], [ %914, %917 ]
-  %919 = icmp ult i32 %.052.lcssa.i, %912
-  br i1 %919, label %920, label %925
+._crit_edge.i447:                                 ; preds = %916, %908
+  %.052.lcssa.i = phi i32 [ %909, %908 ], [ %913, %916 ]
+  %918 = icmp ult i32 %.052.lcssa.i, %911
+  br i1 %918, label %919, label %924
 
-920:                                              ; preds = %._crit_edge.i447
-  %921 = sub nuw i32 %912, %.052.lcssa.i
-  %922 = icmp eq i32 %921, 1
-  %923 = select i1 %922, ptr @.str.704, ptr @.str.705
-  %924 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %905, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.052.lcssa.i, i32 noundef %921, ptr noundef nonnull @.str.703, i32 noundef %921, ptr noundef nonnull %923) #23
+919:                                              ; preds = %._crit_edge.i447
+  %920 = sub nuw i32 %911, %.052.lcssa.i
+  %921 = icmp eq i32 %920, 1
+  %922 = select i1 %921, ptr @.str.704, ptr @.str.705
+  %923 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %904, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.052.lcssa.i, i32 noundef %920, ptr noundef nonnull @.str.703, i32 noundef %920, ptr noundef nonnull %922) #23
   br label %ssl_dissect_hnd_hello_ext_key_share.exit
 
-925:                                              ; preds = %._crit_edge.i447
-  %926 = icmp ugt i32 %.052.lcssa.i, %912
-  br i1 %926, label %927, label %ssl_dissect_hnd_hello_ext_key_share.exit
+924:                                              ; preds = %._crit_edge.i447
+  %925 = icmp ugt i32 %.052.lcssa.i, %911
+  br i1 %925, label %926, label %ssl_dissect_hnd_hello_ext_key_share.exit
 
-927:                                              ; preds = %925
-  %928 = sub nuw i32 %.052.lcssa.i, %912
-  %929 = icmp eq i32 %928, 1
-  %930 = select i1 %929, ptr @.str.503, ptr @.str.707
-  %931 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %905, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %912, i32 noundef %928, ptr noundef nonnull @.str.706, i32 noundef %928, ptr noundef nonnull %930) #23
+926:                                              ; preds = %924
+  %927 = sub nuw i32 %.052.lcssa.i, %911
+  %928 = icmp eq i32 %927, 1
+  %929 = select i1 %928, ptr @.str.503, ptr @.str.707
+  %930 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %904, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %911, i32 noundef %927, ptr noundef nonnull @.str.706, i32 noundef %927, ptr noundef nonnull %929) #23
   br label %ssl_dissect_hnd_hello_ext_key_share.exit
 
-932:                                              ; preds = %903
-  %933 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %905, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %28)
-  %934 = load ptr, ptr %28, align 8
-  %.not61.i = icmp eq ptr %934, null
-  br i1 %.not61.i, label %ssl_dissect_hnd_hello_ext_key_share.exit, label %935
+931:                                              ; preds = %902
+  %932 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %904, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %28)
+  %933 = load ptr, ptr %28, align 8
+  %.not61.i = icmp eq ptr %933, null
+  br i1 %.not61.i, label %ssl_dissect_hnd_hello_ext_key_share.exit, label %934
 
-935:                                              ; preds = %932
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef nonnull %934) #23
+934:                                              ; preds = %931
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef nonnull %933) #23
   br label %ssl_dissect_hnd_hello_ext_key_share.exit
 
-936:                                              ; preds = %903
-  %937 = load i32, ptr %127, align 4
-  %938 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %905, i32 noundef %937, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27) #23
-  %939 = add i32 %.0401517, 6
-  %940 = load i32, ptr %27, align 4
-  %941 = call ptr @val_to_str(i32 noundef %940, ptr noundef nonnull @ssl_extension_curves, ptr noundef nonnull @.str.1601) #23
-  store ptr %941, ptr %28, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef %941) #23
+935:                                              ; preds = %902
+  %936 = load i32, ptr %127, align 4
+  %937 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %904, i32 noundef %936, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27) #23
+  %938 = add i32 %.0401517, 6
+  %939 = load i32, ptr %27, align 4
+  %940 = call ptr @val_to_str(i32 noundef %939, ptr noundef nonnull @ssl_extension_curves, ptr noundef nonnull @.str.1601) #23
+  store ptr %940, ptr %28, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef %940) #23
   br label %ssl_dissect_hnd_hello_ext_key_share.exit
 
-ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %902, %903, %906, %920, %925, %927, %932, %935, %936
-  %.051.i = phi i32 [ %275, %902 ], [ %277, %906 ], [ %275, %903 ], [ %939, %936 ], [ %933, %935 ], [ %933, %932 ], [ %.052.lcssa.i, %925 ], [ %912, %920 ], [ %912, %927 ]
+ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %901, %902, %905, %919, %924, %926, %931, %934, %935
+  %.051.i = phi i32 [ %275, %901 ], [ %277, %905 ], [ %275, %902 ], [ %938, %935 ], [ %932, %934 ], [ %932, %931 ], [ %.052.lcssa.i, %924 ], [ %911, %919 ], [ %911, %926 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-942:                                              ; preds = %274
+941:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  %943 = load i32, ptr %117, align 4
-  %944 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %943, ptr noundef null, ptr noundef nonnull @.str.1605) #23
+  %942 = load i32, ptr %117, align 4
+  %943 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %942, ptr noundef null, ptr noundef nonnull @.str.1605) #23
   switch i8 %6, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit [
-    i8 1, label %945
-    i8 2, label %983
+    i8 1, label %944
+    i8 2, label %982
   ]
 
-945:                                              ; preds = %942
-  %946 = load i32, ptr %119, align 4
-  %947 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %944, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %23, i32 noundef %946, i32 noundef 7, i32 noundef 65535)
-  %.not.i450 = icmp eq i32 %947, 0
-  br i1 %.not.i450, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %948
+944:                                              ; preds = %941
+  %945 = load i32, ptr %119, align 4
+  %946 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %943, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %23, i32 noundef %945, i32 noundef 7, i32 noundef 65535)
+  %.not.i450 = icmp eq i32 %946, 0
+  br i1 %.not.i450, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %947
 
-948:                                              ; preds = %945
-  %949 = add i32 %.0401517, 6
-  %950 = load i32, ptr %23, align 4
-  %951 = add i32 %950, %949
-  %952 = icmp ult i32 %949, %951
-  br i1 %952, label %.lr.ph.i453, label %._crit_edge.i451
+947:                                              ; preds = %944
+  %948 = add i32 %.0401517, 6
+  %949 = load i32, ptr %23, align 4
+  %950 = add i32 %949, %948
+  %951 = icmp ult i32 %948, %950
+  br i1 %951, label %.lr.ph.i453, label %._crit_edge.i451
 
-.lr.ph.i453:                                      ; preds = %948, %957
-  %.07180.i = phi i32 [ %965, %957 ], [ %949, %948 ]
-  %953 = load i32, ptr %120, align 4
-  %954 = call ptr @proto_tree_add_subtree(ptr noundef %944, ptr noundef %1, i32 noundef %.07180.i, i32 noundef 4, i32 noundef %953, ptr noundef null, ptr noundef nonnull @.str.1606) #23
-  %955 = load i32, ptr %121, align 4
-  %956 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %954, i32 noundef %.07180.i, i32 noundef %951, ptr noundef nonnull %25, i32 noundef %955, i32 noundef 1, i32 noundef 65535)
-  %.not76.i = icmp eq i32 %956, 0
-  br i1 %.not76.i, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %957
+.lr.ph.i453:                                      ; preds = %947, %956
+  %.07180.i = phi i32 [ %964, %956 ], [ %948, %947 ]
+  %952 = load i32, ptr %120, align 4
+  %953 = call ptr @proto_tree_add_subtree(ptr noundef %943, ptr noundef %1, i32 noundef %.07180.i, i32 noundef 4, i32 noundef %952, ptr noundef null, ptr noundef nonnull @.str.1606) #23
+  %954 = load i32, ptr %121, align 4
+  %955 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %953, i32 noundef %.07180.i, i32 noundef %950, ptr noundef nonnull %25, i32 noundef %954, i32 noundef 1, i32 noundef 65535)
+  %.not76.i = icmp eq i32 %955, 0
+  br i1 %.not76.i, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %956
 
-957:                                              ; preds = %.lr.ph.i453
-  %958 = add i32 %.07180.i, 2
-  %959 = load i32, ptr %25, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %954, ptr noundef nonnull @.str.1607, i32 noundef %959) #23
-  %960 = load i32, ptr %122, align 4
-  %961 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %960, ptr noundef %1, i32 noundef %958, i32 noundef %959, i32 noundef 0) #23
-  %962 = add i32 %959, %958
-  %963 = load i32, ptr %123, align 4
-  %964 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %963, ptr noundef %1, i32 noundef %962, i32 noundef 4, i32 noundef 0) #23
-  %965 = add i32 %962, 4
-  %966 = add i32 %959, 6
-  call void @proto_item_set_len(ptr noundef %954, i32 noundef %966) #23
-  %967 = icmp ult i32 %965, %951
-  br i1 %967, label %.lr.ph.i453, label %._crit_edge.i451, !llvm.loop !41
+956:                                              ; preds = %.lr.ph.i453
+  %957 = add i32 %.07180.i, 2
+  %958 = load i32, ptr %25, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %953, ptr noundef nonnull @.str.1607, i32 noundef %958) #23
+  %959 = load i32, ptr %122, align 4
+  %960 = call ptr @proto_tree_add_item(ptr noundef %953, i32 noundef %959, ptr noundef %1, i32 noundef %957, i32 noundef %958, i32 noundef 0) #23
+  %961 = add i32 %958, %957
+  %962 = load i32, ptr %123, align 4
+  %963 = call ptr @proto_tree_add_item(ptr noundef %953, i32 noundef %962, ptr noundef %1, i32 noundef %961, i32 noundef 4, i32 noundef 0) #23
+  %964 = add i32 %961, 4
+  %965 = add i32 %958, 6
+  call void @proto_item_set_len(ptr noundef %953, i32 noundef %965) #23
+  %966 = icmp ult i32 %964, %950
+  br i1 %966, label %.lr.ph.i453, label %._crit_edge.i451, !llvm.loop !41
 
-._crit_edge.i451:                                 ; preds = %957, %948
-  %.071.lcssa.i = phi i32 [ %949, %948 ], [ %965, %957 ]
-  %968 = icmp ugt i32 %.071.lcssa.i, %951
-  br i1 %968, label %969, label %ssl_end_vector.exit.i452
+._crit_edge.i451:                                 ; preds = %956, %947
+  %.071.lcssa.i = phi i32 [ %948, %947 ], [ %964, %956 ]
+  %967 = icmp ugt i32 %.071.lcssa.i, %950
+  br i1 %967, label %968, label %ssl_end_vector.exit.i452
 
-969:                                              ; preds = %._crit_edge.i451
-  %970 = sub nuw i32 %.071.lcssa.i, %951
-  %971 = icmp eq i32 %970, 1
-  %972 = select i1 %971, ptr @.str.503, ptr @.str.707
-  %973 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %944, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %951, i32 noundef %970, ptr noundef nonnull @.str.706, i32 noundef %970, ptr noundef nonnull %972) #23
+968:                                              ; preds = %._crit_edge.i451
+  %969 = sub nuw i32 %.071.lcssa.i, %950
+  %970 = icmp eq i32 %969, 1
+  %971 = select i1 %970, ptr @.str.503, ptr @.str.707
+  %972 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %943, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %950, i32 noundef %969, ptr noundef nonnull @.str.706, i32 noundef %969, ptr noundef nonnull %971) #23
   br label %ssl_end_vector.exit.i452
 
-ssl_end_vector.exit.i452:                         ; preds = %969, %._crit_edge.i451
-  %974 = phi i32 [ %951, %969 ], [ %.071.lcssa.i, %._crit_edge.i451 ]
-  %975 = load i32, ptr %124, align 4
-  %976 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %944, i32 noundef %974, i32 noundef %277, ptr noundef nonnull %24, i32 noundef %975, i32 noundef 33, i32 noundef 65535)
-  %.not75.i = icmp eq i32 %976, 0
-  br i1 %.not75.i, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %977
+ssl_end_vector.exit.i452:                         ; preds = %968, %._crit_edge.i451
+  %973 = phi i32 [ %950, %968 ], [ %.071.lcssa.i, %._crit_edge.i451 ]
+  %974 = load i32, ptr %124, align 4
+  %975 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %943, i32 noundef %973, i32 noundef %277, ptr noundef nonnull %24, i32 noundef %974, i32 noundef 33, i32 noundef 65535)
+  %.not75.i = icmp eq i32 %975, 0
+  br i1 %.not75.i, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %976
 
-977:                                              ; preds = %ssl_end_vector.exit.i452
-  %978 = add i32 %974, 2
-  %979 = load i32, ptr %125, align 4
-  %980 = load i32, ptr %24, align 4
-  %981 = call ptr @proto_tree_add_item(ptr noundef %944, i32 noundef %979, ptr noundef %1, i32 noundef %978, i32 noundef %980, i32 noundef 0) #23
-  %982 = add i32 %980, %978
+976:                                              ; preds = %ssl_end_vector.exit.i452
+  %977 = add i32 %973, 2
+  %978 = load i32, ptr %125, align 4
+  %979 = load i32, ptr %24, align 4
+  %980 = call ptr @proto_tree_add_item(ptr noundef %943, i32 noundef %978, ptr noundef %1, i32 noundef %977, i32 noundef %979, i32 noundef 0) #23
+  %981 = add i32 %979, %977
   br label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit
 
-983:                                              ; preds = %942
-  %984 = load i32, ptr %118, align 4
-  %985 = call ptr @proto_tree_add_item(ptr noundef %944, i32 noundef %984, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0) #23
-  %986 = add i32 %.0401517, 6
+982:                                              ; preds = %941
+  %983 = load i32, ptr %118, align 4
+  %984 = call ptr @proto_tree_add_item(ptr noundef %943, i32 noundef %983, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0) #23
+  %985 = add i32 %.0401517, 6
   br label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit
 
-ssl_dissect_hnd_hello_ext_pre_shared_key.exit:    ; preds = %.lr.ph.i453, %942, %945, %ssl_end_vector.exit.i452, %977, %983
-  %.0.i449 = phi i32 [ %277, %945 ], [ %277, %ssl_end_vector.exit.i452 ], [ %275, %942 ], [ %986, %983 ], [ %982, %977 ], [ %951, %.lr.ph.i453 ]
+ssl_dissect_hnd_hello_ext_pre_shared_key.exit:    ; preds = %.lr.ph.i453, %941, %944, %ssl_end_vector.exit.i452, %976, %982
+  %.0.i449 = phi i32 [ %277, %944 ], [ %277, %ssl_end_vector.exit.i452 ], [ %275, %941 ], [ %985, %982 ], [ %981, %976 ], [ %950, %.lr.ph.i453 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-987:                                              ; preds = %274, %274
+986:                                              ; preds = %274, %274
   switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
-    i8 1, label %988
-    i8 4, label %990
+    i8 1, label %987
+    i8 4, label %989
   ]
 
-988:                                              ; preds = %987
-  br i1 %.not31.i, label %ssl_dissect_hnd_hello_ext_early_data.exit, label %989
+987:                                              ; preds = %986
+  br i1 %.not31.i, label %ssl_dissect_hnd_hello_ext_early_data.exit, label %988
 
-989:                                              ; preds = %988
+988:                                              ; preds = %987
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1608, ptr noundef nonnull @__func__.ssl_dissect_hnd_hello_ext_early_data)
   store i32 1, ptr %116, align 8
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-990:                                              ; preds = %987
-  %991 = load i32, ptr %115, align 4
-  %992 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %991, ptr noundef %1, i32 noundef %275, i32 noundef 4, i32 noundef 0) #23
-  %993 = add i32 %.0401517, 8
+989:                                              ; preds = %986
+  %990 = load i32, ptr %115, align 4
+  %991 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %990, ptr noundef %1, i32 noundef %275, i32 noundef 4, i32 noundef 0) #23
+  %992 = add i32 %.0401517, 8
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-994:                                              ; preds = %274
+993:                                              ; preds = %274
   switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
-    i8 1, label %995
-    i8 2, label %1072
-    i8 6, label %1072
+    i8 1, label %994
+    i8 2, label %1071
+    i8 6, label %1071
   ]
 
-995:                                              ; preds = %994
+994:                                              ; preds = %993
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  %996 = load i32, ptr %109, align 4
-  %997 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %21, i32 noundef %996, i32 noundef 2, i32 noundef 254)
-  %.not.i456 = icmp eq i32 %997, 0
-  br i1 %.not.i456, label %ssl_dissect_hnd_hello_ext_supported_versions.exit, label %998
+  %995 = load i32, ptr %109, align 4
+  %996 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %21, i32 noundef %995, i32 noundef 2, i32 noundef 254)
+  %.not.i456 = icmp eq i32 %996, 0
+  br i1 %.not.i456, label %ssl_dissect_hnd_hello_ext_supported_versions.exit, label %997
 
-998:                                              ; preds = %995
-  %999 = add i32 %.0401517, 5
-  %1000 = load i32, ptr %21, align 4
-  %1001 = add i32 %1000, %999
-  %1002 = add i32 %.0401517, 7
-  %.not6778.i = icmp ugt i32 %1002, %1001
+997:                                              ; preds = %994
+  %998 = add i32 %.0401517, 5
+  %999 = load i32, ptr %21, align 4
+  %1000 = add i32 %999, %998
+  %1001 = add i32 %.0401517, 7
+  %.not6778.i = icmp ugt i32 %1001, %1000
   br i1 %.not6778.i, label %._crit_edge.thread.i, label %.lr.ph.i457
 
-.lr.ph.i457:                                      ; preds = %998, %1049
-  %1003 = phi i32 [ %1050, %1049 ], [ %1002, %998 ]
-  %.082.i = phi ptr [ %.1.i458, %1049 ], [ @.str.1598, %998 ]
-  %.05581.i = phi i8 [ %1038, %1049 ], [ 0, %998 ]
-  %.05680.i = phi i32 [ %.157.i, %1049 ], [ 0, %998 ]
-  %.05979.i = phi i32 [ %1003, %1049 ], [ %999, %998 ]
-  %1004 = load i32, ptr %108, align 4
-  %1005 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %260, i32 noundef %1004, ptr noundef %1, i32 noundef %.05979.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %22) #23
-  %1006 = load i32, ptr %22, align 4
-  %1007 = and i32 %1006, 3855
-  %1008 = icmp eq i32 %1007, 2570
-  br i1 %1008, label %1009, label %1014
+.lr.ph.i457:                                      ; preds = %997, %1048
+  %1002 = phi i32 [ %1049, %1048 ], [ %1001, %997 ]
+  %.082.i = phi ptr [ %.1.i458, %1048 ], [ @.str.1598, %997 ]
+  %.05581.i = phi i8 [ %1037, %1048 ], [ 0, %997 ]
+  %.05680.i = phi i32 [ %.157.i, %1048 ], [ 0, %997 ]
+  %.05979.i = phi i32 [ %1002, %1048 ], [ %998, %997 ]
+  %1003 = load i32, ptr %108, align 4
+  %1004 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %260, i32 noundef %1003, ptr noundef %1, i32 noundef %.05979.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %22) #23
+  %1005 = load i32, ptr %22, align 4
+  %1006 = and i32 %1005, 3855
+  %1007 = icmp eq i32 %1006, 2570
+  br i1 %1007, label %1008, label %1013
 
-1009:                                             ; preds = %.lr.ph.i457
-  %1010 = lshr i32 %1006, 8
-  %1011 = xor i32 %1010, %1006
-  %1012 = and i32 %1011, 240
-  %1013 = icmp eq i32 %1012, 0
-  br i1 %1013, label %1016, label %1014
+1008:                                             ; preds = %.lr.ph.i457
+  %1009 = lshr i32 %1005, 8
+  %1010 = xor i32 %1009, %1005
+  %1011 = and i32 %1010, 240
+  %1012 = icmp eq i32 %1011, 0
+  br i1 %1012, label %1015, label %1013
 
-1014:                                             ; preds = %1009, %.lr.ph.i457
-  %1015 = call ptr @val_to_str(i32 noundef %1006, ptr noundef nonnull @ssl_versions, ptr noundef nonnull @.str.1570) #23
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1599, ptr noundef %.082.i, ptr noundef %1015) #23
+1013:                                             ; preds = %1008, %.lr.ph.i457
+  %1014 = call ptr @val_to_str(i32 noundef %1005, ptr noundef nonnull @ssl_versions, ptr noundef nonnull @.str.1570) #23
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1599, ptr noundef %.082.i, ptr noundef %1014) #23
   %.pre.i = load i32, ptr %22, align 4
-  br label %1016
+  br label %1015
 
-1016:                                             ; preds = %1014, %1009
-  %1017 = phi i32 [ %1006, %1009 ], [ %.pre.i, %1014 ]
-  %.1.i458 = phi ptr [ %.082.i, %1009 ], [ @.str.1600, %1014 ]
-  %1018 = trunc i32 %1017 to i16
-  br i1 %.not.i.i, label %1019, label %1025
+1015:                                             ; preds = %1013, %1008
+  %1016 = phi i32 [ %1005, %1008 ], [ %.pre.i, %1013 ]
+  %.1.i458 = phi ptr [ %.082.i, %1008 ], [ @.str.1600, %1013 ]
+  %1017 = trunc i32 %1016 to i16
+  br i1 %.not.i.i, label %1018, label %1024
 
-1019:                                             ; preds = %1016
-  %1020 = and i16 %1018, -256
-  %1021 = icmp ne i16 %1020, 32512
-  %1022 = trunc i32 %1017 to i8
-  %.not2331.i.i = icmp eq i8 %1022, 0
-  %.not23.i.i = or i1 %.not2331.i.i, %1021
-  br i1 %.not23.i.i, label %1023, label %tls_try_get_version.exit.i
+1018:                                             ; preds = %1015
+  %1019 = and i16 %1017, -256
+  %1020 = icmp ne i16 %1019, 32512
+  %1021 = trunc i32 %1016 to i8
+  %.not2331.i.i = icmp eq i8 %1021, 0
+  %.not23.i.i = or i1 %.not2331.i.i, %1020
+  br i1 %.not23.i.i, label %1022, label %tls_try_get_version.exit.i
 
-1023:                                             ; preds = %1019
-  switch i16 %1018, label %tls_try_get_version.exit.i [
-    i16 -1254, label %1024
-    i16 -1257, label %1024
+1022:                                             ; preds = %1018
+  switch i16 %1017, label %tls_try_get_version.exit.i [
+    i16 -1254, label %1023
+    i16 -1257, label %1023
     i16 768, label %.thread32.i.i
     i16 769, label %.thread32.i.i
     i16 770, label %.thread32.i.i
@@ -11849,516 +11849,516 @@ ssl_dissect_hnd_hello_ext_pre_shared_key.exit:    ; preds = %.lr.ph.i453, %942, 
     i16 257, label %.thread32.i.i
   ]
 
-1024:                                             ; preds = %1023, %1023
+1023:                                             ; preds = %1022, %1022
   br label %tls_try_get_version.exit.i
 
-1025:                                             ; preds = %1016
-  switch i16 %1018, label %tls_try_get_version.exit.i [
+1024:                                             ; preds = %1015
+  switch i16 %1017, label %tls_try_get_version.exit.i [
     i16 -260, label %.thread29.i.i
     i16 -259, label %.thread29.i.i
     i16 256, label %.thread29.i.i
     i16 -257, label %.thread29.i.i
   ]
 
-.thread32.i.i:                                    ; preds = %1023, %1023, %1023, %1023, %1023, %1023
+.thread32.i.i:                                    ; preds = %1022, %1022, %1022, %1022, %1022, %1022
   br label %tls_try_get_version.exit.i
 
-.thread29.i.i:                                    ; preds = %1025, %1025, %1025, %1025
+.thread29.i.i:                                    ; preds = %1024, %1024, %1024, %1024
   br label %tls_try_get_version.exit.i
 
-tls_try_get_version.exit.i:                       ; preds = %.thread29.i.i, %.thread32.i.i, %1025, %1024, %1023, %1019
-  %.075.i = phi i8 [ 0, %1023 ], [ 0, %.thread32.i.i ], [ %1022, %1024 ], [ 0, %1025 ], [ 0, %.thread29.i.i ], [ %1022, %1019 ]
-  %.0.i.i = phi i16 [ 0, %1023 ], [ %1018, %.thread32.i.i ], [ 772, %1024 ], [ 0, %1025 ], [ %1018, %.thread29.i.i ], [ 772, %1019 ]
-  %1026 = zext i16 %.0.i.i to i32
-  %1027 = load i16, ptr %59, align 8
-  %1028 = icmp eq i16 %1027, 0
-  br i1 %1028, label %1029, label %1037
+tls_try_get_version.exit.i:                       ; preds = %.thread29.i.i, %.thread32.i.i, %1024, %1023, %1022, %1018
+  %.075.i = phi i8 [ 0, %1022 ], [ 0, %.thread32.i.i ], [ %1021, %1023 ], [ 0, %1024 ], [ 0, %.thread29.i.i ], [ %1021, %1018 ]
+  %.0.i.i = phi i16 [ 0, %1022 ], [ %1017, %.thread32.i.i ], [ 772, %1023 ], [ 0, %1024 ], [ %1017, %.thread29.i.i ], [ 772, %1018 ]
+  %1025 = zext i16 %.0.i.i to i32
+  %1026 = load i16, ptr %59, align 8
+  %1027 = icmp eq i16 %1026, 0
+  br i1 %1027, label %1028, label %1036
 
-1029:                                             ; preds = %tls_try_get_version.exit.i
-  %1030 = icmp eq i32 %.05680.i, 0
-  br i1 %1030, label %1037, label %1031
+1028:                                             ; preds = %tls_try_get_version.exit.i
+  %1029 = icmp eq i32 %.05680.i, 0
+  br i1 %1029, label %1036, label %1030
 
-1031:                                             ; preds = %1029
+1030:                                             ; preds = %1028
   %.not71.i = icmp eq i16 %.0.i.i, 0
-  br i1 %.not71.i, label %1037, label %1032
+  br i1 %.not71.i, label %1036, label %1031
+
+1031:                                             ; preds = %1030
+  br i1 %.not.i.i, label %1032, label %1034
 
 1032:                                             ; preds = %1031
-  br i1 %.not.i.i, label %1033, label %1035
+  %1033 = call i32 @llvm.umin.i32(i32 %.05680.i, i32 %1025)
+  br label %1036
 
-1033:                                             ; preds = %1032
-  %1034 = call i32 @llvm.umin.i32(i32 %.05680.i, i32 %1026)
-  br label %1037
+1034:                                             ; preds = %1031
+  %1035 = call i32 @llvm.umax.i32(i32 %.05680.i, i32 %1025)
+  br label %1036
 
-1035:                                             ; preds = %1032
-  %1036 = call i32 @llvm.umax.i32(i32 %.05680.i, i32 %1026)
-  br label %1037
+1036:                                             ; preds = %1034, %1032, %1030, %1028, %tls_try_get_version.exit.i
+  %.157.i = phi i32 [ %1035, %1034 ], [ %1033, %1032 ], [ %.05680.i, %1030 ], [ %.05680.i, %tls_try_get_version.exit.i ], [ %1025, %1028 ]
+  %1037 = call i8 @llvm.umax.i8(i8 %.075.i, i8 %.05581.i)
+  br i1 %.not412, label %1048, label %1038
 
-1037:                                             ; preds = %1035, %1033, %1031, %1029, %tls_try_get_version.exit.i
-  %.157.i = phi i32 [ %1036, %1035 ], [ %1034, %1033 ], [ %.05680.i, %1031 ], [ %.05680.i, %tls_try_get_version.exit.i ], [ %1026, %1029 ]
-  %1038 = call i8 @llvm.umax.i8(i8 %.075.i, i8 %.05581.i)
-  br i1 %.not412, label %1049, label %1039
+1038:                                             ; preds = %1036
+  %1039 = and i32 %1016, 3855
+  %1040 = icmp eq i32 %1039, 2570
+  br i1 %1040, label %1041, label %1046
 
-1039:                                             ; preds = %1037
-  %1040 = and i32 %1017, 3855
-  %1041 = icmp eq i32 %1040, 2570
-  br i1 %1041, label %1042, label %1047
+1041:                                             ; preds = %1038
+  %1042 = lshr i32 %1016, 8
+  %1043 = xor i32 %1042, %1016
+  %1044 = and i32 %1043, 240
+  %1045 = icmp eq i32 %1044, 0
+  br i1 %1045, label %1048, label %1046
 
-1042:                                             ; preds = %1039
-  %1043 = lshr i32 %1017, 8
-  %1044 = xor i32 %1043, %1017
-  %1045 = and i32 %1044, 240
-  %1046 = icmp eq i32 %1045, 0
-  br i1 %1046, label %1049, label %1047
-
-1047:                                             ; preds = %1042, %1039
-  %1048 = load i32, ptr %11, align 8
-  %..i = call i32 @llvm.umax.i32(i32 %1017, i32 %1048)
+1046:                                             ; preds = %1041, %1038
+  %1047 = load i32, ptr %11, align 8
+  %..i = call i32 @llvm.umax.i32(i32 %1016, i32 %1047)
   store i32 %..i, ptr %11, align 8
-  br label %1049
+  br label %1048
 
-1049:                                             ; preds = %1047, %1042, %1037
-  %1050 = add i32 %1003, 2
-  %.not67.i = icmp ugt i32 %1050, %1001
+1048:                                             ; preds = %1046, %1041, %1036
+  %1049 = add i32 %1002, 2
+  %.not67.i = icmp ugt i32 %1049, %1000
   br i1 %.not67.i, label %._crit_edge.i459, label %.lr.ph.i457, !llvm.loop !42
 
-._crit_edge.i459:                                 ; preds = %1049
-  %1051 = icmp ne i32 %.157.i, 0
-  %1052 = load i16, ptr %59, align 8
-  %1053 = icmp eq i16 %1052, 0
-  %or.cond.i460 = select i1 %1053, i1 %1051, i1 false
-  br i1 %or.cond.i460, label %1054, label %._crit_edge.thread.i
+._crit_edge.i459:                                 ; preds = %1048
+  %1050 = icmp ne i32 %.157.i, 0
+  %1051 = load i16, ptr %59, align 8
+  %1052 = icmp eq i16 %1051, 0
+  %or.cond.i460 = select i1 %1052, i1 %1050, i1 false
+  br i1 %or.cond.i460, label %1053, label %._crit_edge.thread.i
 
-1054:                                             ; preds = %._crit_edge.i459
-  %1055 = load ptr, ptr %110, align 8
-  %1056 = call ptr @val_to_str_const(i32 noundef %1017, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull %111) #23
-  call void @col_set_str(ptr noundef %1055, i32 noundef 34, ptr noundef %1056) #23
+1053:                                             ; preds = %._crit_edge.i459
+  %1054 = load ptr, ptr %110, align 8
+  %1055 = call ptr @val_to_str_const(i32 noundef %1016, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull %111) #23
+  call void @col_set_str(ptr noundef %1054, i32 noundef 34, ptr noundef %1055) #23
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %1054, %._crit_edge.i459, %998
-  %.055.lcssa91.i = phi i8 [ %1038, %1054 ], [ %1038, %._crit_edge.i459 ], [ 0, %998 ]
-  %.059.lcssa90.i = phi i32 [ %1003, %1054 ], [ %1003, %._crit_edge.i459 ], [ %999, %998 ]
-  %1057 = icmp ult i32 %.059.lcssa90.i, %1001
-  br i1 %1057, label %1058, label %1063
+._crit_edge.thread.i:                             ; preds = %1053, %._crit_edge.i459, %997
+  %.055.lcssa91.i = phi i8 [ %1037, %1053 ], [ %1037, %._crit_edge.i459 ], [ 0, %997 ]
+  %.059.lcssa90.i = phi i32 [ %1002, %1053 ], [ %1002, %._crit_edge.i459 ], [ %998, %997 ]
+  %1056 = icmp ult i32 %.059.lcssa90.i, %1000
+  br i1 %1056, label %1057, label %1062
 
-1058:                                             ; preds = %._crit_edge.thread.i
-  %1059 = sub nuw i32 %1001, %.059.lcssa90.i
-  %1060 = icmp eq i32 %1059, 1
-  %1061 = select i1 %1060, ptr @.str.704, ptr @.str.705
-  %1062 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.059.lcssa90.i, i32 noundef %1059, ptr noundef nonnull @.str.703, i32 noundef %1059, ptr noundef nonnull %1061) #23
+1057:                                             ; preds = %._crit_edge.thread.i
+  %1058 = sub nuw i32 %1000, %.059.lcssa90.i
+  %1059 = icmp eq i32 %1058, 1
+  %1060 = select i1 %1059, ptr @.str.704, ptr @.str.705
+  %1061 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.059.lcssa90.i, i32 noundef %1058, ptr noundef nonnull @.str.703, i32 noundef %1058, ptr noundef nonnull %1060) #23
   br label %ssl_end_vector.exit.i461
 
-1063:                                             ; preds = %._crit_edge.thread.i
-  %1064 = icmp ugt i32 %.059.lcssa90.i, %1001
-  br i1 %1064, label %1065, label %ssl_end_vector.exit.i461
+1062:                                             ; preds = %._crit_edge.thread.i
+  %1063 = icmp ugt i32 %.059.lcssa90.i, %1000
+  br i1 %1063, label %1064, label %ssl_end_vector.exit.i461
 
-1065:                                             ; preds = %1063
-  %1066 = sub nuw i32 %.059.lcssa90.i, %1001
-  %1067 = icmp eq i32 %1066, 1
-  %1068 = select i1 %1067, ptr @.str.503, ptr @.str.707
-  %1069 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %1001, i32 noundef %1066, ptr noundef nonnull @.str.706, i32 noundef %1066, ptr noundef nonnull %1068) #23
+1064:                                             ; preds = %1062
+  %1065 = sub nuw i32 %.059.lcssa90.i, %1000
+  %1066 = icmp eq i32 %1065, 1
+  %1067 = select i1 %1066, ptr @.str.503, ptr @.str.707
+  %1068 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %1000, i32 noundef %1065, ptr noundef nonnull @.str.706, i32 noundef %1065, ptr noundef nonnull %1067) #23
   br label %ssl_end_vector.exit.i461
 
-ssl_end_vector.exit.i461:                         ; preds = %1065, %1063, %1058
-  %1070 = phi i32 [ %.059.lcssa90.i, %1063 ], [ %1001, %1058 ], [ %1001, %1065 ]
+ssl_end_vector.exit.i461:                         ; preds = %1064, %1062, %1057
+  %1069 = phi i32 [ %.059.lcssa90.i, %1062 ], [ %1000, %1057 ], [ %1000, %1064 ]
   %.not70.i = icmp eq i8 %.055.lcssa91.i, 0
-  br i1 %.not70.i, label %ssl_dissect_hnd_hello_ext_supported_versions.exit, label %1071
+  br i1 %.not70.i, label %ssl_dissect_hnd_hello_ext_supported_versions.exit, label %1070
 
-1071:                                             ; preds = %ssl_end_vector.exit.i461
+1070:                                             ; preds = %ssl_end_vector.exit.i461
   store i8 %.055.lcssa91.i, ptr %114, align 2
   br label %ssl_dissect_hnd_hello_ext_supported_versions.exit
 
-ssl_dissect_hnd_hello_ext_supported_versions.exit: ; preds = %995, %ssl_end_vector.exit.i461, %1071
-  %.058.i = phi i32 [ %277, %995 ], [ %1070, %1071 ], [ %1070, %ssl_end_vector.exit.i461 ]
+ssl_dissect_hnd_hello_ext_supported_versions.exit: ; preds = %994, %ssl_end_vector.exit.i461, %1070
+  %.058.i = phi i32 [ %277, %994 ], [ %1069, %1070 ], [ %1069, %ssl_end_vector.exit.i461 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1072:                                             ; preds = %994, %994
-  %1073 = load i32, ptr %108, align 4
-  %1074 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %260, i32 noundef %1073, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %58) #23
-  %1075 = add i32 %.0401517, 6
-  %1076 = load i32, ptr %58, align 4
-  %1077 = call ptr @val_to_str(i32 noundef %1076, ptr noundef nonnull @ssl_versions, ptr noundef nonnull @.str.1570) #23
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef %1077) #23
+1071:                                             ; preds = %993, %993
+  %1072 = load i32, ptr %108, align 4
+  %1073 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %260, i32 noundef %1072, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %58) #23
+  %1074 = add i32 %.0401517, 6
+  %1075 = load i32, ptr %58, align 4
+  %1076 = call ptr @val_to_str(i32 noundef %1075, ptr noundef nonnull @ssl_versions, ptr noundef nonnull @.str.1570) #23
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef %1076) #23
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1078:                                             ; preds = %274
+1077:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  %1079 = load i32, ptr %106, align 4
-  %1080 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %20, i32 noundef %1079, i32 noundef 1, i32 noundef 65535)
-  %.not.i462 = icmp eq i32 %1080, 0
-  br i1 %.not.i462, label %ssl_dissect_hnd_hello_ext_cookie.exit, label %1081
+  %1078 = load i32, ptr %106, align 4
+  %1079 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %20, i32 noundef %1078, i32 noundef 1, i32 noundef 65535)
+  %.not.i462 = icmp eq i32 %1079, 0
+  br i1 %.not.i462, label %ssl_dissect_hnd_hello_ext_cookie.exit, label %1080
 
-1081:                                             ; preds = %1078
-  %1082 = add i32 %.0401517, 6
-  %1083 = load i32, ptr %107, align 4
-  %1084 = load i32, ptr %20, align 4
-  %1085 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1083, ptr noundef %1, i32 noundef %1082, i32 noundef %1084, i32 noundef 0) #23
-  %1086 = add i32 %1084, %1082
+1080:                                             ; preds = %1077
+  %1081 = add i32 %.0401517, 6
+  %1082 = load i32, ptr %107, align 4
+  %1083 = load i32, ptr %20, align 4
+  %1084 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1082, ptr noundef %1, i32 noundef %1081, i32 noundef %1083, i32 noundef 0) #23
+  %1085 = add i32 %1083, %1081
   br label %ssl_dissect_hnd_hello_ext_cookie.exit
 
-ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1078, %1081
-  %.0.i463 = phi i32 [ %1086, %1081 ], [ %277, %1078 ]
+ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1077, %1080
+  %.0.i463 = phi i32 [ %1085, %1080 ], [ %277, %1077 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1087:                                             ; preds = %274
+1086:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  %1088 = load i32, ptr %104, align 4
-  %1089 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %19, i32 noundef %1088, i32 noundef 1, i32 noundef 255)
-  %.not.i464 = icmp eq i32 %1089, 0
-  br i1 %.not.i464, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %1090
+  %1087 = load i32, ptr %104, align 4
+  %1088 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %19, i32 noundef %1087, i32 noundef 1, i32 noundef 255)
+  %.not.i464 = icmp eq i32 %1088, 0
+  br i1 %.not.i464, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %1089
 
-1090:                                             ; preds = %1087
-  %1091 = add i32 %.0401517, 5
-  %1092 = load i32, ptr %19, align 4
-  %1093 = add i32 %1092, %1091
-  %1094 = icmp ult i32 %1091, %1093
-  br i1 %1094, label %.lr.ph.i467, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit
+1089:                                             ; preds = %1086
+  %1090 = add i32 %.0401517, 5
+  %1091 = load i32, ptr %19, align 4
+  %1092 = add i32 %1091, %1090
+  %1093 = icmp ult i32 %1090, %1092
+  br i1 %1093, label %.lr.ph.i467, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit
 
-.lr.ph.i467:                                      ; preds = %1090, %.lr.ph.i467
-  %.01819.i = phi i32 [ %1097, %.lr.ph.i467 ], [ %1091, %1090 ]
-  %1095 = load i32, ptr %105, align 4
-  %1096 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1095, ptr noundef %1, i32 noundef %.01819.i, i32 noundef 1, i32 noundef 0) #23
-  %1097 = add i32 %.01819.i, 1
-  %exitcond.not.i468 = icmp eq i32 %1097, %1093
+.lr.ph.i467:                                      ; preds = %1089, %.lr.ph.i467
+  %.01819.i = phi i32 [ %1096, %.lr.ph.i467 ], [ %1090, %1089 ]
+  %1094 = load i32, ptr %105, align 4
+  %1095 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1094, ptr noundef %1, i32 noundef %.01819.i, i32 noundef 1, i32 noundef 0) #23
+  %1096 = add i32 %.01819.i, 1
+  %exitcond.not.i468 = icmp eq i32 %1096, %1092
   br i1 %exitcond.not.i468, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %.lr.ph.i467, !llvm.loop !43
 
-ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i467, %1087, %1090
-  %.0.i466 = phi i32 [ %277, %1087 ], [ %1091, %1090 ], [ %1093, %.lr.ph.i467 ]
+ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i467, %1086, %1089
+  %.0.i466 = phi i32 [ %277, %1086 ], [ %1090, %1089 ], [ %1092, %.lr.ph.i467 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1098:                                             ; preds = %274
-  %1099 = call fastcc i32 @tls_dissect_certificate_authorities(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
+1097:                                             ; preds = %274
+  %1098 = call fastcc i32 @tls_dissect_certificate_authorities(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1100:                                             ; preds = %274
-  %1101 = call fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
+1099:                                             ; preds = %274
+  %1100 = call fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1102:                                             ; preds = %274
+1101:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  %1103 = icmp eq i32 %276, 0
-  br i1 %1103, label %ssl_dissect_hnd_hello_ext_npn.exit, label %1104
+  %1102 = icmp eq i32 %276, 0
+  br i1 %1102, label %ssl_dissect_hnd_hello_ext_npn.exit, label %1103
 
-1104:                                             ; preds = %1102
-  %1105 = load i32, ptr %101, align 4
-  %1106 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %1105, ptr noundef null, ptr noundef nonnull @.str.1611) #23
-  %1107 = icmp ult i32 %275, %277
-  br i1 %1107, label %.lr.ph.i471, label %ssl_dissect_hnd_hello_ext_npn.exit
+1103:                                             ; preds = %1101
+  %1104 = load i32, ptr %101, align 4
+  %1105 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %1104, ptr noundef null, ptr noundef nonnull @.str.1611) #23
+  %1106 = icmp ult i32 %275, %277
+  br i1 %1106, label %.lr.ph.i471, label %ssl_dissect_hnd_hello_ext_npn.exit
 
-.lr.ph.i471:                                      ; preds = %1104, %1110
-  %.02629.i = phi i32 [ %1115, %1110 ], [ %275, %1104 ]
-  %1108 = load i32, ptr %102, align 4
-  %1109 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1106, i32 noundef %.02629.i, i32 noundef %277, ptr noundef nonnull %18, i32 noundef %1108, i32 noundef 1, i32 noundef 255)
-  %.not.i472 = icmp eq i32 %1109, 0
-  br i1 %.not.i472, label %ssl_dissect_hnd_hello_ext_npn.exit, label %1110
+.lr.ph.i471:                                      ; preds = %1103, %1109
+  %.02629.i = phi i32 [ %1114, %1109 ], [ %275, %1103 ]
+  %1107 = load i32, ptr %102, align 4
+  %1108 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1105, i32 noundef %.02629.i, i32 noundef %277, ptr noundef nonnull %18, i32 noundef %1107, i32 noundef 1, i32 noundef 255)
+  %.not.i472 = icmp eq i32 %1108, 0
+  br i1 %.not.i472, label %ssl_dissect_hnd_hello_ext_npn.exit, label %1109
 
-1110:                                             ; preds = %.lr.ph.i471
-  %1111 = add nuw i32 %.02629.i, 1
-  %1112 = load i32, ptr %103, align 4
-  %1113 = load i32, ptr %18, align 4
-  %1114 = call ptr @proto_tree_add_item(ptr noundef %1106, i32 noundef %1112, ptr noundef %1, i32 noundef %1111, i32 noundef %1113, i32 noundef 0) #23
-  %1115 = add i32 %1113, %1111
-  %1116 = icmp ult i32 %1115, %277
-  br i1 %1116, label %.lr.ph.i471, label %ssl_dissect_hnd_hello_ext_npn.exit, !llvm.loop !44
+1109:                                             ; preds = %.lr.ph.i471
+  %1110 = add nuw i32 %.02629.i, 1
+  %1111 = load i32, ptr %103, align 4
+  %1112 = load i32, ptr %18, align 4
+  %1113 = call ptr @proto_tree_add_item(ptr noundef %1105, i32 noundef %1111, ptr noundef %1, i32 noundef %1110, i32 noundef %1112, i32 noundef 0) #23
+  %1114 = add i32 %1112, %1110
+  %1115 = icmp ult i32 %1114, %277
+  br i1 %1115, label %.lr.ph.i471, label %ssl_dissect_hnd_hello_ext_npn.exit, !llvm.loop !44
 
-ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i471, %1110, %1102, %1104
-  %.0.i470 = phi i32 [ %275, %1102 ], [ %275, %1104 ], [ %1115, %1110 ], [ %277, %.lr.ph.i471 ]
+ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i471, %1109, %1101, %1103
+  %.0.i470 = phi i32 [ %275, %1101 ], [ %275, %1103 ], [ %1114, %1109 ], [ %277, %.lr.ph.i471 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1117:                                             ; preds = %274
+1116:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  br i1 %cond.i473, label %1118, label %ssl_dissect_hnd_hello_ext_alps.exit
+  br i1 %cond.i473, label %1117, label %ssl_dissect_hnd_hello_ext_alps.exit
 
-1118:                                             ; preds = %1117
-  %1119 = load i32, ptr %96, align 4
-  %1120 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %16, i32 noundef %1119, i32 noundef 2, i32 noundef 65535)
-  %.not.i476 = icmp eq i32 %1120, 0
-  br i1 %.not.i476, label %ssl_dissect_hnd_hello_ext_alps.exit, label %1121
+1117:                                             ; preds = %1116
+  %1118 = load i32, ptr %96, align 4
+  %1119 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %16, i32 noundef %1118, i32 noundef 2, i32 noundef 65535)
+  %.not.i476 = icmp eq i32 %1119, 0
+  br i1 %.not.i476, label %ssl_dissect_hnd_hello_ext_alps.exit, label %1120
 
-1121:                                             ; preds = %1118
-  %1122 = add i32 %.0401517, 6
-  %1123 = load i32, ptr %16, align 4
-  %1124 = add i32 %1123, %1122
-  %1125 = load i32, ptr %97, align 4
-  %1126 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1125, ptr noundef %1, i32 noundef %1122, i32 noundef %1123, i32 noundef 0) #23
-  %1127 = load i32, ptr %98, align 4
-  %1128 = call ptr @proto_item_add_subtree(ptr noundef %1126, i32 noundef %1127) #23
-  %1129 = icmp ult i32 %1122, %1124
-  br i1 %1129, label %.lr.ph.i477, label %ssl_dissect_hnd_hello_ext_alps.exit
+1120:                                             ; preds = %1117
+  %1121 = add i32 %.0401517, 6
+  %1122 = load i32, ptr %16, align 4
+  %1123 = add i32 %1122, %1121
+  %1124 = load i32, ptr %97, align 4
+  %1125 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1124, ptr noundef %1, i32 noundef %1121, i32 noundef %1122, i32 noundef 0) #23
+  %1126 = load i32, ptr %98, align 4
+  %1127 = call ptr @proto_item_add_subtree(ptr noundef %1125, i32 noundef %1126) #23
+  %1128 = icmp ult i32 %1121, %1123
+  br i1 %1128, label %.lr.ph.i477, label %ssl_dissect_hnd_hello_ext_alps.exit
 
-.lr.ph.i477:                                      ; preds = %1121, %1132
-  %.04144.i = phi i32 [ %1137, %1132 ], [ %1122, %1121 ]
-  %1130 = load i32, ptr %99, align 4
-  %1131 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1128, i32 noundef %.04144.i, i32 noundef %1124, ptr noundef nonnull %17, i32 noundef %1130, i32 noundef 1, i32 noundef 255)
-  %.not43.i = icmp eq i32 %1131, 0
-  br i1 %.not43.i, label %ssl_dissect_hnd_hello_ext_alps.exit, label %1132
+.lr.ph.i477:                                      ; preds = %1120, %1131
+  %.04144.i = phi i32 [ %1136, %1131 ], [ %1121, %1120 ]
+  %1129 = load i32, ptr %99, align 4
+  %1130 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1127, i32 noundef %.04144.i, i32 noundef %1123, ptr noundef nonnull %17, i32 noundef %1129, i32 noundef 1, i32 noundef 255)
+  %.not43.i = icmp eq i32 %1130, 0
+  br i1 %.not43.i, label %ssl_dissect_hnd_hello_ext_alps.exit, label %1131
 
-1132:                                             ; preds = %.lr.ph.i477
-  %1133 = add nuw i32 %.04144.i, 1
-  %1134 = load i32, ptr %100, align 4
-  %1135 = load i32, ptr %17, align 4
-  %1136 = call ptr @proto_tree_add_item(ptr noundef %1128, i32 noundef %1134, ptr noundef %1, i32 noundef %1133, i32 noundef %1135, i32 noundef 0) #23
-  %1137 = add i32 %1135, %1133
-  %1138 = icmp ult i32 %1137, %1124
-  br i1 %1138, label %.lr.ph.i477, label %ssl_dissect_hnd_hello_ext_alps.exit, !llvm.loop !45
+1131:                                             ; preds = %.lr.ph.i477
+  %1132 = add nuw i32 %.04144.i, 1
+  %1133 = load i32, ptr %100, align 4
+  %1134 = load i32, ptr %17, align 4
+  %1135 = call ptr @proto_tree_add_item(ptr noundef %1127, i32 noundef %1133, ptr noundef %1, i32 noundef %1132, i32 noundef %1134, i32 noundef 0) #23
+  %1136 = add i32 %1134, %1132
+  %1137 = icmp ult i32 %1136, %1123
+  br i1 %1137, label %.lr.ph.i477, label %ssl_dissect_hnd_hello_ext_alps.exit, !llvm.loop !45
 
-ssl_dissect_hnd_hello_ext_alps.exit:              ; preds = %.lr.ph.i477, %1132, %1117, %1118, %1121
-  %.0.i475 = phi i32 [ %277, %1118 ], [ %277, %1117 ], [ %1122, %1121 ], [ %1137, %1132 ], [ %1124, %.lr.ph.i477 ]
+ssl_dissect_hnd_hello_ext_alps.exit:              ; preds = %.lr.ph.i477, %1131, %1116, %1117, %1120
+  %.0.i475 = phi i32 [ %277, %1117 ], [ %277, %1116 ], [ %1121, %1120 ], [ %1136, %1131 ], [ %1123, %.lr.ph.i477 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1139:                                             ; preds = %274
+1138:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  %1140 = load i32, ptr %93, align 4
-  %1141 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %1140, ptr noundef null, ptr noundef nonnull @.str.1612) #23
-  %1142 = load i32, ptr %94, align 4
-  %1143 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1141, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %15, i32 noundef %1142, i32 noundef 0, i32 noundef 255)
-  %.not.i478 = icmp eq i32 %1143, 0
-  br i1 %.not.i478, label %ssl_dissect_hnd_hello_ext_reneg_info.exit, label %1144
+  %1139 = load i32, ptr %93, align 4
+  %1140 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %1139, ptr noundef null, ptr noundef nonnull @.str.1612) #23
+  %1141 = load i32, ptr %94, align 4
+  %1142 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1140, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %15, i32 noundef %1141, i32 noundef 0, i32 noundef 255)
+  %.not.i478 = icmp eq i32 %1142, 0
+  br i1 %.not.i478, label %ssl_dissect_hnd_hello_ext_reneg_info.exit, label %1143
 
-1144:                                             ; preds = %1139
-  %1145 = add i32 %.0401517, 5
-  %1146 = load i32, ptr %15, align 4
-  %.not23.i = icmp eq i32 %1146, 0
-  br i1 %.not23.i, label %ssl_dissect_hnd_hello_ext_reneg_info.exit, label %1147
+1143:                                             ; preds = %1138
+  %1144 = add i32 %.0401517, 5
+  %1145 = load i32, ptr %15, align 4
+  %.not23.i = icmp eq i32 %1145, 0
+  br i1 %.not23.i, label %ssl_dissect_hnd_hello_ext_reneg_info.exit, label %1146
 
-1147:                                             ; preds = %1144
-  %1148 = load i32, ptr %95, align 4
-  %1149 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %1148, ptr noundef %1, i32 noundef %1145, i32 noundef %1146, i32 noundef 0) #23
-  %1150 = add i32 %1146, %1145
+1146:                                             ; preds = %1143
+  %1147 = load i32, ptr %95, align 4
+  %1148 = call ptr @proto_tree_add_item(ptr noundef %1140, i32 noundef %1147, ptr noundef %1, i32 noundef %1144, i32 noundef %1145, i32 noundef 0) #23
+  %1149 = add i32 %1145, %1144
   br label %ssl_dissect_hnd_hello_ext_reneg_info.exit
 
-ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1139, %1144, %1147
-  %.0.i479 = phi i32 [ %277, %1139 ], [ %1150, %1147 ], [ %1145, %1144 ]
+ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1138, %1143, %1146
+  %.0.i479 = phi i32 [ %277, %1138 ], [ %1149, %1146 ], [ %1144, %1143 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1151:                                             ; preds = %274
+1150:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   switch i8 %6, label %ssl_dissect_hnd_hello_ext_esni.exit [
-    i8 1, label %1152
-    i8 8, label %1176
+    i8 1, label %1151
+    i8 8, label %1175
   ]
 
-1152:                                             ; preds = %1151
-  %1153 = load i32, ptr %88, align 4
-  %1154 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1153, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0) #23
-  %1155 = add i32 %.0401517, 6
-  %1156 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1155, i32 noundef %277, ptr noundef null)
-  %1157 = load i32, ptr %89, align 4
-  %1158 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1156, i32 noundef %277, ptr noundef nonnull %13, i32 noundef %1157, i32 noundef 0, i32 noundef 65535)
-  %.not.i481 = icmp eq i32 %1158, 0
-  br i1 %.not.i481, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1159
+1151:                                             ; preds = %1150
+  %1152 = load i32, ptr %88, align 4
+  %1153 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1152, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0) #23
+  %1154 = add i32 %.0401517, 6
+  %1155 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1154, i32 noundef %277, ptr noundef null)
+  %1156 = load i32, ptr %89, align 4
+  %1157 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1155, i32 noundef %277, ptr noundef nonnull %13, i32 noundef %1156, i32 noundef 0, i32 noundef 65535)
+  %.not.i481 = icmp eq i32 %1157, 0
+  br i1 %.not.i481, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1158
 
-1159:                                             ; preds = %1152
-  %1160 = add i32 %1156, 2
-  %1161 = load i32, ptr %13, align 4
-  %.not49.i = icmp eq i32 %1161, 0
-  br i1 %.not49.i, label %1166, label %1162
+1158:                                             ; preds = %1151
+  %1159 = add i32 %1155, 2
+  %1160 = load i32, ptr %13, align 4
+  %.not49.i = icmp eq i32 %1160, 0
+  br i1 %.not49.i, label %1165, label %1161
 
-1162:                                             ; preds = %1159
-  %1163 = load i32, ptr %90, align 4
-  %1164 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1163, ptr noundef %1, i32 noundef %1160, i32 noundef %1161, i32 noundef 0) #23
-  %1165 = add i32 %1161, %1160
-  br label %1166
+1161:                                             ; preds = %1158
+  %1162 = load i32, ptr %90, align 4
+  %1163 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1162, ptr noundef %1, i32 noundef %1159, i32 noundef %1160, i32 noundef 0) #23
+  %1164 = add i32 %1160, %1159
+  br label %1165
 
-1166:                                             ; preds = %1162, %1159
-  %.1.i482 = phi i32 [ %1165, %1162 ], [ %1160, %1159 ]
-  %1167 = load i32, ptr %91, align 4
-  %1168 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %.1.i482, i32 noundef %277, ptr noundef nonnull %14, i32 noundef %1167, i32 noundef 0, i32 noundef 65535)
-  %.not50.i = icmp eq i32 %1168, 0
-  br i1 %.not50.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1169
+1165:                                             ; preds = %1161, %1158
+  %.1.i482 = phi i32 [ %1164, %1161 ], [ %1159, %1158 ]
+  %1166 = load i32, ptr %91, align 4
+  %1167 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %.1.i482, i32 noundef %277, ptr noundef nonnull %14, i32 noundef %1166, i32 noundef 0, i32 noundef 65535)
+  %.not50.i = icmp eq i32 %1167, 0
+  br i1 %.not50.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1168
 
-1169:                                             ; preds = %1166
-  %1170 = add i32 %.1.i482, 2
-  %1171 = load i32, ptr %14, align 4
-  %.not51.i = icmp eq i32 %1171, 0
-  br i1 %.not51.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1172
+1168:                                             ; preds = %1165
+  %1169 = add i32 %.1.i482, 2
+  %1170 = load i32, ptr %14, align 4
+  %.not51.i = icmp eq i32 %1170, 0
+  br i1 %.not51.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1171
 
-1172:                                             ; preds = %1169
-  %1173 = load i32, ptr %92, align 4
-  %1174 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1173, ptr noundef %1, i32 noundef %1170, i32 noundef %1171, i32 noundef 0) #23
-  %1175 = add i32 %1171, %1170
+1171:                                             ; preds = %1168
+  %1172 = load i32, ptr %92, align 4
+  %1173 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1172, ptr noundef %1, i32 noundef %1169, i32 noundef %1170, i32 noundef 0) #23
+  %1174 = add i32 %1170, %1169
   br label %ssl_dissect_hnd_hello_ext_esni.exit
 
-1176:                                             ; preds = %1151
-  %1177 = load i32, ptr %87, align 4
-  %1178 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1177, ptr noundef %1, i32 noundef %275, i32 noundef 16, i32 noundef 0) #23
-  %1179 = add i32 %.0401517, 20
+1175:                                             ; preds = %1150
+  %1176 = load i32, ptr %87, align 4
+  %1177 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1176, ptr noundef %1, i32 noundef %275, i32 noundef 16, i32 noundef 0) #23
+  %1178 = add i32 %.0401517, 20
   br label %ssl_dissect_hnd_hello_ext_esni.exit
 
-ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1151, %1152, %1166, %1169, %1172, %1176
-  %.0.i480 = phi i32 [ %277, %1152 ], [ %277, %1166 ], [ %275, %1151 ], [ %1179, %1176 ], [ %1175, %1172 ], [ %1170, %1169 ]
+ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1150, %1151, %1165, %1168, %1171, %1175
+  %.0.i480 = phi i32 [ %277, %1151 ], [ %277, %1165 ], [ %275, %1150 ], [ %1178, %1175 ], [ %1174, %1171 ], [ %1169, %1168 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1180:                                             ; preds = %274
+1179:                                             ; preds = %274
   store i32 1, ptr %83, align 8
-  br label %1181
+  br label %1180
 
-1181:                                             ; preds = %1180, %274
-  %1182 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %275) #23
+1180:                                             ; preds = %1179, %274
+  %1181 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %275) #23
   switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
     i8 1, label %.sink.split.i
-    i8 2, label %1183
+    i8 2, label %1182
   ]
 
-1183:                                             ; preds = %1181
+1182:                                             ; preds = %1180
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %1183, %1181
-  %.sink27.i = phi i64 [ 124, %1183 ], [ 116, %1181 ]
-  %.sink26.i = phi i64 [ 104, %1183 ], [ 96, %1181 ]
-  %.sink25.i = phi i64 [ 120, %1183 ], [ 112, %1181 ]
-  %1184 = getelementptr inbounds i8, ptr %7, i64 %.sink27.i
-  store i32 1, ptr %1184, align 4
-  %1185 = getelementptr inbounds i8, ptr %7, i64 %.sink26.i
-  %1186 = getelementptr inbounds i8, ptr %7, i64 %.sink25.i
-  %1187 = zext i8 %1182 to i32
-  %.not.i487 = icmp eq i8 %1182, 0
-  br i1 %.not.i487, label %1201, label %1188
+.sink.split.i:                                    ; preds = %1182, %1180
+  %.sink27.i = phi i64 [ 124, %1182 ], [ 116, %1180 ]
+  %.sink26.i = phi i64 [ 104, %1182 ], [ 96, %1180 ]
+  %.sink25.i = phi i64 [ 120, %1182 ], [ 112, %1180 ]
+  %1183 = getelementptr inbounds i8, ptr %7, i64 %.sink27.i
+  store i32 1, ptr %1183, align 4
+  %1184 = getelementptr inbounds i8, ptr %7, i64 %.sink26.i
+  %1185 = getelementptr inbounds i8, ptr %7, i64 %.sink25.i
+  %1186 = zext i8 %1181 to i32
+  %.not.i487 = icmp eq i8 %1181, 0
+  br i1 %.not.i487, label %1200, label %1187
 
-1188:                                             ; preds = %.sink.split.i
-  %1189 = load ptr, ptr %84, align 8
-  %1190 = getelementptr inbounds i8, ptr %1189, i64 50
-  %1191 = load i16, ptr %1190, align 2
-  %1192 = and i16 %1191, 8
-  %.not30.i = icmp eq i16 %1192, 0
-  %1193 = add i32 %.0401517, 5
-  br i1 %.not30.i, label %1194, label %._crit_edge.i488
+1187:                                             ; preds = %.sink.split.i
+  %1188 = load ptr, ptr %84, align 8
+  %1189 = getelementptr inbounds i8, ptr %1188, i64 50
+  %1190 = load i16, ptr %1189, align 2
+  %1191 = and i16 %1190, 8
+  %.not30.i = icmp eq i16 %1191, 0
+  %1192 = add i32 %.0401517, 5
+  br i1 %.not30.i, label %1193, label %._crit_edge.i488
 
-1194:                                             ; preds = %1188
-  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %1193, i32 noundef %1187) #23
-  store i8 %1182, ptr %1186, align 1
-  %1195 = call ptr @wmem_file_scope() #23
-  %1196 = zext i8 %1182 to i64
-  %1197 = call noalias ptr @wmem_alloc0(ptr noundef %1195, i64 noundef %1196) #23
-  store ptr %1197, ptr %1185, align 8
-  %1198 = call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %1197, i32 noundef %1193, i64 noundef %1196) #23
-  br i1 %.not31.i, label %._crit_edge.i488, label %1199
+1193:                                             ; preds = %1187
+  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %1192, i32 noundef %1186) #23
+  store i8 %1181, ptr %1185, align 1
+  %1194 = call ptr @wmem_file_scope() #23
+  %1195 = zext i8 %1181 to i64
+  %1196 = call noalias ptr @wmem_alloc0(ptr noundef %1194, i64 noundef %1195) #23
+  store ptr %1196, ptr %1184, align 8
+  %1197 = call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %1196, i32 noundef %1192, i64 noundef %1195) #23
+  br i1 %.not31.i, label %._crit_edge.i488, label %1198
 
-1199:                                             ; preds = %1194
-  %1200 = load ptr, ptr @connection_id_session_list, align 8
-  call void @wmem_list_append(ptr noundef %1200, ptr noundef nonnull %8) #23
+1198:                                             ; preds = %1193
+  %1199 = load ptr, ptr @connection_id_session_list, align 8
+  call void @wmem_list_append(ptr noundef %1199, ptr noundef nonnull %8) #23
   br label %._crit_edge.i488
 
-1201:                                             ; preds = %.sink.split.i
-  %1202 = load i32, ptr %85, align 4
-  %1203 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1202, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
-  %1204 = add i32 %.0401517, 5
+1200:                                             ; preds = %.sink.split.i
+  %1201 = load i32, ptr %85, align 4
+  %1202 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1201, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
+  %1203 = add i32 %.0401517, 5
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-._crit_edge.i488:                                 ; preds = %1199, %1194, %1188
-  %1205 = load i32, ptr %85, align 4
-  %1206 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1205, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
-  %1207 = load i32, ptr %86, align 4
-  %1208 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1207, ptr noundef %1, i32 noundef %1193, i32 noundef %1187, i32 noundef 0) #23
-  %1209 = add i32 %1193, %1187
+._crit_edge.i488:                                 ; preds = %1198, %1193, %1187
+  %1204 = load i32, ptr %85, align 4
+  %1205 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1204, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
+  %1206 = load i32, ptr %86, align 4
+  %1207 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1206, ptr noundef %1, i32 noundef %1192, i32 noundef %1186, i32 noundef 0) #23
+  %1208 = add i32 %1192, %1186
   br label %ssl_dissect_hnd_hello_ext_early_data.exit
 
-1210:                                             ; preds = %274
-  %1211 = load i32, ptr %236, align 4
-  %1212 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1211, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef 0) #23
+1209:                                             ; preds = %274
+  %1210 = load i32, ptr %236, align 4
+  %1211 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1210, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef 0) #23
   br label %ssl_end_vector.exit
 
-ssl_dissect_hnd_hello_ext_early_data.exit:        ; preds = %1181, %1201, %._crit_edge.i488, %990, %989, %988, %987, %540, %373, %274, %994, %ssl_dissect_hnd_hello_ext_supported_versions.exit, %1072, %553, %554, %558, %555, %549, %550, %541, %529, %ssl_dissect_hnd_hello_ext_status_request_v2.exit, %376, %374, %372, %330, %332, %325, %327, %317, %320, %319, %278, %311, %ssl_dissect_hnd_hello_ext_server_name.exit, %ssl_dissect_hnd_hello_ext_esni.exit, %ssl_dissect_hnd_hello_ext_reneg_info.exit, %ssl_dissect_hnd_hello_ext_alps.exit, %ssl_dissect_hnd_hello_ext_npn.exit, %1100, %1098, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, %ssl_dissect_hnd_hello_ext_cookie.exit, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, %ssl_dissect_hnd_hello_ext_key_share.exit, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, %604, %ssl_dissect_hnd_hello_ext_token_binding.exit, %ssl_dissect_hnd_hello_ext_compress_certificate.exit, %544, %ssl_dissect_hnd_hello_ext_alpn.exit, %428, %ssl_dissect_hnd_hello_ext_ech.exit, %ssl_dissect_hnd_ext_delegated_credentials.exit, %345, %343, %ssl_dissect_hnd_hello_ext_srp.exit, %322, %312
-  %.1402 = phi i32 [ %.0.i480, %ssl_dissect_hnd_hello_ext_esni.exit ], [ %.0.i479, %ssl_dissect_hnd_hello_ext_reneg_info.exit ], [ %.0.i475, %ssl_dissect_hnd_hello_ext_alps.exit ], [ %.0.i470, %ssl_dissect_hnd_hello_ext_npn.exit ], [ %275, %274 ], [ %1101, %1100 ], [ %1099, %1098 ], [ %.0.i466, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit ], [ %.0.i463, %ssl_dissect_hnd_hello_ext_cookie.exit ], [ %275, %994 ], [ %1075, %1072 ], [ %.058.i, %ssl_dissect_hnd_hello_ext_supported_versions.exit ], [ %.0.i449, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit ], [ %.051.i, %ssl_dissect_hnd_hello_ext_key_share.exit ], [ %.0326.i, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit ], [ %607, %604 ], [ %.0.i436, %ssl_dissect_hnd_hello_ext_token_binding.exit ], [ %.0.i434, %ssl_dissect_hnd_hello_ext_compress_certificate.exit ], [ %275, %554 ], [ %275, %558 ], [ %275, %555 ], [ %275, %553 ], [ %275, %550 ], [ %275, %549 ], [ %545, %544 ], [ %543, %541 ], [ %275, %540 ], [ %.0.i431, %ssl_dissect_hnd_hello_ext_status_request_v2.exit ], [ %275, %529 ], [ %.0.i428, %ssl_dissect_hnd_hello_ext_alpn.exit ], [ %431, %428 ], [ %.0.i426, %ssl_dissect_hnd_hello_ext_ech.exit ], [ %375, %374 ], [ %377, %376 ], [ %275, %372 ], [ %.0.i425, %ssl_dissect_hnd_ext_delegated_credentials.exit ], [ %346, %345 ], [ %344, %343 ], [ %.0.i423, %ssl_dissect_hnd_hello_ext_srp.exit ], [ %331, %330 ], [ %333, %332 ], [ %326, %325 ], [ %328, %327 ], [ %323, %322 ], [ %318, %317 ], [ %321, %320 ], [ %275, %319 ], [ %315, %312 ], [ %.0.i, %311 ], [ %.0.i, %ssl_dissect_hnd_hello_ext_server_name.exit ], [ %275, %278 ], [ %275, %373 ], [ %275, %987 ], [ %993, %990 ], [ %275, %989 ], [ %275, %988 ], [ %275, %1181 ], [ %1209, %._crit_edge.i488 ], [ %1204, %1201 ]
-  %1213 = icmp ult i32 %.1402, %277
-  br i1 %1213, label %1214, label %1219
+ssl_dissect_hnd_hello_ext_early_data.exit:        ; preds = %1180, %1200, %._crit_edge.i488, %989, %988, %987, %986, %540, %373, %274, %993, %ssl_dissect_hnd_hello_ext_supported_versions.exit, %1071, %553, %554, %558, %555, %549, %550, %541, %529, %ssl_dissect_hnd_hello_ext_status_request_v2.exit, %376, %374, %372, %330, %332, %325, %327, %317, %320, %319, %278, %311, %ssl_dissect_hnd_hello_ext_server_name.exit, %ssl_dissect_hnd_hello_ext_esni.exit, %ssl_dissect_hnd_hello_ext_reneg_info.exit, %ssl_dissect_hnd_hello_ext_alps.exit, %ssl_dissect_hnd_hello_ext_npn.exit, %1099, %1097, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, %ssl_dissect_hnd_hello_ext_cookie.exit, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, %ssl_dissect_hnd_hello_ext_key_share.exit, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, %604, %ssl_dissect_hnd_hello_ext_token_binding.exit, %ssl_dissect_hnd_hello_ext_compress_certificate.exit, %544, %ssl_dissect_hnd_hello_ext_alpn.exit, %428, %ssl_dissect_hnd_hello_ext_ech.exit, %ssl_dissect_hnd_ext_delegated_credentials.exit, %345, %343, %ssl_dissect_hnd_hello_ext_srp.exit, %322, %312
+  %.1402 = phi i32 [ %.0.i480, %ssl_dissect_hnd_hello_ext_esni.exit ], [ %.0.i479, %ssl_dissect_hnd_hello_ext_reneg_info.exit ], [ %.0.i475, %ssl_dissect_hnd_hello_ext_alps.exit ], [ %.0.i470, %ssl_dissect_hnd_hello_ext_npn.exit ], [ %275, %274 ], [ %1100, %1099 ], [ %1098, %1097 ], [ %.0.i466, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit ], [ %.0.i463, %ssl_dissect_hnd_hello_ext_cookie.exit ], [ %275, %993 ], [ %1074, %1071 ], [ %.058.i, %ssl_dissect_hnd_hello_ext_supported_versions.exit ], [ %.0.i449, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit ], [ %.051.i, %ssl_dissect_hnd_hello_ext_key_share.exit ], [ %.0326.i, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit ], [ %607, %604 ], [ %.0.i436, %ssl_dissect_hnd_hello_ext_token_binding.exit ], [ %.0.i434, %ssl_dissect_hnd_hello_ext_compress_certificate.exit ], [ %275, %554 ], [ %275, %558 ], [ %275, %555 ], [ %275, %553 ], [ %275, %550 ], [ %275, %549 ], [ %545, %544 ], [ %543, %541 ], [ %275, %540 ], [ %.0.i431, %ssl_dissect_hnd_hello_ext_status_request_v2.exit ], [ %275, %529 ], [ %.0.i428, %ssl_dissect_hnd_hello_ext_alpn.exit ], [ %431, %428 ], [ %.0.i426, %ssl_dissect_hnd_hello_ext_ech.exit ], [ %375, %374 ], [ %377, %376 ], [ %275, %372 ], [ %.0.i425, %ssl_dissect_hnd_ext_delegated_credentials.exit ], [ %346, %345 ], [ %344, %343 ], [ %.0.i423, %ssl_dissect_hnd_hello_ext_srp.exit ], [ %331, %330 ], [ %333, %332 ], [ %326, %325 ], [ %328, %327 ], [ %323, %322 ], [ %318, %317 ], [ %321, %320 ], [ %275, %319 ], [ %315, %312 ], [ %.0.i, %311 ], [ %.0.i, %ssl_dissect_hnd_hello_ext_server_name.exit ], [ %275, %278 ], [ %275, %373 ], [ %275, %986 ], [ %992, %989 ], [ %275, %988 ], [ %275, %987 ], [ %275, %1180 ], [ %1208, %._crit_edge.i488 ], [ %1203, %1200 ]
+  %1212 = icmp ult i32 %.1402, %277
+  br i1 %1212, label %1213, label %1218
 
-1214:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.exit
-  %1215 = sub nuw i32 %277, %.1402
-  %1216 = icmp eq i32 %1215, 1
-  %1217 = select i1 %1216, ptr @.str.704, ptr @.str.705
-  %1218 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.1402, i32 noundef %1215, ptr noundef nonnull @.str.703, i32 noundef %1215, ptr noundef nonnull %1217) #23
+1213:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.exit
+  %1214 = sub nuw i32 %277, %.1402
+  %1215 = icmp eq i32 %1214, 1
+  %1216 = select i1 %1215, ptr @.str.704, ptr @.str.705
+  %1217 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.1402, i32 noundef %1214, ptr noundef nonnull @.str.703, i32 noundef %1214, ptr noundef nonnull %1216) #23
   br label %ssl_end_vector.exit
 
-1219:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.exit
-  %1220 = icmp ugt i32 %.1402, %277
-  br i1 %1220, label %1221, label %ssl_end_vector.exit
+1218:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.exit
+  %1219 = icmp ugt i32 %.1402, %277
+  br i1 %1219, label %1220, label %ssl_end_vector.exit
 
-1221:                                             ; preds = %1219
-  %1222 = sub nuw i32 %.1402, %277
-  %1223 = icmp eq i32 %1222, 1
-  %1224 = select i1 %1223, ptr @.str.503, ptr @.str.707
-  %1225 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %277, i32 noundef %1222, ptr noundef nonnull @.str.706, i32 noundef %1222, ptr noundef nonnull %1224) #23
+1220:                                             ; preds = %1218
+  %1221 = sub nuw i32 %.1402, %277
+  %1222 = icmp eq i32 %1221, 1
+  %1223 = select i1 %1222, ptr @.str.503, ptr @.str.707
+  %1224 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %277, i32 noundef %1221, ptr noundef nonnull @.str.706, i32 noundef %1221, ptr noundef nonnull %1223) #23
   br label %ssl_end_vector.exit
 
-ssl_end_vector.exit:                              ; preds = %1210, %ssl_dissect_hnd_hello_ext_session_ticket.exit, %546, %1221, %1214, %1219
-  %1226 = phi i32 [ %.1402, %1219 ], [ %277, %1214 ], [ %277, %1221 ], [ %277, %546 ], [ %277, %ssl_dissect_hnd_hello_ext_session_ticket.exit ], [ %277, %1210 ]
-  %1227 = sub i32 %73, %1226
-  %1228 = icmp ugt i32 %1227, 3
-  br i1 %1228, label %237, label %._crit_edge, !llvm.loop !46
+ssl_end_vector.exit:                              ; preds = %1209, %ssl_dissect_hnd_hello_ext_session_ticket.exit, %546, %1220, %1213, %1218
+  %1225 = phi i32 [ %.1402, %1218 ], [ %277, %1213 ], [ %277, %1220 ], [ %277, %546 ], [ %277, %ssl_dissect_hnd_hello_ext_session_ticket.exit ], [ %277, %1209 ]
+  %1226 = sub i32 %73, %1225
+  %1227 = icmp ugt i32 %1226, 3
+  br i1 %1227, label %237, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %ssl_end_vector.exit, %76
-  %.0401.lcssa = phi i32 [ %71, %76 ], [ %1226, %ssl_end_vector.exit ]
-  %.lcssa514 = phi i32 [ %72, %76 ], [ %1227, %ssl_end_vector.exit ]
-  %1229 = icmp ne ptr %10, null
-  %1230 = icmp eq i8 %6, 1
-  %or.cond17 = and i1 %1230, %1229
-  br i1 %or.cond17, label %1231, label %1241
+  %.0401.lcssa = phi i32 [ %71, %76 ], [ %1225, %ssl_end_vector.exit ]
+  %.lcssa514 = phi i32 [ %72, %76 ], [ %1226, %ssl_end_vector.exit ]
+  %1228 = icmp ne ptr %10, null
+  %1229 = icmp eq i8 %6, 1
+  %or.cond17 = and i1 %1229, %1228
+  br i1 %or.cond17, label %1230, label %1240
 
-1231:                                             ; preds = %._crit_edge
-  %1232 = call i64 @wmem_strbuf_get_len(ptr noundef %64) #23
-  %.not413 = icmp eq i64 %1232, 0
-  br i1 %.not413, label %1235, label %1233
+1230:                                             ; preds = %._crit_edge
+  %1231 = call i64 @wmem_strbuf_get_len(ptr noundef %64) #23
+  %.not413 = icmp eq i64 %1231, 0
+  br i1 %.not413, label %1234, label %1232
 
-1233:                                             ; preds = %1231
-  %1234 = call ptr @wmem_strbuf_get_str(ptr noundef %64) #23
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.730, ptr noundef %1234) #23
-  br label %1236
+1232:                                             ; preds = %1230
+  %1233 = call ptr @wmem_strbuf_get_str(ptr noundef %64) #23
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.730, ptr noundef %1233) #23
+  br label %1235
 
-1235:                                             ; preds = %1231
+1234:                                             ; preds = %1230
   call void @wmem_strbuf_append_c(ptr noundef nonnull %10, i8 noundef signext 44) #23
-  br label %1236
+  br label %1235
 
-1236:                                             ; preds = %1235, %1233
-  %1237 = call i64 @wmem_strbuf_get_len(ptr noundef %66) #23
-  %.not414 = icmp eq i64 %1237, 0
-  br i1 %.not414, label %1240, label %1238
+1235:                                             ; preds = %1234, %1232
+  %1236 = call i64 @wmem_strbuf_get_len(ptr noundef %66) #23
+  %.not414 = icmp eq i64 %1236, 0
+  br i1 %.not414, label %1239, label %1237
 
-1238:                                             ; preds = %1236
-  %1239 = call ptr @wmem_strbuf_get_str(ptr noundef %66) #23
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.730, ptr noundef %1239) #23
-  br label %1241
+1237:                                             ; preds = %1235
+  %1238 = call ptr @wmem_strbuf_get_str(ptr noundef %66) #23
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.730, ptr noundef %1238) #23
+  br label %1240
 
-1240:                                             ; preds = %1236
+1239:                                             ; preds = %1235
   call void @wmem_strbuf_append_c(ptr noundef nonnull %10, i8 noundef signext 44) #23
-  br label %1241
+  br label %1240
 
-1241:                                             ; preds = %1240, %1238, %._crit_edge
-  %1242 = icmp ult i32 %.0401.lcssa, %73
-  br i1 %1242, label %1243, label %1248
+1240:                                             ; preds = %1239, %1237, %._crit_edge
+  %1241 = icmp ult i32 %.0401.lcssa, %73
+  br i1 %1241, label %1242, label %1247
 
-1243:                                             ; preds = %1241
-  %1244 = getelementptr inbounds i8, ptr %0, i64 1268
-  %1245 = icmp eq i32 %.lcssa514, 1
-  %1246 = select i1 %1245, ptr @.str.704, ptr @.str.705
-  %1247 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %1244, ptr noundef %1, i32 noundef %.0401.lcssa, i32 noundef %.lcssa514, ptr noundef nonnull @.str.703, i32 noundef %.lcssa514, ptr noundef nonnull %1246) #23
+1242:                                             ; preds = %1240
+  %1243 = getelementptr inbounds i8, ptr %0, i64 1268
+  %1244 = icmp eq i32 %.lcssa514, 1
+  %1245 = select i1 %1244, ptr @.str.704, ptr @.str.705
+  %1246 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %1243, ptr noundef %1, i32 noundef %.0401.lcssa, i32 noundef %.lcssa514, ptr noundef nonnull @.str.703, i32 noundef %.lcssa514, ptr noundef nonnull %1245) #23
   br label %ssl_end_vector.exit486
 
-1248:                                             ; preds = %1241
-  %1249 = icmp ugt i32 %.0401.lcssa, %73
-  br i1 %1249, label %1250, label %ssl_end_vector.exit486
+1247:                                             ; preds = %1240
+  %1248 = icmp ugt i32 %.0401.lcssa, %73
+  br i1 %1248, label %1249, label %ssl_end_vector.exit486
 
-1250:                                             ; preds = %1248
-  %1251 = sub nuw i32 %.0401.lcssa, %73
-  %1252 = getelementptr inbounds i8, ptr %0, i64 1260
-  %1253 = icmp eq i32 %1251, 1
-  %1254 = select i1 %1253, ptr @.str.503, ptr @.str.707
-  %1255 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %1252, ptr noundef %1, i32 noundef %73, i32 noundef %1251, ptr noundef nonnull @.str.706, i32 noundef %1251, ptr noundef nonnull %1254) #23
+1249:                                             ; preds = %1247
+  %1250 = sub nuw i32 %.0401.lcssa, %73
+  %1251 = getelementptr inbounds i8, ptr %0, i64 1260
+  %1252 = icmp eq i32 %1250, 1
+  %1253 = select i1 %1252, ptr @.str.503, ptr @.str.707
+  %1254 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %1251, ptr noundef %1, i32 noundef %73, i32 noundef %1250, ptr noundef nonnull @.str.706, i32 noundef %1250, ptr noundef nonnull %1253) #23
   br label %ssl_end_vector.exit486
 
-ssl_end_vector.exit486:                           ; preds = %271, %1248, %1243, %1250, %12
-  %.0400 = phi i32 [ %5, %12 ], [ %.0401.lcssa, %1248 ], [ %73, %1243 ], [ %73, %1250 ], [ %73, %271 ]
+ssl_end_vector.exit486:                           ; preds = %271, %1247, %1242, %1249, %12
+  %.0400 = phi i32 [ %5, %12 ], [ %.0401.lcssa, %1247 ], [ %73, %1242 ], [ %73, %1249 ], [ %73, %271 ]
   ret i32 %.0400
 }
 

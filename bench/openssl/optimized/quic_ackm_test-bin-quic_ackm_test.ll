@@ -203,6 +203,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end6.i
   %pkts.i = getelementptr inbounds i8, ptr %h.i, i64 8
   %4 = trunc nsw i32 %rem4 to i8
   %bf.value.i = and i8 %4, 3
+  %invariant.op = or disjoint i8 %bf.value.i, 12
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end14.i
@@ -229,9 +230,8 @@ if.end14.i:                                       ; preds = %for.body.i
   %pkt_space.i = getelementptr inbounds i8, ptr %call9.i, i64 32
   %bf.load.i = load i8, ptr %pkt_space.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -16
-  %bf.set.i = or disjoint i8 %bf.value.i, %bf.clear.i
-  %bf.set21.i = or disjoint i8 %bf.set.i, 12
-  store i8 %bf.set21.i, ptr %pkt_space.i, align 8
+  %bf.set21.reass.i.reass = or disjoint i8 %bf.clear.i, %invariant.op
+  store i8 %bf.set21.reass.i.reass, ptr %pkt_space.i, align 8
   %num_bytes.i = getelementptr inbounds i8, ptr %call9.i, i64 8
   store i64 123, ptr %num_bytes.i, align 8
   %largest_acked.i = getelementptr inbounds i8, ptr %call9.i, i64 24
@@ -774,6 +774,7 @@ for.body27.lr.ph.i:                               ; preds = %for.cond24.preheade
   %pkt_space.i = getelementptr inbounds i8, ptr %pkt.i, i64 16
   %bf.cast.i = and i32 %conv3, 3
   %bf.set42.i = or disjoint i8 %bf.value188.i, 4
+  %invariant.op = or disjoint i8 %bf.value188.i, 12
   br label %for.body27.i
 
 for.body27.i:                                     ; preds = %for.inc231.i, %for.body27.lr.ph.i
@@ -997,9 +998,8 @@ sw.bb180.i:                                       ; preds = %for.body27.i
   %43 = load i64, ptr %largest_acked.i, align 8
   %largest_acked192.i = getelementptr inbounds i8, ptr %arrayidx181.i, i64 24
   store i64 %43, ptr %largest_acked192.i, align 8
-  %bf.set190.i = or disjoint i8 %bf.value188.i, %bf.clear189.i
-  %bf.set199.i = or disjoint i8 %bf.set190.i, 12
-  store i8 %bf.set199.i, ptr %pkt_space186.i, align 8
+  %bf.set199.reass.i.reass = or disjoint i8 %bf.clear189.i, %invariant.op
+  store i8 %bf.set199.reass.i.reass, ptr %pkt_space186.i, align 8
   %on_lost.i = getelementptr inbounds i8, ptr %arrayidx181.i, i64 40
   store ptr @on_lost, ptr %on_lost.i, align 8
   %on_acked.i = getelementptr inbounds i8, ptr %arrayidx181.i, i64 48

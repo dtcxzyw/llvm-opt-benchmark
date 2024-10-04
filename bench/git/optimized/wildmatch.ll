@@ -47,7 +47,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc751
-  %1 = phi i8 [ %0, %for.body.lr.ph ], [ %71, %for.inc751 ]
+  %1 = phi i8 [ %0, %for.body.lr.ph ], [ %70, %for.inc751 ]
   %p.addr.0404 = phi ptr [ %p, %for.body.lr.ph ], [ %incdec.ptr753, %for.inc751 ]
   %text.addr.0403 = phi ptr [ %text, %for.body.lr.ph ], [ %incdec.ptr752, %for.inc751 ]
   %2 = load i8, ptr %text.addr.0403, align 1
@@ -381,12 +381,13 @@ if.end238:                                        ; preds = %sw.bb224, %if.then2
   %37 = and i32 %conv283, 32
   %tobool304.not = icmp eq i32 %37, 0
   %and3.i290 = and i32 %conv283, 95
+  %invariant.op = or i1 %cmp299, %tobool.not
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end238
   %prev_ch.0 = phi i8 [ 0, %if.end238 ], [ %p_ch.6, %do.cond ]
   %matched.0 = phi i32 [ 0, %if.end238 ], [ %matched.2, %do.cond ]
-  %p_ch.4 = phi i8 [ %p_ch.3, %if.end238 ], [ %70, %do.cond ]
+  %p_ch.4 = phi i8 [ %p_ch.3, %if.end238 ], [ %69, %do.cond ]
   %p.addr.6 = phi ptr [ %p.addr.5, %if.end238 ], [ %incdec.ptr736, %do.cond ]
   switch i8 %p_ch.4, label %if.else256 [
     i8 0, label %return
@@ -433,15 +434,14 @@ if.end282:                                        ; preds = %land.lhs.true263, %
   %cmp285.not = icmp ule i8 %t_ch.0.fr, %p_ch.5
   %cmp290.not = icmp uge i8 %t_ch.0.fr, %prev_ch.0
   %or.cond209.not368 = and i1 %cmp290.not, %cmp285.not
-  %41 = or i1 %or.cond209.not368, %cmp299
-  %brmerge481 = or i1 %41, %tobool.not
+  %brmerge481.reass = or i1 %or.cond209.not368, %invariant.op
   %.mux.mux = select i1 %or.cond209.not368, i32 1, i32 %matched.0
-  br i1 %brmerge481, label %do.cond, label %land.lhs.true301
+  br i1 %brmerge481.reass, label %do.cond, label %land.lhs.true301
 
 land.lhs.true301:                                 ; preds = %if.end282
-  %42 = load i8, ptr %arrayidx.i303, align 1
-  %43 = and i8 %42, 4
-  %cmp.not.i280 = icmp eq i8 %43, 0
+  %41 = load i8, ptr %arrayidx.i303, align 1
+  %42 = and i8 %41, 4
+  %cmp.not.i280 = icmp eq i8 %42, 0
   %or.cond374 = or i1 %tobool304.not, %cmp.not.i280
   br i1 %or.cond374, label %do.cond, label %if.then305
 
@@ -458,8 +458,8 @@ if.else322:                                       ; preds = %if.else256
 
 land.lhs.true326:                                 ; preds = %if.else322
   %arrayidx327 = getelementptr inbounds i8, ptr %p.addr.6, i64 1
-  %44 = load i8, ptr %arrayidx327, align 1
-  %cmp329 = icmp eq i8 %44, 58
+  %43 = load i8, ptr %arrayidx327, align 1
+  %cmp329 = icmp eq i8 %43, 58
   br i1 %cmp329, label %if.then331, label %if.else726
 
 if.then331:                                       ; preds = %land.lhs.true326
@@ -468,8 +468,8 @@ if.then331:                                       ; preds = %land.lhs.true326
 
 for.cond333:                                      ; preds = %for.inc, %if.then331
   %p.addr.8 = phi ptr [ %add.ptr332, %if.then331 ], [ %incdec.ptr342, %for.inc ]
-  %45 = load i8, ptr %p.addr.8, align 1
-  switch i8 %45, label %for.inc [
+  %44 = load i8, ptr %p.addr.8, align 1
+  switch i8 %44, label %for.inc [
     i8 0, label %return
     i8 93, label %if.end345
   ]
@@ -481,16 +481,16 @@ for.inc:                                          ; preds = %for.cond333
 if.end345:                                        ; preds = %for.cond333
   %sub.ptr.lhs.cast346 = ptrtoint ptr %p.addr.8 to i64
   %sub.ptr.rhs.cast347 = ptrtoint ptr %add.ptr332 to i64
-  %46 = xor i64 %sub.ptr.rhs.cast347, -1
-  %sub = add i64 %sub.ptr.lhs.cast346, %46
-  %47 = and i64 %sub, 2147483648
-  %cmp350.not = icmp eq i64 %47, 0
+  %45 = xor i64 %sub.ptr.rhs.cast347, -1
+  %sub = add i64 %sub.ptr.lhs.cast346, %45
+  %46 = and i64 %sub, 2147483648
+  %cmp350.not = icmp eq i64 %46, 0
   br i1 %cmp350.not, label %lor.lhs.false352, label %if.then357
 
 lor.lhs.false352:                                 ; preds = %if.end345
   %arrayidx353 = getelementptr inbounds i8, ptr %p.addr.8, i64 -1
-  %48 = load i8, ptr %arrayidx353, align 1
-  %cmp355.not = icmp eq i8 %48, 58
+  %47 = load i8, ptr %arrayidx353, align 1
+  %cmp355.not = icmp eq i8 %47, 58
   br i1 %cmp355.not, label %if.end365, label %if.then357
 
 if.then357:                                       ; preds = %lor.lhs.false352, %if.end345
@@ -505,8 +505,8 @@ if.end365:                                        ; preds = %lor.lhs.false352
   ]
 
 land.lhs.true369:                                 ; preds = %if.end365
-  %49 = load i8, ptr %add.ptr332, align 1
-  switch i8 %49, label %return [
+  %48 = load i8, ptr %add.ptr332, align 1
+  switch i8 %48, label %return [
     i8 97, label %land.lhs.true374
     i8 98, label %land.lhs.true430
     i8 99, label %land.lhs.true454
@@ -527,9 +527,9 @@ if.then379:                                       ; preds = %land.lhs.true374
   br i1 %cmp703, label %land.lhs.true384, label %do.cond
 
 land.lhs.true384:                                 ; preds = %if.then379
-  %50 = load i8, ptr %arrayidx.i303, align 1
-  %51 = and i8 %50, 6
-  %cmp389.not = icmp eq i8 %51, 0
+  %49 = load i8, ptr %arrayidx.i303, align 1
+  %50 = and i8 %49, 6
+  %cmp389.not = icmp eq i8 %50, 0
   %spec.select212 = select i1 %cmp389.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -542,9 +542,9 @@ if.then407:                                       ; preds = %land.lhs.true402
   br i1 %cmp703, label %land.lhs.true412, label %do.cond
 
 land.lhs.true412:                                 ; preds = %if.then407
-  %52 = load i8, ptr %arrayidx.i303, align 1
-  %53 = and i8 %52, 4
-  %cmp417.not = icmp eq i8 %53, 0
+  %51 = load i8, ptr %arrayidx.i303, align 1
+  %52 = and i8 %51, 4
+  %cmp417.not = icmp eq i8 %52, 0
   %spec.select213 = select i1 %cmp417.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -571,9 +571,9 @@ if.then459:                                       ; preds = %land.lhs.true454
   br i1 %cmp703, label %land.lhs.true464, label %do.cond
 
 land.lhs.true464:                                 ; preds = %if.then459
-  %54 = load i8, ptr %arrayidx.i303, align 1
-  %55 = and i8 %54, 64
-  %cmp469.not = icmp eq i8 %55, 0
+  %53 = load i8, ptr %arrayidx.i303, align 1
+  %54 = and i8 %53, 64
+  %cmp469.not = icmp eq i8 %54, 0
   %spec.select214 = select i1 %cmp469.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -586,9 +586,9 @@ if.then487:                                       ; preds = %land.lhs.true482
   br i1 %cmp703, label %land.lhs.true492, label %do.cond
 
 land.lhs.true492:                                 ; preds = %if.then487
-  %56 = load i8, ptr %arrayidx.i303, align 1
-  %57 = and i8 %56, 2
-  %cmp497.not = icmp eq i8 %57, 0
+  %55 = load i8, ptr %arrayidx.i303, align 1
+  %56 = and i8 %55, 2
+  %cmp497.not = icmp eq i8 %56, 0
   %spec.select215 = select i1 %cmp497.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -601,9 +601,9 @@ if.then515:                                       ; preds = %land.lhs.true510
   br i1 %or.cond9, label %land.lhs.true528, label %do.cond
 
 land.lhs.true528:                                 ; preds = %if.then515
-  %58 = load i8, ptr %arrayidx.i303, align 1
-  %59 = and i8 %58, 1
-  %cmp533.not = icmp eq i8 %59, 0
+  %57 = load i8, ptr %arrayidx.i303, align 1
+  %58 = and i8 %57, 1
+  %cmp533.not = icmp eq i8 %58, 0
   %spec.select216 = select i1 %cmp533.not, i32 1, i32 %matched.0
   br label %do.cond
 
@@ -616,9 +616,9 @@ if.then551:                                       ; preds = %land.lhs.true546
   br i1 %cmp703, label %land.lhs.true556, label %do.cond
 
 land.lhs.true556:                                 ; preds = %if.then551
-  %60 = load i8, ptr %arrayidx.i303, align 1
-  %61 = and i8 %60, 4
-  %cmp.not.i295 = icmp eq i8 %61, 0
+  %59 = load i8, ptr %arrayidx.i303, align 1
+  %60 = and i8 %59, 4
+  %cmp.not.i295 = icmp eq i8 %60, 0
   %or.cond375 = or i1 %tobool669.not356.not, %cmp.not.i295
   %spec.select381 = select i1 %or.cond375, i32 %matched.0, i32 1
   br label %do.cond
@@ -641,9 +641,9 @@ if.then605:                                       ; preds = %land.lhs.true600
   br i1 %cmp703, label %land.lhs.true610, label %do.cond
 
 land.lhs.true610:                                 ; preds = %if.then605
-  %62 = load i8, ptr %arrayidx.i303, align 1
-  %63 = and i8 %62, -72
-  %cmp615.not = icmp eq i8 %63, 0
+  %61 = load i8, ptr %arrayidx.i303, align 1
+  %62 = and i8 %61, -72
+  %cmp615.not = icmp eq i8 %62, 0
   %spec.select219 = select i1 %cmp615.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -656,9 +656,9 @@ if.then633:                                       ; preds = %land.lhs.true628
   br i1 %cmp703, label %land.lhs.true638, label %do.cond
 
 land.lhs.true638:                                 ; preds = %if.then633
-  %64 = load i8, ptr %arrayidx.i303, align 1
-  %65 = and i8 %64, 1
-  %cmp643.not = icmp eq i8 %65, 0
+  %63 = load i8, ptr %arrayidx.i303, align 1
+  %64 = and i8 %63, 1
+  %cmp643.not = icmp eq i8 %64, 0
   %spec.select220 = select i1 %cmp643.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -671,9 +671,9 @@ if.then661:                                       ; preds = %land.lhs.true656
   br i1 %cmp703, label %land.lhs.true666, label %do.cond
 
 land.lhs.true666:                                 ; preds = %if.then661
-  %66 = load i8, ptr %arrayidx.i303, align 1
-  %67 = and i8 %66, 4
-  %cmp.not.i304 = icmp eq i8 %67, 0
+  %65 = load i8, ptr %arrayidx.i303, align 1
+  %66 = and i8 %65, 4
+  %cmp.not.i304 = icmp eq i8 %66, 0
   br i1 %cmp.not.i304, label %do.cond, label %sane_iscase.exit310.thread
 
 sane_iscase.exit310.thread:                       ; preds = %land.lhs.true666
@@ -682,8 +682,8 @@ sane_iscase.exit310.thread:                       ; preds = %land.lhs.true666
   br label %do.cond
 
 land.lhs.true690:                                 ; preds = %if.end365
-  %68 = load i8, ptr %add.ptr332, align 1
-  %cmp693 = icmp eq i8 %68, 120
+  %67 = load i8, ptr %add.ptr332, align 1
+  %cmp693 = icmp eq i8 %67, 120
   br i1 %cmp693, label %land.lhs.true695, label %return
 
 land.lhs.true695:                                 ; preds = %land.lhs.true690
@@ -695,8 +695,8 @@ if.then700:                                       ; preds = %land.lhs.true695
   br i1 %cmp703, label %land.lhs.true705, label %do.cond
 
 land.lhs.true705:                                 ; preds = %if.then700
-  %69 = load i8, ptr %arrayidx707, align 1
-  %cmp709.not = icmp eq i8 %69, -1
+  %68 = load i8, ptr %arrayidx707, align 1
+  %cmp709.not = icmp eq i8 %68, -1
   %spec.select227 = select i1 %cmp709.not, i32 %matched.0, i32 1
   br label %do.cond
 
@@ -710,8 +710,8 @@ do.cond:                                          ; preds = %if.end282, %land.lh
   %p_ch.6 = phi i8 [ %38, %if.end249 ], [ 0, %if.end282 ], [ 91, %if.then357 ], [ 0, %if.then379 ], [ 0, %if.then407 ], [ 0, %if.then443 ], [ 0, %if.then435 ], [ 0, %if.then459 ], [ 0, %if.then487 ], [ 0, %if.then515 ], [ 0, %if.then551 ], [ 0, %if.then605 ], [ 0, %if.then633 ], [ 0, %if.then700 ], [ 0, %land.lhs.true384 ], [ 0, %land.lhs.true412 ], [ 0, %land.lhs.true464 ], [ 0, %land.lhs.true492 ], [ 0, %land.lhs.true528 ], [ 0, %if.then576 ], [ 0, %land.lhs.true610 ], [ 0, %land.lhs.true638 ], [ 0, %land.lhs.true705 ], [ %p_ch.4, %if.else726 ], [ 0, %if.then305 ], [ 0, %if.then661 ], [ 0, %land.lhs.true301 ], [ 0, %sane_iscase.exit310.thread ], [ 0, %land.lhs.true556 ], [ 0, %land.lhs.true666 ]
   %p.addr.9 = phi ptr [ %incdec.ptr246, %if.end249 ], [ %p.addr.7, %if.end282 ], [ %p.addr.6, %if.then357 ], [ %p.addr.8, %if.then379 ], [ %p.addr.8, %if.then407 ], [ %p.addr.8, %if.then443 ], [ %p.addr.8, %if.then435 ], [ %p.addr.8, %if.then459 ], [ %p.addr.8, %if.then487 ], [ %p.addr.8, %if.then515 ], [ %p.addr.8, %if.then551 ], [ %p.addr.8, %if.then605 ], [ %p.addr.8, %if.then633 ], [ %p.addr.8, %if.then700 ], [ %p.addr.8, %land.lhs.true384 ], [ %p.addr.8, %land.lhs.true412 ], [ %p.addr.8, %land.lhs.true464 ], [ %p.addr.8, %land.lhs.true492 ], [ %p.addr.8, %land.lhs.true528 ], [ %p.addr.8, %if.then576 ], [ %p.addr.8, %land.lhs.true610 ], [ %p.addr.8, %land.lhs.true638 ], [ %p.addr.8, %land.lhs.true705 ], [ %p.addr.6, %if.else726 ], [ %p.addr.7, %if.then305 ], [ %p.addr.8, %if.then661 ], [ %p.addr.7, %land.lhs.true301 ], [ %p.addr.8, %sane_iscase.exit310.thread ], [ %p.addr.8, %land.lhs.true556 ], [ %p.addr.8, %land.lhs.true666 ]
   %incdec.ptr736 = getelementptr inbounds i8, ptr %p.addr.9, i64 1
-  %70 = load i8, ptr %incdec.ptr736, align 1
-  %cmp738.not = icmp eq i8 %70, 93
+  %69 = load i8, ptr %incdec.ptr736, align 1
+  %cmp738.not = icmp eq i8 %69, 93
   br i1 %cmp738.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %do.cond
@@ -726,14 +726,14 @@ for.inc751:                                       ; preds = %do.end, %if.then124
   %p.addr.2 = phi ptr [ %p.addr.1, %sw.default ], [ %p.addr.0404, %sw.bb44 ], [ %p.addr.4.ph, %if.then124 ], [ %incdec.ptr736, %do.end ]
   %incdec.ptr752 = getelementptr inbounds i8, ptr %text.addr.1, i64 1
   %incdec.ptr753 = getelementptr inbounds i8, ptr %p.addr.2, i64 1
-  %71 = load i8, ptr %incdec.ptr753, align 1
-  %cmp.not = icmp eq i8 %71, 0
+  %70 = load i8, ptr %incdec.ptr753, align 1
+  %cmp.not = icmp eq i8 %70, 0
   br i1 %cmp.not, label %for.end754, label %for.body, !llvm.loop !10
 
 for.end754:                                       ; preds = %for.inc751, %entry
   %text.addr.0.lcssa = phi ptr [ %text, %entry ], [ %incdec.ptr752, %for.inc751 ]
-  %72 = load i8, ptr %text.addr.0.lcssa, align 1
-  %tobool756.not = icmp ne i8 %72, 0
+  %71 = load i8, ptr %text.addr.0.lcssa, align 1
+  %tobool756.not = icmp ne i8 %71, 0
   %cond757 = zext i1 %tobool756.not to i32
   br label %return
 

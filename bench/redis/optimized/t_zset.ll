@@ -8564,6 +8564,7 @@ while.body.lr.ph:                                 ; preds = %if.then48
   %tobool54 = icmp ne i32 %cardinality_only, 0
   %or.cond = or i1 %cmp51, %tobool54
   %tobool140 = icmp ne ptr %dstkey, null
+  %invariant.op = or i1 %tobool140, %tobool54
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end182
@@ -8677,9 +8678,8 @@ if.end133:                                        ; preds = %if.else122, %if.els
 if.else136:                                       ; preds = %if.else89.thread, %land.lhs.true97, %if.else89
   %cmp95412 = phi i1 [ %cmp95410, %if.else89.thread ], [ true, %land.lhs.true97 ], [ false, %if.else89 ]
   %cmp137 = icmp slt i32 %remaining.0475, 1
-  %or.cond3 = or i1 %tobool140, %cmp137
-  %or.cond4 = or i1 %tobool54, %or.cond3
-  br i1 %or.cond4, label %if.else153, label %land.lhs.true143
+  %or.cond4.reass.reass.reass = or i1 %cmp137, %invariant.op
+  br i1 %or.cond4.reass.reass.reass, label %if.else153, label %land.lhs.true143
 
 land.lhs.true143:                                 ; preds = %if.else136
   %30 = load ptr, ptr %argv, align 8

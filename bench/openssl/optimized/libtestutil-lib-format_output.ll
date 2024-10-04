@@ -523,6 +523,7 @@ if.end73:                                         ; preds = %if.then70, %if.end6
 
 while.body.lr.ph:                                 ; preds = %if.end73
   %brmerge82 = or i1 %cmp, %cmp4
+  %invariant.op = or i1 %cmp, %cmp4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end186
@@ -626,9 +627,8 @@ lor.lhs.false170:                                 ; preds = %land.lhs.true167
   %cmp171 = icmp eq i32 %call80, 0
   %cmp174 = icmp eq i32 %call83, 0
   %or.cond7.not113 = select i1 %cmp171, i1 true, i1 %cmp174
-  %or.cond8.not112 = or i1 %cmp, %or.cond7.not113
-  %brmerge = or i1 %cmp4, %or.cond8.not112
-  br i1 %brmerge, label %if.end186, label %if.then182
+  %brmerge.reass.reass.reass = or i1 %or.cond7.not113, %invariant.op
+  br i1 %brmerge.reass.reass.reass, label %if.end186, label %if.then182
 
 land.lhs.true176:                                 ; preds = %land.lhs.true167
   br i1 %brmerge82, label %if.end186, label %if.then182

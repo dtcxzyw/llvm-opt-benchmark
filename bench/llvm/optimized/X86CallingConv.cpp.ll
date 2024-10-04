@@ -16994,6 +16994,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %18, %22
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 22
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %invariant.op = or disjoint i8 %37, 1
   br label %41
 
 41:                                               ; preds = %.preheader, %_ZN4llvm7CCState11AllocateRegEt.exit
@@ -17026,27 +17027,26 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %41, %55
   store i32 %.0.val, ptr %33, align 8, !alias.scope !660
   %57 = load i8, ptr %34, align 4, !alias.scope !660
   %58 = and i8 %57, -128
-  %59 = or disjoint i8 %37, %58
-  %60 = or disjoint i8 %59, 1
-  store i8 %60, ptr %34, align 4, !alias.scope !660
+  %.reass = or disjoint i8 %58, %invariant.op
+  store i8 %.reass, ptr %34, align 4, !alias.scope !660
   store i16 %.0.val1, ptr %38, align 2, !alias.scope !660
   store i16 %.sroa.0.0.copyload, ptr %39, align 8, !alias.scope !660
   store i32 %.sroa.03.0.i, ptr %4, align 8, !alias.scope !660
-  %61 = load ptr, ptr %40, align 8
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(26) %4)
+  %59 = load ptr, ptr %40, align 8
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(26) %4)
   br i1 %42, label %41, label %.loopexit, !llvm.loop !665
 
 .loopexit:                                        ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit, %29
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
-  %63 = load ptr, ptr %3, align 8
-  %64 = icmp eq ptr %63, %5
-  br i1 %64, label %_ZN4llvm11SmallVectorIjLj5EED2Ev.exit, label %65
+  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  %61 = load ptr, ptr %3, align 8
+  %62 = icmp eq ptr %61, %5
+  br i1 %62, label %_ZN4llvm11SmallVectorIjLj5EED2Ev.exit, label %63
 
-65:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %63) #8
+63:                                               ; preds = %.loopexit
+  call void @free(ptr noundef %61) #8
   br label %_ZN4llvm11SmallVectorIjLj5EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj5EED2Ev.exit:            ; preds = %.loopexit, %65
+_ZN4llvm11SmallVectorIjLj5EED2Ev.exit:            ; preds = %.loopexit, %63
   ret i1 %31
 }
 

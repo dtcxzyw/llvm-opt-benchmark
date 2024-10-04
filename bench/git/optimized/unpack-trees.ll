@@ -6816,8 +6816,10 @@ if.then16:                                        ; preds = %entry_is_new_sparse
 
 if.end17:                                         ; preds = %entry, %if.then16, %land.lhs.true13
   %conflicts.0 = phi i64 [ 0, %if.then16 ], [ %or, %land.lhs.true13 ], [ %or, %entry ]
-  %cmp1873 = icmp sgt i32 %n, 0
-  br i1 %cmp1873, label %for.body.lr.ph, label %for.end.thread
+  %invariant.op = and i64 %conflicts.0, 4294967295
+  %invariant.op73 = and i64 %mask, 4294967295
+  %cmp1874 = icmp sgt i32 %n, 0
+  br i1 %cmp1874, label %for.body.lr.ph, label %for.end.thread
 
 for.body.lr.ph:                                   ; preds = %if.end17
   %df_conflict_entry = getelementptr inbounds i8, ptr %0, i64 112
@@ -6829,9 +6831,8 @@ for.body.lr.ph:                                   ; preds = %if.end17
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %shl = shl nuw i64 1, %indvars.iv
-  %conv19 = and i64 %shl, 4294967295
-  %and = and i64 %conv19, %conflicts.0
-  %tobool20.not = icmp eq i64 %and, 0
+  %and.reass = and i64 %shl, %invariant.op
+  %tobool20.not = icmp eq i64 %and.reass, 0
   br i1 %tobool20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %for.body
@@ -6839,8 +6840,8 @@ if.then21:                                        ; preds = %for.body
   br label %for.inc.sink.split
 
 if.end23:                                         ; preds = %for.body
-  %and25 = and i64 %conv19, %mask
-  %tobool26.not = icmp eq i64 %and25, 0
+  %and25.reass = and i64 %shl, %invariant.op73
+  %tobool26.not = icmp eq i64 %and25.reass, 0
   br i1 %tobool26.not, label %for.inc, label %if.end28
 
 if.end28:                                         ; preds = %if.end23
@@ -6890,13 +6891,13 @@ for.end:                                          ; preds = %for.inc
 
 for.end.thread:                                   ; preds = %if.end17
   %37 = load i32, ptr %0, align 8
-  %tobool56.not90 = icmp eq i32 %37, 0
-  br i1 %tobool56.not90, label %return, label %if.then57
+  %tobool56.not91 = icmp eq i32 %37, 0
+  br i1 %tobool56.not91, label %return, label %if.then57
 
 for.body79.lr.ph:                                 ; preds = %for.end
   %df_conflict_entry86 = getelementptr inbounds i8, ptr %0, i64 112
   %result.i = getelementptr inbounds i8, ptr %0, i64 848
-  %wide.trip.count88 = zext nneg i32 %n to i64
+  %wide.trip.count89 = zext nneg i32 %n to i64
   br label %for.body79
 
 if.then57:                                        ; preds = %for.end.thread, %for.end
@@ -6904,16 +6905,16 @@ if.then57:                                        ; preds = %for.end.thread, %fo
   %38 = load ptr, ptr %fn.i, align 8
   %call.i61 = call i32 %38(ptr noundef nonnull %src, ptr noundef nonnull %0) #17
   %spec.store.select.i = call range(i32 -2147483648, 1) i32 @llvm.smin.i32(i32 %call.i61, i32 0)
-  br i1 %cmp1873, label %for.body62.lr.ph, label %return
+  br i1 %cmp1874, label %for.body62.lr.ph, label %return
 
 for.body62.lr.ph:                                 ; preds = %if.then57
   %df_conflict_entry67 = getelementptr inbounds i8, ptr %0, i64 112
   br label %for.body62
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %for.inc72
-  %i.177 = phi i32 [ 0, %for.body62.lr.ph ], [ %inc73, %for.inc72 ]
+  %i.178 = phi i32 [ 0, %for.body62.lr.ph ], [ %inc73, %for.inc72 ]
   %39 = load i32, ptr %0, align 8
-  %add64 = add i32 %39, %i.177
+  %add64 = add i32 %39, %i.178
   %idxprom65 = zext i32 %add64 to i64
   %arrayidx66 = getelementptr inbounds ptr, ptr %src, i64 %idxprom65
   %40 = load ptr, ptr %arrayidx66, align 8
@@ -6926,13 +6927,13 @@ if.then70:                                        ; preds = %for.body62
   br label %for.inc72
 
 for.inc72:                                        ; preds = %for.body62, %if.then70
-  %inc73 = add nuw nsw i32 %i.177, 1
-  %exitcond84.not = icmp eq i32 %inc73, %n
-  br i1 %exitcond84.not, label %return, label %for.body62, !llvm.loop !49
+  %inc73 = add nuw nsw i32 %i.178, 1
+  %exitcond85.not = icmp eq i32 %inc73, %n
+  br i1 %exitcond85.not, label %return, label %for.body62, !llvm.loop !49
 
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc97
-  %indvars.iv85 = phi i64 [ 0, %for.body79.lr.ph ], [ %indvars.iv.next86, %for.inc97 ]
-  %arrayidx81 = getelementptr inbounds ptr, ptr %src, i64 %indvars.iv85
+  %indvars.iv86 = phi i64 [ 0, %for.body79.lr.ph ], [ %indvars.iv.next87, %for.inc97 ]
+  %arrayidx81 = getelementptr inbounds ptr, ptr %src, i64 %indvars.iv86
   %42 = load ptr, ptr %arrayidx81, align 8
   %tobool82.not = icmp eq ptr %42, null
   br i1 %tobool82.not, label %for.inc97, label %land.lhs.true83
@@ -6952,9 +6953,9 @@ if.then89:                                        ; preds = %land.lhs.true83
   br i1 %tobool93.not, label %for.inc97, label %return
 
 for.inc97:                                        ; preds = %for.body79, %land.lhs.true83, %if.then89
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %return, label %for.body79, !llvm.loop !50
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
+  br i1 %exitcond90.not, label %return, label %for.body79, !llvm.loop !50
 
 return.sink.split:                                ; preds = %while.end, %entry_is_new_sparse_dir.exit.thread65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dirpath.i)

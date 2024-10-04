@@ -1286,6 +1286,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
 56:                                               ; preds = %.loopexit5
   %57 = shl i32 %3, 16
   %invariant.op7 = or disjoint i32 %23, 136
+  %invariant.op14 = or disjoint i32 %57, 39424
   br label %71
 
 58:                                               ; preds = %58, %53
@@ -1303,59 +1304,58 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
   br i1 %67, label %58, label %.loopexit5, !llvm.loop !49
 
 .loopexit4:                                       ; preds = %71
-  %68 = icmp eq i8 %79, 0
+  %68 = icmp eq i8 %77, 0
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %.loopexit4
   %70 = select i1 %4, i32 134217728, i32 0
   %invariant.op9 = or disjoint i32 %23, 140
-  br label %82
+  br label %80
 
 71:                                               ; preds = %71, %56
-  %72 = phi i32 [ 0, %56 ], [ %78, %71 ]
+  %72 = phi i32 [ 0, %56 ], [ %76, %71 ]
   %73 = shl nuw nsw i32 %72, 9
   %.reass8 = add nuw nsw i32 %73, %invariant.op7
   %74 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %.reass8) #6
   %75 = and i32 %74, -16776961
-  %76 = or i32 %57, %75
-  %77 = or disjoint i32 %76, 39424
-  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %.reass8, i32 noundef %77) #6
-  %78 = add nuw nsw i32 %72, 1
-  %79 = load i8, ptr %34, align 1
-  %80 = zext i8 %79 to i32
-  %81 = icmp ult i32 %78, %80
-  br i1 %81, label %71, label %.loopexit4, !llvm.loop !50
+  %.reass15 = or i32 %75, %invariant.op14
+  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %.reass8, i32 noundef %.reass15) #6
+  %76 = add nuw nsw i32 %72, 1
+  %77 = load i8, ptr %34, align 1
+  %78 = zext i8 %77 to i32
+  %79 = icmp ult i32 %76, %78
+  br i1 %79, label %71, label %.loopexit4, !llvm.loop !50
 
-82:                                               ; preds = %82, %69
-  %83 = phi i32 [ 0, %69 ], [ %88, %82 ]
-  %84 = shl nuw nsw i32 %83, 9
-  %.reass10 = add nuw nsw i32 %84, %invariant.op9
-  %85 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %.reass10) #6
-  %86 = and i32 %85, -134217729
-  %87 = or disjoint i32 %86, %70
-  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %.reass10, i32 noundef %87) #6
-  %88 = add nuw nsw i32 %83, 1
-  %89 = load i8, ptr %34, align 1
-  %90 = zext i8 %89 to i32
-  %91 = icmp ult i32 %88, %90
-  br i1 %91, label %82, label %.loopexit, !llvm.loop !51
+80:                                               ; preds = %80, %69
+  %81 = phi i32 [ 0, %69 ], [ %86, %80 ]
+  %82 = shl nuw nsw i32 %81, 9
+  %.reass10 = add nuw nsw i32 %82, %invariant.op9
+  %83 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %.reass10) #6
+  %84 = and i32 %83, -134217729
+  %85 = or disjoint i32 %84, %70
+  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %.reass10, i32 noundef %85) #6
+  %86 = add nuw nsw i32 %81, 1
+  %87 = load i8, ptr %34, align 1
+  %88 = zext i8 %87 to i32
+  %89 = icmp ult i32 %86, %88
+  br i1 %89, label %80, label %.loopexit, !llvm.loop !51
 
-.loopexit:                                        ; preds = %82, %51, %.loopexit5, %.loopexit4
-  %92 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %31) #6
-  %93 = or i32 %92, -1073741824
-  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %31, i32 noundef %93) #6
-  %94 = load i8, ptr %34, align 1
-  %95 = icmp ugt i8 %94, 2
-  br i1 %95, label %96, label %100
+.loopexit:                                        ; preds = %80, %51, %.loopexit5, %.loopexit4
+  %90 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %31) #6
+  %91 = or i32 %90, -1073741824
+  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %31, i32 noundef %91) #6
+  %92 = load i8, ptr %34, align 1
+  %93 = icmp ugt i8 %92, 2
+  br i1 %93, label %94, label %98
 
-96:                                               ; preds = %.loopexit
-  %97 = add nuw nsw i32 %23, 1064
-  %98 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %97) #6
-  %99 = or i32 %98, -1073741824
-  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %97, i32 noundef %99) #6
-  br label %100
+94:                                               ; preds = %.loopexit
+  %95 = add nuw nsw i32 %23, 1064
+  %96 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %95) #6
+  %97 = or i32 %96, -1073741824
+  tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %95, i32 noundef %97) #6
+  br label %98
 
-100:                                              ; preds = %96, %.loopexit
+98:                                               ; preds = %94, %.loopexit
   tail call void @vlv_iosf_sb_put(ptr noundef %6, i64 noundef 8) #6
   ret void
 }

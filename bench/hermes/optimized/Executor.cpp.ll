@@ -3353,6 +3353,7 @@ if.then:                                          ; preds = %entry
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp5, i64 2
   store i8 4, ptr %arrayinit.element6, align 1
   %bf.lshr10 = lshr i8 %bf.load, 1
+  %invariant.op = and i8 %bf.lshr10, 7
   %1 = and i32 %ch, -33
   %2 = add i32 %1, -65
   %or.cond13.i = icmp ult i32 %2, 26
@@ -3371,9 +3372,8 @@ for.body:                                         ; preds = %if.then, %for.inc
   %__begin3.0.idx42 = phi i64 [ 0, %if.then ], [ %__begin3.0.add, %for.inc ]
   %__begin3.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin3.0.idx42
   %6 = load i8, ptr %__begin3.0.ptr, align 1
-  %bf.clear11 = and i8 %6, 7
-  %and18 = and i8 %bf.clear11, %bf.lshr10
-  %tobool13.not = icmp eq i8 %and18, 0
+  %and18.reass = and i8 %6, %invariant.op
+  %tobool13.not = icmp eq i8 %and18.reass, 0
   br i1 %tobool13.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -6353,6 +6353,7 @@ if.then:                                          ; preds = %entry
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp5, i64 2
   store i8 4, ptr %arrayinit.element6, align 1
   %bf.lshr10 = lshr i8 %bf.load, 1
+  %invariant.op = and i8 %bf.lshr10, 7
   %1 = and i8 %ch, -33
   %2 = add i8 %1, -65
   %or.cond12.i = icmp ult i8 %2, 26
@@ -6369,9 +6370,8 @@ for.body.us:                                      ; preds = %if.then, %for.inc.u
   %__begin3.0.idx39.us = phi i64 [ %__begin3.0.add.us, %for.inc.us ], [ 0, %if.then ]
   %__begin3.0.ptr.us = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin3.0.idx39.us
   %5 = load i8, ptr %__begin3.0.ptr.us, align 1
-  %bf.clear11.us = and i8 %5, 7
-  %and18.us = and i8 %bf.clear11.us, %bf.lshr10
-  %tobool13.not.us = icmp eq i8 %and18.us, 0
+  %and18.reass.us = and i8 %5, %invariant.op
+  %tobool13.not.us = icmp eq i8 %and18.reass.us, 0
   br i1 %tobool13.not.us, label %if.end.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %for.body.us
@@ -6437,40 +6437,39 @@ if.then.split:                                    ; preds = %if.then
 for.body.us40.preheader:                          ; preds = %if.then.split, %if.then.split, %if.then.split, %if.then.split, %if.then.split, %if.then.split
   br label %for.body.us40
 
-for.body.us40:                                    ; preds = %for.body.us40.preheader, %for.inc.us57
-  %__begin3.0.idx39.us41 = phi i64 [ %__begin3.0.add.us58, %for.inc.us57 ], [ 0, %for.body.us40.preheader ]
+for.body.us40:                                    ; preds = %for.body.us40.preheader, %for.inc.us56
+  %__begin3.0.idx39.us41 = phi i64 [ %__begin3.0.add.us57, %for.inc.us56 ], [ 0, %for.body.us40.preheader ]
   %__begin3.0.ptr.us42 = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin3.0.idx39.us41
   %6 = load i8, ptr %__begin3.0.ptr.us42, align 1
-  %bf.clear11.us43 = and i8 %6, 7
-  %and18.us44 = and i8 %bf.clear11.us43, %bf.lshr10
-  %tobool13.not.us45 = icmp ne i8 %and18.us44, 0
+  %and18.reass.us43 = and i8 %6, %invariant.op
+  %tobool13.not.us44 = icmp ne i8 %and18.reass.us43, 0
   %switch = icmp eq i8 %6, 2
-  %or.cond124 = and i1 %tobool13.not.us45, %switch
-  br i1 %or.cond124, label %if.then15, label %if.end.us50
+  %or.cond121 = and i1 %tobool13.not.us44, %switch
+  br i1 %or.cond121, label %if.then15, label %if.end.us49
 
-if.end.us50:                                      ; preds = %for.body.us40
-  %and2619.us51 = and i8 %bf.clear23, %6
-  %tobool27.not.us52 = icmp eq i8 %and2619.us51, 0
-  br i1 %tobool27.not.us52, label %for.inc.us57, label %land.lhs.true28.us53
+if.end.us49:                                      ; preds = %for.body.us40
+  %and2619.us50 = and i8 %bf.clear23, %6
+  %tobool27.not.us51 = icmp eq i8 %and2619.us50, 0
+  br i1 %tobool27.not.us51, label %for.inc.us56, label %land.lhs.true28.us52
 
-land.lhs.true28.us53:                             ; preds = %if.end.us50
-  %switch126 = icmp eq i8 %6, 2
-  br i1 %switch126, label %sw.bb5.i27.us55, label %if.then30
+land.lhs.true28.us52:                             ; preds = %if.end.us49
+  %switch123 = icmp eq i8 %6, 2
+  br i1 %switch123, label %sw.bb5.i27.us54, label %if.then30
 
-sw.bb5.i27.us55:                                  ; preds = %land.lhs.true28.us53
+sw.bb5.i27.us54:                                  ; preds = %land.lhs.true28.us52
   switch i8 %ch, label %if.then30 [
-    i8 32, label %for.inc.us57
-    i8 9, label %for.inc.us57
-    i8 13, label %for.inc.us57
-    i8 10, label %for.inc.us57
-    i8 11, label %for.inc.us57
-    i8 12, label %for.inc.us57
+    i8 32, label %for.inc.us56
+    i8 9, label %for.inc.us56
+    i8 13, label %for.inc.us56
+    i8 10, label %for.inc.us56
+    i8 11, label %for.inc.us56
+    i8 12, label %for.inc.us56
   ]
 
-for.inc.us57:                                     ; preds = %sw.bb5.i27.us55, %sw.bb5.i27.us55, %sw.bb5.i27.us55, %sw.bb5.i27.us55, %sw.bb5.i27.us55, %sw.bb5.i27.us55, %if.end.us50
-  %__begin3.0.add.us58 = add nuw nsw i64 %__begin3.0.idx39.us41, 1
-  %cmp.not.us59 = icmp eq i64 %__begin3.0.add.us58, 3
-  br i1 %cmp.not.us59, label %if.end38, label %for.body.us40
+for.inc.us56:                                     ; preds = %sw.bb5.i27.us54, %sw.bb5.i27.us54, %sw.bb5.i27.us54, %sw.bb5.i27.us54, %sw.bb5.i27.us54, %sw.bb5.i27.us54, %if.end.us49
+  %__begin3.0.add.us57 = add nuw nsw i64 %__begin3.0.idx39.us41, 1
+  %cmp.not.us58 = icmp eq i64 %__begin3.0.add.us57, 3
+  br i1 %cmp.not.us58, label %if.end38, label %for.body.us40
 
 for.body:                                         ; preds = %if.then.split, %for.inc
   %__begin3.0.idx39 = phi i64 [ %__begin3.0.add, %for.inc ], [ 0, %if.then.split ]
@@ -6489,8 +6488,8 @@ if.then15:                                        ; preds = %for.body.us40, %lan
   br label %return
 
 land.lhs.true28:                                  ; preds = %for.body
-  %switch128 = icmp eq i8 %7, 2
-  br i1 %switch128, label %sw.bb5.i27, label %if.then30
+  %switch125 = icmp eq i8 %7, 2
+  br i1 %switch125, label %sw.bb5.i27, label %if.then30
 
 sw.bb5.i27:                                       ; preds = %land.lhs.true28
   switch i8 %ch, label %if.then30 [
@@ -6505,7 +6504,7 @@ sw.bb5.i27:                                       ; preds = %land.lhs.true28
 sw.epilog.i30:                                    ; preds = %land.lhs.true28.us
   unreachable
 
-if.then30:                                        ; preds = %land.lhs.true28.us53, %sw.bb5.i27.us55, %land.lhs.true28, %sw.bb5.i27, %sw.bb5.i27.us, %sw.bb.i29.us
+if.then30:                                        ; preds = %land.lhs.true28.us52, %sw.bb5.i27.us54, %land.lhs.true28, %sw.bb5.i27, %sw.bb5.i27.us, %sw.bb.i29.us
   %bf.clear33 = and i8 %bf.load, 1
   %tobool36 = icmp eq i8 %bf.clear33, 0
   br label %return
@@ -6515,7 +6514,7 @@ for.inc:                                          ; preds = %sw.bb5.i27, %sw.bb5
   %cmp.not = icmp eq i64 %__begin3.0.add, 3
   br i1 %cmp.not, label %if.end38, label %for.body
 
-if.end38:                                         ; preds = %for.inc.us57, %for.inc, %for.inc.us, %entry
+if.end38:                                         ; preds = %for.inc.us56, %for.inc, %for.inc.us, %entry
   %rangeCount = getelementptr inbounds i8, ptr %insn, i64 1
   %8 = load i32, ptr %rangeCount, align 1
   %conv39 = zext i32 %8 to i64

@@ -3324,11 +3324,12 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
   %55 = or disjoint i16 %28, 512
   %56 = and i16 %29, -17305
   %wide.trip.count = zext i16 %13 to i64
+  %invariant.op = or disjoint i16 %56, 16
   br label %57
 
 57:                                               ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
-  %.030 = phi i16 [ %53, %.lr.ph ], [ %86, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
+  %.030 = phi i16 [ %53, %.lr.ph ], [ %84, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
   %58 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %21, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1
   %60 = and i8 %59, 1
@@ -3346,42 +3347,41 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
   %.sroa.0.1.i18 = select i1 %.not.i.i17, i16 %29, i16 %55
   %65 = and i16 %.sroa.0.1.i18, -16793
   %66 = or disjoint i16 %65, 16384
-  br label %71
+  br label %69
 
 67:                                               ; preds = %61
   %.not16.i21 = icmp ult i8 %59, 64
   %68 = select i1 %.not16.i21, i16 8, i16 0
-  %69 = or disjoint i16 %56, %68
-  %70 = or disjoint i16 %69, 16
-  br label %71
+  %.reass = or disjoint i16 %68, %invariant.op
+  br label %69
 
-71:                                               ; preds = %67, %63
-  %.sroa.0.2.i19 = phi i16 [ %66, %63 ], [ %70, %67 ]
-  %72 = lshr i8 %59, 7
-  %73 = zext nneg i8 %72 to i16
-  %74 = shl nuw i16 %73, 15
-  %75 = and i16 %.sroa.0.2.i19, 24568
-  %76 = and i8 %59, 2
-  %77 = zext nneg i8 %76 to i16
-  %78 = or disjoint i16 %74, %77
-  %79 = or disjoint i16 %75, %78
-  %80 = lshr i8 %59, 2
-  %81 = zext nneg i8 %80 to i16
-  %82 = or i16 %.sroa.0.2.i19, %81
-  %83 = and i16 %82, 1
-  %84 = or disjoint i16 %79, %83
-  %85 = or disjoint i16 %84, 8196
+69:                                               ; preds = %67, %63
+  %.sroa.0.2.i19 = phi i16 [ %66, %63 ], [ %.reass, %67 ]
+  %70 = lshr i8 %59, 7
+  %71 = zext nneg i8 %70 to i16
+  %72 = shl nuw i16 %71, 15
+  %73 = and i16 %.sroa.0.2.i19, 24568
+  %74 = and i8 %59, 2
+  %75 = zext nneg i8 %74 to i16
+  %76 = or disjoint i16 %72, %75
+  %77 = or disjoint i16 %73, %76
+  %78 = lshr i8 %59, 2
+  %79 = zext nneg i8 %78 to i16
+  %80 = or i16 %.sroa.0.2.i19, %79
+  %81 = and i16 %80, 1
+  %82 = or disjoint i16 %77, %81
+  %83 = or disjoint i16 %82, 8196
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22
 
-_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22: ; preds = %57, %71
-  %.sroa.0.0.i20 = phi i16 [ %85, %71 ], [ %.sroa.06.0.copyload, %57 ]
-  %86 = or i16 %.sroa.0.0.i20, %.030
+_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22: ; preds = %57, %69
+  %.sroa.0.0.i20 = phi i16 [ %83, %69 ], [ %.sroa.06.0.copyload, %57 ]
+  %84 = or i16 %.sroa.0.0.i20, %.030
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit, %3
-  %.sroa.028.0 = phi i16 [ %.sroa.06.0.copyload, %3 ], [ %53, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit ], [ %86, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
+  %.sroa.028.0 = phi i16 [ %.sroa.06.0.copyload, %3 ], [ %53, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit ], [ %84, %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit22 ]
   ret i16 %.sroa.028.0
 }
 

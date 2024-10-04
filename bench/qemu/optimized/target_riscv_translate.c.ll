@@ -88568,11 +88568,15 @@ for.body.lr.ph.i:                                 ; preds = %land.end.i
   %conv4.i.i = ashr exact i32 %sext4.i, 24
   %add5.i.i = add i8 %conv71.i, %conv37.i
   %add21.i.i = add nsw i32 %conv4.i.i, %conv1.i.i
-  br i1 %cmp17.i, label %for.body.us.i, label %for.body.lr.ph.split.i
+  br i1 %cmp17.i, label %for.body.us.i.preheader, label %for.body.lr.ph.split.i
 
-for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
-  %ret.07.us.i = phi i8 [ %ret.2.us.i, %for.inc.us.i ], [ %frombool.i, %for.body.lr.ph.i ]
-  %i.06.us.i = phi i32 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
+for.body.us.i.preheader:                          ; preds = %for.body.lr.ph.i
+  %invariant.op = and i1 %cmp16.i52.i.fr, %cmp23.i66.i
+  br label %for.body.us.i
+
+for.body.us.i:                                    ; preds = %for.body.us.i.preheader, %for.inc.us.i
+  %ret.07.us.i = phi i8 [ %ret.2.us.i, %for.inc.us.i ], [ %frombool.i, %for.body.us.i.preheader ]
+  %i.06.us.i = phi i32 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.us.i.preheader ]
   %mul36.us.i = shl i32 %i.06.us.i, %cond.i
   %add12.us.i = add i32 %mul36.us.i, %2
   %conv13.us.i = trunc i32 %add12.us.i to i8
@@ -88583,15 +88587,14 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
 
 if.then22.us.i:                                   ; preds = %for.body.us.i
   %cmp20.i.us.i = icmp slt i8 %conv13.us.i, %conv37.i
-  %or.cond.i41.us.i = and i1 %cmp23.i66.i, %cmp20.i.us.i
-  %or.cond.i = and i1 %cmp16.i52.i.fr, %or.cond.i41.us.i
+  %or.cond.reass.i.reass.reass.reass = and i1 %cmp20.i.us.i, %invariant.op
   %add.i.i42.us.i = add i8 %conv3.i47.i, %conv13.us.i
   %18 = tail call i8 @llvm.smax.i8(i8 %add.i.i42.us.i, i8 %add5.i.i72.i)
   %cond.i.i43.us.i = sext i8 %18 to i32
   %sub.i.i.us.i = sub nsw i32 %cond.i.i43.us.i, %conv19.us.i
   %cmp22.i.i.us.i = icmp slt i32 %sub.i.i.us.i, %add21.i.i76.i
-  %or.cond64.i = select i1 %or.cond.i, i1 %cmp22.i.i.us.i, i1 false
-  br i1 %or.cond64.i, label %land.lhs.true27.i.us.i, label %if.end33.i.us.i
+  %or.cond.i = select i1 %or.cond.reass.i.reass.reass.reass, i1 %cmp22.i.i.us.i, i1 false
+  br i1 %or.cond.i, label %land.lhs.true27.i.us.i, label %if.end33.i.us.i
 
 land.lhs.true27.i.us.i:                           ; preds = %if.then22.us.i
   %19 = tail call i8 @llvm.smax.i8(i8 %add.i.i42.us.i, i8 %add5.i22.i79.i)

@@ -647,6 +647,7 @@ if.end39:                                         ; preds = %if.else29, %if.end2
   %4 = sext i32 %dy to i64
   %5 = zext nneg i32 %mul to i64
   %6 = sext i32 %dx to i64
+  %invariant.op = or disjoint i16 %bf.shl.i, %bf.value18.i
   br label %for.body
 
 for.body:                                         ; preds = %if.end39, %if.end124
@@ -725,8 +726,7 @@ if.then.i:                                        ; preds = %if.then96
 
 if.else.i:                                        ; preds = %if.then96
   %bf.value.i = and i16 %16, 4095
-  %bf.set14.i = or disjoint i16 %bf.shl.i, %bf.value.i
-  %bf.set21.i = or disjoint i16 %bf.set14.i, %bf.value18.i
+  %bf.set21.i.reass = or disjoint i16 %bf.value.i, %invariant.op
   %adjacency_storage.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4100
   %adjacent_clump_list_index.i = getelementptr inbounds i8, ptr %arrayidx31.i, i64 6
   %21 = load i8, ptr %adjacent_clump_list_index.i, align 2
@@ -736,7 +736,7 @@ if.else.i:                                        ; preds = %if.then96
   store i8 %inc.i, ptr %num_adjacent.i, align 4
   %idxprom43.i = zext i8 %19 to i64
   %arrayidx44.i = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx41.i, i64 %idxprom43.i
-  store i16 %bf.set21.i, ptr %arrayidx44.i, align 2
+  store i16 %bf.set21.i.reass, ptr %arrayidx44.i, align 2
   br label %stbcc__add_clump_connection.exit
 
 stbcc__add_clump_connection.exit:                 ; preds = %if.then.i, %if.else.i

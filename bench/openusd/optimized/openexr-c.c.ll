@@ -51537,16 +51537,17 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noun
   %126 = shl nuw nsw i32 1, %.0158
   %127 = add nsw i32 %126, -1
   %invariant.op = add nuw nsw i32 %.0158, 1
+  %invariant.op304 = or disjoint i32 %.0158, 49152
   br label %.loopexit206.outer
 
 .loopexit206.outer:                               ; preds = %.lr.ph255, %._crit_edge238
-  %.2186.ph = phi i32 [ %.0184.lcssa, %._crit_edge238 ], [ %171, %.lr.ph255 ]
-  %.6.ph = phi i32 [ %.3181.lcssa, %._crit_edge238 ], [ %174, %.lr.ph255 ]
-  %.2176.ph = phi i32 [ %.0174.lcssa, %._crit_edge238 ], [ %177, %.lr.ph255 ]
+  %.2186.ph = phi i32 [ %.0184.lcssa, %._crit_edge238 ], [ %169, %.lr.ph255 ]
+  %.6.ph = phi i32 [ %.3181.lcssa, %._crit_edge238 ], [ %172, %.lr.ph255 ]
+  %.2176.ph = phi i32 [ %.0174.lcssa, %._crit_edge238 ], [ %175, %.lr.ph255 ]
   %.4.ph = phi i32 [ %126, %._crit_edge238 ], [ %.5, %.lr.ph255 ]
   %.0167.ph = phi i32 [ -1, %._crit_edge238 ], [ %.1168, %.lr.ph255 ]
   %.0165.ph = phi i32 [ 0, %._crit_edge238 ], [ %.1166, %.lr.ph255 ]
-  %.2.ph = phi ptr [ %.0161.lcssa, %._crit_edge238 ], [ %164, %.lr.ph255 ]
+  %.2.ph = phi ptr [ %.0161.lcssa, %._crit_edge238 ], [ %162, %.lr.ph255 ]
   %.pre = sub i32 %.6.ph, %.0158
   %.pre288 = shl nuw i32 1, %.pre
   %128 = mul i32 %.pre, 257
@@ -51554,13 +51555,13 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noun
   %129 = xor i32 %notmask, -1
   br label %.loopexit206
 
-.loopexit206:                                     ; preds = %.loopexit206.outer, %163
-  %.2186 = phi i32 [ %171, %163 ], [ %.2186.ph, %.loopexit206.outer ]
-  %.2176 = phi i32 [ %172, %163 ], [ %.2176.ph, %.loopexit206.outer ]
-  %.4 = phi i32 [ %.5, %163 ], [ %.4.ph, %.loopexit206.outer ]
-  %.0167 = phi i32 [ %.1168, %163 ], [ %.0167.ph, %.loopexit206.outer ]
-  %.0165 = phi i32 [ %.1166, %163 ], [ %.0165.ph, %.loopexit206.outer ]
-  %.2 = phi ptr [ %164, %163 ], [ %.2.ph, %.loopexit206.outer ]
+.loopexit206:                                     ; preds = %.loopexit206.outer, %161
+  %.2186 = phi i32 [ %169, %161 ], [ %.2186.ph, %.loopexit206.outer ]
+  %.2176 = phi i32 [ %170, %161 ], [ %.2176.ph, %.loopexit206.outer ]
+  %.4 = phi i32 [ %.5, %161 ], [ %.4.ph, %.loopexit206.outer ]
+  %.0167 = phi i32 [ %.1168, %161 ], [ %.0167.ph, %.loopexit206.outer ]
+  %.0165 = phi i32 [ %.1166, %161 ], [ %.0165.ph, %.loopexit206.outer ]
+  %.2 = phi ptr [ %162, %161 ], [ %.2.ph, %.loopexit206.outer ]
   %130 = and i32 %.2186, %127
   %.not203 = icmp eq i32 %130, %.0167
   br i1 %.not203, label %._crit_edge287, label %131
@@ -51590,63 +51591,62 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noun
   %142 = shl i32 %.4, 16
   %143 = shl i32 %.0164.lcssa, 8
   %144 = or i32 %142, %143
-  %145 = or disjoint i32 %144, %.0158
-  %146 = or i32 %145, 49152
-  %147 = zext nneg i32 %130 to i64
-  %148 = getelementptr inbounds i32, ptr %0, i64 %147
-  store i32 %146, ptr %148, align 4
+  %.reass305 = or i32 %144, %invariant.op304
+  %145 = zext nneg i32 %130 to i64
+  %146 = getelementptr inbounds i32, ptr %0, i64 %145
+  store i32 %.reass305, ptr %146, align 4
   br label %._crit_edge287
 
 ._crit_edge287:                                   ; preds = %.loopexit206, %._crit_edge250
   %.5 = phi i32 [ %141, %._crit_edge250 ], [ %.4, %.loopexit206 ]
   %.1168 = phi i32 [ %130, %._crit_edge250 ], [ %.0167, %.loopexit206 ]
   %.1166 = phi i32 [ %.4, %._crit_edge250 ], [ %.0165, %.loopexit206 ]
-  %149 = load i16, ptr %.2, align 2
-  %150 = zext i16 %149 to i64
-  %151 = getelementptr inbounds i32, ptr %3, i64 %150
-  %152 = load i32, ptr %151, align 4
-  %153 = add i32 %128, %152
-  %154 = lshr i32 %.2186, %.0158
-  %155 = add i32 %.1166, %154
-  br label %156
+  %147 = load i16, ptr %.2, align 2
+  %148 = zext i16 %147 to i64
+  %149 = getelementptr inbounds i32, ptr %3, i64 %148
+  %150 = load i32, ptr %149, align 4
+  %151 = add i32 %128, %150
+  %152 = lshr i32 %.2186, %.0158
+  %153 = add i32 %.1166, %152
+  br label %154
 
-156:                                              ; preds = %156, %._crit_edge287
-  %.0159 = phi i32 [ %155, %._crit_edge287 ], [ %159, %156 ]
-  %157 = zext i32 %.0159 to i64
-  %158 = getelementptr inbounds i32, ptr %0, i64 %157
-  store i32 %153, ptr %158, align 4
-  %159 = add i32 %.0159, %.pre288
-  %160 = icmp ult i32 %159, %.5
-  br i1 %160, label %156, label %161, !llvm.loop !394
+154:                                              ; preds = %154, %._crit_edge287
+  %.0159 = phi i32 [ %153, %._crit_edge287 ], [ %157, %154 ]
+  %155 = zext i32 %.0159 to i64
+  %156 = getelementptr inbounds i32, ptr %0, i64 %155
+  store i32 %151, ptr %156, align 4
+  %157 = add i32 %.0159, %.pre288
+  %158 = icmp ult i32 %157, %.5
+  br i1 %158, label %154, label %159, !llvm.loop !394
 
-161:                                              ; preds = %156
-  %162 = icmp eq i32 %.2186, %129
-  br i1 %162, label %.loopexit, label %163
+159:                                              ; preds = %154
+  %160 = icmp eq i32 %.2186, %129
+  br i1 %160, label %.loopexit, label %161
 
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %.2, i64 2
-  %165 = xor i32 %.2186, %129
-  %166 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %165, i1 true)
-  %167 = xor i32 %166, 31
-  %168 = shl nuw i32 1, %167
-  %169 = add i32 %168, -1
-  %170 = and i32 %169, %.2186
-  %171 = or i32 %170, %168
-  %172 = add i32 %.2176, -1
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %.lr.ph255, label %.loopexit206
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds i8, ptr %.2, i64 2
+  %163 = xor i32 %.2186, %129
+  %164 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %163, i1 true)
+  %165 = xor i32 %164, 31
+  %166 = shl nuw i32 1, %165
+  %167 = add i32 %166, -1
+  %168 = and i32 %167, %.2186
+  %169 = or i32 %168, %166
+  %170 = add i32 %.2176, -1
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %.lr.ph255, label %.loopexit206
 
-.lr.ph255:                                        ; preds = %163, %.lr.ph255
-  %.7253 = phi i32 [ %174, %.lr.ph255 ], [ %.6.ph, %163 ]
-  %174 = add i32 %.7253, 1
-  %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %175
-  %177 = load i32, ptr %176, align 4
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %.lr.ph255, label %.loopexit206.outer, !llvm.loop !395
+.lr.ph255:                                        ; preds = %161, %.lr.ph255
+  %.7253 = phi i32 [ %172, %.lr.ph255 ], [ %.6.ph, %161 ]
+  %172 = add i32 %.7253, 1
+  %173 = zext i32 %172 to i64
+  %174 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %173
+  %175 = load i32, ptr %174, align 4
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %.lr.ph255, label %.loopexit206.outer, !llvm.loop !395
 
-.loopexit:                                        ; preds = %.lr.ph245, %161, %75, %.preheader, %63, %52
-  %.0 = phi i1 [ false, %52 ], [ false, %63 ], [ true, %.preheader ], [ true, %75 ], [ true, %161 ], [ true, %.lr.ph245 ]
+.loopexit:                                        ; preds = %.lr.ph245, %159, %75, %.preheader, %63, %52
+  %.0 = phi i1 [ false, %52 ], [ false, %63 ], [ true, %.preheader ], [ true, %75 ], [ true, %159 ], [ true, %.lr.ph245 ]
   ret i1 %.0
 }
 

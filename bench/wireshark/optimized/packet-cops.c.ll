@@ -1396,9 +1396,9 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
   br label %cops_c_type_to_str.exit75.i
 
 89:                                               ; preds = %cops_c_type_to_str.exit.i, %cops_c_type_to_str.exit.i
-  %switch.tableidx311 = add i8 %60, -1
-  %90 = icmp ult i8 %switch.tableidx311, 5
-  br i1 %90, label %switch.lookup310, label %99
+  %switch.tableidx313 = add i8 %60, -1
+  %90 = icmp ult i8 %switch.tableidx313, 5
+  br i1 %90, label %switch.lookup312, label %99
 
 91:                                               ; preds = %cops_c_type_to_str.exit.i
   %switch.selectcmp22.i67.i = icmp eq i8 %60, 2
@@ -1429,14 +1429,14 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
 99:                                               ; preds = %89, %97, %95, %92, %86, %cops_c_type_to_str.exit.i
   br label %cops_c_type_to_str.exit75.i
 
-switch.lookup310:                                 ; preds = %89
-  %100 = zext nneg i8 %switch.tableidx311 to i64
-  %switch.gep312 = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_cops_pdu.1, i64 0, i64 %100
-  %switch.load313 = load ptr, ptr %switch.gep312, align 8
+switch.lookup312:                                 ; preds = %89
+  %100 = zext nneg i8 %switch.tableidx313 to i64
+  %switch.gep314 = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_cops_pdu.1, i64 0, i64 %100
+  %switch.load315 = load ptr, ptr %switch.gep314, align 8
   br label %cops_c_type_to_str.exit75.i
 
-cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup310, %99, %97, %95, %94, %92, %91, %88, %86
-  %.0.i62.i = phi ptr [ @.str.643, %99 ], [ @.str.652, %86 ], [ @.str.662, %92 ], [ @.str.665, %95 ], [ @.str.666, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load313, %switch.lookup310 ]
+cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup312, %99, %97, %95, %94, %92, %91, %88, %86
+  %.0.i62.i = phi ptr [ @.str.643, %99 ], [ @.str.652, %86 ], [ @.str.662, %92 ], [ @.str.665, %95 ], [ @.str.666, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load315, %switch.lookup312 ]
   %101 = load i32, ptr @hf_cops_obj_c_type, align 4
   %102 = zext i8 %60 to i32
   %char0.i = load i8, ptr %.0.i62.i, align 1
@@ -1930,8 +1930,8 @@ dissect_cops_object.exit:                         ; preds = %108, %110, %115, %1
 
 .preheader268:                                    ; preds = %374
   %380 = call i32 @wmem_array_get_count(ptr noundef %.0) #9
-  %.not285 = icmp eq i32 %380, 0
-  br i1 %.not285, label %.loopexit, label %.lr.ph278
+  %.not286 = icmp eq i32 %380, 0
+  br i1 %.not286, label %.loopexit, label %.lr.ph278
 
 .lr.ph278:                                        ; preds = %.preheader268
   %381 = getelementptr inbounds i8, ptr %1, i64 20
@@ -2017,18 +2017,18 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %426 = and i16 %425, 8
   %.not238 = icmp eq i16 %426, 0
   %427 = call i32 @wmem_array_get_count(ptr noundef nonnull %419) #9
-  %.not287 = icmp eq i32 %427, 0
+  %.not288 = icmp eq i32 %427, 0
   br i1 %.not238, label %.preheader, label %.preheader266
 
 .preheader266:                                    ; preds = %421
-  br i1 %.not287, label %proto_item_set_generated.exit251, label %.lr.ph280
+  br i1 %.not288, label %proto_item_set_generated.exit251, label %.lr.ph280
 
 .lr.ph280:                                        ; preds = %.preheader266
   %428 = getelementptr inbounds i8, ptr %1, i64 20
   br label %470
 
 .preheader:                                       ; preds = %421
-  br i1 %.not287, label %proto_item_set_generated.exit251, label %.lr.ph283
+  br i1 %.not288, label %proto_item_set_generated.exit251, label %.lr.ph283
 
 .lr.ph283:                                        ; preds = %.preheader
   %429 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2042,7 +2042,9 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %433 = add i8 %13, -7
   %or.cond59 = icmp ult i8 %433, 2
   %434 = icmp eq i8 %13, 9
-  %brmerge284 = or i1 %or.cond29, %or.cond56
+  %brmerge285 = or i1 %or.cond29, %or.cond56
+  %invariant.op = and i1 %341, %25
+  %invariant.op329 = and i1 %434, %25
   br label %435
 
 435:                                              ; preds = %.lr.ph283, %.thread263
@@ -2065,9 +2067,8 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
 445:                                              ; preds = %441
   %446 = load i8, ptr %442, align 8
   %447 = icmp eq i8 %446, 1
-  %or.cond43 = and i1 %341, %447
-  %or.cond45 = and i1 %25, %or.cond43
-  br i1 %or.cond45, label %459, label %448
+  %or.cond45.reass.reass.reass = and i1 %447, %invariant.op
+  br i1 %or.cond45.reass.reass.reass, label %459, label %448
 
 448:                                              ; preds = %445
   switch i8 %446, label %451 [
@@ -2079,7 +2080,7 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   br i1 %or.cond243, label %459, label %.thread263
 
 450:                                              ; preds = %448
-  br i1 %brmerge284, label %459, label %.thread263
+  br i1 %brmerge285, label %459, label %.thread263
 
 451:                                              ; preds = %448
   %452 = icmp eq i8 %446, 6
@@ -2094,9 +2095,8 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %456 = getelementptr inbounds i8, ptr %442, i64 4
   %457 = load i32, ptr %456, align 4
   %458 = icmp eq i32 %457, 0
-  %or.cond62 = and i1 %434, %458
-  %or.cond64 = and i1 %25, %or.cond62
-  br i1 %or.cond64, label %459, label %.thread263
+  %or.cond64.reass.reass.reass = and i1 %458, %invariant.op329
+  br i1 %or.cond64.reass.reass.reass, label %459, label %.thread263
 
 459:                                              ; preds = %450, %451, %455, %449, %445
   %460 = getelementptr inbounds i8, ptr %442, i64 12

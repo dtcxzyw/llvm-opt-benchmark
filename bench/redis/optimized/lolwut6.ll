@@ -40,12 +40,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc57
-  %2 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %33, %for.inc57 ]
-  %3 = phi i32 [ %.pre, %for.body.lr.ph ], [ %34, %for.inc57 ]
-  %4 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %35, %for.inc57 ]
-  %5 = phi i32 [ %.pre, %for.body.lr.ph ], [ %36, %for.inc57 ]
-  %6 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %37, %for.inc57 ]
-  %7 = phi i32 [ %.pre, %for.body.lr.ph ], [ %38, %for.inc57 ]
+  %2 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %31, %for.inc57 ]
+  %3 = phi i32 [ %.pre, %for.body.lr.ph ], [ %32, %for.inc57 ]
+  %4 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %33, %for.inc57 ]
+  %5 = phi i32 [ %.pre, %for.body.lr.ph ], [ %34, %for.inc57 ]
+  %6 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %35, %for.inc57 ]
+  %7 = phi i32 [ %.pre, %for.body.lr.ph ], [ %36, %for.inc57 ]
   %y.046 = phi i32 [ %sub, %for.body.lr.ph ], [ %dec, %for.inc57 ]
   %add540 = add nsw i32 %6, %7
   %cmp641 = icmp sgt i32 %6, 0
@@ -55,11 +55,15 @@ for.body7.lr.ph:                                  ; preds = %for.body
   %cmp8 = icmp eq i32 %y.046, %add
   %cmp30 = icmp sgt i32 %y.046, %add29
   %cmp33 = icmp slt i32 %y.046, %sub32
-  %sub39 = sub i32 %y.046, %sub2
   %cmp33.fr = freeze i1 %cmp33
   %cmp30.fr = freeze i1 %cmp30
   %8 = and i1 %cmp33.fr, %cmp30.fr
-  br i1 %8, label %for.body7, label %for.body7.lr.ph.split.us
+  br i1 %8, label %for.body7.preheader, label %for.body7.lr.ph.split.us
+
+for.body7.preheader:                              ; preds = %for.body7.lr.ph
+  %sub39 = sub i32 %y.046, %sub2
+  %invariant.op = and i32 %sub39, 1
+  br label %for.body7
 
 for.body7.lr.ph.split.us:                         ; preds = %for.body7.lr.ph
   br i1 %cmp8, label %for.body7.us.us, label %for.body7.us
@@ -107,12 +111,12 @@ for.body7.us:                                     ; preds = %for.body7.lr.ph.spl
   %cmp6.us = icmp slt i32 %inc.us, %add5.us
   br i1 %cmp6.us, label %for.body7.us, label %for.inc57, !llvm.loop !5
 
-for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc
-  %22 = phi i32 [ %31, %for.inc ], [ %2, %for.body7.lr.ph ]
-  %23 = phi i32 [ %32, %for.inc ], [ %3, %for.body7.lr.ph ]
-  %add544 = phi i32 [ %add5, %for.inc ], [ %add540, %for.body7.lr.ph ]
-  %24 = phi i32 [ %32, %for.inc ], [ %7, %for.body7.lr.ph ]
-  %x.042 = phi i32 [ %inc, %for.inc ], [ %7, %for.body7.lr.ph ]
+for.body7:                                        ; preds = %for.body7.preheader, %for.inc
+  %22 = phi i32 [ %29, %for.inc ], [ %2, %for.body7.preheader ]
+  %23 = phi i32 [ %30, %for.inc ], [ %3, %for.body7.preheader ]
+  %add544 = phi i32 [ %add5, %for.inc ], [ %add540, %for.body7.preheader ]
+  %24 = phi i32 [ %30, %for.inc ], [ %7, %for.body7.preheader ]
+  %x.042 = phi i32 [ %inc, %for.inc ], [ %7, %for.body7.preheader ]
   br i1 %cmp8, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body7
@@ -140,22 +144,21 @@ land.lhs.true18:                                  ; preds = %if.end
 if.then34:                                        ; preds = %land.lhs.true18
   %sub37 = sub nsw i32 %x.042, %add20
   %div = sdiv i32 %sub37, 2
-  %27 = and i32 %div, %sub39
-  %28 = and i32 %27, 1
-  %brmerge.not.not = icmp eq i32 %28, 0
+  %.reass = and i32 %div, %invariant.op
+  %brmerge.not.not = icmp eq i32 %.reass, 0
   br i1 %brmerge.not.not, label %if.end56, label %do.body
 
 do.body:                                          ; preds = %if.then34, %do.body
   %call = tail call i32 @rand() #3
   %rem45 = srem i32 %call, 2
   %add46 = add nsw i32 %rem45, 1
-  %29 = load i32, ptr %color17, align 4
-  %cmp48 = icmp eq i32 %add46, %29
+  %27 = load i32, ptr %color17, align 4
+  %cmp48 = icmp eq i32 %add46, %27
   br i1 %cmp48, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
-  %30 = and i32 %sub37, 1
-  %tobool50.not = icmp eq i32 %30, 0
+  %28 = and i32 %sub37, 1
+  %tobool50.not = icmp eq i32 %28, 0
   br i1 %tobool50.not, label %if.end56, label %if.then51
 
 if.then51:                                        ; preds = %do.end
@@ -171,20 +174,20 @@ if.end56:                                         ; preds = %if.then34, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end56
-  %31 = phi i32 [ %22, %land.lhs.true ], [ %.pre58, %if.end56 ]
-  %32 = phi i32 [ %23, %land.lhs.true ], [ %.pre57, %if.end56 ]
+  %29 = phi i32 [ %22, %land.lhs.true ], [ %.pre58, %if.end56 ]
+  %30 = phi i32 [ %23, %land.lhs.true ], [ %.pre57, %if.end56 ]
   %inc = add nsw i32 %x.042, 1
-  %add5 = add nsw i32 %31, %32
+  %add5 = add nsw i32 %29, %30
   %cmp6 = icmp slt i32 %inc, %add5
   br i1 %cmp6, label %for.body7, label %for.inc57, !llvm.loop !5
 
 for.inc57:                                        ; preds = %for.body7.us, %for.inc.us.us, %for.inc, %for.body
-  %33 = phi i32 [ %2, %for.body ], [ %31, %for.inc ], [ %15, %for.inc.us.us ], [ %21, %for.body7.us ]
-  %34 = phi i32 [ %3, %for.body ], [ %32, %for.inc ], [ %16, %for.inc.us.us ], [ %20, %for.body7.us ]
-  %35 = phi i32 [ %4, %for.body ], [ %31, %for.inc ], [ %17, %for.inc.us.us ], [ %21, %for.body7.us ]
-  %36 = phi i32 [ %5, %for.body ], [ %32, %for.inc ], [ %18, %for.inc.us.us ], [ %20, %for.body7.us ]
-  %37 = phi i32 [ %6, %for.body ], [ %31, %for.inc ], [ %17, %for.inc.us.us ], [ %21, %for.body7.us ]
-  %38 = phi i32 [ %7, %for.body ], [ %32, %for.inc ], [ %18, %for.inc.us.us ], [ %20, %for.body7.us ]
+  %31 = phi i32 [ %2, %for.body ], [ %29, %for.inc ], [ %15, %for.inc.us.us ], [ %21, %for.body7.us ]
+  %32 = phi i32 [ %3, %for.body ], [ %30, %for.inc ], [ %16, %for.inc.us.us ], [ %20, %for.body7.us ]
+  %33 = phi i32 [ %4, %for.body ], [ %29, %for.inc ], [ %17, %for.inc.us.us ], [ %21, %for.body7.us ]
+  %34 = phi i32 [ %5, %for.body ], [ %30, %for.inc ], [ %18, %for.inc.us.us ], [ %20, %for.body7.us ]
+  %35 = phi i32 [ %6, %for.body ], [ %29, %for.inc ], [ %17, %for.inc.us.us ], [ %21, %for.body7.us ]
+  %36 = phi i32 [ %7, %for.body ], [ %30, %for.inc ], [ %18, %for.inc.us.us ], [ %20, %for.body7.us ]
   %dec = add nsw i32 %y.046, -1
   %cmp.not.not = icmp sgt i32 %dec, %sub2
   br i1 %cmp.not.not, label %for.body, label %for.end58, !llvm.loop !8

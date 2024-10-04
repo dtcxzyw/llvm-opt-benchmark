@@ -1322,8 +1322,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %79
   br label %.lr.ph
 
 .preheader319:                                    ; preds = %116
-  %.not336 = icmp eq ptr %.0.i.i.i.i.i.i.i, %.sroa.0260.0
-  br i1 %.not336, label %._crit_edge, label %.lr.ph330
+  %.not337 = icmp eq ptr %.0.i.i.i.i.i.i.i, %.sroa.0260.0
+  br i1 %.not337, label %._crit_edge, label %.lr.ph330
 
 .lr.ph330:                                        ; preds = %.preheader319
   %92 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
@@ -1495,26 +1495,27 @@ _ZNSt6vectorIiSaIiEED2Ev.exit92:                  ; preds = %153, %._crit_edge, 
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds i8, ptr %1, i64 312
   %157 = load ptr, ptr %156, align 8
-  %.not316333 = icmp eq ptr %155, %157
-  br i1 %.not316333, label %.loopexit, label %.lr.ph335
+  %.not316334 = icmp eq ptr %155, %157
+  br i1 %.not316334, label %.loopexit, label %.lr.ph336
 
-.lr.ph335:                                        ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit92
+.lr.ph336:                                        ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit92
   %158 = getelementptr inbounds i8, ptr %.057, i64 8
   %159 = getelementptr inbounds i8, ptr %.057, i64 16
   %160 = getelementptr inbounds i8, ptr %.056, i64 8
   %161 = getelementptr inbounds i8, ptr %.056, i64 16
+  %invariant.op = and i1 %68, %3
   br label %162
 
-162:                                              ; preds = %.lr.ph335, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
-  %.sroa.0239.0334 = phi ptr [ %155, %.lr.ph335 ], [ %329, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212 ]
-  %163 = getelementptr inbounds i8, ptr %.sroa.0239.0334, i64 32
+162:                                              ; preds = %.lr.ph336, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
+  %.sroa.0239.0335 = phi ptr [ %155, %.lr.ph336 ], [ %329, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212 ]
+  %163 = getelementptr inbounds i8, ptr %.sroa.0239.0335, i64 32
   %164 = load i32, ptr %163, align 8
   %165 = and i32 %164, 1
   %.not317 = icmp eq i32 %165, 0
   br i1 %.not317, label %.preheader, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
 
 .preheader:                                       ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.sroa.0239.0334, i64 8
+  %166 = getelementptr inbounds i8, ptr %.sroa.0239.0335, i64 8
   br i1 %brmerge72.not, label %.preheader.split, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us: ; preds = %.preheader, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us
@@ -1525,8 +1526,8 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %.not318.us = icmp ne i32 %168, 0
   %.054.mux.mux.us = select i1 %.not318.us, i1 true, i1 %.054331.us
   %169 = add nuw nsw i32 %.0332.us, 1
-  %exitcond344.not = icmp eq i32 %169, 3
-  br i1 %exitcond344.not, label %.split.us, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us, !llvm.loop !17
+  %exitcond345.not = icmp eq i32 %169, 3
+  br i1 %exitcond345.not, label %.split.us, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us, !llvm.loop !17
 
 .preheader.split:                                 ; preds = %.preheader, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140
   %indvars.iv = phi i64 [ %indvars.iv.next.pre-phi, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140 ], [ 0, %.preheader ]
@@ -1539,7 +1540,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   br i1 %.not318.not, label %.preheader.split._ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140_crit_edge, label %174
 
 .preheader.split._ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140_crit_edge: ; preds = %.preheader.split
-  %.pre347 = add nuw nsw i64 %indvars.iv, 1
+  %.pre348 = add nuw nsw i64 %indvars.iv, 1
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140
 
 174:                                              ; preds = %.preheader.split
@@ -1718,16 +1719,15 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insert
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140: ; preds = %.preheader.split._ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140_crit_edge, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i139, %214
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre347, %.preheader.split._ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140_crit_edge ], [ %207, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i139 ], [ %207, %214 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre348, %.preheader.split._ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140_crit_edge ], [ %207, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i139 ], [ %207, %214 ]
   %.1 = phi i1 [ %.054331, %.preheader.split._ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140_crit_edge ], [ true, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i139 ], [ true, %214 ]
-  %exitcond343.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
-  br i1 %exitcond343.not, label %.split.us, label %.preheader.split, !llvm.loop !17
+  %exitcond344.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
+  br i1 %exitcond344.not, label %.split.us, label %.preheader.split, !llvm.loop !17
 
 .split.us:                                        ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140
   %.us-phi = phi i1 [ %.1, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140 ], [ %.054.mux.mux.us, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us ]
-  %or.cond = and i1 %68, %.us-phi
-  %brmerge81.demorgan = and i1 %3, %or.cond
-  br i1 %brmerge81.demorgan, label %239, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
+  %brmerge81.demorgan.reass.reass.reass = and i1 %.us-phi, %invariant.op
+  br i1 %brmerge81.demorgan.reass.reass.reass, label %239, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
 
 239:                                              ; preds = %.split.us
   %240 = load ptr, ptr %166, align 8
@@ -1749,7 +1749,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %245 = load ptr, ptr %160, align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 16
   store ptr %246, ptr %160, align 8
-  %.pre345 = load ptr, ptr %161, align 8
+  %.pre346 = load ptr, ptr %161, align 8
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit164
 
 247:                                              ; preds = %239
@@ -1815,9 +1815,9 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insert
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit164
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit164: ; preds = %244, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i163
-  %269 = phi ptr [ %.pre345, %244 ], [ %268, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i163 ]
+  %269 = phi ptr [ %.pre346, %244 ], [ %268, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i163 ]
   %270 = phi ptr [ %246, %244 ], [ %266, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i163 ]
-  %271 = getelementptr inbounds i8, ptr %.sroa.0239.0334, i64 16
+  %271 = getelementptr inbounds i8, ptr %.sroa.0239.0335, i64 16
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 8
   %.sroa.0.0.copyload.i165 = load <2 x float>, ptr %273, align 4
@@ -1835,7 +1835,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %275 = load ptr, ptr %160, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 16
   store ptr %276, ptr %160, align 8
-  %.pre346 = load ptr, ptr %161, align 8
+  %.pre347 = load ptr, ptr %161, align 8
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit188
 
 277:                                              ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit164
@@ -1901,9 +1901,9 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insert
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit188
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit188: ; preds = %274, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i187
-  %299 = phi ptr [ %.pre346, %274 ], [ %298, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i187 ]
+  %299 = phi ptr [ %.pre347, %274 ], [ %298, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i187 ]
   %300 = phi ptr [ %276, %274 ], [ %296, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i187 ]
-  %301 = getelementptr inbounds i8, ptr %.sroa.0239.0334, i64 24
+  %301 = getelementptr inbounds i8, ptr %.sroa.0239.0335, i64 24
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 8
   %.sroa.0.0.copyload.i189 = load <2 x float>, ptr %303, align 4
@@ -1986,7 +1986,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insert
   br label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212: ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i211, %304, %.split.us, %162
-  %329 = getelementptr inbounds i8, ptr %.sroa.0239.0334, i64 48
+  %329 = getelementptr inbounds i8, ptr %.sroa.0239.0335, i64 48
   %330 = load ptr, ptr %156, align 8
   %.not316 = icmp eq ptr %329, %330
   br i1 %.not316, label %.loopexit, label %162, !llvm.loop !38

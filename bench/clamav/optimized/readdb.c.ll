@@ -5145,6 +5145,7 @@ define internal fastcc i32 @cli_loadhash(ptr noundef %0, ptr nocapture noundef %
   %.not132 = icmp eq i32 %35, 0
   %36 = and i32 %4, 768
   %.not133 = icmp eq i32 %36, 0
+  %invariant.op = or i1 %.not132, %.not133
   %37 = getelementptr inbounds i8, ptr %1, i64 320
   %38 = and i32 %4, 64
   %39 = xor i32 %38, 64
@@ -5268,9 +5269,8 @@ sub_0:                                            ; preds = %68, %70, %60
   store ptr %92, ptr %10, align 8
   %93 = load ptr, ptr %34, align 8
   %.not131 = icmp eq ptr %93, null
-  %or.cond = or i1 %.not132, %.not131
-  %or.cond147 = or i1 %.not133, %or.cond
-  br i1 %or.cond147, label %96, label %94
+  %or.cond147.reass = or i1 %.not131, %invariant.op
+  br i1 %or.cond147.reass, label %96, label %94
 
 94:                                               ; preds = %91
   %95 = call fastcc i32 @cli_chkpua(ptr noundef %92, ptr noundef nonnull %93, i32 noundef %4)
@@ -5430,6 +5430,7 @@ define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr nocapture noundef %1
   %.not106 = icmp eq i32 %23, 0
   %24 = and i32 %4, 768
   %.not107 = icmp eq i32 %24, 0
+  %invariant.op = or i1 %.not106, %.not107
   %.not111 = icmp eq i16 %3, 0
   %25 = getelementptr inbounds i8, ptr %1, i64 320
   %26 = and i32 %4, 64
@@ -5491,9 +5492,8 @@ define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr nocapture noundef %1
   %53 = load ptr, ptr %7, align 16
   %54 = load ptr, ptr %22, align 8
   %.not105 = icmp eq ptr %54, null
-  %or.cond126 = or i1 %.not106, %.not105
-  %or.cond127 = or i1 %.not107, %or.cond126
-  br i1 %or.cond127, label %57, label %55
+  %or.cond127.reass = or i1 %.not105, %invariant.op
+  br i1 %or.cond127.reass, label %57, label %55
 
 55:                                               ; preds = %52
   %56 = call fastcc i32 @cli_chkpua(ptr noundef %53, ptr noundef nonnull %54, i32 noundef %4)

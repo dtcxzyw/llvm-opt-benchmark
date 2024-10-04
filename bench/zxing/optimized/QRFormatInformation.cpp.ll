@@ -47,90 +47,91 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   br label %.preheader.lr.ph.us.i
 
 .preheader.lr.ph.us.i:                            ; preds = %._crit_edge.us.i, %.preheader.lr.ph.us.preheader.i
-  %.sroa.8.029.us.i = phi i8 [ %.sroa.8.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.05.028.us.i.idx = phi i64 [ %.sroa.05.028.us.i.add, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.08.027.us.i = phi i32 [ %.sroa.08.3.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.3.026.us.i = phi i8 [ %.sroa.3.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.5.025.us.i = phi i8 [ %.sroa.5.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.05.028.us.i.ptr = getelementptr inbounds i8, ptr %3, i64 %.sroa.05.028.us.i.idx
-  %17 = load i32, ptr %.sroa.05.028.us.i.ptr, align 4
+  %.sroa.8.030.us.i = phi i8 [ %.sroa.8.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.05.029.us.i.idx = phi i64 [ %.sroa.05.029.us.i.add, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.08.028.us.i = phi i32 [ %.sroa.08.3.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.3.027.us.i = phi i8 [ %.sroa.3.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.5.026.us.i = phi i8 [ %.sroa.5.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.05.029.us.i.ptr = getelementptr inbounds i8, ptr %3, i64 %.sroa.05.029.us.i.idx
+  %17 = load i32, ptr %.sroa.05.029.us.i.ptr, align 4
+  %invariant.op52 = xor i32 %17, 21522
   br label %.preheader.us.i
 
-18:                                               ; preds = %.preheader.us.i, %29
-  %.021.idx15.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %29 ]
-  %.sroa.8.214.us.i = phi i8 [ %.sroa.8.119.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %29 ]
-  %.sroa.08.213.us.i = phi i32 [ %.sroa.08.118.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %29 ]
-  %.sroa.3.212.us.i = phi i8 [ %.sroa.3.117.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %29 ]
-  %.sroa.5.211.us.i = phi i8 [ %.sroa.5.116.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %29 ]
+18:                                               ; preds = %.preheader.us.i, %28
+  %.021.idx15.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %28 ]
+  %.sroa.8.214.us.i = phi i8 [ %.sroa.8.120.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %28 ]
+  %.sroa.08.213.us.i = phi i32 [ %.sroa.08.119.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %28 ]
+  %.sroa.3.212.us.i = phi i8 [ %.sroa.3.118.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %28 ]
+  %.sroa.5.211.us.i = phi i8 [ %.sroa.5.117.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %28 ]
   %.021.ptr.us.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx15.us.i
   %19 = load i32, ptr %.021.ptr.us.i, align 4
-  %20 = xor i32 %19, 21522
-  %21 = xor i32 %33, %20
-  %22 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %23 = zext i8 %.sroa.5.211.us.i to i32
-  %24 = icmp ult i32 %22, %23
-  br i1 %24, label %25, label %29
+  %.reass.us.reass.i.reass.reass = xor i32 %19, %invariant.op.reass
+  %20 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
+  %21 = zext i8 %.sroa.5.211.us.i to i32
+  %22 = icmp ult i32 %20, %21
+  br i1 %22, label %23, label %28
 
-25:                                               ; preds = %18
-  %26 = lshr i32 %20, 10
-  %27 = trunc i32 %26 to i8
-  %28 = trunc nuw nsw i32 %22 to i8
-  br label %29
+23:                                               ; preds = %18
+  %24 = lshr i32 %19, 10
+  %25 = trunc i32 %24 to i8
+  %26 = xor i8 %25, 21
+  %27 = trunc nuw nsw i32 %20 to i8
+  br label %28
 
-29:                                               ; preds = %25, %18
-  %.sroa.5.3.us.i = phi i8 [ %28, %25 ], [ %.sroa.5.211.us.i, %18 ]
-  %.sroa.3.3.us.i = phi i8 [ %27, %25 ], [ %.sroa.3.212.us.i, %18 ]
-  %.sroa.08.3.us.i = phi i32 [ %17, %25 ], [ %.sroa.08.213.us.i, %18 ]
-  %.sroa.8.3.us.i = phi i8 [ %34, %25 ], [ %.sroa.8.214.us.i, %18 ]
+28:                                               ; preds = %23, %18
+  %.sroa.5.3.us.i = phi i8 [ %27, %23 ], [ %.sroa.5.211.us.i, %18 ]
+  %.sroa.3.3.us.i = phi i8 [ %26, %23 ], [ %.sroa.3.212.us.i, %18 ]
+  %.sroa.08.3.us.i = phi i32 [ %17, %23 ], [ %.sroa.08.213.us.i, %18 ]
+  %.sroa.8.3.us.i = phi i8 [ %32, %23 ], [ %.sroa.8.214.us.i, %18 ]
   %.021.add.us.i = add nuw nsw i64 %.021.idx15.us.i, 4
   %.not.us.i = icmp eq i64 %.021.add.us.i, 128
-  br i1 %.not.us.i, label %30, label %18
+  br i1 %.not.us.i, label %29, label %18
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !4
 
-.preheader.us.i:                                  ; preds = %30, %.preheader.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.i ], [ %indvars.iv.next.i, %30 ]
-  %.sroa.8.119.us.i = phi i8 [ %.sroa.8.029.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.8.3.us.i, %30 ]
-  %.sroa.08.118.us.i = phi i32 [ %.sroa.08.027.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.08.3.us.i, %30 ]
-  %.sroa.3.117.us.i = phi i8 [ %.sroa.3.026.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.3.3.us.i, %30 ]
-  %.sroa.5.116.us.i = phi i8 [ %.sroa.5.025.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.5.3.us.i, %30 ]
-  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  %32 = load i32, ptr %31, align 4
-  %33 = xor i32 %32, %17
-  %34 = trunc i64 %indvars.iv.i to i8
+.preheader.us.i:                                  ; preds = %29, %.preheader.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.i ], [ %indvars.iv.next.i, %29 ]
+  %.sroa.8.120.us.i = phi i8 [ %.sroa.8.030.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.8.3.us.i, %29 ]
+  %.sroa.08.119.us.i = phi i32 [ %.sroa.08.028.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.08.3.us.i, %29 ]
+  %.sroa.3.118.us.i = phi i8 [ %.sroa.3.027.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.3.3.us.i, %29 ]
+  %.sroa.5.117.us.i = phi i8 [ %.sroa.5.026.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.5.3.us.i, %29 ]
+  %30 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %31 = load i32, ptr %30, align 4
+  %32 = trunc i64 %indvars.iv.i to i8
+  %invariant.op.reass = xor i32 %31, %invariant.op52
   br label %18
 
-._crit_edge.us.i:                                 ; preds = %30
-  %.sroa.05.028.us.i.add = add nuw nsw i64 %.sroa.05.028.us.i.idx, 4
-  %.not10.us.i = icmp eq i64 %.sroa.05.028.us.i.add, 12
+._crit_edge.us.i:                                 ; preds = %29
+  %.sroa.05.029.us.i.add = add nuw nsw i64 %.sroa.05.029.us.i.idx, 4
+  %.not10.us.i = icmp eq i64 %.sroa.05.029.us.i.add, 12
   br i1 %.not10.us.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit33, label %.preheader.lr.ph.us.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit33:                  ; preds = %._crit_edge.us.i
-  %35 = zext i8 %.sroa.8.3.us.i to i64
-  %36 = shl nuw nsw i64 %35, 48
-  %37 = zext i8 %.sroa.5.3.us.i to i64
-  %38 = shl nuw nsw i64 %37, 40
-  %39 = zext i8 %.sroa.3.3.us.i to i64
-  %40 = shl nuw nsw i64 %39, 32
-  %41 = zext i32 %.sroa.08.3.us.i to i64
-  %.sroa.5.0.insert.insert.i = or disjoint i64 %36, %38
-  %42 = or disjoint i64 %40, %41
-  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %42
+  %33 = zext i8 %.sroa.8.3.us.i to i64
+  %34 = shl nuw nsw i64 %33, 48
+  %35 = zext i8 %.sroa.5.3.us.i to i64
+  %36 = shl nuw nsw i64 %35, 40
+  %37 = zext i8 %.sroa.3.3.us.i to i64
+  %38 = shl nuw nsw i64 %37, 32
+  %39 = zext i32 %.sroa.08.3.us.i to i64
+  %.sroa.5.0.insert.insert.i = or disjoint i64 %34, %36
+  %40 = or disjoint i64 %38, %39
+  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %40
   tail call void @_ZdlPv(ptr noundef nonnull %4) #7
   tail call void @_ZdlPv(ptr noundef nonnull %3) #7
-  %43 = lshr i8 %.sroa.3.3.us.i, 3
-  %44 = and i8 %43, 3
-  %45 = zext nneg i8 %44 to i32
-  %46 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %45, i1 noundef zeroext false)
-  %.sroa.6.8.insert.ext = and i64 %39, 7
+  %41 = lshr i8 %.sroa.3.3.us.i, 3
+  %42 = and i8 %41, 3
+  %43 = zext nneg i8 %42 to i32
+  %44 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %43, i1 noundef zeroext false)
+  %.sroa.6.8.insert.ext = and i64 %37, 7
   %.not = icmp ult i8 %.sroa.8.3.us.i, 2
   %.sroa.5.0.insert.shift = select i1 %.not, i64 0, i64 72057594037927936
   %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.insert.i, %.sroa.5.0.insert.shift
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0.insert.insert, 0
-  %.sroa.915.8.insert.ext = zext i32 %46 to i64
+  %.sroa.915.8.insert.ext = zext i32 %44 to i64
   %.sroa.915.8.insert.shift = shl nuw i64 %.sroa.915.8.insert.ext, 32
   %.sroa.6.8.insert.insert = or disjoint i64 %.sroa.915.8.insert.shift, %.sroa.6.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.8.insert.insert, 1
@@ -152,80 +153,80 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   store i32 %3, ptr %.sroa.2.0..sroa_idx, align 4
   br label %.preheader.us.i
 
-4:                                                ; preds = %.preheader.us.i, %16
-  %.021.idx15.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %16 ]
-  %.sroa.8.214.us.i = phi i8 [ %.sroa.8.119.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %16 ]
-  %.sroa.08.213.us.i = phi i32 [ %.sroa.08.118.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %16 ]
-  %.sroa.3.212.us.i = phi i8 [ %.sroa.3.117.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %16 ]
-  %.sroa.5.211.us.i = phi i8 [ %.sroa.5.116.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %16 ]
+4:                                                ; preds = %.preheader.us.i, %14
+  %.021.idx15.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %14 ]
+  %.sroa.8.214.us.i = phi i8 [ %.sroa.8.120.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %14 ]
+  %.sroa.08.213.us.i = phi i32 [ %.sroa.08.119.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %14 ]
+  %.sroa.3.212.us.i = phi i8 [ %.sroa.3.118.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %14 ]
+  %.sroa.5.211.us.i = phi i8 [ %.sroa.5.117.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %14 ]
   %.021.ptr.us.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx15.us.i
   %5 = load i32, ptr %.021.ptr.us.i, align 4
-  %6 = xor i32 %5, 21522
-  %7 = xor i32 %19, %6
-  %8 = xor i32 %7, 17477
-  %9 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
-  %10 = zext i8 %.sroa.5.211.us.i to i32
-  %11 = icmp ult i32 %9, %10
-  br i1 %11, label %12, label %16
+  %.reass.us.reass.i.reass.reass = xor i32 %5, %invariant.op
+  %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
+  %7 = zext i8 %.sroa.5.211.us.i to i32
+  %8 = icmp ult i32 %6, %7
+  br i1 %8, label %9, label %14
 
-12:                                               ; preds = %4
-  %13 = lshr i32 %6, 10
-  %14 = trunc i32 %13 to i8
-  %15 = trunc nuw nsw i32 %9 to i8
-  br label %16
+9:                                                ; preds = %4
+  %10 = lshr i32 %5, 10
+  %11 = trunc i32 %10 to i8
+  %12 = xor i8 %11, 21
+  %13 = trunc nuw nsw i32 %6 to i8
+  br label %14
 
-16:                                               ; preds = %12, %4
-  %.sroa.5.3.us.i = phi i8 [ %15, %12 ], [ %.sroa.5.211.us.i, %4 ]
-  %.sroa.3.3.us.i = phi i8 [ %14, %12 ], [ %.sroa.3.212.us.i, %4 ]
-  %.sroa.08.3.us.i = phi i32 [ 17477, %12 ], [ %.sroa.08.213.us.i, %4 ]
-  %.sroa.8.3.us.i = phi i8 [ %20, %12 ], [ %.sroa.8.214.us.i, %4 ]
+14:                                               ; preds = %9, %4
+  %.sroa.5.3.us.i = phi i8 [ %13, %9 ], [ %.sroa.5.211.us.i, %4 ]
+  %.sroa.3.3.us.i = phi i8 [ %12, %9 ], [ %.sroa.3.212.us.i, %4 ]
+  %.sroa.08.3.us.i = phi i32 [ 17477, %9 ], [ %.sroa.08.213.us.i, %4 ]
+  %.sroa.8.3.us.i = phi i8 [ %18, %9 ], [ %.sroa.8.214.us.i, %4 ]
   %.021.add.us.i = add nuw nsw i64 %.021.idx15.us.i, 4
   %.not.us.i = icmp eq i64 %.021.add.us.i, 128
-  br i1 %.not.us.i, label %17, label %4
+  br i1 %.not.us.i, label %15, label %4
 
-17:                                               ; preds = %16
+15:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !4
 
-.preheader.us.i:                                  ; preds = %17, %.preheader.lr.ph.us.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %.sroa.8.119.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.8.3.us.i, %17 ]
-  %.sroa.08.118.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %17 ]
-  %.sroa.3.117.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %17 ]
-  %.sroa.5.116.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %17 ]
-  %18 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
-  %19 = load i32, ptr %18, align 4
-  %20 = trunc i64 %indvars.iv.i to i8
+.preheader.us.i:                                  ; preds = %15, %.preheader.lr.ph.us.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %15 ]
+  %.sroa.8.120.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.8.3.us.i, %15 ]
+  %.sroa.08.119.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %15 ]
+  %.sroa.3.118.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %15 ]
+  %.sroa.5.117.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %15 ]
+  %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %17 = load i32, ptr %16, align 4
+  %18 = trunc i64 %indvars.iv.i to i8
+  %invariant.op = xor i32 %17, 4183
   br label %4
 
-._crit_edge.us.i:                                 ; preds = %17
-  %21 = zext i8 %.sroa.8.3.us.i to i64
-  %22 = shl nuw nsw i64 %21, 48
-  %23 = zext i8 %.sroa.5.3.us.i to i64
-  %24 = shl nuw nsw i64 %23, 40
-  %25 = zext i8 %.sroa.3.3.us.i to i64
-  %26 = shl nuw nsw i64 %25, 32
-  %27 = zext nneg i32 %.sroa.08.3.us.i to i64
-  %28 = or disjoint i64 %26, %24
-  %.sroa.3.0.insert.insert.i = or disjoint i64 %22, %28
+._crit_edge.us.i:                                 ; preds = %15
+  %19 = zext i8 %.sroa.8.3.us.i to i64
+  %20 = shl nuw nsw i64 %19, 48
+  %21 = zext i8 %.sroa.5.3.us.i to i64
+  %22 = shl nuw nsw i64 %21, 40
+  %23 = zext i8 %.sroa.3.3.us.i to i64
+  %24 = shl nuw nsw i64 %23, 32
+  %25 = zext nneg i32 %.sroa.08.3.us.i to i64
+  %26 = or disjoint i64 %24, %22
+  %.sroa.3.0.insert.insert.i = or disjoint i64 %20, %26
   tail call void @_ZdlPv(ptr noundef nonnull %1) #7
   %sum.shift = lshr i64 %.sroa.3.0.insert.insert.i, 34
-  %29 = trunc nuw nsw i64 %sum.shift to i32
-  %30 = and i32 %29, 7
-  %31 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %30, i1 noundef zeroext true)
-  %.sroa.7.8.insert.ext = and i64 %25, 3
-  %32 = and i64 %sum.shift, 7
-  %33 = getelementptr inbounds [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %.sroa.8.3.us.i, 1
-  %.sroa.6.0.insert.shift = select i1 %35, i64 72057594037927936, i64 0
-  %36 = or disjoint i64 %.sroa.6.0.insert.shift, %27
-  %.sroa.05.0.insert.insert = or disjoint i64 %36, %.sroa.3.0.insert.insert.i
+  %27 = trunc nuw nsw i64 %sum.shift to i32
+  %28 = and i32 %27, 7
+  %29 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %28, i1 noundef zeroext true)
+  %.sroa.7.8.insert.ext = and i64 %23, 3
+  %30 = and i64 %sum.shift, 7
+  %31 = getelementptr inbounds [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %.sroa.8.3.us.i, 1
+  %.sroa.6.0.insert.shift = select i1 %33, i64 72057594037927936, i64 0
+  %34 = or disjoint i64 %.sroa.6.0.insert.shift, %25
+  %.sroa.05.0.insert.insert = or disjoint i64 %34, %.sroa.3.0.insert.insert.i
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.insert.insert, 0
-  %.sroa.1110.8.insert.ext = zext i32 %31 to i64
+  %.sroa.1110.8.insert.ext = zext i32 %29 to i64
   %.sroa.1110.8.insert.shift = shl nuw i64 %.sroa.1110.8.insert.ext, 32
-  %.sroa.10.8.insert.ext = zext i8 %34 to i64
+  %.sroa.10.8.insert.ext = zext i8 %32 to i64
   %.sroa.10.8.insert.shift = shl nuw nsw i64 %.sroa.10.8.insert.ext, 8
   %.sroa.10.8.insert.insert = or disjoint i64 %.sroa.10.8.insert.shift, %.sroa.1110.8.insert.shift
   %.sroa.7.8.insert.insert = or disjoint i64 %.sroa.10.8.insert.insert, %.sroa.7.8.insert.ext

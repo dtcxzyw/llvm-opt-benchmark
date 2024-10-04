@@ -575,10 +575,11 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   %6 = select i1 %5, i8 0, i8 48
   %.masked = and i8 %3, 4
   %.masked3 = and i8 %2, 2
+  %invariant.op = or i8 %.masked3, %6
   br label %7
 
 7:                                                ; preds = %7, %0
-  %8 = phi i64 [ 0, %0 ], [ %24, %7 ]
+  %8 = phi i64 [ 0, %0 ], [ %22, %7 ]
   %9 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 2
   %11 = load i8, ptr %10, align 1
@@ -596,49 +597,48 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   %20 = and i8 %19, -32
   %21 = or disjoint i8 %20, 20
   store i8 %21, ptr %18, align 1
-  %22 = or disjoint i8 %15, %.masked3
-  %23 = or disjoint i8 %22, %6
-  store i8 %23, ptr %13, align 1
-  %24 = add nuw nsw i64 %8, 1
-  %25 = icmp eq i64 %24, 63
-  br i1 %25, label %.preheader, label %7, !llvm.loop !10
+  %.reass = or i8 %15, %invariant.op
+  store i8 %.reass, ptr %13, align 1
+  %22 = add nuw nsw i64 %8, 1
+  %23 = icmp eq i64 %22, 63
+  br i1 %23, label %.preheader, label %7, !llvm.loop !10
 
-.preheader:                                       ; preds = %7, %33
-  %26 = phi i64 [ %34, %33 ], [ 0, %7 ]
-  %27 = getelementptr [12 x %struct.kbd_led_trigger], ptr @kbd_led_triggers, i64 0, i64 %26
-  %28 = tail call i32 @led_trigger_register(ptr noundef %27) #19
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %33, label %30
+.preheader:                                       ; preds = %7, %31
+  %24 = phi i64 [ %32, %31 ], [ 0, %7 ]
+  %25 = getelementptr [12 x %struct.kbd_led_trigger], ptr @kbd_led_triggers, i64 0, i64 %24
+  %26 = tail call i32 @led_trigger_register(ptr noundef %25) #19
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %31, label %28
 
-30:                                               ; preds = %.preheader
-  %31 = load ptr, ptr %27, align 8
-  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, i32 noundef %28, ptr noundef %31) #20
-  br label %33
+28:                                               ; preds = %.preheader
+  %29 = load ptr, ptr %25, align 8
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, i32 noundef %26, ptr noundef %29) #20
+  br label %31
 
-33:                                               ; preds = %30, %.preheader
-  %34 = add nuw nsw i64 %26, 1
-  %35 = icmp eq i64 %34, 12
-  br i1 %35, label %36, label %.preheader, !llvm.loop !11
+31:                                               ; preds = %28, %.preheader
+  %32 = add nuw nsw i64 %24, 1
+  %33 = icmp eq i64 %32, 12
+  br i1 %33, label %34, label %.preheader, !llvm.loop !11
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @input_register_handler(ptr noundef nonnull @kbd_handler) #19
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %44
+34:                                               ; preds = %31
+  %35 = tail call i32 @input_register_handler(ptr noundef nonnull @kbd_handler) #19
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %42
 
-39:                                               ; preds = %36
+37:                                               ; preds = %34
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 16)) #19, !srcloc !12
-  %40 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #19, !srcloc !6
-  %41 = icmp ult i8 %40, 2
-  tail call void @llvm.assume(i1 %41)
-  %42 = icmp eq i8 %40, 0
-  br i1 %42, label %43, label %44
+  %38 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @keyboard_tasklet, i64 8)) #19, !srcloc !6
+  %39 = icmp ult i8 %38, 2
+  tail call void @llvm.assume(i1 %39)
+  %40 = icmp eq i8 %38, 0
+  br i1 %40, label %41, label %42
 
-43:                                               ; preds = %39
+41:                                               ; preds = %37
   tail call void @__tasklet_schedule(ptr noundef nonnull @keyboard_tasklet) #19
-  br label %44
+  br label %42
 
-44:                                               ; preds = %43, %39, %36
-  ret i32 %37
+42:                                               ; preds = %41, %37, %34
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid

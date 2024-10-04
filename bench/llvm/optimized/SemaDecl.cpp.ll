@@ -37531,11 +37531,12 @@ define internal fastcc noundef zeroext i1 @_ZL35InjectAnonymousStructOrUnionMemb
   %41 = shl i32 %4, 13
   %42 = and i32 %41, 24576
   %.not67 = icmp eq i32 %4, 3
+  %invariant.op = or disjoint i32 %42, 512
   br label %43
 
 43:                                               ; preds = %.lr.ph100, %.critedge
   %.098 = phi i1 [ false, %.lr.ph100 ], [ %.1, %.critedge ]
-  %.sroa.082.096 = phi ptr [ %15, %.lr.ph100 ], [ %173, %.critedge ]
+  %.sroa.082.096 = phi ptr [ %15, %.lr.ph100 ], [ %171, %.critedge ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.082.096, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 127
@@ -37818,31 +37819,30 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %160 = getelementptr inbounds nuw i8, ptr %144, i64 28
   %161 = load i32, ptr %160, align 4
   %162 = and i32 %161, -25089
-  %163 = or disjoint i32 %42, %162
-  %164 = or disjoint i32 %163, 512
-  store i32 %164, ptr %160, align 4
+  %.reass = or disjoint i32 %162, %invariant.op
+  store i32 %.reass, ptr %160, align 4
   call void @_ZN5clang4Sema17PushOnScopeChainsEPNS_9NamedDeclEPNS_5ScopeEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %144, ptr noundef %1, i1 noundef zeroext true)
-  br i1 %.not67, label %169, label %165
+  br i1 %.not67, label %167, label %163
 
-165:                                              ; preds = %._crit_edge94
-  %166 = load i32, ptr %160, align 4
-  %167 = and i32 %166, -24577
-  %168 = or disjoint i32 %167, %42
-  store i32 %168, ptr %160, align 4
-  br label %169
+163:                                              ; preds = %._crit_edge94
+  %164 = load i32, ptr %160, align 4
+  %165 = and i32 %164, -24577
+  %166 = or disjoint i32 %165, %42
+  store i32 %166, ptr %160, align 4
+  br label %167
 
-169:                                              ; preds = %165, %._crit_edge94
-  %170 = and i64 %83, 4294967295
-  call void @_ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %170)
+167:                                              ; preds = %163, %._crit_edge94
+  %168 = and i64 %83, 4294967295
+  call void @_ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %168)
   br label %.critedge
 
-.critedge:                                        ; preds = %43, %_ZL28CheckAnonMemberRedeclarationRN5clang4SemaEPNS_5ScopeEPNS_11DeclContextENS_15DeclarationNameENS_14SourceLocationEbNS_12StorageClassE.exit, %47, %169
-  %.1 = phi i1 [ %.098, %169 ], [ %.098, %47 ], [ true, %_ZL28CheckAnonMemberRedeclarationRN5clang4SemaEPNS_5ScopeEPNS_11DeclContextENS_15DeclarationNameENS_14SourceLocationEbNS_12StorageClassE.exit ], [ %.098, %43 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.sroa.082.096, i64 8
-  %.0.copyload.i.i.i.i.i = load i64, ptr %171, align 8
-  %172 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %173 = inttoptr i64 %172 to ptr
-  %.not87 = icmp eq i64 %172, 0
+.critedge:                                        ; preds = %43, %_ZL28CheckAnonMemberRedeclarationRN5clang4SemaEPNS_5ScopeEPNS_11DeclContextENS_15DeclarationNameENS_14SourceLocationEbNS_12StorageClassE.exit, %47, %167
+  %.1 = phi i1 [ %.098, %167 ], [ %.098, %47 ], [ true, %_ZL28CheckAnonMemberRedeclarationRN5clang4SemaEPNS_5ScopeEPNS_11DeclContextENS_15DeclarationNameENS_14SourceLocationEbNS_12StorageClassE.exit ], [ %.098, %43 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.082.096, i64 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %169, align 8
+  %170 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %171 = inttoptr i64 %170 to ptr
+  %.not87 = icmp eq i64 %170, 0
   br i1 %.not87, label %._crit_edge101, label %43
 
 ._crit_edge101:                                   ; preds = %.critedge, %7

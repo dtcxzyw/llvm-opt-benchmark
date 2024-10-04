@@ -405,9 +405,9 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us:  ; preds = %44
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %3, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %92
-  %.042.us43 = phi i32 [ %94, %92 ], [ 0, %.lr.ph.split ]
-  %.03841.us44 = phi i32 [ %93, %92 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %90
+  %.042.us43 = phi i32 [ %92, %90 ], [ 0, %.lr.ph.split ]
+  %.03841.us44 = phi i32 [ %91, %90 ], [ 0, %.lr.ph.split ]
   %57 = zext i32 %.042.us43 to i64
   %58 = getelementptr inbounds i8, ptr %1, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 16
@@ -431,169 +431,171 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us:  ; preds = %44
 70:                                               ; preds = %67, %.lr.ph.split.split.us
   %71 = phi i8 [ 1, %.lr.ph.split.split.us ], [ %69, %67 ]
   %72 = and i8 %66, -102
-  %73 = or disjoint i8 %71, %72
-  %74 = or disjoint i8 %73, %22
-  %75 = or disjoint i8 %74, 64
-  store i8 %75, ptr %63, align 4
-  %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  %78 = load ptr, ptr %77, align 8
-  %.not.us45 = icmp eq ptr %78, null
-  br i1 %.not.us45, label %92, label %79
+  %73 = or disjoint i8 %72, %71
+  %.reass = or disjoint i8 %73, 64
+  store i8 %.reass, ptr %63, align 4
+  %74 = load ptr, ptr %14, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %76 = load ptr, ptr %75, align 8
+  %.not.us45 = icmp eq ptr %76, null
+  br i1 %.not.us45, label %90, label %77
 
-79:                                               ; preds = %70
-  %80 = icmp ne i8 %71, 0
-  %81 = getelementptr inbounds nuw i8, ptr %60, i64 51
-  %82 = load i8, ptr %81, align 1
-  %83 = trunc i8 %82 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  %.not1.i.us = select i1 %83, i1 true, i1 %86
-  br i1 %.not1.i.us, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46, label %87
+77:                                               ; preds = %70
+  %78 = icmp ne i8 %71, 0
+  %79 = getelementptr inbounds nuw i8, ptr %60, i64 51
+  %80 = load i8, ptr %79, align 1
+  %81 = trunc i8 %80 to i1
+  %82 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  %.not1.i.us = select i1 %81, i1 true, i1 %84
+  br i1 %.not1.i.us, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46, label %85
 
-87:                                               ; preds = %79
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 648
-  %89 = load i8, ptr %88, align 8
-  %90 = trunc i8 %89 to i1
+85:                                               ; preds = %77
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 648
+  %87 = load i8, ptr %86, align 8
+  %88 = trunc i8 %87 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46
 
-_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46: ; preds = %87, %79
-  %91 = phi i1 [ false, %79 ], [ %90, %87 ]
-  tail call void %78(ptr noundef %0, ptr noundef nonnull %59, i1 noundef zeroext %80, i1 noundef zeroext true, i1 noundef zeroext %4, i1 noundef zeroext %91, ptr noundef nonnull %76) #20
-  br label %92
+_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46: ; preds = %85, %77
+  %89 = phi i1 [ false, %77 ], [ %88, %85 ]
+  tail call void %76(ptr noundef %0, ptr noundef nonnull %59, i1 noundef zeroext %78, i1 noundef zeroext true, i1 noundef zeroext %4, i1 noundef zeroext %89, ptr noundef nonnull %74) #20
+  br label %90
 
-92:                                               ; preds = %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46, %70
-  %93 = add nuw i32 %.03841.us44, 1
-  %94 = add i32 %18, %.042.us43
-  %exitcond57.not = icmp eq i32 %93, %13
+90:                                               ; preds = %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us46, %70
+  %91 = add nuw i32 %.03841.us44, 1
+  %92 = add i32 %18, %.042.us43
+  %exitcond57.not = icmp eq i32 %91, %13
   br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !4
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %2, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
+  br i1 %2, label %.lr.ph.split.split.split.us.preheader, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %128
-  %.042.us47 = phi i32 [ %130, %128 ], [ 0, %.lr.ph.split.split ]
-  %.03841.us48 = phi i32 [ %129, %128 ], [ 0, %.lr.ph.split.split ]
-  %95 = zext i32 %.042.us47 to i64
-  %96 = getelementptr inbounds i8, ptr %1, i64 %95
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
-  %98 = load ptr, ptr %14, align 8
-  %99 = add i32 %.042.us47, 16
-  store i32 %99, ptr %96, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %98, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %102 = load i8, ptr %101, align 4
-  %103 = and i8 %102, -24
-  %104 = or disjoint i8 %19, %103
-  %105 = or disjoint i8 %104, 1
-  store i8 %105, ptr %101, align 4
-  %106 = load i8, ptr %21, align 1
-  %107 = shl i8 %106, 6
-  %108 = and i8 %107, 64
-  %109 = and i8 %105, -101
-  %110 = or disjoint i8 %109, %22
-  %111 = or disjoint i8 %110, %108
-  store i8 %111, ptr %101, align 4
-  %112 = load ptr, ptr %14, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
-  %114 = load ptr, ptr %113, align 8
-  %.not.us49 = icmp eq ptr %114, null
-  br i1 %.not.us49, label %128, label %115
+.lr.ph.split.split.split.us.preheader:            ; preds = %.lr.ph.split.split
+  %invariant.op63 = or disjoint i8 %19, 1
+  br label %.lr.ph.split.split.split.us
 
-115:                                              ; preds = %.lr.ph.split.split.split.us
-  %116 = icmp ne i8 %108, 0
-  %117 = getelementptr inbounds nuw i8, ptr %98, i64 51
-  %118 = load i8, ptr %117, align 1
-  %119 = trunc i8 %118 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, null
-  %.not1.i.us50 = select i1 %119, i1 true, i1 %122
-  br i1 %.not1.i.us50, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51, label %123
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split.split.us.preheader, %124
+  %.042.us47 = phi i32 [ %126, %124 ], [ 0, %.lr.ph.split.split.split.us.preheader ]
+  %.03841.us48 = phi i32 [ %125, %124 ], [ 0, %.lr.ph.split.split.split.us.preheader ]
+  %93 = zext i32 %.042.us47 to i64
+  %94 = getelementptr inbounds i8, ptr %1, i64 %93
+  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %96 = load ptr, ptr %14, align 8
+  %97 = add i32 %.042.us47, 16
+  store i32 %97, ptr %94, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %96, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %100 = load i8, ptr %99, align 4
+  %101 = and i8 %100, -24
+  %.reass64 = or disjoint i8 %101, %invariant.op63
+  store i8 %.reass64, ptr %99, align 4
+  %102 = load i8, ptr %21, align 1
+  %103 = shl i8 %102, 6
+  %104 = and i8 %103, 64
+  %105 = and i8 %.reass64, -101
+  %106 = or disjoint i8 %105, %22
+  %107 = or disjoint i8 %106, %104
+  store i8 %107, ptr %99, align 4
+  %108 = load ptr, ptr %14, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
+  %110 = load ptr, ptr %109, align 8
+  %.not.us49 = icmp eq ptr %110, null
+  br i1 %.not.us49, label %124, label %111
 
-123:                                              ; preds = %115
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 648
-  %125 = load i8, ptr %124, align 8
-  %126 = trunc i8 %125 to i1
+111:                                              ; preds = %.lr.ph.split.split.split.us
+  %112 = icmp ne i8 %104, 0
+  %113 = getelementptr inbounds nuw i8, ptr %96, i64 51
+  %114 = load i8, ptr %113, align 1
+  %115 = trunc i8 %114 to i1
+  %116 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, null
+  %.not1.i.us50 = select i1 %115, i1 true, i1 %118
+  br i1 %.not1.i.us50, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51, label %119
+
+119:                                              ; preds = %111
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 648
+  %121 = load i8, ptr %120, align 8
+  %122 = trunc i8 %121 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51
 
-_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51: ; preds = %123, %115
-  %127 = phi i1 [ false, %115 ], [ %126, %123 ]
-  tail call void %114(ptr noundef %0, ptr noundef nonnull %97, i1 noundef zeroext true, i1 noundef zeroext %116, i1 noundef zeroext %4, i1 noundef zeroext %127, ptr noundef nonnull %112) #20
-  br label %128
+_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51: ; preds = %119, %111
+  %123 = phi i1 [ false, %111 ], [ %122, %119 ]
+  tail call void %110(ptr noundef %0, ptr noundef nonnull %95, i1 noundef zeroext true, i1 noundef zeroext %112, i1 noundef zeroext %4, i1 noundef zeroext %123, ptr noundef nonnull %108) #20
+  br label %124
 
-128:                                              ; preds = %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51, %.lr.ph.split.split.split.us
-  %129 = add nuw i32 %.03841.us48, 1
-  %130 = add i32 %18, %.042.us47
-  %exitcond56.not = icmp eq i32 %129, %13
+124:                                              ; preds = %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us51, %.lr.ph.split.split.split.us
+  %125 = add nuw i32 %.03841.us48, 1
+  %126 = add i32 %18, %.042.us47
+  %exitcond56.not = icmp eq i32 %125, %13
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !4
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %168
-  %.042 = phi i32 [ %170, %168 ], [ 0, %.lr.ph.split.split ]
-  %.03841 = phi i32 [ %169, %168 ], [ 0, %.lr.ph.split.split ]
-  %131 = zext i32 %.042 to i64
-  %132 = getelementptr inbounds i8, ptr %1, i64 %131
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
-  %134 = load ptr, ptr %14, align 8
-  %135 = add i32 %.042, 16
-  store i32 %135, ptr %132, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store ptr %134, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %138 = load i8, ptr %137, align 4
-  %139 = and i8 %138, -23
-  %140 = or disjoint i8 %19, %139
-  store i8 %140, ptr %137, align 4
-  %141 = load i8, ptr %20, align 8
-  %142 = and i8 %141, 1
-  %143 = and i8 %140, -6
-  %144 = or disjoint i8 %142, %143
-  store i8 %144, ptr %137, align 4
-  %145 = load i8, ptr %21, align 1
-  %146 = shl i8 %145, 6
-  %147 = and i8 %146, 64
-  %148 = and i8 %144, -101
-  %149 = or disjoint i8 %148, %22
-  %150 = or disjoint i8 %149, %147
-  store i8 %150, ptr %137, align 4
-  %151 = load ptr, ptr %14, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 56
-  %153 = load ptr, ptr %152, align 8
-  %.not = icmp eq ptr %153, null
-  br i1 %.not, label %168, label %154
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %164
+  %.042 = phi i32 [ %166, %164 ], [ 0, %.lr.ph.split.split ]
+  %.03841 = phi i32 [ %165, %164 ], [ 0, %.lr.ph.split.split ]
+  %127 = zext i32 %.042 to i64
+  %128 = getelementptr inbounds i8, ptr %1, i64 %127
+  %129 = getelementptr inbounds i8, ptr %128, i64 16
+  %130 = load ptr, ptr %14, align 8
+  %131 = add i32 %.042, 16
+  store i32 %131, ptr %128, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr %130, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  %134 = load i8, ptr %133, align 4
+  %135 = and i8 %134, -23
+  %136 = or disjoint i8 %19, %135
+  store i8 %136, ptr %133, align 4
+  %137 = load i8, ptr %20, align 8
+  %138 = and i8 %137, 1
+  %139 = and i8 %136, -6
+  %140 = or disjoint i8 %138, %139
+  store i8 %140, ptr %133, align 4
+  %141 = load i8, ptr %21, align 1
+  %142 = shl i8 %141, 6
+  %143 = and i8 %142, 64
+  %144 = and i8 %140, -101
+  %145 = or disjoint i8 %144, %22
+  %146 = or disjoint i8 %145, %143
+  store i8 %146, ptr %133, align 4
+  %147 = load ptr, ptr %14, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
+  %149 = load ptr, ptr %148, align 8
+  %.not = icmp eq ptr %149, null
+  br i1 %.not, label %164, label %150
 
-154:                                              ; preds = %.lr.ph.split.split.split
-  %155 = icmp ne i8 %142, 0
-  %156 = icmp ne i8 %147, 0
-  %157 = getelementptr inbounds nuw i8, ptr %134, i64 51
-  %158 = load i8, ptr %157, align 1
-  %159 = trunc i8 %158 to i1
-  %160 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, null
-  %.not1.i = select i1 %159, i1 true, i1 %162
-  br i1 %.not1.i, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit, label %163
+150:                                              ; preds = %.lr.ph.split.split.split
+  %151 = icmp ne i8 %138, 0
+  %152 = icmp ne i8 %143, 0
+  %153 = getelementptr inbounds nuw i8, ptr %130, i64 51
+  %154 = load i8, ptr %153, align 1
+  %155 = trunc i8 %154 to i1
+  %156 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp eq ptr %157, null
+  %.not1.i = select i1 %155, i1 true, i1 %158
+  br i1 %.not1.i, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit, label %159
 
-163:                                              ; preds = %154
-  %164 = getelementptr inbounds nuw i8, ptr %161, i64 648
-  %165 = load i8, ptr %164, align 8
-  %166 = trunc i8 %165 to i1
+159:                                              ; preds = %150
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 648
+  %161 = load i8, ptr %160, align 8
+  %162 = trunc i8 %161 to i1
   br label %_ZNK5clang6interp10Descriptor7isUnionEv.exit
 
-_ZNK5clang6interp10Descriptor7isUnionEv.exit:     ; preds = %163, %154
-  %167 = phi i1 [ false, %154 ], [ %166, %163 ]
-  tail call void %153(ptr noundef %0, ptr noundef nonnull %133, i1 noundef zeroext %155, i1 noundef zeroext %156, i1 noundef zeroext %4, i1 noundef zeroext %167, ptr noundef nonnull %151) #20
-  br label %168
+_ZNK5clang6interp10Descriptor7isUnionEv.exit:     ; preds = %159, %150
+  %163 = phi i1 [ false, %150 ], [ %162, %159 ]
+  tail call void %149(ptr noundef %0, ptr noundef nonnull %129, i1 noundef zeroext %151, i1 noundef zeroext %152, i1 noundef zeroext %4, i1 noundef zeroext %163, ptr noundef nonnull %147) #20
+  br label %164
 
-168:                                              ; preds = %.lr.ph.split.split.split, %_ZNK5clang6interp10Descriptor7isUnionEv.exit
-  %169 = add nuw i32 %.03841, 1
-  %170 = add i32 %18, %.042
-  %exitcond.not = icmp eq i32 %169, %13
+164:                                              ; preds = %.lr.ph.split.split.split, %_ZNK5clang6interp10Descriptor7isUnionEv.exit
+  %165 = add nuw i32 %.03841, 1
+  %166 = add i32 %18, %.042
+  %exitcond.not = icmp eq i32 %165, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %168, %128, %92, %54, %7, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+._crit_edge:                                      ; preds = %164, %124, %90, %54, %7, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   ret void
 }
 

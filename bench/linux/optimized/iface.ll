@@ -5430,6 +5430,7 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   %22 = icmp eq i32 %1, 4
   %23 = getelementptr inbounds i8, ptr %0, i64 81
   %24 = getelementptr inbounds i8, ptr %0, i64 1672
+  %invariant.op = or i1 %19, %20
   br i1 %22, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %14, %74
@@ -5458,9 +5459,9 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   br i1 %37, label %.thread, label %.loopexit
 
 38:                                               ; preds = %32
-  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %25, i64 4056
-  %.pre22 = load i32, ptr %.phi.trans.insert21, align 8
-  %39 = icmp eq i32 %.pre22, 11
+  %.phi.trans.insert22 = getelementptr inbounds i8, ptr %25, i64 4056
+  %.pre23 = load i32, ptr %.phi.trans.insert22, align 8
+  %39 = icmp eq i32 %.pre23, 11
   br i1 %39, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %34, %38, %32
@@ -5531,49 +5532,49 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
 .split:                                           ; preds = %14
   br i1 %16, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %115
-  %77 = phi ptr [ %116, %115 ], [ %12, %.split ]
+.split.split.us:                                  ; preds = %.split, %114
+  %77 = phi ptr [ %115, %114 ], [ %12, %.split ]
   %78 = icmp eq ptr %77, %0
-  br i1 %78, label %115, label %79
+  br i1 %78, label %114, label %79
 
 79:                                               ; preds = %.split.split.us
   %80 = getelementptr inbounds i8, ptr %77, i64 1272
   %81 = load volatile i64, ptr %80, align 8
   %82 = and i64 %81, 1
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %115, label %84
+  br i1 %83, label %114, label %84
 
 84:                                               ; preds = %79
   %85 = load i32, ptr %15, align 8
-  %.phi.trans.insert15 = getelementptr inbounds i8, ptr %77, i64 4056
-  %.pre16 = load i32, ptr %.phi.trans.insert15, align 8
+  %.phi.trans.insert16 = getelementptr inbounds i8, ptr %77, i64 4056
+  %.pre17 = load i32, ptr %.phi.trans.insert16, align 8
   switch i32 %85, label %88 [
     i32 11, label %86
-    i32 6, label %._crit_edge17
+    i32 6, label %._crit_edge18
   ]
 
 86:                                               ; preds = %84
-  %87 = icmp eq i32 %.pre16, 6
-  br i1 %87, label %.thread24, label %.loopexit
+  %87 = icmp eq i32 %.pre17, 6
+  br i1 %87, label %.thread25, label %.loopexit
 
 88:                                               ; preds = %84
-  switch i32 %.pre16, label %.thread24 [
+  switch i32 %.pre17, label %.thread25 [
     i32 11, label %.loopexit
     i32 1, label %.loopexit
   ]
 
-._crit_edge17:                                    ; preds = %84
-  %89 = icmp eq i32 %.pre16, 1
-  br i1 %89, label %.loopexit, label %.thread24
+._crit_edge18:                                    ; preds = %84
+  %89 = icmp eq i32 %.pre17, 1
+  br i1 %89, label %.loopexit, label %.thread25
 
-.thread24:                                        ; preds = %88, %86, %._crit_edge17
-  %90 = phi i32 [ %.pre16, %._crit_edge17 ], [ 6, %86 ], [ %.pre16, %88 ]
+.thread25:                                        ; preds = %88, %86, %._crit_edge18
+  %90 = phi i32 [ %.pre17, %._crit_edge18 ], [ 6, %86 ], [ %.pre17, %88 ]
   %91 = getelementptr inbounds i8, ptr %77, i64 4906
   %92 = load i8, ptr %91, align 2, !range !6, !noundef !7
   %93 = icmp eq i8 %92, 0
   br i1 %93, label %94, label %.loopexit
 
-94:                                               ; preds = %.thread24
+94:                                               ; preds = %.thread25
   %95 = getelementptr inbounds i8, ptr %77, i64 5062
   %96 = load i32, ptr %17, align 4
   %97 = load i32, ptr %95, align 4
@@ -5585,7 +5586,7 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   %103 = zext i16 %102 to i32
   %104 = or i32 %98, %103
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %115
+  br i1 %105, label %106, label %114
 
 106:                                              ; preds = %94
   %107 = icmp eq i32 %90, 6
@@ -5594,91 +5595,89 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   %110 = icmp eq i32 %90, 4
   %111 = and i1 %21, %110
   %112 = or i1 %111, %109
-  %113 = or i1 %112, %19
-  %114 = or i1 %113, %20
-  br i1 %114, label %115, label %.loopexit
+  %113 = or i1 %112, %invariant.op
+  br i1 %113, label %114, label %.loopexit
 
-115:                                              ; preds = %106, %94, %79, %.split.split.us
-  %116 = load ptr, ptr %77, align 8
-  %117 = icmp eq ptr %116, %11
-  br i1 %117, label %.loopexit5, label %.split.split.us, !llvm.loop !212
+114:                                              ; preds = %106, %94, %79, %.split.split.us
+  %115 = load ptr, ptr %77, align 8
+  %116 = icmp eq ptr %115, %11
+  br i1 %116, label %.loopexit5, label %.split.split.us, !llvm.loop !212
 
-.split.split:                                     ; preds = %.split, %159
-  %118 = phi ptr [ %160, %159 ], [ %12, %.split ]
-  %119 = icmp eq ptr %118, %0
-  br i1 %119, label %159, label %120
+.split.split:                                     ; preds = %.split, %157
+  %117 = phi ptr [ %158, %157 ], [ %12, %.split ]
+  %118 = icmp eq ptr %117, %0
+  br i1 %118, label %157, label %119
 
-120:                                              ; preds = %.split.split
-  %121 = getelementptr inbounds i8, ptr %118, i64 1272
-  %122 = load volatile i64, ptr %121, align 8
-  %123 = and i64 %122, 1
-  %124 = icmp eq i64 %123, 0
-  br i1 %124, label %159, label %125
+119:                                              ; preds = %.split.split
+  %120 = getelementptr inbounds i8, ptr %117, i64 1272
+  %121 = load volatile i64, ptr %120, align 8
+  %122 = and i64 %121, 1
+  %123 = icmp eq i64 %122, 0
+  br i1 %123, label %157, label %124
 
-125:                                              ; preds = %120
-  %126 = load i32, ptr %15, align 8
-  switch i32 %126, label %131 [
-    i32 11, label %127
-    i32 6, label %.thread25
+124:                                              ; preds = %119
+  %125 = load i32, ptr %15, align 8
+  switch i32 %125, label %130 [
+    i32 11, label %126
+    i32 6, label %.thread26
   ]
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %118, i64 4056
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp eq i32 %129, 6
-  br i1 %130, label %.thread25, label %.loopexit
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds i8, ptr %117, i64 4056
+  %128 = load i32, ptr %127, align 8
+  %129 = icmp eq i32 %128, 6
+  br i1 %129, label %.thread26, label %.loopexit
 
-131:                                              ; preds = %125
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %118, i64 4056
+130:                                              ; preds = %124
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %117, i64 4056
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %132 = icmp eq i32 %.pre, 11
-  br i1 %132, label %.loopexit, label %.thread25
+  %131 = icmp eq i32 %.pre, 11
+  br i1 %131, label %.loopexit, label %.thread26
 
-.thread25:                                        ; preds = %127, %131, %125
-  %133 = getelementptr inbounds i8, ptr %118, i64 4056
-  %134 = getelementptr inbounds i8, ptr %118, i64 4906
-  %135 = load i8, ptr %134, align 2, !range !6, !noundef !7
-  %136 = icmp eq i8 %135, 0
-  br i1 %136, label %137, label %.loopexit
+.thread26:                                        ; preds = %126, %130, %124
+  %132 = getelementptr inbounds i8, ptr %117, i64 4056
+  %133 = getelementptr inbounds i8, ptr %117, i64 4906
+  %134 = load i8, ptr %133, align 2, !range !6, !noundef !7
+  %135 = icmp eq i8 %134, 0
+  br i1 %135, label %136, label %.loopexit
 
-137:                                              ; preds = %.thread25
-  %138 = getelementptr inbounds i8, ptr %118, i64 5062
-  %139 = load i32, ptr %17, align 4
-  %140 = load i32, ptr %138, align 4
-  %141 = xor i32 %140, %139
-  %142 = load i16, ptr %18, align 2
-  %143 = getelementptr i8, ptr %118, i64 5066
-  %144 = load i16, ptr %143, align 2
-  %145 = xor i16 %144, %142
-  %146 = zext i16 %145 to i32
-  %147 = or i32 %141, %146
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %149, label %159
+136:                                              ; preds = %.thread26
+  %137 = getelementptr inbounds i8, ptr %117, i64 5062
+  %138 = load i32, ptr %17, align 4
+  %139 = load i32, ptr %137, align 4
+  %140 = xor i32 %139, %138
+  %141 = load i16, ptr %18, align 2
+  %142 = getelementptr i8, ptr %117, i64 5066
+  %143 = load i16, ptr %142, align 2
+  %144 = xor i16 %143, %141
+  %145 = zext i16 %144 to i32
+  %146 = or i32 %140, %145
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %157
 
-149:                                              ; preds = %137
-  %150 = load i32, ptr %133, align 8
-  %151 = icmp eq i32 %150, 6
-  %152 = icmp eq i32 %150, 10
-  %153 = or i1 %151, %152
-  %154 = icmp eq i32 %150, 4
-  %155 = and i1 %21, %154
-  %156 = or i1 %155, %153
-  %157 = or i1 %156, %19
-  %158 = or i1 %157, %20
-  br i1 %158, label %159, label %.loopexit
+148:                                              ; preds = %136
+  %149 = load i32, ptr %132, align 8
+  %150 = icmp eq i32 %149, 6
+  %151 = icmp eq i32 %149, 10
+  %152 = or i1 %150, %151
+  %153 = icmp eq i32 %149, 4
+  %154 = and i1 %21, %153
+  %155 = or i1 %154, %152
+  %156 = or i1 %155, %invariant.op
+  br i1 %156, label %157, label %.loopexit
 
-159:                                              ; preds = %149, %137, %120, %.split.split
-  %160 = load ptr, ptr %118, align 8
-  %161 = icmp eq ptr %160, %11
-  br i1 %161, label %.loopexit5, label %.split.split, !llvm.loop !212
+157:                                              ; preds = %148, %136, %119, %.split.split
+  %158 = load ptr, ptr %117, align 8
+  %159 = icmp eq ptr %158, %11
+  br i1 %159, label %.loopexit5, label %.split.split, !llvm.loop !212
 
-.loopexit5:                                       ; preds = %159, %115, %74, %10
-  %162 = tail call i32 @ieee80211_check_combinations(ptr noundef %0, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #15
+.loopexit5:                                       ; preds = %157, %114, %74, %10
+  %160 = tail call i32 @ieee80211_check_combinations(ptr noundef %0, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %149, %.thread25, %131, %127, %86, %._crit_edge17, %.thread24, %106, %88, %88, %69, %44, %40, %38, %34, %61, %.loopexit5
-  %163 = phi i32 [ %162, %.loopexit5 ], [ -95, %69 ], [ -76, %61 ], [ -16, %44 ], [ -16, %40 ], [ -16, %34 ], [ -16, %38 ], [ -16, %88 ], [ -76, %106 ], [ -16, %.thread24 ], [ -16, %._crit_edge17 ], [ -16, %86 ], [ -16, %88 ], [ -76, %149 ], [ -16, %.thread25 ], [ -16, %127 ], [ -16, %131 ]
-  ret i32 %163
+.loopexit:                                        ; preds = %148, %.thread26, %130, %126, %86, %._crit_edge18, %.thread25, %106, %88, %88, %69, %44, %40, %38, %34, %61, %.loopexit5
+  %161 = phi i32 [ %160, %.loopexit5 ], [ -95, %69 ], [ -76, %61 ], [ -16, %44 ], [ -16, %40 ], [ -16, %34 ], [ -16, %38 ], [ -16, %88 ], [ -76, %106 ], [ -16, %.thread25 ], [ -16, %._crit_edge18 ], [ -16, %86 ], [ -16, %88 ], [ -76, %148 ], [ -16, %.thread26 ], [ -16, %126 ], [ -16, %130 ]
+  ret i32 %161
 }
 
 ; Function Attrs: null_pointer_is_valid

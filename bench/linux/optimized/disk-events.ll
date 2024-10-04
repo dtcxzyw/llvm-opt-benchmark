@@ -764,7 +764,7 @@ define internal fastcc void @disk_check_events(ptr noundef %0, ptr nocapture nou
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 2
   %54 = icmp eq i16 %53, 0
-  br i1 %54, label %84, label %55
+  br i1 %54, label %82, label %55
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
@@ -772,48 +772,48 @@ define internal fastcc void @disk_check_events(ptr noundef %0, ptr nocapture nou
   %56 = getelementptr inbounds i8, ptr %5, i64 44
   %57 = load i16, ptr %56, align 4
   %58 = zext i16 %57 to i32
+  %invariant.op = and i32 %58, %16
   br label %59
 
-59:                                               ; preds = %74, %55
-  %60 = phi i1 [ true, %55 ], [ false, %74 ]
-  %61 = phi i64 [ 0, %55 ], [ 1, %74 ]
-  %62 = phi i32 [ 0, %55 ], [ %75, %74 ]
+59:                                               ; preds = %72, %55
+  %60 = phi i1 [ true, %55 ], [ false, %72 ]
+  %61 = phi i64 [ 0, %55 ], [ 1, %72 ]
+  %62 = phi i32 [ 0, %55 ], [ %73, %72 ]
   %63 = trunc nuw nsw i64 %61 to i32
   %64 = shl nuw nsw i32 1, %63
-  %65 = and i32 %64, %58
-  %66 = and i32 %65, %16
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %74, label %68
+  %.reass.reass = and i32 %64, %invariant.op
+  %65 = icmp eq i32 %.reass.reass, 0
+  br i1 %65, label %72, label %66
 
-68:                                               ; preds = %59
-  %69 = getelementptr [2 x ptr], ptr @disk_uevents, i64 0, i64 %61
-  %70 = load ptr, ptr %69, align 8
-  %71 = add i32 %62, 1
-  %72 = sext i32 %62 to i64
-  %73 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %72
-  store ptr %70, ptr %73, align 8
-  br label %74
+66:                                               ; preds = %59
+  %67 = getelementptr [2 x ptr], ptr @disk_uevents, i64 0, i64 %61
+  %68 = load ptr, ptr %67, align 8
+  %69 = add i32 %62, 1
+  %70 = sext i32 %62 to i64
+  %71 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %70
+  store ptr %68, ptr %71, align 8
+  br label %72
 
-74:                                               ; preds = %68, %59
-  %75 = phi i32 [ %71, %68 ], [ %62, %59 ]
-  br i1 %60, label %59, label %76, !llvm.loop !14
+72:                                               ; preds = %66, %59
+  %73 = phi i32 [ %69, %66 ], [ %62, %59 ]
+  br i1 %60, label %59, label %74, !llvm.loop !14
+
+74:                                               ; preds = %72
+  %75 = icmp eq i32 %73, 0
+  br i1 %75, label %81, label %76
 
 76:                                               ; preds = %74
-  %77 = icmp eq i32 %75, 0
-  br i1 %77, label %83, label %78
+  %77 = getelementptr inbounds i8, ptr %5, i64 64
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 200
+  %80 = call i32 @kobject_uevent_env(ptr noundef %79, i32 noundef 2, ptr noundef nonnull %3) #9
+  br label %81
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %5, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 200
-  %82 = call i32 @kobject_uevent_env(ptr noundef %81, i32 noundef 2, ptr noundef nonnull %3) #9
-  br label %83
-
-83:                                               ; preds = %78, %76
+81:                                               ; preds = %76, %74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
-  br label %84
+  br label %82
 
-84:                                               ; preds = %83, %50
+82:                                               ; preds = %81, %50
   ret void
 }
 

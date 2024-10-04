@@ -3532,7 +3532,7 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
   %10 = and i64 %2, %1
   store i32 0, ptr %5, align 4
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %133, label %11
+  br i1 %.not, label %132, label %11
 
 11:                                               ; preds = %7
   %12 = xor i64 %1, -1
@@ -3542,7 +3542,7 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
 
 14:                                               ; preds = %11
   store i32 1, ptr %5, align 4
-  br label %133
+  br label %132
 
 15:                                               ; preds = %11
   %.not100 = icmp eq ptr %4, null
@@ -3557,6 +3557,7 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
 .lr.ph:                                           ; preds = %.preheader
   %18 = getelementptr i8, ptr %4, i64 8
   %.val107 = load ptr, ptr %18, align 8
+  %invariant.op = xor i64 %1, -1
   br label %23
 
 19:                                               ; preds = %34
@@ -3582,166 +3583,166 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr %5, align 4
-  br label %133
+  br label %132
 
 34:                                               ; preds = %23
-  %35 = xor i64 %25, -1
-  %36 = xor i64 %1, %35
-  %37 = and i64 %36, %2
-  %.not106 = icmp eq i64 %37, 0
-  br i1 %.not106, label %38, label %19
+  %.reass.reass.reass = xor i64 %25, %invariant.op
+  %35 = and i64 %2, %.reass.reass.reass
+  %.not106 = icmp eq i64 %35, 0
+  br i1 %.not106, label %36, label %19
 
-38:                                               ; preds = %34
-  %39 = and i64 %indvars.iv, 4294967294
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds i64, ptr %.val107, i64 %40
-  %42 = load i64, ptr %41, align 8
-  %43 = trunc i64 %42 to i32
-  %44 = xor i32 %43, 1
-  store i32 %44, ptr %5, align 4
-  br label %133
+36:                                               ; preds = %34
+  %37 = xor i64 %25, -1
+  %38 = and i64 %indvars.iv, 4294967294
+  %39 = or disjoint i64 %38, 1
+  %40 = getelementptr inbounds i64, ptr %.val107, i64 %39
+  %41 = load i64, ptr %40, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = xor i32 %42, 1
+  store i32 %43, ptr %5, align 4
+  br label %132
 
 .critedge:                                        ; preds = %19, %.preheader, %15
-  %.091122 = add nsw i32 %3, -1
-  %45 = icmp sgt i32 %3, 0
-  br i1 %45, label %.lr.ph126.preheader, label %._crit_edge
+  %.091123 = add nsw i32 %3, -1
+  %44 = icmp sgt i32 %3, 0
+  br i1 %44, label %.lr.ph127.preheader, label %._crit_edge
 
-.lr.ph126.preheader:                              ; preds = %.critedge
-  %46 = shl nuw nsw i32 1, %.091122
-  %47 = zext nneg i32 %46 to i64
-  %48 = lshr i64 %1, %47
-  %49 = zext nneg i32 %.091122 to i64
-  %50 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %49
-  %51 = load i64, ptr %50, align 8
-  %52 = xor i64 %48, %1
-  %53 = and i64 %51, %52
-  %.not109155 = icmp eq i64 %53, 0
-  br i1 %.not109155, label %.lr.ph158, label %._crit_edge
+.lr.ph127.preheader:                              ; preds = %.critedge
+  %45 = shl nuw nsw i32 1, %.091123
+  %46 = zext nneg i32 %45 to i64
+  %47 = lshr i64 %1, %46
+  %48 = zext nneg i32 %.091123 to i64
+  %49 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %48
+  %50 = load i64, ptr %49, align 8
+  %51 = xor i64 %47, %1
+  %52 = and i64 %50, %51
+  %.not109150 = icmp eq i64 %52, 0
+  br i1 %.not109150, label %.lr.ph153, label %._crit_edge
 
-.lr.ph126:                                        ; preds = %.lr.ph158
-  %.091 = add nsw i32 %.091125156, -1
-  %54 = shl nuw nsw i32 1, %.091
-  %55 = zext nneg i32 %54 to i64
-  %56 = lshr i64 %1, %55
-  %57 = zext nneg i32 %.091 to i64
-  %58 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %57
-  %59 = load i64, ptr %58, align 8
-  %60 = xor i64 %56, %1
-  %61 = and i64 %59, %60
-  %.not109 = icmp eq i64 %61, 0
-  br i1 %.not109, label %.lr.ph158, label %._crit_edge, !llvm.loop !58
+.lr.ph127:                                        ; preds = %.lr.ph153
+  %.091 = add nsw i32 %.091126151, -1
+  %53 = shl nuw nsw i32 1, %.091
+  %54 = zext nneg i32 %53 to i64
+  %55 = lshr i64 %1, %54
+  %56 = zext nneg i32 %.091 to i64
+  %57 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %56
+  %58 = load i64, ptr %57, align 8
+  %59 = xor i64 %55, %1
+  %60 = and i64 %58, %59
+  %.not109 = icmp eq i64 %60, 0
+  br i1 %.not109, label %.lr.ph153, label %._crit_edge, !llvm.loop !58
 
-.lr.ph158:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
-  %62 = phi i64 [ %59, %.lr.ph126 ], [ %51, %.lr.ph126.preheader ]
-  %63 = phi i64 [ %57, %.lr.ph126 ], [ %49, %.lr.ph126.preheader ]
-  %64 = phi i64 [ %55, %.lr.ph126 ], [ %47, %.lr.ph126.preheader ]
-  %.090124157 = phi i64 [ %73, %.lr.ph126 ], [ %2, %.lr.ph126.preheader ]
-  %.091125156 = phi i32 [ %.091, %.lr.ph126 ], [ %.091122, %.lr.ph126.preheader ]
-  %65 = and i64 %62, %.090124157
-  %66 = shl i64 %65, %64
-  %67 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %63
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, %.090124157
-  %70 = lshr i64 %69, %64
-  %71 = or i64 %66, %70
-  %72 = or i64 %71, %65
-  %73 = or i64 %72, %69
-  %74 = icmp sgt i32 %.091125156, 0
-  br i1 %74, label %.lr.ph126, label %._crit_edge, !llvm.loop !58
+.lr.ph153:                                        ; preds = %.lr.ph127.preheader, %.lr.ph127
+  %61 = phi i64 [ %58, %.lr.ph127 ], [ %50, %.lr.ph127.preheader ]
+  %62 = phi i64 [ %56, %.lr.ph127 ], [ %48, %.lr.ph127.preheader ]
+  %63 = phi i64 [ %54, %.lr.ph127 ], [ %46, %.lr.ph127.preheader ]
+  %.090125152 = phi i64 [ %72, %.lr.ph127 ], [ %2, %.lr.ph127.preheader ]
+  %.091126151 = phi i32 [ %.091, %.lr.ph127 ], [ %.091123, %.lr.ph127.preheader ]
+  %64 = and i64 %61, %.090125152
+  %65 = shl i64 %64, %63
+  %66 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %62
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, %.090125152
+  %69 = lshr i64 %68, %63
+  %70 = or i64 %65, %69
+  %71 = or i64 %70, %64
+  %72 = or i64 %71, %68
+  %73 = icmp sgt i32 %.091126151, 0
+  br i1 %73, label %.lr.ph127, label %._crit_edge, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %.lr.ph126, %.lr.ph158, %.lr.ph126.preheader, %.critedge
-  %.091.in.lcssa = phi i32 [ %3, %.critedge ], [ %3, %.lr.ph126.preheader ], [ 0, %.lr.ph158 ], [ %.091125156, %.lr.ph126 ]
-  %.090.lcssa = phi i64 [ %2, %.critedge ], [ %2, %.lr.ph126.preheader ], [ %73, %.lr.ph158 ], [ %73, %.lr.ph126 ]
-  %.091.lcssa = phi i32 [ %.091122, %.critedge ], [ %.091122, %.lr.ph126.preheader ], [ -1, %.lr.ph158 ], [ %.091, %.lr.ph126 ]
-  %75 = sext i32 %.091.lcssa to i64
-  %76 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %75
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, %1
-  %79 = shl nuw nsw i32 1, %.091.lcssa
-  %80 = zext nneg i32 %79 to i64
-  %81 = shl i64 %78, %80
-  %82 = or i64 %81, %78
-  %83 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %75
-  %84 = load i64, ptr %83, align 8
-  %85 = and i64 %84, %1
-  %86 = lshr i64 %85, %80
-  %87 = or i64 %86, %85
-  %88 = and i64 %77, %.090.lcssa
-  %89 = shl i64 %88, %80
-  %90 = or i64 %89, %88
-  %91 = and i64 %84, %.090.lcssa
-  %92 = lshr i64 %91, %80
-  %93 = or i64 %92, %91
-  %94 = call fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %82, i64 noundef %90, i32 noundef %.091.lcssa, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %6)
-  %95 = call fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %87, i64 noundef %93, i32 noundef %.091.lcssa, ptr noundef %4, ptr noundef nonnull %9, ptr noundef %6)
-  %96 = icmp eq i64 %94, %95
-  br i1 %96, label %97, label %99
+._crit_edge:                                      ; preds = %.lr.ph127, %.lr.ph153, %.lr.ph127.preheader, %.critedge
+  %.091.in.lcssa = phi i32 [ %3, %.critedge ], [ %3, %.lr.ph127.preheader ], [ 0, %.lr.ph153 ], [ %.091126151, %.lr.ph127 ]
+  %.090.lcssa = phi i64 [ %2, %.critedge ], [ %2, %.lr.ph127.preheader ], [ %72, %.lr.ph153 ], [ %72, %.lr.ph127 ]
+  %.091.lcssa = phi i32 [ %.091123, %.critedge ], [ %.091123, %.lr.ph127.preheader ], [ -1, %.lr.ph153 ], [ %.091, %.lr.ph127 ]
+  %74 = sext i32 %.091.lcssa to i64
+  %75 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %74
+  %76 = load i64, ptr %75, align 8
+  %77 = and i64 %76, %1
+  %78 = shl nuw nsw i32 1, %.091.lcssa
+  %79 = zext nneg i32 %78 to i64
+  %80 = shl i64 %77, %79
+  %81 = or i64 %80, %77
+  %82 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %74
+  %83 = load i64, ptr %82, align 8
+  %84 = and i64 %83, %1
+  %85 = lshr i64 %84, %79
+  %86 = or i64 %85, %84
+  %87 = and i64 %76, %.090.lcssa
+  %88 = shl i64 %87, %79
+  %89 = or i64 %88, %87
+  %90 = and i64 %83, %.090.lcssa
+  %91 = lshr i64 %90, %79
+  %92 = or i64 %91, %90
+  %93 = call fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %81, i64 noundef %89, i32 noundef %.091.lcssa, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %6)
+  %94 = call fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %86, i64 noundef %92, i32 noundef %.091.lcssa, ptr noundef %4, ptr noundef nonnull %9, ptr noundef %6)
+  %95 = icmp eq i64 %93, %94
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %._crit_edge
-  %98 = load i32, ptr %8, align 4
-  store i32 %98, ptr %5, align 4
-  br label %133
+96:                                               ; preds = %._crit_edge
+  %97 = load i32, ptr %8, align 4
+  store i32 %97, ptr %5, align 4
+  br label %132
 
-99:                                               ; preds = %._crit_edge
-  %100 = and i64 %94, %77
-  %101 = and i64 %95, %84
-  %102 = or i64 %101, %100
+98:                                               ; preds = %._crit_edge
+  %99 = and i64 %93, %76
+  %100 = and i64 %94, %83
+  %101 = or i64 %100, %99
   %.not102 = icmp eq ptr %6, null
-  br i1 %.not102, label %107, label %103
+  br i1 %.not102, label %106, label %102
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds i32, ptr %6, i64 %75
-  %105 = load i32, ptr %104, align 4
-  %106 = add nsw i32 %105, 1
-  br label %107
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds i32, ptr %6, i64 %74
+  %104 = load i32, ptr %103, align 4
+  %105 = add nsw i32 %104, 1
+  br label %106
 
-107:                                              ; preds = %99, %103
-  %108 = phi i32 [ %106, %103 ], [ %.091.in.lcssa, %99 ]
-  %109 = xor i64 %95, -1
-  %110 = and i64 %94, %109
-  %.not103 = icmp eq i64 %110, 0
-  br i1 %.not103, label %111, label %117
+106:                                              ; preds = %98, %102
+  %107 = phi i32 [ %105, %102 ], [ %.091.in.lcssa, %98 ]
+  %108 = xor i64 %94, -1
+  %109 = and i64 %93, %108
+  %.not103 = icmp eq i64 %109, 0
+  br i1 %.not103, label %110, label %116
 
-111:                                              ; preds = %107
-  %112 = shl nsw i32 %108, 1
-  %113 = load i32, ptr %9, align 4
-  %114 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %112, i32 noundef %113) #23
-  %115 = load i32, ptr %8, align 4
-  %116 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %114, i32 noundef %115) #23
-  br label %130
+110:                                              ; preds = %106
+  %111 = shl nsw i32 %107, 1
+  %112 = load i32, ptr %9, align 4
+  %113 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %111, i32 noundef %112) #23
+  %114 = load i32, ptr %8, align 4
+  %115 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %113, i32 noundef %114) #23
+  br label %129
 
-117:                                              ; preds = %107
-  %118 = xor i64 %94, -1
-  %119 = and i64 %95, %118
-  %.not104 = icmp eq i64 %119, 0
-  %120 = shl nsw i32 %108, 1
-  %121 = load i32, ptr %8, align 4
-  br i1 %.not104, label %122, label %127
+116:                                              ; preds = %106
+  %117 = xor i64 %93, -1
+  %118 = and i64 %94, %117
+  %.not104 = icmp eq i64 %118, 0
+  %119 = shl nsw i32 %107, 1
+  %120 = load i32, ptr %8, align 4
+  br i1 %.not104, label %121, label %126
 
-122:                                              ; preds = %117
-  %123 = or disjoint i32 %120, 1
-  %124 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %123, i32 noundef %121) #23
-  %125 = load i32, ptr %9, align 4
-  %126 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %124, i32 noundef %125) #23
-  br label %130
+121:                                              ; preds = %116
+  %122 = or disjoint i32 %119, 1
+  %123 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %122, i32 noundef %120) #23
+  %124 = load i32, ptr %9, align 4
+  %125 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %123, i32 noundef %124) #23
+  br label %129
 
-127:                                              ; preds = %117
-  %128 = load i32, ptr %9, align 4
-  %129 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %120, i32 noundef %128, i32 noundef %121) #23
-  br label %130
+126:                                              ; preds = %116
+  %127 = load i32, ptr %9, align 4
+  %128 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %119, i32 noundef %127, i32 noundef %120) #23
+  br label %129
 
-130:                                              ; preds = %122, %127, %111
-  %.sink = phi i32 [ %126, %122 ], [ %129, %127 ], [ %116, %111 ]
+129:                                              ; preds = %121, %126, %110
+  %.sink = phi i32 [ %125, %121 ], [ %128, %126 ], [ %115, %110 ]
   store i32 %.sink, ptr %5, align 4
-  br i1 %.not100, label %133, label %131
+  br i1 %.not100, label %132, label %130
 
-131:                                              ; preds = %130
-  %132 = sext i32 %.sink to i64
-  tail call fastcc void @Vec_WrdPushTwo(ptr noundef %4, i64 noundef %102, i64 noundef %132)
-  br label %133
+130:                                              ; preds = %129
+  %131 = sext i32 %.sink to i64
+  tail call fastcc void @Vec_WrdPushTwo(ptr noundef %4, i64 noundef %101, i64 noundef %131)
+  br label %132
 
-133:                                              ; preds = %7, %130, %131, %97, %38, %28, %14
-  %.0 = phi i64 [ %35, %38 ], [ %25, %28 ], [ %94, %97 ], [ -1, %14 ], [ %102, %131 ], [ %102, %130 ], [ 0, %7 ]
+132:                                              ; preds = %7, %129, %130, %96, %36, %28, %14
+  %.0 = phi i64 [ %37, %36 ], [ %25, %28 ], [ %93, %96 ], [ -1, %14 ], [ %101, %130 ], [ %101, %129 ], [ 0, %7 ]
   ret i64 %.0
 }
 

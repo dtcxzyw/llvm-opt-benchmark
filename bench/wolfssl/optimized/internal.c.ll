@@ -21193,6 +21193,7 @@ for.body.lr.ph:                                   ; preds = %if.end9
   %side = getelementptr inbounds i8, ptr %ssl, i64 1008
   %keySz = getelementptr inbounds i8, ptr %ssl, i64 572
   %cmp4.i = icmp ult i16 %0, 768
+  %invariant.op = or i1 %cmp4.i, %.not.i.not65
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -21283,9 +21284,9 @@ sw.bb:                                            ; preds = %if.end50
 if.end62:                                         ; preds = %sw.bb
   %cmp.i38 = icmp ne i8 %7, 3
   %brmerge = or i1 %cmp.i38, %cmp4.i
-  %brmerge64 = or i1 %brmerge, %.not.i.not65
+  %brmerge64.reass = or i1 %cmp.i38, %invariant.op
   %.mux.mux = select i1 %brmerge, i8 %7, i8 %3
-  br i1 %brmerge64, label %if.end94, label %land.lhs.true69
+  br i1 %brmerge64.reass, label %if.end94, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.end62
   %bf.load71 = load i64, ptr %side, align 8

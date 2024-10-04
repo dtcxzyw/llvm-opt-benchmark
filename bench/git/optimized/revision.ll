@@ -11768,6 +11768,7 @@ for.body.lr.ph:                                   ; preds = %if.end83
   %25 = and i32 %bf.load85, -2147479552
   %tobool179.not = icmp eq ptr %list, null
   %tobool183.not = icmp eq ptr %queue, null
+  %invariant.op = or disjoint i32 %25, 536870928
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -11974,8 +11975,8 @@ if.end154:                                        ; preds = %revision_sources_at
   br i1 %tobool168.not, label %if.then169, label %if.end186
 
 if.then169:                                       ; preds = %if.end154
-  %bf.set178 = or i32 %bf.set163, 536870928
-  store i32 %bf.set178, ptr %26, align 8
+  %bf.set178.reass = or i32 %bf.load156, %invariant.op
+  store i32 %bf.set178.reass, ptr %26, align 8
   br i1 %tobool179.not, label %if.end182, label %if.then180
 
 if.then180:                                       ; preds = %if.then169

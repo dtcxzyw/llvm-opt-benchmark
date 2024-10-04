@@ -5781,31 +5781,34 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
-  %conv = trunc i32 %0 to i8
-  %1 = getelementptr i8, ptr %s, i64 8
-  %2 = getelementptr i8, ptr %s, i64 70576
-  br i1 %cmp27, label %for.cond1.preheader.us, label %for.end7
+  %0 = getelementptr i8, ptr %s, i64 8
+  %1 = getelementptr i8, ptr %s, i64 70576
+  br i1 %cmp27, label %for.cond1.preheader.us.preheader, label %for.end7
 
-for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.lr.ph, %for.cond1.for.end_crit_edge.us
-  %y.012.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.lr.ph ]
-  %dstaddr.addr.011.us = phi i32 [ %add5.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.lr.ph ]
+for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
+  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %2 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %conv = trunc i32 %2 to i8
+  %invariant.op = xor i8 %conv, -1
+  br label %for.cond1.preheader.us
+
+for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.end_crit_edge.us
+  %y.012.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.us.preheader ]
+  %dstaddr.addr.011.us = phi i32 [ %add5.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.us.preheader ]
   br label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.cond1.preheader.us, %for.body3.us
   %x.09.us = phi i32 [ 0, %for.cond1.preheader.us ], [ %add4.us, %for.body3.us ]
   %addr.08.us = phi i32 [ %dstaddr.addr.011.us, %for.cond1.preheader.us ], [ %add.us, %for.body3.us ]
-  %s.val.us = load ptr, ptr %1, align 8
-  %s.val6.us = load i32, ptr %2, align 16
+  %s.val.us = load ptr, ptr %0, align 8
+  %s.val6.us = load i32, ptr %1, align 16
   %and.i.us = and i32 %s.val6.us, %addr.08.us
   %idxprom.i.us = zext i32 %and.i.us to i64
   %arrayidx.i.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i.us
   %3 = load i8, ptr %arrayidx.i.us, align 1
-  %4 = xor i8 %3, %conv
-  %not.i.us = xor i8 %4, -1
-  store i8 %not.i.us, ptr %arrayidx.i.us, align 1
+  %not.i.us.reass.reass = xor i8 %3, %invariant.op
+  store i8 %not.i.us.reass.reass, ptr %arrayidx.i.us, align 1
   %add.us = add i32 %addr.08.us, 1
   %add4.us = add nuw nsw i32 %x.09.us, 1
   %exitcond.not = icmp eq i32 %add4.us, %width
@@ -5828,32 +5831,35 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
-  %conv = trunc i32 %0 to i16
-  %1 = getelementptr i8, ptr %s, i64 8
-  %2 = getelementptr i8, ptr %s, i64 70576
-  br i1 %cmp27, label %for.cond1.preheader.us, label %for.end7
+  %0 = getelementptr i8, ptr %s, i64 8
+  %1 = getelementptr i8, ptr %s, i64 70576
+  br i1 %cmp27, label %for.cond1.preheader.us.preheader, label %for.end7
 
-for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.lr.ph, %for.cond1.for.end_crit_edge.us
-  %y.012.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.lr.ph ]
-  %dstaddr.addr.011.us = phi i32 [ %add5.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.lr.ph ]
+for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
+  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %2 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %conv = trunc i32 %2 to i16
+  %invariant.op = xor i16 %conv, -1
+  br label %for.cond1.preheader.us
+
+for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.end_crit_edge.us
+  %y.012.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.us.preheader ]
+  %dstaddr.addr.011.us = phi i32 [ %add5.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.us.preheader ]
   br label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.cond1.preheader.us, %for.body3.us
   %x.09.us = phi i32 [ 0, %for.cond1.preheader.us ], [ %add4.us, %for.body3.us ]
   %addr.08.us = phi i32 [ %dstaddr.addr.011.us, %for.cond1.preheader.us ], [ %add.us, %for.body3.us ]
-  %s.val.us = load ptr, ptr %1, align 8
-  %s.val6.us = load i32, ptr %2, align 16
+  %s.val.us = load ptr, ptr %0, align 8
+  %s.val6.us = load i32, ptr %1, align 16
   %and.i.us = and i32 %addr.08.us, -2
   %and1.i.us = and i32 %and.i.us, %s.val6.us
   %idxprom.i.us = zext i32 %and1.i.us to i64
   %arrayidx.i.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i.us
   %3 = load i16, ptr %arrayidx.i.us, align 2
-  %4 = xor i16 %3, %conv
-  %not.i.us = xor i16 %4, -1
-  store i16 %not.i.us, ptr %arrayidx.i.us, align 2
+  %not.i.us.reass.reass = xor i16 %3, %invariant.op
+  store i16 %not.i.us.reass.reass, ptr %arrayidx.i.us, align 2
   %add.us = add i32 %addr.08.us, 2
   %add4.us = add nuw nsw i32 %x.09.us, 2
   %cmp2.us = icmp slt i32 %add4.us, %width
@@ -5876,55 +5882,58 @@ entry:
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp225 = icmp sgt i32 %width, 0
-  %conv = trunc i32 %0 to i8
-  %1 = getelementptr i8, ptr %s, i64 8
-  %2 = getelementptr i8, ptr %s, i64 70576
-  %shr = lshr i32 %0, 8
-  %conv4 = trunc i32 %shr to i8
-  %shr6 = lshr i32 %0, 16
-  %conv7 = trunc i32 %shr6 to i8
-  br i1 %cmp225, label %for.cond1.preheader.us, label %for.end12
+  %0 = getelementptr i8, ptr %s, i64 8
+  %1 = getelementptr i8, ptr %s, i64 70576
+  br i1 %cmp225, label %for.cond1.preheader.us.preheader, label %for.end12
 
-for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.lr.ph, %for.cond1.for.end_crit_edge.us
-  %y.030.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.lr.ph ]
-  %dstaddr.addr.029.us = phi i32 [ %add10.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.lr.ph ]
+for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
+  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %2 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %shr6 = lshr i32 %2, 16
+  %conv7 = trunc i32 %shr6 to i8
+  %shr = lshr i32 %2, 8
+  %conv4 = trunc i32 %shr to i8
+  %conv = trunc i32 %2 to i8
+  %invariant.op = xor i8 %conv, -1
+  %invariant.op34 = xor i8 %conv4, -1
+  %invariant.op35 = xor i8 %conv7, -1
+  br label %for.cond1.preheader.us
+
+for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.end_crit_edge.us
+  %y.030.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.us.preheader ]
+  %dstaddr.addr.029.us = phi i32 [ %add10.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.us.preheader ]
   br label %do.body.us
 
 do.body.us:                                       ; preds = %for.cond1.preheader.us, %do.body.us
   %x.027.us = phi i32 [ 0, %for.cond1.preheader.us ], [ %add9.us, %do.body.us ]
   %addr.026.us = phi i32 [ %dstaddr.addr.029.us, %for.cond1.preheader.us ], [ %add8.us, %do.body.us ]
-  %s.val.us = load ptr, ptr %1, align 8
-  %s.val12.us = load i32, ptr %2, align 16
+  %s.val.us = load ptr, ptr %0, align 8
+  %s.val12.us = load i32, ptr %1, align 16
   %and.i.us = and i32 %s.val12.us, %addr.026.us
   %idxprom.i.us = zext i32 %and.i.us to i64
   %arrayidx.i.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i.us
   %3 = load i8, ptr %arrayidx.i.us, align 1
-  %4 = xor i8 %3, %conv
-  %not.i.us = xor i8 %4, -1
-  store i8 %not.i.us, ptr %arrayidx.i.us, align 1
+  %not.i.us.reass.reass = xor i8 %3, %invariant.op
+  store i8 %not.i.us.reass.reass, ptr %arrayidx.i.us, align 1
   %add.us = add i32 %addr.026.us, 1
-  %s.val13.us = load ptr, ptr %1, align 8
-  %s.val14.us = load i32, ptr %2, align 16
+  %s.val13.us = load ptr, ptr %0, align 8
+  %s.val14.us = load i32, ptr %1, align 16
   %and.i17.us = and i32 %s.val14.us, %add.us
   %idxprom.i18.us = zext i32 %and.i17.us to i64
   %arrayidx.i19.us = getelementptr i8, ptr %s.val13.us, i64 %idxprom.i18.us
-  %5 = load i8, ptr %arrayidx.i19.us, align 1
-  %6 = xor i8 %5, %conv4
-  %not.i20.us = xor i8 %6, -1
-  store i8 %not.i20.us, ptr %arrayidx.i19.us, align 1
+  %4 = load i8, ptr %arrayidx.i19.us, align 1
+  %not.i20.us.reass.reass = xor i8 %4, %invariant.op34
+  store i8 %not.i20.us.reass.reass, ptr %arrayidx.i19.us, align 1
   %add5.us = add i32 %addr.026.us, 2
-  %s.val15.us = load ptr, ptr %1, align 8
-  %s.val16.us = load i32, ptr %2, align 16
+  %s.val15.us = load ptr, ptr %0, align 8
+  %s.val16.us = load i32, ptr %1, align 16
   %and.i21.us = and i32 %s.val16.us, %add5.us
   %idxprom.i22.us = zext i32 %and.i21.us to i64
   %arrayidx.i23.us = getelementptr i8, ptr %s.val15.us, i64 %idxprom.i22.us
-  %7 = load i8, ptr %arrayidx.i23.us, align 1
-  %8 = xor i8 %7, %conv7
-  %not.i24.us = xor i8 %8, -1
-  store i8 %not.i24.us, ptr %arrayidx.i23.us, align 1
+  %5 = load i8, ptr %arrayidx.i23.us, align 1
+  %not.i24.us.reass.reass = xor i8 %5, %invariant.op35
+  store i8 %not.i24.us.reass.reass, ptr %arrayidx.i23.us, align 1
   %add8.us = add i32 %addr.026.us, 3
   %add9.us = add i32 %x.027.us, 3
   %cmp2.us = icmp slt i32 %add9.us, %width
@@ -5947,31 +5956,34 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
-  %1 = getelementptr i8, ptr %s, i64 8
-  %2 = getelementptr i8, ptr %s, i64 70576
-  br i1 %cmp27, label %for.cond1.preheader.us, label %for.end7
+  %0 = getelementptr i8, ptr %s, i64 8
+  %1 = getelementptr i8, ptr %s, i64 70576
+  br i1 %cmp27, label %for.cond1.preheader.us.preheader, label %for.end7
 
-for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.lr.ph, %for.cond1.for.end_crit_edge.us
-  %y.012.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.lr.ph ]
-  %dstaddr.addr.011.us = phi i32 [ %add5.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.lr.ph ]
+for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
+  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %2 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %invariant.op = xor i32 %2, -1
+  br label %for.cond1.preheader.us
+
+for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.end_crit_edge.us
+  %y.012.us = phi i32 [ %inc.us, %for.cond1.for.end_crit_edge.us ], [ 0, %for.cond1.preheader.us.preheader ]
+  %dstaddr.addr.011.us = phi i32 [ %add5.us, %for.cond1.for.end_crit_edge.us ], [ %dstaddr, %for.cond1.preheader.us.preheader ]
   br label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.cond1.preheader.us, %for.body3.us
   %x.09.us = phi i32 [ 0, %for.cond1.preheader.us ], [ %add4.us, %for.body3.us ]
   %addr.08.us = phi i32 [ %dstaddr.addr.011.us, %for.cond1.preheader.us ], [ %add.us, %for.body3.us ]
-  %s.val.us = load ptr, ptr %1, align 8
-  %s.val6.us = load i32, ptr %2, align 16
+  %s.val.us = load ptr, ptr %0, align 8
+  %s.val6.us = load i32, ptr %1, align 16
   %and.i.us = and i32 %addr.08.us, -4
   %and1.i.us = and i32 %and.i.us, %s.val6.us
   %idxprom.i.us = zext i32 %and1.i.us to i64
   %arrayidx.i.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i.us
   %3 = load i32, ptr %arrayidx.i.us, align 4
-  %4 = xor i32 %0, %3
-  %not.i.us = xor i32 %4, -1
-  store i32 %not.i.us, ptr %arrayidx.i.us, align 4
+  %not.i.us.reass.reass = xor i32 %3, %invariant.op
+  store i32 %not.i.us.reass.reass, ptr %arrayidx.i.us, align 4
   %add.us = add i32 %addr.08.us, 4
   %add4.us = add nuw nsw i32 %x.09.us, 4
   %cmp2.us = icmp slt i32 %add4.us, %width
@@ -12326,22 +12338,26 @@ entry:
   br i1 %cmp43, label %for.body.lr.ph, label %for.end29
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
-  %conv21 = trunc i32 %col.0 to i8
-  br i1 %cmp637, label %for.body.us, label %for.end29
+  br i1 %cmp637, label %for.body.us.preheader, label %for.end29
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
-  %dstaddr.addr.046.us = phi i32 [ %add26.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.lr.ph ]
-  %srcaddr.addr.045.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.lr.ph ]
-  %y.044.us = phi i32 [ %inc28.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.lr.ph ]
+for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %conv21 = trunc i32 %col.0 to i8
+  %invariant.op = xor i8 %conv21, -1
+  br label %for.body.us
+
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond5.for.end_crit_edge.us
+  %dstaddr.addr.046.us = phi i32 [ %add26.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.us.preheader ]
+  %srcaddr.addr.045.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.us.preheader ]
+  %y.044.us = phi i32 [ %inc28.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.us.preheader ]
   %inc.us = add i32 %srcaddr.addr.045.us, 1
   %4 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %4, 0
@@ -12421,9 +12437,8 @@ if.then20.us:                                     ; preds = %if.end17.us
   %idxprom.i35.us = zext i32 %and.i34.us to i64
   %arrayidx.i36.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i35.us
   %10 = load i8, ptr %arrayidx.i36.us, align 1
-  %11 = xor i8 %10, %conv21
-  %not.i.us = xor i8 %11, -1
-  store i8 %not.i.us, ptr %arrayidx.i36.us, align 1
+  %not.i.us.reass.reass = xor i8 %10, %invariant.op
+  store i8 %not.i.us.reass.reass, ptr %arrayidx.i36.us, align 1
   br label %if.end22.us
 
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
@@ -12460,22 +12475,26 @@ entry:
   br i1 %cmp44, label %for.body.lr.ph, label %for.end29
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
-  %conv21 = trunc i32 %col.0 to i16
-  br i1 %cmp638, label %for.body.us, label %for.end29
+  br i1 %cmp638, label %for.body.us.preheader, label %for.end29
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
-  %dstaddr.addr.047.us = phi i32 [ %add26.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.lr.ph ]
-  %srcaddr.addr.046.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.lr.ph ]
-  %y.045.us = phi i32 [ %inc28.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.lr.ph ]
+for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %conv21 = trunc i32 %col.0 to i16
+  %invariant.op = xor i16 %conv21, -1
+  br label %for.body.us
+
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond5.for.end_crit_edge.us
+  %dstaddr.addr.047.us = phi i32 [ %add26.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.us.preheader ]
+  %srcaddr.addr.046.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.us.preheader ]
+  %y.045.us = phi i32 [ %inc28.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.us.preheader ]
   %inc.us = add i32 %srcaddr.addr.046.us, 1
   %4 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %4, 0
@@ -12556,9 +12575,8 @@ if.then20.us:                                     ; preds = %if.end17.us
   %idxprom.i36.us = zext i32 %and1.i35.us to i64
   %arrayidx.i37.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i36.us
   %10 = load i16, ptr %arrayidx.i37.us, align 2
-  %11 = xor i16 %10, %conv21
-  %not.i.us = xor i16 %11, -1
-  store i16 %not.i.us, ptr %arrayidx.i37.us, align 2
+  %not.i.us.reass.reass = xor i16 %10, %invariant.op
+  store i16 %not.i.us.reass.reass, ptr %arrayidx.i37.us, align 2
   br label %if.end22.us
 
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
@@ -12594,9 +12612,6 @@ entry:
   br i1 %cmp62, label %for.body.lr.ph, label %for.end35
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
@@ -12605,17 +12620,26 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
-  %conv21 = trunc i32 %col.0 to i8
-  %shr23 = lshr i32 %col.0, 8
-  %conv24 = trunc i32 %shr23 to i8
+  br i1 %cmp656, label %for.body.us.preheader, label %for.end35
+
+for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
   %shr26 = lshr i32 %col.0, 16
   %conv27 = trunc i32 %shr26 to i8
-  br i1 %cmp656, label %for.body.us, label %for.end35
+  %shr23 = lshr i32 %col.0, 8
+  %conv24 = trunc i32 %shr23 to i8
+  %conv21 = trunc i32 %col.0 to i8
+  %invariant.op = xor i8 %conv21, -1
+  %invariant.op80 = xor i8 %conv24, -1
+  %invariant.op81 = xor i8 %conv27, -1
+  br label %for.body.us
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
-  %dstaddr.addr.065.us = phi i32 [ %add32.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.lr.ph ]
-  %srcaddr.addr.064.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.lr.ph ]
-  %y.063.us = phi i32 [ %inc34.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond5.for.end_crit_edge.us
+  %dstaddr.addr.065.us = phi i32 [ %add32.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.us.preheader ]
+  %srcaddr.addr.064.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.us.preheader ]
+  %y.063.us = phi i32 [ %inc34.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.us.preheader ]
   %inc.us = add i32 %srcaddr.addr.064.us, 1
   %4 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %4, 0
@@ -12695,29 +12719,26 @@ do.body.us:                                       ; preds = %if.end17.us
   %idxprom.i45.us = zext i32 %and.i44.us to i64
   %arrayidx.i46.us = getelementptr i8, ptr %s.val26.us, i64 %idxprom.i45.us
   %10 = load i8, ptr %arrayidx.i46.us, align 1
-  %11 = xor i8 %10, %conv21
-  %not.i.us = xor i8 %11, -1
-  store i8 %not.i.us, ptr %arrayidx.i46.us, align 1
+  %not.i.us.reass.reass = xor i8 %10, %invariant.op
+  store i8 %not.i.us.reass.reass, ptr %arrayidx.i46.us, align 1
   %add22.us = add i32 %addr.060.us, 1
   %s.val24.us = load ptr, ptr %vram_ptr.i, align 8
   %s.val25.us = load i32, ptr %cirrus_addr_mask.i, align 16
   %and.i47.us = and i32 %s.val25.us, %add22.us
   %idxprom.i48.us = zext i32 %and.i47.us to i64
   %arrayidx.i49.us = getelementptr i8, ptr %s.val24.us, i64 %idxprom.i48.us
-  %12 = load i8, ptr %arrayidx.i49.us, align 1
-  %13 = xor i8 %12, %conv24
-  %not.i50.us = xor i8 %13, -1
-  store i8 %not.i50.us, ptr %arrayidx.i49.us, align 1
+  %11 = load i8, ptr %arrayidx.i49.us, align 1
+  %not.i50.us.reass.reass = xor i8 %11, %invariant.op80
+  store i8 %not.i50.us.reass.reass, ptr %arrayidx.i49.us, align 1
   %add25.us = add i32 %addr.060.us, 2
   %s.val.us = load ptr, ptr %vram_ptr.i, align 8
   %s.val23.us = load i32, ptr %cirrus_addr_mask.i, align 16
   %and.i51.us = and i32 %s.val23.us, %add25.us
   %idxprom.i52.us = zext i32 %and.i51.us to i64
   %arrayidx.i53.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i52.us
-  %14 = load i8, ptr %arrayidx.i53.us, align 1
-  %15 = xor i8 %14, %conv27
-  %not.i54.us = xor i8 %15, -1
-  store i8 %not.i54.us, ptr %arrayidx.i53.us, align 1
+  %12 = load i8, ptr %arrayidx.i53.us, align 1
+  %not.i54.us.reass.reass = xor i8 %12, %invariant.op81
+  store i8 %not.i54.us.reass.reass, ptr %arrayidx.i53.us, align 1
   br label %if.end28.us
 
 if.end28.us:                                      ; preds = %do.body.us, %if.end17.us
@@ -12754,21 +12775,25 @@ entry:
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
-  br i1 %cmp638, label %for.body.us, label %for.end28
+  br i1 %cmp638, label %for.body.us.preheader, label %for.end28
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
-  %dstaddr.addr.047.us = phi i32 [ %add25.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.lr.ph ]
-  %srcaddr.addr.046.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.lr.ph ]
-  %y.045.us = phi i32 [ %inc27.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.lr.ph ]
+for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %invariant.op = xor i32 %col.0, -1
+  br label %for.body.us
+
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond5.for.end_crit_edge.us
+  %dstaddr.addr.047.us = phi i32 [ %add25.us, %for.cond5.for.end_crit_edge.us ], [ %dstaddr, %for.body.us.preheader ]
+  %srcaddr.addr.046.us = phi i32 [ %srcaddr.addr.2.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.body.us.preheader ]
+  %y.045.us = phi i32 [ %inc27.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.body.us.preheader ]
   %inc.us = add i32 %srcaddr.addr.046.us, 1
   %4 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %4, 0
@@ -12849,9 +12874,8 @@ if.then20.us:                                     ; preds = %if.end17.us
   %idxprom.i36.us = zext i32 %and1.i35.us to i64
   %arrayidx.i37.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i36.us
   %10 = load i32, ptr %arrayidx.i37.us, align 4
-  %11 = xor i32 %col.0, %10
-  %not.i.us = xor i32 %11, -1
-  store i32 %not.i.us, ptr %arrayidx.i37.us, align 4
+  %not.i.us.reass.reass = xor i32 %10, %invariant.op
+  store i32 %not.i.us.reass.reass, ptr %arrayidx.i37.us, align 4
   br label %if.end21.us
 
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
@@ -26523,25 +26547,26 @@ entry:
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
+  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
   %cmp819 = icmp sgt i32 %bltwidth, %and
-  %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
-  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %conv14 = trunc i32 %col.0 to i8
+  %invariant.op = xor i8 %conv14, -1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond7.for.end_crit_edge.us
@@ -26592,9 +26617,8 @@ if.then13.us:                                     ; preds = %for.body10.us
   %idxprom.i17.us = zext i32 %and.i16.us to i64
   %arrayidx.i18.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i17.us
   %10 = load i8, ptr %arrayidx.i18.us, align 1
-  %11 = xor i8 %10, %conv14
-  %not.i.us = xor i8 %11, -1
-  store i8 %not.i.us, ptr %arrayidx.i18.us, align 1
+  %not.i.us.reass.reass = xor i8 %10, %invariant.op
+  store i8 %not.i.us.reass.reass, ptr %arrayidx.i18.us, align 1
   br label %if.end15.us
 
 if.end15.us:                                      ; preds = %if.then13.us, %for.body10.us
@@ -26629,25 +26653,26 @@ entry:
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
+  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
   %cmp820 = icmp slt i32 %mul, %bltwidth
-  %conv14 = trunc i32 %col.0 to i16
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
-  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %conv14 = trunc i32 %col.0 to i16
+  %invariant.op = xor i16 %conv14, -1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond7.for.end_crit_edge.us
@@ -26699,9 +26724,8 @@ if.then13.us:                                     ; preds = %for.body10.us
   %idxprom.i18.us = zext i32 %and1.i17.us to i64
   %arrayidx.i19.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i18.us
   %10 = load i16, ptr %arrayidx.i19.us, align 2
-  %11 = xor i16 %10, %conv14
-  %not.i.us = xor i16 %11, -1
-  store i16 %not.i.us, ptr %arrayidx.i19.us, align 2
+  %not.i.us.reass.reass = xor i16 %10, %invariant.op
+  store i16 %not.i.us.reass.reass, ptr %arrayidx.i19.us, align 2
   br label %if.end15.us
 
 if.end15.us:                                      ; preds = %if.then13.us, %for.body10.us
@@ -26735,13 +26759,12 @@ entry:
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
+  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end30
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
@@ -26750,16 +26773,20 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
   %cmp838 = icmp sgt i32 %bltwidth, %and
-  %conv14 = trunc i32 %col.0 to i8
-  %shr16 = lshr i32 %col.0, 8
-  %conv17 = trunc i32 %shr16 to i8
-  %shr19 = lshr i32 %col.0, 16
-  %conv20 = trunc i32 %shr19 to i8
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
-  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %shr19 = lshr i32 %col.0, 16
+  %conv20 = trunc i32 %shr19 to i8
+  %shr16 = lshr i32 %col.0, 8
+  %conv17 = trunc i32 %shr16 to i8
+  %conv14 = trunc i32 %col.0 to i8
+  %invariant.op = xor i8 %conv14, -1
+  %invariant.op62 = xor i8 %conv17, -1
+  %invariant.op63 = xor i8 %conv20, -1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond7.for.end_crit_edge.us
@@ -26810,29 +26837,26 @@ do.body.us:                                       ; preds = %for.body10.us
   %idxprom.i27.us = zext i32 %and.i26.us to i64
   %arrayidx.i28.us = getelementptr i8, ptr %s.val24.us, i64 %idxprom.i27.us
   %10 = load i8, ptr %arrayidx.i28.us, align 1
-  %11 = xor i8 %10, %conv14
-  %not.i.us = xor i8 %11, -1
-  store i8 %not.i.us, ptr %arrayidx.i28.us, align 1
+  %not.i.us.reass.reass = xor i8 %10, %invariant.op
+  store i8 %not.i.us.reass.reass, ptr %arrayidx.i28.us, align 1
   %add15.us = add i32 %addr.041.us, 1
   %s.val22.us = load ptr, ptr %vram_ptr.i, align 8
   %s.val23.us = load i32, ptr %cirrus_addr_mask.i, align 16
   %and.i29.us = and i32 %s.val23.us, %add15.us
   %idxprom.i30.us = zext i32 %and.i29.us to i64
   %arrayidx.i31.us = getelementptr i8, ptr %s.val22.us, i64 %idxprom.i30.us
-  %12 = load i8, ptr %arrayidx.i31.us, align 1
-  %13 = xor i8 %12, %conv17
-  %not.i32.us = xor i8 %13, -1
-  store i8 %not.i32.us, ptr %arrayidx.i31.us, align 1
+  %11 = load i8, ptr %arrayidx.i31.us, align 1
+  %not.i32.us.reass.reass = xor i8 %11, %invariant.op62
+  store i8 %not.i32.us.reass.reass, ptr %arrayidx.i31.us, align 1
   %add18.us = add i32 %addr.041.us, 2
   %s.val.us = load ptr, ptr %vram_ptr.i, align 8
   %s.val21.us = load i32, ptr %cirrus_addr_mask.i, align 16
   %and.i33.us = and i32 %s.val21.us, %add18.us
   %idxprom.i34.us = zext i32 %and.i33.us to i64
   %arrayidx.i35.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i34.us
-  %14 = load i8, ptr %arrayidx.i35.us, align 1
-  %15 = xor i8 %14, %conv20
-  %not.i36.us = xor i8 %15, -1
-  store i8 %not.i36.us, ptr %arrayidx.i35.us, align 1
+  %12 = load i8, ptr %arrayidx.i35.us, align 1
+  %not.i36.us.reass.reass = xor i8 %12, %invariant.op63
+  store i8 %not.i36.us.reass.reass, ptr %arrayidx.i35.us, align 1
   br label %if.end21.us
 
 if.end21.us:                                      ; preds = %do.body.us, %for.body10.us
@@ -26867,13 +26891,12 @@ entry:
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
+  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
-  %col.0 = load i32, ptr %col.0.in, align 4
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -26883,8 +26906,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
-  %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
+  %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
+  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0 = load i32, ptr %col.0.in, align 4
+  %invariant.op = xor i32 %col.0, -1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond7.for.end_crit_edge.us
@@ -26936,9 +26961,8 @@ if.then13.us:                                     ; preds = %for.body10.us
   %idxprom.i18.us = zext i32 %and1.i17.us to i64
   %arrayidx.i19.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i18.us
   %10 = load i32, ptr %arrayidx.i19.us, align 4
-  %11 = xor i32 %col.0, %10
-  %not.i.us = xor i32 %11, -1
-  store i32 %not.i.us, ptr %arrayidx.i19.us, align 4
+  %not.i.us.reass.reass = xor i32 %10, %invariant.op
+  store i32 %not.i.us.reass.reass, ptr %arrayidx.i19.us, align 4
   br label %if.end14.us
 
 if.end14.us:                                      ; preds = %if.then13.us, %for.body10.us

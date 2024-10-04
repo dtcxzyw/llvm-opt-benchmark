@@ -11763,17 +11763,22 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 2
   %.not133 = icmp eq ptr %115, %116
-  br i1 %.not133, label %.loopexit, label %.lr.ph
+  br i1 %.not133, label %.loopexit, label %.lr.ph.preheader
 
-121:                                              ; preds = %145
+.lr.ph.preheader:                                 ; preds = %.preheader108
+  %invariant.op = and i64 %105, %87
+  %invariant.op193 = xor i64 %99, -1
+  br label %.lr.ph
+
+121:                                              ; preds = %143
   %122 = add i32 %.088114, 1
   %123 = zext i32 %122 to i64
   %124 = icmp ugt i64 %120, %123
   br i1 %124, label %.lr.ph, label %.loopexit, !llvm.loop !132
 
-.lr.ph:                                           ; preds = %.preheader108, %121
-  %125 = phi i64 [ %123, %121 ], [ 0, %.preheader108 ]
-  %.088114 = phi i32 [ %122, %121 ], [ 0, %.preheader108 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %121
+  %125 = phi i64 [ %123, %121 ], [ 0, %.lr.ph.preheader ]
+  %.088114 = phi i32 [ %122, %121 ], [ 0, %.lr.ph.preheader ]
   %126 = getelementptr inbounds i32, ptr %116, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = ashr i32 %127, %88
@@ -11788,29 +11793,28 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   %137 = getelementptr inbounds i64, ptr %102, i64 %131
   %138 = load i64, ptr %137, align 8
   %139 = lshr i64 %138, %134
-  %140 = and i64 %87, %139
-  %141 = and i64 %140, %105
-  %142 = and i64 %136, %141
-  %.not100 = icmp eq i64 %142, 0
-  br i1 %.not100, label %143, label %145
+  %.reass.reass = and i64 %139, %invariant.op
+  %140 = and i64 %136, %.reass.reass
+  %.not100 = icmp eq i64 %140, 0
+  br i1 %.not100, label %141, label %143
+
+141:                                              ; preds = %.lr.ph
+  %142 = shl i32 %127, 1
+  br label %.loopexit
 
 143:                                              ; preds = %.lr.ph
-  %144 = shl i32 %127, 1
+  %.reass163.reass = xor i64 %135, %invariant.op193
+  %144 = and i64 %.reass.reass, %.reass163.reass
+  %.not101 = icmp eq i64 %144, 0
+  br i1 %.not101, label %145, label %121
+
+145:                                              ; preds = %143
+  %146 = shl i32 %127, 1
+  %147 = or disjoint i32 %146, 1
   br label %.loopexit
 
-145:                                              ; preds = %.lr.ph
-  %146 = xor i64 %136, -1
-  %147 = and i64 %141, %146
-  %.not101 = icmp eq i64 %147, 0
-  br i1 %.not101, label %148, label %121
-
-148:                                              ; preds = %145
-  %149 = shl i32 %127, 1
-  %150 = or disjoint i32 %149, 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %121, %56, %8, %.critedge, %.preheader108, %.preheader, %107, %84, %148, %143, %.split.us
-  %.0 = phi i32 [ %83, %.split.us ], [ %150, %148 ], [ %144, %143 ], [ -2, %84 ], [ -1, %107 ], [ -3, %.preheader ], [ -3, %.preheader108 ], [ %32, %.critedge ], [ -1, %8 ], [ -3, %56 ], [ -3, %121 ]
+.loopexit:                                        ; preds = %121, %56, %8, %.critedge, %.preheader108, %.preheader, %107, %84, %145, %141, %.split.us
+  %.0 = phi i32 [ %83, %.split.us ], [ %147, %145 ], [ %142, %141 ], [ -2, %84 ], [ -1, %107 ], [ -3, %.preheader ], [ -3, %.preheader108 ], [ %32, %.critedge ], [ -1, %8 ], [ -3, %56 ], [ -3, %121 ]
   ret i32 %.0
 }
 

@@ -7367,6 +7367,7 @@ for.body.lr.ph:                                   ; preds = %if.end32
   %sidmap48 = getelementptr inbounds i8, ptr %this, i64 392
   %arrayZ.i.i.i90 = getelementptr inbounds i8, ptr %this, i64 376
   %23 = load i64, ptr @_hb_NullPool, align 16
+  %invariant.op = or i1 %tobool28, %cmp.i.i52
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end71
@@ -7522,17 +7523,16 @@ if.end.i82:                                       ; preds = %_ZN11hb_vector_tIN3
 
 if.end57:                                         ; preds = %if.end.i82, %if.then.i99, %if.end50
   %cmp58 = icmp ne i32 %glyph.0154, %old_glyph.0
-  %37 = or i1 %tobool28, %cmp58
-  %brmerge = or i1 %cmp.i.i52, %37
-  br i1 %brmerge, label %if.end71, label %if.then61
+  %brmerge.reass.reass.reass = or i1 %cmp58, %invariant.op
+  br i1 %brmerge.reass.reass.reass, label %if.end71, label %if.then61
 
 if.then61:                                        ; preds = %if.end57
   %sub = add i32 %_.sroa.0.1, -1
-  %38 = load ptr, ptr %arrayZ, align 8
+  %37 = load ptr, ptr %arrayZ, align 8
   %idxprom65 = zext i32 %glyph.0154 to i64
-  %glyph67 = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %38, i64 %idxprom65, i32 1
-  %39 = load i32, ptr %glyph67, align 4
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %sub, i32 %39)
+  %glyph67 = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %37, i64 %idxprom65, i32 1
+  %38 = load i32, ptr %glyph67, align 4
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %sub, i32 %38)
   %sub69 = sub i32 %sid.0, %glyph.0154
   %add70 = add i32 %sub69, %.sroa.speculated
   br label %if.end71
@@ -7549,31 +7549,31 @@ for.end:                                          ; preds = %if.end71, %if.end32
 
 if.then73:                                        ; preds = %for.end
   %accelerator = getelementptr inbounds i8, ptr %plan, i64 2520
-  %40 = load ptr, ptr %accelerator, align 8
-  %tobool74.not = icmp ne ptr %40, null
-  %41 = load ptr, ptr %cff_accelerator, align 8
-  %tobool77.not = icmp eq ptr %41, null
+  %39 = load ptr, ptr %accelerator, align 8
+  %tobool74.not = icmp ne ptr %39, null
+  %40 = load ptr, ptr %cff_accelerator, align 8
+  %tobool77.not = icmp eq ptr %40, null
   %or.cond = select i1 %tobool74.not, i1 true, i1 %tobool77.not
   br i1 %or.cond, label %lor.lhs.false, label %if.then81
 
 lor.lhs.false:                                    ; preds = %if.then73
-  %glyph_to_sid_map79 = getelementptr inbounds i8, ptr %41, i64 48
-  %42 = ptrtoint ptr %glyph_to_sid_map.0 to i64
-  %43 = cmpxchg weak ptr %glyph_to_sid_map79, i64 0, i64 %42 acq_rel monotonic, align 8
-  %44 = extractvalue { i64, i1 } %43, 1
-  br i1 %44, label %if.end83, label %if.then81
+  %glyph_to_sid_map79 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = ptrtoint ptr %glyph_to_sid_map.0 to i64
+  %42 = cmpxchg weak ptr %glyph_to_sid_map79, i64 0, i64 %41 acq_rel monotonic, align 8
+  %43 = extractvalue { i64, i1 } %42, 1
+  br i1 %43, label %if.end83, label %if.then81
 
 if.then81:                                        ; preds = %if.then73, %lor.lhs.false
-  %45 = load i32, ptr %glyph_to_sid_map.0, align 8
-  %tobool.not.i.i102 = icmp eq i32 %45, 0
+  %44 = load i32, ptr %glyph_to_sid_map.0, align 8
+  %tobool.not.i.i102 = icmp eq i32 %44, 0
   br i1 %tobool.not.i.i102, label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then81
   %length.i.i.i103 = getelementptr inbounds i8, ptr %glyph_to_sid_map.0, i64 4
   store i32 0, ptr %length.i.i.i103, align 4
   %arrayZ.i.i104 = getelementptr inbounds i8, ptr %glyph_to_sid_map.0, i64 8
-  %46 = load ptr, ptr %arrayZ.i.i104, align 8
-  call void @free(ptr noundef %46) #15
+  %45 = load ptr, ptr %arrayZ.i.i104, align 8
+  call void @free(ptr noundef %45) #15
   br label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit: ; preds = %if.then81, %if.then.i.i
@@ -7581,43 +7581,43 @@ _ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit: ; preds = %if.then81, %if.th
   br label %if.end83
 
 if.end83:                                         ; preds = %lor.lhs.false, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit, %for.end
-  %47 = load i32, ptr %length.i, align 4
-  %tobool.not7.i = icmp eq i32 %47, 0
+  %46 = load i32, ptr %length.i, align 4
+  %tobool.not7.i = icmp eq i32 %46, 0
   br i1 %tobool.not7.i, label %_ZN12range_list_t8completeEj.exit.thread, label %for.body.lr.ph.i
 
 _ZN12range_list_t8completeEj.exit.thread:         ; preds = %if.end83
-  %48 = load i32, ptr %_num_output_glyphs.i, align 8
-  %sub.i139 = shl i32 %48, 1
+  %47 = load i32, ptr %_num_output_glyphs.i, align 8
+  %sub.i139 = shl i32 %47, 1
   %mul.i.i108140 = add i32 %sub.i139, -2
   br label %if.end97.thread
 
 for.body.lr.ph.i:                                 ; preds = %if.end83
   %arrayZ.i106 = getelementptr inbounds i8, ptr %this, i64 376
-  %49 = zext i32 %47 to i64
+  %48 = zext i32 %46 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %49, %for.body.lr.ph.i ], [ %51, %for.body.i ]
-  %last_glyph.addr.010.i = phi i32 [ %1, %for.body.lr.ph.i ], [ %52, %for.body.i ]
+  %indvars.iv.i = phi i64 [ %48, %for.body.lr.ph.i ], [ %50, %for.body.i ]
+  %last_glyph.addr.010.i = phi i32 [ %1, %for.body.lr.ph.i ], [ %51, %for.body.i ]
   %all_glyphs.09.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %or.i, %for.body.i ]
-  %50 = load ptr, ptr %arrayZ.i106, align 8
-  %51 = add nsw i64 %indvars.iv.i, -1
-  %glyph.i = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %50, i64 %51, i32 1
-  %52 = load i32, ptr %glyph.i, align 4
-  %53 = xor i32 %52, -1
-  %sub3.i = add i32 %last_glyph.addr.010.i, %53
+  %49 = load ptr, ptr %arrayZ.i106, align 8
+  %50 = add nsw i64 %indvars.iv.i, -1
+  %glyph.i = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %49, i64 %50, i32 1
+  %51 = load i32, ptr %glyph.i, align 4
+  %52 = xor i32 %51, -1
+  %sub3.i = add i32 %last_glyph.addr.010.i, %52
   %or.i = or i32 %sub3.i, %all_glyphs.09.i
   store i32 %sub3.i, ptr %glyph.i, align 4
-  %tobool.not.wide.i = icmp eq i64 %51, 0
+  %tobool.not.wide.i = icmp eq i64 %50, 0
   br i1 %tobool.not.wide.i, label %_ZN12range_list_t8completeEj.exit, label %for.body.i, !llvm.loop !71
 
 _ZN12range_list_t8completeEj.exit:                ; preds = %for.body.i
-  %54 = icmp ugt i32 %or.i, 255
-  %55 = load i32, ptr %_num_output_glyphs.i, align 8
-  %sub.i = shl i32 %55, 1
+  %53 = icmp ugt i32 %or.i, 255
+  %54 = load i32, ptr %_num_output_glyphs.i, align 8
+  %sub.i = shl i32 %54, 1
   %mul.i.i108 = add i32 %sub.i, -2
   %.pre = load i32, ptr %length.i, align 4
-  br i1 %54, label %if.end97, label %if.end97.thread
+  br i1 %53, label %if.end97, label %if.end97.thread
 
 if.end97:                                         ; preds = %_ZN12range_list_t8completeEj.exit
   %mul.i.i110 = shl i32 %.pre, 2
@@ -7625,9 +7625,9 @@ if.end97:                                         ; preds = %_ZN12range_list_t8c
   br i1 %cmp98, label %if.then99, label %if.else104
 
 if.end97.thread:                                  ; preds = %_ZN12range_list_t8completeEj.exit, %_ZN12range_list_t8completeEj.exit.thread
-  %56 = phi i32 [ 0, %_ZN12range_list_t8completeEj.exit.thread ], [ %.pre, %_ZN12range_list_t8completeEj.exit ]
+  %55 = phi i32 [ 0, %_ZN12range_list_t8completeEj.exit.thread ], [ %.pre, %_ZN12range_list_t8completeEj.exit ]
   %mul.i.i108144 = phi i32 [ %mul.i.i108140, %_ZN12range_list_t8completeEj.exit.thread ], [ %mul.i.i108, %_ZN12range_list_t8completeEj.exit ]
-  %mul.i.i109 = mul i32 %56, 3
+  %mul.i.i109 = mul i32 %55, 3
   %cmp98160 = icmp ult i32 %mul.i.i108144, %mul.i.i109
   br i1 %cmp98160, label %if.then99, label %if.then102
 

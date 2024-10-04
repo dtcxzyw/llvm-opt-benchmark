@@ -2405,6 +2405,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK3sat8aig_cuts8l
   %8 = and i32 %retval.sroa.0.0.copyload.i37, 1
   %sext258 = sub nsw i32 0, %8
   %not79 = sext i32 %sext258 to i64
+  %invariant.op = xor i64 %not, -1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc92
@@ -2681,8 +2682,8 @@ if.end66:                                         ; preds = %if.end19.i162, %for
   %t2.0 = xor i64 %call68, %not75
   %t3.0 = xor i64 %call69, %not79
   %and = and i64 %t2.0, %spec.select
-  %not81 = xor i64 %spec.select, -1
-  %and82 = and i64 %t3.0, %not81
+  %not81.reass.reass.reass = xor i64 %call67, %invariant.op
+  %and82 = and i64 %t3.0, %not81.reass.reass.reass
   %or = or disjoint i64 %and82, %and
   %38 = load i32, ptr %m_size.i16.i134, align 4
   %sh_prom.i.i = zext nneg i32 %38 to i64

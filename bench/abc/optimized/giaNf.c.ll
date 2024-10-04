@@ -8383,6 +8383,7 @@ define void @Nf_ManElaBestMatchOne(ptr noundef %0, i32 noundef %1, i32 noundef %
   %70 = getelementptr inbounds i8, ptr %5, i64 12
   %71 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.trip.count129 = zext nneg i32 %11 to i64
+  %invariant.op = or disjoint i32 %64, -2147483648
   br label %80
 
 72:                                               ; preds = %._crit_edge.thread
@@ -8457,67 +8458,66 @@ define void @Nf_ManElaBestMatchOne(ptr noundef %0, i32 noundef %1, i32 noundef %
   %113 = getelementptr inbounds i8, ptr %87, i64 16
   %114 = load i32, ptr %113, align 8
   %115 = and i32 %114, 1048575
-  %116 = or disjoint i32 %64, %115
-  %117 = or disjoint i32 %116, -2147483648
-  store i32 %117, ptr %8, align 4
-  %118 = and i32 %85, -2
-  store i32 %118, ptr %65, align 4
+  %.reass = or disjoint i32 %115, %invariant.op
+  store i32 %.reass, ptr %8, align 4
+  %116 = and i32 %85, -2
+  store i32 %116, ptr %65, align 4
   store i32 0, ptr %67, align 4
-  %119 = call i64 @Nf_MatchRef_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly %8, i32 noundef %6, ptr noundef nonnull %66)
+  %117 = call i64 @Nf_MatchRef_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly %8, i32 noundef %6, ptr noundef nonnull %66)
   %.val17.i = load i32, ptr %67, align 4
-  %120 = icmp sgt i32 %.val17.i, 0
-  br i1 %120, label %.lr.ph.i, label %Nf_MatchRefArea.exit
+  %118 = icmp sgt i32 %.val17.i, 0
+  br i1 %118, label %.lr.ph.i, label %Nf_MatchRefArea.exit
 
 .lr.ph.i:                                         ; preds = %.critedge2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.critedge2 ]
   %.val15.i = load ptr, ptr %68, align 8
-  %121 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i
-  %122 = load i32, ptr %121, align 4
+  %119 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i
+  %120 = load i32, ptr %119, align 4
   %.val16.i = load ptr, ptr %69, align 8
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.val16.i, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = add nsw i32 %125, -1
-  store i32 %126, ptr %124, align 4
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %.val16.i, i64 %121
+  %123 = load i32, ptr %122, align 4
+  %124 = add nsw i32 %123, -1
+  store i32 %124, ptr %122, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %67, align 4
-  %127 = sext i32 %.val.i to i64
-  %128 = icmp slt i64 %indvars.iv.next.i, %127
-  br i1 %128, label %.lr.ph.i, label %Nf_MatchRefArea.exit, !llvm.loop !87
+  %125 = sext i32 %.val.i to i64
+  %126 = icmp slt i64 %indvars.iv.next.i, %125
+  br i1 %126, label %.lr.ph.i, label %Nf_MatchRefArea.exit, !llvm.loop !87
 
 Nf_MatchRefArea.exit:                             ; preds = %.lr.ph.i, %.critedge2
-  %129 = trunc i64 %119 to i32
-  %130 = sitofp i32 %129 to float
-  %131 = fdiv float %130, 1.000000e+03
-  store float %131, ptr %54, align 4
-  %132 = load float, ptr %70, align 4
-  %133 = fpext float %132 to double
-  %134 = fpext float %131 to double
-  %135 = fadd double %134, 1.000000e-03
-  %136 = fcmp olt double %135, %133
-  br i1 %136, label %143, label %137
+  %127 = trunc i64 %117 to i32
+  %128 = sitofp i32 %127 to float
+  %129 = fdiv float %128, 1.000000e+03
+  store float %129, ptr %54, align 4
+  %130 = load float, ptr %70, align 4
+  %131 = fpext float %130 to double
+  %132 = fpext float %129 to double
+  %133 = fadd double %132, 1.000000e-03
+  %134 = fcmp olt double %133, %131
+  br i1 %134, label %141, label %135
 
-137:                                              ; preds = %Nf_MatchRefArea.exit
-  %138 = fadd double %134, -1.000000e-03
-  %139 = fcmp olt double %138, %133
-  br i1 %139, label %140, label %.critedge2.thread
+135:                                              ; preds = %Nf_MatchRefArea.exit
+  %136 = fadd double %132, -1.000000e-03
+  %137 = fcmp olt double %136, %131
+  br i1 %137, label %138, label %.critedge2.thread
 
-140:                                              ; preds = %137
-  %141 = load i32, ptr %71, align 4
-  %142 = icmp sgt i32 %141, %111
-  br i1 %142, label %143, label %.critedge2.thread
+138:                                              ; preds = %135
+  %139 = load i32, ptr %71, align 4
+  %140 = icmp sgt i32 %139, %111
+  br i1 %140, label %141, label %.critedge2.thread
 
-143:                                              ; preds = %140, %Nf_MatchRefArea.exit
+141:                                              ; preds = %138, %Nf_MatchRefArea.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %95, %137, %140, %143, %80
+.critedge2.thread:                                ; preds = %95, %135, %138, %141, %80
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 2
   %.val = load i32, ptr %55, align 4
-  %144 = trunc i64 %indvars.iv.next132 to i32
-  %145 = or disjoint i32 %144, 1
-  %146 = icmp slt i32 %145, %.val
-  br i1 %146, label %80, label %.critedge, !llvm.loop !90
+  %142 = trunc i64 %indvars.iv.next132 to i32
+  %143 = or disjoint i32 %142, 1
+  %144 = icmp slt i32 %143, %.val
+  br i1 %144, label %80, label %.critedge, !llvm.loop !90
 
 .critedge:                                        ; preds = %.critedge2.thread, %._crit_edge, %72, %75, %79
   ret void

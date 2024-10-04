@@ -556,9 +556,8 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge64.
   %.not.us = icmp slt i64 %indvars.iv93, %23
   %.not44.us = icmp sgt i64 %indvars.iv93, %24
   %or.cond.us = or i1 %.not.us, %.not44.us
-  %or.cond47.us = or i1 %.not45.us, %or.cond.us
-  %or.cond48.us = or i1 %.not46.us, %or.cond47.us
-  br i1 %or.cond48.us, label %.preheader.us, label %44
+  %or.cond48.reass.us = or i1 %or.cond.us, %invariant.op.us
+  br i1 %or.cond48.reass.us, label %.preheader.us, label %44
 
 ._crit_edge.us.loopexit:                          ; preds = %45
   %38 = sext i32 %57 to i64
@@ -624,6 +623,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge64.
   %.sroa.0.1.us108 = phi ptr [ null, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.us ], [ %32, %58 ]
   %.not45.us = icmp slt i64 %indvars.iv98, %26
   %.not46.us = icmp sgt i64 %indvars.iv98, %27
+  %invariant.op.us = or i1 %.not45.us, %.not46.us
   br label %37
 
 .lr.ph.us:                                        ; preds = %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us, %.noexc49.us

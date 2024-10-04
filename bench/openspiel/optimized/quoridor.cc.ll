@@ -2569,6 +2569,7 @@ _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %.sroa.2.0.insert.shift.i52 = shl nuw nsw i64 %indvars.iv135, 32
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %invariant.op = or disjoint i64 %.sroa.2.0.insert.shift.i52, 1
   br label %80
 
 80:                                               ; preds = %.lr.ph109, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit71
@@ -2653,17 +2654,17 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
 115:                                              ; preds = %88, %92, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i
   %116 = phi ptr [ %83, %88 ], [ %83, %92 ], [ %107, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ]
   %117 = phi ptr [ %82, %88 ], [ %82, %92 ], [ %114, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ]
-  %118 = or disjoint i64 %indvars.iv132, 1
-  %119 = load i32, ptr %57, align 4
-  %120 = mul nsw i32 %119, %79
-  %121 = trunc nuw nsw i64 %118 to i32
-  %122 = add nsw i32 %120, %121
-  %.sroa.0.0.insert.insert.i54 = or disjoint i64 %.sroa.2.0.insert.shift.i52, %118
-  %.sroa.5.8.insert.ext.i56 = zext i32 %119 to i64
+  %118 = load i32, ptr %57, align 4
+  %119 = mul nsw i32 %118, %79
+  %120 = trunc i64 %indvars.iv132 to i32
+  %121 = or disjoint i32 %120, 1
+  %122 = add nsw i32 %119, %121
+  %.sroa.0.0.insert.insert.i54.reass = or i64 %indvars.iv132, %invariant.op
+  %.sroa.5.8.insert.ext.i56 = zext i32 %118 to i64
   %.sroa.5.8.insert.shift.i57 = shl nuw i64 %.sroa.5.8.insert.ext.i56, 32
   %.sroa.3.8.insert.ext.i58 = zext i32 %122 to i64
   %.sroa.3.8.insert.insert.i59 = or disjoint i64 %.sroa.5.8.insert.shift.i57, %.sroa.3.8.insert.ext.i58
-  %123 = invoke noundef zeroext i1 @_ZNK10open_spiel8quoridor13QuoridorState11IsValidWallENS0_4MoveEPNS1_11SearchStateE(ptr noundef nonnull align 8 dereferenceable(228) %1, i64 %.sroa.0.0.insert.insert.i54, i64 %.sroa.3.8.insert.insert.i59, ptr noundef nonnull %3)
+  %123 = invoke noundef zeroext i1 @_ZNK10open_spiel8quoridor13QuoridorState11IsValidWallENS0_4MoveEPNS1_11SearchStateE(ptr noundef nonnull align 8 dereferenceable(228) %1, i64 %.sroa.0.0.insert.insert.i54.reass, i64 %.sroa.3.8.insert.insert.i59, ptr noundef nonnull %3)
           to label %124 unwind label %.loopexit
 
 124:                                              ; preds = %115
