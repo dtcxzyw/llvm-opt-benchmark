@@ -16384,7 +16384,7 @@ llvm/PDBFileBuilder.cpp.ll 1998670878
 llvm/PDBInterfaceAnchors.cpp.ll 45804804
 llvm/PDBStringTable.cpp.ll 760637784
 llvm/PDBStringTableBuilder.cpp.ll 536567194
-llvm/PDBSymDumper.cpp.ll 85048769
+llvm/PDBSymDumper.cpp.ll 84963678
 llvm/PDBSymbol.cpp.ll 402517893
 llvm/PDBSymbolAnnotation.cpp.ll 35831497
 llvm/PDBSymbolBlock.cpp.ll 35820000
