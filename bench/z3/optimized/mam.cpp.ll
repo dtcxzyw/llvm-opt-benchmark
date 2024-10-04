@@ -20,10 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.vector.14 = type { ptr }
 %class.obj_hash_entry = type { ptr }
 %struct._Guard = type { ptr }
-%class.set_ptr_trail = type { %class.trail, ptr }
-%class.trail = type { ptr }
-%class.set_ptr_trail.347 = type { %class.trail, ptr }
-%class.new_obj_trail = type { %class.trail, ptr }
 %class.ptr_buffer.352 = type { %class.buffer.353 }
 %class.buffer.353 = type { ptr, i32, i32, [16 x %"union.std::aligned_storage<8, 8>::type"] }
 %"class.obj_map<expr, unsigned int>::obj_map_entry" = type { %"struct.obj_map<expr, unsigned int>::key_data" }
@@ -6257,75 +6253,75 @@ if.then52.i.i:                                    ; preds = %if.end44.i.i
   br label %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i
 
 if.else64.i.i:                                    ; preds = %if.end44.i.i
-  %call.i.i36.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %call.i.i36.i.i, align 8
-  %m_ptr.i.i20.i.i = getelementptr inbounds i8, ptr %call.i.i36.i.i, i64 8
+  %call.i.i35.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %call.i.i35.i.i, align 8
+  %m_ptr.i.i20.i.i = getelementptr inbounds i8, ptr %call.i.i35.i.i, i64 8
   store ptr %arrayidx49.i.i, ptr %m_ptr.i.i20.i.i, align 8
   %92 = load ptr, ptr %m_trail_stack.i, align 8
-  %cmp.i.i22.i.i = icmp eq ptr %92, null
-  br i1 %cmp.i.i22.i.i, label %if.then.i.i31.i.i, label %lor.lhs.false.i.i23.i.i
+  %cmp.i.i21.i.i = icmp eq ptr %92, null
+  br i1 %cmp.i.i21.i.i, label %if.then.i.i30.i.i, label %lor.lhs.false.i.i22.i.i
 
-lor.lhs.false.i.i23.i.i:                          ; preds = %if.else64.i.i
-  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %92, i64 -4
-  %93 = load i32, ptr %arrayidx.i.i24.i.i, align 4
-  %arrayidx4.i.i25.i.i = getelementptr inbounds i8, ptr %92, i64 -8
-  %94 = load i32, ptr %arrayidx4.i.i25.i.i, align 4
-  %cmp5.i.i26.i.i = icmp eq i32 %93, %94
-  br i1 %cmp5.i.i26.i.i, label %if.then.i.i31.i.i, label %invoke.cont74.i.i
+lor.lhs.false.i.i22.i.i:                          ; preds = %if.else64.i.i
+  %arrayidx.i.i23.i.i = getelementptr inbounds i8, ptr %92, i64 -4
+  %93 = load i32, ptr %arrayidx.i.i23.i.i, align 4
+  %arrayidx4.i.i24.i.i = getelementptr inbounds i8, ptr %92, i64 -8
+  %94 = load i32, ptr %arrayidx4.i.i24.i.i, align 4
+  %cmp5.i.i25.i.i = icmp eq i32 %93, %94
+  br i1 %cmp5.i.i25.i.i, label %if.then.i.i30.i.i, label %invoke.cont74.i.i
 
-if.then.i.i31.i.i:                                ; preds = %lor.lhs.false.i.i23.i.i, %if.else64.i.i
+if.then.i.i30.i.i:                                ; preds = %lor.lhs.false.i.i22.i.i, %if.else64.i.i
   tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack.i)
-  %.pre.i.i32.i.i = load ptr, ptr %m_trail_stack.i, align 8
-  %arrayidx8.phi.trans.insert.i.i33.i.i = getelementptr inbounds i8, ptr %.pre.i.i32.i.i, i64 -4
-  %.pre1.i.i34.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i33.i.i, align 4
+  %.pre.i.i31.i.i = load ptr, ptr %m_trail_stack.i, align 8
+  %arrayidx8.phi.trans.insert.i.i32.i.i = getelementptr inbounds i8, ptr %.pre.i.i31.i.i, i64 -4
+  %.pre1.i.i33.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i32.i.i, align 4
   br label %invoke.cont74.i.i
 
-invoke.cont74.i.i:                                ; preds = %if.then.i.i31.i.i, %lor.lhs.false.i.i23.i.i
-  %95 = phi i32 [ %.pre1.i.i34.i.i, %if.then.i.i31.i.i ], [ %93, %lor.lhs.false.i.i23.i.i ]
-  %96 = phi ptr [ %.pre.i.i32.i.i, %if.then.i.i31.i.i ], [ %92, %lor.lhs.false.i.i23.i.i ]
-  %idx.ext.i.i27.i.i = zext i32 %95 to i64
-  %add.ptr.i.i28.i.i = getelementptr inbounds ptr, ptr %96, i64 %idx.ext.i.i27.i.i
-  store ptr %call.i.i36.i.i, ptr %add.ptr.i.i28.i.i, align 8
+invoke.cont74.i.i:                                ; preds = %if.then.i.i30.i.i, %lor.lhs.false.i.i22.i.i
+  %95 = phi i32 [ %.pre1.i.i33.i.i, %if.then.i.i30.i.i ], [ %93, %lor.lhs.false.i.i22.i.i ]
+  %96 = phi ptr [ %.pre.i.i31.i.i, %if.then.i.i30.i.i ], [ %92, %lor.lhs.false.i.i22.i.i ]
+  %idx.ext.i.i26.i.i = zext i32 %95 to i64
+  %add.ptr.i.i27.i.i = getelementptr inbounds ptr, ptr %96, i64 %idx.ext.i.i26.i.i
+  store ptr %call.i.i35.i.i, ptr %add.ptr.i.i27.i.i, align 8
   %97 = load ptr, ptr %m_trail_stack.i, align 8
-  %arrayidx10.i.i29.i.i = getelementptr inbounds i8, ptr %97, i64 -4
-  %98 = load i32, ptr %arrayidx10.i.i29.i.i, align 4
-  %inc.i.i30.i.i = add i32 %98, 1
-  store i32 %inc.i.i30.i.i, ptr %arrayidx10.i.i29.i.i, align 4
+  %arrayidx10.i.i28.i.i = getelementptr inbounds i8, ptr %97, i64 -4
+  %98 = load i32, ptr %arrayidx10.i.i28.i.i, align 4
+  %inc.i.i29.i.i = add i32 %98, 1
+  store i32 %inc.i.i29.i.i, ptr %arrayidx10.i.i28.i.i, align 4
   %second82.i.i = getelementptr inbounds [64 x [64 x %"struct.std::pair"]], ptr %m_pp45.i.i, i64 0, i64 %idxprom46.i.i, i64 %idxprom48.i.i, i32 1
-  %call.i.i57.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %call.i.i57.i.i, align 8
-  %m_ptr.i.i41.i.i = getelementptr inbounds i8, ptr %call.i.i57.i.i, i64 8
-  store ptr %second82.i.i, ptr %m_ptr.i.i41.i.i, align 8
+  %call.i.i55.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %call.i.i55.i.i, align 8
+  %m_ptr.i.i40.i.i = getelementptr inbounds i8, ptr %call.i.i55.i.i, i64 8
+  store ptr %second82.i.i, ptr %m_ptr.i.i40.i.i, align 8
   %99 = load ptr, ptr %m_trail_stack.i, align 8
-  %cmp.i.i43.i.i = icmp eq ptr %99, null
-  br i1 %cmp.i.i43.i.i, label %if.then.i.i52.i.i, label %lor.lhs.false.i.i44.i.i
+  %cmp.i.i41.i.i = icmp eq ptr %99, null
+  br i1 %cmp.i.i41.i.i, label %if.then.i.i50.i.i, label %lor.lhs.false.i.i42.i.i
 
-lor.lhs.false.i.i44.i.i:                          ; preds = %invoke.cont74.i.i
-  %arrayidx.i.i45.i.i = getelementptr inbounds i8, ptr %99, i64 -4
-  %100 = load i32, ptr %arrayidx.i.i45.i.i, align 4
-  %arrayidx4.i.i46.i.i = getelementptr inbounds i8, ptr %99, i64 -8
-  %101 = load i32, ptr %arrayidx4.i.i46.i.i, align 4
-  %cmp5.i.i47.i.i = icmp eq i32 %100, %101
-  br i1 %cmp5.i.i47.i.i, label %if.then.i.i52.i.i, label %invoke.cont84.i.i
+lor.lhs.false.i.i42.i.i:                          ; preds = %invoke.cont74.i.i
+  %arrayidx.i.i43.i.i = getelementptr inbounds i8, ptr %99, i64 -4
+  %100 = load i32, ptr %arrayidx.i.i43.i.i, align 4
+  %arrayidx4.i.i44.i.i = getelementptr inbounds i8, ptr %99, i64 -8
+  %101 = load i32, ptr %arrayidx4.i.i44.i.i, align 4
+  %cmp5.i.i45.i.i = icmp eq i32 %100, %101
+  br i1 %cmp5.i.i45.i.i, label %if.then.i.i50.i.i, label %invoke.cont84.i.i
 
-if.then.i.i52.i.i:                                ; preds = %lor.lhs.false.i.i44.i.i, %invoke.cont74.i.i
+if.then.i.i50.i.i:                                ; preds = %lor.lhs.false.i.i42.i.i, %invoke.cont74.i.i
   tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail_stack.i)
-  %.pre.i.i53.i.i = load ptr, ptr %m_trail_stack.i, align 8
-  %arrayidx8.phi.trans.insert.i.i54.i.i = getelementptr inbounds i8, ptr %.pre.i.i53.i.i, i64 -4
-  %.pre1.i.i55.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i54.i.i, align 4
+  %.pre.i.i51.i.i = load ptr, ptr %m_trail_stack.i, align 8
+  %arrayidx8.phi.trans.insert.i.i52.i.i = getelementptr inbounds i8, ptr %.pre.i.i51.i.i, i64 -4
+  %.pre1.i.i53.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i52.i.i, align 4
   br label %invoke.cont84.i.i
 
-invoke.cont84.i.i:                                ; preds = %if.then.i.i52.i.i, %lor.lhs.false.i.i44.i.i
-  %102 = phi i32 [ %.pre1.i.i55.i.i, %if.then.i.i52.i.i ], [ %100, %lor.lhs.false.i.i44.i.i ]
-  %103 = phi ptr [ %.pre.i.i53.i.i, %if.then.i.i52.i.i ], [ %99, %lor.lhs.false.i.i44.i.i ]
-  %idx.ext.i.i48.i.i = zext i32 %102 to i64
-  %add.ptr.i.i49.i.i = getelementptr inbounds ptr, ptr %103, i64 %idx.ext.i.i48.i.i
-  store ptr %call.i.i57.i.i, ptr %add.ptr.i.i49.i.i, align 8
+invoke.cont84.i.i:                                ; preds = %if.then.i.i50.i.i, %lor.lhs.false.i.i42.i.i
+  %102 = phi i32 [ %.pre1.i.i53.i.i, %if.then.i.i50.i.i ], [ %100, %lor.lhs.false.i.i42.i.i ]
+  %103 = phi ptr [ %.pre.i.i51.i.i, %if.then.i.i50.i.i ], [ %99, %lor.lhs.false.i.i42.i.i ]
+  %idx.ext.i.i46.i.i = zext i32 %102 to i64
+  %add.ptr.i.i47.i.i = getelementptr inbounds ptr, ptr %103, i64 %idx.ext.i.i46.i.i
+  store ptr %call.i.i55.i.i, ptr %add.ptr.i.i47.i.i, align 8
   %104 = load ptr, ptr %m_trail_stack.i, align 8
-  %arrayidx10.i.i50.i.i = getelementptr inbounds i8, ptr %104, i64 -4
-  %105 = load i32, ptr %arrayidx10.i.i50.i.i, align 4
-  %inc.i.i51.i.i = add i32 %105, 1
-  store i32 %inc.i.i51.i.i, ptr %arrayidx10.i.i50.i.i, align 4
+  %arrayidx10.i.i48.i.i = getelementptr inbounds i8, ptr %104, i64 -4
+  %105 = load i32, ptr %arrayidx10.i.i48.i.i, align 4
+  %inc.i.i49.i.i = add i32 %105, 1
+  store i32 %inc.i.i49.i.i, ptr %arrayidx10.i.i48.i.i, align 4
   %call85.i.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %p1.addr.0.i12.i, ptr noundef %qa, ptr noundef %mp)
   store ptr %call85.i.i, ptr %arrayidx49.i.i, align 8
   %call92.i.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef nonnull %p2.addr.0.i11.i, ptr noundef %qa, ptr noundef %mp)
@@ -7281,9 +7277,6 @@ declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %t, ptr nocapture noundef readonly %p, ptr noundef %qa, ptr noundef %mp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %class.set_ptr_trail, align 8
-  %ref.tmp30 = alloca %class.set_ptr_trail.347, align 8
-  %ref.tmp38 = alloca %class.new_obj_trail, align 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.else22, %entry
@@ -7352,10 +7345,7 @@ if.then18:                                        ; preds = %if.then16
 if.else:                                          ; preds = %if.then16
   %m_first_child.le = getelementptr inbounds i8, ptr %t.addr.077, i64 48
   %m_trail_stack = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %ref.tmp, align 8
-  %m_ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %m_first_child.le, ptr %m_ptr.i, align 8
-  call fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19path_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  tail call fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19path_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack, ptr nonnull %m_first_child.le)
   %12 = load ptr, ptr %m_child.le, align 8
   %call = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %12, ptr noundef %qa, ptr noundef %mp)
   store ptr %call, ptr %m_first_child.le, align 8
@@ -7379,19 +7369,13 @@ if.then26:                                        ; preds = %if.then25
 
 if.else28:                                        ; preds = %if.then25
   %m_trail_stack29 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19code_treeEE, i64 16), ptr %ref.tmp30, align 8
-  %m_ptr.i46 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
-  store ptr %m_code, ptr %m_ptr.i46, align 8
-  call fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack29, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
+  tail call fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack29, ptr nonnull %m_code)
   %m_pattern_idx34 = getelementptr inbounds i8, ptr %p.tr, i64 24
   %15 = load i32, ptr %m_pattern_idx34, align 8
   %m_compiler.i47 = getelementptr inbounds i8, ptr %this, i64 120
   %call.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_18compiler7mk_treeEP10quantifierP3appjb(ptr noundef nonnull align 8 dereferenceable(176) %m_compiler.i47, ptr noundef %qa, ptr noundef %mp, i32 noundef %15, i1 noundef zeroext true)
   store ptr %call.i, ptr %m_code, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13new_obj_trailIN12_GLOBAL__N_19code_treeEE, i64 16), ptr %ref.tmp38, align 8
-  %m_obj.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
-  store ptr %call.i, ptr %m_obj.i, align 8
-  call fastcc void @_ZN11trail_stack4pushI13new_obj_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack29, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38)
+  tail call fastcc void @_ZN11trail_stack4pushI13new_obj_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack29, ptr %call.i)
   br label %if.end68
 
 if.end49:                                         ; preds = %if.then, %land.lhs.true, %land.lhs.true9, %while.body
@@ -7501,25 +7485,23 @@ if.end68:                                         ; preds = %if.else28, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19path_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19path_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %obj.8.val) unnamed_addr #3 align 2 {
 entry:
   %m_region = getelementptr inbounds i8, ptr %this, i64 16
   %call.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region, i64 noundef 16)
   store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %call.i, align 8
   %m_ptr.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %m_ptr2.i = getelementptr inbounds i8, ptr %obj, i64 8
-  %0 = load ptr, ptr %m_ptr2.i, align 8
-  store ptr %0, ptr %m_ptr.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp eq ptr %1, null
+  store ptr %obj.8.val, ptr %m_ptr.i, align 8
+  %0 = load ptr, ptr %this, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %1, i64 -8
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %2, %3
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %0, i64 -8
+  %2 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %1, %2
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -7530,15 +7512,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %_ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit
 
 _ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit:     ; preds = %lor.lhs.false.i, %if.then.i
-  %4 = phi i32 [ %.pre1.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %5 = phi ptr [ %.pre.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %3 = phi i32 [ %.pre1.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
+  %4 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   store ptr %call.i, ptr %add.ptr.i, align 8
-  %6 = load ptr, ptr %this, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %6, i64 -4
-  %7 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %7, 1
+  %5 = load ptr, ptr %this, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %5, i64 -4
+  %6 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   ret void
 }
@@ -7651,25 +7633,23 @@ invoke.cont8:                                     ; preds = %if.then.i.i, %lor.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN11trail_stack4pushI13set_ptr_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %obj.8.val) unnamed_addr #3 align 2 {
 entry:
   %m_region = getelementptr inbounds i8, ptr %this, i64 16
   %call.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region, i64 noundef 16)
   store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19code_treeEE, i64 16), ptr %call.i, align 8
   %m_ptr.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %m_ptr2.i = getelementptr inbounds i8, ptr %obj, i64 8
-  %0 = load ptr, ptr %m_ptr2.i, align 8
-  store ptr %0, ptr %m_ptr.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp eq ptr %1, null
+  store ptr %obj.8.val, ptr %m_ptr.i, align 8
+  %0 = load ptr, ptr %this, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %1, i64 -8
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %2, %3
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %0, i64 -8
+  %2 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %1, %2
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -7680,15 +7660,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %_ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit
 
 _ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit:     ; preds = %lor.lhs.false.i, %if.then.i
-  %4 = phi i32 [ %.pre1.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %5 = phi ptr [ %.pre.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %3 = phi i32 [ %.pre1.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
+  %4 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   store ptr %call.i, ptr %add.ptr.i, align 8
-  %6 = load ptr, ptr %this, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %6, i64 -4
-  %7 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %7, 1
+  %5 = load ptr, ptr %this, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %5, i64 -4
+  %6 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   ret void
 }
@@ -7700,25 +7680,23 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11trail_stack4pushI13new_obj_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN11trail_stack4pushI13new_obj_trailIN12_GLOBAL__N_19code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %obj.8.val) unnamed_addr #3 align 2 {
 entry:
   %m_region = getelementptr inbounds i8, ptr %this, i64 16
   %call.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region, i64 noundef 16)
   store ptr getelementptr inbounds (i8, ptr @_ZTV13new_obj_trailIN12_GLOBAL__N_19code_treeEE, i64 16), ptr %call.i, align 8
   %m_obj.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %m_obj2.i = getelementptr inbounds i8, ptr %obj, i64 8
-  %0 = load ptr, ptr %m_obj2.i, align 8
-  store ptr %0, ptr %m_obj.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp eq ptr %1, null
+  store ptr %obj.8.val, ptr %m_obj.i, align 8
+  %0 = load ptr, ptr %this, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %1, i64 -8
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %2, %3
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %0, i64 -8
+  %2 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %1, %2
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -7729,15 +7707,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %_ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit
 
 _ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit:     ; preds = %lor.lhs.false.i, %if.then.i
-  %4 = phi i32 [ %.pre1.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %5 = phi ptr [ %.pre.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %3 = phi i32 [ %.pre1.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
+  %4 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   store ptr %call.i, ptr %add.ptr.i, align 8
-  %6 = load ptr, ptr %this, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %6, i64 -4
-  %7 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %7, 1
+  %5 = load ptr, ptr %this, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %5, i64 -4
+  %6 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   ret void
 }

@@ -1286,8 +1286,8 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br i1 %call11, label %for.cond.preheader, label %if.end73
 
 for.cond.preheader:                               ; preds = %invoke.cont10
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %0 = ptrtoint ptr %json_text to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %_, i64 8
   %_M_manager.i.i75 = getelementptr inbounds i8, ptr %agg.tmp53, i64 16
   %m_value6.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8

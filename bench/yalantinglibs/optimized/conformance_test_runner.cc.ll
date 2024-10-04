@@ -2122,18 +2122,18 @@ _ZNSt13__future_base7_ResultIlEC2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %invoke.co
   store i32 %fd, ptr %4, align 4, !noalias !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i.i), !noalias !23
   store i64 0, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
-  %call.i2.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
+  %call.i3.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
           to label %call.i.noexc.i.i.i.i.i.i.i.i.i unwind label %lpad10.i.i.i.i.i.i.i.i.i, !noalias !23
 
 call.i.noexc.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZNSt13__future_base7_ResultIlEC2Ev.exit.i.i.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEFvvEPSC_EEEEEE", i64 16), ptr %call.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
-  %_M_func.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i2.i.i.i.i.i.i.i.i.i, i64 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEFvvEPSC_EEEEEE", i64 16), ptr %call.i3.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
+  %_M_func.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3.i.i.i.i.i.i.i.i.i, i64 8
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %_M_func.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
-  %5 = getelementptr inbounds i8, ptr %call.i2.i.i.i.i.i.i.i.i.i, i64 16
+  %5 = getelementptr inbounds i8, ptr %call.i3.i.i.i.i.i.i.i.i.i, i64 16
   store i64 ptrtoint (ptr @"_ZNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElE6_M_runEv" to i64), ptr %5, align 8, !noalias !23
-  %this.repack3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i2.i.i.i.i.i.i.i.i.i, i64 24
+  %this.repack3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3.i.i.i.i.i.i.i.i.i, i64 24
   store i64 0, ptr %this.repack3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
-  store ptr %call.i2.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
+  store ptr %call.i3.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %invoke.cont3.i.i.i.i.i.i.i.i.i.i unwind label %lpad2.i.i.i.i.i.i.i.i.i.i, !noalias !23
 

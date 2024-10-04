@@ -19762,8 +19762,9 @@ invoke.cont35.i.i:                                ; preds = %if.else.i.i.i.i39.i
   br i1 %cmp.not.i73.i.i, label %if.then.i.i77.invoke.i.i, label %invoke.cont37.i.i
 
 invoke.cont37.i.i:                                ; preds = %invoke.cont35.i.i
-  %52 = load ptr, ptr %7, align 8, !noalias !818
-  %cmp.not.i.i76.i.i = icmp eq ptr %52, null
+  %52 = ptrtoint ptr %34 to i64
+  %53 = load ptr, ptr %7, align 8, !noalias !818
+  %cmp.not.i.i76.i.i = icmp eq ptr %53, null
   br i1 %cmp.not.i.i76.i.i, label %if.then.i.i77.invoke.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
 
 if.then.i.i77.invoke.i.i:                         ; preds = %invoke.cont37.i.i, %invoke.cont35.i.i, %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i, %invoke.cont31.i.i, %invoke.cont22.i.i, %invoke.cont14.i.i, %call1.i.noexc.i
@@ -19774,20 +19775,20 @@ if.then.i.i77.cont.i.i:                           ; preds = %if.then.i.i77.invok
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i: ; preds = %invoke.cont37.i.i
-  %53 = atomicrmw add ptr %52, i64 32 monotonic, align 8, !noalias !818
-  %add2.i.i.i.i.i = add i64 %53, 32
-  %initial_zone_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load i64, ptr %initial_zone_size_.i.i.i.i.i, align 8, !noalias !818
-  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %54
+  %54 = atomicrmw add ptr %53, i64 32 monotonic, align 8, !noalias !818
+  %add2.i.i.i.i.i = add i64 %54, 32
+  %initial_zone_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load i64, ptr %initial_zone_size_.i.i.i.i.i, align 8, !noalias !818
+  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %55
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 48
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %53
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 48
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %54
   br label %invoke.cont44.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
-  %call4.i.i.i79.i.i = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %52, i64 noundef 32)
+  %call4.i.i.i79.i.i = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %53, i64 noundef 32)
           to label %invoke.cont44.i.i unwind label %lpad.i.i, !noalias !818
 
 invoke.cont44.i.i:                                ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -19797,8 +19798,7 @@ invoke.cont44.i.i:                                ; preds = %if.else.i.i.i.i.i, 
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 8
   store ptr %args1.val.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8, !noalias !818
   %f_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
-  %55 = ptrtoint ptr %34 to i64
-  store i64 %55, ptr %f_.i.i.i.i.i.i, align 8, !noalias !818
+  store i64 %52, ptr %f_.i.i.i.i.i.i, align 8, !noalias !818
   store ptr %retval.0.i.i.i.i.i, ptr %51, align 8, !noalias !818
   %56 = atomicrmw add ptr %stream_refcount_.i.i.i, i64 1 monotonic, align 8, !noalias !819
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %ref.tmp.i.i.i), !noalias !818
@@ -22394,7 +22394,7 @@ invoke.cont191.i.i:                               ; preds = %"_ZN9grpc_core9Cons
   store i64 %495, ptr %fn_.i.i419.i.i, align 16, !alias.scope !907, !noalias !818
   store ptr null, ptr %agg.tmp1.i.i.i, align 8, !noalias !905
   %522 = getelementptr inbounds i8, ptr %ref.tmp183.i.i, i64 136
-  store i64 %55, ptr %522, align 8, !alias.scope !907, !noalias !818
+  store i64 %52, ptr %522, align 8, !alias.scope !907, !noalias !818
   store ptr null, ptr %521, align 8, !noalias !905
   %523 = getelementptr inbounds i8, ptr %ref.tmp183.i.i, i64 144
   store i64 %476, ptr %523, align 16, !alias.scope !907, !noalias !818

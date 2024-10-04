@@ -23824,10 +23824,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
           to label %171 unwind label %58
 
 171:                                              ; preds = %161
+  %172 = ptrtoint ptr %6 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1981fEvEUlPSoE0_EE, i64 16), ptr %22, align 8, !alias.scope !314
-  %172 = getelementptr inbounds i8, ptr %22, i64 16
-  %173 = ptrtoint ptr %6 to i64
-  store i64 %173, ptr %172, align 8, !alias.scope !314
+  %173 = getelementptr inbounds i8, ptr %22, i64 16
+  store i64 %172, ptr %173, align 8, !alias.scope !314
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
           to label %174 unwind label %183
 

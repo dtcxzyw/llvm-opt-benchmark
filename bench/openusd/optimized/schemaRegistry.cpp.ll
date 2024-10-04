@@ -18067,18 +18067,18 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
           to label %.noexc.i.i.i unwind label %51
 
 .noexc.i.i.i:                                     ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
+  %26 = ptrtoint ptr %5 to i64
+  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZZNS5_17UsdSchemaRegistry20_SchemaDefInitHelper48_InitializePrimDefsAndSchematicsForPluginSchemasEvENK3$_0clEvEUlmmE_EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %25, align 64
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  store i64 %15, ptr %27, align 64
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  store i64 %15, ptr %28, align 64
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %25, i64 72
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %25, i64 80
   store i64 1, ptr %.sroa.5.0..sroa_idx.i.i.i, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %29 = ptrtoint ptr %5 to i64
-  store i64 %29, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  store i64 %26, ptr %29, align 8
   %30 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
           to label %.noexc7.i.i.i unwind label %51
 

@@ -7711,10 +7711,10 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7
           to label %158 unwind label %114
 
 158:                                              ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7TypeFunESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEixEOS5_.exit.i
+  %159 = ptrtoint ptr %21 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_931fEvEUlPSoE0_EE, i64 16), ptr %24, align 8, !alias.scope !79
-  %159 = getelementptr inbounds i8, ptr %24, i64 16
-  %160 = ptrtoint ptr %21 to i64
-  store i64 %160, ptr %159, align 8, !alias.scope !79
+  %160 = getelementptr inbounds i8, ptr %24, i64 16
+  store i64 %159, ptr %160, align 8, !alias.scope !79
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull @.str)
           to label %161 unwind label %184
 

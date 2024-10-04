@@ -1003,7 +1003,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
 
 25:                                               ; preds = %23
   %26 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-  %.sroa.23164.0.extract.trunc180 = zext i1 %26 to i32
+  %.sroa.23166.0.extract.trunc182 = zext i1 %26 to i32
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit
 
 27:                                               ; preds = %23
@@ -1043,8 +1043,8 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %.0.copyload.i.i = load i64, ptr %1, align 4
   %.0.copyload.i2.i = load i64, ptr %0, align 8
   %49 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  %spec.select189 = zext i1 %49 to i8
-  %spec.select190 = zext i1 %49 to i32
+  %spec.select191 = zext i1 %49 to i8
+  %spec.select192 = zext i1 %49 to i32
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit
 
 50:                                               ; preds = %34
@@ -1084,8 +1084,8 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %74 = load ptr, ptr %73, align 8
-  %.not198224 = icmp eq ptr %72, %74
-  br i1 %.not198224, label %._crit_edge, label %.lr.ph
+  %.not200226 = icmp eq ptr %72, %74
+  br i1 %.not200226, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60
   %75 = ptrtoint ptr %63 to i64
@@ -1094,21 +1094,21 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   br label %78
 
 78:                                               ; preds = %.lr.ph, %139
-  %.054227 = phi i64 [ %70, %.lr.ph ], [ %89, %139 ]
-  %.sroa.0120.0226 = phi ptr [ %72, %.lr.ph ], [ %140, %139 ]
-  %.sroa.0.0225 = phi ptr [ %61, %.lr.ph ], [ %.sroa.0.1, %139 ]
-  %sext = shl i64 %.054227, 32
+  %.054229 = phi i64 [ %70, %.lr.ph ], [ %89, %139 ]
+  %.sroa.0122.0228 = phi ptr [ %72, %.lr.ph ], [ %140, %139 ]
+  %.sroa.0.0227 = phi ptr [ %61, %.lr.ph ], [ %.sroa.0.1, %139 ]
+  %sext = shl i64 %.054229, 32
   %79 = ashr exact i64 %sext, 32
-  %80 = ptrtoint ptr %.sroa.0.0225 to i64
+  %80 = ptrtoint ptr %.sroa.0.0227 to i64
   %81 = sub i64 %75, %80
   %82 = ashr exact i64 %81, 3
   %83 = icmp sgt i64 %79, %82
-  br i1 %83, label %.loopexit200, label %84
+  br i1 %83, label %.loopexit202, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0226, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0228, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = load i64, ptr %.sroa.0120.0226, align 8
+  %87 = load i64, ptr %.sroa.0122.0228, align 8
   %88 = sub i64 %86, %87
   %89 = sub i64 %79, %88
   %90 = load i8, ptr %76, align 8
@@ -1118,7 +1118,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   br i1 %or.cond.not, label %107, label %93
 
 93:                                               ; preds = %84
-  %94 = invoke fastcc i64 @"_ZZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase6_MatchERKNS_7SdfPathENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEiS4_EEEENK3$_0clERKNS1_8_SegmentEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEE"(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 0, i64 %86, ptr %.sroa.0.0225)
+  %94 = invoke fastcc i64 @"_ZZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase6_MatchERKNS_7SdfPathENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEiS4_EEEENK3$_0clERKNS1_8_SegmentEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEE"(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 0, i64 %86, ptr %.sroa.0.0227)
           to label %95 unwind label %.loopexit.split-lp.loopexit
 
 95:                                               ; preds = %93
@@ -1127,33 +1127,33 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   br i1 %.not59.not, label %97, label %98
 
 97:                                               ; preds = %95
-  %.sroa.0129.0.extract.trunc145 = trunc i64 %94 to i8
-  %.sroa.23.0.extract.shift162 = lshr i64 %94, 8
-  %.sroa.23.0.extract.trunc163 = trunc i64 %.sroa.23.0.extract.shift162 to i24
-  %.sroa.23164.0.extract.shift181 = lshr i64 %94, 32
-  %.sroa.23164.0.extract.trunc182 = trunc nuw i64 %.sroa.23164.0.extract.shift181 to i32
-  br label %.loopexit200
+  %.sroa.0131.0.extract.trunc147 = trunc i64 %94 to i8
+  %.sroa.23.0.extract.shift164 = lshr i64 %94, 8
+  %.sroa.23.0.extract.trunc165 = trunc i64 %.sroa.23.0.extract.shift164 to i24
+  %.sroa.23166.0.extract.shift183 = lshr i64 %94, 32
+  %.sroa.23166.0.extract.trunc184 = trunc nuw i64 %.sroa.23166.0.extract.shift183 to i32
+  br label %.loopexit202
 
 98:                                               ; preds = %95
   %99 = load i64, ptr %85, align 8
-  %100 = load i64, ptr %.sroa.0120.0226, align 8
+  %100 = load i64, ptr %.sroa.0122.0228, align 8
   %101 = sub i64 %99, %100
-  %102 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.0225, i64 %101
+  %102 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.0227, i64 %101
   %103 = load i8, ptr %77, align 1
   %104 = trunc i8 %103 to i1
-  %.not191 = xor i1 %104, true
+  %.not193 = xor i1 %104, true
   %105 = icmp eq i64 %99, %70
-  %or.cond192 = select i1 %.not191, i1 %105, i1 false
+  %or.cond194 = select i1 %.not193, i1 %105, i1 false
   %106 = icmp ne ptr %102, %63
-  %or.cond193 = select i1 %or.cond192, i1 %106, i1 false
-  br i1 %or.cond193, label %.loopexit200, label %139
+  %or.cond195 = select i1 %or.cond194, i1 %106, i1 false
+  br i1 %or.cond195, label %.loopexit202, label %139
 
 107:                                              ; preds = %84
   %108 = load i8, ptr %77, align 1
   %109 = trunc i8 %108 to i1
   %110 = icmp ne i64 %86, %70
-  %or.cond195.not = select i1 %109, i1 true, i1 %110
-  br i1 %or.cond195.not, label %117, label %111
+  %or.cond197.not = select i1 %109, i1 true, i1 %110
+  br i1 %or.cond197.not, label %117, label %111
 
 111:                                              ; preds = %107
   %112 = sub i64 0, %88
@@ -1164,7 +1164,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
 115:                                              ; preds = %111
   %116 = and i64 %114, 1
   %.not61.not = icmp eq i64 %116, 0
-  br i1 %.not61.not, label %.loopexit200.split.loop.exit, label %139
+  br i1 %.not61.not, label %.loopexit202.split.loop.exit, label %139
 
 117:                                              ; preds = %107
   %sext62 = shl i64 %89, 32
@@ -1175,92 +1175,92 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %122 = sub i64 %121, %80
   %123 = ashr exact i64 %122, 3
   %124 = icmp ugt i64 %88, %123
-  br i1 %124, label %.loopexit200.split.loop.exit208, label %125
+  br i1 %124, label %.loopexit202.split.loop.exit210, label %125
 
 125:                                              ; preds = %117
   %126 = sub nuw i64 %123, %88
-  %127 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.0225, i64 %126
+  %127 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.0227, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 8
-  %.not5055.i = icmp eq ptr %.sroa.0.0225, %128
-  br i1 %.not5055.i, label %.loopexit200.split.loop.exit208, label %.lr.ph.i
+  %.not3338.i = icmp eq ptr %.sroa.0.0227, %128
+  br i1 %.not3338.i, label %.loopexit202.split.loop.exit210, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %125, %131
-  %.sroa.019.056.i = phi ptr [ %132, %131 ], [ %.sroa.0.0225, %125 ]
-  %.val.i = load i64, ptr %.sroa.0120.0226, align 8
+  %.sroa.02.039.i = phi ptr [ %132, %131 ], [ %.sroa.0.0227, %125 ]
+  %.val.i = load i64, ptr %.sroa.0122.0228, align 8
   %.val15.i = load i64, ptr %85, align 8
-  %129 = invoke fastcc i64 @"_ZZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase6_MatchERKNS_7SdfPathENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEiS4_EEEENK3$_0clERKNS1_8_SegmentEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEE"(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %.val.i, i64 %.val15.i, ptr %.sroa.019.056.i)
+  %129 = invoke fastcc i64 @"_ZZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_PatternImplBase6_MatchERKNS_7SdfPathENS_13TfFunctionRefIFNS_26SdfPredicateFunctionResultEiS4_EEEENK3$_0clERKNS1_8_SegmentEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEE"(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, i64 %.val.i, i64 %.val15.i, ptr %.sroa.02.039.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
   %130 = and i64 %129, 1
-  %.not.i88 = icmp eq i64 %130, 0
-  br i1 %.not.i88, label %131, label %..loopexit_crit_edge.i
+  %.not.i90 = icmp eq i64 %130, 0
+  br i1 %.not.i90, label %131, label %..loopexit_crit_edge.i
 
 131:                                              ; preds = %.noexc
-  %132 = getelementptr inbounds i8, ptr %.sroa.019.056.i, i64 8
-  %.not50.i = icmp eq ptr %.sroa.019.056.i, %127
-  br i1 %.not50.i, label %..loopexit_crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  %132 = getelementptr inbounds i8, ptr %.sroa.02.039.i, i64 8
+  %.not33.i = icmp eq ptr %.sroa.02.039.i, %127
+  br i1 %.not33.i, label %..loopexit_crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ..loopexit_crit_edge.i:                           ; preds = %131, %.noexc
-  %.sroa.0.2 = phi ptr [ %.sroa.019.056.i, %.noexc ], [ %.sroa.0.0225, %131 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.02.039.i, %.noexc ], [ %.sroa.0.0227, %131 ]
   %133 = and i64 %129, 1
   %.not64.not = icmp eq i64 %133, 0
-  br i1 %.not64.not, label %.loopexit200.split.loop.exit208.split.loop.exit253, label %134
+  br i1 %.not64.not, label %.loopexit202.split.loop.exit210.split.loop.exit255, label %134
 
 134:                                              ; preds = %..loopexit_crit_edge.i
   %135 = load i64, ptr %85, align 8
-  %136 = load i64, ptr %.sroa.0120.0226, align 8
+  %136 = load i64, ptr %.sroa.0122.0228, align 8
   %137 = sub i64 %135, %136
   %138 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.2, i64 %137
   br label %139
 
 139:                                              ; preds = %115, %98, %134
   %.sroa.0.1 = phi ptr [ %138, %134 ], [ %102, %98 ], [ %63, %115 ]
-  %140 = getelementptr inbounds i8, ptr %.sroa.0120.0226, i64 16
-  %.not198 = icmp eq ptr %140, %74
-  br i1 %.not198, label %._crit_edge, label %78
+  %140 = getelementptr inbounds i8, ptr %.sroa.0122.0228, i64 16
+  %.not200 = icmp eq ptr %140, %74
+  br i1 %.not200, label %._crit_edge, label %78
 
 ._crit_edge:                                      ; preds = %139, %60
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %142 = load i8, ptr %141, align 1
   %143 = and i8 %142, 1
   %144 = xor i8 %143, 1
-  %spec.select196 = zext nneg i8 %144 to i32
-  br label %.loopexit200
+  %spec.select198 = zext nneg i8 %144 to i32
+  br label %.loopexit202
 
-.loopexit200.split.loop.exit:                     ; preds = %115
-  %.sroa.0129.0.extract.trunc.le = trunc i64 %114 to i8
+.loopexit202.split.loop.exit:                     ; preds = %115
+  %.sroa.0131.0.extract.trunc.le = trunc i64 %114 to i8
   %.sroa.23.0.extract.shift.le = lshr i64 %114, 8
   %.sroa.23.0.extract.trunc.le = trunc i64 %.sroa.23.0.extract.shift.le to i24
-  %.sroa.23164.0.extract.shift.le = lshr i64 %114, 32
-  %.sroa.23164.0.extract.trunc.le = trunc nuw i64 %.sroa.23164.0.extract.shift.le to i32
-  br label %.loopexit200
+  %.sroa.23166.0.extract.shift.le = lshr i64 %114, 32
+  %.sroa.23166.0.extract.trunc.le = trunc nuw i64 %.sroa.23166.0.extract.shift.le to i32
+  br label %.loopexit202
 
-.loopexit200.split.loop.exit208.split.loop.exit253: ; preds = %..loopexit_crit_edge.i
-  %.sroa.739.0.extract.shift.le.i.le = and i64 %129, -4294967296
-  br label %.loopexit200.split.loop.exit208
+.loopexit202.split.loop.exit210.split.loop.exit255: ; preds = %..loopexit_crit_edge.i
+  %.sroa.722.0.extract.shift.le.i.le = and i64 %129, -4294967296
+  br label %.loopexit202.split.loop.exit210
 
-.loopexit200.split.loop.exit208:                  ; preds = %117, %125, %.loopexit200.split.loop.exit208.split.loop.exit253
-  %.sroa.7.sroa.0.0.i238 = phi i64 [ %129, %.loopexit200.split.loop.exit208.split.loop.exit253 ], [ 0, %125 ], [ 0, %117 ]
-  %.sroa.739.0.i237 = phi i64 [ %.sroa.739.0.extract.shift.le.i.le, %.loopexit200.split.loop.exit208.split.loop.exit253 ], [ 4294967296, %125 ], [ 4294967296, %117 ]
-  %.sroa.0129.0.extract.trunc133.le = trunc i64 %.sroa.7.sroa.0.0.i238 to i8
-  %.sroa.23.0.extract.shift146.le = lshr i64 %.sroa.7.sroa.0.0.i238, 8
-  %.sroa.23.0.extract.trunc147.le = trunc i64 %.sroa.23.0.extract.shift146.le to i24
-  %.sroa.23164.0.extract.shift165.le = lshr exact i64 %.sroa.739.0.i237, 32
-  %.sroa.23164.0.extract.trunc166.le = trunc nuw i64 %.sroa.23164.0.extract.shift165.le to i32
-  br label %.loopexit200
+.loopexit202.split.loop.exit210:                  ; preds = %117, %125, %.loopexit202.split.loop.exit210.split.loop.exit255
+  %.sroa.7.sroa.0.1.i240 = phi i64 [ %129, %.loopexit202.split.loop.exit210.split.loop.exit255 ], [ 0, %125 ], [ 0, %117 ]
+  %.sroa.722.1.i239 = phi i64 [ %.sroa.722.0.extract.shift.le.i.le, %.loopexit202.split.loop.exit210.split.loop.exit255 ], [ 4294967296, %125 ], [ 4294967296, %117 ]
+  %.sroa.0131.0.extract.trunc135.le = trunc i64 %.sroa.7.sroa.0.1.i240 to i8
+  %.sroa.23.0.extract.shift148.le = lshr i64 %.sroa.7.sroa.0.1.i240, 8
+  %.sroa.23.0.extract.trunc149.le = trunc i64 %.sroa.23.0.extract.shift148.le to i24
+  %.sroa.23166.0.extract.shift167.le = lshr exact i64 %.sroa.722.1.i239, 32
+  %.sroa.23166.0.extract.trunc168.le = trunc nuw i64 %.sroa.23166.0.extract.shift167.le to i32
+  br label %.loopexit202
 
-.loopexit200:                                     ; preds = %78, %98, %.loopexit200.split.loop.exit, %.loopexit200.split.loop.exit208, %._crit_edge, %97
-  %.sroa.0129.1 = phi i8 [ %.sroa.0129.0.extract.trunc145, %97 ], [ 1, %._crit_edge ], [ %.sroa.0129.0.extract.trunc.le, %.loopexit200.split.loop.exit ], [ %.sroa.0129.0.extract.trunc133.le, %.loopexit200.split.loop.exit208 ], [ 0, %98 ], [ 0, %78 ]
-  %.sroa.23164.1 = phi i32 [ %.sroa.23164.0.extract.trunc182, %97 ], [ %spec.select196, %._crit_edge ], [ %.sroa.23164.0.extract.trunc.le, %.loopexit200.split.loop.exit ], [ %.sroa.23164.0.extract.trunc166.le, %.loopexit200.split.loop.exit208 ], [ 1, %98 ], [ 1, %78 ]
-  %.sroa.23.sroa.0.1 = phi i24 [ %.sroa.23.0.extract.trunc163, %97 ], [ 0, %._crit_edge ], [ %.sroa.23.0.extract.trunc.le, %.loopexit200.split.loop.exit ], [ %.sroa.23.0.extract.trunc147.le, %.loopexit200.split.loop.exit208 ], [ 0, %98 ], [ 0, %78 ]
+.loopexit202:                                     ; preds = %78, %98, %.loopexit202.split.loop.exit, %.loopexit202.split.loop.exit210, %._crit_edge, %97
+  %.sroa.0131.1 = phi i8 [ %.sroa.0131.0.extract.trunc147, %97 ], [ 1, %._crit_edge ], [ %.sroa.0131.0.extract.trunc.le, %.loopexit202.split.loop.exit ], [ %.sroa.0131.0.extract.trunc135.le, %.loopexit202.split.loop.exit210 ], [ 0, %98 ], [ 0, %78 ]
+  %.sroa.23166.1 = phi i32 [ %.sroa.23166.0.extract.trunc184, %97 ], [ %spec.select198, %._crit_edge ], [ %.sroa.23166.0.extract.trunc.le, %.loopexit202.split.loop.exit ], [ %.sroa.23166.0.extract.trunc168.le, %.loopexit202.split.loop.exit210 ], [ 1, %98 ], [ 1, %78 ]
+  %.sroa.23.sroa.0.1 = phi i24 [ %.sroa.23.0.extract.trunc165, %97 ], [ 0, %._crit_edge ], [ %.sroa.23.0.extract.trunc.le, %.loopexit202.split.loop.exit ], [ %.sroa.23.0.extract.trunc149.le, %.loopexit202.split.loop.exit210 ], [ 0, %98 ], [ 0, %78 ]
   %145 = load ptr, ptr %8, align 8
   %146 = load ptr, ptr %62, align 8
   %.not4.i.i.i.i = icmp eq ptr %145, %146
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.loopexit200, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %165, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i ], [ %145, %.loopexit200 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.loopexit202, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %165, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i ], [ %145, %.loopexit202 ]
   %147 = load i32, ptr %.05.i.i.i.i, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %147, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i, label %148
@@ -1300,8 +1300,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   %.pr.i = load ptr, ptr %8, align 8
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.loopexit200
-  %166 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %145, %.loopexit200 ]
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.loopexit202
+  %166 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %145, %.loopexit202 ]
   %.not.i.i.i = icmp eq ptr %166, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit, label %167
 
@@ -1320,32 +1320,32 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %93, %111
-  %lpad.loopexit201 = landingpad { ptr, i32 }
+  %lpad.loopexit203 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %54, %56, %58
-  %lpad.loopexit.split-lp202 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp204 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit201, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp202, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit203, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp204, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   br label %173
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; preds = %48, %167, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i, %50, %44, %40, %32, %27, %25, %20
-  %.sroa.0129.0 = phi i8 [ 0, %25 ], [ 0, %20 ], [ 0, %27 ], [ 0, %32 ], [ 1, %40 ], [ 1, %44 ], [ 0, %50 ], [ %.sroa.0129.1, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %.sroa.0129.1, %167 ], [ %spec.select189, %48 ]
-  %.sroa.23164.0 = phi i32 [ %.sroa.23164.0.extract.trunc180, %25 ], [ 0, %20 ], [ 1, %27 ], [ 0, %32 ], [ 0, %40 ], [ 0, %44 ], [ 1, %50 ], [ %.sroa.23164.1, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %.sroa.23164.1, %167 ], [ %spec.select190, %48 ]
+  %.sroa.0131.0 = phi i8 [ 0, %25 ], [ 0, %20 ], [ 0, %27 ], [ 0, %32 ], [ 1, %40 ], [ 1, %44 ], [ 0, %50 ], [ %.sroa.0131.1, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %.sroa.0131.1, %167 ], [ %spec.select191, %48 ]
+  %.sroa.23166.0 = phi i32 [ %.sroa.23166.0.extract.trunc182, %25 ], [ 0, %20 ], [ 1, %27 ], [ 0, %32 ], [ 0, %40 ], [ 0, %44 ], [ 1, %50 ], [ %.sroa.23166.1, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %.sroa.23166.1, %167 ], [ %spec.select192, %48 ]
   %.sroa.23.sroa.0.0 = phi i24 [ 0, %25 ], [ 0, %20 ], [ 0, %27 ], [ 0, %32 ], [ 0, %40 ], [ 0, %44 ], [ 0, %50 ], [ %.sroa.23.sroa.0.1, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %.sroa.23.sroa.0.1, %167 ], [ 0, %48 ]
-  %.sroa.23164.0.insert.ext = zext i32 %.sroa.23164.0 to i64
-  %.sroa.23164.0.insert.shift = shl nuw i64 %.sroa.23164.0.insert.ext, 32
+  %.sroa.23166.0.insert.ext = zext i32 %.sroa.23166.0 to i64
+  %.sroa.23166.0.insert.shift = shl nuw i64 %.sroa.23166.0.insert.ext, 32
   %.sroa.23.0.insert.ext = zext i24 %.sroa.23.sroa.0.0 to i64
   %.sroa.23.0.insert.shift = shl nuw nsw i64 %.sroa.23.0.insert.ext, 8
-  %.sroa.23.0.insert.insert = or disjoint i64 %.sroa.23.0.insert.shift, %.sroa.23164.0.insert.shift
-  %.sroa.0129.0.insert.ext = zext i8 %.sroa.0129.0 to i64
-  %.sroa.0129.0.insert.insert = or disjoint i64 %.sroa.23.0.insert.insert, %.sroa.0129.0.insert.ext
-  ret i64 %.sroa.0129.0.insert.insert
+  %.sroa.23.0.insert.insert = or disjoint i64 %.sroa.23.0.insert.shift, %.sroa.23166.0.insert.shift
+  %.sroa.0131.0.insert.ext = zext i8 %.sroa.0131.0 to i64
+  %.sroa.0131.0.insert.insert = or disjoint i64 %.sroa.23.0.insert.insert, %.sroa.0131.0.insert.ext
+  ret i64 %.sroa.0131.0.insert.insert
 
 173:                                              ; preds = %.loopexit.split-lp, %21
   %.pn71 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %22, %21 ]

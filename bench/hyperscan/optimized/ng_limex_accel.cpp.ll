@@ -7418,7 +7418,6 @@ return:                                           ; preds = %_ZN5boost9container
 define internal fastcc void @_ZSt16__introsort_loopIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__value.i.i.i = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
-  %agg.tmp.i.i.i = alloca %"class.boost::container::vec_iterator.138", align 8
   %agg.tmp3.i.i.i = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
   %agg.tmp8 = alloca %"class.boost::container::vec_iterator.138", align 8
   %agg.tmp9 = alloca %"class.boost::container::vec_iterator.138", align 8
@@ -7445,7 +7444,6 @@ if.then:                                          ; preds = %while.body, %while.
   %__last.val740.lcssa = phi ptr [ %__last.val733, %while.body.preheader ], [ %agg.tmp6.sroa.0.1.i, %while.body ]
   %sub.ptr.div.i.le = udiv exact i64 %sub.ptr.sub.i43.lcssa, 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__value.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp3.i.i.i)
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.le, -2
   %div12.i.i.i = lshr i64 %sub.i.i.i, 1
@@ -7517,7 +7515,6 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit.i.i.i: ; preds = %.noexc.i.i.i.i
   %7 = phi ptr [ %0, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i ]
   %double_cr3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %double_cr3.i.i.i.i, i64 36, i1 false)
-  store ptr %__first.val841.lcssa, ptr %agg.tmp.i.i.i, align 8
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i14.i.i.i, ptr %agg.tmp3.i.i.i, align 8
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i15.i.i.i, align 8
   store i64 4, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i16.i.i.i, align 8
@@ -7555,7 +7552,7 @@ lpad.i.i.i.i.i.i.i27.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %.noexc.i.i.i.i.i.i.i33.i.i.i, %if.then.i.i.i.i.i.i.i.i19.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i22.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i.i.i.i, i64 36, i1 false)
-  invoke fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp3.i.i.i)
+  invoke fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %__first.val841.lcssa, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp3.i.i.i)
           to label %invoke.cont6.i.i.i unwind label %lpad5.i.i.i
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont.i.i.i
@@ -7618,7 +7615,6 @@ ehcleanup.i.i.i:                                  ; preds = %ehcleanup.sink.spli
 
 _ZSt11__make_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_RT0_.exit.i.i: ; preds = %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit47.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__value.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp3.i.i.i)
   br label %while.body.i.i
 
@@ -8077,7 +8073,6 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 define internal fastcc void @_ZSt10__pop_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_(ptr %__first.0.val, ptr %__last.0.val, ptr %__result.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__value = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
-  %agg.tmp = alloca %"class.boost::container::vec_iterator.138", align 8
   %agg.tmp5 = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
   %m_storage_start.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__value, i64 24
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i, ptr %__value, align 8
@@ -8192,7 +8187,6 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.else.i.i.i.i.i.i
 invoke.cont:                                      ; preds = %.noexc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit
   %double_cr3.i9 = getelementptr inbounds i8, ptr %__first.0.val, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr3.i, ptr noundef nonnull align 8 dereferenceable(36) %double_cr3.i9, i64 36, i1 false)
-  store ptr %__first.0.val, ptr %agg.tmp, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.0.val to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.0.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -8239,7 +8233,7 @@ lpad.i.i.i.i.i.i.i23:                             ; preds = %if.else.i.i.i.i.i.i
 invoke.cont6:                                     ; preds = %.noexc.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i.i15
   %double_cr.i18 = getelementptr inbounds i8, ptr %agg.tmp5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i18, ptr noundef nonnull align 8 dereferenceable(36) %double_cr.i, i64 36, i1 false)
-  invoke fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr noundef %agg.tmp, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef %agg.tmp5)
+  invoke fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %__first.0.val, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef %agg.tmp5)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
@@ -8300,28 +8294,26 @@ ehcleanup:                                        ; preds = %ehcleanup.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef range(i64 -128102389400760775, 128102389400760776) %__len, ptr noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %__first.0.val, i64 noundef %__holeIndex, i64 noundef range(i64 -128102389400760775, 128102389400760776) %__len, ptr noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24 = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp77 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp77, label %while.body, label %while.end
+  %cmp2 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp2, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit
-  %__holeIndex.addr.078 = phi i64 [ %spec.select, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.078, 1
+  %__holeIndex.addr.03 = phi i64 [ %spec.select, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.03, 1
   %mul = add i64 %add, 2
-  %__first.val22 = load ptr, ptr %__first, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val22, i64 %mul
+  %add.ptr.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %mul
   %sub2 = or disjoint i64 %add, 1
-  %add.ptr.i23 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val22, i64 %sub2
+  %add.ptr.i23 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %sub2
   %call3.i = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112DAccelSchemeltERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i23)
   %spec.select = select i1 %call3.i, i64 %sub2, i64 %mul
-  %__first.val20 = load ptr, ptr %__first, align 8
-  %add.ptr.i24 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val20, i64 %spec.select
-  %add.ptr.i25 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val20, i64 %__holeIndex.addr.078
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select, %__holeIndex.addr.078
+  %add.ptr.i24 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %spec.select
+  %add.ptr.i25 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %__holeIndex.addr.03
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select, %__holeIndex.addr.03
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body
@@ -8398,9 +8390,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then11:                                        ; preds = %land.lhs.true
   %add12 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub15 = or disjoint i64 %add12, 1
-  %__first.val18 = load ptr, ptr %__first, align 8
-  %add.ptr.i26 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val18, i64 %sub15
-  %add.ptr.i27 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val18, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i26 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %sub15
+  %add.ptr.i27 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %__holeIndex.addr.0.lcssa
   %cmp.not.i.i.i.i.i.i.i.i28 = icmp eq i64 %sub15, %__holeIndex.addr.0.lcssa
   br i1 %cmp.not.i.i.i.i.i.i.i.i28, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit50, label %if.then.i.i.i.i.i.i.i.i29
 
@@ -8463,7 +8454,6 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit50: ; preds = %if.then11, %if.end
 
 if.end21:                                         ; preds = %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit50, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub15, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit50 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %__first.val = load ptr, ptr %__first, align 8
   %m_storage_start.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24, i64 24
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i, ptr %agg.tmp24, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
@@ -8504,8 +8494,8 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %21, 0
   %22 = load ptr, ptr %agg.tmp24, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i, %22
-  %or.cond81 = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond81, label %common.resume, label %common.resume.sink.split
+  %or.cond7 = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond7, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %lpad.i.i.i.i.i.i.i, %lpad
   %.sink = phi ptr [ %43, %lpad ], [ %22, %lpad.i.i.i.i.i.i.i ]
@@ -8528,7 +8518,7 @@ land.rhs.i:                                       ; preds = %_ZN3ue212_GLOBAL__N
   %__holeIndex.addr.05.i = phi i64 [ %__parent.06.i, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i ], [ %__holeIndex.addr.1, %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit ]
   %__parent.06.in.i = add nsw i64 %__holeIndex.addr.05.i, -1
   %__parent.06.i = sdiv i64 %__parent.06.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val, i64 %__parent.06.i
+  %add.ptr.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %__parent.06.i
   %call2.i.i62 = invoke fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112DAccelSchemeltERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(68) %agg.tmp24)
           to label %call2.i.i.noexc unwind label %lpad
 
@@ -8536,7 +8526,7 @@ call2.i.i.noexc:                                  ; preds = %land.rhs.i
   br i1 %call2.i.i62, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %call2.i.i.noexc
-  %add.ptr.i11.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val, i64 %__holeIndex.addr.05.i
+  %add.ptr.i11.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %__holeIndex.addr.05.i
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %__parent.06.i, %__holeIndex.addr.05.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i56
 
@@ -8601,7 +8591,7 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i: ; preds = %.noexc.i.i.i.i.i.i
 
 while.end.i:                                      ; preds = %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i, %call2.i.i.noexc, %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit ], [ %__holeIndex.addr.05.i, %call2.i.i.noexc ], [ %__parent.06.i, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i ]
-  %add.ptr.i12.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.val, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i12.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %__first.0.val, i64 %__holeIndex.addr.0.lcssa.i
   %cmp.not.i.i.i.i.i.i.i.i13.i = icmp eq ptr %agg.tmp24, %add.ptr.i12.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i13.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i14.i
 
@@ -8622,10 +8612,11 @@ if.then.i.i.i.i.i.i.i.i.i17.i:                    ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i23.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i17.i
   call void @_ZdlPv(ptr noundef nonnull %32) #26
+  %.pre5 = load ptr, ptr %agg.tmp24, align 8
   br label %if.end.i.i.i.i.i.i.i.i.i24.i
 
 if.end.i.i.i.i.i.i.i.i.i24.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i23.i, %if.then.i.i.i.i.i.i.i.i.i17.i
-  %33 = load ptr, ptr %agg.tmp24, align 8
+  %33 = phi ptr [ %.pre5, %if.then.i.i.i.i.i.i.i.i.i.i.i.i23.i ], [ %31, %if.then.i.i.i.i.i.i.i.i.i17.i ]
   store ptr %33, ptr %add.ptr.i12.i, align 8
   %34 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i51, align 8
   store i64 %34, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i18.i, align 8

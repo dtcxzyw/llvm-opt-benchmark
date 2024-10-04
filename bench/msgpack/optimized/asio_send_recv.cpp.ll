@@ -2221,129 +2221,129 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit28: ; preds = 
   %148 = getelementptr inbounds i8, ptr %21, i64 16
   %149 = load i64, ptr %148, align 8
   store i64 %149, ptr %147, align 8
+  %150 = ptrtoint ptr %22 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %150 = load ptr, ptr %23, align 8
-  store ptr %150, ptr %2, align 8
-  %151 = getelementptr inbounds i8, ptr %2, i64 8
-  %152 = load ptr, ptr %122, align 8
-  store ptr %152, ptr %151, align 8
-  %.not.i.i.i.i.i.i.i29 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i.i.i.i.i29, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i, label %153
+  %151 = load ptr, ptr %23, align 8
+  store ptr %151, ptr %2, align 8
+  %152 = getelementptr inbounds i8, ptr %2, i64 8
+  %153 = load ptr, ptr %122, align 8
+  store ptr %153, ptr %152, align 8
+  %.not.i.i.i.i.i.i.i29 = icmp eq ptr %153, null
+  br i1 %.not.i.i.i.i.i.i.i29, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i, label %154
 
-153:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit28
-  %154 = getelementptr inbounds i8, ptr %152, i64 8
-  %155 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %155, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %159, label %156
+154:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit28
+  %155 = getelementptr inbounds i8, ptr %153, i64 8
+  %156 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %156, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %160, label %157
 
-156:                                              ; preds = %153
-  %157 = load i32, ptr %154, align 4
-  %158 = add nsw i32 %157, 1
-  store i32 %158, ptr %154, align 4
+157:                                              ; preds = %154
+  %158 = load i32, ptr %155, align 4
+  %159 = add nsw i32 %158, 1
+  store i32 %159, ptr %155, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i
 
-159:                                              ; preds = %153
-  %160 = atomicrmw volatile add ptr %154, i32 1 acq_rel, align 4
+160:                                              ; preds = %154
+  %161 = atomicrmw volatile add ptr %155, i32 1 acq_rel, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i
 
-_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i: ; preds = %159, %156, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit28
-  %161 = getelementptr inbounds i8, ptr %2, i64 16
-  %162 = load i64, ptr %146, align 8
-  store i64 %162, ptr %161, align 8
-  %163 = load ptr, ptr %24, align 8
-  store ptr %163, ptr %3, align 8
-  %164 = getelementptr inbounds i8, ptr %3, i64 8
-  %165 = load ptr, ptr %145, align 8
-  store ptr %165, ptr %164, align 8
-  %.not.i.i.i.i6.i.i.i = icmp eq ptr %165, null
-  br i1 %.not.i.i.i.i6.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i, label %166
+_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i: ; preds = %160, %157, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit28
+  %162 = getelementptr inbounds i8, ptr %2, i64 16
+  %163 = load i64, ptr %146, align 8
+  store i64 %163, ptr %162, align 8
+  %164 = load ptr, ptr %24, align 8
+  store ptr %164, ptr %3, align 8
+  %165 = getelementptr inbounds i8, ptr %3, i64 8
+  %166 = load ptr, ptr %145, align 8
+  store ptr %166, ptr %165, align 8
+  %.not.i.i.i.i6.i.i.i = icmp eq ptr %166, null
+  br i1 %.not.i.i.i.i6.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i, label %167
 
-166:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i
-  %167 = getelementptr inbounds i8, ptr %165, i64 8
-  %168 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7.i.i.i = icmp eq i8 %168, 0
-  br i1 %.not.i.i.i.i.i7.i.i.i, label %172, label %169
+167:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i
+  %168 = getelementptr inbounds i8, ptr %166, i64 8
+  %169 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i7.i.i.i = icmp eq i8 %169, 0
+  br i1 %.not.i.i.i.i.i7.i.i.i, label %173, label %170
 
-169:                                              ; preds = %166
-  %170 = load i32, ptr %167, align 4
-  %171 = add nsw i32 %170, 1
-  store i32 %171, ptr %167, align 4
+170:                                              ; preds = %167
+  %171 = load i32, ptr %168, align 4
+  %172 = add nsw i32 %171, 1
+  store i32 %172, ptr %168, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i
 
-172:                                              ; preds = %166
-  %173 = atomicrmw volatile add ptr %167, i32 1 acq_rel, align 4
+173:                                              ; preds = %167
+  %174 = atomicrmw volatile add ptr %168, i32 1 acq_rel, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i
 
-_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i: ; preds = %172, %169, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i
-  %174 = getelementptr inbounds i8, ptr %3, i64 16
-  %175 = load i64, ptr %147, align 8
-  store i64 %175, ptr %174, align 8
+_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i: ; preds = %173, %170, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i
+  %175 = getelementptr inbounds i8, ptr %3, i64 16
+  %176 = load i64, ptr %147, align 8
+  store i64 %176, ptr %175, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1)
   store ptr %22, ptr %1, align 8
-  %176 = getelementptr inbounds i8, ptr %1, i64 8
-  %177 = load ptr, ptr %2, align 8
-  store ptr %177, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %1, i64 16
-  %179 = load ptr, ptr %151, align 8
-  store ptr %179, ptr %178, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %179, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i, label %180
+  %177 = getelementptr inbounds i8, ptr %1, i64 8
+  %178 = load ptr, ptr %2, align 8
+  store ptr %178, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %1, i64 16
+  %180 = load ptr, ptr %152, align 8
+  store ptr %180, ptr %179, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %180, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i, label %181
 
-180:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i
-  %181 = getelementptr inbounds i8, ptr %179, i64 8
-  %182 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %182, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %186, label %183
+181:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i
+  %182 = getelementptr inbounds i8, ptr %180, i64 8
+  %183 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %183, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %187, label %184
 
-183:                                              ; preds = %180
-  %184 = load i32, ptr %181, align 4
-  %185 = add nsw i32 %184, 1
-  store i32 %185, ptr %181, align 4
+184:                                              ; preds = %181
+  %185 = load i32, ptr %182, align 4
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %182, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
 
-186:                                              ; preds = %180
-  %187 = atomicrmw volatile add ptr %181, i32 1 acq_rel, align 4
+187:                                              ; preds = %181
+  %188 = atomicrmw volatile add ptr %182, i32 1 acq_rel, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
 
-_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i: ; preds = %186, %183, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i
-  %188 = getelementptr inbounds i8, ptr %1, i64 24
-  %189 = load i64, ptr %161, align 8
-  store i64 %189, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %1, i64 32
-  %191 = load ptr, ptr %3, align 8
-  store ptr %191, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %1, i64 40
-  %193 = load ptr, ptr %164, align 8
-  store ptr %193, ptr %192, align 8
-  %.not.i.i.i.i6.i.i.i.i.i = icmp eq ptr %193, null
-  br i1 %.not.i.i.i.i6.i.i.i.i.i, label %"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i", label %194
+_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i: ; preds = %187, %184, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit8.i.i.i
+  %189 = getelementptr inbounds i8, ptr %1, i64 24
+  %190 = load i64, ptr %162, align 8
+  store i64 %190, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %1, i64 32
+  %192 = load ptr, ptr %3, align 8
+  store ptr %192, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %1, i64 40
+  %194 = load ptr, ptr %165, align 8
+  store ptr %194, ptr %193, align 8
+  %.not.i.i.i.i6.i.i.i.i.i = icmp eq ptr %194, null
+  br i1 %.not.i.i.i.i6.i.i.i.i.i, label %"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i", label %195
 
-194:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
-  %195 = getelementptr inbounds i8, ptr %193, i64 8
-  %196 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7.i.i.i.i.i = icmp eq i8 %196, 0
-  br i1 %.not.i.i.i.i.i7.i.i.i.i.i, label %200, label %197
+195:                                              ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
+  %196 = getelementptr inbounds i8, ptr %194, i64 8
+  %197 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i7.i.i.i.i.i = icmp eq i8 %197, 0
+  br i1 %.not.i.i.i.i.i7.i.i.i.i.i, label %201, label %198
 
-197:                                              ; preds = %194
-  %198 = load i32, ptr %195, align 4
-  %199 = add nsw i32 %198, 1
-  store i32 %199, ptr %195, align 4
+198:                                              ; preds = %195
+  %199 = load i32, ptr %196, align 4
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %196, align 4
   br label %"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i"
 
-200:                                              ; preds = %194
-  %201 = atomicrmw volatile add ptr %195, i32 1 acq_rel, align 4
+201:                                              ; preds = %195
+  %202 = atomicrmw volatile add ptr %196, i32 1 acq_rel, align 4
   br label %"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i"
 
-"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i": ; preds = %200, %197, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
-  %202 = getelementptr inbounds i8, ptr %1, i64 48
-  %203 = load i64, ptr %174, align 8
-  store i64 %203, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %1, i64 56
-  store i32 0, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %1, i64 64
-  %206 = ptrtoint ptr %22 to i64
-  store i64 %206, ptr %205, align 8
+"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i": ; preds = %201, %198, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
+  %203 = getelementptr inbounds i8, ptr %1, i64 48
+  %204 = load i64, ptr %175, align 8
+  store i64 %204, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %1, i64 56
+  store i32 0, ptr %205, align 8
+  %206 = getelementptr inbounds i8, ptr %1, i64 64
+  store i64 %150, ptr %206, align 8
   invoke fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EclENS_6system10error_codeEi"(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 0, ptr nonnull @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, i32 noundef 1)
           to label %208 unwind label %.body.i.i.i
 
@@ -2360,7 +2360,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i: ; 
 208:                                              ; preds = %"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EC2ERNS0_12basic_socketIS4_SX_EERKSZ_S17_RKS10_RS11_.exit.i.i.i.i"
   call fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %1) #31
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %1)
-  %209 = load ptr, ptr %164, align 8
+  %209 = load ptr, ptr %165, align 8
   %.not.i.i.i.i9.i.i.i = icmp eq ptr %209, null
   br i1 %.not.i.i.i.i9.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i, label %210
 
@@ -2433,7 +2433,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i
 
 _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %239, %226, %208
-  %244 = load ptr, ptr %151, align 8
+  %244 = load ptr, ptr %152, align 8
   %.not.i.i.i.i12.i.i.i = icmp eq ptr %244, null
   br i1 %.not.i.i.i.i12.i.i.i, label %279, label %245
 

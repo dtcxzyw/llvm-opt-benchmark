@@ -11557,16 +11557,16 @@ define internal fastcc void @_ZL14TestLinkErrorsv() unnamed_addr #0 personality 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %43, i8 0, i64 80, i1 false)
   %65 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E23static_empty_bucket_ptrEvE12empty_bucketB5cxx11 acquire, align 8
   %66 = icmp eq i8 %65, 0
-  %.sink58.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink58.i.sroa.gep401 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink58.i.sroa.gep404 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink58.i.sroa.gep405 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink58.i.sroa.gep408 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink58.i.sroa.gep409 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sink58.i.sroa.gep412 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink58.i.sroa.gep413 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink58.i.sroa.gep416 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sink58.i.sroa.gep417 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sink26.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink26.i.sroa.gep401 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink26.i.sroa.gep404 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink26.i.sroa.gep405 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink26.i.sroa.gep408 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink26.i.sroa.gep409 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink26.i.sroa.gep412 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink26.i.sroa.gep413 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink26.i.sroa.gep416 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink26.i.sroa.gep417 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br i1 %66, label %67, label %_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneEC2Ev.exit, !prof !5
 
 67:                                               ; preds = %0
@@ -14476,14 +14476,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i337:
 
 1137:                                             ; preds = %1134
   store ptr @.str.2, ptr %12, align 8
-  %.sroa.244.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @"__func__._ZZL15TestParseErrorsvENK3$_0clEPKc", ptr %.sroa.244.0..sroa_idx.i, align 8
-  %.sroa.345.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
-  store i64 341, ptr %.sroa.345.0..sroa_idx.i, align 8
-  %.sroa.446.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr @"__PRETTY_FUNCTION__._ZZL14TestLinkErrorsvENK3$_7clEPKc", ptr %.sroa.446.0..sroa_idx.i, align 8
-  %.sroa.547.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
-  store i8 0, ptr %.sroa.547.0..sroa_idx.i, align 8
+  %.sroa.212.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @"__func__._ZZL15TestParseErrorsvENK3$_0clEPKc", ptr %.sroa.212.0..sroa_idx.i, align 8
+  %.sroa.313.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
+  store i64 341, ptr %.sroa.313.0..sroa_idx.i, align 8
+  %.sroa.414.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr @"__PRETTY_FUNCTION__._ZZL14TestLinkErrorsvENK3$_7clEPKc", ptr %.sroa.414.0..sroa_idx.i, align 8
+  %.sroa.515.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
+  store i8 0, ptr %.sroa.515.0..sroa_idx.i, align 8
   %1138 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 4, ptr %1138, align 8
   invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.197) #29
@@ -14598,9 +14598,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %.val.i341 = load ptr, ptr %18, align 8
   %.val16.i = load ptr, ptr %1120, align 8
-  %.not49.i = icmp eq ptr %.val.i341, %.val16.i
+  %.not17.i = icmp eq ptr %.val.i341, %.val16.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  br i1 %.not49.i, label %1168, label %.invoke.i
+  br i1 %.not17.i, label %1168, label %.invoke.i
 
 1168:                                             ; preds = %1167
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -14627,21 +14627,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i: ; preds = 
   br i1 %1174, label %.invoke.i, label %1176
 
 .invoke.i:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i, %1167, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i
-  %.sink58.i.sroa.phi = phi ptr [ %.sink58.i.sroa.gep401, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink58.i.sroa.gep401, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink58.i.sroa.gep, %1167 ]
-  %.sink58.i.sroa.phi403 = phi ptr [ %.sink58.i.sroa.gep405, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink58.i.sroa.gep405, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink58.i.sroa.gep404, %1167 ]
-  %.sink58.i.sroa.phi407 = phi ptr [ %.sink58.i.sroa.gep409, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink58.i.sroa.gep409, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink58.i.sroa.gep408, %1167 ]
-  %.sink58.i.sroa.phi411 = phi ptr [ %.sink58.i.sroa.gep413, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink58.i.sroa.gep413, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink58.i.sroa.gep412, %1167 ]
-  %.sink58.i.sroa.phi415 = phi ptr [ %.sink58.i.sroa.gep417, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink58.i.sroa.gep417, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink58.i.sroa.gep416, %1167 ]
-  %.sink58.i = phi ptr [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %6, %1167 ]
-  %.sink55.i = phi i64 [ 347, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ 347, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ 346, %1167 ]
+  %.sink26.i.sroa.phi = phi ptr [ %.sink26.i.sroa.gep401, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink26.i.sroa.gep401, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink26.i.sroa.gep, %1167 ]
+  %.sink26.i.sroa.phi403 = phi ptr [ %.sink26.i.sroa.gep405, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink26.i.sroa.gep405, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink26.i.sroa.gep404, %1167 ]
+  %.sink26.i.sroa.phi407 = phi ptr [ %.sink26.i.sroa.gep409, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink26.i.sroa.gep409, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink26.i.sroa.gep408, %1167 ]
+  %.sink26.i.sroa.phi411 = phi ptr [ %.sink26.i.sroa.gep413, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink26.i.sroa.gep413, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink26.i.sroa.gep412, %1167 ]
+  %.sink26.i.sroa.phi415 = phi ptr [ %.sink26.i.sroa.gep417, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %.sink26.i.sroa.gep417, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %.sink26.i.sroa.gep416, %1167 ]
+  %.sink26.i = phi ptr [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ %6, %1167 ]
+  %.sink23.i = phi i64 [ 347, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ 347, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ 346, %1167 ]
   %1175 = phi ptr [ @.str.199, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread.i ], [ @.str.199, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i ], [ @.str.198, %1167 ]
-  store ptr @.str.2, ptr %.sink58.i, align 8
-  store ptr @"__func__._ZZL15TestParseErrorsvENK3$_0clEPKc", ptr %.sink58.i.sroa.phi, align 8
-  store i64 %.sink55.i, ptr %.sink58.i.sroa.phi403, align 8
-  store ptr @"__PRETTY_FUNCTION__._ZZL14TestLinkErrorsvENK3$_7clEPKc", ptr %.sink58.i.sroa.phi407, align 8
-  store i8 0, ptr %.sink58.i.sroa.phi411, align 8
-  store i32 4, ptr %.sink58.i.sroa.phi415, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink58.i, ptr noundef nonnull @.str.121, ptr noundef nonnull %1175) #29
+  store ptr @.str.2, ptr %.sink26.i, align 8
+  store ptr @"__func__._ZZL15TestParseErrorsvENK3$_0clEPKc", ptr %.sink26.i.sroa.phi, align 8
+  store i64 %.sink23.i, ptr %.sink26.i.sroa.phi403, align 8
+  store ptr @"__PRETTY_FUNCTION__._ZZL14TestLinkErrorsvENK3$_7clEPKc", ptr %.sink26.i.sroa.phi407, align 8
+  store i8 0, ptr %.sink26.i.sroa.phi411, align 8
+  store i32 4, ptr %.sink26.i.sroa.phi415, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink26.i, ptr noundef nonnull @.str.121, ptr noundef nonnull %1175) #29
           to label %.cont.i unwind label %.loopexit.split-lp430
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -14670,17 +14670,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5beginEv.exit.i: ; preds = %.
 
 1184:                                             ; preds = %.noexc29.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %.not5051.i = icmp eq ptr %1180, %1183
-  br i1 %.not5051.i, label %._crit_edge.i, label %.lr.ph.i343
+  %.not1819.i = icmp eq ptr %1180, %1183
+  br i1 %.not1819.i, label %._crit_edge.i, label %.lr.ph.i343
 
 .lr.ph.i343:                                      ; preds = %1184, %.lr.ph.i343
-  %.sroa.033.052.i = phi ptr [ %1188, %.lr.ph.i343 ], [ %1180, %1184 ]
-  %1185 = getelementptr inbounds nuw i8, ptr %.sroa.033.052.i, i64 56
+  %.sroa.01.020.i = phi ptr [ %1188, %.lr.ph.i343 ], [ %1180, %1184 ]
+  %1185 = getelementptr inbounds nuw i8, ptr %.sroa.01.020.i, i64 56
   %1186 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1185) #28
   %1187 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.201, ptr noundef %1186)
-  %1188 = load ptr, ptr %.sroa.033.052.i, align 8
-  %.not50.i = icmp eq ptr %1188, %1183
-  br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i343
+  %1188 = load ptr, ptr %.sroa.01.020.i, align 8
+  %.not18.i = icmp eq ptr %1188, %1183
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i343
 
 1189:                                             ; preds = %.noexc.i336, %1124
   %1190 = landingpad { ptr, i32 }
@@ -27741,8 +27741,8 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %51, %48
 
 60:                                               ; preds = %59, %"_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEEC2IZNS0_19SdfPredicateLibraryIS2_E14_TryToBindCallIZL14TestLinkErrorsvE3$_2EES6_RKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISH_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_vEEOSC_.exit.i"
   %61 = load ptr, ptr %7, align 8, !noalias !288
-  %.not.i.i.i15.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i15.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_2EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
+  %.not.i.i.i16.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i16.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_2EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %39, align 8, !noalias !288
@@ -28631,8 +28631,8 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %51, %48
 
 60:                                               ; preds = %59, %"_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEEC2IZNS0_19SdfPredicateLibraryIS2_E14_TryToBindCallIZL14TestLinkErrorsvE3$_4EES6_RKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISH_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_vEEOSC_.exit.i"
   %61 = load ptr, ptr %7, align 8, !noalias !294
-  %.not.i.i.i15.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i15.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_4EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
+  %.not.i.i.i16.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i16.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_4EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %39, align 8, !noalias !294
@@ -29033,8 +29033,8 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %51, %48
 
 60:                                               ; preds = %59, %"_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEEC2IZNS0_19SdfPredicateLibraryIS2_E14_TryToBindCallIZL14TestLinkErrorsvE3$_5EES6_RKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISH_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_vEEOSC_.exit.i"
   %61 = load ptr, ptr %7, align 8, !noalias !297
-  %.not.i.i.i15.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i15.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_5EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
+  %.not.i.i.i16.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i16.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_5EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %39, align 8, !noalias !297
@@ -29435,8 +29435,8 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %51, %48
 
 60:                                               ; preds = %59, %"_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEEC2IZNS0_19SdfPredicateLibraryIS2_E14_TryToBindCallIZL14TestLinkErrorsvE3$_6EES6_RKT_RKSt6vectorINS0_22SdfPredicateExpression5FnArgESaISH_EERKNS0_33SdfPredicateParamNamesAndDefaultsEEUlS4_E_vEEOSC_.exit.i"
   %61 = load ptr, ptr %7, align 8, !noalias !300
-  %.not.i.i.i15.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i15.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_6EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
+  %.not.i.i.i16.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i16.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE14_TryToBindCallIZL14TestLinkErrorsvE3$_6EESt8functionIFNS_26SdfPredicateFunctionResultERKS1_EERKT_RKSt6vectorINS_22SdfPredicateExpression5FnArgESaISG_EERKNS_33SdfPredicateParamNamesAndDefaultsE.exit", label %62
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %39, align 8, !noalias !300

@@ -595,10 +595,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl19str_format_internal16ParsedFormatBase18MatchesConversionsEbSt16initializer_listINS_23FormatConversionCharSetEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i1 noundef zeroext %allow_ignored, ptr nocapture readonly %convs.coerce0, i64 %convs.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__node_gen.i.i.i31 = alloca %"struct.std::__detail::_AllocNode", align 8
-  %pos.addr.i32 = alloca i32, align 4
-  %__node_gen.i.i.i14 = alloca %"struct.std::__detail::_AllocNode", align 8
-  %pos.addr.i15 = alloca i32, align 4
+  %__node_gen.i.i.i36 = alloca %"struct.std::__detail::_AllocNode", align 8
+  %pos.addr.i37 = alloca i32, align 4
+  %__node_gen.i.i.i19 = alloca %"struct.std::__detail::_AllocNode", align 8
+  %pos.addr.i20 = alloca i32, align 4
   %__node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %pos.addr.i = alloca i32, align 4
   %used = alloca %"class.std::unordered_set", align 8
@@ -617,29 +617,29 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %invariant.gep = getelementptr i8, ptr %convs.coerce0, i64 -8
-  %cmp.i.not65 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not65, label %for.end, label %for.body
+  %cmp.i.not66 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not66, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.sroa.0.066 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %2 = load i8, ptr %__begin2.sroa.0.066, align 8
+  %__begin2.sroa.0.067 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %2 = load i8, ptr %__begin2.sroa.0.067, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %conv6 = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 16
-  %precision = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 24
+  %conv6 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
+  %precision = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 24
   %3 = load i32, ptr %precision, align 4
-  %cmp.i8 = icmp slt i32 %3, -1
-  br i1 %cmp.i8, label %land.lhs.true, label %if.end14
+  %cmp.i13 = icmp slt i32 %3, -1
+  br i1 %cmp.i13, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end
   %sub2.i = xor i32 %3, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i)
   store i32 %sub2.i, ptr %pos.addr.i, align 4
   %conv.i = zext nneg i32 %sub2.i to i64
-  %cmp.i9 = icmp ult i64 %convs.coerce1, %conv.i
-  br i1 %cmp.i9, label %invoke.cont11.thread, label %call.i.i.i.noexc
+  %cmp.i14 = icmp ult i64 %convs.coerce1, %conv.i
+  br i1 %cmp.i14, label %invoke.cont11.thread, label %call.i.i.i.noexc
 
 call.i.i.i.noexc:                                 ; preds = %land.lhs.true
   %gep = getelementptr i64, ptr %invariant.gep, i64 %conv.i
@@ -651,7 +651,7 @@ call.i.i.i.noexc:                                 ; preds = %land.lhs.true
 if.end.i:                                         ; preds = %call.i.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i)
   store ptr %used, ptr %__node_gen.i.i.i, align 8
-  %call3.i.i.i.i11 = invoke { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %used, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i)
+  %call3.i.i.i.i16 = invoke { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %used, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11.thread:                             ; preds = %call.i.i.i.noexc, %land.lhs.true
@@ -663,51 +663,51 @@ invoke.cont11:                                    ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i)
   br label %if.end14
 
-lpad:                                             ; preds = %if.end.i40, %lor.lhs.false.i36, %if.end.i23, %if.end.i
+lpad:                                             ; preds = %if.end.i45, %lor.lhs.false.i41, %if.end.i28, %if.end.i
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %used) #14
   resume { ptr, i32 } %5
 
 if.end14:                                         ; preds = %invoke.cont11, %if.end
-  %width = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 20
+  %width = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 20
   %6 = load i32, ptr %width, align 4
-  %cmp.i12 = icmp slt i32 %6, -1
-  br i1 %cmp.i12, label %land.lhs.true17, label %if.end24
+  %cmp.i17 = icmp slt i32 %6, -1
+  br i1 %cmp.i17, label %land.lhs.true17, label %if.end24
 
 land.lhs.true17:                                  ; preds = %if.end14
-  %sub2.i13 = xor i32 %6, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i15)
-  store i32 %sub2.i13, ptr %pos.addr.i15, align 4
-  %conv.i16 = zext nneg i32 %sub2.i13 to i64
-  %cmp.i18 = icmp ult i64 %convs.coerce1, %conv.i16
-  br i1 %cmp.i18, label %invoke.cont21.thread, label %call.i.i.i.noexc25
+  %sub2.i18 = xor i32 %6, -1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i20)
+  store i32 %sub2.i18, ptr %pos.addr.i20, align 4
+  %conv.i21 = zext nneg i32 %sub2.i18 to i64
+  %cmp.i23 = icmp ult i64 %convs.coerce1, %conv.i21
+  br i1 %cmp.i23, label %invoke.cont21.thread, label %call.i.i.i.noexc30
 
-call.i.i.i.noexc25:                               ; preds = %land.lhs.true17
-  %gep62 = getelementptr i64, ptr %invariant.gep, i64 %conv.i16
-  %7 = load i64, ptr %gep62, align 8
-  %and.i.i21 = and i64 %7, 1
-  %cmp.i.not.i22 = icmp eq i64 %and.i.i21, 0
-  br i1 %cmp.i.not.i22, label %invoke.cont21.thread, label %if.end.i23
+call.i.i.i.noexc30:                               ; preds = %land.lhs.true17
+  %gep63 = getelementptr i64, ptr %invariant.gep, i64 %conv.i21
+  %7 = load i64, ptr %gep63, align 8
+  %and.i.i26 = and i64 %7, 1
+  %cmp.i.not.i27 = icmp eq i64 %and.i.i26, 0
+  br i1 %cmp.i.not.i27, label %invoke.cont21.thread, label %if.end.i28
 
-if.end.i23:                                       ; preds = %call.i.i.i.noexc25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i14)
-  store ptr %used, ptr %__node_gen.i.i.i14, align 8
-  %call3.i.i.i.i28 = invoke { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %used, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i15, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i15, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i14)
+if.end.i28:                                       ; preds = %call.i.i.i.noexc30
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i19)
+  store ptr %used, ptr %__node_gen.i.i.i19, align 8
+  %call3.i.i.i.i33 = invoke { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %used, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i20, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i20, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i19)
           to label %invoke.cont21 unwind label %lpad
 
-invoke.cont21.thread:                             ; preds = %call.i.i.i.noexc25, %land.lhs.true17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i15)
+invoke.cont21.thread:                             ; preds = %call.i.i.i.noexc30, %land.lhs.true17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i20)
   br label %cleanup
 
-invoke.cont21:                                    ; preds = %if.end.i23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i15)
+invoke.cont21:                                    ; preds = %if.end.i28
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i19)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i20)
   br label %if.end24
 
 if.end24:                                         ; preds = %invoke.cont21, %if.end14
   %8 = load i32, ptr %conv6, align 4
-  %conv25 = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 30
+  %conv25 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 30
   %9 = load i8, ptr %conv25, align 2
   %10 = icmp ult i8 %9, 19
   br i1 %10, label %switch.lookup, label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
@@ -719,41 +719,41 @@ switch.lookup:                                    ; preds = %if.end24
   br label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
 
 _ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit: ; preds = %switch.lookup, %if.end24
-  %retval.0.i30 = phi i8 [ 0, %if.end24 ], [ %switch.load, %switch.lookup ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i32)
-  store i32 %8, ptr %pos.addr.i32, align 4
-  %conv.i33 = sext i32 %8 to i64
-  %cmp.i35 = icmp ult i64 %convs.coerce1, %conv.i33
-  br i1 %cmp.i35, label %invoke.cont28.thread, label %lor.lhs.false.i36
+  %retval.0.i35 = phi i8 [ 0, %if.end24 ], [ %switch.load, %switch.lookup ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i37)
+  store i32 %8, ptr %pos.addr.i37, align 4
+  %conv.i38 = sext i32 %8 to i64
+  %cmp.i40 = icmp ult i64 %convs.coerce1, %conv.i38
+  br i1 %cmp.i40, label %invoke.cont28.thread, label %lor.lhs.false.i41
 
-lor.lhs.false.i36:                                ; preds = %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
-  %gep64 = getelementptr i64, ptr %invariant.gep, i64 %conv.i33
-  %12 = load i64, ptr %gep64, align 8
-  %call.i.i.i43 = invoke noundef i64 @_ZN4absl19str_format_internal29FormatConversionCharToConvIntEc(i8 noundef signext %retval.0.i30)
-          to label %call.i.i.i.noexc42 unwind label %lpad
+lor.lhs.false.i41:                                ; preds = %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
+  %gep65 = getelementptr i64, ptr %invariant.gep, i64 %conv.i38
+  %12 = load i64, ptr %gep65, align 8
+  %call.i.i.i48 = invoke noundef i64 @_ZN4absl19str_format_internal29FormatConversionCharToConvIntEc(i8 noundef signext %retval.0.i35)
+          to label %call.i.i.i.noexc47 unwind label %lpad
 
-call.i.i.i.noexc42:                               ; preds = %lor.lhs.false.i36
-  %and.i.i38 = and i64 %call.i.i.i43, %12
-  %cmp.i.not.i39 = icmp eq i64 %and.i.i38, 0
-  br i1 %cmp.i.not.i39, label %invoke.cont28.thread, label %if.end.i40
+call.i.i.i.noexc47:                               ; preds = %lor.lhs.false.i41
+  %and.i.i43 = and i64 %call.i.i.i48, %12
+  %cmp.i.not.i44 = icmp eq i64 %and.i.i43, 0
+  br i1 %cmp.i.not.i44, label %invoke.cont28.thread, label %if.end.i45
 
-if.end.i40:                                       ; preds = %call.i.i.i.noexc42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i31)
-  store ptr %used, ptr %__node_gen.i.i.i31, align 8
-  %call3.i.i.i.i45 = invoke { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %used, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i32, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i32, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i31)
+if.end.i45:                                       ; preds = %call.i.i.i.noexc47
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i36)
+  store ptr %used, ptr %__node_gen.i.i.i36, align 8
+  %call3.i.i.i.i50 = invoke { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %used, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i37, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr.i37, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i36)
           to label %invoke.cont28 unwind label %lpad
 
-invoke.cont28.thread:                             ; preds = %call.i.i.i.noexc42, %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i32)
+invoke.cont28.thread:                             ; preds = %call.i.i.i.noexc47, %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i37)
   br label %cleanup
 
-invoke.cont28:                                    ; preds = %if.end.i40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i32)
+invoke.cont28:                                    ; preds = %if.end.i45
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i36)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.addr.i37)
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont28, %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.066, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 

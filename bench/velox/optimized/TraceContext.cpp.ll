@@ -321,14 +321,14 @@ _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entr
 .noexc:                                           ; preds = %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
   %call.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 16), align 8
   %cmp.i.not3.i.i = icmp eq ptr %call.val.i, null
-  br i1 %cmp.i.not3.i.i, label %if.then.i.i.i, label %for.body.i.i.preheader
+  br i1 %cmp.i.not3.i.i, label %if.then.i.i.i, label %for.body.i.preheader.i
 
-for.body.i.i.preheader:                           ; preds = %.noexc
+for.body.i.preheader.i:                           ; preds = %.noexc
   %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
-  %__begin2.sroa.0.04.i.i = phi ptr [ %9, %for.inc.i.i ], [ %call.val.i, %for.body.i.i.preheader ]
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.preheader.i
+  %__begin2.sroa.0.04.i.i = phi ptr [ %9, %for.inc.i.i ], [ %call.val.i, %for.body.i.preheader.i ]
   %second.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.04.i.i, i64 40
   %3 = load i32, ptr %second.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %3, 0

@@ -4159,7 +4159,7 @@ $_ZTIZN12async_simple11FutureStateISt4errcE15setContinuationIZNS_6FutureIS1_E4wa
 @_ZTIZN12async_simple11FutureStateISt4errcE15setContinuationIZNS_6FutureIS1_E4waitEvEUlONS_3TryIS1_EEE_EEvOT_EUlS8_E_ = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZN12async_simple11FutureStateISt4errcE15setContinuationIZNS_6FutureIS1_E4waitEvEUlONS_3TryIS1_EEE_EEvOT_EUlS8_E_ }, comdat, align 8
 @llvm.global_ctors = appending global [9 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.7, ptr @_ZN8coro_rpc15coro_rpc_client13connect_errorE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.8, ptr @pool }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.21, ptr @_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE4top_E }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.22, ptr @_ZN4asio6detail30execution_context_service_baseINS0_9schedulerEE2idE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.23, ptr @_ZN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEE2idE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.24, ptr @_ZN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEE2idE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.25, ptr @_ZN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEE2idE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.26, ptr @_ZN4asio6detail30execution_context_service_baseINS0_16resolver_serviceINS_2ip3tcpEEEE2idE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_data_gen.cpp, ptr null }]
 @llvm.used = appending global [8 x ptr] [ptr @_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE4top_E, ptr @_ZN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEE2idE, ptr @_ZN4asio6detail30execution_context_service_baseINS0_16resolver_serviceINS_2ip3tcpEEEE2idE, ptr @_ZN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEE2idE, ptr @_ZN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEE2idE, ptr @_ZN4asio6detail30execution_context_service_baseINS0_9schedulerEE2idE, ptr @_ZN8coro_rpc15coro_rpc_client13connect_errorE, ptr @pool], section "llvm.metadata"
-@switch.table._ZN7easylog8appender12write_recordILb1ELb1EEEvRNS_8record_tE.13 = private unnamed_addr constant [3 x ptr] [ptr @.str.141, ptr @.str.142, ptr @.str.143], align 8
+@switch.table._ZN7easylog8appender12write_recordILb1ELb1EEEvRNS_8record_tE.14 = private unnamed_addr constant [3 x ptr] [ptr @.str.141, ptr @.str.142, ptr @.str.143], align 8
 @switch.table._ZN7easylog8appender12write_recordILb1ELb0EEEvRNS_8record_tE = private unnamed_addr constant [6 x ptr] [ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -5631,9 +5631,9 @@ invoke.cont29:                                    ; preds = %invoke.cont.i62
           to label %call.i67.noexc unwind label %lpad31
 
 call.i67.noexc:                                   ; preds = %invoke.cont29
+  %21 = ptrtoint ptr %promise to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_1EEEEEE", i64 16), ptr %call.i6769, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i6769, i64 8
-  %21 = ptrtoint ptr %promise to i64
   store i64 %21, ptr %_M_func.i.i, align 8
   store ptr %call.i6769, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %thd, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -85243,7 +85243,7 @@ invoke.cont27:                                    ; preds = %if.end.i71, %if.the
 
 switch.lookup96:                                  ; preds = %invoke.cont27
   %30 = zext nneg i32 %switch.tableidx97 to i64
-  %switch.gep98 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7easylog8appender12write_recordILb1ELb1EEEvRNS_8record_tE.13, i64 0, i64 %30
+  %switch.gep98 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7easylog8appender12write_recordILb1ELb1EEEvRNS_8record_tE.14, i64 0, i64 %30
   %switch.load99 = load ptr, ptr %switch.gep98, align 8
   %call4.i85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load99)
   br label %invoke.cont30
@@ -89365,7 +89365,7 @@ invoke.cont27:                                    ; preds = %if.end.i72, %call4.
 
 switch.lookup99:                                  ; preds = %invoke.cont27
   %34 = zext nneg i32 %switch.tableidx100 to i64
-  %switch.gep101 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7easylog8appender12write_recordILb1ELb1EEEvRNS_8record_tE.13, i64 0, i64 %34
+  %switch.gep101 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7easylog8appender12write_recordILb1ELb1EEEvRNS_8record_tE.14, i64 0, i64 %34
   %switch.load102 = load ptr, ptr %switch.gep101, align 8
   %call4.i86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load102)
           to label %invoke.cont29 unwind label %lpad

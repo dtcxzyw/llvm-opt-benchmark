@@ -10925,8 +10925,8 @@ _ZN6vectorIP3astLb0EjE9push_backERKS1_.exit.i:    ; preds = %for.body
   %inc.i.i = add i32 %5, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %6 = load ptr, ptr %stack.i, align 8
-  %cmp.i49241.i = icmp eq ptr %6, null
-  br i1 %cmp.i49241.i, label %for.inc, label %_ZNK6vectorIP3astLb0EjE5emptyEv.exit.i
+  %cmp.i4925.i = icmp eq ptr %6, null
+  br i1 %cmp.i4925.i, label %for.inc, label %_ZNK6vectorIP3astLb0EjE5emptyEv.exit.i
 
 _ZNK6vectorIP3astLb0EjE5emptyEv.exit.i:           ; preds = %_ZN6vectorIP3astLb0EjE9push_backERKS1_.exit.i, %while.cond.backedge.i
   %7 = phi ptr [ %14, %while.cond.backedge.i ], [ %6, %_ZN6vectorIP3astLb0EjE9push_backERKS1_.exit.i ]
@@ -10954,20 +10954,20 @@ while.cond.backedge.sink.split.sink.split.sink.split.i: ; preds = %if.then.i209.
   br label %while.cond.backedge.sink.split.sink.split.i
 
 while.cond.backedge.sink.split.sink.split.i:      ; preds = %lor.lhs.false.i201.i, %lor.lhs.false.i83.i, %lor.lhs.false.i64.i, %while.cond.backedge.sink.split.sink.split.sink.split.i
-  %.sink324.i = phi i32 [ %28, %lor.lhs.false.i64.i ], [ %37, %lor.lhs.false.i83.i ], [ %70, %lor.lhs.false.i201.i ], [ %.pre1.i212.i, %while.cond.backedge.sink.split.sink.split.sink.split.i ]
-  %.sink323.i = phi ptr [ %27, %lor.lhs.false.i64.i ], [ %36, %lor.lhs.false.i83.i ], [ %69, %lor.lhs.false.i201.i ], [ %.pre.i210.i, %while.cond.backedge.sink.split.sink.split.sink.split.i ]
+  %.sink108.i = phi i32 [ %28, %lor.lhs.false.i64.i ], [ %37, %lor.lhs.false.i83.i ], [ %70, %lor.lhs.false.i201.i ], [ %.pre1.i212.i, %while.cond.backedge.sink.split.sink.split.sink.split.i ]
+  %.sink107.i = phi ptr [ %27, %lor.lhs.false.i64.i ], [ %36, %lor.lhs.false.i83.i ], [ %69, %lor.lhs.false.i201.i ], [ %.pre.i210.i, %while.cond.backedge.sink.split.sink.split.sink.split.i ]
   %.sink.i = phi ptr [ %26, %lor.lhs.false.i64.i ], [ %35, %lor.lhs.false.i83.i ], [ %68, %lor.lhs.false.i201.i ], [ %.sink.ph.i, %while.cond.backedge.sink.split.sink.split.sink.split.i ]
-  %idx.ext.i205.i = zext i32 %.sink324.i to i64
-  %add.ptr.i206.i = getelementptr inbounds ptr, ptr %.sink323.i, i64 %idx.ext.i205.i
+  %idx.ext.i205.i = zext i32 %.sink108.i to i64
+  %add.ptr.i206.i = getelementptr inbounds ptr, ptr %.sink107.i, i64 %idx.ext.i205.i
   store ptr %.sink.i, ptr %add.ptr.i206.i, align 8
   br label %while.cond.backedge.sink.split.i
 
 while.cond.backedge.sink.split.i:                 ; preds = %if.end20.invoke.i, %while.cond.backedge.sink.split.sink.split.i, %invoke.cont5.i
-  %.sink321.i = phi i32 [ -1, %invoke.cont5.i ], [ 1, %while.cond.backedge.sink.split.sink.split.i ], [ -1, %if.end20.invoke.i ]
+  %.sink105.i = phi i32 [ -1, %invoke.cont5.i ], [ 1, %while.cond.backedge.sink.split.sink.split.i ], [ -1, %if.end20.invoke.i ]
   %12 = load ptr, ptr %stack.i, align 8
   %arrayidx.i52.i = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i52.i, align 4
-  %dec.i53.i = add i32 %13, %.sink321.i
+  %dec.i53.i = add i32 %13, %.sink105.i
   store i32 %dec.i53.i, ptr %arrayidx.i52.i, align 4
   br label %while.cond.backedge.i
 
@@ -10977,7 +10977,7 @@ while.cond.backedge.i:                            ; preds = %for.inc.i150.thread
   br i1 %cmp.i49.i, label %for.inc, label %_ZNK6vectorIP3astLb0EjE5emptyEv.exit.i, !llvm.loop !54
 
 lpad.loopexit.loopexit.i:                         ; preds = %for.body.i.i
-  %lpad.loopexit269.i = landingpad { ptr, i32 }
+  %lpad.loopexit53.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
@@ -10987,47 +10987,47 @@ lpad.loopexit.loopexit.split-lp.i:                ; preds = %if.then.i.i.i
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.loopexit.i:       ; preds = %for.body.i100.i
-  %lpad.loopexit272.i = landingpad { ptr, i32 }
+  %lpad.loopexit56.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.loopexit.split-lp.i: ; preds = %if.then.i.i120.i
-  %lpad.loopexit.split-lp273.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp57.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i: ; preds = %for.body.i171.i
-  %lpad.loopexit276.i = landingpad { ptr, i32 }
+  %lpad.loopexit60.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i: ; preds = %if.then.i.i191.i
-  %lpad.loopexit.split-lp277.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp61.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i: ; preds = %for.body.i135.i
-  %lpad.loopexit280.i = landingpad { ptr, i32 }
+  %lpad.loopexit64.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i: ; preds = %if.then.i.i155.i
-  %lpad.loopexit.split-lp281.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp65.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %if.then.i209.i, %if.end123.i, %if.then.i91.i, %sw.bb77.i, %if.then.i77.i, %if.then.i72.i, %if.end57.i, %if.end20.invoke.i, %invoke.cont3.i
-  %lpad.loopexit232.i = landingpad { ptr, i32 }
+  %lpad.loopexit16.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %for.body
-  %lpad.loopexit.split-lp233.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.loopexit.i, %lpad.loopexit.loopexit.split-lp.i, %lpad.loopexit.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit232.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp233.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit269.i, %lpad.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit272.i, %lpad.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp273.i, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit276.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp277.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit280.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp281.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit16.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp17.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit53.i, %lpad.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit56.i, %lpad.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp57.i, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit60.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp61.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit64.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp65.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i ]
   call void @_ZN10ptr_vectorI3astED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %stack.i) #20
   call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %visited) #20
   resume { ptr, i32 } %lpad.phi.i
@@ -11063,7 +11063,7 @@ for.body.preheader.i.i:                           ; preds = %if.end47.i
   br label %for.body.i.outer.i
 
 for.body.i.outer.i:                               ; preds = %for.inc.i.thread.i, %for.body.preheader.i.i
-  %indvars.iv.i.ph.i = phi i64 [ %indvars.iv.next.i250.i, %for.inc.i.thread.i ], [ 0, %for.body.preheader.i.i ]
+  %indvars.iv.i.ph.i = phi i64 [ %indvars.iv.next.i34.i, %for.inc.i.thread.i ], [ 0, %for.body.preheader.i.i ]
   %result.06.i.ph.i = phi i1 [ false, %for.inc.i.thread.i ], [ true, %for.body.preheader.i.i ]
   br label %for.body.i.i
 
@@ -11116,9 +11116,9 @@ for.inc.i.thread.i:                               ; preds = %.noexc61.i, %lor.lh
   %24 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %24, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
-  %indvars.iv.next.i250.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i251.i = icmp eq i64 %indvars.iv.next.i250.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i251.i, label %while.cond.backedge.i, label %for.body.i.outer.i, !llvm.loop !55
+  %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i35.i = icmp eq i64 %indvars.iv.next.i34.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i35.i, label %while.cond.backedge.i, label %for.body.i.outer.i, !llvm.loop !55
 
 invoke.cont54.i:                                  ; preds = %for.inc.i.i
   br i1 %result.06.i.ph.i, label %if.end57.i, label %while.cond.backedge.i
@@ -11207,7 +11207,7 @@ for.body.preheader.i98.i:                         ; preds = %if.end88.i
   br label %for.body.i100.outer.i
 
 for.body.i100.outer.i:                            ; preds = %for.inc.i115.thread.i, %for.body.preheader.i98.i
-  %indvars.iv.i101.ph.i = phi i64 [ %indvars.iv.next.i117255.i, %for.inc.i115.thread.i ], [ 0, %for.body.preheader.i98.i ]
+  %indvars.iv.i101.ph.i = phi i64 [ %indvars.iv.next.i11739.i, %for.inc.i115.thread.i ], [ 0, %for.body.preheader.i98.i ]
   %result.06.i102.ph.i = phi i1 [ false, %for.inc.i115.thread.i ], [ true, %for.body.preheader.i98.i ]
   br label %for.body.i100.i
 
@@ -11260,9 +11260,9 @@ for.inc.i115.thread.i:                            ; preds = %.noexc126.i, %lor.l
   %47 = load i32, ptr %arrayidx10.i.i113.i, align 4
   %inc.i.i114.i = add i32 %47, 1
   store i32 %inc.i.i114.i, ptr %arrayidx10.i.i113.i, align 4
-  %indvars.iv.next.i117255.i = add nuw nsw i64 %indvars.iv.i101.i, 1
-  %exitcond.not.i118256.i = icmp eq i64 %indvars.iv.next.i117255.i, %wide.trip.count.i99.i
-  br i1 %exitcond.not.i118256.i, label %while.cond.backedge.i, label %for.body.i100.outer.i, !llvm.loop !56
+  %indvars.iv.next.i11739.i = add nuw nsw i64 %indvars.iv.i101.i, 1
+  %exitcond.not.i11840.i = icmp eq i64 %indvars.iv.next.i11739.i, %wide.trip.count.i99.i
+  br i1 %exitcond.not.i11840.i, label %while.cond.backedge.i, label %for.body.i100.outer.i, !llvm.loop !56
 
 invoke.cont93.i:                                  ; preds = %for.inc.i115.i
   br i1 %result.06.i102.ph.i, label %if.end20.invoke.i, label %while.cond.backedge.i
@@ -11284,7 +11284,7 @@ for.body.preheader.i133.i:                        ; preds = %invoke.cont108.i
   br label %for.body.i135.outer.i
 
 for.body.i135.outer.i:                            ; preds = %for.inc.i150.thread.i, %for.body.preheader.i133.i
-  %indvars.iv.i136.ph.i = phi i64 [ %indvars.iv.next.i152260.i, %for.inc.i150.thread.i ], [ 0, %for.body.preheader.i133.i ]
+  %indvars.iv.i136.ph.i = phi i64 [ %indvars.iv.next.i15244.i, %for.inc.i150.thread.i ], [ 0, %for.body.preheader.i133.i ]
   %result.06.i137.ph.i = phi i1 [ false, %for.inc.i150.thread.i ], [ true, %for.body.preheader.i133.i ]
   br label %for.body.i135.i
 
@@ -11337,20 +11337,20 @@ for.inc.i150.thread.i:                            ; preds = %.noexc161.i, %lor.l
   %57 = load i32, ptr %arrayidx10.i.i148.i, align 4
   %inc.i.i149.i = add i32 %57, 1
   store i32 %inc.i.i149.i, ptr %arrayidx10.i.i148.i, align 4
-  %indvars.iv.next.i152260.i = add nuw nsw i64 %indvars.iv.i136.i, 1
-  %exitcond.not.i153261.i = icmp eq i64 %indvars.iv.next.i152260.i, %wide.trip.count.i134.i
-  br i1 %exitcond.not.i153261.i, label %while.cond.backedge.i, label %for.body.i135.outer.i, !llvm.loop !56
+  %indvars.iv.next.i15244.i = add nuw nsw i64 %indvars.iv.i136.i, 1
+  %exitcond.not.i15345.i = icmp eq i64 %indvars.iv.next.i15244.i, %wide.trip.count.i134.i
+  br i1 %exitcond.not.i15345.i, label %while.cond.backedge.i, label %for.body.i135.outer.i, !llvm.loop !56
 
 invoke.cont110.i:                                 ; preds = %for.inc.i150.i
   br i1 %result.06.i137.ph.i, label %invoke.cont110.if.end113_crit_edge.i, label %while.cond.backedge.i
 
 invoke.cont110.if.end113_crit_edge.i:             ; preds = %invoke.cont110.i
   %.pre.i = load i32, ptr %m_num_decls.i.i.i, align 4
-  %.pre248.i = zext i32 %.pre.i to i64
+  %.pre32.i = zext i32 %.pre.i to i64
   br label %if.end113.i
 
 if.end113.i:                                      ; preds = %invoke.cont110.if.end113_crit_edge.i, %invoke.cont108.i
-  %idx.ext.i.i165.pre-phi.i = phi i64 [ %.pre248.i, %invoke.cont110.if.end113_crit_edge.i ], [ %idx.ext.i.i129.i, %invoke.cont108.i ]
+  %idx.ext.i.i165.pre-phi.i = phi i64 [ %.pre32.i, %invoke.cont110.if.end113_crit_edge.i ], [ %idx.ext.i.i129.i, %invoke.cont108.i ]
   %m_num_no_patterns.i.i = getelementptr inbounds i8, ptr %11, i64 76
   %58 = load i32, ptr %m_num_no_patterns.i.i, align 4
   %add.ptr.i.i166.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i, i64 %idx.ext.i.i165.pre-phi.i
@@ -11363,7 +11363,7 @@ for.body.preheader.i169.i:                        ; preds = %if.end113.i
   br label %for.body.i171.outer.i
 
 for.body.i171.outer.i:                            ; preds = %for.inc.i186.thread.i, %for.body.preheader.i169.i
-  %indvars.iv.i172.ph.i = phi i64 [ %indvars.iv.next.i188265.i, %for.inc.i186.thread.i ], [ 0, %for.body.preheader.i169.i ]
+  %indvars.iv.i172.ph.i = phi i64 [ %indvars.iv.next.i18849.i, %for.inc.i186.thread.i ], [ 0, %for.body.preheader.i169.i ]
   %result.06.i173.ph.i = phi i1 [ false, %for.inc.i186.thread.i ], [ true, %for.body.preheader.i169.i ]
   br label %for.body.i171.i
 
@@ -11416,9 +11416,9 @@ for.inc.i186.thread.i:                            ; preds = %.noexc197.i, %lor.l
   %66 = load i32, ptr %arrayidx10.i.i184.i, align 4
   %inc.i.i185.i = add i32 %66, 1
   store i32 %inc.i.i185.i, ptr %arrayidx10.i.i184.i, align 4
-  %indvars.iv.next.i188265.i = add nuw nsw i64 %indvars.iv.i172.i, 1
-  %exitcond.not.i189266.i = icmp eq i64 %indvars.iv.next.i188265.i, %wide.trip.count.i170.i
-  br i1 %exitcond.not.i189266.i, label %while.cond.backedge.i, label %for.body.i171.outer.i, !llvm.loop !56
+  %indvars.iv.next.i18849.i = add nuw nsw i64 %indvars.iv.i172.i, 1
+  %exitcond.not.i18950.i = icmp eq i64 %indvars.iv.next.i18849.i, %wide.trip.count.i170.i
+  br i1 %exitcond.not.i18950.i, label %while.cond.backedge.i, label %for.body.i171.outer.i, !llvm.loop !56
 
 invoke.cont120.i:                                 ; preds = %for.inc.i186.i
   br i1 %result.06.i173.ph.i, label %if.end123.i, label %while.cond.backedge.i

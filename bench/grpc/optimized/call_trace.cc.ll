@@ -386,40 +386,40 @@ lpad:                                             ; preds = %if.end
 
 if.end:                                           ; preds = %invoke.cont5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %call.i11 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
+  %call.i12 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp15.i.i), !noalias !9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp17.i.i), !noalias !9
-  store ptr @_Z17grpc_call_next_opP17grpc_call_elementP30grpc_transport_stream_op_batch, ptr %call.i11, align 8, !noalias !9
-  %make_call_promise.i.i = getelementptr inbounds i8, ptr %call.i11, i64 8
+  store ptr @_Z17grpc_call_next_opP17grpc_call_elementP30grpc_transport_stream_op_batch, ptr %call.i12, align 8, !noalias !9
+  %make_call_promise.i.i = getelementptr inbounds i8, ptr %call.i12, i64 8
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES6_EEE_8__invokeES5_S6_SG_, ptr %make_call_promise.i.i, align 8, !noalias !9
-  %init_call.i.i = getelementptr inbounds i8, ptr %call.i11, i64 16
+  %init_call.i.i = getelementptr inbounds i8, ptr %call.i12, i64 16
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_8__invokeES5_S7_, ptr %init_call.i.i, align 8, !noalias !9
-  %start_transport_op.i.i = getelementptr inbounds i8, ptr %call.i11, i64 24
+  %start_transport_op.i.i = getelementptr inbounds i8, ptr %call.i12, i64 24
   store ptr @_Z20grpc_channel_next_opP20grpc_channel_elementP17grpc_transport_op, ptr %start_transport_op.i.i, align 8, !noalias !9
-  %sizeof_call_data.i.i = getelementptr inbounds i8, ptr %call.i11, i64 32
+  %sizeof_call_data.i.i = getelementptr inbounds i8, ptr %call.i12, i64 32
   store i64 0, ptr %sizeof_call_data.i.i, align 8, !noalias !9
-  %init_call_elem.i.i = getelementptr inbounds i8, ptr %call.i11, i64 40
+  %init_call_elem.i.i = getelementptr inbounds i8, ptr %call.i12, i64 40
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP17grpc_call_elementPK22grpc_call_element_argsE_8__invokeES5_S8_, ptr %init_call_elem.i.i, align 8, !noalias !9
-  %set_pollset_or_pollset_set.i.i = getelementptr inbounds i8, ptr %call.i11, i64 48
+  %set_pollset_or_pollset_set.i.i = getelementptr inbounds i8, ptr %call.i12, i64 48
   store ptr @_Z49grpc_call_stack_ignore_set_pollset_or_pollset_setP17grpc_call_elementP19grpc_polling_entity, ptr %set_pollset_or_pollset_set.i.i, align 8, !noalias !9
-  %destroy_call_elem.i.i = getelementptr inbounds i8, ptr %call.i11, i64 56
+  %destroy_call_elem.i.i = getelementptr inbounds i8, ptr %call.i12, i64 56
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closureE_8__invokeES5_S8_SA_, ptr %destroy_call_elem.i.i, align 8, !noalias !9
-  %sizeof_channel_data.i.i = getelementptr inbounds i8, ptr %call.i11, i64 64
+  %sizeof_channel_data.i.i = getelementptr inbounds i8, ptr %call.i12, i64 64
   store i64 0, ptr %sizeof_channel_data.i.i, align 8, !noalias !9
-  %init_channel_elem.i.i = getelementptr inbounds i8, ptr %call.i11, i64 72
+  %init_channel_elem.i.i = getelementptr inbounds i8, ptr %call.i12, i64 72
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP20grpc_channel_elementP25grpc_channel_element_argsE_8__invokeES5_S7_, ptr %init_channel_elem.i.i, align 8, !noalias !9
-  %post_init_channel_elem.i.i = getelementptr inbounds i8, ptr %call.i11, i64 80
+  %post_init_channel_elem.i.i = getelementptr inbounds i8, ptr %call.i12, i64 80
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP18grpc_channel_stackP20grpc_channel_elementE_8__invokeES5_S7_, ptr %post_init_channel_elem.i.i, align 8, !noalias !9
-  %destroy_channel_elem.i.i = getelementptr inbounds i8, ptr %call.i11, i64 88
+  %destroy_channel_elem.i.i = getelementptr inbounds i8, ptr %call.i12, i64 88
   store ptr @_ZZZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterEN13DerivedFilterC1ES2_ENUlP20grpc_channel_elementE_8__invokeES5_, ptr %destroy_channel_elem.i.i, align 8, !noalias !9
-  %get_channel_info.i.i = getelementptr inbounds i8, ptr %call.i11, i64 96
+  %get_channel_info.i.i = getelementptr inbounds i8, ptr %call.i12, i64 96
   store ptr @_Z26grpc_channel_next_get_infoP20grpc_channel_elementPK17grpc_channel_info, ptr %get_channel_info.i.i, align 8, !noalias !9
-  %name.i.i = getelementptr inbounds i8, ptr %call.i11, i64 104
+  %name.i.i = getelementptr inbounds i8, ptr %call.i12, i64 104
   store ptr null, ptr %name.i.i, align 8, !noalias !9
-  %filter14.i.i = getelementptr inbounds i8, ptr %call.i11, i64 112
+  %filter14.i.i = getelementptr inbounds i8, ptr %call.i12, i64 112
   store ptr %filter, ptr %filter14.i.i, align 8, !noalias !9
   %name16.i.i = getelementptr inbounds i8, ptr %filter, i64 104
   %12 = load ptr, ptr %name16.i.i, align 8, !noalias !9
@@ -432,7 +432,7 @@ cond.true.i.i.i.i:                                ; preds = %call.i.noexc
 
 _ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i:   ; preds = %cond.true.i.i.i.i, %call.i.noexc
   %retval.sroa.0.0.i.i.i.i = phi i64 [ %call.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ 0, %call.i.noexc ]
-  %name_str.i.i = getelementptr inbounds i8, ptr %call.i11, i64 120
+  %name_str.i.i = getelementptr inbounds i8, ptr %call.i12, i64 120
   store i64 %retval.sroa.0.0.i.i.i.i, ptr %ref.tmp15.i.i, align 8, !noalias !9
   %13 = getelementptr inbounds i8, ptr %ref.tmp15.i.i, i64 8
   store ptr %12, ptr %13, align 8, !noalias !9
@@ -445,7 +445,7 @@ _ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i:   ; preds = %cond.true.i.i.i.i, 
 lpad.i:                                           ; preds = %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i11) #33, !noalias !9
+  call void @_ZdlPv(ptr noundef nonnull %call.i12) #33, !noalias !9
   br label %ehcleanup
 
 invoke.cont13:                                    ; preds = %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i
@@ -453,7 +453,7 @@ invoke.cont13:                                    ; preds = %_ZN4absl12lts_20230
   store ptr %call19.i.i, ptr %name.i.i, align 8, !noalias !9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp15.i.i), !noalias !9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp17.i.i), !noalias !9
-  store ptr %call.i11, ptr %ref.tmp12, align 8, !alias.scope !9
+  store ptr %call.i12, ptr %ref.tmp12, align 8, !alias.scope !9
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8, !noalias !12
   call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !12
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 24), align 8, !noalias !25
@@ -461,7 +461,7 @@ invoke.cont13:                                    ; preds = %_ZN4absl12lts_20230
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %17, 12
   %xor.i.i.i.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i.i.i.i, %shr.i.i.i.i.i
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 16), align 8, !noalias !12
-  %18 = ptrtoint ptr %call.i11 to i64
+  %18 = ptrtoint ptr %call.i12 to i64
   br label %while.body.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.end36.i.i.i.i.i.i.i, %invoke.cont13
@@ -508,11 +508,11 @@ if.end36.i.i.i.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i.i.i, !llvm.loop !28
 
 while.end.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i.i
-  %call7.i.i.i.i.i.i.i.i12 = invoke { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %call7.i.i.i.i.i.i.i.i13 = invoke { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %call7.i.i.i.i.i.i.i.i.noexc unwind label %lpad14
 
 call7.i.i.i.i.i.i.i.i.noexc:                      ; preds = %while.end.i.i.i.i.i.i.i
-  %24 = extractvalue { i64, i64 } %call7.i.i.i.i.i.i.i.i12, 0
+  %24 = extractvalue { i64, i64 } %call7.i.i.i.i.i.i.i.i13, 0
   %this.val12.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8, !noalias !12
   %25 = getelementptr i8, ptr %this.val12.i.i.i.i.i.i.i.i, i64 -8
   %this.val12.val.i.i.i.i.i.i.i.i = load i64, ptr %25, align 8, !noalias !12
@@ -553,11 +553,11 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i
           to label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPK19grpc_channel_filterSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForES6_E13DerivedFilterSt14default_deleteIS9_EEEENS1_6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i unwind label %lpad14
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPK19grpc_channel_filterSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForES6_E13DerivedFilterSt14default_deleteIS9_EEEENS1_6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %.noexc
-  %call15.i.i.i.i.i.i.i.i14 = invoke { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %call15.i.i.i.i.i.i.i.i15 = invoke { i64, i64 } @_ZN4absl12lts_2023080218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %call15.i.i.i.i.i.i.i.i.noexc unwind label %lpad14
 
 call15.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPK19grpc_channel_filterSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForES6_E13DerivedFilterSt14default_deleteIS9_EEEENS1_6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i
-  %27 = extractvalue { i64, i64 } %call15.i.i.i.i.i.i.i.i14, 0
+  %27 = extractvalue { i64, i64 } %call15.i.i.i.i.i.i.i.i15, 0
   %this.val13.pre.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8, !noalias !12
   br label %invoke.cont16.thread
 
@@ -591,19 +591,19 @@ invoke.cont16.thread:                             ; preds = %call7.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i.i.i, i64 8
   store i64 %18, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !12
   %.val1.pre.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 16), align 8, !noalias !12
-  %second1822 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val1.pre.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i, i32 0, i32 1
-  %second18.val23 = load ptr, ptr %second1822, align 8
+  %second1823 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val1.pre.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i, i32 0, i32 1
+  %second18.val24 = load ptr, ptr %second1823, align 8
   br label %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit
 
 _ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i
   %second18 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %this.val7.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i, i32 0, i32 1
   %second18.val = load ptr, ptr %second18, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_str.i.i) #32
-  call void @_ZdlPv(ptr noundef nonnull %call.i11) #33
+  call void @_ZdlPv(ptr noundef nonnull %call.i12) #33
   br label %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit: ; preds = %invoke.cont16.thread, %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i
-  %second18.val25 = phi ptr [ %second18.val23, %invoke.cont16.thread ], [ %second18.val, %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i ]
+  %second18.val26 = phi ptr [ %second18.val24, %invoke.cont16.thread ], [ %second18.val, %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i ]
   store ptr null, ptr %ref.tmp12, align 8
   br label %cleanup
 
@@ -614,7 +614,7 @@ lpad14:                                           ; preds = %_ZN4absl12lts_20230
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit, %invoke.cont7
-  %retval.0 = phi ptr [ %second.val, %invoke.cont7 ], [ %second18.val25, %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit ]
+  %retval.0 = phi ptr [ %second.val, %invoke.cont7 ], [ %second18.val26, %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -631,16 +631,16 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad14
   %.pn = phi { ptr, i32 } [ %34, %lpad14 ], [ %11, %lpad ], [ %15, %lpad.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E)
-          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
+          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit17 unwind label %terminate.lpad.i16
 
-terminate.lpad.i15:                               ; preds = %ehcleanup
+terminate.lpad.i16:                               ; preds = %ehcleanup
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #34
   unreachable
 
-_ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %ehcleanup
+_ZN4absl12lts_202308029MutexLockD2Ev.exit17:      ; preds = %ehcleanup
   resume { ptr, i32 } %.pn
 }
 

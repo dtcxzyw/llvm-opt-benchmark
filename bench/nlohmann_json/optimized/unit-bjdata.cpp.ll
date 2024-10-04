@@ -7882,8 +7882,8 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %if.then343
 
 invoke.cont352:                                   ; preds = %if.then343
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call5.i.i.i.i2.i2580, ptr noundef nonnull align 8 dereferenceable(88) @constinit, i64 88, i1 false)
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_42, i64 16
   %130 = ptrtoint ptr %i to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_42, i64 16
   %m_value.i.i2589 = getelementptr inbounds i8, ptr %j362, i64 8
   %m_decomp.i2596 = getelementptr inbounds i8, ptr %ref.tmp363, i64 8
   %_M_end_of_storage.i.i2603 = getelementptr inbounds i8, ptr %expected378, i64 16
@@ -8424,8 +8424,8 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %if.then546
 
 invoke.cont556:                                   ; preds = %if.then546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call5.i.i.i.i2.i2680, ptr noundef nonnull align 4 dereferenceable(28) @constinit.41, i64 28, i1 false)
-  %lambda_.i.i2691 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_46, i64 16
   %202 = ptrtoint ptr %i568 to i64
+  %lambda_.i.i2691 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_46, i64 16
   %m_value.i.i2692 = getelementptr inbounds i8, ptr %j573, i64 8
   %m_decomp.i2700 = getelementptr inbounds i8, ptr %ref.tmp574, i64 8
   %_M_end_of_storage.i.i2707 = getelementptr inbounds i8, ptr %expected589, i64 16
@@ -8899,8 +8899,8 @@ invoke.cont732:                                   ; preds = %invoke.cont729
 
 for.cond736.preheader:                            ; preds = %invoke.cont732
   store i32 -32768, ptr %i735, align 4
-  %lambda_.i.i2788 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_50, i64 16
   %263 = ptrtoint ptr %i735 to i64
+  %lambda_.i.i2788 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_50, i64 16
   %m_value.i.i2789 = getelementptr inbounds i8, ptr %j740, i64 8
   %m_decomp.i2798 = getelementptr inbounds i8, ptr %ref.tmp741, i64 8
   %_M_end_of_storage.i.i2805 = getelementptr inbounds i8, ptr %expected756, i64 16
@@ -9734,8 +9734,8 @@ invoke.cont1006:                                  ; preds = %invoke.cont1003
 
 for.cond1010.preheader:                           ; preds = %invoke.cont1006
   store i32 -128, ptr %i1009, align 4
-  %lambda_.i.i2951 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_55, i64 16
   %370 = ptrtoint ptr %i1009 to i64
+  %lambda_.i.i2951 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_55, i64 16
   %m_value.i.i2952 = getelementptr inbounds i8, ptr %j1015, i64 8
   %m_decomp.i2962 = getelementptr inbounds i8, ptr %ref.tmp1016, i64 8
   %_M_end_of_storage.i.i2969 = getelementptr inbounds i8, ptr %expected1031, i64 16
@@ -10187,8 +10187,8 @@ invoke.cont1147:                                  ; preds = %invoke.cont1144
 
 for.cond1151.preheader:                           ; preds = %invoke.cont1147
   store i64 0, ptr %i1150, align 8
-  %lambda_.i.i3041 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_59, i64 16
   %427 = ptrtoint ptr %i1150 to i64
+  %lambda_.i.i3041 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_59, i64 16
   %m_value.i.i3042 = getelementptr inbounds i8, ptr %j1156, i64 8
   %m_decomp.i3053 = getelementptr inbounds i8, ptr %ref.tmp1161, i64 8
   %_M_end_of_storage.i.i3060 = getelementptr inbounds i8, ptr %expected1175, i64 16
@@ -10641,8 +10641,8 @@ invoke.cont1290:                                  ; preds = %invoke.cont1287
 
 for.cond1294.preheader:                           ; preds = %invoke.cont1290
   store i64 128, ptr %i1293, align 8
-  %lambda_.i.i3130 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_63, i64 16
   %484 = ptrtoint ptr %i1293 to i64
+  %lambda_.i.i3130 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_63, i64 16
   %m_value.i.i3131 = getelementptr inbounds i8, ptr %j1299, i64 8
   %m_decomp.i3143 = getelementptr inbounds i8, ptr %ref.tmp1304, i64 8
   %_M_end_of_storage.i.i3150 = getelementptr inbounds i8, ptr %expected1318, i64 16
@@ -11095,8 +11095,8 @@ invoke.cont1433:                                  ; preds = %invoke.cont1430
 
 for.cond1437.preheader:                           ; preds = %invoke.cont1433
   store i64 256, ptr %i1436, align 8
-  %lambda_.i.i3220 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_67, i64 16
   %541 = ptrtoint ptr %i1436 to i64
+  %lambda_.i.i3220 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_67, i64 16
   %m_value.i.i3221 = getelementptr inbounds i8, ptr %j1442, i64 8
   %m_decomp.i3233 = getelementptr inbounds i8, ptr %ref.tmp1447, i64 8
   %_M_end_of_storage.i.i3240 = getelementptr inbounds i8, ptr %expected1461, i64 16
@@ -11559,8 +11559,8 @@ if.then1589:                                      ; preds = %invoke.cont1587
   store i32 55555, ptr %arrayinit.element1594, align 4
   %arrayinit.element1595 = getelementptr inbounds i8, ptr %ref.tmp1592, i64 8
   store i32 65535, ptr %arrayinit.element1595, align 4
-  %lambda_.i.i3312 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_71, i64 16
   %600 = ptrtoint ptr %i1606 to i64
+  %lambda_.i.i3312 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_71, i64 16
   %m_value.i.i3313 = getelementptr inbounds i8, ptr %j1609, i64 8
   %m_decomp.i3325 = getelementptr inbounds i8, ptr %ref.tmp1615, i64 8
   %_M_end_of_storage.i.i3332 = getelementptr inbounds i8, ptr %expected1629, i64 16
@@ -12026,8 +12026,8 @@ if.then1757:                                      ; preds = %invoke.cont1755
   store i32 77777, ptr %arrayinit.element1762, align 4
   %arrayinit.element1763 = getelementptr inbounds i8, ptr %ref.tmp1760, i64 8
   store i32 2147483647, ptr %arrayinit.element1763, align 4
-  %lambda_.i.i3405 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_75, i64 16
   %659 = ptrtoint ptr %i1774 to i64
+  %lambda_.i.i3405 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_75, i64 16
   %m_value.i.i3406 = getelementptr inbounds i8, ptr %j1777, i64 8
   %m_decomp.i3418 = getelementptr inbounds i8, ptr %ref.tmp1783, i64 8
   %_M_end_of_storage.i.i3425 = getelementptr inbounds i8, ptr %expected1797, i64 16
@@ -12501,8 +12501,8 @@ if.then1941:                                      ; preds = %invoke.cont1939
   store i32 -961633963, ptr %arrayinit.element1946, align 4
   %arrayinit.element1947 = getelementptr inbounds i8, ptr %ref.tmp1944, i64 8
   store i32 -1, ptr %arrayinit.element1947, align 4
-  %lambda_.i.i3500 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_79, i64 16
   %718 = ptrtoint ptr %i1958 to i64
+  %lambda_.i.i3500 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_79, i64 16
   %m_value.i.i3501 = getelementptr inbounds i8, ptr %j1961, i64 8
   %m_decomp.i3513 = getelementptr inbounds i8, ptr %ref.tmp1967, i64 8
   %_M_end_of_storage.i.i3520 = getelementptr inbounds i8, ptr %expected1981, i64 16
@@ -12983,8 +12983,8 @@ invoke.cont2135:                                  ; preds = %if.then2125
   store i64 4294967296, ptr %call5.i.i.i.i2.i3593, align 8
   %ref.tmp2127.sroa.2.0.call5.i.i.i.i2.i3593.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i3593, i64 8
   store i64 9223372036854775807, ptr %ref.tmp2127.sroa.2.0.call5.i.i.i.i2.i3593.sroa_idx, align 8
-  %lambda_.i.i3604 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_83, i64 16
   %778 = ptrtoint ptr %i2147 to i64
+  %lambda_.i.i3604 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_83, i64 16
   %m_value.i.i3605 = getelementptr inbounds i8, ptr %j2152, i64 8
   %m_decomp.i3617 = getelementptr inbounds i8, ptr %ref.tmp2157, i64 8
   %_M_end_of_storage.i.i3624 = getelementptr inbounds i8, ptr %expected2171, i64 16
@@ -13510,8 +13510,8 @@ invoke.cont2359:                                  ; preds = %if.then2348
   store i64 -9223372036854775808, ptr %call5.i.i.i.i2.i3709, align 8
   %ref.tmp2351.sroa.2.0.call5.i.i.i.i2.i3709.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i3709, i64 8
   store i64 -1, ptr %ref.tmp2351.sroa.2.0.call5.i.i.i.i2.i3709.sroa_idx, align 8
-  %lambda_.i.i3722 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_87, i64 16
   %846 = ptrtoint ptr %i2371 to i64
+  %lambda_.i.i3722 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_87, i64 16
   %m_value.i.i3723 = getelementptr inbounds i8, ptr %j2376, i64 8
   %m_decomp.i3731 = getelementptr inbounds i8, ptr %ref.tmp2377, i64 8
   %_M_end_of_storage.i.i3738 = getelementptr inbounds i8, ptr %expected2392, i64 16
@@ -14045,8 +14045,8 @@ invoke.cont2579:                                  ; preds = %invoke.cont2576
 
 for.cond2583.preheader:                           ; preds = %invoke.cont2579
   store i64 0, ptr %i2582, align 8
-  %lambda_.i.i3824 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_92, i64 16
   %912 = ptrtoint ptr %i2582 to i64
+  %lambda_.i.i3824 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_92, i64 16
   %m_value.i.i3825 = getelementptr inbounds i8, ptr %j2588, i64 8
   %m_decomp.i3833 = getelementptr inbounds i8, ptr %ref.tmp2589, i64 8
   %_M_end_of_storage.i.i3840 = getelementptr inbounds i8, ptr %expected2604, i64 16
@@ -14506,8 +14506,8 @@ invoke.cont2720:                                  ; preds = %invoke.cont2717
 
 for.cond2724.preheader:                           ; preds = %invoke.cont2720
   store i64 128, ptr %i2723, align 8
-  %lambda_.i.i3910 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_96, i64 16
   %971 = ptrtoint ptr %i2723 to i64
+  %lambda_.i.i3910 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_96, i64 16
   %m_value.i.i3911 = getelementptr inbounds i8, ptr %j2729, i64 8
   %m_decomp.i3920 = getelementptr inbounds i8, ptr %ref.tmp2730, i64 8
   %_M_end_of_storage.i.i3927 = getelementptr inbounds i8, ptr %expected2745, i64 16
@@ -14956,8 +14956,8 @@ invoke.cont2861:                                  ; preds = %invoke.cont2858
 
 for.cond2865.preheader:                           ; preds = %invoke.cont2861
   store i64 256, ptr %i2864, align 8
-  %lambda_.i.i3997 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_100, i64 16
   %1028 = ptrtoint ptr %i2864 to i64
+  %lambda_.i.i3997 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_100, i64 16
   %m_value.i.i3998 = getelementptr inbounds i8, ptr %j2870, i64 8
   %m_decomp.i4007 = getelementptr inbounds i8, ptr %ref.tmp2871, i64 8
   %_M_end_of_storage.i.i4014 = getelementptr inbounds i8, ptr %expected2886, i64 16
@@ -15414,8 +15414,8 @@ if.then3015:                                      ; preds = %invoke.cont3013
   store i32 55555, ptr %arrayinit.element3020, align 4
   %arrayinit.element3021 = getelementptr inbounds i8, ptr %ref.tmp3018, i64 8
   store i32 65535, ptr %arrayinit.element3021, align 4
-  %lambda_.i.i4087 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_104, i64 16
   %1086 = ptrtoint ptr %i3032 to i64
+  %lambda_.i.i4087 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_104, i64 16
   %m_value.i.i4088 = getelementptr inbounds i8, ptr %j3035, i64 8
   %m_decomp.i4097 = getelementptr inbounds i8, ptr %ref.tmp3036, i64 8
   %_M_end_of_storage.i.i4104 = getelementptr inbounds i8, ptr %expected3051, i64 16
@@ -15875,8 +15875,8 @@ if.then3180:                                      ; preds = %invoke.cont3178
   store i32 77777, ptr %arrayinit.element3185, align 4
   %arrayinit.element3186 = getelementptr inbounds i8, ptr %ref.tmp3183, i64 8
   store i32 2147483647, ptr %arrayinit.element3186, align 4
-  %lambda_.i.i4177 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_108, i64 16
   %1144 = ptrtoint ptr %i3197 to i64
+  %lambda_.i.i4177 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_108, i64 16
   %m_value.i.i4178 = getelementptr inbounds i8, ptr %j3200, i64 8
   %m_decomp.i4188 = getelementptr inbounds i8, ptr %ref.tmp3201, i64 8
   %_M_end_of_storage.i.i4195 = getelementptr inbounds i8, ptr %expected3216, i64 16
@@ -16344,8 +16344,8 @@ if.then3360:                                      ; preds = %invoke.cont3358
   store i32 -961633963, ptr %arrayinit.element3365, align 4
   %arrayinit.element3366 = getelementptr inbounds i8, ptr %ref.tmp3363, i64 8
   store i32 -1, ptr %arrayinit.element3366, align 4
-  %lambda_.i.i4270 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_112, i64 16
   %1202 = ptrtoint ptr %i3377 to i64
+  %lambda_.i.i4270 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_112, i64 16
   %m_value.i.i4271 = getelementptr inbounds i8, ptr %j3380, i64 8
   %m_decomp.i4281 = getelementptr inbounds i8, ptr %ref.tmp3381, i64 8
   %_M_end_of_storage.i.i4288 = getelementptr inbounds i8, ptr %expected3396, i64 16
@@ -16820,8 +16820,8 @@ invoke.cont3551:                                  ; preds = %if.then3540
   store i64 4294967296, ptr %call5.i.i.i.i2.i4361, align 8
   %ref.tmp3543.sroa.2.0.call5.i.i.i.i2.i4361.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i4361, i64 8
   store i64 9223372036854775807, ptr %ref.tmp3543.sroa.2.0.call5.i.i.i.i2.i4361.sroa_idx, align 8
-  %lambda_.i.i4374 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_116, i64 16
   %1261 = ptrtoint ptr %i3563 to i64
+  %lambda_.i.i4374 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_116, i64 16
   %m_value.i.i4375 = getelementptr inbounds i8, ptr %j3568, i64 8
   %m_decomp.i4384 = getelementptr inbounds i8, ptr %ref.tmp3569, i64 8
   %_M_end_of_storage.i.i4391 = getelementptr inbounds i8, ptr %expected3584, i64 16
@@ -17341,8 +17341,8 @@ invoke.cont3772:                                  ; preds = %if.then3761
   store i64 -9223372036854775808, ptr %call5.i.i.i.i2.i4477, align 8
   %ref.tmp3764.sroa.2.0.call5.i.i.i.i2.i4477.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i4477, i64 8
   store i64 -1, ptr %ref.tmp3764.sroa.2.0.call5.i.i.i.i2.i4477.sroa_idx, align 8
-  %lambda_.i.i4490 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_120, i64 16
   %1328 = ptrtoint ptr %i3784 to i64
+  %lambda_.i.i4490 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_120, i64 16
   %m_value.i.i4491 = getelementptr inbounds i8, ptr %j3789, i64 8
   %m_decomp.i4500 = getelementptr inbounds i8, ptr %ref.tmp3790, i64 8
   %_M_end_of_storage.i.i4507 = getelementptr inbounds i8, ptr %expected3805, i64 16
@@ -22811,8 +22811,8 @@ invoke.cont5525:                                  ; preds = %invoke.cont5522
 
 for.cond5528.preheader:                           ; preds = %invoke.cont5525
   store i64 0, ptr %N, align 8
-  %lambda_.i.i5459 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_151, i64 16
   %1913 = ptrtoint ptr %N to i64
+  %lambda_.i.i5459 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_151, i64 16
   %m_value.i.i5460 = getelementptr inbounds i8, ptr %j5537, i64 8
   %_M_finish.i.i5463 = getelementptr inbounds i8, ptr %expected5540, i64 8
   %_M_end_of_storage.i.i5464 = getelementptr inbounds i8, ptr %expected5540, i64 16
@@ -23380,8 +23380,8 @@ invoke.cont5652:                                  ; preds = %invoke.cont5649
 
 for.cond5656.preheader:                           ; preds = %invoke.cont5652
   store i64 128, ptr %N5655, align 8
-  %lambda_.i.i5627 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_155, i64 16
   %1977 = ptrtoint ptr %N5655 to i64
+  %lambda_.i.i5627 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_155, i64 16
   %m_value.i.i5629 = getelementptr inbounds i8, ptr %j5666, i64 8
   %_M_finish.i.i5639 = getelementptr inbounds i8, ptr %expected5669, i64 8
   %_M_end_of_storage.i.i5640 = getelementptr inbounds i8, ptr %expected5669, i64 16
@@ -23929,8 +23929,8 @@ invoke.cont5778:                                  ; preds = %invoke.cont5775
   br i1 %call5779, label %for.cond5789.preheader, label %if.end5937
 
 for.cond5789.preheader:                           ; preds = %invoke.cont5778
-  %lambda_.i.i5834 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_159, i64 16
   %2038 = ptrtoint ptr %N5792 to i64
+  %lambda_.i.i5834 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_159, i64 16
   %m_value.i.i5836 = getelementptr inbounds i8, ptr %j5801, i64 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %expected5804, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %expected5804, i64 16
@@ -24706,8 +24706,8 @@ if.then5948:                                      ; preds = %invoke.cont5946
   store i32 55555, ptr %arrayinit.element5953, align 4
   %arrayinit.element5954 = getelementptr inbounds i8, ptr %ref.tmp5951, i64 8
   store i32 65535, ptr %arrayinit.element5954, align 4
-  %lambda_.i.i5922 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_163, i64 16
   %2110 = ptrtoint ptr %N5965 to i64
+  %lambda_.i.i5922 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_163, i64 16
   %m_value.i.i5924 = getelementptr inbounds i8, ptr %j5974, i64 8
   %_M_finish.i.i.i5938 = getelementptr inbounds i8, ptr %expected5977, i64 8
   %_M_end_of_storage.i.i.i5940 = getelementptr inbounds i8, ptr %expected5977, i64 16
@@ -25483,8 +25483,8 @@ if.then6122:                                      ; preds = %invoke.cont6120
   store i32 77777, ptr %arrayinit.element6127, align 4
   %arrayinit.element6128 = getelementptr inbounds i8, ptr %ref.tmp6125, i64 8
   store i32 1048576, ptr %arrayinit.element6128, align 4
-  %lambda_.i.i6021 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_167, i64 16
   %2182 = ptrtoint ptr %N6139 to i64
+  %lambda_.i.i6021 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_167, i64 16
   %m_value.i.i6023 = getelementptr inbounds i8, ptr %j6148, i64 8
   %_M_finish.i.i.i6037 = getelementptr inbounds i8, ptr %expected6151, i64 8
   %_M_end_of_storage.i.i.i6039 = getelementptr inbounds i8, ptr %expected6151, i64 16
@@ -26471,8 +26471,8 @@ invoke.cont6332:                                  ; preds = %invoke.cont6329
 
 for.cond6336.preheader:                           ; preds = %invoke.cont6332
   store i64 0, ptr %N6335, align 8
-  %lambda_.i.i6122 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_172, i64 16
   %2270 = ptrtoint ptr %N6335 to i64
+  %lambda_.i.i6122 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_172, i64 16
   %_M_finish.i.i.i6128 = getelementptr inbounds i8, ptr %s6341, i64 8
   %_M_end_of_storage.i.i.i6130 = getelementptr inbounds i8, ptr %s6341, i64 16
   %m_value.i.i.i.i = getelementptr inbounds i8, ptr %j6347, i64 8
@@ -27357,8 +27357,8 @@ invoke.cont6493:                                  ; preds = %invoke.cont6490
 
 for.cond6497.preheader:                           ; preds = %invoke.cont6493
   store i64 128, ptr %N6496, align 8
-  %lambda_.i.i6457 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_176, i64 16
   %2361 = ptrtoint ptr %N6496 to i64
+  %lambda_.i.i6457 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_176, i64 16
   %_M_finish.i.i.i6463 = getelementptr inbounds i8, ptr %s6502, i64 8
   %_M_end_of_storage.i.i.i6465 = getelementptr inbounds i8, ptr %s6502, i64 16
   %m_value.i.i.i.i6475 = getelementptr inbounds i8, ptr %j6508, i64 8
@@ -28161,8 +28161,8 @@ invoke.cont6630:                                  ; preds = %invoke.cont6627
   br i1 %call6631, label %for.cond6644.preheader, label %if.end6766
 
 for.cond6644.preheader:                           ; preds = %invoke.cont6630
-  %lambda_.i.i6815 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_180, i64 16
   %2439 = ptrtoint ptr %N6647 to i64
+  %lambda_.i.i6815 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_180, i64 16
   %_M_finish.i.i.i6821 = getelementptr inbounds i8, ptr %s6651, i64 8
   %_M_end_of_storage.i.i.i6823 = getelementptr inbounds i8, ptr %s6651, i64 16
   %m_value.i.i.i.i6833 = getelementptr inbounds i8, ptr %j6657, i64 8
@@ -28764,8 +28764,8 @@ if.then6777:                                      ; preds = %invoke.cont6775
   store i32 55555, ptr %arrayinit.element6782, align 4
   %arrayinit.element6783 = getelementptr inbounds i8, ptr %ref.tmp6780, i64 8
   store i32 65535, ptr %arrayinit.element6783, align 4
-  %lambda_.i.i6965 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_184, i64 16
   %2497 = ptrtoint ptr %N6794 to i64
+  %lambda_.i.i6965 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_184, i64 16
   %_M_finish.i.i.i6971 = getelementptr inbounds i8, ptr %s6798, i64 8
   %_M_end_of_storage.i.i.i6973 = getelementptr inbounds i8, ptr %s6798, i64 16
   %m_value.i.i.i.i6983 = getelementptr inbounds i8, ptr %j6804, i64 8
@@ -29367,8 +29367,8 @@ if.then6924:                                      ; preds = %invoke.cont6922
   store i32 77777, ptr %arrayinit.element6929, align 4
   %arrayinit.element6930 = getelementptr inbounds i8, ptr %ref.tmp6927, i64 8
   store i32 1048576, ptr %arrayinit.element6930, align 4
-  %lambda_.i.i7115 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_188, i64 16
   %2555 = ptrtoint ptr %N6941 to i64
+  %lambda_.i.i7115 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_188, i64 16
   %_M_finish.i.i.i7121 = getelementptr inbounds i8, ptr %s6945, i64 8
   %_M_end_of_storage.i.i.i7123 = getelementptr inbounds i8, ptr %s6945, i64 16
   %m_value.i.i.i.i7133 = getelementptr inbounds i8, ptr %j6951, i64 8
@@ -103332,12 +103332,12 @@ entry:
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %entry
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_336, i64 16
   %0 = ptrtoint ptr %byte to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_336, i64 16
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %lambda_.i.i14 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_340, i64 16
   %1 = ptrtoint ptr %DOCTEST_STD_STRING_337 to i64
+  %lambda_.i.i14 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_340, i64 16
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %supported, i64 16
   %add.ptr.i.i.i15 = getelementptr inbounds i8, ptr %supported, i64 8
   %2 = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
@@ -103688,10 +103688,10 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %call, label %for.cond.preheader, label %if.end179
 
 for.cond.preheader:                               ; preds = %invoke.cont3
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_346, i64 16
   %0 = ptrtoint ptr %filename to i64
-  %lambda_.i.i31 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_350, i64 16
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_346, i64 16
   %1 = ptrtoint ptr %DOCTEST_STD_STRING_347 to i64
+  %lambda_.i.i31 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_350, i64 16
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %j2, i64 8
   %m_value6.i = getelementptr inbounds i8, ptr %agg.tmp33, i64 8
@@ -103702,8 +103702,8 @@ for.cond.preheader:                               ; preds = %invoke.cont3
   %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
   %m_value.i.i48 = getelementptr inbounds i8, ptr %j1, i64 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_350, i64 8
-  %lambda_.i.i57 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_354, i64 16
   %3 = ptrtoint ptr %DOCTEST_STD_STRING_351 to i64
+  %lambda_.i.i57 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_354, i64 16
   %_M_manager.i.i59 = getelementptr inbounds i8, ptr %agg.tmp71, i64 16
   %m_value.i.i.i70 = getelementptr inbounds i8, ptr %j281, i64 8
   %m_value6.i72 = getelementptr inbounds i8, ptr %agg.tmp90, i64 8
@@ -103714,11 +103714,11 @@ for.cond.preheader:                               ; preds = %invoke.cont3
   %m_decomp.i92 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
   %m_value.i.i96 = getelementptr inbounds i8, ptr %j170, i64 8
   %need_to_destroy.i99 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_354, i64 8
-  %lambda_.i.i109 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_358, i64 16
   %5 = ptrtoint ptr %DOCTEST_STD_STRING_355 to i64
+  %lambda_.i.i109 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_358, i64 16
   %_M_manager.i.i111 = getelementptr inbounds i8, ptr %agg.tmp136, i64 16
-  %lambda_.i.i127 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_362, i64 16
   %6 = ptrtoint ptr %DOCTEST_STD_STRING_359 to i64
+  %lambda_.i.i127 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_362, i64 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp152, i64 8
   %7 = getelementptr inbounds i8, ptr %ref.tmp159, i64 8
   %m_decomp.i134 = getelementptr inbounds i8, ptr %ref.tmp158, i64 8
@@ -187025,9 +187025,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2237
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2237
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -187047,41 +187047,41 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2240
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2240
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2243
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2243
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2246
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2246
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2249
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2249
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIiiLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2252
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2252
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont46 unwind label %lpad41
@@ -188241,9 +188241,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2269
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2269
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -188267,41 +188267,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2272
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2272
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2275
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2275
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2278
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2278
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2281
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2281
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIijLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2284
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2284
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 10)
           to label %invoke.cont48 unwind label %lpad43
@@ -189313,9 +189313,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2287
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2287
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -189335,41 +189335,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2290
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2290
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2293
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2293
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2296
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2296
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2299
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2299
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2302
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2302
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 266)
           to label %invoke.cont48 unwind label %lpad43
@@ -190381,9 +190381,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2305
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2305
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -190407,41 +190407,41 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2308
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2308
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2311
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2311
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2314
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2314
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2317
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2317
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2320
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2320
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp44, i32 noundef 10)
           to label %invoke.cont50 unwind label %lpad45
@@ -191451,9 +191451,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2323
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2323
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -191473,41 +191473,41 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2326
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2326
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2329
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2329
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2332
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2332
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2335
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2335
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIilLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2338
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2338
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 266)
           to label %invoke.cont46 unwind label %lpad41
@@ -192513,9 +192513,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2341
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2341
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -192539,41 +192539,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2344
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2344
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2347
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2347
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2350
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2350
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2353
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2353
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIimLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2356
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2356
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 10)
           to label %invoke.cont48 unwind label %lpad43
@@ -193585,9 +193585,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2359
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2359
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -193607,41 +193607,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2362
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2362
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2365
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2365
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2368
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2368
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2371
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2371
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjlLb0ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2374
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2374
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 266)
           to label %invoke.cont48 unwind label %lpad43
@@ -194651,9 +194651,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2377
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2377
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -194677,41 +194677,41 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2380
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2380
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2383
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2383
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2386
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2386
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2389
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2389
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIjmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2392
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2392
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp44, i32 noundef 10)
           to label %invoke.cont50 unwind label %lpad45
@@ -195719,9 +195719,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2395
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2395
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -195741,41 +195741,41 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2398
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2398
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2401
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2401
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2404
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2404
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2407
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2407
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIliLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2410
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2410
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont46 unwind label %lpad41
@@ -196785,9 +196785,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2413
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2413
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -196811,41 +196811,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2416
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2416
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2419
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2419
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2422
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2422
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2425
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2425
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIljLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2428
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2428
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 10)
           to label %invoke.cont48 unwind label %lpad43
@@ -197859,9 +197859,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2431
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2431
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -197881,41 +197881,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2434
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2434
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2437
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2437
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2440
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2440
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2443
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2443
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImiLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2446
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2446
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 266)
           to label %invoke.cont48 unwind label %lpad43
@@ -198927,9 +198927,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2449
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2449
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -198953,41 +198953,41 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2452
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2452
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2455
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2455
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2458
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2458
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2461
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2461
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImjLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2464
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2464
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp44, i32 noundef 10)
           to label %invoke.cont50 unwind label %lpad45
@@ -199997,9 +199997,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2467
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2467
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -200019,41 +200019,41 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2470
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2470
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2473
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2473
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2476
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2476
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2479
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2479
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIllLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2482
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2482
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont46 unwind label %lpad41
@@ -201063,9 +201063,9 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont12
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2485
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2485
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -201089,41 +201089,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad16
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2488
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2488
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2491
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2491
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2494
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2494
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2497
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2497
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argIlmLb1ELb0EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2500
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2500
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 10)
           to label %invoke.cont48 unwind label %lpad43
@@ -202269,9 +202269,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2509
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2509
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.843)
@@ -202291,41 +202291,41 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %invoke.cont24
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2512
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2512
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2515
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2515
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2518
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2518
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2521
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2521
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont36
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImlLb0ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2524
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2524
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp42, i32 noundef 266)
           to label %invoke.cont48 unwind label %lpad43
@@ -203337,9 +203337,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont17 unwind label %lpad6
 
 invoke.cont17:                                    ; preds = %invoke.cont14
+  %1 = ptrtoint ptr %of_type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE_EE, i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !2527
   %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %of_type_str to i64
   store i64 %1, ptr %lambda_.i.i, align 8, !alias.scope !2527
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str) #26
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %type_str, ptr noundef nonnull @.str.854)
@@ -203363,41 +203363,41 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont29 unwind label %lpad18
 
 invoke.cont29:                                    ; preds = %invoke.cont26
+  %2 = ptrtoint ptr %type_str to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE0_EE, i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !2530
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %type_str to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !2530
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_16)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
+  %3 = ptrtoint ptr %val_min to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE1_EE, i64 16), ptr %DOCTEST_CAPTURE_16, align 8, !alias.scope !2533
   %lambda_.i.i10 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
-  %3 = ptrtoint ptr %val_min to i64
   store i64 %3, ptr %lambda_.i.i10, align 8, !alias.scope !2533
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_19)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
+  %4 = ptrtoint ptr %min_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE2_EE, i64 16), ptr %DOCTEST_CAPTURE_19, align 8, !alias.scope !2536
   %lambda_.i.i11 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_19, i64 16
-  %4 = ptrtoint ptr %min_in_range to i64
   store i64 %4, ptr %lambda_.i.i11, align 8, !alias.scope !2536
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_22)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
+  %5 = ptrtoint ptr %val_max to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE3_EE, i64 16), ptr %DOCTEST_CAPTURE_22, align 8, !alias.scope !2539
   %lambda_.i.i12 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_22, i64 16
-  %5 = ptrtoint ptr %val_max to i64
   store i64 %5, ptr %lambda_.i.i12, align 8, !alias.scope !2539
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_25)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont38
+  %6 = ptrtoint ptr %max_in_range to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZL18DOCTEST_ANON_TMP_7I14trait_test_argImmLb1ELb1EEEvvEUlPSoE4_EE, i64 16), ptr %DOCTEST_CAPTURE_25, align 8, !alias.scope !2542
   %lambda_.i.i13 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_25, i64 16
-  %6 = ptrtoint ptr %max_in_range to i64
   store i64 %6, ptr %lambda_.i.i13, align 8, !alias.scope !2542
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp44, i32 noundef 10)
           to label %invoke.cont50 unwind label %lpad45

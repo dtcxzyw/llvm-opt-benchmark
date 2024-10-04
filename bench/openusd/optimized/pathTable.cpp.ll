@@ -89,18 +89,18 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28Sdf_VisitPathTableInParallel
           to label %.noexc.i.i unwind label %45
 
 .noexc.i.i:                                       ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
+  %20 = ptrtoint ptr %9 to i64
+  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_28Sdf_VisitPathTableInParallelEPPvmNS5_13TfFunctionRefIFvRS7_EEEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %19, align 64
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store i64 %1, ptr %21, align 64
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  store i64 %1, ptr %22, align 64
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 72
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 80
   store i64 1, ptr %.sroa.5.0..sroa_idx.i.i, align 16
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  %23 = ptrtoint ptr %9 to i64
-  store i64 %23, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  store i64 %20, ptr %23, align 8
   %24 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
           to label %.noexc7.i.i unwind label %45
 

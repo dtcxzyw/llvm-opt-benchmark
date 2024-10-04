@@ -2099,7 +2099,7 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
 52:                                               ; preds = %10
   %53 = load i64, ptr %3, align 8
   %54 = icmp sgt i64 %53, 0
-  %.pre81 = load i32, ptr %0, align 4
+  %.pre82 = load i32, ptr %0, align 4
   br i1 %54, label %55, label %1036
 
 55:                                               ; preds = %52
@@ -2108,13 +2108,13 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
   store i64 %56, ptr %47, align 8
   store i64 1, ptr %48, align 8
   store i32 0, ptr %49, align 4
-  call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %.pre81, i32 34, ptr nonnull %49, ptr nonnull %46, ptr nonnull %47, ptr nonnull %48, i64 1, i64 1)
+  call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %.pre82, i32 34, ptr nonnull %49, ptr nonnull %46, ptr nonnull %47, ptr nonnull %48, i64 1, i64 1)
   %57 = load i64, ptr %47, align 8
   %58 = call i64 @llvm.smin.i64(i64 %57, i64 %56)
   store i64 %58, ptr %47, align 8
   %59 = load i64, ptr %46, align 8
-  %.not51 = icmp sgt i64 %59, %58
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not52 = icmp sgt i64 %59, %58
+  br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55
   %60 = getelementptr inbounds i8, ptr %6, i64 12
@@ -2200,8 +2200,8 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
   br label %140
 
 140:                                              ; preds = %.lr.ph, %1033
-  %.052 = phi i64 [ %59, %.lr.ph ], [ %1034, %1033 ]
-  %141 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72) %45, i64 noundef %.052)
+  %.053 = phi i64 [ %59, %.lr.ph ], [ %1034, %1033 ]
+  %141 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72) %45, i64 noundef %.053)
           to label %142 unwind label %.loopexit
 
 142:                                              ; preds = %140
@@ -2209,7 +2209,7 @@ define internal void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17Range
   %144 = load ptr, ptr %5, align 8
   %145 = load i32, ptr %60, align 4
   %146 = sext i32 %145 to i64
-  %147 = mul nsw i64 %.052, %146
+  %147 = mul nsw i64 %.053, %146
   %148 = getelementptr inbounds i8, ptr %144, i64 %147
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
@@ -4183,18 +4183,18 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 1033:                                             ; preds = %1032, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41)
-  %1034 = add nsw i64 %.052, 1
+  %1034 = add nsw i64 %.053, 1
   %1035 = load i64, ptr %47, align 8
-  %.not.not = icmp slt i64 %.052, %1035
+  %.not.not = icmp slt i64 %.053, %1035
   br i1 %.not.not, label %140, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1033, %55
-  call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre81)
+  call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre82)
   %.pre = load i32, ptr %0, align 4
   br label %1036
 
 1036:                                             ; preds = %._crit_edge, %52
-  %1037 = phi i32 [ %.pre, %._crit_edge ], [ %.pre81, %52 ]
+  %1037 = phi i32 [ %.pre, %._crit_edge ], [ %.pre82, %52 ]
   call void @__kmpc_barrier(ptr nonnull @2, i32 %1037)
   invoke void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %45)
           to label %1038 unwind label %.loopexit.split-lp

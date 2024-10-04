@@ -7788,9 +7788,9 @@ _ZN8pybind116detail26is_function_record_capsuleERKNS_7capsuleE.exit.thread.i.i: 
   br label %1207
 
 1207:                                             ; preds = %1205, %.noexc5.i.i597, %.noexc5.i.thread.i
-  %.0.i4.i = phi ptr [ null, %.noexc5.i.thread.i ], [ %.0.i.i598, %1205 ], [ null, %.noexc5.i.i597 ]
+  %.0.i3.i = phi ptr [ null, %.noexc5.i.thread.i ], [ %.0.i.i598, %1205 ], [ null, %.noexc5.i.i597 ]
   %.sroa.01.0.copyload.i.i.i594 = load ptr, ptr %69, align 8
-  invoke void @_ZN8pybind116detail12generic_type24def_property_static_implEPKcNS_6handleES4_PNS0_15function_recordE(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.68, ptr %.sroa.01.0.copyload.i.i.i594, ptr null, ptr noundef %.0.i4.i)
+  invoke void @_ZN8pybind116detail12generic_type24def_property_static_implEPKcNS_6handleES4_PNS0_15function_recordE(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.68, ptr %.sroa.01.0.copyload.i.i.i594, ptr null, ptr noundef %.0.i3.i)
           to label %1210 unwind label %1208
 
 1208:                                             ; preds = %1207, %1178

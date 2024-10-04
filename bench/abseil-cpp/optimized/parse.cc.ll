@@ -521,17 +521,17 @@ while.body.i.i:                                   ; preds = %do.end17, %_ZN9__gn
   %8 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %8, align 8
   %9 = load ptr, ptr %vtable.i.i.i.i, align 8
-  %call.i.i.i.i5 = invoke { i64, ptr } %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %call.i.i.i.i6 = invoke { i64, ptr } %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call.i.i.i.i.noexc unwind label %lpad25.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %while.body.i.i
-  %10 = extractvalue { i64, ptr } %call.i.i.i.i5, 0
+  %10 = extractvalue { i64, ptr } %call.i.i.i.i6, 0
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %flag_name.coerce0, i64 %10)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %call.i.i.i.i.noexc
-  %11 = extractvalue { i64, ptr } %call.i.i.i.i5, 1
+  %11 = extractvalue { i64, ptr } %call.i.i.i.i6, 1
   %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %11, ptr noundef readonly %flag_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #23
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareEEclINS_17__normal_iteratorIPPKNS2_15CommandLineFlagESt6vectorISB_SaISB_EEEEKSt17basic_string_viewIcSt11char_traitsIcEEEEbT_RT0_.exit.i.i
@@ -563,17 +563,17 @@ land.rhs.i:                                       ; preds = %_ZSt13__lower_bound
   %13 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i, align 8
   %vtable.i.i = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %vtable.i.i, align 8
-  %call.i.i6 = invoke { i64, ptr } %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %call.i.i7 = invoke { i64, ptr } %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %call.i.i.noexc unwind label %lpad25.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %land.rhs.i
-  %15 = extractvalue { i64, ptr } %call.i.i6, 0
+  %15 = extractvalue { i64, ptr } %call.i.i7, 0
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %flag_name.coerce0)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %call.i.i.noexc
-  %16 = extractvalue { i64, ptr } %call.i.i6, 1
+  %16 = extractvalue { i64, ptr } %call.i.i7, 1
   %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %flag_name.coerce1, ptr noundef %16, i64 noundef %.sroa.speculated.i.i.i.i) #23
   %cmp.i.i.i3.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.i3.i, label %if.then.i.i.i.i, label %_ZNK4absl14flags_internal12_GLOBAL__N_121SpecifiedFlagsCompareclESt17basic_string_viewIcSt11char_traitsIcEEPKNS_15CommandLineFlagE.exit.i
@@ -618,16 +618,16 @@ lpad25.loopexit.split-lp:                         ; preds = %land.rhs.i
 ehcleanup28:                                      ; preds = %lpad25.loopexit, %lpad25.loopexit.split-lp, %ehcleanup15, %lpad
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup15 ], [ %2, %lpad ], [ %lpad.loopexit, %lpad25.loopexit ], [ %lpad.loopexit.split-lp, %lpad25.loopexit.split-lp ]
   invoke void @_ZN4absl5Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4absl14flags_internal12_GLOBAL__N_121specified_flags_guardE)
-          to label %_ZN4absl15ReaderMutexLockD2Ev.exit8 unwind label %terminate.lpad.i7
+          to label %_ZN4absl15ReaderMutexLockD2Ev.exit9 unwind label %terminate.lpad.i8
 
-terminate.lpad.i7:                                ; preds = %ehcleanup28
+terminate.lpad.i8:                                ; preds = %ehcleanup28
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   call void @__clang_call_terminate(ptr %21) #25
   unreachable
 
-_ZN4absl15ReaderMutexLockD2Ev.exit8:              ; preds = %ehcleanup28
+_ZN4absl15ReaderMutexLockD2Ev.exit9:              ; preds = %ehcleanup28
   resume { ptr, i32 } %.pn2.pn
 }
 

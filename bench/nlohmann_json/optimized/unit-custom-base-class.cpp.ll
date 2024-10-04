@@ -13834,9 +13834,9 @@ invoke.cont67.i:                                  ; preds = %invoke.cont65.i
           to label %invoke.cont70.i unwind label %lpad.i
 
 invoke.cont70.i:                                  ; preds = %invoke.cont67.i
+  %48 = ptrtoint ptr %str.i to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_12vENK3$_0clERKN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS4_10basic_jsonISt3mapSt6vectorSB_blmdSaNS4_14adl_serializerESH_IhSaIhEE15visitor_adaptorEEEUlPSoE_EE", i64 16), ptr %DOCTEST_CAPTURE_16.i, align 8, !alias.scope !119
   %lambda_.i.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16.i, i64 16
-  %48 = ptrtoint ptr %str.i to i64
   store i64 %48, ptr %lambda_.i.i.i, align 8, !alias.scope !119
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp73.i, i32 noundef 10)
           to label %invoke.cont75.i unwind label %lpad74.i

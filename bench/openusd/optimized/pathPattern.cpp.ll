@@ -915,9 +915,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exi
   ret i1 %.08
 
 48:                                               ; preds = %46, %18
-  %.sink15 = phi ptr [ %8, %46 ], [ %7, %18 ]
+  %.sink13 = phi ptr [ %8, %46 ], [ %7, %18 ]
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %19, %18 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink15) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink13) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -2054,9 +2054,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   ret i1 %.08
 
 34:                                               ; preds = %31, %18
-  %.sink15 = phi ptr [ %8, %31 ], [ %7, %18 ]
+  %.sink13 = phi ptr [ %8, %31 ], [ %7, %18 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %19, %18 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink15) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink13) #17
   resume { ptr, i32 } %.pn
 }
 

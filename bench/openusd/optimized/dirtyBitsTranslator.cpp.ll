@@ -2048,162 +2048,162 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %56, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %54, %60
-  %.11346 = phi ptr [ %61, %60 ], [ %3, %54 ]
-  %.014.us.i = phi i1 [ %.2.us.i, %60 ], [ false, %54 ]
-  %57 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.11346, ptr noundef nonnull align 8 dereferenceable(56) %55)
+  %.11323 = phi ptr [ %61, %60 ], [ %3, %54 ]
+  %.02.us.i = phi i1 [ %.2.us.i, %60 ], [ false, %54 ]
+  %57 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.11323, ptr noundef nonnull align 8 dereferenceable(56) %55)
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %.lr.ph.split.us.i
-  %59 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %.11346)
+  %59 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %.11323)
   br i1 %59, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %60
 
 60:                                               ; preds = %58, %.lr.ph.split.us.i
-  %.2.us.i = phi i1 [ %.014.us.i, %58 ], [ true, %.lr.ph.split.us.i ]
-  %61 = getelementptr inbounds i8, ptr %.11346, i64 56
+  %.2.us.i = phi i1 [ %.02.us.i, %58 ], [ true, %.lr.ph.split.us.i ]
+  %61 = getelementptr inbounds i8, ptr %.11323, i64 56
   %.not.us.i = icmp eq ptr %61, %33
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %58, %60
-  %.12347 = phi ptr [ %61, %60 ], [ %.11346, %58 ]
-  %.011.i = phi i1 [ %.2.us.i, %60 ], [ %.014.us.i, %58 ]
+  %.12324 = phi ptr [ %61, %60 ], [ %.11323, %58 ]
+  %.011.i = phi i1 [ %.2.us.i, %60 ], [ %.02.us.i, %58 ]
   %cond.fr = freeze i1 %.011.i
   %spec.select = select i1 %cond.fr, i32 256, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %54, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %.0337 = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %3, %54 ], [ %.12347, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ]
+  %.0314 = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %3, %54 ], [ %.12324, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ]
   %.0 = phi i32 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ 0, %54 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ]
   %62 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %63 = inttoptr i64 %62 to ptr
-  %.not.i.i57 = icmp eq i64 %62, 0
-  br i1 %.not.i.i57, label %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59
+  %.not.i.i78 = icmp eq i64 %62, 0
+  br i1 %.not.i.i78, label %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80
 
 64:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
   %65 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %65)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58 unwind label %66
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i79 unwind label %66
 
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58: ; preds = %64
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i79: ; preds = %64
   %68 = ptrtoint ptr %65 to i64
   %69 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %68 seq_cst seq_cst, align 8
   %70 = extractvalue { i64, i1 } %69, 1
-  br i1 %70, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59, label %71
+  br i1 %70, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80, label %71
 
-71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58
+71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i79
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %65) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 352) #16
   %72 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %73 = inttoptr i64 %72 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58, %71
-  %74 = phi ptr [ %63, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ], [ %73, %71 ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i79, %71
+  %74 = phi ptr [ %63, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ], [ %73, %71 ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i79 ]
   %75 = load ptr, ptr %0, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = load ptr, ptr %74, align 8
   %78 = ptrtoint ptr %77 to i64
   %79 = xor i64 %78, %76
   %80 = icmp ult i64 %79, 8
-  br i1 %80, label %81, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread
+  br i1 %80, label %81, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread
 
-81:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59
+81:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80
   %82 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__15HdCapsuleSchema17GetDefaultLocatorEv()
-  %83 = icmp eq ptr %.0337, %33
-  br i1 %83, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread, label %.lr.ph.split.us.i61
+  %83 = icmp eq ptr %.0314, %33
+  br i1 %83, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread, label %.lr.ph.split.us.i82
 
-.lr.ph.split.us.i61:                              ; preds = %81, %87
-  %.13348 = phi ptr [ %88, %87 ], [ %.0337, %81 ]
-  %.014.us.i62 = phi i1 [ %.2.us.i63, %87 ], [ false, %81 ]
-  %84 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.13348, ptr noundef nonnull align 8 dereferenceable(56) %82)
+.lr.ph.split.us.i82:                              ; preds = %81, %87
+  %.13325 = phi ptr [ %88, %87 ], [ %.0314, %81 ]
+  %.02.us.i83 = phi i1 [ %.2.us.i84, %87 ], [ false, %81 ]
+  %84 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.13325, ptr noundef nonnull align 8 dereferenceable(56) %82)
   br i1 %84, label %87, label %85
 
-85:                                               ; preds = %.lr.ph.split.us.i61
-  %86 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(56) %.13348)
-  br i1 %86, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66, label %87
+85:                                               ; preds = %.lr.ph.split.us.i82
+  %86 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(56) %.13325)
+  br i1 %86, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87, label %87
 
-87:                                               ; preds = %85, %.lr.ph.split.us.i61
-  %.2.us.i63 = phi i1 [ %.014.us.i62, %85 ], [ true, %.lr.ph.split.us.i61 ]
-  %88 = getelementptr inbounds i8, ptr %.13348, i64 56
-  %.not.us.i64 = icmp eq ptr %88, %33
-  br i1 %.not.us.i64, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66, label %.lr.ph.split.us.i61, !llvm.loop !10
+87:                                               ; preds = %85, %.lr.ph.split.us.i82
+  %.2.us.i84 = phi i1 [ %.02.us.i83, %85 ], [ true, %.lr.ph.split.us.i82 ]
+  %88 = getelementptr inbounds i8, ptr %.13325, i64 56
+  %.not.us.i85 = icmp eq ptr %88, %33
+  br i1 %.not.us.i85, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87, label %.lr.ph.split.us.i82, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66: ; preds = %85, %87
-  %.14349 = phi ptr [ %88, %87 ], [ %.13348, %85 ]
-  %.011.i65 = phi i1 [ %.2.us.i63, %87 ], [ %.014.us.i62, %85 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87: ; preds = %85, %87
+  %.14326 = phi ptr [ %88, %87 ], [ %.13325, %85 ]
+  %.011.i86 = phi i1 [ %.2.us.i84, %87 ], [ %.02.us.i83, %85 ]
   %89 = or disjoint i32 %.0, 64
-  %cond.fr362 = freeze i1 %.011.i65
-  %spec.select459 = select i1 %cond.fr362, i32 %89, i32 %.0
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread
+  %cond.fr339 = freeze i1 %.011.i86
+  %spec.select436 = select i1 %cond.fr339, i32 %89, i32 %.0
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66, %81, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59
-  %.1338 = phi ptr [ %.0337, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59 ], [ %.0337, %81 ], [ %.14349, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66 ]
-  %.1 = phi i32 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit59 ], [ %.0, %81 ], [ %spec.select459, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87, %81, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80
+  %.1315 = phi ptr [ %.0314, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80 ], [ %.0314, %81 ], [ %.14326, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87 ]
+  %.1 = phi i32 [ %.0, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80 ], [ %.0, %81 ], [ %spec.select436, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87 ]
   %90 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdCategoriesSchema17GetDefaultLocatorEv()
-  %91 = icmp eq ptr %.1338, %33
-  br i1 %91, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread, label %.lr.ph.split.us.i68
+  %91 = icmp eq ptr %.1315, %33
+  br i1 %91, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94.thread, label %.lr.ph.split.us.i89
 
-.lr.ph.split.us.i68:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread, %95
-  %.15 = phi ptr [ %96, %95 ], [ %.1338, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread ]
-  %.014.us.i69 = phi i1 [ %.2.us.i70, %95 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread ]
+.lr.ph.split.us.i89:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread, %95
+  %.15 = phi ptr [ %96, %95 ], [ %.1315, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread ]
+  %.02.us.i90 = phi i1 [ %.2.us.i91, %95 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread ]
   %92 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.15, ptr noundef nonnull align 8 dereferenceable(56) %90)
   br i1 %92, label %95, label %93
 
-93:                                               ; preds = %.lr.ph.split.us.i68
+93:                                               ; preds = %.lr.ph.split.us.i89
   %94 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(56) %.15)
-  br i1 %94, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73, label %95
+  br i1 %94, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94, label %95
 
-95:                                               ; preds = %93, %.lr.ph.split.us.i68
-  %.2.us.i70 = phi i1 [ %.014.us.i69, %93 ], [ true, %.lr.ph.split.us.i68 ]
+95:                                               ; preds = %93, %.lr.ph.split.us.i89
+  %.2.us.i91 = phi i1 [ %.02.us.i90, %93 ], [ true, %.lr.ph.split.us.i89 ]
   %96 = getelementptr inbounds i8, ptr %.15, i64 56
-  %.not.us.i71 = icmp eq ptr %96, %33
-  br i1 %.not.us.i71, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73, label %.lr.ph.split.us.i68, !llvm.loop !10
+  %.not.us.i92 = icmp eq ptr %96, %33
+  br i1 %.not.us.i92, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94, label %.lr.ph.split.us.i89, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73: ; preds = %93, %95
-  %.16350 = phi ptr [ %96, %95 ], [ %.15, %93 ]
-  %.011.i72 = phi i1 [ %.2.us.i70, %95 ], [ %.014.us.i69, %93 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94: ; preds = %93, %95
+  %.16327 = phi ptr [ %96, %95 ], [ %.15, %93 ]
+  %.011.i93 = phi i1 [ %.2.us.i91, %95 ], [ %.02.us.i90, %93 ]
   %97 = or i32 %.1, 2097152
-  %cond.fr367 = freeze i1 %.011.i72
-  %spec.select460 = select i1 %cond.fr367, i32 %97, i32 %.1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread
+  %cond.fr344 = freeze i1 %.011.i93
+  %spec.select437 = select i1 %cond.fr344, i32 %97, i32 %.1
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread
-  %.16350371 = phi ptr [ %.1338, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread ], [ %.16350, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73 ]
-  %98 = phi i32 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit66.thread ], [ %spec.select460, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread
+  %.16327348 = phi ptr [ %.1315, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread ], [ %.16327, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94 ]
+  %98 = phi i32 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87.thread ], [ %spec.select437, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94 ]
   %99 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %100 = inttoptr i64 %99 to ptr
-  %.not.i.i74 = icmp eq i64 %99, 0
-  br i1 %.not.i.i74, label %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76
+  %.not.i.i95 = icmp eq i64 %99, 0
+  br i1 %.not.i.i95, label %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97
 
-101:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread
+101:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94.thread
   %102 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %102)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i75 unwind label %103
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i96 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i75: ; preds = %101
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i96: ; preds = %101
   %105 = ptrtoint ptr %102 to i64
   %106 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %105 seq_cst seq_cst, align 8
   %107 = extractvalue { i64, i1 } %106, 1
-  br i1 %107, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76, label %108
+  br i1 %107, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97, label %108
 
-108:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i75
+108:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i96
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %102) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef 352) #16
   %109 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %110 = inttoptr i64 %109 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i75, %108
-  %111 = phi ptr [ %100, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread ], [ %110, %108 ], [ %102, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i75 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i96, %108
+  %111 = phi ptr [ %100, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94.thread ], [ %110, %108 ], [ %102, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i96 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %0, align 8
   %114 = ptrtoint ptr %113 to i64
@@ -2211,70 +2211,70 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %116 = ptrtoint ptr %115 to i64
   %117 = xor i64 %116, %114
   %118 = icmp ult i64 %117, 8
-  br i1 %118, label %119, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread
+  br i1 %118, label %119, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread
 
-119:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76
+119:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97
   %120 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12HdConeSchema17GetDefaultLocatorEv()
-  %121 = icmp eq ptr %.16350371, %33
-  br i1 %121, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread, label %.lr.ph.split.us.i78
+  %121 = icmp eq ptr %.16327348, %33
+  br i1 %121, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread, label %.lr.ph.split.us.i99
 
-.lr.ph.split.us.i78:                              ; preds = %119, %125
-  %.17351 = phi ptr [ %126, %125 ], [ %.16350371, %119 ]
-  %.014.us.i79 = phi i1 [ %.2.us.i80, %125 ], [ false, %119 ]
-  %122 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.17351, ptr noundef nonnull align 8 dereferenceable(56) %120)
+.lr.ph.split.us.i99:                              ; preds = %119, %125
+  %.17328 = phi ptr [ %126, %125 ], [ %.16327348, %119 ]
+  %.02.us.i100 = phi i1 [ %.2.us.i101, %125 ], [ false, %119 ]
+  %122 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.17328, ptr noundef nonnull align 8 dereferenceable(56) %120)
   br i1 %122, label %125, label %123
 
-123:                                              ; preds = %.lr.ph.split.us.i78
-  %124 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %120, ptr noundef nonnull align 8 dereferenceable(56) %.17351)
-  br i1 %124, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83, label %125
+123:                                              ; preds = %.lr.ph.split.us.i99
+  %124 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %120, ptr noundef nonnull align 8 dereferenceable(56) %.17328)
+  br i1 %124, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, label %125
 
-125:                                              ; preds = %123, %.lr.ph.split.us.i78
-  %.2.us.i80 = phi i1 [ %.014.us.i79, %123 ], [ true, %.lr.ph.split.us.i78 ]
-  %126 = getelementptr inbounds i8, ptr %.17351, i64 56
-  %.not.us.i81 = icmp eq ptr %126, %33
-  br i1 %.not.us.i81, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83, label %.lr.ph.split.us.i78, !llvm.loop !10
+125:                                              ; preds = %123, %.lr.ph.split.us.i99
+  %.2.us.i101 = phi i1 [ %.02.us.i100, %123 ], [ true, %.lr.ph.split.us.i99 ]
+  %126 = getelementptr inbounds i8, ptr %.17328, i64 56
+  %.not.us.i102 = icmp eq ptr %126, %33
+  br i1 %.not.us.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, label %.lr.ph.split.us.i99, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83: ; preds = %123, %125
-  %.18352 = phi ptr [ %126, %125 ], [ %.17351, %123 ]
-  %.011.i82 = phi i1 [ %.2.us.i80, %125 ], [ %.014.us.i79, %123 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104: ; preds = %123, %125
+  %.18329 = phi ptr [ %126, %125 ], [ %.17328, %123 ]
+  %.011.i103 = phi i1 [ %.2.us.i101, %125 ], [ %.02.us.i100, %123 ]
   %127 = or i32 %98, 64
-  %cond.fr372 = freeze i1 %.011.i82
-  %spec.select461 = select i1 %cond.fr372, i32 %127, i32 %98
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread
+  %cond.fr349 = freeze i1 %.011.i103
+  %spec.select438 = select i1 %cond.fr349, i32 %127, i32 %98
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83, %119, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76
-  %.2 = phi ptr [ %.16350371, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76 ], [ %.16350371, %119 ], [ %.18352, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83 ]
-  %.3 = phi i32 [ %98, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit76 ], [ %98, %119 ], [ %spec.select461, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, %119, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97
+  %.2 = phi ptr [ %.16327348, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97 ], [ %.16327348, %119 ], [ %.18329, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104 ]
+  %.3 = phi i32 [ %98, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit97 ], [ %98, %119 ], [ %spec.select438, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104 ]
   %128 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %129 = inttoptr i64 %128 to ptr
-  %.not.i.i84 = icmp eq i64 %128, 0
-  br i1 %.not.i.i84, label %130, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86
+  %.not.i.i105 = icmp eq i64 %128, 0
+  br i1 %.not.i.i105, label %130, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107
 
-130:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread
+130:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread
   %131 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %131)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i85 unwind label %132
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i106 unwind label %132
 
 132:                                              ; preds = %130
   %133 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i85: ; preds = %130
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i106: ; preds = %130
   %134 = ptrtoint ptr %131 to i64
   %135 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %134 seq_cst seq_cst, align 8
   %136 = extractvalue { i64, i1 } %135, 1
-  br i1 %136, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86, label %137
+  br i1 %136, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107, label %137
 
-137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i85
+137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i106
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %131) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %131, i64 noundef 352) #16
   %138 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %139 = inttoptr i64 %138 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i85, %137
-  %140 = phi ptr [ %129, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit83.thread ], [ %139, %137 ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i85 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i106, %137
+  %140 = phi ptr [ %129, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread ], [ %139, %137 ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i106 ]
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %0, align 8
   %143 = ptrtoint ptr %142 to i64
@@ -2282,70 +2282,70 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %145 = ptrtoint ptr %144 to i64
   %146 = xor i64 %145, %143
   %147 = icmp ult i64 %146, 8
-  br i1 %147, label %148, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread
+  br i1 %147, label %148, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread
 
-148:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86
+148:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107
   %149 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12HdCubeSchema17GetDefaultLocatorEv()
   %150 = icmp eq ptr %.2, %33
-  br i1 %150, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread, label %.lr.ph.split.us.i88
+  br i1 %150, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread, label %.lr.ph.split.us.i109
 
-.lr.ph.split.us.i88:                              ; preds = %148, %154
-  %.19353 = phi ptr [ %155, %154 ], [ %.2, %148 ]
-  %.014.us.i89 = phi i1 [ %.2.us.i90, %154 ], [ false, %148 ]
-  %151 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.19353, ptr noundef nonnull align 8 dereferenceable(56) %149)
+.lr.ph.split.us.i109:                             ; preds = %148, %154
+  %.19330 = phi ptr [ %155, %154 ], [ %.2, %148 ]
+  %.02.us.i110 = phi i1 [ %.2.us.i111, %154 ], [ false, %148 ]
+  %151 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.19330, ptr noundef nonnull align 8 dereferenceable(56) %149)
   br i1 %151, label %154, label %152
 
-152:                                              ; preds = %.lr.ph.split.us.i88
-  %153 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %149, ptr noundef nonnull align 8 dereferenceable(56) %.19353)
-  br i1 %153, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93, label %154
+152:                                              ; preds = %.lr.ph.split.us.i109
+  %153 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %149, ptr noundef nonnull align 8 dereferenceable(56) %.19330)
+  br i1 %153, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114, label %154
 
-154:                                              ; preds = %152, %.lr.ph.split.us.i88
-  %.2.us.i90 = phi i1 [ %.014.us.i89, %152 ], [ true, %.lr.ph.split.us.i88 ]
-  %155 = getelementptr inbounds i8, ptr %.19353, i64 56
-  %.not.us.i91 = icmp eq ptr %155, %33
-  br i1 %.not.us.i91, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93, label %.lr.ph.split.us.i88, !llvm.loop !10
+154:                                              ; preds = %152, %.lr.ph.split.us.i109
+  %.2.us.i111 = phi i1 [ %.02.us.i110, %152 ], [ true, %.lr.ph.split.us.i109 ]
+  %155 = getelementptr inbounds i8, ptr %.19330, i64 56
+  %.not.us.i112 = icmp eq ptr %155, %33
+  br i1 %.not.us.i112, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114, label %.lr.ph.split.us.i109, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93: ; preds = %152, %154
-  %.20354 = phi ptr [ %155, %154 ], [ %.19353, %152 ]
-  %.011.i92 = phi i1 [ %.2.us.i90, %154 ], [ %.014.us.i89, %152 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114: ; preds = %152, %154
+  %.20331 = phi ptr [ %155, %154 ], [ %.19330, %152 ]
+  %.011.i113 = phi i1 [ %.2.us.i111, %154 ], [ %.02.us.i110, %152 ]
   %156 = or i32 %.3, 64
-  %cond.fr377 = freeze i1 %.011.i92
-  %spec.select462 = select i1 %cond.fr377, i32 %156, i32 %.3
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread
+  %cond.fr354 = freeze i1 %.011.i113
+  %spec.select439 = select i1 %cond.fr354, i32 %156, i32 %.3
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93, %148, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86
-  %.3339 = phi ptr [ %.2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86 ], [ %.2, %148 ], [ %.20354, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93 ]
-  %.4 = phi i32 [ %.3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86 ], [ %.3, %148 ], [ %spec.select462, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114, %148, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107
+  %.3316 = phi ptr [ %.2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107 ], [ %.2, %148 ], [ %.20331, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114 ]
+  %.4 = phi i32 [ %.3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit107 ], [ %.3, %148 ], [ %spec.select439, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114 ]
   %157 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %158 = inttoptr i64 %157 to ptr
-  %.not.i.i94 = icmp eq i64 %157, 0
-  br i1 %.not.i.i94, label %159, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96
+  %.not.i.i115 = icmp eq i64 %157, 0
+  br i1 %.not.i.i115, label %159, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117
 
-159:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread
+159:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread
   %160 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %160)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i95 unwind label %161
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i116 unwind label %161
 
 161:                                              ; preds = %159
   %162 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i95: ; preds = %159
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i116: ; preds = %159
   %163 = ptrtoint ptr %160 to i64
   %164 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %163 seq_cst seq_cst, align 8
   %165 = extractvalue { i64, i1 } %164, 1
-  br i1 %165, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96, label %166
+  br i1 %165, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117, label %166
 
-166:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i95
+166:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i116
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %160) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef 352) #16
   %167 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %168 = inttoptr i64 %167 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i95, %166
-  %169 = phi ptr [ %158, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit93.thread ], [ %168, %166 ], [ %160, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i95 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i116, %166
+  %169 = phi ptr [ %158, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114.thread ], [ %168, %166 ], [ %160, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i116 ]
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %171 = load ptr, ptr %0, align 8
   %172 = ptrtoint ptr %171 to i64
@@ -2353,48 +2353,48 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %174 = ptrtoint ptr %173 to i64
   %175 = xor i64 %174, %172
   %176 = icmp ult i64 %175, 8
-  br i1 %176, label %177, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread
+  br i1 %176, label %177, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread
 
-177:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96
+177:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117
   %178 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdCylinderSchema17GetDefaultLocatorEv()
-  %179 = icmp eq ptr %.3339, %33
-  br i1 %179, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread, label %.lr.ph.split.us.i98
+  %179 = icmp eq ptr %.3316, %33
+  br i1 %179, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread, label %.lr.ph.split.us.i119
 
-.lr.ph.split.us.i98:                              ; preds = %177, %183
-  %.21 = phi ptr [ %184, %183 ], [ %.3339, %177 ]
-  %.014.us.i99 = phi i1 [ %.2.us.i100, %183 ], [ false, %177 ]
+.lr.ph.split.us.i119:                             ; preds = %177, %183
+  %.21 = phi ptr [ %184, %183 ], [ %.3316, %177 ]
+  %.02.us.i120 = phi i1 [ %.2.us.i121, %183 ], [ false, %177 ]
   %180 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.21, ptr noundef nonnull align 8 dereferenceable(56) %178)
   br i1 %180, label %183, label %181
 
-181:                                              ; preds = %.lr.ph.split.us.i98
+181:                                              ; preds = %.lr.ph.split.us.i119
   %182 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %178, ptr noundef nonnull align 8 dereferenceable(56) %.21)
-  br i1 %182, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103, label %183
+  br i1 %182, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124, label %183
 
-183:                                              ; preds = %181, %.lr.ph.split.us.i98
-  %.2.us.i100 = phi i1 [ %.014.us.i99, %181 ], [ true, %.lr.ph.split.us.i98 ]
+183:                                              ; preds = %181, %.lr.ph.split.us.i119
+  %.2.us.i121 = phi i1 [ %.02.us.i120, %181 ], [ true, %.lr.ph.split.us.i119 ]
   %184 = getelementptr inbounds i8, ptr %.21, i64 56
-  %.not.us.i101 = icmp eq ptr %184, %33
-  br i1 %.not.us.i101, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103, label %.lr.ph.split.us.i98, !llvm.loop !10
+  %.not.us.i122 = icmp eq ptr %184, %33
+  br i1 %.not.us.i122, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124, label %.lr.ph.split.us.i119, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103: ; preds = %181, %183
-  %.22355 = phi ptr [ %184, %183 ], [ %.21, %181 ]
-  %.011.i102 = phi i1 [ %.2.us.i100, %183 ], [ %.014.us.i99, %181 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124: ; preds = %181, %183
+  %.22332 = phi ptr [ %184, %183 ], [ %.21, %181 ]
+  %.011.i123 = phi i1 [ %.2.us.i121, %183 ], [ %.02.us.i120, %181 ]
   %185 = or i32 %.4, 64
-  %cond.fr382 = freeze i1 %.011.i102
-  %spec.select463 = select i1 %cond.fr382, i32 %185, i32 %.4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread
+  %cond.fr359 = freeze i1 %.011.i123
+  %spec.select440 = select i1 %cond.fr359, i32 %185, i32 %.4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103, %177, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96
-  %.4340 = phi ptr [ %.3339, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96 ], [ %.3339, %177 ], [ %.22355, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103 ]
-  %.5 = phi i32 [ %.4, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit96 ], [ %.4, %177 ], [ %spec.select463, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124, %177, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117
+  %.4317 = phi ptr [ %.3316, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117 ], [ %.3316, %177 ], [ %.22332, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124 ]
+  %.5 = phi i32 [ %.4, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit117 ], [ %.4, %177 ], [ %spec.select440, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124 ]
   %186 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdLegacyDisplayStyleSchema17GetDefaultLocatorEv()
-  %187 = icmp eq ptr %.4340, %33
+  %187 = icmp eq ptr %.4317, %33
   br i1 %187, label %.critedge, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread, %191
-  %.23 = phi ptr [ %192, %191 ], [ %.4340, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread ]
+.lr.ph.split.i:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread, %191
+  %.23 = phi ptr [ %192, %191 ], [ %.4317, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ]
   %188 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.23, ptr noundef nonnull align 8 dereferenceable(56) %186)
-  br i1 %188, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106, label %189
+  br i1 %188, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127, label %189
 
 189:                                              ; preds = %.lr.ph.split.i
   %190 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %186, ptr noundef nonnull align 8 dereferenceable(56) %.23)
@@ -2405,228 +2405,228 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   %.not.i = icmp eq ptr %192, %33
   br i1 %.not.i, label %.critedge, label %.lr.ph.split.i, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106: ; preds = %.lr.ph.split.i
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127: ; preds = %.lr.ph.split.i
   %193 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdLegacyDisplayStyleSchema17GetDefaultLocatorEv()
   %194 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %193, ptr noundef nonnull align 8 dereferenceable(56) %.23)
-  br i1 %194, label %195, label %.preheader479
+  br i1 %194, label %195, label %.preheader456
 
-195:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106
+195:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127
   %196 = or i32 %.5, 270352
   br label %.critedge
 
-.preheader479:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106, %205
-  %.6342 = phi ptr [ %204, %205 ], [ %.23, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106 ]
-  %.7 = phi i32 [ %203, %205 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106 ]
+.preheader456:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127, %205
+  %.6319 = phi ptr [ %204, %205 ], [ %.23, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127 ]
+  %.7 = phi i32 [ %203, %205 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127 ]
   %197 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdLegacyDisplayStyleSchema19GetCullStyleLocatorEv()
-  %198 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.6342, ptr noundef nonnull align 8 dereferenceable(56) %197)
+  %198 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.6319, ptr noundef nonnull align 8 dereferenceable(56) %197)
   br i1 %198, label %202, label %199
 
-199:                                              ; preds = %.preheader479
+199:                                              ; preds = %.preheader456
   %200 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdLegacyDisplayStyleSchema22GetReprSelectorLocatorEv()
-  %201 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.6342, ptr noundef nonnull align 8 dereferenceable(56) %200)
+  %201 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.6319, ptr noundef nonnull align 8 dereferenceable(56) %200)
   %. = select i1 %201, i32 262144, i32 16
   br label %202
 
-202:                                              ; preds = %199, %.preheader479
-  %.sink494 = phi i32 [ 8192, %.preheader479 ], [ %., %199 ]
-  %203 = or i32 %.7, %.sink494
-  %204 = getelementptr inbounds i8, ptr %.6342, i64 56
+202:                                              ; preds = %199, %.preheader456
+  %.sink471 = phi i32 [ 8192, %.preheader456 ], [ %., %199 ]
+  %203 = or i32 %.7, %.sink471
+  %204 = getelementptr inbounds i8, ptr %.6319, i64 56
   %.not = icmp eq ptr %204, %33
   br i1 %.not, label %.critedge, label %205
 
 205:                                              ; preds = %202
   %206 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdLegacyDisplayStyleSchema17GetDefaultLocatorEv()
   %207 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %204, ptr noundef nonnull align 8 dereferenceable(56) %206)
-  br i1 %207, label %.preheader479, label %.critedge, !llvm.loop !11
+  br i1 %207, label %.preheader456, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %191, %189, %202, %205, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread, %195
-  %.5341 = phi ptr [ %.23, %195 ], [ %.4340, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread ], [ %204, %205 ], [ %204, %202 ], [ %.23, %189 ], [ %192, %191 ]
-  %.6 = phi i32 [ %196, %195 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit103.thread ], [ %203, %205 ], [ %203, %202 ], [ %.5, %189 ], [ %.5, %191 ]
+.critedge:                                        ; preds = %191, %189, %202, %205, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread, %195
+  %.5318 = phi ptr [ %.23, %195 ], [ %.4317, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ], [ %204, %205 ], [ %204, %202 ], [ %.23, %189 ], [ %192, %191 ]
+  %.6 = phi i32 [ %196, %195 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ], [ %203, %205 ], [ %203, %202 ], [ %.5, %189 ], [ %.5, %191 ]
   %208 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdExtentSchema17GetDefaultLocatorEv()
-  %209 = icmp eq ptr %.5341, %33
-  br i1 %209, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread, label %.lr.ph.split.us.i108
+  %209 = icmp eq ptr %.5318, %33
+  br i1 %209, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread, label %.lr.ph.split.us.i129
 
-.lr.ph.split.us.i108:                             ; preds = %.critedge, %213
-  %.25357 = phi ptr [ %214, %213 ], [ %.5341, %.critedge ]
-  %.014.us.i109 = phi i1 [ %.2.us.i110, %213 ], [ false, %.critedge ]
-  %210 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.25357, ptr noundef nonnull align 8 dereferenceable(56) %208)
+.lr.ph.split.us.i129:                             ; preds = %.critedge, %213
+  %.25334 = phi ptr [ %214, %213 ], [ %.5318, %.critedge ]
+  %.02.us.i130 = phi i1 [ %.2.us.i131, %213 ], [ false, %.critedge ]
+  %210 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.25334, ptr noundef nonnull align 8 dereferenceable(56) %208)
   br i1 %210, label %213, label %211
 
-211:                                              ; preds = %.lr.ph.split.us.i108
-  %212 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %208, ptr noundef nonnull align 8 dereferenceable(56) %.25357)
-  br i1 %212, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113, label %213
+211:                                              ; preds = %.lr.ph.split.us.i129
+  %212 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %208, ptr noundef nonnull align 8 dereferenceable(56) %.25334)
+  br i1 %212, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, label %213
 
-213:                                              ; preds = %211, %.lr.ph.split.us.i108
-  %.2.us.i110 = phi i1 [ %.014.us.i109, %211 ], [ true, %.lr.ph.split.us.i108 ]
-  %214 = getelementptr inbounds i8, ptr %.25357, i64 56
-  %.not.us.i111 = icmp eq ptr %214, %33
-  br i1 %.not.us.i111, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113, label %.lr.ph.split.us.i108, !llvm.loop !10
+213:                                              ; preds = %211, %.lr.ph.split.us.i129
+  %.2.us.i131 = phi i1 [ %.02.us.i130, %211 ], [ true, %.lr.ph.split.us.i129 ]
+  %214 = getelementptr inbounds i8, ptr %.25334, i64 56
+  %.not.us.i132 = icmp eq ptr %214, %33
+  br i1 %.not.us.i132, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, label %.lr.ph.split.us.i129, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113: ; preds = %211, %213
-  %.26 = phi ptr [ %214, %213 ], [ %.25357, %211 ]
-  %.011.i112 = phi i1 [ %.2.us.i110, %213 ], [ %.014.us.i109, %211 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134: ; preds = %211, %213
+  %.26 = phi ptr [ %214, %213 ], [ %.25334, %211 ]
+  %.011.i133 = phi i1 [ %.2.us.i131, %213 ], [ %.02.us.i130, %211 ]
   %215 = or i32 %.6, 8
-  %cond.fr389 = freeze i1 %.011.i112
-  %spec.select464 = select i1 %cond.fr389, i32 %215, i32 %.6
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread
+  %cond.fr366 = freeze i1 %.011.i133
+  %spec.select441 = select i1 %cond.fr366, i32 %215, i32 %.6
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113, %.critedge
-  %.26393 = phi ptr [ %.5341, %.critedge ], [ %.26, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113 ]
-  %216 = phi i32 [ %.6, %.critedge ], [ %spec.select464, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, %.critedge
+  %.26370 = phi ptr [ %.5318, %.critedge ], [ %.26, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134 ]
+  %216 = phi i32 [ %.6, %.critedge ], [ %spec.select441, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134 ]
   %217 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__30HdExtComputationPrimvarsSchema17GetDefaultLocatorEv()
-  %218 = icmp eq ptr %.26393, %33
-  br i1 %218, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread, label %.lr.ph.split.us.i115
+  %218 = icmp eq ptr %.26370, %33
+  br i1 %218, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread, label %.lr.ph.split.us.i136
 
-.lr.ph.split.us.i115:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread, %222
-  %.27 = phi ptr [ %223, %222 ], [ %.26393, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread ]
-  %.014.us.i116 = phi i1 [ %.2.us.i117, %222 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread ]
+.lr.ph.split.us.i136:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread, %222
+  %.27 = phi ptr [ %223, %222 ], [ %.26370, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ]
+  %.02.us.i137 = phi i1 [ %.2.us.i138, %222 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ]
   %219 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.27, ptr noundef nonnull align 8 dereferenceable(56) %217)
   br i1 %219, label %222, label %220
 
-220:                                              ; preds = %.lr.ph.split.us.i115
+220:                                              ; preds = %.lr.ph.split.us.i136
   %221 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %217, ptr noundef nonnull align 8 dereferenceable(56) %.27)
-  br i1 %221, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120, label %222
+  br i1 %221, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141, label %222
 
-222:                                              ; preds = %220, %.lr.ph.split.us.i115
-  %.2.us.i117 = phi i1 [ %.014.us.i116, %220 ], [ true, %.lr.ph.split.us.i115 ]
+222:                                              ; preds = %220, %.lr.ph.split.us.i136
+  %.2.us.i138 = phi i1 [ %.02.us.i137, %220 ], [ true, %.lr.ph.split.us.i136 ]
   %223 = getelementptr inbounds i8, ptr %.27, i64 56
-  %.not.us.i118 = icmp eq ptr %223, %33
-  br i1 %.not.us.i118, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120, label %.lr.ph.split.us.i115, !llvm.loop !10
-
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120: ; preds = %220, %222
-  %.28 = phi ptr [ %223, %222 ], [ %.27, %220 ]
-  %.011.i119 = phi i1 [ %.2.us.i117, %222 ], [ %.014.us.i116, %220 ]
-  %224 = or i32 %216, 64
-  %cond.fr394 = freeze i1 %.011.i119
-  %spec.select465 = select i1 %cond.fr394, i32 %224, i32 %216
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread
-
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread
-  %.28398 = phi ptr [ %.26393, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread ], [ %.28, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120 ]
-  %225 = phi i32 [ %216, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit113.thread ], [ %spec.select465, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120 ]
-  %226 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdInstancedBySchema17GetDefaultLocatorEv()
-  %227 = icmp eq ptr %.28398, %33
-  br i1 %227, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread, label %.lr.ph.split.us.i122
-
-.lr.ph.split.us.i122:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread, %231
-  %.29 = phi ptr [ %232, %231 ], [ %.28398, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread ]
-  %.014.us.i123 = phi i1 [ %.2.us.i124, %231 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread ]
-  %228 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.29, ptr noundef nonnull align 8 dereferenceable(56) %226)
-  br i1 %228, label %231, label %229
-
-229:                                              ; preds = %.lr.ph.split.us.i122
-  %230 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %226, ptr noundef nonnull align 8 dereferenceable(56) %.29)
-  br i1 %230, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127, label %231
-
-231:                                              ; preds = %229, %.lr.ph.split.us.i122
-  %.2.us.i124 = phi i1 [ %.014.us.i123, %229 ], [ true, %.lr.ph.split.us.i122 ]
-  %232 = getelementptr inbounds i8, ptr %.29, i64 56
-  %.not.us.i125 = icmp eq ptr %232, %33
-  br i1 %.not.us.i125, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127, label %.lr.ph.split.us.i122, !llvm.loop !10
-
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127: ; preds = %229, %231
-  %.30 = phi ptr [ %232, %231 ], [ %.29, %229 ]
-  %.011.i126 = phi i1 [ %.2.us.i124, %231 ], [ %.014.us.i123, %229 ]
-  %233 = or i32 %225, 65536
-  %cond.fr399 = freeze i1 %.011.i126
-  %spec.select466 = select i1 %cond.fr399, i32 %233, i32 %225
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread
-
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread
-  %.30403 = phi ptr [ %.28398, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread ], [ %.30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127 ]
-  %234 = phi i32 [ %225, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit120.thread ], [ %spec.select466, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127 ]
-  %235 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__25HdInstancerTopologySchema17GetDefaultLocatorEv()
-  %236 = icmp eq ptr %.30403, %33
-  br i1 %236, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread, label %.lr.ph.split.us.i129
-
-.lr.ph.split.us.i129:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread, %240
-  %.31 = phi ptr [ %241, %240 ], [ %.30403, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread ]
-  %.014.us.i130 = phi i1 [ %.2.us.i131, %240 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread ]
-  %237 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.31, ptr noundef nonnull align 8 dereferenceable(56) %235)
-  br i1 %237, label %240, label %238
-
-238:                                              ; preds = %.lr.ph.split.us.i129
-  %239 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %235, ptr noundef nonnull align 8 dereferenceable(56) %.31)
-  br i1 %239, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, label %240
-
-240:                                              ; preds = %238, %.lr.ph.split.us.i129
-  %.2.us.i131 = phi i1 [ %.014.us.i130, %238 ], [ true, %.lr.ph.split.us.i129 ]
-  %241 = getelementptr inbounds i8, ptr %.31, i64 56
-  %.not.us.i132 = icmp eq ptr %241, %33
-  br i1 %.not.us.i132, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, label %.lr.ph.split.us.i129, !llvm.loop !10
-
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134: ; preds = %238, %240
-  %.32 = phi ptr [ %241, %240 ], [ %.31, %238 ]
-  %.011.i133 = phi i1 [ %.2.us.i131, %240 ], [ %.014.us.i130, %238 ]
-  %242 = or i32 %234, 131072
-  %cond.fr404 = freeze i1 %.011.i133
-  %spec.select467 = select i1 %cond.fr404, i32 %242, i32 %234
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread
-
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread
-  %.32408 = phi ptr [ %.30403, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread ], [ %.32, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134 ]
-  %243 = phi i32 [ %234, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit127.thread ], [ %spec.select467, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134 ]
-  %244 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__24HdMaterialBindingsSchema17GetDefaultLocatorEv()
-  %245 = icmp eq ptr %.32408, %33
-  br i1 %245, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread, label %.lr.ph.split.us.i136
-
-.lr.ph.split.us.i136:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread, %249
-  %.33 = phi ptr [ %250, %249 ], [ %.32408, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ]
-  %.014.us.i137 = phi i1 [ %.2.us.i138, %249 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ]
-  %246 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.33, ptr noundef nonnull align 8 dereferenceable(56) %244)
-  br i1 %246, label %249, label %247
-
-247:                                              ; preds = %.lr.ph.split.us.i136
-  %248 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %244, ptr noundef nonnull align 8 dereferenceable(56) %.33)
-  br i1 %248, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141, label %249
-
-249:                                              ; preds = %247, %.lr.ph.split.us.i136
-  %.2.us.i138 = phi i1 [ %.014.us.i137, %247 ], [ true, %.lr.ph.split.us.i136 ]
-  %250 = getelementptr inbounds i8, ptr %.33, i64 56
-  %.not.us.i139 = icmp eq ptr %250, %33
+  %.not.us.i139 = icmp eq ptr %223, %33
   br i1 %.not.us.i139, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141, label %.lr.ph.split.us.i136, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141: ; preds = %247, %249
-  %.34 = phi ptr [ %250, %249 ], [ %.33, %247 ]
-  %.011.i140 = phi i1 [ %.2.us.i138, %249 ], [ %.014.us.i137, %247 ]
-  %251 = or i32 %243, 128
-  %cond.fr409 = freeze i1 %.011.i140
-  %spec.select468 = select i1 %cond.fr409, i32 %251, i32 %243
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141: ; preds = %220, %222
+  %.28 = phi ptr [ %223, %222 ], [ %.27, %220 ]
+  %.011.i140 = phi i1 [ %.2.us.i138, %222 ], [ %.02.us.i137, %220 ]
+  %224 = or i32 %216, 64
+  %cond.fr371 = freeze i1 %.011.i140
+  %spec.select442 = select i1 %cond.fr371, i32 %224, i32 %216
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread
-  %.34413 = phi ptr [ %.32408, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ], [ %.34, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141 ]
-  %252 = phi i32 [ %243, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ], [ %spec.select468, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141 ]
+  %.28375 = phi ptr [ %.26370, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ], [ %.28, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141 ]
+  %225 = phi i32 [ %216, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread ], [ %spec.select442, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141 ]
+  %226 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdInstancedBySchema17GetDefaultLocatorEv()
+  %227 = icmp eq ptr %.28375, %33
+  br i1 %227, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread, label %.lr.ph.split.us.i143
+
+.lr.ph.split.us.i143:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread, %231
+  %.29 = phi ptr [ %232, %231 ], [ %.28375, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread ]
+  %.02.us.i144 = phi i1 [ %.2.us.i145, %231 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread ]
+  %228 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.29, ptr noundef nonnull align 8 dereferenceable(56) %226)
+  br i1 %228, label %231, label %229
+
+229:                                              ; preds = %.lr.ph.split.us.i143
+  %230 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %226, ptr noundef nonnull align 8 dereferenceable(56) %.29)
+  br i1 %230, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148, label %231
+
+231:                                              ; preds = %229, %.lr.ph.split.us.i143
+  %.2.us.i145 = phi i1 [ %.02.us.i144, %229 ], [ true, %.lr.ph.split.us.i143 ]
+  %232 = getelementptr inbounds i8, ptr %.29, i64 56
+  %.not.us.i146 = icmp eq ptr %232, %33
+  br i1 %.not.us.i146, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148, label %.lr.ph.split.us.i143, !llvm.loop !10
+
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148: ; preds = %229, %231
+  %.30 = phi ptr [ %232, %231 ], [ %.29, %229 ]
+  %.011.i147 = phi i1 [ %.2.us.i145, %231 ], [ %.02.us.i144, %229 ]
+  %233 = or i32 %225, 65536
+  %cond.fr376 = freeze i1 %.011.i147
+  %spec.select443 = select i1 %cond.fr376, i32 %233, i32 %225
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread
+
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread
+  %.30380 = phi ptr [ %.28375, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread ], [ %.30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148 ]
+  %234 = phi i32 [ %225, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread ], [ %spec.select443, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148 ]
+  %235 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__25HdInstancerTopologySchema17GetDefaultLocatorEv()
+  %236 = icmp eq ptr %.30380, %33
+  br i1 %236, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread, label %.lr.ph.split.us.i150
+
+.lr.ph.split.us.i150:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread, %240
+  %.31 = phi ptr [ %241, %240 ], [ %.30380, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread ]
+  %.02.us.i151 = phi i1 [ %.2.us.i152, %240 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread ]
+  %237 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.31, ptr noundef nonnull align 8 dereferenceable(56) %235)
+  br i1 %237, label %240, label %238
+
+238:                                              ; preds = %.lr.ph.split.us.i150
+  %239 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %235, ptr noundef nonnull align 8 dereferenceable(56) %.31)
+  br i1 %239, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155, label %240
+
+240:                                              ; preds = %238, %.lr.ph.split.us.i150
+  %.2.us.i152 = phi i1 [ %.02.us.i151, %238 ], [ true, %.lr.ph.split.us.i150 ]
+  %241 = getelementptr inbounds i8, ptr %.31, i64 56
+  %.not.us.i153 = icmp eq ptr %241, %33
+  br i1 %.not.us.i153, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155, label %.lr.ph.split.us.i150, !llvm.loop !10
+
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155: ; preds = %238, %240
+  %.32 = phi ptr [ %241, %240 ], [ %.31, %238 ]
+  %.011.i154 = phi i1 [ %.2.us.i152, %240 ], [ %.02.us.i151, %238 ]
+  %242 = or i32 %234, 131072
+  %cond.fr381 = freeze i1 %.011.i154
+  %spec.select444 = select i1 %cond.fr381, i32 %242, i32 %234
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread
+
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread
+  %.32385 = phi ptr [ %.30380, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread ], [ %.32, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155 ]
+  %243 = phi i32 [ %234, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148.thread ], [ %spec.select444, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155 ]
+  %244 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__24HdMaterialBindingsSchema17GetDefaultLocatorEv()
+  %245 = icmp eq ptr %.32385, %33
+  br i1 %245, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162.thread, label %.lr.ph.split.us.i157
+
+.lr.ph.split.us.i157:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread, %249
+  %.33 = phi ptr [ %250, %249 ], [ %.32385, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread ]
+  %.02.us.i158 = phi i1 [ %.2.us.i159, %249 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread ]
+  %246 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.33, ptr noundef nonnull align 8 dereferenceable(56) %244)
+  br i1 %246, label %249, label %247
+
+247:                                              ; preds = %.lr.ph.split.us.i157
+  %248 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %244, ptr noundef nonnull align 8 dereferenceable(56) %.33)
+  br i1 %248, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162, label %249
+
+249:                                              ; preds = %247, %.lr.ph.split.us.i157
+  %.2.us.i159 = phi i1 [ %.02.us.i158, %247 ], [ true, %.lr.ph.split.us.i157 ]
+  %250 = getelementptr inbounds i8, ptr %.33, i64 56
+  %.not.us.i160 = icmp eq ptr %250, %33
+  br i1 %.not.us.i160, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162, label %.lr.ph.split.us.i157, !llvm.loop !10
+
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162: ; preds = %247, %249
+  %.34 = phi ptr [ %250, %249 ], [ %.33, %247 ]
+  %.011.i161 = phi i1 [ %.2.us.i159, %249 ], [ %.02.us.i158, %247 ]
+  %251 = or i32 %243, 128
+  %cond.fr386 = freeze i1 %.011.i161
+  %spec.select445 = select i1 %cond.fr386, i32 %251, i32 %243
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162.thread
+
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread
+  %.34390 = phi ptr [ %.32385, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread ], [ %.34, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162 ]
+  %252 = phi i32 [ %243, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155.thread ], [ %spec.select445, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162 ]
   %253 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %254 = inttoptr i64 %253 to ptr
-  %.not.i.i142 = icmp eq i64 %253, 0
-  br i1 %.not.i.i142, label %255, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144
+  %.not.i.i163 = icmp eq i64 %253, 0
+  br i1 %.not.i.i163, label %255, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165
 
-255:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread
+255:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162.thread
   %256 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %256)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i143 unwind label %257
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i164 unwind label %257
 
 257:                                              ; preds = %255
   %258 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i143: ; preds = %255
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i164: ; preds = %255
   %259 = ptrtoint ptr %256 to i64
   %260 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %259 seq_cst seq_cst, align 8
   %261 = extractvalue { i64, i1 } %260, 1
-  br i1 %261, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144, label %262
+  br i1 %261, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165, label %262
 
-262:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i143
+262:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i164
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %256) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %256, i64 noundef 352) #16
   %263 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %264 = inttoptr i64 %263 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i143, %262
-  %265 = phi ptr [ %254, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141.thread ], [ %264, %262 ], [ %256, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i143 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i164, %262
+  %265 = phi ptr [ %254, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162.thread ], [ %264, %262 ], [ %256, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i164 ]
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 56
   %267 = load ptr, ptr %0, align 8
   %268 = ptrtoint ptr %267 to i64
@@ -2634,163 +2634,163 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %270 = ptrtoint ptr %269 to i64
   %271 = xor i64 %270, %268
   %272 = icmp ult i64 %271, 8
-  br i1 %272, label %273, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread
+  br i1 %272, label %273, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread
 
-273:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144
+273:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165
   %274 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema21GetDoubleSidedLocatorEv()
-  %275 = icmp eq ptr %.34413, %33
-  br i1 %275, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread, label %.lr.ph.split.us.i146
+  %275 = icmp eq ptr %.34390, %33
+  br i1 %275, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread, label %.lr.ph.split.us.i167
 
-.lr.ph.split.us.i146:                             ; preds = %273, %279
-  %.35 = phi ptr [ %280, %279 ], [ %.34413, %273 ]
-  %.014.us.i147 = phi i1 [ %.2.us.i148, %279 ], [ false, %273 ]
+.lr.ph.split.us.i167:                             ; preds = %273, %279
+  %.35 = phi ptr [ %280, %279 ], [ %.34390, %273 ]
+  %.02.us.i168 = phi i1 [ %.2.us.i169, %279 ], [ false, %273 ]
   %276 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.35, ptr noundef nonnull align 8 dereferenceable(56) %274)
   br i1 %276, label %279, label %277
 
-277:                                              ; preds = %.lr.ph.split.us.i146
+277:                                              ; preds = %.lr.ph.split.us.i167
   %278 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %274, ptr noundef nonnull align 8 dereferenceable(56) %.35)
-  br i1 %278, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151, label %279
+  br i1 %278, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, label %279
 
-279:                                              ; preds = %277, %.lr.ph.split.us.i146
-  %.2.us.i148 = phi i1 [ %.014.us.i147, %277 ], [ true, %.lr.ph.split.us.i146 ]
+279:                                              ; preds = %277, %.lr.ph.split.us.i167
+  %.2.us.i169 = phi i1 [ %.02.us.i168, %277 ], [ true, %.lr.ph.split.us.i167 ]
   %280 = getelementptr inbounds i8, ptr %.35, i64 56
-  %.not.us.i149 = icmp eq ptr %280, %33
-  br i1 %.not.us.i149, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151, label %.lr.ph.split.us.i146, !llvm.loop !10
+  %.not.us.i170 = icmp eq ptr %280, %33
+  br i1 %.not.us.i170, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, label %.lr.ph.split.us.i167, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151: ; preds = %277, %279
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172: ; preds = %277, %279
   %.36 = phi ptr [ %280, %279 ], [ %.35, %277 ]
-  %.011.i150 = phi i1 [ %.2.us.i148, %279 ], [ %.014.us.i147, %277 ]
+  %.011.i171 = phi i1 [ %.2.us.i169, %279 ], [ %.02.us.i168, %277 ]
   %281 = or i32 %252, 4096
-  %cond.fr414 = freeze i1 %.011.i150
-  %spec.select469 = select i1 %cond.fr414, i32 %281, i32 %252
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread
+  %cond.fr391 = freeze i1 %.011.i171
+  %spec.select446 = select i1 %cond.fr391, i32 %281, i32 %252
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151, %273
-  %.36418 = phi ptr [ %.34413, %273 ], [ %.36, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151 ]
-  %282 = phi i32 [ %252, %273 ], [ %spec.select469, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, %273
+  %.36395 = phi ptr [ %.34390, %273 ], [ %.36, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172 ]
+  %282 = phi i32 [ %252, %273 ], [ %spec.select446, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172 ]
   %283 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema27GetSubdivisionSchemeLocatorEv()
-  %284 = icmp eq ptr %.36418, %33
-  br i1 %284, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread, label %.lr.ph.split.us.i153
+  %284 = icmp eq ptr %.36395, %33
+  br i1 %284, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread, label %.lr.ph.split.us.i174
 
-.lr.ph.split.us.i153:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread, %288
-  %.37 = phi ptr [ %289, %288 ], [ %.36418, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread ]
-  %.014.us.i154 = phi i1 [ %.2.us.i155, %288 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread ]
+.lr.ph.split.us.i174:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread, %288
+  %.37 = phi ptr [ %289, %288 ], [ %.36395, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ]
+  %.02.us.i175 = phi i1 [ %.2.us.i176, %288 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ]
   %285 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.37, ptr noundef nonnull align 8 dereferenceable(56) %283)
   br i1 %285, label %288, label %286
 
-286:                                              ; preds = %.lr.ph.split.us.i153
+286:                                              ; preds = %.lr.ph.split.us.i174
   %287 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %283, ptr noundef nonnull align 8 dereferenceable(56) %.37)
-  br i1 %287, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158, label %288
+  br i1 %287, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179, label %288
 
-288:                                              ; preds = %286, %.lr.ph.split.us.i153
-  %.2.us.i155 = phi i1 [ %.014.us.i154, %286 ], [ true, %.lr.ph.split.us.i153 ]
+288:                                              ; preds = %286, %.lr.ph.split.us.i174
+  %.2.us.i176 = phi i1 [ %.02.us.i175, %286 ], [ true, %.lr.ph.split.us.i174 ]
   %289 = getelementptr inbounds i8, ptr %.37, i64 56
-  %.not.us.i156 = icmp eq ptr %289, %33
-  br i1 %.not.us.i156, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158, label %.lr.ph.split.us.i153, !llvm.loop !10
+  %.not.us.i177 = icmp eq ptr %289, %33
+  br i1 %.not.us.i177, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179, label %.lr.ph.split.us.i174, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158: ; preds = %286, %288
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179: ; preds = %286, %288
   %.38 = phi ptr [ %289, %288 ], [ %.37, %286 ]
-  %.011.i157 = phi i1 [ %.2.us.i155, %288 ], [ %.014.us.i154, %286 ]
+  %.011.i178 = phi i1 [ %.2.us.i176, %288 ], [ %.02.us.i175, %286 ]
   %290 = or i32 %282, 256
-  %cond.fr419 = freeze i1 %.011.i157
-  %spec.select470 = select i1 %cond.fr419, i32 %290, i32 %282
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread
+  %cond.fr396 = freeze i1 %.011.i178
+  %spec.select447 = select i1 %cond.fr396, i32 %290, i32 %282
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread
-  %.38423 = phi ptr [ %.36418, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread ], [ %.38, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158 ]
-  %291 = phi i32 [ %282, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit151.thread ], [ %spec.select470, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread
+  %.38400 = phi ptr [ %.36395, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ], [ %.38, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179 ]
+  %291 = phi i32 [ %282, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ], [ %spec.select447, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179 ]
   %292 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12HdMeshSchema25GetSubdivisionTagsLocatorEv()
-  %293 = icmp eq ptr %.38423, %33
-  br i1 %293, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread, label %.lr.ph.split.us.i160
+  %293 = icmp eq ptr %.38400, %33
+  br i1 %293, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread, label %.lr.ph.split.us.i181
 
-.lr.ph.split.us.i160:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread, %297
-  %.39 = phi ptr [ %298, %297 ], [ %.38423, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread ]
-  %.014.us.i161 = phi i1 [ %.2.us.i162, %297 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread ]
+.lr.ph.split.us.i181:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread, %297
+  %.39 = phi ptr [ %298, %297 ], [ %.38400, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread ]
+  %.02.us.i182 = phi i1 [ %.2.us.i183, %297 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread ]
   %294 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.39, ptr noundef nonnull align 8 dereferenceable(56) %292)
   br i1 %294, label %297, label %295
 
-295:                                              ; preds = %.lr.ph.split.us.i160
+295:                                              ; preds = %.lr.ph.split.us.i181
   %296 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %292, ptr noundef nonnull align 8 dereferenceable(56) %.39)
-  br i1 %296, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165, label %297
+  br i1 %296, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186, label %297
 
-297:                                              ; preds = %295, %.lr.ph.split.us.i160
-  %.2.us.i162 = phi i1 [ %.014.us.i161, %295 ], [ true, %.lr.ph.split.us.i160 ]
+297:                                              ; preds = %295, %.lr.ph.split.us.i181
+  %.2.us.i183 = phi i1 [ %.02.us.i182, %295 ], [ true, %.lr.ph.split.us.i181 ]
   %298 = getelementptr inbounds i8, ptr %.39, i64 56
-  %.not.us.i163 = icmp eq ptr %298, %33
-  br i1 %.not.us.i163, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165, label %.lr.ph.split.us.i160, !llvm.loop !10
+  %.not.us.i184 = icmp eq ptr %298, %33
+  br i1 %.not.us.i184, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186, label %.lr.ph.split.us.i181, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165: ; preds = %295, %297
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186: ; preds = %295, %297
   %.40 = phi ptr [ %298, %297 ], [ %.39, %295 ]
-  %.011.i164 = phi i1 [ %.2.us.i162, %297 ], [ %.014.us.i161, %295 ]
+  %.011.i185 = phi i1 [ %.2.us.i183, %297 ], [ %.02.us.i182, %295 ]
   %299 = or i32 %291, 16384
-  %cond.fr424 = freeze i1 %.011.i164
-  %spec.select471 = select i1 %cond.fr424, i32 %299, i32 %291
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread
+  %cond.fr401 = freeze i1 %.011.i185
+  %spec.select448 = select i1 %cond.fr401, i32 %299, i32 %291
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread
-  %.40428 = phi ptr [ %.38423, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread ], [ %.40, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165 ]
-  %300 = phi i32 [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit158.thread ], [ %spec.select471, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread
+  %.40405 = phi ptr [ %.38400, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread ], [ %.40, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186 ]
+  %300 = phi i32 [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179.thread ], [ %spec.select448, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186 ]
   %301 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshTopologySchema17GetDefaultLocatorEv()
-  %302 = icmp eq ptr %.40428, %33
-  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread, label %.lr.ph.split.us.i167
+  %302 = icmp eq ptr %.40405, %33
+  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread, label %.lr.ph.split.us.i188
 
-.lr.ph.split.us.i167:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread, %306
-  %.41 = phi ptr [ %307, %306 ], [ %.40428, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread ]
-  %.014.us.i168 = phi i1 [ %.2.us.i169, %306 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread ]
+.lr.ph.split.us.i188:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread, %306
+  %.41 = phi ptr [ %307, %306 ], [ %.40405, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread ]
+  %.02.us.i189 = phi i1 [ %.2.us.i190, %306 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread ]
   %303 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.41, ptr noundef nonnull align 8 dereferenceable(56) %301)
   br i1 %303, label %306, label %304
 
-304:                                              ; preds = %.lr.ph.split.us.i167
+304:                                              ; preds = %.lr.ph.split.us.i188
   %305 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %.41)
-  br i1 %305, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, label %306
+  br i1 %305, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193, label %306
 
-306:                                              ; preds = %304, %.lr.ph.split.us.i167
-  %.2.us.i169 = phi i1 [ %.014.us.i168, %304 ], [ true, %.lr.ph.split.us.i167 ]
+306:                                              ; preds = %304, %.lr.ph.split.us.i188
+  %.2.us.i190 = phi i1 [ %.02.us.i189, %304 ], [ true, %.lr.ph.split.us.i188 ]
   %307 = getelementptr inbounds i8, ptr %.41, i64 56
-  %.not.us.i170 = icmp eq ptr %307, %33
-  br i1 %.not.us.i170, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, label %.lr.ph.split.us.i167, !llvm.loop !10
+  %.not.us.i191 = icmp eq ptr %307, %33
+  br i1 %.not.us.i191, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193, label %.lr.ph.split.us.i188, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172: ; preds = %304, %306
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193: ; preds = %304, %306
   %.42 = phi ptr [ %307, %306 ], [ %.41, %304 ]
-  %.011.i171 = phi i1 [ %.2.us.i169, %306 ], [ %.014.us.i168, %304 ]
+  %.011.i192 = phi i1 [ %.2.us.i190, %306 ], [ %.02.us.i189, %304 ]
   %308 = or i32 %300, 256
-  %cond.fr429 = freeze i1 %.011.i171
-  %spec.select472 = select i1 %cond.fr429, i32 %308, i32 %300
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread
+  %cond.fr406 = freeze i1 %.011.i192
+  %spec.select449 = select i1 %cond.fr406, i32 %308, i32 %300
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144
-  %.7343 = phi ptr [ %.34413, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144 ], [ %.40428, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread ], [ %.42, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172 ]
-  %.14 = phi i32 [ %252, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit144 ], [ %300, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit165.thread ], [ %spec.select472, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165
+  %.7320 = phi ptr [ %.34390, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165 ], [ %.40405, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread ], [ %.42, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193 ]
+  %.14 = phi i32 [ %252, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit165 ], [ %300, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186.thread ], [ %spec.select449, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193 ]
   %309 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetDefaultLocatorEv()
-  %310 = icmp eq ptr %.7343, %33
-  br i1 %310, label %.critedge2, label %.lr.ph.split.i174
+  %310 = icmp eq ptr %.7320, %33
+  br i1 %310, label %.critedge2, label %.lr.ph.split.i195
 
-.lr.ph.split.i174:                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread, %314
-  %.43 = phi ptr [ %315, %314 ], [ %.7343, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ]
+.lr.ph.split.i195:                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread, %314
+  %.43 = phi ptr [ %315, %314 ], [ %.7320, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ]
   %311 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.43, ptr noundef nonnull align 8 dereferenceable(56) %309)
-  br i1 %311, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit177, label %312
+  br i1 %311, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit198, label %312
 
-312:                                              ; preds = %.lr.ph.split.i174
+312:                                              ; preds = %.lr.ph.split.i195
   %313 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %309, ptr noundef nonnull align 8 dereferenceable(56) %.43)
   br i1 %313, label %.critedge2, label %314
 
 314:                                              ; preds = %312
   %315 = getelementptr inbounds i8, ptr %.43, i64 56
-  %.not.i175 = icmp eq ptr %315, %33
-  br i1 %.not.i175, label %.critedge2, label %.lr.ph.split.i174, !llvm.loop !10
+  %.not.i196 = icmp eq ptr %315, %33
+  br i1 %.not.i196, label %.critedge2, label %.lr.ph.split.i195, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit177: ; preds = %.lr.ph.split.i174
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit198: ; preds = %.lr.ph.split.i195
   %316 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetDefaultLocatorEv()
   %317 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %316, ptr noundef nonnull align 8 dereferenceable(56) %.43)
   br i1 %317, label %318, label %.preheader
 
-318:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit177
+318:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit198
   %319 = or i32 %.14, 34912
   br label %.critedge2
 
-.preheader:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit177, %331
-  %.9 = phi ptr [ %330, %331 ], [ %.43, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit177 ]
-  %.19 = phi i32 [ %329, %331 ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit177 ]
+.preheader:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit198, %331
+  %.9 = phi ptr [ %330, %331 ], [ %.43, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit198 ]
+  %.19 = phi i32 [ %329, %331 ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit198 ]
   %320 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetNormalsLocatorEv()
   %321 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.9, ptr noundef nonnull align 8 dereferenceable(56) %320)
   br i1 %321, label %328, label %322
@@ -2803,12 +2803,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 325:                                              ; preds = %322
   %326 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema16GetWidthsLocatorEv()
   %327 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.9, ptr noundef nonnull align 8 dereferenceable(56) %326)
-  %.496 = select i1 %327, i32 32768, i32 64
+  %.473 = select i1 %327, i32 32768, i32 64
   br label %328
 
 328:                                              ; preds = %325, %322, %.preheader
-  %.sink495 = phi i32 [ 2048, %.preheader ], [ 32, %322 ], [ %.496, %325 ]
-  %329 = or i32 %.19, %.sink495
+  %.sink472 = phi i32 [ 2048, %.preheader ], [ 32, %322 ], [ %.473, %325 ]
+  %329 = or i32 %.19, %.sink472
   %330 = getelementptr inbounds i8, ptr %.9, i64 56
   %.not45 = icmp eq ptr %330, %33
   br i1 %.not45, label %.critedge2, label %331
@@ -2818,70 +2818,70 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   %333 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %330, ptr noundef nonnull align 8 dereferenceable(56) %332)
   br i1 %333, label %.preheader, label %.critedge2, !llvm.loop !12
 
-.critedge2:                                       ; preds = %314, %312, %328, %331, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread, %318
-  %.8344 = phi ptr [ %.43, %318 ], [ %.7343, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ], [ %330, %331 ], [ %330, %328 ], [ %.43, %312 ], [ %315, %314 ]
-  %.18 = phi i32 [ %319, %318 ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172.thread ], [ %329, %331 ], [ %329, %328 ], [ %.14, %312 ], [ %.14, %314 ]
+.critedge2:                                       ; preds = %314, %312, %328, %331, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread, %318
+  %.8321 = phi ptr [ %.43, %318 ], [ %.7320, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ], [ %330, %331 ], [ %330, %328 ], [ %.43, %312 ], [ %315, %314 ]
+  %.18 = phi i32 [ %319, %318 ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ], [ %329, %331 ], [ %329, %328 ], [ %.14, %312 ], [ %.14, %314 ]
   %334 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__15HdPurposeSchema17GetDefaultLocatorEv()
-  %335 = icmp eq ptr %.8344, %33
-  br i1 %335, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184.thread, label %.lr.ph.split.us.i179
+  %335 = icmp eq ptr %.8321, %33
+  br i1 %335, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread, label %.lr.ph.split.us.i200
 
-.lr.ph.split.us.i179:                             ; preds = %.critedge2, %339
-  %.45 = phi ptr [ %340, %339 ], [ %.8344, %.critedge2 ]
-  %.014.us.i180 = phi i1 [ %.2.us.i181, %339 ], [ false, %.critedge2 ]
+.lr.ph.split.us.i200:                             ; preds = %.critedge2, %339
+  %.45 = phi ptr [ %340, %339 ], [ %.8321, %.critedge2 ]
+  %.02.us.i201 = phi i1 [ %.2.us.i202, %339 ], [ false, %.critedge2 ]
   %336 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.45, ptr noundef nonnull align 8 dereferenceable(56) %334)
   br i1 %336, label %339, label %337
 
-337:                                              ; preds = %.lr.ph.split.us.i179
+337:                                              ; preds = %.lr.ph.split.us.i200
   %338 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %334, ptr noundef nonnull align 8 dereferenceable(56) %.45)
-  br i1 %338, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184, label %339
+  br i1 %338, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205, label %339
 
-339:                                              ; preds = %337, %.lr.ph.split.us.i179
-  %.2.us.i181 = phi i1 [ %.014.us.i180, %337 ], [ true, %.lr.ph.split.us.i179 ]
+339:                                              ; preds = %337, %.lr.ph.split.us.i200
+  %.2.us.i202 = phi i1 [ %.02.us.i201, %337 ], [ true, %.lr.ph.split.us.i200 ]
   %340 = getelementptr inbounds i8, ptr %.45, i64 56
-  %.not.us.i182 = icmp eq ptr %340, %33
-  br i1 %.not.us.i182, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184, label %.lr.ph.split.us.i179, !llvm.loop !10
+  %.not.us.i203 = icmp eq ptr %340, %33
+  br i1 %.not.us.i203, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205, label %.lr.ph.split.us.i200, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184: ; preds = %337, %339
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205: ; preds = %337, %339
   %.46 = phi ptr [ %340, %339 ], [ %.45, %337 ]
-  %.011.i183 = phi i1 [ %.2.us.i181, %339 ], [ %.014.us.i180, %337 ]
+  %.011.i204 = phi i1 [ %.2.us.i202, %339 ], [ %.02.us.i201, %337 ]
   %341 = or i32 %.18, 524288
-  %cond.fr436 = freeze i1 %.011.i183
-  %spec.select473 = select i1 %cond.fr436, i32 %341, i32 %.18
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184.thread
+  %cond.fr413 = freeze i1 %.011.i204
+  %spec.select450 = select i1 %cond.fr413, i32 %341, i32 %.18
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184, %.critedge2
-  %.46440 = phi ptr [ %.8344, %.critedge2 ], [ %.46, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184 ]
-  %342 = phi i32 [ %.18, %.critedge2 ], [ %spec.select473, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205, %.critedge2
+  %.46417 = phi ptr [ %.8321, %.critedge2 ], [ %.46, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205 ]
+  %342 = phi i32 [ %.18, %.critedge2 ], [ %spec.select450, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205 ]
   %343 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %344 = inttoptr i64 %343 to ptr
-  %.not.i.i185 = icmp eq i64 %343, 0
-  br i1 %.not.i.i185, label %345, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187
+  %.not.i.i206 = icmp eq i64 %343, 0
+  br i1 %.not.i.i206, label %345, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208
 
-345:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184.thread
+345:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread
   %346 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %346)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i186 unwind label %347
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i207 unwind label %347
 
 347:                                              ; preds = %345
   %348 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i186: ; preds = %345
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i207: ; preds = %345
   %349 = ptrtoint ptr %346 to i64
   %350 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %349 seq_cst seq_cst, align 8
   %351 = extractvalue { i64, i1 } %350, 1
-  br i1 %351, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187, label %352
+  br i1 %351, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208, label %352
 
-352:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i186
+352:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i207
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %346) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %346, i64 noundef 352) #16
   %353 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %354 = inttoptr i64 %353 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i186, %352
-  %355 = phi ptr [ %344, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit184.thread ], [ %354, %352 ], [ %346, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i186 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i207, %352
+  %355 = phi ptr [ %344, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread ], [ %354, %352 ], [ %346, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i207 ]
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 104
   %357 = load ptr, ptr %0, align 8
   %358 = ptrtoint ptr %357 to i64
@@ -2889,131 +2889,131 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %360 = ptrtoint ptr %359 to i64
   %361 = xor i64 %360, %358
   %362 = icmp ult i64 %361, 8
-  br i1 %362, label %363, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread
+  br i1 %362, label %363, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread
 
-363:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187
+363:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208
   %364 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdSphereSchema17GetDefaultLocatorEv()
-  %365 = icmp eq ptr %.46440, %33
-  br i1 %365, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread, label %.lr.ph.split.us.i189
+  %365 = icmp eq ptr %.46417, %33
+  br i1 %365, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread, label %.lr.ph.split.us.i210
 
-.lr.ph.split.us.i189:                             ; preds = %363, %369
-  %.47 = phi ptr [ %370, %369 ], [ %.46440, %363 ]
-  %.014.us.i190 = phi i1 [ %.2.us.i191, %369 ], [ false, %363 ]
+.lr.ph.split.us.i210:                             ; preds = %363, %369
+  %.47 = phi ptr [ %370, %369 ], [ %.46417, %363 ]
+  %.02.us.i211 = phi i1 [ %.2.us.i212, %369 ], [ false, %363 ]
   %366 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.47, ptr noundef nonnull align 8 dereferenceable(56) %364)
   br i1 %366, label %369, label %367
 
-367:                                              ; preds = %.lr.ph.split.us.i189
+367:                                              ; preds = %.lr.ph.split.us.i210
   %368 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %364, ptr noundef nonnull align 8 dereferenceable(56) %.47)
-  br i1 %368, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194, label %369
+  br i1 %368, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, label %369
 
-369:                                              ; preds = %367, %.lr.ph.split.us.i189
-  %.2.us.i191 = phi i1 [ %.014.us.i190, %367 ], [ true, %.lr.ph.split.us.i189 ]
+369:                                              ; preds = %367, %.lr.ph.split.us.i210
+  %.2.us.i212 = phi i1 [ %.02.us.i211, %367 ], [ true, %.lr.ph.split.us.i210 ]
   %370 = getelementptr inbounds i8, ptr %.47, i64 56
-  %.not.us.i192 = icmp eq ptr %370, %33
-  br i1 %.not.us.i192, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194, label %.lr.ph.split.us.i189, !llvm.loop !10
+  %.not.us.i213 = icmp eq ptr %370, %33
+  br i1 %.not.us.i213, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, label %.lr.ph.split.us.i210, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194: ; preds = %367, %369
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215: ; preds = %367, %369
   %.48 = phi ptr [ %370, %369 ], [ %.47, %367 ]
-  %.011.i193 = phi i1 [ %.2.us.i191, %369 ], [ %.014.us.i190, %367 ]
+  %.011.i214 = phi i1 [ %.2.us.i212, %369 ], [ %.02.us.i211, %367 ]
   %371 = or i32 %342, 64
-  %cond.fr441 = freeze i1 %.011.i193
-  %spec.select474 = select i1 %cond.fr441, i32 %371, i32 %342
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread
+  %cond.fr418 = freeze i1 %.011.i214
+  %spec.select451 = select i1 %cond.fr418, i32 %371, i32 %342
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194, %363, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187
-  %.10345 = phi ptr [ %.46440, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187 ], [ %.46440, %363 ], [ %.48, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194 ]
-  %.22 = phi i32 [ %342, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit187 ], [ %342, %363 ], [ %spec.select474, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, %363, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208
+  %.10322 = phi ptr [ %.46417, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208 ], [ %.46417, %363 ], [ %.48, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215 ]
+  %.22 = phi i32 [ %342, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit208 ], [ %342, %363 ], [ %spec.select451, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215 ]
   %372 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
-  %373 = icmp eq ptr %.10345, %33
-  br i1 %373, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread, label %.lr.ph.split.us.i196
+  %373 = icmp eq ptr %.10322, %33
+  br i1 %373, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread, label %.lr.ph.split.us.i217
 
-.lr.ph.split.us.i196:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread, %377
-  %.49 = phi ptr [ %378, %377 ], [ %.10345, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread ]
-  %.014.us.i197 = phi i1 [ %.2.us.i198, %377 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread ]
+.lr.ph.split.us.i217:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread, %377
+  %.49 = phi ptr [ %378, %377 ], [ %.10322, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread ]
+  %.02.us.i218 = phi i1 [ %.2.us.i219, %377 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread ]
   %374 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.49, ptr noundef nonnull align 8 dereferenceable(56) %372)
   br i1 %374, label %377, label %375
 
-375:                                              ; preds = %.lr.ph.split.us.i196
+375:                                              ; preds = %.lr.ph.split.us.i217
   %376 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %372, ptr noundef nonnull align 8 dereferenceable(56) %.49)
-  br i1 %376, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201, label %377
+  br i1 %376, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222, label %377
 
-377:                                              ; preds = %375, %.lr.ph.split.us.i196
-  %.2.us.i198 = phi i1 [ %.014.us.i197, %375 ], [ true, %.lr.ph.split.us.i196 ]
+377:                                              ; preds = %375, %.lr.ph.split.us.i217
+  %.2.us.i219 = phi i1 [ %.02.us.i218, %375 ], [ true, %.lr.ph.split.us.i217 ]
   %378 = getelementptr inbounds i8, ptr %.49, i64 56
-  %.not.us.i199 = icmp eq ptr %378, %33
-  br i1 %.not.us.i199, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201, label %.lr.ph.split.us.i196, !llvm.loop !10
+  %.not.us.i220 = icmp eq ptr %378, %33
+  br i1 %.not.us.i220, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222, label %.lr.ph.split.us.i217, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201: ; preds = %375, %377
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222: ; preds = %375, %377
   %.50 = phi ptr [ %378, %377 ], [ %.49, %375 ]
-  %.011.i200 = phi i1 [ %.2.us.i198, %377 ], [ %.014.us.i197, %375 ]
+  %.011.i221 = phi i1 [ %.2.us.i219, %377 ], [ %.02.us.i218, %375 ]
   %379 = or i32 %.22, 1024
-  %cond.fr446 = freeze i1 %.011.i200
-  %spec.select475 = select i1 %cond.fr446, i32 %379, i32 %.22
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread
+  %cond.fr423 = freeze i1 %.011.i221
+  %spec.select452 = select i1 %cond.fr423, i32 %379, i32 %.22
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread
-  %.50450 = phi ptr [ %.10345, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread ], [ %.50, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201 ]
-  %380 = phi i32 [ %.22, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit194.thread ], [ %spec.select475, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread
+  %.50427 = phi ptr [ %.10322, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread ], [ %.50, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222 ]
+  %380 = phi i32 [ %.22, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215.thread ], [ %spec.select452, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222 ]
   %381 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdVolumeFieldBindingSchema17GetDefaultLocatorEv()
-  %382 = icmp eq ptr %.50450, %33
-  br i1 %382, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread, label %.lr.ph.split.us.i203
+  %382 = icmp eq ptr %.50427, %33
+  br i1 %382, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread, label %.lr.ph.split.us.i224
 
-.lr.ph.split.us.i203:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread, %386
-  %.51 = phi ptr [ %387, %386 ], [ %.50450, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread ]
-  %.014.us.i204 = phi i1 [ %.2.us.i205, %386 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread ]
+.lr.ph.split.us.i224:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread, %386
+  %.51 = phi ptr [ %387, %386 ], [ %.50427, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread ]
+  %.02.us.i225 = phi i1 [ %.2.us.i226, %386 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread ]
   %383 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.51, ptr noundef nonnull align 8 dereferenceable(56) %381)
   br i1 %383, label %386, label %384
 
-384:                                              ; preds = %.lr.ph.split.us.i203
+384:                                              ; preds = %.lr.ph.split.us.i224
   %385 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %381, ptr noundef nonnull align 8 dereferenceable(56) %.51)
-  br i1 %385, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208, label %386
+  br i1 %385, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229, label %386
 
-386:                                              ; preds = %384, %.lr.ph.split.us.i203
-  %.2.us.i205 = phi i1 [ %.014.us.i204, %384 ], [ true, %.lr.ph.split.us.i203 ]
+386:                                              ; preds = %384, %.lr.ph.split.us.i224
+  %.2.us.i226 = phi i1 [ %.02.us.i225, %384 ], [ true, %.lr.ph.split.us.i224 ]
   %387 = getelementptr inbounds i8, ptr %.51, i64 56
-  %.not.us.i206 = icmp eq ptr %387, %33
-  br i1 %.not.us.i206, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208, label %.lr.ph.split.us.i203, !llvm.loop !10
+  %.not.us.i227 = icmp eq ptr %387, %33
+  br i1 %.not.us.i227, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229, label %.lr.ph.split.us.i224, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208: ; preds = %384, %386
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229: ; preds = %384, %386
   %.52 = phi ptr [ %387, %386 ], [ %.51, %384 ]
-  %.011.i207 = phi i1 [ %.2.us.i205, %386 ], [ %.014.us.i204, %384 ]
+  %.011.i228 = phi i1 [ %.2.us.i226, %386 ], [ %.02.us.i225, %384 ]
   %388 = or i32 %380, 4194304
-  %cond.fr451 = freeze i1 %.011.i207
-  %spec.select476 = select i1 %cond.fr451, i32 %388, i32 %380
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread
+  %cond.fr428 = freeze i1 %.011.i228
+  %spec.select453 = select i1 %cond.fr428, i32 %388, i32 %380
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread
-  %.52455 = phi ptr [ %.50450, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread ], [ %.52, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208 ]
-  %389 = phi i32 [ %380, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit201.thread ], [ %spec.select476, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread
+  %.52432 = phi ptr [ %.50427, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread ], [ %.52, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229 ]
+  %389 = phi i32 [ %380, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222.thread ], [ %spec.select453, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229 ]
   %390 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
-  %391 = icmp eq ptr %.52455, %33
-  br i1 %391, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread, label %.lr.ph.split.us.i210
+  %391 = icmp eq ptr %.52432, %33
+  br i1 %391, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread, label %.lr.ph.split.us.i231
 
-.lr.ph.split.us.i210:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread, %395
-  %.53 = phi ptr [ %396, %395 ], [ %.52455, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread ]
-  %.014.us.i211 = phi i1 [ %.2.us.i212, %395 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread ]
+.lr.ph.split.us.i231:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread, %395
+  %.53 = phi ptr [ %396, %395 ], [ %.52432, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread ]
+  %.02.us.i232 = phi i1 [ %.2.us.i233, %395 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread ]
   %392 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.53, ptr noundef nonnull align 8 dereferenceable(56) %390)
   br i1 %392, label %395, label %393
 
-393:                                              ; preds = %.lr.ph.split.us.i210
+393:                                              ; preds = %.lr.ph.split.us.i231
   %394 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %390, ptr noundef nonnull align 8 dereferenceable(56) %.53)
-  br i1 %394, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, label %395
+  br i1 %394, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236, label %395
 
-395:                                              ; preds = %393, %.lr.ph.split.us.i210
-  %.2.us.i212 = phi i1 [ %.014.us.i211, %393 ], [ true, %.lr.ph.split.us.i210 ]
+395:                                              ; preds = %393, %.lr.ph.split.us.i231
+  %.2.us.i233 = phi i1 [ %.02.us.i232, %393 ], [ true, %.lr.ph.split.us.i231 ]
   %396 = getelementptr inbounds i8, ptr %.53, i64 56
-  %.not.us.i213 = icmp eq ptr %396, %33
-  br i1 %.not.us.i213, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, label %.lr.ph.split.us.i210, !llvm.loop !10
+  %.not.us.i234 = icmp eq ptr %396, %33
+  br i1 %.not.us.i234, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236, label %.lr.ph.split.us.i231, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215: ; preds = %393, %395
-  %.011.i214 = phi i1 [ %.014.us.i211, %393 ], [ %.2.us.i212, %395 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236: ; preds = %393, %395
+  %.011.i235 = phi i1 [ %.02.us.i232, %393 ], [ %.2.us.i233, %395 ]
   %397 = or i32 %389, 512
-  %cond.fr456 = freeze i1 %.011.i214
-  %spec.select477 = select i1 %cond.fr456, i32 %397, i32 %389
+  %cond.fr433 = freeze i1 %.011.i235
+  %spec.select454 = select i1 %cond.fr433, i32 %397, i32 %389
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread, %13, %2
-  %.042 = phi i32 [ 0, %2 ], [ -3, %13 ], [ %389, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit208.thread ], [ %spec.select477, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215 ], [ -3, %30 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread, %13, %2
+  %.042 = phi i32 [ 0, %2 ], [ -3, %13 ], [ %389, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread ], [ %spec.select454, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236 ], [ -3, %30 ]
   ret i32 %.042
 }
 
@@ -3022,55 +3022,52 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocator
 declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = load ptr, ptr %2, align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = icmp eq ptr %5, %6
-  br i1 %7, label %.loopexit, label %.lr.ph
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr readnone %.0.val, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
+  %4 = load ptr, ptr %1, align 8
+  %5 = icmp eq ptr %4, %.0.val
+  br i1 %5, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4
-  br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %3
+  br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %13
-  %8 = phi ptr [ %15, %13 ], [ %5, %.lr.ph ]
-  %.014.us = phi i1 [ %.2.us, %13 ], [ false, %.lr.ph ]
-  %9 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %0)
-  br i1 %9, label %13, label %10
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %11
+  %6 = phi ptr [ %13, %11 ], [ %4, %.lr.ph ]
+  %.02.us = phi i1 [ %.2.us, %11 ], [ false, %.lr.ph ]
+  %7 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  br i1 %7, label %11, label %8
 
-10:                                               ; preds = %.lr.ph.split.us
-  %11 = load ptr, ptr %2, align 8
-  %12 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %11)
-  br i1 %12, label %.loopexit, label %13
+8:                                                ; preds = %.lr.ph.split.us
+  %9 = load ptr, ptr %1, align 8
+  %10 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  br i1 %10, label %.loopexit, label %11
 
-13:                                               ; preds = %.lr.ph.split.us, %10
-  %.2.us = phi i1 [ %.014.us, %10 ], [ true, %.lr.ph.split.us ]
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
-  store ptr %15, ptr %2, align 8
-  %16 = load ptr, ptr %1, align 8
-  %.not.us = icmp eq ptr %15, %16
+11:                                               ; preds = %.lr.ph.split.us, %8
+  %.2.us = phi i1 [ %.02.us, %8 ], [ true, %.lr.ph.split.us ]
+  %12 = load ptr, ptr %1, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  store ptr %13, ptr %1, align 8
+  %.not.us = icmp eq ptr %13, %.0.val
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !10
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %22
-  %17 = phi ptr [ %24, %22 ], [ %5, %.lr.ph ]
-  %18 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %0)
+.lr.ph.split:                                     ; preds = %.lr.ph, %19
+  %14 = phi ptr [ %21, %19 ], [ %4, %.lr.ph ]
+  %15 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  br i1 %15, label %.loopexit, label %16
+
+16:                                               ; preds = %.lr.ph.split
+  %17 = load ptr, ptr %1, align 8
+  %18 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %17)
   br i1 %18, label %.loopexit, label %19
 
-19:                                               ; preds = %.lr.ph.split
-  %20 = load ptr, ptr %2, align 8
-  %21 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %20)
-  br i1 %21, label %.loopexit, label %22
-
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
-  store ptr %24, ptr %2, align 8
-  %25 = load ptr, ptr %1, align 8
-  %.not = icmp eq ptr %24, %25
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %1, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr %21, ptr %1, align 8
+  %.not = icmp eq ptr %21, %.0.val
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %19, %.lr.ph.split, %22, %10, %13, %4
-  %.011 = phi i1 [ false, %4 ], [ %.014.us, %10 ], [ %.2.us, %13 ], [ %18, %22 ], [ %18, %.lr.ph.split ], [ %18, %19 ]
+.loopexit:                                        ; preds = %16, %.lr.ph.split, %19, %8, %11, %3
+  %.011 = phi i1 [ false, %3 ], [ %.02.us, %8 ], [ %.2.us, %11 ], [ %15, %19 ], [ %15, %.lr.ph.split ], [ %15, %16 ]
   ret i1 %.011
 }
 
@@ -3084,944 +3081,930 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24_
 define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(456) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
-  %8 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet5beginEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
-  store ptr %8, ptr %4, align 8
-  %9 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
-  %10 = icmp eq ptr %8, %9
-  br i1 %10, label %459, label %11
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
+  %7 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet5beginEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
+  store ptr %7, ptr %4, align 8
+  %8 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
+  %9 = icmp eq ptr %7, %8
+  br i1 %9, label %450, label %10
 
-11:                                               ; preds = %2
-  %12 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
-  store ptr %12, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  %13 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+10:                                               ; preds = %2
+  %11 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456) %1)
+  store i32 0, ptr %5, align 4
+  %12 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %.not.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i, label %14, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
 
-15:                                               ; preds = %11
-  %16 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %16)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i unwind label %17
+14:                                               ; preds = %10
+  %15 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %15)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i unwind label %16
 
-common.resume:                                    ; preds = %95, %277, %449, %162, %113, %52, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %53, %52 ], [ %114, %113 ], [ %163, %162 ], [ %96, %95 ], [ %278, %277 ], [ %450, %449 ]
+common.resume:                                    ; preds = %92, %272, %440, %158, %110, %50, %16
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %51, %50 ], [ %111, %110 ], [ %159, %158 ], [ %93, %92 ], [ %273, %272 ], [ %441, %440 ]
   resume { ptr, i32 } %common.resume.op
 
-17:                                               ; preds = %15
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %14
+  %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 352) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 352) #16
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i: ; preds = %15
-  %19 = ptrtoint ptr %16 to i64
-  %20 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %19 seq_cst seq_cst, align 8
-  %21 = extractvalue { i64, i1 } %20, 1
-  br i1 %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, label %22
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i: ; preds = %14
+  %18 = ptrtoint ptr %15 to i64
+  %19 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %18 seq_cst seq_cst, align 8
+  %20 = extractvalue { i64, i1 } %19, 1
+  br i1 %20, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, label %21
 
-22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %16) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 352) #16
-  %23 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %24 = inttoptr i64 %23 to ptr
+21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %15) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 352) #16
+  %22 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %23 = inttoptr i64 %22 to ptr
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit: ; preds = %11, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i, %22
-  %25 = phi ptr [ %14, %11 ], [ %24, %22 ], [ %16, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 144
-  %27 = load ptr, ptr %0, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = load ptr, ptr %26, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = xor i64 %30, %28
-  %32 = icmp ult i64 %31, 8
-  br i1 %32, label %33, label %47
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit: ; preds = %10, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i, %21
+  %24 = phi ptr [ %13, %10 ], [ %23, %21 ], [ %15, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
+  %26 = load ptr, ptr %0, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = load ptr, ptr %25, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = xor i64 %29, %27
+  %31 = icmp ult i64 %30, 8
+  br i1 %31, label %32, label %45
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %34 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdMaterialSchema17GetDefaultLocatorEv()
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = icmp eq ptr %35, %36
-  br i1 %37, label %.critedge, label %.lr.ph.split.us.i
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+  %33 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdMaterialSchema17GetDefaultLocatorEv()
+  %34 = load ptr, ptr %4, align 8
+  %35 = icmp eq ptr %34, %11
+  br i1 %35, label %.critedge, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %33, %42
-  %38 = phi ptr [ %43, %42 ], [ %35, %33 ]
-  %.014.us.i = phi i1 [ %.2.us.i, %42 ], [ false, %33 ]
-  %39 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %34)
-  br i1 %39, label %42, label %40
+.lr.ph.split.us.i:                                ; preds = %32, %40
+  %36 = phi ptr [ %41, %40 ], [ %34, %32 ]
+  %.02.us.i = phi i1 [ %.2.us.i, %40 ], [ false, %32 ]
+  %37 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %33)
+  br i1 %37, label %40, label %38
 
-40:                                               ; preds = %.lr.ph.split.us.i
-  %41 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %38)
-  br i1 %41, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %42
+38:                                               ; preds = %.lr.ph.split.us.i
+  %39 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(56) %36)
+  br i1 %39, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %40
 
-42:                                               ; preds = %40, %.lr.ph.split.us.i
-  %.2.us.i = phi i1 [ %.014.us.i, %40 ], [ true, %.lr.ph.split.us.i ]
-  %43 = getelementptr inbounds i8, ptr %38, i64 56
-  %.not.us.i = icmp eq ptr %43, %36
+40:                                               ; preds = %38, %.lr.ph.split.us.i
+  %.2.us.i = phi i1 [ %.02.us.i, %38 ], [ true, %.lr.ph.split.us.i ]
+  %41 = getelementptr inbounds i8, ptr %36, i64 56
+  %.not.us.i = icmp eq ptr %41, %11
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %40, %42
-  %.011.i = phi i1 [ %.014.us.i, %40 ], [ %.2.us.i, %42 ]
-  br i1 %.011.i, label %44, label %.critedge
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %38, %40
+  %.011.i = phi i1 [ %.02.us.i, %38 ], [ %.2.us.i, %40 ]
+  br i1 %.011.i, label %42, label %.critedge
 
-44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit
-  %45 = load i32, ptr %6, align 4
-  %46 = or i32 %45, 12
-  store i32 %46, ptr %6, align 4
+42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit
+  %43 = load i32, ptr %5, align 4
+  %44 = or i32 %43, 12
+  store i32 %44, ptr %5, align 4
   br label %.critedge
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %48 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %49 = inttoptr i64 %48 to ptr
-  %.not.i.i28 = icmp eq i64 %48, 0
-  br i1 %.not.i.i28, label %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit30
+45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+  %46 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %47 = inttoptr i64 %46 to ptr
+  %.not.i.i47 = icmp eq i64 %46, 0
+  br i1 %.not.i.i47, label %48, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit49
 
-50:                                               ; preds = %47
-  %51 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %51)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29 unwind label %52
+48:                                               ; preds = %45
+  %49 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %49)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48 unwind label %50
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef 352) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef 352) #16
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29: ; preds = %50
-  %54 = ptrtoint ptr %51 to i64
-  %55 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %54 seq_cst seq_cst, align 8
-  %56 = extractvalue { i64, i1 } %55, 1
-  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit30, label %57
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48: ; preds = %48
+  %52 = ptrtoint ptr %49 to i64
+  %53 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %52 seq_cst seq_cst, align 8
+  %54 = extractvalue { i64, i1 } %53, 1
+  br i1 %54, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit49, label %55
 
-57:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %51) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef 352) #16
-  %58 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %59 = inttoptr i64 %58 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit30
+55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %49) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef 352) #16
+  %56 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %57 = inttoptr i64 %56 to ptr
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit49
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit30: ; preds = %47, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29, %57
-  %60 = phi ptr [ %49, %47 ], [ %59, %57 ], [ %51, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29 ]
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  %62 = load ptr, ptr %0, align 8
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit49: ; preds = %45, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48, %55
+  %58 = phi ptr [ %47, %45 ], [ %57, %55 ], [ %49, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48 ]
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 152
+  %60 = load ptr, ptr %0, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = load ptr, ptr %59, align 8
   %63 = ptrtoint ptr %62 to i64
-  %64 = load ptr, ptr %61, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = xor i64 %65, %63
-  %67 = icmp ult i64 %66, 8
-  br i1 %67, label %68, label %108
+  %64 = xor i64 %63, %61
+  %65 = icmp ult i64 %64, 8
+  br i1 %65, label %66, label %105
 
-68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit30
-  %69 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator acquire, align 8
-  %70 = icmp eq i8 %69, 0
-  br i1 %70, label %71, label %81, !prof !4
+66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit49
+  %67 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator acquire, align 8
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %79, !prof !4
 
-71:                                               ; preds = %68
-  %72 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator) #17
-  %.not26 = icmp eq i32 %72, 0
-  br i1 %.not26, label %81, label %73
+69:                                               ; preds = %66
+  %70 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator) #17
+  %.not26 = icmp eq i32 %70, 0
+  br i1 %.not26, label %79, label %71
+
+71:                                               ; preds = %69
+  %72 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdCoordSysSchema17GetDefaultLocatorEv()
+          to label %73 unwind label %92
 
 73:                                               ; preds = %71
-  %74 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdCoordSysSchema17GetDefaultLocatorEv()
-          to label %75 unwind label %95
+  %74 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdCoordSysSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__22HdCoordSysSchemaTokensE)
+          to label %75 unwind label %92
 
 75:                                               ; preds = %73
-  %76 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdCoordSysSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__22HdCoordSysSchemaTokensE)
-          to label %77 unwind label %95
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator6AppendERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator") align 8 @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator, ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(8) %76)
+          to label %77 unwind label %92
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator6AppendERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator") align 8 @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator, ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(8) %78)
-          to label %79 unwind label %95
-
-79:                                               ; preds = %77
-  %80 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator, ptr nonnull @__dso_handle) #17
+  %78 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator, ptr nonnull @__dso_handle) #17
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator) #17
-  br label %81
+  br label %79
 
-81:                                               ; preds = %79, %71, %68
-  %82 = load ptr, ptr %4, align 8
-  %83 = load ptr, ptr %5, align 8
-  %84 = icmp eq ptr %82, %83
-  br i1 %84, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread, label %.lr.ph.split.us.i32
+79:                                               ; preds = %77, %69, %66
+  %80 = load ptr, ptr %4, align 8
+  %81 = icmp eq ptr %80, %11
+  br i1 %81, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread, label %.lr.ph.split.us.i51
 
-.lr.ph.split.us.i32:                              ; preds = %81, %89
-  %85 = phi ptr [ %90, %89 ], [ %82, %81 ]
-  %.014.us.i33 = phi i1 [ %.2.us.i34, %89 ], [ false, %81 ]
-  %86 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %85, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator)
-  br i1 %86, label %89, label %87
+.lr.ph.split.us.i51:                              ; preds = %79, %86
+  %82 = phi ptr [ %87, %86 ], [ %80, %79 ]
+  %.02.us.i52 = phi i1 [ %.2.us.i53, %86 ], [ false, %79 ]
+  %83 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator)
+  br i1 %83, label %86, label %84
 
-87:                                               ; preds = %.lr.ph.split.us.i32
-  %88 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator, ptr noundef nonnull align 8 dereferenceable(56) %85)
-  br i1 %88, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37, label %89
+84:                                               ; preds = %.lr.ph.split.us.i51
+  %85 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator, ptr noundef nonnull align 8 dereferenceable(56) %82)
+  br i1 %85, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56, label %86
 
-89:                                               ; preds = %87, %.lr.ph.split.us.i32
-  %.2.us.i34 = phi i1 [ %.014.us.i33, %87 ], [ true, %.lr.ph.split.us.i32 ]
-  %90 = getelementptr inbounds i8, ptr %85, i64 56
-  %.not.us.i35 = icmp eq ptr %90, %83
-  br i1 %.not.us.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37, label %.lr.ph.split.us.i32, !llvm.loop !10
+86:                                               ; preds = %84, %.lr.ph.split.us.i51
+  %.2.us.i53 = phi i1 [ %.02.us.i52, %84 ], [ true, %.lr.ph.split.us.i51 ]
+  %87 = getelementptr inbounds i8, ptr %82, i64 56
+  %.not.us.i54 = icmp eq ptr %87, %11
+  br i1 %.not.us.i54, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56, label %.lr.ph.split.us.i51, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37: ; preds = %87, %89
-  %91 = phi ptr [ %85, %87 ], [ %90, %89 ]
-  %.011.i36 = phi i1 [ %.014.us.i33, %87 ], [ %.2.us.i34, %89 ]
-  br i1 %.011.i36, label %92, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56: ; preds = %84, %86
+  %88 = phi ptr [ %82, %84 ], [ %87, %86 ]
+  %.011.i55 = phi i1 [ %.02.us.i52, %84 ], [ %.2.us.i53, %86 ]
+  br i1 %.011.i55, label %89, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread
 
-92:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37
-  %93 = load i32, ptr %6, align 4
-  %94 = or i32 %93, 1
-  store i32 %94, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread
+89:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56
+  %90 = load i32, ptr %5, align 4
+  %91 = or i32 %90, 1
+  store i32 %91, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread
 
-95:                                               ; preds = %77, %75, %73
-  %96 = landingpad { ptr, i32 }
+92:                                               ; preds = %75, %73, %71
+  %93 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE11nameLocator) #17
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread: ; preds = %81, %92, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37
-  %.promoted141 = phi ptr [ %82, %81 ], [ %91, %92 ], [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37 ]
-  %97 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
-  %98 = icmp eq ptr %.promoted141, %83
-  br i1 %98, label %.critedge, label %.lr.ph.split.us.i39
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread: ; preds = %79, %89, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56
+  %.promoted161 = phi ptr [ %80, %79 ], [ %88, %89 ], [ %88, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56 ]
+  %94 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
+  %95 = icmp eq ptr %.promoted161, %11
+  br i1 %95, label %.critedge, label %.lr.ph.split.us.i58
 
-.lr.ph.split.us.i39:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread, %103
-  %99 = phi ptr [ %104, %103 ], [ %.promoted141, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread ]
-  %.014.us.i40 = phi i1 [ %.2.us.i41, %103 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread ]
-  %100 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %99, ptr noundef nonnull align 8 dereferenceable(56) %97)
-  br i1 %100, label %103, label %101
+.lr.ph.split.us.i58:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread, %100
+  %96 = phi ptr [ %101, %100 ], [ %.promoted161, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread ]
+  %.02.us.i59 = phi i1 [ %.2.us.i60, %100 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread ]
+  %97 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %96, ptr noundef nonnull align 8 dereferenceable(56) %94)
+  br i1 %97, label %100, label %98
 
-101:                                              ; preds = %.lr.ph.split.us.i39
-  %102 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %97, ptr noundef nonnull align 8 dereferenceable(56) %99)
-  br i1 %102, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44, label %103
+98:                                               ; preds = %.lr.ph.split.us.i58
+  %99 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(56) %96)
+  br i1 %99, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63, label %100
 
-103:                                              ; preds = %101, %.lr.ph.split.us.i39
-  %.2.us.i41 = phi i1 [ %.014.us.i40, %101 ], [ true, %.lr.ph.split.us.i39 ]
-  %104 = getelementptr inbounds i8, ptr %99, i64 56
-  %.not.us.i42 = icmp eq ptr %104, %83
-  br i1 %.not.us.i42, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44, label %.lr.ph.split.us.i39, !llvm.loop !10
+100:                                              ; preds = %98, %.lr.ph.split.us.i58
+  %.2.us.i60 = phi i1 [ %.02.us.i59, %98 ], [ true, %.lr.ph.split.us.i58 ]
+  %101 = getelementptr inbounds i8, ptr %96, i64 56
+  %.not.us.i61 = icmp eq ptr %101, %11
+  br i1 %.not.us.i61, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63, label %.lr.ph.split.us.i58, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44: ; preds = %101, %103
-  %.011.i43 = phi i1 [ %.014.us.i40, %101 ], [ %.2.us.i41, %103 ]
-  br i1 %.011.i43, label %105, label %.critedge
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63: ; preds = %98, %100
+  %.011.i62 = phi i1 [ %.02.us.i59, %98 ], [ %.2.us.i60, %100 ]
+  br i1 %.011.i62, label %102, label %.critedge
 
-105:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44
-  %106 = load i32, ptr %6, align 4
-  %107 = or i32 %106, 2
-  store i32 %107, ptr %6, align 4
+102:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63
+  %103 = load i32, ptr %5, align 4
+  %104 = or i32 %103, 2
+  store i32 %104, ptr %5, align 4
   br label %.critedge
 
-108:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit30
-  %109 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %110 = inttoptr i64 %109 to ptr
-  %.not.i.i45 = icmp eq i64 %109, 0
-  br i1 %.not.i.i45, label %111, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit47
+105:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit49
+  %106 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %107 = inttoptr i64 %106 to ptr
+  %.not.i.i64 = icmp eq i64 %106, 0
+  br i1 %.not.i.i64, label %108, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit66
 
-111:                                              ; preds = %108
-  %112 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %112)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46 unwind label %113
+108:                                              ; preds = %105
+  %109 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %109)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i65 unwind label %110
 
-113:                                              ; preds = %111
-  %114 = landingpad { ptr, i32 }
+110:                                              ; preds = %108
+  %111 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef 352) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef 352) #16
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46: ; preds = %111
-  %115 = ptrtoint ptr %112 to i64
-  %116 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %115 seq_cst seq_cst, align 8
-  %117 = extractvalue { i64, i1 } %116, 1
-  br i1 %117, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit47, label %118
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i65: ; preds = %108
+  %112 = ptrtoint ptr %109 to i64
+  %113 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %112 seq_cst seq_cst, align 8
+  %114 = extractvalue { i64, i1 } %113, 1
+  br i1 %114, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit66, label %115
 
-118:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %112) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef 352) #16
-  %119 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %120 = inttoptr i64 %119 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit47
+115:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i65
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %109) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef 352) #16
+  %116 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %117 = inttoptr i64 %116 to ptr
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit66
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit47: ; preds = %108, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46, %118
-  %121 = phi ptr [ %110, %108 ], [ %120, %118 ], [ %112, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46 ]
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 128
-  %123 = load ptr, ptr %0, align 8
-  %124 = ptrtoint ptr %123 to i64
-  %125 = load ptr, ptr %122, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %127 = xor i64 %126, %124
-  %128 = icmp ult i64 %127, 8
-  br i1 %128, label %129, label %155
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit66: ; preds = %105, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i65, %115
+  %118 = phi ptr [ %107, %105 ], [ %117, %115 ], [ %109, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i65 ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 128
+  %120 = load ptr, ptr %0, align 8
+  %121 = ptrtoint ptr %120 to i64
+  %122 = load ptr, ptr %119, align 8
+  %123 = ptrtoint ptr %122 to i64
+  %124 = xor i64 %123, %121
+  %125 = icmp ult i64 %124, 8
+  br i1 %125, label %126, label %151
 
-129:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit47
-  %130 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdCameraSchema17GetDefaultLocatorEv()
-  %131 = load ptr, ptr %4, align 8
-  %132 = load ptr, ptr %5, align 8
-  %133 = icmp eq ptr %131, %132
-  br i1 %133, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread, label %.lr.ph.split.us.i49
+126:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit66
+  %127 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdCameraSchema17GetDefaultLocatorEv()
+  %128 = load ptr, ptr %4, align 8
+  %129 = icmp eq ptr %128, %11
+  br i1 %129, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread, label %.lr.ph.split.us.i68
 
-.lr.ph.split.us.i49:                              ; preds = %129, %138
-  %134 = phi ptr [ %139, %138 ], [ %131, %129 ]
-  %.014.us.i50 = phi i1 [ %.2.us.i51, %138 ], [ false, %129 ]
-  %135 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %134, ptr noundef nonnull align 8 dereferenceable(56) %130)
-  br i1 %135, label %138, label %136
+.lr.ph.split.us.i68:                              ; preds = %126, %134
+  %130 = phi ptr [ %135, %134 ], [ %128, %126 ]
+  %.02.us.i69 = phi i1 [ %.2.us.i70, %134 ], [ false, %126 ]
+  %131 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %130, ptr noundef nonnull align 8 dereferenceable(56) %127)
+  br i1 %131, label %134, label %132
 
-136:                                              ; preds = %.lr.ph.split.us.i49
-  %137 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %130, ptr noundef nonnull align 8 dereferenceable(56) %134)
-  br i1 %137, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54, label %138
+132:                                              ; preds = %.lr.ph.split.us.i68
+  %133 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %127, ptr noundef nonnull align 8 dereferenceable(56) %130)
+  br i1 %133, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73, label %134
 
-138:                                              ; preds = %136, %.lr.ph.split.us.i49
-  %.2.us.i51 = phi i1 [ %.014.us.i50, %136 ], [ true, %.lr.ph.split.us.i49 ]
-  %139 = getelementptr inbounds i8, ptr %134, i64 56
-  %.not.us.i52 = icmp eq ptr %139, %132
-  br i1 %.not.us.i52, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54, label %.lr.ph.split.us.i49, !llvm.loop !10
+134:                                              ; preds = %132, %.lr.ph.split.us.i68
+  %.2.us.i70 = phi i1 [ %.02.us.i69, %132 ], [ true, %.lr.ph.split.us.i68 ]
+  %135 = getelementptr inbounds i8, ptr %130, i64 56
+  %.not.us.i71 = icmp eq ptr %135, %11
+  br i1 %.not.us.i71, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73, label %.lr.ph.split.us.i68, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54: ; preds = %136, %138
-  %140 = phi ptr [ %134, %136 ], [ %139, %138 ]
-  %.011.i53 = phi i1 [ %.014.us.i50, %136 ], [ %.2.us.i51, %138 ]
-  br i1 %.011.i53, label %141, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73: ; preds = %132, %134
+  %136 = phi ptr [ %130, %132 ], [ %135, %134 ]
+  %.011.i72 = phi i1 [ %.02.us.i69, %132 ], [ %.2.us.i70, %134 ]
+  br i1 %.011.i72, label %137, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread
 
-141:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54
-  %142 = load i32, ptr %6, align 4
-  %143 = or i32 %142, 14
-  store i32 %143, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread
+137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73
+  %138 = load i32, ptr %5, align 4
+  %139 = or i32 %138, 14
+  store i32 %139, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread: ; preds = %129, %141, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54
-  %.promoted139 = phi ptr [ %131, %129 ], [ %140, %141 ], [ %140, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54 ]
-  %144 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
-  %145 = icmp eq ptr %.promoted139, %132
-  br i1 %145, label %.critedge, label %.lr.ph.split.us.i56
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread: ; preds = %126, %137, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73
+  %.promoted159 = phi ptr [ %128, %126 ], [ %136, %137 ], [ %136, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73 ]
+  %140 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
+  %141 = icmp eq ptr %.promoted159, %11
+  br i1 %141, label %.critedge, label %.lr.ph.split.us.i75
 
-.lr.ph.split.us.i56:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread, %150
-  %146 = phi ptr [ %151, %150 ], [ %.promoted139, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread ]
-  %.014.us.i57 = phi i1 [ %.2.us.i58, %150 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread ]
-  %147 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %146, ptr noundef nonnull align 8 dereferenceable(56) %144)
-  br i1 %147, label %150, label %148
+.lr.ph.split.us.i75:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread, %146
+  %142 = phi ptr [ %147, %146 ], [ %.promoted159, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread ]
+  %.02.us.i76 = phi i1 [ %.2.us.i77, %146 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread ]
+  %143 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %142, ptr noundef nonnull align 8 dereferenceable(56) %140)
+  br i1 %143, label %146, label %144
 
-148:                                              ; preds = %.lr.ph.split.us.i56
-  %149 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %144, ptr noundef nonnull align 8 dereferenceable(56) %146)
-  br i1 %149, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit61, label %150
+144:                                              ; preds = %.lr.ph.split.us.i75
+  %145 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %140, ptr noundef nonnull align 8 dereferenceable(56) %142)
+  br i1 %145, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80, label %146
 
-150:                                              ; preds = %148, %.lr.ph.split.us.i56
-  %.2.us.i58 = phi i1 [ %.014.us.i57, %148 ], [ true, %.lr.ph.split.us.i56 ]
-  %151 = getelementptr inbounds i8, ptr %146, i64 56
-  %.not.us.i59 = icmp eq ptr %151, %132
-  br i1 %.not.us.i59, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit61, label %.lr.ph.split.us.i56, !llvm.loop !10
+146:                                              ; preds = %144, %.lr.ph.split.us.i75
+  %.2.us.i77 = phi i1 [ %.02.us.i76, %144 ], [ true, %.lr.ph.split.us.i75 ]
+  %147 = getelementptr inbounds i8, ptr %142, i64 56
+  %.not.us.i78 = icmp eq ptr %147, %11
+  br i1 %.not.us.i78, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80, label %.lr.ph.split.us.i75, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit61: ; preds = %148, %150
-  %.011.i60 = phi i1 [ %.014.us.i57, %148 ], [ %.2.us.i58, %150 ]
-  br i1 %.011.i60, label %152, label %.critedge
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80: ; preds = %144, %146
+  %.011.i79 = phi i1 [ %.02.us.i76, %144 ], [ %.2.us.i77, %146 ]
+  br i1 %.011.i79, label %148, label %.critedge
 
-152:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit61
-  %153 = load i32, ptr %6, align 4
-  %154 = or i32 %153, 1
-  store i32 %154, ptr %6, align 4
+148:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80
+  %149 = load i32, ptr %5, align 4
+  %150 = or i32 %149, 1
+  store i32 %150, ptr %5, align 4
   br label %.critedge
 
-155:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit47
-  %156 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17HdPrimTypeIsLightERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %156, label %178, label %157
+151:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit66
+  %152 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17HdPrimTypeIsLightERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %152, label %174, label %153
 
-157:                                              ; preds = %155
-  %158 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %159 = inttoptr i64 %158 to ptr
-  %.not.i.i62 = icmp eq i64 %158, 0
-  br i1 %.not.i.i62, label %160, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64
+153:                                              ; preds = %151
+  %154 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %155 = inttoptr i64 %154 to ptr
+  %.not.i.i81 = icmp eq i64 %154, 0
+  br i1 %.not.i.i81, label %156, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit83
 
-160:                                              ; preds = %157
-  %161 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %161)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i63 unwind label %162
+156:                                              ; preds = %153
+  %157 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %157)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82 unwind label %158
 
-162:                                              ; preds = %160
-  %163 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef 352) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %157, i64 noundef 352) #16
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i63: ; preds = %160
-  %164 = ptrtoint ptr %161 to i64
-  %165 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %164 seq_cst seq_cst, align 8
-  %166 = extractvalue { i64, i1 } %165, 1
-  br i1 %166, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64, label %167
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82: ; preds = %156
+  %160 = ptrtoint ptr %157 to i64
+  %161 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %160 seq_cst seq_cst, align 8
+  %162 = extractvalue { i64, i1 } %161, 1
+  br i1 %162, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit83, label %163
 
-167:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i63
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %161) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef 352) #16
-  %168 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
-  %169 = inttoptr i64 %168 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64
+163:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %157) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %157, i64 noundef 352) #16
+  %164 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
+  %165 = inttoptr i64 %164 to ptr
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit83
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64: ; preds = %157, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i63, %167
-  %170 = phi ptr [ %159, %157 ], [ %169, %167 ], [ %161, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i63 ]
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 288
-  %172 = load ptr, ptr %0, align 8
-  %173 = ptrtoint ptr %172 to i64
-  %174 = load ptr, ptr %171, align 8
-  %175 = ptrtoint ptr %174 to i64
-  %176 = xor i64 %175, %173
-  %177 = icmp ult i64 %176, 8
-  br i1 %177, label %178, label %252
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit83: ; preds = %153, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82, %163
+  %166 = phi ptr [ %155, %153 ], [ %165, %163 ], [ %157, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82 ]
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 288
+  %168 = load ptr, ptr %0, align 8
+  %169 = ptrtoint ptr %168 to i64
+  %170 = load ptr, ptr %167, align 8
+  %171 = ptrtoint ptr %170 to i64
+  %172 = xor i64 %171, %169
+  %173 = icmp ult i64 %172, 8
+  br i1 %173, label %174, label %247
 
-178:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64, %155
-  %179 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdInstancedBySchema17GetDefaultLocatorEv()
-  %180 = load ptr, ptr %4, align 8
-  %181 = load ptr, ptr %5, align 8
-  %182 = icmp eq ptr %180, %181
-  br i1 %182, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread, label %.lr.ph.split.us.i66
+174:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit83, %151
+  %175 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdInstancedBySchema17GetDefaultLocatorEv()
+  %176 = load ptr, ptr %4, align 8
+  %177 = icmp eq ptr %176, %11
+  br i1 %177, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread, label %.lr.ph.split.us.i85
 
-.lr.ph.split.us.i66:                              ; preds = %178, %187
-  %183 = phi ptr [ %188, %187 ], [ %180, %178 ]
-  %.014.us.i67 = phi i1 [ %.2.us.i68, %187 ], [ false, %178 ]
-  %184 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %183, ptr noundef nonnull align 8 dereferenceable(56) %179)
-  br i1 %184, label %187, label %185
+.lr.ph.split.us.i85:                              ; preds = %174, %182
+  %178 = phi ptr [ %183, %182 ], [ %176, %174 ]
+  %.02.us.i86 = phi i1 [ %.2.us.i87, %182 ], [ false, %174 ]
+  %179 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %178, ptr noundef nonnull align 8 dereferenceable(56) %175)
+  br i1 %179, label %182, label %180
 
-185:                                              ; preds = %.lr.ph.split.us.i66
-  %186 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %179, ptr noundef nonnull align 8 dereferenceable(56) %183)
-  br i1 %186, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71, label %187
+180:                                              ; preds = %.lr.ph.split.us.i85
+  %181 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %175, ptr noundef nonnull align 8 dereferenceable(56) %178)
+  br i1 %181, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90, label %182
 
-187:                                              ; preds = %185, %.lr.ph.split.us.i66
-  %.2.us.i68 = phi i1 [ %.014.us.i67, %185 ], [ true, %.lr.ph.split.us.i66 ]
-  %188 = getelementptr inbounds i8, ptr %183, i64 56
-  %.not.us.i69 = icmp eq ptr %188, %181
-  br i1 %.not.us.i69, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71, label %.lr.ph.split.us.i66, !llvm.loop !10
+182:                                              ; preds = %180, %.lr.ph.split.us.i85
+  %.2.us.i87 = phi i1 [ %.02.us.i86, %180 ], [ true, %.lr.ph.split.us.i85 ]
+  %183 = getelementptr inbounds i8, ptr %178, i64 56
+  %.not.us.i88 = icmp eq ptr %183, %11
+  br i1 %.not.us.i88, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90, label %.lr.ph.split.us.i85, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71: ; preds = %185, %187
-  %189 = phi ptr [ %183, %185 ], [ %188, %187 ]
-  %.011.i70 = phi i1 [ %.014.us.i67, %185 ], [ %.2.us.i68, %187 ]
-  br i1 %.011.i70, label %190, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90: ; preds = %180, %182
+  %184 = phi ptr [ %178, %180 ], [ %183, %182 ]
+  %.011.i89 = phi i1 [ %.02.us.i86, %180 ], [ %.2.us.i87, %182 ]
+  br i1 %.011.i89, label %185, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread
 
-190:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71
-  %191 = load i32, ptr %6, align 4
-  %192 = or i32 %191, 65536
-  store i32 %192, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread
+185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90
+  %186 = load i32, ptr %5, align 4
+  %187 = or i32 %186, 65536
+  store i32 %187, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread: ; preds = %178, %190, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71
-  %.promoted133 = phi ptr [ %180, %178 ], [ %189, %190 ], [ %189, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71 ]
-  %193 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdLightSchema17GetDefaultLocatorEv()
-  %194 = icmp eq ptr %.promoted133, %181
-  br i1 %194, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread, label %.lr.ph.split.us.i73
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread: ; preds = %174, %185, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90
+  %.promoted153 = phi ptr [ %176, %174 ], [ %184, %185 ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90 ]
+  %188 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdLightSchema17GetDefaultLocatorEv()
+  %189 = icmp eq ptr %.promoted153, %11
+  br i1 %189, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread, label %.lr.ph.split.us.i92
 
-.lr.ph.split.us.i73:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread, %199
-  %195 = phi ptr [ %200, %199 ], [ %.promoted133, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread ]
-  %.014.us.i74 = phi i1 [ %.2.us.i75, %199 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread ]
-  %196 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %195, ptr noundef nonnull align 8 dereferenceable(56) %193)
-  br i1 %196, label %199, label %197
+.lr.ph.split.us.i92:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread, %194
+  %190 = phi ptr [ %195, %194 ], [ %.promoted153, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread ]
+  %.02.us.i93 = phi i1 [ %.2.us.i94, %194 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread ]
+  %191 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %190, ptr noundef nonnull align 8 dereferenceable(56) %188)
+  br i1 %191, label %194, label %192
 
-197:                                              ; preds = %.lr.ph.split.us.i73
-  %198 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %193, ptr noundef nonnull align 8 dereferenceable(56) %195)
-  br i1 %198, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78, label %199
+192:                                              ; preds = %.lr.ph.split.us.i92
+  %193 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %188, ptr noundef nonnull align 8 dereferenceable(56) %190)
+  br i1 %193, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97, label %194
 
-199:                                              ; preds = %197, %.lr.ph.split.us.i73
-  %.2.us.i75 = phi i1 [ %.014.us.i74, %197 ], [ true, %.lr.ph.split.us.i73 ]
-  %200 = getelementptr inbounds i8, ptr %195, i64 56
-  %.not.us.i76 = icmp eq ptr %200, %181
-  br i1 %.not.us.i76, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78, label %.lr.ph.split.us.i73, !llvm.loop !10
+194:                                              ; preds = %192, %.lr.ph.split.us.i92
+  %.2.us.i94 = phi i1 [ %.02.us.i93, %192 ], [ true, %.lr.ph.split.us.i92 ]
+  %195 = getelementptr inbounds i8, ptr %190, i64 56
+  %.not.us.i95 = icmp eq ptr %195, %11
+  br i1 %.not.us.i95, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97, label %.lr.ph.split.us.i92, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78: ; preds = %197, %199
-  %201 = phi ptr [ %195, %197 ], [ %200, %199 ]
-  %.011.i77 = phi i1 [ %.014.us.i74, %197 ], [ %.2.us.i75, %199 ]
-  br i1 %.011.i77, label %202, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97: ; preds = %192, %194
+  %196 = phi ptr [ %190, %192 ], [ %195, %194 ]
+  %.011.i96 = phi i1 [ %.02.us.i93, %192 ], [ %.2.us.i94, %194 ]
+  br i1 %.011.i96, label %197, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread
 
-202:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78
-  %203 = load i32, ptr %6, align 4
-  %204 = or i32 %203, 30
-  store i32 %204, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread
+197:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97
+  %198 = load i32, ptr %5, align 4
+  %199 = or i32 %198, 30
+  store i32 %199, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread, %202, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78
-  %.promoted134 = phi ptr [ %.promoted133, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit71.thread ], [ %201, %202 ], [ %201, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78 ]
-  %205 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdMaterialSchema17GetDefaultLocatorEv()
-  %206 = icmp eq ptr %.promoted134, %181
-  br i1 %206, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread, label %.lr.ph.split.us.i80
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread, %197, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97
+  %.promoted154 = phi ptr [ %.promoted153, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread ], [ %196, %197 ], [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97 ]
+  %200 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdMaterialSchema17GetDefaultLocatorEv()
+  %201 = icmp eq ptr %.promoted154, %11
+  br i1 %201, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread, label %.lr.ph.split.us.i99
 
-.lr.ph.split.us.i80:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread, %211
-  %207 = phi ptr [ %212, %211 ], [ %.promoted134, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread ]
-  %.014.us.i81 = phi i1 [ %.2.us.i82, %211 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread ]
-  %208 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %207, ptr noundef nonnull align 8 dereferenceable(56) %205)
-  br i1 %208, label %211, label %209
+.lr.ph.split.us.i99:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread, %206
+  %202 = phi ptr [ %207, %206 ], [ %.promoted154, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread ]
+  %.02.us.i100 = phi i1 [ %.2.us.i101, %206 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread ]
+  %203 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %202, ptr noundef nonnull align 8 dereferenceable(56) %200)
+  br i1 %203, label %206, label %204
 
-209:                                              ; preds = %.lr.ph.split.us.i80
-  %210 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %205, ptr noundef nonnull align 8 dereferenceable(56) %207)
-  br i1 %210, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85, label %211
+204:                                              ; preds = %.lr.ph.split.us.i99
+  %205 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %200, ptr noundef nonnull align 8 dereferenceable(56) %202)
+  br i1 %205, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, label %206
 
-211:                                              ; preds = %209, %.lr.ph.split.us.i80
-  %.2.us.i82 = phi i1 [ %.014.us.i81, %209 ], [ true, %.lr.ph.split.us.i80 ]
-  %212 = getelementptr inbounds i8, ptr %207, i64 56
-  %.not.us.i83 = icmp eq ptr %212, %181
-  br i1 %.not.us.i83, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85, label %.lr.ph.split.us.i80, !llvm.loop !10
+206:                                              ; preds = %204, %.lr.ph.split.us.i99
+  %.2.us.i101 = phi i1 [ %.02.us.i100, %204 ], [ true, %.lr.ph.split.us.i99 ]
+  %207 = getelementptr inbounds i8, ptr %202, i64 56
+  %.not.us.i102 = icmp eq ptr %207, %11
+  br i1 %.not.us.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, label %.lr.ph.split.us.i99, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85: ; preds = %209, %211
-  %213 = phi ptr [ %207, %209 ], [ %212, %211 ]
-  %.011.i84 = phi i1 [ %.014.us.i81, %209 ], [ %.2.us.i82, %211 ]
-  br i1 %.011.i84, label %214, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104: ; preds = %204, %206
+  %208 = phi ptr [ %202, %204 ], [ %207, %206 ]
+  %.011.i103 = phi i1 [ %.02.us.i100, %204 ], [ %.2.us.i101, %206 ]
+  br i1 %.011.i103, label %209, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread
 
-214:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85
-  %215 = load i32, ptr %6, align 4
-  %216 = or i32 %215, 16
-  store i32 %216, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread
+209:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104
+  %210 = load i32, ptr %5, align 4
+  %211 = or i32 %210, 16
+  store i32 %211, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread, %214, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85
-  %.promoted135 = phi ptr [ %.promoted134, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit78.thread ], [ %213, %214 ], [ %213, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85 ]
-  %217 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetDefaultLocatorEv()
-  %218 = icmp eq ptr %.promoted135, %181
-  br i1 %218, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread, label %.lr.ph.split.us.i87
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread, %209, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104
+  %.promoted155 = phi ptr [ %.promoted154, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread ], [ %208, %209 ], [ %208, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104 ]
+  %212 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetDefaultLocatorEv()
+  %213 = icmp eq ptr %.promoted155, %11
+  br i1 %213, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread, label %.lr.ph.split.us.i106
 
-.lr.ph.split.us.i87:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread, %223
-  %219 = phi ptr [ %224, %223 ], [ %.promoted135, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread ]
-  %.014.us.i88 = phi i1 [ %.2.us.i89, %223 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread ]
-  %220 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %219, ptr noundef nonnull align 8 dereferenceable(56) %217)
-  br i1 %220, label %223, label %221
+.lr.ph.split.us.i106:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread, %218
+  %214 = phi ptr [ %219, %218 ], [ %.promoted155, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread ]
+  %.02.us.i107 = phi i1 [ %.2.us.i108, %218 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread ]
+  %215 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %214, ptr noundef nonnull align 8 dereferenceable(56) %212)
+  br i1 %215, label %218, label %216
 
-221:                                              ; preds = %.lr.ph.split.us.i87
-  %222 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %217, ptr noundef nonnull align 8 dereferenceable(56) %219)
-  br i1 %222, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92, label %223
+216:                                              ; preds = %.lr.ph.split.us.i106
+  %217 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %212, ptr noundef nonnull align 8 dereferenceable(56) %214)
+  br i1 %217, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111, label %218
 
-223:                                              ; preds = %221, %.lr.ph.split.us.i87
-  %.2.us.i89 = phi i1 [ %.014.us.i88, %221 ], [ true, %.lr.ph.split.us.i87 ]
-  %224 = getelementptr inbounds i8, ptr %219, i64 56
-  %.not.us.i90 = icmp eq ptr %224, %181
-  br i1 %.not.us.i90, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92, label %.lr.ph.split.us.i87, !llvm.loop !10
+218:                                              ; preds = %216, %.lr.ph.split.us.i106
+  %.2.us.i108 = phi i1 [ %.02.us.i107, %216 ], [ true, %.lr.ph.split.us.i106 ]
+  %219 = getelementptr inbounds i8, ptr %214, i64 56
+  %.not.us.i109 = icmp eq ptr %219, %11
+  br i1 %.not.us.i109, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111, label %.lr.ph.split.us.i106, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92: ; preds = %221, %223
-  %225 = phi ptr [ %219, %221 ], [ %224, %223 ]
-  %.011.i91 = phi i1 [ %.014.us.i88, %221 ], [ %.2.us.i89, %223 ]
-  br i1 %.011.i91, label %226, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111: ; preds = %216, %218
+  %220 = phi ptr [ %214, %216 ], [ %219, %218 ]
+  %.011.i110 = phi i1 [ %.02.us.i107, %216 ], [ %.2.us.i108, %218 ]
+  br i1 %.011.i110, label %221, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread
 
-226:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92
-  %227 = load i32, ptr %6, align 4
-  %228 = or i32 %227, 2
-  store i32 %228, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread
+221:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111
+  %222 = load i32, ptr %5, align 4
+  %223 = or i32 %222, 2
+  store i32 %223, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread, %226, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92
-  %.promoted136 = phi ptr [ %.promoted135, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit85.thread ], [ %225, %226 ], [ %225, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92 ]
-  %229 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
-  %230 = icmp eq ptr %.promoted136, %181
-  br i1 %230, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread, label %.lr.ph.split.us.i94
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread, %221, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111
+  %.promoted156 = phi ptr [ %.promoted155, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread ], [ %220, %221 ], [ %220, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111 ]
+  %224 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
+  %225 = icmp eq ptr %.promoted156, %11
+  br i1 %225, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread, label %.lr.ph.split.us.i113
 
-.lr.ph.split.us.i94:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread, %235
-  %231 = phi ptr [ %236, %235 ], [ %.promoted136, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread ]
-  %.014.us.i95 = phi i1 [ %.2.us.i96, %235 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread ]
-  %232 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %231, ptr noundef nonnull align 8 dereferenceable(56) %229)
-  br i1 %232, label %235, label %233
+.lr.ph.split.us.i113:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread, %230
+  %226 = phi ptr [ %231, %230 ], [ %.promoted156, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread ]
+  %.02.us.i114 = phi i1 [ %.2.us.i115, %230 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread ]
+  %227 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %226, ptr noundef nonnull align 8 dereferenceable(56) %224)
+  br i1 %227, label %230, label %228
 
-233:                                              ; preds = %.lr.ph.split.us.i94
-  %234 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %229, ptr noundef nonnull align 8 dereferenceable(56) %231)
-  br i1 %234, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99, label %235
+228:                                              ; preds = %.lr.ph.split.us.i113
+  %229 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %224, ptr noundef nonnull align 8 dereferenceable(56) %226)
+  br i1 %229, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118, label %230
 
-235:                                              ; preds = %233, %.lr.ph.split.us.i94
-  %.2.us.i96 = phi i1 [ %.014.us.i95, %233 ], [ true, %.lr.ph.split.us.i94 ]
-  %236 = getelementptr inbounds i8, ptr %231, i64 56
-  %.not.us.i97 = icmp eq ptr %236, %181
-  br i1 %.not.us.i97, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99, label %.lr.ph.split.us.i94, !llvm.loop !10
+230:                                              ; preds = %228, %.lr.ph.split.us.i113
+  %.2.us.i115 = phi i1 [ %.02.us.i114, %228 ], [ true, %.lr.ph.split.us.i113 ]
+  %231 = getelementptr inbounds i8, ptr %226, i64 56
+  %.not.us.i116 = icmp eq ptr %231, %11
+  br i1 %.not.us.i116, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118, label %.lr.ph.split.us.i113, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99: ; preds = %233, %235
-  %237 = phi ptr [ %231, %233 ], [ %236, %235 ]
-  %.011.i98 = phi i1 [ %.014.us.i95, %233 ], [ %.2.us.i96, %235 ]
-  br i1 %.011.i98, label %238, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118: ; preds = %228, %230
+  %232 = phi ptr [ %226, %228 ], [ %231, %230 ]
+  %.011.i117 = phi i1 [ %.02.us.i114, %228 ], [ %.2.us.i115, %230 ]
+  br i1 %.011.i117, label %233, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread
 
-238:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99
-  %239 = load i32, ptr %6, align 4
-  %240 = or i32 %239, 2
-  store i32 %240, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread
+233:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118
+  %234 = load i32, ptr %5, align 4
+  %235 = or i32 %234, 2
+  store i32 %235, ptr %5, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread, %238, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99
-  %.promoted137 = phi ptr [ %.promoted136, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit92.thread ], [ %237, %238 ], [ %237, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99 ]
-  %241 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
-  %242 = icmp eq ptr %.promoted137, %181
-  br i1 %242, label %.critedge, label %.lr.ph.split.us.i101
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread, %233, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118
+  %.promoted157 = phi ptr [ %.promoted156, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread ], [ %232, %233 ], [ %232, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118 ]
+  %236 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
+  %237 = icmp eq ptr %.promoted157, %11
+  br i1 %237, label %.critedge, label %.lr.ph.split.us.i120
 
-.lr.ph.split.us.i101:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread, %247
-  %243 = phi ptr [ %248, %247 ], [ %.promoted137, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread ]
-  %.014.us.i102 = phi i1 [ %.2.us.i103, %247 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread ]
-  %244 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull align 8 dereferenceable(56) %241)
-  br i1 %244, label %247, label %245
+.lr.ph.split.us.i120:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread, %242
+  %238 = phi ptr [ %243, %242 ], [ %.promoted157, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread ]
+  %.02.us.i121 = phi i1 [ %.2.us.i122, %242 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread ]
+  %239 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %238, ptr noundef nonnull align 8 dereferenceable(56) %236)
+  br i1 %239, label %242, label %240
 
-245:                                              ; preds = %.lr.ph.split.us.i101
-  %246 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %241, ptr noundef nonnull align 8 dereferenceable(56) %243)
-  br i1 %246, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106, label %247
+240:                                              ; preds = %.lr.ph.split.us.i120
+  %241 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %236, ptr noundef nonnull align 8 dereferenceable(56) %238)
+  br i1 %241, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125, label %242
 
-247:                                              ; preds = %245, %.lr.ph.split.us.i101
-  %.2.us.i103 = phi i1 [ %.014.us.i102, %245 ], [ true, %.lr.ph.split.us.i101 ]
-  %248 = getelementptr inbounds i8, ptr %243, i64 56
-  %.not.us.i104 = icmp eq ptr %248, %181
-  br i1 %.not.us.i104, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106, label %.lr.ph.split.us.i101, !llvm.loop !10
+242:                                              ; preds = %240, %.lr.ph.split.us.i120
+  %.2.us.i122 = phi i1 [ %.02.us.i121, %240 ], [ true, %.lr.ph.split.us.i120 ]
+  %243 = getelementptr inbounds i8, ptr %238, i64 56
+  %.not.us.i123 = icmp eq ptr %243, %11
+  br i1 %.not.us.i123, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125, label %.lr.ph.split.us.i120, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106: ; preds = %245, %247
-  %.011.i105 = phi i1 [ %.014.us.i102, %245 ], [ %.2.us.i103, %247 ]
-  br i1 %.011.i105, label %249, label %.critedge
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125: ; preds = %240, %242
+  %.011.i124 = phi i1 [ %.02.us.i121, %240 ], [ %.2.us.i122, %242 ]
+  br i1 %.011.i124, label %244, label %.critedge
 
-249:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106
-  %250 = load i32, ptr %6, align 4
-  %251 = or i32 %250, 1
-  store i32 %251, ptr %6, align 4
+244:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125
+  %245 = load i32, ptr %5, align 4
+  %246 = or i32 %245, 1
+  store i32 %246, ptr %5, align 4
   br label %.critedge
 
-252:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit64
-  %253 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 136
-  %255 = load ptr, ptr %0, align 8
-  %256 = ptrtoint ptr %255 to i64
-  %257 = load ptr, ptr %254, align 8
-  %258 = ptrtoint ptr %257 to i64
-  %259 = xor i64 %258, %256
-  %260 = icmp ult i64 %259, 8
-  br i1 %260, label %261, label %279
+247:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit83
+  %248 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 136
+  %250 = load ptr, ptr %0, align 8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = load ptr, ptr %249, align 8
+  %253 = ptrtoint ptr %252 to i64
+  %254 = xor i64 %253, %251
+  %255 = icmp ult i64 %254, 8
+  br i1 %255, label %256, label %274
 
-261:                                              ; preds = %252
-  %262 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator acquire, align 8
-  %263 = icmp eq i8 %262, 0
-  br i1 %263, label %264, label %272, !prof !4
+256:                                              ; preds = %247
+  %257 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator acquire, align 8
+  %258 = icmp eq i8 %257, 0
+  br i1 %258, label %259, label %267, !prof !4
 
-264:                                              ; preds = %261
-  %265 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator) #17
-  %.not25 = icmp eq i32 %265, 0
-  br i1 %.not25, label %272, label %266
+259:                                              ; preds = %256
+  %260 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator) #17
+  %.not25 = icmp eq i32 %260, 0
+  br i1 %.not25, label %267, label %261
 
-266:                                              ; preds = %264
-  %267 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-          to label %268 unwind label %277
+261:                                              ; preds = %259
+  %262 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+          to label %263 unwind label %272
 
-268:                                              ; preds = %266
-  %269 = getelementptr inbounds nuw i8, ptr %267, i64 136
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1ERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr noundef nonnull align 8 dereferenceable(8) %269)
-          to label %270 unwind label %277
+263:                                              ; preds = %261
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 136
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1ERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr noundef nonnull align 8 dereferenceable(8) %264)
+          to label %265 unwind label %272
 
-270:                                              ; preds = %268
-  %271 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr nonnull @__dso_handle) #17
+265:                                              ; preds = %263
+  %266 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr nonnull @__dso_handle) #17
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator) #17
-  br label %272
+  br label %267
 
-272:                                              ; preds = %270, %264, %261
-  %273 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-  br i1 %273, label %274, label %.critedge
+267:                                              ; preds = %265, %259, %256
+  %268 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+  br i1 %268, label %269, label %.critedge
 
-274:                                              ; preds = %272
-  %275 = load i32, ptr %6, align 4
-  %276 = or i32 %275, -3
-  store i32 %276, ptr %6, align 4
+269:                                              ; preds = %267
+  %270 = load i32, ptr %5, align 4
+  %271 = or i32 %270, -3
+  store i32 %271, ptr %5, align 4
   br label %.critedge
 
-277:                                              ; preds = %268, %266
-  %278 = landingpad { ptr, i32 }
+272:                                              ; preds = %263, %261
+  %273 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator26SprimLocatorSetToDirtyBitsERKNS_7TfTokenERKNS_22HdDataSourceLocatorSetEE7locator) #17
   br label %common.resume
 
-279:                                              ; preds = %252
-  %280 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 296
-  %282 = load ptr, ptr %0, align 8
-  %283 = ptrtoint ptr %282 to i64
-  %284 = load ptr, ptr %281, align 8
-  %285 = ptrtoint ptr %284 to i64
-  %286 = xor i64 %285, %283
-  %287 = icmp ult i64 %286, 8
-  br i1 %287, label %288, label %329
+274:                                              ; preds = %247
+  %275 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 296
+  %277 = load ptr, ptr %0, align 8
+  %278 = ptrtoint ptr %277 to i64
+  %279 = load ptr, ptr %276, align 8
+  %280 = ptrtoint ptr %279 to i64
+  %281 = xor i64 %280, %278
+  %282 = icmp ult i64 %281, 8
+  br i1 %282, label %283, label %322
 
-288:                                              ; preds = %279
-  %289 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
-  %290 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %289, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext false)
-  br i1 %290, label %291, label %.critedge
+283:                                              ; preds = %274
+  %284 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
+  %285 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %284, ptr %11, ptr noundef %4, i1 noundef zeroext false)
+  br i1 %285, label %286, label %.critedge
 
-291:                                              ; preds = %288
-  %292 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
-  %293 = load ptr, ptr %4, align 8
-  %294 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %292, ptr noundef nonnull align 8 dereferenceable(56) %293)
-  %295 = load i32, ptr %6, align 4
-  br i1 %294, label %297, label %.preheader
+286:                                              ; preds = %283
+  %287 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
+  %288 = load ptr, ptr %4, align 8
+  %289 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %287, ptr noundef nonnull align 8 dereferenceable(56) %288)
+  %290 = load i32, ptr %5, align 4
+  br i1 %289, label %291, label %.preheader
 
-.preheader:                                       ; preds = %291
-  %296 = load ptr, ptr %5, align 8
-  br label %299
-
-297:                                              ; preds = %291
-  %298 = or i32 %295, 111
-  store i32 %298, ptr %6, align 4
+291:                                              ; preds = %286
+  %292 = or i32 %290, 111
+  store i32 %292, ptr %5, align 4
   br label %.critedge
 
-299:                                              ; preds = %.preheader, %326
-  %300 = phi i32 [ %295, %.preheader ], [ %spec.select143, %326 ]
-  %301 = phi ptr [ %293, %.preheader ], [ %325, %326 ]
-  %302 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema23GetDispatchCountLocatorEv()
-  %303 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %302)
-  %304 = or i32 %300, 64
-  %spec.select = select i1 %303, i32 %304, i32 %300
-  %305 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema22GetElementCountLocatorEv()
-  %306 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %305)
-  %307 = or i32 %spec.select, 4
-  %308 = select i1 %306, i32 %307, i32 %spec.select
-  %309 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema20GetGlslKernelLocatorEv()
-  %310 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %309)
-  %311 = or i32 %308, 32
-  %312 = select i1 %310, i32 %311, i32 %308
-  %313 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema21GetInputValuesLocatorEv()
-  %314 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %313)
-  br i1 %314, label %318, label %315
+.preheader:                                       ; preds = %286, %319
+  %293 = phi i32 [ %spec.select163, %319 ], [ %290, %286 ]
+  %294 = phi ptr [ %318, %319 ], [ %288, %286 ]
+  %295 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema23GetDispatchCountLocatorEv()
+  %296 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %294, ptr noundef nonnull align 8 dereferenceable(56) %295)
+  %297 = or i32 %293, 64
+  %spec.select = select i1 %296, i32 %297, i32 %293
+  %298 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema22GetElementCountLocatorEv()
+  %299 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %294, ptr noundef nonnull align 8 dereferenceable(56) %298)
+  %300 = or i32 %spec.select, 4
+  %301 = select i1 %299, i32 %300, i32 %spec.select
+  %302 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema20GetGlslKernelLocatorEv()
+  %303 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %294, ptr noundef nonnull align 8 dereferenceable(56) %302)
+  %304 = or i32 %301, 32
+  %305 = select i1 %303, i32 %304, i32 %301
+  %306 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema21GetInputValuesLocatorEv()
+  %307 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %294, ptr noundef nonnull align 8 dereferenceable(56) %306)
+  br i1 %307, label %311, label %308
 
-315:                                              ; preds = %299
-  %316 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema27GetInputComputationsLocatorEv()
-  %317 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %316)
-  br i1 %317, label %318, label %320
+308:                                              ; preds = %.preheader
+  %309 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema27GetInputComputationsLocatorEv()
+  %310 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %294, ptr noundef nonnull align 8 dereferenceable(56) %309)
+  br i1 %310, label %311, label %313
 
-318:                                              ; preds = %315, %299
-  %319 = or i32 %312, 9
-  br label %320
+311:                                              ; preds = %308, %.preheader
+  %312 = or i32 %305, 9
+  br label %313
 
-320:                                              ; preds = %318, %315
-  %321 = phi i32 [ %319, %318 ], [ %312, %315 ]
-  %322 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetOutputsLocatorEv()
-  %323 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull align 8 dereferenceable(56) %322)
-  %324 = or i32 %321, 2
-  %spec.select143 = select i1 %323, i32 %324, i32 %321
-  %325 = getelementptr inbounds i8, ptr %301, i64 56
-  %.not24 = icmp eq ptr %325, %296
-  br i1 %.not24, label %.critedge.loopexit, label %326
+313:                                              ; preds = %311, %308
+  %314 = phi i32 [ %312, %311 ], [ %305, %308 ]
+  %315 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetOutputsLocatorEv()
+  %316 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %294, ptr noundef nonnull align 8 dereferenceable(56) %315)
+  %317 = or i32 %314, 2
+  %spec.select163 = select i1 %316, i32 %317, i32 %314
+  %318 = getelementptr inbounds i8, ptr %294, i64 56
+  %.not24 = icmp eq ptr %318, %11
+  br i1 %.not24, label %.critedge.loopexit, label %319
 
-326:                                              ; preds = %320
-  %327 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
-  %328 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %325, ptr noundef nonnull align 8 dereferenceable(56) %327)
-  br i1 %328, label %299, label %.critedge.loopexit, !llvm.loop !13
+319:                                              ; preds = %313
+  %320 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdExtComputationSchema17GetDefaultLocatorEv()
+  %321 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %318, ptr noundef nonnull align 8 dereferenceable(56) %320)
+  br i1 %321, label %.preheader, label %.critedge.loopexit, !llvm.loop !13
 
-329:                                              ; preds = %279
-  %330 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 176
-  %332 = load ptr, ptr %0, align 8
-  %333 = ptrtoint ptr %332 to i64
-  %334 = load ptr, ptr %331, align 8
-  %335 = ptrtoint ptr %334 to i64
-  %336 = xor i64 %335, %333
-  %337 = icmp ult i64 %336, 8
-  br i1 %337, label %338, label %344
+322:                                              ; preds = %274
+  %323 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 176
+  %325 = load ptr, ptr %0, align 8
+  %326 = ptrtoint ptr %325 to i64
+  %327 = load ptr, ptr %324, align 8
+  %328 = ptrtoint ptr %327 to i64
+  %329 = xor i64 %328, %326
+  %330 = icmp ult i64 %329, 8
+  br i1 %330, label %331, label %337
 
-338:                                              ; preds = %329
-  %339 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdIntegratorSchema17GetDefaultLocatorEv()
-  %340 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %339, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-  br i1 %340, label %341, label %.critedge
+331:                                              ; preds = %322
+  %332 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdIntegratorSchema17GetDefaultLocatorEv()
+  %333 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %332, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+  br i1 %333, label %334, label %.critedge
 
-341:                                              ; preds = %338
-  %342 = load i32, ptr %6, align 4
-  %343 = or i32 %342, 4
-  store i32 %343, ptr %6, align 4
+334:                                              ; preds = %331
+  %335 = load i32, ptr %5, align 4
+  %336 = or i32 %335, 4
+  store i32 %336, ptr %5, align 4
   br label %.critedge
 
-344:                                              ; preds = %329
-  %345 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 184
-  %347 = load ptr, ptr %0, align 8
-  %348 = ptrtoint ptr %347 to i64
-  %349 = load ptr, ptr %346, align 8
-  %350 = ptrtoint ptr %349 to i64
-  %351 = xor i64 %350, %348
-  %352 = icmp ult i64 %351, 8
-  br i1 %352, label %353, label %365
+337:                                              ; preds = %322
+  %338 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 184
+  %340 = load ptr, ptr %0, align 8
+  %341 = ptrtoint ptr %340 to i64
+  %342 = load ptr, ptr %339, align 8
+  %343 = ptrtoint ptr %342 to i64
+  %344 = xor i64 %343, %341
+  %345 = icmp ult i64 %344, 8
+  br i1 %345, label %346, label %358
 
-353:                                              ; preds = %344
-  %354 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSampleFilterSchema17GetDefaultLocatorEv()
-  %355 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %354, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-  br i1 %355, label %356, label %359
+346:                                              ; preds = %337
+  %347 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSampleFilterSchema17GetDefaultLocatorEv()
+  %348 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %347, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+  br i1 %348, label %349, label %352
 
-356:                                              ; preds = %353
-  %357 = load i32, ptr %6, align 4
-  %358 = or i32 %357, 4
-  store i32 %358, ptr %6, align 4
-  br label %359
+349:                                              ; preds = %346
+  %350 = load i32, ptr %5, align 4
+  %351 = or i32 %350, 4
+  store i32 %351, ptr %5, align 4
+  br label %352
 
-359:                                              ; preds = %356, %353
-  %360 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
-  %361 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %360, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-  br i1 %361, label %362, label %.critedge
+352:                                              ; preds = %349, %346
+  %353 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
+  %354 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %353, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+  br i1 %354, label %355, label %.critedge
 
-362:                                              ; preds = %359
-  %363 = load i32, ptr %6, align 4
-  %364 = or i32 %363, 1024
-  store i32 %364, ptr %6, align 4
+355:                                              ; preds = %352
+  %356 = load i32, ptr %5, align 4
+  %357 = or i32 %356, 1024
+  store i32 %357, ptr %5, align 4
   br label %.critedge
 
-365:                                              ; preds = %344
-  %366 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 192
-  %368 = load ptr, ptr %0, align 8
-  %369 = ptrtoint ptr %368 to i64
-  %370 = load ptr, ptr %367, align 8
-  %371 = ptrtoint ptr %370 to i64
-  %372 = xor i64 %371, %369
-  %373 = icmp ult i64 %372, 8
-  br i1 %373, label %374, label %386
+358:                                              ; preds = %337
+  %359 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 192
+  %361 = load ptr, ptr %0, align 8
+  %362 = ptrtoint ptr %361 to i64
+  %363 = load ptr, ptr %360, align 8
+  %364 = ptrtoint ptr %363 to i64
+  %365 = xor i64 %364, %362
+  %366 = icmp ult i64 %365, 8
+  br i1 %366, label %367, label %379
 
-374:                                              ; preds = %365
-  %375 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21HdDisplayFilterSchema17GetDefaultLocatorEv()
-  %376 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %375, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-  br i1 %376, label %377, label %380
+367:                                              ; preds = %358
+  %368 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21HdDisplayFilterSchema17GetDefaultLocatorEv()
+  %369 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %368, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+  br i1 %369, label %370, label %373
 
-377:                                              ; preds = %374
-  %378 = load i32, ptr %6, align 4
-  %379 = or i32 %378, 4
-  store i32 %379, ptr %6, align 4
-  br label %380
+370:                                              ; preds = %367
+  %371 = load i32, ptr %5, align 4
+  %372 = or i32 %371, 4
+  store i32 %372, ptr %5, align 4
+  br label %373
 
-380:                                              ; preds = %377, %374
-  %381 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
-  %382 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %381, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-  br i1 %382, label %383, label %.critedge
+373:                                              ; preds = %370, %367
+  %374 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema17GetDefaultLocatorEv()
+  %375 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %374, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+  br i1 %375, label %376, label %.critedge
 
-383:                                              ; preds = %380
-  %384 = load i32, ptr %6, align 4
-  %385 = or i32 %384, 1024
-  store i32 %385, ptr %6, align 4
+376:                                              ; preds = %373
+  %377 = load i32, ptr %5, align 4
+  %378 = or i32 %377, 1024
+  store i32 %378, ptr %5, align 4
   br label %.critedge
 
-386:                                              ; preds = %365
-  %387 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 200
-  %389 = load ptr, ptr %0, align 8
-  %390 = ptrtoint ptr %389 to i64
-  %391 = load ptr, ptr %388, align 8
-  %392 = ptrtoint ptr %391 to i64
-  %393 = xor i64 %392, %390
-  %394 = icmp ult i64 %393, 8
-  br i1 %394, label %395, label %432
+379:                                              ; preds = %358
+  %380 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE)
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 200
+  %382 = load ptr, ptr %0, align 8
+  %383 = ptrtoint ptr %382 to i64
+  %384 = load ptr, ptr %381, align 8
+  %385 = ptrtoint ptr %384 to i64
+  %386 = xor i64 %385, %383
+  %387 = icmp ult i64 %386, 8
+  br i1 %387, label %388, label %423
 
-395:                                              ; preds = %386
-  %396 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
-  %397 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %396, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext false)
-  br i1 %397, label %398, label %.critedge
+388:                                              ; preds = %379
+  %389 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
+  %390 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %389, ptr %11, ptr noundef %4, i1 noundef zeroext false)
+  br i1 %390, label %391, label %.critedge
 
-398:                                              ; preds = %395
-  %399 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
-  %400 = load ptr, ptr %4, align 8
+391:                                              ; preds = %388
+  %392 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
+  %393 = load ptr, ptr %4, align 8
+  %394 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %392, ptr noundef nonnull align 8 dereferenceable(56) %393)
+  %395 = load i32, ptr %5, align 4
+  br i1 %394, label %396, label %.preheader144
+
+396:                                              ; preds = %391
+  %397 = or i32 %395, 31
+  store i32 %397, ptr %5, align 4
+  br label %.critedge
+
+.preheader144:                                    ; preds = %391, %420
+  %398 = phi i32 [ %418, %420 ], [ %395, %391 ]
+  %399 = phi ptr [ %419, %420 ], [ %393, %391 ]
+  %400 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetEnabledLocatorEv()
   %401 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull align 8 dereferenceable(56) %400)
-  %402 = load i32, ptr %6, align 4
-  br i1 %401, label %404, label %.preheader124
+  %402 = zext i1 %401 to i32
+  %spec.select164 = or i32 %398, %402
+  %403 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema18GetPriorityLocatorEv()
+  %404 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull align 8 dereferenceable(56) %403)
+  %405 = or i32 %spec.select164, 2
+  %406 = select i1 %404, i32 %405, i32 %spec.select164
+  %407 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema18GetFilePathLocatorEv()
+  %408 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull align 8 dereferenceable(56) %407)
+  %409 = or i32 %406, 4
+  %410 = select i1 %408, i32 %409, i32 %406
+  %411 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema19GetConstantsLocatorEv()
+  %412 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull align 8 dereferenceable(56) %411)
+  %413 = or i32 %410, 8
+  %414 = select i1 %412, i32 %413, i32 %410
+  %415 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema25GetMaterialNetworkLocatorEv()
+  %416 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull align 8 dereferenceable(56) %415)
+  %417 = or i32 %414, 16
+  %418 = select i1 %416, i32 %417, i32 %414
+  %419 = getelementptr inbounds i8, ptr %399, i64 56
+  %.not = icmp eq ptr %419, %11
+  br i1 %.not, label %.critedge.loopexit145, label %420
 
-.preheader124:                                    ; preds = %398
-  %403 = load ptr, ptr %5, align 8
-  br label %406
+420:                                              ; preds = %.preheader144
+  %421 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
+  %422 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %419, ptr noundef nonnull align 8 dereferenceable(56) %421)
+  br i1 %422, label %.preheader144, label %.critedge.loopexit145, !llvm.loop !14
 
-404:                                              ; preds = %398
-  %405 = or i32 %402, 31
-  store i32 %405, ptr %6, align 4
-  br label %.critedge
+423:                                              ; preds = %379
+  %424 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE seq_cst, align 8
+  %425 = inttoptr i64 %424 to ptr
+  %.not.i.i126 = icmp eq i64 %424, 0
+  br i1 %.not.i.i126, label %426, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit
 
-406:                                              ; preds = %.preheader124, %429
-  %407 = phi i32 [ %402, %.preheader124 ], [ %427, %429 ]
-  %408 = phi ptr [ %400, %.preheader124 ], [ %428, %429 ]
-  %409 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetEnabledLocatorEv()
-  %410 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(56) %409)
-  %411 = zext i1 %410 to i32
-  %spec.select144 = or i32 %407, %411
-  %412 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema18GetPriorityLocatorEv()
-  %413 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(56) %412)
-  %414 = or i32 %spec.select144, 2
-  %415 = select i1 %413, i32 %414, i32 %spec.select144
-  %416 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema18GetFilePathLocatorEv()
-  %417 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(56) %416)
-  %418 = or i32 %415, 4
-  %419 = select i1 %417, i32 %418, i32 %415
-  %420 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema19GetConstantsLocatorEv()
-  %421 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(56) %420)
-  %422 = or i32 %419, 8
-  %423 = select i1 %421, i32 %422, i32 %419
-  %424 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema25GetMaterialNetworkLocatorEv()
-  %425 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %408, ptr noundef nonnull align 8 dereferenceable(56) %424)
-  %426 = or i32 %423, 16
-  %427 = select i1 %425, i32 %426, i32 %423
-  %428 = getelementptr inbounds i8, ptr %408, i64 56
-  %.not = icmp eq ptr %428, %403
-  br i1 %.not, label %.critedge.loopexit125, label %429
-
-429:                                              ; preds = %406
-  %430 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema17GetDefaultLocatorEv()
-  %431 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %428, ptr noundef nonnull align 8 dereferenceable(56) %430)
-  br i1 %431, label %406, label %.critedge.loopexit125, !llvm.loop !14
-
-432:                                              ; preds = %386
-  %433 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE seq_cst, align 8
-  %434 = inttoptr i64 %433 to ptr
-  %.not.i.i107 = icmp eq i64 %433, 0
-  br i1 %.not.i.i107, label %435, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit
-
-435:                                              ; preds = %432
-  %436 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEE16_TryToCreateDataEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE)
+426:                                              ; preds = %423
+  %427 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEE16_TryToCreateDataEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit: ; preds = %432, %435
-  %437 = phi ptr [ %436, %435 ], [ %434, %432 ]
-  %438 = tail call ptr @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(56) %437, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %439 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE seq_cst, align 8
-  %.not.i.i108 = icmp eq i64 %439, 0
-  br i1 %.not.i.i108, label %440, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit109
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit: ; preds = %423, %426
+  %428 = phi ptr [ %427, %426 ], [ %425, %423 ]
+  %429 = tail call ptr @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(56) %428, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %430 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE seq_cst, align 8
+  %.not.i.i127 = icmp eq i64 %430, 0
+  br i1 %.not.i.i127, label %431, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit128
 
-440:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit
-  %441 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEE16_TryToCreateDataEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE)
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit109
+431:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit
+  %432 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEE16_TryToCreateDataEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__L16Hd_SPrimSToBFncsE)
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit128
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit109: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit, %440
-  %442 = icmp eq ptr %438, null
-  br i1 %442, label %443, label %451
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit128: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit, %431
+  %433 = icmp eq ptr %429, null
+  br i1 %433, label %434, label %442
 
-443:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit109
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7)
-  %444 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %4, i1 noundef zeroext true)
-          to label %445 unwind label %449
+434:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit128
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6)
+  %435 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr %11, ptr noundef %4, i1 noundef zeroext true)
+          to label %436 unwind label %440
 
-445:                                              ; preds = %443
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
-  br i1 %444, label %446, label %.critedge
+436:                                              ; preds = %434
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
+  br i1 %435, label %437, label %.critedge
 
-446:                                              ; preds = %445
-  %447 = load i32, ptr %6, align 4
-  %448 = or i32 %447, -3
-  store i32 %448, ptr %6, align 4
+437:                                              ; preds = %436
+  %438 = load i32, ptr %5, align 4
+  %439 = or i32 %438, -3
+  store i32 %439, ptr %5, align 4
   br label %.critedge
 
-449:                                              ; preds = %443
-  %450 = landingpad { ptr, i32 }
+440:                                              ; preds = %434
+  %441 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
   br label %common.resume
 
-451:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit109
+442:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt13unordered_mapINS_7TfTokenESt8functionIFvRKNS_22HdDataSourceLocatorSetEPjEENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S9_EEENS_27Tf_StaticDataDefaultFactoryISH_EEEptEv.exit128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %6, ptr %3, align 8
-  %452 = getelementptr inbounds i8, ptr %438, i64 32
-  %453 = load ptr, ptr %452, align 8
-  %.not.i.i110 = icmp eq ptr %453, null
-  br i1 %.not.i.i110, label %454, label %_ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEEclES3_S4_.exit
+  store ptr %5, ptr %3, align 8
+  %443 = getelementptr inbounds i8, ptr %429, i64 32
+  %444 = load ptr, ptr %443, align 8
+  %.not.i.i129 = icmp eq ptr %444, null
+  br i1 %.not.i.i129, label %445, label %_ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEEclES3_S4_.exit
 
-454:                                              ; preds = %451
+445:                                              ; preds = %442
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEEclES3_S4_.exit: ; preds = %451
-  %455 = getelementptr inbounds i8, ptr %438, i64 16
-  %456 = getelementptr inbounds i8, ptr %438, i64 40
-  %457 = load ptr, ptr %456, align 8
-  call void %457(ptr noundef nonnull align 8 dereferenceable(16) %455, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+_ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEEclES3_S4_.exit: ; preds = %442
+  %446 = getelementptr inbounds i8, ptr %429, i64 16
+  %447 = getelementptr inbounds i8, ptr %429, i64 40
+  %448 = load ptr, ptr %447, align 8
+  call void %448(ptr noundef nonnull align 8 dereferenceable(16) %446, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %326, %320
-  store i32 %spec.select143, ptr %6, align 4
+.critedge.loopexit:                               ; preds = %319, %313
+  store i32 %spec.select163, ptr %5, align 4
   br label %.critedge
 
-.critedge.loopexit125:                            ; preds = %429, %406
-  store i32 %427, ptr %6, align 4
+.critedge.loopexit145:                            ; preds = %420, %.preheader144
+  store i32 %418, ptr %5, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit125, %.critedge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit99.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit54.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread, %33, %105, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44, %249, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit106, %297, %288, %362, %359, %404, %395, %445, %446, %_ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEEclES3_S4_.exit, %380, %383, %338, %341, %272, %274, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit61, %152, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %44
-  %458 = load i32, ptr %6, align 4
-  br label %459
+.critedge:                                        ; preds = %.critedge.loopexit145, %.critedge.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread, %32, %102, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63, %244, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125, %291, %283, %355, %352, %396, %388, %436, %437, %_ZNKSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEEclES3_S4_.exit, %373, %376, %331, %334, %267, %269, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80, %148, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %42
+  %449 = load i32, ptr %5, align 4
+  br label %450
 
-459:                                              ; preds = %2, %.critedge
-  %.021 = phi i32 [ %458, %.critedge ], [ 0, %2 ]
+450:                                              ; preds = %2, %.critedge
+  %.021 = phi i32 [ %449, %.critedge ], [ 0, %2 ]
   ret i32 %.021
 }
 
@@ -4172,7 +4155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit: ; pred
 
 .lr.ph.split.us.i:                                ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit, %39
   %.0 = phi ptr [ %40, %39 ], [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit ]
-  %.014.us.i = phi i1 [ %.2.us.i, %39 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit ]
+  %.02.us.i = phi i1 [ %.2.us.i, %39 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit ]
   %36 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.0, ptr noundef nonnull align 8 dereferenceable(56) %34)
   br i1 %36, label %39, label %37
 
@@ -4181,112 +4164,112 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit: ; pred
   br i1 %38, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %39
 
 39:                                               ; preds = %37, %.lr.ph.split.us.i
-  %.2.us.i = phi i1 [ %.014.us.i, %37 ], [ true, %.lr.ph.split.us.i ]
+  %.2.us.i = phi i1 [ %.02.us.i, %37 ], [ true, %.lr.ph.split.us.i ]
   %40 = getelementptr inbounds i8, ptr %.0, i64 56
   %.not.us.i = icmp eq ptr %40, %33
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %37, %39
-  %.150 = phi ptr [ %40, %39 ], [ %.0, %37 ]
-  %.011.i = phi i1 [ %.2.us.i, %39 ], [ %.014.us.i, %37 ]
+  %.145 = phi ptr [ %40, %39 ], [ %.0, %37 ]
+  %.011.i = phi i1 [ %.2.us.i, %39 ], [ %.02.us.i, %37 ]
   %cond.fr = freeze i1 %.011.i
   %spec.select = select i1 %cond.fr, i32 65536, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit
-  %.15056 = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit ], [ %.150, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ]
+  %.14551 = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit ], [ %.145, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ]
   %41 = phi i32 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ]
   %42 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__25HdInstancerTopologySchema17GetDefaultLocatorEv()
-  %43 = icmp eq ptr %.15056, %33
-  br i1 %43, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread, label %.lr.ph.split.us.i10
+  %43 = icmp eq ptr %.14551, %33
+  br i1 %43, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread, label %.lr.ph.split.us.i13
 
-.lr.ph.split.us.i10:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, %47
-  %.251 = phi ptr [ %48, %47 ], [ %.15056, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ]
-  %.014.us.i11 = phi i1 [ %.2.us.i12, %47 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ]
-  %44 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.251, ptr noundef nonnull align 8 dereferenceable(56) %42)
+.lr.ph.split.us.i13:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, %47
+  %.246 = phi ptr [ %48, %47 ], [ %.14551, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ]
+  %.02.us.i14 = phi i1 [ %.2.us.i15, %47 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ]
+  %44 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.246, ptr noundef nonnull align 8 dereferenceable(56) %42)
   br i1 %44, label %47, label %45
 
-45:                                               ; preds = %.lr.ph.split.us.i10
-  %46 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %.251)
-  br i1 %46, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15, label %47
+45:                                               ; preds = %.lr.ph.split.us.i13
+  %46 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %.246)
+  br i1 %46, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18, label %47
 
-47:                                               ; preds = %45, %.lr.ph.split.us.i10
-  %.2.us.i12 = phi i1 [ %.014.us.i11, %45 ], [ true, %.lr.ph.split.us.i10 ]
-  %48 = getelementptr inbounds i8, ptr %.251, i64 56
-  %.not.us.i13 = icmp eq ptr %48, %33
-  br i1 %.not.us.i13, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15, label %.lr.ph.split.us.i10, !llvm.loop !10
+47:                                               ; preds = %45, %.lr.ph.split.us.i13
+  %.2.us.i15 = phi i1 [ %.02.us.i14, %45 ], [ true, %.lr.ph.split.us.i13 ]
+  %48 = getelementptr inbounds i8, ptr %.246, i64 56
+  %.not.us.i16 = icmp eq ptr %48, %33
+  br i1 %.not.us.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18, label %.lr.ph.split.us.i13, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15: ; preds = %45, %47
-  %.352 = phi ptr [ %48, %47 ], [ %.251, %45 ]
-  %.011.i14 = phi i1 [ %.2.us.i12, %47 ], [ %.014.us.i11, %45 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18: ; preds = %45, %47
+  %.347 = phi ptr [ %48, %47 ], [ %.246, %45 ]
+  %.011.i17 = phi i1 [ %.2.us.i15, %47 ], [ %.02.us.i14, %45 ]
   %49 = or disjoint i32 %41, 131072
-  %cond.fr57 = freeze i1 %.011.i14
-  %spec.select70 = select i1 %cond.fr57, i32 %49, i32 %41
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread
+  %cond.fr52 = freeze i1 %.011.i17
+  %spec.select65 = select i1 %cond.fr52, i32 %49, i32 %41
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
-  %.35261 = phi ptr [ %.15056, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ], [ %.352, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15 ]
-  %50 = phi i32 [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ], [ %spec.select70, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
+  %.34756 = phi ptr [ %.14551, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ], [ %.347, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18 ]
+  %50 = phi i32 [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread ], [ %spec.select65, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18 ]
   %51 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimvarsSchema17GetDefaultLocatorEv()
-  %52 = icmp eq ptr %.35261, %33
-  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread, label %.lr.ph.split.us.i17
+  %52 = icmp eq ptr %.34756, %33
+  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread, label %.lr.ph.split.us.i20
 
-.lr.ph.split.us.i17:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread, %56
-  %.4 = phi ptr [ %57, %56 ], [ %.35261, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread ]
-  %.014.us.i18 = phi i1 [ %.2.us.i19, %56 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread ]
+.lr.ph.split.us.i20:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread, %56
+  %.4 = phi ptr [ %57, %56 ], [ %.34756, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread ]
+  %.02.us.i21 = phi i1 [ %.2.us.i22, %56 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread ]
   %53 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.4, ptr noundef nonnull align 8 dereferenceable(56) %51)
   br i1 %53, label %56, label %54
 
-54:                                               ; preds = %.lr.ph.split.us.i17
+54:                                               ; preds = %.lr.ph.split.us.i20
   %55 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %51, ptr noundef nonnull align 8 dereferenceable(56) %.4)
-  br i1 %55, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22, label %56
+  br i1 %55, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25, label %56
 
-56:                                               ; preds = %54, %.lr.ph.split.us.i17
-  %.2.us.i19 = phi i1 [ %.014.us.i18, %54 ], [ true, %.lr.ph.split.us.i17 ]
+56:                                               ; preds = %54, %.lr.ph.split.us.i20
+  %.2.us.i22 = phi i1 [ %.02.us.i21, %54 ], [ true, %.lr.ph.split.us.i20 ]
   %57 = getelementptr inbounds i8, ptr %.4, i64 56
-  %.not.us.i20 = icmp eq ptr %57, %33
-  br i1 %.not.us.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22, label %.lr.ph.split.us.i17, !llvm.loop !10
+  %.not.us.i23 = icmp eq ptr %57, %33
+  br i1 %.not.us.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25, label %.lr.ph.split.us.i20, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22: ; preds = %54, %56
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25: ; preds = %54, %56
   %.5 = phi ptr [ %57, %56 ], [ %.4, %54 ]
-  %.011.i21 = phi i1 [ %.2.us.i19, %56 ], [ %.014.us.i18, %54 ]
+  %.011.i24 = phi i1 [ %.2.us.i22, %56 ], [ %.02.us.i21, %54 ]
   %58 = or i32 %50, 64
-  %cond.fr62 = freeze i1 %.011.i21
-  %spec.select71 = select i1 %cond.fr62, i32 %58, i32 %50
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread
+  %cond.fr57 = freeze i1 %.011.i24
+  %spec.select66 = select i1 %cond.fr57, i32 %58, i32 %50
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread
-  %.566 = phi ptr [ %.35261, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22 ]
-  %59 = phi i32 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit15.thread ], [ %spec.select71, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread
+  %.561 = phi ptr [ %.34756, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25 ]
+  %59 = phi i32 [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18.thread ], [ %spec.select66, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25 ]
   %60 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdXformSchema17GetDefaultLocatorEv()
-  %61 = icmp eq ptr %.566, %33
-  br i1 %61, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread, label %.lr.ph.split.us.i24
+  %61 = icmp eq ptr %.561, %33
+  br i1 %61, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread, label %.lr.ph.split.us.i27
 
-.lr.ph.split.us.i24:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread, %65
-  %.6 = phi ptr [ %66, %65 ], [ %.566, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread ]
-  %.014.us.i25 = phi i1 [ %.2.us.i26, %65 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread ]
+.lr.ph.split.us.i27:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread, %65
+  %.6 = phi ptr [ %66, %65 ], [ %.561, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread ]
+  %.02.us.i28 = phi i1 [ %.2.us.i29, %65 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread ]
   %62 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.6, ptr noundef nonnull align 8 dereferenceable(56) %60)
   br i1 %62, label %65, label %63
 
-63:                                               ; preds = %.lr.ph.split.us.i24
+63:                                               ; preds = %.lr.ph.split.us.i27
   %64 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %.6)
-  br i1 %64, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit29, label %65
+  br i1 %64, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32, label %65
 
-65:                                               ; preds = %63, %.lr.ph.split.us.i24
-  %.2.us.i26 = phi i1 [ %.014.us.i25, %63 ], [ true, %.lr.ph.split.us.i24 ]
+65:                                               ; preds = %63, %.lr.ph.split.us.i27
+  %.2.us.i29 = phi i1 [ %.02.us.i28, %63 ], [ true, %.lr.ph.split.us.i27 ]
   %66 = getelementptr inbounds i8, ptr %.6, i64 56
-  %.not.us.i27 = icmp eq ptr %66, %33
-  br i1 %.not.us.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit29, label %.lr.ph.split.us.i24, !llvm.loop !10
+  %.not.us.i30 = icmp eq ptr %66, %33
+  br i1 %.not.us.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32, label %.lr.ph.split.us.i27, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit29: ; preds = %63, %65
-  %.011.i28 = phi i1 [ %.014.us.i25, %63 ], [ %.2.us.i26, %65 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32: ; preds = %63, %65
+  %.011.i31 = phi i1 [ %.02.us.i28, %63 ], [ %.2.us.i29, %65 ]
   %67 = or i32 %59, 512
-  %cond.fr67 = freeze i1 %.011.i28
-  %spec.select72 = select i1 %cond.fr67, i32 %67, i32 %59
+  %cond.fr62 = freeze i1 %.011.i31
+  %spec.select67 = select i1 %cond.fr62, i32 %67, i32 %59
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit29, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread, %13, %2
-  %.08 = phi i32 [ 0, %2 ], [ -3, %13 ], [ %59, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit22.thread ], [ %spec.select72, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit29 ], [ -3, %30 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread, %13, %2
+  %.08 = phi i32 [ 0, %2 ], [ -3, %13 ], [ %59, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread ], [ %spec.select67, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32 ], [ -3, %30 ]
   ret i32 %.08
 }
 
@@ -4351,7 +4334,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
 
 .lr.ph.split.us.i:                                ; preds = %28, %34
   %.0 = phi ptr [ %35, %34 ], [ %3, %28 ]
-  %.014.us.i = phi i1 [ %.2.us.i, %34 ], [ false, %28 ]
+  %.02.us.i = phi i1 [ %.2.us.i, %34 ], [ false, %28 ]
   %31 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.0, ptr noundef nonnull align 8 dereferenceable(56) %29)
   br i1 %31, label %34, label %32
 
@@ -4360,13 +4343,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %33, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %34
 
 34:                                               ; preds = %32, %.lr.ph.split.us.i
-  %.2.us.i = phi i1 [ %.014.us.i, %32 ], [ true, %.lr.ph.split.us.i ]
+  %.2.us.i = phi i1 [ %.02.us.i, %32 ], [ true, %.lr.ph.split.us.i ]
   %35 = getelementptr inbounds i8, ptr %.0, i64 56
   %.not.us.i = icmp eq ptr %35, %7
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %32, %34
-  %.011.i = phi i1 [ %.014.us.i, %32 ], [ %.2.us.i, %34 ]
+  %.011.i = phi i1 [ %.02.us.i, %32 ], [ %.2.us.i, %34 ]
   %cond.fr = freeze i1 %.011.i
   %spec.select = zext i1 %cond.fr to i32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
@@ -4374,34 +4357,34 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %37 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %38 = inttoptr i64 %37 to ptr
-  %.not.i.i21 = icmp eq i64 %37, 0
-  br i1 %.not.i.i21, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit23
+  %.not.i.i30 = icmp eq i64 %37, 0
+  br i1 %.not.i.i30, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32
 
 39:                                               ; preds = %36
   %40 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %40)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i22 unwind label %41
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i31 unwind label %41
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i22: ; preds = %39
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i31: ; preds = %39
   %43 = ptrtoint ptr %40 to i64
   %44 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE, i64 0, i64 %43 seq_cst seq_cst, align 8
   %45 = extractvalue { i64, i1 } %44, 1
-  br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit23, label %46
+  br i1 %45, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32, label %46
 
-46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i22
+46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i31
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticTokenTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %40) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 352) #16
   %47 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %48 = inttoptr i64 %47 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit23
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit23: ; preds = %36, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i22, %46
-  %49 = phi ptr [ %38, %36 ], [ %48, %46 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i22 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32: ; preds = %36, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i31, %46
+  %49 = phi ptr [ %38, %36 ], [ %48, %46 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i31 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 312
   %51 = load ptr, ptr %0, align 8
   %52 = ptrtoint ptr %51 to i64
@@ -4411,283 +4394,283 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %56 = icmp ult i64 %55, 8
   br i1 %56, label %57, label %128
 
-57:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit23
+57:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32
   %58 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema16GetActiveLocatorEv()
   %59 = icmp eq ptr %3, %7
-  br i1 %59, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread, label %.lr.ph.split.us.i25
+  br i1 %59, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread, label %.lr.ph.split.us.i34
 
-.lr.ph.split.us.i25:                              ; preds = %57, %63
+.lr.ph.split.us.i34:                              ; preds = %57, %63
   %.1 = phi ptr [ %64, %63 ], [ %3, %57 ]
-  %.014.us.i26 = phi i1 [ %.2.us.i27, %63 ], [ false, %57 ]
+  %.02.us.i35 = phi i1 [ %.2.us.i36, %63 ], [ false, %57 ]
   %60 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.1, ptr noundef nonnull align 8 dereferenceable(56) %58)
   br i1 %60, label %63, label %61
 
-61:                                               ; preds = %.lr.ph.split.us.i25
+61:                                               ; preds = %.lr.ph.split.us.i34
   %62 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(56) %.1)
-  br i1 %62, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30, label %63
+  br i1 %62, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39, label %63
 
-63:                                               ; preds = %61, %.lr.ph.split.us.i25
-  %.2.us.i27 = phi i1 [ %.014.us.i26, %61 ], [ true, %.lr.ph.split.us.i25 ]
+63:                                               ; preds = %61, %.lr.ph.split.us.i34
+  %.2.us.i36 = phi i1 [ %.02.us.i35, %61 ], [ true, %.lr.ph.split.us.i34 ]
   %64 = getelementptr inbounds i8, ptr %.1, i64 56
-  %.not.us.i28 = icmp eq ptr %64, %7
-  br i1 %.not.us.i28, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30, label %.lr.ph.split.us.i25, !llvm.loop !10
+  %.not.us.i37 = icmp eq ptr %64, %7
+  br i1 %.not.us.i37, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39, label %.lr.ph.split.us.i34, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30: ; preds = %61, %63
-  %.2136 = phi ptr [ %64, %63 ], [ %.1, %61 ]
-  %.011.i29 = phi i1 [ %.2.us.i27, %63 ], [ %.014.us.i26, %61 ]
-  %cond.fr144 = freeze i1 %.011.i29
-  %spec.select185 = select i1 %cond.fr144, i32 2, i32 0
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39: ; preds = %61, %63
+  %.2125 = phi ptr [ %64, %63 ], [ %.1, %61 ]
+  %.011.i38 = phi i1 [ %.2.us.i36, %63 ], [ %.02.us.i35, %61 ]
+  %cond.fr133 = freeze i1 %.011.i38
+  %spec.select174 = select i1 %cond.fr133, i32 2, i32 0
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30, %57
-  %.2136148 = phi ptr [ %3, %57 ], [ %.2136, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30 ]
-  %65 = phi i32 [ 0, %57 ], [ %spec.select185, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39, %57
+  %.2125137 = phi ptr [ %3, %57 ], [ %.2125, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39 ]
+  %65 = phi i32 [ 0, %57 ], [ %spec.select174, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39 ]
   %66 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema15GetFrameLocatorEv()
-  %67 = icmp eq ptr %.2136148, %7
-  br i1 %67, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread, label %.lr.ph.split.us.i32
+  %67 = icmp eq ptr %.2125137, %7
+  br i1 %67, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread, label %.lr.ph.split.us.i41
 
-.lr.ph.split.us.i32:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread, %71
-  %.3137 = phi ptr [ %72, %71 ], [ %.2136148, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread ]
-  %.014.us.i33 = phi i1 [ %.2.us.i34, %71 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread ]
-  %68 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.3137, ptr noundef nonnull align 8 dereferenceable(56) %66)
+.lr.ph.split.us.i41:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread, %71
+  %.3126 = phi ptr [ %72, %71 ], [ %.2125137, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread ]
+  %.02.us.i42 = phi i1 [ %.2.us.i43, %71 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread ]
+  %68 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.3126, ptr noundef nonnull align 8 dereferenceable(56) %66)
   br i1 %68, label %71, label %69
 
-69:                                               ; preds = %.lr.ph.split.us.i32
-  %70 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %66, ptr noundef nonnull align 8 dereferenceable(56) %.3137)
-  br i1 %70, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37, label %71
+69:                                               ; preds = %.lr.ph.split.us.i41
+  %70 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %66, ptr noundef nonnull align 8 dereferenceable(56) %.3126)
+  br i1 %70, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46, label %71
 
-71:                                               ; preds = %69, %.lr.ph.split.us.i32
-  %.2.us.i34 = phi i1 [ %.014.us.i33, %69 ], [ true, %.lr.ph.split.us.i32 ]
-  %72 = getelementptr inbounds i8, ptr %.3137, i64 56
-  %.not.us.i35 = icmp eq ptr %72, %7
-  br i1 %.not.us.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37, label %.lr.ph.split.us.i32, !llvm.loop !10
+71:                                               ; preds = %69, %.lr.ph.split.us.i41
+  %.2.us.i43 = phi i1 [ %.02.us.i42, %69 ], [ true, %.lr.ph.split.us.i41 ]
+  %72 = getelementptr inbounds i8, ptr %.3126, i64 56
+  %.not.us.i44 = icmp eq ptr %72, %7
+  br i1 %.not.us.i44, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46, label %.lr.ph.split.us.i41, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37: ; preds = %69, %71
-  %.4138 = phi ptr [ %72, %71 ], [ %.3137, %69 ]
-  %.011.i36 = phi i1 [ %.2.us.i34, %71 ], [ %.014.us.i33, %69 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46: ; preds = %69, %71
+  %.4127 = phi ptr [ %72, %71 ], [ %.3126, %69 ]
+  %.011.i45 = phi i1 [ %.2.us.i43, %71 ], [ %.02.us.i42, %69 ]
   %73 = or disjoint i32 %65, 256
-  %cond.fr149 = freeze i1 %.011.i36
-  %spec.select186 = select i1 %cond.fr149, i32 %73, i32 %65
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread
+  %cond.fr138 = freeze i1 %.011.i45
+  %spec.select175 = select i1 %cond.fr138, i32 %73, i32 %65
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread
-  %.4138153 = phi ptr [ %.2136148, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread ], [ %.4138, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37 ]
-  %74 = phi i32 [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit30.thread ], [ %spec.select186, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread
+  %.4127142 = phi ptr [ %.2125137, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread ], [ %.4127, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46 ]
+  %74 = phi i32 [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread ], [ %spec.select175, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46 ]
   %75 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema28GetNamespacedSettingsLocatorEv()
-  %76 = icmp eq ptr %.4138153, %7
-  br i1 %76, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread, label %.lr.ph.split.us.i39
+  %76 = icmp eq ptr %.4127142, %7
+  br i1 %76, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread, label %.lr.ph.split.us.i48
 
-.lr.ph.split.us.i39:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread, %80
-  %.5139 = phi ptr [ %81, %80 ], [ %.4138153, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread ]
-  %.014.us.i40 = phi i1 [ %.2.us.i41, %80 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread ]
-  %77 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.5139, ptr noundef nonnull align 8 dereferenceable(56) %75)
+.lr.ph.split.us.i48:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread, %80
+  %.5128 = phi ptr [ %81, %80 ], [ %.4127142, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread ]
+  %.02.us.i49 = phi i1 [ %.2.us.i50, %80 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread ]
+  %77 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.5128, ptr noundef nonnull align 8 dereferenceable(56) %75)
   br i1 %77, label %80, label %78
 
-78:                                               ; preds = %.lr.ph.split.us.i39
-  %79 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %.5139)
-  br i1 %79, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44, label %80
+78:                                               ; preds = %.lr.ph.split.us.i48
+  %79 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %.5128)
+  br i1 %79, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53, label %80
 
-80:                                               ; preds = %78, %.lr.ph.split.us.i39
-  %.2.us.i41 = phi i1 [ %.014.us.i40, %78 ], [ true, %.lr.ph.split.us.i39 ]
-  %81 = getelementptr inbounds i8, ptr %.5139, i64 56
-  %.not.us.i42 = icmp eq ptr %81, %7
-  br i1 %.not.us.i42, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44, label %.lr.ph.split.us.i39, !llvm.loop !10
+80:                                               ; preds = %78, %.lr.ph.split.us.i48
+  %.2.us.i50 = phi i1 [ %.02.us.i49, %78 ], [ true, %.lr.ph.split.us.i48 ]
+  %81 = getelementptr inbounds i8, ptr %.5128, i64 56
+  %.not.us.i51 = icmp eq ptr %81, %7
+  br i1 %.not.us.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53, label %.lr.ph.split.us.i48, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44: ; preds = %78, %80
-  %.6140 = phi ptr [ %81, %80 ], [ %.5139, %78 ]
-  %.011.i43 = phi i1 [ %.2.us.i41, %80 ], [ %.014.us.i40, %78 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53: ; preds = %78, %80
+  %.6129 = phi ptr [ %81, %80 ], [ %.5128, %78 ]
+  %.011.i52 = phi i1 [ %.2.us.i50, %80 ], [ %.02.us.i49, %78 ]
   %82 = or i32 %74, 4
-  %cond.fr154 = freeze i1 %.011.i43
-  %spec.select187 = select i1 %cond.fr154, i32 %82, i32 %74
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread
+  %cond.fr143 = freeze i1 %.011.i52
+  %spec.select176 = select i1 %cond.fr143, i32 %82, i32 %74
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread
-  %.6140158 = phi ptr [ %.4138153, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread ], [ %.6140, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44 ]
-  %83 = phi i32 [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit37.thread ], [ %spec.select187, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread
+  %.6129147 = phi ptr [ %.4127142, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread ], [ %.6129, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53 ]
+  %83 = phi i32 [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46.thread ], [ %spec.select176, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53 ]
   %84 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema24GetRenderProductsLocatorEv()
-  %85 = icmp eq ptr %.6140158, %7
-  br i1 %85, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread, label %.lr.ph.split.us.i46
+  %85 = icmp eq ptr %.6129147, %7
+  br i1 %85, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread, label %.lr.ph.split.us.i55
 
-.lr.ph.split.us.i46:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread, %89
-  %.7141 = phi ptr [ %90, %89 ], [ %.6140158, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread ]
-  %.014.us.i47 = phi i1 [ %.2.us.i48, %89 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread ]
-  %86 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.7141, ptr noundef nonnull align 8 dereferenceable(56) %84)
+.lr.ph.split.us.i55:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread, %89
+  %.7130 = phi ptr [ %90, %89 ], [ %.6129147, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread ]
+  %.02.us.i56 = phi i1 [ %.2.us.i57, %89 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread ]
+  %86 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.7130, ptr noundef nonnull align 8 dereferenceable(56) %84)
   br i1 %86, label %89, label %87
 
-87:                                               ; preds = %.lr.ph.split.us.i46
-  %88 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(56) %.7141)
-  br i1 %88, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51, label %89
+87:                                               ; preds = %.lr.ph.split.us.i55
+  %88 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(56) %.7130)
+  br i1 %88, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60, label %89
 
-89:                                               ; preds = %87, %.lr.ph.split.us.i46
-  %.2.us.i48 = phi i1 [ %.014.us.i47, %87 ], [ true, %.lr.ph.split.us.i46 ]
-  %90 = getelementptr inbounds i8, ptr %.7141, i64 56
-  %.not.us.i49 = icmp eq ptr %90, %7
-  br i1 %.not.us.i49, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51, label %.lr.ph.split.us.i46, !llvm.loop !10
+89:                                               ; preds = %87, %.lr.ph.split.us.i55
+  %.2.us.i57 = phi i1 [ %.02.us.i56, %87 ], [ true, %.lr.ph.split.us.i55 ]
+  %90 = getelementptr inbounds i8, ptr %.7130, i64 56
+  %.not.us.i58 = icmp eq ptr %90, %7
+  br i1 %.not.us.i58, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60, label %.lr.ph.split.us.i55, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51: ; preds = %87, %89
-  %.8 = phi ptr [ %90, %89 ], [ %.7141, %87 ]
-  %.011.i50 = phi i1 [ %.2.us.i48, %89 ], [ %.014.us.i47, %87 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60: ; preds = %87, %89
+  %.8 = phi ptr [ %90, %89 ], [ %.7130, %87 ]
+  %.011.i59 = phi i1 [ %.2.us.i57, %89 ], [ %.02.us.i56, %87 ]
   %91 = or i32 %83, 8
-  %cond.fr159 = freeze i1 %.011.i50
-  %spec.select188 = select i1 %cond.fr159, i32 %91, i32 %83
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread
+  %cond.fr148 = freeze i1 %.011.i59
+  %spec.select177 = select i1 %cond.fr148, i32 %91, i32 %83
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread
-  %.8163 = phi ptr [ %.6140158, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread ], [ %.8, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51 ]
-  %92 = phi i32 [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit44.thread ], [ %spec.select188, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread
+  %.8152 = phi ptr [ %.6129147, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread ], [ %.8, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60 ]
+  %92 = phi i32 [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53.thread ], [ %spec.select177, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60 ]
   %93 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema26GetIncludedPurposesLocatorEv()
-  %94 = icmp eq ptr %.8163, %7
-  br i1 %94, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread, label %.lr.ph.split.us.i53
+  %94 = icmp eq ptr %.8152, %7
+  br i1 %94, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread, label %.lr.ph.split.us.i62
 
-.lr.ph.split.us.i53:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread, %98
-  %.9 = phi ptr [ %99, %98 ], [ %.8163, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread ]
-  %.014.us.i54 = phi i1 [ %.2.us.i55, %98 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread ]
+.lr.ph.split.us.i62:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread, %98
+  %.9 = phi ptr [ %99, %98 ], [ %.8152, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread ]
+  %.02.us.i63 = phi i1 [ %.2.us.i64, %98 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread ]
   %95 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.9, ptr noundef nonnull align 8 dereferenceable(56) %93)
   br i1 %95, label %98, label %96
 
-96:                                               ; preds = %.lr.ph.split.us.i53
+96:                                               ; preds = %.lr.ph.split.us.i62
   %97 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull align 8 dereferenceable(56) %.9)
-  br i1 %97, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58, label %98
+  br i1 %97, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67, label %98
 
-98:                                               ; preds = %96, %.lr.ph.split.us.i53
-  %.2.us.i55 = phi i1 [ %.014.us.i54, %96 ], [ true, %.lr.ph.split.us.i53 ]
+98:                                               ; preds = %96, %.lr.ph.split.us.i62
+  %.2.us.i64 = phi i1 [ %.02.us.i63, %96 ], [ true, %.lr.ph.split.us.i62 ]
   %99 = getelementptr inbounds i8, ptr %.9, i64 56
-  %.not.us.i56 = icmp eq ptr %99, %7
-  br i1 %.not.us.i56, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58, label %.lr.ph.split.us.i53, !llvm.loop !10
+  %.not.us.i65 = icmp eq ptr %99, %7
+  br i1 %.not.us.i65, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67, label %.lr.ph.split.us.i62, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58: ; preds = %96, %98
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67: ; preds = %96, %98
   %.10 = phi ptr [ %99, %98 ], [ %.9, %96 ]
-  %.011.i57 = phi i1 [ %.2.us.i55, %98 ], [ %.014.us.i54, %96 ]
+  %.011.i66 = phi i1 [ %.2.us.i64, %98 ], [ %.02.us.i63, %96 ]
   %100 = or i32 %92, 16
-  %cond.fr164 = freeze i1 %.011.i57
-  %spec.select189 = select i1 %cond.fr164, i32 %100, i32 %92
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread
+  %cond.fr153 = freeze i1 %.011.i66
+  %spec.select178 = select i1 %cond.fr153, i32 %100, i32 %92
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread
-  %.10168 = phi ptr [ %.8163, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread ], [ %.10, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58 ]
-  %101 = phi i32 [ %92, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit51.thread ], [ %spec.select189, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread
+  %.10157 = phi ptr [ %.8152, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread ], [ %.10, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67 ]
+  %101 = phi i32 [ %92, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60.thread ], [ %spec.select178, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67 ]
   %102 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema33GetMaterialBindingPurposesLocatorEv()
-  %103 = icmp eq ptr %.10168, %7
-  br i1 %103, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread, label %.lr.ph.split.us.i60
+  %103 = icmp eq ptr %.10157, %7
+  br i1 %103, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread, label %.lr.ph.split.us.i69
 
-.lr.ph.split.us.i60:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread, %107
-  %.11 = phi ptr [ %108, %107 ], [ %.10168, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread ]
-  %.014.us.i61 = phi i1 [ %.2.us.i62, %107 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread ]
+.lr.ph.split.us.i69:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread, %107
+  %.11 = phi ptr [ %108, %107 ], [ %.10157, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread ]
+  %.02.us.i70 = phi i1 [ %.2.us.i71, %107 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread ]
   %104 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.11, ptr noundef nonnull align 8 dereferenceable(56) %102)
   br i1 %104, label %107, label %105
 
-105:                                              ; preds = %.lr.ph.split.us.i60
+105:                                              ; preds = %.lr.ph.split.us.i69
   %106 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %102, ptr noundef nonnull align 8 dereferenceable(56) %.11)
-  br i1 %106, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65, label %107
+  br i1 %106, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74, label %107
 
-107:                                              ; preds = %105, %.lr.ph.split.us.i60
-  %.2.us.i62 = phi i1 [ %.014.us.i61, %105 ], [ true, %.lr.ph.split.us.i60 ]
+107:                                              ; preds = %105, %.lr.ph.split.us.i69
+  %.2.us.i71 = phi i1 [ %.02.us.i70, %105 ], [ true, %.lr.ph.split.us.i69 ]
   %108 = getelementptr inbounds i8, ptr %.11, i64 56
-  %.not.us.i63 = icmp eq ptr %108, %7
-  br i1 %.not.us.i63, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65, label %.lr.ph.split.us.i60, !llvm.loop !10
+  %.not.us.i72 = icmp eq ptr %108, %7
+  br i1 %.not.us.i72, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74, label %.lr.ph.split.us.i69, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65: ; preds = %105, %107
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74: ; preds = %105, %107
   %.12 = phi ptr [ %108, %107 ], [ %.11, %105 ]
-  %.011.i64 = phi i1 [ %.2.us.i62, %107 ], [ %.014.us.i61, %105 ]
+  %.011.i73 = phi i1 [ %.2.us.i71, %107 ], [ %.02.us.i70, %105 ]
   %109 = or i32 %101, 32
-  %cond.fr169 = freeze i1 %.011.i64
-  %spec.select190 = select i1 %cond.fr169, i32 %109, i32 %101
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread
+  %cond.fr158 = freeze i1 %.011.i73
+  %spec.select179 = select i1 %cond.fr158, i32 %109, i32 %101
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread
-  %.12173 = phi ptr [ %.10168, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread ], [ %.12, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65 ]
-  %110 = phi i32 [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit58.thread ], [ %spec.select190, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread
+  %.12162 = phi ptr [ %.10157, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread ], [ %.12, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74 ]
+  %110 = phi i32 [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67.thread ], [ %spec.select179, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74 ]
   %111 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema29GetRenderingColorSpaceLocatorEv()
-  %112 = icmp eq ptr %.12173, %7
-  br i1 %112, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread, label %.lr.ph.split.us.i67
+  %112 = icmp eq ptr %.12162, %7
+  br i1 %112, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread, label %.lr.ph.split.us.i76
 
-.lr.ph.split.us.i67:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread, %116
-  %.13 = phi ptr [ %117, %116 ], [ %.12173, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread ]
-  %.014.us.i68 = phi i1 [ %.2.us.i69, %116 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread ]
+.lr.ph.split.us.i76:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread, %116
+  %.13 = phi ptr [ %117, %116 ], [ %.12162, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread ]
+  %.02.us.i77 = phi i1 [ %.2.us.i78, %116 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread ]
   %113 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.13, ptr noundef nonnull align 8 dereferenceable(56) %111)
   br i1 %113, label %116, label %114
 
-114:                                              ; preds = %.lr.ph.split.us.i67
+114:                                              ; preds = %.lr.ph.split.us.i76
   %115 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(56) %.13)
-  br i1 %115, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72, label %116
+  br i1 %115, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81, label %116
 
-116:                                              ; preds = %114, %.lr.ph.split.us.i67
-  %.2.us.i69 = phi i1 [ %.014.us.i68, %114 ], [ true, %.lr.ph.split.us.i67 ]
+116:                                              ; preds = %114, %.lr.ph.split.us.i76
+  %.2.us.i78 = phi i1 [ %.02.us.i77, %114 ], [ true, %.lr.ph.split.us.i76 ]
   %117 = getelementptr inbounds i8, ptr %.13, i64 56
-  %.not.us.i70 = icmp eq ptr %117, %7
-  br i1 %.not.us.i70, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72, label %.lr.ph.split.us.i67, !llvm.loop !10
+  %.not.us.i79 = icmp eq ptr %117, %7
+  br i1 %.not.us.i79, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81, label %.lr.ph.split.us.i76, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72: ; preds = %114, %116
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81: ; preds = %114, %116
   %.14 = phi ptr [ %117, %116 ], [ %.13, %114 ]
-  %.011.i71 = phi i1 [ %.2.us.i69, %116 ], [ %.014.us.i68, %114 ]
+  %.011.i80 = phi i1 [ %.2.us.i78, %116 ], [ %.02.us.i77, %114 ]
   %118 = or i32 %110, 64
-  %cond.fr174 = freeze i1 %.011.i71
-  %spec.select191 = select i1 %cond.fr174, i32 %118, i32 %110
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread
+  %cond.fr163 = freeze i1 %.011.i80
+  %spec.select180 = select i1 %cond.fr163, i32 %118, i32 %110
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread
-  %.14178 = phi ptr [ %.12173, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72 ]
-  %119 = phi i32 [ %110, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit65.thread ], [ %spec.select191, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread
+  %.14167 = phi ptr [ %.12162, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81 ]
+  %119 = phi i32 [ %110, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74.thread ], [ %spec.select180, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81 ]
   %120 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema25GetShutterIntervalLocatorEv()
-  %121 = icmp eq ptr %.14178, %7
-  br i1 %121, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, label %.lr.ph.split.us.i74
+  %121 = icmp eq ptr %.14167, %7
+  br i1 %121, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, label %.lr.ph.split.us.i83
 
-.lr.ph.split.us.i74:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread, %125
-  %.15 = phi ptr [ %126, %125 ], [ %.14178, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread ]
-  %.014.us.i75 = phi i1 [ %.2.us.i76, %125 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread ]
+.lr.ph.split.us.i83:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread, %125
+  %.15 = phi ptr [ %126, %125 ], [ %.14167, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread ]
+  %.02.us.i84 = phi i1 [ %.2.us.i85, %125 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread ]
   %122 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.15, ptr noundef nonnull align 8 dereferenceable(56) %120)
   br i1 %122, label %125, label %123
 
-123:                                              ; preds = %.lr.ph.split.us.i74
+123:                                              ; preds = %.lr.ph.split.us.i83
   %124 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %120, ptr noundef nonnull align 8 dereferenceable(56) %.15)
-  br i1 %124, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit79, label %125
+  br i1 %124, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88, label %125
 
-125:                                              ; preds = %123, %.lr.ph.split.us.i74
-  %.2.us.i76 = phi i1 [ %.014.us.i75, %123 ], [ true, %.lr.ph.split.us.i74 ]
+125:                                              ; preds = %123, %.lr.ph.split.us.i83
+  %.2.us.i85 = phi i1 [ %.02.us.i84, %123 ], [ true, %.lr.ph.split.us.i83 ]
   %126 = getelementptr inbounds i8, ptr %.15, i64 56
-  %.not.us.i77 = icmp eq ptr %126, %7
-  br i1 %.not.us.i77, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit79, label %.lr.ph.split.us.i74, !llvm.loop !10
+  %.not.us.i86 = icmp eq ptr %126, %7
+  br i1 %.not.us.i86, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88, label %.lr.ph.split.us.i83, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit79: ; preds = %123, %125
-  %.011.i78 = phi i1 [ %.014.us.i75, %123 ], [ %.2.us.i76, %125 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88: ; preds = %123, %125
+  %.011.i87 = phi i1 [ %.02.us.i84, %123 ], [ %.2.us.i85, %125 ]
   %127 = or i32 %119, 128
-  %cond.fr179 = freeze i1 %.011.i78
-  %spec.select192 = select i1 %cond.fr179, i32 %127, i32 %119
+  %cond.fr168 = freeze i1 %.011.i87
+  %spec.select181 = select i1 %cond.fr168, i32 %127, i32 %119
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
 
-128:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit23
+128:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32
   %129 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__29HdLegacyPrimTypeIsVolumeFieldERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %129, label %130, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
 
 130:                                              ; preds = %128
   %131 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdVolumeFieldSchema17GetDefaultLocatorEv()
   %132 = icmp eq ptr %3, %7
-  br i1 %132, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, label %.lr.ph.split.us.i81
+  br i1 %132, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread, label %.lr.ph.split.us.i90
 
-.lr.ph.split.us.i81:                              ; preds = %130, %136
+.lr.ph.split.us.i90:                              ; preds = %130, %136
   %.16 = phi ptr [ %137, %136 ], [ %3, %130 ]
-  %.014.us.i82 = phi i1 [ %.2.us.i83, %136 ], [ false, %130 ]
+  %.02.us.i91 = phi i1 [ %.2.us.i92, %136 ], [ false, %130 ]
   %133 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.16, ptr noundef nonnull align 8 dereferenceable(56) %131)
   br i1 %133, label %136, label %134
 
-134:                                              ; preds = %.lr.ph.split.us.i81
+134:                                              ; preds = %.lr.ph.split.us.i90
   %135 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorltERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %131, ptr noundef nonnull align 8 dereferenceable(56) %.16)
-  br i1 %135, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit86, label %136
+  br i1 %135, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95, label %136
 
-136:                                              ; preds = %134, %.lr.ph.split.us.i81
-  %.2.us.i83 = phi i1 [ %.014.us.i82, %134 ], [ true, %.lr.ph.split.us.i81 ]
+136:                                              ; preds = %134, %.lr.ph.split.us.i90
+  %.2.us.i92 = phi i1 [ %.02.us.i91, %134 ], [ true, %.lr.ph.split.us.i90 ]
   %137 = getelementptr inbounds i8, ptr %.16, i64 56
-  %.not.us.i84 = icmp eq ptr %137, %7
-  br i1 %.not.us.i84, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit86, label %.lr.ph.split.us.i81, !llvm.loop !10
+  %.not.us.i93 = icmp eq ptr %137, %7
+  br i1 %.not.us.i93, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95, label %.lr.ph.split.us.i90, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit86: ; preds = %134, %136
-  %.011.i85 = phi i1 [ %.014.us.i82, %134 ], [ %.2.us.i83, %136 ]
-  %cond.fr182 = freeze i1 %.011.i85
-  %spec.select193 = select i1 %cond.fr182, i32 2, i32 0
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95: ; preds = %134, %136
+  %.011.i94 = phi i1 [ %.02.us.i91, %134 ], [ %.2.us.i92, %136 ]
+  %cond.fr171 = freeze i1 %.011.i94
+  %spec.select182 = select i1 %cond.fr171, i32 2, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit86, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit79, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %130, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread, %28, %128, %2
-  %.017 = phi i32 [ 0, %2 ], [ 0, %128 ], [ 0, %28 ], [ %119, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit72.thread ], [ 0, %130 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ], [ %spec.select192, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit79 ], [ %spec.select193, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit86 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %130, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread, %28, %128, %2
+  %.017 = phi i32 [ 0, %2 ], [ 0, %128 ], [ 0, %28 ], [ %119, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread ], [ 0, %130 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ], [ %spec.select181, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88 ], [ %spec.select182, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95 ]
   ret i32 %.017
 }
 

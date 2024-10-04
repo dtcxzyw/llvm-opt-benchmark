@@ -2300,10 +2300,10 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvEUlP
           to label %79 unwind label %45
 
 79:                                               ; preds = %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvEUlPSoE_ED2Ev.exit.i
+  %80 = ptrtoint ptr %19 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvEUlPSoE0_EE, i64 16), ptr %13, align 8, !alias.scope !16
-  %80 = getelementptr inbounds i8, ptr %13, i64 16
-  %81 = ptrtoint ptr %19 to i64
-  store i64 %81, ptr %80, align 8, !alias.scope !16
+  %81 = getelementptr inbounds i8, ptr %13, i64 16
+  store i64 %80, ptr %81, align 8, !alias.scope !16
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull @.str)
           to label %82 unwind label %113
 

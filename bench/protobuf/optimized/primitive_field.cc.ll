@@ -416,7 +416,7 @@ $_ZTIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS2_3SubE
 @"_ZTIZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive16GenerateByteSizeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2EEUlvE_" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive16GenerateByteSizeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2EEUlvE_" }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_primitive_field.cc, ptr null }]
 @switch.table._ZN6google8protobuf8compiler3cpp12_GLOBAL__N_19FixedSizeENS0_8internal19FieldDescriptorLite4TypeE = private unnamed_addr constant [18 x i8] c"\01\01\00\00\00\01\01\01\00\00\00\00\00\00\01\01\00\00", align 1
-@switch.table._ZN6google8protobuf8compiler3cpp12_GLOBAL__N_19FixedSizeENS0_8internal19FieldDescriptorLite4TypeE.49 = private unnamed_addr constant [18 x i64] [i64 8, i64 4, i64 undef, i64 undef, i64 undef, i64 8, i64 4, i64 1, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 4, i64 8, i64 undef, i64 undef], align 8
+@switch.table._ZN6google8protobuf8compiler3cpp12_GLOBAL__N_19FixedSizeENS0_8internal19FieldDescriptorLite4TypeE.50 = private unnamed_addr constant [18 x i64] [i64 8, i64 4, i64 undef, i64 undef, i64 undef, i64 8, i64 4, i64 1, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 4, i64 8, i64 undef, i64 undef], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -6204,7 +6204,7 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds [18 x i8], ptr @switch.table._ZN6google8protobuf8compiler3cpp12_GLOBAL__N_19FixedSizeENS0_8internal19FieldDescriptorLite4TypeE, i64 0, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep8 = getelementptr inbounds [18 x i64], ptr @switch.table._ZN6google8protobuf8compiler3cpp12_GLOBAL__N_19FixedSizeENS0_8internal19FieldDescriptorLite4TypeE.49, i64 0, i64 %3
+  %switch.gep8 = getelementptr inbounds [18 x i64], ptr @switch.table._ZN6google8protobuf8compiler3cpp12_GLOBAL__N_19FixedSizeENS0_8internal19FieldDescriptorLite4TypeE.50, i64 0, i64 %3
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %switch.load9, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %switch.load, 1
@@ -7007,11 +7007,11 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #29
-  %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3)
+  %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -7025,9 +7025,9 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup18
 
 invoke.cont:                                      ; preds = %.noexc
+  %2 = ptrtoint ptr %p.addr to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3) #29
   %value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %2 = ptrtoint ptr %p.addr to i64
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store ptr @_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS2_8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive19GenerateMergingCodeEPS4_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !127
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48

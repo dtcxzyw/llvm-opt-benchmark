@@ -132,13 +132,13 @@ define dso_local noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr nocapture
 
 .noexc:                                           ; preds = %33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %.noexc19 unwind label %172
+          to label %.noexc24 unwind label %172
 
-.noexc19:                                         ; preds = %.noexc
+.noexc24:                                         ; preds = %.noexc
   %37 = icmp eq ptr %35, null
   br i1 %37, label %38, label %42
 
-38:                                               ; preds = %.noexc19
+38:                                               ; preds = %.noexc24
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.21) #16
           to label %39 unwind label %40
 
@@ -151,7 +151,7 @@ define dso_local noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr nocapture
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   br label %.body
 
-42:                                               ; preds = %.noexc19
+42:                                               ; preds = %.noexc24
   %43 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #15
   %44 = getelementptr inbounds i8, ptr %35, i64 %43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %35, ptr noundef nonnull %44)
@@ -181,9 +181,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %51, align 8
   invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19) #16
-          to label %.noexc20 unwind label %174
+          to label %.noexc25 unwind label %174
 
-.noexc20:                                         ; preds = %50
+.noexc25:                                         ; preds = %50
   unreachable
 
 _ZL12StyleFromArgRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -203,69 +203,69 @@ _ZL12StyleFromArgRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
 
 56:                                               ; preds = %54
   %57 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.2)
-          to label %.noexc21 unwind label %176
+          to label %.noexc26 unwind label %176
 
-.noexc21:                                         ; preds = %56
+.noexc26:                                         ; preds = %56
   %58 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEb(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit: ; preds = %.noexc21
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit: ; preds = %.noexc26
   %59 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.3)
-          to label %.noexc23 unwind label %176
+          to label %.noexc28 unwind label %176
 
-.noexc23:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit
+.noexc28:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit
   %60 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEDn(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr null)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit: ; preds = %.noexc23
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit: ; preds = %.noexc28
   %61 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.4)
-          to label %.noexc25 unwind label %176
+          to label %.noexc30 unwind label %176
 
-.noexc25:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit
+.noexc30:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit
   %62 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef -1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit: ; preds = %.noexc25
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit: ; preds = %.noexc30
   %63 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.5)
-          to label %.noexc27 unwind label %176
+          to label %.noexc32 unwind label %176
 
-.noexc27:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit
+.noexc32:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit
   %64 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 42)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit: ; preds = %.noexc27
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit: ; preds = %.noexc32
   %65 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.6)
-          to label %.noexc29 unwind label %176
+          to label %.noexc34 unwind label %176
 
-.noexc29:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit
+.noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit
   %66 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -9223372036854775808)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit: ; preds = %.noexc29
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit: ; preds = %.noexc34
   %67 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.7)
-          to label %.noexc31 unwind label %176
+          to label %.noexc36 unwind label %176
 
-.noexc31:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit
+.noexc36:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit
   %68 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit: ; preds = %.noexc31
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit: ; preds = %.noexc36
   %69 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.8)
-          to label %.noexc33 unwind label %176
+          to label %.noexc38 unwind label %176
 
-.noexc33:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit
+.noexc38:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit
   %70 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 0x3CB0000000000000)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit: ; preds = %.noexc33
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit: ; preds = %.noexc38
   %71 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.9)
-          to label %.noexc35 unwind label %176
+          to label %.noexc40 unwind label %176
 
-.noexc35:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit
+.noexc40:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit
   %72 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvOT_OT0_.exit unwind label %176
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvOT_OT0_.exit: ; preds = %.noexc35
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvOT_OT0_.exit: ; preds = %.noexc40
   %73 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.11)
           to label %74 unwind label %176
 
@@ -315,121 +315,121 @@ _ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvO
 
 96:                                               ; preds = %94
   %97 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11BeginObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc37 unwind label %176
-
-.noexc37:                                         ; preds = %96
-  %98 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.2)
-          to label %.noexc38 unwind label %176
-
-.noexc38:                                         ; preds = %.noexc37
-  %99 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEb(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true)
-          to label %.noexc39 unwind label %176
-
-.noexc39:                                         ; preds = %.noexc38
-  %100 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.3)
-          to label %.noexc40 unwind label %176
-
-.noexc40:                                         ; preds = %.noexc39
-  %101 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEDn(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr null)
-          to label %.noexc41 unwind label %176
-
-.noexc41:                                         ; preds = %.noexc40
-  %102 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.4)
           to label %.noexc42 unwind label %176
 
-.noexc42:                                         ; preds = %.noexc41
-  %103 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef -1)
+.noexc42:                                         ; preds = %96
+  %98 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.2)
           to label %.noexc43 unwind label %176
 
 .noexc43:                                         ; preds = %.noexc42
-  %104 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.5)
+  %99 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEb(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true)
           to label %.noexc44 unwind label %176
 
 .noexc44:                                         ; preds = %.noexc43
-  %105 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 42)
+  %100 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.3)
           to label %.noexc45 unwind label %176
 
 .noexc45:                                         ; preds = %.noexc44
-  %106 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.6)
+  %101 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEDn(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr null)
           to label %.noexc46 unwind label %176
 
 .noexc46:                                         ; preds = %.noexc45
-  %107 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -9223372036854775808)
+  %102 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.4)
           to label %.noexc47 unwind label %176
 
 .noexc47:                                         ; preds = %.noexc46
-  %108 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.7)
+  %103 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef -1)
           to label %.noexc48 unwind label %176
 
 .noexc48:                                         ; preds = %.noexc47
-  %109 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -1)
+  %104 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.5)
           to label %.noexc49 unwind label %176
 
 .noexc49:                                         ; preds = %.noexc48
-  %110 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.8)
+  %105 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 42)
           to label %.noexc50 unwind label %176
 
 .noexc50:                                         ; preds = %.noexc49
-  %111 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 0x3CB0000000000000)
+  %106 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.6)
           to label %.noexc51 unwind label %176
 
 .noexc51:                                         ; preds = %.noexc50
-  %112 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.9)
+  %107 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -9223372036854775808)
           to label %.noexc52 unwind label %176
 
 .noexc52:                                         ; preds = %.noexc51
-  %113 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10)
+  %108 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.7)
           to label %.noexc53 unwind label %176
 
 .noexc53:                                         ; preds = %.noexc52
-  %114 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.11)
+  %109 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -1)
           to label %.noexc54 unwind label %176
 
 .noexc54:                                         ; preds = %.noexc53
-  %115 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10BeginArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %110 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.8)
           to label %.noexc55 unwind label %176
 
 .noexc55:                                         ; preds = %.noexc54
-  %116 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEb(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true)
+  %111 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 0x3CB0000000000000)
           to label %.noexc56 unwind label %176
 
 .noexc56:                                         ; preds = %.noexc55
-  %117 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEDn(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr null)
+  %112 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.9)
           to label %.noexc57 unwind label %176
 
 .noexc57:                                         ; preds = %.noexc56
-  %118 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef -1)
+  %113 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10)
           to label %.noexc58 unwind label %176
 
 .noexc58:                                         ; preds = %.noexc57
-  %119 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 42)
+  %114 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.11)
           to label %.noexc59 unwind label %176
 
 .noexc59:                                         ; preds = %.noexc58
-  %120 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -9223372036854775808)
+  %115 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10BeginArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc60 unwind label %176
 
 .noexc60:                                         ; preds = %.noexc59
-  %121 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -1)
+  %116 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEb(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true)
           to label %.noexc61 unwind label %176
 
 .noexc61:                                         ; preds = %.noexc60
-  %122 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 0x3CB0000000000000)
+  %117 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEDn(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr null)
           to label %.noexc62 unwind label %176
 
 .noexc62:                                         ; preds = %.noexc61
-  %123 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10)
+  %118 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef -1)
           to label %.noexc63 unwind label %176
 
 .noexc63:                                         ; preds = %.noexc62
-  %124 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %119 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 42)
           to label %.noexc64 unwind label %176
 
 .noexc64:                                         ; preds = %.noexc63
+  %120 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -9223372036854775808)
+          to label %.noexc65 unwind label %176
+
+.noexc65:                                         ; preds = %.noexc64
+  %121 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef -1)
+          to label %.noexc66 unwind label %176
+
+.noexc66:                                         ; preds = %.noexc65
+  %122 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef 0x3CB0000000000000)
+          to label %.noexc67 unwind label %176
+
+.noexc67:                                         ; preds = %.noexc66
+  %123 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10)
+          to label %.noexc68 unwind label %176
+
+.noexc68:                                         ; preds = %.noexc67
+  %124 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %.noexc69 unwind label %176
+
+.noexc69:                                         ; preds = %.noexc68
   %125 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter9EndObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA5_KcbS4_DnRA4_S2_iS4_jRA6_S2_lRA7_S2_mSA_dSA_RA12_S2_S8_Z4mainE3$_0EEEvDpOT_.exit" unwind label %176
 
-"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA5_KcbS4_DnRA4_S2_iS4_jRA6_S2_lRA7_S2_mSA_dSA_RA12_S2_S8_Z4mainE3$_0EEEvDpOT_.exit": ; preds = %.noexc64
+"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA5_KcbS4_DnRA4_S2_iS4_jRA6_S2_lRA7_S2_mSA_dSA_RA12_S2_S8_Z4mainE3$_0EEEvDpOT_.exit": ; preds = %.noexc69
   store i32 1, ptr %10, align 4
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEC2IRA2_KciTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 1 dereferenceable(2) @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %127 unwind label %.thread
@@ -437,7 +437,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvO
 .thread:                                          ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA5_KcbS4_DnRA4_S2_iS4_jRA6_S2_lRA7_S2_mSA_dSA_RA12_S2_S8_Z4mainE3$_0EEEvDpOT_.exit"
   %126 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit87
+  br label %.loopexit91
 
 127:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA5_KcbS4_DnRA4_S2_iS4_jRA6_S2_lRA7_S2_mSA_dSA_RA12_S2_S8_Z4mainE3$_0EEEvDpOT_.exit"
   %128 = getelementptr inbounds i8, ptr %9, i64 40
@@ -468,7 +468,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvO
           cleanup
   %137 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %137, null
-  br i1 %.not.i.i.i, label %.body66.preheader, label %138
+  br i1 %.not.i.i.i, label %.body71.preheader, label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -477,10 +477,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvO
   %142 = ptrtoint ptr %137 to i64
   %143 = sub i64 %141, %142
   call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef %143) #17
-  br label %.body66.preheader
+  br label %.body71.preheader
 
-.body66.preheader:                                ; preds = %135, %138
-  br label %.body66
+.body71.preheader:                                ; preds = %135, %138
+  br label %.body71
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.exit: ; preds = %133, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.exit
   %144 = phi ptr [ %145, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.exit ], [ %134, %133 ]
@@ -491,40 +491,40 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
 
 147:                                              ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EEC2ESt16initializer_listIS7_ERKS8_.exit
   %148 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10BeginArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc68 unwind label %.loopexit.split-lp
+          to label %.noexc73 unwind label %.loopexit.split-lp
 
-.noexc68:                                         ; preds = %147
+.noexc73:                                         ; preds = %147
   %149 = load ptr, ptr %8, align 8
   %150 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %151 = load ptr, ptr %150, align 8
   %.not4.i = icmp eq ptr %149, %151
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc68, %.noexc72
-  %.sroa.01.05.i = phi ptr [ %158, %.noexc72 ], [ %149, %.noexc68 ]
+.lr.ph.i:                                         ; preds = %.noexc73, %.noexc77
+  %.sroa.01.05.i = phi ptr [ %158, %.noexc77 ], [ %149, %.noexc73 ]
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %153 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11BeginObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc69 unwind label %.loopexit
+          to label %.noexc74 unwind label %.loopexit
 
-.noexc69:                                         ; preds = %.lr.ph.i
+.noexc74:                                         ; preds = %.lr.ph.i
   %154 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i)
-          to label %.noexc70 unwind label %.loopexit
+          to label %.noexc75 unwind label %.loopexit
 
-.noexc70:                                         ; preds = %.noexc69
+.noexc75:                                         ; preds = %.noexc74
   %155 = load i32, ptr %152, align 4
   %156 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %155)
-          to label %.noexc71 unwind label %.loopexit
+          to label %.noexc76 unwind label %.loopexit
 
-.noexc71:                                         ; preds = %.noexc70
+.noexc76:                                         ; preds = %.noexc75
   %157 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter9EndObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc72 unwind label %.loopexit
+          to label %.noexc77 unwind label %.loopexit
 
-.noexc72:                                         ; preds = %.noexc71
+.noexc77:                                         ; preds = %.noexc76
   %158 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 40
   %.not.i = icmp eq ptr %158, %151
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.noexc72, %.noexc68
+._crit_edge.i:                                    ; preds = %.noexc77, %.noexc73
   %159 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaISA_EEZ4mainE3$_1EEvRKT_RKT0_.exit" unwind label %.loopexit.split-lp
 
@@ -551,8 +551,8 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %161
   %165 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %162, %161 ]
-  %.not.i.i.i74 = icmp eq ptr %165, null
-  br i1 %.not.i.i.i74, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EED2Ev.exit, label %166
+  %.not.i.i.i79 = icmp eq ptr %165, null
+  br i1 %.not.i.i.i79, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EED2Ev.exit, label %166
 
 166:                                              ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_EvT_S9_RSaIT0_E.exit.i
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -583,10 +583,10 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   br label %189
 
-176:                                              ; preds = %.noexc64, %.noexc63, %.noexc62, %.noexc61, %.noexc60, %.noexc59, %.noexc58, %.noexc57, %.noexc56, %.noexc55, %.noexc54, %.noexc53, %.noexc52, %.noexc51, %.noexc50, %.noexc49, %.noexc48, %.noexc47, %.noexc46, %.noexc45, %.noexc44, %.noexc43, %.noexc42, %.noexc41, %.noexc40, %.noexc39, %.noexc38, %.noexc37, %96, %.noexc35, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit, %.noexc33, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit, %.noexc31, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit, %.noexc29, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit, %.noexc27, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit, %.noexc25, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit, %.noexc23, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit, %.noexc21, %56, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvOT_OT0_.exit, %54, %52
+176:                                              ; preds = %.noexc69, %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc64, %.noexc63, %.noexc62, %.noexc61, %.noexc60, %.noexc59, %.noexc58, %.noexc57, %.noexc56, %.noexc55, %.noexc54, %.noexc53, %.noexc52, %.noexc51, %.noexc50, %.noexc49, %.noexc48, %.noexc47, %.noexc46, %.noexc45, %.noexc44, %.noexc43, %.noexc42, %96, %.noexc40, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcdEEvOT_OT0_.exit, %.noexc38, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcmEEvOT_OT0_.exit, %.noexc36, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA6_KclEEvOT_OT0_.exit, %.noexc34, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcjEEvOT_OT0_.exit, %.noexc32, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA4_KciEEvOT_OT0_.exit, %.noexc30, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcDnEEvOT_OT0_.exit, %.noexc28, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA5_KcbEEvOT_OT0_.exit, %.noexc26, %56, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter13WriteKeyValueIRA7_KcRA12_S2_EEvOT_OT0_.exit, %54, %52
   %177 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit87
+  br label %.loopexit91
 
 178:                                              ; preds = %131, %129, %127
   %.0 = phi ptr [ %132, %131 ], [ %130, %129 ], [ %128, %127 ]
@@ -599,16 +599,16 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
   %182 = getelementptr inbounds i8, ptr %181, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #15
   %183 = icmp eq ptr %182, %9
-  br i1 %183, label %.loopexit87, label %180
+  br i1 %183, label %.loopexit91, label %180
 
-.body66:                                          ; preds = %.body66.preheader, %.body66
-  %184 = phi ptr [ %185, %.body66 ], [ %134, %.body66.preheader ]
+.body71:                                          ; preds = %.body71.preheader, %.body71
+  %184 = phi ptr [ %185, %.body71 ], [ %134, %.body71.preheader ]
   %185 = getelementptr inbounds i8, ptr %184, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %185) #15
   %186 = icmp eq ptr %185, %9
-  br i1 %186, label %.loopexit87, label %.body66
+  br i1 %186, label %.loopexit91, label %.body71
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.noexc69, %.noexc70, %.noexc71
+.loopexit:                                        ; preds = %.lr.ph.i, %.noexc74, %.noexc75, %.noexc76
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %187
@@ -621,10 +621,10 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
 187:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
-  br label %.loopexit87
+  br label %.loopexit91
 
-.loopexit87:                                      ; preds = %180, %.body66, %.thread, %187, %176
-  %.pn16 = phi { ptr, i32 } [ %lpad.phi, %187 ], [ %177, %176 ], [ %126, %.thread ], [ %136, %.body66 ], [ %179, %180 ]
+.loopexit91:                                      ; preds = %180, %.body71, %.thread, %187, %176
+  %.pn16 = phi { ptr, i32 } [ %lpad.phi, %187 ], [ %177, %176 ], [ %126, %.thread ], [ %136, %.body71 ], [ %179, %180 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   br label %189
 
@@ -633,8 +633,8 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #15
   br label %190
 
-189:                                              ; preds = %.loopexit87, %.body, %31
-  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %.loopexit87 ], [ %32, %31 ], [ %.pn, %.body ]
+189:                                              ; preds = %.loopexit91, %.body, %31
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %.loopexit91 ], [ %32, %31 ], [ %.pn, %.body ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #15
   resume { ptr, i32 } %.pn16.pn
 

@@ -36051,12 +36051,12 @@ invoke.cont9270:                                  ; preds = %invoke.cont9267
   br i1 %call9271, label %for.cond.preheader, label %if.end9784
 
 for.cond.preheader:                               ; preds = %invoke.cont9270
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_60, i64 16
   %3449 = ptrtoint ptr %i0 to i64
-  %lambda_.i.i6039 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_63, i64 16
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_60, i64 16
   %3450 = ptrtoint ptr %i1 to i64
-  %lambda_.i.i6041 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_66, i64 16
+  %lambda_.i.i6039 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_63, i64 16
   %3451 = ptrtoint ptr %i2 to i64
+  %lambda_.i.i6041 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_66, i64 16
   %m_value.i.i.i6260 = getelementptr inbounds i8, ptr %_9454, i64 8
   %_M_manager.i.i6278 = getelementptr inbounds i8, ptr %agg.tmp9472, i64 16
   %m_threw_as9493 = getelementptr inbounds i8, ptr %DOCTEST_RB9462, i64 96

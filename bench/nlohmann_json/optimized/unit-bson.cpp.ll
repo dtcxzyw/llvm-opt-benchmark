@@ -16958,8 +16958,8 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %if.then21
 
 invoke.cont25:                                    ; preds = %if.then21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call5.i.i.i.i2.i, ptr noundef nonnull align 8 dereferenceable(88) @constinit.323, i64 88, i1 false)
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_68, i64 16
   %1 = ptrtoint ptr %i to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_68, i64 16
   %value_ref.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp38, i64 24
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 32
@@ -17570,8 +17570,8 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %if.then241
 
 invoke.cont251:                                   ; preds = %if.then241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %call5.i.i.i.i2.i222, ptr noundef nonnull align 4 dereferenceable(100) @constinit.330, i64 100, i1 false)
-  %lambda_.i.i233 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_72, i64 16
   %68 = ptrtoint ptr %i263 to i64
+  %lambda_.i.i233 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_72, i64 16
   %value_ref.i235 = getelementptr inbounds i8, ptr %ref.tmp274, i64 16
   %arrayinit.element279 = getelementptr inbounds i8, ptr %ref.tmp274, i64 24
   %m_value.i.i.i238 = getelementptr inbounds i8, ptr %ref.tmp274, i64 32
@@ -18150,8 +18150,8 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i330:        ; preds = %if.then486
 
 invoke.cont496:                                   ; preds = %if.then486
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call5.i.i.i.i2.i326, ptr noundef nonnull align 8 dereferenceable(88) @constinit.332, i64 88, i1 false)
-  %lambda_.i.i339 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_76, i64 16
   %131 = ptrtoint ptr %i508 to i64
+  %lambda_.i.i339 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_76, i64 16
   %value_ref.i341 = getelementptr inbounds i8, ptr %ref.tmp519, i64 16
   %arrayinit.element524 = getelementptr inbounds i8, ptr %ref.tmp519, i64 24
   %m_value.i.i.i344 = getelementptr inbounds i8, ptr %ref.tmp519, i64 32
@@ -18770,8 +18770,8 @@ _ZNSt12_Vector_baseImSaImEED2Ev.exit.i:           ; preds = %if.then759
 
 invoke.cont769:                                   ; preds = %if.then759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call5.i.i.i.i2.i433, ptr noundef nonnull align 8 dereferenceable(104) @constinit.335, i64 104, i1 false)
-  %lambda_.i.i444 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_81, i64 16
   %194 = ptrtoint ptr %i781 to i64
+  %lambda_.i.i444 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_81, i64 16
   %value_ref.i446 = getelementptr inbounds i8, ptr %ref.tmp792, i64 16
   %arrayinit.element797 = getelementptr inbounds i8, ptr %ref.tmp792, i64 24
   %m_value.i.i.i449 = getelementptr inbounds i8, ptr %ref.tmp792, i64 32
@@ -19354,8 +19354,8 @@ _ZNSt12_Vector_baseImSaImEED2Ev.exit.i541:        ; preds = %if.then1003
 
 invoke.cont1013:                                  ; preds = %if.then1003
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call5.i.i.i.i2.i537, ptr noundef nonnull align 8 dereferenceable(104) @constinit.338, i64 104, i1 false)
-  %lambda_.i.i550 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_85, i64 16
   %257 = ptrtoint ptr %i1025 to i64
+  %lambda_.i.i550 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_85, i64 16
   %value_ref.i552 = getelementptr inbounds i8, ptr %ref.tmp1036, i64 16
   %arrayinit.element1041 = getelementptr inbounds i8, ptr %ref.tmp1036, i64 24
   %m_value.i.i.i555 = getelementptr inbounds i8, ptr %ref.tmp1036, i64 32
@@ -19943,8 +19943,8 @@ _ZNSt12_Vector_baseImSaImEED2Ev.exit.i648:        ; preds = %if.then1263
 
 invoke.cont1273:                                  ; preds = %if.then1263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call5.i.i.i.i2.i644, ptr noundef nonnull align 8 dereferenceable(40) @constinit.340, i64 40, i1 false)
-  %lambda_.i.i657 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_89, i64 16
   %318 = ptrtoint ptr %i1285 to i64
+  %lambda_.i.i657 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_89, i64 16
   %value_ref.i659 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 16
   %arrayinit.element1301 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 24
   %m_value.i.i.i662 = getelementptr inbounds i8, ptr %ref.tmp1296, i64 32
@@ -20490,10 +20490,10 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %call, label %for.cond.preheader, label %if.end262
 
 for.cond.preheader:                               ; preds = %invoke.cont3
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_96, i64 16
   %0 = ptrtoint ptr %filename to i64
-  %lambda_.i.i42 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_100, i64 16
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_96, i64 16
   %1 = ptrtoint ptr %DOCTEST_STD_STRING_97 to i64
+  %lambda_.i.i42 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_100, i64 16
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %j2, i64 8
   %m_value6.i = getelementptr inbounds i8, ptr %agg.tmp33, i64 8
@@ -20504,8 +20504,8 @@ for.cond.preheader:                               ; preds = %invoke.cont3
   %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
   %m_value.i.i59 = getelementptr inbounds i8, ptr %j1, i64 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_100, i64 8
-  %lambda_.i.i68 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_104, i64 16
   %3 = ptrtoint ptr %DOCTEST_STD_STRING_101 to i64
+  %lambda_.i.i68 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_104, i64 16
   %_M_manager.i.i70 = getelementptr inbounds i8, ptr %agg.tmp71, i64 16
   %m_value.i.i.i81 = getelementptr inbounds i8, ptr %j281, i64 8
   %m_value6.i83 = getelementptr inbounds i8, ptr %agg.tmp90, i64 8
@@ -20516,8 +20516,8 @@ for.cond.preheader:                               ; preds = %invoke.cont3
   %m_decomp.i103 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
   %m_value.i.i107 = getelementptr inbounds i8, ptr %j170, i64 8
   %need_to_destroy.i110 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_104, i64 8
-  %lambda_.i.i120 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_108, i64 16
   %5 = ptrtoint ptr %DOCTEST_STD_STRING_105 to i64
+  %lambda_.i.i120 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_108, i64 16
   %_M_manager.i.i122 = getelementptr inbounds i8, ptr %agg.tmp136, i64 16
   %m_value.i.i.i133 = getelementptr inbounds i8, ptr %j2147, i64 8
   %_M_finish.i = getelementptr inbounds i8, ptr %packed140, i64 8
@@ -20530,11 +20530,11 @@ for.cond.preheader:                               ; preds = %invoke.cont3
   %m_decomp.i153 = getelementptr inbounds i8, ptr %ref.tmp181, i64 8
   %m_value.i.i160 = getelementptr inbounds i8, ptr %j1135, i64 8
   %need_to_destroy.i163 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_108, i64 8
-  %lambda_.i.i173 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_112, i64 16
   %7 = ptrtoint ptr %DOCTEST_STD_STRING_109 to i64
+  %lambda_.i.i173 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_112, i64 16
   %_M_manager.i.i175 = getelementptr inbounds i8, ptr %agg.tmp206, i64 16
-  %lambda_.i.i191 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_116, i64 16
   %8 = ptrtoint ptr %DOCTEST_STD_STRING_113 to i64
+  %lambda_.i.i191 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_116, i64 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp222, i64 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %vec, i64 8
   %_M_finish.i4.i.i = getelementptr inbounds i8, ptr %packed210, i64 8

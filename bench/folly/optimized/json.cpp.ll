@@ -88,7 +88,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.140" = type { %"struct.std::_Tuple_impl.141" }
 %"struct.std::_Tuple_impl.141" = type { %"struct.std::_Head_base.142" }
 %"struct.std::_Head_base.142" = type { ptr }
-%class.anon.148 = type { ptr }
 %"class.folly::detail::ScopeGuardImpl" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon.118 }
 %"class.folly::detail::ScopeGuardImplBase" = type { i8 }
 %class.anon.118 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -9635,7 +9634,6 @@ entry:
   %__dnew.i.i.i149.i = alloca i64, align 8
   %integral.i = alloca %"class.folly::Range", align 8
   %extremaStr.i = alloca ptr, align 8
-  %hexVal.i.i = alloca %class.anon.148, align 8
   %ref.tmp56.i154 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp57.i = alloca i32, align 4
   %key.i = alloca %"struct.folly::dynamic", align 8
@@ -10994,7 +10992,7 @@ _ZN5folly4json12_GLOBAL__N_15InputppEv.exit.i:    ; preds = %cond.false.i.i.i, %
 
 for.cond.i155:                                    ; preds = %for.cond.i155.backedge, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit.i
   %102 = phi ptr [ %incdec.ptr.i.i.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit.i ], [ %.be, %for.cond.i155.backedge ]
-  %103 = phi ptr [ %3, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit.i ], [ %.be435, %for.cond.i155.backedge ]
+  %103 = phi ptr [ %3, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit.i ], [ %.be436, %for.cond.i155.backedge ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %103 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %102 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -11084,7 +11082,7 @@ lpad12.i:                                         ; preds = %if.then.i.i.i
           cleanup
   br label %ehcleanup86.i
 
-lpad17.loopexit.i:                                ; preds = %if.then.i347.i, %if.end16.i.i, %if.end.i.i, %invoke.cont54.i157, %if.then.i301.i, %if.then.i279.i, %if.then.i257.i, %if.then.i235.i, %if.then.i213.i, %if.then.i191.i, %if.then.i169.i, %if.then.i.i164, %invoke.cont13.i
+lpad17.loopexit.i:                                ; preds = %if.end.i.i, %invoke.cont54.i157, %if.then.i347.i, %if.end16.i.i, %if.then.i301.i, %if.then.i279.i, %if.then.i257.i, %if.then.i235.i, %if.then.i213.i, %if.then.i191.i, %if.then.i169.i, %if.then.i.i164, %invoke.cont13.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup86.i
@@ -11544,9 +11542,7 @@ cond.false.i.i318.i:                              ; preds = %sw.bb53.i
 invoke.cont54.i157:                               ; preds = %cond.false.i.i318.i, %sw.bb53.i
   %cond.i.i320.i = phi i32 [ %conv.i.i319.i, %cond.false.i.i318.i ], [ -1, %sw.bb53.i ]
   store i32 %cond.i.i320.i, ptr %current_.i.i, align 4, !tbaa !323, !noalias !377
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hexVal.i.i) #28, !noalias !377
-  store ptr %in, ptr %hexVal.i.i, align 8, !tbaa !28, !noalias !377
-  %call.i327.i = invoke fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nonnull %in, ptr nonnull %hexVal.i.i)
+  %call.i327.i = invoke fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nonnull %in, ptr nonnull %in)
           to label %call.i.noexc.i unwind label %lpad17.loopexit.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont54.i157
@@ -11603,7 +11599,7 @@ cond.false.i.i.i.i:                               ; preds = %_ZN5folly5RangeIPKc
 if.end.i.i:                                       ; preds = %cond.false.i.i.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i
   %cond.i.i.i.i = phi i32 [ %conv.i.i.i.i, %cond.false.i.i.i.i ], [ -1, %_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i ]
   store i32 %cond.i.i.i.i, ptr %current_.i.i, align 4, !tbaa !323, !noalias !377
-  %call4.i330.i = invoke fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nonnull %in, ptr nonnull %hexVal.i.i)
+  %call4.i330.i = invoke fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nonnull %in, ptr nonnull %in)
           to label %call4.i.noexc.i unwind label %lpad17.loopexit.i
 
 call4.i.noexc.i:                                  ; preds = %if.end.i.i
@@ -11633,7 +11629,6 @@ if.end16.i.i:                                     ; preds = %if.else.i.i, %_ZN5f
           to label %_ZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %lpad17.loopexit.i
 
 _ZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %if.end16.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hexVal.i.i) #28, !noalias !377
   %.pre.pre.i = load ptr, ptr %e_.i.i, align 8, !tbaa !326, !noalias !377
   %.pre386.pre.i = load ptr, ptr %in, align 8, !tbaa !327, !noalias !377
   br label %for.cond.i155.backedge
@@ -11749,7 +11744,7 @@ _ZN5folly4json12_GLOBAL__N_15InputppEv.exit360.i: ; preds = %cond.false.i.i356.i
 
 for.cond.i155.backedge:                           ; preds = %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit360.i, %_ZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit314.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit292.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit270.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit248.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit226.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit204.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit182.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit160.i
   %.be = phi ptr [ %incdec.ptr.i.i353.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit360.i ], [ %.pre386.pre.i, %_ZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %incdec.ptr.i.i307.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit314.i ], [ %incdec.ptr.i.i285.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit292.i ], [ %incdec.ptr.i.i263.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit270.i ], [ %incdec.ptr.i.i241.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit248.i ], [ %incdec.ptr.i.i219.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit226.i ], [ %incdec.ptr.i.i197.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit204.i ], [ %incdec.ptr.i.i175.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit182.i ], [ %incdec.ptr.i.i153.i, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit160.i ]
-  %.be435 = phi ptr [ %207, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit360.i ], [ %.pre.pre.i, %_ZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %178, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit314.i ], [ %170, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit292.i ], [ %162, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit270.i ], [ %154, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit248.i ], [ %146, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit226.i ], [ %138, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit204.i ], [ %130, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit182.i ], [ %122, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit160.i ]
+  %.be436 = phi ptr [ %207, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit360.i ], [ %.pre.pre.i, %_ZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %178, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit314.i ], [ %170, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit292.i ], [ %162, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit270.i ], [ %154, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit248.i ], [ %146, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit226.i ], [ %138, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit204.i ], [ %130, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit182.i ], [ %122, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit160.i ]
   br label %for.cond.i155
 
 ehcleanup86.i:                                    ; preds = %ehcleanup.i165, %lpad17.loopexit.split-lp.i, %lpad17.loopexit.i, %lpad12.i
@@ -15337,7 +15332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nocapture nonnull %this.0.val, ptr nocapture nonnull readonly %this.8.val) unnamed_addr #6 align 2 {
+define internal fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nocapture nonnull %this.0.val, ptr nocapture readonly %this.8.val.0.val) unnamed_addr #6 align 2 {
 entry:
   %.val33 = load ptr, ptr %this.0.val, align 8, !tbaa !327
   %0 = getelementptr i8, ptr %this.0.val, i64 8
@@ -15355,7 +15350,6 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %this.0.val, i64 28
   %.val32 = load i32, ptr %1, align 4, !tbaa !323
-  %.val38 = load ptr, ptr %this.8.val, align 8
   %2 = add i32 %.val32, -48
   %or.cond.i = icmp ult i32 %2, 10
   br i1 %or.cond.i, label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit", label %cond.false.i
@@ -15379,7 +15373,7 @@ cond.true12.i:                                    ; preds = %cond.false8.i
   br label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit"
 
 cond.false15.i:                                   ; preds = %cond.false8.i
-  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %.val38, ptr noundef nonnull @.str.82) #30
+  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %this.8.val.0.val, ptr noundef nonnull @.str.82) #30
   unreachable
 
 "_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit": ; preds = %cond.true12.i, %cond.true6.i, %if.end
@@ -15391,14 +15385,12 @@ cond.false15.i:                                   ; preds = %cond.false8.i
 
 cond.false8.i42.thread:                           ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit"
   store i32 -1, ptr %1, align 4, !tbaa !323
-  %.val372 = load ptr, ptr %this.8.val, align 8
   br label %cond.false15.i44
 
 _ZN5folly4json12_GLOBAL__N_15InputppEv.exit:      ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit"
   %5 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !7
   %conv.i.i = sext i8 %5 to i32
   store i32 %conv.i.i, ptr %1, align 4, !tbaa !323
-  %.val37 = load ptr, ptr %this.8.val, align 8
   %6 = add nsw i32 %conv.i.i, -48
   %or.cond.i39 = icmp ult i32 %6, 10
   br i1 %or.cond.i39, label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit51", label %cond.false.i40
@@ -15422,8 +15414,7 @@ cond.true12.i45:                                  ; preds = %cond.false8.i42
   br label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit51"
 
 cond.false15.i44:                                 ; preds = %cond.false8.i42, %cond.false8.i42.thread
-  %.val375914 = phi ptr [ %.val372, %cond.false8.i42.thread ], [ %.val37, %cond.false8.i42 ]
-  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %.val375914, ptr noundef nonnull @.str.82) #30
+  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %this.8.val.0.val, ptr noundef nonnull @.str.82) #30
   unreachable
 
 "_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit51": ; preds = %cond.true12.i45, %cond.true6.i49, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit
@@ -15435,14 +15426,12 @@ cond.false15.i44:                                 ; preds = %cond.false8.i42, %c
 
 cond.false8.i63.thread:                           ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit51"
   store i32 -1, ptr %1, align 4, !tbaa !323
-  %.val3616 = load ptr, ptr %this.8.val, align 8
   br label %cond.false15.i65
 
 _ZN5folly4json12_GLOBAL__N_15InputppEv.exit59:    ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit51"
   %9 = load i8, ptr %incdec.ptr.i.i52, align 1, !tbaa !7
   %conv.i.i56 = sext i8 %9 to i32
   store i32 %conv.i.i56, ptr %1, align 4, !tbaa !323
-  %.val36 = load ptr, ptr %this.8.val, align 8
   %10 = add nsw i32 %conv.i.i56, -48
   %or.cond.i60 = icmp ult i32 %10, 10
   br i1 %or.cond.i60, label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit72", label %cond.false.i61
@@ -15466,8 +15455,7 @@ cond.true12.i66:                                  ; preds = %cond.false8.i63
   br label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit72"
 
 cond.false15.i65:                                 ; preds = %cond.false8.i63, %cond.false8.i63.thread
-  %.val36192328 = phi ptr [ %.val3616, %cond.false8.i63.thread ], [ %.val36, %cond.false8.i63 ]
-  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %.val36192328, ptr noundef nonnull @.str.82) #30
+  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %this.8.val.0.val, ptr noundef nonnull @.str.82) #30
   unreachable
 
 "_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit72": ; preds = %cond.true12.i66, %cond.true6.i70, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit59
@@ -15479,14 +15467,12 @@ cond.false15.i65:                                 ; preds = %cond.false8.i63, %c
 
 cond.false8.i84.thread:                           ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit72"
   store i32 -1, ptr %1, align 4, !tbaa !323
-  %.val3530 = load ptr, ptr %this.8.val, align 8
   br label %cond.false15.i86
 
 _ZN5folly4json12_GLOBAL__N_15InputppEv.exit80:    ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit72"
   %13 = load i8, ptr %incdec.ptr.i.i73, align 1, !tbaa !7
   %conv.i.i77 = sext i8 %13 to i32
   store i32 %conv.i.i77, ptr %1, align 4, !tbaa !323
-  %.val35 = load ptr, ptr %this.8.val, align 8
   %14 = add nsw i32 %conv.i.i77, -48
   %or.cond.i81 = icmp ult i32 %14, 10
   br i1 %or.cond.i81, label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit93", label %cond.false.i82
@@ -15510,8 +15496,7 @@ cond.true12.i87:                                  ; preds = %cond.false8.i84
   br label %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit93"
 
 cond.false15.i86:                                 ; preds = %cond.false8.i84, %cond.false8.i84.thread
-  %.val35333742 = phi ptr [ %.val3530, %cond.false8.i84.thread ], [ %.val35, %cond.false8.i84 ]
-  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %.val35333742, ptr noundef nonnull @.str.82) #30
+  tail call fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input5errorEPKc(ptr noundef nonnull align 8 dereferenceable(36) %this.8.val.0.val, ptr noundef nonnull @.str.82) #30
   unreachable
 
 "_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit93": ; preds = %cond.true12.i87, %cond.true6.i91, %_ZN5folly4json12_GLOBAL__N_15InputppEv.exit80

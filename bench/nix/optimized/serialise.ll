@@ -16321,35 +16321,35 @@ define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12Sou
           to label %.noexc unwind label %100
 
 .noexc:                                           ; preds = %14
-  %20 = extractvalue { i64, ptr } %19, 0
-  %21 = extractvalue { i64, ptr } %19, 1
-  %22 = getelementptr inbounds i8, ptr %21, i64 -96
-  %23 = ptrtoint ptr %22 to i64
-  %24 = add i64 %23, 63
-  %25 = and i64 %24, -64
-  %26 = sub i64 %25, %23
-  %27 = icmp ugt i64 %26, 64
-  %28 = inttoptr i64 %25 to ptr
-  %spec.select.i.i = select i1 %27, ptr null, ptr %28
-  %29 = ptrtoint ptr %21 to i64
-  %30 = ptrtoint ptr %spec.select.i.i to i64
-  %31 = ptrtoint ptr %0 to i64
-  %32 = add i64 %30, -40
+  %20 = ptrtoint ptr %0 to i64
+  %21 = extractvalue { i64, ptr } %19, 0
+  %22 = extractvalue { i64, ptr } %19, 1
+  %23 = getelementptr inbounds i8, ptr %22, i64 -96
+  %24 = ptrtoint ptr %23 to i64
+  %25 = add i64 %24, 63
+  %26 = and i64 %25, -64
+  %27 = sub i64 %26, %24
+  %28 = icmp ugt i64 %27, 64
+  %29 = inttoptr i64 %26 to ptr
+  %spec.select.i.i = select i1 %28, ptr null, ptr %29
+  %30 = ptrtoint ptr %22 to i64
+  %31 = ptrtoint ptr %spec.select.i.i to i64
+  %32 = add i64 %31, -40
   %33 = and i64 %32, -256
   %34 = inttoptr i64 %33 to ptr
-  store i64 %20, ptr %34, align 256
+  store i64 %21, ptr %34, align 256
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %21, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  store ptr %22, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = ptrtoint ptr %16 to i64
   store i64 %36, ptr %35, align 16
   %37 = getelementptr inbounds i8, ptr %34, i64 24
   store ptr %spec.select.i.i, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %34, i64 32
-  store i64 %31, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 32
+  store i64 %20, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 32
   %38 = add i64 %33, -64
   %39 = inttoptr i64 %38 to ptr
-  %.neg.i.i.i.i.i = sub i64 %20, %29
+  %.neg.i.i.i.i.i = sub i64 %21, %30
   %40 = add i64 %.neg.i.i.i.i.i, %38
   %41 = invoke ptr @make_fcontext(ptr noundef nonnull %39, i64 noundef %40, ptr noundef nonnull @_ZN5boost7context6detail11fiber_entryINS1_12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS6_ZZNS5_12sourceToSinkESt8functionIFvRNS5_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS8_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS4_E_EEEEvNS1_10transfer_tE)
           to label %.noexc4 unwind label %100
@@ -17762,36 +17762,36 @@ define internal noundef i64 @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0
           to label %.noexc unwind label %117
 
 .noexc:                                           ; preds = %12
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = getelementptr inbounds i8, ptr %19, i64 -136
-  %21 = ptrtoint ptr %20 to i64
-  %22 = add i64 %21, 63
-  %23 = and i64 %22, -64
-  %24 = sub i64 %23, %21
-  %25 = icmp ugt i64 %24, 64
-  %26 = inttoptr i64 %23 to ptr
-  %spec.select.i.i = select i1 %25, ptr null, ptr %26
-  %27 = ptrtoint ptr %19 to i64
-  %28 = ptrtoint ptr %spec.select.i.i to i64
-  %29 = ptrtoint ptr %0 to i64
+  %18 = ptrtoint ptr %0 to i64
+  %19 = extractvalue { i64, ptr } %17, 0
+  %20 = extractvalue { i64, ptr } %17, 1
+  %21 = getelementptr inbounds i8, ptr %20, i64 -136
+  %22 = ptrtoint ptr %21 to i64
+  %23 = add i64 %22, 63
+  %24 = and i64 %23, -64
+  %25 = sub i64 %24, %22
+  %26 = icmp ugt i64 %25, 64
+  %27 = inttoptr i64 %24 to ptr
+  %spec.select.i.i = select i1 %26, ptr null, ptr %27
+  %28 = ptrtoint ptr %20 to i64
+  %29 = ptrtoint ptr %spec.select.i.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %30 = add i64 %28, -40
+  %30 = add i64 %29, -40
   %31 = and i64 %30, -256
   %32 = inttoptr i64 %31 to ptr
-  store i64 %18, ptr %32, align 256
+  store i64 %19, ptr %32, align 256
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %19, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
+  store ptr %20, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = ptrtoint ptr %14 to i64
   store i64 %34, ptr %33, align 16
   %35 = getelementptr inbounds i8, ptr %32, i64 24
   store ptr %spec.select.i.i, ptr %35, align 8
   %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %32, i64 32
-  store i64 %29, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 32
+  store i64 %18, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 32
   %36 = add i64 %31, -64
   %37 = inttoptr i64 %36 to ptr
-  %.neg.i.i.i.i.i = sub i64 %18, %27
+  %.neg.i.i.i.i.i = sub i64 %19, %28
   %38 = add i64 %.neg.i.i.i.i.i, %36
   %39 = invoke ptr @make_fcontext(ptr noundef nonnull %37, i64 noundef %38, ptr noundef nonnull @_ZN5boost7context6detail11fiber_entryINS1_12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS6_ZZNS5_12sinkToSourceESt8functionIFvRNS5_4SinkEEESJ_IFvvEEEN12SinkToSource4readEPcmEUlRNS8_14push_coroutineISF_EEE_EENS0_12preallocatedEOT_OT0_EUlOS4_E_EEEEvNS1_10transfer_tE)
           to label %.noexc8 unwind label %117
@@ -17903,7 +17903,7 @@ _ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11ch
   br label %_ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IN3nix21VirtualStackAllocatorEZZNSB_12sinkToSourceESt8functionIFvRNSB_4SinkEEESD_IFvvEEEN12SinkToSource4readEPcmEUlRNS1_14push_coroutineIS8_EEE_EEOT_OT0_.exit
 
 _ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IN3nix21VirtualStackAllocatorEZZNSB_12sinkToSourceESt8functionIFvRNSB_4SinkEEESD_IFvvEEEN12SinkToSource4readEPcmEUlRNS1_14push_coroutineIS8_EEE_EEOT_OT0_.exit: ; preds = %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.i, %72, %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.thread.i
-  %.sroa.029.0 = phi ptr [ %26, %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.i ], [ null, %72 ], [ null, %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.thread.i ]
+  %.sroa.029.0 = phi ptr [ %27, %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.i ], [ null, %72 ], [ null, %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.thread.i ]
   %73 = load i8, ptr %9, align 8
   %74 = trunc i8 %73 to i1
   br i1 %74, label %_ZNSt8optionalIN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSISA_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameISB_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESE_ISt6__and_IJSt9is_scalarISA_ESF_ISA_NSt5decayISI_E4typeEEEEESt16is_constructibleISA_JSI_EESt13is_assignableIRSA_SI_EEERSB_E4typeEOSI_.exit, label %_ZNSt8optionalIN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEaSISA_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameISB_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESE_ISt6__and_IJSt9is_scalarISA_ESF_ISA_NSt5decayISI_E4typeEEEEESt16is_constructibleISA_JSI_EESt13is_assignableIRSA_SI_EEERSB_E4typeEOSI_.exit.thread

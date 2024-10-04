@@ -937,21 +937,21 @@ define linkonce_odr hidden noundef i32 @_ZN6TheApp17liveBarCodeDetectEv(ptr noun
 
 .noexc:                                           ; preds = %24
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %28)
-          to label %.noexc19 unwind label %.loopexit.split-lp
-
-.noexc19:                                         ; preds = %.noexc
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.21)
           to label %.noexc20 unwind label %.loopexit.split-lp
 
-.noexc20:                                         ; preds = %.noexc19
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %29)
+.noexc20:                                         ; preds = %.noexc
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.21)
           to label %.noexc21 unwind label %.loopexit.split-lp
 
 .noexc21:                                         ; preds = %.noexc20
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %29)
+          to label %.noexc22 unwind label %.loopexit.split-lp
+
+.noexc22:                                         ; preds = %.noexc21
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.22)
           to label %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit unwind label %.loopexit.split-lp
 
-_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc21
+_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc22
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %36 unwind label %.loopexit.split-lp
 
@@ -992,23 +992,23 @@ _ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc21
           to label %57 unwind label %.loopexit
 
 57:                                               ; preds = %55
-  br i1 %56, label %.invoke32, label %61
+  br i1 %56, label %.invoke33, label %61
 
-.invoke32:                                        ; preds = %57, %86
+.invoke33:                                        ; preds = %57, %86
   %58 = phi ptr [ @.str.19, %86 ], [ @.str.16, %57 ]
   %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %58)
           to label %.invoke unwind label %.loopexit.split-lp
 
-.invoke:                                          ; preds = %.invoke32
+.invoke:                                          ; preds = %.invoke33
   %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %110 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %53, %55, %_ZN2cv9TickMeter5startEv.exit, %.noexc24, %75, %84, %87, %68, %70, %73
+.loopexit:                                        ; preds = %53, %55, %_ZN2cv9TickMeter5startEv.exit, %.noexc25, %75, %84, %87, %68, %70, %73
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke32, %.invoke, %20, %22, %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit, %36, %38, %40, %42, %24, %.noexc, %.noexc19, %.noexc20, %.noexc21
+.loopexit.split-lp:                               ; preds = %.invoke33, %.invoke, %20, %22, %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit, %36, %38, %40, %42, %24, %.noexc, %.noexc20, %.noexc21, %.noexc22
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1045,21 +1045,21 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %68
 
 70:                                               ; preds = %_ZN2cv9TickMeter5startEv.exit
   %71 = invoke noundef i64 @_ZN2cv12getTickCountEv()
-          to label %.noexc24 unwind label %.loopexit
+          to label %.noexc25 unwind label %.loopexit
 
-.noexc24:                                         ; preds = %70
+.noexc25:                                         ; preds = %70
   %72 = icmp ne i64 %69, 0
   invoke void @_ZNK6TheApp11drawResultsERN2cv3MatE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(96) %4)
           to label %73 unwind label %.loopexit
 
-73:                                               ; preds = %.noexc24
+73:                                               ; preds = %.noexc25
   %74 = invoke noundef double @_ZN2cv16getTickFrequencyEv()
           to label %75 unwind label %.loopexit
 
 75:                                               ; preds = %73
   %76 = sub i64 %71, %69
-  %spec.select31 = select i1 %72, i64 %76, i64 0
-  %77 = sitofp i64 %spec.select31 to double
+  %spec.select32 = select i1 %72, i64 %76, i64 0
+  %77 = sitofp i64 %spec.select32 to double
   %78 = fdiv double %77, %74
   %79 = fcmp olt double %78, 0x3CB0000000000000
   %80 = uitofp i1 %72 to double
@@ -1091,7 +1091,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %68
   %trunc = trunc i32 %85 to i8
   switch i8 %trunc, label %.backedge [
     i8 100, label %87
-    i8 27, label %.invoke32
+    i8 27, label %.invoke33
   ]
 
 .backedge:                                        ; preds = %86, %102
@@ -1203,21 +1203,21 @@ define linkonce_odr hidden noundef i32 @_ZN6TheApp18imageBarCodeDetectERKNSt7__c
 
 .noexc:                                           ; preds = %13
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %17)
-          to label %.noexc16 unwind label %.loopexit.split-lp
-
-.noexc16:                                         ; preds = %.noexc
-  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.21)
           to label %.noexc17 unwind label %.loopexit.split-lp
 
-.noexc17:                                         ; preds = %.noexc16
-  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %18)
+.noexc17:                                         ; preds = %.noexc
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.21)
           to label %.noexc18 unwind label %.loopexit.split-lp
 
 .noexc18:                                         ; preds = %.noexc17
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %18)
+          to label %.noexc19 unwind label %.loopexit.split-lp
+
+.noexc19:                                         ; preds = %.noexc18
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.22)
           to label %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit unwind label %.loopexit.split-lp
 
-_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc18
+_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc19
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %25 unwind label %.loopexit.split-lp
 
@@ -1255,10 +1255,10 @@ _ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %39
 
-39:                                               ; preds = %38, %.noexc21
-  %.034 = phi i64 [ 0, %38 ], [ %47, %.noexc21 ]
-  %.sroa.4.033 = phi i64 [ 0, %38 ], [ %.sroa.4.1, %.noexc21 ]
-  %.sroa.0.032 = phi i64 [ 0, %38 ], [ %.sroa.0.1, %.noexc21 ]
+39:                                               ; preds = %38, %.noexc22
+  %.035 = phi i64 [ 0, %38 ], [ %47, %.noexc22 ]
+  %.sroa.4.034 = phi i64 [ 0, %38 ], [ %.sroa.4.1, %.noexc22 ]
+  %.sroa.0.033 = phi i64 [ 0, %38 ], [ %.sroa.0.1, %.noexc22 ]
   %40 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %_ZN2cv9TickMeter5startEv.exit unwind label %.loopexit
 
@@ -1268,16 +1268,16 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %39
 
 41:                                               ; preds = %_ZN2cv9TickMeter5startEv.exit
   %42 = invoke noundef i64 @_ZN2cv12getTickCountEv()
-          to label %.noexc21 unwind label %.loopexit
+          to label %.noexc22 unwind label %.loopexit
 
-.noexc21:                                         ; preds = %41
+.noexc22:                                         ; preds = %41
   %43 = icmp ne i64 %40, 0
   %44 = sub i64 %42, %40
   %45 = zext i1 %43 to i64
-  %.sroa.0.1 = add nuw nsw i64 %.sroa.0.032, %45
+  %.sroa.0.1 = add nuw nsw i64 %.sroa.0.033, %45
   %46 = select i1 %43, i64 %44, i64 0
-  %.sroa.4.1 = add nsw i64 %46, %.sroa.4.033
-  %47 = add nuw nsw i64 %.034, 1
+  %.sroa.4.1 = add nsw i64 %46, %.sroa.4.034
+  %47 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %47, 100
   br i1 %exitcond.not, label %50, label %39, !llvm.loop !18
 
@@ -1286,7 +1286,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %39
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %3, %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit, %25, %50, %54, %61, %63, %66, %68, %70, %88, %90, %92, %13, %.noexc, %.noexc16, %.noexc17, %.noexc18, %52
+.loopexit.split-lp:                               ; preds = %3, %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit, %25, %50, %54, %61, %63, %66, %68, %70, %88, %90, %92, %13, %.noexc, %.noexc17, %.noexc18, %.noexc19, %52
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1297,7 +1297,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %.body
 
-50:                                               ; preds = %.noexc21
+50:                                               ; preds = %.noexc22
   %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.33)
           to label %52 unwind label %.loopexit.split-lp
 
@@ -1364,8 +1364,8 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %39
   %81 = landingpad { ptr, i32 }
           cleanup
   %82 = load ptr, ptr %8, align 8
-  %.not.i.i.i23 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i23, label %.body, label %83
+  %.not.i.i.i24 = icmp eq ptr %82, null
+  br i1 %.not.i.i.i24, label %.body, label %83
 
 83:                                               ; preds = %80
   call void @_ZdlPv(ptr noundef nonnull %82) #20

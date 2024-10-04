@@ -18348,8 +18348,8 @@ if.end36:                                         ; preds = %invoke.cont31, %lan
   %agg.tmp37.sroa.0.0.copyload = load ptr, ptr %__first, align 8
   %agg.tmp37.sroa.4.0.__first.sroa_idx = getelementptr inbounds i8, ptr %__first, i64 8
   %agg.tmp37.sroa.4.0.copyload = load i64, ptr %agg.tmp37.sroa.4.0.__first.sroa_idx, align 8
-  %cmp39.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp39.i, label %land.rhs.lr.ph.i, label %invoke.cont39
+  %cmp3.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %invoke.cont39
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end36
   %smallest_internal_key2.i.i.i = getelementptr inbounds i8, ptr %__value, i64 32
@@ -18360,10 +18360,10 @@ land.rhs.lr.ph.i:                                 ; preds = %if.end36
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %invoke.cont10.i, %land.rhs.lr.ph.i
-  %__holeIndex.addr.040.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.041.i, %invoke.cont10.i ]
-  %__parent.041.in.i = add nsw i64 %__holeIndex.addr.040.i, -1
-  %__parent.041.i = sdiv i64 %__parent.041.in.i, 2
-  %add.i.i = add i64 %__parent.041.i, %agg.tmp37.sroa.4.0.copyload
+  %__holeIndex.addr.04.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.05.i, %invoke.cont10.i ]
+  %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
+  %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
+  %add.i.i = add i64 %__parent.05.i, %agg.tmp37.sroa.4.0.copyload
   %__comp.val.val.i = load ptr, ptr %__comp.coerce, align 8
   %agg.tmp.val.val.i = load ptr, ptr %26, align 8
   %agg.tmp.val.val10.i = load ptr, ptr %27, align 8
@@ -18398,18 +18398,18 @@ invoke.cont10.i:                                  ; preds = %land.rhs.i
   %add.ptr.i.i.i.i70 = getelementptr i8, ptr %32, i64 -64
   %retval.0.i.i.i71 = select i1 %cmp.i.i.i.i, ptr %arrayidx.i.i.i69, ptr %add.ptr.i.i.i.i70
   %33 = load ptr, ptr %retval.0.i.i.i71, align 8
-  %add.i18.i = add i64 %__holeIndex.addr.040.i, %agg.tmp37.sroa.4.0.copyload
+  %add.i18.i = add i64 %__holeIndex.addr.04.i, %agg.tmp37.sroa.4.0.copyload
   %cmp.i.i21.i = icmp ult i64 %add.i18.i, 8
   %arrayidx.i.i23.i = getelementptr inbounds ptr, ptr %30, i64 %add.i18.i
   %34 = getelementptr ptr, ptr %31, i64 %add.i18.i
   %add.ptr.i.i.i25.i = getelementptr i8, ptr %34, i64 -64
   %retval.0.i.i26.i = select i1 %cmp.i.i21.i, ptr %arrayidx.i.i23.i, ptr %add.ptr.i.i.i25.i
   store ptr %33, ptr %retval.0.i.i26.i, align 8
-  %cmp.i = icmp sgt i64 %__parent.041.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont39, !llvm.loop !142
 
 invoke.cont39:                                    ; preds = %invoke.cont10.i, %land.rhs.i, %if.end36
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end36 ], [ %__holeIndex.addr.040.i, %land.rhs.i ], [ %__parent.041.i, %invoke.cont10.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end36 ], [ %__holeIndex.addr.04.i, %land.rhs.i ], [ %__parent.05.i, %invoke.cont10.i ]
   %add.i28.i = add i64 %__holeIndex.addr.0.lcssa.i, %agg.tmp37.sroa.4.0.copyload
   %cmp.i.i31.i = icmp ult i64 %add.i28.i, 8
   %values_.i.i32.i = getelementptr inbounds i8, ptr %agg.tmp37.sroa.0.0.copyload, i64 72

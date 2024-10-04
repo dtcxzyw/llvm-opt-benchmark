@@ -161,7 +161,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.testing::Matcher.231" = type { %"class.testing::internal::MatcherBase.232" }
 %"class.testing::internal::MatcherBase.232" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const std::__cxx11::basic_string<char> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const std::__cxx11::basic_string<char> &>::Buffer" = type { ptr }
-%class.anon.241 = type { ptr }
 %"class.testing::Cardinality" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -14509,7 +14508,6 @@ entry:
   %agg.tmp = alloca %"class.testing::Matcher.231", align 8
   %agg.tmp2 = alloca %"class.testing::Matcher.231", align 8
   %test_sink = alloca %"class.absl::ScopedMockLog", align 8
-  %do_log = alloca %class.anon.241, align 8
   %ref.tmp = alloca %"class.testing::internal::MockSpec", align 8
   %ref.tmp37 = alloca %"class.testing::Cardinality", align 8
   %ref.tmp42 = alloca %"class.testing::Action", align 8
@@ -14679,7 +14677,6 @@ if.then28:                                        ; preds = %invoke.cont26
           to label %invoke.cont29 unwind label %lpad25
 
 invoke.cont29:                                    ; preds = %if.then28
-  store ptr %test_sink, ptr %do_log, align 8
   invoke void @_ZN7testing8internal18GetWithoutMatchersEv()
           to label %invoke.cont32 unwind label %lpad31
 
@@ -15455,7 +15452,7 @@ _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit174: ; p
           to label %invoke.cont105 unwind label %lpad31
 
 invoke.cont105:                                   ; preds = %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit174
-  invoke fastcc void @"_ZZN12_GLOBAL__N_145ModifierMethodDeathTest_ToSinkOnlyQFatal_Test8TestBodyEvENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(8) %do_log)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_145ModifierMethodDeathTest_ToSinkOnlyQFatal_Test8TestBodyEvENK3$_0clEv"(ptr nonnull %test_sink)
           to label %invoke.cont106.unreachable unwind label %lpad31
 
 invoke.cont106.unreachable:                       ; preds = %invoke.cont105
@@ -16515,12 +16512,11 @@ _ZNSt5tupleIJN7testing7MatcherIRKN4absl8LogEntryEEES6_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_145ModifierMethodDeathTest_ToSinkOnlyQFatal_Test8TestBodyEvENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_145ModifierMethodDeathTest_ToSinkOnlyQFatal_Test8TestBodyEvENK3$_0clEv"(ptr %this.0.val) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageQuietlyFatal", align 8
   call void @_ZN4absl12log_internal22LogMessageQuietlyFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.3, i32 noundef 215) #33
-  %0 = load ptr, ptr %this, align 8
-  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
+  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull align 8 dereferenceable(240) %this.0.val)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -16536,7 +16532,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   unreachable
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal22LogMessageQuietlyFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #32
   unreachable

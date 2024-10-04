@@ -510,9 +510,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %cleanup.done
           to label %call.i.noexc unwind label %lpad12
 
 call.i.noexc:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %2 = ptrtoint ptr %this to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8proxygen12WorkerThread5startEvE3$_0EEEEEE", i64 16), ptr %call.i1, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
-  %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %_M_func.i.i, align 8
   store ptr %call.i1, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10, ptr noundef nonnull %agg.tmp.i, ptr noundef null)

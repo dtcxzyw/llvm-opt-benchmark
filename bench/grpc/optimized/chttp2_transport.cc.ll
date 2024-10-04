@@ -802,7 +802,7 @@ $_ZTVSt18bad_variant_access = comdat any
 @llvm.global_ctors = appending global [3 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.89, ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.90, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_chttp2_transport.cc, ptr null }]
 @llvm.used = appending global [2 x ptr] [ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E], section "llvm.metadata"
 @switch.table._Z40grpc_chttp2_initiate_write_reason_string33grpc_chttp2_initiate_write_reason = private unnamed_addr constant [22 x ptr] [ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86], align 8
-@switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88 = private unnamed_addr constant [3 x ptr] [ptr @.str.123, ptr @.str.124, ptr @.str.125], align 8
+@switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.89 = private unnamed_addr constant [3 x ptr] [ptr @.str.123, ptr @.str.124, ptr @.str.125], align 8
 
 @_ZN9grpc_core14HttpAnnotationC1ENS0_4TypeENS_9TimestampESt8optionalINS_6chttp220TransportFlowControl5StatsEES3_INS4_17StreamFlowControl5StatsEE = unnamed_addr alias void (ptr, i8, i64, ptr, ptr), ptr @_ZN9grpc_core14HttpAnnotationC2ENS0_4TypeENS_9TimestampESt8optionalINS_6chttp220TransportFlowControl5StatsEES3_INS4_17StreamFlowControl5StatsEE
 @_ZN21grpc_chttp2_transportD1Ev = unnamed_addr alias void (ptr), ptr @_ZN21grpc_chttp2_transportD2Ev
@@ -6989,10 +6989,10 @@ do.body.i:                                        ; preds = %invoke.cont
 
 switch.lookup:                                    ; preds = %invoke.cont
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.89, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = zext nneg i32 %st to i64
-  %switch.gep47 = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %13
+  %switch.gep47 = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.89, i64 0, i64 %13
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.12, i32 noundef 1005, i32 noundef 1, ptr noundef nonnull @.str.119, ptr noundef nonnull %t, ptr noundef nonnull %.str.120..str.121, ptr noundef %call4, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load48, ptr noundef %reason)
           to label %invoke.cont10 unwind label %lpad5
@@ -9155,7 +9155,7 @@ do.body.i:                                        ; preds = %if.then1
 
 switch.lookup:                                    ; preds = %if.then1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.89, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = trunc i64 %1 to i32
   %conv4 = and i32 %6, 65535
@@ -9271,7 +9271,7 @@ do.body.i35:                                      ; preds = %invoke.cont40
 
 switch.lookup169:                                 ; preds = %invoke.cont40
   %19 = zext nneg i32 %17 to i64
-  %switch.gep170 = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %19
+  %switch.gep170 = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.89, i64 0, i64 %19
   %switch.load171 = load ptr, ptr %switch.gep170, align 8
   %call.i.i.i.i40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load171) #36
   %20 = load i64, ptr %0, align 8

@@ -35753,15 +35753,15 @@ if.then10605:                                     ; preds = %invoke.cont10603
   store ptr @.str.241, ptr %ref.tmp10607, align 8
   %arrayinit.element10609 = getelementptr inbounds i8, ptr %ref.tmp10607, i64 8
   store ptr @.str.242, ptr %arrayinit.element10609, align 8
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_99, i64 16
   %4070 = ptrtoint ptr %filename to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_99, i64 16
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp10619, i64 16
   %m_it.i.i.i = getelementptr inbounds i8, ptr %__begin3, i64 8
   %primitive_iterator.i.i.i.i = getelementptr inbounds i8, ptr %__begin3, i64 24
   %m_value8.i.i.i = getelementptr inbounds i8, ptr %suite, i64 8
   %array_iterator.i.i.i = getelementptr inbounds i8, ptr %__begin3, i64 16
-  %lambda_.i.i6434 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_103, i64 16
   %4071 = ptrtoint ptr %DOCTEST_STD_STRING_100 to i64
+  %lambda_.i.i6434 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_103, i64 16
   %m_value.i.i6488 = getelementptr inbounds i8, ptr %agg.tmp.ensured10712, i64 8
   %m_exception_string.i.i6491 = getelementptr inbounds i8, ptr %DOCTEST_RB10706, i64 112
   %m_decomp.i.i6492 = getelementptr inbounds i8, ptr %DOCTEST_RB10706, i64 72

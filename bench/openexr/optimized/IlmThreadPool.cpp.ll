@@ -2338,30 +2338,30 @@ for.body.i:                                       ; preds = %if.then, %.noexc
   %cmp.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %for.body10.i, label %for.body.i, !llvm.loop !54
 
-for.body10.i:                                     ; preds = %.noexc, %.noexc11
-  %i7.014.i = phi i64 [ %inc16.i, %.noexc11 ], [ 0, %.noexc ]
+for.body10.i:                                     ; preds = %.noexc, %.noexc12
+  %i7.014.i = phi i64 [ %inc16.i, %.noexc12 ], [ 0, %.noexc ]
   %_data.val6.i = load ptr, ptr %_data, align 8
   %_threads13.i = getelementptr inbounds i8, ptr %_data.val6.i, i64 144
   %4 = load ptr, ptr %_threads13.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::thread", ptr %4, i64 %i7.014.i
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
-          to label %.noexc11 unwind label %lpad.loopexit.split-lp.loopexit
+          to label %.noexc12 unwind label %lpad.loopexit.split-lp.loopexit
 
-.noexc11:                                         ; preds = %for.body10.i
+.noexc12:                                         ; preds = %for.body10.i
   %inc16.i = add i64 %i7.014.i, 1
   %cmp9.not.i = icmp eq i64 %inc16.i, %sub.ptr.div.i.i
   br i1 %cmp9.not.i, label %for.end17.i.loopexit, label %for.body10.i, !llvm.loop !55
 
-for.end17.i.loopexit:                             ; preds = %.noexc11
+for.end17.i.loopexit:                             ; preds = %.noexc12
   %_data.val5.i.pre = load ptr, ptr %_data, align 8
   %_threads20.i.phi.trans.insert = getelementptr inbounds i8, ptr %_data.val5.i.pre, i64 144
   %.pre = load ptr, ptr %_threads20.i.phi.trans.insert, align 8
   %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %_data.val5.i.pre, i64 152
-  %.pre36 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
+  %.pre37 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
   br label %for.end17.i
 
 for.end17.i:                                      ; preds = %for.end17.i.loopexit, %if.then
-  %5 = phi ptr [ %.pre36, %for.end17.i.loopexit ], [ %2, %if.then ]
+  %5 = phi ptr [ %.pre37, %for.end17.i.loopexit ], [ %2, %if.then ]
   %6 = phi ptr [ %.pre, %for.end17.i.loopexit ], [ %3, %if.then ]
   %_data.val5.i = phi ptr [ %_data.val5.i.pre, %for.end17.i.loopexit ], [ %_data.val8.i, %if.then ]
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %_data.val5.i, i64 152
@@ -2398,28 +2398,28 @@ _ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider12lockedFinishEv.exit
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit25 = landingpad { ptr, i32 }
+  %lpad.loopexit26 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %for.body10.i
-  %lpad.loopexit27 = landingpad { ptr, i32 }
+  %lpad.loopexit28 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i
-  %lpad.loopexit30 = landingpad { ptr, i32 }
+  %lpad.loopexit31 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end
-  %lpad.loopexit.split-lp31 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp32 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad4.i, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ %16, %lpad4.i ], [ %lpad.loopexit25, %lpad.loopexit ], [ %lpad.loopexit27, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit30, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %call1.i.i.i12 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_threadMutex) #25
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ %16, %lpad4.i ], [ %lpad.loopexit26, %lpad.loopexit ], [ %lpad.loopexit28, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit31, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp32, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %call1.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_threadMutex) #25
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider12lockedFinishEv.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -2430,26 +2430,26 @@ if.end:                                           ; preds = %_ZN13IlmThread_3_21
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp933 = icmp ult i64 %curThreads.0, %conv
-  br i1 %cmp933, label %for.body.lr.ph, label %for.end
+  %cmp934 = icmp ult i64 %curThreads.0, %conv
+  br i1 %cmp934, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %_M_refcount3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6threadD2Ev.exit
-  %i.034 = phi i64 [ %curThreads.0, %for.body.lr.ph ], [ %inc, %_ZNSt6threadD2Ev.exit ]
+  %i.035 = phi i64 [ %curThreads.0, %for.body.lr.ph ], [ %inc, %_ZNSt6threadD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
-  %call.i13 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
+  %call.i14 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.noexc unwind label %lpad.loopexit
 
 call.i.noexc:                                     ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderEFvSt10shared_ptrINS4_21DefaultThreadPoolDataEEEPS5_S8_EEEEEE, i64 16), ptr %call.i13, align 8
-  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i13, i64 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderEFvSt10shared_ptrINS4_21DefaultThreadPoolDataEEEPS5_S8_EEEEEE, i64 16), ptr %call.i14, align 8
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i14, i64 8
   %7 = load ptr, ptr %_data, align 8
   store ptr %7, ptr %_M_func.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 16
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i14, i64 16
   %8 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %8, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -2472,13 +2472,13 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %call.i.noexc
-  %12 = getelementptr inbounds i8, ptr %call.i13, i64 24
+  %12 = getelementptr inbounds i8, ptr %call.i14, i64 24
   store ptr %this, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %call.i13, i64 32
+  %13 = getelementptr inbounds i8, ptr %call.i14, i64 32
   store i64 ptrtoint (ptr @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10threadLoopESt10shared_ptrINS0_21DefaultThreadPoolDataEE to i64), ptr %13, align 8
-  %this.repack3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 40
+  %this.repack3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i14, i64 40
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
-  store ptr %call.i13, ptr %agg.tmp.i, align 8
+  store ptr %call.i14, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont5.i unwind label %lpad4.i
 
@@ -2513,7 +2513,7 @@ invoke.cont13:                                    ; preds = %_ZNKSt14default_del
   %_data.val7 = load ptr, ptr %_data, align 8
   %_threads16 = getelementptr inbounds i8, ptr %_data.val7, i64 144
   %19 = load ptr, ptr %_threads16, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::thread", ptr %19, i64 %i.034
+  %add.ptr.i = getelementptr inbounds %"class.std::thread", ptr %19, i64 %i.035
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %add.ptr.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt6threadD2Ev.exit, label %if.then.i
@@ -2526,24 +2526,24 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %invoke.cont13
   %20 = load i64, ptr %ref.tmp, align 8
   store i64 %20, ptr %add.ptr.i, align 8
   store i64 0, ptr %ref.tmp, align 8
-  %inc = add i64 %i.034, 1
+  %inc = add i64 %i.035, 1
   %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
 
 for.end:                                          ; preds = %_ZNSt6threadD2Ev.exit, %for.cond.preheader
   %_data.val6 = load ptr, ptr %_data, align 8
   %_threads21 = getelementptr inbounds i8, ptr %_data.val6, i64 144
-  %_M_finish.i17 = getelementptr inbounds i8, ptr %_data.val6, i64 152
-  %21 = load ptr, ptr %_M_finish.i17, align 8
+  %_M_finish.i18 = getelementptr inbounds i8, ptr %_data.val6, i64 152
+  %21 = load ptr, ptr %_M_finish.i18, align 8
   %22 = load ptr, ptr %_threads21, align 8
-  %sub.ptr.lhs.cast.i18 = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i19 = ptrtoint ptr %22 to i64
-  %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
-  %sub.ptr.div.i21 = lshr exact i64 %sub.ptr.sub.i20, 3
-  %conv23 = trunc i64 %sub.ptr.div.i21 to i32
+  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %22 to i64
+  %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
+  %sub.ptr.div.i22 = lshr exact i64 %sub.ptr.sub.i21, 3
+  %conv23 = trunc i64 %sub.ptr.div.i22 to i32
   %_threadCount = getelementptr inbounds i8, ptr %_data.val6, i64 168
   store atomic i32 %conv23, ptr %_threadCount seq_cst, align 4
-  %call1.i.i.i23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_threadMutex) #25
+  %call1.i.i.i24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_threadMutex) #25
   ret void
 }
 

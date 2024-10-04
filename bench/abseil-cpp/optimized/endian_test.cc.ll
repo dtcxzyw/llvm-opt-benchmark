@@ -456,16 +456,16 @@ _ZN4absl12_GLOBAL__N_123GenerateAllUint16ValuesEv.exit: ; preds = %for.inc.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp14.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp43.i)
-  %cmp.i.not32.i = icmp eq ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.7.0
-  br i1 %cmp.i.not32.i, label %invoke.cont, label %for.body.lr.ph.i
+  %cmp.i.not4.i = icmp eq ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.7.0
+  br i1 %cmp.i.not4.i, label %invoke.cont, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN4absl12_GLOBAL__N_123GenerateAllUint16ValuesEv.exit
   %message_.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   br label %for.body.i1
 
 for.body.i1:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i, %for.body.lr.ph.i
-  %it.sroa.0.033.i = phi ptr [ %ref.tmp.sroa.0.1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i ]
-  %5 = load i16, ptr %it.sroa.0.033.i, align 2
+  %it.sroa.0.05.i = phi ptr [ %ref.tmp.sroa.0.1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i ]
+  %5 = load i16, ptr %it.sroa.0.05.i, align 2
   %6 = call noundef i16 @llvm.bswap.i16(i16 %5)
   store i16 %6, ptr %actual_value.i, align 2
   store i16 %5, ptr %expected_value.i, align 2
@@ -631,8 +631,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i, %cleanup.i
   store ptr null, ptr %message_.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.033.i, i64 2
-  %cmp.i.not.i = icmp ne ptr %it.sroa.0.033.i, %add.ptr.i.i.i.i.i.i.i.pn
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.05.i, i64 2
+  %cmp.i.not.i = icmp ne ptr %it.sroa.0.05.i, %add.ptr.i.i.i.i.i.i.i.pn
   %or.cond.not.i = select i1 %tobool.i.i, i1 %cmp.i.not.i, i1 false
   br i1 %or.cond.not.i, label %for.body.i1, label %invoke.cont, !llvm.loop !10
 
@@ -1185,16 +1185,16 @@ _ZN4absl12_GLOBAL__N_122GenerateRandomIntegersIjEESt6vectorIT_SaIS3_EEm.exit: ; 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp14.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp42.i)
-  %cmp.i.not32.i = icmp eq ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.8.0
-  br i1 %cmp.i.not32.i, label %invoke.cont, label %for.body.lr.ph.i
+  %cmp.i.not4.i = icmp eq ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.8.0
+  br i1 %cmp.i.not4.i, label %invoke.cont, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN4absl12_GLOBAL__N_122GenerateRandomIntegersIjEESt6vectorIT_SaIS3_EEm.exit
   %message_.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   br label %for.body.i1
 
 for.body.i1:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i, %for.body.lr.ph.i
-  %it.sroa.0.033.i = phi ptr [ %ref.tmp.sroa.0.1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i ]
-  %5 = load i32, ptr %it.sroa.0.033.i, align 4
+  %it.sroa.0.05.i = phi ptr [ %ref.tmp.sroa.0.1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i ]
+  %5 = load i32, ptr %it.sroa.0.05.i, align 4
   %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %actual_value.i, align 4
   store i32 %5, ptr %expected_value.i, align 4
@@ -1360,8 +1360,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i, %cleanup.i
   store ptr null, ptr %message_.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.033.i, i64 4
-  %cmp.i.not.i = icmp ne ptr %it.sroa.0.033.i, %add.ptr.i.i.i.i.i.i.i.pn
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.05.i, i64 4
+  %cmp.i.not.i = icmp ne ptr %it.sroa.0.05.i, %add.ptr.i.i.i.i.i.i.i.pn
   %or.cond.not.i = select i1 %tobool.i.i, i1 %cmp.i.not.i, i1 false
   br i1 %or.cond.not.i, label %for.body.i1, label %invoke.cont, !llvm.loop !33
 
@@ -1703,16 +1703,16 @@ _ZN4absl12_GLOBAL__N_122GenerateRandomIntegersImEESt6vectorIT_SaIS3_EEm.exit: ; 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp14.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp42.i)
-  %cmp.i.not32.i = icmp eq ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.8.0
-  br i1 %cmp.i.not32.i, label %invoke.cont, label %for.body.lr.ph.i
+  %cmp.i.not4.i = icmp eq ptr %ref.tmp.sroa.0.1, %ref.tmp.sroa.8.0
+  br i1 %cmp.i.not4.i, label %invoke.cont, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN4absl12_GLOBAL__N_122GenerateRandomIntegersImEESt6vectorIT_SaIS3_EEm.exit
   %message_.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   br label %for.body.i1
 
 for.body.i1:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i, %for.body.lr.ph.i
-  %it.sroa.0.033.i = phi ptr [ %ref.tmp.sroa.0.1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i ]
-  %5 = load i64, ptr %it.sroa.0.033.i, align 8
+  %it.sroa.0.05.i = phi ptr [ %ref.tmp.sroa.0.1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i ]
+  %5 = load i64, ptr %it.sroa.0.05.i, align 8
   %6 = call noundef i64 @llvm.bswap.i64(i64 %5)
   store i64 %6, ptr %actual_value.i, align 8
   store i64 %5, ptr %expected_value.i, align 8
@@ -1878,8 +1878,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i, %cleanup.i
   store ptr null, ptr %message_.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.033.i, i64 8
-  %cmp.i.not.i = icmp ne ptr %it.sroa.0.033.i, %add.ptr.i.i.i.i.i.i.i.pn
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.05.i, i64 8
+  %cmp.i.not.i = icmp ne ptr %it.sroa.0.05.i, %add.ptr.i.i.i.i.i.i.i.pn
   %or.cond.not.i = select i1 %tobool.i.i, i1 %cmp.i.not.i, i1 false
   br i1 %or.cond.not.i, label %for.body.i1, label %invoke.cont, !llvm.loop !40
 

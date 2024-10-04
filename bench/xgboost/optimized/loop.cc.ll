@@ -6286,10 +6286,10 @@ _ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %.noexc13 unwind label %44
 
 .noexc13:                                         ; preds = %_ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %20 = ptrtoint ptr %0 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective4LoopC1ENSt6chrono8durationIlSt5ratioILl1ELl1EEEEE3$_0EEEEEE", i64 16), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = ptrtoint ptr %0 to i64
-  store i64 %21, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 %20, ptr %21, align 8
   store ptr %19, ptr %3, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3, ptr noundef null)
           to label %22 unwind label %27

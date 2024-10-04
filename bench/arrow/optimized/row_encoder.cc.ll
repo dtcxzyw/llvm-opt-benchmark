@@ -2378,13 +2378,13 @@ invoke.cont:                                      ; preds = %if.then
   %vtable.i.i = load ptr, ptr %2, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %3 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i12 = invoke noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %call.i.i14 = invoke noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %call.i.i.noexc unwind label %lpad4.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %invoke.cont
   %offset.i.i = getelementptr inbounds i8, ptr %viewed, i64 24
   %4 = load i64, ptr %offset.i.i, align 8
-  %conv.i.i = sext i32 %call.i.i12 to i64
+  %conv.i.i = sext i32 %call.i.i14 to i64
   %mul.i.i = mul nsw i64 %4, %conv.i.i
   %buffers.i.i.i = getelementptr inbounds i8, ptr %viewed, i64 32
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %viewed, i64 56
@@ -2405,12 +2405,12 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
 while.body.i.i.i:                                 ; preds = %.noexc, %if.end32.i.i.i
   %encoded_bytes.addr.2 = phi ptr [ %encoded_bytes.addr.3, %if.end32.i.i.i ], [ %encoded_bytes, %.noexc ]
   %position.065.i.i.i = phi i64 [ %position.2.i.i.i, %if.end32.i.i.i ], [ 0, %.noexc ]
-  %call.i.i.i13 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i)
+  %call.i.i.i15 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad4.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %while.body.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i = trunc i32 %call.i.i.i13 to i16
-  %block.sroa.5.0.extract.shift.i.i.i = lshr i32 %call.i.i.i13, 16
+  %block.sroa.0.0.extract.trunc.i.i.i = trunc i32 %call.i.i.i15 to i16
+  %block.sroa.5.0.extract.shift.i.i.i = lshr i32 %call.i.i.i15, 16
   %block.sroa.5.0.extract.trunc.i.i.i = trunc nuw i32 %block.sroa.5.0.extract.shift.i.i.i to i16
   %cmp.i.i.i.i = icmp eq i16 %block.sroa.0.0.extract.trunc.i.i.i, %block.sroa.5.0.extract.trunc.i.i.i
   br i1 %cmp.i.i.i.i, label %for.cond.preheader.i.i.i, label %if.else.i.i.i
@@ -2448,7 +2448,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond69.not.i.i.i, label %if.end32.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !42
 
 if.else.i.i.i:                                    ; preds = %call.i.i.i.noexc
-  %cmp.i16.i.i.i = icmp ult i32 %call.i.i.i13, 65536
+  %cmp.i16.i.i.i = icmp ult i32 %call.i.i.i15, 65536
   %conv10.i.i.i = sext i16 %block.sroa.0.0.extract.trunc.i.i.i to i64
   %cmp1156.i.i.i = icmp sgt i16 %block.sroa.0.0.extract.trunc.i.i.i, 0
   br i1 %cmp.i16.i.i.i, label %for.cond8.preheader.i.i.i, label %for.cond19.preheader.i.i.i
@@ -2578,9 +2578,9 @@ invoke.cont5:                                     ; preds = %if.end32.i.i.i, %.n
 if.then.i.i.i:                                    ; preds = %invoke.cont5
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i14 = icmp eq i64 %36, 4294967297
+  %cmp.i.i.i.i16 = icmp eq i64 %36, 4294967297
   %37 = trunc i64 %36 to i32
-  br i1 %cmp.i.i.i.i14, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i16, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
@@ -2679,8 +2679,8 @@ if.else:                                          ; preds = %entry
   br i1 %tobool, label %if.then7, label %for.cond24.preheader
 
 for.cond24.preheader:                             ; preds = %if.else
-  %cmp2524 = icmp sgt i64 %batch_length, 0
-  br i1 %cmp2524, label %for.body26.lr.ph, label %if.end38
+  %cmp2526 = icmp sgt i64 %batch_length, 0
+  br i1 %cmp2526, label %for.body26.lr.ph, label %if.end38
 
 for.body26.lr.ph:                                 ; preds = %for.cond24.preheader
   %byte_width_30 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2693,50 +2693,50 @@ if.then7:                                         ; preds = %if.else
   %call9 = tail call { i64, ptr } %48(ptr noundef nonnull align 8 dereferenceable(41) %0)
   %49 = extractvalue { i64, ptr } %call9, 0
   %50 = extractvalue { i64, ptr } %call9, 1
-  %cmp27 = icmp sgt i64 %batch_length, 0
-  br i1 %cmp27, label %for.body.lr.ph, label %if.end38
+  %cmp29 = icmp sgt i64 %batch_length, 0
+  br i1 %cmp29, label %for.body.lr.ph, label %if.end38
 
 for.body.lr.ph:                                   ; preds = %if.then7
   %byte_width_21 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %encoded_bytes.addr.028 = phi ptr [ %encoded_bytes, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %encoded_bytes.addr.028, i64 8
-  %51 = load ptr, ptr %encoded_bytes.addr.028, align 8
+  %i.031 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %encoded_bytes.addr.030 = phi ptr [ %encoded_bytes, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %encoded_bytes.addr.030, i64 8
+  %51 = load ptr, ptr %encoded_bytes.addr.030, align 8
   %incdec.ptr18 = getelementptr inbounds i8, ptr %51, i64 1
-  store ptr %incdec.ptr18, ptr %encoded_bytes.addr.028, align 8
+  store ptr %incdec.ptr18, ptr %encoded_bytes.addr.030, align 8
   store i8 0, ptr %51, align 1
-  %52 = load ptr, ptr %encoded_bytes.addr.028, align 8
+  %52 = load ptr, ptr %encoded_bytes.addr.030, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %50, i64 %49, i1 false)
   %53 = load i32, ptr %byte_width_21, align 8
-  %54 = load ptr, ptr %encoded_bytes.addr.028, align 8
+  %54 = load ptr, ptr %encoded_bytes.addr.030, align 8
   %idx.ext = sext i32 %53 to i64
   %add.ptr = getelementptr inbounds i8, ptr %54, i64 %idx.ext
-  store ptr %add.ptr, ptr %encoded_bytes.addr.028, align 8
-  %inc = add nuw nsw i64 %i.029, 1
-  %exitcond31.not = icmp eq i64 %inc, %batch_length
-  br i1 %exitcond31.not, label %if.end38, label %for.body, !llvm.loop !46
+  store ptr %add.ptr, ptr %encoded_bytes.addr.030, align 8
+  %inc = add nuw nsw i64 %i.031, 1
+  %exitcond33.not = icmp eq i64 %inc, %batch_length
+  br i1 %exitcond33.not, label %if.end38, label %for.body, !llvm.loop !46
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.body26
-  %i23.026 = phi i64 [ 0, %for.body26.lr.ph ], [ %inc36, %for.body26 ]
-  %encoded_bytes.addr.125 = phi ptr [ %encoded_bytes, %for.body26.lr.ph ], [ %incdec.ptr28, %for.body26 ]
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %encoded_bytes.addr.125, i64 8
-  %55 = load ptr, ptr %encoded_bytes.addr.125, align 8
+  %i23.028 = phi i64 [ 0, %for.body26.lr.ph ], [ %inc36, %for.body26 ]
+  %encoded_bytes.addr.127 = phi ptr [ %encoded_bytes, %for.body26.lr.ph ], [ %incdec.ptr28, %for.body26 ]
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %encoded_bytes.addr.127, i64 8
+  %55 = load ptr, ptr %encoded_bytes.addr.127, align 8
   %incdec.ptr29 = getelementptr inbounds i8, ptr %55, i64 1
-  store ptr %incdec.ptr29, ptr %encoded_bytes.addr.125, align 8
+  store ptr %incdec.ptr29, ptr %encoded_bytes.addr.127, align 8
   store i8 1, ptr %55, align 1
-  %56 = load ptr, ptr %encoded_bytes.addr.125, align 8
+  %56 = load ptr, ptr %encoded_bytes.addr.127, align 8
   %57 = load i32, ptr %byte_width_30, align 8
   %conv31 = sext i32 %57 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %56, i8 0, i64 %conv31, i1 false)
   %58 = load i32, ptr %byte_width_30, align 8
-  %59 = load ptr, ptr %encoded_bytes.addr.125, align 8
+  %59 = load ptr, ptr %encoded_bytes.addr.127, align 8
   %idx.ext33 = sext i32 %58 to i64
   %add.ptr34 = getelementptr inbounds i8, ptr %59, i64 %idx.ext33
-  store ptr %add.ptr34, ptr %encoded_bytes.addr.125, align 8
-  %inc36 = add nuw nsw i64 %i23.026, 1
+  store ptr %add.ptr34, ptr %encoded_bytes.addr.127, align 8
+  %inc36 = add nuw nsw i64 %i23.028, 1
   %exitcond.not = icmp eq i64 %inc36, %batch_length
   br i1 %exitcond.not, label %if.end38, label %for.body26, !llvm.loop !47
 

@@ -6356,9 +6356,9 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN3gmx15analysismodules12
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i: ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.thread.i.i.i, label %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i, label %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
 
-_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.thread.i.i.i: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i
+_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 64
   %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr null, i64 %18
   %22 = getelementptr inbounds i8, ptr %0, i64 72
@@ -6371,9 +6371,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.th
 _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i
   %24 = mul nuw nsw i64 %18, 12
   %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #27
-          to label %.noexc6.i.i unwind label %32
+          to label %.noexc8.i.i unwind label %32
 
-.noexc6.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
+.noexc8.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
   store ptr %25, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %25, i64 %18
@@ -6384,9 +6384,9 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i.
   %29 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #27
-          to label %_ZNSt15__new_allocatorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataEE9constructIS3_JRKNS0_9SelectionERSt6vectorINS2_12MoleculeDataESaISA_EERS9_IiSaIiEEEEEvPT_DpOT0_.exit unwind label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit18.i.i.i
+          to label %_ZNSt15__new_allocatorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataEE9constructIS3_JRKNS0_9SelectionERSt6vectorINS2_12MoleculeDataESaISA_EERS9_IiSaIiEEEEEvPT_DpOT0_.exit unwind label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit19.i.i.i
 
-_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit18.i.i.i: ; preds = %.noexc6.i.i
+_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit19.i.i.i: ; preds = %.noexc8.i.i
   %31 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %25) #24
@@ -6397,17 +6397,17 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit18.i.i.i: ; preds = %.noexc6
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %32, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit18.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %33, %32 ], [ %31, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit18.i.i.i ]
+.body.i.i:                                        ; preds = %32, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit19.i.i.i
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %33, %32 ], [ %31, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit19.i.i.i ]
   %34 = getelementptr inbounds i8, ptr %0, i64 32
   tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #23
   tail call void @_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-_ZNSt15__new_allocatorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataEE9constructIS3_JRKNS0_9SelectionERSt6vectorINS2_12MoleculeDataESaISA_EERS9_IiSaIiEEEEEvPT_DpOT0_.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.thread.i.i.i, %.noexc6.i.i
-  %35 = phi ptr [ %23, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.thread.i.i.i ], [ %29, %.noexc6.i.i ]
-  %.pre-phi.i12.i.i.i = phi i64 [ 0, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.thread.i.i.i ], [ %24, %.noexc6.i.i ]
-  %36 = phi ptr [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i9.thread.i.i.i ], [ %30, %.noexc6.i.i ]
+_ZNSt15__new_allocatorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataEE9constructIS3_JRKNS0_9SelectionERSt6vectorINS2_12MoleculeDataESaISA_EERS9_IiSaIiEEEEEvPT_DpOT0_.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i, %.noexc8.i.i
+  %35 = phi ptr [ %23, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i ], [ %29, %.noexc8.i.i ]
+  %.pre-phi.i13.i.i.i = phi i64 [ 0, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i ], [ %24, %.noexc8.i.i ]
+  %36 = phi ptr [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i ], [ %30, %.noexc8.i.i ]
   %37 = ptrtoint ptr %.8.val3 to i64
   %38 = ptrtoint ptr %.0.val1 to i64
   %39 = sub i64 %37, %38
@@ -6418,8 +6418,8 @@ _ZNSt15__new_allocatorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataEE9cons
   %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %18
   %44 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %43, ptr %44, align 8
-  %scevgep.i.i.i.i.i13.i.i.i = getelementptr i8, ptr %36, i64 %.pre-phi.i12.i.i.i
-  store ptr %scevgep.i.i.i.i.i13.i.i.i, ptr %42, align 8
+  %scevgep.i.i.i.i.i14.i.i.i = getelementptr i8, ptr %36, i64 %.pre-phi.i13.i.i.i
+  store ptr %scevgep.i.i.i.i.i14.i.i.i, ptr %42, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %.0.val, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 112

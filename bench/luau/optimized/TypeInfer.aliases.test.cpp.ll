@@ -7825,10 +7825,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %93 unwind label %52
 
 93:                                               ; preds = %86
+  %94 = ptrtoint ptr %4 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_631fEvEUlPSoE0_EE, i64 16), ptr %15, align 8, !alias.scope !99
-  %94 = getelementptr inbounds i8, ptr %15, i64 16
-  %95 = ptrtoint ptr %4 to i64
-  store i64 %95, ptr %94, align 8, !alias.scope !99
+  %95 = getelementptr inbounds i8, ptr %15, i64 16
+  store i64 %94, ptr %95, align 8, !alias.scope !99
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
           to label %96 unwind label %106
 
@@ -10105,8 +10105,8 @@ _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_t
   %114 = getelementptr inbounds i8, ptr %13, i64 16
   %115 = getelementptr inbounds i8, ptr %13, i64 48
   %116 = getelementptr inbounds i8, ptr %13, i64 56
-  %117 = getelementptr inbounds i8, ptr %14, i64 16
-  %118 = ptrtoint ptr %13 to i64
+  %117 = ptrtoint ptr %13 to i64
+  %118 = getelementptr inbounds i8, ptr %14, i64 16
   %119 = getelementptr inbounds i8, ptr %18, i64 8
   %120 = getelementptr inbounds i8, ptr %17, i64 8
   %121 = getelementptr inbounds i8, ptr %15, i64 112
@@ -10145,7 +10145,7 @@ _ZN4Luau9TypeErrorC2ERKS0_.exit.i:                ; preds = %.noexc37.i
 
 135:                                              ; preds = %_ZN4Luau9TypeErrorC2ERKS0_.exit.i
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_961fEvEUlPSoE_EE, i64 16), ptr %14, align 8, !alias.scope !130
-  store i64 %118, ptr %117, align 8, !alias.scope !130
+  store i64 %117, ptr %118, align 8, !alias.scope !130
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
           to label %136 unwind label %151
 

@@ -716,21 +716,21 @@ _ZSt13make_optionalIN23cmMakefileProfilingData4RAIIEJRS0_RKNSt7__cxx1112basic_st
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %1, i64 16
   %62 = load ptr, ptr %61, align 8
-  %.not9394 = icmp eq ptr %60, %62
-  br i1 %.not9394, label %._crit_edge, label %.lr.ph
+  %.not9293 = icmp eq ptr %60, %62
+  br i1 %.not9293, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
   %63 = getelementptr inbounds i8, ptr %2, i64 345
   br label %66
 
 64:                                               ; preds = %73
-  %65 = getelementptr inbounds i8, ptr %.sroa.090.095, i64 8
-  %.not93 = icmp eq ptr %65, %62
-  br i1 %.not93, label %._crit_edge, label %66
+  %65 = getelementptr inbounds i8, ptr %.sroa.089.094, i64 8
+  %.not92 = icmp eq ptr %65, %62
+  br i1 %.not92, label %._crit_edge, label %66
 
 66:                                               ; preds = %.lr.ph, %64
-  %.sroa.090.095 = phi ptr [ %60, %.lr.ph ], [ %65, %64 ]
-  %67 = load ptr, ptr %.sroa.090.095, align 8
+  %.sroa.089.094 = phi ptr [ %60, %.lr.ph ], [ %65, %64 ]
+  %67 = load ptr, ptr %.sroa.089.094, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8

@@ -3029,8 +3029,8 @@ invoke.cont892:                                   ; preds = %invoke.cont889
   br i1 %call893, label %for.cond.preheader, label %if.end952
 
 for.cond.preheader:                               ; preds = %invoke.cont892
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %134 = ptrtoint ptr %s to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
   %m_decomp.i475 = getelementptr inbounds i8, ptr %ref.tmp922, i64 8
   %m_decomp.i468 = getelementptr inbounds i8, ptr %ref.tmp906, i64 8
   %m_decomp.i482 = getelementptr inbounds i8, ptr %ref.tmp936, i64 8

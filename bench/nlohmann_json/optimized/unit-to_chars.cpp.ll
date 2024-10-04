@@ -9132,17 +9132,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = ptrtoint ptr %digits to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_EE", i64 16), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !8
   %lambda_.i.i8 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_10, i64 16
-  %1 = ptrtoint ptr %digits to i64
   store i64 %1, ptr %lambda_.i.i8, align 8, !alias.scope !8
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_13)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
+  %2 = ptrtoint ptr %expected_exponent.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_EE", i64 16), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !11
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_13, i64 16
-  %2 = ptrtoint ptr %expected_exponent.addr to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %buf, i8 0, i64 32, i1 false)
   store i32 0, ptr %len, align 4
@@ -9458,17 +9458,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = ptrtoint ptr %digits to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_EE", i64 16), ptr %DOCTEST_CAPTURE_20, align 8, !alias.scope !19
   %lambda_.i.i8 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_20, i64 16
-  %1 = ptrtoint ptr %digits to i64
   store i64 %1, ptr %lambda_.i.i8, align 8, !alias.scope !19
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_23)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
+  %2 = ptrtoint ptr %expected_exponent.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_EE", i64 16), ptr %DOCTEST_CAPTURE_23, align 8, !alias.scope !22
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_23, i64 16
-  %2 = ptrtoint ptr %expected_exponent.addr to i64
   store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %buf, i8 0, i64 32, i1 false)
   store i32 0, ptr %len, align 4

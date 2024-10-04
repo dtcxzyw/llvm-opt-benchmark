@@ -4793,8 +4793,8 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRule(
   %27 = getelementptr inbounds i8, ptr %1, i64 96
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store i64 53, ptr %4, align 8, !alias.scope !207, !noalias !210
-  %.sroa.2.0..sroa_idx.i.i28 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.45, ptr %.sroa.2.0..sroa_idx.i.i28, align 8, !alias.scope !207, !noalias !210
+  %.sroa.2.0..sroa_idx.i.i35 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.45, ptr %.sroa.2.0..sroa_idx.i.i35, align 8, !alias.scope !207, !noalias !210
   %28 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %28, align 8, !alias.scope !207, !noalias !210
   %29 = getelementptr inbounds i8, ptr %4, i64 24
@@ -4802,8 +4802,8 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRule(
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
   store i64 %31, ptr %29, align 8, !alias.scope !213, !noalias !210
-  %.sroa.2.0..sroa_idx.i6.i29 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %32, ptr %.sroa.2.0..sroa_idx.i6.i29, align 8, !alias.scope !213, !noalias !210
+  %.sroa.2.0..sroa_idx.i6.i36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %32, ptr %.sroa.2.0..sroa_idx.i6.i36, align 8, !alias.scope !213, !noalias !210
   %33 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %33, align 8, !alias.scope !213, !noalias !210
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %4, i64 2)
@@ -4835,8 +4835,8 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRule(
   %44 = getelementptr inbounds i8, ptr %1, i64 96
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store i64 73, ptr %3, align 8, !alias.scope !216, !noalias !219
-  %.sroa.2.0..sroa_idx.i.i30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @.str.46, ptr %.sroa.2.0..sroa_idx.i.i30, align 8, !alias.scope !216, !noalias !219
+  %.sroa.2.0..sroa_idx.i.i37 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @.str.46, ptr %.sroa.2.0..sroa_idx.i.i37, align 8, !alias.scope !216, !noalias !219
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %45, align 8, !alias.scope !216, !noalias !219
   %46 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4844,8 +4844,8 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRule(
   %48 = extractvalue { i64, ptr } %47, 0
   %49 = extractvalue { i64, ptr } %47, 1
   store i64 %48, ptr %46, align 8, !alias.scope !222, !noalias !219
-  %.sroa.2.0..sroa_idx.i6.i31 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %49, ptr %.sroa.2.0..sroa_idx.i6.i31, align 8, !alias.scope !222, !noalias !219
+  %.sroa.2.0..sroa_idx.i6.i38 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %49, ptr %.sroa.2.0..sroa_idx.i6.i38, align 8, !alias.scope !222, !noalias !219
   %50 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %50, align 8, !alias.scope !222, !noalias !219
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull %3, i64 2)
@@ -4871,9 +4871,9 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRule(
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %57, i8 noundef signext 10)
   %59 = getelementptr inbounds i8, ptr %1, i64 128
   %60 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #24
-  br i1 %60, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.lr.ph.i.i
+  br i1 %60, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.lr.ph.i.preheader.i
 
-.lr.ph.i.i:                                       ; preds = %54
+.lr.ph.i.preheader.i:                             ; preds = %54
   %61 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %61)
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.37)
@@ -4882,143 +4882,143 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRule(
   %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %65, i8 noundef signext 10)
   br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %54, %.lr.ph.i.i
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %54, %.lr.ph.i.preheader.i
   %67 = getelementptr inbounds i8, ptr %1, i64 160
   %68 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #24
-  br i1 %68, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33", label %.lr.ph.i.i32
+  br i1 %68, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40", label %.lr.ph.i.preheader.i39
 
-.lr.ph.i.i32:                                     ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
+.lr.ph.i.preheader.i39:                           ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
   %69 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %69)
   %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39)
   %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.56)
   %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(32) %67)
   %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %73, i8 noundef signext 10)
-  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33"
+  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", %.lr.ph.i.i32
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", %.lr.ph.i.preheader.i39
   %75 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
-  br i1 %75, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35", label %.lr.ph.i.i34
+  br i1 %75, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42", label %.lr.ph.i.preheader.i41
 
-.lr.ph.i.i34:                                     ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33"
+.lr.ph.i.preheader.i41:                           ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40"
   %76 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %76)
   %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.48)
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @.str.56)
   %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %80, i8 noundef signext 10)
-  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35"
+  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33", %.lr.ph.i.i34
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40", %.lr.ph.i.preheader.i41
   %82 = getelementptr inbounds i8, ptr %1, i64 64
   %83 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #24
-  br i1 %83, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37", label %.lr.ph.i.i36
+  br i1 %83, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit44", label %.lr.ph.i.preheader.i43
 
-.lr.ph.i.i36:                                     ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35"
+.lr.ph.i.preheader.i43:                           ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42"
   %84 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %84)
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.49)
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @.str.56)
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(32) %82)
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %88, i8 noundef signext 10)
-  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37"
+  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit44"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35", %.lr.ph.i.i36
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit44": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42", %.lr.ph.i.preheader.i43
   %90 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #24
-  br i1 %90, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit41", label %91
+  br i1 %90, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48", label %91
 
-91:                                               ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37"
+91:                                               ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit44"
   %92 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #24
-  br i1 %92, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39", label %.lr.ph.i.i38
+  br i1 %92, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit46", label %.lr.ph.i.preheader.i45
 
-.lr.ph.i.i38:                                     ; preds = %91
+.lr.ph.i.preheader.i45:                           ; preds = %91
   %93 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %93)
   %95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.50)
   %96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull @.str.56)
   %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(32) %38)
   %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %97, i8 noundef signext 10)
-  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39"
+  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit46"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39": ; preds = %91, %.lr.ph.i.i38
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit46": ; preds = %91, %.lr.ph.i.preheader.i45
   %99 = getelementptr inbounds i8, ptr %1, i64 224
   %100 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %99) #24
-  br i1 %100, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit41", label %.lr.ph.i.i40
+  br i1 %100, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48", label %.lr.ph.i.preheader.i47
 
-.lr.ph.i.i40:                                     ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39"
+.lr.ph.i.preheader.i47:                           ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit46"
   %101 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %101)
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.51)
   %104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str.56)
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(32) %99)
   %106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %105, i8 noundef signext 10)
-  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit41"
+  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit41": ; preds = %.lr.ph.i.i40, %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39", %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit37"
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48": ; preds = %.lr.ph.i.preheader.i47, %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit46", %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit44"
   %107 = getelementptr inbounds i8, ptr %1, i64 256
   %108 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #24
-  br i1 %108, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43", label %.lr.ph.i.i42
+  br i1 %108, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50", label %.lr.ph.i.preheader.i49
 
-.lr.ph.i.i42:                                     ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit41"
+.lr.ph.i.preheader.i49:                           ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48"
   %109 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %109)
   %111 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.34)
   %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull @.str.56)
   %113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull align 8 dereferenceable(32) %107)
   %114 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %113, i8 noundef signext 10)
-  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43"
+  br label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50"
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit41", %.lr.ph.i.i42
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50": ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48", %.lr.ph.i.preheader.i49
   %115 = getelementptr inbounds i8, ptr %1, i64 288
   %116 = load i8, ptr %115, align 8
   %117 = trunc i8 %116 to i1
   br i1 %117, label %118, label %133
 
-118:                                              ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43"
+118:                                              ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
   %119 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc unwind label %129
 
 .noexc:                                           ; preds = %118
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %119, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %.noexc44 unwind label %129
+          to label %.noexc51 unwind label %129
 
-.noexc44:                                         ; preds = %.noexc
+.noexc51:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.33, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %120
 
-120:                                              ; preds = %.noexc44
+120:                                              ; preds = %.noexc51
   %121 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   br label %.body
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc44
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc51
   %122 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
-  br i1 %122, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51", label %.lr.ph.i.i45
+  br i1 %122, label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58", label %.lr.ph.i.preheader.i52
 
-.lr.ph.i.i45:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+.lr.ph.i.preheader.i52:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %123 = load ptr, ptr @_ZN22cmGlobalNinjaGenerator6INDENTE, align 8
   %124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %123)
-          to label %.noexc46 unwind label %131
+          to label %.noexc53 unwind label %131
 
-.noexc46:                                         ; preds = %.lr.ph.i.i45
+.noexc53:                                         ; preds = %.lr.ph.i.preheader.i52
   %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.52)
-          to label %.noexc47 unwind label %131
+          to label %.noexc54 unwind label %131
 
-.noexc47:                                         ; preds = %.noexc46
+.noexc54:                                         ; preds = %.noexc53
   %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.56)
-          to label %.noexc48 unwind label %131
+          to label %.noexc55 unwind label %131
 
-.noexc48:                                         ; preds = %.noexc47
+.noexc55:                                         ; preds = %.noexc54
   %127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc49 unwind label %131
+          to label %.noexc56 unwind label %131
 
-.noexc49:                                         ; preds = %.noexc48
+.noexc56:                                         ; preds = %.noexc55
   %128 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %127, i8 noundef signext 10)
-          to label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51" unwind label %131
+          to label %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58" unwind label %131
 
-"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %.noexc49
+"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %.noexc56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
   br label %133
@@ -5028,7 +5028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           cleanup
   br label %.body
 
-131:                                              ; preds = %.noexc49, %.noexc48, %.noexc47, %.noexc46, %.lr.ph.i.i45
+131:                                              ; preds = %.noexc56, %.noexc55, %.noexc54, %.noexc53, %.lr.ph.i.preheader.i52
   %132 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
@@ -5039,7 +5039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
   br label %136
 
-133:                                              ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51", %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43"
+133:                                              ; preds = %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58", %"_ZZN22cmGlobalNinjaGenerator9WriteRuleERSoRK11cmNinjaRuleENK3$_0clEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit50"
   %134 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 10)
   br label %135
 

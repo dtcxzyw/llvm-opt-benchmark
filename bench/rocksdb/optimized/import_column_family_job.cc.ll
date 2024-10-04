@@ -11848,21 +11848,21 @@ if.end37:                                         ; preds = %if.then23, %land.lh
   %largest_internal_key.i27 = getelementptr inbounds i8, ptr %agg.tmp39, i64 32
   %largest_internal_key3.i28 = getelementptr inbounds i8, ptr %__value, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %largest_internal_key.i27, ptr noundef nonnull align 8 dereferenceable(32) %largest_internal_key3.i28) #20
-  %cmp19.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp19.i, label %land.rhs.lr.ph.i, label %invoke.cont
+  %cmp6.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp6.i, label %land.rhs.lr.ph.i, label %invoke.cont
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end37
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp3.i.i.i, i64 8
-  %7 = getelementptr i8, ptr %__comp.coerce, i64 16
+  %5 = getelementptr i8, ptr %__comp.coerce, i64 16
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp3.i.i.i, i64 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %__holeIndex.addr.020.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.021.i, %while.body.i ]
-  %__parent.021.in.i = add nsw i64 %__holeIndex.addr.020.i, -1
-  %__parent.021.i = sdiv i64 %__parent.021.in.i, 2
-  %add.ptr.i.i29 = getelementptr inbounds %"struct.rocksdb::ImportColumnFamilyJob::ColumnFamilyIngestFileInfo", ptr %__first.coerce, i64 %__parent.021.i
-  %__comp.val.val.i = load ptr, ptr %7, align 8
+  %__holeIndex.addr.07.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.08.i, %while.body.i ]
+  %__parent.08.in.i = add nsw i64 %__holeIndex.addr.07.i, -1
+  %__parent.08.i = sdiv i64 %__parent.08.in.i, 2
+  %add.ptr.i.i29 = getelementptr inbounds %"struct.rocksdb::ImportColumnFamilyJob::ColumnFamilyIngestFileInfo", ptr %__first.coerce, i64 %__parent.08.i
+  %__comp.val.val.i = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %__comp.val.val.i, i64 72
   %__comp.val.val.val.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
@@ -11872,12 +11872,12 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %call2.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i29) #20
   %sub.i.i.i.i.i = add i64 %call2.i.i.i.i.i, -8
   store ptr %call.i.i.i.i.i, ptr %ref.tmp.i.i.i, align 8
-  store i64 %sub.i.i.i.i.i, ptr %5, align 8
+  store i64 %sub.i.i.i.i.i, ptr %6, align 8
   %call.i.i1.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39) #20
   %call2.i.i2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39) #20
   %sub.i.i3.i.i.i = add i64 %call2.i.i2.i.i.i, -8
   store ptr %call.i.i1.i.i.i, ptr %ref.tmp3.i.i.i, align 8
-  store i64 %sub.i.i3.i.i.i, ptr %6, align 8
+  store i64 %sub.i.i3.i.i.i, ptr %7, align 8
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i, align 8
@@ -11891,16 +11891,16 @@ call6.i.i.i.noexc:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %call6.i.i.i.noexc
-  %add.ptr.i8.i = getelementptr inbounds %"struct.rocksdb::ImportColumnFamilyJob::ColumnFamilyIngestFileInfo", ptr %__first.coerce, i64 %__holeIndex.addr.020.i
+  %add.ptr.i8.i = getelementptr inbounds %"struct.rocksdb::ImportColumnFamilyJob::ColumnFamilyIngestFileInfo", ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i29) #20
   %largest_internal_key.i.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 32
   %largest_internal_key3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i29, i64 32
   %call.i2.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %largest_internal_key.i.i, ptr noundef nonnull align 8 dereferenceable(32) %largest_internal_key3.i.i) #20
-  %cmp.i = icmp sgt i64 %__parent.021.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !85
 
 invoke.cont:                                      ; preds = %while.body.i, %call6.i.i.i.noexc, %if.end37
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end37 ], [ %__holeIndex.addr.020.i, %call6.i.i.i.noexc ], [ %__parent.021.i, %while.body.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end37 ], [ %__holeIndex.addr.07.i, %call6.i.i.i.noexc ], [ %__parent.08.i, %while.body.i ]
   %add.ptr.i9.i = getelementptr inbounds %"struct.rocksdb::ImportColumnFamilyJob::ColumnFamilyIngestFileInfo", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %call.i.i10.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39) #20
   %largest_internal_key.i11.i = getelementptr inbounds i8, ptr %add.ptr.i9.i, i64 32

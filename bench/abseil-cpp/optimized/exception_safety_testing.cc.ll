@@ -403,10 +403,10 @@ declare void @_ZN7testing15AssertionResultC1ERKS0_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %spec) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i18 = alloca %"class.absl::AlphaNum", align 8
-  %ref.tmp2.i19 = alloca %"class.absl::AlphaNum", align 8
-  %ref.tmp.i6 = alloca %"class.absl::AlphaNum", align 8
-  %ref.tmp2.i7 = alloca %"class.absl::AlphaNum", align 8
+  %ref.tmp.i22 = alloca %"class.absl::AlphaNum", align 8
+  %ref.tmp2.i23 = alloca %"class.absl::AlphaNum", align 8
+  %ref.tmp.i11 = alloca %"class.absl::AlphaNum", align 8
+  %ref.tmp2.i12 = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp.i = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp2.i = alloca %"class.absl::AlphaNum", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
@@ -438,52 +438,52 @@ lpad:                                             ; preds = %if.then12, %if.then
 if.end:                                           ; preds = %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit", %entry
   %sep.sroa.0.0 = phi i64 [ 0, %entry ], [ 3, %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit" ]
   %sep.sroa.7.0 = phi ptr [ null, %entry ], [ @.str.6, %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit" ]
-  %and.i3 = and i32 %spec, 2
-  %tobool4.not = icmp eq i32 %and.i3, 0
+  %and.i8 = and i32 %spec, 2
+  %tobool4.not = icmp eq i32 %and.i8, 0
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i6)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i7)
-  store i64 %sep.sroa.0.0, ptr %ref.tmp.i6, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 8
-  store ptr %sep.sroa.7.0, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i11, align 8
-  store i64 12, ptr %ref.tmp2.i7, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i1.i12 = getelementptr inbounds i8, ptr %ref.tmp2.i7, i64 8
-  store ptr @.str.2, ptr %pc.sroa.2.0.piece_.sroa_idx.i1.i12, align 8
-  invoke void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i7)
-          to label %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit14" unwind label %lpad
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i12)
+  store i64 %sep.sroa.0.0, ptr %ref.tmp.i11, align 8
+  %pc.sroa.2.0.piece_.sroa_idx.i.i16 = getelementptr inbounds i8, ptr %ref.tmp.i11, i64 8
+  store ptr %sep.sroa.7.0, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i16, align 8
+  store i64 12, ptr %ref.tmp2.i12, align 8
+  %pc.sroa.2.0.piece_.sroa_idx.i1.i17 = getelementptr inbounds i8, ptr %ref.tmp2.i12, i64 8
+  store ptr @.str.2, ptr %pc.sroa.2.0.piece_.sroa_idx.i1.i17, align 8
+  invoke void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i11, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i12)
+          to label %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit18" unwind label %lpad
 
-"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit14": ; preds = %if.then5
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i7)
+"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit18": ; preds = %if.then5
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i12)
   br label %if.end8
 
-if.end8:                                          ; preds = %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit14", %if.end
-  %sep.sroa.0.1 = phi i64 [ %sep.sroa.0.0, %if.end ], [ 3, %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit14" ]
-  %sep.sroa.7.1 = phi ptr [ %sep.sroa.7.0, %if.end ], [ @.str.6, %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit14" ]
-  %and.i15 = and i32 %spec, 4
-  %tobool11.not = icmp eq i32 %and.i15, 0
+if.end8:                                          ; preds = %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit18", %if.end
+  %sep.sroa.0.1 = phi i64 [ %sep.sroa.0.0, %if.end ], [ 3, %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit18" ]
+  %sep.sroa.7.1 = phi ptr [ %sep.sroa.7.0, %if.end ], [ @.str.6, %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit18" ]
+  %and.i19 = and i32 %spec, 4
+  %tobool11.not = icmp eq i32 %and.i19, 0
   br i1 %tobool11.not, label %nrvo.skipdtor, label %if.then12
 
 if.then12:                                        ; preds = %if.end8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i18)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i19)
-  store i64 %sep.sroa.0.1, ptr %ref.tmp.i18, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i.i23 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 8
-  store ptr %sep.sroa.7.1, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i23, align 8
-  store i64 11, ptr %ref.tmp2.i19, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i1.i24 = getelementptr inbounds i8, ptr %ref.tmp2.i19, i64 8
-  store ptr @.str.3, ptr %pc.sroa.2.0.piece_.sroa_idx.i1.i24, align 8
-  invoke void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i18, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i19)
-          to label %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit26" unwind label %lpad
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i22)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i23)
+  store i64 %sep.sroa.0.1, ptr %ref.tmp.i22, align 8
+  %pc.sroa.2.0.piece_.sroa_idx.i.i27 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 8
+  store ptr %sep.sroa.7.1, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i27, align 8
+  store i64 11, ptr %ref.tmp2.i23, align 8
+  %pc.sroa.2.0.piece_.sroa_idx.i1.i28 = getelementptr inbounds i8, ptr %ref.tmp2.i23, i64 8
+  store ptr @.str.3, ptr %pc.sroa.2.0.piece_.sroa_idx.i1.i28, align 8
+  invoke void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i22, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i23)
+          to label %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit29" unwind label %lpad
 
-"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit26": ; preds = %if.then12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i18)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i19)
+"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit29": ; preds = %if.then12
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i22)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i23)
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit26", %if.end8
+nrvo.skipdtor:                                    ; preds = %"_ZZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit29", %if.end8
   ret void
 }
 

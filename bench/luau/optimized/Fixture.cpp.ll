@@ -6607,10 +6607,10 @@ _ZNSt10unique_ptrIN4Luau12SourceModuleESt14default_deleteIS1_EE5resetEPS1_.exit:
           to label %28 unwind label %45
 
 28:                                               ; preds = %_ZNSt10unique_ptrIN4Luau12SourceModuleESt14default_deleteIS1_EE5resetEPS1_.exit
+  %29 = ptrtoint ptr %2 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0EE", i64 16), ptr %7, align 8, !alias.scope !37
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
-  %30 = ptrtoint ptr %2 to i64
-  store i64 %30, ptr %29, align 8, !alias.scope !37
+  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  store i64 %29, ptr %30, align 8, !alias.scope !37
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
           to label %31 unwind label %47
 
@@ -7201,10 +7201,10 @@ _ZNSt10unique_ptrIN4Luau12SourceModuleESt14default_deleteIS1_EE5resetEPS1_.exit:
           to label %30 unwind label %47
 
 30:                                               ; preds = %_ZNSt10unique_ptrIN4Luau12SourceModuleESt14default_deleteIS1_EE5resetEPS1_.exit
+  %31 = ptrtoint ptr %2 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0EE", i64 16), ptr %6, align 8, !alias.scope !43
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %32 = ptrtoint ptr %2 to i64
-  store i64 %32, ptr %31, align 8, !alias.scope !43
+  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %31, ptr %32, align 8, !alias.scope !43
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull @.str)
           to label %33 unwind label %49
 

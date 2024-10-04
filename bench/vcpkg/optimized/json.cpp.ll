@@ -7582,8 +7582,8 @@ define dso_local void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !243
-  %.not7.i = icmp eq ptr %.val, %.val30
-  br i1 %.not7.i, label %_ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEE.exit.thread, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %.val, %.val30
+  br i1 %.not5.i, label %_ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEE.exit.thread, label %.lr.ph.i
 
 _ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEE.exit.thread: ; preds = %14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -7601,9 +7601,9 @@ _ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringV
   br label %22
 
 22:                                               ; preds = %39, %.lr.ph.i
-  %.sroa.0.08.i = phi ptr [ %.val, %.lr.ph.i ], [ %40, %39 ]
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.08.i) #27
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 32
+  %.sroa.0.06.i = phi ptr [ %.val, %.lr.ph.i ], [ %40, %39 ]
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.06.i) #27
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 32
   store ptr %23, ptr %17, align 8, !alias.scope !246, !noalias !243
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !noalias !243
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !243
@@ -7657,7 +7657,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %39
 
 39:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i, %29, %.thread.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 40
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 40
   %.not.i = icmp eq ptr %40, %.val30
   br i1 %.not.i, label %_ZN5vcpkg4JsonL19invalid_json_fieldsB5cxx11ERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEE.exit, label %22
 

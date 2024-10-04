@@ -2634,14 +2634,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdZipFileWriter7AddFileERKN
   %16 = alloca [68 x i8], align 16
   %17 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %17, null
-  %.sink72.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink72.sroa.gep91 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink72.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink72.sroa.gep94 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink72.sroa.gep96 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink72.sroa.gep97 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink72.sroa.gep99 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink72.sroa.gep100 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink73.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink73.sroa.gep92 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink73.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink73.sroa.gep95 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink73.sroa.gep97 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink73.sroa.gep98 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink73.sroa.gep100 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink73.sroa.gep101 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %.not, label %18, label %23
 
 18:                                               ; preds = %4
@@ -2891,8 +2891,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   %123 = load ptr, ptr %1, align 8
   %124 = getelementptr i8, ptr %123, i64 80
   %.val19 = load ptr, ptr %124, align 8
-  %.not37 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %.val19
-  br i1 %.not37, label %128, label %125
+  %.not38 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %.val19
+  br i1 %.not38, label %128, label %125
 
 125:                                              ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESt6vectorISD_SaISD_EEEEZNS9_16UsdZipFileWriter7AddFileERKS8_SL_E3$_0ET_SN_SN_T0_.exit"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -2912,8 +2912,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
 130:                                              ; preds = %128
   %131 = getelementptr inbounds i8, ptr %13, i64 8
   %132 = load ptr, ptr %131, align 8
-  %.not38 = icmp eq ptr %132, null
-  br i1 %.not38, label %133, label %145
+  %.not39 = icmp eq ptr %132, null
+  br i1 %.not39, label %133, label %145
 
 133:                                              ; preds = %130
   store ptr @.str, ptr %14, align 8
@@ -2996,12 +2996,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   %178 = or i32 %177, %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.sroa.032.0.extract.trunc = trunc i32 %166 to i16
-  %.sroa.233.0.extract.trunc = trunc i32 %178 to i16
+  %.sroa.033.0.extract.trunc = trunc i32 %166 to i16
+  %.sroa.234.0.extract.trunc = trunc i32 %178 to i16
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 10
   %180 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i16 %.sroa.032.0.extract.trunc, ptr %179, align 2
-  store i16 %.sroa.233.0.extract.trunc, ptr %180, align 4
+  store i16 %.sroa.033.0.extract.trunc, ptr %179, align 2
+  store i16 %.sroa.234.0.extract.trunc, ptr %180, align 4
   %.val22 = load i64, ptr %13, align 8
   %.val23 = load ptr, ptr %131, align 8
   %.not.i = icmp eq i64 %.val22, 0
@@ -3070,19 +3070,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   br i1 %214, label %.noexc, label %.invoke
 
 .invoke:                                          ; preds = %213, %211
-  %.sink72.sroa.phi = phi ptr [ %.sink72.sroa.gep, %211 ], [ %.sink72.sroa.gep91, %213 ]
-  %.sink72.sroa.phi92 = phi ptr [ %.sink72.sroa.gep93, %211 ], [ %.sink72.sroa.gep94, %213 ]
-  %.sink72.sroa.phi95 = phi ptr [ %.sink72.sroa.gep96, %211 ], [ %.sink72.sroa.gep97, %213 ]
-  %.sink72.sroa.phi98 = phi ptr [ %.sink72.sroa.gep99, %211 ], [ %.sink72.sroa.gep100, %213 ]
-  %.sink72 = phi ptr [ %5, %211 ], [ %6, %213 ]
+  %.sink73.sroa.phi = phi ptr [ %.sink73.sroa.gep, %211 ], [ %.sink73.sroa.gep92, %213 ]
+  %.sink73.sroa.phi93 = phi ptr [ %.sink73.sroa.gep94, %211 ], [ %.sink73.sroa.gep95, %213 ]
+  %.sink73.sroa.phi96 = phi ptr [ %.sink73.sroa.gep97, %211 ], [ %.sink73.sroa.gep98, %213 ]
+  %.sink73.sroa.phi99 = phi ptr [ %.sink73.sroa.gep100, %211 ], [ %.sink73.sroa.gep101, %213 ]
+  %.sink73 = phi ptr [ %5, %211 ], [ %6, %213 ]
   %.sink = phi i64 [ 435, %211 ], [ 436, %213 ]
   %215 = phi ptr [ @.str.11, %211 ], [ @.str.12, %213 ]
-  store ptr @.str, ptr %.sink72, align 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct, ptr %.sink72.sroa.phi, align 8
-  store i64 %.sink, ptr %.sink72.sroa.phi92, align 8
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct, ptr %.sink72.sroa.phi95, align 8
-  store i8 0, ptr %.sink72.sroa.phi98, align 8
-  %216 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %.sink72, ptr noundef nonnull %215, ptr noundef null)
+  store ptr @.str, ptr %.sink73, align 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct, ptr %.sink73.sroa.phi, align 8
+  store i64 %.sink, ptr %.sink73.sroa.phi93, align 8
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct, ptr %.sink73.sroa.phi96, align 8
+  store i8 0, ptr %.sink73.sroa.phi99, align 8
+  %216 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %.sink73, ptr noundef nonnull %215, ptr noundef null)
           to label %.noexc unwind label %143
 
 .noexc:                                           ; preds = %.invoke, %213
@@ -3093,11 +3093,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   br label %219
 
 219:                                              ; preds = %193, %.noexc
-  %.0.i25 = phi ptr [ %16, %.noexc ], [ null, %193 ]
+  %.0.i26 = phi ptr [ %16, %.noexc ], [ null, %193 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %220 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %.0.i25, ptr %220, align 8
+  store ptr %.0.i26, ptr %220, align 8
   %221 = load ptr, ptr %131, align 8
   %222 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %221, ptr %222, align 8
@@ -3130,8 +3130,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %246, i64 88
   %251 = load ptr, ptr %250, align 8
-  %.not.i27 = icmp eq ptr %249, %251
-  br i1 %.not.i27, label %257, label %252
+  %.not.i28 = icmp eq ptr %249, %251
+  br i1 %.not.i28, label %257, label %252
 
 252:                                              ; preds = %219
   store i32 %201, ptr %249, align 4
@@ -3139,9 +3139,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %253, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 32, i1 false)
   %254 = getelementptr inbounds i8, ptr %249, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %.noexc28 unwind label %143
+          to label %.noexc29 unwind label %143
 
-.noexc28:                                         ; preds = %252
+.noexc29:                                         ; preds = %252
   %255 = load ptr, ptr %248, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 72
   store ptr %256, ptr %248, align 8
@@ -3157,9 +3157,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
 
 262:                                              ; preds = %257
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.13) #24
-          to label %.noexc29 unwind label %143
+          to label %.noexc30 unwind label %143
 
-.noexc29:                                         ; preds = %262
+.noexc30:                                         ; preds = %262
   unreachable
 
 _ZNKSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %257
@@ -3256,14 +3256,14 @@ _ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32px
   store ptr %299, ptr %250, align 8
   br label %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE12emplace_backIJRKS6_RSA_RKjEEERSB_DpOT_.exit
 
-_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE12emplace_backIJRKS6_RSA_RKjEEERSB_DpOT_.exit: ; preds = %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE17_M_realloc_insertIJRKS6_RSA_RKjEEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i, %.noexc28
+_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE12emplace_backIJRKS6_RSA_RKjEEERSB_DpOT_.exit: ; preds = %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE17_M_realloc_insertIJRKS6_RSA_RKjEEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i, %.noexc29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %300 unwind label %143
 
 300:                                              ; preds = %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LocalFileHeader5FixedEjEESaISB_EE12emplace_backIJRKS6_RSA_RKjEEERSB_DpOT_.exit, %140
   %301 = load ptr, ptr %131, align 8
-  %.not.i31 = icmp eq ptr %301, null
-  br i1 %.not.i31, label %_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit, label %302
+  %.not.i32 = icmp eq ptr %301, null
+  br i1 %.not.i32, label %_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit, label %302
 
 302:                                              ; preds = %300
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %301)

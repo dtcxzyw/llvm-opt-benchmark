@@ -1288,28 +1288,28 @@ define dso_local void @_ZNK5vcpkg11RegistrySet19registries_for_portENS_10StringV
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %.not71 = icmp eq ptr %7, %9
-  br i1 %.not71, label %._crit_edge78.thread, label %.lr.ph77
+  %.not73 = icmp eq ptr %7, %9
+  br i1 %.not73, label %._crit_edge80.thread, label %.lr.ph79
 
-.lr.ph77:                                         ; preds = %4
+.lr.ph79:                                         ; preds = %4
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   br label %11
 
-11:                                               ; preds = %.lr.ph77, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit
-  %.075 = phi ptr [ %7, %.lr.ph77 ], [ %62, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
-  %.sroa.055.074 = phi ptr [ null, %.lr.ph77 ], [ %.sroa.055.1, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
-  %.sroa.8.073 = phi ptr [ null, %.lr.ph77 ], [ %.sroa.8.1, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
-  %.sroa.15.072 = phi ptr [ null, %.lr.ph77 ], [ %.sroa.15.1, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
-  %12 = load ptr, ptr %.075, align 8
-  %13 = getelementptr inbounds i8, ptr %.075, i64 8
+11:                                               ; preds = %.lr.ph79, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit
+  %.077 = phi ptr [ %7, %.lr.ph79 ], [ %62, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
+  %.sroa.057.076 = phi ptr [ null, %.lr.ph79 ], [ %.sroa.057.1, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
+  %.sroa.8.075 = phi ptr [ null, %.lr.ph79 ], [ %.sroa.8.1, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
+  %.sroa.15.074 = phi ptr [ null, %.lr.ph79 ], [ %.sroa.15.1, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit ]
+  %12 = load ptr, ptr %.077, align 8
+  %13 = getelementptr inbounds i8, ptr %.077, i64 8
   %14 = load ptr, ptr %13, align 8
-  %.not2268 = icmp eq ptr %12, %14
-  br i1 %.not2268, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit, label %.lr.ph
+  %.not2270 = icmp eq ptr %12, %14
+  br i1 %.not2270, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %_ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit
-  %.02170 = phi ptr [ %32, %_ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit ], [ %12, %11 ]
-  %.05769 = phi i64 [ %.sroa.speculated, %_ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit ], [ 0, %11 ]
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.02170) #27
+  %.02172 = phi ptr [ %32, %_ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit ], [ %12, %11 ]
+  %.05971 = phi i64 [ %.sroa.speculated, %_ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit ], [ 0, %11 ]
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %.02172) #27
   %15 = load ptr, ptr %5, align 8
   %16 = load i64, ptr %10, align 8
   %17 = add i64 %16, -1
@@ -1349,8 +1349,8 @@ _ZSt5equalIPKcS1_EbT_S2_T0_.exit.i:               ; preds = %23
 
 _ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit: ; preds = %31, %29, %_ZSt5equalIPKcS1_EbT_S2_T0_.exit.i, %23
   %.0.i = phi i64 [ 0, %31 ], [ %16, %_ZSt5equalIPKcS1_EbT_S2_T0_.exit.i ], [ -1, %29 ], [ %16, %23 ]
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.05769, i64 %.0.i)
-  %32 = getelementptr inbounds i8, ptr %.02170, i64 32
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.05971, i64 %.0.i)
+  %32 = getelementptr inbounds i8, ptr %.02172, i64 32
   %.not22 = icmp eq ptr %32, %14
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -1365,13 +1365,13 @@ _ZN5vcpkg21package_pattern_matchENS_10StringViewES0_.exit: ; preds = %31, %29, %
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %113, %115
-  %.sroa.055.064 = phi ptr [ %.sroa.055.1, %115 ], [ %.sroa.055.1, %113 ], [ %.sroa.055.074, %.loopexit ], [ %.sroa.055.074, %.loopexit.split-lp ]
+  %.sroa.057.066 = phi ptr [ %.sroa.057.1, %115 ], [ %.sroa.057.1, %113 ], [ %.sroa.057.076, %.loopexit ], [ %.sroa.057.076, %.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %115 ], [ %lpad.phi.i, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %.sroa.055.064, null
+  %.not.i.i.i = icmp eq ptr %.sroa.057.066, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit, label %33
 
 33:                                               ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.055.064) #29
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.057.066) #29
   br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit
 
 _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit: ; preds = %.body, %33
@@ -1382,21 +1382,21 @@ _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17Reg
   br i1 %.not23, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit, label %34
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %.075, i64 24
+  %35 = getelementptr inbounds i8, ptr %.077, i64 24
   %36 = load ptr, ptr %35, align 8
-  %.not.i.i = icmp eq ptr %.sroa.8.073, %.sroa.15.072
+  %.not.i.i = icmp eq ptr %.sroa.8.075, %.sroa.15.074
   br i1 %.not.i.i, label %39, label %37
 
 37:                                               ; preds = %34
-  store ptr %36, ptr %.sroa.8.073, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.073, i64 8
+  store ptr %36, ptr %.sroa.8.075, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.075, i64 8
   store i64 %.sroa.speculated, ptr %.sroa.3.0..sroa_idx, align 8
-  %38 = getelementptr inbounds i8, ptr %.sroa.8.073, i64 16
+  %38 = getelementptr inbounds i8, ptr %.sroa.8.075, i64 16
   br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit
 
 39:                                               ; preds = %34
-  %40 = ptrtoint ptr %.sroa.8.073 to i64
-  %41 = ptrtoint ptr %.sroa.055.074 to i64
+  %40 = ptrtoint ptr %.sroa.8.075 to i64
+  %41 = ptrtoint ptr %.sroa.057.076 to i64
   %42 = sub i64 %40, %41
   %43 = icmp eq i64 %42, 9223372036854775792
   br i1 %43, label %44, label %_ZNKSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1410,7 +1410,7 @@ _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17Reg
 
 _ZNKSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %39
   %45 = ashr exact i64 %42, 4
-  %46 = icmp eq ptr %.sroa.8.073, %.sroa.055.074
+  %46 = icmp eq ptr %.sroa.8.075, %.sroa.057.076
   %.sroa.speculated.i.i.i.i = select i1 %46, i64 1, i64 %45
   %47 = add nsw i64 %.sroa.speculated.i.i.i.i, %45
   %48 = icmp ult i64 %47, %45
@@ -1428,23 +1428,23 @@ _ZNSt12_Vector_baseIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringView
   %54 = phi ptr [ null, %_ZNKSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %53, %51 ]
   %55 = getelementptr inbounds %struct.RegistryCandidate, ptr %54, i64 %45
   store ptr %36, ptr %55, align 8
-  %.sroa.3.0..sroa_idx42 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 %.sroa.speculated, ptr %.sroa.3.0..sroa_idx42, align 8
+  %.sroa.3.0..sroa_idx44 = getelementptr inbounds i8, ptr %55, i64 8
+  store i64 %.sroa.speculated, ptr %.sroa.3.0..sroa_idx44, align 8
   %56 = icmp sgt i64 %42, 0
   br i1 %56, label %57, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
 
 57:                                               ; preds = %_ZNSt12_Vector_baseIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr align 8 %.sroa.055.074, i64 %42, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr align 8 %.sroa.057.076, i64 %42, i1 false)
   br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
 
 _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i: ; preds = %57, %_ZNSt12_Vector_baseIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_M_allocateEm.exit.i.i.i
   %58 = getelementptr inbounds i8, ptr %54, i64 %42
   %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %.not.i21.i.i.i = icmp eq ptr %.sroa.055.074, null
+  %.not.i21.i.i.i = icmp eq ptr %.sroa.057.076, null
   br i1 %.not.i21.i.i.i, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %60
 
 60:                                               ; preds = %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.055.074) #29
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.057.076) #29
   br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
@@ -1452,25 +1452,25 @@ _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17Reg
   br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit: ; preds = %11, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %37, %._crit_edge
-  %.sroa.15.1 = phi ptr [ %.sroa.15.072, %._crit_edge ], [ %61, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.15.072, %37 ], [ %.sroa.15.072, %11 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.073, %._crit_edge ], [ %59, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %38, %37 ], [ %.sroa.8.073, %11 ]
-  %.sroa.055.1 = phi ptr [ %.sroa.055.074, %._crit_edge ], [ %54, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.055.074, %37 ], [ %.sroa.055.074, %11 ]
-  %62 = getelementptr inbounds i8, ptr %.075, i64 32
+  %.sroa.15.1 = phi ptr [ %.sroa.15.074, %._crit_edge ], [ %61, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.15.074, %37 ], [ %.sroa.15.074, %11 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.075, %._crit_edge ], [ %59, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %38, %37 ], [ %.sroa.8.075, %11 ]
+  %.sroa.057.1 = phi ptr [ %.sroa.057.076, %._crit_edge ], [ %54, %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.057.076, %37 ], [ %.sroa.057.076, %11 ]
+  %62 = getelementptr inbounds i8, ptr %.077, i64 32
   %.not = icmp eq ptr %62, %9
-  br i1 %.not, label %._crit_edge78, label %11
+  br i1 %.not, label %._crit_edge80, label %11
 
-._crit_edge78:                                    ; preds = %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit
-  %63 = icmp eq ptr %.sroa.055.1, %.sroa.8.1
-  br i1 %63, label %._crit_edge78.thread, label %64
+._crit_edge80:                                    ; preds = %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EE9push_backEOS3_.exit
+  %63 = icmp eq ptr %.sroa.057.1, %.sroa.8.1
+  br i1 %63, label %._crit_edge80.thread, label %64
 
-._crit_edge78.thread:                             ; preds = %4, %._crit_edge78
-  %.sroa.055.0.lcssa113 = phi ptr [ %.sroa.055.1, %._crit_edge78 ], [ null, %4 ]
+._crit_edge80.thread:                             ; preds = %4, %._crit_edge80
+  %.sroa.057.0.lcssa115 = phi ptr [ %.sroa.057.1, %._crit_edge80 ], [ null, %4 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit"
 
-64:                                               ; preds = %._crit_edge78
+64:                                               ; preds = %._crit_edge80
   %65 = ptrtoint ptr %.sroa.8.1 to i64
-  %66 = ptrtoint ptr %.sroa.055.1 to i64
+  %66 = ptrtoint ptr %.sroa.057.1 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 4
   %69 = icmp sgt i64 %68, 0
@@ -1482,19 +1482,19 @@ _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17Reg
   %storemerge28.i.i.i.i = lshr i64 %storemerge28.i.i.in.i.i, 1
   %70 = shl i64 %storemerge28.i.i.i.i, 4
   %71 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %70, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
-  %.not.i.i.i.i34 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i34, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
+  %.not.i.i.i.i36 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i.i36, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   %.not12.i.i.i.i = icmp ult i64 %storemerge28.i.i.in.in.i.i, 3
   br i1 %.not12.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %64
-  call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_"(ptr %.sroa.055.1, ptr %.sroa.8.1)
+  call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_"(ptr %.sroa.057.1, ptr %.sroa.8.1)
   br label %72
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  call fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_"(ptr %.sroa.055.1, ptr %.sroa.8.1, ptr noundef nonnull %71, i64 noundef %storemerge28.i.i.i.i)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_"(ptr %.sroa.057.1, ptr %.sroa.8.1, ptr noundef nonnull %71, i64 noundef %storemerge28.i.i.i.i)
   br label %72
 
 72:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i, %.loopexit.i.i
@@ -1531,10 +1531,10 @@ _ZNSt12_Vector_baseIPKN5vcpkg22RegistryImplementationESaIS3_EE11_M_allocateEm.ex
   %82 = phi ptr [ %77, %.lr.ph.i ], [ %108, %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i ]
   %83 = phi ptr [ %79, %.lr.ph.i ], [ %109, %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i ]
   %84 = phi ptr [ %77, %.lr.ph.i ], [ %110, %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i ]
-  %.sroa.02.04.i = phi ptr [ %.sroa.055.1, %.lr.ph.i ], [ %111, %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i ]
+  %.sroa.02.04.i = phi ptr [ %.sroa.057.1, %.lr.ph.i ], [ %111, %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i ]
   %.val14.i = load ptr, ptr %.sroa.02.04.i, align 8, !noalias !18
-  %.not.i.i35 = icmp eq ptr %84, %83
-  br i1 %.not.i.i35, label %86, label %85
+  %.not.i.i37 = icmp eq ptr %84, %83
+  br i1 %.not.i.i37, label %86, label %85
 
 85:                                               ; preds = %80
   store ptr %.val14.i, ptr %84, align 8, !noalias !18
@@ -1559,13 +1559,13 @@ _ZNSt12_Vector_baseIPKN5vcpkg22RegistryImplementationESaIS3_EE11_M_allocateEm.ex
 
 _ZNKSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %86
   %92 = ashr exact i64 %89, 3
-  %.sroa.speculated.i.i.i.i37 = call i64 @llvm.umax.i64(i64 %92, i64 1)
-  %93 = add nsw i64 %.sroa.speculated.i.i.i.i37, %92
+  %.sroa.speculated.i.i.i.i39 = call i64 @llvm.umax.i64(i64 %92, i64 1)
+  %93 = add nsw i64 %.sroa.speculated.i.i.i.i39, %92
   %94 = icmp ult i64 %93, %92
   %95 = call i64 @llvm.umin.i64(i64 %93, i64 1152921504606846975)
   %96 = select i1 %94, i64 1152921504606846975, i64 %95
-  %.not.i.i.i.i38 = icmp eq i64 %96, 0
-  br i1 %.not.i.i.i.i38, label %_ZNSt12_Vector_baseIPKN5vcpkg22RegistryImplementationESaIS3_EE11_M_allocateEm.exit.i.i.i, label %97
+  %.not.i.i.i.i40 = icmp eq i64 %96, 0
+  br i1 %.not.i.i.i.i40, label %_ZNSt12_Vector_baseIPKN5vcpkg22RegistryImplementationESaIS3_EE11_M_allocateEm.exit.i.i.i, label %97
 
 97:                                               ; preds = %_ZNKSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %98 = shl nuw nsw i64 %96, 3
@@ -1603,8 +1603,8 @@ _ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3
   %.pn = phi ptr [ %104, %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %84, %85 ]
   %110 = getelementptr inbounds i8, ptr %.pn, i64 8
   %111 = getelementptr inbounds i8, ptr %.sroa.02.04.i, i64 16
-  %.not.i36 = icmp eq ptr %111, %.sroa.8.1
-  br i1 %.not.i36, label %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit", label %80
+  %.not.i38 = icmp eq ptr %111, %.sroa.8.1
+  br i1 %.not.i38, label %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit", label %80
 
 .loopexit.i:                                      ; preds = %97
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1636,16 +1636,16 @@ _ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3
   store ptr %107, ptr %75, align 8, !alias.scope !18
   br label %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit"
 
-"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit": ; preds = %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit", %._crit_edge78.thread
-  %.sroa.055.0.lcssa112 = phi ptr [ %.sroa.055.1, %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit" ], [ %.sroa.055.0.lcssa113, %._crit_edge78.thread ]
-  %.not.i.i.i39 = icmp eq ptr %.sroa.055.0.lcssa112, null
-  br i1 %.not.i.i.i39, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit40, label %116
+"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit": ; preds = %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit", %._crit_edge80.thread
+  %.sroa.057.0.lcssa114 = phi ptr [ %.sroa.057.1, %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit" ], [ %.sroa.057.0.lcssa115, %._crit_edge80.thread ]
+  %.not.i.i.i41 = icmp eq ptr %.sroa.057.0.lcssa114, null
+  br i1 %.not.i.i.i41, label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit42, label %116
 
 116:                                              ; preds = %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit"
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.055.0.lcssa112) #29
-  br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit40
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.057.0.lcssa114) #29
+  br label %_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit42
 
-_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit40: ; preds = %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit", %116
+_ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateSaIS3_EED2Ev.exit42: ; preds = %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit", %116
   ret void
 }
 

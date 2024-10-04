@@ -1044,8 +1044,8 @@ arraydestroy.body.i:                              ; preds = %lpad.i.i, %arraydes
 
 invoke.cont2:                                     ; preds = %invoke.cont.i
   store i64 0, ptr %counter, align 8
-  %call.i.i.i.i.i = tail call i64 @pthread_self() #33
   %2 = ptrtoint ptr %counter to i64
+  %call.i.i.i.i.i = tail call i64 @pthread_self() #33
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %invoke.cont2, %for.inc12
@@ -1321,7 +1321,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   %_handle.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 176
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 192
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_join_counter.i.i.i.i, i8 0, i64 32, i1 false), !noalias !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_join_counter.i.i.i.i, i8 0, i64 32, i1 false), !noalias !10
   store i64 %2, ptr %_handle.i.i.i.i, align 8, !noalias !10
   store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
   store ptr @"_ZNSt17_Function_handlerIFvvEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10

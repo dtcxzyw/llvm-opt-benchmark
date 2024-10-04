@@ -197,9 +197,9 @@ if.then:                                          ; preds = %land.end
           to label %call.i3.noexc unwind label %lpad12
 
 call.i3.noexc:                                    ; preds = %if.then
+  %2 = ptrtoint ptr %this to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4pbrt16ProgressReporterC1ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEEEE", i64 16), ptr %call.i34, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
-  %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %_M_func.i.i, align 8
   store ptr %call.i34, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef nonnull %agg.tmp.i, ptr noundef null)

@@ -2289,8 +2289,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %32 = and i64 %30, 255
   %33 = getelementptr inbounds [256 x i64], ptr %31, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
-  %.not104.i = icmp eq i64 %34, %30
-  br i1 %.not104.i, label %35, label %.critedge.i
+  %.not105.i = icmp eq i64 %34, %30
+  br i1 %.not105.i, label %35, label %.critedge.i
 
 35:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
   %36 = getelementptr inbounds i8, ptr %17, i64 32912
@@ -2353,7 +2353,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %65 = lshr i64 %1, 20
   %66 = and i64 %65, 31
   %67 = icmp ugt i64 %66, 15
-  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
 
 68:                                               ; preds = %64
   %69 = call ptr @__cxa_allocate_exception(i64 32) #19
@@ -2365,12 +2365,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %72, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc76.i unwind label %109
+          to label %.noexc77.i unwind label %109
 
-.noexc76.i:                                       ; preds = %68
+.noexc77.i:                                       ; preds = %68
   unreachable
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
+_ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   %73 = getelementptr inbounds [32 x i64], ptr %27, i64 0, i64 %66
   %74 = load i64, ptr %73, align 8
   %75 = trunc i64 %74 to i8
@@ -2381,7 +2381,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %79 = icmp eq i64 %78, %30
   br i1 %79, label %80, label %85
 
-80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   %81 = getelementptr inbounds i8, ptr %17, i64 32912
   %82 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %81, i64 0, i64 %32
   %83 = load ptr, ptr %82, align 8
@@ -2389,7 +2389,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   store i8 %.sroa.speculated.i.i, ptr %84, align 1
   br label %86
 
-85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   store i8 %.sroa.speculated.i.i, ptr %4, align 1
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %17, i64 noundef %29, i64 noundef 1, ptr noundef nonnull %4, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %86 unwind label %109
@@ -2416,8 +2416,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %87, i64 3768
   %99 = load ptr, ptr %98, align 8
-  %.not.i.i80.i = icmp eq ptr %97, %99
-  br i1 %.not.i.i80.i, label %107, label %100
+  %.not.i.i81.i = icmp eq ptr %97, %99
+  br i1 %.not.i.i81.i, label %107, label %100
 
 100:                                              ; preds = %92
   store i8 1, ptr %97, align 1
@@ -2816,8 +2816,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %32 = and i64 %30, 255
   %33 = getelementptr inbounds [256 x i64], ptr %31, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
-  %.not104.i = icmp eq i64 %34, %30
-  br i1 %.not104.i, label %35, label %.critedge.i
+  %.not105.i = icmp eq i64 %34, %30
+  br i1 %.not105.i, label %35, label %.critedge.i
 
 35:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
   %36 = getelementptr inbounds i8, ptr %17, i64 32912
@@ -2880,7 +2880,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %65 = lshr i64 %1, 20
   %66 = and i64 %65, 31
   %67 = icmp ugt i64 %66, 15
-  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
 
 68:                                               ; preds = %64
   %69 = call ptr @__cxa_allocate_exception(i64 32) #19
@@ -2892,12 +2892,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %72, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc76.i unwind label %109
+          to label %.noexc77.i unwind label %109
 
-.noexc76.i:                                       ; preds = %68
+.noexc77.i:                                       ; preds = %68
   unreachable
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
+_ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   %73 = getelementptr inbounds [32 x i64], ptr %27, i64 0, i64 %66
   %74 = load i64, ptr %73, align 8
   %75 = trunc i64 %74 to i8
@@ -2908,7 +2908,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %79 = icmp eq i64 %78, %30
   br i1 %79, label %80, label %85
 
-80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   %81 = getelementptr inbounds i8, ptr %17, i64 32912
   %82 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %81, i64 0, i64 %32
   %83 = load ptr, ptr %82, align 8
@@ -2916,7 +2916,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   store i8 %.sroa.speculated.i.i, ptr %84, align 1
   br label %86
 
-85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   store i8 %.sroa.speculated.i.i, ptr %4, align 1
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %17, i64 noundef %29, i64 noundef 1, ptr noundef nonnull %4, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %86 unwind label %109
@@ -2943,8 +2943,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %87, i64 3768
   %99 = load ptr, ptr %98, align 8
-  %.not.i.i80.i = icmp eq ptr %97, %99
-  br i1 %.not.i.i80.i, label %107, label %100
+  %.not.i.i81.i = icmp eq ptr %97, %99
+  br i1 %.not.i.i81.i, label %107, label %100
 
 100:                                              ; preds = %92
   store i8 1, ptr %97, align 1
@@ -3341,8 +3341,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %32 = and i64 %30, 255
   %33 = getelementptr inbounds [256 x i64], ptr %31, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
-  %.not104.i = icmp eq i64 %34, %30
-  br i1 %.not104.i, label %35, label %.critedge.i
+  %.not105.i = icmp eq i64 %34, %30
+  br i1 %.not105.i, label %35, label %.critedge.i
 
 35:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
   %36 = getelementptr inbounds i8, ptr %17, i64 32912
@@ -3405,7 +3405,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %65 = lshr i64 %1, 20
   %66 = and i64 %65, 31
   %67 = icmp ugt i64 %66, 15
-  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
 
 68:                                               ; preds = %64
   %69 = call ptr @__cxa_allocate_exception(i64 32) #19
@@ -3417,12 +3417,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %72, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc76.i unwind label %109
+          to label %.noexc77.i unwind label %109
 
-.noexc76.i:                                       ; preds = %68
+.noexc77.i:                                       ; preds = %68
   unreachable
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
+_ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   %73 = getelementptr inbounds [32 x i64], ptr %27, i64 0, i64 %66
   %74 = load i64, ptr %73, align 8
   %75 = trunc i64 %74 to i8
@@ -3433,7 +3433,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %79 = icmp eq i64 %78, %30
   br i1 %79, label %80, label %85
 
-80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   %81 = getelementptr inbounds i8, ptr %17, i64 32912
   %82 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %81, i64 0, i64 %32
   %83 = load ptr, ptr %82, align 8
@@ -3441,7 +3441,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   store i8 %.sroa.speculated.i.i, ptr %84, align 1
   br label %86
 
-85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   store i8 %.sroa.speculated.i.i, ptr %4, align 1
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %17, i64 noundef %29, i64 noundef 1, ptr noundef nonnull %4, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %86 unwind label %109
@@ -3468,8 +3468,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %87, i64 3768
   %99 = load ptr, ptr %98, align 8
-  %.not.i.i80.i = icmp eq ptr %97, %99
-  br i1 %.not.i.i80.i, label %107, label %100
+  %.not.i.i81.i = icmp eq ptr %97, %99
+  br i1 %.not.i.i81.i, label %107, label %100
 
 100:                                              ; preds = %92
   store i8 1, ptr %97, align 1
@@ -3925,8 +3925,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %32 = and i64 %30, 255
   %33 = getelementptr inbounds [256 x i64], ptr %31, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
-  %.not104.i = icmp eq i64 %34, %30
-  br i1 %.not104.i, label %35, label %.critedge.i
+  %.not105.i = icmp eq i64 %34, %30
+  br i1 %.not105.i, label %35, label %.critedge.i
 
 35:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.i
   %36 = getelementptr inbounds i8, ptr %17, i64 32912
@@ -3989,7 +3989,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %65 = lshr i64 %1, 20
   %66 = and i64 %65, 31
   %67 = icmp ugt i64 %66, 15
-  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+  br i1 %67, label %68, label %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
 
 68:                                               ; preds = %64
   %69 = call ptr @__cxa_allocate_exception(i64 32) #19
@@ -4001,12 +4001,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %72, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc76.i unwind label %109
+          to label %.noexc77.i unwind label %109
 
-.noexc76.i:                                       ; preds = %68
+.noexc77.i:                                       ; preds = %68
   unreachable
 
-_ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
+_ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   %73 = getelementptr inbounds [32 x i64], ptr %27, i64 0, i64 %66
   %74 = load i64, ptr %73, align 8
   %75 = trunc i64 %74 to i8
@@ -4017,7 +4017,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %79 = icmp eq i64 %78, %30
   br i1 %79, label %80, label %85
 
-80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+80:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   %81 = getelementptr inbounds i8, ptr %17, i64 32912
   %82 = getelementptr inbounds [256 x %struct.tlb_entry_t], ptr %81, i64 0, i64 %32
   %83 = load ptr, ptr %82, align 8
@@ -4025,7 +4025,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   store i8 %.sroa.speculated.i.i, ptr %84, align 1
   br label %86
 
-85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit79.i
+85:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit80.i
   store i8 %.sroa.speculated.i.i, ptr %4, align 1
   invoke void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %17, i64 noundef %29, i64 noundef 1, ptr noundef nonnull %4, i8 0, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %86 unwind label %109
@@ -4052,8 +4052,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %64
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %87, i64 3768
   %99 = load ptr, ptr %98, align 8
-  %.not.i.i80.i = icmp eq ptr %97, %99
-  br i1 %.not.i.i80.i, label %107, label %100
+  %.not.i.i81.i = icmp eq ptr %97, %99
+  br i1 %.not.i.i81.i, label %107, label %100
 
 100:                                              ; preds = %92
   store i8 1, ptr %97, align 1

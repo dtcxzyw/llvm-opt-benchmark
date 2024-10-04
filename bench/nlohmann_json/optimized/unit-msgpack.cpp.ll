@@ -5107,8 +5107,8 @@ invoke.cont288:                                   ; preds = %invoke.cont285
 
 for.cond.preheader:                               ; preds = %invoke.cont288
   store i32 -32, ptr %i, align 4
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_20, i64 16
   %116 = ptrtoint ptr %i to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_20, i64 16
   %m_value.i.i950 = getelementptr inbounds i8, ptr %j293, i64 8
   %m_decomp.i957 = getelementptr inbounds i8, ptr %ref.tmp294, i64 8
   %_M_end_of_storage.i.i964 = getelementptr inbounds i8, ptr %expected309, i64 16
@@ -5553,8 +5553,8 @@ invoke.cont407:                                   ; preds = %invoke.cont404
 
 for.cond411.preheader:                            ; preds = %invoke.cont407
   store i64 0, ptr %i410, align 8
-  %lambda_.i.i1022 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_24, i64 16
   %173 = ptrtoint ptr %i410 to i64
+  %lambda_.i.i1022 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_24, i64 16
   %m_value.i.i1023 = getelementptr inbounds i8, ptr %j416, i64 8
   %m_decomp.i1033 = getelementptr inbounds i8, ptr %ref.tmp421, i64 8
   %_M_end_of_storage.i.i1040 = getelementptr inbounds i8, ptr %expected435, i64 16
@@ -5978,8 +5978,8 @@ invoke.cont536:                                   ; preds = %invoke.cont533
 
 for.cond540.preheader:                            ; preds = %invoke.cont536
   store i64 128, ptr %i539, align 8
-  %lambda_.i.i1104 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_28, i64 16
   %226 = ptrtoint ptr %i539 to i64
+  %lambda_.i.i1104 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_28, i64 16
   %m_value.i.i1105 = getelementptr inbounds i8, ptr %j545, i64 8
   %m_decomp.i1117 = getelementptr inbounds i8, ptr %ref.tmp550, i64 8
   %_M_end_of_storage.i.i1124 = getelementptr inbounds i8, ptr %expected564, i64 16
@@ -6434,8 +6434,8 @@ invoke.cont678:                                   ; preds = %invoke.cont675
 
 for.cond682.preheader:                            ; preds = %invoke.cont678
   store i64 256, ptr %i681, align 8
-  %lambda_.i.i1192 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_32, i64 16
   %284 = ptrtoint ptr %i681 to i64
+  %lambda_.i.i1192 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_32, i64 16
   %m_value.i.i1193 = getelementptr inbounds i8, ptr %j687, i64 8
   %m_decomp.i1205 = getelementptr inbounds i8, ptr %ref.tmp692, i64 8
   %_M_end_of_storage.i.i1212 = getelementptr inbounds i8, ptr %expected706, i64 16
@@ -6906,8 +6906,8 @@ if.then831:                                       ; preds = %invoke.cont829
   store i32 1048576, ptr %arrayinit.element836, align 4
   %arrayinit.element837 = getelementptr inbounds i8, ptr %ref.tmp833, i64 12
   store i32 -1, ptr %arrayinit.element837, align 4
-  %lambda_.i.i1284 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_36, i64 16
   %343 = ptrtoint ptr %i846 to i64
+  %lambda_.i.i1284 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_36, i64 16
   %m_value.i.i1285 = getelementptr inbounds i8, ptr %j849, i64 8
   %m_decomp.i1297 = getelementptr inbounds i8, ptr %ref.tmp855, i64 8
   %_M_end_of_storage.i.i1304 = getelementptr inbounds i8, ptr %expected869, i64 16
@@ -7395,8 +7395,8 @@ if.then1011:                                      ; preds = %invoke.cont1009
   store i64 4294967296, ptr %ref.tmp1014, align 8
   %arrayinit.element1016 = getelementptr inbounds i8, ptr %ref.tmp1014, i64 8
   store i64 9223372036854775807, ptr %arrayinit.element1016, align 8
-  %lambda_.i.i1379 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_40, i64 16
   %404 = ptrtoint ptr %i1027 to i64
+  %lambda_.i.i1379 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_40, i64 16
   %m_value.i.i1380 = getelementptr inbounds i8, ptr %j1030, i64 8
   %m_decomp.i1392 = getelementptr inbounds i8, ptr %ref.tmp1035, i64 8
   %_M_end_of_storage.i.i1399 = getelementptr inbounds i8, ptr %expected1049, i64 16
@@ -7917,8 +7917,8 @@ invoke.cont1223:                                  ; preds = %invoke.cont1220
 
 for.cond1227.preheader:                           ; preds = %invoke.cont1223
   store i32 -128, ptr %i1226, align 4
-  %lambda_.i.i1476 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_44, i64 16
   %469 = ptrtoint ptr %i1226 to i64
+  %lambda_.i.i1476 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_44, i64 16
   %m_value.i.i1477 = getelementptr inbounds i8, ptr %j1232, i64 8
   %m_decomp.i1487 = getelementptr inbounds i8, ptr %ref.tmp1233, i64 8
   %_M_end_of_storage.i.i1494 = getelementptr inbounds i8, ptr %expected1248, i64 16
@@ -8696,8 +8696,8 @@ invoke.cont1461:                                  ; preds = %invoke.cont1458
 
 for.cond1465.preheader:                           ; preds = %invoke.cont1461
   store i16 -32768, ptr %i1464, align 2
-  %lambda_.i.i1629 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_49, i64 16
   %565 = ptrtoint ptr %i1464 to i64
+  %lambda_.i.i1629 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_49, i64 16
   %m_value.i.i1630 = getelementptr inbounds i8, ptr %j1471, i64 8
   %m_decomp.i1639 = getelementptr inbounds i8, ptr %ref.tmp1472, i64 8
   %_M_end_of_storage.i.i1646 = getelementptr inbounds i8, ptr %expected1487, i64 16
@@ -9167,8 +9167,8 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %if.then1618
 
 invoke.cont1627:                                  ; preds = %if.then1618
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call5.i.i.i.i2.i1717, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
-  %lambda_.i.i1726 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_53, i64 16
   %626 = ptrtoint ptr %i1638 to i64
+  %lambda_.i.i1726 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_53, i64 16
   %m_value.i.i1727 = getelementptr inbounds i8, ptr %j1643, i64 8
   %m_decomp.i1737 = getelementptr inbounds i8, ptr %ref.tmp1644, i64 8
   %_M_end_of_storage.i.i1744 = getelementptr inbounds i8, ptr %expected1659, i64 16
@@ -9669,8 +9669,8 @@ invoke.cont1817:                                  ; preds = %if.then1805
   store i64 -9223372036854775808, ptr %call5.i.i.i.i2.i1824, align 8
   %ref.tmp1808.sroa.2.0.call5.i.i.i.i2.i1824.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i1824, i64 8
   store i64 -2147483649, ptr %ref.tmp1808.sroa.2.0.call5.i.i.i.i2.i1824.sroa_idx, align 8
-  %lambda_.i.i1835 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_57, i64 16
   %689 = ptrtoint ptr %i1829 to i64
+  %lambda_.i.i1835 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_57, i64 16
   %m_value.i.i1836 = getelementptr inbounds i8, ptr %j1834, i64 8
   %m_decomp.i1844 = getelementptr inbounds i8, ptr %ref.tmp1835, i64 8
   %_M_end_of_storage.i.i1851 = getelementptr inbounds i8, ptr %expected1850, i64 16
@@ -10220,8 +10220,8 @@ invoke.cont2037:                                  ; preds = %invoke.cont2034
 
 for.cond2041.preheader:                           ; preds = %invoke.cont2037
   store i64 0, ptr %i2040, align 8
-  %lambda_.i.i1936 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_62, i64 16
   %756 = ptrtoint ptr %i2040 to i64
+  %lambda_.i.i1936 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_62, i64 16
   %m_value.i.i1937 = getelementptr inbounds i8, ptr %j2046, i64 8
   %m_decomp.i1945 = getelementptr inbounds i8, ptr %ref.tmp2047, i64 8
   %_M_end_of_storage.i.i1952 = getelementptr inbounds i8, ptr %expected2062, i64 16
@@ -10650,8 +10650,8 @@ invoke.cont2163:                                  ; preds = %invoke.cont2160
 
 for.cond2167.preheader:                           ; preds = %invoke.cont2163
   store i64 128, ptr %i2166, align 8
-  %lambda_.i.i2017 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_66, i64 16
   %810 = ptrtoint ptr %i2166 to i64
+  %lambda_.i.i2017 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_66, i64 16
   %m_value.i.i2018 = getelementptr inbounds i8, ptr %j2172, i64 8
   %m_decomp.i2027 = getelementptr inbounds i8, ptr %ref.tmp2173, i64 8
   %_M_end_of_storage.i.i2034 = getelementptr inbounds i8, ptr %expected2188, i64 16
@@ -11100,8 +11100,8 @@ invoke.cont2304:                                  ; preds = %invoke.cont2301
 
 for.cond2308.preheader:                           ; preds = %invoke.cont2304
   store i64 256, ptr %i2307, align 8
-  %lambda_.i.i2104 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_70, i64 16
   %867 = ptrtoint ptr %i2307 to i64
+  %lambda_.i.i2104 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_70, i64 16
   %m_value.i.i2105 = getelementptr inbounds i8, ptr %j2313, i64 8
   %m_decomp.i2114 = getelementptr inbounds i8, ptr %ref.tmp2314, i64 8
   %_M_end_of_storage.i.i2121 = getelementptr inbounds i8, ptr %expected2329, i64 16
@@ -11566,8 +11566,8 @@ if.then2458:                                      ; preds = %invoke.cont2456
   store i32 1048576, ptr %arrayinit.element2464, align 4
   %arrayinit.element2465 = getelementptr inbounds i8, ptr %ref.tmp2461, i64 12
   store i32 -1, ptr %arrayinit.element2465, align 4
-  %lambda_.i.i2194 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_74, i64 16
   %925 = ptrtoint ptr %i2476 to i64
+  %lambda_.i.i2194 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_74, i64 16
   %m_value.i.i2195 = getelementptr inbounds i8, ptr %j2479, i64 8
   %m_decomp.i2204 = getelementptr inbounds i8, ptr %ref.tmp2480, i64 8
   %_M_end_of_storage.i.i2211 = getelementptr inbounds i8, ptr %expected2495, i64 16
@@ -12049,8 +12049,8 @@ if.then2639:                                      ; preds = %invoke.cont2637
   store i64 4294967296, ptr %ref.tmp2642, align 8
   %arrayinit.element2644 = getelementptr inbounds i8, ptr %ref.tmp2642, i64 8
   store i64 -1, ptr %arrayinit.element2644, align 8
-  %lambda_.i.i2286 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_78, i64 16
   %985 = ptrtoint ptr %i2655 to i64
+  %lambda_.i.i2286 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_78, i64 16
   %m_value.i.i2287 = getelementptr inbounds i8, ptr %j2658, i64 8
   %m_decomp.i2295 = getelementptr inbounds i8, ptr %ref.tmp2659, i64 8
   %_M_end_of_storage.i.i2302 = getelementptr inbounds i8, ptr %expected2674, i64 16
@@ -13745,8 +13745,8 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i2580:       ; preds = %if.then3164
 invoke.cont3173:                                  ; preds = %if.then3164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call5.i.i.i.i2.i2576, ptr noundef nonnull align 1 dereferenceable(32) @constinit.74, i64 32, i1 false)
   store i64 0, ptr %N, align 8
-  %lambda_.i.i2590 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_87, i64 16
   %1178 = ptrtoint ptr %N to i64
+  %lambda_.i.i2590 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_87, i64 16
   %m_value.i.i2591 = getelementptr inbounds i8, ptr %j3186, i64 8
   %_M_finish.i2595 = getelementptr inbounds i8, ptr %expected3189, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %expected3189, i64 16
@@ -14325,8 +14325,8 @@ invoke.cont3312:                                  ; preds = %invoke.cont3309
 
 for.cond3316.preheader:                           ; preds = %invoke.cont3312
   store i64 32, ptr %N3315, align 8
-  %lambda_.i.i2682 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_91, i64 16
   %1247 = ptrtoint ptr %N3315 to i64
+  %lambda_.i.i2682 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_91, i64 16
   %m_value.i.i2684 = getelementptr inbounds i8, ptr %j3326, i64 8
   %_M_finish.i.i2694 = getelementptr inbounds i8, ptr %expected3329, i64 8
   %_M_end_of_storage.i.i2695 = getelementptr inbounds i8, ptr %expected3329, i64 16
@@ -14860,8 +14860,8 @@ invoke.cont3436:                                  ; preds = %invoke.cont3433
   br i1 %call3437, label %for.cond3447.preheader, label %if.end3585
 
 for.cond3447.preheader:                           ; preds = %invoke.cont3436
-  %lambda_.i.i2856 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_95, i64 16
   %1307 = ptrtoint ptr %N3450 to i64
+  %lambda_.i.i2856 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_95, i64 16
   %m_value.i.i2858 = getelementptr inbounds i8, ptr %j3459, i64 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %expected3462, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %expected3462, i64 16
@@ -15540,8 +15540,8 @@ if.then3596:                                      ; preds = %invoke.cont3594
   store i32 77777, ptr %arrayinit.element3601, align 4
   %arrayinit.element3602 = getelementptr inbounds i8, ptr %ref.tmp3599, i64 8
   store i32 1048576, ptr %arrayinit.element3602, align 4
-  %lambda_.i.i2942 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_99, i64 16
   %1372 = ptrtoint ptr %N3613 to i64
+  %lambda_.i.i2942 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_99, i64 16
   %m_value.i.i2944 = getelementptr inbounds i8, ptr %j3622, i64 8
   %_M_finish.i.i.i2958 = getelementptr inbounds i8, ptr %expected3625, i64 8
   %_M_end_of_storage.i.i.i2960 = getelementptr inbounds i8, ptr %expected3625, i64 16
@@ -18264,8 +18264,8 @@ invoke.cont4251:                                  ; preds = %invoke.cont4249
   br i1 %cmp42578928.not, label %for.end4278, label %for.body4258.lr.ph
 
 for.body4258.lr.ph:                               ; preds = %invoke.cont4251
-  %lambda_.i.i3408 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_109, i64 16
   %1666 = ptrtoint ptr %i4254 to i64
+  %lambda_.i.i3408 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_109, i64 16
   %1667 = getelementptr inbounds i8, ptr %ref.tmp4262, i64 8
   %m_decomp.i3414 = getelementptr inbounds i8, ptr %ref.tmp4261, i64 8
   %need_to_destroy.i3415 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_109, i64 8
@@ -20486,8 +20486,8 @@ invoke.cont4916:                                  ; preds = %invoke.cont4913
 
 for.cond4920.preheader:                           ; preds = %invoke.cont4916
   store i64 0, ptr %N4919, align 8
-  %lambda_.i.i3771 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_120, i64 16
   %1929 = ptrtoint ptr %N4919 to i64
+  %lambda_.i.i3771 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_120, i64 16
   %m_value.i.i.i.i3790 = getelementptr inbounds i8, ptr %j4931, i64 8
   %_M_finish.i.i3928 = getelementptr inbounds i8, ptr %expected4937, i64 8
   %_M_end_of_storage.i.i3929 = getelementptr inbounds i8, ptr %expected4937, i64 16
@@ -21282,8 +21282,8 @@ invoke.cont5080:                                  ; preds = %invoke.cont5077
   br i1 %call5081, label %for.cond5094.preheader, label %if.end5247
 
 for.cond5094.preheader:                           ; preds = %invoke.cont5080
-  %lambda_.i.i4178 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_124, i64 16
   %2000 = ptrtoint ptr %N5097 to i64
+  %lambda_.i.i4178 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_124, i64 16
   %m_value.i.i.i.i4197 = getelementptr inbounds i8, ptr %j5107, i64 8
   %_M_finish.i.i.i4236 = getelementptr inbounds i8, ptr %expected5114, i64 8
   %_M_end_of_storage.i.i.i4238 = getelementptr inbounds i8, ptr %expected5114, i64 16
@@ -22148,8 +22148,8 @@ if.then5258:                                      ; preds = %invoke.cont5256
   store i32 77777, ptr %arrayinit.element5263, align 4
   %arrayinit.element5264 = getelementptr inbounds i8, ptr %ref.tmp5261, i64 8
   store i32 1048576, ptr %arrayinit.element5264, align 4
-  %lambda_.i.i4370 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_128, i64 16
   %2072 = ptrtoint ptr %N5275 to i64
+  %lambda_.i.i4370 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_128, i64 16
   %m_value.i.i.i.i4389 = getelementptr inbounds i8, ptr %j5285, i64 8
   %_M_finish.i.i.i4428 = getelementptr inbounds i8, ptr %expected5292, i64 8
   %_M_end_of_storage.i.i.i4430 = getelementptr inbounds i8, ptr %expected5292, i64 16
@@ -23225,8 +23225,8 @@ invoke.cont5472:                                  ; preds = %invoke.cont5469
 
 for.cond5476.preheader:                           ; preds = %invoke.cont5472
   store i64 0, ptr %N5475, align 8
-  %lambda_.i.i4582 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_133, i64 16
   %2160 = ptrtoint ptr %N5475 to i64
+  %lambda_.i.i4582 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_133, i64 16
   %m_value.i.i.i.i4601 = getelementptr inbounds i8, ptr %j5487, i64 8
   %_M_finish.i.i4634 = getelementptr inbounds i8, ptr %expected5490, i64 8
   %_M_end_of_storage.i.i4635 = getelementptr inbounds i8, ptr %expected5490, i64 16
@@ -23859,8 +23859,8 @@ invoke.cont5600:                                  ; preds = %invoke.cont5597
   br i1 %call5601, label %for.cond5614.preheader, label %if.end5754
 
 for.cond5614.preheader:                           ; preds = %invoke.cont5600
-  %lambda_.i.i4810 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_137, i64 16
   %2220 = ptrtoint ptr %N5617 to i64
+  %lambda_.i.i4810 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_137, i64 16
   %m_value.i.i.i.i4829 = getelementptr inbounds i8, ptr %j5627, i64 8
   %_M_finish.i.i.i4866 = getelementptr inbounds i8, ptr %expected5630, i64 8
   %_M_end_of_storage.i.i.i4868 = getelementptr inbounds i8, ptr %expected5630, i64 16
@@ -24601,8 +24601,8 @@ if.then5765:                                      ; preds = %invoke.cont5763
   store i32 77777, ptr %arrayinit.element5770, align 4
   %arrayinit.element5771 = getelementptr inbounds i8, ptr %ref.tmp5768, i64 8
   store i32 1048576, ptr %arrayinit.element5771, align 4
-  %lambda_.i.i4962 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_141, i64 16
   %2283 = ptrtoint ptr %N5782 to i64
+  %lambda_.i.i4962 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_141, i64 16
   %m_value.i.i.i.i4981 = getelementptr inbounds i8, ptr %j5792, i64 8
   %_M_finish.i.i.i5018 = getelementptr inbounds i8, ptr %expected5795, i64 8
   %_M_end_of_storage.i.i.i5020 = getelementptr inbounds i8, ptr %expected5795, i64 16
@@ -34240,10 +34240,10 @@ invoke.cont134:                                   ; preds = %invoke.cont126
 invoke.cont136:                                   ; preds = %invoke.cont134
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp131) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp132) #27
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_168, i64 16
   %1 = ptrtoint ptr %filename to i64
-  %lambda_.i.i121 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_172, i64 16
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_168, i64 16
   %2 = ptrtoint ptr %DOCTEST_STD_STRING_169 to i64
+  %lambda_.i.i121 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_172, i64 16
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %j2, i64 8
   %m_value6.i = getelementptr inbounds i8, ptr %agg.tmp174, i64 8
@@ -34254,8 +34254,8 @@ invoke.cont136:                                   ; preds = %invoke.cont134
   %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp189, i64 8
   %m_value.i.i139 = getelementptr inbounds i8, ptr %j1, i64 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_172, i64 8
-  %lambda_.i.i148 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_176, i64 16
   %4 = ptrtoint ptr %DOCTEST_STD_STRING_173 to i64
+  %lambda_.i.i148 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_176, i64 16
   %_M_manager.i.i150 = getelementptr inbounds i8, ptr %agg.tmp214, i64 16
   %m_value.i.i.i161 = getelementptr inbounds i8, ptr %j2224, i64 8
   %m_value6.i163 = getelementptr inbounds i8, ptr %agg.tmp233, i64 8
@@ -34266,8 +34266,8 @@ invoke.cont136:                                   ; preds = %invoke.cont134
   %m_decomp.i183 = getelementptr inbounds i8, ptr %ref.tmp254, i64 8
   %m_value.i.i187 = getelementptr inbounds i8, ptr %j1213, i64 8
   %need_to_destroy.i190 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_176, i64 8
-  %lambda_.i.i200 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_180, i64 16
   %6 = ptrtoint ptr %DOCTEST_STD_STRING_177 to i64
+  %lambda_.i.i200 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_180, i64 16
   %_M_manager.i.i202 = getelementptr inbounds i8, ptr %agg.tmp279, i64 16
   %m_value.i.i.i213 = getelementptr inbounds i8, ptr %j2290, i64 8
   %_M_finish.i = getelementptr inbounds i8, ptr %packed283, i64 8
@@ -34280,11 +34280,11 @@ invoke.cont136:                                   ; preds = %invoke.cont134
   %m_decomp.i233 = getelementptr inbounds i8, ptr %ref.tmp324, i64 8
   %m_value.i.i240 = getelementptr inbounds i8, ptr %j1278, i64 8
   %need_to_destroy.i243 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_180, i64 8
-  %lambda_.i.i253 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_184, i64 16
   %8 = ptrtoint ptr %DOCTEST_STD_STRING_181 to i64
+  %lambda_.i.i253 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_184, i64 16
   %_M_manager.i.i255 = getelementptr inbounds i8, ptr %agg.tmp349, i64 16
-  %lambda_.i.i271 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_188, i64 16
   %9 = ptrtoint ptr %DOCTEST_STD_STRING_185 to i64
+  %lambda_.i.i271 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_188, i64 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp369, i64 8
   %10 = getelementptr inbounds i8, ptr %ref.tmp376, i64 8
   %m_decomp.i279 = getelementptr inbounds i8, ptr %ref.tmp375, i64 8

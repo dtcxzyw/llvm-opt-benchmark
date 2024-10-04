@@ -54370,7 +54370,7 @@ call5.i.i.i.i2.i.i7.i.i.noexc:                    ; preds = %for.body.lr.ph.i.i
   %22 = getelementptr inbounds i8, ptr %futures.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %22, align 8, !noalias !1402
   store ptr %scevgep.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8, !noalias !1402
-  %agg.tmp.sroa.23.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  %agg.tmp.sroa.21.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %future.i.i.i.i, i64 8
   %_M_refcount.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i.i.i, i64 8
@@ -54396,7 +54396,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %call5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10.i.i.i.i), !noalias !1409
   store i32 0, ptr %agg.tmp1.i.i.i, align 8, !noalias !1409
   call void @llvm.experimental.noalias.scope.decl(metadata !1413)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.23.0.agg.tmp1.sroa_idx.i.i.i, i8 -1, i64 24, i1 false), !noalias !1409
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.21.0.agg.tmp1.sroa_idx.i.i.i, i8 -1, i64 24, i1 false), !noalias !1409
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !1416
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %future.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !1413, !noalias !1416
   invoke void @_ZN5arrow10FutureImpl4MakeEv(ptr nonnull sret(%"class.std::unique_ptr.506") align 8 %ref.tmp.i.i.i.i.i)
@@ -54500,7 +54500,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i
 
 _ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i
-  %cmp.not.i.i.i.i.i5.i.i.i = phi i1 [ false, %if.else.i.i.i.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i.i.i.i.i.i.i.i ], [ true, %invoke.cont.i.i.i.i ], [ true, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i ]
+  %cmp.not.i.i.i.i.i3.i.i.i = phi i1 [ false, %if.else.i.i.i.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i.i.i.i.i.i.i.i ], [ true, %invoke.cont.i.i.i.i ], [ true, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i ]
   %38 = phi ptr [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %35, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %invoke.cont.i.i.i.i ], [ %23, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i ]
   %39 = phi ptr [ %.pre.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %34, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont.i.i.i.i ], [ null, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i ]
   %call.i10.i.i.i.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
@@ -54756,7 +54756,7 @@ ehcleanup.thread.i.i.i.i:                         ; preds = %_ZNKSt14default_del
 ehcleanup.i.i.i.i:                                ; preds = %invoke.cont8.i.i.i.i
   %78 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cmp.not.i.i.i.i.i5.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS3_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISD_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i", label %if.then.i.i.i.i.i96.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i3.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS3_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISD_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i", label %if.then.i.i.i.i.i96.i.i.i.i
 
 if.then.i.i.i.i.i96.i.i.i.i:                      ; preds = %ehcleanup.i.i.i.i
   %_M_weak_count.i.i.i.i.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 12
@@ -54808,7 +54808,7 @@ ehcleanup18.i.i.i.i:                              ; preds = %_ZN5arrow10WeakFutu
   %85 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_117DecompressBuffersENS0_11Compression4typeERKNS7_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS0_9ArrayDataEESaISH_EEE3$_0iEED2Ev"(ptr %24) #32, !noalias !1419
-  br i1 %cmp.not.i.i.i.i.i5.i.i.i, label %common.resume.i.i.i.i, label %if.then.i.i.i.i.i115.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i3.i.i.i, label %common.resume.i.i.i.i, label %if.then.i.i.i.i.i115.i.i.i.i
 
 if.then.i.i.i.i.i115.i.i.i.i:                     ; preds = %ehcleanup18.i.i.i.i
   %_M_weak_count.i.i.i.i.i.i116.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 12

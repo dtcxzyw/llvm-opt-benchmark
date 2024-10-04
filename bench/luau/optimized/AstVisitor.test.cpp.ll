@@ -4404,10 +4404,10 @@ define internal void @_ZN12_GLOBAL__N_118AstVisitorTrackingD2Ev(ptr noundef nonn
           to label %43 unwind label %97
 
 43:                                               ; preds = %42
+  %44 = ptrtoint ptr %2 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118AstVisitorTrackingD1EvEUlPSoE_EE, i64 16), ptr %7, align 8, !alias.scope !28
-  %44 = getelementptr inbounds i8, ptr %7, i64 16
-  %45 = ptrtoint ptr %2 to i64
-  store i64 %45, ptr %44, align 8, !alias.scope !28
+  %45 = getelementptr inbounds i8, ptr %7, i64 16
+  store i64 %44, ptr %45, align 8, !alias.scope !28
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
           to label %46 unwind label %97
 

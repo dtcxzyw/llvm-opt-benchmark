@@ -1781,9 +1781,9 @@ if.then10:                                        ; preds = %invoke.cont7
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
+  %7 = ptrtoint ptr %byte2.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_27, align 8, !alias.scope !38
   %lambda_.i.i15 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_27, i64 16
-  %7 = ptrtoint ptr %byte2.addr to i64
   store i64 %7, ptr %lambda_.i.i15, align 8, !alias.scope !38
   %8 = load i32, ptr %byte2.addr, align 4
   %conv15 = trunc i32 %8 to i8
@@ -1867,9 +1867,9 @@ if.then27:                                        ; preds = %if.end25
           to label %invoke.cont29 unwind label %lpad12
 
 invoke.cont29:                                    ; preds = %if.then27
+  %18 = ptrtoint ptr %byte3.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_2EE", i64 16), ptr %DOCTEST_CAPTURE_30, align 8, !alias.scope !41
   %lambda_.i.i16 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_30, i64 16
-  %18 = ptrtoint ptr %byte3.addr to i64
   store i64 %18, ptr %lambda_.i.i16, align 8, !alias.scope !41
   %19 = load i32, ptr %byte3.addr, align 4
   %conv31 = trunc i32 %19 to i8
@@ -1932,9 +1932,9 @@ if.then43:                                        ; preds = %if.end41
           to label %invoke.cont45 unwind label %lpad12
 
 invoke.cont45:                                    ; preds = %if.then43
+  %26 = ptrtoint ptr %byte4.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EE", i64 16), ptr %DOCTEST_CAPTURE_33, align 8, !alias.scope !44
   %lambda_.i.i21 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_33, i64 16
-  %26 = ptrtoint ptr %byte4.addr to i64
   store i64 %26, ptr %lambda_.i.i21, align 8, !alias.scope !44
   %27 = load i32, ptr %byte4.addr, align 4
   %conv47 = trunc i32 %27 to i8
@@ -2466,25 +2466,25 @@ init.end:                                         ; preds = %init, %init.check, 
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init.end
+  %4 = ptrtoint ptr %byte2.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_1EE", i64 16), ptr %DOCTEST_CAPTURE_12, align 8, !alias.scope !55
   %lambda_.i.i44 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_12, i64 16
-  %4 = ptrtoint ptr %byte2.addr to i64
   store i64 %4, ptr %lambda_.i.i44, align 8, !alias.scope !55
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_15)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
+  %5 = ptrtoint ptr %byte3.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_2EE", i64 16), ptr %DOCTEST_CAPTURE_15, align 8, !alias.scope !58
   %lambda_.i.i45 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_15, i64 16
-  %5 = ptrtoint ptr %byte3.addr to i64
   store i64 %5, ptr %lambda_.i.i45, align 8, !alias.scope !58
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_18)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
+  %6 = ptrtoint ptr %byte4.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EE", i64 16), ptr %DOCTEST_CAPTURE_18, align 8, !alias.scope !61
   %lambda_.i.i46 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_18, i64 16
-  %6 = ptrtoint ptr %byte4.addr to i64
   store i64 %6, ptr %lambda_.i.i46, align 8, !alias.scope !61
   %7 = load i32, ptr %byte1.addr, align 4
   %conv = trunc i32 %7 to i8

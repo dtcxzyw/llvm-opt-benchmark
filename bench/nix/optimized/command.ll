@@ -8587,8 +8587,8 @@ define void @_ZN3nix10MixProfile13updateProfileERKSt6vectorINS_9BuiltPathESaIS2_
   br label %18
 
 18:                                               ; preds = %.lr.ph, %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit"
-  %.sroa.021.039 = phi ptr [ %12, %.lr.ph ], [ %67, %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit" ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.021.039, i64 64
+  %.sroa.022.040 = phi ptr [ %12, %.lr.ph ], [ %67, %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit" ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 64
   %20 = load i8, ptr %19, align 8
   switch i8 %20, label %31 [
     i8 -1, label %21
@@ -8601,7 +8601,7 @@ define void @_ZN3nix10MixProfile13updateProfileERKSt6vectorINS_9BuiltPathESaIS2_
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr @.str.65, ptr %23, align 8
   invoke void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #34
-          to label %.noexc unwind label %.loopexit.split-lp28.loopexit.split-lp
+          to label %.noexc unwind label %.loopexit.split-lp29.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
   unreachable
@@ -8613,23 +8613,23 @@ define void @_ZN3nix10MixProfile13updateProfileERKSt6vectorINS_9BuiltPathESaIS2_
   br i1 %.not.i.i.i.i.i.i.i, label %30, label %27
 
 27:                                               ; preds = %24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.039)
-          to label %.noexc15 unwind label %.loopexit.split-lp28.loopexit
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.040)
+          to label %.noexc16 unwind label %.loopexit.split-lp29.loopexit
 
-.noexc15:                                         ; preds = %27
+.noexc16:                                         ; preds = %27
   %28 = load ptr, ptr %16, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 32
   store ptr %29, ptr %16, align 8
   br label %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit"
 
 30:                                               ; preds = %24
-  invoke void @_ZNSt6vectorIN3nix9StorePathESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %25, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.039)
-          to label %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit" unwind label %.loopexit.split-lp28.loopexit
+  invoke void @_ZNSt6vectorIN3nix9StorePathESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %25, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.040)
+          to label %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit" unwind label %.loopexit.split-lp29.loopexit
 
 31:                                               ; preds = %18
-  %32 = getelementptr inbounds i8, ptr %.sroa.021.039, i64 40
+  %32 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.sroa.021.039, i64 24
+  %34 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 24
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -8694,17 +8694,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   %54 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %52, %.noexc7.i ]
   switch i64 %43, label %57 [
     i64 1, label %55
-    i64 0, label %.noexc17
+    i64 0, label %.noexc18
   ]
 
 55:                                               ; preds = %53
   %56 = load i8, ptr %41, align 1
   store i8 %56, ptr %54, align 1
-  br label %.noexc17
+  br label %.noexc18
 
 57:                                               ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %41, i64 %43, i1 false)
-  br label %.noexc17
+  br label %.noexc18
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -8721,7 +8721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #33
   br label %.body
 
-.noexc17:                                         ; preds = %57, %55, %53
+.noexc18:                                         ; preds = %57, %55, %53
   %59 = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %43, ptr %59, align 8
   %60 = load ptr, ptr %37, align 8
@@ -8735,41 +8735,41 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
 
 64:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   invoke void @_ZNSt6vectorIN3nix9StorePathESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %37, ptr noundef nonnull align 8 dereferenceable(32) %36)
-          to label %_ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i unwind label %.loopexit27
+          to label %_ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i unwind label %.loopexit28
 
-_ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i: ; preds = %64, %.noexc17
+_ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i: ; preds = %64, %.noexc18
   %65 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.08.i.i.i.i.i.i) #37
   %66 = icmp eq ptr %65, %34
   br i1 %66, label %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit", label %.lr.ph.i.i.i.i.i.i
 
-"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit": ; preds = %_ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i, %31, %.noexc15, %30
-  %67 = getelementptr inbounds i8, ptr %.sroa.021.039, i64 72
+"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit": ; preds = %_ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i, %31, %.noexc16, %30
+  %67 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 72
   %68 = icmp eq ptr %67, %14
   br i1 %68, label %._crit_edge.loopexit, label %18
 
-.loopexit27:                                      ; preds = %64
-  %lpad.loopexit29 = landingpad { ptr, i32 }
+.loopexit28:                                      ; preds = %64
+  %lpad.loopexit30 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp28.loopexit:                    ; preds = %30, %27
-  %lpad.loopexit32 = landingpad { ptr, i32 }
+.loopexit.split-lp29.loopexit:                    ; preds = %30, %27
+  %lpad.loopexit33 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp28.loopexit.split-lp:           ; preds = %21, %89
-  %lpad.loopexit.split-lp33 = landingpad { ptr, i32 }
+.loopexit.split-lp29.loopexit.split-lp:           ; preds = %21, %89
+  %lpad.loopexit.split-lp34 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 ._crit_edge.loopexit:                             ; preds = %"_ZSt5visitIN3nix10overloadedIJZNS0_10MixProfile13updateProfileERKSt6vectorINS0_9BuiltPathESaIS4_EEE3$_0ZNS2_13updateProfileES8_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_14BuiltPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit"
   %.pre = load ptr, ptr %16, align 8
-  %.pre44 = load ptr, ptr %4, align 8
+  %.pre45 = load ptr, ptr %4, align 8
   %69 = ptrtoint ptr %.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %70 = phi ptr [ %.pre44, %._crit_edge.loopexit ], [ null, %11 ]
+  %70 = phi ptr [ %.pre45, %._crit_edge.loopexit ], [ null, %11 ]
   %71 = phi i64 [ %69, %._crit_edge.loopexit ], [ 0, %11 ]
   %72 = getelementptr inbounds i8, ptr %4, i64 8
   %73 = ptrtoint ptr %70 to i64
@@ -8814,13 +8814,13 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EE9push_backERKS1_.exit.i.i.i.i.i.i: ; preds 
   br i1 %.0, label %88, label %.body
 
 88:                                               ; preds = %.thread, %86
-  %.pn26 = phi { ptr, i32 } [ %85, %.thread ], [ %87, %86 ]
+  %.pn27 = phi { ptr, i32 } [ %85, %.thread ], [ %87, %86 ]
   call void @__cxa_free_exception(ptr %76) #33
   br label %.body
 
 89:                                               ; preds = %._crit_edge
   invoke void @_ZN3nix10MixProfile13updateProfileERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %70)
-          to label %90 unwind label %.loopexit.split-lp28.loopexit.split-lp
+          to label %90 unwind label %.loopexit.split-lp29.loopexit.split-lp
 
 90:                                               ; preds = %89
   %91 = load ptr, ptr %4, align 8
@@ -8868,8 +8868,8 @@ _ZSt8_DestroyIPN3nix9StorePathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destr
 _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit:   ; preds = %101, %_ZSt8_DestroyIPN3nix9StorePathES1_EvT_S3_RSaIT0_E.exit.i, %2
   ret void
 
-.body:                                            ; preds = %.loopexit27, %.loopexit.split-lp28.loopexit.split-lp, %.loopexit.split-lp28.loopexit, %58, %86, %88
-  %.pn13 = phi { ptr, i32 } [ %.pn26, %88 ], [ %87, %86 ], [ %lpad.phi, %58 ], [ %lpad.loopexit29, %.loopexit27 ], [ %lpad.loopexit32, %.loopexit.split-lp28.loopexit ], [ %lpad.loopexit.split-lp33, %.loopexit.split-lp28.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit28, %.loopexit.split-lp29.loopexit.split-lp, %.loopexit.split-lp29.loopexit, %58, %86, %88
+  %.pn13 = phi { ptr, i32 } [ %.pn27, %88 ], [ %87, %86 ], [ %lpad.phi, %58 ], [ %lpad.loopexit30, %.loopexit28 ], [ %lpad.loopexit33, %.loopexit.split-lp29.loopexit ], [ %lpad.loopexit.split-lp34, %.loopexit.split-lp29.loopexit.split-lp ]
   call void @_ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #33
   resume { ptr, i32 } %.pn13
 

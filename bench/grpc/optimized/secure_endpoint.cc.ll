@@ -2882,13 +2882,13 @@ lpad.i.i.i.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
 invoke.cont.i.i.i.i.i:                            ; preds = %_ZNSt10shared_ptrIN9grpc_core14ReclaimerQueue5StateEEC2ERKS3_.exit.i.i.i.i.i.i
   %20 = load ptr, ptr %agg.tmp3.i.i.i.i.i.i, align 8, !noalias !45
   %21 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !noalias !45
+  %22 = ptrtoint ptr %ep to i64
   %state_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i.i.i.i.i, i64 8
   store ptr %20, ptr %state_.i.i.i.i.i.i.i.i.i, align 8, !noalias !45
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i.i.i.i.i, i64 16
   store ptr %21, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !45
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EE", i64 16), ptr %call.i1.i.i.i.i.i.i, align 8, !noalias !45
   %f_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i.i.i.i.i, i64 24
-  %22 = ptrtoint ptr %ep to i64
   store i64 %22, ptr %f_.i.i.i.i.i.i.i.i, align 8, !noalias !45
   %sweep_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i1.i.i.i, i64 16
   store ptr %call.i1.i.i.i.i.i.i, ptr %sweep_.i.i.i.i.i.i.i, align 8, !noalias !45

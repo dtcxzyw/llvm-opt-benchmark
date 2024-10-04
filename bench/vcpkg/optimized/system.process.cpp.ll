@@ -1745,9 +1745,9 @@ _ZNSt12_Vector_baseIN5vcpkg9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStr
 
 38:                                               ; preds = %34
   %39 = zext i32 %37 to i64
-  %.sroa.speculated17.i.i = call i64 @llvm.umin.i64(i64 %32, i64 %39)
+  %.sroa.speculated16.i.i = call i64 @llvm.umin.i64(i64 %32, i64 %39)
   %40 = sub i64 0, %32
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.speculated17.i.i, i64 %40)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.speculated16.i.i, i64 %40)
   %41 = add nsw i64 %.sroa.speculated.i.i, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %41)
@@ -1755,19 +1755,19 @@ _ZNSt12_Vector_baseIN5vcpkg9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStr
 
 .preheader.i.i:                                   ; preds = %38
   %.not.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i, label %.loopexit26.i.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 16
-  %44 = ptrtoint ptr %7 to i64
-  %.pre.i.i = load ptr, ptr %42, align 8
+  %42 = ptrtoint ptr %7 to i64
+  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = getelementptr inbounds i8, ptr %8, i64 16
+  %.pre.i.i = load ptr, ptr %43, align 8
   br label %45
 
 45:                                               ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i", %.lr.ph.i.i
   %46 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %123, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i" ]
-  %.036.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %124, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i" ]
-  %47 = load ptr, ptr %43, align 8
+  %.035.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %124, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i" ]
+  %47 = load ptr, ptr %44, align 8
   %.not.i.i.i5 = icmp eq ptr %46, %47
   br i1 %.not.i.i.i5, label %64, label %48
 
@@ -1775,12 +1775,12 @@ _ZNSt12_Vector_baseIN5vcpkg9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 0, ptr %46, align 8
   %49 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
-          to label %.noexc.i.i unwind label %.loopexit27.i.i
+          to label %.noexc.i.i unwind label %.loopexit26.i.i
 
 .noexc.i.i:                                       ; preds = %48
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5vcpkg19execute_in_parallelIZNS3_18parallel_transformINS3_4SpanIKNS3_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS3_9ExpectedTINS3_17ExitCodeAndOutputENS3_15LocalizedStringEEESt6vectorISF_SaISF_EEEEZNS3_39cmd_execute_and_capture_output_parallelES9_RKNS3_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEEEEE", i64 16), ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 8
-  store i64 %44, ptr %50, align 8
+  store i64 %42, ptr %50, align 8
   store ptr %49, ptr %6, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull %6, ptr noundef null)
           to label %51 unwind label %56
@@ -1814,9 +1814,9 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i: ; preds
 
 "_ZNSt16allocator_traitsISaIN5vcpkg7JThreadEEE9constructIS1_JZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEESt6vectorISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSQ_EUlvE_EEEvRS2_PSQ_DpOT0_.exit.i.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i.i, %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %62 = load ptr, ptr %42, align 8
+  %62 = load ptr, ptr %43, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %63, ptr %42, align 8
+  store ptr %63, ptr %43, align 8
   br label %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i"
 
 64:                                               ; preds = %45
@@ -1829,7 +1829,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i: ; preds
 
 70:                                               ; preds = %64
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.54) #31
-          to label %.noexc8.i.i unwind label %.loopexit.split-lp28.i.i
+          to label %.noexc8.i.i unwind label %.loopexit.split-lp27.i.i
 
 .noexc8.i.i:                                      ; preds = %70
   unreachable
@@ -1847,7 +1847,7 @@ _ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds 
 76:                                               ; preds = %_ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %77 = shl nuw nsw i64 %75, 3
   %78 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #29
-          to label %_ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i unwind label %.loopexit27.i.i
+          to label %_ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i unwind label %.loopexit26.i.i
 
 _ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %76, %_ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %79 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %78, %76 ]
@@ -1860,7 +1860,7 @@ _ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i: ; pred
 .noexc.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5vcpkg19execute_in_parallelIZNS3_18parallel_transformINS3_4SpanIKNS3_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS3_9ExpectedTINS3_17ExitCodeAndOutputENS3_15LocalizedStringEEESt6vectorISF_SaISF_EEEEZNS3_39cmd_execute_and_capture_output_parallelES9_RKNS3_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEEEEE", i64 16), ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
-  store i64 %44, ptr %82, align 8
+  store i64 %42, ptr %82, align 8
   store ptr %81, ptr %5, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull %5, ptr noundef null)
           to label %83 unwind label %88
@@ -1971,25 +1971,25 @@ _ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
 
 "_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE17_M_realloc_insertIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEEvNSC_IPS1_S3_EEDpOT_.exit.i.i.i": ; preds = %104, %_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
   store ptr %79, ptr %8, align 8
-  store ptr %103, ptr %42, align 8
+  store ptr %103, ptr %43, align 8
   %116 = getelementptr inbounds %"struct.vcpkg::JThread", ptr %79, i64 %75
-  store ptr %116, ptr %43, align 8
+  store ptr %116, ptr %44, align 8
   br label %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i"
 
-.loopexit27.i.i:                                  ; preds = %76, %48
-  %lpad.loopexit29.i.i = landingpad { ptr, i32 }
+.loopexit26.i.i:                                  ; preds = %76, %48
+  %lpad.loopexit28.i.i = landingpad { ptr, i32 }
           catch ptr @_ZTISt12system_error
           catch ptr null
   br label %.body.i.i
 
-.loopexit.split-lp28.i.i:                         ; preds = %70
-  %lpad.loopexit.split-lp30.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp27.i.i:                         ; preds = %70
+  %lpad.loopexit.split-lp29.i.i = landingpad { ptr, i32 }
           catch ptr @_ZTISt12system_error
           catch ptr null
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %.loopexit.split-lp28.i.i, %.loopexit27.i.i, %107, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i, %56
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %57, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i ], [ %57, %56 ], [ %108, %107 ], [ %lpad.loopexit29.i.i, %.loopexit27.i.i ], [ %lpad.loopexit.split-lp30.i.i, %.loopexit.split-lp28.i.i ]
+.body.i.i:                                        ; preds = %.loopexit.split-lp27.i.i, %.loopexit26.i.i, %107, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i, %56
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %57, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i ], [ %57, %56 ], [ %108, %107 ], [ %lpad.loopexit28.i.i, %.loopexit26.i.i ], [ %lpad.loopexit.split-lp29.i.i, %.loopexit.split-lp27.i.i ]
   %117 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
   %118 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 1
   %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12system_error) #26
@@ -1999,22 +1999,22 @@ _ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
 121:                                              ; preds = %.body.i.i
   %122 = call ptr @__cxa_begin_catch(ptr %117) #26
   invoke void @__cxa_end_catch()
-          to label %.loopexit26.i.i unwind label %.loopexit.split-lp.i.i
+          to label %.loopexit25.i.i unwind label %.loopexit.split-lp.i.i
 
 "_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i": ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE17_M_realloc_insertIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEEvNSC_IPS1_S3_EEDpOT_.exit.i.i.i", %"_ZNSt16allocator_traitsISaIN5vcpkg7JThreadEEE9constructIS1_JZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEESt6vectorISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSQ_EUlvE_EEEvRS2_PSQ_DpOT0_.exit.i.i.i"
   %123 = phi ptr [ %103, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE17_M_realloc_insertIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEEvNSC_IPS1_S3_EEDpOT_.exit.i.i.i" ], [ %63, %"_ZNSt16allocator_traitsISaIN5vcpkg7JThreadEEE9constructIS1_JZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEESt6vectorISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSQ_EUlvE_EEEvRS2_PSQ_DpOT0_.exit.i.i.i" ]
-  %124 = add nuw i64 %.036.i.i, 1
+  %124 = add nuw i64 %.035.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %124, %41
-  br i1 %exitcond.not.i.i, label %.loopexit26.i.i, label %45, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %.loopexit25.i.i, label %45, !llvm.loop !51
 
-.loopexit26.i.i:                                  ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i", %121, %.preheader.i.i
+.loopexit25.i.i:                                  ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_18parallel_transformINS0_4SpanIKNS0_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS0_9ExpectedTINS0_17ExitCodeAndOutputENS0_15LocalizedStringEEES_ISG_SaISG_EEEEZNS0_39cmd_execute_and_capture_output_parallelESA_RKNS0_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_EEvmSP_EUlvE_EEERS1_DpOT_.exit.i.i", %121, %.preheader.i.i
   %125 = atomicrmw add ptr %36, i64 1 monotonic, align 8
   %126 = load i64, ptr %35, align 8
   %.not11.i.i.i = icmp ult i64 %125, %126
   br i1 %.not11.i.i.i, label %.lr.ph.i.i.i, label %"_ZN5vcpkg19WorkCallbackContextIZNS_18parallel_transformINS_4SpanIKNS_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEESt6vectorISB_SaISB_EEEEZNS_39cmd_execute_and_capture_output_parallelES5_RKNS_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_E3runEv.exit.i.i"
 
-.lr.ph.i.i.i:                                     ; preds = %.loopexit26.i.i, %.noexc11.i.i
-  %127 = phi i64 [ %128, %.noexc11.i.i ], [ %125, %.loopexit26.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.loopexit25.i.i, %.noexc11.i.i
+  %127 = phi i64 [ %128, %.noexc11.i.i ], [ %125, %.loopexit25.i.i ]
   invoke fastcc void @"_ZZN5vcpkg18parallel_transformINS_4SpanIKNS_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEESt6vectorISA_SaISA_EEEEZNS_39cmd_execute_and_capture_output_parallelES4_RKNS_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_ENKUlmE_clEm"(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %127)
           to label %.noexc11.i.i unwind label %.loopexit.i.i
 
@@ -2024,7 +2024,7 @@ _ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
   %.not.i10.i.i = icmp ult i64 %128, %129
   br i1 %.not.i10.i.i, label %.lr.ph.i.i.i, label %"_ZN5vcpkg19WorkCallbackContextIZNS_18parallel_transformINS_4SpanIKNS_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEESt6vectorISB_SaISB_EEEEZNS_39cmd_execute_and_capture_output_parallelES5_RKNS_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_E3runEv.exit.i.i", !llvm.loop !52
 
-"_ZN5vcpkg19WorkCallbackContextIZNS_18parallel_transformINS_4SpanIKNS_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEESt6vectorISB_SaISB_EEEEZNS_39cmd_execute_and_capture_output_parallelES5_RKNS_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_E3runEv.exit.i.i": ; preds = %.noexc11.i.i, %.loopexit26.i.i
+"_ZN5vcpkg19WorkCallbackContextIZNS_18parallel_transformINS_4SpanIKNS_7CommandEEEN9__gnu_cxx17__normal_iteratorIPNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEESt6vectorISB_SaISB_EEEEZNS_39cmd_execute_and_capture_output_parallelES5_RKNS_31RedirectedProcessLaunchSettingsEE3$_0EEvRKT_T0_T1_EUlmE_E3runEv.exit.i.i": ; preds = %.noexc11.i.i, %.loopexit25.i.i
   %130 = load ptr, ptr %8, align 8
   %131 = getelementptr inbounds i8, ptr %8, i64 8
   %132 = load ptr, ptr %131, align 8

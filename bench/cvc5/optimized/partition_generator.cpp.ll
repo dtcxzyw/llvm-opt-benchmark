@@ -10910,18 +10910,18 @@ if.then13.i.i54:                                  ; preds = %if.else.i.i52
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i56, %if.else.i.i52, %if.then13.i.i54
-  %cmp46.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp46.i, label %land.rhs.i.preheader, label %while.end.i
+  %cmp10.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  br i1 %cmp10.i, label %land.rhs.lr.ph.i, label %while.end.i
 
-land.rhs.i.preheader:                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+land.rhs.lr.ph.i:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %d_lemmaMap.i.i.i = getelementptr inbounds i8, ptr %__comp.coerce, i64 304
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i
-  %__holeIndex.addr.047.i = phi i64 [ %__parent.048.i, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i ], [ %__holeIndex.addr.1, %land.rhs.i.preheader ]
-  %__parent.048.in.i = add nsw i64 %__holeIndex.addr.047.i, -1
-  %__parent.048.i = sdiv i64 %__parent.048.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__parent.048.i
+land.rhs.i:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i, %land.rhs.lr.ph.i
+  %__holeIndex.addr.011.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.012.i, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i ]
+  %__parent.012.in.i = add nsw i64 %__holeIndex.addr.011.i, -1
+  %__parent.012.i = sdiv i64 %__parent.012.in.i, 2
+  %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__parent.012.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
   %12 = load ptr, ptr %add.ptr.i.i, align 8
@@ -11065,7 +11065,7 @@ ehcleanup.i.i:                                    ; preds = %lpad3.i.i, %lpad.i.
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4cvc58internal6theory18PartitionGenerator15collectLiteralsENS5_15LiteralListTypeEE3$_0EclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i"
-  %add.ptr.i8.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__holeIndex.addr.047.i
+  %add.ptr.i8.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__holeIndex.addr.011.i
   %27 = load ptr, ptr %add.ptr.i8.i, align 8
   %28 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.not.i.i61 = icmp eq ptr %27, %28
@@ -11119,11 +11119,11 @@ if.then13.i4.i.i:                                 ; preds = %if.else.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i unwind label %lpad.loopexit
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i: ; preds = %if.then13.i4.i.i, %if.else.i.i.i, %if.then.i5.i.i, %while.body.i
-  %cmp.i = icmp sgt i64 %__parent.048.i, %__holeIndex
+  %cmp.i = icmp sgt i64 %__parent.012.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !96
 
 while.end.i:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4cvc58internal6theory18PartitionGenerator15collectLiteralsENS5_15LiteralListTypeEE3$_0EclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i", %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %__holeIndex.addr.047.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4cvc58internal6theory18PartitionGenerator15collectLiteralsENS5_15LiteralListTypeEE3$_0EclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i" ], [ %__parent.048.i, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %__holeIndex.addr.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4cvc58internal6theory18PartitionGenerator15collectLiteralsENS5_15LiteralListTypeEE3$_0EclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i" ], [ %__parent.012.i, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i ]
   %add.ptr.i10.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %32 = load ptr, ptr %add.ptr.i10.i, align 8
   %cmp.not.i11.i = icmp eq ptr %32, %10

@@ -15828,10 +15828,10 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1501fEvEUl
           to label %98 unwind label %64
 
 98:                                               ; preds = %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1501fEvEUlPSoE_ED2Ev.exit.i
+  %99 = ptrtoint ptr %2 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1501fEvEUlPSoE0_EE, i64 16), ptr %14, align 8, !alias.scope !204
-  %99 = getelementptr inbounds i8, ptr %14, i64 16
-  %100 = ptrtoint ptr %2 to i64
-  store i64 %100, ptr %99, align 8, !alias.scope !204
+  %100 = getelementptr inbounds i8, ptr %14, i64 16
+  store i64 %99, ptr %100, align 8, !alias.scope !204
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
           to label %101 unwind label %117
 
@@ -23147,10 +23147,10 @@ _ZN4Luau9TypeErrorC2ERKS0_.exit.i:                ; preds = %.noexc29.i
           to label %92 unwind label %108
 
 92:                                               ; preds = %_ZN4Luau9TypeErrorC2ERKS0_.exit.i
+  %93 = ptrtoint ptr %11 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2521fEvEUlPSoE0_EE, i64 16), ptr %12, align 8, !alias.scope !316
-  %93 = getelementptr inbounds i8, ptr %12, i64 16
-  %94 = ptrtoint ptr %11 to i64
-  store i64 %94, ptr %93, align 8, !alias.scope !316
+  %94 = getelementptr inbounds i8, ptr %12, i64 16
+  store i64 %93, ptr %94, align 8, !alias.scope !316
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull @.str)
           to label %95 unwind label %110
 

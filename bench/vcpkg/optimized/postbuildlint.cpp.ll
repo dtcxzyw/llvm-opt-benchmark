@@ -10145,9 +10145,9 @@ _ZNSt6vectorISt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPK
 
 3067:                                             ; preds = %3063
   %3068 = zext i32 %3066 to i64
-  %.sroa.speculated19.i.i.i = call i64 @llvm.umin.i64(i64 %3061, i64 %3068)
+  %.sroa.speculated18.i.i.i = call i64 @llvm.umin.i64(i64 %3061, i64 %3068)
   %3069 = sub nsw i64 0, %3061
-  %.sroa.speculated.i.i.i996 = call i64 @llvm.umin.i64(i64 %.sroa.speculated19.i.i.i, i64 %3069)
+  %.sroa.speculated.i.i.i996 = call i64 @llvm.umin.i64(i64 %.sroa.speculated18.i.i.i, i64 %3069)
   %3070 = add nsw i64 %.sroa.speculated.i.i.i996, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %3070)
@@ -10155,19 +10155,19 @@ _ZNSt6vectorISt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPK
 
 .preheader.i.i.i997:                              ; preds = %3067
   %.not.i.i41.i = icmp eq i64 %3070, 0
-  br i1 %.not.i.i41.i, label %.loopexit28.i.i.i, label %.lr.ph.i.i.i998
+  br i1 %.not.i.i41.i, label %.loopexit27.i.i.i, label %.lr.ph.i.i.i998
 
 .lr.ph.i.i.i998:                                  ; preds = %.preheader.i.i.i997
-  %3071 = getelementptr inbounds i8, ptr %10, i64 8
-  %3072 = getelementptr inbounds i8, ptr %10, i64 16
-  %3073 = ptrtoint ptr %9 to i64
-  %.pre.i.i.i999 = load ptr, ptr %3071, align 8
+  %3071 = ptrtoint ptr %9 to i64
+  %3072 = getelementptr inbounds i8, ptr %10, i64 8
+  %3073 = getelementptr inbounds i8, ptr %10, i64 16
+  %.pre.i.i.i999 = load ptr, ptr %3072, align 8
   br label %3074
 
 3074:                                             ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i", %.lr.ph.i.i.i998
   %3075 = phi ptr [ %.pre.i.i.i999, %.lr.ph.i.i.i998 ], [ %3152, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i" ]
-  %.038.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i998 ], [ %3153, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i" ]
-  %3076 = load ptr, ptr %3072, align 8
+  %.037.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i998 ], [ %3153, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i" ]
+  %3076 = load ptr, ptr %3073, align 8
   %.not.i.i.i42.i = icmp eq ptr %3075, %3076
   br i1 %.not.i.i.i42.i, label %3093, label %3077
 
@@ -10175,12 +10175,12 @@ _ZNSt6vectorISt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorIPK
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 0, ptr %3075, align 8
   %3078 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-          to label %.noexc.i.i.i1004 unwind label %.loopexit29.i.i.i
+          to label %.noexc.i.i.i1004 unwind label %.loopexit28.i.i.i
 
 .noexc.i.i.i1004:                                 ; preds = %3077
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5vcpkg19execute_in_parallelIZNS3_17parallel_for_eachIRSt6vectorINS3_4PathESaIS7_EEZNS3_L26check_no_absolute_paths_inERKNS3_18ReadOnlyFilesystemERKS7_NS3_4SpanIS7_EERNS3_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEEEEE", i64 16), ptr %3078, align 8
   %3079 = getelementptr inbounds i8, ptr %3078, i64 8
-  store i64 %3073, ptr %3079, align 8
+  store i64 %3071, ptr %3079, align 8
   store ptr %3078, ptr %8, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %3075, ptr noundef nonnull %8, ptr noundef null)
           to label %3080 unwind label %3085
@@ -10214,9 +10214,9 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i: ; pre
 
 "_ZNSt16allocator_traitsISaIN5vcpkg7JThreadEEE9constructIS1_JZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRSt6vectorINS0_4PathESaIS8_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS8_NS0_4SpanIS8_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSM_EUlvE_EEEvRS2_PSM_DpOT0_.exit.i.i.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %3080
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %3091 = load ptr, ptr %3071, align 8
+  %3091 = load ptr, ptr %3072, align 8
   %3092 = getelementptr inbounds i8, ptr %3091, i64 8
-  store ptr %3092, ptr %3071, align 8
+  store ptr %3092, ptr %3072, align 8
   br label %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i"
 
 3093:                                             ; preds = %3074
@@ -10229,9 +10229,9 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i: ; pre
 
 3099:                                             ; preds = %3093
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.202) #22
-          to label %.noexc9.i.i.i unwind label %.loopexit.split-lp30.i.i.i
+          to label %.noexc10.i.i.i unwind label %.loopexit.split-lp29.i.i.i
 
-.noexc9.i.i.i:                                    ; preds = %3099
+.noexc10.i.i.i:                                   ; preds = %3099
   unreachable
 
 _ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %3093
@@ -10247,7 +10247,7 @@ _ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; pred
 3105:                                             ; preds = %_ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %3106 = shl nuw nsw i64 %3104, 3
   %3107 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %3106) #23
-          to label %_ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %.loopexit29.i.i.i
+          to label %_ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %.loopexit28.i.i.i
 
 _ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %3105, %_ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %3108 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg7JThreadESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %3107, %3105 ]
@@ -10260,7 +10260,7 @@ _ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i: ; pr
 .noexc.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5vcpkg19execute_in_parallelIZNS3_17parallel_for_eachIRSt6vectorINS3_4PathESaIS7_EEZNS3_L26check_no_absolute_paths_inERKNS3_18ReadOnlyFilesystemERKS7_NS3_4SpanIS7_EERNS3_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEEEEE", i64 16), ptr %3110, align 8
   %3111 = getelementptr inbounds i8, ptr %3110, i64 8
-  store i64 %3073, ptr %3111, align 8
+  store i64 %3071, ptr %3111, align 8
   store ptr %3110, ptr %7, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %3109, ptr noundef nonnull %7, ptr noundef null)
           to label %3112 unwind label %3117
@@ -10371,25 +10371,25 @@ _ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
 
 "_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE17_M_realloc_insertIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i": ; preds = %3133, %_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i.i
   store ptr %3108, ptr %10, align 8
-  store ptr %3132, ptr %3071, align 8
+  store ptr %3132, ptr %3072, align 8
   %3145 = getelementptr inbounds %"struct.vcpkg::JThread", ptr %3108, i64 %3104
-  store ptr %3145, ptr %3072, align 8
+  store ptr %3145, ptr %3073, align 8
   br label %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i"
 
-.loopexit29.i.i.i:                                ; preds = %3105, %3077
-  %lpad.loopexit31.i.i.i = landingpad { ptr, i32 }
+.loopexit28.i.i.i:                                ; preds = %3105, %3077
+  %lpad.loopexit30.i.i.i = landingpad { ptr, i32 }
           catch ptr @_ZTISt12system_error
           catch ptr null
   br label %.body.i.i.i
 
-.loopexit.split-lp30.i.i.i:                       ; preds = %3099
-  %lpad.loopexit.split-lp32.i.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp29.i.i.i:                       ; preds = %3099
+  %lpad.loopexit.split-lp31.i.i.i = landingpad { ptr, i32 }
           catch ptr @_ZTISt12system_error
           catch ptr null
   br label %.body.i.i.i
 
-.body.i.i.i:                                      ; preds = %.loopexit.split-lp30.i.i.i, %.loopexit29.i.i.i, %3136, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i, %3085
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %3086, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i ], [ %3086, %3085 ], [ %3137, %3136 ], [ %lpad.loopexit31.i.i.i, %.loopexit29.i.i.i ], [ %lpad.loopexit.split-lp32.i.i.i, %.loopexit.split-lp30.i.i.i ]
+.body.i.i.i:                                      ; preds = %.loopexit.split-lp29.i.i.i, %.loopexit28.i.i.i, %3136, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i, %3085
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %3086, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i ], [ %3086, %3085 ], [ %3137, %3136 ], [ %lpad.loopexit30.i.i.i, %.loopexit28.i.i.i ], [ %lpad.loopexit.split-lp31.i.i.i, %.loopexit.split-lp29.i.i.i ]
   %3146 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
   %3147 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 1
   %3148 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12system_error) #20
@@ -10399,26 +10399,26 @@ _ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
 3150:                                             ; preds = %.body.i.i.i
   %3151 = call ptr @__cxa_begin_catch(ptr %3146) #20
   invoke void @__cxa_end_catch()
-          to label %.loopexit28.i.i.i unwind label %.loopexit.split-lp.i.i.i
+          to label %.loopexit27.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
 "_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i": ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE17_M_realloc_insertIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i", %"_ZNSt16allocator_traitsISaIN5vcpkg7JThreadEEE9constructIS1_JZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRSt6vectorINS0_4PathESaIS8_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS8_NS0_4SpanIS8_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSM_EUlvE_EEEvRS2_PSM_DpOT0_.exit.i.i.i.i"
   %3152 = phi ptr [ %3132, %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE17_M_realloc_insertIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i" ], [ %3092, %"_ZNSt16allocator_traitsISaIN5vcpkg7JThreadEEE9constructIS1_JZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRSt6vectorINS0_4PathESaIS8_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS8_NS0_4SpanIS8_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSM_EUlvE_EEEvRS2_PSM_DpOT0_.exit.i.i.i.i" ]
-  %3153 = add nuw i64 %.038.i.i.i, 1
+  %3153 = add nuw i64 %.037.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %3153, %3070
-  br i1 %exitcond.not.i.i.i, label %.loopexit28.i.i.i, label %3074, !llvm.loop !193
+  br i1 %exitcond.not.i.i.i, label %.loopexit27.i.i.i, label %3074, !llvm.loop !193
 
-.loopexit28.i.i.i:                                ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i", %3150, %.preheader.i.i.i997
+.loopexit27.i.i.i:                                ; preds = %"_ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE12emplace_backIJZNS0_19execute_in_parallelIZNS0_17parallel_for_eachIRS_INS0_4PathESaIS7_EEZNS0_L26check_no_absolute_paths_inERKNS0_18ReadOnlyFilesystemERKS7_NS0_4SpanIS7_EERNS0_11MessageSinkEE3$_1EEvOT_T0_EUlmE_EEvmSL_EUlvE_EEERS1_DpOT_.exit.i.i.i", %3150, %.preheader.i.i.i997
   %3154 = atomicrmw add ptr %3065, i64 1 monotonic, align 8
   %3155 = load i64, ptr %3064, align 8
   %.not12.i.i.i.i = icmp ult i64 %3154, %3155
   br i1 %.not12.i.i.i.i, label %.lr.ph.i.i.i.i1003, label %"_ZN5vcpkg19WorkCallbackContextIZNS_17parallel_for_eachIRSt6vectorINS_4PathESaIS3_EEZNS_L26check_no_absolute_paths_inERKNS_18ReadOnlyFilesystemERKS3_NS_4SpanIS3_EERNS_11MessageSinkEE3$_1EEvOT_T0_EUlmE_E3runEv.exit.i.i.i"
 
-.lr.ph.i.i.i.i1003:                               ; preds = %.loopexit28.i.i.i, %.noexc13.i.i.i
-  %3156 = phi i64 [ %3157, %.noexc13.i.i.i ], [ %3154, %.loopexit28.i.i.i ]
-  %.val.i11.i.i.i = load ptr, ptr %9, align 8
+.lr.ph.i.i.i.i1003:                               ; preds = %.loopexit27.i.i.i, %.noexc13.i.i.i
+  %3156 = phi i64 [ %3157, %.noexc13.i.i.i ], [ %3154, %.loopexit27.i.i.i ]
+  %.val.i.i.i.i = load ptr, ptr %9, align 8
   %.val11.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i995, align 8
   %.val11.val.i.i.i.i = load ptr, ptr %.val11.i.i.i.i, align 8
-  invoke fastcc void @"_ZZN5vcpkg17parallel_for_eachIRSt6vectorINS_4PathESaIS2_EEZNS_L26check_no_absolute_paths_inERKNS_18ReadOnlyFilesystemERKS2_NS_4SpanIS2_EERNS_11MessageSinkEE3$_1EEvOT_T0_ENKUlmE_clEm"(ptr %.val.i11.i.i.i, ptr %.val11.val.i.i.i.i, i64 noundef %3156)
+  invoke fastcc void @"_ZZN5vcpkg17parallel_for_eachIRSt6vectorINS_4PathESaIS2_EEZNS_L26check_no_absolute_paths_inERKNS_18ReadOnlyFilesystemERKS2_NS_4SpanIS2_EERNS_11MessageSinkEE3$_1EEvOT_T0_ENKUlmE_clEm"(ptr %.val.i.i.i.i, ptr %.val11.val.i.i.i.i, i64 noundef %3156)
           to label %.noexc13.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc13.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i1003
@@ -10427,7 +10427,7 @@ _ZNSt6vectorIN5vcpkg7JThreadESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i.i
   %.not.i12.i.i.i = icmp ult i64 %3157, %3158
   br i1 %.not.i12.i.i.i, label %.lr.ph.i.i.i.i1003, label %"_ZN5vcpkg19WorkCallbackContextIZNS_17parallel_for_eachIRSt6vectorINS_4PathESaIS3_EEZNS_L26check_no_absolute_paths_inERKNS_18ReadOnlyFilesystemERKS3_NS_4SpanIS3_EERNS_11MessageSinkEE3$_1EEvOT_T0_EUlmE_E3runEv.exit.i.i.i", !llvm.loop !194
 
-"_ZN5vcpkg19WorkCallbackContextIZNS_17parallel_for_eachIRSt6vectorINS_4PathESaIS3_EEZNS_L26check_no_absolute_paths_inERKNS_18ReadOnlyFilesystemERKS3_NS_4SpanIS3_EERNS_11MessageSinkEE3$_1EEvOT_T0_EUlmE_E3runEv.exit.i.i.i": ; preds = %.noexc13.i.i.i, %.loopexit28.i.i.i
+"_ZN5vcpkg19WorkCallbackContextIZNS_17parallel_for_eachIRSt6vectorINS_4PathESaIS3_EEZNS_L26check_no_absolute_paths_inERKNS_18ReadOnlyFilesystemERKS3_NS_4SpanIS3_EERNS_11MessageSinkEE3$_1EEvOT_T0_EUlmE_E3runEv.exit.i.i.i": ; preds = %.noexc13.i.i.i, %.loopexit27.i.i.i
   %3159 = load ptr, ptr %10, align 8
   %3160 = getelementptr inbounds i8, ptr %10, i64 8
   %3161 = load ptr, ptr %3160, align 8

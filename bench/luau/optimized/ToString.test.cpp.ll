@@ -35240,10 +35240,10 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %140, %139
           to label %146 unwind label %82
 
 146:                                              ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i
+  %147 = ptrtoint ptr %20 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2181fEvEUlPSoE_EE, i64 16), ptr %24, align 8, !alias.scope !315
-  %147 = getelementptr inbounds i8, ptr %24, i64 16
-  %148 = ptrtoint ptr %20 to i64
-  store i64 %148, ptr %147, align 8, !alias.scope !315
+  %148 = getelementptr inbounds i8, ptr %24, i64 16
+  store i64 %147, ptr %148, align 8, !alias.scope !315
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull @.str)
           to label %149 unwind label %162
 

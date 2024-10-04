@@ -26078,10 +26078,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %50 unwind label %65
 
 50:                                               ; preds = %49
+  %51 = ptrtoint ptr %9 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL14runConformancePKcPFvP9lua_StateES7_S5_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsEE3$_0EE", i64 16), ptr %12, align 8, !alias.scope !220
-  %51 = getelementptr inbounds i8, ptr %12, i64 16
-  %52 = ptrtoint ptr %9 to i64
-  store i64 %52, ptr %51, align 8, !alias.scope !220
+  %52 = getelementptr inbounds i8, ptr %12, i64 16
+  store i64 %51, ptr %52, align 8, !alias.scope !220
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull @.str)
           to label %53 unwind label %67
 
@@ -39600,8 +39600,8 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds i8, ptr %0, i64 24
   %145 = load ptr, ptr %144, align 8
-  %.0183.i10.i.i = and i64 %138, %142
-  %146 = getelementptr inbounds %"struct.std::pair.685", ptr %143, i64 %.0183.i10.i.i
+  %.0183.i5.i.i = and i64 %138, %142
+  %146 = getelementptr inbounds %"struct.std::pair.685", ptr %143, i64 %.0183.i5.i.i
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, %145
   br i1 %148, label %._crit_edge.i.i, label %.lr.ph.i.preheader.i
@@ -39623,10 +39623,10 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
   br i1 %152, label %"_ZZL21DOCTEST_ANON_FUNC_116vENK3$_0clEPvS0_hhmPKc.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
-  %.0172.i11.i7.i = phi i64 [ %153, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0183.i12.i6.i = phi i64 [ %.0183.i.i.i, %.lr.ph.i.i ], [ %.0183.i10.i.i, %.lr.ph.i.preheader.i ]
-  %153 = add i64 %.0172.i11.i7.i, 1
-  %154 = add i64 %153, %.0183.i12.i6.i
+  %.0172.i6.i7.i = phi i64 [ %153, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.0183.i7.i6.i = phi i64 [ %.0183.i.i.i, %.lr.ph.i.i ], [ %.0183.i5.i.i, %.lr.ph.i.preheader.i ]
+  %153 = add i64 %.0172.i6.i7.i, 1
+  %154 = add i64 %153, %.0183.i7.i6.i
   %.not.i4.i.i = icmp ule i64 %153, %138
   call void @llvm.assume(i1 %.not.i4.i.i)
   %.0183.i.i.i = and i64 %154, %138

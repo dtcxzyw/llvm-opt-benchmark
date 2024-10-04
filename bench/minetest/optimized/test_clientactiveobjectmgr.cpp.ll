@@ -39,7 +39,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.18" }
 %"struct.std::_Head_base.18" = type { ptr }
 %"struct.ModifySafeMap<unsigned short, std::unique_ptr<ClientActiveObject>>::IterationHelper" = type { ptr }
-%class.anon.27 = type { ptr, ptr }
 %"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
 %"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<DistanceSortedActiveObject, std::allocator<DistanceSortedActiveObject>>::_Vector_impl" }
 %"struct.std::_Vector_base<DistanceSortedActiveObject, std::allocator<DistanceSortedActiveObject>>::_Vector_impl" = type { %"struct.std::_Vector_base<DistanceSortedActiveObject, std::allocator<DistanceSortedActiveObject>>::_Vector_impl_data" }
@@ -2932,7 +2931,6 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.11", align 8
   %agg.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::allocator", align 1
-  %assert_obj_selected = alloca %class.anon.27, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %caomgr) #30
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %caomgr, align 8, !tbaa !4
   %0 = getelementptr inbounds i8, ptr %caomgr, i64 16
@@ -3100,49 +3098,45 @@ cleanup.action:                                   ; preds = %ehcleanup20, %_ZNKS
   br label %_ZNSt10unique_ptrI32TestSelectableClientActiveObjectSt14default_deleteIS0_EED2Ev.exit282
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %assert_obj_selected) #30
-  store ptr %caomgr, ptr %assert_obj_selected, align 8, !tbaa !14
-  %16 = getelementptr inbounds i8, ptr %assert_obj_selected, i64 8
-  store ptr %obj, ptr %16, align 8, !tbaa !14
   store <2 x float> <float 1.200000e+01, float 3.000000e+00>, ptr %position.i.i, align 8, !tbaa !77
   store float 6.000000e+00, ptr %Z.i.i.i, align 8, !tbaa !77
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 1.100000e+01, float 2.000000e+00>, float 5.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 1.100000e+01, float 2.000000e+00>, float 5.000000e+00)
           to label %invoke.cont34 unwind label %lpad28
 
 invoke.cont34:                                    ; preds = %if.end
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 2.200000e+01, float 4.000000e+00>, float 1.000000e+01)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 2.200000e+01, float 4.000000e+00>, float 1.000000e+01)
           to label %invoke.cont44 unwind label %lpad28
 
 invoke.cont44:                                    ; preds = %invoke.cont34
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 2.600000e+01, float 4.000000e+00>, float 1.400000e+01)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 2.600000e+01, float 4.000000e+00>, float 1.400000e+01)
           to label %invoke.cont54 unwind label %lpad28
 
 invoke.cont54:                                    ; preds = %invoke.cont44
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 2.000000e+01, float 5.000000e+00>, float 1.000000e+01)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> zeroinitializer, float 0.000000e+00, <2 x float> <float 2.000000e+01, float 5.000000e+00>, float 1.000000e+01)
           to label %invoke.cont59 unwind label %lpad28
 
 invoke.cont59:                                    ; preds = %invoke.cont54
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float 1.300000e+01, float 4.000000e+00>, float 5.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float 1.300000e+01, float 4.000000e+00>, float 5.000000e+00)
           to label %invoke.cont67 unwind label %lpad28
 
 invoke.cont67:                                    ; preds = %invoke.cont59
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float 1.200000e+01, float 4.000000e+00>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float 1.200000e+01, float 4.000000e+00>, float 6.000000e+00)
           to label %invoke.cont73 unwind label %lpad28
 
 invoke.cont73:                                    ; preds = %invoke.cont67
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float -6.000000e+00, float 2.000000e+01>, float -5.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float -6.000000e+00, float 2.000000e+01>, float -5.000000e+00)
           to label %invoke.cont78 unwind label %lpad28
 
 invoke.cont78:                                    ; preds = %invoke.cont73
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float -8.000000e+00, float 2.000000e+01>, float -7.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float 3.000000e+01, float -1.200000e+01>, float 1.700000e+01, <2 x float> <float -8.000000e+00, float 2.000000e+01>, float -7.000000e+00)
           to label %invoke.cont83 unwind label %lpad28
 
 invoke.cont83:                                    ; preds = %invoke.cont78
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 0x402ACCCCC0000000, float 3.000000e+00>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 0x402ACCCCC0000000, float 3.000000e+00>, float 6.000000e+00)
           to label %invoke.cont89 unwind label %lpad28
 
 invoke.cont89:                                    ; preds = %invoke.cont83
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 0x4025333340000000, float 3.000000e+00>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 0x4025333340000000, float 3.000000e+00>, float 6.000000e+00)
           to label %invoke.cont95 unwind label %lpad28
 
 invoke.cont95:                                    ; preds = %invoke.cont89
@@ -3150,11 +3144,11 @@ invoke.cont95:                                    ; preds = %invoke.cont89
           to label %invoke.cont101 unwind label %lpad28
 
 invoke.cont101:                                   ; preds = %invoke.cont95
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 0x3FF99999A0000000>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 0x3FF99999A0000000>, float 6.000000e+00)
           to label %invoke.cont107 unwind label %lpad28
 
 invoke.cont107:                                   ; preds = %invoke.cont101
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 0x40119999A0000000>, float 6.000000e+00)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 0x40119999A0000000>, float 6.000000e+00)
           to label %invoke.cont113 unwind label %lpad28
 
 invoke.cont113:                                   ; preds = %invoke.cont107
@@ -3162,11 +3156,11 @@ invoke.cont113:                                   ; preds = %invoke.cont107
           to label %invoke.cont119 unwind label %lpad28
 
 invoke.cont119:                                   ; preds = %invoke.cont113
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 3.000000e+00>, float 0x401D9999A0000000)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 3.000000e+00>, float 0x401D9999A0000000)
           to label %invoke.cont125 unwind label %lpad28
 
 invoke.cont125:                                   ; preds = %invoke.cont119
-  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr noundef nonnull align 8 dereferenceable(16) %assert_obj_selected, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 3.000000e+00>, float 0x4012666660000000)
+  invoke fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr %caomgr, ptr nonnull %obj, <2 x float> <float -2.100000e+01, float 6.000000e+00>, float -1.300000e+01, <2 x float> <float 1.200000e+01, float 3.000000e+00>, float 0x4012666660000000)
           to label %invoke.cont131 unwind label %lpad28
 
 invoke.cont131:                                   ; preds = %invoke.cont125
@@ -3178,20 +3172,18 @@ invoke.cont137:                                   ; preds = %invoke.cont131
           to label %_ZNSt10unique_ptrI32TestSelectableClientActiveObjectSt14default_deleteIS0_EED2Ev.exit unwind label %lpad28
 
 _ZNSt10unique_ptrI32TestSelectableClientActiveObjectSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont137
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %assert_obj_selected) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %obj) #30
   call void @_ZN6client15ActiveObjectMgrD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %caomgr) #30
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %caomgr) #30
   ret void
 
-lpad28:                                           ; preds = %invoke.cont131, %invoke.cont113, %invoke.cont95, %invoke.cont137, %invoke.cont125, %invoke.cont119, %invoke.cont107, %invoke.cont101, %invoke.cont89, %invoke.cont83, %invoke.cont78, %invoke.cont73, %invoke.cont67, %invoke.cont59, %invoke.cont54, %invoke.cont44, %invoke.cont34, %if.end
-  %17 = landingpad { ptr, i32 }
+lpad28:                                           ; preds = %invoke.cont131, %invoke.cont113, %invoke.cont95, %invoke.cont125, %invoke.cont119, %invoke.cont107, %invoke.cont101, %invoke.cont89, %invoke.cont83, %invoke.cont78, %invoke.cont73, %invoke.cont67, %invoke.cont59, %invoke.cont54, %invoke.cont44, %invoke.cont34, %if.end, %invoke.cont137
+  %16 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %assert_obj_selected) #30
   br label %_ZNSt10unique_ptrI32TestSelectableClientActiveObjectSt14default_deleteIS0_EED2Ev.exit282
 
 _ZNSt10unique_ptrI32TestSelectableClientActiveObjectSt14default_deleteIS0_EED2Ev.exit282: ; preds = %lpad28, %cleanup.action, %ehcleanup20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev.exit204
-  %.pn.pn = phi { ptr, i32 } [ %.pn322, %cleanup.action ], [ %12, %ehcleanup20 ], [ %17, %lpad28 ], [ %8, %_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev.exit204 ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn322, %cleanup.action ], [ %12, %ehcleanup20 ], [ %16, %lpad28 ], [ %8, %_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev.exit204 ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %obj) #30
   br label %ehcleanup146
 
@@ -3209,7 +3201,7 @@ unreachable:                                      ; preds = %invoke.cont18
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr nonnull %this.0.val, ptr nocapture readonly %this.8.val, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actual = alloca %"class.std::vector.35", align 8
   %ref.tmp = alloca %"class.irr::core::line3d", align 8
@@ -3218,22 +3210,21 @@ entry:
   %message34 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %actual) #30
-  %0 = load ptr, ptr %this, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #30
-  store <2 x float> %a.coerce0, ptr %ref.tmp, align 8, !tbaa.struct !81
+  store <2 x float> %a.coerce0, ptr %ref.tmp, align 8, !tbaa.struct !79
   %a.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float %a.coerce1, ptr %a.sroa.2.0.ref.tmp.sroa_idx, align 8, !tbaa !77
   %end3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
-  store <2 x float> %b.coerce0, ptr %end3.i, align 4, !tbaa.struct !81
+  store <2 x float> %b.coerce0, ptr %end3.i, align 4, !tbaa.struct !79
   %b.sroa.2.0.end3.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 20
   store float %b.coerce1, ptr %b.sroa.2.0.end3.i.sroa_idx, align 4, !tbaa !77
-  call void @_ZN6client15ActiveObjectMgr26getActiveSelectableObjectsERKN3irr4core6line3dIfEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.35") align 8 %actual, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp)
+  call void @_ZN6client15ActiveObjectMgr26getActiveSelectableObjectsERKN3irr4core6line3dIfEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.35") align 8 %actual, ptr noundef nonnull align 8 dereferenceable(120) %this.0.val, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #30
   %_M_finish.i = getelementptr inbounds i8, ptr %actual, i64 8
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !82
-  %2 = load ptr, ptr %actual, align 8, !tbaa !84
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !80
+  %1 = load ptr, ptr %actual, align 8, !tbaa !82
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp = icmp eq i64 %sub.ptr.sub.i, 16
@@ -3286,61 +3277,59 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %unreachable unwind label %lpad21
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad4:                                            ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup23
 
 ehcleanup.thread:                                 ; preds = %invoke.cont17
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 lpad21:                                           ; preds = %invoke.cont22, %invoke.cont20
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont22 ], [ true, %invoke.cont20 ]
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %8 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %7, %8
+  %6 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
+  %7 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad21
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %9 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
-  %cmp3.i.i.i = icmp ult i64 %9, 16
+  %8 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
+  %cmp3.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br i1 %cleanup.isactive.0, label %cleanup.action, label %ehcleanup23
 
 ehcleanup:                                        ; preds = %lpad21
-  call void @_ZdlPv(ptr noundef %7) #29
+  call void @_ZdlPv(ptr noundef %6) #29
   br i1 %cleanup.isactive.0, label %cleanup.action, label %ehcleanup23
 
 cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %ehcleanup.thread
-  %.pn126 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %6, %ehcleanup ], [ %6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn126 = phi { ptr, i32 } [ %4, %ehcleanup.thread ], [ %5, %ehcleanup ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %exception) #30
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn126, %cleanup.action ], [ %6, %ehcleanup ], [ %4, %lpad4 ], [ %6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn126, %cleanup.action ], [ %5, %ehcleanup ], [ %3, %lpad4 ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %message) #30
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup23, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup23 ], [ %3, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup23 ], [ %2, %lpad ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %message) #30
   br label %ehcleanup69
 
 invoke.cont29:                                    ; preds = %entry
-  %10 = load ptr, ptr %2, align 8, !tbaa !85
-  %11 = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !87
-  %13 = load ptr, ptr %12, align 8, !tbaa !14
-  %cmp32 = icmp eq ptr %10, %13
+  %9 = load ptr, ptr %1, align 8, !tbaa !83
+  %10 = load ptr, ptr %this.8.val, align 8, !tbaa !14
+  %cmp32 = icmp eq ptr %9, %10
   br i1 %cmp32, label %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit, label %if.then33
 
 if.then33:                                        ; preds = %invoke.cont29
@@ -3361,7 +3350,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %invoke.cont42 unwind label %lpad37
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  %call.i107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i102, ptr noundef %10)
+  %call.i107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i102, ptr noundef %9)
           to label %invoke.cont44 unwind label %lpad37
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -3373,7 +3362,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %invoke.cont48 unwind label %lpad37
 
 invoke.cont48:                                    ; preds = %invoke.cont46
-  %call.i113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i108, ptr noundef %13)
+  %call.i113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i108, ptr noundef %10)
           to label %invoke.cont50 unwind label %lpad37
 
 invoke.cont50:                                    ; preds = %invoke.cont48
@@ -3390,68 +3379,68 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %lpad56
 
 lpad35:                                           ; preds = %if.then33
-  %14 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup65
 
 lpad37:                                           ; preds = %invoke.cont48, %invoke.cont46, %invoke.cont44, %invoke.cont42, %invoke.cont40, %invoke.cont38, %invoke.cont36
-  %15 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup64
 
 ehcleanup60.thread:                               ; preds = %invoke.cont50
-  %16 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action62
 
 lpad56:                                           ; preds = %invoke.cont57, %invoke.cont55
   %cleanup.isactive58.0 = phi i1 [ false, %invoke.cont57 ], [ true, %invoke.cont55 ]
-  %17 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %agg.tmp53, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %agg.tmp53, i64 16
-  %cmp.i.i.i115 = icmp eq ptr %18, %19
+  %15 = load ptr, ptr %agg.tmp53, align 8, !tbaa !7
+  %16 = getelementptr inbounds i8, ptr %agg.tmp53, i64 16
+  %cmp.i.i.i115 = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117, label %ehcleanup60
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117: ; preds = %lpad56
   %_M_string_length.i.i.i118 = getelementptr inbounds i8, ptr %agg.tmp53, i64 8
-  %20 = load i64, ptr %_M_string_length.i.i.i118, align 8, !tbaa !13
-  %cmp3.i.i.i119 = icmp ult i64 %20, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i118, align 8, !tbaa !13
+  %cmp3.i.i.i119 = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i119)
   br i1 %cleanup.isactive58.0, label %cleanup.action62, label %ehcleanup64
 
 ehcleanup60:                                      ; preds = %lpad56
-  call void @_ZdlPv(ptr noundef %18) #29
+  call void @_ZdlPv(ptr noundef %15) #29
   br i1 %cleanup.isactive58.0, label %cleanup.action62, label %ehcleanup64
 
 cleanup.action62:                                 ; preds = %ehcleanup60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117, %ehcleanup60.thread
-  %.pn80129 = phi { ptr, i32 } [ %16, %ehcleanup60.thread ], [ %17, %ehcleanup60 ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117 ]
+  %.pn80129 = phi { ptr, i32 } [ %13, %ehcleanup60.thread ], [ %14, %ehcleanup60 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117 ]
   call void @__cxa_free_exception(ptr %exception52) #30
   br label %ehcleanup64
 
 ehcleanup64:                                      ; preds = %cleanup.action62, %ehcleanup60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117, %lpad37
-  %.pn80.pn = phi { ptr, i32 } [ %.pn80129, %cleanup.action62 ], [ %17, %ehcleanup60 ], [ %15, %lpad37 ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117 ]
+  %.pn80.pn = phi { ptr, i32 } [ %.pn80129, %cleanup.action62 ], [ %14, %ehcleanup60 ], [ %12, %lpad37 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %message34) #30
   br label %ehcleanup65
 
 ehcleanup65:                                      ; preds = %ehcleanup64, %lpad35
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %ehcleanup64 ], [ %14, %lpad35 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %ehcleanup64 ], [ %11, %lpad35 ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %message34) #30
   br label %ehcleanup69
 
 _ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit: ; preds = %invoke.cont29
-  call void @_ZdlPv(ptr noundef nonnull %2) #29
+  call void @_ZdlPv(ptr noundef nonnull %1) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %actual) #30
   ret void
 
 ehcleanup69:                                      ; preds = %ehcleanup65, %ehcleanup24
   %.pn80.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup24 ], [ %.pn80.pn.pn, %ehcleanup65 ]
-  %21 = load ptr, ptr %actual, align 8, !tbaa !84
-  %tobool.not.i.i.i121 = icmp eq ptr %21, null
+  %18 = load ptr, ptr %actual, align 8, !tbaa !82
+  %tobool.not.i.i.i121 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit123, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %ehcleanup69
-  call void @_ZdlPv(ptr noundef nonnull %21) #29
+  call void @_ZdlPv(ptr noundef nonnull %18) #29
   br label %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit123
 
 _ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit123: ; preds = %if.then.i.i.i122, %ehcleanup69
@@ -3471,18 +3460,18 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %actual) #30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #30
-  store <2 x float> <float -2.100000e+01, float 6.000000e+00>, ptr %ref.tmp, align 8, !tbaa.struct !81
+  store <2 x float> <float -2.100000e+01, float 6.000000e+00>, ptr %ref.tmp, align 8, !tbaa.struct !79
   %a.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float -1.300000e+01, ptr %a.sroa.2.0.ref.tmp.sroa_idx, align 8, !tbaa !77
   %end3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
-  store <2 x float> %b.coerce0, ptr %end3.i, align 4, !tbaa.struct !81
+  store <2 x float> %b.coerce0, ptr %end3.i, align 4, !tbaa.struct !79
   %b.sroa.2.0.end3.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 20
   store float %b.coerce1, ptr %b.sroa.2.0.end3.i.sroa_idx, align 4, !tbaa !77
   call void @_ZN6client15ActiveObjectMgr26getActiveSelectableObjectsERKN3irr4core6line3dIfEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.35") align 8 %actual, ptr noundef nonnull align 8 dereferenceable(120) %this.0.val, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #30
   %_M_finish.i = getelementptr inbounds i8, ptr %actual, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !82
-  %1 = load ptr, ptr %actual, align 8, !tbaa !84
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !80
+  %1 = load ptr, ptr %actual, align 8, !tbaa !82
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -3584,7 +3573,7 @@ ehcleanup23:                                      ; preds = %cleanup.action, %eh
 ehcleanup24:                                      ; preds = %ehcleanup23, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup23 ], [ %2, %lpad ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %message) #30
-  %9 = load ptr, ptr %actual, align 8, !tbaa !84
+  %9 = load ptr, ptr %actual, align 8, !tbaa !82
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
@@ -3639,7 +3628,7 @@ define linkonce_odr dso_local void @_ZN11TestManager18registerTestModuleEP8TestB
 entry:
   %0 = load atomic i8, ptr @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !88
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !85
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #30
@@ -3654,15 +3643,15 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !89
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !86
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !91
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !88
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !91
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !88
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -3714,10 +3703,10 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
-  store ptr %cond.i31.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !92
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !91
+  store ptr %cond.i31.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !89
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !88
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !89
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !86
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -3744,7 +3733,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %0 = load ptr, ptr %this, align 8, !tbaa !92
+  %0 = load ptr, ptr %this, align 8, !tbaa !89
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit, label %if.then.i.i
 
@@ -3895,10 +3884,10 @@ entry:
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit
   %__x.addr.07 = phi ptr [ %1, %_ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !93
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !90
   tail call void @_ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !94
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !91
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 40
   %2 = load ptr, ptr %second.i.i.i.i.i, align 8, !tbaa !14
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -3914,7 +3903,7 @@ _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit.i.i.i.i.i.i: ; preds = 
 _ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit: ; preds = %_ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit.i.i.i.i.i.i, %while.body
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #29
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !95
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !92
 
 while.end:                                        ; preds = %_ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit, %entry
   ret void
@@ -4223,7 +4212,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !88
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !85
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv) #30
@@ -4231,10 +4220,10 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !96
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !100
+  store ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 48), ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 8), align 8, !tbaa !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !101
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 32), align 8, !tbaa !98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev, ptr nonnull @_ZZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv, ptr nonnull @__dso_handle) #30
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK18ClientActiveObject21getAttachmentChildIdsEvE2rv) #30
@@ -4306,25 +4295,25 @@ entry:
 define linkonce_odr dso_local void @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !102
+  %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !99
   %tobool.not4.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not4.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__n.addr.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
-  %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !103
+  %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !100
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i) #29
   %tobool.not.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !104
+  br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !101
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
-  %2 = load ptr, ptr %this, align 8, !tbaa !96
+  %2 = load ptr, ptr %this, align 8, !tbaa !93
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load i64, ptr %_M_bucket_count.i.i, align 8, !tbaa !100
+  %3 = load i64, ptr %_M_bucket_count.i.i, align 8, !tbaa !97
   %mul.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
-  %4 = load ptr, ptr %this, align 8, !tbaa !96
+  %4 = load ptr, ptr %this, align 8, !tbaa !93
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
@@ -4393,7 +4382,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !14
   store <2 x ptr> %8, ptr %_M_left.i.i.i.i, align 8, !tbaa !14
   %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !105
+  store ptr %add.ptr.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !102
   %9 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !26
   store i64 %9, ptr %_M_node_count.i.i.i.i, align 8, !tbaa !26
   store ptr null, ptr %_M_parent.i51.i.i.i.i, align 8, !tbaa !23
@@ -4458,7 +4447,7 @@ _ZNSt3mapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EESt4lessItE
 
 if.end20.i:                                       ; preds = %_ZNSt3mapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EESt4lessItESaISt4pairIKtS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i, %for.body.i
   %cmp.i.not.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i8
-  br i1 %cmp.i.not.i, label %for.cond.cleanup.i, label %for.body.i, !llvm.loop !106
+  br i1 %cmp.i.not.i, label %for.cond.cleanup.i, label %for.body.i, !llvm.loop !103
 
 if.end:                                           ; preds = %for.cond.cleanup.i, %lor.lhs.false.i, %invoke.cont, %entry
   ret void
@@ -4511,7 +4500,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.in.i = getelementptr inbounds i8, ptr %__x.044.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !14
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !107
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !104
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
@@ -4563,7 +4552,7 @@ _ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteI
 
 if.end:                                           ; preds = %_ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSF_PSt13_Rb_tree_nodeIS7_E.exit, %if.end12.i
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i
-  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !108
+  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -4582,7 +4571,7 @@ entry:
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK32TestSelectableClientActiveObject15getSelectionBoxEPN3irr4core8aabbox3dIfEE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %toset) unnamed_addr #7 comdat align 2 {
 entry:
   %selection_box = getelementptr inbounds i8, ptr %this, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %toset, ptr noundef nonnull align 4 dereferenceable(24) %selection_box, i64 24, i1 false), !tbaa.struct !109
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %toset, ptr noundef nonnull align 4 dereferenceable(24) %selection_box, i64 24, i1 false), !tbaa.struct !106
   ret i1 true
 }
 
@@ -4607,7 +4596,7 @@ entry:
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK32TestSelectableClientActiveObject11getPositionEv(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %position = getelementptr inbounds i8, ptr %this, i64 32
-  %retval.sroa.0.0.copyload = load <2 x float>, ptr %position, align 8, !tbaa.struct !81
+  %retval.sroa.0.0.copyload = load <2 x float>, ptr %position, align 8, !tbaa.struct !79
   %retval.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %retval.sroa.2.0.copyload = load float, ptr %retval.sroa.2.0.position.sroa_idx, align 8, !tbaa !77
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.copyload, 0
@@ -4785,34 +4774,31 @@ attributes #34 = { nounwind willreturn memory(read) }
 !76 = distinct !{!76, !"_ZSt11make_uniqueI32TestSelectableClientActiveObjectJN3irr4core8aabbox3dIfEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !77 = !{!78, !78, i64 0}
 !78 = !{!"float", !11, i64 0}
-!79 = !{!80, !10, i64 0}
-!80 = !{!"_ZTSZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvE3$_0", !10, i64 0, !10, i64 8}
-!81 = !{i64 0, i64 4, !77, i64 4, i64 4, !77, i64 8, i64 4, !77}
-!82 = !{!83, !10, i64 8}
-!83 = !{!"_ZTSNSt12_Vector_baseI26DistanceSortedActiveObjectSaIS0_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!84 = !{!83, !10, i64 0}
-!85 = !{!86, !10, i64 0}
-!86 = !{!"_ZTS26DistanceSortedActiveObject", !10, i64 0, !78, i64 8}
-!87 = !{!80, !10, i64 8}
-!88 = !{!"branch_weights", i32 1, i32 1048575}
-!89 = !{!90, !10, i64 16}
-!90 = !{!"_ZTSNSt12_Vector_baseIP8TestBaseSaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!91 = !{!90, !10, i64 8}
-!92 = !{!90, !10, i64 0}
-!93 = !{!21, !10, i64 24}
-!94 = !{!21, !10, i64 16}
-!95 = distinct !{!95, !46}
-!96 = !{!97, !10, i64 0}
-!97 = !{!"_ZTSSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !10, i64 0, !12, i64 8, !98, i64 16, !12, i64 24, !99, i64 32, !10, i64 48}
-!98 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !10, i64 0}
-!99 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !78, i64 0, !12, i64 8}
-!100 = !{!97, !12, i64 8}
-!101 = !{!99, !78, i64 0}
-!102 = !{!97, !10, i64 16}
-!103 = !{!98, !10, i64 0}
+!79 = !{i64 0, i64 4, !77, i64 4, i64 4, !77, i64 8, i64 4, !77}
+!80 = !{!81, !10, i64 8}
+!81 = !{!"_ZTSNSt12_Vector_baseI26DistanceSortedActiveObjectSaIS0_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!82 = !{!81, !10, i64 0}
+!83 = !{!84, !10, i64 0}
+!84 = !{!"_ZTS26DistanceSortedActiveObject", !10, i64 0, !78, i64 8}
+!85 = !{!"branch_weights", i32 1, i32 1048575}
+!86 = !{!87, !10, i64 16}
+!87 = !{!"_ZTSNSt12_Vector_baseIP8TestBaseSaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!88 = !{!87, !10, i64 8}
+!89 = !{!87, !10, i64 0}
+!90 = !{!21, !10, i64 24}
+!91 = !{!21, !10, i64 16}
+!92 = distinct !{!92, !46}
+!93 = !{!94, !10, i64 0}
+!94 = !{!"_ZTSSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !10, i64 0, !12, i64 8, !95, i64 16, !12, i64 24, !96, i64 32, !10, i64 48}
+!95 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !10, i64 0}
+!96 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !78, i64 0, !12, i64 8}
+!97 = !{!94, !12, i64 8}
+!98 = !{!96, !78, i64 0}
+!99 = !{!94, !10, i64 16}
+!100 = !{!95, !10, i64 0}
+!101 = distinct !{!101, !46}
+!102 = !{!21, !10, i64 8}
+!103 = distinct !{!103, !46}
 !104 = distinct !{!104, !46}
-!105 = !{!21, !10, i64 8}
-!106 = distinct !{!106, !46}
-!107 = distinct !{!107, !46}
-!108 = distinct !{!108, !46}
-!109 = !{i64 0, i64 4, !77, i64 4, i64 4, !77, i64 8, i64 4, !77, i64 12, i64 4, !77, i64 16, i64 4, !77, i64 20, i64 4, !77}
+!105 = distinct !{!105, !46}
+!106 = !{i64 0, i64 4, !77, i64 4, i64 4, !77, i64 8, i64 4, !77, i64 12, i64 4, !77, i64 16, i64 4, !77, i64 20, i64 4, !77}

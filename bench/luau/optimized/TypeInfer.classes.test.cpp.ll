@@ -18055,10 +18055,10 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2431fEvEUl
           to label %86 unwind label %52
 
 86:                                               ; preds = %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2431fEvEUlPSoE_ED2Ev.exit.i
+  %87 = ptrtoint ptr %2 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2431fEvEUlPSoE0_EE, i64 16), ptr %12, align 8, !alias.scope !209
-  %87 = getelementptr inbounds i8, ptr %12, i64 16
-  %88 = ptrtoint ptr %2 to i64
-  store i64 %88, ptr %87, align 8, !alias.scope !209
+  %88 = getelementptr inbounds i8, ptr %12, i64 16
+  store i64 %87, ptr %88, align 8, !alias.scope !209
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull @.str)
           to label %89 unwind label %105
 

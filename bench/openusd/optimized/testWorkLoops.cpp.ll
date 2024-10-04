@@ -902,18 +902,18 @@ define dso_local void @_Z16_DoSignatureTestv() local_unnamed_addr #3 personality
           to label %.noexc.i.i unwind label %41
 
 .noexc.i.i:                                       ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
+  %16 = ptrtoint ptr %7 to i64
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZ16_DoSignatureTestvE1FEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %15, align 64
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  store i64 100, ptr %17, align 64
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  store i64 100, ptr %18, align 64
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 72
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 80
   store i64 1, ptr %.sroa.5.0..sroa_idx.i.i, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %19 = ptrtoint ptr %7 to i64
-  store i64 %19, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  store i64 %16, ptr %19, align 8
   %20 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
           to label %.noexc7.i.i unwind label %41
 
@@ -995,18 +995,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZ16_DoSignatureTestvE1F
           to label %.noexc.i.i1 unwind label %75
 
 .noexc.i.i1:                                      ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %50, i8 0, i64 56, i1 false)
+  %50 = ptrtoint ptr %8 to i64
+  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZ16_DoSignatureTestvE1FEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE, i64 16), ptr %49, align 64
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  store i64 100, ptr %51, align 64
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 64
+  store i64 100, ptr %52, align 64
   %.sroa.3.0..sroa_idx.i.i2 = getelementptr inbounds i8, ptr %49, i64 72
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i2, align 8
   %.sroa.5.0..sroa_idx.i.i3 = getelementptr inbounds i8, ptr %49, i64 80
   store i64 1, ptr %.sroa.5.0..sroa_idx.i.i3, align 16
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 88
-  %53 = ptrtoint ptr %8 to i64
-  store i64 %53, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 88
+  store i64 %50, ptr %53, align 8
   %54 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
           to label %.noexc7.i.i4 unwind label %75
 

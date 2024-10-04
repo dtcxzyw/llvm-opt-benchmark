@@ -2014,8 +2014,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %call, label %for.cond.preheader, label %if.end43
 
 for.cond.preheader:                               ; preds = %invoke.cont3
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_12, i64 16
   %0 = ptrtoint ptr %filename to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_12, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %_, i64 8
   %_M_manager.i.i27 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
   %m_threw_as = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 96
@@ -2282,8 +2282,8 @@ invoke.cont51:                                    ; preds = %invoke.cont48
   br i1 %call52, label %for.cond65.preheader, label %if.end108
 
 for.cond65.preheader:                             ; preds = %invoke.cont51
-  %lambda_.i.i38 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %33 = ptrtoint ptr %filename68 to i64
+  %lambda_.i.i38 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_16, i64 16
   %m_value.i.i.i39 = getelementptr inbounds i8, ptr %j, i64 8
   %m_exception_string.i.i40 = getelementptr inbounds i8, ptr %DOCTEST_RB75, i64 112
   %m_decomp.i.i41 = getelementptr inbounds i8, ptr %DOCTEST_RB75, i64 72
@@ -2466,8 +2466,8 @@ invoke.cont116:                                   ; preds = %invoke.cont113
   br i1 %call117, label %for.cond130.preheader, label %if.end174
 
 for.cond130.preheader:                            ; preds = %invoke.cont116
-  %lambda_.i.i52 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_20, i64 16
   %51 = ptrtoint ptr %filename133 to i64
+  %lambda_.i.i52 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_20, i64 16
   %m_value.i.i.i53 = getelementptr inbounds i8, ptr %j139, i64 8
   %m_exception_string.i.i54 = getelementptr inbounds i8, ptr %DOCTEST_RB141, i64 112
   %m_decomp.i.i55 = getelementptr inbounds i8, ptr %DOCTEST_RB141, i64 72
@@ -5073,11 +5073,11 @@ invoke.cont667:                                   ; preds = %invoke.cont664
   br i1 %call668, label %for.cond.preheader, label %if.end712
 
 for.cond.preheader:                               ; preds = %invoke.cont667
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_40, i64 16
   %160 = ptrtoint ptr %filename to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_40, i64 16
   %_M_string_length.i = getelementptr inbounds i8, ptr %json_string, i64 8
-  %lambda_.i.i173 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_43, i64 16
   %161 = ptrtoint ptr %json_string to i64
+  %lambda_.i.i173 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_43, i64 16
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp686, i64 16
   %m_at.i.i = getelementptr inbounds i8, ptr %ref.tmp691, i64 32
   %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp690, i64 8
@@ -8686,8 +8686,8 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br i1 %call11, label %for.cond.preheader, label %if.end41
 
 for.cond.preheader:                               ; preds = %invoke.cont10
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_70, i64 16
   %0 = ptrtoint ptr %filename to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_70, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %j, i64 8
   %m_exception_string.i.i = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 112
   %m_decomp.i.i = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 72
@@ -8879,8 +8879,8 @@ invoke.cont50:                                    ; preds = %invoke.cont47
   br i1 %call51, label %for.cond64.preheader, label %if.end120
 
 for.cond64.preheader:                             ; preds = %invoke.cont50
-  %lambda_.i.i55 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_74, i64 16
   %20 = ptrtoint ptr %filename67 to i64
+  %lambda_.i.i55 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_74, i64 16
   %m_value.i.i.i56 = getelementptr inbounds i8, ptr %_, i64 8
   %_M_manager.i.i61 = getelementptr inbounds i8, ptr %agg.tmp84, i64 16
   %m_threw_as = getelementptr inbounds i8, ptr %DOCTEST_RB78, i64 96
@@ -9155,8 +9155,8 @@ invoke.cont129:                                   ; preds = %invoke.cont126
   br i1 %call130, label %for.cond143.preheader, label %if.end187
 
 for.cond143.preheader:                            ; preds = %invoke.cont129
-  %lambda_.i.i79 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_78, i64 16
   %53 = ptrtoint ptr %filename146 to i64
+  %lambda_.i.i79 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_78, i64 16
   %m_value.i.i.i80 = getelementptr inbounds i8, ptr %j152, i64 8
   %m_exception_string.i.i81 = getelementptr inbounds i8, ptr %DOCTEST_RB154, i64 112
   %m_decomp.i.i82 = getelementptr inbounds i8, ptr %DOCTEST_RB154, i64 72
@@ -9342,8 +9342,8 @@ invoke.cont196:                                   ; preds = %invoke.cont193
   br i1 %call197, label %for.cond210.preheader, label %if.end254
 
 for.cond210.preheader:                            ; preds = %invoke.cont196
-  %lambda_.i.i93 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_82, i64 16
   %71 = ptrtoint ptr %filename213 to i64
+  %lambda_.i.i93 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_82, i64 16
   %m_value.i.i.i94 = getelementptr inbounds i8, ptr %j219, i64 8
   %m_exception_string.i.i95 = getelementptr inbounds i8, ptr %DOCTEST_RB221, i64 112
   %m_decomp.i.i96 = getelementptr inbounds i8, ptr %DOCTEST_RB221, i64 72
@@ -9529,8 +9529,8 @@ invoke.cont263:                                   ; preds = %invoke.cont260
   br i1 %call264, label %for.cond277.preheader, label %if.end339
 
 for.cond277.preheader:                            ; preds = %invoke.cont263
-  %lambda_.i.i107 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_86, i64 16
   %89 = ptrtoint ptr %filename280 to i64
+  %lambda_.i.i107 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_86, i64 16
   %m_value.i.i.i108 = getelementptr inbounds i8, ptr %j286, i64 8
   %m_threw_as318 = getelementptr inbounds i8, ptr %DOCTEST_RB294, i64 96
   %m_exception_string.i.i109 = getelementptr inbounds i8, ptr %DOCTEST_RB294, i64 112
@@ -9751,8 +9751,8 @@ invoke.cont348:                                   ; preds = %invoke.cont345
   br i1 %call349, label %for.cond362.preheader, label %if.end424
 
 for.cond362.preheader:                            ; preds = %invoke.cont348
-  %lambda_.i.i121 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_90, i64 16
   %111 = ptrtoint ptr %filename365 to i64
+  %lambda_.i.i121 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_90, i64 16
   %m_value.i.i.i122 = getelementptr inbounds i8, ptr %j371, i64 8
   %m_threw_as403 = getelementptr inbounds i8, ptr %DOCTEST_RB379, i64 96
   %m_exception_string.i.i123 = getelementptr inbounds i8, ptr %DOCTEST_RB379, i64 112
@@ -10084,8 +10084,8 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br i1 %call11, label %for.cond.preheader, label %if.end59
 
 for.cond.preheader:                               ; preds = %invoke.cont10
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_97, i64 16
   %0 = ptrtoint ptr %filename to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_97, i64 16
   %m_value.i.i.i = getelementptr inbounds i8, ptr %_, i64 8
   %_M_manager.i.i52 = getelementptr inbounds i8, ptr %agg.tmp26, i64 16
   %m_value6.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -10377,8 +10377,8 @@ invoke.cont68:                                    ; preds = %invoke.cont65
   br i1 %call69, label %for.cond82.preheader, label %if.end159
 
 for.cond82.preheader:                             ; preds = %invoke.cont68
-  %lambda_.i.i64 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_101, i64 16
   %35 = ptrtoint ptr %filename85 to i64
+  %lambda_.i.i64 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_101, i64 16
   %m_value.i.i.i65 = getelementptr inbounds i8, ptr %_91, i64 8
   %_M_manager.i.i78 = getelementptr inbounds i8, ptr %agg.tmp104, i64 16
   %m_threw_as = getelementptr inbounds i8, ptr %DOCTEST_RB97, i64 96
@@ -10703,8 +10703,8 @@ if.then170:                                       ; preds = %invoke.cont168
   store ptr @.str.984, ptr %ref.tmp173, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp173, i64 8
   store ptr @.str.985, ptr %arrayinit.element, align 8
-  %lambda_.i.i103 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_105, i64 16
   %72 = ptrtoint ptr %filename185 to i64
+  %lambda_.i.i103 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_105, i64 16
   %m_decomp.i109 = getelementptr inbounds i8, ptr %ref.tmp191, i64 8
   %need_to_destroy.i110 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_105, i64 8
   br label %for.body184
@@ -10837,8 +10837,8 @@ invoke.cont222:                                   ; preds = %invoke.cont219
   br i1 %call223, label %for.cond236.preheader, label %if.end302
 
 for.cond236.preheader:                            ; preds = %invoke.cont222
-  %lambda_.i.i117 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_109, i64 16
   %83 = ptrtoint ptr %filename239 to i64
+  %lambda_.i.i117 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_109, i64 16
   %m_value.i.i.i118 = getelementptr inbounds i8, ptr %_245, i64 8
   %_M_manager.i.i131 = getelementptr inbounds i8, ptr %agg.tmp255, i64 16
   %m_value6.i120 = getelementptr inbounds i8, ptr %agg.tmp254, i64 8
@@ -11124,8 +11124,8 @@ invoke.cont311:                                   ; preds = %invoke.cont308
   br i1 %call312, label %for.cond325.preheader, label %if.end410
 
 for.cond325.preheader:                            ; preds = %invoke.cont311
-  %lambda_.i.i156 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_113, i64 16
   %116 = ptrtoint ptr %filename328 to i64
+  %lambda_.i.i156 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_113, i64 16
   %m_value.i.i.i157 = getelementptr inbounds i8, ptr %_334, i64 8
   %_M_manager.i.i170 = getelementptr inbounds i8, ptr %agg.tmp349, i64 16
   %m_threw_as369 = getelementptr inbounds i8, ptr %DOCTEST_RB342, i64 96
@@ -11626,8 +11626,8 @@ if.then34:                                        ; preds = %invoke.cont32
 
 invoke.cont36:                                    ; preds = %if.then34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line) #24
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_120, i64 16
   %12 = ptrtoint ptr %line to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_120, i64 16
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %m_at.i.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 32
   %m_decomp.i = getelementptr inbounds i8, ptr %ref.tmp58, i64 8
@@ -28642,9 +28642,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = ptrtoint ptr %expected.addr to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_EE", i64 16), ptr %DOCTEST_CAPTURE_29, align 8, !alias.scope !265
   %lambda_.i.i6 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_29, i64 16
-  %1 = ptrtoint ptr %expected.addr to i64
   store i64 %1, ptr %lambda_.i.i6, align 8, !alias.scope !265
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, i32 noundef 10)
           to label %invoke.cont7 unwind label %lpad6
@@ -28837,9 +28837,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = ptrtoint ptr %expected to i64
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_EE", i64 16), ptr %DOCTEST_CAPTURE_36, align 8, !alias.scope !271
   %lambda_.i.i9 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_36, i64 16
-  %1 = ptrtoint ptr %expected to i64
   store i64 %1, ptr %lambda_.i.i9, align 8, !alias.scope !271
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, i32 noundef 10)
           to label %invoke.cont7 unwind label %lpad6

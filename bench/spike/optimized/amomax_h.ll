@@ -2384,9 +2384,9 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %75, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc77.i unwind label %114
+          to label %.noexc78.i unwind label %114
 
-.noexc77.i:                                       ; preds = %71
+.noexc78.i:                                       ; preds = %71
   unreachable
 
 76:                                               ; preds = %67
@@ -2436,8 +2436,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %92, i64 3768
   %104 = load ptr, ptr %103, align 8
-  %.not.i.i81.i = icmp eq ptr %102, %104
-  br i1 %.not.i.i81.i, label %112, label %105
+  %.not.i.i82.i = icmp eq ptr %102, %104
+  br i1 %.not.i.i82.i, label %112, label %105
 
 105:                                              ; preds = %97
   store i8 2, ptr %102, align 1
@@ -2915,9 +2915,9 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %75, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc77.i unwind label %114
+          to label %.noexc78.i unwind label %114
 
-.noexc77.i:                                       ; preds = %71
+.noexc78.i:                                       ; preds = %71
   unreachable
 
 76:                                               ; preds = %67
@@ -2967,8 +2967,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %92, i64 3768
   %104 = load ptr, ptr %103, align 8
-  %.not.i.i81.i = icmp eq ptr %102, %104
-  br i1 %.not.i.i81.i, label %112, label %105
+  %.not.i.i82.i = icmp eq ptr %102, %104
+  br i1 %.not.i.i82.i, label %112, label %105
 
 105:                                              ; preds = %97
   store i8 2, ptr %102, align 1
@@ -3444,9 +3444,9 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %75, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc77.i unwind label %114
+          to label %.noexc78.i unwind label %114
 
-.noexc77.i:                                       ; preds = %71
+.noexc78.i:                                       ; preds = %71
   unreachable
 
 76:                                               ; preds = %67
@@ -3496,8 +3496,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %92, i64 3768
   %104 = load ptr, ptr %103, align 8
-  %.not.i.i81.i = icmp eq ptr %102, %104
-  br i1 %.not.i.i81.i, label %112, label %105
+  %.not.i.i82.i = icmp eq ptr %102, %104
+  br i1 %.not.i.i82.i, label %112, label %105
 
 105:                                              ; preds = %97
   store i8 2, ptr %102, align 1
@@ -4032,9 +4032,9 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i64 %1, ptr %75, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #20
-          to label %.noexc77.i unwind label %114
+          to label %.noexc78.i unwind label %114
 
-.noexc77.i:                                       ; preds = %71
+.noexc78.i:                                       ; preds = %71
   unreachable
 
 76:                                               ; preds = %67
@@ -4084,8 +4084,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %92, i64 3768
   %104 = load ptr, ptr %103, align 8
-  %.not.i.i81.i = icmp eq ptr %102, %104
-  br i1 %.not.i.i81.i, label %112, label %105
+  %.not.i.i82.i = icmp eq ptr %102, %104
+  br i1 %.not.i.i82.i, label %112, label %105
 
 105:                                              ; preds = %97
   store i8 2, ptr %102, align 1

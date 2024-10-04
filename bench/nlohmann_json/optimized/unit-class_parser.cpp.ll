@@ -41690,26 +41690,26 @@ do.end11951:                                      ; preds = %invoke.cont11902, %
   br label %for.body
 
 for.cond12103.preheader:                          ; preds = %sw.epilog
-  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_63, i64 16
   %3379 = ptrtoint ptr %s1 to i64
+  %lambda_.i.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_63, i64 16
   %m_value.i.i5311 = getelementptr inbounds i8, ptr %agg.tmp.ensured12189, i64 8
   %m_exception_string.i.i5314 = getelementptr inbounds i8, ptr %DOCTEST_RB12182, i64 112
   %m_decomp.i.i5315 = getelementptr inbounds i8, ptr %DOCTEST_RB12182, i64 72
   %m_exception.i.i5316 = getelementptr inbounds i8, ptr %DOCTEST_RB12182, i64 48
-  %lambda_.i.i5317 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_66, i64 16
   %3380 = ptrtoint ptr %s2 to i64
+  %lambda_.i.i5317 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_66, i64 16
   %m_value.i.i5319 = getelementptr inbounds i8, ptr %agg.tmp.ensured12219, i64 8
   %m_exception_string.i.i5322 = getelementptr inbounds i8, ptr %DOCTEST_RB12212, i64 112
   %m_decomp.i.i5323 = getelementptr inbounds i8, ptr %DOCTEST_RB12212, i64 72
   %m_exception.i.i5324 = getelementptr inbounds i8, ptr %DOCTEST_RB12212, i64 48
-  %lambda_.i.i5325 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_69, i64 16
   %3381 = ptrtoint ptr %s3 to i64
+  %lambda_.i.i5325 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_69, i64 16
   %m_value.i.i5327 = getelementptr inbounds i8, ptr %agg.tmp.ensured12249, i64 8
   %m_exception_string.i.i5330 = getelementptr inbounds i8, ptr %DOCTEST_RB12242, i64 112
   %m_decomp.i.i5331 = getelementptr inbounds i8, ptr %DOCTEST_RB12242, i64 72
   %m_exception.i.i5332 = getelementptr inbounds i8, ptr %DOCTEST_RB12242, i64 48
-  %lambda_.i.i5333 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_72, i64 16
   %3382 = ptrtoint ptr %s4 to i64
+  %lambda_.i.i5333 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_72, i64 16
   %m_value.i.i5335 = getelementptr inbounds i8, ptr %agg.tmp.ensured12279, i64 8
   %m_exception_string.i.i5338 = getelementptr inbounds i8, ptr %DOCTEST_RB12272, i64 112
   %m_decomp.i.i5339 = getelementptr inbounds i8, ptr %DOCTEST_RB12272, i64 72
@@ -46365,8 +46365,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %for.body13985
 
 for.cond14068.preheader:                          ; preds = %sw.epilog14061
-  %lambda_.i.i6067 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_92, i64 16
   %3758 = ptrtoint ptr %s114076 to i64
+  %lambda_.i.i6067 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_92, i64 16
   %3759 = getelementptr inbounds i8, ptr %adapter.i6073, i64 8
   %_M_manager.i.i.i.i6077 = getelementptr inbounds i8, ptr %agg.tmp14160, i64 16
   %_M_manager.i.i.i6080 = getelementptr inbounds i8, ptr %agg.tmp.i6074, i64 16
@@ -46374,8 +46374,8 @@ for.cond14068.preheader:                          ; preds = %sw.epilog14061
   %token_buffer.i.i6107 = getelementptr inbounds i8, ptr %ref.tmp14156, i64 120
   %token_string.i.i6108 = getelementptr inbounds i8, ptr %ref.tmp14156, i64 96
   %_M_manager.i.i.i6112 = getelementptr inbounds i8, ptr %ref.tmp14156, i64 16
-  %lambda_.i.i6124 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_95, i64 16
   %3760 = ptrtoint ptr %s214094 to i64
+  %lambda_.i.i6124 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_95, i64 16
   %3761 = getelementptr inbounds i8, ptr %adapter.i6130, i64 8
   %_M_manager.i.i.i.i6134 = getelementptr inbounds i8, ptr %agg.tmp14188, i64 16
   %_M_manager.i.i.i6137 = getelementptr inbounds i8, ptr %agg.tmp.i6131, i64 16
@@ -46383,8 +46383,8 @@ for.cond14068.preheader:                          ; preds = %sw.epilog14061
   %token_buffer.i.i6164 = getelementptr inbounds i8, ptr %ref.tmp14184, i64 120
   %token_string.i.i6165 = getelementptr inbounds i8, ptr %ref.tmp14184, i64 96
   %_M_manager.i.i.i6169 = getelementptr inbounds i8, ptr %ref.tmp14184, i64 16
-  %lambda_.i.i6181 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_98, i64 16
   %3762 = ptrtoint ptr %s314112 to i64
+  %lambda_.i.i6181 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_98, i64 16
   %3763 = getelementptr inbounds i8, ptr %adapter.i6187, i64 8
   %_M_manager.i.i.i.i6191 = getelementptr inbounds i8, ptr %agg.tmp14216, i64 16
   %_M_manager.i.i.i6194 = getelementptr inbounds i8, ptr %agg.tmp.i6188, i64 16
@@ -46392,8 +46392,8 @@ for.cond14068.preheader:                          ; preds = %sw.epilog14061
   %token_buffer.i.i6221 = getelementptr inbounds i8, ptr %ref.tmp14212, i64 120
   %token_string.i.i6222 = getelementptr inbounds i8, ptr %ref.tmp14212, i64 96
   %_M_manager.i.i.i6226 = getelementptr inbounds i8, ptr %ref.tmp14212, i64 16
-  %lambda_.i.i6238 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_101, i64 16
   %3764 = ptrtoint ptr %s414130 to i64
+  %lambda_.i.i6238 = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_101, i64 16
   %3765 = getelementptr inbounds i8, ptr %adapter.i6244, i64 8
   %_M_manager.i.i.i.i6248 = getelementptr inbounds i8, ptr %agg.tmp14244, i64 16
   %_M_manager.i.i.i6251 = getelementptr inbounds i8, ptr %agg.tmp.i6245, i64 16
@@ -65627,8 +65627,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %"_
           to label %do.body115 unwind label %lpad98.loopexit
 
 do.body115:                                       ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_115comments_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_7, align 8, !alias.scope !676
   %54 = ptrtoint ptr %__begin1.sroa.0.0166 to i64
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_115comments_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %DOCTEST_CAPTURE_7, align 8, !alias.scope !676
   store i64 %54, ptr %lambda_.i.i, align 8, !alias.scope !676
   %call118 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
           to label %invoke.cont117 unwind label %lpad116

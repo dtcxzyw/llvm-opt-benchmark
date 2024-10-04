@@ -18199,18 +18199,18 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
           to label %.noexc.i.i unwind label %120
 
 .noexc.i.i:                                       ; preds = %.noexc20
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %95, i8 0, i64 56, i1 false)
+  %95 = ptrtoint ptr %14 to i64
+  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %96, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_26UsdShadeMaterialBindingAPI21ComputeBoundMaterialsERKSt6vectorINS5_7UsdPrimESaIS9_EERKNS5_7TfTokenEPS8_INS5_15UsdRelationshipESaISH_EEbE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %94, align 64
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 64
-  store i64 %79, ptr %96, align 64
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 64
+  store i64 %79, ptr %97, align 64
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %94, i64 72
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %94, i64 80
   store i64 1, ptr %.sroa.5.0..sroa_idx.i.i, align 16
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 88
-  %98 = ptrtoint ptr %14 to i64
-  store i64 %98, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 88
+  store i64 %95, ptr %98, align 8
   %99 = invoke noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef null)
           to label %.noexc7.i.i unwind label %120
 

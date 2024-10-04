@@ -7316,7 +7316,7 @@ if.then.i4.i.i:                                   ; preds = %call.i.noexc46.i
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.sink.split.i: ; preds = %if.then.i4.i.i, %if.then.i74.i.i.i
   %this.val.sink205.i = phi ptr [ %wrr_.val.i.i.i, %if.then.i74.i.i.i ], [ %this.val.i21, %if.then.i4.i.i ]
-  %eh.lpad-body14.i.ph.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %if.then.i74.i.i.i ], [ %91, %if.then.i4.i.i ]
+  %eh.lpad-body4.i.ph.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %if.then.i74.i.i.i ], [ %91, %if.then.i4.i.i ]
   %vtable.i.i.i8.i.i = load ptr, ptr %this.val.sink205.i, align 8, !noalias !85
   %vfn.i.i.i9.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i8.i.i, i64 16
   %93 = load ptr, ptr %vfn.i.i.i9.i.i, align 8, !noalias !85
@@ -7324,7 +7324,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.sink.split.i, %if.then.i4.i.i, %if.then.i74.i.i.i, %ehcleanup58.i.i.i
-  %eh.lpad-body14.i.i = phi { ptr, i32 } [ %91, %if.then.i4.i.i ], [ %.pn.pn.i.i.i, %if.then.i74.i.i.i ], [ %.pn.pn.i.i.i, %ehcleanup58.i.i.i ], [ %eh.lpad-body14.i.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.sink.split.i ]
+  %eh.lpad-body4.i.i = phi { ptr, i32 } [ %91, %if.then.i4.i.i ], [ %.pn.pn.i.i.i, %if.then.i74.i.i.i ], [ %.pn.pn.i.i.i, %ehcleanup58.i.i.i ], [ %eh.lpad-body4.i.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.sink.split.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i47.i) #34, !noalias !85
   br label %ehcleanup59.i
 
@@ -7412,7 +7412,7 @@ if.then.i.i82.i:                                  ; preds = %if.then.i79.i
   br label %ehcleanup59.i
 
 ehcleanup59.i:                                    ; preds = %if.then.i.i82.i, %if.then.i79.i, %lpad54.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.i
-  %.pn24.pn.i = phi { ptr, i32 } [ %106, %if.then.i79.i ], [ %106, %if.then.i.i82.i ], [ %eh.lpad-body14.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.i ], [ %105, %lpad54.i ]
+  %.pn24.pn.i = phi { ptr, i32 } [ %106, %if.then.i79.i ], [ %106, %if.then.i.i82.i ], [ %eh.lpad-body4.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobinEED2Ev.exit10.i.i ], [ %105, %lpad54.i ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46.i) #32
   br label %lpad.body
 
@@ -15533,7 +15533,7 @@ if.then.i5.i.i:                                   ; preds = %call.i.noexc33.i
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.sink.split.i: ; preds = %if.then.i5.i.i, %if.then.i69.i.i.i
   %this.val.sink158.i = phi ptr [ %wrr_.val.i.i.i, %if.then.i69.i.i.i ], [ %this.val.i, %if.then.i5.i.i ]
-  %eh.lpad-body15.i.ph.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %if.then.i69.i.i.i ], [ %76, %if.then.i5.i.i ]
+  %eh.lpad-body4.i.ph.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %if.then.i69.i.i.i ], [ %76, %if.then.i5.i.i ]
   %vtable.i.i.i9.i.i = load ptr, ptr %this.val.sink158.i, align 8, !noalias !201
   %vfn.i.i.i10.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i9.i.i, i64 16
   %78 = load ptr, ptr %vfn.i.i.i10.i.i, align 8, !noalias !201
@@ -15541,7 +15541,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.sink.split.i, %if.then.i5.i.i, %if.then.i69.i.i.i, %ehcleanup64.i.i.i
-  %eh.lpad-body15.i.i = phi { ptr, i32 } [ %76, %if.then.i5.i.i ], [ %.pn.pn.i.i.i, %if.then.i69.i.i.i ], [ %.pn.pn.i.i.i, %ehcleanup64.i.i.i ], [ %eh.lpad-body15.i.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.sink.split.i ]
+  %eh.lpad-body4.i.i = phi { ptr, i32 } [ %76, %if.then.i5.i.i ], [ %.pn.pn.i.i.i, %if.then.i69.i.i.i ], [ %.pn.pn.i.i.i, %ehcleanup64.i.i.i ], [ %eh.lpad-body4.i.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.sink.split.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i34.i) #34, !noalias !201
   br label %ehcleanup59.i
 
@@ -15629,7 +15629,7 @@ if.then.i.i66.i:                                  ; preds = %if.then.i63.i
   br label %ehcleanup59.i
 
 ehcleanup59.i:                                    ; preds = %if.then.i.i66.i, %if.then.i63.i, %lpad54.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.i
-  %.pn22.pn.i = phi { ptr, i32 } [ %91, %if.then.i63.i ], [ %91, %if.then.i.i66.i ], [ %eh.lpad-body15.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.i ], [ %90, %lpad54.i ]
+  %.pn22.pn.i = phi { ptr, i32 } [ %91, %if.then.i63.i ], [ %91, %if.then.i.i66.i ], [ %eh.lpad-body4.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobinEED2Ev.exit11.i.i ], [ %90, %lpad54.i ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46.i) #32
   br label %lpad34.body
 

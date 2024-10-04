@@ -33047,24 +33047,24 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
   br i1 %.not1.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %10, %15
-  %.sroa.07.0.i = phi ptr [ %16, %15 ], [ %11, %10 ]
-  %14 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.0.i) #30, !noalias !386
+  %.sroa.01.0.i = phi ptr [ %16, %15 ], [ %11, %10 ]
+  %14 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.0.i) #30, !noalias !386
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 80
+  %16 = getelementptr inbounds i8, ptr %.sroa.01.0.i, i64 80
   %.not.i.i.i = icmp eq ptr %16, %13
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !389
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %15, %10
-  %.sroa.07.1.i = phi ptr [ %11, %10 ], [ %.sroa.07.0.i, %.lr.ph.i.i.i ], [ %16, %15 ]
+  %.sroa.01.1.i = phi ptr [ %11, %10 ], [ %16, %15 ], [ %.sroa.01.0.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !noalias !390
   %.sroa.2.0.copyload.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !noalias !390
-  %.not3.i.i.i.i.i.i = icmp eq ptr %.sroa.07.1.i, %13
+  %.not3.i.i.i.i.i.i = icmp eq ptr %.sroa.01.1.i, %13
   br i1 %.not3.i.i.i.i.i.i, label %21, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.loopexit, %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i"
-  %.0.allc.04.i.i.i.i.i.i = phi ptr [ %.0.allc.2.i.i.i.i.i.i, %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i" ], [ %.sroa.07.1.i, %.loopexit ]
+  %.0.allc.04.i.i.i.i.i.i = phi ptr [ %.0.allc.2.i.i.i.i.i.i, %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i" ], [ %.sroa.01.1.i, %.loopexit ]
   %17 = getelementptr inbounds i8, ptr %.0.allc.04.i.i.i.i.i.i, i64 80
   %.not1.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, %13
   br i1 %.not1.i.i.i.i.i.i.i.i.i, label %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -33106,11 +33106,11 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
 28:                                               ; preds = %"_ZSt4sizeI7cmRangeIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEEDTcldtfp_4sizeEERKT_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !397
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #30, !noalias !397
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.1.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.1.i)
           to label %29 unwind label %45
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.sroa.07.1.i, i64 80
+  %30 = getelementptr inbounds i8, ptr %.sroa.01.1.i, i64 80
   %.not1.i.i.i.i.i.i.i5.i.i = icmp eq ptr %30, %13
   br i1 %.not1.i.i.i.i.i.i.i5.i.i, label %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i6.i.i
 
@@ -33127,14 +33127,14 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
 "_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i": ; preds = %33, %.lr.ph.i.i.i.i.i.i.i6.i.i, %29
   %.sroa.04.0.i.i.i = phi ptr [ %30, %29 ], [ %34, %33 ], [ %31, %.lr.ph.i.i.i.i.i.i.i6.i.i ]
   %.not9.i.i.i = icmp eq ptr %.sroa.04.0.i.i.i, %13
-  br i1 %.not9.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i3
+  br i1 %.not9.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i4
 
-.lr.ph.i.i.i3:                                    ; preds = %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i", %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i"
+.lr.ph.i.i.i4:                                    ; preds = %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i", %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i"
   %.sroa.0.010.i.i.i = phi ptr [ %.sroa.0.2.i.i.i, %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i" ], [ %.sroa.04.0.i.i.i, %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i" ]
   %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %36 unwind label %47
 
-36:                                               ; preds = %.lr.ph.i.i.i3
+36:                                               ; preds = %.lr.ph.i.i.i4
   %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.010.i.i.i)
           to label %38 unwind label %47
 
@@ -33155,8 +33155,8 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
 
 "_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i": ; preds = %41, %.lr.ph.i.i.i.i7.i.i, %38
   %.sroa.0.2.i.i.i = phi ptr [ %39, %38 ], [ %42, %41 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i.i.i.i7.i.i ]
-  %.not.i.i.i4 = icmp eq ptr %.sroa.0.2.i.i.i, %13
-  br i1 %.not.i.i.i4, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i3
+  %.not.i.i.i5 = icmp eq ptr %.sroa.0.2.i.i.i, %13
+  br i1 %.not.i.i.i5, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i4
 
 43:                                               ; preds = %"_ZSt4sizeI7cmRangeIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEEDTcldtfp_4sizeEERKT_.exit.i.i"
   %44 = landingpad { ptr, i32 }
@@ -33169,7 +33169,7 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
           cleanup
   br label %49
 
-47:                                               ; preds = %36, %.lr.ph.i.i.i3
+47:                                               ; preds = %36, %.lr.ph.i.i.i4
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30

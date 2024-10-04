@@ -5832,10 +5832,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68.i: 
           to label %240 unwind label %204
 
 240:                                              ; preds = %239
+  %241 = ptrtoint ptr %30 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvEUlPSoE0_EE, i64 16), ptr %33, align 8, !alias.scope !46
-  %241 = getelementptr inbounds i8, ptr %33, i64 16
-  %242 = ptrtoint ptr %30 to i64
-  store i64 %242, ptr %241, align 8, !alias.scope !46
+  %242 = getelementptr inbounds i8, ptr %33, i64 16
+  store i64 %241, ptr %242, align 8, !alias.scope !46
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull @.str)
           to label %243 unwind label %261
 
@@ -8626,10 +8626,10 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
           to label %281 unwind label %213
 
 281:                                              ; preds = %277
+  %282 = ptrtoint ptr %25 to i64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvEUlPSoE_EE, i64 16), ptr %37, align 8, !alias.scope !65
-  %282 = getelementptr inbounds i8, ptr %37, i64 16
-  %283 = ptrtoint ptr %25 to i64
-  store i64 %283, ptr %282, align 8, !alias.scope !65
+  %283 = getelementptr inbounds i8, ptr %37, i64 16
+  store i64 %282, ptr %283, align 8, !alias.scope !65
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull @.str)
           to label %284 unwind label %301
 

@@ -6281,8 +6281,8 @@ if.then.i.i.i:                                    ; preds = %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
-  %spec.select67 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
-  store ptr %spec.select67, ptr %_M_reason.i.i.i.i.i.i, align 8
+  %spec.select66 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
+  store ptr %spec.select66, ptr %_M_reason.i.i.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
           to label %if.then.i.i.i.i.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6478,7 +6478,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
 
 call.i.i.i26.i.i.i.i.noexc:                       ; preds = %if.then25.i.i.i.i
   %or1.i.i.i.i41.i.i.i.i = select i1 %call.i.i.i26.i.i.i.i8, i8 %out_writer.sroa.30.3, i8 0
-  %spec.select55 = or i8 %or1.i.i.i.i41.i.i.i.i, %out_writer.sroa.17.3
+  %spec.select54 = or i8 %or1.i.i.i.i41.i.i.i.i, %out_writer.sroa.17.3
   %shl.i.i.i.i29.i.i.i.i = shl i8 %out_writer.sroa.30.3, 1
   %inc.i.i.i.i31.i.i.i.i = add nsw i64 %out_writer.sroa.5.3, 1
   %cmp.i.i.i.i32.i.i.i.i = icmp eq i8 %shl.i.i.i.i29.i.i.i.i, 0
@@ -6492,7 +6492,7 @@ if.else26.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
 
 for.inc27.sink.split.i.i.i.i:                     ; preds = %if.else26.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc
   %out_writer.sroa.5.5 = phi i64 [ %inc.i.i.i.i31.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ], [ %inc.i.i46.i.i.i.i, %if.else26.i.i.i.i ]
-  %out_writer.sroa.17.6 = phi i8 [ %spec.select55, %call.i.i.i26.i.i.i.i.noexc ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ]
+  %out_writer.sroa.17.6 = phi i8 [ %spec.select54, %call.i.i.i26.i.i.i.i.noexc ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ]
   %inc7.i.i51.i.i.i.i = add nsw i64 %out_writer.sroa.46.3, 1
   %arrayidx.i.i52.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.3
   store i8 %out_writer.sroa.17.6, ptr %arrayidx.i.i52.i.i.i.i, align 1
@@ -6502,7 +6502,7 @@ for.inc27.i.i.i.i:                                ; preds = %for.inc27.sink.spli
   %out_writer.sroa.30.4 = phi i8 [ 1, %for.inc27.sink.split.i.i.i.i ], [ %shl.i.i44.i.i.i.i, %if.else26.i.i.i.i ], [ %shl.i.i.i.i29.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ]
   %out_writer.sroa.5.4 = phi i64 [ %out_writer.sroa.5.5, %for.inc27.sink.split.i.i.i.i ], [ %inc.i.i46.i.i.i.i, %if.else26.i.i.i.i ], [ %inc.i.i.i.i31.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ]
   %out_writer.sroa.46.4 = phi i64 [ %inc7.i.i51.i.i.i.i, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.46.3, %if.else26.i.i.i.i ], [ %out_writer.sroa.46.3, %call.i.i.i26.i.i.i.i.noexc ]
-  %out_writer.sroa.17.5 = phi i8 [ 0, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ], [ %spec.select55, %call.i.i.i26.i.i.i.i.noexc ]
+  %out_writer.sroa.17.5 = phi i8 [ 0, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ], [ %spec.select54, %call.i.i.i26.i.i.i.i.noexc ]
   %inc29.i.i.i.i = add i64 %position.461.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %15
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !123
@@ -6552,27 +6552,27 @@ _ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit: ; preds = %invoke.cont3
   ret void
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit56 = landingpad { ptr, i32 }
+  %lpad.loopexit55 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit58 = landingpad { ptr, i32 }
+  %lpad.loopexit57 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit62 = landingpad { ptr, i32 }
+  %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit58, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit62, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp63, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit55, %lpad.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
   resume { ptr, i32 } %lpad.phi
 }
@@ -6979,8 +6979,8 @@ if.then.i.i.i:                                    ; preds = %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
-  %spec.select67 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
-  store ptr %spec.select67, ptr %_M_reason.i.i.i.i.i.i, align 8
+  %spec.select66 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
+  store ptr %spec.select66, ptr %_M_reason.i.i.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
           to label %if.then.i.i.i.i.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7172,7 +7172,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
 
 call.i.i.i23.i.i.i.i.noexc:                       ; preds = %if.then25.i.i.i.i
   %or1.i.i.i.i38.i.i.i.i = select i1 %call.i.i.i23.i.i.i.i8, i8 %out_writer.sroa.30.3, i8 0
-  %spec.select55 = or i8 %or1.i.i.i.i38.i.i.i.i, %out_writer.sroa.17.3
+  %spec.select54 = or i8 %or1.i.i.i.i38.i.i.i.i, %out_writer.sroa.17.3
   %shl.i.i.i.i26.i.i.i.i = shl i8 %out_writer.sroa.30.3, 1
   %inc.i.i.i.i28.i.i.i.i = add nsw i64 %out_writer.sroa.5.3, 1
   %cmp.i.i.i.i29.i.i.i.i = icmp eq i8 %shl.i.i.i.i26.i.i.i.i, 0
@@ -7186,7 +7186,7 @@ if.else26.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
 
 for.inc27.sink.split.i.i.i.i:                     ; preds = %if.else26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc
   %out_writer.sroa.5.5 = phi i64 [ %inc.i.i.i.i28.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ], [ %inc.i.i43.i.i.i.i, %if.else26.i.i.i.i ]
-  %out_writer.sroa.17.6 = phi i8 [ %spec.select55, %call.i.i.i23.i.i.i.i.noexc ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ]
+  %out_writer.sroa.17.6 = phi i8 [ %spec.select54, %call.i.i.i23.i.i.i.i.noexc ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ]
   %inc7.i.i48.i.i.i.i = add nsw i64 %out_writer.sroa.46.3, 1
   %arrayidx.i.i49.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.3
   store i8 %out_writer.sroa.17.6, ptr %arrayidx.i.i49.i.i.i.i, align 1
@@ -7196,7 +7196,7 @@ for.inc27.i.i.i.i:                                ; preds = %for.inc27.sink.spli
   %out_writer.sroa.30.4 = phi i8 [ 1, %for.inc27.sink.split.i.i.i.i ], [ %shl.i.i41.i.i.i.i, %if.else26.i.i.i.i ], [ %shl.i.i.i.i26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ]
   %out_writer.sroa.5.4 = phi i64 [ %out_writer.sroa.5.5, %for.inc27.sink.split.i.i.i.i ], [ %inc.i.i43.i.i.i.i, %if.else26.i.i.i.i ], [ %inc.i.i.i.i28.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ]
   %out_writer.sroa.46.4 = phi i64 [ %inc7.i.i48.i.i.i.i, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.46.3, %if.else26.i.i.i.i ], [ %out_writer.sroa.46.3, %call.i.i.i23.i.i.i.i.noexc ]
-  %out_writer.sroa.17.5 = phi i8 [ 0, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ], [ %spec.select55, %call.i.i.i23.i.i.i.i.noexc ]
+  %out_writer.sroa.17.5 = phi i8 [ 0, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.17.3, %if.else26.i.i.i.i ], [ %spec.select54, %call.i.i.i23.i.i.i.i.noexc ]
   %inc29.i.i.i.i = add i64 %position.458.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %15
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !134
@@ -7246,27 +7246,27 @@ _ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit: ; preds = %invoke.cont3
   ret void
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit56 = landingpad { ptr, i32 }
+  %lpad.loopexit55 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit58 = landingpad { ptr, i32 }
+  %lpad.loopexit57 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit62 = landingpad { ptr, i32 }
+  %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit58, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit62, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp63, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit55, %lpad.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
   resume { ptr, i32 } %lpad.phi
 }

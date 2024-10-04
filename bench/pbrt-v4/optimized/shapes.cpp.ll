@@ -121,7 +121,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pbrt::FloatTexture" = type { %"class.pbrt::TaggedPointer.138" }
 %"class.pbrt::TaggedPointer.138" = type { i64 }
 %class.anon.139 = type { ptr }
-%class.anon.140 = type { ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -17013,7 +17012,6 @@ entry:
   %displacement = alloca %"class.pbrt::FloatTexture", align 8
   %ref.tmp158 = alloca %"struct.pbrt::TriQuadMesh", align 8
   %ref.tmp159 = alloca %class.anon.139, align 8
-  %ref.tmp160 = alloca %class.anon.140, align 8
   %ref.tmp165 = alloca i64, align 8
   %ref.tmp181 = alloca %"class.std::vector.42", align 8
   %ref.tmp186 = alloca %"class.pstd::vector", align 8
@@ -17533,7 +17531,7 @@ ehcleanup141:                                     ; preds = %lpad138, %lpad136
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135) #26
   br label %ehcleanup221
 
-lpad144:                                          ; preds = %call.i.i.i.i.noexc212, %if.then196, %invoke.cont204, %_ZNSt6vectorIN4pbrt7Vector3IfEESaIS2_EED2Ev.exit, %land.rhs164, %land.end, %land.rhs, %if.then152, %if.then143
+lpad144:                                          ; preds = %call.i.i.i.i.noexc212, %if.then196, %land.end, %invoke.cont204, %_ZNSt6vectorIN4pbrt7Vector3IfEESaIS2_EED2Ev.exit, %land.rhs164, %land.rhs, %if.then152, %if.then143
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup220
@@ -17561,8 +17559,7 @@ land.end:                                         ; preds = %land.rhs, %invoke.c
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %div = udiv i64 %sub.ptr.div.i, 3
   store ptr %renderFromObject.addr, ptr %ref.tmp159, align 8
-  store ptr %displacement, ptr %ref.tmp160, align 8
-  invoke fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias align 8 %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(144) %plyMesh, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159, float noundef %mul, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp160, ptr noundef %loc)
+  invoke fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias align 8 %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(144) %plyMesh, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159, float noundef %mul, ptr nonnull %displacement, ptr noundef %loc)
           to label %invoke.cont161 unwind label %lpad144
 
 invoke.cont161:                                   ; preds = %land.end
@@ -18271,7 +18268,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %displace, ptr noundef %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, ptr nocapture readonly %displace.0.val, ptr noundef %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::function", align 8
   %agg.tmp.i = alloca %"class.std::function.191", align 8
@@ -18341,7 +18338,7 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %if.end5, %invoke.cont.i.i
-  %cond.i.i.i.i4752 = phi ptr [ %call5.i.i.i.i2.i6.i10, %invoke.cont.i.i ], [ null, %if.end5 ]
+  %cond.i.i.i.i712 = phi ptr [ %call5.i.i.i.i2.i6.i10, %invoke.cont.i.i ], [ null, %if.end5 ]
   %call.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #26
   %7 = ptrtoint ptr %call.i to i64
   store i64 %7, ptr %edgeSplit, align 8
@@ -18436,19 +18433,19 @@ _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorI
   store i64 0, ptr %nStored.i, align 8
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %div = udiv i64 %sub.ptr.div.i, 3
-  %cmp55.not = icmp ult i64 %sub.ptr.div.i, 3
-  br i1 %cmp55.not, label %for.end, label %for.body
+  %cmp15.not = icmp ult i64 %sub.ptr.div.i, 3
+  br i1 %cmp15.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEC2ESA_.exit ]
   %21 = mul nuw nsw i64 %indvars.iv, 3
-  %add.ptr.i = getelementptr inbounds i32, ptr %cond.i.i.i.i4752, i64 %21
+  %add.ptr.i = getelementptr inbounds i32, ptr %cond.i.i.i.i712, i64 %21
   %22 = load i32, ptr %add.ptr.i, align 4
   %23 = add nuw nsw i64 %21, 1
-  %add.ptr.i15 = getelementptr inbounds i32, ptr %cond.i.i.i.i4752, i64 %23
+  %add.ptr.i15 = getelementptr inbounds i32, ptr %cond.i.i.i.i712, i64 %23
   %24 = load i32, ptr %add.ptr.i15, align 4
   %25 = add nuw nsw i64 %21, 2
-  %add.ptr.i16 = getelementptr inbounds i32, ptr %cond.i.i.i.i4752, i64 %25
+  %add.ptr.i16 = getelementptr inbounds i32, ptr %cond.i.i.i.i712, i64 %25
   %26 = load i32, ptr %add.ptr.i16, align 4
   invoke fastcc void @"_ZN4pbrt11TriQuadMesh6RefineIRZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EEvOT_fiiiRNS_7HashMapISL_IiiEiNS_11HashIntPairENSW_INSU_8optionalISL_IS14_iEEEEEEE"(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, i32 noundef %22, i32 noundef %24, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %edgeSplit)
           to label %for.inc unwind label %lpad20.loopexit
@@ -18485,8 +18482,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4pbrt7
   %30 = load ptr, ptr %uv25, align 8
   %_M_finish.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %31 = load ptr, ptr %_M_finish.i17, align 8
-  %displace.val = load ptr, ptr %displace, align 8
-  %displace.val.val = load i64, ptr %displace.val, align 8
+  %displace.val.val = load i64, ptr %displace.0.val, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %32 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
@@ -18645,11 +18641,11 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit: ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE5clearEv.exit.i.i, %if.end.i.i.i.i.i
-  %tobool.not.i.i.i35 = icmp eq ptr %cond.i.i.i.i4752, null
+  %tobool.not.i.i.i35 = icmp eq ptr %cond.i.i.i.i712, null
   br i1 %tobool.not.i.i.i35, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i4752) #30
+  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i712) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEED2Ev.exit, %if.then.i.i.i36
@@ -18657,11 +18653,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN4pbrt7HashMapISt
 
 ehcleanup:                                        ; preds = %lpad20.body, %lpad8
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad20.body ], [ %27, %lpad8 ]
-  %tobool.not.i.i.i38 = icmp eq ptr %cond.i.i.i.i4752, null
+  %tobool.not.i.i.i38 = icmp eq ptr %cond.i.i.i.i712, null
   br i1 %tobool.not.i.i.i38, label %ehcleanup32, label %if.then.i.i.i39
 
 if.then.i.i.i39:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i4752) #30
+  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i712) #30
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %if.then.i.i.i39, %ehcleanup, %lpad

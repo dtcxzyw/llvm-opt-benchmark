@@ -8697,7 +8697,7 @@ if.then.i.i18.i:                                  ; preds = %if.then.i15.i
   br label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %lpad7.body.thread.i, %if.then.i15.i, %if.then.i.i18.i
-  %eh.lpad-body25.i = phi { ptr, i32 } [ %5, %lpad7.body.thread.i ], [ %8, %if.then.i15.i ], [ %8, %if.then.i.i18.i ]
+  %eh.lpad-body4.i = phi { ptr, i32 } [ %5, %lpad7.body.thread.i ], [ %8, %if.then.i15.i ], [ %8, %if.then.i.i18.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i5) #28, !noalias !100
   br label %eh.resume
 
@@ -8818,7 +8818,7 @@ if.end24:                                         ; preds = %invoke.cont23, %if.
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i12, %if.then.i9, %lpad.body.thread, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %eh.lpad-body25.i, %lpad.body.thread ], [ %13, %if.then.i9 ], [ %13, %if.then.i.i12 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %eh.lpad-body4.i, %lpad.body.thread ], [ %13, %if.then.i9 ], [ %13, %if.then.i.i12 ]
   resume { ptr, i32 } %.pn.pn
 }
 

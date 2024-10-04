@@ -137,17 +137,17 @@ _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread: ; preds = %if.then.
   store i8 1, ptr %cord_buffer, align 8, !alias.scope !10
   %data.i.i.i.i = getelementptr inbounds i8, ptr %cord_buffer, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %data.i.i.i.i, i8 0, i64 15, i1 false), !alias.scope !10
-  %conv2114 = zext nneg i32 %count to i64
+  %conv2115 = zext nneg i32 %count to i64
   br label %cond.true.i.i
 
 if.end.i:                                         ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
   call void @_ZN4absl12lts_202308024Cord23GetAppendBufferSlowPathEmmm(ptr nonnull sret(%"class.absl::lts_20230802::CordBuffer") align 8 %cord_buffer, ptr noundef nonnull align 8 dereferenceable(16) %cord, i64 noundef 0, i64 noundef %conv, i64 noundef 16)
   %.pre = load i32, ptr %count.addr, align 4
-  %.pre111 = load i8, ptr %cord_buffer, align 8
+  %.pre112 = load i8, ptr %cord_buffer, align 8
   br label %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit
 
 _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit: ; preds = %if.then.i.i, %if.end.i
-  %8 = phi i8 [ %7, %if.then.i.i ], [ %.pre111, %if.end.i ]
+  %8 = phi i8 [ %7, %if.then.i.i ], [ %.pre112, %if.end.i ]
   %9 = phi i32 [ %count, %if.then.i.i ], [ %.pre, %if.end.i ]
   %conv2 = sext i32 %9 to i64
   %10 = and i8 %8, 1
@@ -155,7 +155,7 @@ _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit: ; preds = %if.then.i.i, %i
   br i1 %cmp.i.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit
-  %conv2117 = phi i64 [ %conv2114, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %conv2, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
+  %conv2118 = phi i64 [ %conv2115, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %conv2, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
   %11 = phi i8 [ 1, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %8, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
   %12 = ashr i8 %11, 1
   %conv2.i.i.i.i = sext i8 %12 to i64
@@ -169,26 +169,26 @@ cond.false.i.i:                                   ; preds = %_ZN4absl12lts_20230
   %14 = load i64, ptr %13, align 8
   %storage.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 13
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %storage.i.i.i.i, i64 %14
-  %tag.i.i.i.i2 = getelementptr inbounds i8, ptr %13, i64 12
-  %15 = load i8, ptr %tag.i.i.i.i2, align 4
-  %conv.i.i.i.i.i.i3 = zext i8 %15 to i32
-  %cmp.i.i.i.i.i.i4 = icmp ult i8 %15, 67
+  %tag.i.i.i.i6 = getelementptr inbounds i8, ptr %13, i64 12
+  %15 = load i8, ptr %tag.i.i.i.i6, align 4
+  %conv.i.i.i.i.i.i7 = zext i8 %15 to i32
+  %cmp.i.i.i.i.i.i8 = icmp ult i8 %15, 67
   %cmp3.i.i.i.i.i.i = icmp ult i8 %15, -69
   %..i.i.i.i.i.i = select i1 %cmp3.i.i.i.i.i.i, i32 6, i32 12
-  %.sink5.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i4, i32 3, i32 %..i.i.i.i.i.i
+  %.sink5.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i8, i32 3, i32 %..i.i.i.i.i.i
   %16 = select i1 %cmp3.i.i.i.i.i.i, i32 -3725, i32 -753677
-  %mul6.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i3, %.sink5.i.i.i.i.i.i
-  %sub8.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i4, i32 -29, i32 %16
+  %mul6.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i7, %.sink5.i.i.i.i.i.i
+  %sub8.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i8, i32 -29, i32 %16
   %narrow.i.i.i.i.i = add nsw i32 %mul6.i.i.i.i.i.i, %sub8.i.i.i.i.i.i
   %sub.i.i.i.i.i = sext i32 %narrow.i.i.i.i.i to i64
   %sub.i3.i.i = sub i64 %sub.i.i.i.i.i, %14
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i
-  %conv2116 = phi i64 [ %conv2117, %cond.true.i.i ], [ %conv2, %cond.false.i.i ]
+  %conv2117 = phi i64 [ %conv2118, %cond.true.i.i ], [ %conv2, %cond.false.i.i ]
   %add.ptr.i.pn.i.i = phi ptr [ %add.ptr.i.i.i, %cond.true.i.i ], [ %add.ptr.i2.i.i, %cond.false.i.i ]
   %sub.i.pn.i.i = phi i64 [ %sub.i.i.i, %cond.true.i.i ], [ %sub.i3.i.i, %cond.false.i.i ]
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv2116, i64 %sub.i.pn.i.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv2117, i64 %sub.i.pn.i.i)
   store ptr %cord.addr, ptr %AppendFullBuffer, align 8
   %17 = getelementptr inbounds i8, ptr %AppendFullBuffer, i64 8
   store ptr %cord_buffer, ptr %17, align 8
@@ -197,31 +197,31 @@ invoke.cont:                                      ; preds = %cond.false.i.i, %co
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %invoke.cont
-  %out.sroa.0.0 = phi ptr [ %add.ptr.i.pn.i.i, %invoke.cont ], [ %add.ptr.i.i27, %do.cond ]
-  %out.sroa.9.0 = phi i64 [ %.sroa.speculated.i.i, %invoke.cont ], [ %sub.i.i29, %do.cond ]
+  %out.sroa.0.0 = phi ptr [ %add.ptr.i.pn.i.i, %invoke.cont ], [ %add.ptr.i.i31, %do.cond ]
+  %out.sroa.9.0 = phi i64 [ %.sroa.speculated.i.i, %invoke.cont ], [ %sub.i.i33, %do.cond ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %19 = load ptr, ptr %vfn.i, align 8
-  %call.i6 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %buffer.i, ptr noundef nonnull %size.i)
+  %call.i10 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %buffer.i, ptr noundef nonnull %size.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %do.body
-  br i1 %call.i6, label %if.end.i5, label %invoke.cont3.thread
+  br i1 %call.i10, label %if.end.i9, label %invoke.cont3.thread
 
 invoke.cont3.thread:                              ; preds = %call.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
   br label %if.then6
 
-if.end.i5:                                        ; preds = %call.i.noexc
+if.end.i9:                                        ; preds = %call.i.noexc
   %20 = load i32, ptr %size.i, align 4
   %21 = load i32, ptr %count.addr, align 4
   %cmp.i = icmp sgt i32 %20, %21
   br i1 %cmp.i, label %if.then2.i, label %invoke.cont3
 
-if.then2.i:                                       ; preds = %if.end.i5
+if.then2.i:                                       ; preds = %if.end.i9
   %sub.i = sub nsw i32 %20, %21
   %vtable3.i = load ptr, ptr %this, align 8
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
@@ -233,14 +233,14 @@ if.then2.i:                                       ; preds = %if.end.i5
   %23 = load i32, ptr %count.addr, align 4
   br label %invoke.cont3
 
-invoke.cont3:                                     ; preds = %if.end.i5, %.noexc
-  %24 = phi i32 [ %23, %.noexc ], [ %20, %if.end.i5 ]
+invoke.cont3:                                     ; preds = %if.end.i9, %.noexc
+  %24 = phi i32 [ %23, %.noexc ], [ %20, %if.end.i9 ]
   %25 = load ptr, ptr %buffer.i, align 8
   %conv.i = sext i32 %24 to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
-  %cmp.i7 = icmp eq i32 %24, 0
-  br i1 %cmp.i7, label %if.then6, label %if.end9
+  %cmp.i11 = icmp eq i32 %24, 0
+  br i1 %cmp.i11, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %invoke.cont3, %invoke.cont3.thread
   %26 = load ptr, ptr %cord.addr, align 8
@@ -248,16 +248,16 @@ if.then6:                                         ; preds = %invoke.cont3, %invo
   store i8 1, ptr %cord_buffer, align 8
   %27 = load i8, ptr %agg.tmp, align 8
   %28 = and i8 %27, 1
-  %cmp.i.not.i.i8 = icmp eq i8 %28, 0
-  br i1 %cmp.i.not.i.i8, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i
+  %cmp.i.not.i.i12 = icmp eq i8 %28, 0
+  br i1 %cmp.i.not.i.i12, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i
 
 _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i: ; preds = %if.then6
   %29 = load ptr, ptr %agg.tmp, align 8
   %30 = load i64, ptr %29, align 8
-  %cmp.i10 = icmp eq i64 %30, 0
+  %cmp.i14 = icmp eq i64 %30, 0
   %31 = ptrtoint ptr %29 to i64
   %32 = trunc i64 %31 to i8
-  br i1 %cmp.i10, label %invoke.cont8, label %if.then3.i
+  br i1 %cmp.i14, label %invoke.cont8, label %if.then3.i
 
 _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i: ; preds = %if.then6
   %cmp5.i = icmp ult i8 %27, 2
@@ -272,27 +272,27 @@ if.else.i:                                        ; preds = %_ZNK4absl12lts_2023
   store i8 1, ptr %agg.tmp, align 8
   %33 = ashr i8 %27, 1
   %conv2.i.i3.i = sext i8 %33 to i64
-  %data.i.i.i9 = getelementptr inbounds i8, ptr %agg.tmp, i64 1
-  invoke void @_ZN4absl12lts_202308024Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 %conv2.i.i3.i, ptr nonnull %data.i.i.i9, i32 noundef 2)
+  %data.i.i.i13 = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  invoke void @_ZN4absl12lts_202308024Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 %conv2.i.i3.i, ptr nonnull %data.i.i.i13, i32 noundef 2)
           to label %if.else.i.invoke.cont8_crit_edge unwind label %lpad7
 
 if.else.i.invoke.cont8_crit_edge:                 ; preds = %if.else.i
-  %.pre113 = load i8, ptr %agg.tmp, align 8
+  %.pre114 = load i8, ptr %agg.tmp, align 8
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.else.i.invoke.cont8_crit_edge, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i
-  %34 = phi i8 [ %.pre113, %if.else.i.invoke.cont8_crit_edge ], [ %32, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i ]
+  %34 = phi i8 [ %.pre114, %if.else.i.invoke.cont8_crit_edge ], [ %32, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i ]
   %35 = and i8 %34, 1
   %cmp.i.not.i = icmp eq i8 %35, 0
   br i1 %cmp.i.not.i, label %cleanup.sink.split, label %cleanup
 
 lpad.loopexit:                                    ; preds = %invoke.cont19
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+  %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %if.then11, %do.body, %if.then2.i
-  %lpad.loopexit.split-lp95 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp96 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -301,17 +301,17 @@ lpad7:                                            ; preds = %if.else.i, %if.then
           cleanup
   %37 = load i8, ptr %agg.tmp, align 8
   %38 = and i8 %37, 1
-  %cmp.i.not.i15 = icmp eq i8 %38, 0
-  br i1 %cmp.i.not.i15, label %if.then.i17, label %ehcleanup
+  %cmp.i.not.i19 = icmp eq i8 %38, 0
+  br i1 %cmp.i.not.i19, label %if.then.i21, label %ehcleanup
 
-if.then.i17:                                      ; preds = %lpad7
+if.then.i21:                                      ; preds = %lpad7
   %39 = load ptr, ptr %agg.tmp, align 8
   call void @_ZdlPv(ptr noundef %39) #19
   br label %ehcleanup
 
 if.end9:                                          ; preds = %invoke.cont3
-  %cmp.i20 = icmp eq i64 %out.sroa.9.0, 0
-  br i1 %cmp.i20, label %if.then11, label %if.end14
+  %cmp.i24 = icmp eq i64 %out.sroa.9.0, 0
+  br i1 %cmp.i24, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.end9
   %call13 = invoke fastcc { ptr, i64 } @"_ZZN6google8protobuf2io19ZeroCopyInputStream8ReadCordEPN4absl12lts_202308024CordEiENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(24) %AppendFullBuffer)
@@ -325,28 +325,28 @@ invoke.cont12:                                    ; preds = %if.then11
 if.end14:                                         ; preds = %invoke.cont12, %if.end9
   %out.sroa.0.1 = phi ptr [ %40, %invoke.cont12 ], [ %out.sroa.0.0, %if.end9 ]
   %out.sroa.9.1 = phi i64 [ %41, %invoke.cont12 ], [ %out.sroa.9.0, %if.end9 ]
-  %cmp17100 = icmp ult i64 %out.sroa.9.1, %conv.i
-  br i1 %cmp17100, label %while.body, label %while.end
+  %cmp17101 = icmp ult i64 %out.sroa.9.1, %conv.i
+  br i1 %cmp17101, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end14, %invoke.cont21
-  %in.sroa.0.0104 = phi ptr [ %add.ptr.i7.i, %invoke.cont21 ], [ %25, %if.end14 ]
-  %in.sroa.7.0103 = phi i64 [ %sub.i9.i, %invoke.cont21 ], [ %conv.i, %if.end14 ]
-  %out.sroa.9.2102 = phi i64 [ %49, %invoke.cont21 ], [ %out.sroa.9.1, %if.end14 ]
-  %out.sroa.0.2101 = phi ptr [ %48, %invoke.cont21 ], [ %out.sroa.0.1, %if.end14 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.sroa.0.2101, ptr align 1 %in.sroa.0.0104, i64 %out.sroa.9.2102, i1 false)
-  %add.ptr.i7.i = getelementptr inbounds i8, ptr %in.sroa.0.0104, i64 %out.sroa.9.2102
-  %sub.i9.i = sub nuw i64 %in.sroa.7.0103, %out.sroa.9.2102
+  %in.sroa.0.0105 = phi ptr [ %add.ptr.i7.i, %invoke.cont21 ], [ %25, %if.end14 ]
+  %in.sroa.7.0104 = phi i64 [ %sub.i9.i, %invoke.cont21 ], [ %conv.i, %if.end14 ]
+  %out.sroa.9.2103 = phi i64 [ %49, %invoke.cont21 ], [ %out.sroa.9.1, %if.end14 ]
+  %out.sroa.0.2102 = phi ptr [ %48, %invoke.cont21 ], [ %out.sroa.0.1, %if.end14 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.sroa.0.2102, ptr align 1 %in.sroa.0.0105, i64 %out.sroa.9.2103, i1 false)
+  %add.ptr.i7.i = getelementptr inbounds i8, ptr %in.sroa.0.0105, i64 %out.sroa.9.2103
+  %sub.i9.i = sub nuw i64 %in.sroa.7.0104, %out.sroa.9.2103
   %42 = load i32, ptr %count.addr, align 4
-  %43 = trunc i64 %out.sroa.9.2102 to i32
+  %43 = trunc i64 %out.sroa.9.2103 to i32
   %conv3.i = sub i32 %42, %43
   store i32 %conv3.i, ptr %count.addr, align 4
   %44 = load i8, ptr %cord_buffer, align 8
   %45 = and i8 %44, 1
-  %cmp.i.not.i.i24 = icmp eq i8 %45, 0
-  br i1 %cmp.i.not.i.i24, label %if.else.i.i, label %if.then.i.i25
+  %cmp.i.not.i.i28 = icmp eq i8 %45, 0
+  br i1 %cmp.i.not.i.i28, label %if.else.i.i, label %if.then.i.i29
 
-if.then.i.i25:                                    ; preds = %while.body
-  %n.tr.i.i.i = trunc i64 %out.sroa.9.2102 to i8
+if.then.i.i29:                                    ; preds = %while.body
+  %n.tr.i.i.i = trunc i64 %out.sroa.9.2103 to i8
   %conv.i.i.i = shl i8 %n.tr.i.i.i, 1
   %add.i.i.i = add i8 %44, %conv.i.i.i
   store i8 %add.i.i.i, ptr %cord_buffer, align 8
@@ -355,11 +355,11 @@ if.then.i.i25:                                    ; preds = %while.body
 if.else.i.i:                                      ; preds = %while.body
   %46 = load ptr, ptr %cord_buffer, align 8
   %47 = load i64, ptr %46, align 8
-  %add.i.i = add i64 %47, %out.sroa.9.2102
+  %add.i.i = add i64 %47, %out.sroa.9.2103
   store i64 %add.i.i, ptr %46, align 8
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.else.i.i, %if.then.i.i25
+invoke.cont19:                                    ; preds = %if.else.i.i, %if.then.i.i29
   %call22 = invoke fastcc { ptr, i64 } @"_ZZN6google8protobuf2io19ZeroCopyInputStream8ReadCordEPN4absl12lts_202308024CordEiENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(24) %AppendFullBuffer)
           to label %invoke.cont21 unwind label %lpad.loopexit
 
@@ -375,33 +375,33 @@ while.end:                                        ; preds = %invoke.cont21, %if.
   %in.sroa.7.0.lcssa = phi i64 [ %conv.i, %if.end14 ], [ %sub.i9.i, %invoke.cont21 ]
   %in.sroa.0.0.lcssa = phi ptr [ %25, %if.end14 ], [ %add.ptr.i7.i, %invoke.cont21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.sroa.0.2.lcssa, ptr align 1 %in.sroa.0.0.lcssa, i64 %in.sroa.7.0.lcssa, i1 false)
-  %add.ptr.i.i27 = getelementptr inbounds i8, ptr %out.sroa.0.2.lcssa, i64 %in.sroa.7.0.lcssa
-  %sub.i.i29 = sub nuw i64 %out.sroa.9.2.lcssa, %in.sroa.7.0.lcssa
+  %add.ptr.i.i31 = getelementptr inbounds i8, ptr %out.sroa.0.2.lcssa, i64 %in.sroa.7.0.lcssa
+  %sub.i.i33 = sub nuw i64 %out.sroa.9.2.lcssa, %in.sroa.7.0.lcssa
   %50 = load i32, ptr %count.addr, align 4
   %51 = trunc i64 %in.sroa.7.0.lcssa to i32
-  %conv3.i33 = sub i32 %50, %51
-  store i32 %conv3.i33, ptr %count.addr, align 4
+  %conv3.i37 = sub i32 %50, %51
+  store i32 %conv3.i37, ptr %count.addr, align 4
   %52 = load i8, ptr %cord_buffer, align 8
   %53 = and i8 %52, 1
-  %cmp.i.not.i.i34 = icmp eq i8 %53, 0
-  br i1 %cmp.i.not.i.i34, label %if.else.i.i39, label %if.then.i.i35
+  %cmp.i.not.i.i38 = icmp eq i8 %53, 0
+  br i1 %cmp.i.not.i.i38, label %if.else.i.i43, label %if.then.i.i39
 
-if.then.i.i35:                                    ; preds = %while.end
-  %n.tr.i.i.i36 = trunc i64 %in.sroa.7.0.lcssa to i8
-  %conv.i.i.i37 = shl i8 %n.tr.i.i.i36, 1
-  %add.i.i.i38 = add i8 %52, %conv.i.i.i37
-  store i8 %add.i.i.i38, ptr %cord_buffer, align 8
+if.then.i.i39:                                    ; preds = %while.end
+  %n.tr.i.i.i40 = trunc i64 %in.sroa.7.0.lcssa to i8
+  %conv.i.i.i41 = shl i8 %n.tr.i.i.i40, 1
+  %add.i.i.i42 = add i8 %52, %conv.i.i.i41
+  store i8 %add.i.i.i42, ptr %cord_buffer, align 8
   br label %do.cond
 
-if.else.i.i39:                                    ; preds = %while.end
+if.else.i.i43:                                    ; preds = %while.end
   %54 = load ptr, ptr %cord_buffer, align 8
   %55 = load i64, ptr %54, align 8
-  %add.i.i40 = add i64 %55, %in.sroa.7.0.lcssa
-  store i64 %add.i.i40, ptr %54, align 8
+  %add.i.i44 = add i64 %55, %in.sroa.7.0.lcssa
+  store i64 %add.i.i44, ptr %54, align 8
   br label %do.cond
 
-do.cond:                                          ; preds = %if.else.i.i39, %if.then.i.i35
-  %cmp25 = icmp sgt i32 %conv3.i33, 0
+do.cond:                                          ; preds = %if.else.i.i43, %if.then.i.i39
+  %cmp25 = icmp sgt i32 %conv3.i37, 0
   br i1 %cmp25, label %do.body, label %do.end, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond
@@ -410,53 +410,53 @@ do.end:                                           ; preds = %do.cond
   store i8 1, ptr %cord_buffer, align 8
   %57 = load i8, ptr %agg.tmp26, align 8
   %58 = and i8 %57, 1
-  %cmp.i.not.i.i42 = icmp eq i8 %58, 0
-  br i1 %cmp.i.not.i.i42, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i48, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43
+  %cmp.i.not.i.i46 = icmp eq i8 %58, 0
+  br i1 %cmp.i.not.i.i46, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i52, label %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47
 
-_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i48: ; preds = %do.end
+_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i52: ; preds = %do.end
   %59 = load ptr, ptr %agg.tmp26, align 8
   %60 = load i64, ptr %59, align 8
-  %cmp.i49 = icmp eq i64 %60, 0
+  %cmp.i53 = icmp eq i64 %60, 0
   %61 = ptrtoint ptr %59 to i64
   %62 = trunc i64 %61 to i8
-  br i1 %cmp.i49, label %invoke.cont28, label %if.then3.i50
+  br i1 %cmp.i53, label %invoke.cont28, label %if.then3.i54
 
-_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43: ; preds = %do.end
-  %cmp5.i44 = icmp ult i8 %57, 2
-  br i1 %cmp5.i44, label %cleanup, label %if.else.i45
+_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47: ; preds = %do.end
+  %cmp5.i48 = icmp ult i8 %57, 2
+  br i1 %cmp5.i48, label %cleanup, label %if.else.i49
 
-if.then3.i50:                                     ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i48
+if.then3.i54:                                     ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i52
   store i8 1, ptr %agg.tmp26, align 8
   invoke void @_ZN4absl12lts_202308024Cord9InlineRep10AppendTreeEPNS0_13cord_internal7CordRepENS3_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull %59, i32 noundef 2)
           to label %cleanup unwind label %lpad27
 
-if.else.i45:                                      ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43
+if.else.i49:                                      ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47
   store i8 1, ptr %agg.tmp26, align 8
   %63 = ashr i8 %57, 1
-  %conv2.i.i3.i46 = sext i8 %63 to i64
-  %data.i.i.i47 = getelementptr inbounds i8, ptr %agg.tmp26, i64 1
-  invoke void @_ZN4absl12lts_202308024Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %56, i64 %conv2.i.i3.i46, ptr nonnull %data.i.i.i47, i32 noundef 2)
-          to label %if.else.i45.invoke.cont28_crit_edge unwind label %lpad27
+  %conv2.i.i3.i50 = sext i8 %63 to i64
+  %data.i.i.i51 = getelementptr inbounds i8, ptr %agg.tmp26, i64 1
+  invoke void @_ZN4absl12lts_202308024Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %56, i64 %conv2.i.i3.i50, ptr nonnull %data.i.i.i51, i32 noundef 2)
+          to label %if.else.i49.invoke.cont28_crit_edge unwind label %lpad27
 
-if.else.i45.invoke.cont28_crit_edge:              ; preds = %if.else.i45
-  %.pre112 = load i8, ptr %agg.tmp26, align 8
+if.else.i49.invoke.cont28_crit_edge:              ; preds = %if.else.i49
+  %.pre113 = load i8, ptr %agg.tmp26, align 8
   br label %invoke.cont28
 
-invoke.cont28:                                    ; preds = %if.else.i45.invoke.cont28_crit_edge, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i48
-  %64 = phi i8 [ %.pre112, %if.else.i45.invoke.cont28_crit_edge ], [ %62, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i48 ]
+invoke.cont28:                                    ; preds = %if.else.i49.invoke.cont28_crit_edge, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i52
+  %64 = phi i8 [ %.pre113, %if.else.i49.invoke.cont28_crit_edge ], [ %62, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.i52 ]
   %65 = and i8 %64, 1
-  %cmp.i.not.i54 = icmp eq i8 %65, 0
-  br i1 %cmp.i.not.i54, label %cleanup.sink.split, label %cleanup
+  %cmp.i.not.i58 = icmp eq i8 %65, 0
+  br i1 %cmp.i.not.i58, label %cleanup.sink.split, label %cleanup
 
-lpad27:                                           ; preds = %if.else.i45, %if.then3.i50
+lpad27:                                           ; preds = %if.else.i49, %if.then3.i54
   %66 = landingpad { ptr, i32 }
           cleanup
   %67 = load i8, ptr %agg.tmp26, align 8
   %68 = and i8 %67, 1
-  %cmp.i.not.i58 = icmp eq i8 %68, 0
-  br i1 %cmp.i.not.i58, label %if.then.i60, label %ehcleanup
+  %cmp.i.not.i62 = icmp eq i8 %68, 0
+  br i1 %cmp.i.not.i62, label %if.then.i64, label %ehcleanup
 
-if.then.i60:                                      ; preds = %lpad27
+if.then.i64:                                      ; preds = %lpad27
   %69 = load ptr, ptr %agg.tmp26, align 8
   call void @_ZdlPv(ptr noundef %69) #19
   br label %ehcleanup
@@ -468,35 +468,35 @@ cleanup.sink.split:                               ; preds = %invoke.cont28, %inv
   call void @_ZdlPv(ptr noundef %70) #19
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %if.then3.i50, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43, %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %invoke.cont28, %invoke.cont8
-  %retval.1 = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ false, %if.then3.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43 ], [ true, %if.then3.i50 ], [ %retval.1.ph, %cleanup.sink.split ]
+cleanup:                                          ; preds = %cleanup.sink.split, %if.then3.i54, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47, %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %invoke.cont28, %invoke.cont8
+  %retval.1 = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ false, %if.then3.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47 ], [ true, %if.then3.i54 ], [ %retval.1.ph, %cleanup.sink.split ]
   %71 = load i8, ptr %cord_buffer, align 8
   %72 = and i8 %71, 1
-  %cmp.i.not.i62 = icmp eq i8 %72, 0
-  br i1 %cmp.i.not.i62, label %if.then.i64, label %return
+  %cmp.i.not.i66 = icmp eq i8 %72, 0
+  br i1 %cmp.i.not.i66, label %if.then.i68, label %return
 
-if.then.i64:                                      ; preds = %cleanup
+if.then.i68:                                      ; preds = %cleanup
   %73 = load ptr, ptr %cord_buffer, align 8
   call void @_ZdlPv(ptr noundef %73) #19
   br label %return
 
-ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i60, %lpad27, %if.then.i17, %lpad7
-  %.pn = phi { ptr, i32 } [ %36, %lpad7 ], [ %36, %if.then.i17 ], [ %66, %lpad27 ], [ %66, %if.then.i60 ], [ %lpad.loopexit94, %lpad.loopexit ], [ %lpad.loopexit.split-lp95, %lpad.loopexit.split-lp ]
+ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i64, %lpad27, %if.then.i21, %lpad7
+  %.pn = phi { ptr, i32 } [ %36, %lpad7 ], [ %36, %if.then.i21 ], [ %66, %lpad27 ], [ %66, %if.then.i64 ], [ %lpad.loopexit95, %lpad.loopexit ], [ %lpad.loopexit.split-lp96, %lpad.loopexit.split-lp ]
   %74 = load i8, ptr %cord_buffer, align 8
   %75 = and i8 %74, 1
-  %cmp.i.not.i66 = icmp eq i8 %75, 0
-  br i1 %cmp.i.not.i66, label %if.then.i68, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit69
+  %cmp.i.not.i70 = icmp eq i8 %75, 0
+  br i1 %cmp.i.not.i70, label %if.then.i72, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit73
 
-if.then.i68:                                      ; preds = %ehcleanup
+if.then.i72:                                      ; preds = %ehcleanup
   %76 = load ptr, ptr %cord_buffer, align 8
   call void @_ZdlPv(ptr noundef %76) #19
-  br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit69
+  br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit73
 
-_ZN4absl12lts_2023080210CordBufferD2Ev.exit69:    ; preds = %ehcleanup, %if.then.i68
+_ZN4absl12lts_2023080210CordBufferD2Ev.exit73:    ; preds = %ehcleanup, %if.then.i72
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %if.then.i64, %cleanup, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i64 ]
+return:                                           ; preds = %if.then.i68, %cleanup, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i68 ]
   ret i1 %retval.0
 }
 

@@ -231,10 +231,8 @@ entry:
   %agg.tmp50 = alloca %"class.net::QuicArenaScopedPtr.85", align 8
   %agg.tmp66 = alloca %"class.net::QuicArenaScopedPtr.85", align 8
   %ref.tmp67 = alloca %"class.net::QuicArenaScopedPtr.88", align 8
-  %ref.tmp69 = alloca ptr, align 8
   %agg.tmp82 = alloca %"class.net::QuicArenaScopedPtr.85", align 8
   %ref.tmp83 = alloca %"class.net::QuicArenaScopedPtr.88", align 8
-  %ref.tmp85 = alloca ptr, align 8
   %agg.tmp98 = alloca %"class.net::QuicArenaScopedPtr.85", align 8
   %agg.tmp114 = alloca %"class.net::QuicArenaScopedPtr.85", align 8
   %agg.tmp130 = alloca %"class.net::QuicArenaScopedPtr.85", align 8
@@ -546,8 +544,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
   store ptr null, ptr %agg.tmp50, align 8
   %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %30 = load ptr, ptr %alarm_factory_, align 8
-  store ptr %this, ptr %ref.tmp69, align 8
-  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp69)
+  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr nonnull %this)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit
@@ -590,8 +587,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; p
   store ptr null, ptr %ref.tmp67, align 8
   %resume_writes_alarm_ = getelementptr inbounds i8, ptr %this, i64 2360
   %38 = load ptr, ptr %alarm_factory_, align 8
-  store ptr %this, ptr %ref.tmp85, align 8
-  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85)
+  invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr nonnull %this)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit
@@ -1650,7 +1646,7 @@ declare void @_ZN3net25QuicReceivedPacketManagerC1EPNS_19QuicConnectionStatsE(pt
 declare void @_ZN3net22QuicSentEntropyManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr %args.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
   %offset_ = getelementptr inbounds i8, ptr %this, i64 1024
@@ -1703,37 +1699,35 @@ cleanup.action:                                   ; preds = %invoke.cont26
 
 cleanup.done:                                     ; preds = %if.then6, %cleanup.action
   %call34 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  %2 = load ptr, ptr %args, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 16), ptr %call34, align 8
   %connection_.i = getelementptr inbounds i8, ptr %call34, i64 8
-  store ptr %2, ptr %connection_.i, align 8
+  store ptr %args.0.val, ptr %connection_.i, align 8
   br label %return
 
 if.end37:                                         ; preds = %if.end
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds [1024 x i8], ptr %this, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %args, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 16), ptr %arrayidx, align 8
   %connection_.i5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store ptr %3, ptr %connection_.i5, align 8
-  %4 = load i32, ptr %offset_, align 8
-  %add = add i32 %4, 16
+  store ptr %args.0.val, ptr %connection_.i5, align 8
+  %2 = load i32, ptr %offset_, align 8
+  %add = add i32 %2, 16
   store i32 %add, ptr %offset_, align 8
-  %5 = ptrtoint ptr %arrayidx to i64
-  %or.i = or i64 %5, 1
-  %6 = inttoptr i64 %or.i to ptr
+  %3 = ptrtoint ptr %arrayidx to i64
+  %or.i = or i64 %3, 1
+  %4 = inttoptr i64 %or.i to ptr
   br label %return
 
 return:                                           ; preds = %if.end37, %cleanup.done
-  %storemerge = phi ptr [ %6, %if.end37 ], [ %call34, %cleanup.done ]
+  %storemerge = phi ptr [ %4, %if.end37 ], [ %call34, %cleanup.done ]
   store ptr %storemerge, ptr %agg.result, align 8
   ret void
 
 eh.resume:                                        ; preds = %cond.false, %invoke.cont12, %invoke.cont14, %invoke.cont16, %invoke.cont18, %invoke.cont20, %invoke.cont24, %invoke.cont26
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp9) #23
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %5
 }
 
 declare void @_ZN3net19QuicPacketGeneratorC1EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(472), i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1

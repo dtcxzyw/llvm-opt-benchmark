@@ -2192,7 +2192,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %b.sroa.59.1 = phi double [ %b.sroa.59.6, %if.end141.i ], [ %b.sroa.59.1.ph, %while.body.i.preheader ]
   %b.sroa.47.1 = phi double [ %b.sroa.47.5, %if.end141.i ], [ %b.sroa.47.1.ph, %while.body.i.preheader ]
   %b.sroa.14.1 = phi double [ %b.sroa.14.5, %if.end141.i ], [ %b.sroa.14.1.ph, %while.body.i.preheader ]
-  %flipflop.0217.i = phi i32 [ %flipflop.1.i, %if.end141.i ], [ -1, %while.body.i.preheader ]
+  %flipflop.031.i = phi i32 [ %flipflop.1.i, %if.end141.i ], [ -1, %while.body.i.preheader ]
   %mul.i = fmul double %b.sroa.59.1, %b.sroa.47.1
   %cmp63.i = fcmp ugt double %mul.i, 0.000000e+00
   br i1 %cmp63.i, label %if.end81.i, label %if.then64.i
@@ -2201,15 +2201,15 @@ if.then64.i:                                      ; preds = %while.body.i
   %cmp.i41.i = fcmp oeq double %b.sroa.47.1, 0.000000e+00
   %188 = call double @llvm.fabs.f64(double %b.sroa.47.1)
   %cmp4.i46.i = fcmp olt double %188, 0x3A1B900000000000
-  %or.cond209.i = or i1 %cmp.i41.i, %cmp4.i46.i
-  br i1 %or.cond209.i, label %invoke.cont421, label %if.end69.i
+  %or.cond23.i = or i1 %cmp.i41.i, %cmp4.i46.i
+  br i1 %or.cond23.i, label %invoke.cont421, label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.then64.i
   %cmp.i48.i = fcmp oeq double %b.sroa.59.1, 0.000000e+00
   %189 = call double @llvm.fabs.f64(double %b.sroa.59.1)
   %cmp4.i53.i = fcmp olt double %189, 0x3A1B900000000000
-  %or.cond210.i = or i1 %cmp.i48.i, %cmp4.i53.i
-  br i1 %or.cond210.i, label %invoke.cont421, label %if.end74.i
+  %or.cond24.i = or i1 %cmp.i48.i, %cmp4.i53.i
+  br i1 %or.cond24.i, label %invoke.cont421, label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.end69.i
   %add77.i = fadd double %b.sroa.31.1, %b.sroa.14.1
@@ -2599,7 +2599,7 @@ _ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit86.i: ; preds = %if.els
           to label %if.end141.i unwind label %lpad418.loopexit.split-lp.loopexit
 
 if.else111.i:                                     ; preds = %if.else96.i
-  switch i32 %flipflop.0217.i, label %if.end141.i [
+  switch i32 %flipflop.031.i, label %if.end141.i [
     i32 -1, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit101.i
     i32 1, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit116.i
   ]
@@ -2626,7 +2626,7 @@ if.end141.i:                                      ; preds = %_ZNK8QuantLib8Solve
   %b.sroa.59.6 = phi double [ %b.sroa.59.1, %if.else111.i ], [ %b.sroa.59.1, %call.i102.i.noexc ], [ %b.sroa.59.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit71.i ], [ %call.i87.i305, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit86.i ], [ %call.i117.i307, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit116.i ]
   %b.sroa.47.5 = phi double [ %b.sroa.47.1, %if.else111.i ], [ %call.i102.i306, %call.i102.i.noexc ], [ %call.i72.i304, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit71.i ], [ %b.sroa.47.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit86.i ], [ %b.sroa.47.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit116.i ]
   %b.sroa.14.5 = phi double [ %b.sroa.14.1, %if.else111.i ], [ %234, %call.i102.i.noexc ], [ %232, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit71.i ], [ %b.sroa.14.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit86.i ], [ %b.sroa.14.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit116.i ]
-  %flipflop.1.i = phi i32 [ 0, %if.else111.i ], [ 1, %call.i102.i.noexc ], [ %flipflop.0217.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit71.i ], [ %flipflop.0217.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit86.i ], [ -1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit116.i ]
+  %flipflop.1.i = phi i32 [ 0, %if.else111.i ], [ 1, %call.i102.i.noexc ], [ %flipflop.031.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit71.i ], [ %flipflop.031.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit86.i ], [ -1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit116.i ]
   %inc143.i = add i64 %b.sroa.77.2, 1
   %cmp60.not.i = icmp ugt i64 %inc143.i, 100
   br i1 %cmp60.not.i, label %do.body144.i, label %while.body.i, !llvm.loop !38
@@ -2793,20 +2793,20 @@ ehcleanup196.thread.i:                            ; preds = %invoke.cont182.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp183.i) #32
   %251 = load ptr, ptr %ref.tmp179.i, align 8, !tbaa !18
   %252 = getelementptr inbounds nuw i8, ptr %ref.tmp179.i, i64 16
-  %cmp.i.i.i179196.i = icmp eq ptr %251, %252
-  br i1 %cmp.i.i.i179196.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i, label %ehcleanup200.thread205.i
+  %cmp.i.i.i17910.i = icmp eq ptr %251, %252
+  br i1 %cmp.i.i.i17910.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i, label %ehcleanup200.thread19.i
 
-ehcleanup200.thread205.i:                         ; preds = %ehcleanup196.thread.i
+ehcleanup200.thread19.i:                          ; preds = %ehcleanup196.thread.i
   %253 = load i64, ptr %252, align 8, !tbaa !23
-  %add.i.i.i181208.i = add i64 %253, 1
-  call void @_ZdlPvm(ptr noundef %251, i64 noundef %add.i.i.i181208.i) #34
+  %add.i.i.i18122.i = add i64 %253, 1
+  call void @_ZdlPvm(ptr noundef %251, i64 noundef %add.i.i.i18122.i) #34
   br label %cleanup.action205.sink.split.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i: ; preds = %ehcleanup196.thread.i
-  %_M_string_length.i.i.i184203.i = getelementptr inbounds nuw i8, ptr %ref.tmp179.i, i64 8
-  %254 = load i64, ptr %_M_string_length.i.i.i184203.i, align 8, !tbaa !22
-  %cmp3.i.i.i185204.i = icmp ult i64 %254, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i185204.i)
+  %_M_string_length.i.i.i18417.i = getelementptr inbounds nuw i8, ptr %ref.tmp179.i, i64 8
+  %254 = load i64, ptr %_M_string_length.i.i.i18417.i, align 8, !tbaa !22
+  %cmp3.i.i.i18518.i = icmp ult i64 %254, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i18518.i)
   br label %cleanup.action205.sink.split.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i: ; preds = %ehcleanup196.i
@@ -2826,19 +2826,19 @@ ehcleanup200.i:                                   ; preds = %ehcleanup196.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp179.i) #32
   br i1 %cleanup.isactive192.3.i, label %cleanup.action205.i, label %ehcleanup207.i
 
-cleanup.action205.sink.split.i:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i, %ehcleanup200.thread205.i, %ehcleanup200.thread.i
-  %.pn.pn.pn193.ph.i = phi { ptr, i32 } [ %250, %ehcleanup200.thread205.i ], [ %250, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i ], [ %237, %ehcleanup200.thread.i ]
+cleanup.action205.sink.split.i:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i, %ehcleanup200.thread19.i, %ehcleanup200.thread.i
+  %.pn.pn.pn7.ph.i = phi { ptr, i32 } [ %250, %ehcleanup200.thread19.i ], [ %250, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.thread.i ], [ %237, %ehcleanup200.thread.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp180.i) #32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp179.i) #32
   br label %cleanup.action205.i
 
 cleanup.action205.i:                              ; preds = %cleanup.action205.sink.split.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i
-  %.pn.pn.pn193.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup200.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i ], [ %.pn.pn.pn193.ph.i, %cleanup.action205.sink.split.i ]
+  %.pn.pn.pn7.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup200.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i ], [ %.pn.pn.pn7.ph.i, %cleanup.action205.sink.split.i ]
   call void @__cxa_free_exception(ptr %exception178.i) #32
   br label %ehcleanup207.i
 
 ehcleanup207.i:                                   ; preds = %cleanup.action205.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i, %lpad146.i
-  %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn193.i, %cleanup.action205.i ], [ %.pn.i, %ehcleanup200.i ], [ %236, %lpad146.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i ]
+  %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn7.i, %cleanup.action205.i ], [ %.pn.i, %ehcleanup200.i ], [ %236, %lpad146.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i183.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream145.i) #32
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream145.i) #32
   br label %lpad418.body

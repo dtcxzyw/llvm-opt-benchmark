@@ -34,7 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.absl::strings_internal::StringifySink" = type { %"class.std::__cxx11::basic_string" }
-%"struct.(anonymous namespace)::MyStruct" = type { i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -811,8 +810,6 @@ entry:
   %ref.tmp817 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp830 = alloca %"class.testing::Message", align 8
   %ref.tmp832 = alloca %"class.testing::internal::AssertHelper", align 8
-  %s1 = alloca %"struct.(anonymous namespace)::MyStruct", align 4
-  %s2 = alloca %"struct.(anonymous namespace)::MyStruct", align 4
   %gtest_ar843 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp844 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp846 = alloca %"class.absl::substitute_internal::Arg", align 8
@@ -4771,17 +4768,15 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit1517:        ; preds = %if.end841, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1516
   store ptr null, ptr %message_.i1514, align 8
-  store i32 17, ptr %s1, align 4
-  store i32 1043, ptr %s2, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp847, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp847) #18
-  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp846, ptr noundef nonnull align 4 dereferenceable(4) %s1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp847)
+  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp846, i32 17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp847)
           to label %invoke.cont849 unwind label %lpad848
 
 invoke.cont849:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1517
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp851, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp851) #18
-  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp850, ptr noundef nonnull align 4 dereferenceable(4) %s2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp851)
+  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp850, i32 1043, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp851)
           to label %invoke.cont853 unwind label %lpad852
 
 invoke.cont853:                                   ; preds = %invoke.cont849
@@ -5016,7 +5011,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %v, ptr noundef nonnull align 8 dereferenceable(32) %sink) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 %v.0.val, ptr noundef nonnull align 8 dereferenceable(32) %sink) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5024,9 +5019,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i.i)
   tail call void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %sink, i64 18, ptr nonnull @.str.122)
-  %0 = load i32, ptr %v, align 4
   %digits_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i, i64 16
-  %call.i.i.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %0, ptr noundef nonnull %digits_.i.i.i)
+  %call.i.i.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %v.0.val, ptr noundef nonnull %digits_.i.i.i)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %digits_.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -5039,11 +5033,11 @@ entry:
           to label %_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumE.exit.i.i unwind label %lpad.i.i.i
 
 common.resume.i.i:                                ; preds = %lpad.i.i, %lpad.i.i.i
-  %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i ], [ %4, %lpad.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %0, %lpad.i.i.i ], [ %3, %lpad.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #18
   br label %common.resume.i.i
@@ -5052,13 +5046,13 @@ _ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumE.exit.i.i:  ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #18
-  %2 = extractvalue { i64, ptr } %call.i.i, 0
-  %3 = extractvalue { i64, ptr } %call.i.i, 1
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %sink, i64 %2, ptr %3)
+  %1 = extractvalue { i64, ptr } %call.i.i, 0
+  %2 = extractvalue { i64, ptr } %call.i.i, 1
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %sink, i64 %1, ptr %2)
           to label %_ZN4absl16strings_internal22ExtractStringificationIN12_GLOBAL__N_18MyStructEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumE.exit.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #18
   br label %common.resume.i.i
@@ -5069,11 +5063,11 @@ _ZN4absl16strings_internal22ExtractStringificationIN12_GLOBAL__N_18MyStructEEESt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i.i)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %sink) #18
-  %5 = extractvalue { i64, ptr } %call.i, 0
-  store i64 %5, ptr %this, align 8
-  %6 = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = extractvalue { i64, ptr } %call.i, 1
-  store ptr %7, ptr %6, align 8
+  %4 = extractvalue { i64, ptr } %call.i, 0
+  store i64 %4, ptr %this, align 8
+  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  %6 = extractvalue { i64, ptr } %call.i, 1
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -7102,8 +7096,6 @@ entry:
   %gtest_ar319 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp324 = alloca %"class.testing::Message", align 8
   %ref.tmp327 = alloca %"class.testing::internal::AssertHelper", align 8
-  %s1 = alloca %"struct.(anonymous namespace)::MyStruct", align 4
-  %s2 = alloca %"struct.(anonymous namespace)::MyStruct", align 4
   %ref.tmp339 = alloca %"class.absl::substitute_internal::Arg", align 8
   %ref.tmp340 = alloca %"class.absl::strings_internal::StringifySink", align 8
   %ref.tmp343 = alloca %"class.absl::substitute_internal::Arg", align 8
@@ -8619,17 +8611,15 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit646:         ; preds = %if.end336, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i645
   store ptr null, ptr %message_.i643, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #18
-  store i32 17, ptr %s1, align 4
-  store i32 1043, ptr %s2, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340) #18
-  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp339, ptr noundef nonnull align 4 dereferenceable(4) %s1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340)
+  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp339, i32 17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340)
           to label %invoke.cont342 unwind label %lpad341
 
 invoke.cont342:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit646
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344) #18
-  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp343, ptr noundef nonnull align 4 dereferenceable(4) %s2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344)
+  invoke fastcc void @_ZN4absl19substitute_internal3ArgC2IN12_GLOBAL__N_18MyStructEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp343, i32 1043, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344)
           to label %invoke.cont346 unwind label %lpad345
 
 invoke.cont346:                                   ; preds = %invoke.cont342
