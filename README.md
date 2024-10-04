@@ -230,6 +230,7 @@ Currently, this repository contains the following libraries/applications:
 |[coreutils](https://github.com/uutils/coreutils)|Rust|![stars](https://img.shields.io/github/stars/uutils/coreutils?style=flat)|
 |[delta-rs](https://github.com/delta-io/delta-rs)|Rust|![stars](https://img.shields.io/github/stars/delta-io/delta-rs?style=flat)|
 |[diesel](https://github.com/diesel-rs/diesel)|Rust|![stars](https://img.shields.io/github/stars/diesel-rs/diesel?style=flat)|
+|[egg](https://github.com/egraphs-good/egg)|Rust|![stars](https://img.shields.io/github/stars/egraphs-good/egg?style=flat)|
 |[html5ever](https://github.com/servo/html5ever)|Rust|![stars](https://img.shields.io/github/stars/servo/html5ever?style=flat)|
 |[hyper](https://github.com/hyperium/hyper)|Rust|![stars](https://img.shields.io/github/stars/hyperium/hyper?style=flat)|
 |[image](https://github.com/image-rs/image)|Rust|![stars](https://img.shields.io/github/stars/image-rs/image?style=flat)|
@@ -263,6 +264,8 @@ Currently, this repository contains the following libraries/applications:
 |[tokenizers](https://github.com/huggingface/tokenizers)|Rust|![stars](https://img.shields.io/github/stars/huggingface/tokenizers?style=flat)|
 |[tokio](https://github.com/tokio-rs/tokio)|Rust|![stars](https://img.shields.io/github/stars/tokio-rs/tokio?style=flat)|
 |[tree-sitter](https://github.com/tree-sitter/tree-sitter)|Rust|![stars](https://img.shields.io/github/stars/tree-sitter/tree-sitter?style=flat)|
+|[turborepo](https://github.com/vercel/turborepo)|Rust|![stars](https://img.shields.io/github/stars/vercel/turborepo?style=flat)|
 |[typst](https://github.com/typst/typst)|Rust|![stars](https://img.shields.io/github/stars/typst/typst?style=flat)|
 |[unicode-normalization](https://github.com/unicode-rs/unicode-normalization)|Rust|![stars](https://img.shields.io/github/stars/unicode-rs/unicode-normalization?style=flat)|
 |[wasmtime](https://github.com/bytecodealliance/wasmtime)|Rust|![stars](https://img.shields.io/github/stars/bytecodealliance/wasmtime?style=flat)|
+|[zed](https://github.com/zed-industries/zed)|Rust|![stars](https://img.shields.io/github/stars/zed-industries/zed?style=flat)|
