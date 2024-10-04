@@ -4,7 +4,7 @@ import subprocess
 import datetime
 
 bench_dir = sys.argv[1]
-time_to_live = 150
+time_to_live = 180
 current_time = datetime.datetime.now(datetime.timezone.utc)
 last_active_time = current_time - datetime.timedelta(days=time_to_live)
 print("Last active time: ", last_active_time)

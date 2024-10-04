@@ -66,14 +66,19 @@ def get_stars(url: str):
         return "https://img.shields.io/gitlab/stars/" + url.removeprefix("https://gitlab.com/")
     raise ValueError(url)
 
+def is_not_exist_or_empty(path: str):
+    if os.path.exists(path):
+        return len(os.listdir(path)) == 0
+    return True
+
 bench_dir = sys.argv[1]
 
 bench_list = []
 
 for dir in os.listdir(bench_dir):
-    if not os.path.exists(os.path.join(bench_dir, dir, 'original')):
+    if is_not_exist_or_empty(os.path.join(bench_dir, dir, 'original')):
         continue
-    if not os.path.exists(os.path.join(bench_dir, dir, 'optimized')):
+    if is_not_exist_or_empty(os.path.join(bench_dir, dir, 'optimized')):
         continue
     bench_list.append(guess_language(os.path.join(bench_dir, dir)))
 
