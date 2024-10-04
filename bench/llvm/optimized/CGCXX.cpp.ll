@@ -1339,128 +1339,125 @@ _ZN5clang20ItaniumVTableContext15getVTableLayoutEPKNS_13CXXRecordDeclE.exit: ; p
   %70 = lshr i32 %69, 4
   %71 = lshr i32 %69, 9
   %72 = xor i32 %70, %71
-  %73 = zext nneg i32 %72 to i64
-  %74 = mul i64 %73, 2082041510483722240
-  %75 = lshr exact i64 %74, 31
-  %76 = trunc i64 %75 to i32
-  %77 = add i32 %65, -1
-  %.01517.i.i.i.i = and i32 %77, %76
-  %78 = zext i32 %.01517.i.i.i.i to i64
-  %79 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1160", ptr %63, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %4, %80
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp eq i64 %83, 0
-  %85 = select i1 %81, i1 %84, i1 false
-  br i1 %85, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i, label %.lr.ph.i.i.i.i
+  %73 = mul i32 %72, 969526130
+  %74 = add i32 %65, -1
+  %.01517.i.i.i.i = and i32 %74, %73
+  %75 = zext i32 %.01517.i.i.i.i to i64
+  %76 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1160", ptr %63, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %4, %77
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp eq i64 %80, 0
+  %82 = select i1 %78, i1 %81, i1 false
+  br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %67, %91
-  %86 = phi i64 [ %99, %91 ], [ %83, %67 ]
-  %87 = phi ptr [ %96, %91 ], [ %80, %67 ]
-  %.01519.i.i.i.i = phi i32 [ %.015.i.i.i.i, %91 ], [ %.01517.i.i.i.i, %67 ]
-  %.01418.i.i.i.i = phi i32 [ %92, %91 ], [ 1, %67 ]
-  %88 = icmp eq ptr %87, inttoptr (i64 -4096 to ptr)
-  %89 = icmp eq i64 %86, 9223372036854775807
-  %90 = select i1 %88, i1 %89, i1 false
-  br i1 %90, label %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, label %91
+.lr.ph.i.i.i.i:                                   ; preds = %67, %88
+  %83 = phi i64 [ %96, %88 ], [ %80, %67 ]
+  %84 = phi ptr [ %93, %88 ], [ %77, %67 ]
+  %.01519.i.i.i.i = phi i32 [ %.015.i.i.i.i, %88 ], [ %.01517.i.i.i.i, %67 ]
+  %.01418.i.i.i.i = phi i32 [ %89, %88 ], [ 1, %67 ]
+  %85 = icmp eq ptr %84, inttoptr (i64 -4096 to ptr)
+  %86 = icmp eq i64 %83, 9223372036854775807
+  %87 = select i1 %85, i1 %86, i1 false
+  br i1 %87, label %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, label %88
 
-91:                                               ; preds = %.lr.ph.i.i.i.i
-  %92 = add i32 %.01418.i.i.i.i, 1
-  %93 = add i32 %.01418.i.i.i.i, %.01519.i.i.i.i
-  %.015.i.i.i.i = and i32 %93, %77
-  %94 = zext i32 %.015.i.i.i.i to i64
-  %95 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1160", ptr %63, i64 %94
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %4, %96
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp eq i64 %99, 0
-  %101 = select i1 %97, i1 %100, i1 false
-  br i1 %101, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
+88:                                               ; preds = %.lr.ph.i.i.i.i
+  %89 = add i32 %.01418.i.i.i.i, 1
+  %90 = add i32 %.01418.i.i.i.i, %.01519.i.i.i.i
+  %.015.i.i.i.i = and i32 %90, %74
+  %91 = zext i32 %.015.i.i.i.i to i64
+  %92 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1160", ptr %63, i64 %91
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp eq ptr %4, %93
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %96 = load i64, ptr %95, align 8
+  %97 = icmp eq i64 %96, 0
+  %98 = select i1 %94, i1 %97, i1 false
+  br i1 %98, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i: ; preds = %91, %67
-  %102 = phi i64 [ %78, %67 ], [ %94, %91 ]
-  %103 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1160", ptr %63, i64 %102, i32 0, i32 1
-  %.sroa.0.0.copyload.i.i = load i64, ptr %103, align 4
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i: ; preds = %88, %67
+  %99 = phi i64 [ %75, %67 ], [ %91, %88 ]
+  %100 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1160", ptr %63, i64 %99, i32 0, i32 1
+  %.sroa.0.0.copyload.i.i = load i64, ptr %100, align 4
   br label %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
 
 _ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN5clang20ItaniumVTableContext15getVTableLayoutEPKNS_13CXXRecordDeclE.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i ], [ 0, %_ZN5clang20ItaniumVTableContext15getVTableLayoutEPKNS_13CXXRecordDeclE.exit ], [ 0, %.lr.ph.i.i.i.i ]
   %.sroa.222.0.extract.shift = lshr i64 %.sroa.0.0.i.i, 32
-  %104 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %105 = load i64, ptr %104, align 8
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit, label %107
+  %101 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %102 = load i64, ptr %101, align 8
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit, label %104
 
-107:                                              ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
-  %108 = and i64 %.sroa.0.0.i.i, 4294967295
-  %109 = load ptr, ptr %61, align 8
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
-  %111 = load i64, ptr %110, align 8
+104:                                              ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
+  %105 = and i64 %.sroa.0.0.i.i, 4294967295
+  %106 = load ptr, ptr %61, align 8
+  %107 = getelementptr inbounds i64, ptr %106, i64 %105
+  %108 = load i64, ptr %107, align 8
   br label %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
 
-_ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, %107
-  %.0.i = phi i64 [ %111, %107 ], [ 0, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit ]
-  %112 = add i64 %.sroa.222.0.extract.shift, %22
-  %113 = add i64 %112, %.0.i
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %115 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %116 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %116, align 1
+_ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, %104
+  %.0.i = phi i64 [ %108, %104 ], [ 0, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit ]
+  %109 = add i64 %.sroa.222.0.extract.shift, %22
+  %110 = add i64 %109, %.0.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %113, align 1
   store ptr @.str.1, ptr %7, align 8
-  store i8 3, ptr %115, align 8
-  %117 = call noundef ptr @_ZN4llvm13IRBuilderBase26CreateConstInBoundsGEP1_64EPNS_4TypeEPNS_5ValueEmRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %114, ptr noundef %19, ptr noundef %16, i64 noundef %113, ptr noundef nonnull align 8 dereferenceable(34) %7)
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 130
-  %119 = load i8, ptr %118, align 2
-  %120 = call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %119, i1 false)
-  %121 = sub nsw i8 7, %120
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sroa.07.0.insert.ext = zext i8 %121 to i16
+  store i8 3, ptr %112, align 8
+  %114 = call noundef ptr @_ZN4llvm13IRBuilderBase26CreateConstInBoundsGEP1_64EPNS_4TypeEPNS_5ValueEmRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %111, ptr noundef %19, ptr noundef %16, i64 noundef %110, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 130
+  %116 = load i8, ptr %115, align 2
+  %117 = call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %116, i1 false)
+  %118 = sub nsw i8 7, %117
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.07.0.insert.ext = zext i8 %118 to i16
   %.sroa.07.0.insert.insert = or disjoint i16 %.sroa.07.0.insert.ext, 256
-  store i16 257, ptr %122, align 8
-  %123 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %114, ptr noundef %19, ptr noundef %117, i16 %.sroa.07.0.insert.insert, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %8)
-  %124 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1668
-  %127 = load i32, ptr %126, align 4
-  %128 = and i32 %127, 3
-  %.not = icmp eq i32 %128, 0
-  br i1 %.not, label %145, label %129
+  store i16 257, ptr %119, align 8
+  %120 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %111, ptr noundef %19, ptr noundef %114, i16 %.sroa.07.0.insert.insert, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %8)
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1668
+  %124 = load i32, ptr %123, align 4
+  %125 = and i32 %124, 3
+  %.not = icmp eq i32 %125, 0
+  br i1 %.not, label %142, label %126
 
-129:                                              ; preds = %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
-  %130 = load ptr, ptr %20, align 8
-  %131 = and i64 %2, -8
-  %132 = inttoptr i64 %131 to ptr
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 32
-  %135 = load ptr, ptr %134, align 8
-  %136 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(33) %132) #10
-  %137 = ptrtoint ptr %136 to i64
-  %138 = and i64 %2, 7
-  %139 = and i64 %137, -8
-  %140 = or disjoint i64 %139, %138
-  %141 = call { i64, i32 } @_ZN5clang20ItaniumVTableContext18findOriginalMethodENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(140) %130, i64 %140, i32 %3) #10
-  %.fca.0.extract = extractvalue { i64, i32 } %141, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %141, 1
-  %142 = call { i64, ptr } @_ZN5clang7CodeGen15CodeGenFunction19EmitPointerAuthInfoERKNS_17PointerAuthSchemaEPN4llvm5ValueENS_10GlobalDeclENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 4 dereferenceable(4) %126, ptr noundef %117, i64 %.fca.0.extract, i32 %.fca.1.extract, i64 0) #10
-  %143 = extractvalue { i64, ptr } %142, 0
-  %144 = extractvalue { i64, ptr } %142, 1
-  br label %145
+126:                                              ; preds = %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
+  %127 = load ptr, ptr %20, align 8
+  %128 = and i64 %2, -8
+  %129 = inttoptr i64 %128 to ptr
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = call noundef ptr %132(ptr noundef nonnull align 8 dereferenceable(33) %129) #10
+  %134 = ptrtoint ptr %133 to i64
+  %135 = and i64 %2, 7
+  %136 = and i64 %134, -8
+  %137 = or disjoint i64 %136, %135
+  %138 = call { i64, i32 } @_ZN5clang20ItaniumVTableContext18findOriginalMethodENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(140) %127, i64 %137, i32 %3) #10
+  %.fca.0.extract = extractvalue { i64, i32 } %138, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %138, 1
+  %139 = call { i64, ptr } @_ZN5clang7CodeGen15CodeGenFunction19EmitPointerAuthInfoERKNS_17PointerAuthSchemaEPN4llvm5ValueENS_10GlobalDeclENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 4 dereferenceable(4) %123, ptr noundef %114, i64 %.fca.0.extract, i32 %.fca.1.extract, i64 0) #10
+  %140 = extractvalue { i64, ptr } %139, 0
+  %141 = extractvalue { i64, ptr } %139, 1
+  br label %142
 
-145:                                              ; preds = %129, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
-  %.sroa.45.0 = phi ptr [ %144, %129 ], [ null, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
-  %.sroa.04.sroa.0.0.insert.insert = phi i64 [ %143, %129 ], [ 0, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
-  %146 = ptrtoint ptr %123 to i64
-  store i64 %146, ptr %0, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %147, align 8
+142:                                              ; preds = %126, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
+  %.sroa.45.0 = phi ptr [ %141, %126 ], [ null, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
+  %.sroa.04.sroa.0.0.insert.insert = phi i64 [ %140, %126 ], [ 0, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
+  %143 = ptrtoint ptr %120 to i64
+  store i64 %143, ptr %0, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %144, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %3, ptr %.sroa.3.0..sroa_idx, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.04.sroa.0.0.insert.insert, ptr %148, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.04.sroa.0.0.insert.insert, ptr %145, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.sroa.45.0, ptr %.sroa.45.0..sroa_idx, align 8
   ret void

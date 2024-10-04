@@ -9731,11 +9731,10 @@ if.end32:                                         ; preds = %if.end22
   br i1 %cmp46, label %if.then48, label %if.else53
 
 if.then48:                                        ; preds = %if.end32
-  %sext = mul i64 %call43, 257698037760
-  %conv49 = lshr exact i64 %sext, 32
+  %13 = mul i64 %call43, 60
   %add.ptr50 = getelementptr inbounds i8, ptr %11, i64 1
   %call51 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr50, ptr noundef null, i32 noundef 10) #21
-  %add = add i64 %call51, %conv49
+  %add = add i64 %call51, %13
   %conv52 = trunc i64 %add to i32
   br label %if.end56
 
@@ -9749,16 +9748,16 @@ if.else53:                                        ; preds = %if.end32
 
 if.end56:                                         ; preds = %if.else53, %if.then48
   %zoneoffset.0 = phi i32 [ %conv52, %if.then48 ], [ %add55, %if.else53 ]
-  %13 = load i32, ptr %arrayidx38, align 8
-  %idxprom = sext i32 %13 to i64
+  %14 = load i32, ptr %arrayidx38, align 8
+  %idxprom = sext i32 %14 to i64
   %arrayidx59 = getelementptr inbounds i8, ptr %scevgep, i64 %idxprom
-  %14 = load i8, ptr %arrayidx59, align 1
-  %cmp61 = icmp eq i8 %14, 45
+  %15 = load i8, ptr %arrayidx59, align 1
+  %cmp61 = icmp eq i8 %15, 45
   %sub = sub nsw i32 0, %zoneoffset.0
-  %15 = select i1 %cmp61, i32 %zoneoffset.0, i32 %sub
+  %16 = select i1 %cmp61, i32 %zoneoffset.0, i32 %sub
   %mul65 = mul nsw i32 %conv34, 60
   %add66 = add nsw i32 %mul65, %conv37
-  %sub67 = add i32 %add66, %15
+  %sub67 = add i32 %add66, %16
   %cmp69 = icmp eq i32 %sub67, %epoch_hour.0
   %conv70 = zext i1 %cmp69 to i32
   br label %return

@@ -4327,114 +4327,113 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8Dense
   %21 = mul i32 %20, 37
   %22 = load i8, ptr %1, align 8
   %23 = sext i8 %22 to i64
-  %24 = mul i64 %23, 3248559593059516416
-  %25 = lshr exact i64 %24, 31
-  %26 = zext i32 %21 to i64
-  %27 = shl nuw i64 %26, 32
-  %28 = and i64 %25, 4294967294
-  %29 = or disjoint i64 %28, %27
-  %30 = mul i64 %29, -4658895280553007687
-  %31 = lshr i64 %30, 31
-  %32 = xor i64 %31, %30
-  %33 = zext i32 %18 to i64
-  %34 = shl nuw i64 %33, 32
-  %35 = and i64 %32, 4294967295
-  %36 = or disjoint i64 %35, %34
-  %37 = mul i64 %36, -4658895280553007687
-  %38 = lshr i64 %37, 31
-  %39 = xor i64 %38, %37
-  %40 = zext nneg i32 %15 to i64
-  %41 = shl nuw nsw i64 %40, 32
-  %42 = and i64 %39, 4294967295
-  %43 = or disjoint i64 %42, %41
-  %44 = mul i64 %43, -4658895280553007687
-  %45 = lshr i64 %44, 31
-  %46 = xor i64 %45, %44
-  %47 = trunc i64 %46 to i32
-  %48 = add i32 %6, -1
-  br label %49
+  %24 = mul nsw i64 %23, 1512728442
+  %25 = zext i32 %21 to i64
+  %26 = shl nuw i64 %25, 32
+  %27 = and i64 %24, 4294967294
+  %28 = or disjoint i64 %27, %26
+  %29 = mul i64 %28, -4658895280553007687
+  %30 = lshr i64 %29, 31
+  %31 = xor i64 %30, %29
+  %32 = zext i32 %18 to i64
+  %33 = shl nuw i64 %32, 32
+  %34 = and i64 %31, 4294967295
+  %35 = or disjoint i64 %34, %33
+  %36 = mul i64 %35, -4658895280553007687
+  %37 = lshr i64 %36, 31
+  %38 = xor i64 %37, %36
+  %39 = zext nneg i32 %15 to i64
+  %40 = shl nuw nsw i64 %39, 32
+  %41 = and i64 %38, 4294967295
+  %42 = or disjoint i64 %41, %40
+  %43 = mul i64 %42, -4658895280553007687
+  %44 = lshr i64 %43, 31
+  %45 = xor i64 %44, %43
+  %46 = trunc i64 %45 to i32
+  %47 = add i32 %6, -1
+  br label %48
 
-49:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30, %8
+48:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30, %8
   %.026 = phi ptr [ null, %8 ], [ %spec.select, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30 ]
-  %.pn = phi i32 [ %47, %8 ], [ %91, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30 ]
-  %.024 = phi i32 [ 1, %8 ], [ %90, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30 ]
-  %.025 = and i32 %.pn, %48
-  %50 = zext i32 %.025 to i64
-  %51 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %10, %53
-  br i1 %54, label %55, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
+  %.pn = phi i32 [ %46, %8 ], [ %90, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30 ]
+  %.024 = phi i32 [ 1, %8 ], [ %89, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30 ]
+  %.025 = and i32 %.pn, %47
+  %49 = zext i32 %.025 to i64
+  %50 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %49
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %10, %52
+  br i1 %53, label %54, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %51, i64 8
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %17, %57
-  br i1 %58, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %17, %56
+  br i1 %57, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
 
-_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit: ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %51, i64 4
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %20, %60
-  %62 = load i8, ptr %51, align 1
-  %63 = icmp eq i8 %22, %62
-  %64 = select i1 %61, i1 %63, i1 false
-  br i1 %64, label %.loopexit, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
+_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit: ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %50, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %20, %59
+  %61 = load i8, ptr %50, align 1
+  %62 = icmp eq i8 %22, %61
+  %63 = select i1 %60, i1 %62, i1 false
+  br i1 %63, label %.loopexit, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
 
-_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread: ; preds = %55, %49, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit
-  %magicptr = ptrtoint ptr %53 to i64
+_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread: ; preds = %54, %48, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit
+  %magicptr = ptrtoint ptr %52 to i64
   switch i64 %magicptr, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30 [
-    i64 -4096, label %65
-    i64 -8192, label %77
+    i64 -4096, label %64
+    i64 -8192, label %76
   ]
 
-65:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
-  %66 = getelementptr inbounds i8, ptr %51, i64 8
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp eq i32 %67, -1
-  br i1 %68, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
+64:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
+  %65 = getelementptr inbounds i8, ptr %50, i64 8
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, -1
+  br i1 %67, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
 
-_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29: ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %51, i64 4
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp eq i32 %70, -1
-  %72 = load i8, ptr %51, align 1
-  %73 = icmp eq i8 %72, -1
-  %74 = select i1 %71, i1 %73, i1 false
-  br i1 %74, label %75, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
+_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29: ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %50, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %69, -1
+  %71 = load i8, ptr %50, align 1
+  %72 = icmp eq i8 %71, -1
+  %73 = select i1 %70, i1 %72, i1 false
+  br i1 %73, label %74, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
 
-75:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29
+74:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29
   %.not = icmp eq ptr %.026, null
-  %76 = select i1 %.not, ptr %51, ptr %.026
+  %75 = select i1 %.not, ptr %50, ptr %.026
   br label %.loopexit
 
-77:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
-  %78 = getelementptr inbounds i8, ptr %51, i64 8
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %79, -2
-  br i1 %80, label %81, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
+76:                                               ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread
+  %77 = getelementptr inbounds i8, ptr %50, i64 8
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %78, -2
+  br i1 %79, label %80, label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %51, i64 4
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp eq i32 %83, -2
-  %85 = load i8, ptr %51, align 1
-  %86 = icmp eq i8 %85, -2
-  %87 = select i1 %84, i1 %86, i1 false
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %50, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, -2
+  %84 = load i8, ptr %50, align 1
+  %85 = icmp eq i8 %84, -2
+  %86 = select i1 %83, i1 %85, i1 false
   br label %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30
 
-_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30: ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29, %65, %77, %81
-  %88 = phi i1 [ false, %77 ], [ %87, %81 ], [ false, %65 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread ]
-  %89 = icmp eq ptr %.026, null
-  %or.cond.not = select i1 %88, i1 %89, i1 false
-  %spec.select = select i1 %or.cond.not, ptr %51, ptr %.026
-  %90 = add i32 %.024, 1
-  %91 = add i32 %.025, %.024
-  br label %49, !llvm.loop !67
+_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit30: ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29, %64, %76, %80
+  %87 = phi i1 [ false, %76 ], [ %86, %80 ], [ false, %64 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit29 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit.thread ]
+  %88 = icmp eq ptr %.026, null
+  %or.cond.not = select i1 %87, i1 %88, i1 false
+  %spec.select = select i1 %or.cond.not, ptr %50, ptr %.026
+  %89 = add i32 %.024, 1
+  %90 = add i32 %.025, %.024
+  br label %48, !llvm.loop !67
 
-.loopexit:                                        ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit, %3, %75
-  %.sink = phi ptr [ %76, %75 ], [ null, %3 ], [ %51, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit ]
-  %.0 = phi i1 [ false, %75 ], [ false, %3 ], [ true, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit ]
+.loopexit:                                        ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit, %3, %74
+  %.sink = phi ptr [ %75, %74 ], [ null, %3 ], [ %50, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit ]
+  %.0 = phi i1 [ false, %74 ], [ false, %3 ], [ true, %_ZN4llvm12DenseMapInfoISt5tupleIJPKNS_5ValueEjjcEEvE7isEqualERKS5_S8_.exit ]
   store ptr %.sink, ptr %2, align 8
   ret i1 %.0
 }

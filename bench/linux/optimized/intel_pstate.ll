@@ -5904,7 +5904,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_turbo_pct(p
 
 6:                                                ; preds = %3
   tail call void @mutex_unlock(ptr noundef nonnull @intel_pstate_driver_lock) #26
-  br label %32
+  br label %29
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @all_cpu_data, align 8
@@ -5923,21 +5923,18 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_turbo_pct(p
   %20 = sext i32 %15 to i64
   %21 = shl nsw i64 %19, 8
   %22 = sdiv i64 %21, %20
-  %23 = shl i64 %22, 32
-  %24 = ashr exact i64 %23, 32
-  %25 = mul nsw i64 %24, 25600
-  %26 = lshr exact i64 %25, 8
-  %27 = trunc i64 %26 to i32
-  %28 = ashr i32 %27, 8
-  %29 = sub nsw i32 100, %28
+  %23 = trunc i64 %22 to i32
+  %24 = mul i32 %23, 100
+  %25 = ashr i32 %24, 8
+  %26 = sub nsw i32 100, %25
   tail call void @mutex_unlock(ptr noundef nonnull @intel_pstate_driver_lock) #26
-  %30 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %29) #26
-  %31 = sext i32 %30 to i64
-  br label %32
+  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %26) #26
+  %28 = sext i32 %27 to i64
+  br label %29
 
-32:                                               ; preds = %7, %6
-  %33 = phi i64 [ %31, %7 ], [ -11, %6 ]
-  ret i64 %33
+29:                                               ; preds = %7, %6
+  %30 = phi i64 [ %28, %7 ], [ -11, %6 ]
+  ret i64 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

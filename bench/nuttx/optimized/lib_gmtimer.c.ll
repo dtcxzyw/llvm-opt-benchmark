@@ -80,44 +80,43 @@ clock_utc2calendar.exit:                          ; preds = %27, %._crit_edge52.
   %37 = ashr exact i64 %sext, 32
   %38 = sub i64 %35, %37
   %39 = udiv i64 %38, 60
-  %sext27 = mul i64 %39, 257698037760
-  %40 = lshr exact i64 %sext27, 32
-  %41 = sub i64 %38, %40
-  %42 = trunc i64 %41 to i32
-  %43 = trunc i64 %39 to i32
-  %44 = trunc i64 %36 to i32
-  %45 = tail call i32 @clock_daysbeforemonth(i32 noundef %.141.i, i1 noundef zeroext %.0.in.lcssa.i) #3
-  %46 = trunc i64 %.042.lcssa.i to i32
-  %47 = add i32 %46, 1
-  %48 = sub i32 %47, %45
-  %49 = add nsw i32 %.pre-phi.i, -1900
-  %50 = getelementptr inbounds i8, ptr %1, i64 20
-  store i32 %49, ptr %50, align 4
-  %51 = add nsw i32 %.pre-phi54.i, -1
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
-  store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 %48, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %44, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %43, ptr %55, align 4
-  store i32 %42, ptr %1, align 8
-  %56 = tail call i32 @clock_dayoftheweek(i32 noundef %48, i32 noundef %.pre-phi54.i, i32 noundef %.pre-phi.i) #3
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 %56, ptr %57, align 8
-  %58 = add nsw i32 %48, -1
-  %59 = load i32, ptr %52, align 8
-  %60 = tail call i32 @clock_isleapyear(i32 noundef %.pre-phi.i) #3
-  %61 = icmp ne i32 %60, 0
-  %62 = tail call i32 @clock_daysbeforemonth(i32 noundef %59, i1 noundef zeroext %61) #3
-  %63 = add nsw i32 %58, %62
-  %64 = getelementptr inbounds i8, ptr %1, i64 28
-  store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
-  store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+  %.neg28 = mul i64 %39, 4294967236
+  %40 = add i64 %.neg28, %38
+  %41 = trunc i64 %40 to i32
+  %42 = trunc i64 %39 to i32
+  %43 = trunc i64 %36 to i32
+  %44 = tail call i32 @clock_daysbeforemonth(i32 noundef %.141.i, i1 noundef zeroext %.0.in.lcssa.i) #3
+  %45 = trunc i64 %.042.lcssa.i to i32
+  %46 = add i32 %45, 1
+  %47 = sub i32 %46, %44
+  %48 = add nsw i32 %.pre-phi.i, -1900
+  %49 = getelementptr inbounds i8, ptr %1, i64 20
+  store i32 %48, ptr %49, align 4
+  %50 = add nsw i32 %.pre-phi54.i, -1
+  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %47, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %43, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %42, ptr %54, align 4
+  store i32 %41, ptr %1, align 8
+  %55 = tail call i32 @clock_dayoftheweek(i32 noundef %47, i32 noundef %.pre-phi54.i, i32 noundef %.pre-phi.i) #3
+  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 %55, ptr %56, align 8
+  %57 = add nsw i32 %47, -1
+  %58 = load i32, ptr %51, align 8
+  %59 = tail call i32 @clock_isleapyear(i32 noundef %.pre-phi.i) #3
+  %60 = icmp ne i32 %59, 0
+  %61 = tail call i32 @clock_daysbeforemonth(i32 noundef %58, i1 noundef zeroext %60) #3
+  %62 = add nsw i32 %57, %61
+  %63 = getelementptr inbounds i8, ptr %1, i64 28
+  store i32 %62, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  store i32 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   ret ptr %1
 }
 
