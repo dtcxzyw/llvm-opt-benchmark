@@ -10022,7 +10022,7 @@ define internal void @_ZN12clap_builder6output13help_template15option_sort_key17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %8 = add nsw i32 %6, -65
   %.018 = icmp ult i32 %8, 26
-  %9 = xor i32 %6, 32
+  %9 = or disjoint i32 %6, 32
   %.0 = select i1 %.018, i32 %9, i32 %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.040)
   store i32 0, ptr %.sroa.040, align 4

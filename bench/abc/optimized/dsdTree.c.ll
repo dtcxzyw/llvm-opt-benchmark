@@ -1400,59 +1400,53 @@ define i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = icmp eq ptr %1, %7
-  br i1 %8, label %common.ret37, label %.lr.ph
+  br i1 %8, label %common.ret40, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr1823 = phi ptr [ %14, %tailrecurse ], [ %1, %2 ]
-  %accumulator.tr22 = phi i64 [ %15, %tailrecurse ], [ 0, %2 ]
-  %9 = icmp eq ptr %.tr1823, %4
-  br i1 %9, label %._crit_edge.loopexit, label %10
+.lr.ph.preheader:                                 ; preds = %2
+  %9 = icmp eq ptr %1, %4
+  br i1 %9, label %common.ret40, label %.lr.ph35
 
-10:                                               ; preds = %.lr.ph
-  %11 = ptrtoint ptr %.tr1823 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %17, label %tailrecurse
+.lr.ph35:                                         ; preds = %.lr.ph.preheader, %tailrecurse
+  %accumulator.tr2234 = phi i64 [ %14, %tailrecurse ], [ 0, %.lr.ph.preheader ]
+  %.tr182333 = phi ptr [ %13, %tailrecurse ], [ %1, %.lr.ph.preheader ]
+  %10 = ptrtoint ptr %.tr182333 to i64
+  %11 = and i64 %10, 1
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %16, label %tailrecurse
 
-tailrecurse:                                      ; preds = %10
-  %13 = and i64 %11, -2
-  %14 = inttoptr i64 %13 to ptr
-  %15 = xor i64 %accumulator.tr22, -1
-  %16 = icmp eq i64 %13, %6
-  br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
+tailrecurse:                                      ; preds = %.lr.ph35
+  %12 = xor i64 %10, 1
+  %13 = inttoptr i64 %12 to ptr
+  %14 = xor i64 %accumulator.tr2234, -1
+  %15 = icmp eq ptr %4, %13
+  br i1 %15, label %common.ret40, label %.lr.ph35
 
-common.ret37:                                     ; preds = %._crit_edge.loopexit, %2, %17
-  %common.ret37.op = phi i64 [ %accumulator.ret.tr, %17 ], [ 0, %2 ], [ %37, %._crit_edge.loopexit ]
-  ret i64 %common.ret37.op
+common.ret40:                                     ; preds = %2, %.lr.ph.preheader, %tailrecurse, %16
+  %common.ret40.op = phi i64 [ %accumulator.ret.tr, %16 ], [ 0, %2 ], [ -1, %.lr.ph.preheader ], [ %accumulator.tr2234, %tailrecurse ]
+  ret i64 %common.ret40.op
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 312
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %.tr1823, align 8
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %.tr1823, i64 16
-  %25 = getelementptr inbounds i8, ptr %.tr1823, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %26)
-  %28 = load ptr, ptr %24, align 8
-  %29 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %28)
-  %30 = sext i32 %23 to i64
-  %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %30
-  %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, %29
-  %34 = xor i64 %32, -1
-  %35 = and i64 %27, %34
-  %36 = or i64 %33, %35
-  %accumulator.ret.tr = xor i64 %36, %accumulator.tr22
-  br label %common.ret37
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %tailrecurse
-  %accumulator.tr.lcssa.ph = phi i64 [ %15, %tailrecurse ], [ %accumulator.tr22, %.lr.ph ]
-  %.0.ph = phi i64 [ 0, %tailrecurse ], [ -1, %.lr.ph ]
-  %37 = xor i64 %.0.ph, %accumulator.tr.lcssa.ph
-  br label %common.ret37
+16:                                               ; preds = %.lr.ph35
+  %17 = getelementptr inbounds i8, ptr %0, i64 312
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %.tr182333, align 8
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds i32, ptr %18, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %.tr182333, i64 16
+  %24 = getelementptr inbounds i8, ptr %.tr182333, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %25)
+  %27 = load ptr, ptr %23, align 8
+  %28 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %27)
+  %29 = sext i32 %22 to i64
+  %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, %28
+  %33 = xor i64 %31, -1
+  %34 = and i64 %26, %33
+  %35 = or i64 %32, %34
+  %accumulator.ret.tr = xor i64 %35, %accumulator.tr2234
+  br label %common.ret40
 }
 
 ; Function Attrs: nounwind uwtable

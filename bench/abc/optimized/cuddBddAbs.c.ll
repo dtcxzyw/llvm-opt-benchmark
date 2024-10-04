@@ -621,7 +621,7 @@ tailrecurse:                                      ; preds = %60
   %162 = load i32, ptr %159, align 4
   %163 = add i32 %162, -1
   store i32 %163, ptr %159, align 4
-  br label %192
+  br label %194
 
 164:                                              ; preds = %138
   %165 = icmp eq ptr %123, %135
@@ -634,58 +634,60 @@ tailrecurse:                                      ; preds = %60
   %169 = load i32, ptr %142, align 4
   %170 = add i32 %169, -1
   store i32 %170, ptr %142, align 4
-  br label %192
+  br label %194
 
 171:                                              ; preds = %164
   %172 = and i64 %129, 1
   %.not187 = icmp eq i64 %172, 0
-  br i1 %.not187, label %183, label %173
+  br i1 %.not187, label %185, label %173
 
 173:                                              ; preds = %171
-  %174 = xor i64 %139, 1
+  %174 = xor i64 %129, 1
   %175 = inttoptr i64 %174 to ptr
-  %176 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0160, ptr noundef nonnull %131, ptr noundef %175) #4
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %178, label %179
+  %176 = xor i64 %139, 1
+  %177 = inttoptr i64 %176 to ptr
+  %178 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0160, ptr noundef %175, ptr noundef %177) #4
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %180, label %181
 
-178:                                              ; preds = %173
+180:                                              ; preds = %173
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %123) #4
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %135) #4
   br label %.loopexit
 
-179:                                              ; preds = %173
-  %180 = ptrtoint ptr %176 to i64
-  %181 = xor i64 %180, 1
-  %182 = inttoptr i64 %181 to ptr
-  br label %187
+181:                                              ; preds = %173
+  %182 = ptrtoint ptr %178 to i64
+  %183 = xor i64 %182, 1
+  %184 = inttoptr i64 %183 to ptr
+  br label %189
 
-183:                                              ; preds = %171
-  %184 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0160, ptr noundef nonnull %123, ptr noundef nonnull %135) #4
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %186, label %187
+185:                                              ; preds = %171
+  %186 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0160, ptr noundef nonnull %123, ptr noundef nonnull %135) #4
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %189
 
-186:                                              ; preds = %183
+188:                                              ; preds = %185
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %123) #4
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %135) #4
   br label %.loopexit
 
-187:                                              ; preds = %183, %179
-  %.1 = phi ptr [ %182, %179 ], [ %184, %183 ]
-  %188 = load i32, ptr %142, align 4
-  %189 = add i32 %188, -1
-  store i32 %189, ptr %142, align 4
-  %190 = load i32, ptr %132, align 4
+189:                                              ; preds = %185, %181
+  %.1 = phi ptr [ %184, %181 ], [ %186, %185 ]
+  %190 = load i32, ptr %142, align 4
   %191 = add i32 %190, -1
-  store i32 %191, ptr %132, align 4
-  br label %192
+  store i32 %191, ptr %142, align 4
+  %192 = load i32, ptr %132, align 4
+  %193 = add i32 %192, -1
+  store i32 %193, ptr %132, align 4
+  br label %194
 
-192:                                              ; preds = %166, %187, %153
-  %.0168 = phi ptr [ %156, %153 ], [ %123, %166 ], [ %.1, %187 ]
+194:                                              ; preds = %166, %189, %153
+  %.0168 = phi ptr [ %156, %153 ], [ %123, %166 ], [ %.1, %189 ]
   tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 10, ptr noundef %spec.select188, ptr noundef %spec.select, ptr noundef nonnull %.tr193236, ptr noundef %.0168) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %12, %42, %4, %122, %192, %186, %178, %152, %137, %127, %40, %36, %29, %25, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %33, %29 ], [ %37, %36 ], [ %41, %40 ], [ %14, %127 ], [ null, %137 ], [ null, %152 ], [ %.0168, %192 ], [ null, %178 ], [ null, %186 ], [ null, %122 ], [ %9, %4 ], [ %87, %tailrecurse ], [ %14, %12 ], [ %59, %42 ]
+.loopexit:                                        ; preds = %tailrecurse, %12, %42, %4, %122, %194, %188, %180, %152, %137, %127, %40, %36, %29, %25, %21
+  %.0 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %33, %29 ], [ %37, %36 ], [ %41, %40 ], [ %14, %127 ], [ null, %137 ], [ null, %152 ], [ %.0168, %194 ], [ null, %180 ], [ null, %188 ], [ null, %122 ], [ %9, %4 ], [ %87, %tailrecurse ], [ %14, %12 ], [ %59, %42 ]
   ret ptr %.0
 }
 

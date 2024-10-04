@@ -6936,7 +6936,7 @@ do.body.i:                                        ; preds = %if.then28.i, %do.bo
   br i1 %cmp31.i, label %do.body.i, label %do.end.i, !llvm.loop !87
 
 do.end.i:                                         ; preds = %do.body.i
-  %xor.i = and i32 %x.2.i, -2
+  %xor.i = xor i32 %x.2.i, 1
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %do.end.i, %if.then28.i
@@ -6961,7 +6961,7 @@ if.then42.i:                                      ; preds = %if.end38.i
   %not43.i = xor i32 %18, -1
   %idx.ext44.i = zext nneg i32 %not43.i to i64
   %add.ptr45.i = getelementptr inbounds i32, ptr %PA, i64 %idx.ext44.i
-  %or46.i = or disjoint i32 %x.3.i, 1
+  %or46.i = or i32 %x.3.i, 1
   br label %for.cond.i.outer.backedge
 
 for.cond.i.outer.backedge:                        ; preds = %if.then42.i, %if.else47.i, %if.then146.i, %if.else151.i
@@ -7003,7 +7003,7 @@ do.body58.i:                                      ; preds = %if.then54.i, %do.bo
   br i1 %cmp62.i, label %do.body58.i, label %do.end64.i, !llvm.loop !88
 
 do.end64.i:                                       ; preds = %do.body58.i
-  %xor65.i = and i32 %x.2.i, -3
+  %xor65.i = xor i32 %x.2.i, 2
   br label %if.end66.i
 
 if.end66.i:                                       ; preds = %do.end64.i, %if.then54.i
@@ -7039,7 +7039,7 @@ if.end76.i:                                       ; preds = %if.end66.i
   %26 = load i32, ptr %incdec.ptr68.i, align 4
   %cmp77.i = icmp slt i32 %26, 0
   %not80.i = xor i32 %26, -1
-  %or83.i = or disjoint i32 %x.5.i, 2
+  %or83.i = or i32 %x.5.i, 2
   %idx.ext81.i.pn.in = select i1 %cmp77.i, i32 %not80.i, i32 %26
   %x.2.i.be = select i1 %cmp77.i, i32 %or83.i, i32 %x.5.i
   %idx.ext81.i.pn = zext i32 %idx.ext81.i.pn.in to i64
@@ -7066,7 +7066,7 @@ do.body92.i:                                      ; preds = %if.else88.i, %do.bo
   br i1 %cmp96.i, label %do.body92.i, label %do.end98.i, !llvm.loop !90
 
 do.end98.i:                                       ; preds = %do.body92.i
-  %xor99.i = and i32 %x.2.i, -2
+  %xor99.i = xor i32 %x.2.i, 1
   br label %if.end100.i
 
 if.end100.i:                                      ; preds = %do.end98.i, %if.else88.i
@@ -7100,13 +7100,17 @@ do.body111.i:                                     ; preds = %if.end106.i, %do.bo
   store i32 %33, ptr %c.5.i, align 4
   %34 = load i32, ptr %incdec.ptr113.i, align 4
   %cmp115.i = icmp slt i32 %34, 0
-  br i1 %cmp115.i, label %do.body111.i, label %if.end119.i, !llvm.loop !91
+  br i1 %cmp115.i, label %do.body111.i, label %do.end117.i, !llvm.loop !91
 
-if.end119.i:                                      ; preds = %do.body111.i, %if.end106.i
-  %35 = phi i32 [ %.pre160.i, %if.end106.i ], [ %34, %do.body111.i ]
-  %c.4.i = phi ptr [ %c.0.i, %if.end106.i ], [ %incdec.ptr113.i, %do.body111.i ]
-  %a.9.i = phi ptr [ %incdec.ptr102.i, %if.end106.i ], [ %incdec.ptr112.i, %do.body111.i ]
-  %x.7.i = phi i32 [ %x.6.i, %if.end106.i ], [ 0, %do.body111.i ]
+do.end117.i:                                      ; preds = %do.body111.i
+  %xor118.i = xor i32 %x.6.i, 2
+  br label %if.end119.i
+
+if.end119.i:                                      ; preds = %do.end117.i, %if.end106.i
+  %35 = phi i32 [ %34, %do.end117.i ], [ %.pre160.i, %if.end106.i ]
+  %c.4.i = phi ptr [ %incdec.ptr113.i, %do.end117.i ], [ %c.0.i, %if.end106.i ]
+  %a.9.i = phi ptr [ %incdec.ptr112.i, %do.end117.i ], [ %incdec.ptr102.i, %if.end106.i ]
+  %x.7.i = phi i32 [ %xor118.i, %do.end117.i ], [ %x.6.i, %if.end106.i ]
   %incdec.ptr120.i = getelementptr inbounds i8, ptr %a.9.i, i64 -4
   store i32 %35, ptr %a.9.i, align 4
   %36 = load i32, ptr %incdec.ptr120.i, align 4
@@ -7147,7 +7151,7 @@ if.then146.i:                                     ; preds = %if.end132.i
   %not147.i = xor i32 %41, -1
   %idx.ext148.i = zext nneg i32 %not147.i to i64
   %add.ptr149.i = getelementptr inbounds i32, ptr %PA, i64 %idx.ext148.i
-  %or150.i = or disjoint i32 %x.8.i, 2
+  %or150.i = or i32 %x.8.i, 2
   br label %for.cond.i.outer.backedge
 
 if.else151.i:                                     ; preds = %if.end132.i

@@ -320,12 +320,12 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %cmp3 = icmp slt i32 %len, 128
   %mul = shl nsw i32 %len, 1
-  %2 = and i32 %mul, -128
-  %and = add nsw i32 %2, 128
+  %2 = and i32 %mul, 2147483520
+  %and = add nuw nsw i32 %2, 128
   %cond = select i1 %cmp3, i32 128, i32 %and
-  %add.i = or disjoint i32 %cond, 1
-  %conv.i = sext i32 %add.i to i64
-  %mul.i = shl nsw i64 %conv.i, 1
+  %add.i = shl nuw i32 %cond, 1
+  %3 = or disjoint i32 %add.i, 2
+  %mul.i = zext i32 %3 to i64
   %call.i = tail call ptr @uprv_realloc_75(ptr noundef %.pre10, i64 noundef %mul.i) #8
   store ptr %call.i, ptr %s, align 8
   %cmp3.i = icmp eq ptr %call.i, null
@@ -340,8 +340,8 @@ if.then5.i:                                       ; preds = %if.end.i
 ustr_resize.exit:                                 ; preds = %if.end.i, %if.then5.i
   %cond.sink = phi i32 [ 0, %if.then5.i ], [ %cond, %if.end.i ]
   store i32 %cond.sink, ptr %fCapacity, align 4
-  %3 = load i32, ptr %status, align 4
-  %cmp5 = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %status, align 4
+  %cmp5 = icmp sgt i32 %4, 0
   br i1 %cmp5, label %return, label %ustr_resize.exit.if.end8_crit_edge
 
 ustr_resize.exit.if.end8_crit_edge:               ; preds = %ustr_resize.exit
@@ -349,11 +349,11 @@ ustr_resize.exit.if.end8_crit_edge:               ; preds = %ustr_resize.exit
   br label %if.end8
 
 if.end8:                                          ; preds = %ustr_resize.exit.if.end8_crit_edge, %if.end
-  %4 = phi ptr [ %.pre, %ustr_resize.exit.if.end8_crit_edge ], [ %.pre10, %if.end ]
+  %5 = phi ptr [ %.pre, %ustr_resize.exit.if.end8_crit_edge ], [ %.pre10, %if.end ]
   %fLength = getelementptr inbounds i8, ptr %s, i64 8
   store i32 %len, ptr %fLength, align 8
   %idxprom = sext i32 %len to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   br label %return
 

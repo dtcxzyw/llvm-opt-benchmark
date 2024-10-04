@@ -10273,9 +10273,8 @@ common.resume:                                    ; preds = %384, %122, %111, %1
 
 121:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %53)
-  %.pr223.fr.off = and i64 %.pr223.fr, 1
-  %switch.not.not = icmp eq i64 %.pr223.fr.off, 0
-  br i1 %switch.not.not, label %_ZN3std7process7Command3new17h4e1ef7f07e2ad9cdE.exit, label %_ZN3std7process7Command3new17h4e1ef7f07e2ad9cdE.exit95
+  %switch = icmp eq i64 %.pr223.fr, -9223372036854775808
+  br i1 %switch, label %_ZN3std7process7Command3new17h4e1ef7f07e2ad9cdE.exit, label %_ZN3std7process7Command3new17h4e1ef7f07e2ad9cdE.exit95
 
 122:                                              ; preds = %102
   %lpad.thr_comm.split-lp303 = landingpad { ptr, i32 }

@@ -26319,19 +26319,19 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
-  %xor.i = and i64 %len, -8
-  %cmp9.not.i = icmp eq i64 %xor.i, 0
+  %0 = and i64 %len, -8
+  %cmp9.not.i = icmp eq i64 %0, 0
   br i1 %cmp9.not.i, label %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf32EPKcmPDi.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %i.010.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %i.010.i
-  %0 = load <8 x i8>, ptr %arrayidx.i, align 1
-  %conv.i.i = zext <8 x i8> %0 to <8 x i32>
+  %1 = load <8 x i8>, ptr %arrayidx.i, align 1
+  %conv.i.i = zext <8 x i8> %1 to <8 x i32>
   %arrayidx2.i = getelementptr inbounds i32, ptr %utf32_output, i64 %i.010.i
   store <8 x i32> %conv.i.i, ptr %arrayidx2.i, align 1
   %add.i = add nuw i64 %i.010.i, 8
-  %cmp.i = icmp ult i64 %add.i, %xor.i
+  %cmp.i = icmp ult i64 %add.i, %0
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !330
 
 _ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf32EPKcmPDi.exit: ; preds = %entry
@@ -26339,10 +26339,10 @@ _ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf32EPKcmPDi.exit: ; 
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body.i, %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf32EPKcmPDi.exit
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %buf, i64 %xor.i
-  %add.ptr4.i18 = getelementptr inbounds i32, ptr %utf32_output, i64 %xor.i
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %buf, i64 %0
+  %add.ptr4.i18 = getelementptr inbounds i32, ptr %utf32_output, i64 %0
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr4.i18 to i64
-  %cmp3.not = icmp eq i64 %xor.i, %len
+  %cmp3.not = icmp eq i64 %0, %len
   br i1 %cmp3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -26354,8 +26354,8 @@ for.body.i12:                                     ; preds = %if.then4, %for.body
   %i.07.i = phi i64 [ %inc.i, %for.body.i12 ], [ 0, %if.then4 ]
   %utf32_output.addr.06.i = phi ptr [ %incdec.ptr.i, %for.body.i12 ], [ %add.ptr4.i18, %if.then4 ]
   %arrayidx.i13 = getelementptr inbounds i8, ptr %add.ptr.i17, i64 %i.07.i
-  %1 = load i8, ptr %arrayidx.i13, align 1
-  %conv.i = zext i8 %1 to i32
+  %2 = load i8, ptr %arrayidx.i13, align 1
+  %conv.i = zext i8 %2 to i32
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf32_output.addr.06.i, i64 4
   store i32 %conv.i, ptr %utf32_output.addr.06.i, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
@@ -26372,7 +26372,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit: ; preds 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp12 = icmp eq ptr %utf32_output.addr.0.lcssa.i, %add.ptr4.i18
-  %add = add nsw i64 %sub.ptr.div.i, %xor.i
+  %add = add nsw i64 %sub.ptr.div.i, %0
   %spec.select = select i1 %cmp12, i64 0, i64 %add
   br label %return
 

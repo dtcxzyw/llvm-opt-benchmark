@@ -1026,7 +1026,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 171:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit215.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit215"
   %172 = add i64 %.0113370, 129
   %173 = add i8 %.0115369, -127
-  %174 = and i8 %.0115369, 127
+  %174 = xor i8 %.0115369, -128
   br label %175
 
 175:                                              ; preds = %151, %122, %107, %104, %118, %198, %171
@@ -1580,7 +1580,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 171:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit215.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit215"
   %172 = add i64 %.0113370, 129
   %173 = add i8 %.0115369, -127
-  %174 = and i8 %.0115369, 127
+  %174 = xor i8 %.0115369, -128
   br label %175
 
 175:                                              ; preds = %151, %122, %107, %104, %118, %198, %171
@@ -2145,7 +2145,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 176:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit217.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit217"
   %177 = add i64 %.0113374, 129
   %178 = add i8 %.0115373, -127
-  %179 = and i8 %.0115373, 127
+  %179 = xor i8 %.0115373, -128
   br label %180
 
 180:                                              ; preds = %156, %127, %112, %109, %123, %203, %176

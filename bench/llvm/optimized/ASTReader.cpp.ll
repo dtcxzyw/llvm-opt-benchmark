@@ -51168,7 +51168,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit
 701:                                              ; preds = %700, %697
   %702 = and i64 %695, 4294967295
   %703 = icmp ult i64 %695, 4294967296
-  %704 = add nsw i64 %702, -4040
+  %704 = add nsw i64 %695, -4040
   %spec.select.i = select i1 %703, i64 %704, i64 %702
   br i1 %703, label %712, label %705
 
@@ -51255,7 +51255,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %_ZNK5clang
 745:                                              ; preds = %744, %741
   %746 = and i64 %739, 4294967295
   %747 = icmp ult i64 %739, 4294967296
-  %748 = add nsw i64 %746, -4040
+  %748 = add nsw i64 %739, -4040
   %spec.select.i493 = select i1 %747, i64 %748, i64 %746
   br i1 %747, label %756, label %749
 
@@ -57057,7 +57057,7 @@ define dso_local noundef i64 @_ZNK5clang9ASTReader15getGlobalTypeIDERNS_13serial
 10:                                               ; preds = %9, %5
   %11 = and i64 %2, 4294967295
   %12 = icmp ult i64 %2, 4294967296
-  %13 = add nsw i64 %11, -4040
+  %13 = add nsw i64 %2, -4040
   %spec.select = select i1 %12, i64 %13, i64 %11
   br i1 %12, label %22, label %14
 
@@ -73402,7 +73402,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i17: ;
 121:                                              ; preds = %120, %116
   %122 = and i64 %114, 4294967295
   %123 = icmp ult i64 %114, 4294967296
-  %124 = add nsw i64 %122, -4040
+  %124 = add nsw i64 %114, -4040
   %spec.select.i.i = select i1 %123, i64 %124, i64 %122
   br i1 %123, label %133, label %125
 
@@ -77394,7 +77394,7 @@ _ZN5clang13TypeLocReader18readSourceLocationEv.exit16: ; preds = %_ZNK5clang9AST
 200:                                              ; preds = %199, %195
   %201 = and i64 %193, 4294967295
   %202 = icmp ult i64 %193, 4294967296
-  %203 = add nsw i64 %201, -4040
+  %203 = add nsw i64 %193, -4040
   %spec.select.i.i.i = select i1 %202, i64 %203, i64 %201
   br i1 %202, label %212, label %204
 
@@ -78076,7 +78076,7 @@ _ZN5clang13TypeLocReader18readSourceLocationEv.exit16: ; preds = %_ZNK5clang9AST
 200:                                              ; preds = %199, %195
   %201 = and i64 %193, 4294967295
   %202 = icmp ult i64 %193, 4294967296
-  %203 = add nsw i64 %201, -4040
+  %203 = add nsw i64 %193, -4040
   %spec.select.i.i.i = select i1 %202, i64 %203, i64 %201
   br i1 %202, label %212, label %204
 
@@ -82103,7 +82103,7 @@ _ZN5clang13TypeLocReader18readSourceLocationEv.exit20: ; preds = %_ZNK5clang9AST
 164:                                              ; preds = %163, %159
   %165 = and i64 %157, 4294967295
   %166 = icmp ult i64 %157, 4294967296
-  %167 = add nsw i64 %165, -4040
+  %167 = add nsw i64 %157, -4040
   %spec.select.i.i.i = select i1 %166, i64 %167, i64 %165
   br i1 %166, label %176, label %168
 
@@ -83522,7 +83522,7 @@ define dso_local noundef ptr @_ZN5clang15ASTRecordReader18readTypeSourceInfoEv(p
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -83617,7 +83617,7 @@ define dso_local i64 @_ZN5clang9ASTReader12getLocalTypeERNS_13serialization10Mod
 10:                                               ; preds = %9, %5
   %11 = and i64 %2, 4294967295
   %12 = icmp ult i64 %2, 4294967296
-  %13 = add nsw i64 %11, -4040
+  %13 = add nsw i64 %2, -4040
   %spec.select.i = select i1 %12, i64 %13, i64 %11
   br i1 %12, label %22, label %14
 
@@ -83760,7 +83760,7 @@ define linkonce_odr hidden void @_ZN5clang13serialization15BasicReaderBaseINS_15
 40:                                               ; preds = %39, %35
   %41 = and i64 %33, 4294967295
   %42 = icmp ult i64 %33, 4294967296
-  %43 = add nsw i64 %41, -4040
+  %43 = add nsw i64 %33, -4040
   %spec.select.i.i = select i1 %42, i64 %43, i64 %41
   br i1 %42, label %52, label %44
 
@@ -83839,7 +83839,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %20, %_ZN5clang9ASTR
 91:                                               ; preds = %90, %86
   %92 = and i64 %84, 4294967295
   %93 = icmp ult i64 %84, 4294967296
-  %94 = add nsw i64 %92, -4040
+  %94 = add nsw i64 %84, -4040
   %spec.select.i.i67 = select i1 %93, i64 %94, i64 %92
   br i1 %93, label %103, label %95
 
@@ -83914,7 +83914,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit60:     ; preds = %67, %_ZN5clang9ASTR
 138:                                              ; preds = %137, %133
   %139 = and i64 %131, 4294967295
   %140 = icmp ult i64 %131, 4294967296
-  %141 = add nsw i64 %139, -4040
+  %141 = add nsw i64 %131, -4040
   %spec.select.i.i70 = select i1 %140, i64 %141, i64 %139
   br i1 %140, label %150, label %142
 
@@ -84009,7 +84009,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit62:     ; preds = %118, %_ZN5clang9AST
 197:                                              ; preds = %196, %192
   %198 = and i64 %190, 4294967295
   %199 = icmp ult i64 %190, 4294967296
-  %200 = add nsw i64 %198, -4040
+  %200 = add nsw i64 %190, -4040
   %spec.select.i.i73 = select i1 %199, i64 %200, i64 %198
   br i1 %199, label %209, label %201
 
@@ -84097,7 +84097,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit64:     ; preds = %165, %_ZN5clang9AST
 251:                                              ; preds = %250, %246
   %252 = and i64 %244, 4294967295
   %253 = icmp ult i64 %244, 4294967296
-  %254 = add nsw i64 %252, -4040
+  %254 = add nsw i64 %244, -4040
   %spec.select.i.i76 = select i1 %253, i64 %254, i64 %252
   br i1 %253, label %263, label %255
 
@@ -95985,7 +95985,7 @@ _ZN5clang15ASTRecordReader14readIdentifierEv.exit: ; preds = %12, %37
 73:                                               ; preds = %72, %68
   %74 = and i64 %66, 4294967295
   %75 = icmp ult i64 %66, 4294967296
-  %76 = add nsw i64 %74, -4040
+  %76 = add nsw i64 %66, -4040
   %spec.select.i.i = select i1 %75, i64 %76, i64 %74
   br i1 %75, label %85, label %77
 
@@ -96059,7 +96059,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %53, %_ZN5clang9ASTR
 121:                                              ; preds = %120, %116
   %122 = and i64 %114, 4294967295
   %123 = icmp ult i64 %114, 4294967296
-  %124 = add nsw i64 %122, -4040
+  %124 = add nsw i64 %114, -4040
   %spec.select.i.i47 = select i1 %123, i64 %124, i64 %122
   br i1 %123, label %133, label %125
 
@@ -96133,7 +96133,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit44:     ; preds = %101, %_ZN5clang9AST
 169:                                              ; preds = %168, %164
   %170 = and i64 %162, 4294967295
   %171 = icmp ult i64 %162, 4294967296
-  %172 = add nsw i64 %170, -4040
+  %172 = add nsw i64 %162, -4040
   %spec.select.i.i50 = select i1 %171, i64 %172, i64 %170
   br i1 %171, label %181, label %173
 
@@ -139732,7 +139732,7 @@ _ZNSt8optionalIN5clang8QualTypeEE7emplaceIJS1_EEENSt9enable_ifIX18is_constructib
 505:                                              ; preds = %504, %500
   %506 = and i64 %498, 4294967295
   %507 = icmp ult i64 %498, 4294967296
-  %508 = add nsw i64 %506, -4040
+  %508 = add nsw i64 %498, -4040
   %spec.select.i.i = select i1 %507, i64 %508, i64 %506
   br i1 %507, label %517, label %509
 
@@ -140529,7 +140529,7 @@ define linkonce_odr hidden void @_ZN5clang13serialization21DataStreamBasicReader
 27:                                               ; preds = %26, %22
   %28 = and i64 %20, 4294967295
   %29 = icmp ult i64 %20, 4294967296
-  %30 = add nsw i64 %28, -4040
+  %30 = add nsw i64 %20, -4040
   %spec.select.i.i23 = select i1 %29, i64 %30, i64 %28
   br i1 %29, label %39, label %31
 
@@ -141273,7 +141273,7 @@ _ZN5clang15ASTRecordReader14readIdentifierEv.exit: ; preds = %22, %45
 83:                                               ; preds = %82, %78
   %84 = and i64 %76, 4294967295
   %85 = icmp ult i64 %76, 4294967296
-  %86 = add nsw i64 %84, -4040
+  %86 = add nsw i64 %76, -4040
   %spec.select.i.i = select i1 %85, i64 %86, i64 %84
   br i1 %85, label %95, label %87
 
@@ -150205,7 +150205,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -150272,7 +150272,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %1, %_ZN5clang9ASTRe
 69:                                               ; preds = %68, %64
   %70 = and i64 %62, 4294967295
   %71 = icmp ult i64 %62, 4294967296
-  %72 = add nsw i64 %70, -4040
+  %72 = add nsw i64 %62, -4040
   %spec.select.i.i8 = select i1 %71, i64 %72, i64 %70
   br i1 %71, label %81, label %73
 
@@ -150346,7 +150346,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -150429,7 +150429,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 34:                                               ; preds = %33, %29
   %35 = and i64 %27, 4294967295
   %36 = icmp ult i64 %27, 4294967296
-  %37 = add nsw i64 %35, -4040
+  %37 = add nsw i64 %27, -4040
   %spec.select.i.i = select i1 %36, i64 %37, i64 %35
   br i1 %36, label %46, label %38
 
@@ -150550,7 +150550,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 34:                                               ; preds = %33, %29
   %35 = and i64 %27, 4294967295
   %36 = icmp ult i64 %27, 4294967296
-  %37 = add nsw i64 %35, -4040
+  %37 = add nsw i64 %27, -4040
   %spec.select.i.i = select i1 %36, i64 %37, i64 %35
   br i1 %36, label %46, label %38
 
@@ -150751,7 +150751,7 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
 88:                                               ; preds = %87, %83
   %89 = and i64 %81, 4294967295
   %90 = icmp ult i64 %81, 4294967296
-  %91 = add nsw i64 %89, -4040
+  %91 = add nsw i64 %81, -4040
   %spec.select.i.i = select i1 %90, i64 %91, i64 %89
   br i1 %90, label %100, label %92
 
@@ -150864,7 +150864,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -151049,7 +151049,7 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
 88:                                               ; preds = %87, %83
   %89 = and i64 %81, 4294967295
   %90 = icmp ult i64 %81, 4294967296
-  %91 = add nsw i64 %89, -4040
+  %91 = add nsw i64 %81, -4040
   %spec.select.i.i = select i1 %90, i64 %91, i64 %89
   br i1 %90, label %100, label %92
 
@@ -151162,7 +151162,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -151236,7 +151236,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -151303,7 +151303,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %1, %_ZN5clang9ASTRe
 69:                                               ; preds = %68, %64
   %70 = and i64 %62, 4294967295
   %71 = icmp ult i64 %62, 4294967296
-  %72 = add nsw i64 %70, -4040
+  %72 = add nsw i64 %62, -4040
   %spec.select.i.i8 = select i1 %71, i64 %72, i64 %70
   br i1 %71, label %81, label %73
 
@@ -151390,7 +151390,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 28:                                               ; preds = %27, %23
   %29 = and i64 %21, 4294967295
   %30 = icmp ult i64 %21, 4294967296
-  %31 = add nsw i64 %29, -4040
+  %31 = add nsw i64 %21, -4040
   %spec.select.i.i = select i1 %30, i64 %31, i64 %29
   br i1 %30, label %40, label %32
 
@@ -151493,7 +151493,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -151569,7 +151569,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 28:                                               ; preds = %27, %23
   %29 = and i64 %21, 4294967295
   %30 = icmp ult i64 %21, 4294967296
-  %31 = add nsw i64 %29, -4040
+  %31 = add nsw i64 %21, -4040
   %spec.select.i.i = select i1 %30, i64 %31, i64 %29
   br i1 %30, label %40, label %32
 
@@ -151713,7 +151713,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -151787,7 +151787,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -151870,7 +151870,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 29:                                               ; preds = %28, %24
   %30 = and i64 %22, 4294967295
   %31 = icmp ult i64 %22, 4294967296
-  %32 = add nsw i64 %30, -4040
+  %32 = add nsw i64 %22, -4040
   %spec.select.i.i.i = select i1 %31, i64 %32, i64 %30
   br i1 %31, label %41, label %33
 
@@ -152038,7 +152038,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 31:                                               ; preds = %30, %26
   %32 = and i64 %24, 4294967295
   %33 = icmp ult i64 %24, 4294967296
-  %34 = add nsw i64 %32, -4040
+  %34 = add nsw i64 %24, -4040
   %spec.select.i.i = select i1 %33, i64 %34, i64 %32
   br i1 %33, label %43, label %35
 
@@ -152124,7 +152124,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -152343,7 +152343,7 @@ _ZN5clang15ASTRecordReader14readIdentifierEv.exit: ; preds = %1, %43
 75:                                               ; preds = %74, %70
   %76 = and i64 %68, 4294967295
   %77 = icmp ult i64 %68, 4294967296
-  %78 = add nsw i64 %76, -4040
+  %78 = add nsw i64 %68, -4040
   %spec.select.i.i.i10 = select i1 %77, i64 %78, i64 %76
   br i1 %77, label %87, label %79
 
@@ -152428,7 +152428,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -152682,7 +152682,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -152832,7 +152832,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 37:                                               ; preds = %36, %32
   %38 = and i64 %30, 4294967295
   %39 = icmp ult i64 %30, 4294967296
-  %40 = add nsw i64 %38, -4040
+  %40 = add nsw i64 %30, -4040
   %spec.select.i.i10 = select i1 %39, i64 %40, i64 %38
   br i1 %39, label %49, label %41
 
@@ -152916,7 +152916,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 27:                                               ; preds = %26, %22
   %28 = and i64 %20, 4294967295
   %29 = icmp ult i64 %20, 4294967296
-  %30 = add nsw i64 %28, -4040
+  %30 = add nsw i64 %20, -4040
   %spec.select.i.i = select i1 %29, i64 %30, i64 %28
   br i1 %29, label %39, label %31
 
@@ -153176,7 +153176,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 97:                                               ; preds = %96, %92
   %98 = and i64 %90, 4294967295
   %99 = icmp ult i64 %90, 4294967296
-  %100 = add nsw i64 %98, -4040
+  %100 = add nsw i64 %90, -4040
   %spec.select.i.i = select i1 %99, i64 %100, i64 %98
   br i1 %99, label %109, label %101
 
@@ -153458,7 +153458,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 45:                                               ; preds = %44, %40
   %46 = and i64 %38, 4294967295
   %47 = icmp ult i64 %38, 4294967296
-  %48 = add nsw i64 %46, -4040
+  %48 = add nsw i64 %38, -4040
   %spec.select.i.i = select i1 %47, i64 %48, i64 %46
   br i1 %47, label %57, label %49
 
@@ -153525,7 +153525,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %1, %_ZN5clang9ASTRe
 88:                                               ; preds = %87, %83
   %89 = and i64 %81, 4294967295
   %90 = icmp ult i64 %81, 4294967296
-  %91 = add nsw i64 %89, -4040
+  %91 = add nsw i64 %81, -4040
   %spec.select.i.i9 = select i1 %90, i64 %91, i64 %89
   br i1 %90, label %100, label %92
 
@@ -153613,7 +153613,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 34:                                               ; preds = %33, %29
   %35 = and i64 %27, 4294967295
   %36 = icmp ult i64 %27, 4294967296
-  %37 = add nsw i64 %35, -4040
+  %37 = add nsw i64 %27, -4040
   %spec.select.i.i = select i1 %36, i64 %37, i64 %35
   br i1 %36, label %46, label %38
 
@@ -153785,7 +153785,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -153935,7 +153935,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 44:                                               ; preds = %43, %39
   %45 = and i64 %37, 4294967295
   %46 = icmp ult i64 %37, 4294967296
-  %47 = add nsw i64 %45, -4040
+  %47 = add nsw i64 %37, -4040
   %spec.select.i.i = select i1 %46, i64 %47, i64 %45
   br i1 %46, label %56, label %48
 
@@ -154064,7 +154064,7 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
 66:                                               ; preds = %65, %61
   %67 = and i64 %59, 4294967295
   %68 = icmp ult i64 %59, 4294967296
-  %69 = add nsw i64 %67, -4040
+  %69 = add nsw i64 %59, -4040
   %spec.select.i.i = select i1 %68, i64 %69, i64 %67
   br i1 %68, label %78, label %70
 
@@ -154144,7 +154144,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154209,7 +154209,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %1, %_ZN5clang9ASTRe
 68:                                               ; preds = %67, %63
   %69 = and i64 %61, 4294967295
   %70 = icmp ult i64 %61, 4294967296
-  %71 = add nsw i64 %69, -4040
+  %71 = add nsw i64 %61, -4040
   %spec.select.i.i6 = select i1 %70, i64 %71, i64 %69
   br i1 %70, label %80, label %72
 
@@ -154282,7 +154282,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154358,7 +154358,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 28:                                               ; preds = %27, %23
   %29 = and i64 %21, 4294967295
   %30 = icmp ult i64 %21, 4294967296
-  %31 = add nsw i64 %29, -4040
+  %31 = add nsw i64 %21, -4040
   %spec.select.i.i = select i1 %30, i64 %31, i64 %29
   br i1 %30, label %40, label %32
 
@@ -154526,7 +154526,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154616,7 +154616,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154696,7 +154696,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154770,7 +154770,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154855,7 +154855,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -154939,7 +154939,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 35:                                               ; preds = %34, %30
   %36 = and i64 %28, 4294967295
   %37 = icmp ult i64 %28, 4294967296
-  %38 = add nsw i64 %36, -4040
+  %38 = add nsw i64 %28, -4040
   %spec.select.i.i = select i1 %37, i64 %38, i64 %36
   br i1 %37, label %47, label %39
 
@@ -155014,7 +155014,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -155128,7 +155128,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -155369,7 +155369,7 @@ _ZN5clang13serialization21DataStreamBasicReaderINS_15ASTRecordReaderEE9readArray
 57:                                               ; preds = %56, %52
   %58 = and i64 %50, 4294967295
   %59 = icmp ult i64 %50, 4294967296
-  %60 = add nsw i64 %58, -4040
+  %60 = add nsw i64 %50, -4040
   %spec.select.i.i.i = select i1 %59, i64 %60, i64 %58
   br i1 %59, label %69, label %61
 
@@ -155546,7 +155546,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -155639,7 +155639,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 34:                                               ; preds = %33, %29
   %35 = and i64 %27, 4294967295
   %36 = icmp ult i64 %27, 4294967296
-  %37 = add nsw i64 %35, -4040
+  %37 = add nsw i64 %27, -4040
   %spec.select.i.i = select i1 %36, i64 %37, i64 %35
   br i1 %36, label %46, label %38
 
@@ -155713,7 +155713,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -155780,7 +155780,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %1, %_ZN5clang9ASTRe
 69:                                               ; preds = %68, %64
   %70 = and i64 %62, 4294967295
   %71 = icmp ult i64 %62, 4294967296
-  %72 = add nsw i64 %70, -4040
+  %72 = add nsw i64 %62, -4040
   %spec.select.i.i8 = select i1 %71, i64 %72, i64 %70
   br i1 %71, label %81, label %73
 
@@ -155888,7 +155888,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 34:                                               ; preds = %33, %29
   %35 = and i64 %27, 4294967295
   %36 = icmp ult i64 %27, 4294967296
-  %37 = add nsw i64 %35, -4040
+  %37 = add nsw i64 %27, -4040
   %spec.select.i.i = select i1 %36, i64 %37, i64 %35
   br i1 %36, label %46, label %38
 
@@ -155962,7 +155962,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -156058,7 +156058,7 @@ define linkonce_odr hidden i64 @_ZN5clang13serialization18AbstractTypeReaderINS_
 26:                                               ; preds = %25, %21
   %27 = and i64 %19, 4294967295
   %28 = icmp ult i64 %19, 4294967296
-  %29 = add nsw i64 %27, -4040
+  %29 = add nsw i64 %19, -4040
   %spec.select.i.i = select i1 %28, i64 %29, i64 %27
   br i1 %28, label %38, label %30
 
@@ -156376,7 +156376,7 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit: ; preds = %2, %15
 39:                                               ; preds = %38, %34
   %40 = and i64 %32, 4294967295
   %41 = icmp ult i64 %32, 4294967296
-  %42 = add nsw i64 %40, -4040
+  %42 = add nsw i64 %32, -4040
   %spec.select.i.i = select i1 %41, i64 %42, i64 %40
   br i1 %41, label %51, label %43
 

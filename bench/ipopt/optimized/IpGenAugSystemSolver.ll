@@ -616,9 +616,9 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   br label %76
 
 76:                                               ; preds = %75, %71
-  %77 = sext i32 %44 to i64
+  %77 = zext i32 %44 to i64
   %78 = icmp slt i32 %44, 0
-  %79 = shl nsw i64 %77, 3
+  %79 = shl nuw nsw i64 %77, 3
   %80 = select i1 %78, i64 -1, i64 %79
   %81 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #21
   store ptr %81, ptr %72, align 8
@@ -666,9 +666,9 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   br label %103
 
 103:                                              ; preds = %102, %98
-  %104 = sext i32 %56 to i64
+  %104 = zext i32 %56 to i64
   %105 = icmp slt i32 %56, 0
-  %106 = shl nsw i64 %104, 3
+  %106 = shl nuw nsw i64 %104, 3
   %107 = select i1 %105, i64 -1, i64 %106
   %108 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %107) #21
   store ptr %108, ptr %99, align 8
@@ -716,9 +716,9 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   br label %130
 
 130:                                              ; preds = %129, %125
-  %131 = sext i32 %50 to i64
+  %131 = zext i32 %50 to i64
   %132 = icmp slt i32 %50, 0
-  %133 = shl nsw i64 %131, 3
+  %133 = shl nuw nsw i64 %131, 3
   %134 = select i1 %132, i64 -1, i64 %133
   %135 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %134) #21
   store ptr %135, ptr %126, align 8
@@ -766,9 +766,9 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   br label %157
 
 157:                                              ; preds = %156, %152
-  %158 = sext i32 %56 to i64
+  %158 = zext i32 %56 to i64
   %159 = icmp slt i32 %56, 0
-  %160 = shl nsw i64 %158, 3
+  %160 = shl nuw nsw i64 %158, 3
   %161 = select i1 %159, i64 -1, i64 %160
   %162 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %161) #21
   store ptr %162, ptr %153, align 8
@@ -782,9 +782,9 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   %165 = add i32 %50, %44
   %166 = add i32 %165, %factor
   %167 = mul nsw i32 %166, %38
-  %168 = sext i32 %167 to i64
+  %168 = zext i32 %167 to i64
   %169 = icmp slt i32 %167, 0
-  %170 = shl nsw i64 %168, 3
+  %170 = shl nuw nsw i64 %168, 3
   %171 = select i1 %169, i64 -1, i64 %170
   %172 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %171) #21
   %invariant.op229 = add i32 %165, %56

@@ -2757,7 +2757,7 @@ if.end.thread:                                    ; preds = %entry
   %1 = load ptr, ptr %pScene23, align 8
   %mNumAnimations24 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 1, ptr %mNumAnimations24, align 8
-  br label %9
+  br label %10
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN6Assimp11SMDImporter20GetAnimationFileListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemERSt6vectorISt5tupleIJS6_S6_EESaISD_EE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(24) %animFileList)
@@ -2768,7 +2768,7 @@ lpad.loopexit:                                    ; preds = %for.body, %invoke.c
           cleanup
   br label %ehcleanup30
 
-lpad.loopexit.split-lp:                           ; preds = %if.then, %9
+lpad.loopexit.split-lp:                           ; preds = %if.then, %10
   %lpad.loopexit.split-lp15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
@@ -2788,27 +2788,28 @@ if.end:                                           ; preds = %if.then
   %7 = load ptr, ptr %pScene, align 8
   %mNumAnimations = getelementptr inbounds i8, ptr %7, i64 48
   store i32 1, ptr %mNumAnimations, align 8
-  %8 = ashr exact i64 %6, 29
+  %8 = lshr exact i64 %6, 29
   %.inv = icmp sgt i64 %6, -1
   %spec.select = select i1 %.inv, i64 %8, i64 -1
-  br label %9
+  %9 = ashr exact i64 %6, 29
+  br label %10
 
-9:                                                ; preds = %if.end, %if.end.thread
-  %10 = phi i64 [ 8, %if.end.thread ], [ %8, %if.end ]
-  %pScene29 = phi ptr [ %pScene23, %if.end.thread ], [ %pScene, %if.end ]
-  %_M_finish.i27 = phi ptr [ %_M_finish.i22, %if.end.thread ], [ %_M_finish.i, %if.end ]
+10:                                               ; preds = %if.end, %if.end.thread
+  %pScene31 = phi ptr [ %pScene23, %if.end.thread ], [ %pScene, %if.end ]
+  %_M_finish.i29 = phi ptr [ %_M_finish.i22, %if.end.thread ], [ %_M_finish.i, %if.end ]
+  %sub.ptr.sub.i27 = phi i64 [ 8, %if.end.thread ], [ %9, %if.end ]
   %11 = phi i64 [ 8, %if.end.thread ], [ %spec.select, %if.end ]
   %call4 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %11) #29
           to label %invoke.cont3 unwind label %lpad.loopexit.split-lp
 
-invoke.cont3:                                     ; preds = %9
-  %12 = load ptr, ptr %pScene29, align 8
+invoke.cont3:                                     ; preds = %10
+  %12 = load ptr, ptr %pScene31, align 8
   %mAnimations = getelementptr inbounds i8, ptr %12, i64 56
   store ptr %call4, ptr %mAnimations, align 8
-  %13 = load ptr, ptr %pScene29, align 8
+  %13 = load ptr, ptr %pScene31, align 8
   %mAnimations7 = getelementptr inbounds i8, ptr %13, i64 56
   %14 = load ptr, ptr %mAnimations7, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %10, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %sub.ptr.sub.i27, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #26
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad10
@@ -2835,7 +2836,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #26
   %16 = load ptr, ptr %animFileList, align 8
-  %17 = load ptr, ptr %_M_finish.i27, align 8
+  %17 = load ptr, ptr %_M_finish.i29, align 8
   %cmp.i.not16 = icmp eq ptr %16, %17
   br i1 %cmp.i.not16, label %invoke.cont.i, label %for.body.lr.ph
 
@@ -2909,7 +2910,7 @@ for.inc17.i:                                      ; preds = %for.body12.i, %for.
 
 invoke.cont24:                                    ; preds = %for.inc17.i
   store double %dMax.1.lcssa.i, ptr %dLengthOfAnim.i, align 8
-  %26 = load ptr, ptr %pScene29, align 8
+  %26 = load ptr, ptr %pScene31, align 8
   %mNumAnimations26 = getelementptr inbounds i8, ptr %26, i64 48
   %27 = load i32, ptr %mNumAnimations26, align 8
   %inc = add i32 %27, 1
@@ -2925,7 +2926,7 @@ for.inc:                                          ; preds = %invoke.cont24, %inv
 
 for.end:                                          ; preds = %for.inc
   %.pre19 = load ptr, ptr %animFileList, align 8
-  %.pre20 = load ptr, ptr %_M_finish.i27, align 8
+  %.pre20 = load ptr, ptr %_M_finish.i29, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %.pre19, %.pre20
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 

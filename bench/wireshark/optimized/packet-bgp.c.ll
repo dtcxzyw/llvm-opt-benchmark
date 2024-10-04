@@ -12318,10 +12318,8 @@ decode_bgp_mup_nlri_type1_st_route.exit:          ; preds = %85, %.sink.split.i
   %136 = load i32, ptr @hf_bgp_mup_nlri_ep_ipv6_addr, align 4
   %137 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format_value(ptr noundef %21, i32 noundef %136, ptr noundef %1, i32 noundef %111, i32 noundef %130, ptr noundef nonnull %8, ptr noundef nonnull @.str.1842, ptr noundef %135, i32 noundef %129) #4
   %138 = add i32 %130, %111
-  %139 = and i8 %108, 127
-  %.not.i = icmp eq i8 %139, 0
-  %or.cond.i = or i1 %127, %.not.i
-  br i1 %or.cond.i, label %decode_bgp_mup_nlri_type2_st_route.exit, label %141
+  %139 = xor i8 %108, -128
+  br i1 %127, label %decode_bgp_mup_nlri_type2_st_route.exit, label %141
 
 .thread89.i:                                      ; preds = %112
   %140 = add i8 %108, -32

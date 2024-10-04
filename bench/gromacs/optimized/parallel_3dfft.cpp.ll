@@ -49,27 +49,26 @@ define noundef range(i32 0, 2) i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_
   %22 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %13, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %9, i32 noundef %spec.select, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef %7)
   %23 = load ptr, ptr %0, align 8
   store ptr %22, ptr %23, align 8
-  %24 = and i32 %spec.select, 20
-  %25 = or disjoint i32 %24, 66
-  %26 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %16, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %9, i32 noundef %25, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef 0)
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %26, ptr %28, align 8
-  %29 = load ptr, ptr %0, align 8
-  %30 = load ptr, ptr %29, align 8
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %36, label %31
+  %24 = xor i32 %spec.select, 67
+  %25 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %16, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %9, i32 noundef %24, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef 0)
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %0, align 8
+  %29 = load ptr, ptr %28, align 8
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %35, label %30
 
-31:                                               ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp ne ptr %33, null
-  %35 = zext i1 %34 to i32
-  br label %36
+30:                                               ; preds = %8
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  %34 = zext i1 %33 to i32
+  br label %35
 
-36:                                               ; preds = %31, %8
-  %37 = phi i32 [ 0, %8 ], [ %35, %31 ]
-  ret i32 %37
+35:                                               ; preds = %30, %8
+  %36 = phi i32 [ 0, %8 ], [ %34, %30 ]
+  ret i32 %36
 }
 
 declare noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

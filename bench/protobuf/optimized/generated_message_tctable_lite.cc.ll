@@ -5652,71 +5652,71 @@ if.end.i45:                                       ; preds = %do.body.i
   br i1 %tobool.i47.not, label %if.end114.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i45
-  %sub.i = and i8 %2, 127
+  %sub.i = xor i8 %2, -128
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 3
   %4 = load i8, ptr %incdec.ptr.i, align 1
   %or.i = or i8 %4, %sub.i
-  %tobool13.i.not = icmp sgt i8 %4, -1
+  %tobool13.i.not = icmp sgt i8 %or.i, -1
   br i1 %tobool13.i.not, label %if.end114.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then6.i
-  %sub17.i = and i8 %or.i, 127
+  %sub17.i = xor i8 %or.i, -128
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 4
   %5 = load i8, ptr %incdec.ptr8.i, align 1
   %or20.i = or i8 %5, %sub17.i
-  %tobool24.i.not = icmp sgt i8 %5, -1
+  %tobool24.i.not = icmp sgt i8 %or20.i, -1
   br i1 %tobool24.i.not, label %if.end114.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.then15.i
-  %sub28.i = and i8 %or20.i, 127
+  %sub28.i = xor i8 %or20.i, -128
   %incdec.ptr29.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 5
   %6 = load i8, ptr %incdec.ptr18.i, align 1
   %or31.i = or i8 %6, %sub28.i
-  %tobool35.i.not = icmp sgt i8 %6, -1
+  %tobool35.i.not = icmp sgt i8 %or31.i, -1
   br i1 %tobool35.i.not, label %if.end114.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.then26.i
-  %sub39.i = and i8 %or31.i, 127
+  %sub39.i = xor i8 %or31.i, -128
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 6
   %7 = load i8, ptr %incdec.ptr29.i, align 1
   %or42.i = or i8 %7, %sub39.i
-  %tobool46.i.not = icmp sgt i8 %7, -1
+  %tobool46.i.not = icmp sgt i8 %or42.i, -1
   br i1 %tobool46.i.not, label %if.end114.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.then37.i
-  %sub50.i = and i8 %or42.i, 127
+  %sub50.i = xor i8 %or42.i, -128
   %incdec.ptr51.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 7
   %8 = load i8, ptr %incdec.ptr40.i, align 1
   %or53.i = or i8 %8, %sub50.i
-  %tobool57.i.not = icmp sgt i8 %8, -1
+  %tobool57.i.not = icmp sgt i8 %or53.i, -1
   br i1 %tobool57.i.not, label %if.end114.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.then48.i
-  %sub61.i = and i8 %or53.i, 127
+  %sub61.i = xor i8 %or53.i, -128
   %incdec.ptr62.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 8
   %9 = load i8, ptr %incdec.ptr51.i, align 1
   %or64.i = or i8 %9, %sub61.i
-  %tobool68.i.not = icmp sgt i8 %9, -1
+  %tobool68.i.not = icmp sgt i8 %or64.i, -1
   br i1 %tobool68.i.not, label %if.end114.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then59.i
-  %sub72.i = and i8 %or64.i, 127
+  %sub72.i = xor i8 %or64.i, -128
   %incdec.ptr73.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 9
   %10 = load i8, ptr %incdec.ptr62.i, align 1
   %or75.i = or i8 %10, %sub72.i
-  %tobool79.i.not = icmp sgt i8 %10, -1
+  %tobool79.i.not = icmp sgt i8 %or75.i, -1
   br i1 %tobool79.i.not, label %if.end114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.then70.i
-  %sub83.i = and i8 %or75.i, 127
+  %sub83.i = xor i8 %or75.i, -128
   %incdec.ptr84.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 10
   %11 = load i8, ptr %incdec.ptr73.i, align 1
   %or86.i = or i8 %11, %sub83.i
-  %tobool90.i.not = icmp sgt i8 %11, -1
+  %tobool90.i.not = icmp sgt i8 %or86.i, -1
   br i1 %tobool90.i.not, label %if.end114.i, label %if.then92.i
 
 if.then92.i:                                      ; preds = %if.then81.i
-  %sub94.i = and i8 %or86.i, 127
+  %sub94.i = xor i8 %or86.i, -128
   %incdec.ptr95.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 11
   %12 = load i8, ptr %incdec.ptr84.i, align 1
   %13 = and i8 %12, -127
@@ -5853,71 +5853,71 @@ if.end.i45:                                       ; preds = %do.body.i
   br i1 %tobool.i47.not, label %if.end114.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i45
-  %sub.i = and i8 %1, 127
+  %sub.i = xor i8 %1, -128
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 4
   %3 = load i8, ptr %incdec.ptr.i, align 1
   %or.i = or i8 %3, %sub.i
-  %tobool13.i.not = icmp sgt i8 %3, -1
+  %tobool13.i.not = icmp sgt i8 %or.i, -1
   br i1 %tobool13.i.not, label %if.end114.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then6.i
-  %sub17.i = and i8 %or.i, 127
+  %sub17.i = xor i8 %or.i, -128
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 5
   %4 = load i8, ptr %incdec.ptr8.i, align 1
   %or20.i = or i8 %4, %sub17.i
-  %tobool24.i.not = icmp sgt i8 %4, -1
+  %tobool24.i.not = icmp sgt i8 %or20.i, -1
   br i1 %tobool24.i.not, label %if.end114.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.then15.i
-  %sub28.i = and i8 %or20.i, 127
+  %sub28.i = xor i8 %or20.i, -128
   %incdec.ptr29.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 6
   %5 = load i8, ptr %incdec.ptr18.i, align 1
   %or31.i = or i8 %5, %sub28.i
-  %tobool35.i.not = icmp sgt i8 %5, -1
+  %tobool35.i.not = icmp sgt i8 %or31.i, -1
   br i1 %tobool35.i.not, label %if.end114.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.then26.i
-  %sub39.i = and i8 %or31.i, 127
+  %sub39.i = xor i8 %or31.i, -128
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 7
   %6 = load i8, ptr %incdec.ptr29.i, align 1
   %or42.i = or i8 %6, %sub39.i
-  %tobool46.i.not = icmp sgt i8 %6, -1
+  %tobool46.i.not = icmp sgt i8 %or42.i, -1
   br i1 %tobool46.i.not, label %if.end114.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.then37.i
-  %sub50.i = and i8 %or42.i, 127
+  %sub50.i = xor i8 %or42.i, -128
   %incdec.ptr51.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 8
   %7 = load i8, ptr %incdec.ptr40.i, align 1
   %or53.i = or i8 %7, %sub50.i
-  %tobool57.i.not = icmp sgt i8 %7, -1
+  %tobool57.i.not = icmp sgt i8 %or53.i, -1
   br i1 %tobool57.i.not, label %if.end114.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.then48.i
-  %sub61.i = and i8 %or53.i, 127
+  %sub61.i = xor i8 %or53.i, -128
   %incdec.ptr62.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 9
   %8 = load i8, ptr %incdec.ptr51.i, align 1
   %or64.i = or i8 %8, %sub61.i
-  %tobool68.i.not = icmp sgt i8 %8, -1
+  %tobool68.i.not = icmp sgt i8 %or64.i, -1
   br i1 %tobool68.i.not, label %if.end114.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then59.i
-  %sub72.i = and i8 %or64.i, 127
+  %sub72.i = xor i8 %or64.i, -128
   %incdec.ptr73.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 10
   %9 = load i8, ptr %incdec.ptr62.i, align 1
   %or75.i = or i8 %9, %sub72.i
-  %tobool79.i.not = icmp sgt i8 %9, -1
+  %tobool79.i.not = icmp sgt i8 %or75.i, -1
   br i1 %tobool79.i.not, label %if.end114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.then70.i
-  %sub83.i = and i8 %or75.i, 127
+  %sub83.i = xor i8 %or75.i, -128
   %incdec.ptr84.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 11
   %10 = load i8, ptr %incdec.ptr73.i, align 1
   %or86.i = or i8 %10, %sub83.i
-  %tobool90.i.not = icmp sgt i8 %10, -1
+  %tobool90.i.not = icmp sgt i8 %or86.i, -1
   br i1 %tobool90.i.not, label %if.end114.i, label %if.then92.i
 
 if.then92.i:                                      ; preds = %if.then81.i
-  %sub94.i = and i8 %or86.i, 127
+  %sub94.i = xor i8 %or86.i, -128
   %incdec.ptr95.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 12
   %11 = load i8, ptr %incdec.ptr84.i, align 1
   %12 = and i8 %11, -127

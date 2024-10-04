@@ -22330,8 +22330,8 @@ lpad.i:                                           ; preds = %if.then.i
 _ZN4asio11aligned_newEmm.exit:                    ; preds = %if.end36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ex.i)
   %cmp40 = icmp ult i64 %sub, 1024
-  %conv41 = trunc i64 %div27 to i8
-  %conv43 = select i1 %cmp40, i8 %conv41, i8 0
+  %6 = trunc i64 %div27 to i8
+  %conv43 = select i1 %cmp40, i8 %6, i8 0
   br label %return
 
 return:                                           ; preds = %_ZN4asio11aligned_newEmm.exit, %if.then9
@@ -22663,37 +22663,34 @@ _ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_t
   %13 = load ptr, ptr %this, align 8
   %call.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #33
   %cmp.i.i.i = icmp sgt i64 %call.i.i, -1
+  %14 = load i64, ptr %expiry_time, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_15any_io_executorEEC2EiRKSB_.exit
   %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i
-  %14 = load i64, ptr %expiry_time, align 8
   %cmp.i8.i.i = icmp slt i64 %sub.i.i.i.i, %14
   br i1 %cmp.i8.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i, label %if.end41.i.i
 
 if.else.i.i:                                      ; preds = %_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_15any_io_executorEEC2EiRKSB_.exit
-  %sub.i.i11.i.i = and i64 %call.i.i, 9223372036854775807
-  %sub.i.i.i = sub nsw i64 0, %sub.i.i11.i.i
-  %15 = load i64, ptr %expiry_time, align 8
-  %cmp.i13.i.i = icmp slt i64 %15, %sub.i.i.i
-  br i1 %cmp.i13.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i, label %if.end41.i.i
+  %15 = xor i64 %call.i.i, 9223372036854775807
+  %cmp.i13.not.i.i = icmp slt i64 %15, %14
+  br i1 %cmp.i13.not.i.i, label %if.end41.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i
 
 if.end41.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
-  %16 = phi i64 [ %15, %if.else.i.i ], [ %14, %if.then.i.i ]
-  %add.i.i.i.i = add nsw i64 %16, %call.i.i
+  %add.i.i.i.i = add nsw i64 %14, %call.i.i
   br label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i
 
 _ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i: ; preds = %if.end41.i.i, %if.else.i.i, %if.then.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %add.i.i.i.i, %if.end41.i.i ], [ 9223372036854775807, %if.then.i.i ], [ -9223372036854775808, %if.else.i.i ]
-  %17 = load i8, ptr %might_have_pending_waits.i.i, align 8
-  %tobool.i.i.i = trunc i8 %17 to i1
+  %16 = load i8, ptr %might_have_pending_waits.i.i, align 8
+  %tobool.i.i.i = trunc i8 %16 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i.i, label %invoke.cont8
 
 if.end.i.i.i:                                     ; preds = %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i
   %scheduler_.i.i.i = getelementptr inbounds i8, ptr %13, i64 88
-  %18 = load ptr, ptr %scheduler_.i.i.i, align 8
+  %17 = load ptr, ptr %scheduler_.i.i.i, align 8
   %timer_queue_.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
-  %call2.i.i.i2 = invoke noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %18, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %timer_data.i.i, i64 noundef -1)
+  %call2.i.i.i2 = invoke noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %17, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %timer_data.i.i, i64 noundef -1)
           to label %call2.i.i.i.noexc unwind label %lpad.body
 
 call2.i.i.i.noexc:                                ; preds = %if.end.i.i.i
@@ -22705,10 +22702,10 @@ invoke.cont8:                                     ; preds = %call2.i.i.i.noexc, 
   ret void
 
 lpad.body:                                        ; preds = %if.end.i.i.i
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_15any_io_executorEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #33
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25627,8 +25624,8 @@ lpad.i:                                           ; preds = %if.then.i
 _ZN4asio11aligned_newEmm.exit:                    ; preds = %if.end36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ex.i)
   %cmp40 = icmp ult i64 %sub, 1024
-  %conv41 = trunc i64 %div27 to i8
-  %conv43 = select i1 %cmp40, i8 %conv41, i8 0
+  %6 = trunc i64 %div27 to i8
+  %conv43 = select i1 %cmp40, i8 %6, i8 0
   br label %return
 
 return:                                           ; preds = %_ZN4asio11aligned_newEmm.exit, %if.then9

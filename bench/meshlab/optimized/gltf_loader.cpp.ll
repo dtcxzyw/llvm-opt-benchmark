@@ -13514,10 +13514,10 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i153.us.us: ; preds = %158, %155
 
 _ZL10stbi__get8P13stbi__context.exit156.us.us:    ; preds = %160, %_ZL19stbi__refill_bufferP13stbi__context.exit.i153.us.us, %147
   %.0.i155.us.us = phi i8 [ %162, %160 ], [ %159, %_ZL19stbi__refill_bufferP13stbi__context.exit.i153.us.us ], [ 0, %147 ]
-  %163 = and i8 %.0.i150.us.us, 127
+  %163 = xor i8 %.0.i150.us.us, -128
   %164 = zext nneg i8 %163 to i32
   %165 = icmp ult i32 %97, %164
-  br i1 %165, label %.split57.us, label %.preheader.us.us
+  br i1 %165, label %.split57.us, label %.lr.ph48.us.us.preheader
 
 .loopexit.us.us.loopexit:                         ; preds = %.lr.ph48.us.us
   %166 = trunc nsw i64 %indvars.iv.next141 to i32
@@ -13527,8 +13527,8 @@ _ZL10stbi__get8P13stbi__context.exit156.us.us:    ; preds = %160, %_ZL19stbi__re
   %167 = trunc nsw i64 %indvars.iv.next137 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us:                                  ; preds = %101, %.loopexit.us.us.loopexit83, %.loopexit.us.us.loopexit, %.preheader14.us.us, %.preheader.us.us
-  %.4.us.us = phi i32 [ %.212050.us.us, %.preheader.us.us ], [ %.212050.us.us, %.preheader14.us.us ], [ %166, %.loopexit.us.us.loopexit ], [ %167, %.loopexit.us.us.loopexit83 ], [ %.212050.us.us, %101 ]
+.loopexit.us.us:                                  ; preds = %101, %.loopexit.us.us.loopexit83, %.loopexit.us.us.loopexit, %.preheader14.us.us
+  %.4.us.us = phi i32 [ %.212050.us.us, %.preheader14.us.us ], [ %166, %.loopexit.us.us.loopexit ], [ %167, %.loopexit.us.us.loopexit83 ], [ %.212050.us.us, %101 ]
   %168 = sub nsw i32 %41, %.4.us.us
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %96, label %._crit_edge52.us.us, !llvm.loop !101
@@ -13545,11 +13545,7 @@ _ZL10stbi__get8P13stbi__context.exit156.us.us:    ; preds = %160, %_ZL19stbi__re
   %exitcond143.not = icmp eq i32 %173, %164
   br i1 %exitcond143.not, label %.loopexit.us.us.loopexit, label %.lr.ph48.us.us, !llvm.loop !102
 
-.preheader.us.us:                                 ; preds = %_ZL10stbi__get8P13stbi__context.exit156.us.us
-  %.not82 = icmp eq i8 %163, 0
-  br i1 %.not82, label %.loopexit.us.us, label %.lr.ph48.us.us.preheader
-
-.lr.ph48.us.us.preheader:                         ; preds = %.preheader.us.us
+.lr.ph48.us.us.preheader:                         ; preds = %_ZL10stbi__get8P13stbi__context.exit156.us.us
   %174 = sext i32 %.212050.us.us to i64
   br label %.lr.ph48.us.us
 

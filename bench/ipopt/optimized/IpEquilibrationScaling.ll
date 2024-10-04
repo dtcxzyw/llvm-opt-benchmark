@@ -722,9 +722,9 @@ _ZN5Ipopt8SmartPtrINS_14PointPerturberEEC2EPS1_.exit: ; preds = %228
   %245 = load ptr, ptr %244, align 8, !noalias !4
   %246 = getelementptr inbounds i8, ptr %245, i64 12
   %247 = load i32, ptr %246, align 4, !noalias !4
-  %248 = sext i32 %247 to i64
+  %248 = zext i32 %247 to i64
   %249 = icmp slt i32 %247, 0
-  %250 = shl nsw i64 %248, 3
+  %250 = shl nuw nsw i64 %248, 3
   %251 = select i1 %249, i64 -1, i64 %250
   %252 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %251) #20
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
@@ -744,14 +744,10 @@ _ZN5Ipopt8SmartPtrINS_14PointPerturberEEC2EPS1_.exit: ; preds = %228
 
 .noexc275:                                        ; preds = %.noexc274
   %255 = icmp sgt i32 %247, 0
-  br i1 %255, label %.lr.ph.preheader.i, label %._crit_edge.i
+  br i1 %255, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %.noexc275
-  %wide.trip.count.i = zext nneg i32 %247 to i64
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.noexc276, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc276 ]
+.lr.ph.i:                                         ; preds = %.noexc275, %.noexc276
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc276 ], [ 0, %.noexc275 ]
   %256 = invoke noundef double @_ZN5Ipopt10IpRandom01Ev()
           to label %.noexc276 unwind label %.loopexit
 
@@ -765,7 +761,7 @@ _ZN5Ipopt8SmartPtrINS_14PointPerturberEEC2EPS1_.exit: ; preds = %228
   %263 = call double @llvm.fmuladd.f64(double %258, double %260, double %262)
   store double %263, ptr %261, align 8, !noalias !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %248
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.noexc276, %.noexc275
@@ -1213,8 +1209,8 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
 
 424:                                              ; preds = %422
   %425 = mul nsw i32 %.sroa.speculated.i282, 5
-  %426 = sext i32 %425 to i64
-  %427 = shl nsw i64 %426, 2
+  %426 = zext i32 %425 to i64
+  %427 = shl nuw nsw i64 %426, 2
   %428 = select i1 %418, i64 -1, i64 %427
   %429 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %428) #20
           to label %430 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1240,9 +1236,9 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
           to label %440 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 440:                                              ; preds = %434
-  %441 = sext i32 %212 to i64
+  %441 = zext i32 %212 to i64
   %442 = icmp slt i32 %212, 0
-  %443 = shl nsw i64 %441, 3
+  %443 = shl nuw nsw i64 %441, 3
   %444 = select i1 %442, i64 -1, i64 %443
   %445 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %444) #20
           to label %.preheader361 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1256,11 +1252,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
   br label %.lr.ph412
 
 .preheader:                                       ; preds = %.lr.ph412, %.preheader361
-  br i1 %239, label %.lr.ph414.preheader, label %._crit_edge415
-
-.lr.ph414.preheader:                              ; preds = %.preheader
-  %wide.trip.count471 = zext nneg i32 %212 to i64
-  br label %.lr.ph414
+  br i1 %239, label %.lr.ph414, label %._crit_edge415
 
 .lr.ph412:                                        ; preds = %.lr.ph412.preheader, %.lr.ph412
   %indvars.iv463 = phi i64 [ 0, %.lr.ph412.preheader ], [ %indvars.iv.next464, %.lr.ph412 ]
@@ -1274,8 +1266,8 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466
   br i1 %exitcond467.not, label %.preheader, label %.lr.ph412, !llvm.loop !19
 
-.lr.ph414:                                        ; preds = %.lr.ph414.preheader, %.lr.ph414
-  %indvars.iv468 = phi i64 [ 0, %.lr.ph414.preheader ], [ %indvars.iv.next469, %.lr.ph414 ]
+.lr.ph414:                                        ; preds = %.preheader, %.lr.ph414
+  %indvars.iv468 = phi i64 [ %indvars.iv.next469, %.lr.ph414 ], [ 0, %.preheader ]
   %451 = getelementptr inbounds float, ptr %423, i64 %indvars.iv468
   %452 = load float, ptr %451, align 4
   %453 = fpext float %452 to double
@@ -1283,7 +1275,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
   %455 = getelementptr inbounds double, ptr %445, i64 %indvars.iv468
   store double %454, ptr %455, align 8
   %indvars.iv.next469 = add nuw nsw i64 %indvars.iv468, 1
-  %exitcond472.not = icmp eq i64 %indvars.iv.next469, %wide.trip.count471
+  %exitcond472.not = icmp eq i64 %indvars.iv.next469, %441
   br i1 %exitcond472.not, label %._crit_edge415, label %.lr.ph414, !llvm.loop !20
 
 ._crit_edge415:                                   ; preds = %.lr.ph414, %.preheader
@@ -1739,9 +1731,9 @@ define void @_ZNK5Ipopt14PointPerturber21MakeNewPerturbedPointEv(ptr dead_on_unw
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = sext i32 %8 to i64
+  %9 = zext i32 %8 to i64
   %10 = icmp slt i32 %8, 0
-  %11 = shl nsw i64 %9, 3
+  %11 = shl nuw nsw i64 %9, 3
   %12 = select i1 %10, i64 -1, i64 %11
   %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #20
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(205) %4, ptr noundef nonnull %13)
@@ -1750,14 +1742,10 @@ define void @_ZNK5Ipopt14PointPerturber21MakeNewPerturbedPointEv(ptr dead_on_unw
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull %14)
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = zext nneg i32 %8 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %18 = tail call noundef double @_ZN5Ipopt10IpRandom01Ev()
   %19 = fadd double %18, -5.000000e-01
   %20 = fmul double %19, 2.000000e+00
@@ -1768,7 +1756,7 @@ define void @_ZNK5Ipopt14PointPerturber21MakeNewPerturbedPointEv(ptr dead_on_unw
   %25 = tail call double @llvm.fmuladd.f64(double %20, double %22, double %24)
   store double %25, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

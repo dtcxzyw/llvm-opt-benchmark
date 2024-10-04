@@ -12388,7 +12388,7 @@ if.end.if.end4_crit_edge:                         ; preds = %if.end
   br label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %xor.i = and i64 %2, -2
+  %xor.i = xor i64 %2, 1
   %4 = inttoptr i64 %xor.i to ptr
   store ptr %4, ptr %c, align 8
   %5 = load i64, ptr %t, align 8
@@ -12964,14 +12964,9 @@ if.then23:                                        ; preds = %_ZNK11aig_manager3i
   %xor.i50 = xor i64 %12, 1
   %13 = inttoptr i64 %xor.i50 to ptr
   %cmp.i52.not.not = icmp eq i64 %and.i4.i, 0
-  br i1 %cmp.i52.not.not, label %if.then25, label %if.else
-
-if.then25:                                        ; preds = %if.then23
-  %xor.i49 = xor i64 %8, 1
-  br label %return.sink.split
-
-if.else:                                          ; preds = %if.then23
-  %xor.i = and i64 %7, -2
+  %. = select i1 %cmp.i52.not.not, i64 %8, i64 %7
+  %.148 = select i1 %cmp.i52.not.not, ptr %11, ptr %13
+  %.149 = select i1 %cmp.i52.not.not, ptr %13, ptr %11
   br label %return.sink.split
 
 if.else33:                                        ; preds = %if.end13, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
@@ -12995,14 +12990,9 @@ if.then35:                                        ; preds = %_ZNK11aig_manager3i
   %xor.i63 = xor i64 %8, 1
   %18 = inttoptr i64 %xor.i63 to ptr
   %cmp.i66.not.not = icmp eq i64 %and.i4.i55, 0
-  br i1 %cmp.i66.not.not, label %if.then37, label %if.else41
-
-if.then37:                                        ; preds = %if.then35
-  %xor.i64 = xor i64 %14, 1
-  br label %return.sink.split
-
-if.else41:                                        ; preds = %if.then35
-  %xor.i61 = and i64 %7, -2
+  %.150 = select i1 %cmp.i66.not.not, i64 %14, i64 %7
+  %.151 = select i1 %cmp.i66.not.not, ptr %17, ptr %18
+  %.152 = select i1 %cmp.i66.not.not, ptr %18, ptr %17
   br label %return.sink.split
 
 if.else46:                                        ; preds = %if.else33, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60
@@ -13025,14 +13015,9 @@ if.then48:                                        ; preds = %_ZNK11aig_manager3i
   %xor.i78 = xor i64 %14, 1
   %22 = inttoptr i64 %xor.i78 to ptr
   %cmp.i80.not.not = icmp eq i64 %and.i4.i69, 0
-  br i1 %cmp.i80.not.not, label %if.then50, label %if.else54
-
-if.then50:                                        ; preds = %if.then48
-  %xor.i77 = xor i64 %8, 1
-  br label %return.sink.split
-
-if.else54:                                        ; preds = %if.then48
-  %xor.i76 = and i64 %19, -2
+  %.153 = select i1 %cmp.i80.not.not, i64 %8, i64 %19
+  %.154 = select i1 %cmp.i80.not.not, ptr %21, ptr %22
+  %.155 = select i1 %cmp.i80.not.not, ptr %22, ptr %21
   br label %return.sink.split
 
 if.else59:                                        ; preds = %if.else46, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74
@@ -13054,21 +13039,17 @@ if.then61:                                        ; preds = %_ZNK11aig_manager3i
   %xor.i91 = xor i64 %8, 1
   %25 = inttoptr i64 %xor.i91 to ptr
   %cmp.i94.not.not = icmp eq i64 %and.i4.i83, 0
-  br i1 %cmp.i94.not.not, label %if.then63, label %if.else67
-
-if.then63:                                        ; preds = %if.then61
-  %xor.i92 = xor i64 %14, 1
+  %.156 = select i1 %cmp.i94.not.not, i64 %14, i64 %19
+  %.157 = select i1 %cmp.i94.not.not, ptr %24, ptr %25
+  %.158 = select i1 %cmp.i94.not.not, ptr %25, ptr %24
   br label %return.sink.split
 
-if.else67:                                        ; preds = %if.then61
-  %xor.i90 = and i64 %19, -2
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.else, %if.then25, %if.else41, %if.then37, %if.else54, %if.then50, %if.else67, %if.then63
-  %xor.i92.sink = phi i64 [ %xor.i92, %if.then63 ], [ %xor.i90, %if.else67 ], [ %xor.i77, %if.then50 ], [ %xor.i76, %if.else54 ], [ %xor.i64, %if.then37 ], [ %xor.i61, %if.else41 ], [ %xor.i49, %if.then25 ], [ %xor.i, %if.else ]
-  %.sink145 = phi ptr [ %24, %if.then63 ], [ %25, %if.else67 ], [ %21, %if.then50 ], [ %22, %if.else54 ], [ %17, %if.then37 ], [ %18, %if.else41 ], [ %11, %if.then25 ], [ %13, %if.else ]
-  %.sink = phi ptr [ %25, %if.then63 ], [ %24, %if.else67 ], [ %22, %if.then50 ], [ %21, %if.else54 ], [ %18, %if.then37 ], [ %17, %if.else41 ], [ %13, %if.then25 ], [ %11, %if.else ]
-  %26 = inttoptr i64 %xor.i92.sink to ptr
+return.sink.split:                                ; preds = %if.then61, %if.then48, %if.then35, %if.then23
+  %.sink147 = phi i64 [ %., %if.then23 ], [ %.150, %if.then35 ], [ %.153, %if.then48 ], [ %.156, %if.then61 ]
+  %.sink145 = phi ptr [ %.148, %if.then23 ], [ %.151, %if.then35 ], [ %.154, %if.then48 ], [ %.157, %if.then61 ]
+  %.sink = phi ptr [ %.149, %if.then23 ], [ %.152, %if.then35 ], [ %.155, %if.then48 ], [ %.158, %if.then61 ]
+  %xor.i92 = xor i64 %.sink147, 1
+  %26 = inttoptr i64 %xor.i92 to ptr
   store ptr %26, ptr %c, align 8
   store ptr %.sink145, ptr %t, align 8
   store ptr %.sink, ptr %e, align 8

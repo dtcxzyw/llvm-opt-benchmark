@@ -715,7 +715,7 @@ dissect_v52_protocol_discriminator.exit.i:        ; preds = %17, %14, %4
 75:                                               ; preds = %72
   %76 = and i32 %73, -8
   %or.cond9.i = icmp eq i32 %76, 24
-  br i1 %or.cond9.i, label %90, label %105
+  br i1 %or.cond9.i, label %89, label %104
 
 .thread106.i:                                     ; preds = %72
   %77 = load i32, ptr @hf_v52_bcc_address, align 4
@@ -723,94 +723,94 @@ dissect_v52_protocol_discriminator.exit.i:        ; preds = %17, %14, %4
   %79 = load i32, ptr @hf_v52_bcc_low_address, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
   %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %82 = and i8 %81, 127
-  %83 = zext nneg i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 6
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
-  %86 = zext i8 %85 to i32
-  %87 = add nuw nsw i32 %84, %86
-  %88 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.364, i32 noundef %87) #3
+  %spec.select.i = and i8 %81, 127
+  %82 = zext nneg i8 %spec.select.i to i32
+  %83 = shl nuw nsw i32 %82, 6
+  %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
+  %85 = zext i8 %84 to i32
+  %86 = add nuw nsw i32 %83, %85
+  %87 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.364, i32 noundef %86) #3
   %.pre105.i = load i32, ptr @message_type_tmp, align 4
-  %89 = and i32 %.pre105.i, -8
-  %or.cond9108.i = icmp eq i32 %89, 24
-  br i1 %or.cond9108.i, label %90, label %dissect_v52_message.exit
+  %88 = and i32 %.pre105.i, -8
+  %or.cond9108.i = icmp eq i32 %88, 24
+  br i1 %or.cond9108.i, label %89, label %dissect_v52_message.exit
 
-90:                                               ; preds = %.thread106.i, %75
-  %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
-  %93 = load i32, ptr @hf_v52_prot_address, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %93, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %95 = load i32, ptr @hf_v52_prot_low_address, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %95, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
-  %97 = load i32, ptr @message_type_tmp, align 4
-  %98 = and i32 %97, -2
-  %or.cond11.i = icmp eq i32 %98, 30
-  br i1 %or.cond11.i, label %dissect_v52_message.exit, label %99
+89:                                               ; preds = %.thread106.i, %75
+  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
+  %92 = load i32, ptr @hf_v52_prot_address, align 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %92, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %94 = load i32, ptr @hf_v52_prot_low_address, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %94, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %96 = load i32, ptr @message_type_tmp, align 4
+  %97 = and i32 %96, -2
+  %or.cond11.i = icmp eq i32 %97, 30
+  br i1 %or.cond11.i, label %dissect_v52_message.exit, label %98
 
-99:                                               ; preds = %90
-  %100 = zext i8 %91 to i32
-  %101 = shl nuw nsw i32 %100, 8
-  %102 = zext i8 %92 to i32
-  %103 = or disjoint i32 %101, %102
-  %104 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.365, i32 noundef %103) #3
+98:                                               ; preds = %89
+  %99 = zext i8 %90 to i32
+  %100 = shl nuw nsw i32 %99, 8
+  %101 = zext i8 %91 to i32
+  %102 = or disjoint i32 %100, %101
+  %103 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.365, i32 noundef %102) #3
   br label %dissect_v52_message.exit
 
-105:                                              ; preds = %75
-  %106 = icmp eq i32 %.2.i, 0
-  br i1 %106, label %107, label %dissect_v52_message.exit
+104:                                              ; preds = %75
+  %105 = icmp eq i32 %.2.i, 0
+  br i1 %105, label %106, label %dissect_v52_message.exit
 
-107:                                              ; preds = %105
-  %108 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %109 = and i8 %108, 1
-  %.not102.i = icmp eq i8 %109, 0
-  %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %111 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
-  br i1 %.not102.i, label %123, label %112
+106:                                              ; preds = %104
+  %107 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %108 = and i8 %107, 1
+  %.not102.i = icmp eq i8 %108, 0
+  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
+  br i1 %.not102.i, label %122, label %111
 
-112:                                              ; preds = %107
-  %113 = lshr i8 %110, 1
-  %114 = zext nneg i8 %113 to i32
-  %115 = shl nuw nsw i32 %114, 8
-  %116 = zext i8 %111 to i32
-  %117 = or disjoint i32 %115, %116
-  %118 = load i32, ptr @hf_v52_pstn_address, align 4
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %118, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %120 = load i32, ptr @hf_v52_pstn_low_address, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %120, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
-  %122 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.361, i32 noundef %117) #3
+111:                                              ; preds = %106
+  %112 = lshr i8 %109, 1
+  %113 = zext nneg i8 %112 to i32
+  %114 = shl nuw nsw i32 %113, 8
+  %115 = zext i8 %110 to i32
+  %116 = or disjoint i32 %114, %115
+  %117 = load i32, ptr @hf_v52_pstn_address, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %117, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %119 = load i32, ptr @hf_v52_pstn_low_address, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %119, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %121 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %121, i32 noundef 25, ptr noundef nonnull @.str.361, i32 noundef %116) #3
   br label %dissect_v52_message.exit
 
-123:                                              ; preds = %107
-  %124 = lshr i8 %110, 2
-  %125 = zext nneg i8 %124 to i32
-  %126 = shl nuw nsw i32 %125, 7
-  %127 = lshr i8 %111, 1
-  %128 = zext nneg i8 %127 to i32
-  %129 = or disjoint i32 %126, %128
-  %130 = load i32, ptr @hf_v52_isdn_address, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %130, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %132 = load i32, ptr @hf_v52_isdn_low_address, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %132, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
-  %134 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %134, i32 noundef 25, ptr noundef nonnull @.str.362, i32 noundef %129) #3
+122:                                              ; preds = %106
+  %123 = lshr i8 %109, 2
+  %124 = zext nneg i8 %123 to i32
+  %125 = shl nuw nsw i32 %124, 7
+  %126 = lshr i8 %110, 1
+  %127 = zext nneg i8 %126 to i32
+  %128 = or disjoint i32 %125, %127
+  %129 = load i32, ptr @hf_v52_isdn_address, align 4
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %129, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %131 = load i32, ptr @hf_v52_isdn_low_address, align 4
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %131, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %133 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.362, i32 noundef %128) #3
   br label %dissect_v52_message.exit
 
-dissect_v52_message.exit:                         ; preds = %.thread106.i, %90, %99, %105, %112, %123
-  %135 = load i32, ptr @hf_v52_msg_type, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %135, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
+dissect_v52_message.exit:                         ; preds = %.thread106.i, %89, %98, %104, %111, %122
+  %134 = load i32, ptr @hf_v52_msg_type, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %134, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
+  %136 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.366) #3
   %137 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.366) #3
-  %138 = load ptr, ptr %5, align 8
-  %139 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
-  %140 = zext i8 %139 to i32
-  %141 = tail call ptr @val_to_str_ext_const(i32 noundef %140, ptr noundef nonnull @msg_type_values_short_ext, ptr noundef nonnull @.str.367) #3
-  tail call void @col_append_str(ptr noundef %138, i32 noundef 25, ptr noundef %141) #3
+  %138 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
+  %139 = zext i8 %138 to i32
+  %140 = tail call ptr @val_to_str_ext_const(i32 noundef %139, ptr noundef nonnull @msg_type_values_short_ext, ptr noundef nonnull @.str.367) #3
+  tail call void @col_append_str(ptr noundef %137, i32 noundef 25, ptr noundef %140) #3
   tail call fastcc void @dissect_v52_info(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %.0.i)
-  %142 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %142
+  %141 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %141
 }
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1

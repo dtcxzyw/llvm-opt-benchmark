@@ -23424,16 +23424,16 @@ define { i16, i16 } @_ZN5image6codecs3gif6Repeat11to_gif_enum17hec37d9fa9a5d5aab
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define i48 @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$14gif_dimensions16inner_dimensions17hd3657403bd0340d1E"(i32 noundef %0, i32 noundef %1) unnamed_addr #18 {
   %3 = icmp ult i32 %0, 65536
-  %4 = or i32 %0, %1
-  %5 = icmp ult i32 %4, 65536
-  %narrow19 = select i1 %5, i32 %1, i32 0
-  %.sroa.5.0.insert.ext = zext nneg i32 %narrow19 to i48
+  %4 = shl nuw i32 %0, 16
+  %narrow = select i1 %3, i32 %4, i32 0
+  %5 = or i32 %0, %1
+  %6 = icmp ult i32 %5, 65536
+  %narrow20 = select i1 %6, i32 %1, i32 0
+  %.sroa.5.0.insert.ext = zext nneg i32 %narrow20 to i48
   %.sroa.5.0.insert.shift = shl nuw i48 %.sroa.5.0.insert.ext, 32
-  %6 = shl nuw i32 %0, 16
-  %7 = select i1 %3, i32 %6, i32 0
-  %.sroa.4.0.insert.shift = zext i32 %7 to i48
+  %.sroa.4.0.insert.shift = zext i32 %narrow to i48
   %.sroa.4.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %5 to i48
+  %.sroa.0.0.insert.ext = zext i1 %6 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }

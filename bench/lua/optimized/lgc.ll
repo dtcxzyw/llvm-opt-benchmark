@@ -3939,7 +3939,7 @@ getgclist.exit.i.i.i:                             ; preds = %sw.bb9.i.i.i.i, %sw
   br label %if.end11.sink.split.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %for.end54.i.i
-  %xor.i.i.i = and i8 %61, -4
+  %xor.i.i.i = xor i8 %61, 2
   br label %if.end11.sink.split.i.i.i
 
 if.end11.sink.split.i.i.i:                        ; preds = %if.then7.i.i.i, %getgclist.exit.i.i.i
@@ -4077,7 +4077,7 @@ getgclist.exit.i.i:                               ; preds = %sw.bb9.i.i.i, %sw.b
   br label %if.end11.sink.split.i.i
 
 if.then7.i.i:                                     ; preds = %for.end.i
-  %xor.i.i = and i8 %83, -4
+  %xor.i.i = xor i8 %83, 2
   br label %if.end11.sink.split.i.i
 
 if.end11.sink.split.i.i:                          ; preds = %if.then7.i.i, %getgclist.exit.i.i
@@ -4797,7 +4797,7 @@ getgclist.exit.i:                                 ; preds = %sw.bb9.i.i, %sw.bb7
   br label %if.end11.sink.split.i
 
 if.then7.i:                                       ; preds = %if.else84
-  %xor.i = and i8 %38, -4
+  %xor.i = xor i8 %38, 2
   br label %if.end11.sink.split.i
 
 if.end11.sink.split.i:                            ; preds = %if.then7.i, %getgclist.exit.i
@@ -4972,7 +4972,7 @@ if.else13:                                        ; preds = %if.else
 
 if.else18:                                        ; preds = %if.else13
   %cmp22 = icmp eq i32 %and3, 6
-  %xor27 = and i8 %2, -60
+  %xor27 = xor i8 %2, 2
   %spec.select = select i1 %cmp22, i8 %xor27, i8 %2
   %5 = or i8 %spec.select, 32
   store i8 %5, ptr %marked, align 1

@@ -140,7 +140,7 @@ if.then.i:                                        ; preds = %if.then48
   br i1 %or.cond.i, label %if.then10.i, label %if.end123
 
 if.then10.i:                                      ; preds = %if.then.i
-  %17 = and i8 %15, 95
+  %17 = xor i8 %15, 32
   store i8 %17, ptr %arrayidx51, align 1
   br label %if.end123
 
@@ -184,7 +184,7 @@ if.then.i67:                                      ; preds = %while.body62
   br i1 %or.cond.i68, label %if.then10.i69, label %ToUpperCase.exit70
 
 if.then10.i69:                                    ; preds = %if.then.i67
-  %24 = and i8 %22, 95
+  %24 = xor i8 %22, 32
   store i8 %24, ptr %uppercase.084, align 1
   br label %ToUpperCase.exit70
 
