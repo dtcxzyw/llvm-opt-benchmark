@@ -36283,7 +36283,7 @@ wireshark/credentials_dialog.cpp.ll 312165320
 wireshark/credentials_model.cpp.ll 352419017
 wireshark/curve25519.c.ll 56603077
 wireshark/data_printer.cpp.ll 498195036
-wireshark/dbs-etherwatch.c.ll 195257272
+wireshark/dbs-etherwatch.c.ll 195061926
 wireshark/dct3trace.c.ll 142018855
 wireshark/decode_as.c.ll 119499370
 wireshark/decode_as_delegate.cpp.ll 2134462264
