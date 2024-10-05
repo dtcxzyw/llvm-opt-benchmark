@@ -1611,7 +1611,7 @@ assimp/AssbinFileWriter.cpp.ll 1589402820
 assimp/AssbinLoader.cpp.ll 857035504
 assimp/Assimp.cpp.ll 4404483697
 assimp/AssimpCExport.cpp.ll 159037713
-assimp/AssxmlFileWriter.cpp.ll 741306053
+assimp/AssxmlFileWriter.cpp.ll 742066504
 assimp/B3DImporter.cpp.ll 2677804409
 assimp/BVHLoader.cpp.ll 1685070225
 assimp/Base64.cpp.ll 242381694
@@ -5914,7 +5914,7 @@ diesel-rs/4er4uowv3yad92ot.ll 301663853
 diesel-rs/4evqpcg6dxygah01.ll 621643959
 diesel-rs/4gc9zq1wrq086e44.ll 191066100
 diesel-rs/4h677pklov6a0v0o.ll 394132137
-diesel-rs/4j8air1313yj5apg.ll 604289631
+diesel-rs/4j8air1313yj5apg.ll 603663392
 diesel-rs/4jebxyzsxalpttle.ll 60030525
 diesel-rs/4jwl6v0dzs4k2fgl.ll 124475325
 diesel-rs/4l2dlnns3xjar0un.ll 1784484310
@@ -11897,7 +11897,7 @@ lightgbm/openmp_wrapper.cpp.ll 39223248
 lightgbm/parser.cpp.ll 1623012354
 lightgbm/prediction_early_stop.cpp.ll 357415377
 lightgbm/sample_strategy.cpp.ll 955506156
-lightgbm/serial_tree_learner.cpp.ll 50574607261
+lightgbm/serial_tree_learner.cpp.ll 50625697616
 lightgbm/train_share_states.cpp.ll 1580805391
 lightgbm/tree.cpp.ll 14444672225
 lightgbm/tree_learner.cpp.ll 225037712
@@ -12097,7 +12097,7 @@ linux/context_tracking.ll 80450894
 linux/control.ll 640421697
 linux/copy_mc.ll 51123514
 linux/core.ll 1068730880
-linux/coredump.ll 339941487
+linux/coredump.ll 340301402
 linux/cppc.ll 61315832
 linux/cppc_acpi.ll 398646111
 linux/cpu.ll 115174587
@@ -14526,7 +14526,7 @@ llvm/IRBuilder.cpp.ll 2610117424
 llvm/IRMover.cpp.ll 7106893941
 llvm/IRObjectFile.cpp.ll 782739209
 llvm/IROutliner.cpp.ll 16450614194
-llvm/IRPrintingPasses.cpp.ll 239688831
+llvm/IRPrintingPasses.cpp.ll 239935141
 llvm/IRReader.cpp.ll 897088942
 llvm/IRSimilarityIdentifier.cpp.ll 11338132229
 llvm/IRSymtab.cpp.ll 2800483047
@@ -16203,7 +16203,7 @@ luajit/lj_alloc_dyn.ll 757599032
 luajit/lj_api.ll 841969699
 luajit/lj_api_dyn.ll 841503520
 luajit/lj_asm.ll 6837182493
-luajit/lj_asm_dyn.ll 6829375063
+luajit/lj_asm_dyn.ll 6836277806
 luajit/lj_bcread.ll 287468150
 luajit/lj_bcread_dyn.ll 287348047
 luajit/lj_bcwrite.ll 260453215
@@ -27611,7 +27611,7 @@ openusd/vec2h.cpp.ll 60652841
 openusd/vec2i.cpp.ll 59208990
 openusd/vec3d.cpp.ll 184594335
 openusd/vec3f.cpp.ll 199194556
-openusd/vec3h.cpp.ll 472760255
+openusd/vec3h.cpp.ll 473266280
 openusd/vec3i.cpp.ll 62396444
 openusd/vec4d.cpp.ll 66803776
 openusd/vec4f.cpp.ll 66688002
@@ -28005,7 +28005,7 @@ php/pcre2_dfa_match.ll 2434883560
 php/pcre2_extuni.ll 132292509
 php/pcre2_find_bracket.ll 54848045
 php/pcre2_jit_compile.ll 20860552384
-php/pcre2_match.ll 10513802916
+php/pcre2_match.ll 10524553881
 php/pcre2_newline.ll 98023090
 php/pcre2_ord2utf.ll 45078214
 php/pcre2_pattern_info.ll 94553389
@@ -28016,7 +28016,7 @@ php/pcre2_study.ll 725701645
 php/pcre2_substitute.ll 462830273
 php/pcre2_substring.ll 203161899
 php/pcre2_valid_utf.ll 93446212
-php/pcre2_xclass.ll 192544202
+php/pcre2_xclass.ll 192737692
 php/pdo.ll 202820899
 php/pdo_dbh.ll 1199888784
 php/pdo_sql_parser.ll 449132817
@@ -28541,7 +28541,7 @@ postgres/hashfn_shlib.ll 279369756
 postgres/hashfn_srv.ll 279449600
 postgres/hashfunc.ll 136477480
 postgres/hashinsert.ll 165352393
-postgres/hashovfl.ll 343296807
+postgres/hashovfl.ll 343650452
 postgres/hashpage.ll 359043732
 postgres/hashsearch.ll 212625141
 postgres/hashutil.ll 155697025
@@ -30421,7 +30421,7 @@ qemu/util_hexdump.c.ll 70829517
 qemu/util_host-utils.c.ll 310487753
 qemu/util_interval-tree.c.ll 442968708
 qemu/util_iov.c.ll 414520732
-qemu/util_keyval.c.ll 244948795
+qemu/util_keyval.c.ll 245197866
 qemu/util_lockcnt.c.ll 162413930
 qemu/util_log.c.ll 189737348
 qemu/util_memalign.c.ll 61012084
@@ -34841,7 +34841,7 @@ syn/2i67i8azb4r5b3mw.ll 3382356260
 syn/2khi0xu1ufmhwoo.ll 2657647166
 syn/2tga7oe2tfdpj05w.ll 2804609471
 syn/3e28wvtnspuupgei.ll 3240252194
-syn/3r5osr990qsnm7hf.ll 3842726482
+syn/3r5osr990qsnm7hf.ll 3838865154
 syn/4dl8yvgrwkkcv6u.ll 1868018060
 syn/4llvvcm7ykus6q9g.ll 2516001971
 syn/4pem7cta6fyqelao.ll 2132480484
@@ -36996,7 +36996,7 @@ wireshark/packet-ixveriwave.c.ll 660300145
 wireshark/packet-jpeg.c.ll 57811802
 wireshark/packet-json.c.ll 342043315
 wireshark/packet-json_3gpp.c.ll 152339136
-wireshark/packet-juniper.c.ll 273801742
+wireshark/packet-juniper.c.ll 274083616
 wireshark/packet-jxta.c.ll 509593947
 wireshark/packet-k12.c.ll 180225920
 wireshark/packet-kafka.c.ll 2967720644
@@ -37066,7 +37066,7 @@ wireshark/packet-mactelnet.c.ll 80246220
 wireshark/packet-manolito.c.ll 67719673
 wireshark/packet-mate.c.ll 187769524
 wireshark/packet-matter.c.ll 74068234
-wireshark/packet-mausb.c.ll 303112485
+wireshark/packet-mausb.c.ll 303420603
 wireshark/packet-mbim.c.ll 2808978000
 wireshark/packet-mbtcp.c.ll 485089715
 wireshark/packet-mc-nmf.c.ll 161806907
