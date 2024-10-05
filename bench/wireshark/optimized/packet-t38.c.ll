@@ -474,7 +474,8 @@ define internal i32 @dissect_t38_udp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
-  %9 = icmp slt i8 %8, -64
+  %.mask = and i8 %8, -64
+  %9 = icmp eq i8 %.mask, -128
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7

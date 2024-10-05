@@ -5094,7 +5094,8 @@ while.cond:                                       ; preds = %while.body, %entry
 while.body:                                       ; preds = %while.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %in_text_curr.addr.0, i64 -1
   %0 = load i8, ptr %incdec.ptr, align 1
-  %cmp1.not = icmp slt i8 %0, -64
+  %1 = and i8 %0, -64
+  %cmp1.not = icmp eq i8 %1, -128
   br i1 %cmp1.not, label %while.cond, label %return, !llvm.loop !29
 
 return:                                           ; preds = %while.cond, %while.body

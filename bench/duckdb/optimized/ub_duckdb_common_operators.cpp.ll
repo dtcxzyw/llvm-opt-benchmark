@@ -58478,7 +58478,8 @@ land.lhs.true.i.i:                                ; preds = %cond.true.i
 
 for.body.i.i.i:                                   ; preds = %land.lhs.true.i.i
   %3 = load i8, ptr %cond.i, align 1, !tbaa !7
-  %cmp2.not.i.i.i = icmp slt i8 %3, -64
+  %4 = and i8 %3, -64
+  %cmp2.not.i.i.i = icmp eq i8 %4, -128
   br i1 %cmp2.not.i.i.i, label %land.lhs.true.i.i.i.1, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i.i.i
@@ -58522,59 +58523,59 @@ cond.false.i:                                     ; preds = %entry
   %call.i.i.i12 = select i1 %value, i64 4, i64 5
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %this, align 8
   %size_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 16
-  %4 = load i64, ptr %size_.i.i.i.i.i, align 8, !tbaa !876
-  %add.i.i.i.i = add i64 %4, %call.i.i.i12
+  %5 = load i64, ptr %size_.i.i.i.i.i, align 8, !tbaa !876
+  %add.i.i.i.i = add i64 %5, %call.i.i.i12
   %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 24
-  %5 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8, !tbaa !860
-  %cmp.i.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %6 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8, !tbaa !860
+  %cmp.i.i.i.i.i.i = icmp ult i64 %6, %add.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %cond.false.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !856
-  %6 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 noundef %add.i.i.i.i)
+  %7 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 noundef %add.i.i.i.i)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i.i
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %cond.false.i
   store i64 %add.i.i.i.i, ptr %size_.i.i.i.i.i, align 8, !tbaa !876
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i11, i64 %call.i.i.i12
   %ptr_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 8
-  %7 = load ptr, ptr %ptr_.i.i.i.i.i.i, align 8, !tbaa !858
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %7, i64 %4
-  %8 = load i8, ptr %cond.i11, align 1, !tbaa !7
-  store i8 %8, ptr %add.ptr.i.i.i.i, align 1, !tbaa !7
+  %8 = load ptr, ptr %ptr_.i.i.i.i.i.i, align 8, !tbaa !858
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %8, i64 %5
+  %9 = load i8, ptr %cond.i11, align 1, !tbaa !7
+  store i8 %9, ptr %add.ptr.i.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i.i = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 1), ptr getelementptr inbounds (i8, ptr @.str.6, i64 1)
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i, label %return, label %for.body.i.i.i.i.1, !llvm.loop !958
 
 for.body.i.i.i.i.1:                               ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i.i
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 1
-  %9 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !tbaa !7
-  store i8 %9, ptr %incdec.ptr1.i.i.i.i, align 1, !tbaa !7
+  %10 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !tbaa !7
+  store i8 %10, ptr %incdec.ptr1.i.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i.i.1 = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 2), ptr getelementptr inbounds (i8, ptr @.str.6, i64 2)
   %cmp.not.i.i.i.i.1 = icmp eq ptr %incdec.ptr.i.i.i.i.1, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.1, label %return, label %for.body.i.i.i.i.2, !llvm.loop !958
 
 for.body.i.i.i.i.2:                               ; preds = %for.body.i.i.i.i.1
   %incdec.ptr1.i.i.i.i.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 2
-  %10 = load i8, ptr %incdec.ptr.i.i.i.i.1, align 1, !tbaa !7
-  store i8 %10, ptr %incdec.ptr1.i.i.i.i.1, align 1, !tbaa !7
+  %11 = load i8, ptr %incdec.ptr.i.i.i.i.1, align 1, !tbaa !7
+  store i8 %11, ptr %incdec.ptr1.i.i.i.i.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i.i.2 = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 3), ptr getelementptr inbounds (i8, ptr @.str.6, i64 3)
   %cmp.not.i.i.i.i.2 = icmp eq ptr %incdec.ptr.i.i.i.i.2, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.2, label %return, label %for.body.i.i.i.i.3, !llvm.loop !958
 
 for.body.i.i.i.i.3:                               ; preds = %for.body.i.i.i.i.2
   %incdec.ptr1.i.i.i.i.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 3
-  %11 = load i8, ptr %incdec.ptr.i.i.i.i.2, align 1, !tbaa !7
-  store i8 %11, ptr %incdec.ptr1.i.i.i.i.2, align 1, !tbaa !7
+  %12 = load i8, ptr %incdec.ptr.i.i.i.i.2, align 1, !tbaa !7
+  store i8 %12, ptr %incdec.ptr1.i.i.i.i.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i.i.3 = select i1 %value, ptr getelementptr inbounds (i8, ptr @.str.5, i64 4), ptr getelementptr inbounds (i8, ptr @.str.6, i64 4)
   %cmp.not.i.i.i.i.3 = icmp eq ptr %incdec.ptr.i.i.i.i.3, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.3, label %return, label %for.body.i.i.i.i.4, !llvm.loop !958
 
 for.body.i.i.i.i.4:                               ; preds = %for.body.i.i.i.i.3
   %incdec.ptr1.i.i.i.i.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
-  %12 = load i8, ptr %incdec.ptr.i.i.i.i.3, align 1, !tbaa !7
-  store i8 %12, ptr %incdec.ptr1.i.i.i.i.3, align 1, !tbaa !7
+  %13 = load i8, ptr %incdec.ptr.i.i.i.i.3, align 1, !tbaa !7
+  store i8 %13, ptr %incdec.ptr1.i.i.i.i.3, align 1, !tbaa !7
   br label %return
 
 return:                                           ; preds = %for.body.i.i.i.i.4, %for.body.i.i.i.i.3, %for.body.i.i.i.i.2, %for.body.i.i.i.i.1, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIcEE.exit.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit
@@ -58615,7 +58616,8 @@ for.body.i.i:                                     ; preds = %land.lhs.true.i, %f
   %num_code_points.015.i.i = phi i64 [ %num_code_points.1.i.i, %for.inc.i.i ], [ 0, %land.lhs.true.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %value.coerce0, i64 %i.016.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
-  %cmp2.not.i.i = icmp slt i8 %4, -64
+  %5 = and i8 %4, -64
+  %cmp2.not.i.i = icmp eq i8 %5, -128
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -58642,17 +58644,17 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_
 if.else:                                          ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %this, align 8
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 16
-  %5 = load i64, ptr %size_.i.i.i.i, align 8, !tbaa !876
-  %add.i.i.i = add i64 %5, %value.coerce1
+  %6 = load i64, ptr %size_.i.i.i.i, align 8, !tbaa !876
+  %add.i.i.i = add i64 %6, %value.coerce1
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 24
-  %6 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !tbaa !860
-  %cmp.i.i.i.i.i = icmp ult i64 %6, %add.i.i.i
+  %7 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !tbaa !860
+  %cmp.i.i.i.i.i = icmp ult i64 %7, %add.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else
   %vtable.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8, !tbaa !856
-  %7 = load ptr, ptr %vtable.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i.i, i64 noundef %add.i.i.i)
+  %8 = load ptr, ptr %vtable.i.i.i.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i.i, i64 noundef %add.i.i.i)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i: ; preds = %if.then.i.i.i.i.i, %if.else
@@ -58663,16 +58665,16 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 iter.check:                                       ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
   %ptr_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 8
-  %8 = load ptr, ptr %ptr_.i.i.i.i.i, align 8, !tbaa !858
-  %add.ptr.i.i.i = getelementptr i8, ptr %8, i64 %5
+  %9 = load ptr, ptr %ptr_.i.i.i.i.i, align 8, !tbaa !858
+  %add.ptr.i.i.i = getelementptr i8, ptr %9, i64 %6
   %min.iters.check = icmp ult i64 %value.coerce1, 8
   br i1 %min.iters.check, label %for.body.i.i.i.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %iter.check
-  %9 = ptrtoint ptr %8 to i64
-  %10 = sub i64 %5, %value.coerce08
-  %11 = add i64 %10, %9
-  %diff.check = icmp ult i64 %11, 32
+  %10 = ptrtoint ptr %9 to i64
+  %11 = sub i64 %6, %value.coerce08
+  %12 = add i64 %11, %10
+  %diff.check = icmp ult i64 %12, 32
   br i1 %diff.check, label %for.body.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %vector.memcheck
@@ -58687,15 +58689,15 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %value.coerce0, i64 %index
   %next.gep11 = getelementptr i8, ptr %add.ptr.i.i.i, i64 %index
-  %12 = getelementptr i8, ptr %next.gep, i64 16
+  %13 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !7
-  %wide.load13 = load <16 x i8>, ptr %12, align 1, !tbaa !7
-  %13 = getelementptr i8, ptr %next.gep11, i64 16
+  %wide.load13 = load <16 x i8>, ptr %13, align 1, !tbaa !7
+  %14 = getelementptr i8, ptr %next.gep11, i64 16
   store <16 x i8> %wide.load, ptr %next.gep11, align 1, !tbaa !7
-  store <16 x i8> %wide.load13, ptr %13, align 1, !tbaa !7
+  store <16 x i8> %wide.load13, ptr %14, align 1, !tbaa !7
   %index.next = add nuw i64 %index, 32
-  %14 = icmp eq i64 %index.next, %n.vec
-  br i1 %14, label %middle.block, label %vector.body, !llvm.loop !960
+  %15 = icmp eq i64 %index.next, %n.vec
+  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !960
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %n.vec, %value.coerce1
@@ -58721,8 +58723,8 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %wide.load24 = load <8 x i8>, ptr %next.gep22, align 1, !tbaa !7
   store <8 x i8> %wide.load24, ptr %next.gep23, align 1, !tbaa !7
   %index.next25 = add nuw i64 %index21, 8
-  %15 = icmp eq i64 %index.next25, %n.vec15
-  br i1 %15, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !961
+  %16 = icmp eq i64 %index.next25, %n.vec15
+  br i1 %16, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !961
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %ind.end17 = getelementptr i8, ptr %add.ptr.i.i.i, i64 %n.vec15
@@ -58732,10 +58734,10 @@ vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.b
 for.body.i.i.i.preheader:                         ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %vector.memcheck, %iter.check
   %__first.addr.08.i.i.i.ph = phi ptr [ %value.coerce0, %iter.check ], [ %value.coerce0, %vector.memcheck ], [ %ind.end16, %vec.epilog.iter.check ], [ %ind.end, %vec.epilog.middle.block ]
   %__result.addr.07.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %iter.check ], [ %add.ptr.i.i.i, %vector.memcheck ], [ %ind.end18, %vec.epilog.iter.check ], [ %ind.end17, %vec.epilog.middle.block ]
-  %16 = add i64 %value.coerce1, %value.coerce08
+  %17 = add i64 %value.coerce1, %value.coerce08
   %__first.addr.08.i.i.i.ph26 = ptrtoint ptr %__first.addr.08.i.i.i.ph to i64
-  %17 = sub i64 %16, %__first.addr.08.i.i.i.ph26
-  %xtraiter = and i64 %17, 7
+  %18 = sub i64 %17, %__first.addr.08.i.i.i.ph26
+  %xtraiter = and i64 %18, 7
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
 
@@ -58743,8 +58745,8 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preh
   %__first.addr.08.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %__first.addr.08.i.i.i.ph, %for.body.i.i.i.preheader ]
   %__result.addr.07.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.prol, %for.body.i.i.i.prol ], [ %__result.addr.07.i.i.i.ph, %for.body.i.i.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.preheader ]
-  %18 = load i8, ptr %__first.addr.08.i.i.i.prol, align 1, !tbaa !7
-  store i8 %18, ptr %__result.addr.07.i.i.i.prol, align 1, !tbaa !7
+  %19 = load i8, ptr %__first.addr.08.i.i.i.prol, align 1, !tbaa !7
+  store i8 %19, ptr %__result.addr.07.i.i.i.prol, align 1, !tbaa !7
   %incdec.ptr.i.i.i.prol = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.prol, i64 1
   %incdec.ptr1.i.i.i.prol = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.prol, i64 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -58754,43 +58756,43 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preh
 for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol, %for.body.i.i.i.preheader
   %__first.addr.08.i.i.i.unr = phi ptr [ %__first.addr.08.i.i.i.ph, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
   %__result.addr.07.i.i.i.unr = phi ptr [ %__result.addr.07.i.i.i.ph, %for.body.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.prol, %for.body.i.i.i.prol ]
-  %19 = sub i64 %__first.addr.08.i.i.i.ph26, %16
-  %20 = icmp ugt i64 %19, -8
-  br i1 %20, label %if.end, label %for.body.i.i.i
+  %20 = sub i64 %__first.addr.08.i.i.i.ph26, %17
+  %21 = icmp ugt i64 %20, -8
+  br i1 %21, label %if.end, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.prol.loopexit, %for.body.i.i.i
   %__first.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i.7, %for.body.i.i.i ], [ %__first.addr.08.i.i.i.unr, %for.body.i.i.i.prol.loopexit ]
   %__result.addr.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.7, %for.body.i.i.i ], [ %__result.addr.07.i.i.i.unr, %for.body.i.i.i.prol.loopexit ]
-  %21 = load i8, ptr %__first.addr.08.i.i.i, align 1, !tbaa !7
-  store i8 %21, ptr %__result.addr.07.i.i.i, align 1, !tbaa !7
+  %22 = load i8, ptr %__first.addr.08.i.i.i, align 1, !tbaa !7
+  store i8 %22, ptr %__result.addr.07.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 1
-  %22 = load i8, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
-  store i8 %22, ptr %incdec.ptr1.i.i.i, align 1, !tbaa !7
+  %23 = load i8, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
+  store i8 %23, ptr %incdec.ptr1.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 2
   %incdec.ptr1.i.i.i.1 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 2
-  %23 = load i8, ptr %incdec.ptr.i.i.i.1, align 1, !tbaa !7
-  store i8 %23, ptr %incdec.ptr1.i.i.i.1, align 1, !tbaa !7
+  %24 = load i8, ptr %incdec.ptr.i.i.i.1, align 1, !tbaa !7
+  store i8 %24, ptr %incdec.ptr1.i.i.i.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i.2 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 3
   %incdec.ptr1.i.i.i.2 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 3
-  %24 = load i8, ptr %incdec.ptr.i.i.i.2, align 1, !tbaa !7
-  store i8 %24, ptr %incdec.ptr1.i.i.i.2, align 1, !tbaa !7
+  %25 = load i8, ptr %incdec.ptr.i.i.i.2, align 1, !tbaa !7
+  store i8 %25, ptr %incdec.ptr1.i.i.i.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i.3 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 4
   %incdec.ptr1.i.i.i.3 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 4
-  %25 = load i8, ptr %incdec.ptr.i.i.i.3, align 1, !tbaa !7
-  store i8 %25, ptr %incdec.ptr1.i.i.i.3, align 1, !tbaa !7
+  %26 = load i8, ptr %incdec.ptr.i.i.i.3, align 1, !tbaa !7
+  store i8 %26, ptr %incdec.ptr1.i.i.i.3, align 1, !tbaa !7
   %incdec.ptr.i.i.i.4 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 5
   %incdec.ptr1.i.i.i.4 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 5
-  %26 = load i8, ptr %incdec.ptr.i.i.i.4, align 1, !tbaa !7
-  store i8 %26, ptr %incdec.ptr1.i.i.i.4, align 1, !tbaa !7
+  %27 = load i8, ptr %incdec.ptr.i.i.i.4, align 1, !tbaa !7
+  store i8 %27, ptr %incdec.ptr1.i.i.i.4, align 1, !tbaa !7
   %incdec.ptr.i.i.i.5 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 6
   %incdec.ptr1.i.i.i.5 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 6
-  %27 = load i8, ptr %incdec.ptr.i.i.i.5, align 1, !tbaa !7
-  store i8 %27, ptr %incdec.ptr1.i.i.i.5, align 1, !tbaa !7
+  %28 = load i8, ptr %incdec.ptr.i.i.i.5, align 1, !tbaa !7
+  store i8 %28, ptr %incdec.ptr1.i.i.i.5, align 1, !tbaa !7
   %incdec.ptr.i.i.i.6 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 7
   %incdec.ptr1.i.i.i.6 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 7
-  %28 = load i8, ptr %incdec.ptr.i.i.i.6, align 1, !tbaa !7
-  store i8 %28, ptr %incdec.ptr1.i.i.i.6, align 1, !tbaa !7
+  %29 = load i8, ptr %incdec.ptr.i.i.i.6, align 1, !tbaa !7
+  store i8 %29, ptr %incdec.ptr1.i.i.i.6, align 1, !tbaa !7
   %incdec.ptr.i.i.i.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 8
   %incdec.ptr1.i.i.i.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 8
   %cmp.not.i.i.i.7 = icmp eq ptr %incdec.ptr.i.i.i.7, %add.ptr.i.i
@@ -89176,30 +89178,32 @@ vector.ph:                                        ; preds = %for.body.i.i.prehea
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %vec.phi = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %9, %vector.body ]
-  %vec.phi136 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %10, %vector.body ]
+  %vec.phi = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %11, %vector.body ]
+  %vec.phi136 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %12, %vector.body ]
   %3 = getelementptr inbounds i8, ptr %2, i64 %index
   %4 = getelementptr inbounds i8, ptr %3, i64 2
   %wide.load = load <2 x i8>, ptr %3, align 1, !tbaa !7
   %wide.load137 = load <2 x i8>, ptr %4, align 1, !tbaa !7
-  %5 = icmp sgt <2 x i8> %wide.load, <i8 -65, i8 -65>
-  %6 = icmp sgt <2 x i8> %wide.load137, <i8 -65, i8 -65>
-  %7 = zext <2 x i1> %5 to <2 x i64>
-  %8 = zext <2 x i1> %6 to <2 x i64>
-  %9 = add <2 x i64> %vec.phi, %7
-  %10 = add <2 x i64> %vec.phi136, %8
+  %5 = and <2 x i8> %wide.load, <i8 -64, i8 -64>
+  %6 = and <2 x i8> %wide.load137, <i8 -64, i8 -64>
+  %7 = icmp ne <2 x i8> %5, <i8 -128, i8 -128>
+  %8 = icmp ne <2 x i8> %6, <i8 -128, i8 -128>
+  %9 = zext <2 x i1> %7 to <2 x i64>
+  %10 = zext <2 x i1> %8 to <2 x i64>
+  %11 = add <2 x i64> %vec.phi, %9
+  %12 = add <2 x i64> %vec.phi136, %10
   %index.next = add nuw i64 %index, 4
-  %11 = icmp eq i64 %index.next, %n.vec
-  br i1 %11, label %middle.block, label %vector.body, !llvm.loop !1615
+  %13 = icmp eq i64 %index.next, %n.vec
+  br i1 %13, label %middle.block, label %vector.body, !llvm.loop !1615
 
 middle.block:                                     ; preds = %vector.body
-  %bin.rdx = add <2 x i64> %10, %9
-  %12 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
+  %bin.rdx = add <2 x i64> %12, %11
+  %14 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %1, %n.vec
   br i1 %cmp.n, label %cond.end, label %for.body.i.i.preheader37
 
 for.body.i.i.preheader37:                         ; preds = %middle.block, %for.body.i.i.preheader
-  %num_code_points.09.i.i.ph = phi i64 [ %12, %middle.block ], [ 0, %for.body.i.i.preheader ]
+  %num_code_points.09.i.i.ph = phi i64 [ %14, %middle.block ], [ 0, %for.body.i.i.preheader ]
   %i.08.i.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i.i.preheader ]
   br label %for.body.i.i
 
@@ -89207,8 +89211,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %num_code_points.09.i.i = phi i64 [ %spec.select.i.i, %for.body.i.i ], [ %num_code_points.09.i.i.ph, %for.body.i.i.preheader37 ]
   %i.08.i.i = phi i64 [ %inc3.i.i, %for.body.i.i ], [ %i.08.i.i.ph, %for.body.i.i.preheader37 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 %i.08.i.i
-  %13 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
-  %cmp2.not.i.i = icmp sgt i8 %13, -65
+  %15 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
+  %16 = and i8 %15, -64
+  %cmp2.not.i.i = icmp ne i8 %16, -128
   %inc.i.i = zext i1 %cmp2.not.i.i to i64
   %spec.select.i.i = add i64 %num_code_points.09.i.i, %inc.i.i
   %inc3.i.i = add nuw i64 %i.08.i.i, 1
@@ -89216,112 +89221,112 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %cmp.not.i.i, label %cond.end, label %for.body.i.i, !llvm.loop !1616
 
 cond.end:                                         ; preds = %for.body.i.i, %middle.block, %cond.true, %entry
-  %cond = phi i64 [ %1, %entry ], [ 0, %cond.true ], [ %12, %middle.block ], [ %spec.select.i.i, %for.body.i.i ]
+  %cond = phi i64 [ %1, %entry ], [ 0, %cond.true ], [ %14, %middle.block ], [ %spec.select.i.i, %for.body.i.i ]
   %conv = zext i32 %0 to i64
   %cmp5.not = icmp ult i64 %cond, %conv
   %agg.tmp.sroa.0.0.copyload.i.i64 = load ptr, ptr %this, align 8
   %size_.i.i.i65 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i64, i64 16
-  %14 = load i64, ptr %size_.i.i.i65, align 8, !tbaa !876
+  %17 = load i64, ptr %size_.i.i.i65, align 8, !tbaa !876
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %add.i.i = add i64 %14, %1
+  %add.i.i = add i64 %17, %1
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i64, i64 24
-  %15 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !860
-  %cmp.i.i.i.i = icmp ult i64 %15, %add.i.i
+  %18 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !860
+  %cmp.i.i.i.i = icmp ult i64 %18, %add.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then
   %vtable.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i64, align 8, !tbaa !856
-  %16 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i64, i64 noundef %add.i.i)
+  %19 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i64, i64 noundef %add.i.i)
   %.pre = load i64, ptr %size_.i, align 8, !tbaa !957
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit: ; preds = %if.then.i.i.i.i, %if.then
-  %17 = phi i64 [ %1, %if.then ], [ %.pre, %if.then.i.i.i.i ]
+  %20 = phi i64 [ %1, %if.then ], [ %.pre, %if.then.i.i.i.i ]
   store i64 %add.i.i, ptr %size_.i.i.i65, align 8, !tbaa !876
-  %18 = load ptr, ptr %f, align 8, !tbaa !955
-  %19 = ptrtoint ptr %18 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %17
-  %cmp.not6.i.i.i = icmp eq i64 %17, 0
+  %21 = load ptr, ptr %f, align 8, !tbaa !955
+  %22 = ptrtoint ptr %21 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 %20
+  %cmp.not6.i.i.i = icmp eq i64 %20, 0
   br i1 %cmp.not6.i.i.i, label %cleanup, label %iter.check
 
 iter.check:                                       ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   %ptr_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i64, i64 8
-  %20 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !858
-  %add.ptr.i.i = getelementptr i8, ptr %20, i64 %14
-  %min.iters.check140 = icmp ult i64 %17, 8
+  %23 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !858
+  %add.ptr.i.i = getelementptr i8, ptr %23, i64 %17
+  %min.iters.check140 = icmp ult i64 %20, 8
   br i1 %min.iters.check140, label %for.body.i.i.i.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %iter.check
-  %21 = ptrtoint ptr %20 to i64
-  %22 = sub i64 %14, %19
-  %23 = add i64 %22, %21
-  %diff.check = icmp ult i64 %23, 32
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %17, %22
+  %26 = add i64 %25, %24
+  %diff.check = icmp ult i64 %26, 32
   br i1 %diff.check, label %for.body.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %vector.memcheck
-  %min.iters.check142 = icmp ult i64 %17, 32
+  %min.iters.check142 = icmp ult i64 %20, 32
   br i1 %min.iters.check142, label %vec.epilog.ph, label %vector.ph143
 
 vector.ph143:                                     ; preds = %vector.main.loop.iter.check
-  %n.vec145 = and i64 %17, -32
+  %n.vec145 = and i64 %20, -32
   br label %vector.body147
 
 vector.body147:                                   ; preds = %vector.body147, %vector.ph143
   %index148 = phi i64 [ 0, %vector.ph143 ], [ %index.next154, %vector.body147 ]
-  %next.gep = getelementptr i8, ptr %18, i64 %index148
+  %next.gep = getelementptr i8, ptr %21, i64 %index148
   %next.gep150 = getelementptr i8, ptr %add.ptr.i.i, i64 %index148
-  %24 = getelementptr i8, ptr %next.gep, i64 16
+  %27 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load152 = load <16 x i8>, ptr %next.gep, align 1, !tbaa !7
-  %wide.load153 = load <16 x i8>, ptr %24, align 1, !tbaa !7
-  %25 = getelementptr i8, ptr %next.gep150, i64 16
+  %wide.load153 = load <16 x i8>, ptr %27, align 1, !tbaa !7
+  %28 = getelementptr i8, ptr %next.gep150, i64 16
   store <16 x i8> %wide.load152, ptr %next.gep150, align 1, !tbaa !7
-  store <16 x i8> %wide.load153, ptr %25, align 1, !tbaa !7
+  store <16 x i8> %wide.load153, ptr %28, align 1, !tbaa !7
   %index.next154 = add nuw i64 %index148, 32
-  %26 = icmp eq i64 %index.next154, %n.vec145
-  br i1 %26, label %middle.block138, label %vector.body147, !llvm.loop !1617
+  %29 = icmp eq i64 %index.next154, %n.vec145
+  br i1 %29, label %middle.block138, label %vector.body147, !llvm.loop !1617
 
 middle.block138:                                  ; preds = %vector.body147
-  %cmp.n146 = icmp eq i64 %17, %n.vec145
+  %cmp.n146 = icmp eq i64 %20, %n.vec145
   br i1 %cmp.n146, label %cleanup, label %vec.epilog.iter.check
 
 vec.epilog.iter.check:                            ; preds = %middle.block138
   %ind.end160 = getelementptr i8, ptr %add.ptr.i.i, i64 %n.vec145
-  %ind.end157 = getelementptr i8, ptr %18, i64 %n.vec145
-  %n.vec.remaining = and i64 %17, 24
+  %ind.end157 = getelementptr i8, ptr %21, i64 %n.vec145
+  %n.vec.remaining = and i64 %20, 24
   %min.epilog.iters.check = icmp eq i64 %n.vec.remaining, 0
   br i1 %min.epilog.iters.check, label %for.body.i.i.i.preheader, label %vec.epilog.ph
 
 vec.epilog.ph:                                    ; preds = %vec.epilog.iter.check, %vector.main.loop.iter.check
   %vec.epilog.resume.val = phi i64 [ %n.vec145, %vec.epilog.iter.check ], [ 0, %vector.main.loop.iter.check ]
-  %n.vec156 = and i64 %17, -8
-  %ind.end = getelementptr i8, ptr %18, i64 %n.vec156
+  %n.vec156 = and i64 %20, -8
+  %ind.end = getelementptr i8, ptr %21, i64 %n.vec156
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.body, %vec.epilog.ph
   %index163 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next167, %vec.epilog.vector.body ]
-  %next.gep164 = getelementptr i8, ptr %18, i64 %index163
+  %next.gep164 = getelementptr i8, ptr %21, i64 %index163
   %next.gep165 = getelementptr i8, ptr %add.ptr.i.i, i64 %index163
   %wide.load166 = load <8 x i8>, ptr %next.gep164, align 1, !tbaa !7
   store <8 x i8> %wide.load166, ptr %next.gep165, align 1, !tbaa !7
   %index.next167 = add nuw i64 %index163, 8
-  %27 = icmp eq i64 %index.next167, %n.vec156
-  br i1 %27, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1618
+  %30 = icmp eq i64 %index.next167, %n.vec156
+  br i1 %30, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1618
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %ind.end159 = getelementptr i8, ptr %add.ptr.i.i, i64 %n.vec156
-  %cmp.n162 = icmp eq i64 %17, %n.vec156
+  %cmp.n162 = icmp eq i64 %20, %n.vec156
   br i1 %cmp.n162, label %cleanup, label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %vector.memcheck, %iter.check
-  %__first.addr.08.i.i.i.ph = phi ptr [ %18, %iter.check ], [ %18, %vector.memcheck ], [ %ind.end157, %vec.epilog.iter.check ], [ %ind.end, %vec.epilog.middle.block ]
+  %__first.addr.08.i.i.i.ph = phi ptr [ %21, %iter.check ], [ %21, %vector.memcheck ], [ %ind.end157, %vec.epilog.iter.check ], [ %ind.end, %vec.epilog.middle.block ]
   %__result.addr.07.i.i.i.ph = phi ptr [ %add.ptr.i.i, %iter.check ], [ %add.ptr.i.i, %vector.memcheck ], [ %ind.end160, %vec.epilog.iter.check ], [ %ind.end159, %vec.epilog.middle.block ]
-  %28 = add i64 %17, %19
+  %31 = add i64 %20, %22
   %__first.addr.08.i.i.i.ph262 = ptrtoint ptr %__first.addr.08.i.i.i.ph to i64
-  %29 = sub i64 %28, %__first.addr.08.i.i.i.ph262
-  %xtraiter = and i64 %29, 7
+  %32 = sub i64 %31, %__first.addr.08.i.i.i.ph262
+  %xtraiter = and i64 %32, 7
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
 
@@ -89329,8 +89334,8 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preh
   %__first.addr.08.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %__first.addr.08.i.i.i.ph, %for.body.i.i.i.preheader ]
   %__result.addr.07.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.prol, %for.body.i.i.i.prol ], [ %__result.addr.07.i.i.i.ph, %for.body.i.i.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.preheader ]
-  %30 = load i8, ptr %__first.addr.08.i.i.i.prol, align 1, !tbaa !7
-  store i8 %30, ptr %__result.addr.07.i.i.i.prol, align 1, !tbaa !7
+  %33 = load i8, ptr %__first.addr.08.i.i.i.prol, align 1, !tbaa !7
+  store i8 %33, ptr %__result.addr.07.i.i.i.prol, align 1, !tbaa !7
   %incdec.ptr.i.i.i.prol = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.prol, i64 1
   %incdec.ptr1.i.i.i.prol = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.prol, i64 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -89340,43 +89345,43 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preh
 for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol, %for.body.i.i.i.preheader
   %__first.addr.08.i.i.i.unr = phi ptr [ %__first.addr.08.i.i.i.ph, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
   %__result.addr.07.i.i.i.unr = phi ptr [ %__result.addr.07.i.i.i.ph, %for.body.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.prol, %for.body.i.i.i.prol ]
-  %31 = sub i64 %__first.addr.08.i.i.i.ph262, %28
-  %32 = icmp ugt i64 %31, -8
-  br i1 %32, label %cleanup, label %for.body.i.i.i
+  %34 = sub i64 %__first.addr.08.i.i.i.ph262, %31
+  %35 = icmp ugt i64 %34, -8
+  br i1 %35, label %cleanup, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.prol.loopexit, %for.body.i.i.i
   %__first.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i.7, %for.body.i.i.i ], [ %__first.addr.08.i.i.i.unr, %for.body.i.i.i.prol.loopexit ]
   %__result.addr.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.7, %for.body.i.i.i ], [ %__result.addr.07.i.i.i.unr, %for.body.i.i.i.prol.loopexit ]
-  %33 = load i8, ptr %__first.addr.08.i.i.i, align 1, !tbaa !7
-  store i8 %33, ptr %__result.addr.07.i.i.i, align 1, !tbaa !7
+  %36 = load i8, ptr %__first.addr.08.i.i.i, align 1, !tbaa !7
+  store i8 %36, ptr %__result.addr.07.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 1
-  %34 = load i8, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
-  store i8 %34, ptr %incdec.ptr1.i.i.i, align 1, !tbaa !7
+  %37 = load i8, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
+  store i8 %37, ptr %incdec.ptr1.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 2
   %incdec.ptr1.i.i.i.1 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 2
-  %35 = load i8, ptr %incdec.ptr.i.i.i.1, align 1, !tbaa !7
-  store i8 %35, ptr %incdec.ptr1.i.i.i.1, align 1, !tbaa !7
+  %38 = load i8, ptr %incdec.ptr.i.i.i.1, align 1, !tbaa !7
+  store i8 %38, ptr %incdec.ptr1.i.i.i.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i.2 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 3
   %incdec.ptr1.i.i.i.2 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 3
-  %36 = load i8, ptr %incdec.ptr.i.i.i.2, align 1, !tbaa !7
-  store i8 %36, ptr %incdec.ptr1.i.i.i.2, align 1, !tbaa !7
+  %39 = load i8, ptr %incdec.ptr.i.i.i.2, align 1, !tbaa !7
+  store i8 %39, ptr %incdec.ptr1.i.i.i.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i.3 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 4
   %incdec.ptr1.i.i.i.3 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 4
-  %37 = load i8, ptr %incdec.ptr.i.i.i.3, align 1, !tbaa !7
-  store i8 %37, ptr %incdec.ptr1.i.i.i.3, align 1, !tbaa !7
+  %40 = load i8, ptr %incdec.ptr.i.i.i.3, align 1, !tbaa !7
+  store i8 %40, ptr %incdec.ptr1.i.i.i.3, align 1, !tbaa !7
   %incdec.ptr.i.i.i.4 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 5
   %incdec.ptr1.i.i.i.4 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 5
-  %38 = load i8, ptr %incdec.ptr.i.i.i.4, align 1, !tbaa !7
-  store i8 %38, ptr %incdec.ptr1.i.i.i.4, align 1, !tbaa !7
+  %41 = load i8, ptr %incdec.ptr.i.i.i.4, align 1, !tbaa !7
+  store i8 %41, ptr %incdec.ptr1.i.i.i.4, align 1, !tbaa !7
   %incdec.ptr.i.i.i.5 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 6
   %incdec.ptr1.i.i.i.5 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 6
-  %39 = load i8, ptr %incdec.ptr.i.i.i.5, align 1, !tbaa !7
-  store i8 %39, ptr %incdec.ptr1.i.i.i.5, align 1, !tbaa !7
+  %42 = load i8, ptr %incdec.ptr.i.i.i.5, align 1, !tbaa !7
+  store i8 %42, ptr %incdec.ptr1.i.i.i.5, align 1, !tbaa !7
   %incdec.ptr.i.i.i.6 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 7
   %incdec.ptr1.i.i.i.6 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 7
-  %40 = load i8, ptr %incdec.ptr.i.i.i.6, align 1, !tbaa !7
-  store i8 %40, ptr %incdec.ptr1.i.i.i.6, align 1, !tbaa !7
+  %43 = load i8, ptr %incdec.ptr.i.i.i.6, align 1, !tbaa !7
+  store i8 %43, ptr %incdec.ptr1.i.i.i.6, align 1, !tbaa !7
   %incdec.ptr.i.i.i.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 8
   %incdec.ptr1.i.i.i.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 8
   %cmp.not.i.i.i.7 = icmp eq ptr %incdec.ptr.i.i.i.7, %add.ptr.i
@@ -89385,26 +89390,26 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.prol
 if.end:                                           ; preds = %cond.end
   %sub = add i64 %1, %conv
   %add = sub i64 %sub, %cond
-  %add.i.i66 = add i64 %add, %14
+  %add.i.i66 = add i64 %add, %17
   %capacity_.i.i.i.i67 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i64, i64 24
-  %41 = load i64, ptr %capacity_.i.i.i.i67, align 8, !tbaa !860
-  %cmp.i.i.i.i68 = icmp ult i64 %41, %add.i.i66
+  %44 = load i64, ptr %capacity_.i.i.i.i67, align 8, !tbaa !860
+  %cmp.i.i.i.i68 = icmp ult i64 %44, %add.i.i66
   br i1 %cmp.i.i.i.i68, label %if.then.i.i.i.i71, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit73
 
 if.then.i.i.i.i71:                                ; preds = %if.end
   %vtable.i.i.i.i72 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i64, align 8, !tbaa !856
-  %42 = load ptr, ptr %vtable.i.i.i.i72, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i64, i64 noundef %add.i.i66)
+  %45 = load ptr, ptr %vtable.i.i.i.i72, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i64, i64 noundef %add.i.i66)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit73
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit73: ; preds = %if.then.i.i.i.i71, %if.end
   store i64 %add.i.i66, ptr %size_.i.i.i65, align 8, !tbaa !876
   %ptr_.i.i.i.i69 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i64, i64 8
-  %43 = load ptr, ptr %ptr_.i.i.i.i69, align 8, !tbaa !858
-  %44 = ptrtoint ptr %43 to i64
-  %add.ptr.i.i70 = getelementptr i8, ptr %43, i64 %14
+  %46 = load ptr, ptr %ptr_.i.i.i.i69, align 8, !tbaa !858
+  %47 = ptrtoint ptr %46 to i64
+  %add.ptr.i.i70 = getelementptr i8, ptr %46, i64 %17
   %fill10 = getelementptr inbounds i8, ptr %specs, i64 10
-  %45 = load i8, ptr %fill10, align 2, !tbaa !7
+  %48 = load i8, ptr %fill10, align 2, !tbaa !7
   %sub13 = sub nsw i64 %conv, %cond
   %align = getelementptr inbounds i8, ptr %specs, i64 9
   %bf.load = load i8, ptr %align, align 1
@@ -89415,87 +89420,87 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   ]
 
 if.then.i.i.i.i74:                                ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit73
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i70, i8 %45, i64 %sub13, i1 false)
-  %46 = load ptr, ptr %f, align 8, !tbaa !955
-  %47 = ptrtoint ptr %46 to i64
-  %48 = load i64, ptr %size_.i, align 8, !tbaa !957
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %46, i64 %48
-  %cmp.not6.i.i.i78 = icmp eq i64 %48, 0
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i70, i8 %48, i64 %sub13, i1 false)
+  %49 = load ptr, ptr %f, align 8, !tbaa !955
+  %50 = ptrtoint ptr %49 to i64
+  %51 = load i64, ptr %size_.i, align 8, !tbaa !957
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %49, i64 %51
+  %cmp.not6.i.i.i78 = icmp eq i64 %51, 0
   br i1 %cmp.not6.i.i.i78, label %cleanup, label %iter.check197
 
 iter.check197:                                    ; preds = %if.then.i.i.i.i74
   %add.ptr.i.i75 = getelementptr i8, ptr %add.ptr.i.i70, i64 %sub13
-  %min.iters.check195 = icmp ult i64 %48, 8
+  %min.iters.check195 = icmp ult i64 %51, 8
   br i1 %min.iters.check195, label %for.body.i.i.i79.preheader, label %vector.memcheck191
 
 vector.memcheck191:                               ; preds = %iter.check197
-  %49 = add i64 %sub13, %14
-  %50 = add i64 %49, %44
-  %51 = sub i64 %50, %47
-  %diff.check192 = icmp ult i64 %51, 32
+  %52 = add i64 %sub13, %17
+  %53 = add i64 %52, %47
+  %54 = sub i64 %53, %50
+  %diff.check192 = icmp ult i64 %54, 32
   br i1 %diff.check192, label %for.body.i.i.i79.preheader, label %vector.main.loop.iter.check199
 
 vector.main.loop.iter.check199:                   ; preds = %vector.memcheck191
-  %min.iters.check198 = icmp ult i64 %48, 32
+  %min.iters.check198 = icmp ult i64 %51, 32
   br i1 %min.iters.check198, label %vec.epilog.ph216, label %vector.ph200
 
 vector.ph200:                                     ; preds = %vector.main.loop.iter.check199
-  %n.vec202 = and i64 %48, -32
+  %n.vec202 = and i64 %51, -32
   br label %vector.body204
 
 vector.body204:                                   ; preds = %vector.body204, %vector.ph200
   %index205 = phi i64 [ 0, %vector.ph200 ], [ %index.next212, %vector.body204 ]
-  %next.gep206 = getelementptr i8, ptr %46, i64 %index205
+  %next.gep206 = getelementptr i8, ptr %49, i64 %index205
   %next.gep208 = getelementptr i8, ptr %add.ptr.i.i75, i64 %index205
-  %52 = getelementptr i8, ptr %next.gep206, i64 16
+  %55 = getelementptr i8, ptr %next.gep206, i64 16
   %wide.load210 = load <16 x i8>, ptr %next.gep206, align 1, !tbaa !7
-  %wide.load211 = load <16 x i8>, ptr %52, align 1, !tbaa !7
-  %53 = getelementptr i8, ptr %next.gep208, i64 16
+  %wide.load211 = load <16 x i8>, ptr %55, align 1, !tbaa !7
+  %56 = getelementptr i8, ptr %next.gep208, i64 16
   store <16 x i8> %wide.load210, ptr %next.gep208, align 1, !tbaa !7
-  store <16 x i8> %wide.load211, ptr %53, align 1, !tbaa !7
+  store <16 x i8> %wide.load211, ptr %56, align 1, !tbaa !7
   %index.next212 = add nuw i64 %index205, 32
-  %54 = icmp eq i64 %index.next212, %n.vec202
-  br i1 %54, label %middle.block193, label %vector.body204, !llvm.loop !1621
+  %57 = icmp eq i64 %index.next212, %n.vec202
+  br i1 %57, label %middle.block193, label %vector.body204, !llvm.loop !1621
 
 middle.block193:                                  ; preds = %vector.body204
-  %cmp.n203 = icmp eq i64 %48, %n.vec202
+  %cmp.n203 = icmp eq i64 %51, %n.vec202
   br i1 %cmp.n203, label %cleanup, label %vec.epilog.iter.check215
 
 vec.epilog.iter.check215:                         ; preds = %middle.block193
   %ind.end226 = getelementptr i8, ptr %add.ptr.i.i75, i64 %n.vec202
-  %ind.end223 = getelementptr i8, ptr %46, i64 %n.vec202
-  %n.vec.remaining217 = and i64 %48, 24
+  %ind.end223 = getelementptr i8, ptr %49, i64 %n.vec202
+  %n.vec.remaining217 = and i64 %51, 24
   %min.epilog.iters.check218 = icmp eq i64 %n.vec.remaining217, 0
   br i1 %min.epilog.iters.check218, label %for.body.i.i.i79.preheader, label %vec.epilog.ph216
 
 vec.epilog.ph216:                                 ; preds = %vec.epilog.iter.check215, %vector.main.loop.iter.check199
   %vec.epilog.resume.val219 = phi i64 [ %n.vec202, %vec.epilog.iter.check215 ], [ 0, %vector.main.loop.iter.check199 ]
-  %n.vec221 = and i64 %48, -8
-  %ind.end222 = getelementptr i8, ptr %46, i64 %n.vec221
+  %n.vec221 = and i64 %51, -8
+  %ind.end222 = getelementptr i8, ptr %49, i64 %n.vec221
   br label %vec.epilog.vector.body229
 
 vec.epilog.vector.body229:                        ; preds = %vec.epilog.vector.body229, %vec.epilog.ph216
   %index230 = phi i64 [ %vec.epilog.resume.val219, %vec.epilog.ph216 ], [ %index.next234, %vec.epilog.vector.body229 ]
-  %next.gep231 = getelementptr i8, ptr %46, i64 %index230
+  %next.gep231 = getelementptr i8, ptr %49, i64 %index230
   %next.gep232 = getelementptr i8, ptr %add.ptr.i.i75, i64 %index230
   %wide.load233 = load <8 x i8>, ptr %next.gep231, align 1, !tbaa !7
   store <8 x i8> %wide.load233, ptr %next.gep232, align 1, !tbaa !7
   %index.next234 = add nuw i64 %index230, 8
-  %55 = icmp eq i64 %index.next234, %n.vec221
-  br i1 %55, label %vec.epilog.middle.block213, label %vec.epilog.vector.body229, !llvm.loop !1622
+  %58 = icmp eq i64 %index.next234, %n.vec221
+  br i1 %58, label %vec.epilog.middle.block213, label %vec.epilog.vector.body229, !llvm.loop !1622
 
 vec.epilog.middle.block213:                       ; preds = %vec.epilog.vector.body229
   %ind.end225 = getelementptr i8, ptr %add.ptr.i.i75, i64 %n.vec221
-  %cmp.n228 = icmp eq i64 %48, %n.vec221
+  %cmp.n228 = icmp eq i64 %51, %n.vec221
   br i1 %cmp.n228, label %cleanup, label %for.body.i.i.i79.preheader
 
 for.body.i.i.i79.preheader:                       ; preds = %vec.epilog.middle.block213, %vec.epilog.iter.check215, %vector.memcheck191, %iter.check197
-  %__first.addr.08.i.i.i80.ph = phi ptr [ %46, %iter.check197 ], [ %46, %vector.memcheck191 ], [ %ind.end223, %vec.epilog.iter.check215 ], [ %ind.end222, %vec.epilog.middle.block213 ]
+  %__first.addr.08.i.i.i80.ph = phi ptr [ %49, %iter.check197 ], [ %49, %vector.memcheck191 ], [ %ind.end223, %vec.epilog.iter.check215 ], [ %ind.end222, %vec.epilog.middle.block213 ]
   %__result.addr.07.i.i.i81.ph = phi ptr [ %add.ptr.i.i75, %iter.check197 ], [ %add.ptr.i.i75, %vector.memcheck191 ], [ %ind.end226, %vec.epilog.iter.check215 ], [ %ind.end225, %vec.epilog.middle.block213 ]
-  %56 = add i64 %48, %47
+  %59 = add i64 %51, %50
   %__first.addr.08.i.i.i80.ph267 = ptrtoint ptr %__first.addr.08.i.i.i80.ph to i64
-  %57 = sub i64 %56, %__first.addr.08.i.i.i80.ph267
-  %xtraiter268 = and i64 %57, 7
+  %60 = sub i64 %59, %__first.addr.08.i.i.i80.ph267
+  %xtraiter268 = and i64 %60, 7
   %lcmp.mod269.not = icmp eq i64 %xtraiter268, 0
   br i1 %lcmp.mod269.not, label %for.body.i.i.i79.prol.loopexit, label %for.body.i.i.i79.prol
 
@@ -89503,8 +89508,8 @@ for.body.i.i.i79.prol:                            ; preds = %for.body.i.i.i79.pr
   %__first.addr.08.i.i.i80.prol = phi ptr [ %incdec.ptr.i.i.i82.prol, %for.body.i.i.i79.prol ], [ %__first.addr.08.i.i.i80.ph, %for.body.i.i.i79.preheader ]
   %__result.addr.07.i.i.i81.prol = phi ptr [ %incdec.ptr1.i.i.i83.prol, %for.body.i.i.i79.prol ], [ %__result.addr.07.i.i.i81.ph, %for.body.i.i.i79.preheader ]
   %prol.iter270 = phi i64 [ %prol.iter270.next, %for.body.i.i.i79.prol ], [ 0, %for.body.i.i.i79.preheader ]
-  %58 = load i8, ptr %__first.addr.08.i.i.i80.prol, align 1, !tbaa !7
-  store i8 %58, ptr %__result.addr.07.i.i.i81.prol, align 1, !tbaa !7
+  %61 = load i8, ptr %__first.addr.08.i.i.i80.prol, align 1, !tbaa !7
+  store i8 %61, ptr %__result.addr.07.i.i.i81.prol, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.prol = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80.prol, i64 1
   %incdec.ptr1.i.i.i83.prol = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81.prol, i64 1
   %prol.iter270.next = add nuw nsw i64 %prol.iter270, 1
@@ -89514,43 +89519,43 @@ for.body.i.i.i79.prol:                            ; preds = %for.body.i.i.i79.pr
 for.body.i.i.i79.prol.loopexit:                   ; preds = %for.body.i.i.i79.prol, %for.body.i.i.i79.preheader
   %__first.addr.08.i.i.i80.unr = phi ptr [ %__first.addr.08.i.i.i80.ph, %for.body.i.i.i79.preheader ], [ %incdec.ptr.i.i.i82.prol, %for.body.i.i.i79.prol ]
   %__result.addr.07.i.i.i81.unr = phi ptr [ %__result.addr.07.i.i.i81.ph, %for.body.i.i.i79.preheader ], [ %incdec.ptr1.i.i.i83.prol, %for.body.i.i.i79.prol ]
-  %59 = sub i64 %__first.addr.08.i.i.i80.ph267, %56
-  %60 = icmp ugt i64 %59, -8
-  br i1 %60, label %cleanup, label %for.body.i.i.i79
+  %62 = sub i64 %__first.addr.08.i.i.i80.ph267, %59
+  %63 = icmp ugt i64 %62, -8
+  br i1 %63, label %cleanup, label %for.body.i.i.i79
 
 for.body.i.i.i79:                                 ; preds = %for.body.i.i.i79.prol.loopexit, %for.body.i.i.i79
   %__first.addr.08.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i82.7, %for.body.i.i.i79 ], [ %__first.addr.08.i.i.i80.unr, %for.body.i.i.i79.prol.loopexit ]
   %__result.addr.07.i.i.i81 = phi ptr [ %incdec.ptr1.i.i.i83.7, %for.body.i.i.i79 ], [ %__result.addr.07.i.i.i81.unr, %for.body.i.i.i79.prol.loopexit ]
-  %61 = load i8, ptr %__first.addr.08.i.i.i80, align 1, !tbaa !7
-  store i8 %61, ptr %__result.addr.07.i.i.i81, align 1, !tbaa !7
+  %64 = load i8, ptr %__first.addr.08.i.i.i80, align 1, !tbaa !7
+  store i8 %64, ptr %__result.addr.07.i.i.i81, align 1, !tbaa !7
   %incdec.ptr.i.i.i82 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 1
   %incdec.ptr1.i.i.i83 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 1
-  %62 = load i8, ptr %incdec.ptr.i.i.i82, align 1, !tbaa !7
-  store i8 %62, ptr %incdec.ptr1.i.i.i83, align 1, !tbaa !7
+  %65 = load i8, ptr %incdec.ptr.i.i.i82, align 1, !tbaa !7
+  store i8 %65, ptr %incdec.ptr1.i.i.i83, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.1 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 2
   %incdec.ptr1.i.i.i83.1 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 2
-  %63 = load i8, ptr %incdec.ptr.i.i.i82.1, align 1, !tbaa !7
-  store i8 %63, ptr %incdec.ptr1.i.i.i83.1, align 1, !tbaa !7
+  %66 = load i8, ptr %incdec.ptr.i.i.i82.1, align 1, !tbaa !7
+  store i8 %66, ptr %incdec.ptr1.i.i.i83.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.2 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 3
   %incdec.ptr1.i.i.i83.2 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 3
-  %64 = load i8, ptr %incdec.ptr.i.i.i82.2, align 1, !tbaa !7
-  store i8 %64, ptr %incdec.ptr1.i.i.i83.2, align 1, !tbaa !7
+  %67 = load i8, ptr %incdec.ptr.i.i.i82.2, align 1, !tbaa !7
+  store i8 %67, ptr %incdec.ptr1.i.i.i83.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.3 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 4
   %incdec.ptr1.i.i.i83.3 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 4
-  %65 = load i8, ptr %incdec.ptr.i.i.i82.3, align 1, !tbaa !7
-  store i8 %65, ptr %incdec.ptr1.i.i.i83.3, align 1, !tbaa !7
+  %68 = load i8, ptr %incdec.ptr.i.i.i82.3, align 1, !tbaa !7
+  store i8 %68, ptr %incdec.ptr1.i.i.i83.3, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.4 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 5
   %incdec.ptr1.i.i.i83.4 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 5
-  %66 = load i8, ptr %incdec.ptr.i.i.i82.4, align 1, !tbaa !7
-  store i8 %66, ptr %incdec.ptr1.i.i.i83.4, align 1, !tbaa !7
+  %69 = load i8, ptr %incdec.ptr.i.i.i82.4, align 1, !tbaa !7
+  store i8 %69, ptr %incdec.ptr1.i.i.i83.4, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.5 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 6
   %incdec.ptr1.i.i.i83.5 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 6
-  %67 = load i8, ptr %incdec.ptr.i.i.i82.5, align 1, !tbaa !7
-  store i8 %67, ptr %incdec.ptr1.i.i.i83.5, align 1, !tbaa !7
+  %70 = load i8, ptr %incdec.ptr.i.i.i82.5, align 1, !tbaa !7
+  store i8 %70, ptr %incdec.ptr1.i.i.i83.5, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.6 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 7
   %incdec.ptr1.i.i.i83.6 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 7
-  %68 = load i8, ptr %incdec.ptr.i.i.i82.6, align 1, !tbaa !7
-  store i8 %68, ptr %incdec.ptr1.i.i.i83.6, align 1, !tbaa !7
+  %71 = load i8, ptr %incdec.ptr.i.i.i82.6, align 1, !tbaa !7
+  store i8 %71, ptr %incdec.ptr1.i.i.i83.6, align 1, !tbaa !7
   %incdec.ptr.i.i.i82.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i80, i64 8
   %incdec.ptr1.i.i.i83.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i81, i64 8
   %cmp.not.i.i.i84.7 = icmp eq ptr %incdec.ptr.i.i.i82.7, %add.ptr.i77
@@ -89563,48 +89568,48 @@ if.then22:                                        ; preds = %_ZN10duckdb_fmt2v68
 
 if.then.i.i.i.i87:                                ; preds = %if.then22
   %add.ptr.i.i88 = getelementptr inbounds i8, ptr %add.ptr.i.i70, i64 %div61
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i70, i8 %45, i64 %div61, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i70, i8 %48, i64 %div61, i1 false)
   br label %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90
 
 _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90:            ; preds = %if.then.i.i.i.i87, %if.then22
   %retval.0.i.i89 = phi ptr [ %add.ptr.i.i70, %if.then22 ], [ %add.ptr.i.i88, %if.then.i.i.i.i87 ]
-  %69 = load ptr, ptr %f, align 8, !tbaa !955
-  %70 = load i64, ptr %size_.i, align 8, !tbaa !957
-  %add.ptr.i92 = getelementptr inbounds i8, ptr %69, i64 %70
-  %cmp.not6.i.i.i93 = icmp eq i64 %70, 0
+  %72 = load ptr, ptr %f, align 8, !tbaa !955
+  %73 = load i64, ptr %size_.i, align 8, !tbaa !957
+  %add.ptr.i92 = getelementptr inbounds i8, ptr %72, i64 %73
+  %cmp.not6.i.i.i93 = icmp eq i64 %73, 0
   br i1 %cmp.not6.i.i.i93, label %if.then.i.i.i.i103, label %for.body.i.i.i94.preheader
 
 for.body.i.i.i94.preheader:                       ; preds = %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90
-  %71 = ptrtoint ptr %69 to i64
+  %74 = ptrtoint ptr %72 to i64
   %retval.0.i.i89169 = ptrtoint ptr %retval.0.i.i89 to i64
-  %min.iters.check173 = icmp ult i64 %70, 32
-  %72 = sub i64 %retval.0.i.i89169, %71
-  %diff.check170 = icmp ult i64 %72, 32
+  %min.iters.check173 = icmp ult i64 %73, 32
+  %75 = sub i64 %retval.0.i.i89169, %74
+  %diff.check170 = icmp ult i64 %75, 32
   %or.cond = select i1 %min.iters.check173, i1 true, i1 %diff.check170
   br i1 %or.cond, label %for.body.i.i.i94.preheader258, label %vector.ph174
 
 vector.ph174:                                     ; preds = %for.body.i.i.i94.preheader
-  %n.vec176 = and i64 %70, -32
-  %ind.end177 = getelementptr i8, ptr %69, i64 %n.vec176
+  %n.vec176 = and i64 %73, -32
+  %ind.end177 = getelementptr i8, ptr %72, i64 %n.vec176
   br label %vector.body182
 
 vector.body182:                                   ; preds = %vector.body182, %vector.ph174
   %index183 = phi i64 [ 0, %vector.ph174 ], [ %index.next190, %vector.body182 ]
-  %next.gep184 = getelementptr i8, ptr %69, i64 %index183
+  %next.gep184 = getelementptr i8, ptr %72, i64 %index183
   %next.gep186 = getelementptr i8, ptr %retval.0.i.i89, i64 %index183
-  %73 = getelementptr i8, ptr %next.gep184, i64 16
+  %76 = getelementptr i8, ptr %next.gep184, i64 16
   %wide.load188 = load <16 x i8>, ptr %next.gep184, align 1, !tbaa !7
-  %wide.load189 = load <16 x i8>, ptr %73, align 1, !tbaa !7
-  %74 = getelementptr i8, ptr %next.gep186, i64 16
+  %wide.load189 = load <16 x i8>, ptr %76, align 1, !tbaa !7
+  %77 = getelementptr i8, ptr %next.gep186, i64 16
   store <16 x i8> %wide.load188, ptr %next.gep186, align 1, !tbaa !7
-  store <16 x i8> %wide.load189, ptr %74, align 1, !tbaa !7
+  store <16 x i8> %wide.load189, ptr %77, align 1, !tbaa !7
   %index.next190 = add nuw i64 %index183, 32
-  %75 = icmp eq i64 %index.next190, %n.vec176
-  br i1 %75, label %middle.block171, label %vector.body182, !llvm.loop !1625
+  %78 = icmp eq i64 %index.next190, %n.vec176
+  br i1 %78, label %middle.block171, label %vector.body182, !llvm.loop !1625
 
 middle.block171:                                  ; preds = %vector.body182
   %ind.end179 = getelementptr i8, ptr %retval.0.i.i89, i64 %n.vec176
-  %cmp.n181 = icmp eq i64 %70, %n.vec176
+  %cmp.n181 = icmp eq i64 %73, %n.vec176
   br i1 %cmp.n181, label %if.then.i.i.i.i103, label %middle.block171.for.body.i.i.i94.preheader258_crit_edge
 
 middle.block171.for.body.i.i.i94.preheader258_crit_edge: ; preds = %middle.block171
@@ -89612,12 +89617,12 @@ middle.block171.for.body.i.i.i94.preheader258_crit_edge: ; preds = %middle.block
   br label %for.body.i.i.i94.preheader258
 
 for.body.i.i.i94.preheader258:                    ; preds = %middle.block171.for.body.i.i.i94.preheader258_crit_edge, %for.body.i.i.i94.preheader
-  %__first.addr.08.i.i.i95.ph263.pre-phi = phi i64 [ %.pre23, %middle.block171.for.body.i.i.i94.preheader258_crit_edge ], [ %71, %for.body.i.i.i94.preheader ]
-  %__first.addr.08.i.i.i95.ph = phi ptr [ %ind.end177, %middle.block171.for.body.i.i.i94.preheader258_crit_edge ], [ %69, %for.body.i.i.i94.preheader ]
+  %__first.addr.08.i.i.i95.ph263.pre-phi = phi i64 [ %.pre23, %middle.block171.for.body.i.i.i94.preheader258_crit_edge ], [ %74, %for.body.i.i.i94.preheader ]
+  %__first.addr.08.i.i.i95.ph = phi ptr [ %ind.end177, %middle.block171.for.body.i.i.i94.preheader258_crit_edge ], [ %72, %for.body.i.i.i94.preheader ]
   %__result.addr.07.i.i.i96.ph = phi ptr [ %ind.end179, %middle.block171.for.body.i.i.i94.preheader258_crit_edge ], [ %retval.0.i.i89, %for.body.i.i.i94.preheader ]
-  %76 = add i64 %70, %71
-  %77 = sub i64 %76, %__first.addr.08.i.i.i95.ph263.pre-phi
-  %xtraiter264 = and i64 %77, 7
+  %79 = add i64 %73, %74
+  %80 = sub i64 %79, %__first.addr.08.i.i.i95.ph263.pre-phi
+  %xtraiter264 = and i64 %80, 7
   %lcmp.mod265.not = icmp eq i64 %xtraiter264, 0
   br i1 %lcmp.mod265.not, label %for.body.i.i.i94.prol.loopexit, label %for.body.i.i.i94.prol
 
@@ -89625,8 +89630,8 @@ for.body.i.i.i94.prol:                            ; preds = %for.body.i.i.i94.pr
   %__first.addr.08.i.i.i95.prol = phi ptr [ %incdec.ptr.i.i.i97.prol, %for.body.i.i.i94.prol ], [ %__first.addr.08.i.i.i95.ph, %for.body.i.i.i94.preheader258 ]
   %__result.addr.07.i.i.i96.prol = phi ptr [ %incdec.ptr1.i.i.i98.prol, %for.body.i.i.i94.prol ], [ %__result.addr.07.i.i.i96.ph, %for.body.i.i.i94.preheader258 ]
   %prol.iter266 = phi i64 [ %prol.iter266.next, %for.body.i.i.i94.prol ], [ 0, %for.body.i.i.i94.preheader258 ]
-  %78 = load i8, ptr %__first.addr.08.i.i.i95.prol, align 1, !tbaa !7
-  store i8 %78, ptr %__result.addr.07.i.i.i96.prol, align 1, !tbaa !7
+  %81 = load i8, ptr %__first.addr.08.i.i.i95.prol, align 1, !tbaa !7
+  store i8 %81, ptr %__result.addr.07.i.i.i96.prol, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.prol = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95.prol, i64 1
   %incdec.ptr1.i.i.i98.prol = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96.prol, i64 1
   %prol.iter266.next = add nuw nsw i64 %prol.iter266, 1
@@ -89637,43 +89642,43 @@ for.body.i.i.i94.prol.loopexit:                   ; preds = %for.body.i.i.i94.pr
   %incdec.ptr1.i.i.i98.lcssa.unr = phi ptr [ undef, %for.body.i.i.i94.preheader258 ], [ %incdec.ptr1.i.i.i98.prol, %for.body.i.i.i94.prol ]
   %__first.addr.08.i.i.i95.unr = phi ptr [ %__first.addr.08.i.i.i95.ph, %for.body.i.i.i94.preheader258 ], [ %incdec.ptr.i.i.i97.prol, %for.body.i.i.i94.prol ]
   %__result.addr.07.i.i.i96.unr = phi ptr [ %__result.addr.07.i.i.i96.ph, %for.body.i.i.i94.preheader258 ], [ %incdec.ptr1.i.i.i98.prol, %for.body.i.i.i94.prol ]
-  %79 = sub i64 %__first.addr.08.i.i.i95.ph263.pre-phi, %76
-  %80 = icmp ugt i64 %79, -8
-  br i1 %80, label %if.then.i.i.i.i103, label %for.body.i.i.i94
+  %82 = sub i64 %__first.addr.08.i.i.i95.ph263.pre-phi, %79
+  %83 = icmp ugt i64 %82, -8
+  br i1 %83, label %if.then.i.i.i.i103, label %for.body.i.i.i94
 
 for.body.i.i.i94:                                 ; preds = %for.body.i.i.i94.prol.loopexit, %for.body.i.i.i94
   %__first.addr.08.i.i.i95 = phi ptr [ %incdec.ptr.i.i.i97.7, %for.body.i.i.i94 ], [ %__first.addr.08.i.i.i95.unr, %for.body.i.i.i94.prol.loopexit ]
   %__result.addr.07.i.i.i96 = phi ptr [ %incdec.ptr1.i.i.i98.7, %for.body.i.i.i94 ], [ %__result.addr.07.i.i.i96.unr, %for.body.i.i.i94.prol.loopexit ]
-  %81 = load i8, ptr %__first.addr.08.i.i.i95, align 1, !tbaa !7
-  store i8 %81, ptr %__result.addr.07.i.i.i96, align 1, !tbaa !7
+  %84 = load i8, ptr %__first.addr.08.i.i.i95, align 1, !tbaa !7
+  store i8 %84, ptr %__result.addr.07.i.i.i96, align 1, !tbaa !7
   %incdec.ptr.i.i.i97 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 1
   %incdec.ptr1.i.i.i98 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 1
-  %82 = load i8, ptr %incdec.ptr.i.i.i97, align 1, !tbaa !7
-  store i8 %82, ptr %incdec.ptr1.i.i.i98, align 1, !tbaa !7
+  %85 = load i8, ptr %incdec.ptr.i.i.i97, align 1, !tbaa !7
+  store i8 %85, ptr %incdec.ptr1.i.i.i98, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.1 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 2
   %incdec.ptr1.i.i.i98.1 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 2
-  %83 = load i8, ptr %incdec.ptr.i.i.i97.1, align 1, !tbaa !7
-  store i8 %83, ptr %incdec.ptr1.i.i.i98.1, align 1, !tbaa !7
+  %86 = load i8, ptr %incdec.ptr.i.i.i97.1, align 1, !tbaa !7
+  store i8 %86, ptr %incdec.ptr1.i.i.i98.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.2 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 3
   %incdec.ptr1.i.i.i98.2 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 3
-  %84 = load i8, ptr %incdec.ptr.i.i.i97.2, align 1, !tbaa !7
-  store i8 %84, ptr %incdec.ptr1.i.i.i98.2, align 1, !tbaa !7
+  %87 = load i8, ptr %incdec.ptr.i.i.i97.2, align 1, !tbaa !7
+  store i8 %87, ptr %incdec.ptr1.i.i.i98.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.3 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 4
   %incdec.ptr1.i.i.i98.3 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 4
-  %85 = load i8, ptr %incdec.ptr.i.i.i97.3, align 1, !tbaa !7
-  store i8 %85, ptr %incdec.ptr1.i.i.i98.3, align 1, !tbaa !7
+  %88 = load i8, ptr %incdec.ptr.i.i.i97.3, align 1, !tbaa !7
+  store i8 %88, ptr %incdec.ptr1.i.i.i98.3, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.4 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 5
   %incdec.ptr1.i.i.i98.4 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 5
-  %86 = load i8, ptr %incdec.ptr.i.i.i97.4, align 1, !tbaa !7
-  store i8 %86, ptr %incdec.ptr1.i.i.i98.4, align 1, !tbaa !7
+  %89 = load i8, ptr %incdec.ptr.i.i.i97.4, align 1, !tbaa !7
+  store i8 %89, ptr %incdec.ptr1.i.i.i98.4, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.5 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 6
   %incdec.ptr1.i.i.i98.5 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 6
-  %87 = load i8, ptr %incdec.ptr.i.i.i97.5, align 1, !tbaa !7
-  store i8 %87, ptr %incdec.ptr1.i.i.i98.5, align 1, !tbaa !7
+  %90 = load i8, ptr %incdec.ptr.i.i.i97.5, align 1, !tbaa !7
+  store i8 %90, ptr %incdec.ptr1.i.i.i98.5, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.6 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 7
   %incdec.ptr1.i.i.i98.6 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 7
-  %88 = load i8, ptr %incdec.ptr.i.i.i97.6, align 1, !tbaa !7
-  store i8 %88, ptr %incdec.ptr1.i.i.i98.6, align 1, !tbaa !7
+  %91 = load i8, ptr %incdec.ptr.i.i.i97.6, align 1, !tbaa !7
+  store i8 %91, ptr %incdec.ptr1.i.i.i98.6, align 1, !tbaa !7
   %incdec.ptr.i.i.i97.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i95, i64 8
   %incdec.ptr1.i.i.i98.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i96, i64 8
   %cmp.not.i.i.i99.7 = icmp eq ptr %incdec.ptr.i.i.i97.7, %add.ptr.i92
@@ -89682,49 +89687,49 @@ for.body.i.i.i94:                                 ; preds = %for.body.i.i.i94.pr
 if.then.i.i.i.i103:                               ; preds = %for.body.i.i.i94, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90, %middle.block171, %for.body.i.i.i94.prol.loopexit
   %__result.addr.0.lcssa.i.i.i100 = phi ptr [ %retval.0.i.i89, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit90 ], [ %ind.end179, %middle.block171 ], [ %incdec.ptr1.i.i.i98.lcssa.unr, %for.body.i.i.i94.prol.loopexit ], [ %incdec.ptr1.i.i.i98.7, %for.body.i.i.i94 ]
   %sub24 = sub i64 %sub13, %div61
-  tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i100, i8 %45, i64 %sub24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i100, i8 %48, i64 %sub24, i1 false)
   br label %cleanup
 
 if.else26:                                        ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit73
-  %89 = load ptr, ptr %f, align 8, !tbaa !955
-  %90 = ptrtoint ptr %89 to i64
-  %91 = load i64, ptr %size_.i, align 8, !tbaa !957
-  %add.ptr.i108 = getelementptr inbounds i8, ptr %89, i64 %91
-  %cmp.not6.i.i.i109 = icmp eq i64 %91, 0
+  %92 = load ptr, ptr %f, align 8, !tbaa !955
+  %93 = ptrtoint ptr %92 to i64
+  %94 = load i64, ptr %size_.i, align 8, !tbaa !957
+  %add.ptr.i108 = getelementptr inbounds i8, ptr %92, i64 %94
+  %cmp.not6.i.i.i109 = icmp eq i64 %94, 0
   br i1 %cmp.not6.i.i.i109, label %if.then.i.i.i.i119, label %for.body.i.i.i110.preheader
 
 for.body.i.i.i110.preheader:                      ; preds = %if.else26
-  %min.iters.check239 = icmp ult i64 %91, 32
+  %min.iters.check239 = icmp ult i64 %94, 32
   br i1 %min.iters.check239, label %for.body.i.i.i110.preheader257, label %vector.memcheck235
 
 vector.memcheck235:                               ; preds = %for.body.i.i.i110.preheader
-  %92 = add i64 %14, %44
-  %93 = sub i64 %92, %90
-  %diff.check236 = icmp ult i64 %93, 32
+  %95 = add i64 %17, %47
+  %96 = sub i64 %95, %93
+  %diff.check236 = icmp ult i64 %96, 32
   br i1 %diff.check236, label %for.body.i.i.i110.preheader257, label %vector.ph240
 
 vector.ph240:                                     ; preds = %vector.memcheck235
-  %n.vec242 = and i64 %91, -32
-  %ind.end243 = getelementptr i8, ptr %89, i64 %n.vec242
+  %n.vec242 = and i64 %94, -32
+  %ind.end243 = getelementptr i8, ptr %92, i64 %n.vec242
   br label %vector.body248
 
 vector.body248:                                   ; preds = %vector.body248, %vector.ph240
   %index249 = phi i64 [ 0, %vector.ph240 ], [ %index.next256, %vector.body248 ]
-  %next.gep250 = getelementptr i8, ptr %89, i64 %index249
+  %next.gep250 = getelementptr i8, ptr %92, i64 %index249
   %next.gep252 = getelementptr i8, ptr %add.ptr.i.i70, i64 %index249
-  %94 = getelementptr i8, ptr %next.gep250, i64 16
+  %97 = getelementptr i8, ptr %next.gep250, i64 16
   %wide.load254 = load <16 x i8>, ptr %next.gep250, align 1, !tbaa !7
-  %wide.load255 = load <16 x i8>, ptr %94, align 1, !tbaa !7
-  %95 = getelementptr i8, ptr %next.gep252, i64 16
+  %wide.load255 = load <16 x i8>, ptr %97, align 1, !tbaa !7
+  %98 = getelementptr i8, ptr %next.gep252, i64 16
   store <16 x i8> %wide.load254, ptr %next.gep252, align 1, !tbaa !7
-  store <16 x i8> %wide.load255, ptr %95, align 1, !tbaa !7
+  store <16 x i8> %wide.load255, ptr %98, align 1, !tbaa !7
   %index.next256 = add nuw i64 %index249, 32
-  %96 = icmp eq i64 %index.next256, %n.vec242
-  br i1 %96, label %middle.block237, label %vector.body248, !llvm.loop !1628
+  %99 = icmp eq i64 %index.next256, %n.vec242
+  br i1 %99, label %middle.block237, label %vector.body248, !llvm.loop !1628
 
 middle.block237:                                  ; preds = %vector.body248
   %ind.end245 = getelementptr i8, ptr %add.ptr.i.i70, i64 %n.vec242
-  %cmp.n247 = icmp eq i64 %91, %n.vec242
+  %cmp.n247 = icmp eq i64 %94, %n.vec242
   br i1 %cmp.n247, label %if.then.i.i.i.i119, label %middle.block237.for.body.i.i.i110.preheader257_crit_edge
 
 middle.block237.for.body.i.i.i110.preheader257_crit_edge: ; preds = %middle.block237
@@ -89732,12 +89737,12 @@ middle.block237.for.body.i.i.i110.preheader257_crit_edge: ; preds = %middle.bloc
   br label %for.body.i.i.i110.preheader257
 
 for.body.i.i.i110.preheader257:                   ; preds = %middle.block237.for.body.i.i.i110.preheader257_crit_edge, %vector.memcheck235, %for.body.i.i.i110.preheader
-  %__first.addr.08.i.i.i111.ph271.pre-phi = phi i64 [ %.pre22, %middle.block237.for.body.i.i.i110.preheader257_crit_edge ], [ %90, %vector.memcheck235 ], [ %90, %for.body.i.i.i110.preheader ]
-  %__first.addr.08.i.i.i111.ph = phi ptr [ %ind.end243, %middle.block237.for.body.i.i.i110.preheader257_crit_edge ], [ %89, %vector.memcheck235 ], [ %89, %for.body.i.i.i110.preheader ]
+  %__first.addr.08.i.i.i111.ph271.pre-phi = phi i64 [ %.pre22, %middle.block237.for.body.i.i.i110.preheader257_crit_edge ], [ %93, %vector.memcheck235 ], [ %93, %for.body.i.i.i110.preheader ]
+  %__first.addr.08.i.i.i111.ph = phi ptr [ %ind.end243, %middle.block237.for.body.i.i.i110.preheader257_crit_edge ], [ %92, %vector.memcheck235 ], [ %92, %for.body.i.i.i110.preheader ]
   %__result.addr.07.i.i.i112.ph = phi ptr [ %ind.end245, %middle.block237.for.body.i.i.i110.preheader257_crit_edge ], [ %add.ptr.i.i70, %vector.memcheck235 ], [ %add.ptr.i.i70, %for.body.i.i.i110.preheader ]
-  %97 = add i64 %91, %90
-  %98 = sub i64 %97, %__first.addr.08.i.i.i111.ph271.pre-phi
-  %xtraiter272 = and i64 %98, 7
+  %100 = add i64 %94, %93
+  %101 = sub i64 %100, %__first.addr.08.i.i.i111.ph271.pre-phi
+  %xtraiter272 = and i64 %101, 7
   %lcmp.mod273.not = icmp eq i64 %xtraiter272, 0
   br i1 %lcmp.mod273.not, label %for.body.i.i.i110.prol.loopexit, label %for.body.i.i.i110.prol
 
@@ -89745,8 +89750,8 @@ for.body.i.i.i110.prol:                           ; preds = %for.body.i.i.i110.p
   %__first.addr.08.i.i.i111.prol = phi ptr [ %incdec.ptr.i.i.i113.prol, %for.body.i.i.i110.prol ], [ %__first.addr.08.i.i.i111.ph, %for.body.i.i.i110.preheader257 ]
   %__result.addr.07.i.i.i112.prol = phi ptr [ %incdec.ptr1.i.i.i114.prol, %for.body.i.i.i110.prol ], [ %__result.addr.07.i.i.i112.ph, %for.body.i.i.i110.preheader257 ]
   %prol.iter274 = phi i64 [ %prol.iter274.next, %for.body.i.i.i110.prol ], [ 0, %for.body.i.i.i110.preheader257 ]
-  %99 = load i8, ptr %__first.addr.08.i.i.i111.prol, align 1, !tbaa !7
-  store i8 %99, ptr %__result.addr.07.i.i.i112.prol, align 1, !tbaa !7
+  %102 = load i8, ptr %__first.addr.08.i.i.i111.prol, align 1, !tbaa !7
+  store i8 %102, ptr %__result.addr.07.i.i.i112.prol, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.prol = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111.prol, i64 1
   %incdec.ptr1.i.i.i114.prol = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112.prol, i64 1
   %prol.iter274.next = add nuw nsw i64 %prol.iter274, 1
@@ -89757,43 +89762,43 @@ for.body.i.i.i110.prol.loopexit:                  ; preds = %for.body.i.i.i110.p
   %incdec.ptr1.i.i.i114.lcssa.unr = phi ptr [ undef, %for.body.i.i.i110.preheader257 ], [ %incdec.ptr1.i.i.i114.prol, %for.body.i.i.i110.prol ]
   %__first.addr.08.i.i.i111.unr = phi ptr [ %__first.addr.08.i.i.i111.ph, %for.body.i.i.i110.preheader257 ], [ %incdec.ptr.i.i.i113.prol, %for.body.i.i.i110.prol ]
   %__result.addr.07.i.i.i112.unr = phi ptr [ %__result.addr.07.i.i.i112.ph, %for.body.i.i.i110.preheader257 ], [ %incdec.ptr1.i.i.i114.prol, %for.body.i.i.i110.prol ]
-  %100 = sub i64 %__first.addr.08.i.i.i111.ph271.pre-phi, %97
-  %101 = icmp ugt i64 %100, -8
-  br i1 %101, label %if.then.i.i.i.i119, label %for.body.i.i.i110
+  %103 = sub i64 %__first.addr.08.i.i.i111.ph271.pre-phi, %100
+  %104 = icmp ugt i64 %103, -8
+  br i1 %104, label %if.then.i.i.i.i119, label %for.body.i.i.i110
 
 for.body.i.i.i110:                                ; preds = %for.body.i.i.i110.prol.loopexit, %for.body.i.i.i110
   %__first.addr.08.i.i.i111 = phi ptr [ %incdec.ptr.i.i.i113.7, %for.body.i.i.i110 ], [ %__first.addr.08.i.i.i111.unr, %for.body.i.i.i110.prol.loopexit ]
   %__result.addr.07.i.i.i112 = phi ptr [ %incdec.ptr1.i.i.i114.7, %for.body.i.i.i110 ], [ %__result.addr.07.i.i.i112.unr, %for.body.i.i.i110.prol.loopexit ]
-  %102 = load i8, ptr %__first.addr.08.i.i.i111, align 1, !tbaa !7
-  store i8 %102, ptr %__result.addr.07.i.i.i112, align 1, !tbaa !7
+  %105 = load i8, ptr %__first.addr.08.i.i.i111, align 1, !tbaa !7
+  store i8 %105, ptr %__result.addr.07.i.i.i112, align 1, !tbaa !7
   %incdec.ptr.i.i.i113 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 1
   %incdec.ptr1.i.i.i114 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 1
-  %103 = load i8, ptr %incdec.ptr.i.i.i113, align 1, !tbaa !7
-  store i8 %103, ptr %incdec.ptr1.i.i.i114, align 1, !tbaa !7
+  %106 = load i8, ptr %incdec.ptr.i.i.i113, align 1, !tbaa !7
+  store i8 %106, ptr %incdec.ptr1.i.i.i114, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.1 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 2
   %incdec.ptr1.i.i.i114.1 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 2
-  %104 = load i8, ptr %incdec.ptr.i.i.i113.1, align 1, !tbaa !7
-  store i8 %104, ptr %incdec.ptr1.i.i.i114.1, align 1, !tbaa !7
+  %107 = load i8, ptr %incdec.ptr.i.i.i113.1, align 1, !tbaa !7
+  store i8 %107, ptr %incdec.ptr1.i.i.i114.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.2 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 3
   %incdec.ptr1.i.i.i114.2 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 3
-  %105 = load i8, ptr %incdec.ptr.i.i.i113.2, align 1, !tbaa !7
-  store i8 %105, ptr %incdec.ptr1.i.i.i114.2, align 1, !tbaa !7
+  %108 = load i8, ptr %incdec.ptr.i.i.i113.2, align 1, !tbaa !7
+  store i8 %108, ptr %incdec.ptr1.i.i.i114.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.3 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 4
   %incdec.ptr1.i.i.i114.3 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 4
-  %106 = load i8, ptr %incdec.ptr.i.i.i113.3, align 1, !tbaa !7
-  store i8 %106, ptr %incdec.ptr1.i.i.i114.3, align 1, !tbaa !7
+  %109 = load i8, ptr %incdec.ptr.i.i.i113.3, align 1, !tbaa !7
+  store i8 %109, ptr %incdec.ptr1.i.i.i114.3, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.4 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 5
   %incdec.ptr1.i.i.i114.4 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 5
-  %107 = load i8, ptr %incdec.ptr.i.i.i113.4, align 1, !tbaa !7
-  store i8 %107, ptr %incdec.ptr1.i.i.i114.4, align 1, !tbaa !7
+  %110 = load i8, ptr %incdec.ptr.i.i.i113.4, align 1, !tbaa !7
+  store i8 %110, ptr %incdec.ptr1.i.i.i114.4, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.5 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 6
   %incdec.ptr1.i.i.i114.5 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 6
-  %108 = load i8, ptr %incdec.ptr.i.i.i113.5, align 1, !tbaa !7
-  store i8 %108, ptr %incdec.ptr1.i.i.i114.5, align 1, !tbaa !7
+  %111 = load i8, ptr %incdec.ptr.i.i.i113.5, align 1, !tbaa !7
+  store i8 %111, ptr %incdec.ptr1.i.i.i114.5, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.6 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 7
   %incdec.ptr1.i.i.i114.6 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 7
-  %109 = load i8, ptr %incdec.ptr.i.i.i113.6, align 1, !tbaa !7
-  store i8 %109, ptr %incdec.ptr1.i.i.i114.6, align 1, !tbaa !7
+  %112 = load i8, ptr %incdec.ptr.i.i.i113.6, align 1, !tbaa !7
+  store i8 %112, ptr %incdec.ptr1.i.i.i114.6, align 1, !tbaa !7
   %incdec.ptr.i.i.i113.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i111, i64 8
   %incdec.ptr1.i.i.i114.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i112, i64 8
   %cmp.not.i.i.i115.7 = icmp eq ptr %incdec.ptr.i.i.i113.7, %add.ptr.i108
@@ -89801,7 +89806,7 @@ for.body.i.i.i110:                                ; preds = %for.body.i.i.i110.p
 
 if.then.i.i.i.i119:                               ; preds = %for.body.i.i.i110, %for.body.i.i.i110.prol.loopexit, %middle.block237, %if.else26
   %__result.addr.0.lcssa.i.i.i116 = phi ptr [ %add.ptr.i.i70, %if.else26 ], [ %ind.end245, %middle.block237 ], [ %incdec.ptr1.i.i.i114.lcssa.unr, %for.body.i.i.i110.prol.loopexit ], [ %incdec.ptr1.i.i.i114.7, %for.body.i.i.i110 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i116, i8 %45, i64 %sub13, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %__result.addr.0.lcssa.i.i.i116, i8 %48, i64 %sub13, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %for.body.i.i.i, %for.body.i.i.i79, %if.then.i.i.i.i119, %if.then.i.i.i.i103, %for.body.i.i.i79.prol.loopexit, %vec.epilog.middle.block213, %middle.block193, %if.then.i.i.i.i74, %for.body.i.i.i.prol.loopexit, %vec.epilog.middle.block, %middle.block138, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
@@ -97902,7 +97907,8 @@ for.body.i.i:                                     ; preds = %land.lhs.true.i, %f
   %num_code_points.015.i.i = phi i64 [ %num_code_points.1.i.i, %for.inc.i.i ], [ 0, %land.lhs.true.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %value, i64 %i.016.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
-  %cmp2.not.i.i = icmp slt i8 %7, -64
+  %8 = and i8 %7, -64
+  %cmp2.not.i.i = icmp eq i8 %8, -128
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -97929,17 +97935,17 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_
 cond.false:                                       ; preds = %if.else
   %agg.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %this, align 8
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 16
-  %8 = load i64, ptr %size_.i.i.i.i, align 8, !tbaa !876
-  %add.i.i.i = add i64 %8, %call.i
+  %9 = load i64, ptr %size_.i.i.i.i, align 8, !tbaa !876
+  %add.i.i.i = add i64 %9, %call.i
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 24
-  %9 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !tbaa !860
-  %cmp.i.i.i.i.i = icmp ult i64 %9, %add.i.i.i
+  %10 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !tbaa !860
+  %cmp.i.i.i.i.i = icmp ult i64 %10, %add.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
 
 if.then.i.i.i.i.i:                                ; preds = %cond.false
   %vtable.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8, !tbaa !856
-  %10 = load ptr, ptr %vtable.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i.i, i64 noundef %add.i.i.i)
+  %11 = load ptr, ptr %vtable.i.i.i.i.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i.i, i64 noundef %add.i.i.i)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i: ; preds = %if.then.i.i.i.i.i, %cond.false
@@ -97950,16 +97956,16 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 iter.check:                                       ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
   %ptr_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 8
-  %11 = load ptr, ptr %ptr_.i.i.i.i.i, align 8, !tbaa !858
-  %add.ptr.i.i.i = getelementptr i8, ptr %11, i64 %8
+  %12 = load ptr, ptr %ptr_.i.i.i.i.i, align 8, !tbaa !858
+  %add.ptr.i.i.i = getelementptr i8, ptr %12, i64 %9
   %min.iters.check = icmp ult i64 %call.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %iter.check
-  %12 = ptrtoint ptr %11 to i64
-  %13 = sub i64 %8, %value21
-  %14 = add i64 %13, %12
-  %diff.check = icmp ult i64 %14, 32
+  %13 = ptrtoint ptr %12 to i64
+  %14 = sub i64 %9, %value21
+  %15 = add i64 %14, %13
+  %diff.check = icmp ult i64 %15, 32
   br i1 %diff.check, label %for.body.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %vector.memcheck
@@ -97974,15 +97980,15 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %value, i64 %index
   %next.gep24 = getelementptr i8, ptr %add.ptr.i.i.i, i64 %index
-  %15 = getelementptr i8, ptr %next.gep, i64 16
+  %16 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !7
-  %wide.load26 = load <16 x i8>, ptr %15, align 1, !tbaa !7
-  %16 = getelementptr i8, ptr %next.gep24, i64 16
+  %wide.load26 = load <16 x i8>, ptr %16, align 1, !tbaa !7
+  %17 = getelementptr i8, ptr %next.gep24, i64 16
   store <16 x i8> %wide.load, ptr %next.gep24, align 1, !tbaa !7
-  store <16 x i8> %wide.load26, ptr %16, align 1, !tbaa !7
+  store <16 x i8> %wide.load26, ptr %17, align 1, !tbaa !7
   %index.next = add nuw i64 %index, 32
-  %17 = icmp eq i64 %index.next, %n.vec
-  br i1 %17, label %middle.block, label %vector.body, !llvm.loop !1771
+  %18 = icmp eq i64 %index.next, %n.vec
+  br i1 %18, label %middle.block, label %vector.body, !llvm.loop !1771
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %call.i, %n.vec
@@ -98008,8 +98014,8 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %wide.load37 = load <8 x i8>, ptr %next.gep35, align 1, !tbaa !7
   store <8 x i8> %wide.load37, ptr %next.gep36, align 1, !tbaa !7
   %index.next38 = add nuw i64 %index34, 8
-  %18 = icmp eq i64 %index.next38, %n.vec28
-  br i1 %18, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1772
+  %19 = icmp eq i64 %index.next38, %n.vec28
+  br i1 %19, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1772
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %ind.end30 = getelementptr i8, ptr %add.ptr.i.i.i, i64 %n.vec28
@@ -98019,10 +98025,10 @@ vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.b
 for.body.i.i.i.preheader:                         ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %vector.memcheck, %iter.check
   %__first.addr.08.i.i.i.ph = phi ptr [ %value, %iter.check ], [ %value, %vector.memcheck ], [ %ind.end29, %vec.epilog.iter.check ], [ %ind.end, %vec.epilog.middle.block ]
   %__result.addr.07.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %iter.check ], [ %add.ptr.i.i.i, %vector.memcheck ], [ %ind.end31, %vec.epilog.iter.check ], [ %ind.end30, %vec.epilog.middle.block ]
-  %19 = add i64 %call.i, %value21
+  %20 = add i64 %call.i, %value21
   %__first.addr.08.i.i.i.ph39 = ptrtoint ptr %__first.addr.08.i.i.i.ph to i64
-  %20 = sub i64 %19, %__first.addr.08.i.i.i.ph39
-  %xtraiter = and i64 %20, 7
+  %21 = sub i64 %20, %__first.addr.08.i.i.i.ph39
+  %xtraiter = and i64 %21, 7
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
 
@@ -98030,8 +98036,8 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preh
   %__first.addr.08.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %__first.addr.08.i.i.i.ph, %for.body.i.i.i.preheader ]
   %__result.addr.07.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.prol, %for.body.i.i.i.prol ], [ %__result.addr.07.i.i.i.ph, %for.body.i.i.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.preheader ]
-  %21 = load i8, ptr %__first.addr.08.i.i.i.prol, align 1, !tbaa !7
-  store i8 %21, ptr %__result.addr.07.i.i.i.prol, align 1, !tbaa !7
+  %22 = load i8, ptr %__first.addr.08.i.i.i.prol, align 1, !tbaa !7
+  store i8 %22, ptr %__result.addr.07.i.i.i.prol, align 1, !tbaa !7
   %incdec.ptr.i.i.i.prol = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.prol, i64 1
   %incdec.ptr1.i.i.i.prol = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.prol, i64 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -98041,43 +98047,43 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preh
 for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol, %for.body.i.i.i.preheader
   %__first.addr.08.i.i.i.unr = phi ptr [ %__first.addr.08.i.i.i.ph, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
   %__result.addr.07.i.i.i.unr = phi ptr [ %__result.addr.07.i.i.i.ph, %for.body.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.prol, %for.body.i.i.i.prol ]
-  %22 = sub i64 %__first.addr.08.i.i.i.ph39, %19
-  %23 = icmp ugt i64 %22, -8
-  br i1 %23, label %cond.end, label %for.body.i.i.i
+  %23 = sub i64 %__first.addr.08.i.i.i.ph39, %20
+  %24 = icmp ugt i64 %23, -8
+  br i1 %24, label %cond.end, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.prol.loopexit, %for.body.i.i.i
   %__first.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i.7, %for.body.i.i.i ], [ %__first.addr.08.i.i.i.unr, %for.body.i.i.i.prol.loopexit ]
   %__result.addr.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.7, %for.body.i.i.i ], [ %__result.addr.07.i.i.i.unr, %for.body.i.i.i.prol.loopexit ]
-  %24 = load i8, ptr %__first.addr.08.i.i.i, align 1, !tbaa !7
-  store i8 %24, ptr %__result.addr.07.i.i.i, align 1, !tbaa !7
+  %25 = load i8, ptr %__first.addr.08.i.i.i, align 1, !tbaa !7
+  store i8 %25, ptr %__result.addr.07.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 1
-  %25 = load i8, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
-  store i8 %25, ptr %incdec.ptr1.i.i.i, align 1, !tbaa !7
+  %26 = load i8, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
+  store i8 %26, ptr %incdec.ptr1.i.i.i, align 1, !tbaa !7
   %incdec.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 2
   %incdec.ptr1.i.i.i.1 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 2
-  %26 = load i8, ptr %incdec.ptr.i.i.i.1, align 1, !tbaa !7
-  store i8 %26, ptr %incdec.ptr1.i.i.i.1, align 1, !tbaa !7
+  %27 = load i8, ptr %incdec.ptr.i.i.i.1, align 1, !tbaa !7
+  store i8 %27, ptr %incdec.ptr1.i.i.i.1, align 1, !tbaa !7
   %incdec.ptr.i.i.i.2 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 3
   %incdec.ptr1.i.i.i.2 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 3
-  %27 = load i8, ptr %incdec.ptr.i.i.i.2, align 1, !tbaa !7
-  store i8 %27, ptr %incdec.ptr1.i.i.i.2, align 1, !tbaa !7
+  %28 = load i8, ptr %incdec.ptr.i.i.i.2, align 1, !tbaa !7
+  store i8 %28, ptr %incdec.ptr1.i.i.i.2, align 1, !tbaa !7
   %incdec.ptr.i.i.i.3 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 4
   %incdec.ptr1.i.i.i.3 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 4
-  %28 = load i8, ptr %incdec.ptr.i.i.i.3, align 1, !tbaa !7
-  store i8 %28, ptr %incdec.ptr1.i.i.i.3, align 1, !tbaa !7
+  %29 = load i8, ptr %incdec.ptr.i.i.i.3, align 1, !tbaa !7
+  store i8 %29, ptr %incdec.ptr1.i.i.i.3, align 1, !tbaa !7
   %incdec.ptr.i.i.i.4 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 5
   %incdec.ptr1.i.i.i.4 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 5
-  %29 = load i8, ptr %incdec.ptr.i.i.i.4, align 1, !tbaa !7
-  store i8 %29, ptr %incdec.ptr1.i.i.i.4, align 1, !tbaa !7
+  %30 = load i8, ptr %incdec.ptr.i.i.i.4, align 1, !tbaa !7
+  store i8 %30, ptr %incdec.ptr1.i.i.i.4, align 1, !tbaa !7
   %incdec.ptr.i.i.i.5 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 6
   %incdec.ptr1.i.i.i.5 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 6
-  %30 = load i8, ptr %incdec.ptr.i.i.i.5, align 1, !tbaa !7
-  store i8 %30, ptr %incdec.ptr1.i.i.i.5, align 1, !tbaa !7
+  %31 = load i8, ptr %incdec.ptr.i.i.i.5, align 1, !tbaa !7
+  store i8 %31, ptr %incdec.ptr1.i.i.i.5, align 1, !tbaa !7
   %incdec.ptr.i.i.i.6 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 7
   %incdec.ptr1.i.i.i.6 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 7
-  %31 = load i8, ptr %incdec.ptr.i.i.i.6, align 1, !tbaa !7
-  store i8 %31, ptr %incdec.ptr1.i.i.i.6, align 1, !tbaa !7
+  %32 = load i8, ptr %incdec.ptr.i.i.i.6, align 1, !tbaa !7
+  store i8 %32, ptr %incdec.ptr1.i.i.i.6, align 1, !tbaa !7
   %incdec.ptr.i.i.i.7 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 8
   %incdec.ptr1.i.i.i.7 = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i, i64 8
   %cmp.not.i.i.i.7 = icmp eq ptr %incdec.ptr.i.i.i.7, %add.ptr.i.i

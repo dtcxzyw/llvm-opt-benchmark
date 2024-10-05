@@ -1206,19 +1206,20 @@ if.end157:                                        ; preds = %if.end147, %land.rh
   br i1 %cmp.i136, label %if.end227, label %if.then160
 
 if.then160:                                       ; preds = %if.end157
-  %cmp.i137 = icmp ult i8 %retval.sroa.0.0.copyload.i135, -64
+  %39 = and i8 %retval.sroa.0.0.copyload.i135, -64
+  %cmp.i137 = icmp eq i8 %39, -128
   br i1 %cmp.i137, label %if.end165, label %return
 
 if.end165:                                        ; preds = %if.then160
-  %39 = and i8 %retval.sroa.0.0.copyload.i135, 63
+  %40 = and i8 %retval.sroa.0.0.copyload.i135, 63
   %cmp168 = icmp eq ptr %pos.addr.0, %end
   br i1 %cmp168, label %return, label %if.end171
 
 if.end171:                                        ; preds = %if.end165
   %incdec.ptr172 = getelementptr inbounds i8, ptr %pos.addr.0, i64 1
-  %40 = load i8, ptr %pos.addr.0, align 1
-  %cmp175 = icmp eq i8 %40, 104
-  %cmp177 = icmp eq i8 %39, 0
+  %41 = load i8, ptr %pos.addr.0, align 1
+  %cmp175 = icmp eq i8 %41, 104
+  %cmp177 = icmp eq i8 %40, 0
   %or.cond1 = and i1 %cmp177, %cmp175
   br i1 %or.cond1, label %if.then178, label %if.else187
 
@@ -1230,12 +1231,12 @@ if.then178:                                       ; preds = %if.end171
 
 if.end184:                                        ; preds = %if.then178
   %incdec.ptr185 = getelementptr inbounds i8, ptr %pos.addr.0, i64 2
-  %41 = load i8, ptr %incdec.ptr172, align 1
+  %42 = load i8, ptr %incdec.ptr172, align 1
   br label %if.end204
 
 if.else187:                                       ; preds = %if.end171
-  %cmp189 = icmp eq i8 %40, 108
-  %cmp191 = icmp eq i8 %39, 2
+  %cmp189 = icmp eq i8 %41, 108
+  %cmp191 = icmp eq i8 %40, 2
   %or.cond2 = and i1 %cmp191, %cmp189
   %length_mod193 = getelementptr inbounds i8, ptr %conv, i64 13
   br i1 %or.cond2, label %if.then192, label %if.else201
@@ -1247,17 +1248,17 @@ if.then192:                                       ; preds = %if.else187
 
 if.end198:                                        ; preds = %if.then192
   %incdec.ptr199 = getelementptr inbounds i8, ptr %pos.addr.0, i64 2
-  %42 = load i8, ptr %incdec.ptr172, align 1
+  %43 = load i8, ptr %incdec.ptr172, align 1
   br label %if.end204
 
 if.else201:                                       ; preds = %if.else187
-  store i8 %39, ptr %length_mod193, align 1
-  %43 = icmp eq i8 %39, 2
+  store i8 %40, ptr %length_mod193, align 1
+  %44 = icmp eq i8 %40, 2
   br label %if.end204
 
 if.end204:                                        ; preds = %if.end198, %if.else201, %if.end184
-  %cmp218 = phi i1 [ false, %if.end184 ], [ false, %if.end198 ], [ %43, %if.else201 ]
-  %c.3 = phi i8 [ %41, %if.end184 ], [ %42, %if.end198 ], [ %40, %if.else201 ]
+  %cmp218 = phi i1 [ false, %if.end184 ], [ false, %if.end198 ], [ %44, %if.else201 ]
+  %c.3 = phi i8 [ %42, %if.end184 ], [ %43, %if.end198 ], [ %41, %if.else201 ]
   %pos.addr.4 = phi ptr [ %incdec.ptr185, %if.end184 ], [ %incdec.ptr199, %if.end198 ], [ %incdec.ptr172, %if.else201 ]
   %idxprom.i138 = zext i8 %c.3 to i64
   %arrayidx.i139 = getelementptr inbounds [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %idxprom.i138
@@ -1274,8 +1275,8 @@ if.end216:                                        ; preds = %if.end204
 
 if.then222:                                       ; preds = %if.end216
   %flags223 = getelementptr inbounds i8, ptr %conv, i64 12
-  %44 = load i8, ptr %flags223, align 4
-  %or1.i142 = or i8 %44, 32
+  %45 = load i8, ptr %flags223, align 4
+  %or1.i142 = or i8 %45, 32
   store i8 %or1.i142, ptr %flags223, align 4
   br label %if.end227
 
@@ -1539,19 +1540,20 @@ if.end104:                                        ; preds = %if.end94, %land.rhs
   br i1 %cmp.i77, label %if.end174, label %if.then107
 
 if.then107:                                       ; preds = %if.end104
-  %cmp.i78 = icmp ult i8 %retval.sroa.0.0.copyload.i76, -64
+  %24 = and i8 %retval.sroa.0.0.copyload.i76, -64
+  %cmp.i78 = icmp eq i8 %24, -128
   br i1 %cmp.i78, label %if.end112, label %return
 
 if.end112:                                        ; preds = %if.then107
-  %24 = and i8 %retval.sroa.0.0.copyload.i76, 63
+  %25 = and i8 %retval.sroa.0.0.copyload.i76, 63
   %cmp115 = icmp eq ptr %pos.addr.0, %end
   br i1 %cmp115, label %return, label %if.end118
 
 if.end118:                                        ; preds = %if.end112
   %incdec.ptr119 = getelementptr inbounds i8, ptr %pos.addr.0, i64 1
-  %25 = load i8, ptr %pos.addr.0, align 1
-  %cmp122 = icmp eq i8 %25, 104
-  %cmp124 = icmp eq i8 %24, 0
+  %26 = load i8, ptr %pos.addr.0, align 1
+  %cmp122 = icmp eq i8 %26, 104
+  %cmp124 = icmp eq i8 %25, 0
   %or.cond1 = and i1 %cmp124, %cmp122
   br i1 %or.cond1, label %if.then125, label %if.else134
 
@@ -1563,12 +1565,12 @@ if.then125:                                       ; preds = %if.end118
 
 if.end131:                                        ; preds = %if.then125
   %incdec.ptr132 = getelementptr inbounds i8, ptr %pos.addr.0, i64 2
-  %26 = load i8, ptr %incdec.ptr119, align 1
+  %27 = load i8, ptr %incdec.ptr119, align 1
   br label %if.end151
 
 if.else134:                                       ; preds = %if.end118
-  %cmp136 = icmp eq i8 %25, 108
-  %cmp138 = icmp eq i8 %24, 2
+  %cmp136 = icmp eq i8 %26, 108
+  %cmp138 = icmp eq i8 %25, 2
   %or.cond2 = and i1 %cmp138, %cmp136
   %length_mod140 = getelementptr inbounds i8, ptr %conv, i64 13
   br i1 %or.cond2, label %if.then139, label %if.else148
@@ -1580,17 +1582,17 @@ if.then139:                                       ; preds = %if.else134
 
 if.end145:                                        ; preds = %if.then139
   %incdec.ptr146 = getelementptr inbounds i8, ptr %pos.addr.0, i64 2
-  %27 = load i8, ptr %incdec.ptr119, align 1
+  %28 = load i8, ptr %incdec.ptr119, align 1
   br label %if.end151
 
 if.else148:                                       ; preds = %if.else134
-  store i8 %24, ptr %length_mod140, align 1
-  %28 = icmp eq i8 %24, 2
+  store i8 %25, ptr %length_mod140, align 1
+  %29 = icmp eq i8 %25, 2
   br label %if.end151
 
 if.end151:                                        ; preds = %if.end145, %if.else148, %if.end131
-  %cmp165 = phi i1 [ false, %if.end131 ], [ false, %if.end145 ], [ %28, %if.else148 ]
-  %c.3 = phi i8 [ %26, %if.end131 ], [ %27, %if.end145 ], [ %25, %if.else148 ]
+  %cmp165 = phi i1 [ false, %if.end131 ], [ false, %if.end145 ], [ %29, %if.else148 ]
+  %c.3 = phi i8 [ %27, %if.end131 ], [ %28, %if.end145 ], [ %26, %if.else148 ]
   %pos.addr.4 = phi ptr [ %incdec.ptr132, %if.end131 ], [ %incdec.ptr146, %if.end145 ], [ %incdec.ptr119, %if.else148 ]
   %idxprom.i79 = zext i8 %c.3 to i64
   %arrayidx.i80 = getelementptr inbounds [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %idxprom.i79
@@ -1607,8 +1609,8 @@ if.end163:                                        ; preds = %if.end151
 
 if.then169:                                       ; preds = %if.end163
   %flags170 = getelementptr inbounds i8, ptr %conv, i64 12
-  %29 = load i8, ptr %flags170, align 4
-  %or1.i83 = or i8 %29, 32
+  %30 = load i8, ptr %flags170, align 4
+  %or1.i83 = or i8 %30, 32
   store i8 %or1.i83, ptr %flags170, align 4
   br label %if.end174
 
@@ -1617,8 +1619,8 @@ if.end174:                                        ; preds = %if.end163, %if.then
   %tag95.sroa.0.0 = phi i8 [ %retval.sroa.0.0.copyload.i76, %if.end104 ], [ %retval.sroa.0.0.copyload.i81, %if.then169 ], [ %retval.sroa.0.0.copyload.i81, %if.end163 ]
   %conv176 = getelementptr inbounds i8, ptr %conv, i64 14
   store i8 %tag95.sroa.0.0, ptr %conv176, align 2
-  %30 = load i32, ptr %next_arg, align 4
-  %inc177 = add nsw i32 %30, 1
+  %31 = load i32, ptr %next_arg, align 4
+  %inc177 = add nsw i32 %31, 1
   store i32 %inc177, ptr %next_arg, align 4
   store i32 %inc177, ptr %conv, align 4
   br label %return

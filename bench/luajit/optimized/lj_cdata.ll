@@ -201,7 +201,8 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   %idxprom.i.pn = phi i64 [ %idxprom.i, %if.then44 ], [ %idxprom.i.i, %while.cond.i ]
   %ct.i.0 = getelementptr inbounds %struct.CType, ptr %13, i64 %idxprom.i.pn
   %14 = load i32, ptr %ct.i.0, align 8
-  %cmp.i = icmp slt i32 %14, -1879048192
+  %shr.i.mask = and i32 %14, -268435456
+  %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
   %and.i = and i32 %14, 65535
   %idxprom.i.i = zext nneg i32 %and.i to i64
   br i1 %cmp.i, label %while.cond.i, label %ctype_raw.exit, !llvm.loop !4
@@ -622,7 +623,8 @@ do.body.i280:                                     ; preds = %while.cond.i, %do.b
   %idxprom.i.i.i283 = zext nneg i32 %and.i.i281 to i64
   %arrayidx.i.i.i284 = getelementptr inbounds %struct.CType, ptr %14, i64 %idxprom.i.i.i283
   %43 = load i32, ptr %arrayidx.i.i.i284, align 8
-  %cmp.i286 = icmp slt i32 %43, -1879048192
+  %shr.i285.mask = and i32 %43, -268435456
+  %cmp.i286 = icmp eq i32 %shr.i285.mask, -2147483648
   br i1 %cmp.i286, label %do.body.i280, label %if.end151, !llvm.loop !7
 
 if.end151:                                        ; preds = %while.cond.i, %do.body.i280
@@ -764,8 +766,9 @@ if.end15:                                         ; preds = %if.then11, %if.end5
   %s.addr.0 = phi ptr [ %arrayidx.i, %if.then11 ], [ %arrayidx.i25, %if.end5 ]
   %sp.addr.0 = phi ptr [ %4, %if.then11 ], [ %sp, %if.end5 ]
   %sid.0 = phi i32 [ %and13, %if.then11 ], [ %and, %if.end5 ]
-  %cmp1825 = icmp slt i32 %5, -1879048192
-  br i1 %cmp1825, label %while.body, label %while.end
+  %shr17.mask25 = and i32 %5, -268435456
+  %cmp1826 = icmp eq i32 %shr17.mask25, -2147483648
+  br i1 %cmp1826, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end15, %while.body
   %6 = phi i32 [ %7, %while.body ], [ %5, %if.end15 ]
@@ -773,7 +776,8 @@ while.body:                                       ; preds = %if.end15, %while.bo
   %idxprom.i.i = zext nneg i32 %and.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %2, i64 %idxprom.i.i
   %7 = load i32, ptr %arrayidx.i.i, align 8
-  %cmp18 = icmp slt i32 %7, -1879048192
+  %shr17.mask = and i32 %7, -268435456
+  %cmp18 = icmp eq i32 %shr17.mask, -2147483648
   br i1 %cmp18, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %if.end15
@@ -832,30 +836,32 @@ if.end14:                                         ; preds = %if.then12, %if.end8
   %4 = phi i32 [ %.pre, %if.then12 ], [ %2, %if.end8 ]
   %dp.addr.0 = phi ptr [ %3, %if.then12 ], [ %dp, %if.end8 ]
   %d.addr.0 = phi ptr [ %arrayidx.i.i42, %if.then12 ], [ %arrayidx.i.i50, %if.end8 ]
-  %cmp1726 = icmp slt i32 %4, -1879048192
-  br i1 %cmp1726, label %if.then18, label %for.end
+  %shr16.mask26 = and i32 %4, -268435456
+  %cmp1727 = icmp eq i32 %shr16.mask26, -2147483648
+  br i1 %cmp1727, label %if.then18, label %for.end
 
 if.then18:                                        ; preds = %if.end14, %if.end27
   %5 = phi i32 [ %8, %if.end27 ], [ %4, %if.end14 ]
-  %qual.addr.028 = phi i32 [ %qual.addr.1, %if.end27 ], [ %qual, %if.end14 ]
-  %d.addr.127 = phi ptr [ %arrayidx.i.i, %if.end27 ], [ %d.addr.0, %if.end14 ]
+  %qual.addr.029 = phi i32 [ %qual.addr.1, %if.end27 ], [ %qual, %if.end14 ]
+  %d.addr.128 = phi ptr [ %arrayidx.i.i, %if.end27 ], [ %d.addr.0, %if.end14 ]
   %6 = and i32 %5, 16711680
   %cmp22 = icmp eq i32 %6, 65536
   br i1 %cmp22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.then18
-  %size = getelementptr inbounds i8, ptr %d.addr.127, i64 4
+  %size = getelementptr inbounds i8, ptr %d.addr.128, i64 4
   %7 = load i32, ptr %size, align 4
-  %or24 = or i32 %7, %qual.addr.028
+  %or24 = or i32 %7, %qual.addr.029
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then18, %if.then23
-  %qual.addr.1 = phi i32 [ %or24, %if.then23 ], [ %qual.addr.028, %if.then18 ]
+  %qual.addr.1 = phi i32 [ %or24, %if.then23 ], [ %qual.addr.029, %if.then18 ]
   %and.i = and i32 %5, 65535
   %idxprom.i.i = zext nneg i32 %and.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %1, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 8
-  %cmp17 = icmp slt i32 %8, -1879048192
+  %shr16.mask = and i32 %8, -268435456
+  %cmp17 = icmp eq i32 %shr16.mask, -2147483648
   br i1 %cmp17, label %if.then18, label %for.end
 
 for.end:                                          ; preds = %if.end27, %if.end14

@@ -10680,22 +10680,23 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %6 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %cmp.i.i3 = icmp ult i8 %6, 64
+  %7 = and i8 %6, -64
+  %cmp.i.i3 = icmp eq i8 %7, 0
   br i1 %cmp.i.i3, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont7
-  %cmp.i.i.i4 = icmp slt i8 %6, -64
-  %7 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i4 = icmp eq i8 %7, -128
+  %8 = load ptr, ptr %ref.tmp, align 8
   br i1 %cmp.i.i.i4, label %if.end.sink.split.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
-  %8 = atomicrmw sub ptr %add.ptr.i.i.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i5 = icmp eq i64 %8, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
+  %9 = atomicrmw sub ptr %add.ptr.i.i.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i5 = icmp eq i64 %9, 1
   br i1 %cmp.i.i.i.i5, label %if.end.sink.split.i.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i.i.i:                          ; preds = %if.else.i.i.i, %if.end.i.i
-  %add.ptr.i.i.sink.i.i.i = phi ptr [ %7, %if.end.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i ]
+  %add.ptr.i.i.sink.i.i.i = phi ptr [ %8, %if.end.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i.i.i) #39
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
@@ -10708,35 +10709,36 @@ invoke.cont9:                                     ; preds = %_ZN5folly14basic_fb
   ret void
 
 lpad:                                             ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3, %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %cmp.i.i7 = icmp ult i8 %11, 64
+  %12 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
+  %13 = and i8 %12, -64
+  %cmp.i.i7 = icmp eq i8 %13, 0
   br i1 %cmp.i.i7, label %ehcleanup, label %if.end.i.i8
 
 if.end.i.i8:                                      ; preds = %lpad4
-  %cmp.i.i.i9 = icmp slt i8 %11, -64
-  %12 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i9 = icmp eq i8 %13, -128
+  %14 = load ptr, ptr %ref.tmp, align 8
   br i1 %cmp.i.i.i9, label %if.end.sink.split.i.i.i13, label %if.else.i.i.i10
 
 if.else.i.i.i10:                                  ; preds = %if.end.i.i8
-  %add.ptr.i.i.i.i.i11 = getelementptr inbounds i8, ptr %12, i64 -8
-  %13 = atomicrmw sub ptr %add.ptr.i.i.i.i.i11, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i12 = icmp eq i64 %13, 1
+  %add.ptr.i.i.i.i.i11 = getelementptr inbounds i8, ptr %14, i64 -8
+  %15 = atomicrmw sub ptr %add.ptr.i.i.i.i.i11, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i12 = icmp eq i64 %15, 1
   br i1 %cmp.i.i.i.i12, label %if.end.sink.split.i.i.i13, label %ehcleanup
 
 if.end.sink.split.i.i.i13:                        ; preds = %if.else.i.i.i10, %if.end.i.i8
-  %add.ptr.i.i.sink.i.i.i14 = phi ptr [ %12, %if.end.i.i8 ], [ %add.ptr.i.i.i.i.i11, %if.else.i.i.i10 ]
+  %add.ptr.i.i.sink.i.i.i14 = phi ptr [ %14, %if.end.i.i8 ], [ %add.ptr.i.i.i.i.i11, %if.else.i.i.i10 ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i.i.i14) #39
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.end.sink.split.i.i.i13, %if.else.i.i.i10, %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad4 ], [ %10, %if.else.i.i.i10 ], [ %10, %if.end.sink.split.i.i.i13 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad4 ], [ %11, %if.else.i.i.i10 ], [ %11, %if.end.sink.split.i.i.i13 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #39
   resume { ptr, i32 } %.pn
 }

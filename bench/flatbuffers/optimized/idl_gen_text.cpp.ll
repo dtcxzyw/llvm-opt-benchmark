@@ -6261,21 +6261,22 @@ for.body22.i:                                     ; preds = %if.end27.i, %for.bo
   %ucc.034.i = phi i32 [ %and18.i, %for.body22.lr.ph.i ], [ %or.i, %if.end27.i ]
   %7 = getelementptr inbounds i8, ptr %arrayidx.pn, i64 1
   %8 = load i8, ptr %7, align 1
-  %cmp25.not.i = icmp slt i8 %8, -64
+  %9 = and i8 %8, -64
+  %cmp25.not.i = icmp eq i8 %9, -128
   br i1 %cmp25.not.i, label %if.end27.i, label %if.then23
 
 if.end27.i:                                       ; preds = %for.body22.i
   %shl28.i = shl i32 %ucc.034.i, 6
-  %9 = and i8 %8, 63
-  %and31.i = zext nneg i8 %9 to i32
+  %10 = and i8 %8, 63
+  %and31.i = zext nneg i8 %10 to i32
   %or.i = or disjoint i32 %shl28.i, %and31.i
   %inc33.i = add nuw nsw i32 %i.035.i, 1
   %exitcond36.not.i = icmp eq i32 %i.035.i, %5
   br i1 %exitcond36.not.i, label %for.end34.i, label %for.body22.i, !llvm.loop !64
 
 for.end34.i:                                      ; preds = %if.end27.i
-  %10 = and i32 %ucc.034.i, 67108832
-  %or.cond1.i = icmp eq i32 %10, 864
+  %11 = and i32 %ucc.034.i, 67108832
+  %or.cond1.i = icmp eq i32 %11, 864
   br i1 %or.cond1.i, label %if.then23, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end34.i
@@ -6286,18 +6287,18 @@ if.end38.i:                                       ; preds = %for.end34.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end38.i
-  %11 = add i32 %shl28.i, -2048
-  %or.cond2.i = icmp ult i32 %11, -1920
+  %12 = add i32 %shl28.i, -2048
+  %or.cond2.i = icmp ult i32 %12, -1920
   br i1 %or.cond2.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 sw.bb44.i:                                        ; preds = %if.end38.i
-  %12 = add i32 %shl28.i, -65536
-  %or.cond3.i = icmp ult i32 %12, -63488
+  %13 = add i32 %shl28.i, -65536
+  %or.cond3.i = icmp ult i32 %13, -63488
   br i1 %or.cond3.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 sw.bb50.i:                                        ; preds = %if.end38.i
-  %13 = add i32 %shl28.i, -1114112
-  %or.cond4.i = icmp ult i32 %13, -1048576
+  %14 = add i32 %shl28.i, -1114112
+  %or.cond4.i = icmp ult i32 %14, -1048576
   br i1 %or.cond4.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 default.unreachable.i:                            ; preds = %if.end38.i
@@ -6323,7 +6324,7 @@ invoke.cont:                                      ; preds = %if.then24
   br label %for.inc
 
 lpad:                                             ; preds = %if.then24
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -6332,8 +6333,8 @@ if.else29:                                        ; preds = %_ZN11flatbuffers8Fr
 
 if.then31:                                        ; preds = %if.else29
   %sub.ptr.lhs.cast = ptrtoint ptr %utf8.1 to i64
-  %15 = add i64 %conv55, %sub.ptr.rhs.cast
-  %sub = sub i64 %sub.ptr.lhs.cast, %15
+  %16 = add i64 %conv55, %sub.ptr.rhs.cast
+  %sub = sub i64 %sub.ptr.lhs.cast, %16
   %call35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %_text, ptr noundef nonnull %arrayidx, i64 noundef %sub)
   br label %if.end61
 
@@ -6352,7 +6353,7 @@ invoke.cont42:                                    ; preds = %if.then38
   br label %if.end61
 
 lpad41:                                           ; preds = %if.then38
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -6383,12 +6384,12 @@ invoke.cont57:                                    ; preds = %invoke.cont52
   br label %if.end61
 
 lpad51:                                           ; preds = %if.then46
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad56:                                           ; preds = %invoke.cont52
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -6415,7 +6416,7 @@ return:                                           ; preds = %if.then23, %for.end
 
 eh.resume:                                        ; preds = %lpad56, %lpad51, %lpad41, %lpad
   %ref.tmp55.sink = phi ptr [ %ref.tmp55, %lpad56 ], [ %ref.tmp50, %lpad51 ], [ %ref.tmp40, %lpad41 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %18, %lpad56 ], [ %17, %lpad51 ], [ %16, %lpad41 ], [ %14, %lpad ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad56 ], [ %18, %lpad51 ], [ %17, %lpad41 ], [ %15, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.sink) #18
   resume { ptr, i32 } %.pn
 }

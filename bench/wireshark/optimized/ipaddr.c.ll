@@ -356,7 +356,7 @@ define internal zeroext i1 @df_func_ip_is_link_local(ptr nocapture noundef reado
   %9 = getelementptr ptr, ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @fvalue_type_ftenum(ptr noundef %10) #4
-  switch i32 %11, label %25 [
+  switch i32 %11, label %26 [
     i32 32, label %12
     i32 33, label %17
   ]
@@ -377,31 +377,32 @@ define internal zeroext i1 @df_func_ip_is_link_local(ptr nocapture noundef reado
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %18, i64 1
   %23 = load i8, ptr %22, align 1
-  %24 = icmp slt i8 %23, -64
+  %24 = and i8 %23, -64
+  %25 = icmp eq i8 %24, -128
   br label %ip_is_link_local.exit
 
-25:                                               ; preds = %.lr.ph.i
+26:                                               ; preds = %.lr.ph.i
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.5, i32 noundef 7, ptr noundef nonnull @.str.6, i64 noundef 109, ptr noundef nonnull @__func__.ip_is_link_local, ptr noundef nonnull @.str.7) #5
   unreachable
 
 ip_is_link_local.exit:                            ; preds = %12, %17, %21
-  %.0.i = phi i1 [ %16, %12 ], [ false, %17 ], [ %24, %21 ]
-  %26 = zext i1 %.0.i to i64
-  tail call void @fvalue_set_uinteger64(ptr noundef %7, i64 noundef %26) #4
+  %.0.i = phi i1 [ %16, %12 ], [ false, %17 ], [ %25, %21 ]
+  %27 = zext i1 %.0.i to i64
+  tail call void @fvalue_set_uinteger64(ptr noundef %7, i64 noundef %27) #4
   tail call void @df_cell_append(ptr noundef %2, ptr noundef %7) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %27 = load i32, ptr %5, align 8
-  %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  %28 = load i32, ptr %5, align 8
+  %29 = zext i32 %28 to i64
+  %30 = icmp ult i64 %indvars.iv.next.i, %29
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %ip_is_link_local.exit, %.preheader.i
-  %30 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
-  %31 = xor i1 %30, true
+  %31 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
+  %32 = xor i1 %31, true
   br label %df_func_ip_is_any.exit
 
 df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
-  %.012.i = phi i1 [ %31, %._crit_edge.i ], [ false, %3 ]
+  %.012.i = phi i1 [ %32, %._crit_edge.i ], [ false, %3 ]
   ret i1 %.012.i
 }
 

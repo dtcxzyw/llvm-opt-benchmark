@@ -2437,7 +2437,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14GOFFObjectFile15isSection
   %12 = getelementptr inbounds i8, ptr %11, i64 65
   call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i8, ptr %12, align 1
-  %13 = icmp slt i8 %.0.copyload.i.i.i.i.i.i.i, -64
+  %.mask = and i8 %.0.copyload.i.i.i.i.i.i.i, -64
+  %13 = icmp eq i8 %.mask, -128
   ret i1 %13
 }
 

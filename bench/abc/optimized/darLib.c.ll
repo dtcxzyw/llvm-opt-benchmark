@@ -2054,7 +2054,8 @@ Abc_Clock.exit:                                   ; preds = %5, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %16 = getelementptr inbounds i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
-  %.not = icmp slt i32 %17, -1610612736
+  %.mask = and i32 %17, -536870912
+  %.not = icmp eq i32 %.mask, -2147483648
   br i1 %.not, label %18, label %230
 
 18:                                               ; preds = %Abc_Clock.exit

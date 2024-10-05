@@ -5331,7 +5331,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNS
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %.023)
           to label %15 unwind label %.loopexit.split-lp
 
-.loopexit47:                                      ; preds = %.invoke55, %.invoke, %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsUTF8MultiByteEPKc.exit, %58, %63
+.loopexit47:                                      ; preds = %.invoke55, %.invoke, %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsUTF8MultiByteEPKc.exit, %59, %64
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %14
@@ -5362,8 +5362,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNS
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit"
-  %22 = phi i8 [ %19, %.preheader.lr.ph ], [ %75, %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit" ]
-  %.050 = phi ptr [ %18, %.preheader.lr.ph ], [ %74, %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit" ]
+  %22 = phi i8 [ %19, %.preheader.lr.ph ], [ %76, %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit" ]
+  %.050 = phi ptr [ %18, %.preheader.lr.ph ], [ %75, %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit" ]
   br label %23
 
 23:                                               ; preds = %.preheader, %24
@@ -5400,96 +5400,97 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNS
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %37 ]
   %39 = getelementptr inbounds i8, ptr %.050, i64 %indvars.iv.i
   %40 = load i8, ptr %39, align 1
-  %41 = icmp slt i8 %40, -64
-  br i1 %41, label %37, label %.loopexit
+  %41 = and i8 %40, -64
+  %42 = icmp eq i8 %41, -128
+  br i1 %42, label %37, label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L16_IsUTF8MultiByteEPKc.exit: ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %.050, i64 %36
-  %43 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  %43 = getelementptr inbounds i8, ptr %.050, i64 %36
   %44 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %43, ptr %44, ptr noundef nonnull %.050, ptr noundef nonnull %42)
+  %45 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %44, ptr %45, ptr noundef nonnull %.050, ptr noundef nonnull %43)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit unwind label %.loopexit47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsUTF8MultiByteEPKc.exit
-  %46 = add nsw i32 %.011.i, -1
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %.050, i64 %47
+  %47 = add nsw i32 %.011.i, -1
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %.050, i64 %48
   br label %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit"
 
 .loopexit:                                        ; preds = %23, %38
-  switch i8 %22, label %56 [
-    i8 10, label %49
+  switch i8 %22, label %57 [
+    i8 10, label %50
     i8 13, label %.invoke55
-    i8 9, label %54
-    i8 92, label %55
+    i8 9, label %55
+    i8 92, label %56
   ]
 
-49:                                               ; preds = %.loopexit
+50:                                               ; preds = %.loopexit
   br i1 %.not26.not, label %.invoke55, label %.invoke
 
-.invoke:                                          ; preds = %60, %58, %49
-  %50 = phi i8 [ 10, %49 ], [ %.023, %58 ], [ %22, %60 ]
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %50)
+.invoke:                                          ; preds = %61, %59, %50
+  %51 = phi i8 [ 10, %50 ], [ %.023, %59 ], [ %22, %61 ]
+  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %51)
           to label %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit" unwind label %.loopexit47
 
-.invoke55:                                        ; preds = %.loopexit, %49, %55, %54
-  %52 = phi ptr [ @.str.37, %54 ], [ @.str.38, %55 ], [ @.str.35, %49 ], [ @.str.36, %.loopexit ]
-  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %52)
+.invoke55:                                        ; preds = %.loopexit, %50, %56, %55
+  %53 = phi ptr [ @.str.37, %55 ], [ @.str.38, %56 ], [ @.str.35, %50 ], [ @.str.36, %.loopexit ]
+  %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %53)
           to label %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit" unwind label %.loopexit47
-
-54:                                               ; preds = %.loopexit
-  br label %.invoke55
 
 55:                                               ; preds = %.loopexit
   br label %.invoke55
 
 56:                                               ; preds = %.loopexit
-  %57 = icmp eq i8 %22, %.023
-  br i1 %57, label %58, label %60
+  br label %.invoke55
 
-58:                                               ; preds = %56
-  %59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 92)
+57:                                               ; preds = %.loopexit
+  %58 = icmp eq i8 %22, %.023
+  br i1 %58, label %59, label %61
+
+59:                                               ; preds = %57
+  %60 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 92)
           to label %.invoke unwind label %.loopexit47
 
-60:                                               ; preds = %56
-  %61 = add i8 %22, -32
-  %62 = icmp ult i8 %61, 95
-  br i1 %62, label %.invoke, label %63
+61:                                               ; preds = %57
+  %62 = add i8 %22, -32
+  %63 = icmp ult i8 %62, 95
+  br i1 %63, label %.invoke, label %64
 
-63:                                               ; preds = %60
+64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, ptr noundef nonnull align 1 dereferenceable(5) @__const._ZN32pxrInternal_v0_24__pxrReserved__L15_WriteHexEscapeEhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.buf, i64 5, i1 false)
-  %64 = zext i8 %22 to i32
-  %65 = lshr i32 %64, 4
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr @.str.39, i64 %66
-  %68 = load i8, ptr %67, align 1
-  store i8 %68, ptr %20, align 1
-  %69 = and i32 %64, 15
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr @.str.39, i64 %70
-  %72 = load i8, ptr %71, align 1
-  store i8 %72, ptr %21, align 1
-  %73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3)
+  %65 = zext i8 %22 to i32
+  %66 = lshr i32 %65, 4
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr @.str.39, i64 %67
+  %69 = load i8, ptr %68, align 1
+  store i8 %69, ptr %20, align 1
+  %70 = and i32 %65, 15
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr @.str.39, i64 %71
+  %73 = load i8, ptr %72, align 1
+  store i8 %73, ptr %21, align 1
+  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3)
           to label %.noexc35 unwind label %.loopexit47
 
-.noexc35:                                         ; preds = %63
+.noexc35:                                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
   br label %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit"
 
 "_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit": ; preds = %.invoke55, %.invoke, %.noexc35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit
-  %.1 = phi ptr [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit ], [ %.050, %.noexc35 ], [ %.050, %.invoke ], [ %.050, %.invoke55 ]
-  %74 = getelementptr inbounds i8, ptr %.1, i64 1
-  %75 = load i8, ptr %74, align 1
-  %.not27 = icmp eq i8 %75, 0
+  %.1 = phi ptr [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit ], [ %.050, %.noexc35 ], [ %.050, %.invoke ], [ %.050, %.invoke55 ]
+  %75 = getelementptr inbounds i8, ptr %.1, i64 1
+  %76 = load i8, ptr %75, align 1
+  %.not27 = icmp eq i8 %76, 0
   br i1 %.not27, label %._crit_edge, label %.preheader, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEc.exit", %17
-  %76 = select i1 %.not26.not, i64 1, i64 3
-  %77 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %76, i8 noundef signext %.023)
-          to label %78 unwind label %.loopexit.split-lp
+  %77 = select i1 %.not26.not, i64 1, i64 3
+  %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %77, i8 noundef signext %.023)
+          to label %79 unwind label %.loopexit.split-lp
 
-78:                                               ; preds = %._crit_edge
+79:                                               ; preds = %._crit_edge
   ret void
 }
 

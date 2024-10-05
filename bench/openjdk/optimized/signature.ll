@@ -694,7 +694,8 @@ define hidden void @_ZN13Fingerprinter35compute_fingerprint_and_return_typeEb(pt
   %13 = load volatile i64, ptr %11, align 8
   %14 = and i64 %13, 4294967295
   %15 = icmp eq i64 %14, 0
-  %16 = icmp slt i64 %12, -9223372032559808512
+  %.mask.i = and i64 %12, -4294967296
+  %16 = icmp eq i64 %.mask.i, -9223372036854775808
   %or.cond.i = select i1 %15, i1 true, i1 %16
   br i1 %or.cond.i, label %_ZNK11ConstMethod11fingerprintEv.exit.thread, label %_ZNK11ConstMethod11fingerprintEv.exit
 

@@ -3102,7 +3102,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %53 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = and i16 %1, -16384
-  %56 = icmp slt i16 %1, -16384
+  %56 = icmp eq i16 %55, -32768
   br i1 %56, label %76, label %57
 
 57:                                               ; preds = %4
@@ -3967,7 +3967,7 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   br i1 %.not, label %118, label %88
 
 88:                                               ; preds = %64
-  %89 = icmp slt i16 %1, -16384
+  %89 = icmp eq i16 %15, -32768
   %90 = icmp eq i32 %7, 1
   %.neg = select i1 %90, i32 -8, i32 8
   %91 = select i1 %89, i32 %.neg, i32 0

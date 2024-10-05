@@ -9491,10 +9491,10 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
 
 198:                                              ; preds = %197
   %199 = icmp eq i8 %16, -80
-  switch i8 %16, label %289 [
+  switch i8 %16, label %.loopexit [
     i8 -80, label %200
     i8 -96, label %200
-    i8 80, label %.loopexit
+    i8 -128, label %289
     i8 96, label %238
   ]
 
@@ -9682,55 +9682,51 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 289:                                              ; preds = %198
-  %290 = icmp slt i8 %15, -112
-  br i1 %290, label %291, label %.loopexit
+  %290 = getelementptr inbounds i8, ptr %13, i64 72
+  %291 = load ptr, ptr %290, align 8
+  %.0.copyload = load i8, ptr %291, align 1
+  %292 = trunc i8 %.0.copyload to i1
+  br i1 %292, label %312, label %293
 
-291:                                              ; preds = %289
-  %292 = getelementptr inbounds i8, ptr %13, i64 72
-  %293 = load ptr, ptr %292, align 8
-  %.0.copyload = load i8, ptr %293, align 1
-  %294 = trunc i8 %.0.copyload to i1
-  br i1 %294, label %314, label %295
+293:                                              ; preds = %289
+  %294 = load ptr, ptr @XLogCtl, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 440
+  %296 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %295, i8 1, ptr nonnull elementtype(i8) %295) #26, !srcloc !8
+  %.not = icmp eq i8 %296, 0
+  br i1 %.not, label %301, label %297
 
-295:                                              ; preds = %291
-  %296 = load ptr, ptr @XLogCtl, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 440
-  %298 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %297, i8 1, ptr nonnull elementtype(i8) %297) #26, !srcloc !8
-  %.not = icmp eq i8 %298, 0
-  br i1 %.not, label %303, label %299
+297:                                              ; preds = %293
+  %298 = load ptr, ptr @XLogCtl, align 8
+  %299 = getelementptr inbounds i8, ptr %298, i64 440
+  %300 = tail call i32 @s_lock(ptr noundef nonnull %299, ptr noundef nonnull @.str.14, i32 noundef 8411, ptr noundef nonnull @__func__.xlog_redo) #26
+  br label %301
 
-299:                                              ; preds = %295
-  %300 = load ptr, ptr @XLogCtl, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 440
-  %302 = tail call i32 @s_lock(ptr noundef nonnull %301, ptr noundef nonnull @.str.14, i32 noundef 8411, ptr noundef nonnull @__func__.xlog_redo) #26
-  br label %303
-
-303:                                              ; preds = %295, %299
-  %304 = load ptr, ptr @XLogCtl, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 432
+301:                                              ; preds = %293, %297
+  %302 = load ptr, ptr @XLogCtl, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 432
+  %304 = load i64, ptr %303, align 8
+  %305 = getelementptr inbounds i8, ptr %0, i64 40
   %306 = load i64, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %0, i64 40
-  %308 = load i64, ptr %307, align 8
-  %309 = icmp ult i64 %306, %308
-  br i1 %309, label %310, label %311
+  %307 = icmp ult i64 %304, %306
+  br i1 %307, label %308, label %309
 
-310:                                              ; preds = %303
-  store i64 %308, ptr %305, align 8
-  br label %311
+308:                                              ; preds = %301
+  store i64 %306, ptr %303, align 8
+  br label %309
 
-311:                                              ; preds = %303, %310
+309:                                              ; preds = %301, %308
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !74
-  %312 = load ptr, ptr @XLogCtl, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 440
-  store i8 0, ptr %313, align 8
-  br label %314
+  %310 = load ptr, ptr @XLogCtl, align 8
+  %311 = getelementptr inbounds i8, ptr %310, i64 440
+  store i8 0, ptr %311, align 8
+  br label %312
 
-314:                                              ; preds = %311, %291
-  %315 = and i8 %.0.copyload, 1
-  store i8 %315, ptr @lastFullPageWrites, align 1
+312:                                              ; preds = %309, %289
+  %313 = and i8 %.0.copyload, 1
+  store i8 %313, ptr @lastFullPageWrites, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %232, %211, %200, %289, %198, %197, %197, %197, %1, %125, %314, %277, %188, %187, %21
+.loopexit:                                        ; preds = %232, %211, %200, %198, %197, %197, %197, %1, %125, %312, %277, %188, %187, %21
   ret void
 }
 

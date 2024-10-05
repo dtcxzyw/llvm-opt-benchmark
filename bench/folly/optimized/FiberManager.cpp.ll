@@ -468,18 +468,19 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont11
-  %cmp.i = icmp slt i8 %3, -64
-  %4 = load ptr, ptr %ref.tmp7, align 8, !tbaa !17
+  %4 = and i8 %3, -64
+  %cmp.i = icmp eq i8 %4, -128
+  %5 = load ptr, ptr %ref.tmp7, align 8, !tbaa !17
   br i1 %cmp.i, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %5 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i1 = icmp eq i64 %5, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  %6 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i1 = icmp eq i64 %6, 1
   br i1 %cmp.i.i1, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i
-  %add.ptr.i.i.sink.i = phi ptr [ %4, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %5, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #12
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
@@ -490,45 +491,46 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup13
 
 lpad8:                                            ; preds = %invoke.cont5
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !17
-  %cmp.i.i25 = icmp ult i8 %9, 64
+  %10 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !17
+  %cmp.i.i25 = icmp ult i8 %10, 64
   br i1 %cmp.i.i25, label %ehcleanup, label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %lpad10
-  %cmp.i3 = icmp slt i8 %9, -64
-  %10 = load ptr, ptr %ref.tmp7, align 8, !tbaa !17
+  %11 = and i8 %10, -64
+  %cmp.i3 = icmp eq i8 %11, -128
+  %12 = load ptr, ptr %ref.tmp7, align 8, !tbaa !17
   br i1 %cmp.i3, label %if.end.sink.split.i7, label %if.else.i4
 
 if.else.i4:                                       ; preds = %if.end.i.i26
-  %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %10, i64 -8
-  %11 = atomicrmw sub ptr %add.ptr.i.i.i5, i64 1 acq_rel, align 8
-  %cmp.i.i6 = icmp eq i64 %11, 1
+  %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %12, i64 -8
+  %13 = atomicrmw sub ptr %add.ptr.i.i.i5, i64 1 acq_rel, align 8
+  %cmp.i.i6 = icmp eq i64 %13, 1
   br i1 %cmp.i.i6, label %if.end.sink.split.i7, label %ehcleanup
 
 if.end.sink.split.i7:                             ; preds = %if.else.i4, %if.end.i.i26
-  %add.ptr.i.i.sink.i8 = phi ptr [ %10, %if.end.i.i26 ], [ %add.ptr.i.i.i5, %if.else.i4 ]
+  %add.ptr.i.i.sink.i8 = phi ptr [ %12, %if.end.i.i26 ], [ %add.ptr.i.i.i5, %if.else.i4 ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i8) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.end.sink.split.i7, %if.else.i4, %lpad10, %lpad8
-  %.pn = phi { ptr, i32 } [ %7, %lpad8 ], [ %8, %lpad10 ], [ %8, %if.else.i4 ], [ %8, %if.end.sink.split.i7 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad8 ], [ %9, %lpad10 ], [ %9, %if.else.i4 ], [ %9, %if.end.sink.split.i7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp7) #12
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #12
   resume { ptr, i32 } %.pn.pn

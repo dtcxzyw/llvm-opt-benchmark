@@ -409,13 +409,14 @@ define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr 
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.0 = phi ptr [ %8, %.preheader ], [ %1, %4 ]
+  %.0 = phi ptr [ %9, %.preheader ], [ %1, %4 ]
   %5 = load i8, ptr %.0, align 1
-  %.not13 = icmp slt i8 %5, -64
-  %6 = icmp ugt ptr %.0, %0
-  %7 = and i1 %6, %.not13
-  %8 = getelementptr i8, ptr %.0, i64 -1
-  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !9
+  %6 = and i8 %5, -64
+  %.not13 = icmp eq i8 %6, -128
+  %7 = icmp ugt ptr %.0, %0
+  %8 = and i1 %7, %.not13
+  %9 = getelementptr i8, ptr %.0, i64 -1
+  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.010 = phi ptr [ %1, %4 ], [ %.0, %.preheader ]

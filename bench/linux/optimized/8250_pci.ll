@@ -1423,7 +1423,7 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %30 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %29) #15, !srcloc !13
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %28, i16 %27) #15, !srcloc !22
   %31 = icmp ult i8 %30, 64
-  br i1 %31, label %32, label %136
+  br i1 %31, label %32, label %137
 
 32:                                               ; preds = %4
   %33 = or disjoint i8 %18, 64
@@ -1446,7 +1446,7 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %43, i16 %42) #15, !srcloc !22
   %46 = and i8 %45, -64
   %47 = icmp eq i8 %46, 64
-  br i1 %47, label %48, label %136
+  br i1 %47, label %48, label %137
 
 48:                                               ; preds = %32
   %49 = or disjoint i8 %18, -128
@@ -1469,7 +1469,7 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %59, i16 %58) #15, !srcloc !22
   %62 = and i8 %61, -64
   %63 = icmp eq i8 %62, 64
-  br i1 %63, label %64, label %136
+  br i1 %63, label %64, label %137
 
 64:                                               ; preds = %48
   %65 = or i8 %17, -64
@@ -1490,253 +1490,254 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %76 = add i16 %73, 7
   %77 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %76) #15, !srcloc !13
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %75, i16 %74) #15, !srcloc !22
-  %78 = icmp slt i8 %77, -64
-  br i1 %78, label %79, label %136
+  %78 = and i8 %77, -64
+  %79 = icmp eq i8 %78, -128
+  br i1 %79, label %80, label %137
 
-79:                                               ; preds = %64
-  %80 = load i64, ptr %12, align 8
-  %81 = trunc i64 %80 to i16
-  %82 = add i16 %81, 3
-  %83 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %82) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %82) #15, !srcloc !22
-  %84 = add i16 %81, 7
-  %85 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %84) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %17, i16 %84) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %83, i16 %82) #15, !srcloc !22
-  %86 = load i64, ptr %12, align 8
-  %87 = trunc i64 %86 to i16
-  %88 = add i16 %87, 3
-  %89 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %88) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %88) #15, !srcloc !22
-  %90 = add i16 %87, 7
-  %91 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %90) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %89, i16 %88) #15, !srcloc !22
-  %92 = and i8 %91, -4
-  %93 = load i64, ptr %12, align 8
-  %94 = trunc i64 %93 to i16
-  %95 = add i16 %94, 3
-  %96 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %95) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %95) #15, !srcloc !22
-  %97 = add i16 %94, 7
-  %98 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %97) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %92, i16 %97) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %96, i16 %95) #15, !srcloc !22
-  %99 = load i64, ptr %12, align 8
-  %100 = trunc i64 %99 to i16
-  %101 = add i16 %100, 3
-  %102 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %101) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %101) #15, !srcloc !22
-  %103 = add i16 %100, 7
-  %104 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %103) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %102, i16 %101) #15, !srcloc !22
-  %105 = and i8 %104, 3
-  %106 = icmp eq i8 %105, 0
-  br i1 %106, label %107, label %127
+80:                                               ; preds = %64
+  %81 = load i64, ptr %12, align 8
+  %82 = trunc i64 %81 to i16
+  %83 = add i16 %82, 3
+  %84 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %83) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %83) #15, !srcloc !22
+  %85 = add i16 %82, 7
+  %86 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %85) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %17, i16 %85) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %84, i16 %83) #15, !srcloc !22
+  %87 = load i64, ptr %12, align 8
+  %88 = trunc i64 %87 to i16
+  %89 = add i16 %88, 3
+  %90 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %89) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %89) #15, !srcloc !22
+  %91 = add i16 %88, 7
+  %92 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %91) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %90, i16 %89) #15, !srcloc !22
+  %93 = and i8 %92, -4
+  %94 = load i64, ptr %12, align 8
+  %95 = trunc i64 %94 to i16
+  %96 = add i16 %95, 3
+  %97 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %96) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %96) #15, !srcloc !22
+  %98 = add i16 %95, 7
+  %99 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %98) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %93, i16 %98) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %97, i16 %96) #15, !srcloc !22
+  %100 = load i64, ptr %12, align 8
+  %101 = trunc i64 %100 to i16
+  %102 = add i16 %101, 3
+  %103 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %102) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %102) #15, !srcloc !22
+  %104 = add i16 %101, 7
+  %105 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %104) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %103, i16 %102) #15, !srcloc !22
+  %106 = and i8 %105, 3
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %108, label %128
 
-107:                                              ; preds = %79
-  %108 = or i8 %91, 3
-  %109 = load i64, ptr %12, align 8
-  %110 = trunc i64 %109 to i16
-  %111 = add i16 %110, 3
-  %112 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %111) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %111) #15, !srcloc !22
-  %113 = add i16 %110, 7
-  %114 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %113) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %108, i16 %113) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %112, i16 %111) #15, !srcloc !22
-  %115 = load i64, ptr %12, align 8
-  %116 = trunc i64 %115 to i16
-  %117 = add i16 %116, 3
-  %118 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %117) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %117) #15, !srcloc !22
-  %119 = add i16 %116, 7
-  %120 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %119) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %118, i16 %117) #15, !srcloc !22
-  %121 = and i8 %120, 3
-  switch i8 %121, label %default.unreachable2 [
-    i8 0, label %127
-    i8 1, label %124
-    i8 2, label %122
-    i8 3, label %123
+108:                                              ; preds = %80
+  %109 = or i8 %92, 3
+  %110 = load i64, ptr %12, align 8
+  %111 = trunc i64 %110 to i16
+  %112 = add i16 %111, 3
+  %113 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %112) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %112) #15, !srcloc !22
+  %114 = add i16 %111, 7
+  %115 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %114) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %109, i16 %114) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %113, i16 %112) #15, !srcloc !22
+  %116 = load i64, ptr %12, align 8
+  %117 = trunc i64 %116 to i16
+  %118 = add i16 %117, 3
+  %119 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %118) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %118) #15, !srcloc !22
+  %120 = add i16 %117, 7
+  %121 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %120) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %119, i16 %118) #15, !srcloc !22
+  %122 = and i8 %121, 3
+  switch i8 %122, label %default.unreachable2 [
+    i8 0, label %128
+    i8 1, label %125
+    i8 2, label %123
+    i8 3, label %124
   ]
 
-122:                                              ; preds = %107
-  br label %124
+123:                                              ; preds = %108
+  br label %125
 
-default.unreachable2:                             ; preds = %107
+default.unreachable2:                             ; preds = %108
   unreachable
 
-123:                                              ; preds = %107
-  br label %124
+124:                                              ; preds = %108
+  br label %125
 
-124:                                              ; preds = %107, %123, %122
-  %125 = phi i32 [ 7372800, %122 ], [ 14745600, %123 ], [ 3685400, %107 ]
-  %126 = or disjoint i8 %121, %92
-  br label %127
+125:                                              ; preds = %108, %124, %123
+  %126 = phi i32 [ 7372800, %123 ], [ 14745600, %124 ], [ 3685400, %108 ]
+  %127 = or disjoint i8 %122, %93
+  br label %128
 
-127:                                              ; preds = %107, %124, %79
-  %128 = phi i8 [ %126, %124 ], [ %91, %79 ], [ %91, %107 ]
-  %129 = phi i32 [ %125, %124 ], [ 1843200, %79 ], [ 1843200, %107 ]
-  %130 = load i64, ptr %12, align 8
-  %131 = trunc i64 %130 to i16
-  %132 = add i16 %131, 3
-  %133 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %132) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %132) #15, !srcloc !22
-  %134 = add i16 %131, 7
-  %135 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %134) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %128, i16 %134) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %133, i16 %132) #15, !srcloc !22
-  br label %136
+128:                                              ; preds = %108, %125, %80
+  %129 = phi i8 [ %127, %125 ], [ %92, %80 ], [ %92, %108 ]
+  %130 = phi i32 [ %126, %125 ], [ 1843200, %80 ], [ 1843200, %108 ]
+  %131 = load i64, ptr %12, align 8
+  %132 = trunc i64 %131 to i16
+  %133 = add i16 %132, 3
+  %134 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %133) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %133) #15, !srcloc !22
+  %135 = add i16 %132, 7
+  %136 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %135) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %129, i16 %135) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %134, i16 %133) #15, !srcloc !22
+  br label %137
 
-136:                                              ; preds = %127, %64, %48, %32, %4
-  %137 = phi i32 [ %129, %127 ], [ 1843200, %4 ], [ 1843200, %32 ], [ 1843200, %48 ], [ 1843200, %64 ]
-  %138 = getelementptr inbounds i8, ptr %2, i64 184
-  store i32 %137, ptr %138, align 8
-  %139 = load i64, ptr %12, align 8
-  %140 = trunc i64 %139 to i16
-  %141 = add i16 %140, 3
-  %142 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %141) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %141) #15, !srcloc !22
-  %143 = add i16 %140, 7
-  %144 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %143) #15, !srcloc !13
-  %145 = and i8 %144, 32
-  %146 = icmp eq i8 %145, 0
-  br i1 %146, label %190, label %147
+137:                                              ; preds = %128, %64, %48, %32, %4
+  %138 = phi i32 [ %130, %128 ], [ 1843200, %4 ], [ 1843200, %32 ], [ 1843200, %48 ], [ 1843200, %64 ]
+  %139 = getelementptr inbounds i8, ptr %2, i64 184
+  store i32 %138, ptr %139, align 8
+  %140 = load i64, ptr %12, align 8
+  %141 = trunc i64 %140 to i16
+  %142 = add i16 %141, 3
+  %143 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %142) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %142) #15, !srcloc !22
+  %144 = add i16 %141, 7
+  %145 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %144) #15, !srcloc !13
+  %146 = and i8 %145, 32
+  %147 = icmp eq i8 %146, 0
+  br i1 %147, label %191, label %148
 
-147:                                              ; preds = %136
+148:                                              ; preds = %137
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -128, i16 3) #15, !srcloc !22
-  %148 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 7) #15, !srcloc !13
-  %149 = and i8 %148, 32
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %190
+  %149 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 7) #15, !srcloc !13
+  %150 = and i8 %149, 32
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %152, label %191
 
-151:                                              ; preds = %147
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %142, i16 %141) #15, !srcloc !22
-  %152 = load i64, ptr %12, align 8
-  %153 = trunc i64 %152 to i16
-  %154 = add i16 %153, 3
-  %155 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %154) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %154) #15, !srcloc !22
-  %156 = add i16 %153, 7
-  %157 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %156) #15, !srcloc !13
-  %158 = or i8 %157, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %158, i16 %156) #15, !srcloc !22
-  %159 = add i16 %153, 4
-  %160 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %159) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %157, i16 %156) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %155, i16 %154) #15, !srcloc !22
-  %161 = load i64, ptr %12, align 8
-  %162 = trunc i64 %161 to i16
-  %163 = add i16 %162, 3
-  %164 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %163) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %163) #15, !srcloc !22
-  %165 = add i16 %162, 7
-  %166 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %165) #15, !srcloc !13
-  %167 = or i8 %166, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %167, i16 %165) #15, !srcloc !22
-  %168 = add i16 %162, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -1, i16 %168) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %166, i16 %165) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %164, i16 %163) #15, !srcloc !22
-  %169 = load i64, ptr %12, align 8
-  %170 = trunc i64 %169 to i16
-  %171 = add i16 %170, 3
-  %172 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %171) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %171) #15, !srcloc !22
-  %173 = add i16 %170, 7
-  %174 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %173) #15, !srcloc !13
-  %175 = or i8 %174, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %175, i16 %173) #15, !srcloc !22
-  %176 = add i16 %170, 4
-  %177 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %176) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %174, i16 %173) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %172, i16 %171) #15, !srcloc !22
-  %178 = icmp eq i8 %177, 0
-  %179 = load i64, ptr %12, align 8
-  %180 = trunc i64 %179 to i16
-  %181 = add i16 %180, 3
-  %182 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %181) #15, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %181) #15, !srcloc !22
-  %183 = add i16 %180, 7
-  %184 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %183) #15, !srcloc !13
-  %185 = or i8 %184, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %185, i16 %183) #15, !srcloc !22
-  %186 = add i16 %180, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %160, i16 %186) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %184, i16 %183) #15, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %182, i16 %181) #15, !srcloc !22
-  br i1 %178, label %190, label %187
+152:                                              ; preds = %148
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %143, i16 %142) #15, !srcloc !22
+  %153 = load i64, ptr %12, align 8
+  %154 = trunc i64 %153 to i16
+  %155 = add i16 %154, 3
+  %156 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %155) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %155) #15, !srcloc !22
+  %157 = add i16 %154, 7
+  %158 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %157) #15, !srcloc !13
+  %159 = or i8 %158, 16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %159, i16 %157) #15, !srcloc !22
+  %160 = add i16 %154, 4
+  %161 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %160) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %158, i16 %157) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %156, i16 %155) #15, !srcloc !22
+  %162 = load i64, ptr %12, align 8
+  %163 = trunc i64 %162 to i16
+  %164 = add i16 %163, 3
+  %165 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %164) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %164) #15, !srcloc !22
+  %166 = add i16 %163, 7
+  %167 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %166) #15, !srcloc !13
+  %168 = or i8 %167, 16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %168, i16 %166) #15, !srcloc !22
+  %169 = add i16 %163, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -1, i16 %169) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %167, i16 %166) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %165, i16 %164) #15, !srcloc !22
+  %170 = load i64, ptr %12, align 8
+  %171 = trunc i64 %170 to i16
+  %172 = add i16 %171, 3
+  %173 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %172) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %172) #15, !srcloc !22
+  %174 = add i16 %171, 7
+  %175 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %174) #15, !srcloc !13
+  %176 = or i8 %175, 16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %176, i16 %174) #15, !srcloc !22
+  %177 = add i16 %171, 4
+  %178 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %177) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %175, i16 %174) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %173, i16 %172) #15, !srcloc !22
+  %179 = icmp eq i8 %178, 0
+  %180 = load i64, ptr %12, align 8
+  %181 = trunc i64 %180 to i16
+  %182 = add i16 %181, 3
+  %183 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %182) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %182) #15, !srcloc !22
+  %184 = add i16 %181, 7
+  %185 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %184) #15, !srcloc !13
+  %186 = or i8 %185, 16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %186, i16 %184) #15, !srcloc !22
+  %187 = add i16 %181, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %161, i16 %187) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %185, i16 %184) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %183, i16 %182) #15, !srcloc !22
+  br i1 %179, label %191, label %188
 
-187:                                              ; preds = %151
-  %188 = load ptr, ptr %0, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %189, ptr noundef nonnull @.str.7) #17
-  br label %190
+188:                                              ; preds = %152
+  %189 = load ptr, ptr %0, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %190, ptr noundef nonnull @.str.7) #17
+  br label %191
 
-190:                                              ; preds = %187, %151, %147, %136
-  %191 = getelementptr inbounds i8, ptr %1, i64 20
-  %192 = load i32, ptr %191, align 4
-  %193 = load i32, ptr %1, align 4
-  %194 = and i32 %193, 7
-  %195 = and i32 %193, 8
-  %196 = icmp eq i32 %195, 0
-  br i1 %196, label %199, label %197
+191:                                              ; preds = %188, %152, %148, %137
+  %192 = getelementptr inbounds i8, ptr %1, i64 20
+  %193 = load i32, ptr %192, align 4
+  %194 = load i32, ptr %1, align 4
+  %195 = and i32 %194, 7
+  %196 = and i32 %194, 8
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %200, label %198
 
-197:                                              ; preds = %190
-  %198 = add i32 %194, %3
-  br label %204
+198:                                              ; preds = %191
+  %199 = add i32 %195, %3
+  br label %205
 
-199:                                              ; preds = %190
-  %200 = getelementptr inbounds i8, ptr %1, i64 12
-  %201 = load i32, ptr %200, align 4
-  %202 = mul i32 %201, %3
-  %203 = add i32 %202, %192
-  br label %204
+200:                                              ; preds = %191
+  %201 = getelementptr inbounds i8, ptr %1, i64 12
+  %202 = load i32, ptr %201, align 4
+  %203 = mul i32 %202, %3
+  %204 = add i32 %203, %193
+  br label %205
 
-204:                                              ; preds = %199, %197
-  %205 = phi i32 [ %198, %197 ], [ %194, %199 ]
-  %206 = phi i32 [ %192, %197 ], [ %203, %199 ]
-  %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 920
-  %209 = zext i32 %205 to i64
-  %210 = getelementptr [11 x %struct.resource], ptr %208, i64 0, i64 %209
-  %211 = getelementptr inbounds i8, ptr %210, i64 8
-  %212 = load i64, ptr %211, align 8
-  %213 = icmp eq i64 %212, 0
-  br i1 %213, label %218, label %214
+205:                                              ; preds = %200, %198
+  %206 = phi i32 [ %199, %198 ], [ %195, %200 ]
+  %207 = phi i32 [ %193, %198 ], [ %204, %200 ]
+  %208 = load ptr, ptr %0, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 920
+  %210 = zext i32 %206 to i64
+  %211 = getelementptr [11 x %struct.resource], ptr %209, i64 0, i64 %210
+  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %213 = load i64, ptr %212, align 8
+  %214 = icmp eq i64 %213, 0
+  br i1 %214, label %219, label %215
 
-214:                                              ; preds = %204
-  %215 = load i64, ptr %210, align 8
-  %216 = add i64 %212, 1
-  %217 = sub i64 %216, %215
-  br label %218
+215:                                              ; preds = %205
+  %216 = load i64, ptr %211, align 8
+  %217 = add i64 %213, 1
+  %218 = sub i64 %217, %216
+  br label %219
 
-218:                                              ; preds = %214, %204
-  %219 = phi i64 [ %217, %214 ], [ 0, %204 ]
-  %220 = getelementptr inbounds i8, ptr %1, i64 16
-  %221 = and i32 %193, 256
-  %222 = icmp eq i32 %221, 0
-  %.pre = load i32, ptr %220, align 4
-  br i1 %222, label %231, label %223
+219:                                              ; preds = %215, %205
+  %220 = phi i64 [ %218, %215 ], [ 0, %205 ]
+  %221 = getelementptr inbounds i8, ptr %1, i64 16
+  %222 = and i32 %194, 256
+  %223 = icmp eq i32 %222, 0
+  %.pre = load i32, ptr %221, align 4
+  br i1 %223, label %232, label %224
 
-223:                                              ; preds = %218
-  %224 = zext i32 %192 to i64
-  %225 = sub i64 %219, %224
-  %226 = add i32 %.pre, 3
-  %227 = zext nneg i32 %226 to i64
-  %228 = lshr i64 %225, %227
-  %229 = trunc i64 %228 to i32
-  %230 = icmp ult i32 %3, %229
-  br i1 %230, label %231, label %234
+224:                                              ; preds = %219
+  %225 = zext i32 %193 to i64
+  %226 = sub i64 %220, %225
+  %227 = add i32 %.pre, 3
+  %228 = zext nneg i32 %227 to i64
+  %229 = lshr i64 %226, %228
+  %230 = trunc i64 %229 to i32
+  %231 = icmp ult i32 %3, %230
+  br i1 %231, label %232, label %235
 
-231:                                              ; preds = %223, %218
-  %232 = trunc i32 %205 to i8
-  %233 = tail call i32 @serial8250_pci_setup_port(ptr noundef %207, ptr noundef %2, i8 noundef zeroext %232, i32 noundef %206, i32 noundef %.pre) #15
-  br label %234
+232:                                              ; preds = %224, %219
+  %233 = trunc i32 %206 to i8
+  %234 = tail call i32 @serial8250_pci_setup_port(ptr noundef %208, ptr noundef %2, i8 noundef zeroext %233, i32 noundef %207, i32 noundef %.pre) #15
+  br label %235
 
-234:                                              ; preds = %231, %223
-  %235 = phi i32 [ %233, %231 ], [ 1, %223 ]
-  ret i32 %235
+235:                                              ; preds = %232, %224
+  %236 = phi i32 [ %234, %232 ], [ 1, %224 ]
+  ret i32 %236
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

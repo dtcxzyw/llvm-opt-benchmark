@@ -107,157 +107,158 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
   %15 = getelementptr inbounds i8, ptr %0, i64 168
   %16 = load ptr, ptr %15, align 8
   %17 = load i16, ptr %16, align 8
-  %18 = icmp slt i16 %17, -28672
-  br i1 %18, label %19, label %.loopexit9
+  %18 = and i16 %17, -4096
+  %19 = icmp eq i16 %18, -32768
+  br i1 %19, label %20, label %.loopexit9
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 336
-  %21 = load volatile i32, ptr %20, align 4
-  %22 = icmp slt i32 %21, 1
-  br i1 %22, label %.lr.ph, label %.loopexit9, !prof !6
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %16, i64 336
+  %22 = load volatile i32, ptr %21, align 4
+  %23 = icmp slt i32 %22, 1
+  br i1 %23, label %.lr.ph, label %.loopexit9, !prof !6
 
-.lr.ph:                                           ; preds = %19, %29
-  %23 = phi i32 [ %30, %29 ], [ %21, %19 ]
-  %24 = add i32 %23, -1
-  %25 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %24, ptr elementtype(i32) %20, i32 %23) #7, !srcloc !7
-  %26 = extractvalue { i8, i32 } %25, 0
-  %27 = icmp ult i8 %26, 2
-  tail call void @llvm.assume(i1 %27)
-  %28 = icmp eq i8 %26, 0
-  br i1 %28, label %29, label %32, !prof !8
+.lr.ph:                                           ; preds = %20, %30
+  %24 = phi i32 [ %31, %30 ], [ %22, %20 ]
+  %25 = add i32 %24, -1
+  %26 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21, i32 %25, ptr elementtype(i32) %21, i32 %24) #7, !srcloc !7
+  %27 = extractvalue { i8, i32 } %26, 0
+  %28 = icmp ult i8 %27, 2
+  tail call void @llvm.assume(i1 %28)
+  %29 = icmp eq i8 %27, 0
+  br i1 %29, label %30, label %33, !prof !8
 
-29:                                               ; preds = %.lr.ph
-  %30 = extractvalue { i8, i32 } %25, 1
-  %31 = icmp slt i32 %30, 1
-  br i1 %31, label %.lr.ph, label %.loopexit9, !prof !9, !llvm.loop !10
+30:                                               ; preds = %.lr.ph
+  %31 = extractvalue { i8, i32 } %26, 1
+  %32 = icmp slt i32 %31, 1
+  br i1 %32, label %.lr.ph, label %.loopexit9, !prof !9, !llvm.loop !10
 
-32:                                               ; preds = %.lr.ph
-  %33 = load ptr, ptr %15, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp slt i64 %35, 1
-  br i1 %36, label %92, label %37
+33:                                               ; preds = %.lr.ph
+  %34 = load ptr, ptr %15, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp slt i64 %36, 1
+  br i1 %37, label %93, label %38
 
-37:                                               ; preds = %32
-  %38 = icmp eq ptr %4, null
-  %39 = icmp ugt i64 %35, %3
-  %40 = and i1 %8, %39
-  %41 = and i1 %38, %40
-  br i1 %41, label %92, label %42
+38:                                               ; preds = %33
+  %39 = icmp eq ptr %4, null
+  %40 = icmp ugt i64 %36, %3
+  %41 = and i1 %8, %40
+  %42 = and i1 %39, %41
+  br i1 %42, label %93, label %43
 
-42:                                               ; preds = %37
-  %43 = icmp ule i64 %35, %3
-  %44 = and i1 %8, %43
-  %45 = tail call i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %5, i1 noundef zeroext %44) #7
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %92
+43:                                               ; preds = %38
+  %44 = icmp ule i64 %36, %3
+  %45 = and i1 %8, %44
+  %46 = tail call i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %5, i1 noundef zeroext %45) #7
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %93
 
-47:                                               ; preds = %42
-  br i1 %38, label %49, label %48
+48:                                               ; preds = %43
+  br i1 %39, label %50, label %49
 
-48:                                               ; preds = %47
-  store i64 %35, ptr %4, align 8
-  br label %49
+49:                                               ; preds = %48
+  store i64 %36, ptr %4, align 8
+  br label %50
 
-49:                                               ; preds = %48, %47
-  %50 = load ptr, ptr %2, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %.thread8
+50:                                               ; preds = %49, %48
+  %51 = load ptr, ptr %2, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %.thread8
 
-52:                                               ; preds = %49
-  %53 = tail call noalias ptr @vmalloc(i64 noundef %35) #8
-  store ptr %53, ptr %2, align 8
-  %54 = icmp ne ptr %53, null
-  %55 = icmp eq ptr %53, null
-  br i1 %55, label %92, label %.thread8
+53:                                               ; preds = %50
+  %54 = tail call noalias ptr @vmalloc(i64 noundef %36) #8
+  store ptr %54, ptr %2, align 8
+  %55 = icmp ne ptr %54, null
+  %56 = icmp eq ptr %54, null
+  br i1 %56, label %93, label %.thread8
 
-.thread8:                                         ; preds = %49, %52
-  %56 = phi i1 [ %54, %52 ], [ false, %49 ]
+.thread8:                                         ; preds = %50, %53
+  %57 = phi i1 [ %55, %53 ], [ false, %50 ]
   store i64 %1, ptr %7, align 8
-  br label %57
+  br label %58
 
-57:                                               ; preds = %61, %.thread8
-  %58 = phi i32 [ 0, %.thread8 ], [ %73, %61 ]
-  %59 = phi i64 [ 0, %.thread8 ], [ %76, %61 ]
-  %60 = icmp ult i64 %59, %3
-  br i1 %60, label %61, label %77
+58:                                               ; preds = %62, %.thread8
+  %59 = phi i32 [ 0, %.thread8 ], [ %74, %62 ]
+  %60 = phi i64 [ 0, %.thread8 ], [ %77, %62 ]
+  %61 = icmp ult i64 %60, %3
+  br i1 %61, label %62, label %78
 
-61:                                               ; preds = %57
-  %62 = sub nuw i64 %3, %59
-  %63 = load i64, ptr %7, align 8
-  %64 = sub i64 %35, %63
-  %65 = call i64 @llvm.umin.i64(i64 %62, i64 %64)
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr i8, ptr %66, i64 %59
-  %68 = call i64 @kernel_read(ptr noundef %0, ptr noundef %67, i64 noundef %65, ptr noundef nonnull %7) #7
-  %69 = icmp slt i64 %68, 0
-  %70 = trunc i64 %68 to i32
-  %71 = icmp eq i64 %68, 0
-  %72 = select i1 %71, i32 4, i32 0
-  %73 = select i1 %69, i32 %70, i32 %58
-  %74 = select i1 %69, i32 5, i32 %72
-  %75 = call i64 @llvm.smax.i64(i64 %68, i64 0)
-  %76 = add i64 %75, %59
-  switch i32 %74, label %.unreachabledefault [
-    i32 0, label %57
-    i32 4, label %77
+62:                                               ; preds = %58
+  %63 = sub nuw i64 %3, %60
+  %64 = load i64, ptr %7, align 8
+  %65 = sub i64 %36, %64
+  %66 = call i64 @llvm.umin.i64(i64 %63, i64 %65)
+  %67 = load ptr, ptr %2, align 8
+  %68 = getelementptr i8, ptr %67, i64 %60
+  %69 = call i64 @kernel_read(ptr noundef %0, ptr noundef %68, i64 noundef %66, ptr noundef nonnull %7) #7
+  %70 = icmp slt i64 %69, 0
+  %71 = trunc i64 %69 to i32
+  %72 = icmp eq i64 %69, 0
+  %73 = select i1 %72, i32 4, i32 0
+  %74 = select i1 %70, i32 %71, i32 %59
+  %75 = select i1 %70, i32 5, i32 %73
+  %76 = call i64 @llvm.smax.i64(i64 %69, i64 0)
+  %77 = add i64 %76, %60
+  switch i32 %75, label %.unreachabledefault [
+    i32 0, label %58
+    i32 4, label %78
     i32 5, label %.loopexit
     i32 1, label %.loopexit9
   ], !llvm.loop !13
 
-77:                                               ; preds = %61, %57
-  %78 = phi i32 [ %73, %61 ], [ %58, %57 ]
-  %79 = phi i64 [ %76, %61 ], [ %59, %57 ]
-  br i1 %44, label %80, label %.loopexit
+78:                                               ; preds = %62, %58
+  %79 = phi i32 [ %74, %62 ], [ %59, %58 ]
+  %80 = phi i64 [ %77, %62 ], [ %60, %58 ]
+  br i1 %45, label %81, label %.loopexit
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %7, align 8
-  %82 = icmp eq i64 %81, %35
-  br i1 %82, label %83, label %.loopexit
+81:                                               ; preds = %78
+  %82 = load i64, ptr %7, align 8
+  %83 = icmp eq i64 %82, %36
+  br i1 %83, label %84, label %.loopexit
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %2, align 8
-  %85 = call i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef %84, i64 noundef %35, i32 noundef %5) #7
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %2, align 8
+  %86 = call i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef %85, i64 noundef %36, i32 noundef %5) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %83, %80, %77
-  %86 = phi i32 [ %85, %83 ], [ %78, %77 ], [ -5, %80 ], [ %73, %61 ]
-  %87 = phi i64 [ %79, %83 ], [ %79, %77 ], [ %79, %80 ], [ %76, %61 ]
-  %88 = icmp slt i32 %86, 0
-  %89 = and i1 %56, %88
-  br i1 %89, label %90, label %92
+.loopexit:                                        ; preds = %62, %84, %81, %78
+  %87 = phi i32 [ %86, %84 ], [ %79, %78 ], [ -5, %81 ], [ %74, %62 ]
+  %88 = phi i64 [ %80, %84 ], [ %80, %78 ], [ %80, %81 ], [ %77, %62 ]
+  %89 = icmp slt i32 %87, 0
+  %90 = and i1 %57, %89
+  br i1 %90, label %91, label %93
 
-90:                                               ; preds = %.loopexit
-  %91 = load ptr, ptr %2, align 8
-  call void @vfree(ptr noundef %91) #7
+91:                                               ; preds = %.loopexit
+  %92 = load ptr, ptr %2, align 8
+  call void @vfree(ptr noundef %92) #7
   store ptr null, ptr %2, align 8
-  br label %92
+  br label %93
 
-92:                                               ; preds = %90, %.loopexit, %52, %42, %37, %32
-  %93 = phi i32 [ %45, %42 ], [ %86, %90 ], [ %86, %.loopexit ], [ -22, %32 ], [ -27, %37 ], [ -12, %52 ]
-  %94 = phi i64 [ 0, %42 ], [ %87, %90 ], [ %87, %.loopexit ], [ 0, %32 ], [ 0, %37 ], [ 0, %52 ]
-  %95 = icmp eq ptr %0, null
-  br i1 %95, label %99, label %96
+93:                                               ; preds = %91, %.loopexit, %53, %43, %38, %33
+  %94 = phi i32 [ %46, %43 ], [ %87, %91 ], [ %87, %.loopexit ], [ -22, %33 ], [ -27, %38 ], [ -12, %53 ]
+  %95 = phi i64 [ 0, %43 ], [ %88, %91 ], [ %88, %.loopexit ], [ 0, %33 ], [ 0, %38 ], [ 0, %53 ]
+  %96 = icmp eq ptr %0, null
+  br i1 %96, label %100, label %97
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %15, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 336
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %98, ptr elementtype(i32) %98) #7, !srcloc !14
-  br label %99
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %15, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 336
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %99, ptr elementtype(i32) %99) #7, !srcloc !14
+  br label %100
 
-99:                                               ; preds = %96, %92
-  %100 = icmp eq i32 %93, 0
-  %101 = sext i32 %93 to i64
-  %102 = select i1 %100, i64 %94, i64 %101
+100:                                              ; preds = %97, %93
+  %101 = icmp eq i32 %94, 0
+  %102 = sext i32 %94 to i64
+  %103 = select i1 %101, i64 %95, i64 %102
   br label %.loopexit9
 
-.unreachabledefault:                              ; preds = %61
+.unreachabledefault:                              ; preds = %62
   unreachable
 
-.loopexit9:                                       ; preds = %29, %61, %19, %99, %14, %9
-  %103 = phi i64 [ %102, %99 ], [ -22, %9 ], [ -22, %14 ], [ -26, %19 ], [ undef, %61 ], [ -26, %29 ]
+.loopexit9:                                       ; preds = %30, %62, %20, %100, %14, %9
+  %104 = phi i64 [ %103, %100 ], [ -22, %9 ], [ -22, %14 ], [ -26, %20 ], [ undef, %62 ], [ -26, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  ret i64 %103
+  ret i64 %104
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

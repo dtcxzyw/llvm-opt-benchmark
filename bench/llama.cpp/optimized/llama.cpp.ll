@@ -51639,7 +51639,8 @@ lor.lhs.false:                                    ; preds = %if.then17
   %add20 = add i64 %11, 1
   %call21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add20) #47
   %12 = load i8, ptr %call21, align 1
-  %cmp24 = icmp slt i8 %12, -64
+  %13 = and i8 %12, -64
+  %cmp24 = icmp eq i8 %13, -128
   br i1 %cmp24, label %if.end, label %if.then25
 
 if.then25:                                        ; preds = %lor.lhs.false, %if.then17
@@ -51652,57 +51653,59 @@ invoke.cont28:                                    ; preds = %if.then25
   unreachable
 
 lpad27:                                           ; preds = %if.then25
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
-  %14 = load i64, ptr %offset, align 8
-  %call31 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %14) #47
-  %15 = load i8, ptr %call31, align 1
-  %16 = and i8 %15, 31
-  %and33 = zext nneg i8 %16 to i32
+  %15 = load i64, ptr %offset, align 8
+  %call31 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %15) #47
+  %16 = load i8, ptr %call31, align 1
+  %17 = and i8 %16, 31
+  %and33 = zext nneg i8 %17 to i32
   %shl = shl nuw nsw i32 %and33, 6
-  %17 = load i64, ptr %offset, align 8
-  %add34 = add i64 %17, 1
+  %18 = load i64, ptr %offset, align 8
+  %add34 = add i64 %18, 1
   %call35 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add34) #47
-  %18 = load i8, ptr %call35, align 1
-  %19 = and i8 %18, 63
-  %and37 = zext nneg i8 %19 to i32
+  %19 = load i8, ptr %call35, align 1
+  %20 = and i8 %19, 63
+  %and37 = zext nneg i8 %20 to i32
   %or = or disjoint i32 %shl, %and37
-  %20 = load i64, ptr %offset, align 8
-  %add38 = add i64 %20, 2
+  %21 = load i64, ptr %offset, align 8
+  %add38 = add i64 %21, 2
   store i64 %add38, ptr %offset, align 8
   br label %return
 
 if.else39:                                        ; preds = %if.else11
   %call41 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %10) #47
-  %21 = load i8, ptr %call41, align 1
-  %22 = and i8 %21, 16
-  %tobool44.not = icmp eq i8 %22, 0
-  %23 = load i64, ptr %offset, align 8
+  %22 = load i8, ptr %call41, align 1
+  %23 = and i8 %22, 16
+  %tobool44.not = icmp eq i8 %23, 0
+  %24 = load i64, ptr %offset, align 8
   br i1 %tobool44.not, label %if.then45, label %if.else84
 
 if.then45:                                        ; preds = %if.else39
-  %add46 = add i64 %23, 2
+  %add46 = add i64 %24, 2
   %call47 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %utf8) #47
   %cmp48.not = icmp ult i64 %add46, %call47
   br i1 %cmp48.not, label %lor.lhs.false49, label %if.then61
 
 lor.lhs.false49:                                  ; preds = %if.then45
-  %24 = load i64, ptr %offset, align 8
-  %add50 = add i64 %24, 1
+  %25 = load i64, ptr %offset, align 8
+  %add50 = add i64 %25, 1
   %call51 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add50) #47
-  %25 = load i8, ptr %call51, align 1
-  %cmp54 = icmp slt i8 %25, -64
+  %26 = load i8, ptr %call51, align 1
+  %27 = and i8 %26, -64
+  %cmp54 = icmp eq i8 %27, -128
   br i1 %cmp54, label %lor.lhs.false55, label %if.then61
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false49
-  %26 = load i64, ptr %offset, align 8
-  %add56 = add i64 %26, 2
+  %28 = load i64, ptr %offset, align 8
+  %add56 = add i64 %28, 2
   %call57 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add56) #47
-  %27 = load i8, ptr %call57, align 1
-  %cmp60 = icmp slt i8 %27, -64
+  %29 = load i8, ptr %call57, align 1
+  %30 = and i8 %29, -64
+  %cmp60 = icmp eq i8 %30, -128
   br i1 %cmp60, label %if.end65, label %if.then61
 
 if.then61:                                        ; preds = %lor.lhs.false55, %lor.lhs.false49, %if.then45
@@ -51715,73 +51718,76 @@ invoke.cont64:                                    ; preds = %if.then61
   unreachable
 
 lpad63:                                           ; preds = %if.then61
-  %28 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end65:                                         ; preds = %lor.lhs.false55
-  %29 = load i64, ptr %offset, align 8
-  %call68 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %29) #47
-  %30 = load i8, ptr %call68, align 1
-  %31 = and i8 %30, 15
-  %and70 = zext nneg i8 %31 to i32
-  %shl71 = shl nuw nsw i32 %and70, 12
   %32 = load i64, ptr %offset, align 8
-  %add72 = add i64 %32, 1
+  %call68 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %32) #47
+  %33 = load i8, ptr %call68, align 1
+  %34 = and i8 %33, 15
+  %and70 = zext nneg i8 %34 to i32
+  %shl71 = shl nuw nsw i32 %and70, 12
+  %35 = load i64, ptr %offset, align 8
+  %add72 = add i64 %35, 1
   %call73 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add72) #47
-  %33 = load i8, ptr %call73, align 1
-  %34 = and i8 %33, 63
-  %and75 = zext nneg i8 %34 to i32
+  %36 = load i8, ptr %call73, align 1
+  %37 = and i8 %36, 63
+  %and75 = zext nneg i8 %37 to i32
   %shl76 = shl nuw nsw i32 %and75, 6
   %or77 = or disjoint i32 %shl76, %shl71
-  %35 = load i64, ptr %offset, align 8
-  %add78 = add i64 %35, 2
-  %call79 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add78) #47
-  %36 = load i8, ptr %call79, align 1
-  %37 = and i8 %36, 63
-  %and81 = zext nneg i8 %37 to i32
-  %or82 = or disjoint i32 %or77, %and81
   %38 = load i64, ptr %offset, align 8
-  %add83 = add i64 %38, 3
+  %add78 = add i64 %38, 2
+  %call79 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add78) #47
+  %39 = load i8, ptr %call79, align 1
+  %40 = and i8 %39, 63
+  %and81 = zext nneg i8 %40 to i32
+  %or82 = or disjoint i32 %or77, %and81
+  %41 = load i64, ptr %offset, align 8
+  %add83 = add i64 %41, 3
   store i64 %add83, ptr %offset, align 8
   br label %return
 
 if.else84:                                        ; preds = %if.else39
-  %call86 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %23) #47
-  %39 = load i8, ptr %call86, align 1
-  %40 = and i8 %39, 8
-  %tobool89.not = icmp eq i8 %40, 0
+  %call86 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %24) #47
+  %42 = load i8, ptr %call86, align 1
+  %43 = and i8 %42, 8
+  %tobool89.not = icmp eq i8 %43, 0
   br i1 %tobool89.not, label %if.then90, label %if.end145
 
 if.then90:                                        ; preds = %if.else84
-  %41 = load i64, ptr %offset, align 8
-  %add91 = add i64 %41, 3
+  %44 = load i64, ptr %offset, align 8
+  %add91 = add i64 %44, 3
   %call92 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %utf8) #47
   %cmp93.not = icmp ult i64 %add91, %call92
   br i1 %cmp93.not, label %lor.lhs.false94, label %if.then112
 
 lor.lhs.false94:                                  ; preds = %if.then90
-  %42 = load i64, ptr %offset, align 8
-  %add95 = add i64 %42, 1
+  %45 = load i64, ptr %offset, align 8
+  %add95 = add i64 %45, 1
   %call96 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add95) #47
-  %43 = load i8, ptr %call96, align 1
-  %cmp99 = icmp slt i8 %43, -64
+  %46 = load i8, ptr %call96, align 1
+  %47 = and i8 %46, -64
+  %cmp99 = icmp eq i8 %47, -128
   br i1 %cmp99, label %lor.lhs.false100, label %if.then112
 
 lor.lhs.false100:                                 ; preds = %lor.lhs.false94
-  %44 = load i64, ptr %offset, align 8
-  %add101 = add i64 %44, 2
+  %48 = load i64, ptr %offset, align 8
+  %add101 = add i64 %48, 2
   %call102 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add101) #47
-  %45 = load i8, ptr %call102, align 1
-  %cmp105 = icmp slt i8 %45, -64
+  %49 = load i8, ptr %call102, align 1
+  %50 = and i8 %49, -64
+  %cmp105 = icmp eq i8 %50, -128
   br i1 %cmp105, label %lor.lhs.false106, label %if.then112
 
 lor.lhs.false106:                                 ; preds = %lor.lhs.false100
-  %46 = load i64, ptr %offset, align 8
-  %add107 = add i64 %46, 3
+  %51 = load i64, ptr %offset, align 8
+  %add107 = add i64 %51, 3
   %call108 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add107) #47
-  %47 = load i8, ptr %call108, align 1
-  %cmp111 = icmp slt i8 %47, -64
+  %52 = load i8, ptr %call108, align 1
+  %53 = and i8 %52, -64
+  %cmp111 = icmp eq i8 %53, -128
   br i1 %cmp111, label %if.end116, label %if.then112
 
 if.then112:                                       ; preds = %lor.lhs.false106, %lor.lhs.false100, %lor.lhs.false94, %if.then90
@@ -51794,42 +51800,42 @@ invoke.cont115:                                   ; preds = %if.then112
   unreachable
 
 lpad114:                                          ; preds = %if.then112
-  %48 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end116:                                        ; preds = %lor.lhs.false106
-  %49 = load i64, ptr %offset, align 8
-  %call119 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %49) #47
-  %50 = load i8, ptr %call119, align 1
-  %51 = and i8 %50, 7
-  %and121 = zext nneg i8 %51 to i32
+  %55 = load i64, ptr %offset, align 8
+  %call119 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %55) #47
+  %56 = load i8, ptr %call119, align 1
+  %57 = and i8 %56, 7
+  %and121 = zext nneg i8 %57 to i32
   %shl122 = shl nuw nsw i32 %and121, 18
-  %52 = load i64, ptr %offset, align 8
-  %add123 = add i64 %52, 1
+  %58 = load i64, ptr %offset, align 8
+  %add123 = add i64 %58, 1
   %call124 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add123) #47
-  %53 = load i8, ptr %call124, align 1
-  %54 = and i8 %53, 63
-  %and126 = zext nneg i8 %54 to i32
+  %59 = load i8, ptr %call124, align 1
+  %60 = and i8 %59, 63
+  %and126 = zext nneg i8 %60 to i32
   %shl127 = shl nuw nsw i32 %and126, 12
   %or128 = or disjoint i32 %shl127, %shl122
-  %55 = load i64, ptr %offset, align 8
-  %add129 = add i64 %55, 2
+  %61 = load i64, ptr %offset, align 8
+  %add129 = add i64 %61, 2
   %call130 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add129) #47
-  %56 = load i8, ptr %call130, align 1
-  %57 = and i8 %56, 63
-  %and132 = zext nneg i8 %57 to i32
+  %62 = load i8, ptr %call130, align 1
+  %63 = and i8 %62, 63
+  %and132 = zext nneg i8 %63 to i32
   %shl133 = shl nuw nsw i32 %and132, 6
   %or134 = or disjoint i32 %shl133, %or128
-  %58 = load i64, ptr %offset, align 8
-  %add135 = add i64 %58, 3
+  %64 = load i64, ptr %offset, align 8
+  %add135 = add i64 %64, 3
   %call136 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %add135) #47
-  %59 = load i8, ptr %call136, align 1
-  %60 = and i8 %59, 63
-  %and138 = zext nneg i8 %60 to i32
+  %65 = load i8, ptr %call136, align 1
+  %66 = and i8 %65, 63
+  %and138 = zext nneg i8 %66 to i32
   %or139 = or disjoint i32 %or134, %and138
-  %61 = load i64, ptr %offset, align 8
-  %add140 = add i64 %61, 4
+  %67 = load i64, ptr %offset, align 8
+  %add140 = add i64 %67, 4
   store i64 %add140, ptr %offset, align 8
   br label %return
 
@@ -51843,7 +51849,7 @@ invoke.cont148:                                   ; preds = %if.end145
   unreachable
 
 lpad147:                                          ; preds = %if.end145
-  %62 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -51853,7 +51859,7 @@ return:                                           ; preds = %if.end116, %if.end6
 
 eh.resume:                                        ; preds = %lpad147, %lpad114, %lpad63, %lpad27, %lpad
   %exception146.sink = phi ptr [ %exception146, %lpad147 ], [ %exception113, %lpad114 ], [ %exception62, %lpad63 ], [ %exception26, %lpad27 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %62, %lpad147 ], [ %48, %lpad114 ], [ %28, %lpad63 ], [ %13, %lpad27 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %68, %lpad147 ], [ %54, %lpad114 ], [ %31, %lpad63 ], [ %14, %lpad27 ], [ %6, %lpad ]
   tail call void @__cxa_free_exception(ptr %exception146.sink) #47
   resume { ptr, i32 } %.pn
 }

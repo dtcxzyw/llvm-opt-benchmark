@@ -2822,79 +2822,85 @@ define range(i32 0, 2) i32 @php_libxml_xmlCheckUTF8(ptr nocapture noundef readon
   %.not26 = icmp eq i8 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %38
-  %3 = phi i8 [ %41, %38 ], [ %2, %1 ]
-  %4 = phi ptr [ %40, %38 ], [ %0, %1 ]
-  %5 = phi i64 [ %39, %38 ], [ 1, %1 ]
-  %.01827 = phi i64 [ %.1, %38 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %44
+  %3 = phi i8 [ %47, %44 ], [ %2, %1 ]
+  %4 = phi ptr [ %46, %44 ], [ %0, %1 ]
+  %5 = phi i64 [ %45, %44 ], [ 1, %1 ]
+  %.01827 = phi i64 [ %.1, %44 ], [ 0, %1 ]
   %6 = zext i8 %3 to i32
   %7 = icmp sgt i8 %3, -1
-  br i1 %7, label %38, label %8
+  br i1 %7, label %44, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = and i32 %6, 224
   %10 = icmp eq i32 %9, 192
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = add i64 %.01827, 2
   %13 = getelementptr inbounds i8, ptr %0, i64 %5
   %14 = load i8, ptr %13, align 1
-  %.not25 = icmp slt i8 %14, -64
-  br i1 %.not25, label %38, label %._crit_edge
+  %15 = and i8 %14, -64
+  %.not25 = icmp eq i8 %15, -128
+  br i1 %.not25, label %44, label %._crit_edge
 
-15:                                               ; preds = %8
-  %16 = and i32 %6, 240
-  %17 = icmp eq i32 %16, 224
-  br i1 %17, label %18, label %25
+16:                                               ; preds = %8
+  %17 = and i32 %6, 240
+  %18 = icmp eq i32 %17, 224
+  br i1 %18, label %19, label %28
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 %5
-  %20 = load i8, ptr %19, align 1
-  %.not23 = icmp slt i8 %20, -64
-  br i1 %.not23, label %21, label %._crit_edge
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 %5
+  %21 = load i8, ptr %20, align 1
+  %22 = and i8 %21, -64
+  %.not23 = icmp eq i8 %22, -128
+  br i1 %.not23, label %23, label %._crit_edge
 
-21:                                               ; preds = %18
-  %22 = add i64 %.01827, 3
-  %23 = getelementptr i8, ptr %4, i64 2
-  %24 = load i8, ptr %23, align 1
-  %.not24 = icmp slt i8 %24, -64
-  br i1 %.not24, label %38, label %._crit_edge
+23:                                               ; preds = %19
+  %24 = add i64 %.01827, 3
+  %25 = getelementptr i8, ptr %4, i64 2
+  %26 = load i8, ptr %25, align 1
+  %27 = and i8 %26, -64
+  %.not24 = icmp eq i8 %27, -128
+  br i1 %.not24, label %44, label %._crit_edge
 
-25:                                               ; preds = %15
-  %26 = and i32 %6, 248
-  %27 = icmp eq i32 %26, 240
-  br i1 %27, label %28, label %._crit_edge
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 %5
-  %30 = load i8, ptr %29, align 1
-  %.not20 = icmp slt i8 %30, -64
-  br i1 %.not20, label %31, label %._crit_edge
+28:                                               ; preds = %16
+  %29 = and i32 %6, 248
+  %30 = icmp eq i32 %29, 240
+  br i1 %30, label %31, label %._crit_edge
 
 31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %4, i64 2
+  %32 = getelementptr inbounds i8, ptr %0, i64 %5
   %33 = load i8, ptr %32, align 1
-  %.not21 = icmp slt i8 %33, -64
-  br i1 %.not21, label %34, label %._crit_edge
+  %34 = and i8 %33, -64
+  %.not20 = icmp eq i8 %34, -128
+  br i1 %.not20, label %35, label %._crit_edge
 
-34:                                               ; preds = %31
-  %35 = add i64 %.01827, 4
-  %36 = getelementptr i8, ptr %4, i64 3
+35:                                               ; preds = %31
+  %36 = getelementptr i8, ptr %4, i64 2
   %37 = load i8, ptr %36, align 1
-  %.not22 = icmp slt i8 %37, -64
-  br i1 %.not22, label %38, label %._crit_edge
+  %38 = and i8 %37, -64
+  %.not21 = icmp eq i8 %38, -128
+  br i1 %.not21, label %39, label %._crit_edge
 
-38:                                               ; preds = %11, %34, %21, %.lr.ph
-  %.1 = phi i64 [ %5, %.lr.ph ], [ %12, %11 ], [ %22, %21 ], [ %35, %34 ]
-  %39 = add i64 %.1, 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 %.1
-  %41 = load i8, ptr %40, align 1
-  %.not = icmp eq i8 %41, 0
+39:                                               ; preds = %35
+  %40 = add i64 %.01827, 4
+  %41 = getelementptr i8, ptr %4, i64 3
+  %42 = load i8, ptr %41, align 1
+  %43 = and i8 %42, -64
+  %.not22 = icmp eq i8 %43, -128
+  br i1 %.not22, label %44, label %._crit_edge
+
+44:                                               ; preds = %11, %39, %23, %.lr.ph
+  %.1 = phi i64 [ %5, %.lr.ph ], [ %12, %11 ], [ %24, %23 ], [ %40, %39 ]
+  %45 = add i64 %.1, 1
+  %46 = getelementptr inbounds i8, ptr %0, i64 %.1
+  %47 = load i8, ptr %46, align 1
+  %.not = icmp eq i8 %47, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %11, %21, %18, %34, %31, %28, %25, %38, %1
-  %.0 = phi i32 [ 1, %1 ], [ 1, %38 ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %18 ], [ 0, %21 ], [ 0, %11 ]
+._crit_edge:                                      ; preds = %11, %23, %19, %39, %35, %31, %28, %44, %1
+  %.0 = phi i32 [ 1, %1 ], [ 1, %44 ], [ 0, %28 ], [ 0, %31 ], [ 0, %35 ], [ 0, %39 ], [ 0, %19 ], [ 0, %23 ], [ 0, %11 ]
   ret i32 %.0
 }
 

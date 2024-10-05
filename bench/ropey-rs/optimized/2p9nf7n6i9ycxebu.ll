@@ -1939,7 +1939,8 @@ _ZN5ropey4tree9node_text8NodeText8push_str17hd26f08c6f314aa95E.exit46: ; preds =
 169:                                              ; preds = %.lr.ph
   %170 = getelementptr inbounds [0 x i8], ptr %139, i64 0, i64 %.sroa.014.1181
   %171 = load i8, ptr %170, align 1, !alias.scope !438, !noundef !4
-  %172 = icmp slt i8 %171, -64
+  %.mask.i = and i8 %171, -64
+  %172 = icmp eq i8 %.mask.i, -128
   %.pre = add i64 %.sroa.014.1181, -1
   br i1 %172, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.thread53, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit
 

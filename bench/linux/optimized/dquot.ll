@@ -5740,95 +5740,96 @@ define dso_local i32 @dquot_load_quota_inode(ptr noundef %0, i32 noundef %1, i32
 
 9:                                                ; preds = %4
   %10 = load i16, ptr %0, align 8
-  %11 = icmp slt i16 %10, -28672
-  br i1 %11, label %12, label %.thread
+  %11 = and i16 %10, -4096
+  %12 = icmp eq i16 %11, -32768
+  br i1 %12, label %13, label %.thread
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
-  %15 = load i64, ptr %14, align 16
-  %16 = and i64 %15, 1
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %.thread
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 80
+  %16 = load i64, ptr %15, align 16
+  %17 = and i64 %16, 1
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %.thread
 
-18:                                               ; preds = %12
-  %19 = load i32, ptr %7, align 8
-  %20 = shl nuw i32 1, %1
-  %21 = and i32 %19, %20
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.thread
+19:                                               ; preds = %13
+  %20 = load i32, ptr %7, align 8
+  %21 = shl nuw i32 1, %1
+  %22 = and i32 %20, %21
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.thread
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 16384
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.thread
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 16384
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %.thread
 
-28:                                               ; preds = %23
-  %29 = tail call ptr @igrab(ptr noundef %0) #12
-  %30 = getelementptr inbounds i8, ptr %6, i64 304
-  %31 = sext i32 %1 to i64
-  %32 = getelementptr [3 x ptr], ptr %30, i64 0, i64 %31
-  store ptr %29, ptr %32, align 8
-  %33 = icmp eq ptr %29, null
-  br i1 %33, label %.thread, label %34
+29:                                               ; preds = %24
+  %30 = tail call ptr @igrab(ptr noundef %0) #12
+  %31 = getelementptr inbounds i8, ptr %6, i64 304
+  %32 = sext i32 %1 to i64
+  %33 = getelementptr [3 x ptr], ptr %31, i64 0, i64 %32
+  store ptr %30, ptr %33, align 8
+  %34 = icmp eq ptr %30, null
+  br i1 %34, label %.thread, label %35
 
-34:                                               ; preds = %28
-  %35 = load i32, ptr %7, align 8
-  %36 = and i32 %35, 512
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %42
+35:                                               ; preds = %29
+  %36 = load i32, ptr %7, align 8
+  %37 = and i32 %36, 512
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @down_write(ptr noundef %39) #12
-  %40 = load i32, ptr %24, align 4
-  %41 = or i32 %40, 32
-  store i32 %41, ptr %24, align 4
-  tail call void @up_write(ptr noundef %39) #12
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %0, i64 160
+  tail call void @down_write(ptr noundef %40) #12
+  %41 = load i32, ptr %25, align 4
+  %42 = or i32 %41, 32
+  store i32 %42, ptr %25, align 4
+  tail call void @up_write(ptr noundef %40) #12
   tail call fastcc void @__dquot_drop(ptr noundef %0)
-  br label %42
+  br label %43
 
-42:                                               ; preds = %34, %38
-  %43 = load ptr, ptr %5, align 8
-  %44 = tail call i32 @dquot_load_quota_sb(ptr noundef %43, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %.thread
+43:                                               ; preds = %35, %39
+  %44 = load ptr, ptr %5, align 8
+  %45 = tail call i32 @dquot_load_quota_sb(ptr noundef %44, i32 noundef %1, i32 noundef %2, i32 noundef %3)
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %.thread
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 304
-  %49 = getelementptr [3 x ptr], ptr %48, i64 0, i64 %31
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread, label %52
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 304
+  %50 = getelementptr [3 x ptr], ptr %49, i64 0, i64 %32
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.thread, label %53
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %47, i64 256
-  %54 = load i32, ptr %53, align 8
-  %55 = and i32 %54, 512
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %62
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %48, i64 256
+  %55 = load i32, ptr %54, align 8
+  %56 = and i32 %55, 512
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %63
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %50, i64 160
-  tail call void @down_write(ptr noundef %58) #12
-  %59 = getelementptr inbounds i8, ptr %50, i64 12
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, -33
-  store i32 %61, ptr %59, align 4
-  tail call void @up_write(ptr noundef %58) #12
-  br label %62
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds i8, ptr %51, i64 160
+  tail call void @down_write(ptr noundef %59) #12
+  %60 = getelementptr inbounds i8, ptr %51, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, -33
+  store i32 %62, ptr %60, align 4
+  tail call void @up_write(ptr noundef %59) #12
+  br label %63
 
-62:                                               ; preds = %57, %52
-  store ptr null, ptr %49, align 8
-  tail call void @iput(ptr noundef nonnull %50) #12
+63:                                               ; preds = %58, %53
+  store ptr null, ptr %50, align 8
+  tail call void @iput(ptr noundef nonnull %51) #12
   br label %.thread
 
-.thread:                                          ; preds = %28, %23, %18, %12, %9, %4, %62, %46, %42
-  %63 = phi i32 [ %44, %42 ], [ %44, %46 ], [ %44, %62 ], [ -5, %28 ], [ -22, %23 ], [ -16, %18 ], [ -30, %12 ], [ -13, %9 ], [ -117, %4 ]
-  ret i32 %63
+.thread:                                          ; preds = %29, %24, %19, %13, %9, %4, %63, %47, %43
+  %64 = phi i32 [ %45, %43 ], [ %45, %47 ], [ %45, %63 ], [ -5, %29 ], [ -22, %24 ], [ -16, %19 ], [ -30, %13 ], [ -13, %9 ], [ -117, %4 ]
+  ret i32 %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

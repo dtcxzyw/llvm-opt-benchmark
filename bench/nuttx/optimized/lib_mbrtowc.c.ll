@@ -18,12 +18,12 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
 
 8:                                                ; preds = %4
   %.not49 = icmp eq i32 %6, 0
-  br i1 %.not49, label %51, label %.loopexit60
+  br i1 %.not49, label %52, label %.loopexit60
 
 9:                                                ; preds = %4
   %10 = icmp eq ptr %0, null
   %11 = icmp eq i64 %2, 0
-  br i1 %11, label %51, label %12
+  br i1 %11, label %52, label %12
 
 12:                                               ; preds = %9
   %13 = icmp eq i32 %6, 0
@@ -45,7 +45,7 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
 .cont50:                                          ; preds = %18, %.else52
   %19 = icmp ne i8 %15, 0
   %20 = zext i1 %19 to i64
-  br label %51
+  br label %52
 
 21:                                               ; preds = %14
   %22 = add nsw i32 %16, -194
@@ -99,7 +99,7 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
 
 .cont:                                            ; preds = %45, %.else
   %46 = sub i64 %2, %43
-  br label %51
+  br label %52
 
 47:                                               ; preds = %.preheader
   %.not47 = icmp eq i64 %43, 0
@@ -107,21 +107,22 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
 
 48:                                               ; preds = %47
   %49 = load i8, ptr %39, align 1
-  %.not48 = icmp slt i8 %49, -64
+  %50 = and i8 %49, -64
+  %.not48 = icmp eq i8 %50, -128
   br i1 %.not48, label %.preheader, label %.loopexit60
 
 .loopexit:                                        ; preds = %47, %24
   %.1 = phi i32 [ %28, %24 ], [ %42, %47 ]
   store i32 %.1, ptr %spec.store.select, align 4
-  br label %51
+  br label %52
 
 .loopexit60:                                      ; preds = %48, %.thread, %21, %8
   store i32 0, ptr %spec.store.select, align 4
-  %50 = tail call ptr @__errno() #2
-  store i32 84, ptr %50, align 4
-  br label %51
+  %51 = tail call ptr @__errno() #2
+  store i32 84, ptr %51, align 4
+  br label %52
 
-51:                                               ; preds = %9, %8, %.loopexit60, %.loopexit, %.cont, %.cont50
+52:                                               ; preds = %9, %8, %.loopexit60, %.loopexit, %.cont, %.cont50
   %.034 = phi i64 [ -1, %.loopexit60 ], [ %20, %.cont50 ], [ %46, %.cont ], [ -2, %.loopexit ], [ 0, %8 ], [ -2, %9 ]
   ret i64 %.034
 }

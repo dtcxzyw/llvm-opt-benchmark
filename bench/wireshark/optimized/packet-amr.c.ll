@@ -399,7 +399,8 @@ define internal i32 @dissect_amr_nb_if1(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = load i32, ptr @hf_amr_if1_fqi, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %10 = icmp slt i8 %9, -112
+  %.mask = and i8 %9, -16
+  %10 = icmp eq i8 %.mask, -128
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %4

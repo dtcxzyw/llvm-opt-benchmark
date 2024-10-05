@@ -819,7 +819,7 @@ define internal noundef range(i32 0, 2) i32 @do_header() #1 section ".init.text"
   br label %55
 
 37:                                               ; preds = %29
-  %38 = icmp sgt i16 %30, -28673
+  %38 = icmp ne i16 %31, -32768
   %39 = icmp ne i64 %22, 0
   %40 = select i1 %38, i1 %39, i1 false
   br i1 %40, label %55, label %41

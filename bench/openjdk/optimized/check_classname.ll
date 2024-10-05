@@ -140,7 +140,7 @@ isJvmIdentifier.exit:                             ; preds = %12
     i8 15, label %next_utf2unicode.exit
     i8 12, label %17
     i8 13, label %17
-    i8 14, label %25
+    i8 14, label %26
   ]
 
 default.unreachable:                              ; preds = %15
@@ -149,100 +149,103 @@ default.unreachable:                              ; preds = %15
 17:                                               ; preds = %15, %15
   %18 = getelementptr inbounds i8, ptr %.03288, i64 1
   %19 = load i8, ptr %18, align 1
-  %20 = icmp slt i8 %19, -64
-  br i1 %20, label %21, label %.thread
+  %20 = and i8 %19, -64
+  %21 = icmp eq i8 %20, -128
+  br i1 %21, label %22, label %.thread
 
-21:                                               ; preds = %17
-  %22 = and i8 %5, 31
-  %23 = zext nneg i8 %22 to i16
-  %24 = shl nuw nsw i16 %23, 6
-  br label %41
+22:                                               ; preds = %17
+  %23 = and i8 %5, 31
+  %24 = zext nneg i8 %23 to i16
+  %25 = shl nuw nsw i16 %24, 6
+  br label %44
 
-25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %.03288, i64 1
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp slt i8 %27, -64
-  br i1 %28, label %29, label %.thread
+26:                                               ; preds = %15
+  %27 = getelementptr inbounds i8, ptr %.03288, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = and i8 %28, -64
+  %30 = icmp eq i8 %29, -128
+  br i1 %30, label %31, label %.thread
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.03288, i64 2
-  %31 = load i8, ptr %30, align 1
-  %32 = icmp slt i8 %31, -64
-  br i1 %32, label %33, label %.thread
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds i8, ptr %.03288, i64 2
+  %33 = load i8, ptr %32, align 1
+  %34 = and i8 %33, -64
+  %35 = icmp eq i8 %34, -128
+  br i1 %35, label %36, label %.thread
 
-33:                                               ; preds = %29
-  %34 = and i8 %27, 63
-  %35 = zext i8 %5 to i16
-  %36 = zext nneg i8 %34 to i16
-  %37 = shl i16 %35, 12
-  %38 = shl nuw nsw i16 %36, 6
-  %39 = or disjoint i16 %38, %37
-  br label %41
+36:                                               ; preds = %31
+  %37 = and i8 %28, 63
+  %38 = zext i8 %5 to i16
+  %39 = zext nneg i8 %37 to i16
+  %40 = shl i16 %38, 12
+  %41 = shl nuw nsw i16 %39, 6
+  %42 = or disjoint i16 %41, %40
+  br label %44
 
-.thread:                                          ; preds = %29, %17, %25
-  %.0.i38.ph.ph = phi i64 [ 1, %25 ], [ 1, %17 ], [ 2, %29 ]
-  %40 = getelementptr inbounds i8, ptr %.03288, i64 %.0.i38.ph.ph
+.thread:                                          ; preds = %31, %17, %26
+  %.0.i38.ph.ph = phi i64 [ 1, %26 ], [ 1, %17 ], [ 2, %31 ]
+  %43 = getelementptr inbounds i8, ptr %.03288, i64 %.0.i38.ph.ph
   br label %isJvmIdentifier.exit.thread51
 
-41:                                               ; preds = %33, %21
-  %.sink110.in = phi i8 [ %31, %33 ], [ %19, %21 ]
-  %.sink = phi i16 [ %39, %33 ], [ %24, %21 ]
-  %.0.i38.ph = phi i64 [ 3, %33 ], [ 2, %21 ]
+44:                                               ; preds = %36, %22
+  %.sink110.in = phi i8 [ %33, %36 ], [ %19, %22 ]
+  %.sink = phi i16 [ %42, %36 ], [ %25, %22 ]
+  %.0.i38.ph = phi i64 [ 3, %36 ], [ 2, %22 ]
   %.sink110 = and i8 %.sink110.in, 63
-  %42 = zext nneg i8 %.sink110 to i16
-  %43 = or disjoint i16 %.sink, %42
-  %44 = getelementptr inbounds i8, ptr %.03288, i64 %.0.i38.ph
-  %45 = add i16 %43, -92
-  %or.cond.i39 = icmp ult i16 %45, -46
-  %46 = add nsw i16 %43, -60
-  %or.cond5.i40 = icmp ult i16 %46, 31
+  %45 = zext nneg i8 %.sink110 to i16
+  %46 = or disjoint i16 %.sink, %45
+  %47 = getelementptr inbounds i8, ptr %.03288, i64 %.0.i38.ph
+  %48 = add i16 %46, -92
+  %or.cond.i39 = icmp ult i16 %48, -46
+  %49 = add nsw i16 %46, -60
+  %or.cond5.i40 = icmp ult i16 %49, 31
   %or.cond20.i41 = select i1 %or.cond.i39, i1 true, i1 %or.cond5.i40
-  br i1 %or.cond20.i41, label %isJvmIdentifier.exit.thread51, label %47
+  br i1 %or.cond20.i41, label %isJvmIdentifier.exit.thread51, label %50
 
-47:                                               ; preds = %41
-  %48 = icmp ult i16 %43, 48
-  br i1 %48, label %isJvmIdentifier.exit.thread, label %isJvmIdentifier.exit46
+50:                                               ; preds = %44
+  %51 = icmp ult i16 %46, 48
+  br i1 %51, label %isJvmIdentifier.exit.thread, label %isJvmIdentifier.exit46
 
-isJvmIdentifier.exit46:                           ; preds = %47
-  %49 = add nsw i16 %43, -59
-  %switch.and.i43 = and i16 %49, -33
+isJvmIdentifier.exit46:                           ; preds = %50
+  %52 = add nsw i16 %46, -59
+  %switch.and.i43 = and i16 %52, -33
   %switch.selectcmp.i44.not = icmp eq i16 %switch.and.i43, 0
   br i1 %switch.selectcmp.i44.not, label %.thread72, label %isJvmIdentifier.exit.thread51
 
 .thread72:                                        ; preds = %isJvmIdentifier.exit, %isJvmIdentifier.exit46
-  %50 = icmp ne i16 %.03089, 0
+  %53 = icmp ne i16 %.03089, 0
   br label %.loopexit
 
-isJvmIdentifier.exit.thread:                      ; preds = %47, %12
-  %.2 = phi ptr [ %9, %12 ], [ %44, %47 ]
-  %.1 = phi i16 [ %8, %12 ], [ %43, %47 ]
-  %51 = icmp eq i16 %.1, 47
-  %52 = icmp ne i16 %.03089, 0
-  %or.cond5 = and i1 %52, %51
-  br i1 %or.cond5, label %53, label %.loopexit
+isJvmIdentifier.exit.thread:                      ; preds = %50, %12
+  %.2 = phi ptr [ %9, %12 ], [ %47, %50 ]
+  %.1 = phi i16 [ %8, %12 ], [ %46, %50 ]
+  %54 = icmp eq i16 %.1, 47
+  %55 = icmp ne i16 %.03089, 0
+  %or.cond5 = and i1 %55, %54
+  br i1 %or.cond5, label %56, label %.loopexit
 
-53:                                               ; preds = %isJvmIdentifier.exit.thread
-  %54 = icmp eq i16 %.03089, 47
-  br i1 %54, label %next_utf2unicode.exit, label %isJvmIdentifier.exit.thread51
+56:                                               ; preds = %isJvmIdentifier.exit.thread
+  %57 = icmp eq i16 %.03089, 47
+  br i1 %57, label %next_utf2unicode.exit, label %isJvmIdentifier.exit.thread51
 
 .loopexit:                                        ; preds = %isJvmIdentifier.exit.thread, %.thread72
-  %55 = phi i1 [ %50, %.thread72 ], [ %52, %isJvmIdentifier.exit.thread ]
-  %56 = select i1 %55, ptr %.03288, ptr null
+  %58 = phi i1 [ %53, %.thread72 ], [ %55, %isJvmIdentifier.exit.thread ]
+  %59 = select i1 %58, ptr %.03288, ptr null
   br label %next_utf2unicode.exit
 
-isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %41, %7, %53, %isJvmIdentifier.exit46, %isJvmIdentifier.exit
-  %.133 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.2, %53 ], [ %44, %isJvmIdentifier.exit46 ], [ %9, %7 ], [ %40, %.thread ], [ %44, %41 ]
-  %.031 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %53 ], [ %43, %isJvmIdentifier.exit46 ], [ %8, %7 ], [ 128, %.thread ], [ %43, %41 ]
+isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %44, %7, %56, %isJvmIdentifier.exit46, %isJvmIdentifier.exit
+  %.133 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.2, %56 ], [ %47, %isJvmIdentifier.exit46 ], [ %9, %7 ], [ %43, %.thread ], [ %47, %44 ]
+  %.031 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %56 ], [ %46, %isJvmIdentifier.exit46 ], [ %8, %7 ], [ 128, %.thread ], [ %46, %44 ]
   %.not = icmp eq ptr %.133, %4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %isJvmIdentifier.exit.thread51
-  %57 = icmp eq i16 %.031, 0
-  %58 = select i1 %57, ptr null, ptr %4
+  %60 = icmp eq i16 %.031, 0
+  %61 = select i1 %60, ptr null, ptr %4
   br label %next_utf2unicode.exit
 
-next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, %15, %53, %2, %._crit_edge.loopexit, %.loopexit
-  %.0 = phi ptr [ %56, %.loopexit ], [ null, %2 ], [ %58, %._crit_edge.loopexit ], [ null, %53 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ]
+next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, %15, %56, %2, %._crit_edge.loopexit, %.loopexit
+  %.0 = phi ptr [ %59, %.loopexit ], [ null, %2 ], [ %61, %._crit_edge.loopexit ], [ null, %56 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -250,10 +253,10 @@ next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, 
 define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture noundef %0) local_unnamed_addr #3 {
   br label %2
 
-2:                                                ; preds = %1, %24
-  %.012 = phi i8 [ 0, %1 ], [ %.1, %24 ]
-  %.0511 = phi i32 [ 1, %1 ], [ %.16, %24 ]
-  %.0710 = phi ptr [ %0, %1 ], [ %.18, %24 ]
+2:                                                ; preds = %1, %27
+  %.012 = phi i8 [ 0, %1 ], [ %.1, %27 ]
+  %.0511 = phi i32 [ 1, %1 ], [ %.16, %27 ]
+  %.0710 = phi ptr [ %0, %1 ], [ %.18, %27 ]
   %3 = load i8, ptr %.0710, align 1
   switch i8 %3, label %8 [
     i8 0, label %.critedge
@@ -263,12 +266,12 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %.0710, i64 1
-  br label %24
+  br label %27
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.0710, i64 1
   store i8 47, ptr %.0710, align 1
-  br label %24
+  br label %27
 
 8:                                                ; preds = %2
   %9 = lshr i8 %3, 4
@@ -280,7 +283,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
     i8 15, label %next_utf2unicode.exit
     i8 12, label %11
     i8 13, label %11
-    i8 14, label %15
+    i8 14, label %16
   ]
 
 10:                                               ; preds = %8
@@ -289,52 +292,55 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
 11:                                               ; preds = %8, %8
   %12 = getelementptr inbounds i8, ptr %.0710, i64 1
   %13 = load i8, ptr %12, align 1
-  %14 = icmp slt i8 %13, -64
-  %spec.select = select i1 %14, i64 2, i64 1
+  %14 = and i8 %13, -64
+  %15 = icmp eq i8 %14, -128
+  %spec.select = select i1 %15, i64 2, i64 1
   br label %next_utf2unicode.exit
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %.0710, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp slt i8 %17, -64
-  br i1 %18, label %19, label %next_utf2unicode.exit
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds i8, ptr %.0710, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = and i8 %18, -64
+  %20 = icmp eq i8 %19, -128
+  br i1 %20, label %21, label %next_utf2unicode.exit
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.0710, i64 2
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp slt i8 %21, -64
-  %spec.select9 = select i1 %22, i64 3, i64 2
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %.0710, i64 2
+  %23 = load i8, ptr %22, align 1
+  %24 = and i8 %23, -64
+  %25 = icmp eq i8 %24, -128
+  %spec.select9 = select i1 %25, i64 3, i64 2
   br label %next_utf2unicode.exit
 
-next_utf2unicode.exit:                            ; preds = %19, %11, %8, %8, %8, %8, %8, %10, %15
-  %.2 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 1, %11 ], [ 1, %19 ]
-  %.0.i = phi i64 [ 1, %10 ], [ 1, %15 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %spec.select, %11 ], [ %spec.select9, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.0710, i64 %.0.i
-  br label %24
+next_utf2unicode.exit:                            ; preds = %21, %11, %8, %8, %8, %8, %8, %10, %16
+  %.2 = phi i32 [ 1, %10 ], [ 1, %16 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 1, %11 ], [ 1, %21 ]
+  %.0.i = phi i64 [ 1, %10 ], [ 1, %16 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %spec.select, %11 ], [ %spec.select9, %21 ]
+  %26 = getelementptr inbounds i8, ptr %.0710, i64 %.0.i
+  br label %27
 
-24:                                               ; preds = %6, %next_utf2unicode.exit, %4
-  %.18 = phi ptr [ %23, %next_utf2unicode.exit ], [ %7, %6 ], [ %5, %4 ]
+27:                                               ; preds = %6, %next_utf2unicode.exit, %4
+  %.18 = phi ptr [ %26, %next_utf2unicode.exit ], [ %7, %6 ], [ %5, %4 ]
   %.16 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.0511, %6 ], [ %.0511, %4 ]
   %.1 = phi i8 [ %.012, %next_utf2unicode.exit ], [ %.012, %6 ], [ 1, %4 ]
   %.not = icmp eq i32 %.16, 0
   br i1 %.not, label %.critedge, label %2, !llvm.loop !9
 
-.critedge:                                        ; preds = %2, %24
-  %.05.lcssa = phi i1 [ true, %2 ], [ false, %24 ]
-  %.0.lcssa = phi i8 [ %.012, %2 ], [ %.1, %24 ]
-  %25 = icmp ne i8 %.0.lcssa, 0
-  %26 = and i1 %.05.lcssa, %25
-  %27 = zext i1 %26 to i8
-  ret i8 %27
+.critedge:                                        ; preds = %2, %27
+  %.05.lcssa = phi i1 [ true, %2 ], [ false, %27 ]
+  %.0.lcssa = phi i8 [ %.012, %2 ], [ %.1, %27 ]
+  %28 = icmp ne i8 %.0.lcssa, 0
+  %29 = and i1 %.05.lcssa, %28
+  %30 = zext i1 %29 to i8
+  ret i8 %30
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3 {
   br label %2
 
-2:                                                ; preds = %1, %22
-  %.07 = phi i32 [ 1, %1 ], [ %.1, %22 ]
-  %.036 = phi ptr [ %0, %1 ], [ %.14, %22 ]
+2:                                                ; preds = %1, %25
+  %.07 = phi i32 [ 1, %1 ], [ %.1, %25 ]
+  %.036 = phi ptr [ %0, %1 ], [ %.14, %25 ]
   %3 = load i8, ptr %.036, align 1
   switch i8 %3, label %6 [
     i8 0, label %.critedge
@@ -344,7 +350,7 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %.036, i64 1
   store i8 47, ptr %.036, align 1
-  br label %22
+  br label %25
 
 6:                                                ; preds = %2
   %7 = lshr i8 %3, 4
@@ -356,7 +362,7 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
     i8 15, label %next_utf2unicode.exit
     i8 12, label %9
     i8 13, label %9
-    i8 14, label %13
+    i8 14, label %14
   ]
 
 8:                                                ; preds = %6
@@ -365,36 +371,39 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
 9:                                                ; preds = %6, %6
   %10 = getelementptr inbounds i8, ptr %.036, i64 1
   %11 = load i8, ptr %10, align 1
-  %12 = icmp slt i8 %11, -64
-  %spec.select = select i1 %12, i64 2, i64 1
+  %12 = and i8 %11, -64
+  %13 = icmp eq i8 %12, -128
+  %spec.select = select i1 %13, i64 2, i64 1
   br label %next_utf2unicode.exit
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %.036, i64 1
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp slt i8 %15, -64
-  br i1 %16, label %17, label %next_utf2unicode.exit
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds i8, ptr %.036, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = and i8 %16, -64
+  %18 = icmp eq i8 %17, -128
+  br i1 %18, label %19, label %next_utf2unicode.exit
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.036, i64 2
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp slt i8 %19, -64
-  %spec.select5 = select i1 %20, i64 3, i64 2
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.036, i64 2
+  %21 = load i8, ptr %20, align 1
+  %22 = and i8 %21, -64
+  %23 = icmp eq i8 %22, -128
+  %spec.select5 = select i1 %23, i64 3, i64 2
   br label %next_utf2unicode.exit
 
-next_utf2unicode.exit:                            ; preds = %17, %9, %6, %6, %6, %6, %6, %8, %13
-  %.2 = phi i32 [ 1, %8 ], [ 1, %13 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 1, %9 ], [ 1, %17 ]
-  %.0.i = phi i64 [ 1, %8 ], [ 1, %13 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ %spec.select, %9 ], [ %spec.select5, %17 ]
-  %21 = getelementptr inbounds i8, ptr %.036, i64 %.0.i
-  br label %22
+next_utf2unicode.exit:                            ; preds = %19, %9, %6, %6, %6, %6, %6, %8, %14
+  %.2 = phi i32 [ 1, %8 ], [ 1, %14 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 1, %9 ], [ 1, %19 ]
+  %.0.i = phi i64 [ 1, %8 ], [ 1, %14 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ %spec.select, %9 ], [ %spec.select5, %19 ]
+  %24 = getelementptr inbounds i8, ptr %.036, i64 %.0.i
+  br label %25
 
-22:                                               ; preds = %next_utf2unicode.exit, %4
-  %.14 = phi ptr [ %21, %next_utf2unicode.exit ], [ %5, %4 ]
+25:                                               ; preds = %next_utf2unicode.exit, %4
+  %.14 = phi ptr [ %24, %next_utf2unicode.exit ], [ %5, %4 ]
   %.1 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.07, %4 ]
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.critedge, label %2, !llvm.loop !10
 
-.critedge:                                        ; preds = %2, %22
+.critedge:                                        ; preds = %2, %25
   ret void
 }
 

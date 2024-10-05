@@ -9495,8 +9495,10 @@ define hidden noundef zeroext i1 @_ZNK4goal15unsat_preservedEv(ptr nocapture nou
 entry:
   %m_precision.i = getelementptr inbounds i8, ptr %this, i64 120
   %bf.load.i = load i32, ptr %m_precision.i, align 8
-  %0 = and i32 %bf.load.i, 1073741824
-  %spec.select = icmp eq i32 %0, 0
+  %cmp = icmp ult i32 %bf.load.i, 1073741824
+  %bf.lshr.i.mask = and i32 %bf.load.i, -1073741824
+  %cmp3 = icmp eq i32 %bf.lshr.i.mask, -2147483648
+  %spec.select = or i1 %cmp, %cmp3
   ret i1 %spec.select
 }
 
@@ -9568,8 +9570,19 @@ define hidden noundef zeroext i1 @_ZNK4goal16is_decided_unsatEv(ptr nocapture no
 entry:
   %m_inconsistent.i = getelementptr inbounds i8, ptr %this, i64 120
   %bf.load.i = load i32, ptr %m_inconsistent.i, align 8
-  %0 = and i32 %bf.load.i, 1610612736
-  %1 = icmp eq i32 %0, 536870912
+  %0 = and i32 %bf.load.i, 536870912
+  %tobool.i.not = icmp eq i32 %0, 0
+  br i1 %tobool.i.not, label %land.end, label %land.rhs
+
+land.rhs:                                         ; preds = %entry
+  %cmp.i = icmp ult i32 %bf.load.i, 1073741824
+  %bf.lshr.i.mask.i = and i32 %bf.load.i, -1073741824
+  %cmp3.i = icmp eq i32 %bf.lshr.i.mask.i, -2147483648
+  %spec.select.i = or i1 %cmp.i, %cmp3.i
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %entry
+  %1 = phi i1 [ false, %entry ], [ %spec.select.i, %land.rhs ]
   ret i1 %1
 }
 
@@ -9638,13 +9651,20 @@ _ZNK4goal14is_decided_satEv.exit:                 ; preds = %entry, %_ZNK4goal4s
 
 lor.rhs:                                          ; preds = %_ZNK4goal4sizeEv.exit.i.lor.rhs_crit_edge, %_ZNK4goal14is_decided_satEv.exit
   %bf.load.i.i = phi i32 [ %bf.load.i.i.pre, %_ZNK4goal4sizeEv.exit.i.lor.rhs_crit_edge ], [ %bf.load.i.i.i, %_ZNK4goal14is_decided_satEv.exit ]
-  %9 = and i32 %bf.load.i.i, 1610612736
-  %10 = icmp eq i32 %9, 536870912
+  %9 = and i32 %bf.load.i.i, 536870912
+  %tobool.i.not.i = icmp eq i32 %9, 0
+  br i1 %tobool.i.not.i, label %lor.end, label %land.rhs.i1
+
+land.rhs.i1:                                      ; preds = %lor.rhs
+  %cmp.i.i2 = icmp ult i32 %bf.load.i.i, 1073741824
+  %bf.lshr.i.mask.i.i3 = and i32 %bf.load.i.i, -1073741824
+  %cmp3.i.i4 = icmp eq i32 %bf.lshr.i.mask.i.i3, -2147483648
+  %spec.select.i.i5 = or i1 %cmp.i.i2, %cmp3.i.i4
   br label %lor.end
 
-lor.end:                                          ; preds = %lor.rhs, %_ZNK4goal14is_decided_satEv.exit
-  %11 = phi i1 [ true, %_ZNK4goal14is_decided_satEv.exit ], [ %10, %lor.rhs ]
-  ret i1 %11
+lor.end:                                          ; preds = %land.rhs.i1, %lor.rhs, %_ZNK4goal14is_decided_satEv.exit
+  %10 = phi i1 [ true, %_ZNK4goal14is_decided_satEv.exit ], [ false, %lor.rhs ], [ %spec.select.i.i5, %land.rhs.i1 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable

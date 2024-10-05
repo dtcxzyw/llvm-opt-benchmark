@@ -175,9 +175,11 @@ define noundef i64 @_Z18fast_rv64i_kdmtt16P11processor_t6insn_tm(ptr nocapture n
   %44 = and i64 %38, %33
   %45 = udiv i64 %44, %42
   %46 = trunc i64 %43 to i32
+  %sext49 = and i32 %46, -65536
   %47 = trunc i64 %45 to i32
-  %48 = icmp sgt i32 %46, -2147418113
-  %49 = icmp sgt i32 %47, -2147418113
+  %sext51 = and i32 %47, -65536
+  %48 = icmp ne i32 %sext49, -2147483648
+  %49 = icmp ne i32 %sext51, -2147483648
   %50 = or i1 %48, %49
   br i1 %50, label %51, label %57
 
@@ -310,9 +312,11 @@ define noundef i64 @_Z20logged_rv64i_kdmtt16P11processor_t6insn_tm(ptr noundef %
   %44 = and i64 %38, %33
   %45 = udiv i64 %44, %42
   %46 = trunc i64 %43 to i32
+  %sext52 = and i32 %46, -65536
   %47 = trunc i64 %45 to i32
-  %48 = icmp sgt i32 %46, -2147418113
-  %49 = icmp sgt i32 %47, -2147418113
+  %sext54 = and i32 %47, -65536
+  %48 = icmp ne i32 %sext52, -2147483648
+  %49 = icmp ne i32 %sext54, -2147483648
   %50 = or i1 %48, %49
   br i1 %50, label %51, label %57
 
@@ -544,9 +548,11 @@ define noundef i64 @_Z18fast_rv64e_kdmtt16P11processor_t6insn_tm(ptr nocapture n
   %65 = and i64 %59, %54
   %66 = udiv i64 %65, %63
   %67 = trunc i64 %64 to i32
+  %sext57 = and i32 %67, -65536
   %68 = trunc i64 %66 to i32
-  %69 = icmp sgt i32 %67, -2147418113
-  %70 = icmp sgt i32 %68, -2147418113
+  %sext59 = and i32 %68, -65536
+  %69 = icmp ne i32 %sext57, -2147483648
+  %70 = icmp ne i32 %sext59, -2147483648
   %71 = or i1 %69, %70
   br i1 %71, label %72, label %78
 
@@ -721,9 +727,11 @@ define noundef i64 @_Z20logged_rv64e_kdmtt16P11processor_t6insn_tm(ptr noundef %
   %65 = and i64 %59, %54
   %66 = udiv i64 %65, %63
   %67 = trunc i64 %64 to i32
+  %sext60 = and i32 %67, -65536
   %68 = trunc i64 %66 to i32
-  %69 = icmp sgt i32 %67, -2147418113
-  %70 = icmp sgt i32 %68, -2147418113
+  %sext62 = and i32 %68, -65536
+  %69 = icmp ne i32 %sext60, -2147483648
+  %70 = icmp ne i32 %sext62, -2147483648
   %71 = or i1 %69, %70
   br i1 %71, label %72, label %78
 

@@ -3987,21 +3987,22 @@ for.body22.i:                                     ; preds = %if.end27.i, %for.bo
   %ucc.034.i = phi i32 [ %and18.i, %for.body22.lr.ph.i ], [ %or.i, %if.end27.i ]
   %5 = getelementptr inbounds i8, ptr %s.0.pn, i64 1
   %6 = load i8, ptr %5, align 1
-  %cmp25.not.i = icmp slt i8 %6, -64
+  %7 = and i8 %6, -64
+  %cmp25.not.i = icmp eq i8 %7, -128
   br i1 %cmp25.not.i, label %if.end27.i, label %return
 
 if.end27.i:                                       ; preds = %for.body22.i
   %shl28.i = shl i32 %ucc.034.i, 6
-  %7 = and i8 %6, 63
-  %and31.i = zext nneg i8 %7 to i32
+  %8 = and i8 %6, 63
+  %and31.i = zext nneg i8 %8 to i32
   %or.i = or disjoint i32 %shl28.i, %and31.i
   %inc33.i = add nuw nsw i32 %i.035.i, 1
   %exitcond36.not.i = icmp eq i32 %i.035.i, %3
   br i1 %exitcond36.not.i, label %for.end34.i, label %for.body22.i, !llvm.loop !87
 
 for.end34.i:                                      ; preds = %if.end27.i
-  %8 = and i32 %ucc.034.i, 67108832
-  %or.cond1.i = icmp eq i32 %8, 864
+  %9 = and i32 %ucc.034.i, 67108832
+  %or.cond1.i = icmp eq i32 %9, 864
   br i1 %or.cond1.i, label %return, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end34.i
@@ -4012,18 +4013,18 @@ if.end38.i:                                       ; preds = %for.end34.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end38.i
-  %9 = add i32 %shl28.i, -2048
-  %or.cond2.i = icmp ult i32 %9, -1920
+  %10 = add i32 %shl28.i, -2048
+  %or.cond2.i = icmp ult i32 %10, -1920
   br i1 %or.cond2.i, label %return, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 sw.bb44.i:                                        ; preds = %if.end38.i
-  %10 = add i32 %shl28.i, -65536
-  %or.cond3.i = icmp ult i32 %10, -63488
+  %11 = add i32 %shl28.i, -65536
+  %or.cond3.i = icmp ult i32 %11, -63488
   br i1 %or.cond3.i, label %return, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 sw.bb50.i:                                        ; preds = %if.end38.i
-  %11 = add i32 %shl28.i, -1114112
-  %or.cond4.i = icmp ult i32 %11, -1048576
+  %12 = add i32 %shl28.i, -1114112
+  %or.cond4.i = icmp ult i32 %12, -1048576
   br i1 %or.cond4.i, label %return, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 default.unreachable.i:                            ; preds = %if.end38.i

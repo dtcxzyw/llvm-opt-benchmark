@@ -682,18 +682,19 @@ if.end.i:                                         ; preds = %invoke.cont117
   br i1 %27, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit.thread, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i
-  %cmp.i12 = icmp slt i8 %.pre, -64
-  %28 = load ptr, ptr %piece, align 8, !tbaa !46
+  %28 = and i8 %.pre, -64
+  %cmp.i12 = icmp eq i8 %28, -128
+  %29 = load ptr, ptr %piece, align 8, !tbaa !46
   br i1 %cmp.i12, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %28, i64 -8
-  %29 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i13 = icmp eq i64 %29, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %29, i64 -8
+  %30 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i13 = icmp eq i64 %30, 1
   br i1 %cmp.i.i13, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit.thread
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i.i
-  %add.ptr.i.i.sink.i = phi ptr [ %28, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %29, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #28
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit.thread
 
@@ -706,32 +707,33 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_
 
 if.end.i.i:                                       ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit
   %arrayidx.i.i15 = getelementptr inbounds i8, ptr %ref.tmp113, i64 23
-  %30 = load i8, ptr %arrayidx.i.i15, align 1, !tbaa !46
-  %cmp.i16 = icmp slt i8 %30, -64
-  %31 = load ptr, ptr %ref.tmp113, align 8, !tbaa !46
+  %31 = load i8, ptr %arrayidx.i.i15, align 1, !tbaa !46
+  %32 = and i8 %31, -64
+  %cmp.i16 = icmp eq i8 %32, -128
+  %33 = load ptr, ptr %ref.tmp113, align 8, !tbaa !46
   br i1 %cmp.i16, label %if.end.sink.split.i21, label %if.else.i17
 
 if.else.i17:                                      ; preds = %if.end.i.i
-  %add.ptr.i.i.i18 = getelementptr inbounds i8, ptr %31, i64 -8
-  %32 = atomicrmw sub ptr %add.ptr.i.i.i18, i64 1 acq_rel, align 8
-  %cmp.i.i19 = icmp eq i64 %32, 1
+  %add.ptr.i.i.i18 = getelementptr inbounds i8, ptr %33, i64 -8
+  %34 = atomicrmw sub ptr %add.ptr.i.i.i18, i64 1 acq_rel, align 8
+  %cmp.i.i19 = icmp eq i64 %34, 1
   br i1 %cmp.i.i19, label %if.end.sink.split.i21, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i21:                            ; preds = %if.else.i17, %if.end.i.i
-  %add.ptr.i.i.sink.i22 = phi ptr [ %31, %if.end.i.i ], [ %add.ptr.i.i.i18, %if.else.i17 ]
+  %add.ptr.i.i.sink.i22 = phi ptr [ %33, %if.end.i.i ], [ %add.ptr.i.i.i18, %if.else.i17 ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i22) #28
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.end.sink.split.i21, %if.else.i17, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp113) #28
-  %33 = load i32, ptr %position_.i, align 8, !tbaa !29
-  %cmp.i.i214 = icmp slt i32 %33, 0
+  %35 = load i32, ptr %position_.i, align 8, !tbaa !29
+  %cmp.i.i214 = icmp slt i32 %35, 0
   br i1 %cmp.i.i214, label %_ZN17double_conversion13StringBuilderD2Ev.exit, label %if.then.i215
 
 if.then.i215:                                     ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
-  %34 = load ptr, ptr %builder, align 8, !tbaa !26
-  %idxprom.i.i.i = zext nneg i32 %33 to i64
-  %arrayidx.i.i.i216 = getelementptr inbounds i8, ptr %34, i64 %idxprom.i.i.i
+  %36 = load ptr, ptr %builder, align 8, !tbaa !26
+  %idxprom.i.i.i = zext nneg i32 %35 to i64
+  %arrayidx.i.i.i216 = getelementptr inbounds i8, ptr %36, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i216, align 1, !tbaa !46
   br label %_ZN17double_conversion13StringBuilderD2Ev.exit
 
@@ -741,21 +743,21 @@ _ZN17double_conversion13StringBuilderD2Ev.exit:   ; preds = %if.then.i215, %_ZN5
   ret void
 
 lpad116:                                          ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i, %if.then3.i.i
-  %35 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp113) #28
   br label %ehcleanup124
 
 ehcleanup124:                                     ; preds = %lpad116, %lpad87, %lpad78, %lpad55, %lpad39
-  %.pn184 = phi { ptr, i32 } [ %18, %lpad87 ], [ %17, %lpad78 ], [ %15, %lpad55 ], [ %13, %lpad39 ], [ %35, %lpad116 ]
-  %36 = load i32, ptr %position_.i, align 8, !tbaa !29
-  %cmp.i.i219 = icmp slt i32 %36, 0
+  %.pn184 = phi { ptr, i32 } [ %18, %lpad87 ], [ %17, %lpad78 ], [ %15, %lpad55 ], [ %13, %lpad39 ], [ %37, %lpad116 ]
+  %38 = load i32, ptr %position_.i, align 8, !tbaa !29
+  %cmp.i.i219 = icmp slt i32 %38, 0
   br i1 %cmp.i.i219, label %_ZN17double_conversion13StringBuilderD2Ev.exit224, label %if.then.i220
 
 if.then.i220:                                     ; preds = %ehcleanup124
-  %37 = load ptr, ptr %builder, align 8, !tbaa !26
-  %idxprom.i.i.i221 = zext nneg i32 %36 to i64
-  %arrayidx.i.i.i222 = getelementptr inbounds i8, ptr %37, i64 %idxprom.i.i.i221
+  %39 = load ptr, ptr %builder, align 8, !tbaa !26
+  %idxprom.i.i.i221 = zext nneg i32 %38 to i64
+  %arrayidx.i.i.i222 = getelementptr inbounds i8, ptr %39, i64 %idxprom.i.i.i221
   store i8 0, ptr %arrayidx.i.i.i222, align 1, !tbaa !46
   br label %_ZN17double_conversion13StringBuilderD2Ev.exit224
 

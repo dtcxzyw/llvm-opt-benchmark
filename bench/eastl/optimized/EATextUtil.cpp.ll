@@ -285,15 +285,16 @@ entry:
   br i1 %tobool.not4, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %1 = phi i8 [ %2, %while.body ], [ %0, %entry ]
+  %1 = phi i8 [ %3, %while.body ], [ %0, %entry ]
   %n.06 = phi i64 [ %spec.select, %while.body ], [ 0, %entry ]
   %p.addr.05 = phi ptr [ %incdec.ptr, %while.body ], [ %p, %entry ]
-  %cmp.not = icmp sgt i8 %1, -65
+  %2 = and i8 %1, -64
+  %cmp.not = icmp ne i8 %2, -128
   %inc = zext i1 %cmp.not to i64
   %spec.select = add i64 %n.06, %inc
   %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.05, i64 1
-  %2 = load i8, ptr %incdec.ptr, align 1
-  %tobool.not = icmp eq i8 %2, 0
+  %3 = load i8, ptr %incdec.ptr, align 1
+  %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %entry

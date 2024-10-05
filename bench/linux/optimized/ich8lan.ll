@@ -6249,15 +6249,15 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   store i16 0, ptr %3, align 2
   %47 = load i32, ptr %9, align 4
   %48 = icmp ugt i32 %47, 11
-  br i1 %48, label %.thread7, label %49
+  br i1 %48, label %.thread8, label %49
 
 49:                                               ; preds = %46
   %50 = add i32 %8, 39
   %51 = call fastcc i32 @e1000_read_flash_data_ich8lan(ptr noundef %0, i32 noundef %50, i8 noundef zeroext 1, ptr noundef nonnull %3), !range !36
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.thread7
+  br i1 %52, label %53, label %.thread8
 
-.thread7:                                         ; preds = %46, %49
+.thread8:                                         ; preds = %46, %49
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
   br label %59
 
@@ -6273,8 +6273,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   store i32 %58, ptr %1, align 4
   br label %59
 
-59:                                               ; preds = %.thread7, %.thread, %57, %53, %22, %18, %11
-  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.thread ], [ -1, %.thread7 ]
+59:                                               ; preds = %.thread8, %.thread, %57, %53, %22, %18, %11
+  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.thread ], [ -1, %.thread8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret i32 %60
 }

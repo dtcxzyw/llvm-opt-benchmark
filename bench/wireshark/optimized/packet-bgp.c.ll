@@ -10976,7 +10976,8 @@ save_afi_safi_data.exit.i:                        ; preds = %255, %240
   %291 = load i32, ptr @hf_bgp_route_refresh_orf_entry_action, align 4
   %292 = call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %291, ptr noundef %0, i32 noundef %.191.i, i32 noundef 1, i32 noundef 0) #4
   %293 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.191.i) #4
-  %294 = icmp slt i8 %293, -64
+  %.mask.i = and i8 %293, -64
+  %294 = icmp eq i8 %.mask.i, -128
   br i1 %294, label %295, label %298
 
 295:                                              ; preds = %.lr.ph.i72
@@ -11075,7 +11076,7 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6(ptr nounde
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca [46 x i8], align 16
   %trunc = trunc nuw i32 %4 to i8
-  switch i8 %trunc, label %28 [
+  switch i8 %trunc, label %30 [
     i8 16, label %8
     i8 32, label %14
   ]
@@ -11087,7 +11088,7 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6(ptr nounde
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @tvb_address_to_str(ptr noundef %12, ptr noundef %0, i32 noundef 3, i32 noundef 1) #4
   tail call void @wmem_strbuf_append(ptr noundef %3, ptr noundef %13) #4
-  br label %28
+  br label %30
 
 14:                                               ; preds = %5
   %15 = load i32, ptr @hf_bgp_update_path_attribute_mp_reach_nlri_next_hop_ipv6, align 4
@@ -11103,21 +11104,22 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6(ptr nounde
   %22 = getelementptr inbounds i8, ptr %6, i64 1
   %.val25 = load i8, ptr %22, align 1
   %23 = icmp eq i8 %.val, -2
-  %24 = icmp slt i8 %.val25, -64
-  %spec.select.i = select i1 %23, i1 %24, i1 false
-  br i1 %spec.select.i, label %27, label %25
+  %24 = and i8 %.val25, -64
+  %25 = icmp eq i8 %24, -128
+  %26 = select i1 %23, i1 %25, i1 false
+  br i1 %26, label %29, label %27
 
-25:                                               ; preds = %14
-  %26 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %21, ptr noundef nonnull @ei_bgp_next_hop_ipv6_scope, ptr noundef nonnull @.str.1771) #4
-  br label %27
+27:                                               ; preds = %14
+  %28 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %21, ptr noundef nonnull @ei_bgp_next_hop_ipv6_scope, ptr noundef nonnull @.str.1771) #4
+  br label %29
 
-27:                                               ; preds = %25, %14
+29:                                               ; preds = %27, %14
   call void @ip6_to_str_buf(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 46) #4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1772, ptr noundef nonnull %7) #4
-  br label %28
+  br label %30
 
-28:                                               ; preds = %8, %27, %5
-  %.0 = phi i32 [ 0, %5 ], [ %4, %27 ], [ %4, %8 ]
+30:                                               ; preds = %8, %29, %5
+  %.0 = phi i32 [ 0, %5 ], [ %4, %29 ], [ %4, %8 ]
   ret i32 %.0
 }
 
@@ -11163,7 +11165,7 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_vpn_ipv6(ptr no
   %8 = alloca [46 x i8], align 16
   store i64 0, ptr %6, align 8
   %trunc = trunc nuw i32 %4 to i8
-  switch i8 %trunc, label %53 [
+  switch i8 %trunc, label %55 [
     i8 24, label %9
     i8 48, label %23
   ]
@@ -11189,7 +11191,7 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_vpn_ipv6(ptr no
   %21 = load ptr, ptr %10, align 8
   %22 = call ptr @tvb_address_to_str(ptr noundef %21, ptr noundef %0, i32 noundef 3, i32 noundef 9) #4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1775, ptr noundef %22) #4
-  br label %53
+  br label %55
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds i8, ptr %2, i64 408
@@ -11233,21 +11235,22 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_vpn_ipv6(ptr no
   %47 = getelementptr inbounds i8, ptr %7, i64 1
   %.val69 = load i8, ptr %47, align 1
   %48 = icmp eq i8 %.val, -2
-  %49 = icmp slt i8 %.val69, -64
-  %spec.select.i = select i1 %48, i1 %49, i1 false
-  br i1 %spec.select.i, label %52, label %50
+  %49 = and i8 %.val69, -64
+  %50 = icmp eq i8 %49, -128
+  %51 = select i1 %48, i1 %50, i1 false
+  br i1 %51, label %54, label %52
 
-50:                                               ; preds = %44
-  %51 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %46, ptr noundef nonnull @ei_bgp_next_hop_ipv6_scope, ptr noundef nonnull @.str.1771) #4
-  br label %52
+52:                                               ; preds = %44
+  %53 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %46, ptr noundef nonnull @ei_bgp_next_hop_ipv6_scope, ptr noundef nonnull @.str.1771) #4
+  br label %54
 
-52:                                               ; preds = %50, %44
+54:                                               ; preds = %52, %44
   call void @ip6_to_str_buf(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 46) #4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1772, ptr noundef nonnull %8) #4
-  br label %53
+  br label %55
 
-53:                                               ; preds = %18, %52, %5
-  %.0 = phi i32 [ 0, %5 ], [ %4, %52 ], [ %4, %18 ]
+55:                                               ; preds = %18, %54, %5
+  %.0 = phi i32 [ 0, %5 ], [ %4, %54 ], [ %4, %18 ]
   ret i32 %.0
 }
 

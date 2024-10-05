@@ -802,18 +802,19 @@ define hidden void @_ZN5uu_od8prn_char13format_item_c17h24728308594c05d3E.llvm.1
   unreachable
 
 40:                                               ; preds = %36
-  %41 = icmp ult i8 %37, -64
-  br i1 %41, label %46, label %51
+  %41 = and i8 %37, -64
+  %42 = icmp eq i8 %41, -128
+  br i1 %42, label %47, label %52
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131: ; preds = %36
-  %42 = zext nneg i8 %37 to i64
-  %43 = getelementptr inbounds { ptr, i64 }, ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %42
+  %43 = zext nneg i8 %37 to i64
+  %44 = getelementptr inbounds { ptr, i64 }, ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
-  store ptr %43, ptr %34, align 8
+  store ptr %44, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   store ptr %34, ptr %33, align 8
-  %44 = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h09fae1f0258895a1E", ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h09fae1f0258895a1E", ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32)
   store i64 2, ptr %32, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
@@ -845,60 +846,60 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131: ; preds = %36
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %45
+  br label %46
 
-45:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157, %102, %80, %67, %46
+46:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157, %103, %81, %68, %47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
   ret void
 
-46:                                               ; preds = %40
-  %47 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbb901f86ca1b4c0cE"(i64 noundef 4, i1 noundef zeroext false)
-  %48 = extractvalue { i64, ptr } %47, 0
-  %49 = extractvalue { i64, ptr } %47, 1
-  %50 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %50)
-  store i32 707403808, ptr %49, align 1
-  store i64 %48, ptr %0, align 8
+47:                                               ; preds = %40
+  %48 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbb901f86ca1b4c0cE"(i64 noundef 4, i1 noundef zeroext false)
+  %49 = extractvalue { i64, ptr } %48, 0
+  %50 = extractvalue { i64, ptr } %48, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  store i32 707403808, ptr %50, align 1
+  store i64 %49, ptr %0, align 8
   %.sroa.4103.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %49, ptr %.sroa.4103.0..sroa_idx, align 8
+  store ptr %50, ptr %.sroa.4103.0..sroa_idx, align 8
   %.sroa.5104.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 4, ptr %.sroa.5104.0..sroa_idx, align 8
-  br label %45
+  br label %46
 
-51:                                               ; preds = %40
-  %52 = and i8 %37, -32
-  %53 = icmp eq i8 %52, -64
-  %54 = icmp ne i64 %2, 1
-  %or.cond = and i1 %54, %53
-  br i1 %or.cond, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit", label %55
+52:                                               ; preds = %40
+  %53 = and i8 %37, -32
+  %54 = icmp eq i8 %53, -64
+  %55 = icmp ne i64 %2, 1
+  %or.cond = and i1 %55, %54
+  br i1 %or.cond, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit", label %56
 
-55:                                               ; preds = %51
-  %56 = and i8 %37, -16
-  %57 = icmp eq i8 %56, -32
-  %58 = icmp ugt i64 %2, 2
-  %or.cond1 = and i1 %58, %57
-  br i1 %or.cond1, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit142", label %68
+56:                                               ; preds = %52
+  %57 = and i8 %37, -16
+  %58 = icmp eq i8 %57, -32
+  %59 = icmp ugt i64 %2, 2
+  %or.cond1 = and i1 %59, %58
+  br i1 %or.cond1, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit142", label %69
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit": ; preds = %51
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit": ; preds = %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef 2)
-  %59 = load i64, ptr %31, align 8, !range !79, !noundef !9
-  %trunc122 = trunc nuw i64 %59 to i1
+  %60 = load i64, ptr %31, align 8, !range !79, !noundef !9
+  %trunc122 = trunc nuw i64 %60 to i1
   br i1 %trunc122, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit141, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit136
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit136: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
-  %60 = getelementptr inbounds i8, ptr %31, i64 8
-  %61 = load ptr, ptr %60, align 8, !nonnull !9, !align !33, !noundef !9
-  %62 = getelementptr inbounds i8, ptr %31, i64 16
-  %63 = load i64, ptr %62, align 8, !noundef !9
-  store ptr %61, ptr %30, align 8
-  %64 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 %63, ptr %64, align 8
+  %61 = getelementptr inbounds i8, ptr %31, i64 8
+  %62 = load ptr, ptr %61, align 8, !nonnull !9, !align !33, !noundef !9
+  %63 = getelementptr inbounds i8, ptr %31, i64 16
+  %64 = load i64, ptr %63, align 8, !noundef !9
+  store ptr %62, ptr %30, align 8
+  %65 = getelementptr inbounds i8, ptr %30, i64 8
+  store i64 %64, ptr %65, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   store ptr %30, ptr %29, align 8
-  %65 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28)
   store i64 2, ptr %28, align 8
   %.sroa.521.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 16
@@ -930,13 +931,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit136: ; preds = %"_ZN106_$LT$core..o
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
-  br label %67
+  br label %68
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit141: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store ptr %35, ptr %27, align 8
-  %66 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26)
   store i64 2, ptr %26, align 8
   %.sroa.532.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
@@ -967,39 +968,39 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit141: ; preds = %"_ZN106_$LT$core..o
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !93
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit141, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit136
+68:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit141, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit136
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
-  br label %45
+  br label %46
 
-68:                                               ; preds = %55
-  %69 = and i8 %37, -8
-  %70 = icmp eq i8 %69, -16
-  %71 = icmp ugt i64 %2, 3
-  %or.cond2 = and i1 %71, %70
+69:                                               ; preds = %56
+  %70 = and i8 %37, -8
+  %71 = icmp eq i8 %70, -16
+  %72 = icmp ugt i64 %2, 3
+  %or.cond2 = and i1 %72, %71
   br i1 %or.cond2, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158", label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit142": ; preds = %55
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit142": ; preds = %56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef 3)
-  %72 = load i64, ptr %25, align 8, !range !79, !noundef !9
-  %trunc121 = trunc nuw i64 %72 to i1
+  %73 = load i64, ptr %25, align 8, !range !79, !noundef !9
+  %trunc121 = trunc nuw i64 %73 to i1
   br i1 %trunc121, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit152, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit147
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit147: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit142"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
-  %73 = getelementptr inbounds i8, ptr %25, i64 8
-  %74 = load ptr, ptr %73, align 8, !nonnull !9, !align !33, !noundef !9
-  %75 = getelementptr inbounds i8, ptr %25, i64 16
-  %76 = load i64, ptr %75, align 8, !noundef !9
-  store ptr %74, ptr %24, align 8
-  %77 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 %76, ptr %77, align 8
+  %74 = getelementptr inbounds i8, ptr %25, i64 8
+  %75 = load ptr, ptr %74, align 8, !nonnull !9, !align !33, !noundef !9
+  %76 = getelementptr inbounds i8, ptr %25, i64 16
+  %77 = load i64, ptr %76, align 8, !noundef !9
+  store ptr %75, ptr %24, align 8
+  %78 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 %77, ptr %78, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   store ptr %24, ptr %23, align 8
-  %78 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %79, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22)
   store i64 2, ptr %22, align 8
   %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
@@ -1031,13 +1032,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit147: ; preds = %"_ZN106_$LT$core..o
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br label %80
+  br label %81
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit152: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit142"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   store ptr %35, ptr %21, align 8
-  %79 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %80, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
   store i64 2, ptr %20, align 8
   %.sroa.554.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
@@ -1068,17 +1069,17 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit152: ; preds = %"_ZN106_$LT$core..o
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !119
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  br label %80
+  br label %81
 
-80:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit152, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit147
+81:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit152, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit147
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  br label %45
+  br label %46
 
-_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157: ; preds = %68
+_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157: ; preds = %69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %35, ptr %11, align 8
-  %81 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %82, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   store i64 2, ptr %10, align 8
   %.sroa.587.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
@@ -1109,29 +1110,29 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157: ; preds = %68
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !132
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  br label %45
+  br label %46
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158": ; preds = %68
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158": ; preds = %69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef 4)
-  %82 = load i64, ptr %19, align 8, !range !79, !noundef !9
-  %trunc = trunc nuw i64 %82 to i1
-  br i1 %trunc, label %95, label %83
+  %83 = load i64, ptr %19, align 8, !range !79, !noundef !9
+  %trunc = trunc nuw i64 %83 to i1
+  br i1 %trunc, label %96, label %84
 
-83:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158"
+84:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  %84 = getelementptr inbounds i8, ptr %19, i64 8
-  %85 = load ptr, ptr %84, align 8, !nonnull !9, !align !33, !noundef !9
-  %86 = getelementptr inbounds i8, ptr %19, i64 16
-  %87 = load i64, ptr %86, align 8, !noundef !9
-  store ptr %85, ptr %18, align 8
-  %88 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 %87, ptr %88, align 8
+  %85 = getelementptr inbounds i8, ptr %19, i64 8
+  %86 = load ptr, ptr %85, align 8, !nonnull !9, !align !33, !noundef !9
+  %87 = getelementptr inbounds i8, ptr %19, i64 16
+  %88 = load i64, ptr %87, align 8, !noundef !9
+  store ptr %86, ptr %18, align 8
+  %89 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %88, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   store ptr %18, ptr %16, align 8
-  %89 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %90, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
   store i64 2, ptr %15, align 8
   %.sroa.565.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
@@ -1147,29 +1148,29 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157: ; preds = %68
   %.sroa.1070.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 48
   store i8 1, ptr %.sroa.1070.0..sroa_idx, align 8
   store ptr @anon.bcb2ad54d7f72eda4f6359c0592d322e.147, ptr %17, align 8
-  %90 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 1, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr %15, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %17, i64 40
-  store i64 1, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %16, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %17, i64 24
-  store i64 1, ptr %94, align 8
+  %91 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 1, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr %15, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %17, i64 40
+  store i64 1, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr %16, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %17, i64 24
+  store i64 1, ptr %95, align 8
   call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  br label %102
+  br label %103
 
-95:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158"
+96:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.exit158"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store ptr %35, ptr %13, align 8
-  %96 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u20$for$u20$u8$GT$3fmt17h6ce9fcedb28bfa1fE", ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
   store i64 2, ptr %12, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
@@ -1185,25 +1186,25 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit157: ; preds = %68
   %.sroa.1081.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 48
   store i8 3, ptr %.sroa.1081.0..sroa_idx, align 8
   store ptr @anon.bcb2ad54d7f72eda4f6359c0592d322e.190, ptr %14, align 8
-  %97 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 1, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr %12, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %14, i64 40
-  store i64 1, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %13, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %14, i64 24
-  store i64 1, ptr %101, align 8
+  %98 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 1, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr %12, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %14, i64 40
+  store i64 1, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %13, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %14, i64 24
+  store i64 1, ptr %102, align 8
   call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  br label %102
+  br label %103
 
-102:                                              ; preds = %95, %83
+103:                                              ; preds = %96, %84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  br label %45
+  br label %46
 }
 
 ; Function Attrs: nonlazybind uwtable

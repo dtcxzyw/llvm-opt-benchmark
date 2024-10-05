@@ -4727,7 +4727,7 @@ thread-pre-split:                                 ; preds = %74, %59, %28, %29, 
 
 22:                                               ; preds = %20
   %23 = and i64 %17, 63
-  %switch = icmp slt i8 %18, -64
+  %switch = icmp eq i8 %21, -128
   br i1 %switch, label %25, label %24
 
 24:                                               ; preds = %22
@@ -4736,7 +4736,7 @@ thread-pre-split:                                 ; preds = %74, %59, %28, %29, 
 
 25:                                               ; preds = %22
   %26 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %2, ptr noundef nonnull %6, ptr noundef nonnull %9) #23
-  call void @_ZN4llvm5dwarf10CFIProgram14addInstructionEhmm(ptr noundef nonnull align 8 dereferenceable(44) %1, i8 noundef zeroext %21, i64 noundef %23, i64 noundef %26)
+  call void @_ZN4llvm5dwarf10CFIProgram14addInstructionEhmm(ptr noundef nonnull align 8 dereferenceable(44) %1, i8 noundef zeroext -128, i64 noundef %23, i64 noundef %26)
   br label %thread-pre-split, !llvm.loop !178
 
 27:                                               ; preds = %20

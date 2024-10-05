@@ -128,7 +128,8 @@ for.body:                                         ; preds = %if.end24, %if.end31
   %c.121 = phi i32 [ %c.0, %if.end24 ], [ %or, %if.end31 ]
   %arrayidx = getelementptr inbounds i8, ptr %p, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
-  %cmp28.not = icmp slt i8 %3, -64
+  %.mask = and i8 %3, -64
+  %cmp28.not = icmp eq i8 %.mask, -128
   br i1 %cmp28.not, label %if.end31, label %if.then30
 
 if.then30:                                        ; preds = %for.body
@@ -285,7 +286,8 @@ for.body.i:                                       ; preds = %if.end31.i, %if.end
   %c.121.i = phi i32 [ %c.0.i, %if.end24.i ], [ %or.i, %if.end31.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %p.addr.011, i64 %indvars.iv.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %cmp28.not.i = icmp slt i8 %2, -64
+  %.mask.i = and i8 %2, -64
+  %cmp28.not.i = icmp eq i8 %.mask.i, -128
   br i1 %cmp28.not.i, label %if.end31.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %for.body.i

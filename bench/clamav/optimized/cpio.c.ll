@@ -49,8 +49,8 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.backedge
-  %9 = phi i64 [ %7, %.lr.ph ], [ %81, %.backedge ]
-  %10 = phi ptr [ %5, %.lr.ph ], [ %79, %.backedge ]
+  %9 = phi i64 [ %7, %.lr.ph ], [ %82, %.backedge ]
+  %10 = phi ptr [ %5, %.lr.ph ], [ %80, %.backedge ]
   %.0109 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %.051108 = phi i32 [ 0, %.lr.ph ], [ %.152, %.backedge ]
   %.054107 = phi i32 [ 0, %.lr.ph ], [ %23, %.backedge ]
@@ -204,34 +204,35 @@ sanitname.exit:                                   ; preds = %51, %40
 
 70:                                               ; preds = %67
   %.6..6..6.95 = load i16, ptr %.6..6..6..sroa_idx, align 2
-  %rev80 = call i16 @llvm.bswap.i16(i16 %.6..6..6.95)
+  %rev80 = shl i16 %.6..6..6.95, 8
   %.in81 = select i1 %21, i16 %.6..6..6.95, i16 %rev80
-  %.not82 = icmp slt i16 %.in81, -28672
-  br i1 %.not82, label %72, label %71
-
-71:                                               ; preds = %70
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #8
-  br label %75
+  %71 = and i16 %.in81, -4096
+  %.not82 = icmp eq i16 %71, -32768
+  br i1 %.not82, label %73, label %72
 
 72:                                               ; preds = %70
-  %73 = load ptr, ptr %4, align 8
-  %74 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %73, i64 noundef %.1, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #8
-  %.not83 = icmp eq i32 %74, 0
-  br i1 %.not83, label %75, label %fmap_readn.exit.thread
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #8
+  br label %76
 
-75:                                               ; preds = %72, %71
-  %76 = and i32 %65, 1
-  %spec.select87 = add i32 %66, %76
-  %77 = zext i32 %spec.select87 to i64
-  %78 = add i64 %.1, %77
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %4, align 8
+  %75 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %74, i64 noundef %.1, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #8
+  %.not83 = icmp eq i32 %75, 0
+  br i1 %.not83, label %76, label %fmap_readn.exit.thread
+
+76:                                               ; preds = %73, %72
+  %77 = and i32 %65, 1
+  %spec.select87 = add i32 %66, %77
+  %78 = zext i32 %spec.select87 to i64
+  %79 = add i64 %.1, %78
   br label %.backedge
 
-.backedge:                                        ; preds = %75, %62
-  %.0.be = phi i64 [ %78, %75 ], [ %.1, %62 ]
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 88
-  %81 = load i64, ptr %80, align 8
-  %or.cond103.not = icmp ult i64 %.0.be, %81
+.backedge:                                        ; preds = %76, %62
+  %.0.be = phi i64 [ %79, %76 ], [ %.1, %62 ]
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 88
+  %82 = load i64, ptr %81, align 8
+  %or.cond103.not = icmp ult i64 %.0.be, %82
   br i1 %or.cond103.not, label %8, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, %32, %34, %20
@@ -239,8 +240,8 @@ fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, 
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.2.sink) #8
   br label %fmap_readn.exit.thread
 
-fmap_readn.exit.thread:                           ; preds = %67, %72, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
-  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %74, %72 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
+fmap_readn.exit.thread:                           ; preds = %67, %73, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
+  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %75, %73 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
   ret i32 %.148
 }
 

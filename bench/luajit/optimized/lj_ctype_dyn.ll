@@ -269,17 +269,17 @@ return:                                           ; preds = %if.end, %entry, %re
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @lj_ctype_getfieldq(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr noundef %name, ptr nocapture noundef %ofs, ptr noundef %qual) local_unnamed_addr #5 {
 entry:
-  %sib33 = getelementptr inbounds i8, ptr %ct, i64 8
-  %0 = load i16, ptr %sib33, align 8
-  %tobool.not34 = icmp eq i16 %0, 0
-  br i1 %tobool.not34, label %return, label %while.body.preheader
+  %sib34 = getelementptr inbounds i8, ptr %ct, i64 8
+  %0 = load i16, ptr %sib34, align 8
+  %tobool.not35 = icmp eq i16 %0, 0
+  br i1 %tobool.not35, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %.pre38 = load ptr, ptr %cts, align 8
+  %.pre39 = load ptr, ptr %cts, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end31
-  %1 = phi ptr [ %16, %if.end31 ], [ %.pre38, %while.body.preheader ]
+  %1 = phi ptr [ %16, %if.end31 ], [ %.pre39, %while.body.preheader ]
   %2 = phi i16 [ %17, %if.end31 ], [ %0, %while.body.preheader ]
   %idxprom.i = zext i16 %2 to i64
   %arrayidx.i = getelementptr inbounds %struct.CType, ptr %1, i64 %idxprom.i
@@ -305,13 +305,14 @@ while.cond8.preheader:                            ; preds = %if.end
   %idxprom.i.i40.pn27 = zext nneg i32 %idxprom.i.i40.pn.in26 to i64
   %cct.028 = getelementptr inbounds %struct.CType, ptr %1, i64 %idxprom.i.i40.pn27
   %7 = load i32, ptr %cct.028, align 8
-  %cmp1029 = icmp slt i32 %7, -1879048192
-  br i1 %cmp1029, label %while.body12, label %while.end
+  %shr.mask29 = and i32 %7, -268435456
+  %cmp1030 = icmp eq i32 %shr.mask29, -2147483648
+  br i1 %cmp1030, label %while.body12, label %while.end
 
 while.body12:                                     ; preds = %while.cond8.preheader, %if.end20
   %8 = phi i32 [ %12, %if.end20 ], [ %7, %while.cond8.preheader ]
   %9 = phi i64 [ %idxprom.i.i40.pn, %if.end20 ], [ %idxprom.i.i40.pn27, %while.cond8.preheader ]
-  %q.030 = phi i32 [ %q.1, %if.end20 ], [ 0, %while.cond8.preheader ]
+  %q.031 = phi i32 [ %q.1, %if.end20 ], [ 0, %while.cond8.preheader ]
   %10 = and i32 %8, 16711680
   %cmp16 = icmp eq i32 %10, 65536
   br i1 %cmp16, label %if.then18, label %if.end20
@@ -319,16 +320,17 @@ while.body12:                                     ; preds = %while.cond8.prehead
 if.then18:                                        ; preds = %while.body12
   %size19 = getelementptr inbounds %struct.CType, ptr %1, i64 %9, i32 1
   %11 = load i32, ptr %size19, align 4
-  %or = or i32 %11, %q.030
+  %or = or i32 %11, %q.031
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %while.body12
-  %q.1 = phi i32 [ %or, %if.then18 ], [ %q.030, %while.body12 ]
+  %q.1 = phi i32 [ %or, %if.then18 ], [ %q.031, %while.body12 ]
   %idxprom.i.i40.pn.in = and i32 %8, 65535
   %idxprom.i.i40.pn = zext nneg i32 %idxprom.i.i40.pn.in to i64
   %cct.0 = getelementptr inbounds %struct.CType, ptr %1, i64 %idxprom.i.i40.pn
   %12 = load i32, ptr %cct.0, align 8
-  %cmp10 = icmp slt i32 %12, -1879048192
+  %shr.mask = and i32 %12, -268435456
+  %cmp10 = icmp eq i32 %shr.mask, -2147483648
   br i1 %cmp10, label %while.body12, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end20, %while.cond8.preheader
@@ -385,7 +387,8 @@ while.cond:                                       ; preds = %while.cond, %entry
   %idxprom.i.pn = zext i32 %idxprom.i.pn.in to i64
   %ct.0 = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i.pn
   %1 = load i32, ptr %ct.0, align 8
-  %cmp = icmp slt i32 %1, -1879048192
+  %shr.mask = and i32 %1, -268435456
+  %cmp = icmp eq i32 %shr.mask, -2147483648
   %and = and i32 %1, -260046848
   %cmp2 = icmp eq i32 %and, 545259520
   %or.cond = or i1 %cmp, %cmp2
@@ -407,7 +410,8 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
   %idxprom.i.i.pn = zext i32 %idxprom.i.i.pn.in to i64
   %ct.i.0 = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i.i.pn
   %1 = load i32, ptr %ct.i.0, align 8
-  %cmp.i = icmp slt i32 %1, -1879048192
+  %shr.i.mask = and i32 %1, -268435456
+  %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
   %and.i.i = and i32 %1, 65535
   br i1 %cmp.i, label %while.cond.i, label %ctype_raw.exit, !llvm.loop !9
 
@@ -467,7 +471,8 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   %idxprom.i.i.pn = zext nneg i32 %idxprom.i.i.pn.in to i64
   %ct.i.0 = getelementptr inbounds %struct.CType, ptr %.pre26, i64 %idxprom.i.i.pn
   %3 = load i32, ptr %ct.i.0, align 8
-  %cmp.i = icmp slt i32 %3, -1879048192
+  %shr.i.mask = and i32 %3, -268435456
+  %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
   %and.i.i = and i32 %3, 65535
   br i1 %cmp.i, label %while.cond.i, label %if.end11, !llvm.loop !9
 
@@ -482,7 +487,8 @@ do.body.i:                                        ; preds = %do.body.i, %if.end1
   %idxprom.i.i.i28 = zext nneg i32 %and.i.i26 to i64
   %arrayidx.i.i.i29 = getelementptr inbounds %struct.CType, ptr %.pre26, i64 %idxprom.i.i.i28
   %6 = load i32, ptr %arrayidx.i.i.i29, align 8
-  %cmp.i31 = icmp slt i32 %6, -1879048192
+  %shr.i30.mask = and i32 %6, -268435456
+  %cmp.i31 = icmp eq i32 %shr.i30.mask, -2147483648
   br i1 %cmp.i31, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !11
 
 ctype_rawchild.exit:                              ; preds = %do.body.i

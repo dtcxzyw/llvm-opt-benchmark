@@ -219,13 +219,14 @@ define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr 
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %6, %.preheader ], [ %1, %2 ]
+  %.0 = phi ptr [ %7, %.preheader ], [ %1, %2 ]
   %3 = load i8, ptr %.0, align 1
-  %.not13 = icmp slt i8 %3, -64
-  %4 = icmp ugt ptr %.0, %0
-  %5 = and i1 %4, %.not13
-  %6 = getelementptr inbounds i8, ptr %.0, i64 -1
-  br i1 %5, label %.preheader, label %.loopexit, !llvm.loop !6
+  %4 = and i8 %3, -64
+  %.not13 = icmp eq i8 %4, -128
+  %5 = icmp ugt ptr %.0, %0
+  %6 = and i1 %5, %.not13
+  %7 = getelementptr inbounds i8, ptr %.0, i64 -1
+  br i1 %6, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.010 = phi ptr [ %1, %2 ], [ %.0, %.preheader ]
@@ -242,46 +243,48 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 .lr.ph21:                                         ; preds = %2, %.loopexit
   %.01220 = phi ptr [ %.1, %.loopexit ], [ %0, %2 ]
   %4 = load i8, ptr %.01220, align 1
-  %.not = icmp slt i8 %4, -64
-  br i1 %.not, label %.loopexit15, label %5
+  %5 = and i8 %4, -64
+  %.not = icmp eq i8 %5, -128
+  br i1 %.not, label %.loopexit15, label %6
 
-5:                                                ; preds = %.lr.ph21
-  %6 = getelementptr inbounds i8, ptr %.01220, i64 1
-  %7 = zext i8 %4 to i64
-  %8 = add nsw i64 %7, -192
-  %or.cond = icmp ult i64 %8, 53
+6:                                                ; preds = %.lr.ph21
+  %7 = getelementptr inbounds i8, ptr %.01220, i64 1
+  %8 = zext i8 %4 to i64
+  %9 = add nsw i64 %8, -192
+  %or.cond = icmp ult i64 %9, 53
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %5
-  %9 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %7
-  %10 = load i32, ptr %9, align 4
-  %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
+.lr.ph.preheader:                                 ; preds = %6
+  %10 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %8
+  %11 = load i32, ptr %10, align 4
+  %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 2)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.01119 = phi i32 [ %17, %15 ], [ 1, %.lr.ph.preheader ]
-  %.218 = phi ptr [ %16, %15 ], [ %6, %.lr.ph.preheader ]
-  %11 = icmp eq ptr %.218, %1
-  br i1 %11, label %.loopexit15, label %12
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+  %.01119 = phi i32 [ %19, %17 ], [ 1, %.lr.ph.preheader ]
+  %.218 = phi ptr [ %18, %17 ], [ %7, %.lr.ph.preheader ]
+  %12 = icmp eq ptr %.218, %1
+  br i1 %12, label %.loopexit15, label %13
 
-12:                                               ; preds = %.lr.ph
-  %13 = load i8, ptr %.218, align 1
-  %14 = icmp slt i8 %13, -64
-  br i1 %14, label %15, label %.loopexit15
+13:                                               ; preds = %.lr.ph
+  %14 = load i8, ptr %.218, align 1
+  %15 = and i8 %14, -64
+  %16 = icmp eq i8 %15, -128
+  br i1 %16, label %17, label %.loopexit15
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.218, i64 1
-  %17 = add nuw nsw i32 %.01119, 1
-  %exitcond.not = icmp eq i32 %17, %smax
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.218, i64 1
+  %19 = add nuw nsw i32 %.01119, 1
+  %exitcond.not = icmp eq i32 %19, %smax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %15, %5
-  %.1 = phi ptr [ %6, %5 ], [ %16, %15 ]
-  %18 = icmp ult ptr %.1, %1
-  br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !8
+.loopexit:                                        ; preds = %17, %6
+  %.1 = phi ptr [ %7, %6 ], [ %18, %17 ]
+  %20 = icmp ult ptr %.1, %1
+  br i1 %20, label %.lr.ph21, label %.loopexit15, !llvm.loop !8
 
-.loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %12, %.lr.ph, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
+.loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %13, %.lr.ph, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

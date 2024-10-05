@@ -588,8 +588,8 @@ define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr noc
   %exitcond.not.i = icmp eq i64 %30, %spec.select.i
   br i1 %exitcond.not.i, label %dom_find_line_and_column_using_cache.exit, label %18
 
-31:                                               ; preds = %42, %.lr.ph34.i
-  %storemerge3233.i = phi i64 [ %.promoted.i, %.lr.ph34.i ], [ %storemerge.i, %42 ]
+31:                                               ; preds = %43, %.lr.ph34.i
+  %storemerge3233.i = phi i64 [ %.promoted.i, %.lr.ph34.i ], [ %storemerge.i, %43 ]
   %32 = getelementptr inbounds i8, ptr %17, i64 %storemerge3233.i
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 10
@@ -602,46 +602,47 @@ define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr noc
   br label %.sink.split.i
 
 38:                                               ; preds = %31
-  %.not29.i = icmp slt i8 %33, -64
-  br i1 %.not29.i, label %42, label %39
+  %39 = and i8 %33, -64
+  %.not29.i = icmp eq i8 %39, -128
+  br i1 %.not29.i, label %43, label %40
 
-39:                                               ; preds = %38
-  %40 = load i64, ptr %16, align 8
-  %41 = add i64 %40, 1
+40:                                               ; preds = %38
+  %41 = load i64, ptr %16, align 8
+  %42 = add i64 %41, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %39, %35
-  %.sink.i = phi i64 [ %41, %39 ], [ 1, %35 ]
+.sink.split.i:                                    ; preds = %40, %35
+  %.sink.i = phi i64 [ %42, %40 ], [ 1, %35 ]
   store i64 %.sink.i, ptr %16, align 8
-  br label %42
+  br label %43
 
-42:                                               ; preds = %.sink.split.i, %38
+43:                                               ; preds = %.sink.split.i, %38
   %storemerge.i = add nuw i64 %storemerge3233.i, 1
   store i64 %storemerge.i, ptr %12, align 8
   %exitcond36.not.i = icmp eq i64 %storemerge.i, %spec.select.i
   br i1 %exitcond36.not.i, label %dom_find_line_and_column_using_cache.exit, label %31
 
-dom_find_line_and_column_using_cache.exit:        ; preds = %29, %42, %.preheader30.i, %.preheader.i
-  %43 = load ptr, ptr %0, align 8
-  %44 = load i64, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ult i32 %48, 49
-  br i1 %49, label %switch.lookup, label %dom_lexbor_tokenizer_error_code_to_string.exit
+dom_find_line_and_column_using_cache.exit:        ; preds = %29, %43, %.preheader30.i, %.preheader.i
+  %44 = load ptr, ptr %0, align 8
+  %45 = load i64, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ult i32 %49, 49
+  br i1 %50, label %switch.lookup, label %dom_lexbor_tokenizer_error_code_to_string.exit
 
 switch.lookup:                                    ; preds = %dom_find_line_and_column_using_cache.exit
-  %50 = zext nneg i32 %48 to i64
-  %switch.gep = getelementptr inbounds [49 x ptr], ptr @switch.table.dom_lexbor_libxml2_bridge_tokenizer_error_reporter, i64 0, i64 %50
+  %51 = zext nneg i32 %49 to i64
+  %switch.gep = getelementptr inbounds [49 x ptr], ptr @switch.table.dom_lexbor_libxml2_bridge_tokenizer_error_reporter, i64 0, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_tokenizer_error_code_to_string.exit
 
 dom_lexbor_tokenizer_error_code_to_string.exit:   ; preds = %dom_find_line_and_column_using_cache.exit, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.70, %dom_find_line_and_column_using_cache.exit ]
-  %51 = trunc i64 %46 to i32
-  %52 = trunc i64 %44 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @php_libxml_pretend_ctx_error_ex(ptr noundef %43, i32 noundef %52, i32 noundef %51, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0.i, ptr noundef %43, i64 noundef %44, i64 noundef %46) #11
+  %52 = trunc i64 %47 to i32
+  %53 = trunc i64 %45 to i32
+  tail call void (ptr, i32, i32, ptr, ...) @php_libxml_pretend_ctx_error_ex(ptr noundef %44, i32 noundef %53, i32 noundef %52, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0.i, ptr noundef %44, i64 noundef %45, i64 noundef %47) #11
   ret void
 }
 
@@ -2414,7 +2415,7 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
   store i64 %5, ptr %11, align 8
   %12 = tail call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef %4, i64 noundef %3) #11
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %59
+  br i1 %.not, label %13, label %60
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
@@ -2485,8 +2486,8 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
   %exitcond.not.i = icmp eq i64 %42, %spec.select.i
   br i1 %exitcond.not.i, label %dom_find_line_and_column_using_cache.exit, label %30
 
-43:                                               ; preds = %54, %.lr.ph34.i
-  %storemerge3233.i = phi i64 [ %.promoted.i, %.lr.ph34.i ], [ %storemerge.i, %54 ]
+43:                                               ; preds = %55, %.lr.ph34.i
+  %storemerge3233.i = phi i64 [ %.promoted.i, %.lr.ph34.i ], [ %storemerge.i, %55 ]
   %44 = getelementptr inbounds i8, ptr %.pre, i64 %storemerge3233.i
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 10
@@ -2499,35 +2500,36 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
   br label %.sink.split.i
 
 50:                                               ; preds = %43
-  %.not29.i = icmp slt i8 %45, -64
-  br i1 %.not29.i, label %54, label %51
+  %51 = and i8 %45, -64
+  %.not29.i = icmp eq i8 %51, -128
+  br i1 %.not29.i, label %55, label %52
 
-51:                                               ; preds = %50
-  %52 = load i64, ptr %29, align 8
-  %53 = add i64 %52, 1
+52:                                               ; preds = %50
+  %53 = load i64, ptr %29, align 8
+  %54 = add i64 %53, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %51, %47
-  %.sink.i = phi i64 [ %53, %51 ], [ 1, %47 ]
+.sink.split.i:                                    ; preds = %52, %47
+  %.sink.i = phi i64 [ %54, %52 ], [ 1, %47 ]
   store i64 %.sink.i, ptr %29, align 8
-  br label %54
+  br label %55
 
-54:                                               ; preds = %.sink.split.i, %50
+55:                                               ; preds = %.sink.split.i, %50
   %storemerge.i = add nuw i64 %storemerge3233.i, 1
   store i64 %storemerge.i, ptr %25, align 8
   %exitcond36.not.i = icmp eq i64 %storemerge.i, %spec.select.i
   br i1 %exitcond36.not.i, label %dom_find_line_and_column_using_cache.exit, label %43
 
-dom_find_line_and_column_using_cache.exit:        ; preds = %41, %54, %.preheader.i, %.preheader30.i, %15
-  %55 = getelementptr inbounds i8, ptr %10, i64 32
-  %56 = load i64, ptr %55, align 8
-  %57 = add i64 %56, %5
-  store i64 %57, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 56
-  store i64 0, ptr %58, align 8
-  br label %59
+dom_find_line_and_column_using_cache.exit:        ; preds = %41, %55, %.preheader.i, %.preheader30.i, %15
+  %56 = getelementptr inbounds i8, ptr %10, i64 32
+  %57 = load i64, ptr %56, align 8
+  %58 = add i64 %57, %5
+  store i64 %58, ptr %56, align 8
+  %59 = getelementptr inbounds i8, ptr %10, i64 56
+  store i64 0, ptr %59, align 8
+  br label %60
 
-59:                                               ; preds = %8, %dom_find_line_and_column_using_cache.exit
+60:                                               ; preds = %8, %dom_find_line_and_column_using_cache.exit
   ret i1 %.not
 }
 

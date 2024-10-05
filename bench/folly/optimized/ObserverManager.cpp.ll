@@ -4891,24 +4891,25 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i132
 
 if.end.i.i132:                                    ; preds = %invoke.cont20
-  %cmp.i13 = icmp slt i8 %54, -64
-  %55 = load ptr, ptr %ref.tmp15, align 8, !tbaa !104
+  %55 = and i8 %54, -64
+  %cmp.i13 = icmp eq i8 %55, -128
+  %56 = load ptr, ptr %ref.tmp15, align 8, !tbaa !104
   br i1 %cmp.i13, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i132
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %55, i64 -8
-  %56 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i14 = icmp eq i64 %56, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %56, i64 -8
+  %57 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i14 = icmp eq i64 %57, 1
   br i1 %cmp.i.i14, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i132
-  %add.ptr.i.i.sink.i = phi ptr [ %55, %if.end.i.i132 ], [ %add.ptr.i.i.i, %if.else.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %56, %if.end.i.i132 ], [ %add.ptr.i.i.i, %if.else.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #29
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.end.sink.split.i, %if.else.i, %invoke.cont20
-  %57 = load ptr, ptr %ref.tmp16, align 8, !tbaa !231
-  %tobool.not.i = icmp eq ptr %57, null
+  %58 = load ptr, ptr %ref.tmp16, align 8, !tbaa !231
+  %tobool.not.i = icmp eq ptr %58, null
   br i1 %tobool.not.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %if.then.i133
 
 if.then.i133:                                     ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
@@ -4937,47 +4938,48 @@ _ZN5folly8FunctionIFvvEED2Ev.exit140:             ; preds = %if.end.i.i137, %cle
   br label %while.body
 
 lpad8:                                            ; preds = %lpad5
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont9
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad17:                                           ; preds = %invoke.cont13
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad19:                                           ; preds = %invoke.cont18
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !104
-  %cmp.i.i142 = icmp ult i8 %62, 64
+  %63 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !104
+  %cmp.i.i142 = icmp ult i8 %63, 64
   br i1 %cmp.i.i142, label %ehcleanup, label %if.end.i.i143
 
 if.end.i.i143:                                    ; preds = %lpad19
-  %cmp.i17 = icmp slt i8 %62, -64
-  %63 = load ptr, ptr %ref.tmp15, align 8, !tbaa !104
+  %64 = and i8 %63, -64
+  %cmp.i17 = icmp eq i8 %64, -128
+  %65 = load ptr, ptr %ref.tmp15, align 8, !tbaa !104
   br i1 %cmp.i17, label %if.end.sink.split.i22, label %if.else.i18
 
 if.else.i18:                                      ; preds = %if.end.i.i143
-  %add.ptr.i.i.i19 = getelementptr inbounds i8, ptr %63, i64 -8
-  %64 = atomicrmw sub ptr %add.ptr.i.i.i19, i64 1 acq_rel, align 8
-  %cmp.i.i20 = icmp eq i64 %64, 1
+  %add.ptr.i.i.i19 = getelementptr inbounds i8, ptr %65, i64 -8
+  %66 = atomicrmw sub ptr %add.ptr.i.i.i19, i64 1 acq_rel, align 8
+  %cmp.i.i20 = icmp eq i64 %66, 1
   br i1 %cmp.i.i20, label %if.end.sink.split.i22, label %ehcleanup
 
 if.end.sink.split.i22:                            ; preds = %if.else.i18, %if.end.i.i143
-  %add.ptr.i.i.sink.i23 = phi ptr [ %63, %if.end.i.i143 ], [ %add.ptr.i.i.i19, %if.else.i18 ]
+  %add.ptr.i.i.sink.i23 = phi ptr [ %65, %if.end.i.i143 ], [ %add.ptr.i.i.i19, %if.else.i18 ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i23) #29
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.end.sink.split.i22, %if.else.i18, %lpad19, %lpad17
-  %.pn = phi { ptr, i32 } [ %60, %lpad17 ], [ %61, %lpad19 ], [ %61, %if.else.i18 ], [ %61, %if.end.sink.split.i22 ]
-  %65 = load ptr, ptr %ref.tmp16, align 8, !tbaa !231
-  %tobool.not.i145 = icmp eq ptr %65, null
+  %.pn = phi { ptr, i32 } [ %61, %lpad17 ], [ %62, %lpad19 ], [ %62, %if.else.i18 ], [ %62, %if.end.sink.split.i22 ]
+  %67 = load ptr, ptr %ref.tmp16, align 8, !tbaa !231
+  %tobool.not.i145 = icmp eq ptr %67, null
   br i1 %tobool.not.i145, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit148, label %if.then.i146
 
 if.then.i146:                                     ; preds = %ehcleanup
@@ -4990,29 +4992,29 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit148: ; preds = %if.then.i146, %ehc
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit148, %lpad10
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit148 ], [ %59, %lpad10 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit148 ], [ %60, %lpad10 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #29
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup24, %lpad8
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup24 ], [ %58, %lpad8 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup24 ], [ %59, %lpad8 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp7) #29
   invoke void @__cxa_end_catch()
           to label %ehcleanup30 unwind label %terminate.lpad
 
 lpad26:                                           ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %66 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
 ehcleanup30:                                      ; preds = %lpad26, %ehcleanup25
-  %.pn38 = phi { ptr, i32 } [ %66, %lpad26 ], [ %.pn.pn.pn, %ehcleanup25 ]
-  %67 = load ptr, ptr %exec_.i, align 8, !tbaa !78
-  %tobool.not.i.i150 = icmp eq ptr %67, null
+  %.pn38 = phi { ptr, i32 } [ %68, %lpad26 ], [ %.pn.pn.pn, %ehcleanup25 ]
+  %69 = load ptr, ptr %exec_.i, align 8, !tbaa !78
+  %tobool.not.i.i150 = icmp eq ptr %69, null
   br i1 %tobool.not.i.i150, label %_ZN5folly8FunctionIFvvEED2Ev.exit154, label %if.end.i.i151
 
 if.end.i.i151:                                    ; preds = %ehcleanup30
-  %call.i.i152 = call noundef i64 %67(i32 noundef 1, ptr noundef nonnull %task, ptr noundef null) #29
+  %call.i.i152 = call noundef i64 %69(i32 noundef 1, ptr noundef nonnull %task, ptr noundef null) #29
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit154
 
 _ZN5folly8FunctionIFvvEED2Ev.exit154:             ; preds = %if.end.i.i151, %ehcleanup30
@@ -5024,10 +5026,10 @@ return:                                           ; preds = %_ZN5folly8FunctionI
   ret void
 
 terminate.lpad:                                   ; preds = %ehcleanup25
-  %68 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #38
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #38
   unreachable
 }
 

@@ -20,9 +20,9 @@ define hidden i32 @utf8sToUtf8mLength(ptr nocapture noundef readonly %0, i32 nou
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %53
-  %.04058 = phi i32 [ %54, %53 ], [ 0, %2 ]
-  %.04157 = phi i32 [ %.142, %53 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %59
+  %.04058 = phi i32 [ %60, %59 ], [ 0, %2 ]
+  %.04157 = phi i32 [ %.142, %59 ], [ 0, %2 ]
   %4 = sext i32 %.04058 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -34,12 +34,12 @@ define hidden i32 @utf8sToUtf8mLength(ptr nocapture noundef readonly %0, i32 nou
   %10 = icmp eq i8 %6, 0
   %spec.select.v = select i1 %10, i32 2, i32 1
   %spec.select = add nsw i32 %spec.select.v, %.04157
-  br label %53
+  br label %59
 
 11:                                               ; preds = %.lr.ph
   %12 = and i32 %7, 224
   %13 = icmp eq i32 %12, 192
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %23
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %.04058, 1
@@ -50,83 +50,89 @@ define hidden i32 @utf8sToUtf8mLength(ptr nocapture noundef readonly %0, i32 nou
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
-  %.not55 = icmp slt i8 %19, -64
-  br i1 %.not55, label %20, label %._crit_edge
+  %20 = and i8 %19, -64
+  %.not55 = icmp eq i8 %20, -128
+  br i1 %.not55, label %21, label %._crit_edge
 
-20:                                               ; preds = %16
-  %21 = add nsw i32 %.04157, 2
-  br label %53
+21:                                               ; preds = %16
+  %22 = add nsw i32 %.04157, 2
+  br label %59
 
-22:                                               ; preds = %11
-  %23 = and i32 %7, 240
-  %24 = icmp eq i32 %23, 224
-  br i1 %24, label %25, label %36
+23:                                               ; preds = %11
+  %24 = and i32 %7, 240
+  %25 = icmp eq i32 %24, 224
+  br i1 %25, label %26, label %39
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %.04058, 2
-  %.not51 = icmp slt i32 %26, %1
-  br i1 %.not51, label %27, label %._crit_edge
+26:                                               ; preds = %23
+  %27 = add nsw i32 %.04058, 2
+  %.not51 = icmp slt i32 %27, %1
+  br i1 %.not51, label %28, label %._crit_edge
 
-27:                                               ; preds = %25
-  %28 = getelementptr i8, ptr %5, i64 1
-  %29 = load i8, ptr %28, align 1
-  %.not52 = icmp slt i8 %29, -64
-  br i1 %.not52, label %30, label %._crit_edge
+28:                                               ; preds = %26
+  %29 = getelementptr i8, ptr %5, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, -64
+  %.not52 = icmp eq i8 %31, -128
+  br i1 %.not52, label %32, label %._crit_edge
 
-30:                                               ; preds = %27
-  %31 = sext i32 %26 to i64
-  %32 = getelementptr inbounds i8, ptr %0, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %.not53 = icmp slt i8 %33, -64
-  br i1 %.not53, label %34, label %._crit_edge
+32:                                               ; preds = %28
+  %33 = sext i32 %27 to i64
+  %34 = getelementptr inbounds i8, ptr %0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = and i8 %35, -64
+  %.not53 = icmp eq i8 %36, -128
+  br i1 %.not53, label %37, label %._crit_edge
 
-34:                                               ; preds = %30
-  %35 = add nsw i32 %.04157, 3
-  br label %53
+37:                                               ; preds = %32
+  %38 = add nsw i32 %.04157, 3
+  br label %59
 
-36:                                               ; preds = %22
-  %37 = and i32 %7, 248
-  %38 = icmp eq i32 %37, 240
-  br i1 %38, label %39, label %._crit_edge
+39:                                               ; preds = %23
+  %40 = and i32 %7, 248
+  %41 = icmp eq i32 %40, 240
+  br i1 %41, label %42, label %._crit_edge
 
-39:                                               ; preds = %36
-  %40 = add nsw i32 %.04058, 3
-  %.not = icmp slt i32 %40, %1
-  br i1 %.not, label %41, label %._crit_edge
+42:                                               ; preds = %39
+  %43 = add nsw i32 %.04058, 3
+  %.not = icmp slt i32 %43, %1
+  br i1 %.not, label %44, label %._crit_edge
 
-41:                                               ; preds = %39
-  %42 = getelementptr i8, ptr %5, i64 1
-  %43 = load i8, ptr %42, align 1
-  %.not48 = icmp slt i8 %43, -64
-  br i1 %.not48, label %44, label %._crit_edge
-
-44:                                               ; preds = %41
-  %45 = getelementptr i8, ptr %5, i64 2
+44:                                               ; preds = %42
+  %45 = getelementptr i8, ptr %5, i64 1
   %46 = load i8, ptr %45, align 1
-  %.not49 = icmp slt i8 %46, -64
-  br i1 %.not49, label %47, label %._crit_edge
+  %47 = and i8 %46, -64
+  %.not48 = icmp eq i8 %47, -128
+  br i1 %.not48, label %48, label %._crit_edge
 
-47:                                               ; preds = %44
-  %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+48:                                               ; preds = %44
+  %49 = getelementptr i8, ptr %5, i64 2
   %50 = load i8, ptr %49, align 1
-  %.not50 = icmp slt i8 %50, -64
-  br i1 %.not50, label %51, label %._crit_edge
+  %51 = and i8 %50, -64
+  %.not49 = icmp eq i8 %51, -128
+  br i1 %.not49, label %52, label %._crit_edge
 
-51:                                               ; preds = %47
-  %52 = add nsw i32 %.04157, 6
-  br label %53
+52:                                               ; preds = %48
+  %53 = sext i32 %43 to i64
+  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = and i8 %55, -64
+  %.not50 = icmp eq i8 %56, -128
+  br i1 %.not50, label %57, label %._crit_edge
 
-53:                                               ; preds = %9, %34, %51, %20
-  %.142 = phi i32 [ %21, %20 ], [ %35, %34 ], [ %52, %51 ], [ %spec.select, %9 ]
-  %.1 = phi i32 [ %15, %20 ], [ %26, %34 ], [ %40, %51 ], [ %.04058, %9 ]
-  %54 = add nsw i32 %.1, 1
-  %55 = icmp slt i32 %54, %1
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+57:                                               ; preds = %52
+  %58 = add nsw i32 %.04157, 6
+  br label %59
 
-._crit_edge:                                      ; preds = %53, %16, %14, %30, %27, %25, %47, %44, %41, %39, %36, %2
-  %.041.lcssa = phi i32 [ 0, %2 ], [ %.04157, %36 ], [ %.04157, %39 ], [ %.04157, %41 ], [ %.04157, %44 ], [ %.04157, %47 ], [ %.04157, %25 ], [ %.04157, %27 ], [ %.04157, %30 ], [ %.04157, %14 ], [ %.04157, %16 ], [ %.142, %53 ]
-  %.040.lcssa = phi i32 [ 0, %2 ], [ %.04058, %36 ], [ %.04058, %39 ], [ %.04058, %41 ], [ %.04058, %44 ], [ %.04058, %47 ], [ %.04058, %25 ], [ %.04058, %27 ], [ %.04058, %30 ], [ %.04058, %14 ], [ %.04058, %16 ], [ %54, %53 ]
+59:                                               ; preds = %9, %37, %57, %21
+  %.142 = phi i32 [ %22, %21 ], [ %38, %37 ], [ %58, %57 ], [ %spec.select, %9 ]
+  %.1 = phi i32 [ %15, %21 ], [ %27, %37 ], [ %43, %57 ], [ %.04058, %9 ]
+  %60 = add nsw i32 %.1, 1
+  %61 = icmp slt i32 %60, %1
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %59, %16, %14, %32, %28, %26, %52, %48, %44, %42, %39, %2
+  %.041.lcssa = phi i32 [ 0, %2 ], [ %.04157, %39 ], [ %.04157, %42 ], [ %.04157, %44 ], [ %.04157, %48 ], [ %.04157, %52 ], [ %.04157, %26 ], [ %.04157, %28 ], [ %.04157, %32 ], [ %.04157, %14 ], [ %.04157, %16 ], [ %.142, %59 ]
+  %.040.lcssa = phi i32 [ 0, %2 ], [ %.04058, %39 ], [ %.04058, %42 ], [ %.04058, %44 ], [ %.04058, %48 ], [ %.04058, %52 ], [ %.04058, %26 ], [ %.04058, %28 ], [ %.04058, %32 ], [ %.04058, %14 ], [ %.04058, %16 ], [ %60, %59 ]
   %.not56 = icmp eq i32 %.040.lcssa, %1
   %.041. = select i1 %.not56, i32 %.041.lcssa, i32 %1
   ret i32 %.041.
@@ -305,9 +311,9 @@ define hidden i32 @utf8mToUtf8sLength(ptr nocapture noundef readonly %0, i32 nou
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %60
-  %.05270 = phi i32 [ %.2, %60 ], [ 0, %2 ]
-  %.05369 = phi i32 [ %61, %60 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %64
+  %.05270 = phi i32 [ %.2, %64 ], [ 0, %2 ]
+  %.05369 = phi i32 [ %65, %64 ], [ 0, %2 ]
   %4 = sext i32 %.05369 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -317,12 +323,12 @@ define hidden i32 @utf8mToUtf8sLength(ptr nocapture noundef readonly %0, i32 nou
 
 9:                                                ; preds = %.lr.ph
   %10 = add nsw i32 %.05270, 1
-  br label %60
+  br label %64
 
 11:                                               ; preds = %.lr.ph
   %12 = and i32 %7, 224
   %13 = icmp eq i32 %12, 192
-  br i1 %13, label %14, label %27
+  br i1 %13, label %14, label %28
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %.05369, 1
@@ -333,91 +339,95 @@ define hidden i32 @utf8mToUtf8sLength(ptr nocapture noundef readonly %0, i32 nou
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
-  %.not65 = icmp slt i8 %19, -64
-  br i1 %.not65, label %20, label %._crit_edge
+  %20 = and i8 %19, -64
+  %.not65 = icmp eq i8 %20, -128
+  br i1 %.not65, label %21, label %._crit_edge
 
-20:                                               ; preds = %16
-  %21 = icmp ne i8 %6, -64
-  %22 = icmp ne i8 %19, -128
-  %or.cond = or i1 %21, %22
-  br i1 %or.cond, label %23, label %25
+21:                                               ; preds = %16
+  %22 = icmp ne i8 %6, -64
+  %23 = icmp ne i8 %19, -128
+  %or.cond = or i1 %22, %23
+  br i1 %or.cond, label %24, label %26
 
-23:                                               ; preds = %20
-  %24 = add nsw i32 %.05270, 2
-  br label %60
+24:                                               ; preds = %21
+  %25 = add nsw i32 %.05270, 2
+  br label %64
 
-25:                                               ; preds = %20
-  %26 = add nsw i32 %.05270, 1
-  br label %60
+26:                                               ; preds = %21
+  %27 = add nsw i32 %.05270, 1
+  br label %64
 
-27:                                               ; preds = %11
-  %28 = and i32 %7, 240
-  %29 = icmp eq i32 %28, 224
-  br i1 %29, label %30, label %._crit_edge
+28:                                               ; preds = %11
+  %29 = and i32 %7, 240
+  %30 = icmp eq i32 %29, 224
+  br i1 %30, label %31, label %._crit_edge
 
-30:                                               ; preds = %27
-  %31 = add nsw i32 %.05369, 2
-  %.not = icmp slt i32 %31, %1
-  br i1 %.not, label %32, label %._crit_edge
+31:                                               ; preds = %28
+  %32 = add nsw i32 %.05369, 2
+  %.not = icmp slt i32 %32, %1
+  br i1 %.not, label %33, label %._crit_edge
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   %gep = getelementptr i8, ptr %invariant.gep, i64 %4
-  %33 = load i8, ptr %gep, align 1
-  %.not61 = icmp slt i8 %33, -64
-  br i1 %.not61, label %34, label %._crit_edge
+  %34 = load i8, ptr %gep, align 1
+  %35 = and i8 %34, -64
+  %.not61 = icmp eq i8 %35, -128
+  br i1 %.not61, label %36, label %._crit_edge
 
-34:                                               ; preds = %32
-  %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %.not62 = icmp slt i8 %37, -64
-  br i1 %.not62, label %38, label %._crit_edge
+36:                                               ; preds = %33
+  %37 = sext i32 %32 to i64
+  %38 = getelementptr inbounds i8, ptr %0, i64 %37
+  %39 = load i8, ptr %38, align 1
+  %40 = and i8 %39, -64
+  %.not62 = icmp eq i8 %40, -128
+  br i1 %.not62, label %41, label %._crit_edge
 
-38:                                               ; preds = %34
-  %39 = add nsw i32 %.05270, 3
-  %40 = add nsw i32 %.05369, 5
-  %41 = icmp slt i32 %40, %1
-  %42 = icmp eq i8 %6, -19
-  %or.cond3 = and i1 %41, %42
-  %43 = and i8 %33, -80
-  %44 = icmp eq i8 %43, -96
-  %or.cond68 = and i1 %or.cond3, %44
-  br i1 %or.cond68, label %45, label %60
+41:                                               ; preds = %36
+  %42 = add nsw i32 %.05270, 3
+  %43 = add nsw i32 %.05369, 5
+  %44 = icmp slt i32 %43, %1
+  %45 = icmp eq i8 %6, -19
+  %or.cond3 = and i1 %44, %45
+  %46 = and i8 %34, -80
+  %47 = icmp eq i8 %46, -96
+  %or.cond68 = and i1 %or.cond3, %47
+  br i1 %or.cond68, label %48, label %64
 
-45:                                               ; preds = %38
-  %46 = getelementptr i8, ptr %5, i64 3
-  %47 = load i8, ptr %46, align 1
-  %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+48:                                               ; preds = %41
+  %49 = getelementptr i8, ptr %5, i64 3
   %50 = load i8, ptr %49, align 1
-  %51 = icmp eq i8 %47, -19
-  br i1 %51, label %52, label %60
+  %51 = sext i32 %43 to i64
+  %52 = getelementptr inbounds i8, ptr %0, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %50, -19
+  br i1 %54, label %55, label %64
 
-52:                                               ; preds = %45
-  %53 = getelementptr i8, ptr %5, i64 4
-  %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, -16
-  %56 = icmp eq i8 %55, -80
-  br i1 %56, label %57, label %60
+55:                                               ; preds = %48
+  %56 = getelementptr i8, ptr %5, i64 4
+  %57 = load i8, ptr %56, align 1
+  %58 = and i8 %57, -16
+  %59 = icmp eq i8 %58, -80
+  br i1 %59, label %60, label %64
 
-57:                                               ; preds = %52
-  %.not63 = icmp slt i8 %50, -64
-  br i1 %.not63, label %58, label %._crit_edge
+60:                                               ; preds = %55
+  %61 = and i8 %53, -64
+  %.not63 = icmp eq i8 %61, -128
+  br i1 %.not63, label %62, label %._crit_edge
 
-58:                                               ; preds = %57
-  %59 = add nsw i32 %.05270, 4
-  br label %60
+62:                                               ; preds = %60
+  %63 = add nsw i32 %.05270, 4
+  br label %64
 
-60:                                               ; preds = %9, %45, %52, %58, %38, %23, %25
-  %.255 = phi i32 [ %.05369, %9 ], [ %15, %23 ], [ %15, %25 ], [ %40, %58 ], [ %31, %52 ], [ %31, %45 ], [ %31, %38 ]
-  %.2 = phi i32 [ %10, %9 ], [ %24, %23 ], [ %26, %25 ], [ %59, %58 ], [ %39, %52 ], [ %39, %45 ], [ %39, %38 ]
-  %61 = add nsw i32 %.255, 1
-  %62 = icmp slt i32 %61, %1
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+64:                                               ; preds = %9, %48, %55, %62, %41, %24, %26
+  %.255 = phi i32 [ %.05369, %9 ], [ %15, %24 ], [ %15, %26 ], [ %43, %62 ], [ %32, %55 ], [ %32, %48 ], [ %32, %41 ]
+  %.2 = phi i32 [ %10, %9 ], [ %25, %24 ], [ %27, %26 ], [ %63, %62 ], [ %42, %55 ], [ %42, %48 ], [ %42, %41 ]
+  %65 = add nsw i32 %.255, 1
+  %66 = icmp slt i32 %65, %1
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %60, %16, %14, %34, %32, %30, %57, %27, %2
-  %.154 = phi i32 [ 0, %2 ], [ %.05369, %27 ], [ %31, %57 ], [ %.05369, %30 ], [ %.05369, %32 ], [ %.05369, %34 ], [ %.05369, %14 ], [ %.05369, %16 ], [ %61, %60 ]
-  %.1 = phi i32 [ 0, %2 ], [ %.05270, %27 ], [ %39, %57 ], [ %.05270, %30 ], [ %.05270, %32 ], [ %.05270, %34 ], [ %.05270, %14 ], [ %.05270, %16 ], [ %.2, %60 ]
+._crit_edge:                                      ; preds = %64, %16, %14, %36, %33, %31, %60, %28, %2
+  %.154 = phi i32 [ 0, %2 ], [ %.05369, %28 ], [ %32, %60 ], [ %.05369, %31 ], [ %.05369, %33 ], [ %.05369, %36 ], [ %.05369, %14 ], [ %.05369, %16 ], [ %65, %64 ]
+  %.1 = phi i32 [ 0, %2 ], [ %.05270, %28 ], [ %42, %60 ], [ %.05270, %31 ], [ %.05270, %33 ], [ %.05270, %36 ], [ %.05270, %14 ], [ %.05270, %16 ], [ %.2, %64 ]
   %.not66 = icmp eq i32 %.154, %1
   %.1. = select i1 %.not66, i32 %.1, i32 %1
   ret i32 %.1.

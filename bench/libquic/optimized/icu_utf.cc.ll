@@ -133,7 +133,8 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %count.065 = phi i8 [ %2, %land.rhs.lr.ph ], [ %dec, %while.body ]
   %arrayidx63 = getelementptr inbounds i8, ptr %s, i64 %indvars.iv
   %18 = load i8, ptr %arrayidx63, align 1
-  %cmp66 = icmp slt i8 %18, -64
+  %19 = and i8 %18, -64
+  %cmp66 = icmp eq i8 %19, -128
   br i1 %cmp66, label %while.body, label %while.end.loopexit.split.loop.exit76
 
 while.body:                                       ; preds = %land.rhs
@@ -143,12 +144,12 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp61.not, label %while.end, label %land.rhs, !llvm.loop !5
 
 while.end.loopexit.split.loop.exit76:             ; preds = %land.rhs
-  %19 = trunc nsw i64 %indvars.iv to i32
+  %20 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit76, %if.then59
   %count.0.lcssa = phi i8 [ %2, %if.then59 ], [ %count.065, %while.end.loopexit.split.loop.exit76 ], [ 0, %while.body ]
-  %i.3.lcssa = phi i32 [ %0, %if.then59 ], [ %19, %while.end.loopexit.split.loop.exit76 ], [ %17, %while.body ]
+  %i.3.lcssa = phi i32 [ %0, %if.then59 ], [ %20, %while.end.loopexit.split.loop.exit76 ], [ %17, %while.body ]
   %cmp69 = icmp sgt i8 %strict, -1
   br i1 %cmp69, label %if.then70, label %if.end116
 
@@ -178,8 +179,9 @@ lor.lhs.false85:                                  ; preds = %land.lhs.true83
 land.rhs98:                                       ; preds = %land.rhs98.preheader, %while.body105
   %indvars.iv73 = phi i64 [ %3, %land.rhs98.preheader ], [ %indvars.iv.next74, %while.body105 ]
   %arrayidx100 = getelementptr inbounds i8, ptr %s, i64 %indvars.iv73
-  %20 = load i8, ptr %arrayidx100, align 1
-  %cmp103 = icmp slt i8 %20, -64
+  %21 = load i8, ptr %arrayidx100, align 1
+  %22 = and i8 %21, -64
+  %cmp103 = icmp eq i8 %22, -128
   br i1 %cmp103, label %while.body105, label %while.end107.loopexit.split.loop.exit79
 
 while.body105:                                    ; preds = %land.rhs98
@@ -189,11 +191,11 @@ while.body105:                                    ; preds = %land.rhs98
   br i1 %exitcond.not, label %while.end107, label %land.rhs98, !llvm.loop !7
 
 while.end107.loopexit.split.loop.exit79:          ; preds = %land.rhs98
-  %21 = trunc nsw i64 %indvars.iv73 to i32
+  %23 = trunc nsw i64 %indvars.iv73 to i32
   br label %while.end107
 
 while.end107:                                     ; preds = %while.body105, %while.end107.loopexit.split.loop.exit79, %while.cond96.preheader
-  %i.5.lcssa = phi i32 [ %0, %while.cond96.preheader ], [ %21, %while.end107.loopexit.split.loop.exit79 ], [ %length, %while.body105 ]
+  %i.5.lcssa = phi i32 [ %0, %while.cond96.preheader ], [ %23, %while.end107.loopexit.split.loop.exit79 ], [ %length, %while.body105 ]
   %cmp109 = icmp sgt i8 %strict, -1
   br i1 %cmp109, label %if.then110, label %if.end116
 
@@ -206,12 +208,12 @@ if.end116.sink.split:                             ; preds = %lor.lhs.false85, %l
   %idxprom112.sink = phi i64 [ %idxprom112, %if.then110 ], [ %idxprom74, %if.then70 ], [ %idxprom51, %land.lhs.true83 ], [ %idxprom51, %lor.lhs.false85 ]
   %i.4.ph = phi i32 [ %i.5.lcssa, %if.then110 ], [ %i.3.lcssa, %if.then70 ], [ %i.061, %land.lhs.true83 ], [ %i.061, %lor.lhs.false85 ]
   %arrayidx113 = getelementptr inbounds [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %idxprom112.sink
-  %22 = load i32, ptr %arrayidx113, align 4
+  %24 = load i32, ptr %arrayidx113, align 4
   br label %if.end116
 
 if.end116:                                        ; preds = %if.end116.sink.split, %while.end107, %while.end, %lor.lhs.false85, %if.else78
   %i.4 = phi i32 [ %i.061, %lor.lhs.false85 ], [ %i.061, %if.else78 ], [ %i.3.lcssa, %while.end ], [ %i.5.lcssa, %while.end107 ], [ %i.4.ph, %if.end116.sink.split ]
-  %c.addr.3 = phi i32 [ %c.addr.062, %lor.lhs.false85 ], [ %c.addr.062, %if.else78 ], [ -1, %while.end ], [ -1, %while.end107 ], [ %22, %if.end116.sink.split ]
+  %c.addr.3 = phi i32 [ %c.addr.062, %lor.lhs.false85 ], [ %c.addr.062, %if.else78 ], [ -1, %while.end ], [ -1, %while.end107 ], [ %24, %if.end116.sink.split ]
   store i32 %i.4, ptr %pi, align 4
   br label %return
 

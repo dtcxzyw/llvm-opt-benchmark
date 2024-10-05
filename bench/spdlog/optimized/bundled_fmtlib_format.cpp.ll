@@ -35921,7 +35921,8 @@ for.body.i:                                       ; preds = %land.lhs.true, %for
   %num_code_points.07.i = phi i64 [ %num_code_points.1.i, %for.inc.i ], [ 0, %land.lhs.true ]
   %arrayidx.i = getelementptr inbounds i8, ptr %s.coerce0, i64 %i.08.i
   %1 = load i8, ptr %arrayidx.i, align 1
-  %cmp2.not.i = icmp slt i8 %1, -64
+  %2 = and i8 %1, -64
+  %cmp2.not.i = icmp eq i8 %2, -128
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -35938,10 +35939,10 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 if.end:                                           ; preds = %for.inc.i, %land.lhs.true.i, %land.lhs.true, %entry
   %size.0 = phi i64 [ %s.coerce1, %land.lhs.true ], [ %s.coerce1, %entry ], [ %i.08.i, %land.lhs.true.i ], [ %s.coerce1, %for.inc.i ]
   %type = getelementptr inbounds i8, ptr %specs, i64 8
-  %2 = load i8, ptr %type, align 4
-  %cmp10 = icmp eq i8 %2, 18
-  %3 = load i32, ptr %specs, align 4
-  %cmp12.not = icmp eq i32 %3, 0
+  %3 = load i8, ptr %type, align 4
+  %cmp10 = icmp eq i8 %3, 18
+  %4 = load i32, ptr %specs, align 4
+  %cmp12.not = icmp eq i32 %4, 0
   br i1 %cmp12.not, label %if.end24, label %if.then13
 
 if.then13:                                        ; preds = %if.end
@@ -36009,22 +36010,22 @@ if.end21.i.i:                                     ; preds = %do.body.i.i
 _ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i.i, %do.body.i.i, %if.end21.i.i, %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %decode.i.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %buf.i.i)
-  %4 = load i64, ptr %num_code_points.i, align 8
+  %5 = load i64, ptr %num_code_points.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_code_points.i)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then14, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, %if.end
-  %width.0 = phi i64 [ %call18, %if.then14 ], [ %4, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit ], [ 0, %if.end ]
+  %width.0 = phi i64 [ %call18, %if.then14 ], [ %5, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit ], [ 0, %if.end ]
   %frombool = zext i1 %cmp10 to i8
   store i8 %frombool, ptr %ref.tmp26, align 8
-  %5 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
-  store ptr %s.coerce0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
+  store ptr %s.coerce0, ptr %6, align 8
   %s.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
   store i64 %s.coerce1, ptr %s.sroa.5.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp26, i64 24
-  store ptr %s.coerce0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %ref.tmp26, i64 32
-  store i64 %size.0, ptr %7, align 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp26, i64 24
+  store ptr %s.coerce0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %ref.tmp26, i64 32
+  store i64 %size.0, ptr %8, align 8
   %call31 = call ptr @_ZN3fmt2v96detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcZNS1_5writeIcS5_EET0_S7_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS9_EEEUlS5_E_EES7_S7_RKNSB_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size.0, i64 noundef %width.0, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp26)
   ret ptr %call31
 }

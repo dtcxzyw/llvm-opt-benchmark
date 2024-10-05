@@ -118,20 +118,20 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -2
   %9 = icmp eq i8 %8, 4
-  br i1 %9, label %10, label %212
+  br i1 %9, label %10, label %213
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 216) #11
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %212, label %14
+  br i1 %13, label %213, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %0, i64 -432
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @blk_mq_alloc_disk_for_queue(ptr noundef %16, ptr noundef nonnull @sr_bio_compl_lkclass) #10
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %210, label %19
+  br i1 %18, label %211, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %12, i64 176
@@ -140,7 +140,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   %21 = tail call i64 @_find_first_zero_bit(ptr noundef nonnull @sr_index_bits, i64 noundef 256) #10
   %22 = trunc i64 %21 to i32
   %23 = icmp eq i32 %22, 256
-  br i1 %23, label %208, label %24
+  br i1 %23, label %209, label %24
 
 24:                                               ; preds = %19
   %25 = shl i64 %21, 32
@@ -200,7 +200,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   %55 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 3264, i64 noundef 512) #11
   %56 = icmp eq ptr %55, null
   %57 = load ptr, ptr %38, align 8
-  br i1 %56, label %191, label %58
+  br i1 %56, label %192, label %58
 
 58:                                               ; preds = %24
   %59 = call i32 @scsi_test_unit_ready(ptr noundef %57, i32 noundef 30000, i32 noundef 3, ptr noundef nonnull %3) #10
@@ -234,7 +234,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   call void @kfree(ptr noundef nonnull %55) #10
   %79 = load ptr, ptr %38, align 8
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.16, ptr noundef %79, ptr noundef %51, ptr noundef nonnull @.str.17) #10
-  br label %192
+  br label %193
 
 80:                                               ; preds = %66
   %81 = zext nneg i32 %73 to i64
@@ -369,105 +369,106 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   br label %174
 
 174:                                              ; preds = %171, %168
-  %175 = icmp slt i8 %131, -64
-  br i1 %175, label %176, label %thread-pre-split
+  %175 = and i8 %131, -64
+  %176 = icmp eq i8 %175, -128
+  br i1 %176, label %177, label %thread-pre-split
 
-176:                                              ; preds = %174
-  %177 = call i32 @cdrom_number_of_slots(ptr noundef %47) #10
-  store i32 %177, ptr %50, align 8
-  br label %178
+177:                                              ; preds = %174
+  %178 = call i32 @cdrom_number_of_slots(ptr noundef %47) #10
+  store i32 %178, ptr %50, align 8
+  br label %179
 
 thread-pre-split:                                 ; preds = %174
   %.pr = load i32, ptr %50, align 8
-  br label %178
+  br label %179
 
-178:                                              ; preds = %thread-pre-split, %176
-  %179 = phi i32 [ %.pr, %thread-pre-split ], [ %177, %176 ]
-  %180 = icmp slt i32 %179, 2
+179:                                              ; preds = %thread-pre-split, %177
+  %180 = phi i32 [ %.pr, %thread-pre-split ], [ %178, %177 ]
+  %181 = icmp slt i32 %180, 2
   %.pre = load i32, ptr %49, align 8
-  br i1 %180, label %181, label %183
+  br i1 %181, label %182, label %184
 
-181:                                              ; preds = %178
-  %182 = or i32 %.pre, 16
-  store i32 %182, ptr %49, align 8
-  br label %183
+182:                                              ; preds = %179
+  %183 = or i32 %.pre, 16
+  store i32 %183, ptr %49, align 8
+  br label %184
 
-183:                                              ; preds = %181, %178
-  %184 = phi i32 [ %182, %181 ], [ %.pre, %178 ]
-  %185 = and i32 %184, 3293184
-  %186 = icmp eq i32 %185, 3293184
-  br i1 %186, label %190, label %187
+184:                                              ; preds = %182, %179
+  %185 = phi i32 [ %183, %182 ], [ %.pre, %179 ]
+  %186 = and i32 %185, 3293184
+  %187 = icmp eq i32 %186, 3293184
+  br i1 %187, label %191, label %188
 
-187:                                              ; preds = %183
-  %188 = load i8, ptr %43, align 8
-  %189 = or i8 %188, 1
-  store i8 %189, ptr %43, align 8
-  br label %190
+188:                                              ; preds = %184
+  %189 = load i8, ptr %43, align 8
+  %190 = or i8 %189, 1
+  store i8 %190, ptr %43, align 8
+  br label %191
 
-190:                                              ; preds = %187, %183
+191:                                              ; preds = %188, %184
   call void @kfree(ptr noundef nonnull %55) #10
-  br label %192
+  br label %193
 
-191:                                              ; preds = %24
+192:                                              ; preds = %24
   tail call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.14, ptr noundef %57, ptr noundef %51, ptr noundef nonnull @.str.15) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #10
-  br label %206
+  br label %207
 
-192:                                              ; preds = %190, %75
+193:                                              ; preds = %191, %75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #10
   call void @sr_vendor_init(ptr noundef nonnull %12) #10
-  %193 = load i32, ptr %12, align 8
-  %194 = zext i32 %193 to i64
-  call void @set_capacity(ptr noundef nonnull %17, i64 noundef %194) #10
-  %195 = getelementptr inbounds i8, ptr %17, i64 88
-  store ptr %12, ptr %195, align 8
-  %196 = call i32 @register_cdrom(ptr noundef nonnull %17, ptr noundef %47) #10
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %206
+  %194 = load i32, ptr %12, align 8
+  %195 = zext i32 %194 to i64
+  call void @set_capacity(ptr noundef nonnull %17, i64 noundef %195) #10
+  %196 = getelementptr inbounds i8, ptr %17, i64 88
+  store ptr %12, ptr %196, align 8
+  %197 = call i32 @register_cdrom(ptr noundef nonnull %17, ptr noundef %47) #10
+  %198 = icmp eq i32 %197, 0
+  br i1 %198, label %199, label %207
 
-198:                                              ; preds = %192
-  %199 = load ptr, ptr %15, align 8
-  call void @blk_pm_runtime_init(ptr noundef %199, ptr noundef %0) #10
-  %200 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %12, ptr %200, align 8
+199:                                              ; preds = %193
+  %200 = load ptr, ptr %15, align 8
+  call void @blk_pm_runtime_init(ptr noundef %200, ptr noundef %0) #10
+  %201 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %12, ptr %201, align 8
   call fastcc void @sr_revalidate_disk(ptr noundef nonnull %12)
-  %201 = call i32 @device_add_disk(ptr noundef %0, ptr noundef nonnull %17, ptr noundef null) #10
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %205
+  %202 = call i32 @device_add_disk(ptr noundef %0, ptr noundef nonnull %17, ptr noundef null) #10
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %206
 
-203:                                              ; preds = %198
+204:                                              ; preds = %199
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %51) #10
-  %204 = load ptr, ptr %38, align 8
-  br label %212
+  %205 = load ptr, ptr %38, align 8
+  br label %213
 
-205:                                              ; preds = %198
+206:                                              ; preds = %199
   call void @unregister_cdrom(ptr noundef %47) #10
-  br label %206
+  br label %207
 
-206:                                              ; preds = %191, %205, %192
-  %207 = phi i32 [ -12, %191 ], [ -12, %192 ], [ %201, %205 ]
+207:                                              ; preds = %192, %206, %193
+  %208 = phi i32 [ -12, %192 ], [ -12, %193 ], [ %202, %206 ]
   call void @_raw_spin_lock(ptr noundef nonnull @sr_index_lock) #10
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @sr_index_bits, i64 %26) #10, !srcloc !7
-  br label %208
+  br label %209
 
-208:                                              ; preds = %206, %19
-  %209 = phi i32 [ %207, %206 ], [ -16, %19 ]
+209:                                              ; preds = %207, %19
+  %210 = phi i32 [ %208, %207 ], [ -16, %19 ]
   call void @_raw_spin_unlock(ptr noundef nonnull @sr_index_lock) #10
   call void @put_disk(ptr noundef nonnull %17) #10
-  br label %210
+  br label %211
 
-210:                                              ; preds = %208, %14
-  %211 = phi i32 [ %209, %208 ], [ -12, %14 ]
+211:                                              ; preds = %209, %14
+  %212 = phi i32 [ %210, %209 ], [ -12, %14 ]
   call void @kfree(ptr noundef nonnull %12) #10
-  br label %212
+  br label %213
 
-212:                                              ; preds = %210, %203, %10, %1
-  %213 = phi ptr [ %204, %203 ], [ %4, %1 ], [ %4, %10 ], [ %4, %210 ]
-  %214 = phi i32 [ 0, %203 ], [ -19, %1 ], [ -12, %10 ], [ %211, %210 ]
-  call void @scsi_autopm_put_device(ptr noundef %213) #10
-  ret i32 %214
+213:                                              ; preds = %211, %204, %10, %1
+  %214 = phi ptr [ %205, %204 ], [ %4, %1 ], [ %4, %10 ], [ %4, %211 ]
+  %215 = phi i32 [ 0, %204 ], [ -19, %1 ], [ -12, %10 ], [ %212, %211 ]
+  call void @scsi_autopm_put_device(ptr noundef %214) #10
+  ret i32 %215
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

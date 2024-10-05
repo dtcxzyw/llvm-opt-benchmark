@@ -915,8 +915,9 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   br label %dissect_mausb_mgmt_pkt_flds.exit
 
 133:                                              ; preds = %dissect_mausb_pkt_common.exit
-  %134 = icmp sgt i8 %25, -65
-  br i1 %134, label %dissect_mausb_mgmt_pkt_flds.exit, label %135
+  %134 = and i8 %25, -64
+  %.not = icmp eq i8 %134, -128
+  br i1 %.not, label %135, label %dissect_mausb_mgmt_pkt_flds.exit
 
 135:                                              ; preds = %133
   %136 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #6
@@ -1020,8 +1021,8 @@ dissect_mausb_pkt_data.exit.sink.split:           ; preds = %156, %194
   br label %dissect_mausb_pkt_data.exit
 
 dissect_mausb_pkt_data.exit:                      ; preds = %dissect_mausb_pkt_data.exit.sink.split, %193
-  %.not = icmp eq i8 %25, -126
-  br i1 %.not, label %dissect_mausb_mgmt_pkt_flds.exit, label %199
+  %.not43 = icmp eq i8 %25, -126
+  br i1 %.not43, label %dissect_mausb_mgmt_pkt_flds.exit, label %199
 
 199:                                              ; preds = %dissect_mausb_pkt_data.exit
   call void @dissect_usb_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %5) #6

@@ -128,8 +128,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_khmx16P11p
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 659712
   %34 = trunc i64 %28 to i32
+  %sext = and i32 %34, -65536
   %35 = trunc i64 %32 to i32
-  %36 = icmp sgt i32 %34, -2147418113
+  %36 = icmp ne i32 %sext, -2147483648
   %37 = shl i32 %35, 16
   %38 = icmp ne i32 %37, -2147483648
   %39 = or i1 %36, %38
@@ -154,9 +155,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_khmx16P11p
   %.070 = phi i64 [ %46, %40 ], [ 2147418112, %47 ]
   %50 = trunc i64 %28 to i32
   %51 = trunc i64 %32 to i32
+  %sext77 = and i32 %51, -65536
   %52 = shl i32 %50, 16
   %53 = icmp ne i32 %52, -2147483648
-  %54 = icmp sgt i32 %51, -2147418113
+  %54 = icmp ne i32 %sext77, -2147483648
   %55 = or i1 %53, %54
   br i1 %55, label %56, label %63
 
@@ -434,8 +436,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_khmx16P1
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 659712
   %34 = trunc i64 %28 to i32
+  %sext = and i32 %34, -65536
   %35 = trunc i64 %32 to i32
-  %36 = icmp sgt i32 %34, -2147418113
+  %36 = icmp ne i32 %sext, -2147483648
   %37 = shl i32 %35, 16
   %38 = icmp ne i32 %37, -2147483648
   %39 = or i1 %36, %38
@@ -460,9 +463,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_khmx16P1
   %.073 = phi i64 [ %46, %40 ], [ 2147418112, %47 ]
   %50 = trunc i64 %28 to i32
   %51 = trunc i64 %32 to i32
+  %sext80 = and i32 %51, -65536
   %52 = shl i32 %50, 16
   %53 = icmp ne i32 %52, -2147483648
-  %54 = icmp sgt i32 %51, -2147418113
+  %54 = icmp ne i32 %sext80, -2147483648
   %55 = or i1 %53, %54
   br i1 %55, label %56, label %63
 
@@ -882,8 +886,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_khmx16P11p
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = trunc i64 %42 to i32
+  %sext = and i32 %55, -65536
   %56 = trunc i64 %53 to i32
-  %57 = icmp sgt i32 %55, -2147418113
+  %57 = icmp ne i32 %sext, -2147483648
   %58 = shl i32 %56, 16
   %59 = icmp ne i32 %58, -2147483648
   %60 = or i1 %57, %59
@@ -908,9 +913,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_khmx16P11p
   %.077 = phi i64 [ %67, %61 ], [ 2147418112, %68 ]
   %71 = trunc i64 %42 to i32
   %72 = trunc i64 %53 to i32
+  %sext85 = and i32 %72, -65536
   %73 = shl i32 %71, 16
   %74 = icmp ne i32 %73, -2147483648
-  %75 = icmp sgt i32 %72, -2147418113
+  %75 = icmp ne i32 %sext85, -2147483648
   %76 = or i1 %74, %75
   br i1 %76, label %77, label %84
 
@@ -1264,8 +1270,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_khmx16P1
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 659712
   %55 = trunc i64 %42 to i32
+  %sext = and i32 %55, -65536
   %56 = trunc i64 %53 to i32
-  %57 = icmp sgt i32 %55, -2147418113
+  %57 = icmp ne i32 %sext, -2147483648
   %58 = shl i32 %56, 16
   %59 = icmp ne i32 %58, -2147483648
   %60 = or i1 %57, %59
@@ -1290,9 +1297,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_khmx16P1
   %.081 = phi i64 [ %67, %61 ], [ 2147418112, %68 ]
   %71 = trunc i64 %42 to i32
   %72 = trunc i64 %53 to i32
+  %sext88 = and i32 %72, -65536
   %73 = shl i32 %71, 16
   %74 = icmp ne i32 %73, -2147483648
-  %75 = icmp sgt i32 %72, -2147418113
+  %75 = icmp ne i32 %sext88, -2147483648
   %76 = or i1 %74, %75
   br i1 %76, label %77, label %84
 

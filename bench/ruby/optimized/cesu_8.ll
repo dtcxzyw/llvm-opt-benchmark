@@ -542,72 +542,74 @@ define internal i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #5 {
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %.preheader32, label %40
+  br i1 %.not, label %.preheader32, label %42
 
 .preheader32:                                     ; preds = %4, %.preheader32
-  %.024 = phi ptr [ %8, %.preheader32 ], [ %1, %4 ]
+  %.024 = phi ptr [ %9, %.preheader32 ], [ %1, %4 ]
   %5 = load i8, ptr %.024, align 1
-  %.not28 = icmp slt i8 %5, -64
-  %6 = icmp ugt ptr %.024, %0
-  %7 = and i1 %6, %.not28
-  %8 = getelementptr inbounds i8, ptr %.024, i64 -1
-  br i1 %7, label %.preheader32, label %9, !llvm.loop !6
+  %6 = and i8 %5, -64
+  %.not28 = icmp eq i8 %6, -128
+  %7 = icmp ugt ptr %.024, %0
+  %8 = and i1 %7, %.not28
+  %9 = getelementptr inbounds i8, ptr %.024, i64 -1
+  br i1 %8, label %.preheader32, label %10, !llvm.loop !6
 
-9:                                                ; preds = %.preheader32
-  br i1 %6, label %10, label %39
+10:                                               ; preds = %.preheader32
+  br i1 %7, label %11, label %41
 
-10:                                               ; preds = %9
-  %11 = ptrtoint ptr %1 to i64
-  %12 = ptrtoint ptr %.024 to i64
-  %13 = sub i64 %11, %12
-  %14 = icmp eq i64 %13, 2
-  br i1 %14, label %15, label %39
+11:                                               ; preds = %10
+  %12 = ptrtoint ptr %1 to i64
+  %13 = ptrtoint ptr %.024 to i64
+  %14 = sub i64 %12, %13
+  %15 = icmp eq i64 %14, 2
+  br i1 %15, label %16, label %41
 
-15:                                               ; preds = %10
-  %16 = zext i8 %5 to i32
-  %17 = shl nuw nsw i32 %16, 12
-  %18 = getelementptr inbounds i8, ptr %.024, i64 1
-  %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 48
-  %21 = zext nneg i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 6
-  %.masked = and i32 %17, 61440
-  %.mask = or disjoint i32 %22, %.masked
-  %23 = icmp eq i32 %.mask, 56320
-  br i1 %23, label %.preheader, label %39
+16:                                               ; preds = %11
+  %17 = zext i8 %5 to i32
+  %18 = shl nuw nsw i32 %17, 12
+  %19 = getelementptr inbounds i8, ptr %.024, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = and i8 %20, 48
+  %22 = zext nneg i8 %21 to i32
+  %23 = shl nuw nsw i32 %22, 6
+  %.masked = and i32 %18, 61440
+  %.mask = or disjoint i32 %23, %.masked
+  %24 = icmp eq i32 %.mask, 56320
+  br i1 %24, label %.preheader, label %41
 
-.preheader:                                       ; preds = %15, %.preheader
-  %.024.pn = phi ptr [ %.0, %.preheader ], [ %.024, %15 ]
+.preheader:                                       ; preds = %16, %.preheader
+  %.024.pn = phi ptr [ %.0, %.preheader ], [ %.024, %16 ]
   %.0 = getelementptr inbounds i8, ptr %.024.pn, i64 -1
-  %24 = load i8, ptr %.0, align 1
-  %.not29 = icmp slt i8 %24, -64
-  %25 = icmp ugt ptr %.0, %0
-  %26 = and i1 %.not29, %25
-  br i1 %26, label %.preheader, label %27, !llvm.loop !8
+  %25 = load i8, ptr %.0, align 1
+  %26 = and i8 %25, -64
+  %.not29 = icmp eq i8 %26, -128
+  %27 = icmp ugt ptr %.0, %0
+  %28 = and i1 %27, %.not29
+  br i1 %28, label %.preheader, label %29, !llvm.loop !8
 
-27:                                               ; preds = %.preheader
-  %28 = ptrtoint ptr %.0 to i64
-  %29 = sub i64 %12, %28
-  %30 = icmp eq i64 %29, 3
-  br i1 %30, label %31, label %39
+29:                                               ; preds = %.preheader
+  %30 = ptrtoint ptr %.0 to i64
+  %31 = sub i64 %13, %30
+  %32 = icmp eq i64 %31, 3
+  br i1 %32, label %33, label %41
 
-31:                                               ; preds = %27
-  %32 = zext i8 %24 to i32
-  %33 = shl nuw nsw i32 %32, 12
-  %34 = load i8, ptr %.024.pn, align 1
-  %35 = and i8 %34, 48
-  %36 = zext nneg i8 %35 to i32
-  %37 = shl nuw nsw i32 %36, 6
-  %.masked31 = and i32 %33, 61440
-  %.mask30 = or disjoint i32 %37, %.masked31
-  %38 = icmp eq i32 %.mask30, 55296
-  br i1 %38, label %40, label %39
+33:                                               ; preds = %29
+  %34 = zext i8 %25 to i32
+  %35 = shl nuw nsw i32 %34, 12
+  %36 = load i8, ptr %.024.pn, align 1
+  %37 = and i8 %36, 48
+  %38 = zext nneg i8 %37 to i32
+  %39 = shl nuw nsw i32 %38, 6
+  %.masked31 = and i32 %35, 61440
+  %.mask30 = or disjoint i32 %39, %.masked31
+  %40 = icmp eq i32 %.mask30, 55296
+  br i1 %40, label %42, label %41
 
-39:                                               ; preds = %27, %31, %15, %10, %9
-  br label %40
+41:                                               ; preds = %29, %33, %16, %11, %10
+  br label %42
 
-40:                                               ; preds = %31, %4, %39
-  %.025 = phi ptr [ %.024, %39 ], [ %1, %4 ], [ %.0, %31 ]
+42:                                               ; preds = %33, %4, %41
+  %.025 = phi ptr [ %.024, %41 ], [ %1, %4 ], [ %.0, %33 ]
   ret ptr %.025
 }
 
