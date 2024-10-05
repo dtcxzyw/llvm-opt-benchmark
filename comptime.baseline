@@ -465,7 +465,7 @@ abc/fxuReduce.c.ll 125086295
 abc/fxuSelect.c.ll 199998898
 abc/fxuSingle.c.ll 210332590
 abc/fxuUpdate.c.ll 246361221
-abc/giaAgi.c.ll 159819892
+abc/giaAgi.c.ll 159659976
 abc/giaAig.c.ll 658375473
 abc/giaAiger.c.ll 1748136368
 abc/giaAigerExt.c.ll 384557207
