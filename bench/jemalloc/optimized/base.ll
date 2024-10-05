@@ -191,7 +191,7 @@ entry:
   %add1 = add i64 %sub, %and
   %add2 = sub i64 0, %and
   %and3 = and i64 %add1, %add2
-  %add5 = add i64 %and, 143
+  %add5 = add i64 %alignment, 143
   %and8 = and i64 %add5, %add2
   %add11 = add i64 %and3, %and8
   %cmp.i43 = icmp ugt i64 %add11, 8070450532247928832
@@ -1086,8 +1086,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i27, %if.the
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %malloc_mutex_lock.exit
-  %sub.i = add nsw i64 %add4, -9
-  %shr.i = lshr i64 %sub.i, 3
+  %shr.i = lshr exact i64 %sub5, 3
   %arrayidx.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %conv.i33 = zext i8 %3 to i32

@@ -382,67 +382,67 @@ define noundef i32 @_ZN4Cube19FaceAdjacentToEdgesEii(i32 noundef %0, i32 noundef
   ]
 
 _ZN4Cube9FaceIndexEiii.exit.i:                    ; preds = %2
-  %7 = icmp eq i32 %6, 0
-  %spec.select.i = select i1 %7, i32 2, i32 3
-  %8 = icmp eq i32 %4, 0
-  %.0.i6.i = select i1 %8, i32 4, i32 5
+  %.not.not.i = icmp eq i32 %6, 0
+  %spec.select.i = select i1 %.not.not.i, i32 2, i32 3
+  %.not.not31.i = icmp eq i32 %4, 0
+  %.0.i6.i = select i1 %.not.not31.i, i32 4, i32 5
   br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
 
 _ZN4Cube9FaceIndexEiii.exit9.i:                   ; preds = %2
   %.lobit30.i = lshr exact i32 %6, 1
-  %9 = icmp eq i32 %4, 0
-  %.0.i12.i = select i1 %9, i32 4, i32 5
+  %7 = icmp eq i32 %4, 0
+  %.0.i12.i = select i1 %7, i32 4, i32 5
   br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
 
 _ZN4Cube9FaceIndexEiii.exit16.i:                  ; preds = %2
   %.lobit.i = lshr exact i32 %6, 1
-  %10 = icmp eq i32 %4, 0
-  %.0.i18.i = select i1 %10, i32 2, i32 3
+  %8 = icmp eq i32 %4, 0
+  %.0.i18.i = select i1 %8, i32 2, i32 3
   br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
 
 _ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit:        ; preds = %_ZN4Cube9FaceIndexEiii.exit.i, %_ZN4Cube9FaceIndexEiii.exit9.i, %_ZN4Cube9FaceIndexEiii.exit16.i, %2
-  %.128 = phi i32 [ undef, %2 ], [ %.lobit.i, %_ZN4Cube9FaceIndexEiii.exit16.i ], [ %.lobit30.i, %_ZN4Cube9FaceIndexEiii.exit9.i ], [ %spec.select.i, %_ZN4Cube9FaceIndexEiii.exit.i ]
-  %.026 = phi i32 [ undef, %2 ], [ %.0.i18.i, %_ZN4Cube9FaceIndexEiii.exit16.i ], [ %.0.i12.i, %_ZN4Cube9FaceIndexEiii.exit9.i ], [ %.0.i6.i, %_ZN4Cube9FaceIndexEiii.exit.i ]
-  %11 = ashr i32 %1, 2
-  %12 = and i32 %1, 2
-  %13 = shl i32 %1, 1
-  %14 = and i32 %13, 2
-  switch i32 %11, label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit18 [
+  %.130 = phi i32 [ undef, %2 ], [ %.lobit.i, %_ZN4Cube9FaceIndexEiii.exit16.i ], [ %.lobit30.i, %_ZN4Cube9FaceIndexEiii.exit9.i ], [ %spec.select.i, %_ZN4Cube9FaceIndexEiii.exit.i ]
+  %.028 = phi i32 [ undef, %2 ], [ %.0.i18.i, %_ZN4Cube9FaceIndexEiii.exit16.i ], [ %.0.i12.i, %_ZN4Cube9FaceIndexEiii.exit9.i ], [ %.0.i6.i, %_ZN4Cube9FaceIndexEiii.exit.i ]
+  %9 = ashr i32 %1, 2
+  %10 = and i32 %1, 2
+  %11 = shl i32 %1, 1
+  %12 = and i32 %11, 2
+  switch i32 %9, label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit20 [
     i32 0, label %_ZN4Cube9FaceIndexEiii.exit.i15
     i32 1, label %_ZN4Cube9FaceIndexEiii.exit9.i12
     i32 2, label %_ZN4Cube9FaceIndexEiii.exit16.i7
   ]
 
 _ZN4Cube9FaceIndexEiii.exit.i15:                  ; preds = %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
-  %15 = icmp eq i32 %14, 0
-  %spec.select.i16 = select i1 %15, i32 2, i32 3
-  %16 = icmp eq i32 %12, 0
-  %.0.i6.i17 = select i1 %16, i32 4, i32 5
-  br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit18
+  %.not.not.i16 = icmp eq i32 %12, 0
+  %spec.select.i17 = select i1 %.not.not.i16, i32 2, i32 3
+  %.not.not31.i18 = icmp eq i32 %10, 0
+  %.0.i6.i19 = select i1 %.not.not31.i18, i32 4, i32 5
+  br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit20
 
 _ZN4Cube9FaceIndexEiii.exit9.i12:                 ; preds = %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
-  %.lobit30.i13 = lshr exact i32 %14, 1
-  %17 = icmp eq i32 %12, 0
-  %.0.i12.i14 = select i1 %17, i32 4, i32 5
-  br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit18
+  %.lobit30.i13 = lshr exact i32 %12, 1
+  %13 = icmp eq i32 %10, 0
+  %.0.i12.i14 = select i1 %13, i32 4, i32 5
+  br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit20
 
 _ZN4Cube9FaceIndexEiii.exit16.i7:                 ; preds = %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
-  %.lobit.i8 = lshr exact i32 %14, 1
-  %18 = icmp eq i32 %12, 0
-  %.0.i18.i9 = select i1 %18, i32 2, i32 3
-  br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit18
+  %.lobit.i8 = lshr exact i32 %12, 1
+  %14 = icmp eq i32 %10, 0
+  %.0.i18.i9 = select i1 %14, i32 2, i32 3
+  br label %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit20
 
-_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit18:      ; preds = %_ZN4Cube9FaceIndexEiii.exit.i15, %_ZN4Cube9FaceIndexEiii.exit9.i12, %_ZN4Cube9FaceIndexEiii.exit16.i7, %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
-  %.1 = phi i32 [ undef, %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit ], [ %.lobit.i8, %_ZN4Cube9FaceIndexEiii.exit16.i7 ], [ %.lobit30.i13, %_ZN4Cube9FaceIndexEiii.exit9.i12 ], [ %spec.select.i16, %_ZN4Cube9FaceIndexEiii.exit.i15 ]
-  %.024 = phi i32 [ undef, %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit ], [ %.0.i18.i9, %_ZN4Cube9FaceIndexEiii.exit16.i7 ], [ %.0.i12.i14, %_ZN4Cube9FaceIndexEiii.exit9.i12 ], [ %.0.i6.i17, %_ZN4Cube9FaceIndexEiii.exit.i15 ]
-  %19 = icmp eq i32 %.128, %.1
-  %20 = icmp eq i32 %.128, %.024
-  %or.cond29 = or i1 %19, %20
-  %21 = icmp eq i32 %.026, %.1
-  %22 = icmp eq i32 %.026, %.024
-  %or.cond = or i1 %21, %22
-  %spec.select = select i1 %or.cond, i32 %.026, i32 -1
-  %.0 = select i1 %or.cond29, i32 %.128, i32 %spec.select
+_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit20:      ; preds = %_ZN4Cube9FaceIndexEiii.exit.i15, %_ZN4Cube9FaceIndexEiii.exit9.i12, %_ZN4Cube9FaceIndexEiii.exit16.i7, %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit
+  %.1 = phi i32 [ undef, %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit ], [ %.lobit.i8, %_ZN4Cube9FaceIndexEiii.exit16.i7 ], [ %.lobit30.i13, %_ZN4Cube9FaceIndexEiii.exit9.i12 ], [ %spec.select.i17, %_ZN4Cube9FaceIndexEiii.exit.i15 ]
+  %.026 = phi i32 [ undef, %_ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit ], [ %.0.i18.i9, %_ZN4Cube9FaceIndexEiii.exit16.i7 ], [ %.0.i12.i14, %_ZN4Cube9FaceIndexEiii.exit9.i12 ], [ %.0.i6.i19, %_ZN4Cube9FaceIndexEiii.exit.i15 ]
+  %15 = icmp eq i32 %.130, %.1
+  %16 = icmp eq i32 %.130, %.026
+  %or.cond31 = or i1 %15, %16
+  %17 = icmp eq i32 %.028, %.1
+  %18 = icmp eq i32 %.028, %.026
+  %or.cond = or i1 %17, %18
+  %spec.select = select i1 %or.cond, i32 %.028, i32 -1
+  %.0 = select i1 %or.cond31, i32 %.130, i32 %spec.select
   ret i32 %.0
 }
 
@@ -452,40 +452,40 @@ define void @_ZN4Cube19FacesAdjacentToEdgeEiRiS0_(i32 noundef %0, ptr nocapture 
   %5 = and i32 %0, 2
   %6 = shl i32 %0, 1
   %7 = and i32 %6, 2
-  switch i32 %4, label %12 [
+  switch i32 %4, label %10 [
     i32 0, label %_ZN4Cube9FaceIndexEiii.exit
     i32 1, label %_ZN4Cube9FaceIndexEiii.exit9
     i32 2, label %_ZN4Cube9FaceIndexEiii.exit16
   ]
 
 _ZN4Cube9FaceIndexEiii.exit:                      ; preds = %3
-  %8 = icmp eq i32 %7, 0
-  %spec.select = select i1 %8, i32 2, i32 3
+  %.not.not = icmp eq i32 %7, 0
+  %spec.select = select i1 %.not.not, i32 2, i32 3
   store i32 %spec.select, ptr %1, align 4
-  %9 = icmp eq i32 %5, 0
-  %.0.i6 = select i1 %9, i32 4, i32 5
+  %.not.not31 = icmp eq i32 %5, 0
+  %.0.i6 = select i1 %.not.not31, i32 4, i32 5
   br label %.sink.split
 
 _ZN4Cube9FaceIndexEiii.exit9:                     ; preds = %3
   %.lobit30 = lshr exact i32 %7, 1
   store i32 %.lobit30, ptr %1, align 4
-  %10 = icmp eq i32 %5, 0
-  %.0.i12 = select i1 %10, i32 4, i32 5
+  %8 = icmp eq i32 %5, 0
+  %.0.i12 = select i1 %8, i32 4, i32 5
   br label %.sink.split
 
 _ZN4Cube9FaceIndexEiii.exit16:                    ; preds = %3
   %.lobit = lshr exact i32 %7, 1
   store i32 %.lobit, ptr %1, align 4
-  %11 = icmp eq i32 %5, 0
-  %.0.i18 = select i1 %11, i32 2, i32 3
+  %9 = icmp eq i32 %5, 0
+  %.0.i18 = select i1 %9, i32 2, i32 3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4Cube9FaceIndexEiii.exit, %_ZN4Cube9FaceIndexEiii.exit9, %_ZN4Cube9FaceIndexEiii.exit16
   %.0.i18.sink = phi i32 [ %.0.i18, %_ZN4Cube9FaceIndexEiii.exit16 ], [ %.0.i12, %_ZN4Cube9FaceIndexEiii.exit9 ], [ %.0.i6, %_ZN4Cube9FaceIndexEiii.exit ]
   store i32 %.0.i18.sink, ptr %2, align 4
-  br label %12
+  br label %10
 
-12:                                               ; preds = %.sink.split, %3
+10:                                               ; preds = %.sink.split, %3
   ret void
 }
 

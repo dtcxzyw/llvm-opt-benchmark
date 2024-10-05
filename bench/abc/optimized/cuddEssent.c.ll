@@ -2167,7 +2167,7 @@ beforep.exit465.thread32:                         ; preds = %455, %451, %beforep
   br i1 %525, label %526, label %533
 
 526:                                              ; preds = %524
-  %527 = add nsw i32 %518, -1
+  %527 = add nsw i32 %518, -2
   %528 = ashr i32 %527, 6
   %529 = add nsw i32 %528, 1
   %530 = sext i32 %529 to i64
@@ -2447,7 +2447,7 @@ tlcInfoAlloc.exit:                                ; preds = %2
   br i1 %17, label %Cudd_tlcInfoFree.exit, label %18
 
 18:                                               ; preds = %12
-  %19 = add nuw i64 %indvars.iv, 3
+  %19 = add nuw i64 %indvars.iv, 2
   %20 = lshr i64 %19, 3
   %21 = and i64 %20, 268435448
   %22 = add nuw nsw i64 %21, 8

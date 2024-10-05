@@ -1159,7 +1159,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %8, i64 56
   store i64 %35, ptr %36, align 8
-  %37 = add i64 %29, 39
+  %37 = add i64 %29, 38
   %38 = lshr i64 %37, 3
   %39 = add nuw nsw i64 %38, 8
   %40 = add i64 %39, %35
@@ -4485,7 +4485,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -4659,7 +4659,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -4833,7 +4833,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -5007,7 +5007,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -5181,7 +5181,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -5355,7 +5355,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -5529,7 +5529,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -5703,7 +5703,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -5877,7 +5877,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -6051,7 +6051,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -6225,7 +6225,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -6399,7 +6399,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -6573,7 +6573,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -6747,7 +6747,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -6921,7 +6921,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -7095,7 +7095,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -7269,7 +7269,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33
@@ -7443,7 +7443,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %4
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %33, ptr %34, align 8
-  %35 = add i64 %27, 39
+  %35 = add i64 %27, 38
   %36 = lshr i64 %35, 3
   %37 = add nuw nsw i64 %36, 8
   %38 = add i64 %37, %33

@@ -145,7 +145,7 @@ copy_byval_expanded_array.exit:                   ; preds = %71, %75
   store i64 %82, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %6, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
-  br label %152
+  br label %151
 
 85:                                               ; preds = %16, %30, %11, %3
   %.072 = phi ptr [ %spec.store.select, %30 ], [ %spec.store.select, %16 ], [ %2, %11 ], [ %2, %3 ]
@@ -232,30 +232,29 @@ copy_byval_expanded_array.exit:                   ; preds = %71, %75
 
 135:                                              ; preds = %130
   %136 = sext i32 %134 to i64
-  br label %143
+  br label %142
 
 137:                                              ; preds = %130
   %138 = load i32, ptr %88, align 4
   %139 = sext i32 %138 to i64
   %140 = shl nsw i64 %139, 3
-  %141 = add nsw i64 %140, 23
-  %142 = and i64 %141, -8
-  br label %143
+  %141 = add nsw i64 %140, 16
+  br label %142
 
-143:                                              ; preds = %137, %135
-  %144 = phi i64 [ %136, %135 ], [ %142, %137 ]
-  %145 = getelementptr i8, ptr %87, i64 %144
-  %146 = getelementptr inbounds i8, ptr %6, i64 120
-  store ptr %145, ptr %146, align 8
-  %147 = load i32, ptr %87, align 4
-  %148 = lshr i32 %147, 2
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr i8, ptr %87, i64 %149
-  %151 = getelementptr inbounds i8, ptr %6, i64 128
-  store ptr %150, ptr %151, align 8
-  br label %152
+142:                                              ; preds = %137, %135
+  %143 = phi i64 [ %136, %135 ], [ %141, %137 ]
+  %144 = getelementptr i8, ptr %87, i64 %143
+  %145 = getelementptr inbounds i8, ptr %6, i64 120
+  store ptr %144, ptr %145, align 8
+  %146 = load i32, ptr %87, align 4
+  %147 = lshr i32 %146, 2
+  %148 = zext nneg i32 %147 to i64
+  %149 = getelementptr i8, ptr %87, i64 %148
+  %150 = getelementptr inbounds i8, ptr %6, i64 128
+  store ptr %149, ptr %150, align 8
+  br label %151
 
-152:                                              ; preds = %143, %copy_byval_expanded_array.exit
+151:                                              ; preds = %142, %copy_byval_expanded_array.exit
   %.0.in = getelementptr inbounds i8, ptr %6, i64 24
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
@@ -437,13 +436,13 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
   %5 = load i32, ptr %3, align 4
   %6 = lshr i32 %5, 2
   %7 = zext nneg i32 %6 to i64
-  br label %92
+  br label %93
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8
   %.not63 = icmp eq i64 %10, 0
-  br i1 %.not63, label %11, label %92
+  br i1 %.not63, label %11, label %93
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 100
@@ -582,7 +581,7 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
   %.not64 = icmp eq ptr %19, null
   %81 = sext i32 %15 to i64
   %82 = shl nsw i64 %81, 3
-  br i1 %.not64, label %89, label %83
+  br i1 %.not64, label %90, label %83
 
 83:                                               ; preds = %._crit_edge
   %84 = add i32 %13, 7
@@ -590,21 +589,21 @@ define internal i64 @EA_get_flat_size(ptr nocapture noundef %0) #0 {
   %86 = sext i32 %85 to i64
   %87 = add nsw i64 %82, 23
   %88 = add nsw i64 %87, %86
-  br label %91
-
-89:                                               ; preds = %._crit_edge
-  %90 = add nsw i64 %82, 23
-  br label %91
-
-91:                                               ; preds = %89, %83
-  %.pn.in = phi i64 [ %88, %83 ], [ %90, %89 ]
-  %.pn = and i64 %.pn.in, -8
-  %.2 = add i64 %.pn, %.054.lcssa
-  store i64 %.2, ptr %9, align 8
+  %89 = and i64 %88, -8
   br label %92
 
-92:                                               ; preds = %8, %91, %4
-  %.055 = phi i64 [ %7, %4 ], [ %.2, %91 ], [ %10, %8 ]
+90:                                               ; preds = %._crit_edge
+  %91 = add nsw i64 %82, 16
+  br label %92
+
+92:                                               ; preds = %90, %83
+  %.pn = phi i64 [ %89, %83 ], [ %91, %90 ]
+  %.2 = add i64 %.pn, %.054.lcssa
+  store i64 %.2, ptr %9, align 8
+  br label %93
+
+93:                                               ; preds = %8, %92, %4
+  %.055 = phi i64 [ %7, %4 ], [ %.2, %92 ], [ %10, %8 ]
   ret i64 %.055
 }
 

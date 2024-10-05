@@ -4559,13 +4559,12 @@ define void @_ZN6duckdb15DuckTransaction10PushDeleteERNS_9DataTableERNS_17RowVer
 entry:
   %undo_buffer = getelementptr inbounds i8, ptr %this, i64 128
   %mul = shl i64 %count, 3
-  %add.i.i = add i64 %mul, 55
-  %div1.i.i = and i64 %add.i.i, -8
-  %add.i = add i64 %div1.i.i, 8
+  %add.i = add i64 %mul, 56
   %call2.i = tail call noundef ptr @_ZN6duckdb14ArenaAllocator8AllocateEm(ptr noundef nonnull align 8 dereferenceable(64) %undo_buffer, i64 noundef %add.i)
   store i32 3, ptr %call2.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 4
-  %conv.i = trunc i64 %div1.i.i to i32
+  %0 = trunc i64 %mul to i32
+  %conv.i = add i32 %0, 48
   store i32 %conv.i, ptr %add.ptr.i, align 1
   %add.ptr3.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %version_info = getelementptr inbounds i8, ptr %call2.i, i64 16
@@ -4604,13 +4603,12 @@ define noundef nonnull ptr @_ZN6duckdb15DuckTransaction16CreateUpdateInfoEmm(ptr
 entry:
   %undo_buffer = getelementptr inbounds i8, ptr %this, i64 128
   %add = shl i64 %type_size, 11
-  %add.i.i = add i64 %add, 8271
-  %div1.i.i = and i64 %add.i.i, -1976
-  %add.i = add nuw nsw i64 %div1.i.i, 8
+  %add.i = add i64 %add, 8272
   %call2.i = tail call noundef ptr @_ZN6duckdb14ArenaAllocator8AllocateEm(ptr noundef nonnull align 8 dereferenceable(64) %undo_buffer, i64 noundef %add.i)
   store i32 4, ptr %call2.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 4
-  %conv.i = trunc i64 %div1.i.i to i32
+  %0 = trunc i64 %add to i32
+  %conv.i = add i32 %0, 8264
   store i32 %conv.i, ptr %add.ptr.i, align 1
   %add.ptr3.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %max = getelementptr inbounds i8, ptr %call2.i, i64 44
@@ -4622,9 +4620,9 @@ entry:
   %tuple_data = getelementptr inbounds i8, ptr %call2.i, i64 56
   store ptr %add.ptr6, ptr %tuple_data, align 8, !tbaa !245
   %transaction_id = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load i64, ptr %transaction_id, align 8, !tbaa !109
+  %1 = load i64, ptr %transaction_id, align 8, !tbaa !109
   %version_number = getelementptr inbounds i8, ptr %call2.i, i64 24
-  store atomic i64 %0, ptr %version_number seq_cst, align 8
+  store atomic i64 %1, ptr %version_number seq_cst, align 8
   ret ptr %add.ptr3.i
 }
 

@@ -31796,7 +31796,7 @@ entry:
   %max_rle_count = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !943
   %mul2 = shl i64 %1, 1
-  %add.i = add i64 %mul, 15
+  %add.i = add i64 %mul, 14
   %div1.i = and i64 %add.i, -8
   %add6 = add i64 %div1.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
@@ -33574,7 +33574,7 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !977
   %mul2 = shl i64 %1, 2
   %mul4 = shl i64 %0, 2
-  %add.i = add i64 %mul4, 15
+  %add.i = add i64 %mul4, 12
   %div1.i = and i64 %add.i, -8
   %add6 = add i64 %div1.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
@@ -35298,19 +35298,18 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1011
   %mul2 = shl i64 %1, 3
   %mul4 = shl i64 %0, 3
-  %add.i = add i64 %mul4, 15
-  %div1.i = and i64 %add.i, -8
-  %add6 = add i64 %div1.i, %mul
+  %add.i = add i64 %mul4, 8
+  %add6 = add i64 %add.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
   %node.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %node.i, align 8, !tbaa !207
   %buffer.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %buffer.i, align 8, !tbaa !209
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %div1.i
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.i
   %4 = getelementptr i8, ptr %3, i64 %mul2
   %add.ptr8 = getelementptr i8, ptr %4, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr8, i64 %mul, i1 false)
-  store i64 %div1.i, ptr %3, align 1
+  store i64 %add.i, ptr %3, align 1
   tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %handle)
   %checkpointer = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %checkpointer, align 8, !tbaa !1009
@@ -40138,7 +40137,7 @@ entry:
   %max_rle_count = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1111
   %mul2 = shl i64 %1, 1
-  %add.i = add i64 %mul, 15
+  %add.i = add i64 %mul, 14
   %div1.i = and i64 %add.i, -8
   %add6 = add i64 %div1.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
@@ -41916,7 +41915,7 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1145
   %mul2 = shl i64 %1, 2
   %mul4 = shl i64 %0, 2
-  %add.i = add i64 %mul4, 15
+  %add.i = add i64 %mul4, 12
   %div1.i = and i64 %add.i, -8
   %add6 = add i64 %div1.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
@@ -43632,19 +43631,18 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1179
   %mul2 = shl i64 %1, 3
   %mul4 = shl i64 %0, 3
-  %add.i = add i64 %mul4, 15
-  %div1.i = and i64 %add.i, -8
-  %add6 = add i64 %div1.i, %mul
+  %add.i = add i64 %mul4, 8
+  %add6 = add i64 %add.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
   %node.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %node.i, align 8, !tbaa !207
   %buffer.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %buffer.i, align 8, !tbaa !209
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %div1.i
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.i
   %4 = getelementptr i8, ptr %3, i64 %mul2
   %add.ptr8 = getelementptr i8, ptr %4, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr8, i64 %mul, i1 false)
-  store i64 %div1.i, ptr %3, align 1
+  store i64 %add.i, ptr %3, align 1
   tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %handle)
   %checkpointer = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %checkpointer, align 8, !tbaa !1177
@@ -45368,7 +45366,7 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1213
   %mul2 = shl i64 %1, 2
   %mul4 = shl i64 %0, 2
-  %add.i = add i64 %mul4, 15
+  %add.i = add i64 %mul4, 12
   %div1.i = and i64 %add.i, -8
   %add6 = add i64 %div1.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
@@ -47154,19 +47152,18 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1247
   %mul2 = shl i64 %1, 3
   %mul4 = shl i64 %0, 3
-  %add.i = add i64 %mul4, 15
-  %div1.i = and i64 %add.i, -8
-  %add6 = add i64 %div1.i, %mul
+  %add.i = add i64 %mul4, 8
+  %add6 = add i64 %add.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
   %node.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %node.i, align 8, !tbaa !207
   %buffer.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %buffer.i, align 8, !tbaa !209
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %div1.i
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.i
   %4 = getelementptr i8, ptr %3, i64 %mul2
   %add.ptr8 = getelementptr i8, ptr %4, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr8, i64 %mul, i1 false)
-  store i64 %div1.i, ptr %3, align 1
+  store i64 %add.i, ptr %3, align 1
   tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %handle)
   %checkpointer = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %checkpointer, align 8, !tbaa !1245
@@ -47906,19 +47903,18 @@ entry:
   %1 = load i64, ptr %max_rle_count, align 8, !tbaa !1257
   %mul2 = shl i64 %1, 3
   %mul4 = shl i64 %0, 3
-  %add.i = add i64 %mul4, 15
-  %div1.i = and i64 %add.i, -8
-  %add6 = add i64 %div1.i, %mul
+  %add.i = add i64 %mul4, 8
+  %add6 = add i64 %add.i, %mul
   %handle = getelementptr inbounds i8, ptr %this, i64 32
   %node.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %node.i, align 8, !tbaa !207
   %buffer.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %buffer.i, align 8, !tbaa !209
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %div1.i
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.i
   %4 = getelementptr i8, ptr %3, i64 %mul2
   %add.ptr8 = getelementptr i8, ptr %4, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr8, i64 %mul, i1 false)
-  store i64 %div1.i, ptr %3, align 1
+  store i64 %add.i, ptr %3, align 1
   tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %handle)
   %checkpointer = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %checkpointer, align 8, !tbaa !1255
@@ -55149,7 +55145,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 10
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 8
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1386
@@ -55221,7 +55217,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 9
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 8
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1386
@@ -58860,7 +58856,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 13
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 12
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1475
@@ -58972,7 +58968,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 11
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 8
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1475
@@ -62650,7 +62646,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 19
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 16
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1566
@@ -62751,7 +62747,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 15
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 12
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1566
@@ -66011,7 +66007,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 31
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 28
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1647
@@ -66116,7 +66112,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 23
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 20
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1647
@@ -70137,7 +70133,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 10
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 8
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1717
@@ -70209,7 +70205,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 9
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 8
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1717
@@ -73534,7 +73530,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 13
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 12
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1801
@@ -73646,7 +73642,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 11
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 8
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1801
@@ -76969,7 +76965,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 19
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 16
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1888
@@ -77070,7 +77066,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 15
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 12
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1888
@@ -80288,7 +80284,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 31
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 28
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1964
@@ -80393,7 +80389,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 23
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 20
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !1964
@@ -83696,7 +83692,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 55
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 52
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !2019
@@ -83804,7 +83800,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 39
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 36
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !2019
@@ -85425,7 +85421,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 31
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 28
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !2036
@@ -85533,7 +85529,7 @@ entry:
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %div2.i = lshr exact i64 %mul.i, 3
   %data_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 56
-  %add.i.i.i.i = add nuw nsw i64 %div2.i, 23
+  %add.i.i.i.i = add nuw nsw i64 %div2.i, 20
   %div1.i.i.i.i = and i64 %add.i.i.i.i, 4611686018427387896
   %metadata_ptr.i.i.i = getelementptr inbounds i8, ptr %data_ptr, i64 64
   %0 = load ptr, ptr %metadata_ptr.i.i.i, align 8, !tbaa !2036

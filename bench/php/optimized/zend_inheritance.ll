@@ -11513,7 +11513,7 @@ define internal fastcc void @zend_type_copy_ctor(ptr nocapture noundef %0) unnam
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4194304
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %41, label %5
+  br i1 %.not, label %39, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
@@ -11524,85 +11524,83 @@ define internal fastcc void @zend_type_copy_ctor(ptr nocapture noundef %0) unnam
   %11 = add nuw nsw i64 %10, 24
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = add nuw nsw i64 %10, 31
-  %15 = and i64 %14, 137438953464
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %13 to i64
-  %20 = sub i64 %18, %19
-  %.not.i = icmp ugt i64 %15, %20
-  br i1 %.not.i, label %23, label %21
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %13 to i64
+  %18 = sub i64 %16, %17
+  %.not.i = icmp ugt i64 %11, %18
+  br i1 %.not.i, label %21, label %19
+
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds i8, ptr %13, i64 %11
+  store ptr %20, ptr %12, align 8
+  br label %31
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %13, i64 %15
-  store ptr %22, ptr %12, align 8
-  br label %33
+  %22 = add nuw nsw i64 %10, 48
+  %23 = ptrtoint ptr %12 to i64
+  %24 = sub i64 %16, %23
+  %..i = tail call i64 @llvm.umax.i64(i64 %22, i64 %24)
+  %25 = tail call noalias ptr @_emalloc(i64 noundef %..i) #17
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = getelementptr inbounds i8, ptr %26, i64 %11
+  store ptr %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 %..i
+  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %12, ptr %30, align 8
+  store ptr %25, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  br label %31
 
-23:                                               ; preds = %5
-  %24 = add nuw nsw i64 %15, 24
-  %25 = ptrtoint ptr %12 to i64
-  %26 = sub i64 %18, %25
-  %..i = tail call i64 @llvm.umax.i64(i64 %24, i64 %26)
-  %27 = tail call noalias ptr @_emalloc(i64 noundef %..i) #17
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %28, i64 %15
-  store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 %..i
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %12, ptr %32, align 8
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
-  br label %33
-
-33:                                               ; preds = %23, %21
-  %.0121.i = phi ptr [ %13, %21 ], [ %28, %23 ]
+31:                                               ; preds = %21, %19
+  %.0121.i = phi ptr [ %13, %19 ], [ %26, %21 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0121.i, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %11, i1 false)
   store ptr %.0121.i, ptr %0, align 8
-  %34 = load i32, ptr %2, align 8
-  %35 = and i32 %34, -30408705
-  %36 = or disjoint i32 %35, 5242880
-  store i32 %36, ptr %2, align 8
-  %37 = load i32, ptr %.0121.i, align 8
-  %38 = zext i32 %37 to i64
-  %.idx = shl nuw nsw i64 %38, 4
+  %32 = load i32, ptr %2, align 8
+  %33 = and i32 %32, -30408705
+  %34 = or disjoint i32 %33, 5242880
+  store i32 %34, ptr %2, align 8
+  %35 = load i32, ptr %.0121.i, align 8
+  %36 = zext i32 %35 to i64
+  %.idx = shl nuw nsw i64 %36, 4
   %.add = or disjoint i64 %.idx, 8
   %.ptr12 = getelementptr inbounds i8, ptr %.0121.i, i64 %.add
-  %.not13 = icmp eq i32 %37, 0
+  %.not13 = icmp eq i32 %35, 0
   br i1 %.not13, label %zend_type_list_copy_ctor.exit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %33
+.lr.ph.preheader:                                 ; preds = %31
   %.ptr = getelementptr inbounds i8, ptr %.0121.i, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i11 = phi ptr [ %39, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  %.0.i11 = phi ptr [ %37, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
   tail call fastcc void @zend_type_copy_ctor(ptr noundef nonnull %.0.i11)
-  %39 = getelementptr inbounds i8, ptr %.0.i11, i64 16
-  %40 = icmp ult ptr %39, %.ptr12
-  br i1 %40, label %.lr.ph, label %zend_type_list_copy_ctor.exit
+  %37 = getelementptr inbounds i8, ptr %.0.i11, i64 16
+  %38 = icmp ult ptr %37, %.ptr12
+  br i1 %38, label %.lr.ph, label %zend_type_list_copy_ctor.exit
 
-41:                                               ; preds = %1
-  %42 = and i32 %3, 16777216
-  %.not9 = icmp eq i32 %42, 0
-  br i1 %.not9, label %zend_type_list_copy_ctor.exit, label %43
+39:                                               ; preds = %1
+  %40 = and i32 %3, 16777216
+  %.not9 = icmp eq i32 %40, 0
+  br i1 %.not9, label %zend_type_list_copy_ctor.exit, label %41
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 64
-  %.not10 = icmp eq i32 %47, 0
-  br i1 %.not10, label %48, label %zend_type_list_copy_ctor.exit
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %44, 64
+  %.not10 = icmp eq i32 %45, 0
+  br i1 %.not10, label %46, label %zend_type_list_copy_ctor.exit
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %44, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %44, align 4
+46:                                               ; preds = %41
+  %47 = load i32, ptr %42, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %42, align 4
   br label %zend_type_list_copy_ctor.exit
 
-zend_type_list_copy_ctor.exit:                    ; preds = %.lr.ph, %33, %43, %41, %48
+zend_type_list_copy_ctor.exit:                    ; preds = %.lr.ph, %31, %41, %39, %46
   ret void
 }
 

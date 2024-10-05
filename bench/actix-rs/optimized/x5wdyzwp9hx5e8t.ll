@@ -2396,16 +2396,15 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$a
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !462, !noundef !5
   %11 = mul nsw i64 %10, 24
-  %12 = add i64 %11, 23
-  %13 = and i64 %12, -8
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h18c555bd802e239eE.llvm.11632439649900387884.exit", label %15
+  %12 = add i64 %11, 16
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h18c555bd802e239eE.llvm.11632439649900387884.exit", label %14
 
-15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #31, !noalias !462
+14:                                               ; preds = %8
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #31, !noalias !462
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h18c555bd802e239eE.llvm.11632439649900387884.exit"
 
-"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h18c555bd802e239eE.llvm.11632439649900387884.exit": ; preds = %1, %4, %8, %15
+"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h18c555bd802e239eE.llvm.11632439649900387884.exit": ; preds = %1, %4, %8, %14
   ret void
 }
 
@@ -18683,93 +18682,92 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$actix_web..scope..ScopeFacto
 
 24:                                               ; preds = %"_ZN4core3ptr388drop_in_place$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$17h2533ef7ecf4bda3bE.exit.i.i"
   %25 = mul nsw i64 %.val1, 200
-  %26 = add i64 %25, 23
-  %27 = and i64 %26, -8
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", label %29
+  %26 = add i64 %25, 16
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", label %28
 
-29:                                               ; preds = %24
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %27, i64 noundef 8) #31
+28:                                               ; preds = %24
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %26, i64 noundef 8) #31
   br label %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit"
 
 .body:                                            ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30) #32
-          to label %common.resume unwind label %62
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  invoke void @"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #32
+          to label %common.resume unwind label %61
 
-"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit": ; preds = %29, %24, %"_ZN4core3ptr388drop_in_place$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$17h2533ef7ecf4bda3bE.exit.i.i", %1
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit": ; preds = %28, %24, %"_ZN4core3ptr388drop_in_place$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$17h2533ef7ecf4bda3bE.exit.i.i", %1
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6632)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6635)
-  %32 = load ptr, ptr %31, align 8, !alias.scope !6638, !nonnull !5, !noundef !5
-  %33 = load i64, ptr %32, align 8, !noalias !6638, !noundef !5
-  %34 = add i64 %33, -1
-  store i64 %34, ptr %32, align 8, !noalias !6638
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
+  %31 = load ptr, ptr %30, align 8, !alias.scope !6638, !nonnull !5, !noundef !5
+  %32 = load i64, ptr %31, align 8, !noalias !6638, !noundef !5
+  %33 = add i64 %32, -1
+  store i64 %33, ptr %31, align 8, !noalias !6638
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
 
-36:                                               ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit"
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+35:                                               ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit"
+  %36 = getelementptr inbounds i8, ptr %31, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6639)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6642)
-  %38 = load ptr, ptr %37, align 8, !alias.scope !6645, !noalias !6638, !noundef !5
-  %39 = getelementptr inbounds i8, ptr %32, i64 24
-  %40 = load ptr, ptr %39, align 8, !alias.scope !6645, !noalias !6638, !nonnull !5, !align !35, !noundef !5
-  %41 = load ptr, ptr %40, align 8, !invariant.load !5, !noalias !6646, !nonnull !5
-  invoke void %41(ptr noundef nonnull align 1 %38)
-          to label %50 unwind label %42, !noalias !6646
+  %37 = load ptr, ptr %36, align 8, !alias.scope !6645, !noalias !6638, !noundef !5
+  %38 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = load ptr, ptr %38, align 8, !alias.scope !6645, !noalias !6638, !nonnull !5, !align !35, !noundef !5
+  %40 = load ptr, ptr %39, align 8, !invariant.load !5, !noalias !6646, !nonnull !5
+  invoke void %40(ptr noundef nonnull align 1 %37)
+          to label %49 unwind label %41, !noalias !6646
 
-42:                                               ; preds = %36
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %35
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
-  %45 = load i64, ptr %44, align 8, !range !171, !invariant.load !5, !noalias !6647
-  %46 = getelementptr inbounds i8, ptr %40, i64 16
-  %47 = load i64, ptr %46, align 8, !range !175, !invariant.load !5, !noalias !6647
-  %48 = icmp ult i64 %47, -9223372036854775807
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i64 %45, 0
-  br i1 %49, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
+  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = load i64, ptr %43, align 8, !range !171, !invariant.load !5, !noalias !6647
+  %45 = getelementptr inbounds i8, ptr %39, i64 16
+  %46 = load i64, ptr %45, align 8, !range !175, !invariant.load !5, !noalias !6647
+  %47 = icmp ult i64 %46, -9223372036854775807
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i64 %44, 0
+  br i1 %48, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i": ; preds = %42
-  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %45, i64 noundef %47) #31, !noalias !6647
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i": ; preds = %41
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %44, i64 noundef %46) #31, !noalias !6647
   br label %common.resume
 
-50:                                               ; preds = %36
-  %51 = getelementptr inbounds i8, ptr %40, i64 8
-  %52 = load i64, ptr %51, align 8, !range !171, !invariant.load !5, !noalias !6650
-  %53 = getelementptr inbounds i8, ptr %40, i64 16
-  %54 = load i64, ptr %53, align 8, !range !175, !invariant.load !5, !noalias !6650
-  %55 = icmp ult i64 %54, -9223372036854775807
-  tail call void @llvm.assume(i1 %55)
-  %56 = icmp eq i64 %52, 0
-  br i1 %56, label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i"
+49:                                               ; preds = %35
+  %50 = getelementptr inbounds i8, ptr %39, i64 8
+  %51 = load i64, ptr %50, align 8, !range !171, !invariant.load !5, !noalias !6650
+  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %53 = load i64, ptr %52, align 8, !range !175, !invariant.load !5, !noalias !6650
+  %54 = icmp ult i64 %53, -9223372036854775807
+  tail call void @llvm.assume(i1 %54)
+  %55 = icmp eq i64 %51, 0
+  br i1 %55, label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i": ; preds = %50
-  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %52, i64 noundef %54) #31, !noalias !6650
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i": ; preds = %49
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %51, i64 noundef %53) #31, !noalias !6650
   br label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i"
 
-common.resume:                                    ; preds = %.body, %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i" ], [ %43, %42 ], [ %15, %.body ]
+common.resume:                                    ; preds = %.body, %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
+  %common.resume.op = phi { ptr, i32 } [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i" ], [ %42, %41 ], [ %15, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i", %50
-  %57 = getelementptr inbounds i8, ptr %32, i64 8
-  %58 = load i64, ptr %57, align 8, !noalias !6638, !noundef !5
-  %59 = add i64 %58, -1
-  store i64 %59, ptr %57, align 8, !noalias !6638
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
+"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i", %49
+  %56 = getelementptr inbounds i8, ptr %31, i64 8
+  %57 = load i64, ptr %56, align 8, !noalias !6638, !noundef !5
+  %58 = add i64 %57, -1
+  store i64 %58, ptr %56, align 8, !noalias !6638
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %60, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
 
-61:                                               ; preds = %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i"
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef 32, i64 noundef 8) #31, !noalias !6638
+60:                                               ; preds = %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i"
+  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 32, i64 noundef 8) #31, !noalias !6638
   br label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
 
-"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit": ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", %61
+"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit": ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", %60
   ret void
 
-62:                                               ; preds = %.body
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %.body
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -25011,93 +25009,92 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$actix_web..app_service..AppR
 
 24:                                               ; preds = %"_ZN4core3ptr388drop_in_place$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$17h2533ef7ecf4bda3bE.exit.i.i"
   %25 = mul nsw i64 %.val1, 200
-  %26 = add i64 %25, 23
-  %27 = and i64 %26, -8
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", label %29
+  %26 = add i64 %25, 16
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", label %28
 
-29:                                               ; preds = %24
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %27, i64 noundef 8) #31
+28:                                               ; preds = %24
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %26, i64 noundef 8) #31
   br label %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit"
 
 .body:                                            ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30) #32
-          to label %common.resume unwind label %62
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  invoke void @"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #32
+          to label %common.resume unwind label %61
 
-"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit": ; preds = %29, %24, %"_ZN4core3ptr388drop_in_place$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$17h2533ef7ecf4bda3bE.exit.i.i", %1
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit": ; preds = %28, %24, %"_ZN4core3ptr388drop_in_place$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$17h2533ef7ecf4bda3bE.exit.i.i", %1
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9147)
-  %32 = load ptr, ptr %31, align 8, !alias.scope !9150, !nonnull !5, !noundef !5
-  %33 = load i64, ptr %32, align 8, !noalias !9150, !noundef !5
-  %34 = add i64 %33, -1
-  store i64 %34, ptr %32, align 8, !noalias !9150
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
+  %31 = load ptr, ptr %30, align 8, !alias.scope !9150, !nonnull !5, !noundef !5
+  %32 = load i64, ptr %31, align 8, !noalias !9150, !noundef !5
+  %33 = add i64 %32, -1
+  store i64 %33, ptr %31, align 8, !noalias !9150
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
 
-36:                                               ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit"
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+35:                                               ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit"
+  %36 = getelementptr inbounds i8, ptr %31, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9154)
-  %38 = load ptr, ptr %37, align 8, !alias.scope !9157, !noalias !9150, !noundef !5
-  %39 = getelementptr inbounds i8, ptr %32, i64 24
-  %40 = load ptr, ptr %39, align 8, !alias.scope !9157, !noalias !9150, !nonnull !5, !align !35, !noundef !5
-  %41 = load ptr, ptr %40, align 8, !invariant.load !5, !noalias !9158, !nonnull !5
-  invoke void %41(ptr noundef nonnull align 1 %38)
-          to label %50 unwind label %42, !noalias !9158
+  %37 = load ptr, ptr %36, align 8, !alias.scope !9157, !noalias !9150, !noundef !5
+  %38 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = load ptr, ptr %38, align 8, !alias.scope !9157, !noalias !9150, !nonnull !5, !align !35, !noundef !5
+  %40 = load ptr, ptr %39, align 8, !invariant.load !5, !noalias !9158, !nonnull !5
+  invoke void %40(ptr noundef nonnull align 1 %37)
+          to label %49 unwind label %41, !noalias !9158
 
-42:                                               ; preds = %36
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %35
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
-  %45 = load i64, ptr %44, align 8, !range !171, !invariant.load !5, !noalias !9159
-  %46 = getelementptr inbounds i8, ptr %40, i64 16
-  %47 = load i64, ptr %46, align 8, !range !175, !invariant.load !5, !noalias !9159
-  %48 = icmp ult i64 %47, -9223372036854775807
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i64 %45, 0
-  br i1 %49, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
+  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = load i64, ptr %43, align 8, !range !171, !invariant.load !5, !noalias !9159
+  %45 = getelementptr inbounds i8, ptr %39, i64 16
+  %46 = load i64, ptr %45, align 8, !range !175, !invariant.load !5, !noalias !9159
+  %47 = icmp ult i64 %46, -9223372036854775807
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i64 %44, 0
+  br i1 %48, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i": ; preds = %42
-  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %45, i64 noundef %47) #31, !noalias !9159
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i": ; preds = %41
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %44, i64 noundef %46) #31, !noalias !9159
   br label %common.resume
 
-50:                                               ; preds = %36
-  %51 = getelementptr inbounds i8, ptr %40, i64 8
-  %52 = load i64, ptr %51, align 8, !range !171, !invariant.load !5, !noalias !9162
-  %53 = getelementptr inbounds i8, ptr %40, i64 16
-  %54 = load i64, ptr %53, align 8, !range !175, !invariant.load !5, !noalias !9162
-  %55 = icmp ult i64 %54, -9223372036854775807
-  tail call void @llvm.assume(i1 %55)
-  %56 = icmp eq i64 %52, 0
-  br i1 %56, label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i"
+49:                                               ; preds = %35
+  %50 = getelementptr inbounds i8, ptr %39, i64 8
+  %51 = load i64, ptr %50, align 8, !range !171, !invariant.load !5, !noalias !9162
+  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %53 = load i64, ptr %52, align 8, !range !175, !invariant.load !5, !noalias !9162
+  %54 = icmp ult i64 %53, -9223372036854775807
+  tail call void @llvm.assume(i1 %54)
+  %55 = icmp eq i64 %51, 0
+  br i1 %55, label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i": ; preds = %50
-  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %52, i64 noundef %54) #31, !noalias !9162
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i": ; preds = %49
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %51, i64 noundef %53) #31, !noalias !9162
   br label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i"
 
-common.resume:                                    ; preds = %.body, %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i" ], [ %43, %42 ], [ %15, %.body ]
+common.resume:                                    ; preds = %.body, %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i"
+  %common.resume.op = phi { ptr, i32 } [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i.i.i" ], [ %42, %41 ], [ %15, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i", %50
-  %57 = getelementptr inbounds i8, ptr %32, i64 8
-  %58 = load i64, ptr %57, align 8, !noalias !9150, !noundef !5
-  %59 = add i64 %58, -1
-  store i64 %59, ptr %57, align 8, !noalias !9150
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
+"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i.i.i", %49
+  %56 = getelementptr inbounds i8, ptr %31, i64 8
+  %57 = load i64, ptr %56, align 8, !noalias !9150, !noundef !5
+  %58 = add i64 %57, -1
+  store i64 %58, ptr %56, align 8, !noalias !9150
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %60, label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
 
-61:                                               ; preds = %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i"
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef 32, i64 noundef 8) #31, !noalias !9150
+60:                                               ; preds = %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i"
+  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 32, i64 noundef 8) #31, !noalias !9150
   br label %"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit"
 
-"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit": ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", %61
+"_ZN4core3ptr216drop_in_place$LT$alloc..rc..Rc$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$$GT$17hf455d38691dd9902E.exit": ; preds = %"_ZN4core3ptr409drop_in_place$LT$alloc..rc..Rc$LT$$u5b$$LP$actix_router..resource..ResourceDef$C$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$C$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$RP$$u5d$$GT$$GT$17h0c6621e22f9308d1E.exit", %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hd2ba18b716403708E.exit.i.i", %60
   ret void
 
-62:                                               ; preds = %.body
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %.body
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -38072,16 +38069,15 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = mul nsw i64 %10, 24
-  %12 = add i64 %11, 23
-  %13 = and i64 %12, -8
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h72e62a6171d829dbE.exit", label %15
+  %12 = add i64 %11, 16
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h72e62a6171d829dbE.exit", label %14
 
-15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #31
+14:                                               ; preds = %8
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #31
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h72e62a6171d829dbE.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h72e62a6171d829dbE.exit": ; preds = %15, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h72e62a6171d829dbE.exit": ; preds = %14, %8, %1, %4
   ret void
 }
 

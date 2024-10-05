@@ -887,145 +887,141 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
 .thread:                                          ; preds = %11, %tailrecurse
   %14 = phi i64 [ 8, %tailrecurse ], [ %spec.select, %11 ]
   %15 = shl nuw nsw i64 %14, 4
-  %16 = add nuw nsw i64 %15, 23
-  %17 = and i64 %16, 4080
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
+  %16 = add nuw nsw i64 %15, 16
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %.not7.i = icmp ugt i64 %17, %22
+  %21 = sub i64 %19, %20
+  %.not7.i = icmp ugt i64 %16, %21
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 .lr.ph.i:                                         ; preds = %.thread
   %.pre.i = load ptr, ptr %7, align 8
-  %23 = add nuw nsw i64 %17, 24
-  %24 = tail call i64 @llvm.umax.i64(i64 %17, i64 232)
-  %.sroa.speculated.i27 = add nuw nsw i64 %24, 24
-  br label %25
+  %22 = add nuw nsw i64 %15, 40
+  %.sroa.speculated.i26 = tail call i64 @llvm.umax.i64(i64 %22, i64 256)
+  br label %23
 
-25:                                               ; preds = %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit, %.lr.ph.i
-  %26 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %56, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
-  %27 = phi i64 [ %21, %.lr.ph.i ], [ %67, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
-  %28 = phi i64 [ %20, %.lr.ph.i ], [ %66, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
-  %30 = load i64, ptr %29, align 8
-  %.neg.i.i = sub i64 %27, %28
-  %31 = add i64 %.neg.i.i, %30
-  %32 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %31, ptr %32, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %33, null
+23:                                               ; preds = %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit, %.lr.ph.i
+  %24 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %53, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
+  %25 = phi i64 [ %20, %.lr.ph.i ], [ %64, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
+  %26 = phi i64 [ %19, %.lr.ph.i ], [ %63, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
+  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = load i64, ptr %27, align 8
+  %.neg.i.i = sub i64 %25, %26
+  %29 = add i64 %.neg.i.i, %28
+  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 %29, ptr %30, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread, label %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i
 
-_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread: ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %.not20.i23 = icmp eq ptr %36, null
-  br i1 %.not20.i23, label %.thread25, label %.thread31
+_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread: ; preds = %23
+  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %.not20.i23 = icmp eq ptr %34, null
+  br i1 %.not20.i23, label %.critedge.i.thread, label %.critedge.i.thread30
 
-_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i: ; preds = %25
-  %37 = getelementptr inbounds i8, ptr %33, i64 16
-  %38 = load i64, ptr %37, align 8
-  %.not.i20 = icmp eq i64 %38, -1
-  %39 = getelementptr inbounds i8, ptr %34, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %.not20.i = icmp eq ptr %40, null
-  br i1 %.not.i20, label %43, label %41
+_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i: ; preds = %23
+  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = load i64, ptr %35, align 8
+  %.not.i20 = icmp eq i64 %36, -1
+  %37 = getelementptr inbounds i8, ptr %32, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %.not20.i = icmp eq ptr %38, null
+  br i1 %.not.i20, label %41, label %39
+
+39:                                               ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i
+  br i1 %.not20.i, label %.critedge.i.thread35, label %.critedge.i
+
+.critedge.i.thread35:                             ; preds = %39
+  %40 = shl i64 %36, 1
+  %.sroa.speculated29.i36 = tail call i64 @llvm.umin.i64(i64 %40, i64 8192)
+  %.sroa.speculated.i37 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated29.i36, i64 %22)
+  br label %.critedge.i.thread
 
 41:                                               ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i
-  br i1 %.not20.i, label %.thread36, label %46
+  br i1 %.not20.i, label %.critedge.i.thread, label %.critedge.i.thread30
 
-.thread36:                                        ; preds = %41
-  %42 = shl i64 %38, 1
-  %.sroa.speculated29.i37 = tail call i64 @llvm.umin.i64(i64 %42, i64 8192)
-  %.sroa.speculated.i38 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated29.i37, i64 %23)
-  br label %.thread25
+.critedge.i.thread30:                             ; preds = %41, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread
+  %42 = phi ptr [ %34, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread ], [ %38, %41 ]
+  %43 = load i64, ptr %42, align 8
+  br label %47
 
-43:                                               ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i
-  br i1 %.not20.i, label %.thread25, label %.thread31
-
-.thread31:                                        ; preds = %43, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread
-  %44 = phi ptr [ %36, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread ], [ %40, %43 ]
+.critedge.i:                                      ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %38, i64 8
   %45 = load i64, ptr %44, align 8
-  br label %50
+  %46 = shl i64 %36, 1
+  %.sroa.speculated29.i = tail call i64 @llvm.umin.i64(i64 %45, i64 %46)
+  br label %47
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %40, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = shl i64 %38, 1
-  %.sroa.speculated29.i = tail call i64 @llvm.umin.i64(i64 %48, i64 %49)
-  br label %50
-
-50:                                               ; preds = %46, %.thread31
-  %.sroa.speculated29.i.sink = phi i64 [ %.sroa.speculated29.i, %46 ], [ %45, %.thread31 ]
-  %51 = phi ptr [ %40, %46 ], [ %44, %.thread31 ]
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated29.i.sink, i64 %23)
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef ptr %53(i64 noundef %.sroa.speculated.i)
+47:                                               ; preds = %.critedge.i, %.critedge.i.thread30
+  %.sroa.speculated29.i.sink = phi i64 [ %.sroa.speculated29.i, %.critedge.i ], [ %43, %.critedge.i.thread30 ]
+  %48 = phi ptr [ %38, %.critedge.i ], [ %42, %.critedge.i.thread30 ]
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated29.i.sink, i64 %22)
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef ptr %50(i64 noundef %.sroa.speculated.i)
   br label %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
 
-.thread25:                                        ; preds = %.thread36, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread, %43
-  %.sroa.speculated.i30 = phi i64 [ %.sroa.speculated.i27, %43 ], [ %.sroa.speculated.i27, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread ], [ %.sroa.speculated.i38, %.thread36 ]
-  %55 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i30) #24
+.critedge.i.thread:                               ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread, %41, %.critedge.i.thread35
+  %.sroa.speculated.i29 = phi i64 [ %.sroa.speculated.i37, %.critedge.i.thread35 ], [ %.sroa.speculated.i26, %41 ], [ %.sroa.speculated.i26, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.thread ]
+  %52 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i29) #24
   br label %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
 
-_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit: ; preds = %50, %.thread25
-  %.sroa.speculated.i29 = phi i64 [ %.sroa.speculated.i, %50 ], [ %.sroa.speculated.i30, %.thread25 ]
-  %56 = phi ptr [ %54, %50 ], [ %55, %.thread25 ]
-  %57 = getelementptr inbounds i8, ptr %34, i64 16
-  %58 = atomicrmw add ptr %57, i64 %.sroa.speculated.i29 monotonic, align 8
-  %59 = ptrtoint ptr %33 to i64
-  store i64 %59, ptr %56, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 8
-  store i64 24, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %56, i64 16
-  store i64 %.sroa.speculated.i29, ptr %61, align 8
-  store ptr %56, ptr %7, align 8
-  %62 = load i64, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %56, i64 %62
-  store ptr %63, ptr %6, align 8
-  %64 = load i64, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %56, i64 %64
-  store ptr %65, ptr %5, align 8
-  %66 = ptrtoint ptr %65 to i64
-  %67 = ptrtoint ptr %63 to i64
-  %gepdiff.i = sub nsw i64 %64, %62
-  %.not.i = icmp ugt i64 %17, %gepdiff.i
-  br i1 %.not.i, label %25, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit
+_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit: ; preds = %47, %.critedge.i.thread
+  %.sroa.speculated.i28 = phi i64 [ %.sroa.speculated.i, %47 ], [ %.sroa.speculated.i29, %.critedge.i.thread ]
+  %53 = phi ptr [ %51, %47 ], [ %52, %.critedge.i.thread ]
+  %54 = getelementptr inbounds i8, ptr %32, i64 16
+  %55 = atomicrmw add ptr %54, i64 %.sroa.speculated.i28 monotonic, align 8
+  %56 = ptrtoint ptr %31 to i64
+  store i64 %56, ptr %53, align 8
+  %57 = getelementptr inbounds i8, ptr %53, i64 8
+  store i64 24, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %53, i64 16
+  store i64 %.sroa.speculated.i28, ptr %58, align 8
+  store ptr %53, ptr %7, align 8
+  %59 = load i64, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %53, i64 %59
+  store ptr %60, ptr %6, align 8
+  %61 = load i64, ptr %58, align 8
+  %62 = getelementptr inbounds i8, ptr %53, i64 %61
+  store ptr %62, ptr %5, align 8
+  %63 = ptrtoint ptr %62 to i64
+  %64 = ptrtoint ptr %60 to i64
+  %gepdiff.i = sub nsw i64 %61, %59
+  %.not.i = icmp ugt i64 %16, %gepdiff.i
+  br i1 %.not.i, label %23, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit: ; preds = %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
   %.pre19 = load ptr, ptr %4, align 8
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit, %.thread
-  %68 = phi ptr [ %10, %.thread ], [ %.pre19, %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit ]
-  %.lcssa.i = phi ptr [ %19, %.thread ], [ %63, %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit ]
-  %69 = getelementptr inbounds i8, ptr %.lcssa.i, i64 %17
-  store ptr %69, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
-  store ptr %68, ptr %70, align 8
+  %65 = phi ptr [ %10, %.thread ], [ %.pre19, %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit ]
+  %.lcssa.i = phi ptr [ %18, %.thread ], [ %60, %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit ]
+  %66 = getelementptr inbounds i8, ptr %.lcssa.i, i64 %16
+  store ptr %66, ptr %6, align 8
+  %67 = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
+  store ptr %65, ptr %67, align 8
   store i64 %14, ptr %.lcssa.i, align 8
   store ptr %.lcssa.i, ptr %4, align 8
   %.ptr = getelementptr inbounds i8, ptr %.lcssa.i, i64 16
   store ptr %.ptr, ptr %8, align 8
-  %.add = add nuw nsw i64 %15, 16
-  %.ptr15 = getelementptr inbounds i8, ptr %.lcssa.i, i64 %.add
-  store ptr %.ptr15, ptr %9, align 8
-  %71 = icmp eq i64 %14, 0
-  br i1 %71, label %tailrecurse, label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
+  store ptr %66, ptr %9, align 8
+  %68 = icmp eq i64 %14, 0
+  br i1 %68, label %tailrecurse, label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
 
 _ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit: ; preds = %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
   %.ptr.le = getelementptr inbounds i8, ptr %.lcssa.i, i64 16
   store ptr %1, ptr %.ptr.le, align 8
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  store ptr %2, ptr %73, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  store ptr %75, ptr %8, align 8
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  store ptr %2, ptr %70, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  store ptr %72, ptr %8, align 8
   ret void
 }
 

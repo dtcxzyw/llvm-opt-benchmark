@@ -1906,20 +1906,15 @@ define ptr @cli_utf16toascii(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br label %.loopexit
 
 5:                                                ; preds = %2
-  %spec.select = and i32 %1, -2
   %6 = lshr i32 %1, 1
   %7 = add nuw i32 %6, 1
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @cli_max_calloc(i64 noundef %8, i64 noundef 1) #17
   %.not22 = icmp eq ptr %9, null
-  br i1 %.not22, label %.loopexit, label %.preheader
+  br i1 %.not22, label %.loopexit, label %.lr.ph.preheader
 
-.preheader:                                       ; preds = %5
-  %.not = icmp eq i32 %spec.select, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %10 = add i32 %spec.select, -1
+.lr.ph.preheader:                                 ; preds = %5
+  %10 = add i32 %1, -2
   %11 = lshr i32 %10, 1
   %12 = add nuw nsw i32 %11, 1
   %wide.trip.count = zext nneg i32 %12 to i64
@@ -1943,8 +1938,8 @@ define ptr @cli_utf16toascii(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %5, %4
-  %.018 = phi ptr [ null, %4 ], [ null, %5 ], [ %9, %.preheader ], [ %9, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %5, %4
+  %.018 = phi ptr [ null, %4 ], [ null, %5 ], [ %9, %.lr.ph ]
   ret ptr %.018
 }
 

@@ -223,81 +223,79 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture 
   %6 = getelementptr i8, ptr %1, i64 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.03244 = phi i32 [ %39, %38 ], [ 0, %.lr.ph.preheader ]
-  %.03343 = phi ptr [ %.238, %38 ], [ %6, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
+  %.03244 = phi i32 [ %37, %36 ], [ 0, %.lr.ph.preheader ]
+  %.03343 = phi ptr [ %.238, %36 ], [ %6, %.lr.ph.preheader ]
   %7 = getelementptr i8, ptr %.03343, i64 1
   %8 = load i8, ptr %.03343, align 1
   %9 = getelementptr i8, ptr %.03343, i64 2
   %10 = load i8, ptr %7, align 1
   %11 = and i8 %10, -2
   %or.cond = icmp eq i8 %11, 2
-  br i1 %or.cond, label %.thread, label %20
+  br i1 %or.cond, label %.thread, label %18
 
 .thread:                                          ; preds = %.lr.ph
   %12 = getelementptr i8, ptr %.03343, i64 8
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = add nuw nsw i64 %14, 1
+  %15 = add nuw nsw i64 %14, 9
   %16 = and i64 %15, 131070
-  %17 = add nuw nsw i64 %16, 9
-  %18 = and i64 %17, 262142
-  %19 = getelementptr i8, ptr %9, i64 %18
-  br label %28
+  %17 = getelementptr i8, ptr %9, i64 %16
+  br label %26
 
-20:                                               ; preds = %.lr.ph
-  %21 = icmp eq i8 %10, 4
-  br i1 %21, label %.thread35, label %28
+18:                                               ; preds = %.lr.ph
+  %19 = icmp eq i8 %10, 4
+  br i1 %19, label %.thread35, label %26
 
-.thread35:                                        ; preds = %20
+.thread35:                                        ; preds = %18
   %.0.copyload = load i16, ptr %9, align 1
-  %22 = getelementptr i8, ptr %.03343, i64 4
-  %23 = zext i16 %.0.copyload to i64
-  %24 = mul nuw nsw i64 %23, 6
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = zext i16 %.0.copyload to i32
-  %27 = zext i8 %8 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %27, i32 noundef %26) #3
-  br label %38
+  %20 = getelementptr i8, ptr %.03343, i64 4
+  %21 = zext i16 %.0.copyload to i64
+  %22 = mul nuw nsw i64 %21, 6
+  %23 = getelementptr i8, ptr %20, i64 %22
+  %24 = zext i16 %.0.copyload to i32
+  %25 = zext i8 %8 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %25, i32 noundef %24) #3
+  br label %36
 
-28:                                               ; preds = %.thread, %20
-  %.2 = phi ptr [ %9, %20 ], [ %19, %.thread ]
-  switch i8 %10, label %35 [
-    i8 3, label %33
-    i8 1, label %29
-    i8 2, label %31
+26:                                               ; preds = %.thread, %18
+  %.2 = phi ptr [ %9, %18 ], [ %17, %.thread ]
+  switch i8 %10, label %33 [
+    i8 3, label %31
+    i8 1, label %27
+    i8 2, label %29
   ]
 
-29:                                               ; preds = %28
+27:                                               ; preds = %26
+  %28 = zext i8 %8 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %28) #3
+  br label %36
+
+29:                                               ; preds = %26
   %30 = zext i8 %8 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %30) #3
-  br label %38
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %30) #3
+  br label %36
 
-31:                                               ; preds = %28
+31:                                               ; preds = %26
   %32 = zext i8 %8 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %32) #3
-  br label %38
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %32) #3
+  br label %36
 
-33:                                               ; preds = %28
-  %34 = zext i8 %8 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %34) #3
-  br label %38
-
-35:                                               ; preds = %28
-  %36 = zext i8 %10 to i32
-  %37 = zext i8 %8 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %37, i32 noundef %36) #3
+33:                                               ; preds = %26
+  %34 = zext i8 %10 to i32
+  %35 = zext i8 %8 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %35, i32 noundef %34) #3
   br label %.loopexit
 
-38:                                               ; preds = %.thread35, %29, %31, %33
-  %.238 = phi ptr [ %25, %.thread35 ], [ %.2, %29 ], [ %.2, %31 ], [ %.2, %33 ]
-  %39 = add nuw nsw i32 %.03244, 1
-  %40 = load i16, ptr %1, align 2
-  %41 = zext i16 %40 to i32
-  %42 = icmp ult i32 %39, %41
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !5
+36:                                               ; preds = %.thread35, %27, %29, %31
+  %.238 = phi ptr [ %23, %.thread35 ], [ %.2, %27 ], [ %.2, %29 ], [ %.2, %31 ]
+  %37 = add nuw nsw i32 %.03244, 1
+  %38 = load i16, ptr %1, align 2
+  %39 = zext i16 %38 to i32
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
-.loopexit:                                        ; preds = %38, %2, %35
+.loopexit:                                        ; preds = %36, %2, %33
   ret void
 }
 

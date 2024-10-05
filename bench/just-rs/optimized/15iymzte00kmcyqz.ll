@@ -6778,7 +6778,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9dae702efa3f7211E.llvm.5593464411486612011.exit.backedge.i": ; preds = %60, %52
   %.not.i4.not.i = icmp eq i16 %53, 0
-  %62 = add i16 %53, -1
+  %62 = add i16 %53, -2
   %63 = and i16 %62, %53
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9dae702efa3f7211E.llvm.5593464411486612011.exit._crit_edge.i", label %52
 
@@ -7310,7 +7310,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit.backedge.i.i": ; preds = %61, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %53, 0
-  %64 = add i16 %53, -1
+  %64 = add i16 %53, -2
   %65 = and i16 %64, %53
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge.i.i", label %.lr.ph.i.i
 
@@ -7756,7 +7756,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN9hashbrown3ma
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit.backedge.i.i": ; preds = %61, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %53, 0
-  %64 = add i16 %53, -1
+  %64 = add i16 %53, -2
   %65 = and i16 %64, %53
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge.i.i", label %.lr.ph.i.i
 
@@ -12205,7 +12205,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 47:                                               ; preds = %.thread.i.i
   %48 = extractvalue { i64, i1 } %45, 0
-  %49 = add nuw i64 %48, 15
+  %49 = add nuw i64 %48, 8
   %50 = and i64 %49, -16
   %51 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 %51)
@@ -13016,7 +13016,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 48:                                               ; preds = %.thread.i.i
   %49 = extractvalue { i64, i1 } %46, 0
-  %50 = add nuw i64 %49, 15
+  %50 = add nuw i64 %49, 8
   %51 = and i64 %50, -16
   %52 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %51, i64 %52)
@@ -13434,7 +13434,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 51:                                               ; preds = %.thread.i.i
   %52 = extractvalue { i64, i1 } %49, 0
-  %53 = add nuw i64 %52, 15
+  %53 = add nuw i64 %52, 8
   %54 = and i64 %53, -16
   %55 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %55)
@@ -13857,7 +13857,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 47:                                               ; preds = %.thread.i.i
   %48 = extractvalue { i64, i1 } %45, 0
-  %49 = add nuw i64 %48, 15
+  %49 = add nuw i64 %48, 8
   %50 = and i64 %49, -16
   %51 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 %51)
@@ -14268,7 +14268,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 51:                                               ; preds = %.thread.i.i
   %52 = extractvalue { i64, i1 } %49, 0
-  %53 = add nuw i64 %52, 15
+  %53 = add nuw i64 %52, 8
   %54 = and i64 %53, -16
   %55 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %55)
@@ -14684,7 +14684,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 48:                                               ; preds = %.thread.i.i
   %49 = extractvalue { i64, i1 } %46, 0
-  %50 = add nuw i64 %49, 15
+  %50 = add nuw i64 %49, 8
   %51 = and i64 %50, -16
   %52 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %51, i64 %52)
@@ -15644,7 +15644,7 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @"_ZN9hashbrown3ra
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit.backedge.i": ; preds = %26, %.lr.ph.i
   %.not.i4.not.i = icmp eq i16 %18, 0
-  %29 = add i16 %18, -1
+  %29 = add i16 %18, -2
   %30 = and i16 %29, %18
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge.i", label %.lr.ph.i
 
@@ -15796,7 +15796,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h24ee
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit.backedge": ; preds = %26, %.lr.ph
   %.not.i4.not = icmp eq i16 %18, 0
-  %29 = add i16 %18, -1
+  %29 = add i16 %18, -2
   %30 = and i16 %29, %18
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge", label %.lr.ph
 
@@ -15975,7 +15975,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h758f
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5593464411486612011.exit.backedge.us.us": ; preds = %32, %34, %"_ZN123_$LT$similar..algorithms..utils..IdentifyDistinct$LT$Int$GT$..new..Key$LT$Old$C$New$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h15b081d9e1380771E.exit.sink.split.i.i.us.us"
   %.not.i4.not.us.us = icmp eq i16 %22, 0
-  %37 = add i16 %22, -1
+  %37 = add i16 %22, -2
   %38 = and i16 %37, %22
   br i1 %.not.i4.not.us.us, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5593464411486612011.exit._crit_edge.split.us.us", label %.lr.ph.us
 
@@ -16027,7 +16027,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h758f
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5593464411486612011.exit.backedge": ; preds = %.lr.ph, %"_ZN123_$LT$similar..algorithms..utils..IdentifyDistinct$LT$Int$GT$..new..Key$LT$Old$C$New$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h15b081d9e1380771E.exit.sink.split.i.i"
   %.not.i4.not = icmp eq i16 %46, 0
-  %54 = add i16 %46, -1
+  %54 = add i16 %46, -2
   %55 = and i16 %54, %46
   br i1 %.not.i4.not, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5593464411486612011.exit._crit_edge.split", label %.lr.ph
 
@@ -16245,7 +16245,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf713
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9dae702efa3f7211E.llvm.5593464411486612011.exit.backedge": ; preds = %26, %18
   %.not.i4.not = icmp eq i16 %19, 0
-  %28 = add i16 %19, -1
+  %28 = add i16 %19, -2
   %29 = and i16 %28, %19
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9dae702efa3f7211E.llvm.5593464411486612011.exit._crit_edge", label %18
 

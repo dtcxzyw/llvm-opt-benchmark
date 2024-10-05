@@ -2578,7 +2578,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.not7.i.i, label %GC_generic_malloc_inner.exit, label %61
 
 61:                                               ; preds = %57, %56
-  %62 = add i64 %54, 4095
+  %62 = add i64 %53, 4080
   %63 = and i64 %62, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %55, i8 0, i64 %63, i1 false)
   br label %GC_generic_malloc_inner.exit
@@ -2733,7 +2733,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.i.i, label %GC_generic_malloc_inner.exit.thread.thread34, label %40
 
 GC_generic_malloc_inner.exit.thread.thread34:     ; preds = %36
-  %37 = add i64 %34, 4095
+  %37 = add i64 %33, 4080
   %38 = and i64 %37, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %38, i1 false)
   %39 = getelementptr inbounds i8, ptr %35, i64 32
@@ -2773,7 +2773,7 @@ GC_generic_malloc_inner.exit.thread27:            ; preds = %31, %GC_generic_mal
   br label %103
 
 GC_generic_malloc_inner.exit.thread:              ; preds = %40
-  %52 = add i64 %34, 4095
+  %52 = add i64 %33, 4080
   %53 = and i64 %52, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %53, i1 false)
   br label %.sink.split
@@ -9480,7 +9480,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %or.cond.not.i, label %51, label %GC_generic_malloc_inner.exit.thread.i
 
 51:                                               ; preds = %49
-  %52 = add i64 %47, 4095
+  %52 = add i64 %46, 4080
   %53 = and i64 %52, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %48, i8 0, i64 %53, i1 false)
   br label %GC_generic_malloc_inner.exit.thread.i
@@ -13611,7 +13611,7 @@ GC_lock.exit67:                                   ; preds = %.preheader.i.i65, %
   br i1 %.b57, label %75, label %78
 
 75:                                               ; preds = %74
-  %76 = add i64 %.043, 4095
+  %76 = add i64 %.043, 4080
   %77 = and i64 %76, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %72, i8 0, i64 %77, i1 false)
   br label %81
@@ -13641,7 +13641,7 @@ GC_lock.exit67:                                   ; preds = %.preheader.i.i65, %
 
 .thread69:                                        ; preds = %84
   %86 = getelementptr inbounds i8, ptr %72, i64 16
-  %87 = add i64 %.043, 4095
+  %87 = add i64 %.043, 4080
   %88 = and i64 %87, -4096
   %89 = add i64 %88, -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, i8 0, i64 %89, i1 false)
@@ -16044,7 +16044,7 @@ GC_build_fl4.exit.i163:                           ; preds = %433
   br i1 %.not7.i.i, label %GC_generic_malloc_inner.exit.thread, label %463
 
 463:                                              ; preds = %460, %459
-  %464 = add i64 %457, 4095
+  %464 = add i64 %456, 4080
   %465 = and i64 %464, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %458, i8 0, i64 %465, i1 false)
   br label %GC_generic_malloc_inner.exit.thread
@@ -24874,7 +24874,7 @@ block_add_size.exit:                              ; preds = %37
   %47 = getelementptr inbounds i8, ptr %46, i64 32
   %48 = load i64, ptr %47, align 8
   %49 = shl i64 %48, 3
-  %50 = add i64 %49, 4095
+  %50 = add i64 %49, 4088
   %51 = and i64 %50, -4096
   %52 = add i64 %51, %21
   br label %53
@@ -40811,7 +40811,7 @@ define internal fastcc void @GC_grow_table(ptr nocapture noundef %0, ptr nocaptu
   br i1 %or.cond41.not, label %38, label %.preheader
 
 38:                                               ; preds = %36
-  %39 = add i64 %34, 4095
+  %39 = add i64 %33, 4080
   %40 = and i64 %39, -4096
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %40, i1 false)
   br label %.preheader

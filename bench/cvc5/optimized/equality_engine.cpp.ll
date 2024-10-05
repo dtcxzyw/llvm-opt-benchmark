@@ -6736,7 +6736,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory2eq14EqualityEngine17newTrigg
 entry:
   %conv = zext i32 %newSetTriggersSize to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %add2 = add nuw nsw i64 %mul, 11
+  %add2 = add nuw nsw i64 %mul, 8
   %and = and i64 %add2, 34359738360
   %d_triggerDatabaseSize = getelementptr inbounds i8, ptr %this, i64 1296
   %d_data.i.i = getelementptr inbounds i8, ptr %this, i64 1336
@@ -13133,7 +13133,7 @@ invoke.cont512:                                   ; preds = %invoke.cont508, %if
   store i32 %add510, ptr %d_data.i.i1890, align 8
   %conv.i1899 = zext i32 %newSetTriggersSize.0.lcssa to i64
   %mul.i = shl nuw nsw i64 %conv.i1899, 2
-  %add2.i = add nuw nsw i64 %mul.i, 11
+  %add2.i = add nuw nsw i64 %mul.i, 8
   %and.i1900 = and i64 %add2.i, 34359738360
   %d_triggerDatabaseSize.i = getelementptr inbounds i8, ptr %this, i64 1296
   %d_data.i.i.i1901 = getelementptr inbounds i8, ptr %this, i64 1336
@@ -26507,7 +26507,7 @@ invoke.cont111:                                   ; preds = %invoke.cont108, %if
   store i32 %add, ptr %d_data.i.i428, align 8
   %conv.i436 = zext i32 %newSetTriggersSize.1 to i64
   %mul.i = shl nuw nsw i64 %conv.i436, 2
-  %add2.i = add nuw nsw i64 %mul.i, 11
+  %add2.i = add nuw nsw i64 %mul.i, 8
   %and.i437 = and i64 %add2.i, 34359738360
   %d_triggerDatabaseSize.i = getelementptr inbounds i8, ptr %this, i64 1296
   %d_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 1336

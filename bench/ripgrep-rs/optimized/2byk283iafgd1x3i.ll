@@ -745,7 +745,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h587935674ad7ba52E.llvm.7257343334495624931.exit.backedge.i": ; preds = %36, %.lr.ph.i
   %.not.i4.not.i = icmp eq i16 %28, 0
-  %39 = add i16 %28, -1
+  %39 = add i16 %28, -2
   %40 = and i16 %39, %28
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h587935674ad7ba52E.llvm.7257343334495624931.exit._crit_edge.i", label %.lr.ph.i
 
@@ -889,7 +889,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6aa4f039008751fbE.llvm.7257343334495624931.exit.backedge.i": ; preds = %36, %.lr.ph.i
   %.not.i4.not.i = icmp eq i16 %28, 0
-  %39 = add i16 %28, -1
+  %39 = add i16 %28, -2
   %40 = and i16 %39, %28
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6aa4f039008751fbE.llvm.7257343334495624931.exit._crit_edge.i", label %.lr.ph.i
 
@@ -1023,7 +1023,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7f05db44de279c2eE.exit.backedge.i.i": ; preds = %32, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %24, 0
-  %35 = add i16 %24, -1
+  %35 = add i16 %24, -2
   %36 = and i16 %35, %24
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7f05db44de279c2eE.exit._crit_edge.i.i", label %.lr.ph.i.i
 
@@ -1140,7 +1140,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc5
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8545181607a027c6E.exit.backedge.i.i": ; preds = %44, %35
   %.not.i.not.i.i = icmp eq i16 %36, 0
-  %47 = add i16 %36, -1
+  %47 = add i16 %36, -2
   %48 = and i16 %47, %36
   br i1 %.not.i.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8545181607a027c6E.exit._crit_edge.i.i", label %35
 
@@ -1354,7 +1354,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ma
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9757cdb19163ab5dE.exit.backedge.i.i": ; preds = %35, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %27, 0
-  %38 = add i16 %27, -1
+  %38 = add i16 %27, -2
   %39 = and i16 %38, %27
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9757cdb19163ab5dE.exit._crit_edge.i.i", label %.lr.ph.i.i
 
@@ -1507,7 +1507,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ra
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7f05db44de279c2eE.exit.backedge.i": ; preds = %26, %.lr.ph.i
   %.not.i4.not.i = icmp eq i16 %18, 0
-  %29 = add i16 %18, -1
+  %29 = add i16 %18, -2
   %30 = and i16 %29, %18
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7f05db44de279c2eE.exit._crit_edge.i", label %.lr.ph.i
 
@@ -1585,7 +1585,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h0af0
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h587935674ad7ba52E.llvm.7257343334495624931.exit.backedge": ; preds = %27, %.lr.ph
   %.not.i4.not = icmp eq i16 %19, 0
-  %30 = add i16 %19, -1
+  %30 = add i16 %19, -2
   %31 = and i16 %30, %19
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h587935674ad7ba52E.llvm.7257343334495624931.exit._crit_edge", label %.lr.ph
 
@@ -1660,7 +1660,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h43d8
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9757cdb19163ab5dE.exit.backedge": ; preds = %29, %.lr.ph
   %.not.i4.not = icmp eq i16 %21, 0
-  %32 = add i16 %21, -1
+  %32 = add i16 %21, -2
   %33 = and i16 %32, %21
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9757cdb19163ab5dE.exit._crit_edge", label %.lr.ph
 
@@ -1735,7 +1735,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h7d4e
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6aa4f039008751fbE.llvm.7257343334495624931.exit.backedge": ; preds = %27, %.lr.ph
   %.not.i4.not = icmp eq i16 %19, 0
-  %30 = add i16 %19, -1
+  %30 = add i16 %19, -2
   %31 = and i16 %30, %19
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6aa4f039008751fbE.llvm.7257343334495624931.exit._crit_edge", label %.lr.ph
 
@@ -1806,7 +1806,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h8730
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7f05db44de279c2eE.exit.backedge": ; preds = %26, %.lr.ph
   %.not.i4.not = icmp eq i16 %18, 0
-  %29 = add i16 %18, -1
+  %29 = add i16 %18, -2
   %30 = and i16 %29, %18
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7f05db44de279c2eE.exit._crit_edge", label %.lr.ph
 
@@ -1943,7 +1943,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ra
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9757cdb19163ab5dE.exit.backedge.i": ; preds = %29, %.lr.ph.i
   %.not.i4.not.i = icmp eq i16 %21, 0
-  %32 = add i16 %21, -1
+  %32 = add i16 %21, -2
   %33 = and i16 %32, %21
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9757cdb19163ab5dE.exit._crit_edge.i", label %.lr.ph.i
 

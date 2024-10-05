@@ -6532,7 +6532,7 @@ _ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %15)
   call void @free(ptr noundef nonnull %34) #54
-  br label %2812
+  br label %2813
 
 1665:                                             ; preds = %_ZL15stbi__jpeg_testP13stbi__context.exit
   %1666 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6694,7 +6694,7 @@ _ZL10stbi__get8P13stbi__context.exit.i.i:         ; preds = %_ZL19stbi__refill_b
 _ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %1700, %1720, %1728
   %.043.i.i = phi ptr [ null, %1700 ], [ %.0.i.i93, %1728 ], [ null, %1720 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  br label %2812
+  br label %2813
 
 1734:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i
   store ptr @.str.40, ptr @_ZL22stbi__g_failure_reason, align 8
@@ -6986,7 +6986,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.thread:  ; preds = %_ZL10stbi__get8P13s
   store ptr %1846, ptr %29, align 8
   %1847 = load ptr, ptr %30, align 8
   store ptr %1847, ptr %32, align 8
-  br label %2766
+  br label %2767
 
 _ZL14stbi__bmp_testP13stbi__context.exit.thread129: ; preds = %_ZL13stbi__get16leP13stbi__context.exit37.i.i, %_ZL13stbi__get16leP13stbi__context.exit37.i.i, %_ZL13stbi__get16leP13stbi__context.exit37.i.i, %_ZL13stbi__get16leP13stbi__context.exit37.i.i
   %1848 = load ptr, ptr %27, align 8
@@ -7001,7 +7001,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit:         ; preds = %_ZL13stbi__get16leP
   store ptr %1850, ptr %29, align 8
   %1851 = load ptr, ptr %30, align 8
   store ptr %1851, ptr %32, align 8
-  br i1 %.not132, label %1852, label %2766
+  br i1 %.not132, label %1852, label %2767
 
 1852:                                             ; preds = %_ZL14stbi__bmp_testP13stbi__context.exit.thread129, %_ZL14stbi__bmp_testP13stbi__context.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9)
@@ -8751,23 +8751,24 @@ _ZL10stbi__skipP13stbi__contexti.exit451.i:       ; preds = %2724, %2720
 
 2733:                                             ; preds = %.loopexit17.i
   %2734 = load i32, ptr %0, align 8
-  %2735 = shl i32 %2730, 2
-  %2736 = mul i32 %2735, %2734
-  %2737 = add i32 %2736, -1
+  %2735 = shl i32 %2734, 2
+  %2736 = mul i32 %2735, %2730
+  %2737 = add i32 %2736, -4
   %2738 = icmp sgt i32 %2737, -1
   br i1 %2738, label %.lr.ph67.preheader.i, label %.loopexit15.i
 
 .lr.ph67.preheader.i:                             ; preds = %2733
-  %2739 = zext nneg i32 %2737 to i64
+  %2739 = add i32 %2736, -1
+  %2740 = zext i32 %2739 to i64
   br label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %.lr.ph67.i, %.lr.ph67.preheader.i
-  %indvars.iv82.i = phi i64 [ %2739, %.lr.ph67.preheader.i ], [ %indvars.iv.next83.i, %.lr.ph67.i ]
-  %2740 = getelementptr inbounds i8, ptr %1904, i64 %indvars.iv82.i
-  store i8 -1, ptr %2740, align 1
+  %indvars.iv82.i = phi i64 [ %2740, %.lr.ph67.preheader.i ], [ %indvars.iv.next83.i, %.lr.ph67.i ]
+  %2741 = getelementptr inbounds i8, ptr %1904, i64 %indvars.iv82.i
+  store i8 -1, ptr %2741, align 1
   %indvars.iv.next83.i = add nsw i64 %indvars.iv82.i, -4
-  %2741 = icmp ugt i64 %indvars.iv82.i, 3
-  br i1 %2741, label %.lr.ph67.i, label %.loopexit15.i, !llvm.loop !65
+  %2742 = icmp ugt i64 %indvars.iv82.i, 3
+  br i1 %2742, label %.lr.ph67.i, label %.loopexit15.i, !llvm.loop !65
 
 .loopexit15.i:                                    ; preds = %.lr.ph67.i, %2733, %.loopexit17.i
   br i1 %1859, label %.preheader.i, label %.loopexit15..loopexit_crit_edge.i
@@ -8777,47 +8778,47 @@ _ZL10stbi__skipP13stbi__contexti.exit451.i:       ; preds = %2724, %2720
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit15.i
-  %2742 = ashr i32 %2730, 1
-  %2743 = icmp sgt i32 %2742, 0
+  %2743 = ashr i32 %2730, 1
+  %2744 = icmp sgt i32 %2743, 0
   %.pre103.pre107.i = load i32, ptr %0, align 8
-  br i1 %2743, label %.lr.ph73.i, label %.loopexit.i
+  br i1 %2744, label %.lr.ph73.i, label %.loopexit.i
 
 .lr.ph73.i:                                       ; preds = %.preheader.i
   %factor.op.mul.i = mul i32 %.pre103.pre107.i, %..i
-  %2744 = icmp sgt i32 %factor.op.mul.i, 0
-  br i1 %2744, label %.lr.ph70.us.preheader.i, label %.loopexit.i
+  %2745 = icmp sgt i32 %factor.op.mul.i, 0
+  br i1 %2745, label %.lr.ph70.us.preheader.i, label %.loopexit.i
 
 .lr.ph70.us.preheader.i:                          ; preds = %.lr.ph73.i
-  %wide.trip.count93.i = zext nneg i32 %2742 to i64
+  %wide.trip.count93.i = zext nneg i32 %2743 to i64
   %wide.trip.count88.i = zext nneg i32 %factor.op.mul.i to i64
   br label %.lr.ph70.us.i
 
 .lr.ph70.us.i:                                    ; preds = %._crit_edge71.us.i, %.lr.ph70.us.preheader.i
   %indvars.iv90.i = phi i64 [ 0, %.lr.ph70.us.preheader.i ], [ %indvars.iv.next91.i, %._crit_edge71.us.i ]
-  %2745 = trunc nuw nsw i64 %indvars.iv90.i to i32
-  %.reass.us.i = mul i32 %factor.op.mul.i, %2745
-  %2746 = zext i32 %.reass.us.i to i64
-  %2747 = getelementptr inbounds i8, ptr %1904, i64 %2746
-  %2748 = xor i32 %2745, -1
-  %2749 = add i32 %2730, %2748
-  %2750 = mul i32 %2749, %factor.op.mul.i
-  %2751 = zext i32 %2750 to i64
-  %2752 = getelementptr inbounds i8, ptr %1904, i64 %2751
-  br label %2753
+  %2746 = trunc nuw nsw i64 %indvars.iv90.i to i32
+  %.reass.us.i = mul i32 %factor.op.mul.i, %2746
+  %2747 = zext i32 %.reass.us.i to i64
+  %2748 = getelementptr inbounds i8, ptr %1904, i64 %2747
+  %2749 = xor i32 %2746, -1
+  %2750 = add i32 %2730, %2749
+  %2751 = mul i32 %2750, %factor.op.mul.i
+  %2752 = zext i32 %2751 to i64
+  %2753 = getelementptr inbounds i8, ptr %1904, i64 %2752
+  br label %2754
 
-2753:                                             ; preds = %2753, %.lr.ph70.us.i
-  %indvars.iv85.i = phi i64 [ 0, %.lr.ph70.us.i ], [ %indvars.iv.next86.i, %2753 ]
-  %2754 = getelementptr inbounds i8, ptr %2747, i64 %indvars.iv85.i
-  %2755 = load i8, ptr %2754, align 1
-  %2756 = getelementptr inbounds i8, ptr %2752, i64 %indvars.iv85.i
-  %2757 = load i8, ptr %2756, align 1
-  store i8 %2757, ptr %2754, align 1
-  store i8 %2755, ptr %2756, align 1
+2754:                                             ; preds = %2754, %.lr.ph70.us.i
+  %indvars.iv85.i = phi i64 [ 0, %.lr.ph70.us.i ], [ %indvars.iv.next86.i, %2754 ]
+  %2755 = getelementptr inbounds i8, ptr %2748, i64 %indvars.iv85.i
+  %2756 = load i8, ptr %2755, align 1
+  %2757 = getelementptr inbounds i8, ptr %2753, i64 %indvars.iv85.i
+  %2758 = load i8, ptr %2757, align 1
+  store i8 %2758, ptr %2755, align 1
+  store i8 %2756, ptr %2757, align 1
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count88.i
-  br i1 %exitcond89.not.i, label %._crit_edge71.us.i, label %2753, !llvm.loop !66
+  br i1 %exitcond89.not.i, label %._crit_edge71.us.i, label %2754, !llvm.loop !66
 
-._crit_edge71.us.i:                               ; preds = %2753
+._crit_edge71.us.i:                               ; preds = %2754
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
   br i1 %exitcond94.not.i, label %.loopexit.i, label %.lr.ph70.us.i, !llvm.loop !67
@@ -8826,143 +8827,143 @@ _ZL10stbi__skipP13stbi__contexti.exit451.i:       ; preds = %2724, %2720
   %.pre103.i = phi i32 [ %.pre103.pre.i, %.loopexit15..loopexit_crit_edge.i ], [ %.pre103.pre107.i, %.preheader.i ], [ %.pre103.pre107.i, %.lr.ph73.i ], [ %.pre103.pre107.i, %._crit_edge71.us.i ]
   %.not320.i = icmp eq i32 %4, %..i
   %or.cond.i = or i1 %.not313.i, %.not320.i
-  br i1 %or.cond.i, label %2761, label %2758
+  br i1 %or.cond.i, label %2762, label %2759
 
-2758:                                             ; preds = %.loopexit.i
-  %2759 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %1904, i32 noundef %..i, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2730)
-  %2760 = icmp eq ptr %2759, null
-  br i1 %2760, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %._crit_edge101.i
+2759:                                             ; preds = %.loopexit.i
+  %2760 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %1904, i32 noundef %..i, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2730)
+  %2761 = icmp eq ptr %2760, null
+  br i1 %2761, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %._crit_edge101.i
 
-._crit_edge101.i:                                 ; preds = %2758
+._crit_edge101.i:                                 ; preds = %2759
   %.pre102.i = load i32, ptr %0, align 8
-  br label %2761
+  br label %2762
 
-2761:                                             ; preds = %._crit_edge101.i, %.loopexit.i
-  %2762 = phi i32 [ %.pre102.i, %._crit_edge101.i ], [ %.pre103.i, %.loopexit.i ]
-  %.0254.i = phi ptr [ %2759, %._crit_edge101.i ], [ %1904, %.loopexit.i ]
-  store i32 %2762, ptr %1, align 4
-  %2763 = load i32, ptr %1857, align 4
-  store i32 %2763, ptr %2, align 4
+2762:                                             ; preds = %._crit_edge101.i, %.loopexit.i
+  %2763 = phi i32 [ %.pre102.i, %._crit_edge101.i ], [ %.pre103.i, %.loopexit.i ]
+  %.0254.i = phi ptr [ %2760, %._crit_edge101.i ], [ %1904, %.loopexit.i ]
+  store i32 %2763, ptr %1, align 4
+  %2764 = load i32, ptr %1857, align 4
+  store i32 %2764, ptr %2, align 4
   %.not321.i = icmp eq ptr %3, null
-  br i1 %.not321.i, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %2764
+  br i1 %.not321.i, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %2765
 
-2764:                                             ; preds = %2761
-  %2765 = load i32, ptr %1890, align 8
-  store i32 %2765, ptr %3, align 4
+2765:                                             ; preds = %2762
+  %2766 = load i32, ptr %1890, align 8
+  store i32 %2766, ptr %3, align 4
   br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
 
-_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %1852, %1899, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %1911, %2036, %2349, %2758, %2761, %2764
-  %.0.i = phi ptr [ null, %1911 ], [ null, %2036 ], [ null, %2349 ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ null, %1899 ], [ null, %1852 ], [ null, %2758 ], [ %.0254.i, %2764 ], [ %.0254.i, %2761 ]
+_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %1852, %1899, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %1911, %2036, %2349, %2759, %2762, %2765
+  %.0.i = phi ptr [ null, %1911 ], [ null, %2036 ], [ null, %2349 ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ null, %1899 ], [ null, %1852 ], [ null, %2759 ], [ %.0254.i, %2765 ], [ %.0254.i, %2762 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %2812
+  br label %2813
 
-2766:                                             ; preds = %_ZL14stbi__bmp_testP13stbi__context.exit.thread, %_ZL14stbi__bmp_testP13stbi__context.exit
-  %2767 = tail call fastcc noundef i32 @_ZL14stbi__gif_testP13stbi__context(ptr noundef %0)
-  %.not77 = icmp eq i32 %2767, 0
-  br i1 %.not77, label %2782, label %2768
+2767:                                             ; preds = %_ZL14stbi__bmp_testP13stbi__context.exit.thread, %_ZL14stbi__bmp_testP13stbi__context.exit
+  %2768 = tail call fastcc noundef i32 @_ZL14stbi__gif_testP13stbi__context(ptr noundef %0)
+  %.not77 = icmp eq i32 %2768, 0
+  br i1 %.not77, label %2783, label %2769
 
-2768:                                             ; preds = %2766
+2769:                                             ; preds = %2767
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %8, i8 0, i64 34928, i1 false)
-  %2769 = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
-  %2770 = icmp eq ptr %2769, %0
-  %.not1.i = icmp eq ptr %2769, null
-  %.not.i122 = or i1 %2770, %.not1.i
-  br i1 %.not.i122, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %2771
+  %2770 = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
+  %2771 = icmp eq ptr %2770, %0
+  %.not1.i = icmp eq ptr %2770, null
+  %.not.i122 = or i1 %2771, %.not1.i
+  br i1 %.not.i122, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %2772
 
-2771:                                             ; preds = %2768
-  %2772 = load i32, ptr %8, align 8
-  store i32 %2772, ptr %1, align 4
-  %2773 = getelementptr inbounds i8, ptr %8, i64 4
-  %2774 = load i32, ptr %2773, align 4
-  store i32 %2774, ptr %2, align 4
-  %2775 = and i32 %4, -5
-  %or.cond.not.i = icmp eq i32 %2775, 0
-  br i1 %or.cond.not.i, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %2776
+2772:                                             ; preds = %2769
+  %2773 = load i32, ptr %8, align 8
+  store i32 %2773, ptr %1, align 4
+  %2774 = getelementptr inbounds i8, ptr %8, i64 4
+  %2775 = load i32, ptr %2774, align 4
+  store i32 %2775, ptr %2, align 4
+  %2776 = and i32 %4, -5
+  %or.cond.not.i = icmp eq i32 %2776, 0
+  br i1 %or.cond.not.i, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %2777
 
-2776:                                             ; preds = %2771
-  %2777 = call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %2769, i32 noundef 4, i32 noundef %4, i32 noundef %2772, i32 noundef %2774)
+2777:                                             ; preds = %2772
+  %2778 = call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %2770, i32 noundef 4, i32 noundef %4, i32 noundef %2773, i32 noundef %2775)
   br label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
 
-_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %2768, %2771, %2776
-  %.0.i123 = phi ptr [ %2777, %2776 ], [ %2769, %2771 ], [ null, %2768 ]
-  %2778 = getelementptr inbounds i8, ptr %8, i64 24
-  %2779 = load ptr, ptr %2778, align 8
-  call void @free(ptr noundef %2779) #54
-  %2780 = getelementptr inbounds i8, ptr %8, i64 16
-  %2781 = load ptr, ptr %2780, align 8
-  call void @free(ptr noundef %2781) #54
+_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %2769, %2772, %2777
+  %.0.i123 = phi ptr [ %2778, %2777 ], [ %2770, %2772 ], [ null, %2769 ]
+  %2779 = getelementptr inbounds i8, ptr %8, i64 24
+  %2780 = load ptr, ptr %2779, align 8
+  call void @free(ptr noundef %2780) #54
+  %2781 = getelementptr inbounds i8, ptr %8, i64 16
+  %2782 = load ptr, ptr %2781, align 8
+  call void @free(ptr noundef %2782) #54
   call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %8)
-  br label %2812
+  br label %2813
 
-2782:                                             ; preds = %2766
-  %2783 = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
-  %.not133 = icmp eq i32 %2783, 943870035
-  %2784 = load ptr, ptr %27, align 8
-  store ptr %2784, ptr %29, align 8
-  %2785 = load ptr, ptr %30, align 8
-  store ptr %2785, ptr %32, align 8
-  br i1 %.not133, label %2786, label %2788
+2783:                                             ; preds = %2767
+  %2784 = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
+  %.not133 = icmp eq i32 %2784, 943870035
+  %2785 = load ptr, ptr %27, align 8
+  store ptr %2785, ptr %29, align 8
+  %2786 = load ptr, ptr %30, align 8
+  store ptr %2786, ptr %32, align 8
+  br i1 %.not133, label %2787, label %2789
 
-2786:                                             ; preds = %2782
-  %2787 = tail call fastcc noundef ptr @_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6)
-  br label %2812
+2787:                                             ; preds = %2783
+  %2788 = tail call fastcc noundef ptr @_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6)
+  br label %2813
 
-2788:                                             ; preds = %2782
-  %2789 = tail call fastcc noundef i32 @_ZL14stbi__pic_testP13stbi__context(ptr noundef %0)
-  %.not79 = icmp eq i32 %2789, 0
-  br i1 %.not79, label %2792, label %2790
+2789:                                             ; preds = %2783
+  %2790 = tail call fastcc noundef i32 @_ZL14stbi__pic_testP13stbi__context(ptr noundef %0)
+  %.not79 = icmp eq i32 %2790, 0
+  br i1 %.not79, label %2793, label %2791
 
-2790:                                             ; preds = %2788
-  %2791 = tail call fastcc noundef ptr @_ZL14stbi__pic_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  br label %2812
+2791:                                             ; preds = %2789
+  %2792 = tail call fastcc noundef ptr @_ZL14stbi__pic_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  br label %2813
 
-2792:                                             ; preds = %2788
-  %2793 = tail call fastcc noundef i32 @_ZL14stbi__pnm_testP13stbi__context(ptr noundef %0)
-  %.not80 = icmp eq i32 %2793, 0
-  br i1 %.not80, label %2796, label %2794
+2793:                                             ; preds = %2789
+  %2794 = tail call fastcc noundef i32 @_ZL14stbi__pnm_testP13stbi__context(ptr noundef %0)
+  %.not80 = icmp eq i32 %2794, 0
+  br i1 %.not80, label %2797, label %2795
 
-2794:                                             ; preds = %2792
-  %2795 = tail call fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  br label %2812
+2795:                                             ; preds = %2793
+  %2796 = tail call fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  br label %2813
 
-2796:                                             ; preds = %2792
-  %2797 = tail call fastcc noundef i32 @_ZL14stbi__hdr_testP13stbi__context(ptr noundef %0)
-  %.not81 = icmp eq i32 %2797, 0
-  br i1 %.not81, label %2807, label %2798
+2797:                                             ; preds = %2793
+  %2798 = tail call fastcc noundef i32 @_ZL14stbi__hdr_testP13stbi__context(ptr noundef %0)
+  %.not81 = icmp eq i32 %2798, 0
+  br i1 %.not81, label %2808, label %2799
 
-2798:                                             ; preds = %2796
-  %2799 = tail call fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %2800 = load i32, ptr %1, align 4
-  %2801 = load i32, ptr %2, align 4
+2799:                                             ; preds = %2797
+  %2800 = tail call fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %2801 = load i32, ptr %1, align 4
+  %2802 = load i32, ptr %2, align 4
   %.not83 = icmp eq i32 %4, 0
-  br i1 %.not83, label %2802, label %2804
+  br i1 %.not83, label %2803, label %2805
 
-2802:                                             ; preds = %2798
-  %2803 = load i32, ptr %3, align 4
-  br label %2804
+2803:                                             ; preds = %2799
+  %2804 = load i32, ptr %3, align 4
+  br label %2805
 
-2804:                                             ; preds = %2798, %2802
-  %2805 = phi i32 [ %2803, %2802 ], [ %4, %2798 ]
-  %2806 = tail call fastcc noundef ptr @_ZL16stbi__hdr_to_ldrPfiii(ptr noundef %2799, i32 noundef %2800, i32 noundef %2801, i32 noundef %2805)
-  br label %2812
+2805:                                             ; preds = %2799, %2803
+  %2806 = phi i32 [ %2804, %2803 ], [ %4, %2799 ]
+  %2807 = tail call fastcc noundef ptr @_ZL16stbi__hdr_to_ldrPfiii(ptr noundef %2800, i32 noundef %2801, i32 noundef %2802, i32 noundef %2806)
+  br label %2813
 
-2807:                                             ; preds = %2796
-  %2808 = tail call fastcc noundef i32 @_ZL14stbi__tga_testP13stbi__context(ptr noundef %0)
-  %.not82 = icmp eq i32 %2808, 0
-  br i1 %.not82, label %2811, label %2809
+2808:                                             ; preds = %2797
+  %2809 = tail call fastcc noundef i32 @_ZL14stbi__tga_testP13stbi__context(ptr noundef %0)
+  %.not82 = icmp eq i32 %2809, 0
+  br i1 %.not82, label %2812, label %2810
 
-2809:                                             ; preds = %2807
-  %2810 = tail call fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  br label %2812
+2810:                                             ; preds = %2808
+  %2811 = tail call fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  br label %2813
 
-2811:                                             ; preds = %2807
+2812:                                             ; preds = %2808
   store ptr @.str.8, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %2812
+  br label %2813
 
-2812:                                             ; preds = %2811, %2809, %2804, %2794, %2790, %2786, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
-  %.0 = phi ptr [ %.0.i.i, %_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.043.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i123, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %2787, %2786 ], [ %2791, %2790 ], [ %2795, %2794 ], [ %2806, %2804 ], [ %2810, %2809 ], [ null, %2811 ]
+2813:                                             ; preds = %2812, %2810, %2805, %2795, %2791, %2787, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, %_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
+  %.0 = phi ptr [ %.0.i.i, %_ZL15stbi__jpeg_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.043.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %.0.i123, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit ], [ %2788, %2787 ], [ %2792, %2791 ], [ %2796, %2795 ], [ %2807, %2805 ], [ %2811, %2810 ], [ null, %2812 ]
   ret ptr %.0
 }
 

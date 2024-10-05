@@ -18702,10 +18702,10 @@ sqlite3PagerOpenWal.exit.thread28:                ; preds = %187, %190, %183, %1
   %235 = zext i8 %234 to i32
   %236 = shl nuw nsw i32 %235, 16
   %237 = or disjoint i32 %236, %232
-  %238 = add nuw nsw i32 %237, 16777215
+  %238 = add nuw nsw i32 %237, 16776960
   %239 = and i32 %238, %237
   %240 = icmp ne i32 %239, 0
-  %241 = add nsw i32 %237, -65537
+  %241 = add nsw i32 %237, -65792
   %242 = icmp ult i32 %241, -65280
   %or.cond3.i.i = or i1 %242, %240
   br i1 %or.cond3.i.i, label %.loopexit.i, label %243
@@ -58752,7 +58752,7 @@ sqlite3PagerSetBusyHandler.exit:                  ; preds = %sqlite3PagerReadFil
   br i1 %or.cond235, label %538, label %535
 
 535:                                              ; preds = %524
-  %536 = add nuw nsw i32 %532, 131071
+  %536 = add nuw nsw i32 %532, 130816
   %537 = and i32 %536, %532
   %.not214 = icmp eq i32 %537, 0
   br i1 %.not214, label %542, label %538
@@ -276365,7 +276365,7 @@ whereNthSubterm.exit231.thread:                   ; preds = %169, %whereNthSubte
   br i1 %.not36.i, label %215, label %whereCombineDisjuncts.exit
 
 215:                                              ; preds = %207
-  %216 = add nuw nsw i32 %196, 63
+  %216 = add nuw nsw i32 %196, 62
   %217 = and i32 %216, %196
   %.not37.i = icmp eq i32 %217, 0
   %218 = and i32 %196, 24

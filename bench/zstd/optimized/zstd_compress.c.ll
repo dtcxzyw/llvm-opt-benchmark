@@ -2948,7 +2948,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %ZSTD_
   %conv.i = select i1 %8, i64 3, i64 4
   %div.i = udiv i64 %cond25, %conv.i
   %mul = shl i64 %div.i, 3
-  %add.i.i = add i64 %mul, 63
+  %add.i.i = add i64 %mul, 56
   %and.i.i = and i64 %add.i.i, -64
   %hashLog.i = getelementptr inbounds i8, ptr %cParams, i64 8
   %9 = load i32, ptr %hashLog.i, align 4
@@ -2977,15 +2977,15 @@ cond.end.i:                                       ; preds = %cond.true.i, %ZSTD_
   %14 = load i32, ptr %ldmParams, align 4
   %cmp41 = icmp eq i32 %14, 1
   %mul43 = mul i64 %call40, 12
-  %add.i.i22 = add i64 %mul43, 63
+  %add.i.i22 = add i64 %mul43, 60
   %and.i.i23 = and i64 %add.i.i22, -64
   %cond47 = select i1 %cmp41, i64 %and.i.i23, i64 0
   %tobool.not = icmp eq i32 %isStatic, 0
   %div.i24 = udiv i64 %cond25, 3
   %tobool57.not = icmp eq i32 %useSequenceProducer, 0
   %add.i25 = shl i64 %div.i24, 4
-  %add.i.i26 = add i64 %add.i25, 79
-  %and.i.i27 = and i64 %add.i.i26, -64
+  %15 = and i64 %add.i25, -64
+  %and.i.i27 = add i64 %15, 64
   %cond63 = select i1 %tobool57.not, i64 0, i64 %and.i.i27
   %mul32 = mul nuw nsw i64 %div.i, 3
   %add65 = select i1 %tobool.not, i64 20184, i64 25440
@@ -12390,7 +12390,7 @@ do.end200:                                        ; preds = %if.then196, %ZSTD_c
 
 do.end224:                                        ; preds = %do.end200
   %mul = shl i64 %div.i, 3
-  %add.i.i = add i64 %mul, 63
+  %add.i.i = add i64 %mul, 56
   %and.i.i205 = and i64 %add.i.i, -64
   %31 = load i32, ptr %phase.i200616, align 8
   %cmp.i.i.i = icmp ult i32 %31, 2
@@ -12476,7 +12476,7 @@ if.then230:                                       ; preds = %ZSTD_cwksp_reserve_
   %42 = load i32, ptr %hashLog, align 4
   %sh_prom232 = zext nneg i32 %42 to i64
   %mul234 = shl i64 8, %sh_prom232
-  %add.i.i211 = add nuw i64 %mul234, 63
+  %add.i.i211 = add nuw i64 %mul234, 56
   %and.i.i212 = and i64 %add.i.i211, -64
   %cmp.i.i.i214 = icmp ult i32 %40, 2
   br i1 %cmp.i.i.i214, label %if.then5.i.i.i234, label %ZSTD_cwksp_internal_advance_phase.exit.i.i215
@@ -12549,7 +12549,7 @@ ZSTD_cwksp_reserve_aligned.exit248:               ; preds = %if.then5.i.i.i234, 
   store ptr %retval.0.i.i227, ptr %hashTable, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i227, i8 0, i64 %mul234, i1 false)
   %mul239 = mul i64 %call52, 12
-  %add.i.i249 = add i64 %mul239, 63
+  %add.i.i249 = add i64 %mul239, 60
   %and.i.i250 = and i64 %add.i.i249, -64
   %50 = load i32, ptr %phase.i200616, align 8
   %cmp.i.i.i252 = icmp ult i32 %50, 2
@@ -12655,7 +12655,7 @@ if.then247:                                       ; preds = %if.end244
   %extSeqBufCapacity = getelementptr inbounds i8, ptr %zc, i64 5248
   store i64 %add.i290, ptr %extSeqBufCapacity, align 8
   %mul249 = shl i64 %add.i290, 4
-  %add.i.i291 = add i64 %mul249, 63
+  %add.i.i291 = add i64 %mul249, 48
   %and.i.i292 = and i64 %add.i.i291, -64
   %cmp.i.i.i294 = icmp ult i32 %61, 2
   br i1 %cmp.i.i.i294, label %if.then5.i.i.i314, label %ZSTD_cwksp_internal_advance_phase.exit.i.i295

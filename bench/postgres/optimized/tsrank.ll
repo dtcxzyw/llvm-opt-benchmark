@@ -580,55 +580,54 @@ define internal fastcc noundef nonnull ptr @getWeights(ptr noundef %0) unnamed_a
 
 27:                                               ; preds = %24
   %28 = sext i32 %26 to i64
-  br label %35
+  br label %34
 
 29:                                               ; preds = %24
   %30 = load i32, ptr %4, align 4
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 3
-  %33 = add nsw i64 %32, 23
-  %34 = and i64 %33, -8
-  br label %35
+  %33 = add nsw i64 %32, 16
+  br label %34
 
-35:                                               ; preds = %29, %27
-  %36 = phi i64 [ %28, %27 ], [ %34, %29 ]
-  %37 = getelementptr i8, ptr %0, i64 %36
-  br label %39
+34:                                               ; preds = %29, %27
+  %35 = phi i64 [ %28, %27 ], [ %33, %29 ]
+  %36 = getelementptr i8, ptr %0, i64 %35
+  br label %38
 
-38:                                               ; preds = %46
+37:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !12
 
-39:                                               ; preds = %35, %38
-  %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %38 ]
-  %40 = getelementptr float, ptr %37, i64 %indvars.iv
-  %41 = load float, ptr %40, align 4
-  %42 = fcmp ult float %41, 0.000000e+00
-  br i1 %42, label %43, label %46
+38:                                               ; preds = %34, %37
+  %indvars.iv = phi i64 [ 0, %34 ], [ %indvars.iv.next, %37 ]
+  %39 = getelementptr float, ptr %36, i64 %indvars.iv
+  %40 = load float, ptr %39, align 4
+  %41 = fcmp ult float %40, 0.000000e+00
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %39
-  %44 = getelementptr [4 x float], ptr @weights, i64 0, i64 %indvars.iv
-  %45 = load float, ptr %44, align 4
-  br label %46
+42:                                               ; preds = %38
+  %43 = getelementptr [4 x float], ptr @weights, i64 0, i64 %indvars.iv
+  %44 = load float, ptr %43, align 4
+  br label %45
 
-46:                                               ; preds = %39, %43
-  %47 = phi float [ %45, %43 ], [ %41, %39 ]
-  %48 = getelementptr [4 x float], ptr @getWeights.ws, i64 0, i64 %indvars.iv
-  store float %47, ptr %48, align 4
-  %49 = fcmp ogt float %47, 1.000000e+00
-  br i1 %49, label %50, label %38
+45:                                               ; preds = %38, %42
+  %46 = phi float [ %44, %42 ], [ %40, %38 ]
+  %47 = getelementptr [4 x float], ptr @getWeights.ws, i64 0, i64 %indvars.iv
+  store float %46, ptr %47, align 4
+  %48 = fcmp ogt float %46, 1.000000e+00
+  br i1 %48, label %49, label %37
 
-50:                                               ; preds = %46
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 50856066) #11
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #11
+49:                                               ; preds = %45
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %50)
+  %51 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 431, ptr noundef nonnull @__func__.getWeights) #11
   unreachable
 
-.loopexit:                                        ; preds = %38, %1
-  %.0 = phi ptr [ @weights, %1 ], [ @getWeights.ws, %38 ]
+.loopexit:                                        ; preds = %37, %1
+  %.0 = phi ptr [ @weights, %1 ], [ @getWeights.ws, %37 ]
   ret ptr %.0
 }
 

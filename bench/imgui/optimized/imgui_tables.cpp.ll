@@ -1110,7 +1110,7 @@ if.then337:                                       ; preds = %if.end334.thread, %
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 44
   store i32 %mul3.i, ptr %arrayidx6.i.i, align 4
   %mul5.i = shl i32 %columns_count, 3
-  %add9.i24.i = add i32 %mul3.i, 3
+  %add9.i24.i = add i32 %mul3.i, 2
   %add.i26.i = add i32 %add9.i24.i, %mul.i
   %and.i27.i = and i32 %add.i26.i, -4
   %arrayidx.i29.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 24
@@ -1588,7 +1588,7 @@ entry:
   %arrayidx6.i = getelementptr inbounds i8, ptr %span_allocator, i64 44
   store i32 %mul3, ptr %arrayidx6.i, align 4
   %mul5 = shl i32 %columns_count, 3
-  %add9.i24 = add i32 %mul3, 3
+  %add9.i24 = add i32 %mul3, 2
   %add.i26 = add i32 %add9.i24, %mul
   %and.i27 = and i32 %add.i26, -4
   %arrayidx.i29 = getelementptr inbounds i8, ptr %span_allocator, i64 24
@@ -7287,7 +7287,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %4 = load i32, ptr %ColumnsCount, align 4
   %mul = shl nsw i32 %4, 1
-  %add.i = add nsw i32 %mul, 35
+  %add.i = add nsw i32 %mul, 34
   %5 = ashr i32 %add.i, 3
   %shl.i = and i32 %5, -4
   %TempBuffer = getelementptr inbounds i8, ptr %0, i64 25016
@@ -12277,9 +12277,8 @@ entry:
   %SettingsTables = getelementptr inbounds i8, ptr %0, i64 24384
   %mul.i = shl i32 %columns_count, 4
   %1 = load i32, ptr %SettingsTables, align 8
-  %2 = add i32 %mul.i, 27
-  %conv.i4 = and i32 %2, -8
-  %add4.i = add nsw i32 %1, %conv.i4
+  %2 = add i32 %mul.i, 24
+  %add4.i = add nsw i32 %1, %2
   %Capacity.i.i = getelementptr inbounds i8, ptr %0, i64 24388
   %3 = load i32, ptr %Capacity.i.i, align 4
   %cmp.i.i = icmp sgt i32 %add4.i, %3
@@ -12328,7 +12327,7 @@ _ZN13ImChunkStreamI18ImGuiTableSettingsE11alloc_chunkEm.exit: ; preds = %entry._
   %Data.i = getelementptr inbounds i8, ptr %0, i64 24392
   %idx.ext.i = sext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext.i
-  store i32 %conv.i4, ptr %add.ptr.i, align 4
+  store i32 %2, ptr %add.ptr.i, align 4
   %8 = load ptr, ptr %Data.i, align 8
   %add.ptr10.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 4
@@ -13329,9 +13328,8 @@ if.then20:                                        ; preds = %for.body17
   %13 = load i16, ptr %ColumnsCount21, align 4
   %conv.i25 = sext i16 %13 to i32
   %mul.i26 = shl nsw i32 %conv.i25, 4
-  %14 = add nsw i32 %mul.i26, 27
-  %conv.i28 = and i32 %14, -8
-  %add4.i = add nsw i32 %conv.i28, %11
+  %14 = add nsw i32 %mul.i26, 24
+  %add4.i = add nsw i32 %14, %11
   %cmp.i.i = icmp sgt i32 %add4.i, %10
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont25
 
@@ -13372,7 +13370,7 @@ invoke.cont25:                                    ; preds = %if.then20, %if.end7
   store i32 %add4.i, ptr %new_chunk_stream, align 8
   %idx.ext.i30 = sext i32 %11 to i64
   %add.ptr.i31 = getelementptr inbounds i8, ptr %16, i64 %idx.ext.i30
-  store i32 %conv.i28, ptr %add.ptr.i31, align 4
+  store i32 %14, ptr %add.ptr.i31, align 4
   %17 = load ptr, ptr %Data.phi.trans.insert.i, align 8
   %add.ptr10.i = getelementptr inbounds i8, ptr %17, i64 %idx.ext.i30
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 4

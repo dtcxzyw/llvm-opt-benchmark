@@ -728,14 +728,13 @@ for.end231:                                       ; preds = %for.inc229
   %flood2chars.val = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %conv234 = and i64 %flood2chars.val, 4294967295
   %mul = mul nuw nsw i64 %conv234, 208
-  %add235 = add nuw nsw i64 %mul, 1039
-  %and236 = and i64 %add235, 2199023255536
-  invoke void @_ZN3ue212bytecode_ptrIhEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %and236, i64 noundef 16)
+  %add235 = add nuw nsw i64 %mul, 1024
+  invoke void @_ZN3ue212bytecode_ptrIhEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %add235, i64 noundef 16)
           to label %invoke.cont237 unwind label %lpad224.loopexit.split-lp
 
 invoke.cont237:                                   ; preds = %for.end231
   %84 = load ptr, ptr %agg.result, align 8, !alias.scope !12
-  call void @llvm.memset.p0.i64(ptr align 1 %84, i8 0, i64 %and236, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %84, i8 0, i64 %add235, i1 false)
   %85 = load ptr, ptr %agg.result, align 8
   %add.ptr = getelementptr inbounds i8, ptr %85, i64 1024
   %flood2chars.val140 = load ptr, ptr %_M_left.i.i.i.i.i, align 8

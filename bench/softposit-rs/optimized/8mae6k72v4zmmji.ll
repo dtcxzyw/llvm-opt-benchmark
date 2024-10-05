@@ -251,7 +251,7 @@ define hidden noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit
   br i1 %33, label %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit, label %34
 
 34:                                               ; preds = %._crit_edge.i
-  %35 = add nuw i32 %31, 2147483647
+  %35 = add nuw i32 %31, 2147483646
   %36 = shl i32 16, %22
   %37 = or i32 %35, %36
   %38 = and i32 %37, %20
@@ -682,7 +682,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   br i1 %77, label %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i, label %78
 
 78:                                               ; preds = %._crit_edge.i.i4
-  %79 = add nuw i32 %75, 2147483647
+  %79 = add nuw i32 %75, 2147483646
   %80 = shl i32 16, %66
   %81 = or i32 %79, %80
   %82 = and i32 %81, %64
@@ -851,7 +851,7 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5atan217h9b8a551
   br i1 %67, label %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i, label %68
 
 68:                                               ; preds = %._crit_edge.i.i
-  %69 = add nuw i32 %65, 2147483647
+  %69 = add nuw i32 %65, 2147483646
   %70 = shl i32 16, %56
   %71 = or i32 %69, %70
   %72 = and i32 %71, %54
@@ -1538,7 +1538,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   br i1 %76, label %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i, label %77
 
 77:                                               ; preds = %._crit_edge.i.i8
-  %78 = add nuw i32 %74, 2147483647
+  %78 = add nuw i32 %74, 2147483646
   %79 = shl i32 16, %65
   %80 = or i32 %78, %79
   %81 = and i32 %80, %63
@@ -1992,7 +1992,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br i1 %108, label %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i, label %109
 
 109:                                              ; preds = %._crit_edge.i.i
-  %110 = add nuw i32 %106, 2147483647
+  %110 = add nuw i32 %106, 2147483646
   %111 = shl i32 16, %97
   %112 = or i32 %110, %111
   %113 = and i32 %112, %95

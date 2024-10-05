@@ -340,7 +340,7 @@ _ZN4core4hash11BuildHasher8hash_one17h839b4014e967008fE.exit.i.i.i.i: ; preds = 
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit.backedge.i.i.i.i.i.i": ; preds = %110, %103, %.lr.ph.i.i.i.i.i.i
   %.not.i4.not.i.i.i.i.i.i = icmp eq i16 %89, 0
-  %108 = add i16 %89, -1
+  %108 = add i16 %89, -2
   %109 = and i16 %108, %89
   br i1 %.not.i4.not.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -649,7 +649,7 @@ _ZN4core4hash11BuildHasher8hash_one17h839b4014e967008fE.exit.i.i.i.i: ; preds = 
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit.backedge.i.i.i.i.i.i": ; preds = %110, %103, %.lr.ph.i.i.i.i.i.i
   %.not.i4.not.i.i.i.i.i.i = icmp eq i16 %89, 0
-  %108 = add i16 %89, -1
+  %108 = add i16 %89, -2
   %109 = and i16 %108, %89
   br i1 %.not.i4.not.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit._crit_edge.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -5449,7 +5449,7 @@ _ZN4core4hash11BuildHasher8hash_one17h839b4014e967008fE.exit: ; preds = %26, %36
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit.backedge.i.i": ; preds = %81, %74, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %60, 0
-  %79 = add i16 %60, -1
+  %79 = add i16 %60, -2
   %80 = and i16 %79, %60
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit._crit_edge.i.i", label %.lr.ph.i.i
 
@@ -5602,7 +5602,7 @@ _ZN4core4hash11BuildHasher8hash_one17h839b4014e967008fE.exit: ; preds = %26, %36
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit.backedge.i.i": ; preds = %81, %74, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %60, 0
-  %79 = add i16 %60, -1
+  %79 = add i16 %60, -2
   %80 = and i16 %79, %60
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit._crit_edge.i.i", label %.lr.ph.i.i
 
@@ -9983,7 +9983,7 @@ define hidden noundef align 8 ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit.backedge.i": ; preds = %39, %32, %.lr.ph.i
   %.not.i4.not.i = icmp eq i16 %18, 0
-  %37 = add i16 %18, -1
+  %37 = add i16 %18, -2
   %38 = and i16 %37, %18
   br i1 %.not.i4.not.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit._crit_edge.i", label %.lr.ph.i
 
@@ -10071,7 +10071,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1f41
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit.backedge": ; preds = %32, %39, %.lr.ph
   %.not.i4.not = icmp eq i16 %18, 0
-  %37 = add i16 %18, -1
+  %37 = add i16 %18, -2
   %38 = and i16 %37, %18
   br i1 %.not.i4.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h44944d555b126c70E.exit._crit_edge", label %.lr.ph
 
@@ -11375,7 +11375,7 @@ define void @_ZN10actix_http6header3map9HeaderMap6append17heeb61e8216d45b51E(ptr
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf3412c0415337fd1E.exit.backedge.i.i": ; preds = %.noexc13.i, %85, %.lr.ph.i.i
   %.not.i4.not.i.i = icmp eq i16 %71, 0
-  %90 = add i16 %71, -1
+  %90 = add i16 %71, -2
   %91 = and i16 %90, %71
   br i1 %.not.i4.not.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf3412c0415337fd1E.exit._crit_edge.i.i", label %.lr.ph.i.i
 

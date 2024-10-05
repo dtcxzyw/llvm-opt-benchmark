@@ -25021,7 +25021,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_2.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_3.i.i.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %second.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -25118,7 +25118,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -27830,7 +27830,7 @@ entry:
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
   %1 = load ptr, ptr %this, align 8
-  %sub.i.i.i = add i64 %retval.0.i32, 15
+  %sub.i.i.i = add i64 %retval.0.i32, 8
   %div1.i.i.i = and i64 %sub.i.i.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 104
@@ -28659,7 +28659,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_2.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_3.i.i.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %second.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -28750,7 +28750,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -30299,7 +30299,7 @@ entry:
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
   %1 = load ptr, ptr %this, align 8
-  %sub.i.i.i = add i64 %retval.0.i32, 15
+  %sub.i.i.i = add i64 %retval.0.i32, 8
   %div1.i.i.i = and i64 %sub.i.i.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 104
@@ -30939,7 +30939,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_2.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_3.i.i.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %second.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -31030,7 +31030,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -32579,7 +32579,7 @@ entry:
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
   %1 = load ptr, ptr %this, align 8
-  %sub.i.i.i = add i64 %retval.0.i32, 15
+  %sub.i.i.i = add i64 %retval.0.i32, 8
   %div1.i.i.i = and i64 %sub.i.i.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 104
@@ -33219,7 +33219,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_2.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_3.i.i.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %second.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -33310,7 +33310,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -34859,7 +34859,7 @@ entry:
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
   %1 = load ptr, ptr %this, align 8
-  %sub.i.i.i = add i64 %retval.0.i32, 15
+  %sub.i.i.i = add i64 %retval.0.i32, 8
   %div1.i.i.i = and i64 %sub.i.i.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 104
@@ -38010,7 +38010,7 @@ if.then.i:                                        ; preds = %if.end, %if.end21, 
   %and.i.i.i = and i64 %retval.0.i.neg, -8
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
   %mul.i.i14 = mul i64 %mul.i.i, %add.i.i
-  %add.i.i15 = add i64 %mul.i.i14, 15
+  %add.i.i15 = add i64 %mul.i.i14, 8
   %sub.i.i2.i = sub i64 %add.i.i15, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i2.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %16, align 8
@@ -38793,7 +38793,7 @@ entry:
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %sub1.i.i = sub i64 0, %and.i.i.i
   %mul.i.i = mul i64 %mul.i27, 40
-  %add.i.i = add i64 %mul.i.i, 15
+  %add.i.i = add i64 %mul.i.i, 8
   %sub.i.i6.i = sub i64 %add.i.i, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i6.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -39226,7 +39226,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %mul.i.i = mul i64 %cond.i, 40
   %reass.sub = sub i64 %mul.i.i, %and.i.i.i
-  %sub.i.i3.i = add i64 %reass.sub, 15
+  %sub.i.i3.i = add i64 %reass.sub, 8
   %div1.i.i.i = and i64 %sub.i.i3.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 128
@@ -40251,7 +40251,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_2.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_3.i.i.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %second.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -40342,7 +40342,7 @@ if.then28.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 128
@@ -41932,7 +41932,7 @@ entry:
   %retval.0.i32 = select i1 %cmp.i28, i64 %add.i30, i64 %mul3.i31
   store i64 %retval.0.i32, ptr %newAllocSize, align 8
   %1 = load ptr, ptr %this, align 8
-  %sub.i.i.i = add i64 %retval.0.i32, 15
+  %sub.i.i.i = add i64 %retval.0.i32, 8
   %div1.i.i.i = and i64 %sub.i.i.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 104
@@ -45006,7 +45006,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.0.i.neg.i.i.i.i.i.i.i.i.i.i, -8
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %mul.i.i14.i.i.i.i.i.i.i.i.i.i = mul i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.i.i15.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i, 15
+  %add.i.i15.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i, 8
   %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i = sub i64 %add.i.i15.i.i.i.i.i.i.i.i.i.i, %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
@@ -45111,7 +45111,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.0.i.neg.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %mul.i.i14.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.i.i15.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %add.i.i15.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %add.i.i15.i.i.i.i.i.i.i.i.i.i.i.i, %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %8, align 8
@@ -45165,7 +45165,7 @@ if.then.i:                                        ; preds = %if.end, %if.end21, 
   %and.i.i.i = and i64 %retval.0.i.neg, -8
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
   %mul.i.i14 = mul i64 %mul.i.i, %add.i.i
-  %add.i.i15 = add i64 %mul.i.i14, 15
+  %add.i.i15 = add i64 %mul.i.i14, 8
   %sub.i.i2.i = sub i64 %add.i.i15, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i2.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %16, align 8
@@ -46038,7 +46038,7 @@ entry:
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %sub1.i.i = sub i64 0, %and.i.i.i
   %mul.i.i = mul i64 %mul.i27, 40
-  %add.i.i = add i64 %mul.i.i, 15
+  %add.i.i = add i64 %mul.i.i, 8
   %sub.i.i6.i = sub i64 %add.i.i, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i6.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -46471,7 +46471,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %mul.i.i = mul i64 %cond.i, 40
   %reass.sub = sub i64 %mul.i.i, %and.i.i.i
-  %sub.i.i3.i = add i64 %reass.sub, 15
+  %sub.i.i3.i = add i64 %reass.sub, 8
   %div1.i.i.i = and i64 %sub.i.i3.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 128
@@ -46923,7 +46923,7 @@ entry:
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %sub1.i.i = sub i64 0, %and.i.i.i
   %mul.i.i = mul i64 %mul.i27, 24
-  %add.i.i = add i64 %mul.i.i, 15
+  %add.i.i = add i64 %mul.i.i, 8
   %sub.i.i6.i = sub i64 %add.i.i, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i6.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -47368,7 +47368,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -8
   %mul.i.i.i = mul i64 %cond.i.i, 24
   %reass.sub = sub i64 %mul.i.i.i, %and.i.i.i.i
-  %sub.i.i3.i.i = add i64 %reass.sub, 15
+  %sub.i.i3.i.i = add i64 %reass.sub, 8
   %div1.i.i.i.i = and i64 %sub.i.i3.i.i, -16
   %vtable.i.i.i.i.i.i = load ptr, ptr %81, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 128
@@ -47539,7 +47539,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %mul.i.i = mul i64 %cond.i, 24
   %reass.sub = sub i64 %mul.i.i, %and.i.i.i
-  %sub.i.i3.i = add i64 %reass.sub, 15
+  %sub.i.i3.i = add i64 %reass.sub, 8
   %div1.i.i.i = and i64 %sub.i.i3.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 128
@@ -48376,7 +48376,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end21.i.i.i.i.i.
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.0.i.neg.i.i.i.i.i.i.i.i.i.i, -8
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %mul.i.i14.i.i.i.i.i.i.i.i.i.i = mul i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.i.i15.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i, 15
+  %add.i.i15.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i, 8
   %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i = sub i64 %add.i.i15.i.i.i.i.i.i.i.i.i.i, %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
@@ -48481,7 +48481,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end21.i.i.i.i.i.
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.0.i.neg.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %mul.i.i14.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.i.i15.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i.i.i, 15
+  %add.i.i15.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i14.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %add.i.i15.i.i.i.i.i.i.i.i.i.i.i.i, %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %div1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, -16
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %8, align 8
@@ -48535,7 +48535,7 @@ if.then.i:                                        ; preds = %if.end, %if.end21, 
   %and.i.i.i = and i64 %retval.0.i.neg, -8
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
   %mul.i.i14 = mul i64 %mul.i.i, %add.i.i
-  %add.i.i15 = add i64 %mul.i.i14, 15
+  %add.i.i15 = add i64 %mul.i.i14, 8
   %sub.i.i2.i = sub i64 %add.i.i15, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i2.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %16, align 8
@@ -49348,7 +49348,7 @@ entry:
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %sub1.i.i = sub i64 0, %and.i.i.i
   %mul.i.i = mul i64 %mul.i27, 40
-  %add.i.i = add i64 %mul.i.i, 15
+  %add.i.i = add i64 %mul.i.i, 8
   %sub.i.i6.i = sub i64 %add.i.i, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i6.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -49781,7 +49781,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %mul.i.i = mul i64 %cond.i, 40
   %reass.sub = sub i64 %mul.i.i, %and.i.i.i
-  %sub.i.i3.i = add i64 %reass.sub, 15
+  %sub.i.i3.i = add i64 %reass.sub, 8
   %div1.i.i.i = and i64 %sub.i.i3.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 128
@@ -50107,7 +50107,7 @@ entry:
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %sub1.i.i = sub i64 0, %and.i.i.i
   %mul.i.i = mul i64 %mul.i27, 24
-  %add.i.i = add i64 %mul.i.i, 15
+  %add.i.i = add i64 %mul.i.i, 8
   %sub.i.i6.i = sub i64 %add.i.i, %and.i.i.i
   %div1.i.i.i = and i64 %sub.i.i6.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -50515,7 +50515,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -8
   %mul.i.i.i = mul i64 %cond.i.i, 24
   %reass.sub = sub i64 %mul.i.i.i, %and.i.i.i.i
-  %sub.i.i3.i.i = add i64 %reass.sub, 15
+  %sub.i.i3.i.i = add i64 %reass.sub, 8
   %div1.i.i.i.i = and i64 %sub.i.i3.i.i, -16
   %vtable.i.i.i.i.i.i = load ptr, ptr %71, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 128
@@ -50637,7 +50637,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %and.i.i.i = and i64 %sub.i.i.i, -8
   %mul.i.i = mul i64 %cond.i, 24
   %reass.sub = sub i64 %mul.i.i, %and.i.i.i
-  %sub.i.i3.i = add i64 %reass.sub, 15
+  %sub.i.i3.i = add i64 %reass.sub, 8
   %div1.i.i.i = and i64 %sub.i.i3.i, -16
   %vtable.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 128

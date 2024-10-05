@@ -5890,7 +5890,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 13:                                               ; preds = %9
   %14 = extractvalue { i64, i1 } %11, 0
-  %15 = add nuw i64 %14, 15
+  %15 = add nuw i64 %14, 8
   %16 = and i64 %15, -16
   %17 = add i64 %6, 17
   %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %17)
@@ -24757,7 +24757,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -25177,7 +25177,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -25593,7 +25593,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -26329,7 +26329,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 49:                                               ; preds = %.thread.i.i
   %50 = extractvalue { i64, i1 } %47, 0
-  %51 = add nuw i64 %50, 15
+  %51 = add nuw i64 %50, 8
   %52 = and i64 %51, -16
   %53 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %53)
@@ -26673,7 +26673,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -27083,7 +27083,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -27496,7 +27496,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 49:                                               ; preds = %.thread.i.i
   %50 = extractvalue { i64, i1 } %47, 0
-  %51 = add nuw i64 %50, 15
+  %51 = add nuw i64 %50, 8
   %52 = and i64 %51, -16
   %53 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %53)
@@ -28244,7 +28244,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 49:                                               ; preds = %.thread.i.i
   %50 = extractvalue { i64, i1 } %47, 0
-  %51 = add nuw i64 %50, 15
+  %51 = add nuw i64 %50, 8
   %52 = and i64 %51, -16
   %53 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %53)
@@ -28587,7 +28587,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 51:                                               ; preds = %.thread.i.i
   %52 = extractvalue { i64, i1 } %49, 0
-  %53 = add nuw i64 %52, 15
+  %53 = add nuw i64 %52, 8
   %54 = and i64 %53, -16
   %55 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %55)
@@ -29003,7 +29003,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -29420,7 +29420,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 49:                                               ; preds = %.thread.i.i
   %50 = extractvalue { i64, i1 } %47, 0
-  %51 = add nuw i64 %50, 15
+  %51 = add nuw i64 %50, 8
   %52 = and i64 %51, -16
   %53 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %53)
@@ -30587,7 +30587,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -31008,7 +31008,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -31428,7 +31428,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -32651,7 +32651,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -33889,7 +33889,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -34306,7 +34306,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -34721,7 +34721,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 51:                                               ; preds = %.thread.i.i
   %52 = extractvalue { i64, i1 } %49, 0
-  %53 = add nuw i64 %52, 15
+  %53 = add nuw i64 %52, 8
   %54 = and i64 %53, -16
   %55 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %55)
@@ -35126,7 +35126,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 51:                                               ; preds = %.thread.i.i
   %52 = extractvalue { i64, i1 } %49, 0
-  %53 = add nuw i64 %52, 15
+  %53 = add nuw i64 %52, 8
   %54 = and i64 %53, -16
   %55 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 %55)
@@ -36361,7 +36361,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 52:                                               ; preds = %.thread.i.i
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = add nuw i64 %53, 15
+  %54 = add nuw i64 %53, 8
   %55 = and i64 %54, -16
   %56 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %57 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
@@ -37107,7 +37107,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -37528,7 +37528,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 53:                                               ; preds = %.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
-  %55 = add nuw i64 %54, 15
+  %55 = add nuw i64 %54, 8
   %56 = and i64 %55, -16
   %57 = add nuw nsw i64 %.sroa.6.051.i.i, 16
   %58 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %56, i64 %57)
@@ -41000,7 +41000,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
 
 26:                                               ; preds = %.thread.i
   %27 = extractvalue { i64, i1 } %24, 0
-  %28 = add nuw i64 %27, 15
+  %28 = add nuw i64 %27, 8
   %29 = and i64 %28, -16
   %30 = add nuw nsw i64 %.sroa.6.051.i, 16
   %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %29, i64 %30)
@@ -41103,7 +41103,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
 
 26:                                               ; preds = %.thread.i
   %27 = extractvalue { i64, i1 } %24, 0
-  %28 = add nuw i64 %27, 15
+  %28 = add nuw i64 %27, 8
   %29 = and i64 %28, -16
   %30 = add nuw nsw i64 %.sroa.6.051.i, 16
   %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %29, i64 %30)
@@ -41269,7 +41269,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized
 
 7:                                                ; preds = %3
   %8 = extractvalue { i64, i1 } %5, 0
-  %9 = add nuw i64 %8, 15
+  %9 = add nuw i64 %8, 8
   %10 = and i64 %9, -16
   %11 = add nuw nsw i64 %1, 16
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)

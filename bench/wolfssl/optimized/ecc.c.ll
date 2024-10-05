@@ -3690,9 +3690,9 @@ lor.lhs.false:                                    ; preds = %entry
 cond.false:                                       ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %2 = add i32 %mul, 63
+  %2 = add i32 %mul, 56
   %3 = icmp ult i32 %2, 64
-  %4 = lshr i32 %2, 2
+  %4 = lshr exact i32 %2, 2
   %5 = and i32 %4, 1073741808
   %narrow = add nuw nsw i32 %5, 16
   %narrow74 = select i1 %3, i32 16, i32 %narrow
@@ -3700,7 +3700,7 @@ cond.false:                                       ; preds = %lor.lhs.false
   %vla6471 = alloca i8, i64 %cond26.ph.ph, align 16
   %6 = load i32, ptr %0, align 8
   %mul39 = shl nsw i32 %6, 3
-  %7 = add i32 %mul39, 63
+  %7 = add i32 %mul39, 56
   %8 = icmp ult i32 %7, 64
   br i1 %8, label %cond.end70, label %cond.false58
 
@@ -3713,7 +3713,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false
   br label %cond.end70
 
 cond.false58:                                     ; preds = %cond.false
-  %9 = lshr i32 %7, 2
+  %9 = lshr exact i32 %7, 2
   %10 = and i32 %9, 1073741808
   %narrow57 = add nuw nsw i32 %10, 16
   %11 = zext nneg i32 %narrow57 to i64
@@ -3742,7 +3742,7 @@ if.end90:                                         ; preds = %cond.end70
 cond.false95:                                     ; preds = %if.end90
   %14 = load i32, ptr %13, align 8
   %mul98 = shl nsw i32 %14, 3
-  %15 = add i32 %mul98, 63
+  %15 = add i32 %mul98, 56
   %16 = icmp ult i32 %15, 64
   br i1 %16, label %cond.false135.thread, label %cond.false154
 
@@ -3751,12 +3751,12 @@ cond.false135.thread:                             ; preds = %cond.false95
   br label %cond.false175
 
 cond.false154:                                    ; preds = %cond.false95
-  %17 = lshr i32 %15, 2
+  %17 = lshr exact i32 %15, 2
   %18 = and i32 %17, 1073741808
   %narrow58 = add nuw nsw i32 %18, 16
   %19 = zext nneg i32 %narrow58 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla66, i8 0, i64 %19, i1 false)
-  %20 = lshr i32 %15, 2
+  %20 = lshr exact i32 %15, 2
   %21 = and i32 %20, 1073741808
   %narrow59 = add nuw nsw i32 %21, 16
   %22 = zext nneg i32 %narrow59 to i64
@@ -3788,7 +3788,7 @@ if.end195:                                        ; preds = %cond.end179
 cond.false200:                                    ; preds = %if.end195
   %26 = load i32, ptr %25, align 8
   %mul203 = shl nsw i32 %26, 3
-  %27 = add i32 %mul203, 63
+  %27 = add i32 %mul203, 56
   %28 = lshr i32 %27, 5
   %29 = or i32 %28, 1
   br label %cond.end204
@@ -3837,12 +3837,12 @@ lor.lhs.false:                                    ; preds = %entry
 cond.false:                                       ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %2 = add i32 %mul, 63
+  %2 = add i32 %mul, 56
   %3 = icmp ult i32 %2, 64
   br i1 %3, label %cond.end25, label %cond.false13
 
 cond.false13:                                     ; preds = %cond.false
-  %4 = lshr i32 %2, 2
+  %4 = lshr exact i32 %2, 2
   %5 = and i32 %4, 1073741808
   %narrow = add nuw nsw i32 %5, 16
   %6 = zext nneg i32 %narrow to i64
@@ -3888,9 +3888,9 @@ lor.lhs.false53:                                  ; preds = %if.end50
 cond.end67:                                       ; preds = %lor.lhs.false53
   %13 = load i32, ptr %12, align 8
   %mul66 = shl nsw i32 %13, 3
-  %sub70 = add i32 %mul66, 63
+  %sub70 = add i32 %mul66, 56
   %cmp74 = icmp ult i32 %sub70, 64
-  %14 = lshr i32 %sub70, 2
+  %14 = lshr exact i32 %sub70, 2
   %15 = and i32 %14, 1073741808
   %narrow50 = add nuw nsw i32 %15, 16
   %narrow59 = select i1 %cmp74, i32 16, i32 %narrow50
@@ -3977,7 +3977,7 @@ entry:
 cond.false:                                       ; preds = %entry
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %2 = add i32 %mul, 63
+  %2 = add i32 %mul, 56
   %3 = icmp ult i32 %2, 64
   br i1 %3, label %cond.false30.thread, label %cond.false49
 
@@ -3986,12 +3986,12 @@ cond.false30.thread:                              ; preds = %cond.false
   br label %cond.false72
 
 cond.false49:                                     ; preds = %cond.false
-  %4 = lshr i32 %2, 2
+  %4 = lshr exact i32 %2, 2
   %5 = and i32 %4, 1073741808
   %narrow = add nuw nsw i32 %5, 16
   %6 = zext nneg i32 %narrow to i64
   %vla70 = alloca i8, i64 %6, align 16
-  %7 = lshr i32 %2, 2
+  %7 = lshr exact i32 %2, 2
   %8 = and i32 %7, 1073741808
   %narrow68 = add nuw nsw i32 %8, 16
   %9 = zext nneg i32 %narrow68 to i64
@@ -4971,9 +4971,9 @@ lor.lhs.false:                                    ; preds = %entry
 cond.false:                                       ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %2 = add i32 %mul, 63
+  %2 = add i32 %mul, 56
   %3 = icmp ult i32 %2, 64
-  %4 = lshr i32 %2, 2
+  %4 = lshr exact i32 %2, 2
   %5 = and i32 %4, 1073741808
   %narrow = add nuw nsw i32 %5, 16
   %narrow76 = select i1 %3, i32 16, i32 %narrow
@@ -4981,7 +4981,7 @@ cond.false:                                       ; preds = %lor.lhs.false
   %vla6673 = alloca i8, i64 %cond26.ph.ph, align 16
   %6 = load i32, ptr %0, align 8
   %mul39 = shl nsw i32 %6, 3
-  %7 = add i32 %mul39, 63
+  %7 = add i32 %mul39, 56
   %8 = icmp ult i32 %7, 64
   br i1 %8, label %cond.end70, label %cond.false58
 
@@ -4994,7 +4994,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false
   br label %cond.end70
 
 cond.false58:                                     ; preds = %cond.false
-  %9 = lshr i32 %7, 2
+  %9 = lshr exact i32 %7, 2
   %10 = and i32 %9, 1073741808
   %narrow60 = add nuw nsw i32 %10, 16
   %11 = zext nneg i32 %narrow60 to i64
@@ -5021,7 +5021,7 @@ if.end:                                           ; preds = %cond.end70
 cond.false91:                                     ; preds = %if.end
   %13 = load i32, ptr %12, align 8
   %mul94 = shl nsw i32 %13, 3
-  %14 = add i32 %mul94, 63
+  %14 = add i32 %mul94, 56
   %15 = icmp ult i32 %14, 64
   br i1 %15, label %cond.false131.thread, label %cond.false150
 
@@ -5030,12 +5030,12 @@ cond.false131.thread:                             ; preds = %cond.false91
   br label %cond.false171
 
 cond.false150:                                    ; preds = %cond.false91
-  %16 = lshr i32 %14, 2
+  %16 = lshr exact i32 %14, 2
   %17 = and i32 %16, 1073741808
   %narrow61 = add nuw nsw i32 %17, 16
   %18 = zext nneg i32 %narrow61 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla68, i8 0, i64 %18, i1 false)
-  %19 = lshr i32 %14, 2
+  %19 = lshr exact i32 %14, 2
   %20 = and i32 %19, 1073741808
   %narrow62 = add nuw nsw i32 %20, 16
   %21 = zext nneg i32 %narrow62 to i64
@@ -5067,7 +5067,7 @@ if.end188:                                        ; preds = %cond.end175
 cond.false193:                                    ; preds = %if.end188
   %25 = load i32, ptr %24, align 8
   %mul196 = shl nsw i32 %25, 3
-  %26 = add i32 %mul196, 63
+  %26 = add i32 %mul196, 56
   %27 = lshr i32 %26, 5
   %28 = or i32 %27, 1
   br label %cond.end197
@@ -5249,7 +5249,7 @@ entry:
 cond.false:                                       ; preds = %entry
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %2 = add i32 %mul, 63
+  %2 = add i32 %mul, 56
   %3 = icmp ult i32 %2, 64
   br i1 %3, label %cond.false71.thread, label %cond.false90
 
@@ -5259,17 +5259,17 @@ cond.false71.thread:                              ; preds = %cond.false
   br label %cond.false111
 
 cond.false90:                                     ; preds = %cond.false
-  %4 = lshr i32 %2, 2
+  %4 = lshr exact i32 %2, 2
   %5 = and i32 %4, 1073741808
   %narrow = add nuw nsw i32 %5, 16
   %6 = zext nneg i32 %narrow to i64
   %vla125 = alloca i8, i64 %6, align 16
-  %7 = lshr i32 %2, 2
+  %7 = lshr exact i32 %2, 2
   %8 = and i32 %7, 1073741808
   %narrow87 = add nuw nsw i32 %8, 16
   %9 = zext nneg i32 %narrow87 to i64
   %vla66132 = alloca i8, i64 %9, align 16
-  %10 = lshr i32 %2, 2
+  %10 = lshr exact i32 %2, 2
   %11 = and i32 %10, 1073741808
   %narrow88 = add nuw nsw i32 %11, 16
   %12 = zext nneg i32 %narrow88 to i64
@@ -5328,9 +5328,9 @@ if.end146:                                        ; preds = %if.then126, %if.the
 cond.false151:                                    ; preds = %if.end146
   %17 = load i32, ptr %16, align 8
   %mul154 = shl nsw i32 %17, 3
-  %18 = add i32 %mul154, 63
+  %18 = add i32 %mul154, 56
   %19 = icmp ult i32 %18, 64
-  %20 = lshr i32 %18, 2
+  %20 = lshr exact i32 %18, 2
   %21 = and i32 %20, 1073741808
   %narrow90 = add nuw nsw i32 %21, 16
   %narrow369 = select i1 %19, i32 16, i32 %narrow90

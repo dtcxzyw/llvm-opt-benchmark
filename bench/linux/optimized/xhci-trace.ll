@@ -3344,69 +3344,67 @@ define internal void @perf_trace_xhci_log_ctx(ptr noundef %0, ptr nocapture noun
 28:                                               ; preds = %4
   %29 = load volatile ptr, ptr %24, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %74, label %31
+  br i1 %30, label %72, label %31
 
 31:                                               ; preds = %28, %4
   store i32 0, ptr %6, align 4, !annotation !62
-  %32 = add i32 %18, 51
-  %33 = and i32 %32, -16
-  %34 = add nsw i32 %33, -4
-  %35 = call ptr @perf_trace_buf_alloc(i32 noundef %34, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %74, label %37
+  %32 = add i32 %18, 44
+  %33 = call ptr @perf_trace_buf_alloc(i32 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %72, label %35
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %5, align 8
-  %39 = call ptr @llvm.returnaddress(i32 0)
-  %40 = ptrtoint ptr %39 to i64
-  %41 = getelementptr inbounds i8, ptr %38, i64 128
-  store i64 %40, ptr %41, align 8
-  %42 = call ptr @llvm.frameaddress.p0(i32 0)
-  %43 = ptrtoint ptr %42 to i64
-  %44 = getelementptr inbounds i8, ptr %38, i64 152
-  store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 136
-  store i64 16, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %38, i64 144
-  store i64 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %35, i64 36
-  store i32 %20, ptr %47, align 4
-  %48 = load i32, ptr %7, align 4
-  %49 = and i32 %48, 4
-  %50 = getelementptr inbounds i8, ptr %35, i64 8
-  store i32 %49, ptr %50, align 8
-  %51 = load i32, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %35, i64 12
-  store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %35, i64 16
-  store i64 %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %35, i64 24
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %35, i64 32
-  store i32 %3, ptr %59, align 8
-  %60 = getelementptr i8, ptr %35, i64 40
-  %61 = load ptr, ptr %56, align 8
-  %62 = load i32, ptr %7, align 4
-  %63 = shl i32 %62, 5
-  %64 = and i32 %63, 128
-  %65 = or disjoint i32 %64, 32
-  %66 = load i32, ptr %2, align 8
-  %67 = icmp eq i32 %66, 2
-  %68 = zext i1 %67 to i32
-  %69 = add i32 %15, %68
-  %70 = mul i32 %69, %65
-  %71 = zext i32 %70 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %61, i64 %71, i1 false)
-  %72 = load i32, ptr %6, align 4
-  %73 = load ptr, ptr %5, align 8
-  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %35, i32 noundef %34, i32 noundef %72, ptr noundef %0, i64 noundef 1, ptr noundef %73, ptr noundef %24, ptr noundef null) #11
-  br label %74
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %5, align 8
+  %37 = call ptr @llvm.returnaddress(i32 0)
+  %38 = ptrtoint ptr %37 to i64
+  %39 = getelementptr inbounds i8, ptr %36, i64 128
+  store i64 %38, ptr %39, align 8
+  %40 = call ptr @llvm.frameaddress.p0(i32 0)
+  %41 = ptrtoint ptr %40 to i64
+  %42 = getelementptr inbounds i8, ptr %36, i64 152
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %36, i64 136
+  store i64 16, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %36, i64 144
+  store i64 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %33, i64 36
+  store i32 %20, ptr %45, align 4
+  %46 = load i32, ptr %7, align 4
+  %47 = and i32 %46, 4
+  %48 = getelementptr inbounds i8, ptr %33, i64 8
+  store i32 %47, ptr %48, align 8
+  %49 = load i32, ptr %2, align 8
+  %50 = getelementptr inbounds i8, ptr %33, i64 12
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %33, i64 16
+  store i64 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %33, i64 32
+  store i32 %3, ptr %57, align 8
+  %58 = getelementptr i8, ptr %33, i64 40
+  %59 = load ptr, ptr %54, align 8
+  %60 = load i32, ptr %7, align 4
+  %61 = shl i32 %60, 5
+  %62 = and i32 %61, 128
+  %63 = or disjoint i32 %62, 32
+  %64 = load i32, ptr %2, align 8
+  %65 = icmp eq i32 %64, 2
+  %66 = zext i1 %65 to i32
+  %67 = add i32 %15, %66
+  %68 = mul i32 %67, %63
+  %69 = zext i32 %68 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %59, i64 %69, i1 false)
+  %70 = load i32, ptr %6, align 4
+  %71 = load ptr, ptr %5, align 8
+  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %33, i32 noundef %32, i32 noundef %70, ptr noundef %0, i64 noundef 1, ptr noundef %71, ptr noundef %24, ptr noundef null) #11
+  br label %72
 
-74:                                               ; preds = %37, %31, %28
+72:                                               ; preds = %35, %31, %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   ret void

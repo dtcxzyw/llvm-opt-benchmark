@@ -1837,7 +1837,7 @@ define noundef ptr @zend_ast_list_add(ptr noundef %0, ptr noundef %1) local_unna
   %6 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %4)
   %7 = icmp ult i32 %6, 2
   %or.cond = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %36
+  br i1 %or.cond, label %8, label %35
 
 8:                                                ; preds = %2
   %9 = zext i32 %4 to i64
@@ -1848,55 +1848,54 @@ define noundef ptr @zend_ast_list_add(ptr noundef %0, ptr noundef %1) local_unna
   %14 = shl nuw nsw i64 %13, 3
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = add nuw nsw i64 %14, 23
-  %18 = and i64 %17, 68719476720
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %16 to i64
-  %23 = sub i64 %21, %22
-  %.not.i.i = icmp ugt i64 %18, %23
-  br i1 %.not.i.i, label %26, label %24
+  %17 = add nuw nsw i64 %14, 16
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = ptrtoint ptr %16 to i64
+  %22 = sub i64 %20, %21
+  %.not.i.i = icmp ugt i64 %17, %22
+  br i1 %.not.i.i, label %25, label %23
 
-24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %16, i64 %18
-  store ptr %25, ptr %15, align 8
+23:                                               ; preds = %8
+  %24 = getelementptr inbounds i8, ptr %16, i64 %17
+  store ptr %24, ptr %15, align 8
   br label %zend_ast_realloc.exit
 
-26:                                               ; preds = %8
-  %27 = add nuw nsw i64 %18, 24
-  %28 = ptrtoint ptr %15 to i64
-  %29 = sub i64 %21, %28
-  %..i.i = tail call i64 @llvm.umax.i64(i64 %27, i64 %29)
-  %30 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #13
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = getelementptr inbounds i8, ptr %31, i64 %18
-  store ptr %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 %..i.i
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %15, ptr %35, align 8
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+25:                                               ; preds = %8
+  %26 = add nuw nsw i64 %14, 40
+  %27 = ptrtoint ptr %15 to i64
+  %28 = sub i64 %20, %27
+  %..i.i = tail call i64 @llvm.umax.i64(i64 %26, i64 %28)
+  %29 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #13
+  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = getelementptr inbounds i8, ptr %30, i64 %17
+  store ptr %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 %..i.i
+  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr %15, ptr %34, align 8
+  store ptr %29, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   br label %zend_ast_realloc.exit
 
-zend_ast_realloc.exit:                            ; preds = %24, %26
-  %.0.i.i = phi ptr [ %16, %24 ], [ %31, %26 ]
+zend_ast_realloc.exit:                            ; preds = %23, %25
+  %.0.i.i = phi ptr [ %16, %23 ], [ %30, %25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %11, i1 false)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %zend_ast_realloc.exit, %2
-  %37 = phi i32 [ %.pre, %zend_ast_realloc.exit ], [ %4, %2 ]
+35:                                               ; preds = %zend_ast_realloc.exit, %2
+  %36 = phi i32 [ %.pre, %zend_ast_realloc.exit ], [ %4, %2 ]
   %.0 = phi ptr [ %.0.i.i, %zend_ast_realloc.exit ], [ %0, %2 ]
-  %38 = getelementptr inbounds i8, ptr %.0, i64 16
-  %39 = getelementptr inbounds i8, ptr %.0, i64 8
-  %40 = add i32 %37, 1
-  store i32 %40, ptr %39, align 8
-  %41 = zext i32 %37 to i64
-  %42 = getelementptr inbounds [1 x ptr], ptr %38, i64 0, i64 %41
-  store ptr %1, ptr %42, align 8
+  %37 = getelementptr inbounds i8, ptr %.0, i64 16
+  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %39 = add i32 %36, 1
+  store i32 %39, ptr %38, align 8
+  %40 = zext i32 %36 to i64
+  %41 = getelementptr inbounds [1 x ptr], ptr %37, i64 0, i64 %40
+  store ptr %1, ptr %41, align 8
   ret ptr %.0
 }
 

@@ -938,15 +938,14 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %enc2, ptr noundef nonnull align 1 dereferenceable(57) %enc, i64 57, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %enc2, i64 56
   %0 = load i8, ptr %arrayidx, align 8
-  %1 = and i8 %0, -128
-  %conv1 = zext i8 %1 to i64
-  %sub.i = add nsw i64 %conv1, -1
+  %conv1 = zext i8 %0 to i64
+  %sub.i = add nsw i64 %conv1, -128
   %shr.neg.i.i = ashr i64 %sub.i, 63
-  %2 = and i8 %0, 127
-  store i8 %2, ptr %arrayidx, align 8
+  %1 = and i8 %0, 127
+  store i8 %1, ptr %arrayidx, align 8
   %y = getelementptr inbounds i8, ptr %p, i64 64
   %call8 = call i64 @gf_deserialize(ptr noundef nonnull %y, ptr noundef nonnull %enc2, i32 noundef 1, i8 noundef zeroext 0) #7
-  %3 = load i8, ptr %arrayidx, align 8
+  %2 = load i8, ptr %arrayidx, align 8
   call void @ossl_gf_sqr(ptr noundef %p, ptr noundef nonnull %y) #7
   %z = getelementptr inbounds i8, ptr %p, i64 128
   call void @gf_sub(ptr noundef nonnull %z, ptr noundef nonnull @ONE, ptr noundef %p) #7
@@ -958,22 +957,22 @@ entry:
   %call36 = call i64 @gf_isr(ptr noundef nonnull %t, ptr noundef %p) #7
   call void @ossl_gf_mul(ptr noundef %p, ptr noundef nonnull %t, ptr noundef nonnull %z) #7
   %call48 = call i64 @gf_lobit(ptr noundef %p) #7
-  %4 = xor i64 %call48, %shr.neg.i.i
-  %xor = xor i64 %4, -1
+  %3 = xor i64 %call48, %shr.neg.i.i
+  %xor = xor i64 %3, -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %y.i)
   call void @gf_sub(ptr noundef nonnull %y.i, ptr noundef nonnull @ZERO, ptr noundef %p) #7
-  %5 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %xor) #8, !srcloc !19
-  %6 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %4) #8, !srcloc !19
+  %4 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %xor) #8, !srcloc !19
+  %5 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %3) #8, !srcloc !19
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.05.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
   %arrayidx1.i.i = getelementptr inbounds [8 x i64], ptr %y.i, i64 0, i64 %i.05.i.i
-  %7 = load i64, ptr %arrayidx1.i.i, align 8
+  %6 = load i64, ptr %arrayidx1.i.i, align 8
   %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %p, i64 0, i64 %i.05.i.i
-  %8 = load i64, ptr %arrayidx4.i.i, align 8
-  %and.i.i.i = and i64 %7, %5
-  %and2.i.i.i = and i64 %8, %6
+  %7 = load i64, ptr %arrayidx4.i.i, align 8
+  %and.i.i.i = and i64 %6, %4
+  %and2.i.i.i = and i64 %7, %5
   %or.i.i.i = or i64 %and2.i.i.i, %and.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx4.i.i, align 8
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
@@ -981,7 +980,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %for.body.i.i, !llvm.loop !20
 
 gf_cond_neg.exit:                                 ; preds = %for.body.i.i
-  %isneg = icmp eq i8 %3, 0
+  %isneg = icmp eq i8 %2, 0
   %and12 = select i1 %isneg, i64 %call8, i64 0
   %and37 = and i64 %call36, %and12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %y.i)

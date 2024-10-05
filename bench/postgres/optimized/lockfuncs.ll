@@ -873,95 +873,93 @@ define dso_local range(i64 0, 2) i64 @pg_isolation_test_session_is_blocked(ptr n
   %18 = sext i32 %16 to i64
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %26
+  br label %25
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  %24 = add nsw i64 %23, 23
-  %25 = and i64 %24, -8
-  br label %26
+  %24 = add nsw i64 %23, 16
+  br label %25
 
-26:                                               ; preds = %19, %17
-  %27 = phi i32 [ %.pre, %17 ], [ %21, %19 ]
-  %28 = phi i64 [ %18, %17 ], [ %25, %19 ]
-  %29 = getelementptr i8, ptr %9, i64 %28
-  %30 = getelementptr i8, ptr %9, i64 16
-  %31 = tail call i32 @ArrayGetNItems(i32 noundef %27, ptr noundef %30) #6
+25:                                               ; preds = %19, %17
+  %26 = phi i32 [ %.pre, %17 ], [ %21, %19 ]
+  %27 = phi i64 [ %18, %17 ], [ %24, %19 ]
+  %28 = getelementptr i8, ptr %9, i64 %27
+  %29 = getelementptr i8, ptr %9, i64 16
+  %30 = tail call i32 @ArrayGetNItems(i32 noundef %26, ptr noundef %29) #6
   %sext = shl i64 %4, 32
-  %32 = ashr exact i64 %sext, 32
-  %33 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @pg_blocking_pids, i32 noundef 0, i64 noundef %32) #6
-  %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @pg_detoast_datum(ptr noundef %34) #6
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 4
-  %.not31 = icmp eq i32 %37, 0
-  br i1 %.not31, label %40, label %38
+  %31 = ashr exact i64 %sext, 32
+  %32 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @pg_blocking_pids, i32 noundef 0, i64 noundef %31) #6
+  %33 = inttoptr i64 %32 to ptr
+  %34 = tail call ptr @pg_detoast_datum(ptr noundef %33) #6
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 4
+  %.not31 = icmp eq i32 %36, 0
+  br i1 %.not31, label %39, label %37
 
-38:                                               ; preds = %26
-  %39 = sext i32 %37 to i64
-  %.phi.trans.insert42 = getelementptr inbounds i8, ptr %35, i64 4
+37:                                               ; preds = %25
+  %38 = sext i32 %36 to i64
+  %.phi.trans.insert42 = getelementptr inbounds i8, ptr %34, i64 4
   %.pre43 = load i32, ptr %.phi.trans.insert42, align 4
-  br label %47
+  br label %45
 
-40:                                               ; preds = %26
-  %41 = getelementptr inbounds i8, ptr %35, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = shl nsw i64 %43, 3
-  %45 = add nsw i64 %44, 23
-  %46 = and i64 %45, -8
-  br label %47
+39:                                               ; preds = %25
+  %40 = getelementptr inbounds i8, ptr %34, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = sext i32 %41 to i64
+  %43 = shl nsw i64 %42, 3
+  %44 = add nsw i64 %43, 16
+  br label %45
 
-47:                                               ; preds = %40, %38
-  %48 = phi i32 [ %.pre43, %38 ], [ %42, %40 ]
-  %49 = phi i64 [ %39, %38 ], [ %46, %40 ]
-  %50 = getelementptr i8, ptr %35, i64 %49
-  %51 = getelementptr i8, ptr %35, i64 16
-  %52 = tail call i32 @ArrayGetNItems(i32 noundef %48, ptr noundef %51) #6
-  %53 = icmp sgt i32 %52, 0
-  %54 = icmp sgt i32 %31, 0
-  %or.cond = select i1 %53, i1 %54, i1 false
+45:                                               ; preds = %39, %37
+  %46 = phi i32 [ %.pre43, %37 ], [ %41, %39 ]
+  %47 = phi i64 [ %38, %37 ], [ %44, %39 ]
+  %48 = getelementptr i8, ptr %34, i64 %47
+  %49 = getelementptr i8, ptr %34, i64 16
+  %50 = tail call i32 @ArrayGetNItems(i32 noundef %46, ptr noundef %49) #6
+  %51 = icmp sgt i32 %50, 0
+  %52 = icmp sgt i32 %30, 0
+  %or.cond = select i1 %51, i1 %52, i1 false
   br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge34
 
-.preheader.us.preheader:                          ; preds = %47
-  %wide.trip.count40 = zext nneg i32 %52 to i64
-  %wide.trip.count = zext nneg i32 %31 to i64
+.preheader.us.preheader:                          ; preds = %45
+  %wide.trip.count40 = zext nneg i32 %50 to i64
+  %wide.trip.count = zext nneg i32 %30 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv37 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next38, %._crit_edge.us ]
-  %55 = getelementptr i32, ptr %50, i64 %indvars.iv37
-  %56 = load i32, ptr %55, align 4
-  br label %58
+  %53 = getelementptr i32, ptr %48, i64 %indvars.iv37
+  %54 = load i32, ptr %53, align 4
+  br label %56
 
-57:                                               ; preds = %58
+55:                                               ; preds = %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %58, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !13
 
-58:                                               ; preds = %.preheader.us, %57
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %57 ]
-  %59 = getelementptr i32, ptr %29, i64 %indvars.iv
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %56, %60
-  br i1 %61, label %.loopexit, label %57
+56:                                               ; preds = %.preheader.us, %55
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %55 ]
+  %57 = getelementptr i32, ptr %28, i64 %indvars.iv
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %54, %58
+  br i1 %59, label %.loopexit, label %55
 
-._crit_edge.us:                                   ; preds = %57
+._crit_edge.us:                                   ; preds = %55
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
   br i1 %exitcond41.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !14
 
-._crit_edge34:                                    ; preds = %._crit_edge.us, %47
-  %62 = call i32 @GetSafeSnapshotBlockingPids(i32 noundef %5, ptr noundef nonnull %2, i32 noundef 1) #6
-  %63 = icmp sgt i32 %62, 0
-  %spec.select = zext i1 %63 to i64
+._crit_edge34:                                    ; preds = %._crit_edge.us, %45
+  %60 = call i32 @GetSafeSnapshotBlockingPids(i32 noundef %5, ptr noundef nonnull %2, i32 noundef 1) #6
+  %61 = icmp sgt i32 %60, 0
+  %spec.select = zext i1 %61 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %58, %._crit_edge34
-  %.028 = phi i64 [ %spec.select, %._crit_edge34 ], [ 1, %58 ]
+.loopexit:                                        ; preds = %56, %._crit_edge34
+  %.028 = phi i64 [ %spec.select, %._crit_edge34 ], [ 1, %56 ]
   ret i64 %.028
 }
 

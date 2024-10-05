@@ -963,7 +963,7 @@ if.else.i.i:                                      ; preds = %for.end.i309
   %sub.i.i = add nsw i32 %shl.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %sub6.i.i = add nuw nsw i64 %mul.i.i, 39
+  %sub6.i.i = add nuw nsw i64 %mul.i.i, 36
   br label %if.else14.i.i
 
 land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
@@ -971,7 +971,7 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %sub17.i.i = add nsw i32 %shl16.i.i, -1
   %conv18.i.i = zext nneg i32 %sub17.i.i to i64
   %mul19.i.i = shl nuw nsw i64 %conv18.i.i, 2
-  %sub620.i.i = add nuw nsw i64 %mul19.i.i, 39
+  %sub620.i.i = add nuw nsw i64 %mul19.i.i, 36
   %div15.i.i = lshr i64 %sub620.i.i, 3
   %106 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %106 to i64
@@ -1105,7 +1105,7 @@ if.else.i311:                                     ; preds = %for.cond437
   %sub.i313 = add nsw i32 %shl.i312, -1
   %conv.i314 = zext nneg i32 %sub.i313 to i64
   %mul.i = shl nuw nsw i64 %conv.i314, 2
-  %sub6.i = add nuw nsw i64 %mul.i, 39
+  %sub6.i = add nuw nsw i64 %mul.i, 36
   br label %if.else14.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
@@ -1113,7 +1113,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub17.i = add nsw i32 %shl16.i, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %mul19.i = shl nuw nsw i64 %conv18.i, 2
-  %sub620.i = add nuw nsw i64 %mul19.i, 39
+  %sub620.i = add nuw nsw i64 %mul19.i, 36
   %div15.i = lshr i64 %sub620.i, 3
   %114 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %114 to i64
@@ -3026,7 +3026,7 @@ if.else.i:                                        ; preds = %entry
   %sub.i = add nsw i32 %shl.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
-  %sub6.i = add nuw nsw i64 %mul.i, 39
+  %sub6.i = add nuw nsw i64 %mul.i, 36
   br label %if.else14.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
@@ -3034,7 +3034,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub17.i = add nsw i32 %shl16.i, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %mul19.i = shl nuw nsw i64 %conv18.i, 2
-  %sub620.i = add nuw nsw i64 %mul19.i, 39
+  %sub620.i = add nuw nsw i64 %mul19.i, 36
   %div15.i = lshr i64 %sub620.i, 3
   %8 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
@@ -3214,7 +3214,7 @@ if.else.i:                                        ; preds = %for.end
   %sub.i = add nsw i32 %shl.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
-  %sub6.i = add nuw nsw i64 %mul.i, 39
+  %sub6.i = add nuw nsw i64 %mul.i, 36
   br label %if.else14.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
@@ -3222,7 +3222,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub17.i = add nsw i32 %shl16.i, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %mul19.i = shl nuw nsw i64 %conv18.i, 2
-  %sub620.i = add nuw nsw i64 %mul19.i, 39
+  %sub620.i = add nuw nsw i64 %mul19.i, 36
   %div15.i = lshr i64 %sub620.i, 3
   %5 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
@@ -3458,7 +3458,7 @@ if.else.i:                                        ; preds = %if.end
   %sub.i33 = add nsw i32 %shl.i, -1
   %conv.i = zext nneg i32 %sub.i33 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
-  %sub6.i = add nuw nsw i64 %mul.i, 39
+  %sub6.i = add nuw nsw i64 %mul.i, 36
   br label %if.else14.i34
 
 land.lhs.true9.i45:                               ; preds = %land.lhs.true.i
@@ -3466,7 +3466,7 @@ land.lhs.true9.i45:                               ; preds = %land.lhs.true.i
   %sub17.i = add nsw i32 %shl16.i, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %mul19.i = shl nuw nsw i64 %conv18.i, 2
-  %sub620.i = add nuw nsw i64 %mul19.i, 39
+  %sub620.i = add nuw nsw i64 %mul19.i, 36
   %div15.i = lshr i64 %sub620.i, 3
   %10 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i46 = ptrtoint ptr %10 to i64
@@ -4044,7 +4044,7 @@ if.else.i.i393:                                   ; preds = %for.end.i391
   %sub.i.i = add nsw i32 %shl.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %sub6.i.i = add nuw nsw i64 %mul.i.i, 39
+  %sub6.i.i = add nuw nsw i64 %mul.i.i, 36
   br label %if.else14.i.i
 
 land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
@@ -4052,7 +4052,7 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %sub17.i.i = add nsw i32 %shl16.i.i, -1
   %conv18.i.i = zext nneg i32 %sub17.i.i to i64
   %mul19.i.i = shl nuw nsw i64 %conv18.i.i, 2
-  %sub620.i.i = add nuw nsw i64 %mul19.i.i, 39
+  %sub620.i.i = add nuw nsw i64 %mul19.i.i, 36
   %div15.i.i = lshr i64 %sub620.i.i, 3
   %37 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %37 to i64
@@ -4896,7 +4896,7 @@ if.else.i479:                                     ; preds = %if.then447
   %sub.i481 = add nsw i32 %shl.i480, -1
   %conv.i482 = zext nneg i32 %sub.i481 to i64
   %mul.i = shl nuw nsw i64 %conv.i482, 2
-  %sub6.i = add nuw nsw i64 %mul.i, 39
+  %sub6.i = add nuw nsw i64 %mul.i, 36
   br label %if.else14.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
@@ -4904,7 +4904,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub17.i = add nsw i32 %shl16.i490, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %mul19.i = shl nuw nsw i64 %conv18.i, 2
-  %sub620.i = add nuw nsw i64 %mul19.i, 39
+  %sub620.i = add nuw nsw i64 %mul19.i, 36
   %div15.i = lshr i64 %sub620.i, 3
   %97 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %97 to i64
@@ -5544,7 +5544,7 @@ if.else.i:                                        ; preds = %if.then7
   %sub.i = add nsw i32 %shl.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
-  %sub6.i = add nuw nsw i64 %mul.i, 39
+  %sub6.i = add nuw nsw i64 %mul.i, 36
   br label %if.else14.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
@@ -5552,7 +5552,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub17.i = add nsw i32 %shl16.i, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %mul19.i = shl nuw nsw i64 %conv18.i, 2
-  %sub620.i = add nuw nsw i64 %mul19.i, 39
+  %sub620.i = add nuw nsw i64 %mul19.i, 36
   %div15.i = lshr i64 %sub620.i, 3
   %6 = load ptr, ptr @_ZL9pmem_next, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64

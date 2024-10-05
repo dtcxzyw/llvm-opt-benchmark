@@ -134,16 +134,15 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core.
 
 17:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i"
   %18 = mul nsw i64 %7, 24
-  %19 = add i64 %18, 23
-  %20 = and i64 %19, -8
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0add8d2cba38133E.llvm.10987160594893011292.exit", label %22
+  %19 = add i64 %18, 16
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0add8d2cba38133E.llvm.10987160594893011292.exit", label %21
 
-22:                                               ; preds = %17
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %20, i64 noundef 8) #13, !noalias !19
+21:                                               ; preds = %17
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef 8) #13, !noalias !19
   br label %"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0add8d2cba38133E.llvm.10987160594893011292.exit"
 
-"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0add8d2cba38133E.llvm.10987160594893011292.exit": ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i", %17, %22
+"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0add8d2cba38133E.llvm.10987160594893011292.exit": ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i", %17, %21
   ret void
 }
 
@@ -282,7 +281,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$all
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$17h3ebf6c0d9adadea4E.llvm.10987160594893011292.exit", label %4
 
-"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$17h3ebf6c0d9adadea4E.llvm.10987160594893011292.exit": ; preds = %24, %19, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i", %4, %1
+"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$17h3ebf6c0d9adadea4E.llvm.10987160594893011292.exit": ; preds = %23, %19, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -332,13 +331,12 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$all
 
 19:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i"
   %20 = mul nsw i64 %9, 24
-  %21 = add i64 %20, 23
-  %22 = and i64 %21, -8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$17h3ebf6c0d9adadea4E.llvm.10987160594893011292.exit", label %24
+  %21 = add i64 %20, 16
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$17h3ebf6c0d9adadea4E.llvm.10987160594893011292.exit", label %23
 
-24:                                               ; preds = %19
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef 8) #13, !noalias !81
+23:                                               ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %21, i64 noundef 8) #13, !noalias !81
   br label %"_ZN4core3ptr101drop_in_place$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$17h3ebf6c0d9adadea4E.llvm.10987160594893011292.exit"
 }
 
@@ -2310,16 +2308,15 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$diesel..sqlite..connection..
 
 38:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i.i"
   %39 = mul nsw i64 %28, 24
-  %40 = add i64 %39, 23
-  %41 = and i64 %40, -8
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$$GT$17h57d94e1aff01d95bE.llvm.10987160594893011292.exit", label %43
+  %40 = add i64 %39, 16
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$$GT$17h57d94e1aff01d95bE.llvm.10987160594893011292.exit", label %42
 
-43:                                               ; preds = %38
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %41, i64 noundef 8) #13, !noalias !1035
+42:                                               ; preds = %38
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %40, i64 noundef 8) #13, !noalias !1035
   br label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$$GT$17h57d94e1aff01d95bE.llvm.10987160594893011292.exit"
 
-"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$$GT$17h57d94e1aff01d95bE.llvm.10987160594893011292.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$diesel..sqlite..connection..statement_iterator..PrivateStatementIterator$GT$17hb674998a29416202E.llvm.10987160594893011292.exit", %23, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i.i", %38, %43
+"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$$GT$$GT$17h57d94e1aff01d95bE.llvm.10987160594893011292.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$diesel..sqlite..connection..statement_iterator..PrivateStatementIterator$GT$17hb674998a29416202E.llvm.10987160594893011292.exit", %23, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i.i", %38, %42
   ret void
 }
 
@@ -2915,7 +2912,7 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
   %3 = add i64 %.val, -1
   store i64 %3, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %75
+  br i1 %4, label %5, label %74
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
@@ -3094,28 +3091,27 @@ common.resume.i.i.i:                              ; preds = %.body.i.i.i, %12, %
 
 65:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i.i.i.i"
   %66 = mul nsw i64 %55, 24
-  %67 = add i64 %66, 23
-  %68 = and i64 %67, -8
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit", label %70
+  %67 = add i64 %66, 16
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit", label %69
 
-70:                                               ; preds = %65
-  tail call void @__rust_dealloc(ptr noundef nonnull %50, i64 noundef %68, i64 noundef 8) #13, !noalias !1165
+69:                                               ; preds = %65
+  tail call void @__rust_dealloc(ptr noundef nonnull %50, i64 noundef %67, i64 noundef 8) #13, !noalias !1165
   br label %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit"
 
-"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit": ; preds = %15, %15, %17, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$diesel..sqlite..connection..sqlite_value..OwnedSqliteValue$GT$$GT$$GT$17he98e644c6f158207E.exit.i.i.i", %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i.i.i.i", %65, %70
-  %71 = getelementptr i8, ptr %2, i64 8
-  %.val2 = load i64, ptr %71, align 8, !noundef !4
-  %72 = add i64 %.val2, -1
-  store i64 %72, ptr %71, align 8
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %75
+"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit": ; preds = %15, %15, %17, %"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$diesel..sqlite..connection..sqlite_value..OwnedSqliteValue$GT$$GT$$GT$17he98e644c6f158207E.exit.i.i.i", %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit.i.i.i.i.i", %65, %69
+  %70 = getelementptr i8, ptr %2, i64 8
+  %.val2 = load i64, ptr %70, align 8, !noundef !4
+  %71 = add i64 %.val2, -1
+  store i64 %71, ptr %70, align 8
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %74
 
-74:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit"
+73:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit"
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 128, i64 noundef 8) #13
-  br label %75
+  br label %74
 
-75:                                               ; preds = %74, %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit", %1
+74:                                               ; preds = %73, %"_ZN4core3ptr97drop_in_place$LT$core..cell..RefCell$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$$GT$17h777d03b077e748deE.exit", %1
   ret void
 }
 
@@ -3166,16 +3162,15 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
 
 17:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit"
   %18 = mul nsw i64 %7, 24
-  %19 = add i64 %18, 23
-  %20 = and i64 %19, -8
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10987160594893011292.exit", label %22
+  %19 = add i64 %18, 16
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10987160594893011292.exit", label %21
 
-22:                                               ; preds = %17
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %20, i64 noundef 8) #13
+21:                                               ; preds = %17
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef 8) #13
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10987160594893011292.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10987160594893011292.exit": ; preds = %22, %17, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit", %1
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10987160594893011292.exit": ; preds = %21, %17, %"_ZN4core3ptr80drop_in_place$LT$$u5b$core..option..Option$LT$alloc..string..String$GT$$u5d$$GT$17h491766d4e9fcd3e8E.exit", %1
   ret void
 }
 
