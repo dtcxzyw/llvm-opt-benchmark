@@ -33226,7 +33226,7 @@ slurm/sattach.ll 270776636
 slurm/sbatch.ll 301697985
 slurm/sbcast.ll 36170900
 slurm/scancel.ll 562119488
-slurm/sched_plugin.ll 40754912
+slurm/sched_plugin.ll 40795690
 slurm/schedutils.ll 46024387
 slurm/scontrol.ll 665849427
 slurm/scrontab.ll 273274963
