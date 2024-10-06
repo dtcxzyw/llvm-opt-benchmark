@@ -12,7 +12,7 @@ define void @ossl_algorithm_do_all(ptr noundef %libctx, i32 noundef %operation_i
 entry:
   %cbdata = alloca %struct.algorithm_data_st, align 8
   %0 = getelementptr inbounds i8, ptr %cbdata, i64 8
-  store i64 0, ptr %0, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store ptr %libctx, ptr %cbdata, align 8
   %operation_id2 = getelementptr inbounds i8, ptr %cbdata, i64 8
   store i32 %operation_id, ptr %operation_id2, align 8
@@ -32,13 +32,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call i32 @ossl_provider_doall_activated(ptr noundef %libctx, ptr noundef nonnull @algorithm_do_this, ptr noundef nonnull %cbdata) #5
+  %call = call i32 @ossl_provider_doall_activated(ptr noundef %libctx, ptr noundef nonnull @algorithm_do_this, ptr noundef nonnull %cbdata) #6
   br label %if.end20
 
 if.else:                                          ; preds = %entry
-  %call9 = tail call ptr @ossl_provider_libctx(ptr noundef nonnull %provider) #5
-  %call10 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %libctx) #5
-  %call11 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %call9) #5
+  %call9 = tail call ptr @ossl_provider_libctx(ptr noundef nonnull %provider) #6
+  %call10 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %libctx) #6
+  %call11 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %call9) #6
   %cmp12 = icmp eq ptr %call10, %call11
   br i1 %cmp12, label %if.end, label %if.end20
 
@@ -51,7 +51,10 @@ if.end20:                                         ; preds = %if.else, %if.end, %
   ret void
 }
 
-declare i32 @ossl_provider_doall_activated(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+
+declare i32 @ossl_provider_doall_activated(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @algorithm_do_this(ptr noundef %provider, ptr nocapture noundef readonly %cbdata) #0 {
@@ -79,19 +82,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %ok.019 = phi i32 [ 1, %for.body.lr.ph ], [ %spec.select12, %if.end6 ]
   %cur_operation.017 = phi i32 [ %spec.select, %for.body.lr.ph ], [ %inc, %if.end6 ]
   store i32 0, ptr %no_store, align 4
-  %call = call ptr @ossl_provider_query_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef nonnull %no_store) #5
+  %call = call ptr @ossl_provider_query_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef nonnull %no_store) #6
   %1 = load i32, ptr %no_store, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ret.i)
   store i32 0, ptr %ret.i, align 4
   %2 = load ptr, ptr %reserve_store.i, align 8
   %3 = load ptr, ptr %data1.i, align 8
-  %call.i = call i32 %2(i32 noundef %1, ptr noundef %3) #5
+  %call.i = call i32 %2(i32 noundef %1, ptr noundef %3) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %algorithm_do_map.exit.thread, label %if.end.i
 
 algorithm_do_map.exit.thread:                     ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
-  call void @ossl_provider_unquery_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef %call) #5
+  call void @ossl_provider_unquery_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef %call) #6
   br label %return
 
 if.end.i:                                         ; preds = %for.body
@@ -105,7 +108,7 @@ if.end9.thread.i:                                 ; preds = %if.end.i
 
 if.else.i:                                        ; preds = %if.end.i
   %5 = load ptr, ptr %data1.i, align 8
-  %call5.i = call i32 %4(ptr noundef %provider, i32 noundef %cur_operation.017, i32 noundef %1, ptr noundef %5, ptr noundef nonnull %ret.i) #5
+  %call5.i = call i32 %4(ptr noundef %provider, i32 noundef %cur_operation.017, i32 noundef %1, ptr noundef %5, ptr noundef nonnull %ret.i) #6
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %end.sink.split.i, label %if.end9.i
 
@@ -127,7 +130,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %thismap.024.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call, %for.cond.preheader.i ]
   %7 = load ptr, ptr %fn.i, align 8
   %8 = load ptr, ptr %data1.i, align 8
-  call void %7(ptr noundef %provider, ptr noundef nonnull %thismap.024.i, i32 noundef %1, ptr noundef %8) #5
+  call void %7(ptr noundef %provider, ptr noundef nonnull %thismap.024.i, i32 noundef %1, ptr noundef %8) #6
   %incdec.ptr.i = getelementptr inbounds i8, ptr %thismap.024.i, i64 32
   %9 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp15.not.i = icmp eq ptr %9, null
@@ -140,7 +143,7 @@ if.end17.i:                                       ; preds = %for.body.i, %for.co
 
 if.else20.i:                                      ; preds = %if.end17.i
   %11 = load ptr, ptr %data1.i, align 8
-  %call23.i = call i32 %10(ptr noundef %provider, i32 noundef %cur_operation.017, i32 noundef %1, ptr noundef %11, ptr noundef nonnull %ret.i) #5
+  %call23.i = call i32 %10(ptr noundef %provider, i32 noundef %cur_operation.017, i32 noundef %1, ptr noundef %11, ptr noundef nonnull %ret.i) #6
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %end.sink.split.i, label %algorithm_do_map.exit
 
@@ -152,10 +155,10 @@ end.sink.split.i:                                 ; preds = %if.else20.i, %if.en
 algorithm_do_map.exit:                            ; preds = %if.else20.i, %end.sink.split.i
   %12 = load ptr, ptr %unreserve_store.i, align 8
   %13 = load ptr, ptr %data1.i, align 8
-  %call29.i = call i32 %12(ptr noundef %13) #5
+  %call29.i = call i32 %12(ptr noundef %13) #6
   %14 = load i32, ptr %ret.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
-  call void @ossl_provider_unquery_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef %call) #5
+  call void @ossl_provider_unquery_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef %call) #6
   %cmp4 = icmp slt i32 %14, 0
   br i1 %cmp4, label %return, label %if.end6
 
@@ -171,9 +174,9 @@ return:                                           ; preds = %algorithm_do_map.ex
   ret i32 %retval.0
 }
 
-declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #1
+declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #1
+declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @ossl_algorithm_get1_first_name(ptr nocapture noundef readonly %algo) local_unnamed_addr #0 {
@@ -183,12 +186,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #6
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #7
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
@@ -199,7 +202,7 @@ if.else:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.else, %if.then3
   %first_name_len.0 = phi i64 [ %call5, %if.then3 ], [ %sub.ptr.sub, %if.else ]
-  %call9 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %0, i64 noundef %first_name_len.0, ptr noundef nonnull @.str, i32 noundef 195) #5
+  %call9 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %0, i64 noundef %first_name_len.0, ptr noundef nonnull @.str, i32 noundef 195) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.end7
@@ -208,33 +211,34 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ossl_provider_query_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @ossl_provider_query_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ossl_provider_unquery_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @ossl_provider_unquery_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

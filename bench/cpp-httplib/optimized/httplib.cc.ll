@@ -17314,7 +17314,7 @@ _ZN7httplib6detail22ContentProviderAdapterC2EOSt8functionIFbmRNS_8DataSinkEEE.ex
   %content_provider_ = getelementptr inbounds i8, ptr %this, i64 192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %10, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %call.i.i2.i.i12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #45
           to label %call.i.i2.i.i.noexc unwind label %lpad6
 
@@ -17578,7 +17578,7 @@ _ZN7httplib6detail22ContentProviderAdapterC2EOSt8functionIFbmRNS_8DataSinkEEE.ex
   %content_provider_ = getelementptr inbounds i8, ptr %this, i64 192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %10, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %call.i.i2.i.i12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #45
           to label %call.i.i2.i.i.noexc unwind label %lpad6
 
@@ -21650,7 +21650,7 @@ _ZNSt8functionIFvRKN7httplib7RequestERNS0_8ResponseEEEC2ERKS7_.exit: ; preds = %
   %error_handler_ = getelementptr inbounds i8, ptr %this, i64 504
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %9, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %call.i.i2.i.i2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #45
           to label %call.i.i2.i.i.noexc unwind label %lpad
 
@@ -22656,7 +22656,7 @@ if.end52:                                         ; preds = %invoke.cont23
   %23 = load i64, ptr %write_timeout_usec_, align 8
   store i64 %23, ptr %tv_usec56, align 8
   %call57 = call i32 @setsockopt(i32 noundef %call24, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %tv54, i32 noundef 16) #39
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %this, ptr %agg.tmp, align 8
   store i32 %call24, ptr %ref.tmp59.sroa.2.0.agg.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_internalEvE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i18, align 8
@@ -22892,12 +22892,12 @@ land.rhs:                                         ; preds = %invoke.cont4
 
 land.end:                                         ; preds = %land.rhs
   %.pre = load i8, ptr %execute_on_destruction.i, align 8
-  %.pre9.pre = load ptr, ptr %_M_manager.i.i.i, align 8
+  %.pre10.pre = load ptr, ptr %_M_manager.i.i.i, align 8
   %1 = trunc i8 %.pre to i1
   br i1 %1, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.end
-  %tobool.not.i.i.i = icmp eq ptr %.pre9.pre, null
+  %tobool.not.i.i.i = icmp eq ptr %.pre10.pre, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i7, label %if.end.i.i
 
 if.then.i.i7:                                     ; preds = %if.then.i
@@ -22914,12 +22914,12 @@ if.end.i.i:                                       ; preds = %invoke.cont4, %if.t
           to label %if.end.i.i.if.end.i_crit_edge unwind label %terminate.lpad.i
 
 if.end.i.i.if.end.i_crit_edge:                    ; preds = %if.end.i.i
-  %.pre8 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %.pre9 = load ptr, ptr %_M_manager.i.i.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i.if.end.i_crit_edge, %land.end
   %4 = phi i1 [ %2, %if.end.i.i.if.end.i_crit_edge ], [ %call6, %land.end ]
-  %5 = phi ptr [ %.pre8, %if.end.i.i.if.end.i_crit_edge ], [ %.pre9.pre, %land.end ]
+  %5 = phi ptr [ %.pre9, %if.end.i.i.if.end.i_crit_edge ], [ %.pre10.pre, %land.end ]
   %tobool.not.i.i3.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i3.i, label %_ZN7httplib6detail10scope_exitD2Ev.exit, label %if.then.i.i.i
 
@@ -26864,7 +26864,7 @@ if.end31:                                         ; preds = %if.then23, %if.then
 .noexc:                                           ; preds = %if.end31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   %78 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  store i64 0, ptr %78, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 24, i1 false)
   %call.i.i2.i.i8.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #45
           to label %call.i.i2.i.i.noexc.i.i unwind label %lpad.loopexit.split-lp.i.i
 
@@ -26916,7 +26916,7 @@ invoke.cont.i.i54:                                ; preds = %if.then.i.i.i.i.i, 
   %_M_manager.i.i.i11.i.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i.i, i64 16
   %_M_invoker.i.i12.i.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i.i, i64 24
   %84 = getelementptr inbounds i8, ptr %ref.tmp.i10.i.i, i64 8
-  store i64 0, ptr %84, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 24, i1 false)
   store i64 %83, ptr %ref.tmp.i10.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i9.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i.i, i64 16, i1 false)
@@ -26960,7 +26960,7 @@ terminate.lpad.i.i.i18.i.i:                       ; preds = %if.then.i.i.i16.i.i
   %_M_manager.i.i.i21.i.i = getelementptr inbounds i8, ptr %ref.tmp.i20.i.i, i64 16
   %_M_invoker.i.i22.i.i = getelementptr inbounds i8, ptr %ref.tmp.i20.i.i, i64 24
   %93 = getelementptr inbounds i8, ptr %ref.tmp.i20.i.i, i64 8
-  store i64 0, ptr %93, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 24, i1 false)
   store i64 %92, ptr %ref.tmp.i20.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i19.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i19.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i20.i.i, i64 16, i1 false)
@@ -26996,7 +26996,7 @@ terminate.lpad.i.i.i28.i.i:                       ; preds = %if.then.i.i.i26.i.i
   %_M_manager.i.i.i31.i.i = getelementptr inbounds i8, ptr %ref.tmp.i30.i.i, i64 16
   %_M_invoker.i.i32.i.i = getelementptr inbounds i8, ptr %ref.tmp.i30.i.i, i64 24
   %98 = getelementptr inbounds i8, ptr %ref.tmp.i30.i.i, i64 8
-  store i64 0, ptr %98, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, i8 0, i64 24, i1 false)
   store i64 %92, ptr %ref.tmp.i30.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i29.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i29.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30.i.i, i64 16, i1 false)
@@ -27125,7 +27125,7 @@ if.else36:                                        ; preds = %if.else15
   call void @_ZN7httplib8DataSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %data_sink.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i68)
   %111 = getelementptr inbounds i8, ptr %ref.tmp.i.i68, i64 8
-  store i64 0, ptr %111, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 24, i1 false)
   %call.i.i2.i.i3.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
           to label %call.i.i2.i.i.noexc.i unwind label %lpad.loopexit.split-lp.i
 
@@ -27173,7 +27173,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %c
   %_M_manager.i.i.i6.i = getelementptr inbounds i8, ptr %ref.tmp.i5.i, i64 16
   %_M_invoker.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp.i5.i, i64 24
   %117 = getelementptr inbounds i8, ptr %ref.tmp.i5.i, i64 8
-  store i64 0, ptr %117, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, i8 0, i64 24, i1 false)
   store i64 %116, ptr %ref.tmp.i5.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i4.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5.i, i64 16, i1 false)
@@ -27210,7 +27210,7 @@ terminate.lpad.i.i.i13.i:                         ; preds = %if.then.i.i.i11.i
   %_M_manager.i.i.i16.i = getelementptr inbounds i8, ptr %ref.tmp.i15.i, i64 16
   %_M_invoker.i.i17.i = getelementptr inbounds i8, ptr %ref.tmp.i15.i, i64 24
   %123 = getelementptr inbounds i8, ptr %ref.tmp.i15.i, i64 8
-  store i64 0, ptr %123, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %123, i8 0, i64 24, i1 false)
   store i64 %122, ptr %ref.tmp.i15.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i14.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i14.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i15.i, i64 16, i1 false)
@@ -27348,7 +27348,7 @@ entry:
   call void @_ZN7httplib8DataSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %data_sink.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %0, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %call.i.i2.i.i7.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
           to label %call.i.i2.i.i.noexc.i unwind label %lpad.loopexit.split-lp.i
 
@@ -27396,7 +27396,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %c
   %_M_manager.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 16
   %_M_invoker.i.i11.i = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 8
-  store i64 0, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   store i64 %5, ptr %ref.tmp.i9.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i8.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i8.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9.i, i64 16, i1 false)
@@ -27848,7 +27848,7 @@ if.end:                                           ; preds = %invoke.cont9
 invoke.cont12:                                    ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   %call.i.i2.i.i16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
           to label %call.i.i2.i.i.noexc unwind label %lpad8
 
@@ -27941,7 +27941,7 @@ invoke.cont20:                                    ; preds = %invoke.cont.i, %if.
   %18 = phi ptr [ %12, %invoke.cont.i ], [ null, %if.else ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i22)
   %19 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 8
-  store i64 0, ptr %19, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   %call.i.i2.i.i32 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #45
           to label %call.i.i2.i.i.noexc31 unwind label %lpad21
 
@@ -30214,12 +30214,12 @@ _ZN7httplib13ContentReaderD2Ev.exit371:           ; preds = %_ZNSt8functionIFbS_
   br i1 %cmp.i7.i350, label %cleanup, label %if.end68
 
 lpad59.loopexit:                                  ; preds = %for.body.i342
-  %lpad.loopexit374 = landingpad { ptr, i32 }
+  %lpad.loopexit375 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup69
 
 lpad59.loopexit.split-lp:                         ; preds = %if.then.i.i, %_ZNKSt8functionIFvRKN7httplib7RequestERNS0_8ResponseERKNS0_13ContentReaderEEEclES3_S5_S8_.exit.i353
-  %lpad.loopexit.split-lp375 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp376 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup69
 
@@ -30268,7 +30268,7 @@ cleanup.cont:                                     ; preds = %_ZN7httplib13Conten
 
 ehcleanup69:                                      ; preds = %lpad59.loopexit, %lpad59.loopexit.split-lp, %lpad47.loopexit, %lpad47.loopexit.split-lp, %lpad35.loopexit, %lpad35.loopexit.split-lp, %lpad24.loopexit, %lpad24.loopexit.split-lp
   %agg.tmp58.sink = phi ptr [ %agg.tmp23, %lpad24.loopexit.split-lp ], [ %agg.tmp23, %lpad24.loopexit ], [ %agg.tmp34, %lpad35.loopexit.split-lp ], [ %agg.tmp34, %lpad35.loopexit ], [ %agg.tmp46, %lpad47.loopexit.split-lp ], [ %agg.tmp46, %lpad47.loopexit ], [ %agg.tmp58, %lpad59.loopexit.split-lp ], [ %agg.tmp58, %lpad59.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad24.loopexit.split-lp ], [ %lpad.loopexit, %lpad24.loopexit ], [ %lpad.loopexit.split-lp302, %lpad35.loopexit.split-lp ], [ %lpad.loopexit301, %lpad35.loopexit ], [ %lpad.loopexit.split-lp305, %lpad47.loopexit.split-lp ], [ %lpad.loopexit304, %lpad47.loopexit ], [ %lpad.loopexit.split-lp375, %lpad59.loopexit.split-lp ], [ %lpad.loopexit374, %lpad59.loopexit ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad24.loopexit.split-lp ], [ %lpad.loopexit, %lpad24.loopexit ], [ %lpad.loopexit.split-lp302, %lpad35.loopexit.split-lp ], [ %lpad.loopexit301, %lpad35.loopexit ], [ %lpad.loopexit.split-lp305, %lpad47.loopexit.split-lp ], [ %lpad.loopexit304, %lpad47.loopexit ], [ %lpad.loopexit.split-lp376, %lpad59.loopexit.split-lp ], [ %lpad.loopexit375, %lpad59.loopexit ]
   call void @_ZN7httplib13ContentReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp58.sink) #39
   call void @_ZN7httplib13ContentReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %reader) #39
   br label %eh.resume
@@ -36363,10 +36363,10 @@ if.end46:                                         ; preds = %_ZNKSt8functionIFbR
   %11 = load ptr, ptr %_M_manager.i.i34, align 8
   %tobool.not.i.i35.not = icmp eq ptr %11, null
   %12 = getelementptr inbounds i8, ptr %out, i64 8
-  store i64 0, ptr %12, align 8
-  br i1 %tobool.not.i.i35.not, label %cond.end, label %cond.true
+  br i1 %tobool.not.i.i35.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
   %call.i.i2.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
   store ptr %redirect, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
@@ -36375,10 +36375,14 @@ cond.true:                                        ; preds = %if.end46
   store ptr %error, ptr %ref.tmp.sroa.3.0.call.i.i2.i.sroa_idx, align 16
   br label %cond.end
 
-cond.end:                                         ; preds = %if.end46, %cond.true
-  %call.i.i2.i.sink = phi ptr [ %call.i.i2.i, %cond.true ], [ %res, %if.end46 ]
-  %13 = phi ptr [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OmSJ_SJ_", %cond.true ], [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E9_M_invokeERKSt9_Any_dataOS1_OmSJ_SJ_", %if.end46 ]
-  %14 = phi ptr [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", %cond.true ], [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", %if.end46 ]
+cond.false:                                       ; preds = %if.end46
+  store i64 0, ptr %12, align 8
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %call.i.i2.i.sink = phi ptr [ %res, %cond.false ], [ %call.i.i2.i, %cond.true ]
+  %13 = phi ptr [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E9_M_invokeERKSt9_Any_dataOS1_OmSJ_SJ_", %cond.false ], [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OmSJ_SJ_", %cond.true ]
+  %14 = phi ptr [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", %cond.false ], [ @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", %cond.true ]
   store ptr %call.i.i2.i.sink, ptr %out, align 8
   %15 = getelementptr inbounds i8, ptr %out, i64 24
   store ptr %13, ptr %15, align 8
@@ -38229,7 +38233,7 @@ if.end:                                           ; preds = %if.then3, %if.else
 .noexc:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %call.i.i2.i.i8.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #45
           to label %call.i.i2.i.i.noexc.i unwind label %lpad.loopexit.split-lp.i
 
@@ -38281,7 +38285,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %c
   %_M_manager.i.i.i11.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i, i64 16
   %_M_invoker.i.i12.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i, i64 24
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i10.i, i64 8
-  store i64 0, ptr %10, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   store i64 %9, ptr %ref.tmp.i10.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i9.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i, i64 16, i1 false)
@@ -38325,7 +38329,7 @@ terminate.lpad.i.i.i18.i:                         ; preds = %if.then.i.i.i16.i
   %_M_manager.i.i.i21.i = getelementptr inbounds i8, ptr %ref.tmp.i20.i, i64 16
   %_M_invoker.i.i22.i = getelementptr inbounds i8, ptr %ref.tmp.i20.i, i64 24
   %19 = getelementptr inbounds i8, ptr %ref.tmp.i20.i, i64 8
-  store i64 0, ptr %19, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store i64 %18, ptr %ref.tmp.i20.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i19.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i19.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i20.i, i64 16, i1 false)
@@ -38361,7 +38365,7 @@ terminate.lpad.i.i.i28.i:                         ; preds = %if.then.i.i.i26.i
   %_M_manager.i.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp.i30.i, i64 16
   %_M_invoker.i.i32.i = getelementptr inbounds i8, ptr %ref.tmp.i30.i, i64 24
   %24 = getelementptr inbounds i8, ptr %ref.tmp.i30.i, i64 8
-  store i64 0, ptr %24, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
   store i64 %18, ptr %ref.tmp.i30.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i29.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i29.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30.i, i64 16, i1 false)
@@ -38486,7 +38490,7 @@ if.else10:                                        ; preds = %entry
   call void @_ZN7httplib8DataSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %data_sink.i33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i31)
   %37 = getelementptr inbounds i8, ptr %ref.tmp.i.i31, i64 8
-  store i64 0, ptr %37, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false)
   %call.i.i2.i.i7.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
           to label %call.i.i2.i.i.noexc.i37 unwind label %lpad.loopexit.split-lp.i34
 
@@ -38534,7 +38538,7 @@ invoke.cont.i46:                                  ; preds = %if.then.i.i.i.i43, 
   %_M_manager.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 16
   %_M_invoker.i.i11.i = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 24
   %43 = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 8
-  store i64 0, ptr %43, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 24, i1 false)
   store i64 %42, ptr %ref.tmp.i9.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i8.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i8.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9.i, i64 16, i1 false)
@@ -40533,7 +40537,7 @@ if.then26:                                        ; preds = %if.then24
 invoke.cont28:                                    ; preds = %if.then26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %12, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
   %call.i.i2.i.i49 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #45
           to label %call.i.i2.i.i.noexc unwind label %lpad30.loopexit.split-lp
 
@@ -40909,7 +40913,7 @@ _ZN7httplib6detail22ContentProviderAdapterC2EOSt8functionIFbmRNS_8DataSinkEEE.ex
   %content_provider_60 = getelementptr inbounds i8, ptr %req, i64 616
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i100)
   %55 = getelementptr inbounds i8, ptr %ref.tmp.i100, i64 8
-  store i64 0, ptr %55, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 24, i1 false)
   %call.i.i2.i.i110 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #45
           to label %call.i.i2.i.i.noexc109 unwind label %lpad61
 
@@ -42526,7 +42530,7 @@ invoke.cont10:                                    ; preds = %invoke.cont.i, %_ZN
   %content_receiver11 = getelementptr inbounds i8, ptr %req, i64 528
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i6)
   %18 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 8
-  store i64 0, ptr %18, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
   %call.i.i2.i.i15 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #45
           to label %call.i.i2.i.i.noexc unwind label %lpad12
 
@@ -66195,7 +66199,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb0ELb0ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -66282,7 +66286,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb0ELb1ELb0EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -66369,7 +66373,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb0ELb1ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -66538,7 +66542,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb1ELb0ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -66625,7 +66629,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb1ELb1ELb0EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -66712,7 +66716,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb1ELb1ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -67105,7 +67109,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %3, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp, align 8
   %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %1, ptr %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -67201,7 +67205,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp, align 8
   %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %call.i.i.i.i, ptr %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -67297,7 +67301,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp, align 8
   %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %call.i.i.i.i, ptr %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -99010,7 +99014,7 @@ if.end32:                                         ; preds = %_ZNSt10unique_ptrIN
   %_M_manager.i.i42 = getelementptr inbounds i8, ptr %out33, i64 16
   %_M_invoker.i43 = getelementptr inbounds i8, ptr %out33, i64 24
   %17 = getelementptr inbounds i8, ptr %out33, i64 8
-  store i64 0, ptr %17, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = ptrtoint ptr %receiver to i64
   store i64 %18, ptr %out33, align 8
   store ptr @_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib6detail24prepare_content_receiverINS3_7RequestEZNS4_12read_contentIS6_EEbRNS3_6StreamERT_mRiSt8functionIFbmmEESD_IS2_EbEUlRKSG_E_EEbSB_SC_SG_bT0_EUlS1_mmmE0_E9_M_invokeERKSt9_Any_dataOS1_OmSR_SR_, ptr %_M_invoker.i43, align 8
@@ -99739,7 +99743,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
   store ptr %3, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
@@ -103606,7 +103610,7 @@ if.end32:                                         ; preds = %_ZNSt10unique_ptrIN
   %_M_manager.i.i42 = getelementptr inbounds i8, ptr %out33, i64 16
   %_M_invoker.i43 = getelementptr inbounds i8, ptr %out33, i64 24
   %17 = getelementptr inbounds i8, ptr %out33, i64 8
-  store i64 0, ptr %17, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   %18 = ptrtoint ptr %receiver to i64
   store i64 %18, ptr %out33, align 8
   store ptr @_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib6detail24prepare_content_receiverINS3_8ResponseEZNS4_12read_contentIS6_EEbRNS3_6StreamERT_mRiSt8functionIFbmmEESD_IS2_EbEUlRKSG_E_EEbSB_SC_SG_bT0_EUlS1_mmmE0_E9_M_invokeERKSt9_Any_dataOS1_OmSR_SR_, ptr %_M_invoker.i43, align 8
@@ -104335,7 +104339,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #45
   store ptr %3, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
@@ -105544,7 +105548,7 @@ invoke.cont16.i.i.i:                              ; preds = %if.then.i.i5.i.i.i.
   %_M_manager.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i13.i.i.i, i64 16
   %_M_invoker.i.i15.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i13.i.i.i, i64 24
   %31 = getelementptr inbounds i8, ptr %ref.tmp.i13.i.i.i, i64 8
-  store i64 0, ptr %31, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false)
   store i64 %30, ptr %ref.tmp.i13.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i12.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i12.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13.i.i.i, i64 16, i1 false)

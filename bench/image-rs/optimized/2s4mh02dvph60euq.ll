@@ -505,8 +505,8 @@ define hidden void @_ZN3png6common4Info6encode17h399de85ee8dd26d5E(ptr noalias n
   %26 = alloca ptr, align 8
   store ptr %2, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %25)
-  %27 = getelementptr inbounds i8, ptr %25, i64 10
-  store i16 0, ptr %27, align 2
+  %27 = getelementptr inbounds i8, ptr %25, i64 9
+  store i32 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %1, i64 284
   %29 = load i32, ptr %28, align 4, !noundef !4
   %30 = tail call i32 @llvm.bswap.i32(i32 %29)
@@ -1006,8 +1006,8 @@ define hidden void @_ZN3png6common4Info6encode17hcd82b3b07d7033fbE(ptr noalias n
   %26 = alloca ptr, align 8
   store ptr %2, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %25)
-  %27 = getelementptr inbounds i8, ptr %25, i64 10
-  store i16 0, ptr %27, align 2
+  %27 = getelementptr inbounds i8, ptr %25, i64 9
+  store i32 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %1, i64 284
   %29 = load i32, ptr %28, align 4, !noundef !4
   %30 = tail call i32 @llvm.bswap.i32(i32 %29)

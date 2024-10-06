@@ -14990,7 +14990,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_add_to_central_dir(ptr
   %46 = trunc i32 %17 to i16
   %47 = add i16 %4, %46
   %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %20, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(34) %.4..4..4..sroa_idx, i8 0, i64 34, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.4..4..4..sroa_idx, i8 0, i64 40, i1 false)
   store i8 80, ptr %20, align 16
   %.1..1..1..sroa_idx = getelementptr inbounds i8, ptr %20, i64 1
   store i8 75, ptr %.1..1..1..sroa_idx, align 1
@@ -15097,12 +15097,6 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_add_to_central_dir(ptr
   %91 = trunc nuw nsw i32 %15 to i8
   %.38..38..38..sroa_idx = getelementptr inbounds i8, ptr %20, i64 38
   store i8 %91, ptr %.38..38..38..sroa_idx, align 2
-  %.39..39..39..sroa_idx = getelementptr inbounds i8, ptr %20, i64 39
-  store i8 0, ptr %.39..39..39..sroa_idx, align 1
-  %.40..40..40..sroa_idx = getelementptr inbounds i8, ptr %20, i64 40
-  store i8 0, ptr %.40..40..40..sroa_idx, align 8
-  %.41..41..41..sroa_idx = getelementptr inbounds i8, ptr %20, i64 41
-  store i8 0, ptr %.41..41..41..sroa_idx, align 1
   %92 = tail call i64 @llvm.umin.i64(i64 %14, i64 4294967295)
   %93 = trunc i64 %92 to i8
   %.42..42..42..sroa_idx = getelementptr inbounds i8, ptr %20, i64 42

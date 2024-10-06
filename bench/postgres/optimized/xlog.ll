@@ -2875,7 +2875,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %14 = phi i64 [ %10, %.lr.ph.lr.ph ], [ %92, %.outer ]
-  %15 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %119, %.outer ]
+  %15 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %118, %.outer ]
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -3009,61 +3009,60 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %97 = getelementptr %struct.pg_atomic_uint64, ptr %88, i64 %.us-phi52
   store volatile i64 0, ptr %97, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !34
-  %98 = getelementptr inbounds i8, ptr %96, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %98, i8 0, i64 8190, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %96, i8 0, i64 8192, i1 false)
   store i16 -12012, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 4
-  store i32 %1, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %96, i64 8
-  store i64 %91, ptr %100, align 8
-  %101 = load i32, ptr %13, align 4
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %105
+  %98 = getelementptr inbounds i8, ptr %96, i64 4
+  store i32 %1, ptr %98, align 4
+  %99 = getelementptr inbounds i8, ptr %96, i64 8
+  store i64 %91, ptr %99, align 8
+  %100 = load i32, ptr %13, align 4
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %104
 
-103:                                              ; preds = %.split.us
-  %104 = getelementptr inbounds i8, ptr %96, i64 2
-  store i16 4, ptr %104, align 2
-  br label %105
+102:                                              ; preds = %.split.us
+  %103 = getelementptr inbounds i8, ptr %96, i64 2
+  store i16 4, ptr %103, align 2
+  br label %104
 
-105:                                              ; preds = %103, %.split.us
-  %106 = phi i16 [ 6, %103 ], [ 2, %.split.us ]
-  %107 = load i32, ptr @wal_segment_size, align 4
-  %108 = add i32 %107, -1
-  %109 = sext i32 %108 to i64
-  %110 = and i64 %91, %109
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %.outer
+104:                                              ; preds = %102, %.split.us
+  %105 = phi i16 [ 6, %102 ], [ 2, %.split.us ]
+  %106 = load i32, ptr @wal_segment_size, align 4
+  %107 = add i32 %106, -1
+  %108 = sext i32 %107 to i64
+  %109 = and i64 %91, %108
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %111, label %.outer
 
-112:                                              ; preds = %105
-  %113 = load ptr, ptr @ControlFile, align 8
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %96, i64 24
-  store i64 %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %96, i64 32
-  store i32 %107, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %96, i64 36
-  store i32 8192, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %96, i64 2
-  store i16 %106, ptr %118, align 2
+111:                                              ; preds = %104
+  %112 = load ptr, ptr @ControlFile, align 8
+  %113 = load i64, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %96, i64 24
+  store i64 %113, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %96, i64 32
+  store i32 %106, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %96, i64 36
+  store i32 8192, ptr %116, align 4
+  %117 = getelementptr inbounds i8, ptr %96, i64 2
+  store i16 %105, ptr %117, align 2
   br label %.outer
 
-.outer:                                           ; preds = %112, %105
+.outer:                                           ; preds = %111, %104
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !35
-  %119 = load ptr, ptr @XLogCtl, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 296
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr %struct.pg_atomic_uint64, ptr %121, i64 %.us-phi52
-  store volatile i64 %92, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %119, i64 280
-  store i64 %92, ptr %123, align 8
-  %124 = icmp uge i64 %0, %92
-  %125 = or i1 %2, %124
-  br i1 %125, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !33
+  %118 = load ptr, ptr @XLogCtl, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 296
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr %struct.pg_atomic_uint64, ptr %120, i64 %.us-phi52
+  store volatile i64 %92, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %118, i64 280
+  store i64 %92, ptr %122, align 8
+  %123 = icmp uge i64 %0, %92
+  %124 = or i1 %2, %123
+  br i1 %124, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !33
 
 .outer._crit_edge:                                ; preds = %.lr.ph.split.us, %.outer, %81, %3
-  %126 = load ptr, ptr @MainLWLockArray, align 8
-  %127 = getelementptr i8, ptr %126, i64 896
-  tail call void @LWLockRelease(ptr noundef %127) #26
+  %125 = load ptr, ptr @MainLWLockArray, align 8
+  %126 = getelementptr i8, ptr %125, i64 896
+  tail call void @LWLockRelease(ptr noundef %126) #26
   ret void
 }
 

@@ -3241,8 +3241,9 @@ define linkonce_odr void @_ZN3nix9MixDryRunC2Ev(ptr noundef nonnull align 8 dere
   %35 = getelementptr inbounds i8, ptr %4, i64 192
   %36 = getelementptr inbounds i8, ptr %4, i64 200
   %37 = getelementptr inbounds i8, ptr %4, i64 184
-  store i64 1, ptr %37, align 8
+  store i64 0, ptr %37, align 8
   store ptr %13, ptr %34, align 8
+  store i8 1, ptr %37, align 8
   store ptr @_ZNSt17_Function_handlerIFvSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEZN3nix4Args7HandlerC1IbEEPT_RKSE_EUlS8_E_E9_M_invokeERKSt9_Any_dataOS8_, ptr %36, align 8
   store ptr @_ZNSt17_Function_handlerIFvSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEZN3nix4Args7HandlerC1IbEEPT_RKSE_EUlS8_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 208

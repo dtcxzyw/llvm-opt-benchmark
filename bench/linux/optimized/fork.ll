@@ -4969,7 +4969,7 @@ define dso_local ptr @create_io_thread(ptr noundef %0, ptr noundef %1, i32 nound
   %4 = alloca %struct.kernel_clone_args, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #18
   %5 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 0, ptr %5, align 8, !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 88, i1 false), !annotation !12
   store i64 2155941632, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %4, i64 44
@@ -5270,7 +5270,7 @@ define dso_local i32 @kernel_thread(ptr noundef %0, ptr noundef %1, ptr noundef 
   %5 = alloca %struct.kernel_clone_args, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #18
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store i64 0, ptr %6, align 8, !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 88, i1 false), !annotation !12
   %7 = trunc i64 %3 to i32
   %8 = and i64 %3, 4286578176
   %9 = or disjoint i64 %8, 8388864
@@ -5364,7 +5364,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clone(ptr noc
   %14 = inttoptr i64 %10 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #18
   %15 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 0, ptr %15, align 8, !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, i8 0, i64 88, i1 false), !annotation !12
   %16 = trunc i64 %4 to i32
   %17 = and i64 %4, 4294967040
   store i64 %17, ptr %2, align 8
@@ -5381,16 +5381,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clone(ptr noc
   store i32 %23, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 56
-  store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 64
-  store i64 %12, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
-  %28 = call i32 @kernel_clone(ptr noundef nonnull %2)
-  %29 = sext i32 %28 to i64
+  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  store i64 %12, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
+  %27 = call i32 @kernel_clone(ptr noundef nonnull %2)
+  %28 = sext i32 %27 to i64
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #18
-  ret i64 %29
+  ret i64 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5414,7 +5412,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clone(ptr no
   %18 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #18
   %19 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 0, ptr %19, align 8, !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 88, i1 false), !annotation !12
   %20 = trunc i64 %4 to i32
   %21 = and i64 %4, 4294967040
   store i64 %21, ptr %2, align 8
@@ -5431,16 +5429,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clone(ptr no
   store i32 %27, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %7, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 56
-  store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 64
-  store i64 %16, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
-  %32 = call i32 @kernel_clone(ptr noundef nonnull %2)
-  %33 = sext i32 %32 to i64
+  %29 = getelementptr inbounds i8, ptr %2, i64 64
+  store i64 %16, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
+  %31 = call i32 @kernel_clone(ptr noundef nonnull %2)
+  %32 = sext i32 %31 to i64
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #18
-  ret i64 %33
+  ret i64 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5472,7 +5468,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_clone3(i
   br i1 %11, label %85, label %12, !prof !11
 
 12:                                               ; preds = %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 40, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 88, i1 false), !annotation !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false), !annotation !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !12
   %13 = tail call i64 @llvm.umin.i64(i64 %1, i64 88)

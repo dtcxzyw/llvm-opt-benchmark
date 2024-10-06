@@ -5999,7 +5999,7 @@ define void @_ZN4pkpy8Compiler8exprCallEv(ptr noundef nonnull align 8 dereferenc
   %8 = alloca %"class.pkpy::unique_ptr_128", align 8
   %9 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 104) #36, !noalias !34
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !noalias !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 48, i1 false), !noalias !34
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy8CallExprE, i64 16), ptr %9, align 8, !noalias !34
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %9, i64 56
@@ -7659,7 +7659,7 @@ define void @_ZN4pkpy8Compiler10exprSubscrEv(ptr noundef nonnull align 8 derefer
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !61
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !61
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10SubscrExprE, i64 16), ptr %3, align 8, !noalias !61
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !61
@@ -8116,7 +8116,7 @@ _ZN4pkpy2TKEPKc.exit43:                           ; preds = %93, %91
   %.2276 = phi i8 [ %.0, %95 ], [ 1, %64 ], [ 1, %_ZN4pkpy2TKEPKc.exit43 ]
   %97 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !70
   %98 = getelementptr inbounds i8, ptr %97, i64 8
-  store i64 0, ptr %98, align 8, !noalias !70
+  store i64 0, ptr %98, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy12DictItemExprE, i64 16), ptr %97, align 8, !noalias !70
   %99 = getelementptr inbounds i8, ptr %97, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false), !noalias !70
@@ -9215,7 +9215,7 @@ define void @_ZN4pkpy8Compiler12exprBinaryOpEv(ptr noundef nonnull align 8 deref
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !98
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !98
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10BinaryExprE, i64 16), ptr %3, align 8, !noalias !98
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !98
@@ -10015,7 +10015,7 @@ define void @_ZN4pkpy8Compiler11exprTernaryEv(ptr noundef nonnull align 8 derefe
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 40) #36, !noalias !131
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !131
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11TernaryExprE, i64 16), ptr %3, align 8, !noalias !131
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !131
@@ -10306,7 +10306,7 @@ define void @_ZN4pkpy8Compiler7exprAndEv(ptr noundef nonnull align 8 dereference
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !143
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !143
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy7AndExprE, i64 16), ptr %3, align 8, !noalias !143
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !143
@@ -10498,7 +10498,7 @@ define void @_ZN4pkpy8Compiler6exprOrEv(ptr noundef nonnull align 8 dereferencea
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !152
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !152
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy6OrExprE, i64 16), ptr %3, align 8, !noalias !152
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !152
@@ -12274,7 +12274,7 @@ define void @_ZN4pkpy8Compiler10exprSlice0Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 40) #36, !noalias !192
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !192
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9SliceExprE, i64 16), ptr %3, align 8, !noalias !192
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !192
@@ -12782,7 +12782,7 @@ define void @_ZN4pkpy8Compiler10exprSlice1Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 40) #36, !noalias !204
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !noalias !204
+  store i64 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy9SliceExprE, i64 16), ptr %3, align 8, !noalias !204
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !204
@@ -25069,7 +25069,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1
   store i32 %41, ptr %4, align 4
   %42 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !295
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 0, ptr %43, align 8, !noalias !295
+  store i64 0, ptr %43, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4pkpy10BinaryExprE, i64 16), ptr %42, align 8, !noalias !295
   %44 = getelementptr inbounds i8, ptr %42, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !noalias !295

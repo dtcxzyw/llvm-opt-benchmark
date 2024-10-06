@@ -3387,7 +3387,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
 28:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #19
   %29 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %29, align 8, !annotation !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 32, i1 false), !annotation !48
   %30 = getelementptr inbounds i8, ptr %26, i64 16
   %31 = load i32, ptr %30, align 16
   %32 = and i32 %31, 129
@@ -3579,6 +3579,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   store i32 0, ptr %4, align 8
   %142 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %138, ptr %142, align 4
+  store i32 0, ptr %119, align 8
   %143 = getelementptr inbounds i8, ptr %137, i64 64
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull %105, ptr noundef nonnull %4) #19
@@ -3719,7 +3720,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
 217:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #19
   %218 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %218, align 8, !annotation !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %218, i8 0, i64 32, i1 false), !annotation !48
   %219 = getelementptr inbounds i8, ptr %215, i64 16
   %220 = load i32, ptr %219, align 16
   %221 = and i32 %220, 129

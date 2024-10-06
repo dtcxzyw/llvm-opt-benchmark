@@ -1305,7 +1305,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 define hidden range(i32 -1, 1) i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef %event, ptr nocapture noundef readonly %frame, ptr noundef %instr, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
   %args = alloca [4 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %args, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %args, i8 0, i64 24, i1 false)
   %arrayinit.element2 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %arg, ptr %arrayinit.element2, align 8
   %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 3, ptr noundef %args)
@@ -1342,7 +1342,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %args, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %args, i8 0, i64 24, i1 false)
   %arrayinit.element5 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %call2, ptr %arrayinit.element5, align 8
   %call7 = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef nonnull %frame, ptr noundef %instr, i64 noundef 3, ptr noundef %args)

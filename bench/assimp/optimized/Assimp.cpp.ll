@@ -5799,8 +5799,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.0.out.sroa_idx.i, i8 0, i64 16, i1 false)
   %ref.tmp.sroa.3.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 20
   %ref.tmp.sroa.4.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 24
-  %0 = getelementptr inbounds i8, ptr %mat, i64 28
-  store i64 0, ptr %0, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.4.0.out.sroa_idx.i, i8 0, i64 16, i1 false)
   %ref.tmp.sroa.5.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 40
   %ref.tmp.sroa.6.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.6.0.out.sroa_idx.i, i8 0, i64 16, i1 false)
@@ -5847,8 +5846,7 @@ entry:
 define void @aiMatrix4RotationZ(ptr nocapture noundef writeonly %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
-  %0 = getelementptr inbounds i8, ptr %mat, i64 8
-  store i64 0, ptr %0, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.0.out.sroa_idx.i, i8 0, i64 16, i1 false)
   %ref.tmp.sroa.3.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 20
   %ref.tmp.sroa.4.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.4.0.out.sroa_idx.i, i8 0, i64 16, i1 false)

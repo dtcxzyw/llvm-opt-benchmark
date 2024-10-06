@@ -26,10 +26,10 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_open() local_unnamed_addr #0 
   %3 = alloca [64 x i8], align 16
   %4 = alloca %struct._ir_elf_header, align 8
   %5 = alloca %struct.ir_perf_jitdump_header, align 8
-  %6 = tail call i32 @getpid() #7
-  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %6) #7
+  %6 = tail call i32 @getpid() #8
+  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %6) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #7
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %ir_perf_timestamp.exit, label %ir_perf_timestamp.exit.thread
 
@@ -48,13 +48,13 @@ ir_perf_timestamp.exit:                           ; preds = %0
   br i1 %.not, label %64, label %14
 
 14:                                               ; preds = %ir_perf_timestamp.exit
-  %15 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 0) #7
+  %15 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 0) #8
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %64, label %17
 
 17:                                               ; preds = %14
-  %18 = call i64 @read(i32 noundef %15, ptr noundef nonnull %4, i64 noundef 64) #7
-  %19 = call i32 @close(i32 noundef %15) #7
+  %18 = call i64 @read(i32 noundef %15, ptr noundef nonnull %4, i64 noundef 64) #8
+  %19 = call i32 @close(i32 noundef %15) #8
   %sext.mask = and i64 %18, 4294967295
   %20 = icmp ne i64 %sext.mask, 64
   %21 = load i8, ptr %4, align 8
@@ -75,28 +75,28 @@ ir_perf_timestamp.exit:                           ; preds = %0
   br i1 %or.cond19, label %64, label %32
 
 32:                                               ; preds = %17
-  %33 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 578, i32 noundef 438) #7
+  %33 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 578, i32 noundef 438) #8
   store i32 %33, ptr @jitdump_fd, align 4
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %64, label %35
 
 35:                                               ; preds = %32
-  %36 = call i64 @sysconf(i32 noundef 30) #7
+  %36 = call i64 @sysconf(i32 noundef 30) #8
   %37 = load i32, ptr @jitdump_fd, align 4
-  %38 = call ptr @mmap(ptr noundef null, i64 noundef %36, i32 noundef 5, i32 noundef 2, i32 noundef %37, i64 noundef 0) #7
+  %38 = call ptr @mmap(ptr noundef null, i64 noundef %36, i32 noundef 5, i32 noundef 2, i32 noundef %37, i64 noundef 0) #8
   store ptr %38, ptr @jitdump_mem, align 8
   %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %35
   %41 = load i32, ptr @jitdump_fd, align 4
-  %42 = call i32 @close(i32 noundef %41) #7
+  %42 = call i32 @close(i32 noundef %41) #8
   store i32 -1, ptr @jitdump_fd, align 4
   br label %64
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 0, ptr %44, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 24, i1 false)
   store i32 1248416836, ptr %5, align 8
   %45 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 1, ptr %45, align 4
@@ -107,11 +107,11 @@ ir_perf_timestamp.exit:                           ; preds = %0
   %49 = zext i16 %48 to i32
   %50 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %49, ptr %50, align 4
-  %51 = call i32 @getpid() #7
+  %51 = call i32 @getpid() #8
   %52 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 %51, ptr %52, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %53 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
+  %53 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #8
   %.not.i26 = icmp eq i32 %53, 0
   br i1 %.not.i26, label %54, label %ir_perf_timestamp.exit28
 
@@ -131,7 +131,7 @@ ir_perf_timestamp.exit28:                         ; preds = %43, %54
   %61 = getelementptr inbounds i8, ptr %5, i64 32
   store i64 0, ptr %61, align 8
   %62 = load i32, ptr @jitdump_fd, align 4
-  %63 = call i64 @write(i32 noundef %62, ptr noundef nonnull %5, i64 noundef 40) #7
+  %63 = call i64 @write(i32 noundef %62, ptr noundef nonnull %5, i64 noundef 40) #8
   %.not25 = icmp eq i64 %63, 40
   %. = zext i1 %.not25 to i32
   br label %64
@@ -161,6 +161,9 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
 ; Function Attrs: nofree
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
 
@@ -177,7 +180,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_close() local_unnamed_addr #0
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 16, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #8
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %ir_perf_timestamp.exit
 
@@ -195,17 +198,17 @@ ir_perf_timestamp.exit:                           ; preds = %5, %8
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.0.i, ptr %14, align 8
   %15 = load i32, ptr @jitdump_fd, align 4
-  %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull %2, i64 noundef 16) #7
+  %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull %2, i64 noundef 16) #8
   %.not = icmp eq i64 %16, 16
   %17 = load i32, ptr @jitdump_fd, align 4
-  %18 = call i32 @close(i32 noundef %17) #7
+  %18 = call i32 @close(i32 noundef %17) #8
   %19 = load ptr, ptr @jitdump_mem, align 8
   %.not2 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
   br i1 %.not2, label %23, label %20
 
 20:                                               ; preds = %ir_perf_timestamp.exit
-  %21 = call i64 @sysconf(i32 noundef 30) #7
-  %22 = call i32 @munmap(ptr noundef %19, i64 noundef %21) #7
+  %21 = call i64 @sysconf(i32 noundef 30) #8
+  %22 = call i32 @munmap(ptr noundef %19, i64 noundef %21) #8
   br label %23
 
 23:                                               ; preds = %ir_perf_timestamp.exit, %20, %0
@@ -226,17 +229,17 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_register(ptr nocapture nounde
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
-  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #7
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
+  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #8
   %11 = trunc i64 %10 to i32
   %12 = add i64 %2, 57
   %13 = add i64 %12, %9
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds i8, ptr %5, i64 4
-  store i64 0, ptr %5, align 8
+  store i32 0, ptr %5, align 8
   store i32 %14, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
+  %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #8
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %ir_perf_timestamp.exit
 
@@ -253,7 +256,7 @@ ir_perf_timestamp.exit:                           ; preds = %8, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.0.i, ptr %23, align 8
-  %24 = call i32 @getpid() #7
+  %24 = call i32 @getpid() #8
   %25 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %24, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 20
@@ -271,20 +274,20 @@ ir_perf_timestamp.exit:                           ; preds = %8, %17
   %33 = getelementptr inbounds i8, ptr %5, i64 48
   store i64 %31, ptr %33, align 8
   %34 = load i32, ptr @jitdump_fd, align 4
-  %35 = call i64 @write(i32 noundef %34, ptr noundef nonnull %5, i64 noundef 56) #7
+  %35 = call i64 @write(i32 noundef %34, ptr noundef nonnull %5, i64 noundef 56) #8
   %.not = icmp eq i64 %35, 56
   br i1 %.not, label %36, label %46
 
 36:                                               ; preds = %ir_perf_timestamp.exit
   %37 = load i32, ptr @jitdump_fd, align 4
   %38 = add i64 %9, 1
-  %39 = call i64 @write(i32 noundef %37, ptr noundef %0, i64 noundef %38) #7
+  %39 = call i64 @write(i32 noundef %37, ptr noundef %0, i64 noundef %38) #8
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %36
   %42 = load i32, ptr @jitdump_fd, align 4
-  %43 = call i64 @write(i32 noundef %42, ptr noundef %1, i64 noundef %2) #7
+  %43 = call i64 @write(i32 noundef %42, ptr noundef %1, i64 noundef %2) #8
   %44 = icmp slt i64 %43, 0
   br i1 %44, label %46, label %45
 
@@ -297,7 +300,7 @@ ir_perf_timestamp.exit:                           ; preds = %8, %17
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
@@ -310,22 +313,22 @@ define hidden void @ir_perf_map_register(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @getpid() #7
-  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.2, i32 noundef %7) #7
+  %7 = tail call i32 @getpid() #8
+  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.2, i32 noundef %7) #8
   %9 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.3)
   store ptr %9, ptr @ir_perf_map_register.fp, align 8
   %.not2 = icmp eq ptr %9, null
   br i1 %.not2, label %15, label %10
 
 10:                                               ; preds = %6
-  tail call void @setlinebuf(ptr noundef nonnull %9) #7
+  tail call void @setlinebuf(ptr noundef nonnull %9) #8
   %.pre = load ptr, ptr @ir_perf_map_register.fp, align 8
   br label %11
 
 11:                                               ; preds = %10, %3
   %12 = phi ptr [ %.pre, %10 ], [ %5, %3 ]
   %13 = ptrtoint ptr %1 to i64
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13, i64 noundef %2, ptr noundef %0) #7
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13, i64 noundef %2, ptr noundef %0) #8
   br label %15
 
 15:                                               ; preds = %6, %11
@@ -345,20 +348,21 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

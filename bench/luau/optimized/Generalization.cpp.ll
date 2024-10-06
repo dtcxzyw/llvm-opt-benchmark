@@ -1642,11 +1642,9 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %13
   %33 = getelementptr inbounds i8, ptr %7, i64 24
   %34 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store i32 1065353216, ptr %34, align 8
-  %.sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 44
-  store i32 0, ptr %.sroa_idx.i, align 4
-  %.sroa.5.32..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 48
-  store i64 0, ptr %.sroa.5.32..sroa_idx.i, align 8
+  store float 1.000000e+00, ptr %34, align 8
+  %.sroa.5.32..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.32..sroa_idx.i, i8 0, i64 12, i1 false)
   %35 = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %35, ptr %31, align 8
   store ptr null, ptr %35, align 8

@@ -837,13 +837,12 @@ sw.bb157:                                         ; preds = %sw.bb157.sink.split
   store i64 0, ptr %got.i82123, align 8
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %msg.i109)
   %56 = load ptr, ptr %p, align 8
-  %57 = getelementptr inbounds i8, ptr %msg.i109, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %57, i8 0, i64 6, i1 false)
+  %57 = getelementptr inbounds i8, ptr %msg.i109, i64 1
+  store i64 0, ptr %57, align 1
   store i8 3, ptr %msg.i109, align 1
   %fid.i111 = getelementptr inbounds i8, ptr %56, i64 18
   %58 = load i16, ptr %fid.i111, align 2
-  %fid2.i = getelementptr inbounds i8, ptr %msg.i109, i64 1
-  store i16 %58, ptr %fid2.i, align 1
+  store i16 %58, ptr %57, align 1
   %call.i112 = call fastcc i32 @smb_send_message(ptr noundef nonnull %data, i8 noundef zeroext 4, ptr noundef nonnull %msg.i109, i64 noundef 9)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %msg.i109)
   br label %sw.epilog164
@@ -1133,8 +1132,8 @@ if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %passwd, align 8
   %call12 = call i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef %5, ptr noundef nonnull %nt_hash) #12
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %nt_hash, ptr noundef nonnull %challenge, ptr noundef nonnull %nt) #12
-  %6 = getelementptr inbounds i8, ptr %msg, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1053) %6, i8 0, i64 1051, i1 false)
+  %6 = getelementptr inbounds i8, ptr %msg, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1053) %6, i8 0, i64 1052, i1 false)
   store i8 13, ptr %msg, align 1
   %andx = getelementptr inbounds i8, ptr %msg, i64 1
   store i8 -1, ptr %andx, align 1

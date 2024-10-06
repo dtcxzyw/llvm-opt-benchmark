@@ -832,8 +832,10 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl13convertToUnit
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.9.8.extract.trunc = trunc nuw i64 %.sroa.9.8.extract.shift to i32
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  store i64 0, ptr %5, align 16
   store i32 1065353216, ptr %7, align 8
+  %.sroa_idx21 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 0, ptr %.sroa_idx21, align 4
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 0, ptr %8, align 16
   %.sroa_idx18 = getelementptr inbounds i8, ptr %5, i64 20
@@ -1094,6 +1096,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %53, %58
   %65 = getelementptr inbounds i8, ptr %24, i64 8
   %66 = getelementptr inbounds i8, ptr %24, i64 16
   %67 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa_idx21.i = getelementptr inbounds i8, ptr %9, i64 12
   %68 = getelementptr inbounds i8, ptr %9, i64 16
   %.sroa_idx18.i = getelementptr inbounds i8, ptr %9, i64 20
   %.sroa_idx15.i = getelementptr inbounds i8, ptr %8, i64 4
@@ -1232,8 +1235,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %53, %58
   %.sroa.7.8.extract.trunc.i = trunc i64 %.sroa.5.0.copyload150 to i32
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0146.0.copyload to i32
   %.sroa.9.8.extract.trunc.i = trunc nuw i64 %.sroa.9.8.extract.shift.i to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  store i64 0, ptr %9, align 16
   store i32 1065353216, ptr %67, align 8
+  store i32 0, ptr %.sroa_idx21.i, align 4
   store i32 0, ptr %68, align 16
   store i32 1065353216, ptr %.sroa_idx18.i, align 4
   %126 = sitofp i32 %.sroa.0.0.extract.trunc.i to float

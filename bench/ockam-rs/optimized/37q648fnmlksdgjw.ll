@@ -27484,7 +27484,7 @@ default.unreachable41:                            ; preds = %210, %43, %3
   %53 = getelementptr inbounds i8, ptr %1, i64 537
   %54 = getelementptr inbounds i8, ptr %1, i64 536
   %55 = getelementptr inbounds i8, ptr %1, i64 528
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %54, i8 0, i64 7, i1 false), !noalias !3435
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %54, i8 0, i64 6, i1 false), !noalias !3435
   %56 = load ptr, ptr %55, align 8, !noalias !3435, !nonnull !5, !align !47, !noundef !5
   store i8 1, ptr %48, align 2, !noalias !3435
   %57 = getelementptr inbounds i8, ptr %1, i64 344
@@ -107655,20 +107655,17 @@ default.unreachable1.i.i:                         ; preds = %356
   %412 = getelementptr inbounds i8, ptr %1, i64 2714
   %413 = getelementptr inbounds i8, ptr %1, i64 2713
   %414 = getelementptr inbounds i8, ptr %1, i64 200
-  store i8 0, ptr %412, align 2, !noalias !17661
+  store i32 16843008, ptr %412, align 2, !noalias !17661
   %415 = load ptr, ptr %414, align 8, !noalias !17661, !nonnull !5, !align !47, !noundef !5
   %416 = getelementptr inbounds i8, ptr %1, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %416, ptr noundef nonnull align 8 dereferenceable(32) %408, i64 32, i1 false), !noalias !17661
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42), !noalias !17661
-  store i8 1, ptr %409, align 1, !noalias !17661
   %417 = getelementptr inbounds i8, ptr %1, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(48) %417, i64 48, i1 false), !noalias !17661
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41), !noalias !17661
-  store i8 1, ptr %410, align 4, !noalias !17661
   %418 = getelementptr inbounds i8, ptr %1, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %418, i64 32, i1 false), !noalias !17661
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40), !noalias !17661
-  store i8 1, ptr %411, align 1, !noalias !17661
   %419 = getelementptr inbounds i8, ptr %1, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %419, i64 32, i1 false), !noalias !17661
   store i8 1, ptr %413, align 1, !noalias !17661

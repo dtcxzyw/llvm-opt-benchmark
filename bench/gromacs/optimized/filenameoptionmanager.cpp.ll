@@ -216,25 +216,24 @@ _ZN3gmx17IOptionsContainer9addOptionINS_12StringOptionEEEPNT_8InfoTypeERKS3_.exi
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 96
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 100
-  store i32 -1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %14, ptr %15, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 96
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 100
+  store i32 -1, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr %13, ptr %14, align 8
   store ptr @.str, ptr %7, align 8
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret void
 }
 

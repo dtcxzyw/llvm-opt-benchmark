@@ -12389,8 +12389,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp12, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %central_dir_header.34.central_dir_header.34.central_dir_header.34..sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 34
-  store i32 0, ptr %central_dir_header.34.central_dir_header.34.central_dir_header.34..sroa_idx, align 2
+  %central_dir_header.30.central_dir_header.30.central_dir_header.30..sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 30
+  store i64 0, ptr %central_dir_header.30.central_dir_header.30.central_dir_header.30..sroa_idx, align 2
   store i8 80, ptr %central_dir_header, align 16
   %central_dir_header.1.central_dir_header.1.central_dir_header.1.arrayidx2.i.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 1
   store i8 75, ptr %central_dir_header.1.central_dir_header.1.central_dir_header.1.arrayidx2.i.i.sroa_idx, align 1
@@ -12485,10 +12485,6 @@ if.end:                                           ; preds = %lor.lhs.false
   %conv2.i53.i = trunc nuw i16 %5 to i8
   %central_dir_header.29.central_dir_header.29.central_dir_header.29.arrayidx3.i54.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 29
   store i8 %conv2.i53.i, ptr %central_dir_header.29.central_dir_header.29.central_dir_header.29.arrayidx3.i54.i.sroa_idx, align 1
-  %central_dir_header.30.central_dir_header.30.central_dir_header.30.add.ptr16.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 30
-  store i8 0, ptr %central_dir_header.30.central_dir_header.30.central_dir_header.30.add.ptr16.i.sroa_idx, align 2
-  %central_dir_header.31.central_dir_header.31.central_dir_header.31.arrayidx3.i55.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 31
-  store i8 0, ptr %central_dir_header.31.central_dir_header.31.central_dir_header.31.arrayidx3.i55.i.sroa_idx, align 1
   %conv.i56.i = trunc i16 %comment_size to i8
   %central_dir_header.32.central_dir_header.32.central_dir_header.32.add.ptr17.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 32
   store i8 %conv.i56.i, ptr %central_dir_header.32.central_dir_header.32.central_dir_header.32.add.ptr17.i.sroa_idx, align 16
@@ -13425,7 +13421,7 @@ if.end136:                                        ; preds = %if.end133, %while.e
 if.end142:                                        ; preds = %if.end136
   %m_size = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load i64, ptr %m_size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %central_header, ptr noundef nonnull align 1 dereferenceable(46) %arrayidx9.i, i64 46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %central_header, ptr noundef nonnull align 1 dereferenceable(46) %arrayidx9.i, i64 42, i1 false)
   %conv.i144 = trunc i64 %add to i8
   %central_header.42.central_header.42.central_header.42.add.ptr145.sroa_idx = getelementptr inbounds i8, ptr %central_header, i64 42
   store i8 %conv.i144, ptr %central_header.42.central_header.42.central_header.42.add.ptr145.sroa_idx, align 2

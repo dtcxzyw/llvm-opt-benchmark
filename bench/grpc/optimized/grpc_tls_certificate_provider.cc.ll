@@ -322,7 +322,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i2 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #26
   %0 = getelementptr inbounds i8, ptr %call.i2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 96, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 128, i1 false), !noalias !4
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %call.i2, align 8, !noalias !4
@@ -335,15 +335,11 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i.i, align 8, !noalias !4
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 72
   %2 = getelementptr inbounds i8, ptr %call.i2, i64 120
-  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i2, i64 128
-  store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i, align 8, !noalias !4
   %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i2, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_node_count.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !4
   store ptr %2, ptr %_M_left.i.i.i.i.i2.i.i, align 8, !noalias !4
   %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 144
   store ptr %2, ptr %_M_right.i.i.i.i.i3.i.i, align 8, !noalias !4
-  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i2, i64 152
-  store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i, align 8, !noalias !4
   store ptr %call.i2, ptr %distributor_, align 8, !alias.scope !4
   %root_certificate_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %root_certificate_, ptr noundef nonnull align 8 dereferenceable(32) %root_certificate) #27
@@ -771,7 +767,7 @@ entry:
 
 invoke.cont3:                                     ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %call.i4, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 96, i1 false), !noalias !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 128, i1 false), !noalias !13
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !13
   store ptr getelementptr inbounds (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %call.i4, align 8, !noalias !13
@@ -784,15 +780,11 @@ invoke.cont3:                                     ; preds = %entry
   store ptr %1, ptr %_M_right.i.i.i.i.i.i.i, align 8, !noalias !13
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 72
   %2 = getelementptr inbounds i8, ptr %call.i4, i64 120
-  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i4, i64 128
-  store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i, align 8, !noalias !13
   %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i4, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_node_count.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !13
   store ptr %2, ptr %_M_left.i.i.i.i.i2.i.i, align 8, !noalias !13
   %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i4, i64 144
   store ptr %2, ptr %_M_right.i.i.i.i.i3.i.i, align 8, !noalias !13
-  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i4, i64 152
-  store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i, align 8, !noalias !13
   store ptr %call.i4, ptr %distributor_, align 8, !alias.scope !13
   %refresh_thread_ = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %refresh_thread_, align 8

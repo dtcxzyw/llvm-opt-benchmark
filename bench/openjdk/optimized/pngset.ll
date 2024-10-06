@@ -1745,98 +1745,99 @@ define hidden void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias n
   %24 = getelementptr inbounds i8, ptr %0, i64 292
   br label %25
 
-25:                                               ; preds = %.lr.ph, %64
-  %.056 = phi ptr [ %23, %.lr.ph ], [ %.1, %64 ]
-  %.04555 = phi i32 [ %3, %.lr.ph ], [ %65, %64 ]
-  %.04654 = phi ptr [ %2, %.lr.ph ], [ %66, %64 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.056, ptr noundef nonnull align 8 dereferenceable(5) %.04654, i64 5, i1 false)
-  %26 = getelementptr inbounds i8, ptr %.056, i64 4
-  store i8 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.04654, i64 24
-  %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 11
-  %30 = zext nneg i8 %29 to i32
-  %31 = icmp eq i8 %29, 0
-  br i1 %31, label %32, label %.preheader.i.preheader
+25:                                               ; preds = %.lr.ph, %65
+  %.056 = phi ptr [ %23, %.lr.ph ], [ %.1, %65 ]
+  %.04555 = phi i32 [ %3, %.lr.ph ], [ %66, %65 ]
+  %.04654 = phi ptr [ %2, %.lr.ph ], [ %67, %65 ]
+  %26 = load i32, ptr %.04654, align 8
+  store i32 %26, ptr %.056, align 8
+  %27 = getelementptr inbounds i8, ptr %.056, i64 4
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %.04654, i64 24
+  %29 = load i8, ptr %28, align 8
+  %30 = and i8 %29, 11
+  %31 = zext nneg i8 %30 to i32
+  %32 = icmp eq i8 %30, 0
+  br i1 %32, label %33, label %.preheader.i.preheader
 
-.preheader.i.preheader:                           ; preds = %36, %25
-  %.1.i.ph = phi i32 [ %30, %25 ], [ %38, %36 ]
+.preheader.i.preheader:                           ; preds = %37, %25
+  %.1.i.ph = phi i32 [ %31, %25 ], [ %39, %37 ]
   br label %.preheader.i
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr %24, align 4, !alias.scope !24
-  %34 = and i32 %33, 32768
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %.thread.i
+33:                                               ; preds = %25
+  %34 = load i32, ptr %24, align 4, !alias.scope !24
+  %35 = and i32 %34, 32768
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %.thread.i
 
-36:                                               ; preds = %32
+37:                                               ; preds = %33
   tail call void @png_app_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #12
-  %37 = load i32, ptr %24, align 4, !alias.scope !24
-  %38 = and i32 %37, 11
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread.i, label %.preheader.i.preheader
+  %38 = load i32, ptr %24, align 4, !alias.scope !24
+  %39 = and i32 %38, 11
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %.thread.i, label %.preheader.i.preheader
 
-.thread.i:                                        ; preds = %36, %32
+.thread.i:                                        ; preds = %37, %33
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.51) #14
   unreachable
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %.1.i = phi i32 [ %42, %.preheader.i ], [ %.1.i.ph, %.preheader.i.preheader ]
-  %40 = sub nsw i32 0, %.1.i
-  %41 = and i32 %.1.i, %40
-  %.not.i = icmp eq i32 %.1.i, %41
-  %42 = xor i32 %41, %.1.i
+  %.1.i = phi i32 [ %43, %.preheader.i ], [ %.1.i.ph, %.preheader.i.preheader ]
+  %41 = sub nsw i32 0, %.1.i
+  %42 = and i32 %.1.i, %41
+  %.not.i = icmp eq i32 %.1.i, %42
+  %43 = xor i32 %42, %.1.i
   br i1 %.not.i, label %check_location.exit, label %.preheader.i, !llvm.loop !27
 
 check_location.exit:                              ; preds = %.preheader.i
-  %43 = trunc nuw nsw i32 %.1.i to i8
-  %44 = getelementptr inbounds i8, ptr %.056, i64 24
-  store i8 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %.04654, i64 16
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %50
+  %44 = trunc nuw nsw i32 %.1.i to i8
+  %45 = getelementptr inbounds i8, ptr %.056, i64 24
+  store i8 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %.04654, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %check_location.exit
-  %49 = getelementptr inbounds i8, ptr %.056, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  br label %60
+49:                                               ; preds = %check_location.exit
+  %50 = getelementptr inbounds i8, ptr %.056, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  br label %61
 
-50:                                               ; preds = %check_location.exit
-  %51 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %46) #12
-  %52 = getelementptr inbounds i8, ptr %.056, i64 8
-  store ptr %51, ptr %52, align 8
-  %53 = icmp eq ptr %51, null
-  br i1 %53, label %54, label %55
+51:                                               ; preds = %check_location.exit
+  %52 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %47) #12
+  %53 = getelementptr inbounds i8, ptr %.056, i64 8
+  store ptr %52, ptr %53, align 8
+  %54 = icmp eq ptr %52, null
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %50
+55:                                               ; preds = %51
   tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, i32 noundef 1) #12
-  br label %64
+  br label %65
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %.04654, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i64, ptr %45, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %57, i64 %58, i1 false)
-  %59 = getelementptr inbounds i8, ptr %.056, i64 16
-  store i64 %58, ptr %59, align 8
-  br label %60
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds i8, ptr %.04654, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i64, ptr %46, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr align 1 %58, i64 %59, i1 false)
+  %60 = getelementptr inbounds i8, ptr %.056, i64 16
+  store i64 %59, ptr %60, align 8
+  br label %61
 
-60:                                               ; preds = %55, %48
-  %61 = getelementptr inbounds i8, ptr %.056, i64 32
-  %62 = load i32, ptr %12, align 8
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %12, align 8
-  br label %64
+61:                                               ; preds = %56, %49
+  %62 = getelementptr inbounds i8, ptr %.056, i64 32
+  %63 = load i32, ptr %12, align 8
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %12, align 8
+  br label %65
 
-64:                                               ; preds = %60, %54
-  %.1 = phi ptr [ %61, %60 ], [ %.056, %54 ]
-  %65 = add nsw i32 %.04555, -1
-  %66 = getelementptr inbounds i8, ptr %.04654, i64 32
-  %67 = icmp sgt i32 %.04555, 1
-  br i1 %67, label %25, label %.loopexit, !llvm.loop !28
+65:                                               ; preds = %61, %55
+  %.1 = phi ptr [ %62, %61 ], [ %.056, %55 ]
+  %66 = add nsw i32 %.04555, -1
+  %67 = getelementptr inbounds i8, ptr %.04654, i64 32
+  %68 = icmp sgt i32 %.04555, 1
+  br i1 %68, label %25, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %64, %4, %16
+.loopexit:                                        ; preds = %65, %4, %16
   ret void
 }
 

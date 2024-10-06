@@ -13174,46 +13174,45 @@ _ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.ex
 define hidden void @_ZN14regex_automata4util8alphabet12ByteClassSet12byte_classes17h0005094c8df69daeE(ptr noalias nocapture noundef writeonly sret({ [256 x i8] }) align 1 dereferenceable(256) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca { [256 x i8] }, align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %4, i8 0, i64 255, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   store i8 0, ptr %3, align 1
-  br label %6
+  br label %5
 
-5:                                                ; preds = %19
+4:                                                ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, ptr noundef nonnull align 1 dereferenceable(256) %3, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   ret void
 
-6:                                                ; preds = %2, %19
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %19 ]
-  %.012 = phi i8 [ 0, %2 ], [ %.1, %19 ]
-  %7 = trunc nuw i64 %indvars.iv to i8
+5:                                                ; preds = %2, %18
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %18 ]
+  %.012 = phi i8 [ 0, %2 ], [ %.1, %18 ]
+  %6 = trunc nuw i64 %indvars.iv to i8
   %.lobit.i = lshr i64 %indvars.iv, 7
-  %8 = and i64 %.lobit.i, 1
-  %9 = getelementptr inbounds [2 x i128], ptr %1, i64 0, i64 %8
-  %10 = load i128, ptr %9, align 8, !alias.scope !3395, !noundef !9
-  %11 = and i8 %7, 127
-  %12 = zext nneg i8 %11 to i128
-  %13 = shl nuw i128 1, %12
-  %14 = and i128 %10, %13
-  %.not = icmp eq i128 %14, 0
-  br i1 %.not, label %19, label %15
+  %7 = and i64 %.lobit.i, 1
+  %8 = getelementptr inbounds [2 x i128], ptr %1, i64 0, i64 %7
+  %9 = load i128, ptr %8, align 8, !alias.scope !3395, !noundef !9
+  %10 = and i8 %6, 127
+  %11 = zext nneg i8 %10 to i128
+  %12 = shl nuw i128 1, %11
+  %13 = and i128 %9, %12
+  %.not = icmp eq i128 %13, 0
+  br i1 %.not, label %18, label %14
 
-15:                                               ; preds = %6
-  %16 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %.012, i8 1)
-  %17 = extractvalue { i8, i1 } %16, 1
-  %18 = extractvalue { i8, i1 } %16, 0
-  br i1 %17, label %22, label %19
+14:                                               ; preds = %5
+  %15 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %.012, i8 1)
+  %16 = extractvalue { i8, i1 } %15, 1
+  %17 = extractvalue { i8, i1 } %15, 0
+  br i1 %16, label %21, label %18
 
-19:                                               ; preds = %15, %6
-  %.1 = phi i8 [ %.012, %6 ], [ %18, %15 ]
+18:                                               ; preds = %14, %5
+  %.1 = phi i8 [ %.012, %5 ], [ %17, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %indvars.iv.next
-  store i8 %.1, ptr %20, align 1
-  %21 = icmp eq i64 %indvars.iv.next, 255
-  br i1 %21, label %5, label %6
+  %19 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %indvars.iv.next
+  store i8 %.1, ptr %19, align 1
+  %20 = icmp eq i64 %indvars.iv.next, 255
+  br i1 %20, label %4, label %5
 
-22:                                               ; preds = %15
+21:                                               ; preds = %14
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.09ebd1a1fbc06cbf73656c4d6a94c431.64.llvm.8347807780687254574, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.83.llvm.8347807780687254574) #44
   unreachable
 }

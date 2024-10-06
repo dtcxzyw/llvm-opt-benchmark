@@ -5495,88 +5495,88 @@ if.end124:                                        ; preds = %if.end124.critedge,
   br i1 %tobool128.not, label %if.end134, label %invoke.cont133
 
 invoke.cont133:                                   ; preds = %if.end124
-  %66 = getelementptr inbounds i8, ptr %c2w, i64 4
   %arrayidx6.i = getelementptr inbounds i8, ptr %c2w, i64 20
   %arrayidx9.i = getelementptr inbounds i8, ptr %c2w, i64 40
   %arrayidx12.i = getelementptr inbounds i8, ptr %c2w, i64 60
   %m_imagecache = getelementptr inbounds i8, ptr %icfile, i64 232
-  %67 = load ptr, ptr %m_imagecache, align 8
-  %m_Mc2w.i = getelementptr inbounds i8, ptr %67, i64 232
-  %68 = load float, ptr %m_Mc2w.i, align 4
-  store float %68, ptr %c2w, align 4
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %67, i64 236
-  %69 = load float, ptr %arrayidx8.i.i, align 4
-  store float %69, ptr %66, align 4
-  %arrayidx14.i.i = getelementptr inbounds i8, ptr %67, i64 240
-  %70 = load float, ptr %arrayidx14.i.i, align 4
+  %66 = load ptr, ptr %m_imagecache, align 8
+  %m_Mc2w.i = getelementptr inbounds i8, ptr %66, i64 232
+  %67 = load float, ptr %m_Mc2w.i, align 4
+  store float %67, ptr %c2w, align 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %66, i64 236
+  %68 = load float, ptr %arrayidx8.i.i, align 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %c2w, i64 4
+  store float %68, ptr %arrayidx11.i.i, align 4
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %66, i64 240
+  %69 = load float, ptr %arrayidx14.i.i, align 4
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %c2w, i64 8
-  store float %70, ptr %arrayidx17.i.i, align 4
-  %arrayidx20.i.i = getelementptr inbounds i8, ptr %67, i64 244
-  %71 = load float, ptr %arrayidx20.i.i, align 4
+  store float %69, ptr %arrayidx17.i.i, align 4
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %66, i64 244
+  %70 = load float, ptr %arrayidx20.i.i, align 4
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %c2w, i64 12
-  store float %71, ptr %arrayidx23.i.i, align 4
-  %arrayidx25.i.i = getelementptr inbounds i8, ptr %67, i64 248
-  %72 = load float, ptr %arrayidx25.i.i, align 4
+  store float %70, ptr %arrayidx23.i.i, align 4
+  %arrayidx25.i.i = getelementptr inbounds i8, ptr %66, i64 248
+  %71 = load float, ptr %arrayidx25.i.i, align 4
   %arrayidx28.i.i = getelementptr inbounds i8, ptr %c2w, i64 16
-  store float %72, ptr %arrayidx28.i.i, align 4
-  %arrayidx32.i.i = getelementptr inbounds i8, ptr %67, i64 252
-  %73 = load float, ptr %arrayidx32.i.i, align 4
-  store float %73, ptr %arrayidx6.i, align 4
-  %arrayidx38.i.i = getelementptr inbounds i8, ptr %67, i64 256
-  %74 = load float, ptr %arrayidx38.i.i, align 4
+  store float %71, ptr %arrayidx28.i.i, align 4
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %66, i64 252
+  %72 = load float, ptr %arrayidx32.i.i, align 4
+  store float %72, ptr %arrayidx6.i, align 4
+  %arrayidx38.i.i = getelementptr inbounds i8, ptr %66, i64 256
+  %73 = load float, ptr %arrayidx38.i.i, align 4
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %c2w, i64 24
-  store float %74, ptr %arrayidx41.i.i, align 4
-  %arrayidx44.i.i = getelementptr inbounds i8, ptr %67, i64 260
-  %75 = load float, ptr %arrayidx44.i.i, align 4
+  store float %73, ptr %arrayidx41.i.i, align 4
+  %arrayidx44.i.i = getelementptr inbounds i8, ptr %66, i64 260
+  %74 = load float, ptr %arrayidx44.i.i, align 4
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %c2w, i64 28
-  store float %75, ptr %arrayidx47.i.i, align 4
-  %arrayidx49.i.i = getelementptr inbounds i8, ptr %67, i64 264
-  %76 = load float, ptr %arrayidx49.i.i, align 4
+  store float %74, ptr %arrayidx47.i.i, align 4
+  %arrayidx49.i.i = getelementptr inbounds i8, ptr %66, i64 264
+  %75 = load float, ptr %arrayidx49.i.i, align 4
   %arrayidx52.i.i = getelementptr inbounds i8, ptr %c2w, i64 32
-  store float %76, ptr %arrayidx52.i.i, align 4
-  %arrayidx56.i.i = getelementptr inbounds i8, ptr %67, i64 268
-  %77 = load float, ptr %arrayidx56.i.i, align 4
+  store float %75, ptr %arrayidx52.i.i, align 4
+  %arrayidx56.i.i = getelementptr inbounds i8, ptr %66, i64 268
+  %76 = load float, ptr %arrayidx56.i.i, align 4
   %arrayidx59.i.i = getelementptr inbounds i8, ptr %c2w, i64 36
-  store float %77, ptr %arrayidx59.i.i, align 4
-  %arrayidx62.i.i = getelementptr inbounds i8, ptr %67, i64 272
-  %78 = load float, ptr %arrayidx62.i.i, align 4
-  store float %78, ptr %arrayidx9.i, align 4
-  %arrayidx68.i.i = getelementptr inbounds i8, ptr %67, i64 276
-  %79 = load float, ptr %arrayidx68.i.i, align 4
+  store float %76, ptr %arrayidx59.i.i, align 4
+  %arrayidx62.i.i = getelementptr inbounds i8, ptr %66, i64 272
+  %77 = load float, ptr %arrayidx62.i.i, align 4
+  store float %77, ptr %arrayidx9.i, align 4
+  %arrayidx68.i.i = getelementptr inbounds i8, ptr %66, i64 276
+  %78 = load float, ptr %arrayidx68.i.i, align 4
   %arrayidx71.i.i = getelementptr inbounds i8, ptr %c2w, i64 44
-  store float %79, ptr %arrayidx71.i.i, align 4
-  %arrayidx73.i.i = getelementptr inbounds i8, ptr %67, i64 280
-  %80 = load float, ptr %arrayidx73.i.i, align 4
+  store float %78, ptr %arrayidx71.i.i, align 4
+  %arrayidx73.i.i = getelementptr inbounds i8, ptr %66, i64 280
+  %79 = load float, ptr %arrayidx73.i.i, align 4
   %arrayidx76.i.i = getelementptr inbounds i8, ptr %c2w, i64 48
-  store float %80, ptr %arrayidx76.i.i, align 4
-  %arrayidx80.i.i = getelementptr inbounds i8, ptr %67, i64 284
-  %81 = load float, ptr %arrayidx80.i.i, align 4
+  store float %79, ptr %arrayidx76.i.i, align 4
+  %arrayidx80.i.i = getelementptr inbounds i8, ptr %66, i64 284
+  %80 = load float, ptr %arrayidx80.i.i, align 4
   %arrayidx83.i.i = getelementptr inbounds i8, ptr %c2w, i64 52
-  store float %81, ptr %arrayidx83.i.i, align 4
-  %arrayidx86.i.i = getelementptr inbounds i8, ptr %67, i64 288
-  %82 = load float, ptr %arrayidx86.i.i, align 4
+  store float %80, ptr %arrayidx83.i.i, align 4
+  %arrayidx86.i.i = getelementptr inbounds i8, ptr %66, i64 288
+  %81 = load float, ptr %arrayidx86.i.i, align 4
   %arrayidx89.i.i = getelementptr inbounds i8, ptr %c2w, i64 56
-  store float %82, ptr %arrayidx89.i.i, align 4
-  %arrayidx92.i.i = getelementptr inbounds i8, ptr %67, i64 292
-  %83 = load float, ptr %arrayidx92.i.i, align 4
-  store float %83, ptr %arrayidx12.i, align 4
+  store float %81, ptr %arrayidx89.i.i, align 4
+  %arrayidx92.i.i = getelementptr inbounds i8, ptr %66, i64 292
+  %82 = load float, ptr %arrayidx92.i.i, align 4
+  store float %82, ptr %arrayidx12.i, align 4
   %m_nonlocal.i = getelementptr inbounds i8, ptr %call127, i64 38
-  %84 = load i8, ptr %m_nonlocal.i, align 2
-  %tobool.i = trunc i8 %84 to i1
+  %83 = load i8, ptr %m_nonlocal.i, align 2
+  %tobool.i = trunc i8 %83 to i1
   %m_data.i = getelementptr inbounds i8, ptr %call127, i64 16
-  %85 = load ptr, ptr %m_data.i, align 8
-  %cond.i134 = select i1 %tobool.i, ptr %85, ptr %m_data.i
+  %84 = load ptr, ptr %m_data.i, align 8
+  %cond.i134 = select i1 %tobool.i, ptr %84, ptr %m_data.i
   %call131 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call131, i8 0, i64 64, i1 false), !alias.scope !61
   call void @_ZN9Imath_2_58Matrix44IfE8multiplyERKS1_S3_RS1_(ptr noundef nonnull align 4 dereferenceable(64) %c2w, ptr noundef nonnull align 4 dereferenceable(64) %cond.i134, ptr noundef nonnull align 4 dereferenceable(64) %call131)
   %Mlocal = getelementptr inbounds i8, ptr %this, i64 80
-  %86 = load ptr, ptr %Mlocal, align 8
+  %85 = load ptr, ptr %Mlocal, align 8
   store ptr %call131, ptr %Mlocal, align 8
-  %tobool.not.i.i = icmp eq ptr %86, null
+  %tobool.not.i.i = icmp eq ptr %85, null
   br i1 %tobool.not.i.i, label %if.end134, label %_ZNKSt14default_deleteIN9Imath_2_58Matrix44IfEEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN9Imath_2_58Matrix44IfEEEclEPS2_.exit.i.i: ; preds = %invoke.cont133
-  call void @_ZdlPv(ptr noundef nonnull %86) #36
+  call void @_ZdlPv(ptr noundef nonnull %85) #36
   br label %if.end134
 
 if.end134:                                        ; preds = %_ZNKSt14default_deleteIN9Imath_2_58Matrix44IfEEEclEPS2_.exit.i.i, %invoke.cont133, %if.end124
@@ -15465,8 +15465,7 @@ entry:
   %m_max_mip_res = getelementptr inbounds i8, ptr %this, i64 164
   store i32 1073741824, ptr %m_max_mip_res, align 4
   %m_Mw2c = getelementptr inbounds i8, ptr %this, i64 168
-  %0 = getelementptr inbounds i8, ptr %this, i64 172
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_Mw2c, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c, align 8
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 188
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -15475,8 +15474,7 @@ entry:
   %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 228
   store float 1.000000e+00, ptr %arrayidx12.i, align 4
   %m_Mc2w = getelementptr inbounds i8, ptr %this, i64 232
-  %1 = getelementptr inbounds i8, ptr %this, i64 236
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_Mc2w, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %m_Mc2w, align 8
   %arrayidx6.i4 = getelementptr inbounds i8, ptr %this, i64 252
   store float 1.000000e+00, ptr %arrayidx6.i4, align 4
@@ -15495,20 +15493,20 @@ arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %ent
   store i32 0, ptr %arrayctor.cur.ptr.ptr.i, align 64
   %map.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %map.i.i, i8 0, i64 32, i1 false)
-  %2 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %2, 0
+  %0 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %invoke.cont.i, !prof !186
 
 init.check.i.i.i.i.i:                             ; preds = %arrayctor.loop.i
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #35
-  %tobool.not.i.i.i.i.i = icmp eq i32 %3, 0
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #35
+  %tobool.not.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #35
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #35
   br label %invoke.cont.i
 
@@ -15542,20 +15540,20 @@ invoke.cont6:                                     ; preds = %invoke.cont.i
   store i8 0, ptr %m_fingerprints_mutex, align 1
   %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 8592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %m_fingerprints, i8 0, i64 32, i1 false)
-  %5 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
-  %guard.uninitialized.i.i.i = icmp eq i8 %5, 0
+  %3 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
+  %guard.uninitialized.i.i.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i.i.i, label %init.check.i.i.i, label %invoke.cont8, !prof !186
 
 init.check.i.i.i:                                 ; preds = %invoke.cont6
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #35
-  %tobool.not.i.i.i = icmp eq i32 %6, 0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #35
+  %tobool.not.i.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont8, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #35
+  %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_07ustringENS3_13intrusive_ptrINS3_3pvt14ImageCacheFileEEEENS_9robin_mapIS4_S8_St4hashIS4_ESt8equal_toIS4_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #35
   br label %invoke.cont8
 
@@ -15583,20 +15581,20 @@ arrayctor.loop.i8:                                ; preds = %invoke.cont.i13, %i
   store i32 0, ptr %arrayctor.cur.ptr.ptr.i10, align 64
   %map.i.i11 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i10, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %map.i.i11, i8 0, i64 32, i1 false)
-  %8 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
-  %guard.uninitialized.i.i.i.i.i12 = icmp eq i8 %8, 0
+  %6 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
+  %guard.uninitialized.i.i.i.i.i12 = icmp eq i8 %6, 0
   br i1 %guard.uninitialized.i.i.i.i.i12, label %init.check.i.i.i.i.i24, label %invoke.cont.i13, !prof !186
 
 init.check.i.i.i.i.i24:                           ; preds = %arrayctor.loop.i8
-  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #35
-  %tobool.not.i.i.i.i.i25 = icmp eq i32 %9, 0
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #35
+  %tobool.not.i.i.i.i.i25 = icmp eq i32 %7, 0
   br i1 %tobool.not.i.i.i.i.i25, label %invoke.cont.i13, label %init.i.i.i.i.i26
 
 init.i.i.i.i.i26:                                 ; preds = %init.check.i.i.i.i.i24
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #35
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIN18OpenImageIO_v2_6_03pvt6TileIDENS3_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #35
   br label %invoke.cont.i13
 
@@ -15637,7 +15635,7 @@ invoke.cont16:                                    ; preds = %invoke.cont10
   ret void
 
 lpad15:                                           ; preds = %invoke.cont10
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5boost19thread_specific_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_errormessage) #35
   tail call void @_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEED2Ev(ptr noundef nonnull align 64 dereferenceable(16448) %m_tilecache) #35
@@ -15646,17 +15644,17 @@ lpad15:                                           ; preds = %invoke.cont10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_plugin_searchpath) #35
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_searchdirs) #35
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_searchpath) #35
-  %12 = load ptr, ptr %m_all_perthread_info, align 16
-  %tobool.not.i.i.i28 = icmp eq ptr %12, null
+  %10 = load ptr, ptr %m_all_perthread_info, align 16
+  %tobool.not.i.i.i28 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i28, label %_ZNSt6vectorIPN18OpenImageIO_v2_6_03pvt23ImageCachePerThreadInfoESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad15
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #36
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #36
   br label %_ZNSt6vectorIPN18OpenImageIO_v2_6_03pvt23ImageCachePerThreadInfoESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN18OpenImageIO_v2_6_03pvt23ImageCachePerThreadInfoESaIS3_EED2Ev.exit: ; preds = %lpad15, %if.then.i.i.i
   tail call void @_ZN5boost19thread_specific_ptrIN18OpenImageIO_v2_6_03pvt23ImageCachePerThreadInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_perthread_info) #35
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15845,8 +15843,7 @@ invoke.cont:
   %m_latlong_y_up_default = getelementptr inbounds i8, ptr %this, i64 155
   store i8 1, ptr %m_latlong_y_up_default, align 1
   %m_Mw2c = getelementptr inbounds i8, ptr %this, i64 168
-  %1 = getelementptr inbounds i8, ptr %this, i64 172
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_Mw2c, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c, align 8
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 188
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -38001,7 +37998,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNK3fmt2v86detail14digit_groupingIcE5applyINS0_8appenderEcEET_S6_NS0_17basic_string_viewIT0_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %out.coerce, ptr %digits.coerce0, i64 %digits.coerce1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont5:
+entry:
   %separators = alloca %"class.fmt::v8::basic_memory_buffer.197", align 8
   %conv = trunc i64 %digits.coerce1 to i32
   %ptr_.i.i = getelementptr inbounds i8, ptr %separators, i64 8
@@ -38019,9 +38016,9 @@ invoke.cont5:
   %tobool.not.i57 = icmp eq i8 %1, 0
   br i1 %tobool.not.i57, label %while.end, label %if.end.i
 
-if.end.i:                                         ; preds = %invoke.cont5, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23
-  %state.sroa.3.059 = phi i32 [ %add29.i, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23 ], [ 0, %invoke.cont5 ]
-  %state.sroa.0.058 = phi ptr [ %state.sroa.0.1, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23 ], [ %call.i, %invoke.cont5 ]
+if.end.i:                                         ; preds = %entry, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23
+  %state.sroa.3.059 = phi i32 [ %add29.i, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23 ], [ 0, %entry ]
+  %state.sroa.0.058 = phi ptr [ %state.sroa.0.1, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23 ], [ %call.i, %entry ]
   %call3.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #35
   %cmp.i.i9 = icmp eq ptr %state.sroa.0.058, %call3.i
   br i1 %cmp.i.i9, label %if.then5.i, label %if.end9.i
@@ -38103,7 +38100,7 @@ _ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23: ; preds = %if.end, %.noexc22
   %tobool.not.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i, label %while.end, label %if.end.i
 
-while.end:                                        ; preds = %invoke.cont7, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23, %if.end9.i, %invoke.cont5
+while.end:                                        ; preds = %invoke.cont7, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23, %if.end9.i, %entry
   %cmp1360 = icmp sgt i32 %conv, 0
   br i1 %cmp1360, label %for.body.lr.ph, label %for.end
 
@@ -80864,7 +80861,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb0ELb0ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -80951,7 +80948,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb0ELb1ELb0EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -81038,7 +81035,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb0ELb1ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -81207,7 +81204,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb1ELb0ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -81294,7 +81291,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb1ELb1ELb0EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -81381,7 +81378,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFbcENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIcEELb1ELb1ELb1EEEE9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -81774,7 +81771,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %3, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp, align 8
   %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %1, ptr %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -81870,7 +81867,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp, align 8
   %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %call.i.i.i.i, ptr %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -81966,7 +81963,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp, align 8
   %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %call.i.i.i.i, ptr %ref.tmp4.sroa.2.0.agg.tmp.sroa_idx, align 8

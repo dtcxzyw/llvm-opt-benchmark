@@ -930,7 +930,7 @@ define ptr @cJSON_Print(ptr noundef %0) local_unnamed_addr #8 {
 define internal fastcc ptr @print(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #8 {
   %3 = alloca [1 x %struct.printbuffer], align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 48, i1 false)
   %5 = load ptr, ptr @global_hooks, align 8
   %6 = tail call ptr %5(i64 noundef 256) #31
   store ptr %6, ptr %3, align 16
@@ -1024,7 +1024,7 @@ define ptr @cJSON_PrintUnformatted(ptr noundef %0) local_unnamed_addr #8 {
 define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = alloca %struct.printbuffer, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 0, ptr %5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 40, i1 false)
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %23, label %7
 
@@ -1927,7 +1927,7 @@ print_array.exit:                                 ; preds = %update_offset.exit8
 define range(i32 0, 2) i32 @cJSON_PrintPreallocated(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = alloca %struct.printbuffer, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 0, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 40, i1 false)
   %7 = icmp slt i32 %2, 0
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %7

@@ -384,7 +384,7 @@ define internal i32 @smb_request_state(ptr noundef %0, ptr nocapture noundef wri
 
 22:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #12
-  br label %273
+  br label %272
 
 23:                                               ; preds = %18, %2
   %24 = load i32, ptr %14, align 8
@@ -443,7 +443,7 @@ smb_send_tree_connect.exit:                       ; preds = %26
 56:                                               ; preds = %smb_send_tree_connect.exit.thread, %smb_send_tree_connect.exit
   %.0.i115 = phi i32 [ 63, %smb_send_tree_connect.exit.thread ], [ %55, %smb_send_tree_connect.exit ]
   call void @Curl_conncontrol(ptr noundef nonnull %11, i32 noundef 1) #12
-  br label %273
+  br label %272
 
 57:                                               ; preds = %smb_send_tree_connect.exit
   %.val = load ptr, ptr %13, align 8
@@ -459,12 +459,12 @@ smb_send_tree_connect.exit:                       ; preds = %26
 
 60:                                               ; preds = %58
   call void @Curl_conncontrol(ptr noundef %11, i32 noundef 1) #12
-  br label %273
+  br label %272
 
 61:                                               ; preds = %58, %58
   %62 = load ptr, ptr %9, align 8
   %.not97 = icmp eq ptr %62, null
-  br i1 %.not97, label %273, label %63
+  br i1 %.not97, label %272, label %63
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %14, align 8
@@ -473,8 +473,8 @@ smb_send_tree_connect.exit:                       ; preds = %26
     i32 2, label %72
     i32 3, label %107
     i32 4, label %135
-    i32 5, label %265
-    i32 6, label %268
+    i32 5, label %264
+    i32 6, label %267
   ]
 
 65:                                               ; preds = %63
@@ -490,7 +490,7 @@ smb_send_tree_connect.exit:                       ; preds = %26
   %71 = icmp eq i32 %70, 327681
   %spec.store.select = select i1 %71, i32 9, i32 78
   store i32 %spec.store.select, ptr %69, align 4
-  br label %268
+  br label %267
 
 72:                                               ; preds = %63
   %73 = getelementptr inbounds i8, ptr %62, i64 9
@@ -511,7 +511,7 @@ smb_send_tree_connect.exit:                       ; preds = %26
   %82 = icmp eq i32 %81, 327681
   %spec.store.select108 = select i1 %82, i32 9, i32 78
   store i32 %spec.store.select108, ptr %80, align 4
-  br label %265
+  br label %264
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds i8, ptr %62, i64 42
@@ -637,7 +637,7 @@ smb_send_tree_connect.exit:                       ; preds = %26
 154:                                              ; preds = %63
   %155 = getelementptr inbounds i8, ptr %11, i64 904
   store i64 0, ptr %155, align 8
-  br label %273
+  br label %272
 
 156:                                              ; preds = %65
   %157 = getelementptr inbounds i8, ptr %62, i64 28
@@ -832,52 +832,51 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   store i64 0, ptr %258, align 8
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
   %259 = load ptr, ptr %13, align 8
-  %260 = getelementptr inbounds i8, ptr %4, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %260, i8 0, i64 6, i1 false)
+  %260 = getelementptr inbounds i8, ptr %4, i64 1
+  store i64 0, ptr %260, align 1
   store i8 3, ptr %4, align 1
   %261 = getelementptr inbounds i8, ptr %259, i64 18
   %262 = load i16, ptr %261, align 2
-  %263 = getelementptr inbounds i8, ptr %4, i64 1
-  store i16 %262, ptr %263, align 1
-  %264 = call fastcc i32 @smb_send_message(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %4, i64 noundef 9)
+  store i16 %262, ptr %260, align 1
+  %263 = call fastcc i32 @smb_send_message(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %4, i64 noundef 9)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
   br label %smb_send_write.exit
 
-265:                                              ; preds = %79, %63
-  %266 = getelementptr inbounds i8, ptr %11, i64 904
-  store i64 0, ptr %266, align 8
+264:                                              ; preds = %79, %63
+  %265 = getelementptr inbounds i8, ptr %11, i64 904
+  store i64 0, ptr %265, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
-  %267 = call fastcc i32 @smb_send_message(ptr noundef nonnull %0, i8 noundef zeroext 113, ptr noundef nonnull %3, i64 noundef 3)
+  %266 = call fastcc i32 @smb_send_message(ptr noundef nonnull %0, i8 noundef zeroext 113, ptr noundef nonnull %3, i64 noundef 3)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
   br label %smb_send_write.exit
 
-268:                                              ; preds = %63, %68
-  %269 = getelementptr inbounds i8, ptr %11, i64 904
-  store i64 0, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %14, i64 20
-  %271 = load i32, ptr %270, align 4
+267:                                              ; preds = %63, %68
+  %268 = getelementptr inbounds i8, ptr %11, i64 904
+  store i64 0, ptr %268, align 8
+  %269 = getelementptr inbounds i8, ptr %14, i64 20
+  %270 = load i32, ptr %269, align 4
   store i8 1, ptr %1, align 1
   br label %smb_send_write.exit
 
-smb_send_write.exit:                              ; preds = %smb_send.exit.i, %268, %265, %select.unfold, %183, %smb_send_open.exit
-  %.091122 = phi i32 [ 7, %268 ], [ 6, %265 ], [ 5, %select.unfold ], [ 3, %183 ], [ 2, %smb_send_open.exit ], [ 4, %smb_send.exit.i ]
-  %.3 = phi i32 [ %271, %268 ], [ %267, %265 ], [ %264, %select.unfold ], [ %200, %183 ], [ %.0.i110, %smb_send_open.exit ], [ %249, %smb_send.exit.i ]
+smb_send_write.exit:                              ; preds = %smb_send.exit.i, %267, %264, %select.unfold, %183, %smb_send_open.exit
+  %.091122 = phi i32 [ 7, %267 ], [ 6, %264 ], [ 5, %select.unfold ], [ 3, %183 ], [ 2, %smb_send_open.exit ], [ 4, %smb_send.exit.i ]
+  %.3 = phi i32 [ %270, %267 ], [ %266, %264 ], [ %263, %select.unfold ], [ %200, %183 ], [ %.0.i110, %smb_send_open.exit ], [ %249, %smb_send.exit.i ]
   %.not107 = icmp eq i32 %.3, 0
-  br i1 %.not107, label %272, label %smb_send_write.exit.thread
+  br i1 %.not107, label %271, label %smb_send_write.exit.thread
 
 smb_send_write.exit.thread:                       ; preds = %select.unfold119, %smb_send_write.exit
   %.3143 = phi i32 [ %.3, %smb_send_write.exit ], [ %208, %select.unfold119 ]
   call void @Curl_conncontrol(ptr noundef nonnull %11, i32 noundef 1) #12
-  br label %273
+  br label %272
 
-272:                                              ; preds = %smb_send_write.exit
+271:                                              ; preds = %smb_send_write.exit
   %.val109 = load ptr, ptr %13, align 8
   store i32 %.091122, ptr %.val109, align 8
-  br label %273
+  br label %272
 
-273:                                              ; preds = %61, %272, %smb_send_write.exit.thread, %154, %60, %56, %22
-  %.0 = phi i32 [ 55, %22 ], [ %.0.i115, %56 ], [ %59, %60 ], [ 0, %154 ], [ %.3143, %smb_send_write.exit.thread ], [ 0, %272 ], [ 0, %61 ]
+272:                                              ; preds = %61, %271, %smb_send_write.exit.thread, %154, %60, %56, %22
+  %.0 = phi i32 [ 55, %22 ], [ %.0.i115, %56 ], [ %59, %60 ], [ 0, %154 ], [ %.3143, %smb_send_write.exit.thread ], [ 0, %271 ], [ 0, %61 ]
   ret i32 %.0
 }
 
@@ -1124,8 +1123,8 @@ define internal fastcc i32 @smb_send_setup(ptr noundef %0) unnamed_addr #0 {
   %24 = load ptr, ptr %20, align 8
   %25 = call i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef %24, ptr noundef nonnull %5) #12
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %6) #12
-  %26 = getelementptr inbounds i8, ptr %2, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1053) %26, i8 0, i64 1051, i1 false)
+  %26 = getelementptr inbounds i8, ptr %2, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1053) %26, i8 0, i64 1052, i1 false)
   store i8 13, ptr %2, align 1
   %27 = getelementptr inbounds i8, ptr %2, i64 1
   store i8 -1, ptr %27, align 1

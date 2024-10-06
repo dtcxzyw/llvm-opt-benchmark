@@ -9469,15 +9469,13 @@ define dso_local void @rt6_mtu_change(ptr noundef %0, i32 noundef %1) local_unna
   %3 = alloca %struct.rt6_mtu_change_arg, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false), !annotation !11
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
-  %8 = load ptr, ptr %7, align 8
-  call void @fib6_clean_all(ptr noundef %8, ptr noundef nonnull @rt6_mtu_change_route, ptr noundef nonnull %3) #22
+  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = load ptr, ptr %6, align 8
+  call void @fib6_clean_all(ptr noundef %7, ptr noundef nonnull @rt6_mtu_change_route, ptr noundef nonnull %3) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   ret void
 }
@@ -13127,13 +13125,12 @@ define internal fastcc void @__find_rr_leaf(ptr noundef %0, ptr noundef readnone
 
 49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #22
-  store i64 0, ptr %26, align 8, !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 32, i1 false), !annotation !11
   store i32 %36, ptr %10, align 8
   store i32 %5, ptr %16, align 4
   store i32 %6, ptr %17, align 8
   store ptr %8, ptr %18, align 8
   store ptr %7, ptr %19, align 8
-  store ptr null, ptr %20, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 102
   %51 = load i8, ptr %50, align 2, !range !18, !noundef !19
   %52 = icmp eq i8 %51, 0

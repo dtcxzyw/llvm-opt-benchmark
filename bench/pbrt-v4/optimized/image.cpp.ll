@@ -3614,8 +3614,7 @@ invoke.cont44.lr.ph:                              ; preds = %for.cond.preheader
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp113, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %19 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %20 = ptrtoint ptr %agg.tmp113 to i64
+  %19 = ptrtoint ptr %agg.tmp113 to i64
   %channelNames3.i69 = getelementptr inbounds i8, ptr %nextImage, i64 16
   %encoding4.i72 = getelementptr inbounds i8, ptr %nextImage, i64 48
   %p8.i73 = getelementptr inbounds i8, ptr %image, i64 56
@@ -3624,6 +3623,7 @@ invoke.cont44.lr.ph:                              ; preds = %for.cond.preheader
   %p168.i76 = getelementptr inbounds i8, ptr %nextImage, i64 88
   %p32.i77 = getelementptr inbounds i8, ptr %image, i64 120
   %p3210.i78 = getelementptr inbounds i8, ptr %nextImage, i64 120
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %invoke.cont44.lr.ph, %invoke.cont118
@@ -3814,8 +3814,8 @@ invoke.cont115:                                   ; preds = %if.end109
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt5Image15GeneratePyramidES2_NS1_10WrapMode2DEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %conv112 = sext i32 %56 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  store i64 0, ptr %19, align 8
-  store i64 %20, ptr %agg.tmp.i, align 8
+  store i64 0, ptr %20, align 8
+  store i64 %19, ptr %agg.tmp.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv112, ptr noundef nonnull %agg.tmp.i)
@@ -51116,8 +51116,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  %0 = getelementptr inbounds i8, ptr %call, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_value.i, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %_value.i, align 4
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %call, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -51129,10 +51128,10 @@ invoke.cont:                                      ; preds = %entry
   ret ptr %call
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #36
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %0
 }
 
 declare void @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEE12writeValueToERNS_7OStreamEi(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) unnamed_addr #0

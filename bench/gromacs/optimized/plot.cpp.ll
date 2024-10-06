@@ -912,21 +912,20 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionI9XvgFormatEEEEPNT_8InfoType
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr @.str, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionI9XvgFormatEE, i64 16), ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 88
-  %9 = getelementptr inbounds i8, ptr %2, i64 96
-  store ptr @_ZN3gmxL16c_xvgFormatNamesE, ptr %8, align 8
-  store i32 3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %10, ptr %11, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %8 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr @_ZN3gmxL16c_xvgFormatNamesE, ptr %7, align 8
+  store i32 3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %9, ptr %10, align 8
   store ptr @.str.1, ptr %6, align 8
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
   ret void
 }
 

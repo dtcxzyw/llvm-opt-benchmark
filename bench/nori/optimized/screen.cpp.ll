@@ -136,7 +136,7 @@ define hidden ptr @nvgCreateGL3(i32 noundef %0) local_unnamed_addr #3 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 104, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr @_ZL19glnvg__renderCreatePv, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1678,7 +1678,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %144, %194
   %.val = load ptr, ptr %200, align 8
   %201 = sext i32 %196 to i64
   %202 = getelementptr inbounds i8, ptr %.val, i64 %201
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %202, i8 0, i64 172, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %202, i8 0, i64 176, i1 false)
   %203 = getelementptr inbounds i8, ptr %202, i64 164
   store float -1.000000e+00, ptr %203, align 4
   %204 = getelementptr inbounds i8, ptr %202, i64 172
@@ -3412,7 +3412,7 @@ define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef no
 
 37:                                               ; preds = %.split16
   %38 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 1, ptr %38, align 8
+  store i64 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr @_ZL19glnvg__renderCreatePv, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %5, i64 24
@@ -3438,6 +3438,7 @@ define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef no
   %50 = getelementptr inbounds i8, ptr %5, i64 104
   store ptr @_ZL19glnvg__renderDeletePv, ptr %50, align 8
   store ptr %calloc.i, ptr %5, align 8
+  store i32 1, ptr %38, align 8
   %51 = getelementptr inbounds i8, ptr %calloc.i, i64 68
   store i32 1, ptr %51, align 4
   %52 = call ptr @nvgCreateInternal(ptr noundef nonnull %5)
@@ -3460,7 +3461,7 @@ nvgCreateGL3.exit:                                ; preds = %37, %54
 
 56:                                               ; preds = %.split
   %57 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %57, align 8
+  store i64 0, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @_ZL19glnvg__renderCreatePv, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 24
@@ -3486,6 +3487,7 @@ nvgCreateGL3.exit:                                ; preds = %37, %54
   %69 = getelementptr inbounds i8, ptr %4, i64 104
   store ptr @_ZL19glnvg__renderDeletePv, ptr %69, align 8
   store ptr %calloc.i18, ptr %4, align 8
+  store i32 1, ptr %57, align 8
   %70 = getelementptr inbounds i8, ptr %calloc.i18, i64 68
   store i32 3, ptr %70, align 4
   %71 = call ptr @nvgCreateInternal(ptr noundef nonnull %4)

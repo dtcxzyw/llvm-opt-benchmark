@@ -178437,15 +178437,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i: 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
-  %51 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 12, i1 false)
+  %51 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
   %mMax.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 12
   store i64 -9223372034707292160, ptr %mMax.i.i.i.i.i.i.i.i, align 4
-  %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
-  store i32 -2147483648, ptr %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i, align 4
+  store i32 -2147483648, ptr %51, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 36
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -179032,15 +179031,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i: 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
-  %42 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 12, i1 false)
+  %42 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
   %mMax.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 12
   store i64 -9223372034707292160, ptr %mMax.i.i.i.i.i.i.i.i, align 4
-  %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
-  store i32 -2147483648, ptr %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i, align 4
+  store i32 -2147483648, ptr %42, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 36
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -181664,15 +181662,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i: 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
-  %51 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 12, i1 false)
+  %51 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
   %mMax.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 12
   store i64 -9223372034707292160, ptr %mMax.i.i.i.i.i.i.i.i, align 4
-  %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
-  store i32 -2147483648, ptr %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i, align 4
+  store i32 -2147483648, ptr %51, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 36
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -182074,15 +182071,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i: 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
-  %42 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 12, i1 false)
+  %42 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
   %mMax.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 12
   store i64 -9223372034707292160, ptr %mMax.i.i.i.i.i.i.i.i, align 4
-  %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
-  store i32 -2147483648, ptr %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i, align 4
+  store i32 -2147483648, ptr %42, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 36
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -187740,15 +187736,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i: 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
-  %51 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 12, i1 false)
+  %51 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
   %mMax.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 12
   store i64 -9223372034707292160, ptr %mMax.i.i.i.i.i.i.i.i, align 4
-  %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
-  store i32 -2147483648, ptr %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i, align 4
+  store i32 -2147483648, ptr %51, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 36
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -188150,15 +188145,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i: 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
-  %42 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 12, i1 false)
+  %42 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
   %mMax.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 12
   store i64 -9223372034707292160, ptr %mMax.i.i.i.i.i.i.i.i, align 4
-  %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 20
-  store i32 -2147483648, ptr %tmp.coerce6.sroa.2.0.coerce.dive5.sroa_idx.i.i.i.i.i.i.i.i, align 4
+  store i32 -2147483648, ptr %42, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 36
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0

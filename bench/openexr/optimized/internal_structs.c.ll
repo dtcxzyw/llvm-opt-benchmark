@@ -407,22 +407,21 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
   br i1 %tobool2.not, label %if.else161, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %3 = getelementptr inbounds i8, ptr %call, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(552) %3, i8 0, i64 551, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(552) %call, i8 0, i64 552, i1 false)
   %conv = trunc i32 %mode to i8
   store i8 %conv, ptr %call, align 8
   %user_data = getelementptr inbounds i8, ptr %initializers, i64 32
-  %4 = load ptr, ptr %user_data, align 8
+  %3 = load ptr, ptr %user_data, align 8
   %real_user_data = getelementptr inbounds i8, ptr %call, i64 128
-  store ptr %4, ptr %real_user_data, align 8
-  %5 = load ptr, ptr %read_fn, align 8
-  %tobool6.not = icmp eq ptr %5, null
+  store ptr %3, ptr %real_user_data, align 8
+  %4 = load ptr, ptr %read_fn, align 8
+  %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %lor.lhs.false7, label %if.end18.sink.split
 
 lor.lhs.false7:                                   ; preds = %if.then3
   %write_fn8 = getelementptr inbounds i8, ptr %initializers, i64 56
-  %6 = load ptr, ptr %write_fn8, align 8
-  %tobool9.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %write_fn8, align 8
+  %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %if.else13, label %if.end18.sink.split
 
 if.else13:                                        ; preds = %lor.lhs.false7
@@ -434,7 +433,7 @@ if.then15:                                        ; preds = %if.else13
   br label %if.end18.sink.split
 
 if.end18.sink.split:                              ; preds = %if.then3, %lor.lhs.false7, %if.then15
-  %add.ptr.sink = phi ptr [ %add.ptr, %if.then15 ], [ %4, %lor.lhs.false7 ], [ %4, %if.then3 ]
+  %add.ptr.sink = phi ptr [ %add.ptr, %if.then15 ], [ %3, %lor.lhs.false7 ], [ %3, %if.then3 ]
   %user_data16 = getelementptr inbounds i8, ptr %call, i64 136
   store ptr %add.ptr.sink, ptr %user_data16, align 8
   br label %if.end18
@@ -447,109 +446,109 @@ if.end18:                                         ; preds = %if.end18.sink.split
   %print_error = getelementptr inbounds i8, ptr %call, i64 72
   store ptr @dispatch_print_error, ptr %print_error, align 8
   %error_handler_fn = getelementptr inbounds i8, ptr %initializers, i64 8
-  %7 = load ptr, ptr %error_handler_fn, align 8
+  %6 = load ptr, ptr %error_handler_fn, align 8
   %error_handler_fn19 = getelementptr inbounds i8, ptr %call, i64 80
-  store ptr %7, ptr %error_handler_fn19, align 8
-  %8 = load ptr, ptr %alloc_fn, align 8
+  store ptr %6, ptr %error_handler_fn19, align 8
+  %7 = load ptr, ptr %alloc_fn, align 8
   %alloc_fn21 = getelementptr inbounds i8, ptr %call, i64 88
-  store ptr %8, ptr %alloc_fn21, align 8
+  store ptr %7, ptr %alloc_fn21, align 8
   %free_fn = getelementptr inbounds i8, ptr %initializers, i64 24
-  %9 = load ptr, ptr %free_fn, align 8
+  %8 = load ptr, ptr %free_fn, align 8
   %free_fn22 = getelementptr inbounds i8, ptr %call, i64 96
-  store ptr %9, ptr %free_fn22, align 8
+  store ptr %8, ptr %free_fn22, align 8
   call void @exr_get_default_maximum_image_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #11
   %max_image_width = getelementptr inbounds i8, ptr %initializers, i64 72
-  %10 = load i32, ptr %max_image_width, align 8
-  %cmp23 = icmp slt i32 %10, 1
-  %11 = load i32, ptr %gmaxw, align 4
-  %12 = getelementptr inbounds i8, ptr %call, i64 104
+  %9 = load i32, ptr %max_image_width, align 8
+  %cmp23 = icmp slt i32 %9, 1
+  %10 = load i32, ptr %gmaxw, align 4
+  %11 = getelementptr inbounds i8, ptr %call, i64 104
   br i1 %cmp23, label %if.end44, label %if.end29
 
 if.end29:                                         ; preds = %if.end18
-  %cmp33 = icmp sgt i32 %11, 0
-  %13 = call i32 @llvm.smin.i32(i32 %10, i32 %11)
-  %spec.select144 = select i1 %cmp33, i32 %13, i32 %10
+  %cmp33 = icmp sgt i32 %10, 0
+  %12 = call i32 @llvm.smin.i32(i32 %9, i32 %10)
+  %spec.select144 = select i1 %cmp33, i32 %12, i32 %9
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end29, %if.end18
-  %storemerge = phi i32 [ %spec.select144, %if.end29 ], [ %11, %if.end18 ]
-  store i32 %storemerge, ptr %12, align 8
+  %storemerge = phi i32 [ %spec.select144, %if.end29 ], [ %10, %if.end18 ]
+  store i32 %storemerge, ptr %11, align 8
   %max_image_height = getelementptr inbounds i8, ptr %initializers, i64 76
-  %14 = load i32, ptr %max_image_height, align 4
-  %cmp45 = icmp slt i32 %14, 1
-  %15 = load i32, ptr %gmaxh, align 4
-  %16 = getelementptr inbounds i8, ptr %call, i64 108
+  %13 = load i32, ptr %max_image_height, align 4
+  %cmp45 = icmp slt i32 %13, 1
+  %14 = load i32, ptr %gmaxh, align 4
+  %15 = getelementptr inbounds i8, ptr %call, i64 108
   br i1 %cmp45, label %if.end67, label %if.end51
 
 if.end51:                                         ; preds = %if.end44
-  %cmp56 = icmp sgt i32 %15, 0
-  %17 = call i32 @llvm.smin.i32(i32 %14, i32 %15)
-  %spec.select145 = select i1 %cmp56, i32 %17, i32 %14
+  %cmp56 = icmp sgt i32 %14, 0
+  %16 = call i32 @llvm.smin.i32(i32 %13, i32 %14)
+  %spec.select145 = select i1 %cmp56, i32 %16, i32 %13
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end51, %if.end44
-  %storemerge121 = phi i32 [ %15, %if.end44 ], [ %spec.select145, %if.end51 ]
-  store i32 %storemerge121, ptr %16, align 4
+  %storemerge121 = phi i32 [ %14, %if.end44 ], [ %spec.select145, %if.end51 ]
+  store i32 %storemerge121, ptr %15, align 4
   call void @exr_get_default_maximum_tile_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #11
   %max_tile_width = getelementptr inbounds i8, ptr %initializers, i64 80
-  %18 = load i32, ptr %max_tile_width, align 8
-  %cmp68 = icmp slt i32 %18, 1
-  %19 = load i32, ptr %gmaxw, align 4
-  %20 = getelementptr inbounds i8, ptr %call, i64 112
+  %17 = load i32, ptr %max_tile_width, align 8
+  %cmp68 = icmp slt i32 %17, 1
+  %18 = load i32, ptr %gmaxw, align 4
+  %19 = getelementptr inbounds i8, ptr %call, i64 112
   br i1 %cmp68, label %if.end90, label %if.end74
 
 if.end74:                                         ; preds = %if.end67
-  %cmp79 = icmp sgt i32 %19, 0
-  %21 = call i32 @llvm.smin.i32(i32 %18, i32 %19)
-  %spec.select146 = select i1 %cmp79, i32 %21, i32 %18
+  %cmp79 = icmp sgt i32 %18, 0
+  %20 = call i32 @llvm.smin.i32(i32 %17, i32 %18)
+  %spec.select146 = select i1 %cmp79, i32 %20, i32 %17
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end74, %if.end67
-  %storemerge122 = phi i32 [ %19, %if.end67 ], [ %spec.select146, %if.end74 ]
-  store i32 %storemerge122, ptr %20, align 8
+  %storemerge122 = phi i32 [ %18, %if.end67 ], [ %spec.select146, %if.end74 ]
+  store i32 %storemerge122, ptr %19, align 8
   %max_tile_height = getelementptr inbounds i8, ptr %initializers, i64 84
-  %22 = load i32, ptr %max_tile_height, align 4
-  %cmp91 = icmp slt i32 %22, 1
-  %23 = load i32, ptr %gmaxh, align 4
-  %24 = getelementptr inbounds i8, ptr %call, i64 116
+  %21 = load i32, ptr %max_tile_height, align 4
+  %cmp91 = icmp slt i32 %21, 1
+  %22 = load i32, ptr %gmaxh, align 4
+  %23 = getelementptr inbounds i8, ptr %call, i64 116
   br i1 %cmp91, label %if.end113, label %if.end97
 
 if.end97:                                         ; preds = %if.end90
-  %cmp102 = icmp sgt i32 %23, 0
-  %25 = call i32 @llvm.smin.i32(i32 %22, i32 %23)
-  %spec.select147 = select i1 %cmp102, i32 %25, i32 %22
+  %cmp102 = icmp sgt i32 %22, 0
+  %24 = call i32 @llvm.smin.i32(i32 %21, i32 %22)
+  %spec.select147 = select i1 %cmp102, i32 %24, i32 %21
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end97, %if.end90
-  %storemerge123 = phi i32 [ %23, %if.end90 ], [ %spec.select147, %if.end97 ]
-  store i32 %storemerge123, ptr %24, align 4
+  %storemerge123 = phi i32 [ %22, %if.end90 ], [ %spec.select147, %if.end97 ]
+  store i32 %storemerge123, ptr %23, align 4
   %default_zip_level = getelementptr inbounds i8, ptr %call, i64 120
   call void @exr_get_default_zip_compression_level(ptr noundef nonnull %default_zip_level) #11
   %default_dwa_quality = getelementptr inbounds i8, ptr %call, i64 124
   call void @exr_get_default_dwa_compression_quality(ptr noundef nonnull %default_dwa_quality) #11
   %zip_level = getelementptr inbounds i8, ptr %initializers, i64 88
-  %26 = load i32, ptr %zip_level, align 8
-  %cmp114 = icmp sgt i32 %26, -1
+  %25 = load i32, ptr %zip_level, align 8
+  %cmp114 = icmp sgt i32 %25, -1
   br i1 %cmp114, label %if.then116, label %if.end119
 
 if.then116:                                       ; preds = %if.end113
-  store i32 %26, ptr %default_zip_level, align 8
+  store i32 %25, ptr %default_zip_level, align 8
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.end113
   %dwa_quality = getelementptr inbounds i8, ptr %initializers, i64 92
-  %27 = load float, ptr %dwa_quality, align 4
-  %cmp120 = fcmp ult float %27, 0.000000e+00
+  %26 = load float, ptr %dwa_quality, align 4
+  %cmp120 = fcmp ult float %26, 0.000000e+00
   br i1 %cmp120, label %if.end125, label %if.then122
 
 if.then122:                                       ; preds = %if.end119
-  store float %27, ptr %default_dwa_quality, align 4
+  store float %26, ptr %default_dwa_quality, align 4
   br label %if.end125
 
 if.end125:                                        ; preds = %if.then122, %if.end119
   %flags = getelementptr inbounds i8, ptr %initializers, i64 96
-  %28 = load i32, ptr %flags, align 8
-  %and = and i32 %28, 1
+  %27 = load i32, ptr %flags, align 8
+  %and = and i32 %27, 1
   %tobool126.not = icmp eq i32 %and, 0
   br i1 %tobool126.not, label %if.end128, label %if.then127
 
@@ -560,8 +559,8 @@ if.then127:                                       ; preds = %if.end125
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then127, %if.end125
-  %29 = phi i32 [ %.pre119, %if.then127 ], [ %28, %if.end125 ]
-  %and130 = and i32 %29, 2
+  %28 = phi i32 [ %.pre119, %if.then127 ], [ %27, %if.end125 ]
+  %and130 = and i32 %28, 2
   %tobool131.not = icmp eq i32 %and130, 0
   br i1 %tobool131.not, label %if.end133, label %if.then132
 
@@ -572,14 +571,14 @@ if.then132:                                       ; preds = %if.end128
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then132, %if.end128
-  %30 = phi i32 [ %.pre120, %if.then132 ], [ %29, %if.end128 ]
-  %31 = trunc i32 %30 to i8
-  %conv136 = and i8 %31, 4
+  %29 = phi i32 [ %.pre120, %if.then132 ], [ %28, %if.end128 ]
+  %30 = trunc i32 %29 to i8
+  %conv136 = and i8 %30, 4
   %disable_chunk_reconstruct = getelementptr inbounds i8, ptr %call, i64 544
   store i8 %conv136, ptr %disable_chunk_reconstruct, align 8
-  %32 = load i32, ptr %flags, align 8
-  %33 = trunc i32 %32 to i8
-  %conv139 = and i8 %33, 8
+  %31 = load i32, ptr %flags, align 8
+  %32 = trunc i32 %31 to i8
+  %conv139 = and i8 %32, 8
   %legacy_header = getelementptr inbounds i8, ptr %call, i64 545
   store i8 %conv139, ptr %legacy_header, align 1
   %file_size = getelementptr inbounds i8, ptr %call, i64 152
@@ -587,24 +586,24 @@ if.end133:                                        ; preds = %if.then132, %if.end
   %max_name_length = getelementptr inbounds i8, ptr %call, i64 2
   store i8 31, ptr %max_name_length, align 2
   %destroy_fn = getelementptr inbounds i8, ptr %initializers, i64 64
-  %34 = load ptr, ptr %destroy_fn, align 8
+  %33 = load ptr, ptr %destroy_fn, align 8
   %destroy_fn140 = getelementptr inbounds i8, ptr %call, i64 144
-  store ptr %34, ptr %destroy_fn140, align 8
-  %35 = load ptr, ptr %read_fn, align 8
+  store ptr %33, ptr %destroy_fn140, align 8
+  %34 = load ptr, ptr %read_fn, align 8
   %read_fn142 = getelementptr inbounds i8, ptr %call, i64 160
-  store ptr %35, ptr %read_fn142, align 8
+  store ptr %34, ptr %read_fn142, align 8
   %write_fn143 = getelementptr inbounds i8, ptr %initializers, i64 56
-  %36 = load ptr, ptr %write_fn143, align 8
+  %35 = load ptr, ptr %write_fn143, align 8
   %write_fn144 = getelementptr inbounds i8, ptr %call, i64 168
-  store ptr %36, ptr %write_fn144, align 8
+  store ptr %35, ptr %write_fn144, align 8
   %mutex = getelementptr inbounds i8, ptr %call, i64 504
   %call145 = call i32 @pthread_mutex_init(ptr noundef nonnull %mutex, ptr noundef null) #11
   %cmp146.not = icmp eq i32 %call145, 0
   br i1 %cmp146.not, label %if.end150, label %if.then148
 
 if.then148:                                       ; preds = %if.end133
-  %37 = load ptr, ptr %free_fn, align 8
-  call void %37(ptr noundef nonnull %call) #11
+  %36 = load ptr, ptr %free_fn, align 8
+  call void %36(ptr noundef nonnull %call) #11
   store ptr null, ptr %out, align 8
   br label %return
 
@@ -619,16 +618,16 @@ if.then153:                                       ; preds = %if.end150
   br i1 %cmp155.not, label %return, label %if.then157
 
 if.then157:                                       ; preds = %if.then153
-  %38 = load ptr, ptr %free_fn, align 8
-  call void %38(ptr noundef nonnull %call) #11
+  %37 = load ptr, ptr %free_fn, align 8
+  call void %37(ptr noundef nonnull %call) #11
   store ptr null, ptr %out, align 8
   br label %return
 
 if.else161:                                       ; preds = %if.end
   %error_handler_fn162 = getelementptr inbounds i8, ptr %initializers, i64 8
-  %39 = load ptr, ptr %error_handler_fn162, align 8
+  %38 = load ptr, ptr %error_handler_fn162, align 8
   %call163 = tail call ptr @exr_get_default_error_message(i32 noundef 1) #11
-  tail call void %39(ptr noundef null, i32 noundef 1, ptr noundef %call163) #11
+  tail call void %38(ptr noundef null, i32 noundef 1, ptr noundef %call163) #11
   br label %return
 
 return:                                           ; preds = %if.else161, %if.then153, %if.then157, %if.end150, %if.then148

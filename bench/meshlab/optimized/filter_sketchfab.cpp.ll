@@ -15134,7 +15134,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL32mz_zip_writer_add_to_ce
 
 29:                                               ; preds = %22
   %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(34) %.4..4..4..sroa_idx, i8 0, i64 34, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.4..4..4..sroa_idx, i8 0, i64 40, i1 false)
   store i8 80, ptr %15, align 16
   %.1..1..1..sroa_idx = getelementptr inbounds i8, ptr %15, i64 1
   store i8 75, ptr %.1..1..1..sroa_idx, align 1
@@ -15225,12 +15225,6 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL32mz_zip_writer_add_to_ce
   %65 = trunc nuw nsw i32 %12 to i8
   %.38..38..38..sroa_idx = getelementptr inbounds i8, ptr %15, i64 38
   store i8 %65, ptr %.38..38..38..sroa_idx, align 2
-  %.39..39..39..sroa_idx = getelementptr inbounds i8, ptr %15, i64 39
-  store i8 0, ptr %.39..39..39..sroa_idx, align 1
-  %.40..40..40..sroa_idx = getelementptr inbounds i8, ptr %15, i64 40
-  store i8 0, ptr %.40..40..40..sroa_idx, align 8
-  %.41..41..41..sroa_idx = getelementptr inbounds i8, ptr %15, i64 41
-  store i8 0, ptr %.41..41..41..sroa_idx, align 1
   %66 = trunc i64 %11 to i8
   %.42..42..42..sroa_idx = getelementptr inbounds i8, ptr %15, i64 42
   store i8 %66, ptr %.42..42..42..sroa_idx, align 2
@@ -16189,7 +16183,7 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
 141:                                              ; preds = %136
   %142 = getelementptr inbounds i8, ptr %9, i64 8
   %143 = load i64, ptr %142, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %6, ptr noundef nonnull align 1 dereferenceable(46) %30, i64 46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %6, ptr noundef nonnull align 1 dereferenceable(46) %30, i64 42, i1 false)
   %144 = trunc i64 %48 to i8
   %.42..42..42..sroa_idx = getelementptr inbounds i8, ptr %6, i64 42
   store i8 %144, ptr %.42..42..42..sroa_idx, align 2

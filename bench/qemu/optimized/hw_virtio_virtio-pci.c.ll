@@ -12,8 +12,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
-%struct.virtio_pci_cap = type { i8, i8, i8, i8, i8, i8, [2 x i8], i32, i32 }
 %struct.virtio_pci_cfg_cap = type { %struct.virtio_pci_cap, [4 x i8] }
+%struct.virtio_pci_cap = type { i8, i8, i8, i8, i8, i8, [2 x i8], i32, i32 }
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.10, %struct.anon.11 }
 %struct.anon.10 = type { i32, i32, i8, ptr }
 %struct.anon.11 = type { i32, i32, i8 }
@@ -104,7 +104,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [72 x i8] c"device is modern-only, but for backward compatibility legacy is allowed\00", align 1
 @.str.44 = private unnamed_addr constant [45 x i8] c"device is modern-only, use disable-legacy=on\00", align 1
 @.str.45 = private unnamed_addr constant [80 x i8] c"VIRTIO_F_IOMMU_PLATFORM was supported by neither legacy nor transitional device\00", align 1
-@__const.virtio_pci_device_plugged.cap = private unnamed_addr constant %struct.virtio_pci_cap { i8 0, i8 0, i8 16, i8 0, i8 0, i8 0, [2 x i8] zeroinitializer, i32 0, i32 0 }, align 4
 @__const.virtio_pci_device_plugged.cfg = private unnamed_addr constant %struct.virtio_pci_cfg_cap { %struct.virtio_pci_cap { i8 0, i8 0, i8 20, i8 5, i8 0, i8 0, [2 x i8] zeroinitializer, i32 0, i32 0 }, [4 x i8] zeroinitializer }, align 4
 @.str.46 = private unnamed_addr constant [14 x i8] c"virtio-pci-io\00", align 1
 @.str.47 = private unnamed_addr constant [34 x i8] c"unable to init msix vectors to %u\00", align 1
@@ -258,27 +257,27 @@ declare void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef, i1 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_pci_add_shm_cap(ptr noundef %proxy, i8 noundef zeroext %bar, i64 noundef %offset, i64 noundef %length, i8 noundef zeroext %id) local_unnamed_addr #0 {
 virtio_pci_add_mem_cap.exit:
+  %cap.sroa.1.sroa.0 = alloca [10 x i8], align 8
+  store i64 2072, ptr %cap.sroa.1.sroa.0, align 8
+  %cap.sroa.1.sroa.0.2.bar2.sroa_idx10 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 2
+  store i8 %bar, ptr %cap.sroa.1.sroa.0.2.bar2.sroa_idx10, align 2
   %conv = trunc i64 %length to i32
   %shr = lshr i64 %length, 32
   %conv5 = trunc nuw i64 %shr to i32
   %conv7 = trunc i64 %offset to i32
+  %cap.sroa.1.sroa.0.6.offset10.sroa_idx12 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 6
+  store i32 %conv7, ptr %cap.sroa.1.sroa.0.6.offset10.sroa_idx12, align 2
   %shr11 = lshr i64 %offset, 32
   %conv12 = trunc nuw i64 %shr11 to i32
+  %cap.sroa.1.sroa.0.3.id15.sroa_idx11 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 3
+  store i8 %id, ptr %cap.sroa.1.sroa.0.3.id15.sroa_idx11, align 1
   %call.i = tail call i32 @pci_add_capability(ptr noundef %proxy, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 24, ptr noundef nonnull @error_abort) #14
   %config.i = getelementptr inbounds i8, ptr %proxy, i64 168
   %0 = load ptr, ptr %config.i, align 8
   %idx.ext.i = sext i32 %call.i to i64
   %add.ptr.i = getelementptr i8, ptr %0, i64 %idx.ext.i
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 2
-  store i16 2072, ptr %add.ptr3.i, align 1
-  %cap.sroa.1.sroa.2.0.add.ptr3.i.sroa_idx = getelementptr i8, ptr %add.ptr.i, i64 4
-  store i8 %bar, ptr %cap.sroa.1.sroa.2.0.add.ptr3.i.sroa_idx, align 1
-  %cap.sroa.1.sroa.3.0.add.ptr3.i.sroa_idx = getelementptr i8, ptr %add.ptr.i, i64 5
-  store i8 %id, ptr %cap.sroa.1.sroa.3.0.add.ptr3.i.sroa_idx, align 1
-  %cap.sroa.1.sroa.4.0.add.ptr3.i.sroa_idx = getelementptr i8, ptr %add.ptr.i, i64 6
-  store i16 0, ptr %cap.sroa.1.sroa.4.0.add.ptr3.i.sroa_idx, align 1
-  %cap.sroa.1.sroa.414.0.add.ptr3.i.sroa_idx = getelementptr i8, ptr %add.ptr.i, i64 8
-  store i32 %conv7, ptr %cap.sroa.1.sroa.414.0.add.ptr3.i.sroa_idx, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr3.i, ptr noundef nonnull align 8 dereferenceable(10) %cap.sroa.1.sroa.0, i64 10, i1 false)
   %cap.sroa.1.sroa.5.0.add.ptr3.i.sroa_idx = getelementptr i8, ptr %add.ptr.i, i64 12
   store i32 %conv, ptr %cap.sroa.1.sroa.5.0.add.ptr3.i.sroa_idx, align 1
   %cap.sroa.1.sroa.6.0.add.ptr3.i.sroa_idx = getelementptr i8, ptr %add.ptr.i, i64 16
@@ -1224,6 +1223,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_device_plugged(ptr noundef %d, ptr noundef %errp) #0 {
 entry:
+  %cap.sroa.1.sroa.0 = alloca [10 x i8], align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus1 = getelementptr inbounds i8, ptr %call.i, i64 33616
   %0 = getelementptr i8, ptr %call.i, i64 4892
@@ -1344,6 +1344,7 @@ if.end40:                                         ; preds = %if.end28, %if.then3
   br i1 %tobool.i77, label %if.end68, label %virtio_pci_modern_mem_region_map.exit153
 
 virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
+  store i64 16, ptr %cap.sroa.1.sroa.0, align 8
   %call.val75 = load i32, ptr %flags, align 4
   %name = getelementptr inbounds i8, ptr %cond.i, i64 160
   %11 = load ptr, ptr %name, align 8
@@ -1395,7 +1396,13 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %type.i.i = getelementptr inbounds i8, ptr %call.i, i64 3160
   %25 = load i32, ptr %type.i.i, align 8
   %conv2.i.i = trunc i32 %25 to i8
+  %cap.sroa.1.sroa.0.1.cfg_type.i.i.sroa_idx210 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 1
+  store i8 %conv2.i.i, ptr %cap.sroa.1.sroa.0.1.cfg_type.i.i.sroa_idx210, align 1
+  %cap.sroa.1.sroa.0.2.bar3.i.i.sroa_idx213 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 2
+  store i8 %conv.i84, ptr %cap.sroa.1.sroa.0.2.bar3.i.i.sroa_idx213, align 2
   %26 = load i32, ptr %offset.i.i, align 16
+  %cap.sroa.1.sroa.0.6.offset5.i.i.sroa_idx216 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 6
+  store i32 %26, ptr %cap.sroa.1.sroa.0.6.offset5.i.i.sroa_idx216, align 2
   %27 = load i32, ptr %size.i, align 4
   %call.i.i.i = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #14
   %and.i80 = and i32 %call.val75, 32
@@ -1405,15 +1412,7 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %idx.ext.i.i.i = sext i32 %call.i.i.i to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %28, i64 %idx.ext.i.i.i
   %add.ptr3.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 2
-  store i8 16, ptr %add.ptr3.i.i.i, align 1
-  %cap.sroa.1.sroa.4.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 3
-  store i8 %conv2.i.i, ptr %cap.sroa.1.sroa.4.0.add.ptr3.i.i.i.sroa_idx, align 1
-  %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 4
-  store i8 %conv.i84, ptr %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i.sroa_idx, align 1
-  %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
-  %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 8
-  store i32 %26, ptr %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i.sroa_idx, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr3.i.i.i, ptr noundef nonnull align 8 dereferenceable(10) %cap.sroa.1.sroa.0, i64 10, i1 false)
   %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 12
   store i32 %27, ptr %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i.sroa_idx, align 1
   %29 = load i32, ptr %modern_mem_bar_idx.i, align 4
@@ -1425,22 +1424,20 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %type.i.i90 = getelementptr inbounds i8, ptr %call.i, i64 3448
   %31 = load i32, ptr %type.i.i90, align 8
   %conv2.i.i91 = trunc i32 %31 to i8
+  %cap.sroa.1.sroa.0.1.cfg_type.i.i.sroa_idx211 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 1
+  store i8 %conv2.i.i91, ptr %cap.sroa.1.sroa.0.1.cfg_type.i.i.sroa_idx211, align 1
+  %cap.sroa.1.sroa.0.2.bar3.i.i.sroa_idx214 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 2
+  store i8 %conv.i87, ptr %cap.sroa.1.sroa.0.2.bar3.i.i.sroa_idx214, align 2
   %32 = load i32, ptr %offset.i.i88, align 16
+  %cap.sroa.1.sroa.0.6.offset5.i.i.sroa_idx217 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 6
+  store i32 %32, ptr %cap.sroa.1.sroa.0.6.offset5.i.i.sroa_idx217, align 2
   %33 = load i32, ptr %size5.i, align 4
   %call.i.i.i98 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #14
   %34 = load ptr, ptr %config13, align 8
   %idx.ext.i.i.i102 = sext i32 %call.i.i.i98 to i64
   %add.ptr.i.i.i103 = getelementptr i8, ptr %34, i64 %idx.ext.i.i.i102
   %add.ptr3.i.i.i104 = getelementptr i8, ptr %add.ptr.i.i.i103, i64 2
-  store i8 16, ptr %add.ptr3.i.i.i104, align 1
-  %cap.sroa.1.sroa.4.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 3
-  store i8 %conv2.i.i91, ptr %cap.sroa.1.sroa.4.0.add.ptr3.i.i.i104.sroa_idx, align 1
-  %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 4
-  store i8 %conv.i87, ptr %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i104.sroa_idx, align 1
-  %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i104.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
-  %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 8
-  store i32 %32, ptr %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i104.sroa_idx, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr3.i.i.i104, ptr noundef nonnull align 8 dereferenceable(10) %cap.sroa.1.sroa.0, i64 10, i1 false)
   %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 12
   store i32 %33, ptr %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i104.sroa_idx, align 1
   %35 = load i32, ptr %modern_mem_bar_idx.i, align 4
@@ -1452,22 +1449,20 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %type.i.i113 = getelementptr inbounds i8, ptr %call.i, i64 3736
   %37 = load i32, ptr %type.i.i113, align 8
   %conv2.i.i114 = trunc i32 %37 to i8
+  %cap.sroa.1.sroa.0.1.cfg_type.i.i.sroa_idx212 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 1
+  store i8 %conv2.i.i114, ptr %cap.sroa.1.sroa.0.1.cfg_type.i.i.sroa_idx212, align 1
+  %cap.sroa.1.sroa.0.2.bar3.i.i.sroa_idx215 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 2
+  store i8 %conv.i110, ptr %cap.sroa.1.sroa.0.2.bar3.i.i.sroa_idx215, align 2
   %38 = load i32, ptr %offset.i.i111, align 16
+  %cap.sroa.1.sroa.0.6.offset5.i.i.sroa_idx218 = getelementptr inbounds i8, ptr %cap.sroa.1.sroa.0, i64 6
+  store i32 %38, ptr %cap.sroa.1.sroa.0.6.offset5.i.i.sroa_idx218, align 2
   %39 = load i32, ptr %size10.i, align 4
   %call.i.i.i121 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #14
   %40 = load ptr, ptr %config13, align 8
   %idx.ext.i.i.i125 = sext i32 %call.i.i.i121 to i64
   %add.ptr.i.i.i126 = getelementptr i8, ptr %40, i64 %idx.ext.i.i.i125
   %add.ptr3.i.i.i127 = getelementptr i8, ptr %add.ptr.i.i.i126, i64 2
-  store i8 16, ptr %add.ptr3.i.i.i127, align 1
-  %cap.sroa.1.sroa.4.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 3
-  store i8 %conv2.i.i114, ptr %cap.sroa.1.sroa.4.0.add.ptr3.i.i.i127.sroa_idx, align 1
-  %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 4
-  store i8 %conv.i110, ptr %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i127.sroa_idx, align 1
-  %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i127.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
-  %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 8
-  store i32 %38, ptr %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i127.sroa_idx, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr3.i.i.i127, ptr noundef nonnull align 8 dereferenceable(10) %cap.sroa.1.sroa.0, i64 10, i1 false)
   %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 12
   store i32 %39, ptr %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i127.sroa_idx, align 1
   %41 = load i32, ptr %modern_mem_bar_idx.i, align 4

@@ -92,7 +92,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %5 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %106, label %6
+  br i1 %.not, label %107, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i32 @fseek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 2)
@@ -101,7 +101,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
 
 8:                                                ; preds = %6
   %9 = tail call i32 @fclose(ptr noundef nonnull %5)
-  br label %106
+  br label %107
 
 10:                                               ; preds = %6
   %11 = tail call i64 @ftell(ptr noundef nonnull %5)
@@ -110,7 +110,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
 
 13:                                               ; preds = %10
   %14 = tail call i32 @fclose(ptr noundef nonnull %5)
-  br label %106
+  br label %107
 
 15:                                               ; preds = %10
   %16 = tail call i32 @fseek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 0)
@@ -119,7 +119,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
 
 17:                                               ; preds = %15
   %18 = tail call i32 @fclose(ptr noundef nonnull %5)
-  br label %106
+  br label %107
 
 19:                                               ; preds = %15
   %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #16
@@ -130,7 +130,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
 
 23:                                               ; preds = %19
   tail call void @_ZdaPv(ptr noundef nonnull %20) #15
-  br label %106
+  br label %107
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
@@ -144,8 +144,8 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   %29 = getelementptr inbounds i8, ptr %3, i64 2
   br label %30
 
-30:                                               ; preds = %.lr.ph, %104
-  %.05876 = phi ptr [ %20, %.lr.ph ], [ %32, %104 ]
+30:                                               ; preds = %.lr.ph, %105
+  %.05876 = phi ptr [ %20, %.lr.ph ], [ %32, %105 ]
   store i8 0, ptr %3, align 16
   br label %.lr.ph.i
 
@@ -219,7 +219,7 @@ _ZL8parseRowPcS_S_i.exit:                         ; preds = %42
 _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; preds = %.lr.ph.i66, %52, %47
   %.0.lcssa.i68 = phi ptr [ %27, %47 ], [ %.08.i, %.lr.ph.i66 ], [ %53, %52 ]
   %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0.lcssa.i68)
-  br label %104
+  br label %105
 
 56:                                               ; preds = %_ZL8parseRowPcS_S_i.exit
   %57 = load i8, ptr %27, align 1
@@ -243,7 +243,7 @@ _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; pre
 _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75: ; preds = %.lr.ph.i70, %61, %56
   %.0.lcssa.i74 = phi ptr [ %27, %56 ], [ %.08.i71, %.lr.ph.i70 ], [ %62, %61 ]
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %.0.lcssa.i74)
-  br label %104
+  br label %105
 
 65:                                               ; preds = %_ZL8parseRowPcS_S_i.exit
   %66 = icmp eq i8 %46, 112
@@ -274,13 +274,13 @@ _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75: ; p
   %82 = getelementptr inbounds i8, ptr %70, i64 56
   %83 = getelementptr inbounds i8, ptr %70, i64 58
   %84 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82, ptr noundef nonnull %83) #14
-  br label %104
+  br label %105
 
 85:                                               ; preds = %65
   %86 = icmp eq i8 %46, 114
   %87 = icmp eq i8 %67, 99
   %or.cond7 = select i1 %86, i1 %87, i1 false
-  br i1 %or.cond7, label %88, label %104
+  br i1 %or.cond7, label %88, label %105
 
 88:                                               ; preds = %85
   %89 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #16
@@ -289,33 +289,35 @@ _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75: ; p
   %91 = getelementptr inbounds i8, ptr %89, i64 72
   store i32 0, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %89, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %89, i8 0, i64 61, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %89, i8 0, i64 60, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 24, i1 false)
   store i32 1, ptr %89, align 8
-  %93 = load ptr, ptr %28, align 8
-  %94 = getelementptr inbounds i8, ptr %89, i64 104
-  store ptr %93, ptr %94, align 8
+  %93 = getelementptr inbounds i8, ptr %89, i64 60
+  store i8 0, ptr %93, align 4
+  %94 = load ptr, ptr %28, align 8
+  %95 = getelementptr inbounds i8, ptr %89, i64 104
+  store ptr %94, ptr %95, align 8
   store ptr %89, ptr %28, align 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 4
-  %96 = getelementptr inbounds i8, ptr %89, i64 8
-  %97 = getelementptr inbounds i8, ptr %89, i64 12
-  %98 = getelementptr inbounds i8, ptr %89, i64 16
-  %99 = getelementptr inbounds i8, ptr %89, i64 20
-  %100 = getelementptr inbounds i8, ptr %89, i64 24
-  %101 = getelementptr inbounds i8, ptr %89, i64 56
-  %102 = getelementptr inbounds i8, ptr %89, i64 58
-  %103 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1, ptr noundef nonnull %95, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %101, ptr noundef nonnull %102) #14
-  br label %104
+  %96 = getelementptr inbounds i8, ptr %89, i64 4
+  %97 = getelementptr inbounds i8, ptr %89, i64 8
+  %98 = getelementptr inbounds i8, ptr %89, i64 12
+  %99 = getelementptr inbounds i8, ptr %89, i64 16
+  %100 = getelementptr inbounds i8, ptr %89, i64 20
+  %101 = getelementptr inbounds i8, ptr %89, i64 24
+  %102 = getelementptr inbounds i8, ptr %89, i64 56
+  %103 = getelementptr inbounds i8, ptr %89, i64 58
+  %104 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %103) #14
+  br label %105
 
-104:                                              ; preds = %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75, %85, %88, %69, %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
-  %105 = icmp ult ptr %32, %25
-  br i1 %105, label %30, label %._crit_edge, !llvm.loop !9
+105:                                              ; preds = %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75, %85, %88, %69, %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
+  %106 = icmp ult ptr %32, %25
+  br i1 %106, label %30, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %104, %24
+._crit_edge:                                      ; preds = %105, %24
   call void @_ZdaPv(ptr noundef nonnull %20) #15
-  br label %106
+  br label %107
 
-106:                                              ; preds = %2, %._crit_edge, %23, %17, %13, %8
+107:                                              ; preds = %2, %._crit_edge, %23, %17, %13, %8
   %.0 = phi i1 [ false, %8 ], [ false, %13 ], [ false, %17 ], [ false, %23 ], [ true, %._crit_edge ], [ false, %2 ]
   ret i1 %.0
 }

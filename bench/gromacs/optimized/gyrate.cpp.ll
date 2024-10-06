@@ -317,24 +317,23 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_15analysismodules12_GLOB
   %43 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr @.str.16, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %6, i64 24
-  %45 = getelementptr inbounds i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, i8 0, i64 64, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_110GyrateModeEEE, i64 16), ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 88
-  %47 = getelementptr inbounds i8, ptr %6, i64 96
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
-  %49 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %48, ptr %49, align 8
+  %45 = getelementptr inbounds i8, ptr %6, i64 88
+  %46 = getelementptr inbounds i8, ptr %6, i64 96
+  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds i8, ptr %6, i64 64
+  store ptr %47, ptr %48, align 8
   store i64 0, ptr %7, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr %7, ptr %50, align 8
-  store ptr @_ZN3gmx15analysismodules12_GLOBAL__N_117c_GyrateModeNamesE, ptr %46, align 8
-  store i32 3, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %7, ptr %49, align 8
+  store ptr @_ZN3gmx15analysismodules12_GLOBAL__N_117c_GyrateModeNamesE, ptr %45, align 8
+  store i32 3, ptr %46, align 8
   store ptr @.str.17, ptr %44, align 8
-  %51 = load ptr, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %50 = load ptr, ptr %1, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
   call void @_ZN3gmx26TrajectoryAnalysisSettings8setFlagsEm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 16)
   call void @_ZN3gmx26TrajectoryAnalysisSettings6setPBCEb(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true)
   ret void

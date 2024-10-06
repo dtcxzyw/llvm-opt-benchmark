@@ -2662,6 +2662,7 @@ define linkonce_odr dso_local void @_ZN4Luau20NonStrictTypeChecker5visitEPNS_12A
   br i1 %.not, label %165, label %51
 
 51:                                               ; preds = %44
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %52 = getelementptr inbounds i8, ptr %46, i64 48
   %53 = load ptr, ptr %52, align 8, !noalias !12
@@ -2711,7 +2712,7 @@ _ZN4Luau16NonStrictContextD2Ev.exit48:            ; preds = %_ZNSt10_HashtableIP
   br i1 %.not.i, label %_ZN4Luau16NonStrictContextD2Ev.exit, label %.lr.ph
 
 _ZN4Luau16NonStrictContextD2Ev.exit:              ; preds = %_ZN4Luau16NonStrictContextD2Ev.exit48, %51
-  store i64 0, ptr %43, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %43, i8 0, i64 24, i1 false), !alias.scope !12
   store ptr %23, ptr %7, align 8
   store i64 1, ptr %24, align 8
   store float 1.000000e+00, ptr %26, align 8
@@ -4923,7 +4924,7 @@ _ZN4Luau16NonStrictContextD2Ev.exit:              ; preds = %_ZNSt10_HashtableIP
 
 ._crit_edge:                                      ; preds = %_ZN4Luau16NonStrictContextD2Ev.exit, %3
   %26 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %26, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %27, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5032,7 +5033,7 @@ declare ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_8AstLocalE(ptr noundef nonnull
 define linkonce_odr dso_local void @_ZN4Luau16NonStrictContext11disjunctionENS_7NotNullINS_12BuiltinTypesEEENS1_INS_9TypeArenaEEERKS0_S7_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::NonStrictContext") align 8 %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SimplifyResult", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %8, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5924,7 +5925,7 @@ define linkonce_odr dso_local void @_ZN4Luau20NonStrictTypeChecker5visitEPNS_11A
   %16 = alloca %"class.Luau::Variant.239", align 8
   %17 = alloca %"struct.Luau::CheckedFunctionIncorrectArgs", align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %18, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %19, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12058,7 +12059,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EED2Ev.exit19: ; preds = %122, %12
 define linkonce_odr dso_local void @_ZN4Luau16NonStrictContext11conjunctionENS_7NotNullINS_12BuiltinTypesEEENS1_INS_9TypeArenaEEERKS0_S7_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::NonStrictContext") align 8 %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SimplifyResult", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %7, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %8, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8

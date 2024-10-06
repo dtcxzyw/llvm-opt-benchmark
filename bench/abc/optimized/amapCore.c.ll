@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Amap_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 0, ptr %2, align 4
+  store i64 0, ptr %2, align 4
   store i32 1, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 4, ptr %3, align 4
@@ -30,8 +30,6 @@ define void @Amap_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store float 0x3F50624DE0000000, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 0, ptr %9, align 4
   ret void
 }
 

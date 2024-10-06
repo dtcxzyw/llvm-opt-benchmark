@@ -89706,6 +89706,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %9 = load ptr, ptr %8, align 8, !noalias !2679
   store ptr null, ptr %8, align 8, !noalias !2679
   %10 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %10, align 8
   %11 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !2676
   store ptr %11, ptr %5, align 8, !alias.scope !2676
   %12 = getelementptr inbounds i8, ptr %11, i64 24
@@ -93340,6 +93341,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %10 = load ptr, ptr %9, align 8, !noalias !2896
   store ptr null, ptr %9, align 8, !noalias !2896
   %11 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %11, align 8
   %12 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !2893
   store ptr %12, ptr %5, align 8, !alias.scope !2893
   %13 = getelementptr inbounds i8, ptr %12, i64 24
@@ -94912,6 +94914,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
 
 _ZN5clang12ast_matchers8internal7MatcherINS_16CXXConstructExprEEC2ERKS4_.exit.i: ; preds = %9, %2
   %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %12, align 8
   %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !3003
   store ptr %13, ptr %4, align 8, !alias.scope !3003
   %14 = getelementptr inbounds i8, ptr %13, i64 24
@@ -95627,6 +95630,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i: ; preds = %9, %2
   %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %12, align 8
   %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !3042
   store ptr %13, ptr %4, align 8, !alias.scope !3042
   %14 = getelementptr inbounds i8, ptr %13, i64 24
@@ -95884,6 +95888,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i: ; preds = %9, %2
   %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %12, align 8
   %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !3054
   store ptr %13, ptr %4, align 8, !alias.scope !3054
   %14 = getelementptr inbounds i8, ptr %13, i64 24
@@ -102611,6 +102616,7 @@ define linkonce_odr hidden void @_ZNO5clang12ast_matchers8internal23VariadicOper
 
 _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEEC2ERKS4_.exit.i: ; preds = %9, %2
   %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %12, align 8
   %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !3572
   store ptr %13, ptr %4, align 8, !alias.scope !3572
   %14 = getelementptr inbounds i8, ptr %13, i64 24

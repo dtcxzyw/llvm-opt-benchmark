@@ -3045,19 +3045,15 @@ cond.true.i.i:                                    ; preds = %entry
   %5 = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   %6 = getelementptr inbounds i8, ptr %call.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   store ptr %5, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !13
   %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   store ptr %5, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !14
   %7 = getelementptr inbounds i8, ptr %call.i.i, i64 96
-  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
-  store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i, align 8, !tbaa !12
   %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 112
   store ptr %7, ptr %_M_left.i.i.i.i.i2.i.i, align 8, !tbaa !13
   %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 120
   store ptr %7, ptr %_M_right.i.i.i.i.i3.i.i, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
-  store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib5China7SseImplE, i64 16), ptr %storage_.i, align 8, !tbaa !16
   store i8 1, ptr %del.i.i.i, align 8, !tbaa !47
   store ptr %storage_.i, ptr %agg.result, align 8, !tbaa !28

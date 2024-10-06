@@ -2127,7 +2127,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #26
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %call, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %call, i8 0, i64 104, i1 false)
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !56
   %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !60
@@ -2137,23 +2137,25 @@ invoke.cont:
   store i8 64, ptr %m_cacheblock_radius.i.i, align 1, !tbaa !80
   %m_res_cache.i.i = getelementptr inbounds i8, ptr %call, i64 64
   %1 = getelementptr inbounds i8, ptr %call, i64 96
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 104
+  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8, !tbaa !81
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 112
   store ptr %1, ptr %_M_left.i.i.i.i.i.i.i.i, align 8, !tbaa !56
   %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %1, ptr %_M_right.i.i.i.i.i.i.i.i, align 8, !tbaa !60
   %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 128
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8, !tbaa !81
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8, !tbaa !82
   %m_queue.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
   %_M_prev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 144
-  store ptr %m_queue.i.i.i, ptr %_M_prev.i.i.i.i.i.i.i.i, align 8, !tbaa !82
-  store ptr %m_queue.i.i.i, ptr %m_queue.i.i.i, align 8, !tbaa !83
+  store ptr %m_queue.i.i.i, ptr %_M_prev.i.i.i.i.i.i.i.i, align 8, !tbaa !83
+  store ptr %m_queue.i.i.i, ptr %m_queue.i.i.i, align 8, !tbaa !84
   %_M_size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 152
-  store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8, !tbaa !84
+  store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8, !tbaa !85
   %m_limit.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
-  store i64 1000, ptr %m_limit.i.i.i, align 8, !tbaa !85
-  store ptr @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE, ptr %m_res_cache.i.i, align 8, !tbaa !86
+  store i64 1000, ptr %m_limit.i.i.i, align 8, !tbaa !86
+  store ptr @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE, ptr %m_res_cache.i.i, align 8, !tbaa !87
   %m_cache_miss_data.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
-  store ptr %call, ptr %m_cache_miss_data.i.i.i, align 8, !tbaa !87
+  store ptr %call, ptr %m_cache_miss_data.i.i.i, align 8, !tbaa !88
   store ptr getelementptr inbounds (i8, ptr @_ZTV15VectorAreaStore, i64 16), ptr %call, align 8, !tbaa !10
   %m_areas.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_areas.i, i8 0, i64 24, i1 false)
@@ -2230,18 +2232,18 @@ cleanup.action13:                                 ; preds = %invoke.cont
   %_M_right.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 120
   store ptr %1, ptr %_M_right.i.i.i.i.i.i.i.i.i, align 8, !tbaa !60
   %_M_node_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 128
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !82
   %m_queue.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 136
   %_M_prev.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 144
-  store ptr %m_queue.i.i.i.i, ptr %_M_prev.i.i.i.i.i.i.i.i.i, align 8, !tbaa !82
-  store ptr %m_queue.i.i.i.i, ptr %m_queue.i.i.i.i, align 8, !tbaa !83
+  store ptr %m_queue.i.i.i.i, ptr %_M_prev.i.i.i.i.i.i.i.i.i, align 8, !tbaa !83
+  store ptr %m_queue.i.i.i.i, ptr %m_queue.i.i.i.i, align 8, !tbaa !84
   %_M_size.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 152
-  store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i.i, align 8, !tbaa !84
+  store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i.i, align 8, !tbaa !85
   %m_limit.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 80
-  store i64 1000, ptr %m_limit.i.i.i.i, align 8, !tbaa !85
-  store ptr @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE, ptr %m_res_cache.i.i.i, align 8, !tbaa !86
+  store i64 1000, ptr %m_limit.i.i.i.i, align 8, !tbaa !86
+  store ptr @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE, ptr %m_res_cache.i.i.i, align 8, !tbaa !87
   %m_cache_miss_data.i.i.i.i = getelementptr inbounds i8, ptr %call.i39, i64 72
-  store ptr %call.i39, ptr %m_cache_miss_data.i.i.i.i, align 8, !tbaa !87
+  store ptr %call.i39, ptr %m_cache_miss_data.i.i.i.i, align 8, !tbaa !88
   store ptr getelementptr inbounds (i8, ptr @_ZTV15VectorAreaStore, i64 16), ptr %call.i39, align 8, !tbaa !10
   %m_areas.i.i = getelementptr inbounds i8, ptr %call.i39, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_areas.i.i, i8 0, i64 24, i1 false)
@@ -2594,10 +2596,11 @@ attributes #26 = { builtin allocsize(0) }
 !78 = !{!"_ZTSNSt8__detail17_List_node_headerE", !79, i64 0, !18, i64 16}
 !79 = !{!"_ZTSNSt8__detail15_List_node_baseE", !5, i64 0, !5, i64 8}
 !80 = !{!62, !6, i64 57}
-!81 = !{!57, !18, i64 32}
-!82 = !{!79, !5, i64 8}
-!83 = !{!79, !5, i64 0}
-!84 = !{!78, !18, i64 16}
-!85 = !{!69, !18, i64 16}
-!86 = !{!69, !5, i64 0}
-!87 = !{!69, !5, i64 8}
+!81 = !{!57, !5, i64 8}
+!82 = !{!57, !18, i64 32}
+!83 = !{!79, !5, i64 8}
+!84 = !{!79, !5, i64 0}
+!85 = !{!78, !18, i64 16}
+!86 = !{!69, !18, i64 16}
+!87 = !{!69, !5, i64 0}
+!88 = !{!69, !5, i64 8}

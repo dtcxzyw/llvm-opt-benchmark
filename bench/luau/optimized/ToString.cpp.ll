@@ -2858,11 +2858,9 @@ define dso_local void @_ZN4Luau16toStringDetailedEPKNS_4TypeERNS_15ToStringOptio
   %38 = getelementptr inbounds i8, ptr %6, i64 24
   %39 = getelementptr inbounds i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store i32 1065353216, ptr %39, align 8
-  %.sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %.sroa_idx.i.i, align 4
-  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 48
-  store i64 0, ptr %.sroa.5.32..sroa_idx.i.i, align 8
+  store float 1.000000e+00, ptr %39, align 8
+  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.32..sroa_idx.i.i, i8 0, i64 12, i1 false)
   %40 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %40, ptr %36, align 8
   store ptr null, ptr %40, align 8
@@ -5988,11 +5986,9 @@ define dso_local void @_ZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStr
   %34 = getelementptr inbounds i8, ptr %6, i64 24
   %35 = getelementptr inbounds i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  store i32 1065353216, ptr %35, align 8
-  %.sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %.sroa_idx.i.i, align 4
-  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 48
-  store i64 0, ptr %.sroa.5.32..sroa_idx.i.i, align 8
+  store float 1.000000e+00, ptr %35, align 8
+  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.32..sroa_idx.i.i, i8 0, i64 12, i1 false)
   %36 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %36, ptr %32, align 8
   store ptr null, ptr %36, align 8

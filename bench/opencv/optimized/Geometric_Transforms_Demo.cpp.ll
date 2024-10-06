@@ -133,12 +133,14 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 .preheader.preheader:                             ; preds = %46
   %47 = getelementptr inbounds i8, ptr %9, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store i64 0, ptr %14, align 16
   %48 = load i32, ptr %47, align 4
   %49 = sitofp i32 %48 to float
   %50 = fadd float %49, -1.000000e+00
   %51 = getelementptr inbounds i8, ptr %14, i64 8
   store float %50, ptr %51, align 8
+  %.sroa_idx84 = getelementptr inbounds i8, ptr %14, i64 12
+  store i32 0, ptr %.sroa_idx84, align 4
   %52 = getelementptr inbounds i8, ptr %9, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = sitofp i32 %53 to float
@@ -149,7 +151,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store float %55, ptr %.sroa_idx81, align 4
   %57 = fmul float %54, 0x3FD51EB860000000
   %.sroa_idx78 = getelementptr inbounds i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  store i32 0, ptr %15, align 16
   store float %57, ptr %.sroa_idx78, align 4
   %58 = fmul float %49, 0x3FEB333340000000
   %59 = fmul float %54, 2.500000e-01

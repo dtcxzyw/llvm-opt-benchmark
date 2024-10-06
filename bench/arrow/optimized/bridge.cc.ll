@@ -2441,12 +2441,14 @@ if.end59:                                         ; preds = %for.end, %_ZSt9tran
 if.then62:                                        ; preds = %if.end59
   %call.i = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #28, !noalias !124
   %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %call.i, i8 0, i64 272, i1 false), !noalias !124
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %call.i, i8 0, i64 264, i1 false), !noalias !124
   store ptr %call.i, ptr %data_.i.i.i.i.i, align 8, !noalias !124
   %children_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 128
   %data_.i.i2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr %children_.i.i.i, ptr %data_.i.i2.i.i.i, align 8, !noalias !124
   %child_pointers_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
+  %size_.i.i4.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  store i64 0, ptr %size_.i.i4.i.i.i, align 8, !noalias !124
   %data_.i.i5.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   store ptr %child_pointers_.i.i.i, ptr %data_.i.i5.i.i.i, align 8, !noalias !124
   %dynamic_capacity_.i.i6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 280

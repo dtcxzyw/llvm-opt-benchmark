@@ -103,21 +103,19 @@ define range(i32 0, 104) i32 @mqs_setup_image(ptr noundef %0, ptr noundef %1) lo
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(i64 noundef 536) #12
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(536) %7, i8 0, i64 520, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(536) %7, i8 0, i64 528, i1 false)
   store ptr %1, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 528
-  store ptr null, ptr %8, align 8
-  %9 = load ptr, ptr @mqs_basic_entrypoints, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef %0, ptr noundef nonnull %5) #12
-  br label %12
+  %8 = load ptr, ptr @mqs_basic_entrypoints, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef %0, ptr noundef nonnull %5) #12
+  br label %11
 
-12:                                               ; preds = %2, %6
+11:                                               ; preds = %2, %6
   %.0 = phi i32 [ 0, %6 ], [ 103, %2 ]
   ret i32 %.0
 }

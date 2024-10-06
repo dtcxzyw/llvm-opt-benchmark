@@ -2356,7 +2356,7 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 72, i1 false)
   store ptr %0, ptr %8, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %4, ptr %23, align 8
@@ -2371,25 +2371,24 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   %28 = load i64, ptr %2, align 8
   %29 = getelementptr inbounds i8, ptr %8, i64 72
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 80
-  store i64 0, ptr %30, align 8
-  %31 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_write_memory, ptr noundef nonnull %8) #15
+  %30 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_write_memory, ptr noundef nonnull %8) #15
   call void @png_image_free(ptr noundef nonnull %0) #15
-  %.not33 = icmp eq i32 %31, 0
-  br i1 %.not33, label %.critedge, label %32
+  %.not33 = icmp eq i32 %30, 0
+  br i1 %.not33, label %.critedge, label %31
 
-32:                                               ; preds = %21
-  %.pre = load i64, ptr %30, align 8
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %8, i64 80
+  %.pre = load i64, ptr %32, align 8
   br i1 %17, label %36, label %33
 
-33:                                               ; preds = %32
+33:                                               ; preds = %31
   %34 = load i64, ptr %2, align 8
   %35 = icmp ugt i64 %.pre, %34
-  %spec.select = select i1 %35, i32 0, i32 %31
+  %spec.select = select i1 %35, i32 0, i32 %30
   br label %36
 
-36:                                               ; preds = %33, %32
-  %.1 = phi i32 [ %31, %32 ], [ %spec.select, %33 ]
+36:                                               ; preds = %33, %31
+  %.1 = phi i32 [ %30, %31 ], [ %spec.select, %33 ]
   store i64 %.pre, ptr %2, align 8
   br label %.critedge
 

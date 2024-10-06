@@ -5703,6 +5703,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %9 = load ptr, ptr %8, align 8, !noalias !411
   store ptr null, ptr %8, align 8, !noalias !411
   %10 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %10, align 8
   %11 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18, !noalias !408
   store ptr %11, ptr %5, align 8, !alias.scope !408
   %12 = getelementptr inbounds i8, ptr %11, i64 24

@@ -107,86 +107,85 @@ dsa_minimum_size.exit:                            ; preds = %6
   %.067 = select i1 %.not, i64 %22, i64 %25
   %26 = sub i64 %1, %.067
   %27 = lshr i64 %26, 12
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6176) %28, i8 0, i64 6172, i1 false)
-  %29 = xor i32 %3, 216163848
-  store i32 %29, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 -1, i64 16, i1 false)
-  store i64 %27, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 1048576, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %3, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 6120
-  store i64 -1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 6112
-  store i64 %1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 %3, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 4160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %37, i8 -1, i64 128, i1 false)
-  %38 = getelementptr inbounds i8, ptr %0, i64 6136
-  store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 6152
-  store i32 %2, ptr %39, align 8
-  %40 = tail call ptr @palloc(i64 noundef 40992) #10
-  store ptr %0, ptr %40, align 8
-  %41 = load ptr, ptr @CurrentResourceOwner, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
-  %44 = getelementptr inbounds i8, ptr %0, i64 6156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40976) %43, i8 0, i64 40976, i1 false)
-  %45 = load i32, ptr %39, align 8
-  tail call void @LWLockInitialize(ptr noundef nonnull %44, i32 noundef %45) #10
-  br label %46
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6176) %0, i8 0, i64 6176, i1 false)
+  %28 = xor i32 %3, 216163848
+  store i32 %28, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 -1, i64 16, i1 false)
+  store i64 %27, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 1048576, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %3, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 6120
+  store i64 -1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 6112
+  store i64 %1, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 %3, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 4160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %36, i8 -1, i64 128, i1 false)
+  %37 = getelementptr inbounds i8, ptr %0, i64 6136
+  store i32 1, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 6152
+  store i32 %2, ptr %38, align 8
+  %39 = tail call ptr @palloc(i64 noundef 40992) #10
+  store ptr %0, ptr %39, align 8
+  %40 = load ptr, ptr @CurrentResourceOwner, align 8
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %43 = getelementptr inbounds i8, ptr %0, i64 6156
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40976) %42, i8 0, i64 40976, i1 false)
+  %44 = load i32, ptr %38, align 8
+  tail call void @LWLockInitialize(ptr noundef nonnull %43, i32 noundef %44) #10
+  br label %45
 
-46:                                               ; preds = %19, %46
-  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %46 ]
-  %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4288
-  %49 = getelementptr [38 x %struct.dsa_area_pool], ptr %48, i64 0, i64 %indvars.iv
-  %50 = load i32, ptr %39, align 8
-  tail call void @LWLockInitialize(ptr noundef %49, i32 noundef %50) #10
+45:                                               ; preds = %19, %45
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %45 ]
+  %46 = load ptr, ptr %39, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 4288
+  %48 = getelementptr [38 x %struct.dsa_area_pool], ptr %47, i64 0, i64 %indvars.iv
+  %49 = load i32, ptr %38, align 8
+  tail call void @LWLockInitialize(ptr noundef %48, i32 noundef %49) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
-  br i1 %exitcond.not, label %51, label %46, !llvm.loop !7
+  br i1 %exitcond.not, label %50, label %45, !llvm.loop !7
 
-51:                                               ; preds = %46
-  store ptr %4, ptr %43, align 8
-  %52 = getelementptr inbounds i8, ptr %40, i64 24
+50:                                               ; preds = %45
+  store ptr %4, ptr %42, align 8
+  %51 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr %0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %39, i64 32
   store ptr %0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 32
-  store ptr %0, ptr %53, align 8
-  %54 = getelementptr i8, ptr %0, i64 6176
-  %55 = getelementptr inbounds i8, ptr %40, i64 40
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr i8, ptr %0, i64 7272
-  %57 = getelementptr inbounds i8, ptr %40, i64 48
-  store ptr %56, ptr %57, align 8
-  tail call void @FreePageManagerInitialize(ptr noundef %54, ptr noundef nonnull %0) #10
+  %53 = getelementptr i8, ptr %0, i64 6176
+  %54 = getelementptr inbounds i8, ptr %39, i64 40
+  store ptr %53, ptr %54, align 8
+  %55 = getelementptr i8, ptr %0, i64 7272
+  %56 = getelementptr inbounds i8, ptr %39, i64 48
+  store ptr %55, ptr %56, align 8
+  tail call void @FreePageManagerInitialize(ptr noundef %53, ptr noundef nonnull %0) #10
   %.not73 = icmp ult i64 %26, 4096
-  br i1 %.not73, label %61, label %58
+  br i1 %.not73, label %60, label %57
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %55, align 8
-  %60 = lshr i64 %.067, 12
-  tail call void @FreePageManagerPut(ptr noundef %59, i64 noundef %60, i64 noundef %27) #10
-  br label %61
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %54, align 8
+  %59 = lshr i64 %.067, 12
+  tail call void @FreePageManagerPut(ptr noundef %58, i64 noundef %59, i64 noundef %27) #10
+  br label %60
 
-61:                                               ; preds = %58, %51
-  %62 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
-  %63 = sub nuw nsw i64 64, %62
-  %64 = tail call i64 @llvm.umin.i64(i64 %63, i64 15)
-  %65 = select i1 %.not73, i64 0, i64 %64
-  %66 = getelementptr [16 x i64], ptr %37, i64 0, i64 %65
-  store i64 0, ptr %66, align 8
-  %67 = load ptr, ptr %53, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
-  store i64 %65, ptr %68, align 8
-  ret ptr %40
+60:                                               ; preds = %57, %50
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %62 = sub nuw nsw i64 64, %61
+  %63 = tail call i64 @llvm.umin.i64(i64 %62, i64 15)
+  %64 = select i1 %.not73, i64 0, i64 %63
+  %65 = getelementptr [16 x i64], ptr %36, i64 0, i64 %64
+  store i64 0, ptr %65, align 8
+  %66 = load ptr, ptr %52, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 40
+  store i64 %64, ptr %67, align 8
+  ret ptr %39
 }
 
 declare ptr @dsm_segment_address(ptr noundef) local_unnamed_addr #1

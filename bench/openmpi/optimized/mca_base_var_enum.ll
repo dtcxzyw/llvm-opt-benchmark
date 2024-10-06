@@ -63,19 +63,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @mca_base_var_enum_constructor(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %3, i8 0, i64 71, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr @enum_get_value, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr @enum_get_count, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr @enum_value_from_string, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr @enum_string_from_value, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr @enum_dump, ptr %8, align 8
-  store i8 0, ptr %2, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %2, i8 0, i64 72, i1 false)
+  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr @enum_get_value, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr @enum_get_count, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr @enum_value_from_string, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr @enum_string_from_value, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr @enum_dump, ptr %7, align 8
   ret void
 }
 

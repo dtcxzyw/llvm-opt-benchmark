@@ -6291,7 +6291,7 @@ do.body:                                          ; preds = %if.then, %invoke.co
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
   %24 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
-  store i64 0, ptr %24, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
   %25 = ptrtoint ptr %22 to i64
   store i64 %25, ptr %agg.tmp15, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN9grpc_core13ClientChannel20PromiseBasedCallData25MakeNameResolutionPromiseENS1_8CallArgsEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8
@@ -13969,7 +13969,7 @@ do.end:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %this to i64
   store i64 %7, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN9grpc_core13ClientChannel24ConnectivityWatcherAdderC1EPS2_23grpc_connectivity_stateSt10unique_ptrINS1_38AsyncConnectivityStateWatcherInterfaceENS1_16OrphanableDeleteEEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8
@@ -35709,7 +35709,7 @@ if.else.i.i:                                      ; preds = %entry
 _ZN9grpc_core5Arena3NewINS_17BackendMetricDataEJEEEPT_DpOT0_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi ptr [ %add.ptr3.i.i, %if.then.i.i ], [ %call4.i.i, %if.else.i.i ]
   %3 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 144, i1 false)
   store double -1.000000e+00, ptr %retval.0.i.i, align 8
   %mem_utilization.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store double -1.000000e+00, ptr %mem_utilization.i.i.i, align 8
@@ -35730,14 +35730,10 @@ _ZN9grpc_core5Arena3NewINS_17BackendMetricDataEJEEEPT_DpOT0_.exit: ; preds = %if
   %_M_right.i.i.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 120
   store ptr %5, ptr %_M_right.i.i.i.i.i3.i.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 144
-  %_M_parent.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 152
-  store ptr null, ptr %_M_parent.i.i.i.i.i5.i.i.i, align 8
   %_M_left.i.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 160
   store ptr %6, ptr %_M_left.i.i.i.i.i6.i.i.i, align 8
   %_M_right.i.i.i.i.i7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 168
   store ptr %6, ptr %_M_right.i.i.i.i.i7.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 176
-  store i64 0, ptr %_M_node_count.i.i.i.i.i8.i.i.i, align 8
   ret ptr %retval.0.i.i
 }
 
@@ -40108,7 +40104,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit: ; preds = 
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %3, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %this to i64
   store i64 %4, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN9grpc_core13ClientChannel17SubchannelWrapper6OrphanEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8
@@ -41784,7 +41780,7 @@ if.then:                                          ; preds = %invoke.cont
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %3, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %0 to i64
   store i64 %4, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapperD1EvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8

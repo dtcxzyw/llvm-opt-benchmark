@@ -22094,12 +22094,11 @@ entry:
   %call3 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %0, i64 noundef 16)
   %m_val.i = getelementptr inbounds i8, ptr %call3, i64 4
   %m_ref_count = getelementptr inbounds i8, ptr %call3, i64 12
-  %1 = getelementptr inbounds i8, ptr %call3, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %call3, i8 0, i64 16, i1 false)
   store i32 %x, ptr %call3, align 4
   %m_c.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_c.i, align 8
-  tail call void @_ZN12mpff_manager3setER4mpffRKS0_(ptr noundef nonnull align 8 dereferenceable(89) %2, ptr noundef nonnull align 4 dereferenceable(8) %m_val.i, ptr noundef nonnull align 4 dereferenceable(8) %k)
+  %1 = load ptr, ptr %m_c.i, align 8
+  tail call void @_ZN12mpff_manager3setER4mpffRKS0_(ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull align 4 dereferenceable(8) %m_val.i, ptr noundef nonnull align 4 dereferenceable(8) %k)
   %bf.load5 = load i32, ptr %m_ref_count, align 4
   %bf.shl = select i1 %lower, i32 1073741824, i32 0
   %bf.clear6 = and i32 %bf.load5, 1073741823
@@ -22125,7 +22124,7 @@ _ZN9subpaving9context_tINS_11config_mpffEE7inc_refEPNS2_4ineqE.exit.i:
   %call3.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %0, i64 noundef 16)
   %m_val.i.i = getelementptr inbounds i8, ptr %call3.i, i64 4
   %m_ref_count.i = getelementptr inbounds i8, ptr %call3.i, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %m_val.i.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %call3.i, i8 0, i64 16, i1 false)
   store i32 %x, ptr %call3.i, align 4
   %m_c.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_c.i.i, align 8

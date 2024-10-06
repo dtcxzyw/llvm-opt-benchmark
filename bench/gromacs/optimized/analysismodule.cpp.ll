@@ -1076,20 +1076,18 @@ define void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr nocapture noundef nonnull
   %3 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = getelementptr inbounds i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 80
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 96
+  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 104
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 112
-  store i64 0, ptr %11, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 112
+  store i64 0, ptr %10, align 8
   store ptr %3, ptr %2, align 8
   ret void
 }

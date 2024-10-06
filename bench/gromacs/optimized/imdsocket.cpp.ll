@@ -85,28 +85,27 @@ declare i32 @sleep(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN3gmx12imdsock_bindEPNS_9IMDSocketEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i16 2, ptr %0, align 4
-  %4 = trunc i32 %1 to i16
-  %5 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %5, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 @bind(i32 noundef %8, ptr noundef nonnull %0, i32 noundef 16) #13
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %14, label %10
+  %3 = trunc i32 %1 to i16
+  %4 = tail call zeroext i16 @htons(i16 noundef zeroext %3) #14
+  %5 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %4, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load i32, ptr %6, align 4
+  %8 = tail call i32 @bind(i32 noundef %7, ptr noundef nonnull %0, i32 noundef 16) #13
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %13, label %9
 
-10:                                               ; preds = %2
-  %11 = tail call ptr @__errno_location() #14
-  %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @strerror(i32 noundef %12) #13
-  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 202, ptr noundef %13)
-  br label %14
+9:                                                ; preds = %2
+  %10 = tail call ptr @__errno_location() #14
+  %11 = load i32, ptr %10, align 4
+  %12 = tail call ptr @strerror(i32 noundef %11) #13
+  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 202, ptr noundef %12)
+  br label %13
 
-14:                                               ; preds = %10, %2
-  ret i32 %9
+13:                                               ; preds = %9, %2
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

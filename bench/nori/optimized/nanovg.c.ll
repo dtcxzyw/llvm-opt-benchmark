@@ -18469,7 +18469,7 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
   %2 = alloca %struct.FONSparams, align 8
   %3 = tail call noalias dereferenceable_or_null(8920) ptr @malloc(i64 noundef 8920) #59
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %85, label %5
+  br i1 %4, label %82, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %3, i64 120
@@ -18481,7 +18481,7 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
   %9 = getelementptr inbounds i8, ptr %3, i64 112
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %85, label %10
+  br i1 %.not, label %82, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %3, i64 124
@@ -18532,7 +18532,7 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
 nvg__allocPathCache.exit.thread:                  ; preds = %10, %.thread20.thread.i
   %25 = getelementptr inbounds i8, ptr %3, i64 8848
   store ptr null, ptr %25, align 8
-  br label %85
+  br label %82
 
 nvgSave.exit:                                     ; preds = %20
   %26 = getelementptr inbounds i8, ptr %calloc.i, i64 44
@@ -18544,7 +18544,7 @@ nvgSave.exit:                                     ; preds = %20
   %29 = getelementptr inbounds i8, ptr %3, i64 136
   %30 = getelementptr inbounds i8, ptr %3, i64 156
   %31 = getelementptr inbounds i8, ptr %3, i64 180
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %31, i8 0, i64 196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(228) %31, i8 0, i64 228, i1 false)
   store float 1.000000e+00, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %3, i64 160
   store float 0.000000e+00, ptr %32, align 4
@@ -18601,69 +18601,63 @@ nvgSave.exit:                                     ; preds = %20
   store float -1.000000e+00, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %3, i64 384
   store float 1.600000e+01, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %3, i64 388
-  store float 0.000000e+00, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %3, i64 392
-  store float 1.000000e+00, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %3, i64 396
-  store float 0.000000e+00, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %3, i64 400
-  store i32 65, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %3, i64 404
-  store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %3, i64 8856
-  store float 2.500000e-01, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 8860
-  store float 0x3F847AE140000000, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 8864
-  store float 1.000000e+00, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %3, i64 8868
-  store float 1.000000e+00, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %3, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = tail call i32 %64(ptr noundef %65) #57
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %85, label %68
+  %54 = getelementptr inbounds i8, ptr %3, i64 392
+  store float 1.000000e+00, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %3, i64 400
+  store i32 65, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %3, i64 8856
+  store float 2.500000e-01, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %3, i64 8860
+  store float 0x3F847AE140000000, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %3, i64 8864
+  store float 1.000000e+00, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %3, i64 8868
+  store float 1.000000e+00, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %3, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = tail call i32 %61(ptr noundef %62) #57
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %82, label %65
 
-68:                                               ; preds = %nvgSave.exit
-  %69 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, i8 0, i64 32, i1 false)
+65:                                               ; preds = %nvgSave.exit
+  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 56, i1 false)
   store i32 512, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 512, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 8
-  store i8 1, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 40
-  %73 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
-  %74 = call ptr @fonsCreateInternal(ptr noundef nonnull %2)
-  %75 = getelementptr inbounds i8, ptr %3, i64 8872
-  store ptr %74, ptr %75, align 8
-  %76 = icmp eq ptr %74, null
-  br i1 %76, label %85, label %77
+  %67 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 512, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  store i8 1, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 40
+  %70 = getelementptr inbounds i8, ptr %2, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  %71 = call ptr @fonsCreateInternal(ptr noundef nonnull %2)
+  %72 = getelementptr inbounds i8, ptr %3, i64 8872
+  store ptr %71, ptr %72, align 8
+  %73 = icmp eq ptr %71, null
+  br i1 %73, label %82, label %74
 
-77:                                               ; preds = %68
-  %78 = getelementptr inbounds i8, ptr %3, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %3, align 8
-  %81 = tail call i32 %79(ptr noundef %80, i32 noundef 1, i32 noundef 512, i32 noundef 512, i32 noundef 0, ptr noundef null) #57
-  store i32 %81, ptr %7, align 8
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %85, label %83
+74:                                               ; preds = %65
+  %75 = getelementptr inbounds i8, ptr %3, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %3, align 8
+  %78 = tail call i32 %76(ptr noundef %77, i32 noundef 1, i32 noundef 512, i32 noundef 512, i32 noundef 0, ptr noundef null) #57
+  store i32 %78, ptr %7, align 8
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %82, label %80
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %3, i64 8896
-  store i32 0, ptr %84, align 8
-  br label %86
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds i8, ptr %3, i64 8896
+  store i32 0, ptr %81, align 8
+  br label %83
 
-85:                                               ; preds = %nvg__allocPathCache.exit.thread, %77, %68, %nvgSave.exit, %5, %1
+82:                                               ; preds = %nvg__allocPathCache.exit.thread, %74, %65, %nvgSave.exit, %5, %1
   tail call void @nvgDeleteInternal(ptr noundef %3)
-  br label %86
+  br label %83
 
-86:                                               ; preds = %85, %83
-  %.028 = phi ptr [ null, %85 ], [ %3, %83 ]
+83:                                               ; preds = %82, %80
+  %.028 = phi ptr [ null, %82 ], [ %3, %80 ]
   ret ptr %.028
 }
 
@@ -18709,7 +18703,7 @@ define dso_local void @nvgReset(ptr nocapture noundef %0) local_unnamed_addr #28
   %7 = getelementptr inbounds [32 x %struct.NVGstate], ptr %2, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 20
   %9 = getelementptr inbounds i8, ptr %7, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %9, i8 0, i64 196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(228) %9, i8 0, i64 228, i1 false)
   store float 1.000000e+00, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   store float 0.000000e+00, ptr %10, align 4
@@ -18774,16 +18768,10 @@ define dso_local void @nvgReset(ptr nocapture noundef %0) local_unnamed_addr #28
   store float -1.000000e+00, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %7, i64 248
   store float 1.600000e+01, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %7, i64 252
-  store float 0.000000e+00, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %7, i64 256
-  store float 1.000000e+00, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %7, i64 260
-  store float 0.000000e+00, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %7, i64 264
-  store i32 65, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %7, i64 268
-  store i32 0, ptr %40, align 4
+  %36 = getelementptr inbounds i8, ptr %7, i64 256
+  store float 1.000000e+00, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %7, i64 264
+  store i32 65, ptr %37, align 4
   ret void
 }
 
@@ -18916,7 +18904,7 @@ nvgSave.exit:
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = getelementptr inbounds i8, ptr %0, i64 156
   %7 = getelementptr inbounds i8, ptr %0, i64 180
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %7, i8 0, i64 196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(228) %7, i8 0, i64 228, i1 false)
   store float 1.000000e+00, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   store float 0.000000e+00, ptr %8, align 4
@@ -18973,33 +18961,27 @@ nvgSave.exit:
   store float -1.000000e+00, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %0, i64 384
   store float 1.600000e+01, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 388
-  store float 0.000000e+00, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 392
-  store float 1.000000e+00, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 396
-  store float 0.000000e+00, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 400
-  store i32 65, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 404
-  store i32 0, ptr %34, align 4
-  %35 = fdiv float 2.500000e-01, %3
-  %36 = getelementptr inbounds i8, ptr %0, i64 8856
-  store float %35, ptr %36, align 8
-  %37 = fdiv float 0x3F847AE140000000, %3
-  %38 = getelementptr inbounds i8, ptr %0, i64 8860
-  store float %37, ptr %38, align 4
-  %39 = fdiv float 1.000000e+00, %3
-  %40 = getelementptr inbounds i8, ptr %0, i64 8864
-  store float %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8868
-  store float %3, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %0, align 8
-  tail call void %43(ptr noundef %44, float noundef %1, float noundef %2, float noundef %3) #57
-  %45 = getelementptr inbounds i8, ptr %0, i64 8900
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  %30 = getelementptr inbounds i8, ptr %0, i64 392
+  store float 1.000000e+00, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 400
+  store i32 65, ptr %31, align 4
+  %32 = fdiv float 2.500000e-01, %3
+  %33 = getelementptr inbounds i8, ptr %0, i64 8856
+  store float %32, ptr %33, align 8
+  %34 = fdiv float 0x3F847AE140000000, %3
+  %35 = getelementptr inbounds i8, ptr %0, i64 8860
+  store float %34, ptr %35, align 4
+  %36 = fdiv float 1.000000e+00, %3
+  %37 = getelementptr inbounds i8, ptr %0, i64 8864
+  store float %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 8868
+  store float %3, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %0, align 8
+  tail call void %40(ptr noundef %41, float noundef %1, float noundef %2, float noundef %3) #57
+  %42 = getelementptr inbounds i8, ptr %0, i64 8900
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -20526,8 +20508,8 @@ define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias nocapture writa
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias nocapture writable sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, float noundef %8) local_unnamed_addr #35 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 24, i1 false)
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 48, i1 false)
   %11 = tail call float @cosf(float noundef %6) #57
   %12 = tail call float @sinf(float noundef %6) #57
   store float %11, ptr %0, align 4

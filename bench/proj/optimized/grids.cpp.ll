@@ -7063,7 +7063,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetC2EP6pj_ctxOS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i64 16), ptr %0, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #33
-          to label %8 unwind label %31
+          to label %8 unwind label %30
 
 8:                                                ; preds = %3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i64 16), ptr %7, align 8
@@ -7085,11 +7085,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetC2EP6pj_ctxOS
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #30
   %17 = getelementptr inbounds i8, ptr %7, i64 80
   %18 = getelementptr inbounds i8, ptr %7, i64 88
-  store i64 0, ptr %18, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 96
   %20 = getelementptr inbounds i8, ptr %7, i64 128
-  store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 144
   store ptr %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 104
@@ -7103,21 +7102,19 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetC2EP6pj_ctxOS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 168
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 176
-  store i64 12, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 184
-  store i64 10, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %7, ptr %30, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 176
+  store i64 12, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 184
+  store i64 10, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %7, ptr %29, align 8
   ret void
 
-31:                                               ; preds = %3
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %3
+  %31 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #30
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %31
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
@@ -11849,7 +11846,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetC2EP6pj_ctxOS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i64 16), ptr %0, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #33
-          to label %8 unwind label %31
+          to label %8 unwind label %30
 
 8:                                                ; preds = %3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i64 16), ptr %7, align 8
@@ -11871,11 +11868,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetC2EP6pj_ctxOS
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #30
   %17 = getelementptr inbounds i8, ptr %7, i64 80
   %18 = getelementptr inbounds i8, ptr %7, i64 88
-  store i64 0, ptr %18, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 96
   %20 = getelementptr inbounds i8, ptr %7, i64 128
-  store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 144
   store ptr %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 104
@@ -11889,21 +11885,19 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetC2EP6pj_ctxOS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 168
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 176
-  store i64 12, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 184
-  store i64 10, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %7, ptr %30, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 176
+  store i64 12, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 184
+  store i64 10, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %7, ptr %29, align 8
   ret void
 
-31:                                               ; preds = %3
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %3
+  %31 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #30
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14706,7 +14700,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetC2EP6pj
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i64 16), ptr %0, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #33
-          to label %8 unwind label %31
+          to label %8 unwind label %30
 
 8:                                                ; preds = %3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i64 16), ptr %7, align 8
@@ -14728,11 +14722,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetC2EP6pj
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #30
   %17 = getelementptr inbounds i8, ptr %7, i64 80
   %18 = getelementptr inbounds i8, ptr %7, i64 88
-  store i64 0, ptr %18, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 96
   %20 = getelementptr inbounds i8, ptr %7, i64 128
-  store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 144
   store ptr %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 104
@@ -14746,21 +14739,19 @@ define linkonce_odr hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetC2EP6pj
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 168
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 176
-  store i64 12, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 184
-  store i64 10, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %7, ptr %30, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 176
+  store i64 12, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 184
+  store i64 10, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %7, ptr %29, align 8
   ret void
 
-31:                                               ; preds = %3
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %3
+  %31 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #30
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable

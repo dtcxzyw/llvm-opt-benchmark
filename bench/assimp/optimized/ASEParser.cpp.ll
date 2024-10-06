@@ -482,8 +482,7 @@ define hidden void @_ZN6Assimp3ASE6ParserC2EPKcj(ptr nocapture noundef nonnull w
 entry:
   %m_clrBackground = getelementptr inbounds i8, ptr %this, i64 8
   %m_clrAmbient = getelementptr inbounds i8, ptr %this, i64 20
-  %0 = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(140) %0, i8 0, i64 140, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %m_clrBackground, i8 0, i64 144, i1 false)
   store ptr %szFile, ptr %this, align 8
   %iFileFormat = getelementptr inbounds i8, ptr %this, i64 176
   store i32 %fileFormatDefault, ptr %iFileFormat, align 8
@@ -10835,7 +10834,7 @@ if.then5:                                         ; preds = %land.lhs.true.i, %l
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 14
   %storemerge.i = select i1 %cmp.not.i, ptr %arrayidx.i, ptr %add.ptr.i
   store ptr %storemerge.i, ptr %this, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %vTemp, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %vTemp, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %a, align 4
   call void @_ZN6Assimp3ASE6Parser23ParseLV4MeshFloatTripleEPfRj(ptr noundef nonnull align 8 dereferenceable(180) %this, ptr noundef nonnull %vTemp, ptr noundef nonnull align 4 dereferenceable(4) %iIndex)
   %4 = load i32, ptr %iIndex, align 4

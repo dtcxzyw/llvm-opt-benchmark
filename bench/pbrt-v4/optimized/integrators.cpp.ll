@@ -5172,12 +5172,12 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4pbrt15GetCameraSampleINS_7SamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %entry, %if.then.i
   %cameraSample.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i31.i, %if.then.i ], [ %retval.sroa.0.4.vec.insert.i9.i, %entry ]
-  %cameraSample.sroa.3.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call3.i.i21.i, %entry ]
+  %cameraSample.sroa.4.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call3.i.i21.i, %entry ]
   %cameraSample.sroa.9.0 = phi float [ 1.000000e+00, %if.then.i ], [ %call3.fca.1.extract.i, %entry ]
   %cameraSample.sroa.7.0 = phi float [ 5.000000e-01, %if.then.i ], [ %call3.i.i15.i, %entry ]
   store <2 x float> %cameraSample.sroa.0.0, ptr %agg.tmp8, align 8
-  %cameraSample.sroa.3.0.agg.tmp8.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
-  store <2 x float> %cameraSample.sroa.3.0, ptr %cameraSample.sroa.3.0.agg.tmp8.sroa_idx, align 8
+  %cameraSample.sroa.4.0.agg.tmp8.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  store <2 x float> %cameraSample.sroa.4.0, ptr %cameraSample.sroa.4.0.agg.tmp8.sroa_idx, align 8
   %cameraSample.sroa.7.0.agg.tmp8.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
   store float %cameraSample.sroa.7.0, ptr %cameraSample.sroa.7.0.agg.tmp8.sroa_idx, align 8
   %cameraSample.sroa.9.0.agg.tmp8.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp8, i64 20
@@ -40537,20 +40537,17 @@ for.body70.lr.ph:                                 ; preds = %invoke.cont66
   %61 = ptrtoint ptr %pixels to i64
   %_M_manager.i.i277 = getelementptr inbounds i8, ptr %agg.tmp224, i64 16
   %_M_invoker.i278 = getelementptr inbounds i8, ptr %agg.tmp224, i64 24
-  %62 = getelementptr inbounds i8, ptr %agg.tmp224, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %63 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %64 = ptrtoint ptr %agg.tmp224 to i64
+  %62 = ptrtoint ptr %agg.tmp224 to i64
   %arrayinit.element261 = getelementptr inbounds i8, ptr %ref.tmp255, i64 32
   %arrayinit.element265 = getelementptr inbounds i8, ptr %ref.tmp255, i64 64
-  %65 = getelementptr inbounds i8, ptr %ref.tmp255, i64 96
+  %63 = getelementptr inbounds i8, ptr %ref.tmp255, i64 96
   %_M_manager.i.i332 = getelementptr inbounds i8, ptr %agg.tmp307, i64 16
   %_M_invoker.i333 = getelementptr inbounds i8, ptr %agg.tmp307, i64 24
   %_M_manager.i.i.i336 = getelementptr inbounds i8, ptr %agg.tmp.i335, i64 16
   %_M_invoker.i.i337 = getelementptr inbounds i8, ptr %agg.tmp.i335, i64 24
-  %66 = getelementptr inbounds i8, ptr %agg.tmp.i335, i64 8
-  %67 = ptrtoint ptr %agg.tmp307 to i64
+  %64 = ptrtoint ptr %agg.tmp307 to i64
   %set.i.i357 = getelementptr inbounds i8, ptr %metadata, i64 4
   %set.i1.i = getelementptr inbounds i8, ptr %metadata, i64 72
   %set.i2.i = getelementptr inbounds i8, ptr %metadata, i64 140
@@ -40559,12 +40556,12 @@ for.body70.lr.ph:                                 ; preds = %invoke.cont66
   %set.i5.i = getelementptr inbounds i8, ptr %metadata, i64 180
   %set.i6.i = getelementptr inbounds i8, ptr %metadata, i64 188
   %set.i7.i = getelementptr inbounds i8, ptr %metadata, i64 200
-  %68 = getelementptr inbounds i8, ptr %metadata, i64 216
+  %65 = getelementptr inbounds i8, ptr %metadata, i64 216
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %metadata, i64 224
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %metadata, i64 232
   %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %metadata, i64 240
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %metadata, i64 248
-  %69 = getelementptr inbounds i8, ptr %metadata, i64 264
+  %66 = getelementptr inbounds i8, ptr %metadata, i64 264
   %_M_parent.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %metadata, i64 272
   %_M_left.i.i.i.i.i9.i = getelementptr inbounds i8, ptr %metadata, i64 280
   %_M_right.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %metadata, i64 288
@@ -40586,12 +40583,12 @@ for.body70.lr.ph:                                 ; preds = %invoke.cont66
   %set.i5.i497 = getelementptr inbounds i8, ptr %metadata469, i64 180
   %set.i6.i498 = getelementptr inbounds i8, ptr %metadata469, i64 188
   %set.i7.i499 = getelementptr inbounds i8, ptr %metadata469, i64 200
-  %70 = getelementptr inbounds i8, ptr %metadata469, i64 216
+  %67 = getelementptr inbounds i8, ptr %metadata469, i64 216
   %_M_parent.i.i.i.i.i.i500 = getelementptr inbounds i8, ptr %metadata469, i64 224
   %_M_left.i.i.i.i.i.i501 = getelementptr inbounds i8, ptr %metadata469, i64 232
   %_M_right.i.i.i.i.i.i502 = getelementptr inbounds i8, ptr %metadata469, i64 240
   %_M_node_count.i.i.i.i.i.i503 = getelementptr inbounds i8, ptr %metadata469, i64 248
-  %71 = getelementptr inbounds i8, ptr %metadata469, i64 264
+  %68 = getelementptr inbounds i8, ptr %metadata469, i64 264
   %_M_parent.i.i.i.i.i8.i504 = getelementptr inbounds i8, ptr %metadata469, i64 272
   %_M_left.i.i.i.i.i9.i505 = getelementptr inbounds i8, ptr %metadata469, i64 280
   %_M_right.i.i.i.i.i10.i506 = getelementptr inbounds i8, ptr %metadata469, i64 288
@@ -40602,6 +40599,9 @@ for.body70.lr.ph:                                 ; preds = %invoke.cont66
   %create.i = getelementptr inbounds i8, ptr %photonShootScratchBuffers, i64 80
   %hashTable.i534 = getelementptr inbounds i8, ptr %photonShootScratchBuffers, i64 56
   %_M_finish.i.i535 = getelementptr inbounds i8, ptr %photonShootScratchBuffers, i64 64
+  %69 = getelementptr inbounds i8, ptr %agg.tmp224, i64 8
+  %70 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %71 = getelementptr inbounds i8, ptr %agg.tmp.i335, i64 8
   br label %for.body70
 
 for.body70:                                       ; preds = %for.body70.lr.ph, %_ZNSt6vectorISt6atomicIPN4pbrt17SPPMPixelListNodeEESaIS4_EED2Ev.exit
@@ -41551,13 +41551,13 @@ _ZN4pbrt16ProgressReporter6UpdateEl.exit276:      ; preds = %invoke.cont219, %if
   %172 = load i64, ptr %60, align 8
   %add223 = add nsw i64 %172, %conv222
   store i64 %add223, ptr %60, align 8
-  store i64 0, ptr %62, align 8
+  store i64 0, ptr %69, align 8
   store i64 %61, ptr %agg.tmp224, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_14SPPMIntegrator6RenderEvE3$_7E9_M_invokeERKSt9_Any_dataOS2_", ptr %_M_invoker.i278, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_14SPPMIntegrator6RenderEvE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i277, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  store i64 0, ptr %63, align 8
-  store i64 %64, ptr %agg.tmp.i, align 8
+  store i64 0, ptr %70, align 8
+  store i64 %62, ptr %agg.tmp.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEEZNS0_13ParallelFor2DERKS2_St8functionIFvNS0_6Point2IiEEEEEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEEZNS0_13ParallelFor2DERKS2_St8functionIFvNS0_6Point2IiEEEEEUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN4pbrt13ParallelFor2DERKNS_7Bounds2IiEESt8functionIFvS1_EE(ptr noundef nonnull align 4 dereferenceable(16) %pixelBounds, ptr noundef nonnull %agg.tmp.i)
@@ -41712,7 +41712,7 @@ invoke.cont276:                                   ; preds = %.noexc327
           to label %arraydestroy.body282 unwind label %lpad273
 
 arraydestroy.body282:                             ; preds = %invoke.cont276, %arraydestroy.body282
-  %arraydestroy.elementPast283 = phi ptr [ %arraydestroy.element284, %arraydestroy.body282 ], [ %65, %invoke.cont276 ]
+  %arraydestroy.elementPast283 = phi ptr [ %arraydestroy.element284, %arraydestroy.body282 ], [ %63, %invoke.cont276 ]
   %arraydestroy.element284 = getelementptr inbounds i8, ptr %arraydestroy.elementPast283, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element284) #33
   %arraydestroy.done285 = icmp eq ptr %arraydestroy.element284, %ref.tmp255
@@ -41740,8 +41740,8 @@ invoke.cont310:                                   ; preds = %arraydestroy.done28
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_14SPPMIntegrator6RenderEvE3$_8E9_M_invokeERKSt9_Any_dataOS2_", ptr %_M_invoker.i333, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_14SPPMIntegrator6RenderEvE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i332, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i335)
-  store i64 0, ptr %66, align 8
-  store i64 %67, ptr %agg.tmp.i335, align 8
+  store i64 0, ptr %71, align 8
+  store i64 %64, ptr %agg.tmp.i335, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEEZNS0_13ParallelFor2DERKS2_St8functionIFvNS0_6Point2IiEEEEEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %_M_invoker.i.i337, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEEZNS0_13ParallelFor2DERKS2_St8functionIFvNS0_6Point2IiEEEEEUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i.i336, align 8
   invoke void @_ZN4pbrt13ParallelFor2DERKNS_7Bounds2IiEESt8functionIFvS1_EE(ptr noundef nonnull align 4 dereferenceable(16) %pixelBounds, ptr noundef nonnull %agg.tmp.i335)
@@ -41807,15 +41807,15 @@ _ZNSt8functionIFvN4pbrt6Point2IiEEEED2Ev.exit356: ; preds = %invoke.cont312, %if
   store i8 0, ptr %set.i5.i, align 4
   store i8 0, ptr %set.i6.i, align 4
   store i8 0, ptr %set.i7.i, align 8
-  store i32 0, ptr %68, align 8
+  store i32 0, ptr %65, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  store ptr %68, ptr %_M_left.i.i.i.i.i.i, align 8
-  store ptr %68, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %65, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %65, ptr %_M_right.i.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  store i32 0, ptr %69, align 8
+  store i32 0, ptr %66, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i8.i, align 8
-  store ptr %69, ptr %_M_left.i.i.i.i.i9.i, align 8
-  store ptr %69, ptr %_M_right.i.i.i.i.i10.i, align 8
+  store ptr %66, ptr %_M_left.i.i.i.i.i9.i, align 8
+  store ptr %66, ptr %_M_right.i.i.i.i.i10.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i11.i, align 8
   %203 = load i8, ptr %set.i.i358, align 4
   %tobool.i.i359 = trunc i8 %203 to i1
@@ -42065,7 +42065,7 @@ lpad273:                                          ; preds = %invoke.cont276
   br label %arraydestroy.body289
 
 arraydestroy.body289:                             ; preds = %arraydestroy.body289, %lpad273
-  %arraydestroy.elementPast290 = phi ptr [ %65, %lpad273 ], [ %arraydestroy.element291, %arraydestroy.body289 ]
+  %arraydestroy.elementPast290 = phi ptr [ %63, %lpad273 ], [ %arraydestroy.element291, %arraydestroy.body289 ]
   %arraydestroy.element291 = getelementptr inbounds i8, ptr %arraydestroy.elementPast290, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element291) #33
   %arraydestroy.done292 = icmp eq ptr %arraydestroy.element291, %ref.tmp255
@@ -42247,15 +42247,15 @@ invoke.cont482:                                   ; preds = %for.inc465, %invoke
   store i8 0, ptr %set.i5.i497, align 4
   store i8 0, ptr %set.i6.i498, align 4
   store i8 0, ptr %set.i7.i499, align 8
-  store i32 0, ptr %70, align 8
+  store i32 0, ptr %67, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i500, align 8
-  store ptr %70, ptr %_M_left.i.i.i.i.i.i501, align 8
-  store ptr %70, ptr %_M_right.i.i.i.i.i.i502, align 8
+  store ptr %67, ptr %_M_left.i.i.i.i.i.i501, align 8
+  store ptr %67, ptr %_M_right.i.i.i.i.i.i502, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i503, align 8
-  store i32 0, ptr %71, align 8
+  store i32 0, ptr %68, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i8.i504, align 8
-  store ptr %71, ptr %_M_left.i.i.i.i.i9.i505, align 8
-  store ptr %71, ptr %_M_right.i.i.i.i.i10.i506, align 8
+  store ptr %68, ptr %_M_left.i.i.i.i.i9.i505, align 8
+  store ptr %68, ptr %_M_right.i.i.i.i.i10.i506, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i11.i507, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pixelBounds470, ptr noundef nonnull align 8 dereferenceable(16) %pixelBounds, i64 16, i1 false)
   store i8 1, ptr %set.i3.i495, align 8
@@ -46084,11 +46084,11 @@ for.body196.lr.ph:                                ; preds = %_ZNSt8functionIFN4p
   %_M_invoker.i165 = getelementptr inbounds i8, ptr %agg.tmp253, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %64 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %65 = ptrtoint ptr %agg.tmp253 to i64
+  %64 = ptrtoint ptr %agg.tmp253 to i64
   %values.i194 = getelementptr inbounds i8, ptr %sumv, i64 24
   %y.i.i.i.i = getelementptr inbounds i8, ptr %sumv, i64 12
   %conv283 = sitofp i32 %mul.i to double
+  %65 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   br label %for.body196
 
 for.body196:                                      ; preds = %for.body196.lr.ph, %for.inc296
@@ -46237,8 +46237,8 @@ invoke.cont255:                                   ; preds = %while.end252
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_18FunctionIntegrator6RenderEvE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %_M_invoker.i165, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_18FunctionIntegrator6RenderEvE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i164, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  store i64 0, ptr %64, align 8
-  store i64 %65, ptr %agg.tmp.i, align 8
+  store i64 0, ptr %65, align 8
+  store i64 %64, ptr %agg.tmp.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEEZNS0_13ParallelFor2DERKS2_St8functionIFvNS0_6Point2IiEEEEEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEEZNS0_13ParallelFor2DERKS2_St8functionIFvNS0_6Point2IiEEEEEUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN4pbrt13ParallelFor2DERKNS_7Bounds2IiEESt8functionIFvS1_EE(ptr noundef nonnull align 4 dereferenceable(16) %pixelBounds, ptr noundef nonnull %agg.tmp.i)
@@ -52524,8 +52524,7 @@ sw.default:                                       ; preds = %entry
   %8 = load float, ptr %lambdaMin.i.i, align 8, !noalias !708
   %lambdaMax.i.i = getelementptr inbounds i8, ptr %ptr, i64 92
   %9 = load float, ptr %lambdaMax.i.i, align 4, !noalias !708
-  %10 = getelementptr inbounds i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 28, i1 false), !alias.scope !709
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !709
   %sub.i.i.i.i34 = fsub float 1.000000e+00, %7
   %mul.i.i.i.i35 = fmul float %sub.i.i.i.i34, %8
   %mul1.i.i.i.i36 = fmul float %7, %9
@@ -52541,9 +52540,9 @@ for.cond21.preheader.i.i.i:                       ; preds = %for.body.i.i.i39
   br label %for.body23.i.i.i
 
 for.body.i.i.i39:                                 ; preds = %for.body.i.i.i39, %sw.default
-  %11 = phi float [ %add.i.i.i.i, %sw.default ], [ %storemerge.i.i.i, %for.body.i.i.i39 ]
+  %10 = phi float [ %add.i.i.i.i, %sw.default ], [ %storemerge.i.i.i, %for.body.i.i.i39 ]
   %indvars.iv.i.i.i40 = phi i64 [ 1, %sw.default ], [ %indvars.iv.next.i.i.i42, %for.body.i.i.i39 ]
-  %add.i.i.i41 = fadd float %div.i.i.i38, %11
+  %add.i.i.i41 = fadd float %div.i.i.i38, %10
   %arrayidx.i16.i.i.i = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 %indvars.iv.i.i.i40
   %cmp11.i.i.i = fcmp ogt float %add.i.i.i41, %9
   %sub15.i.i.i = fsub float %add.i.i.i41, %9
@@ -91197,7 +91196,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
   %12 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %13 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %camera.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
-  %cs.sroa.3.0.agg.tmp12.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i.i.i, i64 8
+  %cs.sroa.4.0.agg.tmp12.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i.i.i, i64 8
   %cs.sroa.7.0.agg.tmp12.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i.i.i, i64 16
   %cs.sroa.9.0.agg.tmp12.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i.i.i, i64 20
   %set.i.i.i.i = getelementptr inbounds i8, ptr %crd.i.i.i, i64 112
@@ -91387,12 +91386,12 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   br label %_ZN4pbrt15GetCameraSampleINS_7SamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit.i.i.i
 
 _ZN4pbrt15GetCameraSampleINS_7SamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit.i.i.i: ; preds = %if.then.i.i.i.i, %for.body.i.i.i
-  %cs.sroa.0.0.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i31.i.i.i.i, %if.then.i.i.i.i ], [ %retval.sroa.0.4.vec.insert.i9.i.i.i.i, %for.body.i.i.i ]
-  %cs.sroa.3.1.i.i.i = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i.i.i.i ], [ %call3.i.i21.i.i.i.i, %for.body.i.i.i ]
+  %cs.sroa.0.1.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i31.i.i.i.i, %if.then.i.i.i.i ], [ %retval.sroa.0.4.vec.insert.i9.i.i.i.i, %for.body.i.i.i ]
+  %cs.sroa.4.1.i.i.i = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i.i.i.i ], [ %call3.i.i21.i.i.i.i, %for.body.i.i.i ]
   %cs.sroa.9.0.i.i.i = phi float [ 1.000000e+00, %if.then.i.i.i.i ], [ %call3.fca.1.extract.i.i.i.i, %for.body.i.i.i ]
   %cs.sroa.7.1.i.i.i = phi float [ 5.000000e-01, %if.then.i.i.i.i ], [ %call3.i.i15.i.i.i.i, %for.body.i.i.i ]
-  store <2 x float> %cs.sroa.0.0.i.i.i, ptr %agg.tmp12.i.i.i, align 8
-  store <2 x float> %cs.sroa.3.1.i.i.i, ptr %cs.sroa.3.0.agg.tmp12.sroa_idx.i.i.i, align 8
+  store <2 x float> %cs.sroa.0.1.i.i.i, ptr %agg.tmp12.i.i.i, align 8
+  store <2 x float> %cs.sroa.4.1.i.i.i, ptr %cs.sroa.4.0.agg.tmp12.sroa_idx.i.i.i, align 8
   store float %cs.sroa.7.1.i.i.i, ptr %cs.sroa.7.0.agg.tmp12.sroa_idx.i.i.i, align 8
   store float %cs.sroa.9.0.i.i.i, ptr %cs.sroa.9.0.agg.tmp12.sroa_idx.i.i.i, align 4
   call void @_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.102") align 8 %crd.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %camera.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp12.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i)

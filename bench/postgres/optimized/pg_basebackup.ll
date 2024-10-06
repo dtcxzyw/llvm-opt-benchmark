@@ -3472,7 +3472,7 @@ declare i32 @fork() local_unnamed_addr #4
 define internal fastcc range(i32 0, 2) i32 @LogStreamerMain(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.StreamCtl, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 64, i1 false)
   store i1 true, ptr @in_log_streamer, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3497,60 +3497,58 @@ define internal fastcc range(i32 0, 2) i32 @LogStreamerMain(ptr noundef %0) unna
   store i8 0, ptr %17, align 2
   %18 = getelementptr inbounds i8, ptr %2, i64 29
   store i8 1, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr @replication_slot, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %20, ptr %21, align 8
-  %22 = load i8, ptr @format, align 1
-  %23 = icmp eq i8 %22, 112
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %23, label %25, label %27
+  %19 = load ptr, ptr @replication_slot, align 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %19, ptr %20, align 8
+  %21 = load i8, ptr @format, align 1
+  %22 = icmp eq i8 %21, 112
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %22, label %24, label %26
 
-25:                                               ; preds = %1
-  %26 = tail call ptr @CreateWalDirectoryMethod(ptr noundef nonnull %24, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #18
-  br label %33
+24:                                               ; preds = %1
+  %25 = tail call ptr @CreateWalDirectoryMethod(ptr noundef nonnull %23, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #18
+  br label %32
 
-27:                                               ; preds = %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 1052
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 1056
-  %31 = load i32, ptr %30, align 8
-  %32 = tail call ptr @CreateWalTarMethod(ptr noundef nonnull %24, i32 noundef %29, i32 noundef %31, i1 noundef zeroext false) #18
-  br label %33
+26:                                               ; preds = %1
+  %27 = getelementptr inbounds i8, ptr %0, i64 1052
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 1056
+  %30 = load i32, ptr %29, align 8
+  %31 = tail call ptr @CreateWalTarMethod(ptr noundef nonnull %23, i32 noundef %28, i32 noundef %30, i1 noundef zeroext false) #18
+  br label %32
 
-33:                                               ; preds = %27, %25
-  %.sink = phi ptr [ %26, %25 ], [ %32, %27 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %.sink, ptr %34, align 8
-  %35 = load ptr, ptr %0, align 8
-  %36 = call zeroext i1 @ReceiveXlogStream(ptr noundef %35, ptr noundef nonnull %2) #18
-  br i1 %36, label %37, label %50
+32:                                               ; preds = %26, %24
+  %.sink = phi ptr [ %25, %24 ], [ %31, %26 ]
+  %33 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %.sink, ptr %33, align 8
+  %34 = load ptr, ptr %0, align 8
+  %35 = call zeroext i1 @ReceiveXlogStream(ptr noundef %34, ptr noundef nonnull %2) #18
+  br i1 %35, label %36, label %49
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %34, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 56
-  %41 = load ptr, ptr %40, align 8
-  %42 = call zeroext i1 %41(ptr noundef nonnull %38) #18
-  br i1 %42, label %44, label %43
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %33, align 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %40 = load ptr, ptr %39, align 8
+  %41 = call zeroext i1 %40(ptr noundef nonnull %37) #18
+  br i1 %41, label %43, label %42
 
-43:                                               ; preds = %37
+42:                                               ; preds = %36
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.244) #18
-  br label %50
+  br label %49
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %0, align 8
-  call void @PQfinish(ptr noundef %45) #18
-  %46 = load ptr, ptr %34, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 64
-  %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull %46) #18
-  br label %50
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %0, align 8
+  call void @PQfinish(ptr noundef %44) #18
+  %45 = load ptr, ptr %33, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %48 = load ptr, ptr %47, align 8
+  call void %48(ptr noundef nonnull %45) #18
+  br label %49
 
-50:                                               ; preds = %33, %44, %43
-  %.0 = phi i32 [ 0, %44 ], [ 1, %43 ], [ 1, %33 ]
+49:                                               ; preds = %32, %43, %42
+  %.0 = phi i32 [ 0, %43 ], [ 1, %42 ], [ 1, %32 ]
   ret i32 %.0
 }
 

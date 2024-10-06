@@ -4109,18 +4109,17 @@ define internal fastcc range(i32 0, 2) i32 @map_raw(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.184) #11
-  br label %21
+  br label %20
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %3, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %18, i8 0, i64 63, i1 false)
-  %19 = trunc nuw nsw i32 %5 to i8
-  store i8 %19, ptr %3, align 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %1, i64 %6, i1 false)
-  br label %21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, i8 0, i64 64, i1 false)
+  %18 = trunc nuw nsw i32 %5 to i8
+  store i8 %18, ptr %3, align 1
+  %19 = getelementptr inbounds i8, ptr %3, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %1, i64 %6, i1 false)
+  br label %20
 
-21:                                               ; preds = %17, %16
+20:                                               ; preds = %17, %16
   %.0 = phi i32 [ 0, %17 ], [ 1, %16 ]
   ret i32 %.0
 }

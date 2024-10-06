@@ -252,16 +252,12 @@ entry:
   %buf.i = alloca [250 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %cmd.i)
   call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %buf.i)
-  %0 = getelementptr inbounds i8, ptr %cmd.i, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %0, i8 0, i64 3, i1 false)
+  %0 = getelementptr inbounds i8, ptr %cmd.i, i64 2
+  store i32 16384131, ptr %0, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(250) %buf.i, i8 0, i64 250, i1 false)
   store i8 18, ptr %cmd.i, align 1
   %arrayidx2.i = getelementptr inbounds i8, ptr %cmd.i, i64 1
   store i8 1, ptr %arrayidx2.i, align 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %cmd.i, i64 2
-  store i8 -125, ptr %arrayidx3.i, align 1
-  %arrayidx4.i = getelementptr inbounds i8, ptr %cmd.i, i64 4
-  store i8 -6, ptr %arrayidx4.i, align 1
   %conf.i = getelementptr inbounds i8, ptr %s, i64 184
   %1 = load ptr, ptr %conf.i, align 8
   %io_timeout.i = getelementptr inbounds i8, ptr %s, i64 600
@@ -459,48 +455,44 @@ scsi_generic_read_device_identification.exit:     ; preds = %for.body.i, %if.end
 if.then:                                          ; preds = %scsi_generic_read_device_identification.exit, %scsi_generic_read_device_identification.exit
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %cmd.i5)
   call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %buf.i6)
-  %22 = getelementptr inbounds i8, ptr %cmd.i5, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, i8 0, i64 3, i1 false)
+  %22 = getelementptr inbounds i8, ptr %cmd.i5, i64 2
+  store i32 16384000, ptr %22, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(250) %buf.i6, i8 0, i64 250, i1 false)
   store i8 18, ptr %cmd.i5, align 1
   %arrayidx2.i7 = getelementptr inbounds i8, ptr %cmd.i5, i64 1
   store i8 1, ptr %arrayidx2.i7, align 1
-  %arrayidx3.i8 = getelementptr inbounds i8, ptr %cmd.i5, i64 2
-  store i8 0, ptr %arrayidx3.i8, align 1
-  %arrayidx4.i9 = getelementptr inbounds i8, ptr %cmd.i5, i64 4
-  store i8 -6, ptr %arrayidx4.i9, align 1
   %23 = load ptr, ptr %conf.i, align 8
   %24 = load i32, ptr %io_timeout.i, align 8
-  %call.i12 = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %23, ptr noundef nonnull %cmd.i5, i8 noundef zeroext 6, ptr noundef nonnull %buf.i6, i8 noundef zeroext -6, i32 noundef %24)
-  %cmp.i13 = icmp slt i32 %call.i12, 0
-  br i1 %cmp.i13, label %scsi_generic_set_vpd_bl_emulation.exit, label %if.end.i14
+  %call.i11 = call i32 @scsi_SG_IO_FROM_DEV(ptr noundef %23, ptr noundef nonnull %cmd.i5, i8 noundef zeroext 6, ptr noundef nonnull %buf.i6, i8 noundef zeroext -6, i32 noundef %24)
+  %cmp.i12 = icmp slt i32 %call.i11, 0
+  br i1 %cmp.i12, label %scsi_generic_set_vpd_bl_emulation.exit, label %if.end.i13
 
-if.end.i14:                                       ; preds = %if.then
-  %arrayidx7.i15 = getelementptr inbounds i8, ptr %buf.i6, i64 3
-  %25 = load i8, ptr %arrayidx7.i15, align 1
+if.end.i13:                                       ; preds = %if.then
+  %arrayidx7.i14 = getelementptr inbounds i8, ptr %buf.i6, i64 3
+  %25 = load i8, ptr %arrayidx7.i14, align 1
   %cmp129.not.i = icmp eq i8 %25, 0
   br i1 %cmp129.not.i, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.body.preheader.i
 
-for.body.preheader.i:                             ; preds = %if.end.i14
+for.body.preheader.i:                             ; preds = %if.end.i13
   %26 = call i8 @llvm.umin.i8(i8 %25, i8 -10)
   %narrow.i = add nuw i8 %26, 4
   %wide.trip.count = zext i8 %narrow.i to i64
-  br label %for.body.i16
+  br label %for.body.i15
 
-for.cond.i:                                       ; preds = %for.body.i16
+for.cond.i:                                       ; preds = %for.body.i15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.body.i16, !llvm.loop !8
+  br i1 %exitcond.not, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.body.i15, !llvm.loop !8
 
-for.body.i16:                                     ; preds = %for.cond.i, %for.body.preheader.i
+for.body.i15:                                     ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.i ], [ 4, %for.body.preheader.i ]
   %arrayidx14.i = getelementptr [250 x i8], ptr %buf.i6, i64 0, i64 %indvars.iv
   %27 = load i8, ptr %arrayidx14.i, align 1
   %cmp16.i = icmp eq i8 %27, -80
   br i1 %cmp16.i, label %scsi_generic_set_vpd_bl_emulation.exit, label %for.cond.i
 
-scsi_generic_set_vpd_bl_emulation.exit:           ; preds = %for.cond.i, %for.body.i16, %if.then, %if.end.i14
-  %.sink.i = phi i8 [ 0, %if.then ], [ 1, %if.end.i14 ], [ 1, %for.cond.i ], [ 0, %for.body.i16 ]
+scsi_generic_set_vpd_bl_emulation.exit:           ; preds = %for.cond.i, %for.body.i15, %if.then, %if.end.i13
+  %.sink.i = phi i8 [ 0, %if.then ], [ 1, %if.end.i13 ], [ 1, %for.cond.i ], [ 0, %for.body.i15 ]
   %needs_vpd_bl_emulation21.i = getelementptr inbounds i8, ptr %s, i64 604
   store i8 %.sink.i, ptr %needs_vpd_bl_emulation21.i, align 4
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %cmd.i5)

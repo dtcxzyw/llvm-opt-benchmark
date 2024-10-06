@@ -6645,6 +6645,7 @@ declare void @_ZN7openvdb5v11_04math9Transform13postTranslateERKNS1_4Vec3IdEE(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_05tools17doResampleToMatchINS1_10BoxSamplerENS0_4util15NullInterrupterENS0_4GridINS0_4tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEEvRKT1_RSI_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %inGrid, ptr noundef nonnull align 8 dereferenceable(88) %outGrid, ptr noundef nonnull align 8 dereferenceable(8) %interrupter) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i.i164.sroa.4 = alloca [24 x i8], align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function.696", align 8
   %m0.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
@@ -7252,7 +7253,7 @@ _ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit154: ; preds = %_ZNSt1
   %mInterrupt.i = getelementptr inbounds i8, ptr %transformer, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %119 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %119, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i156 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %call.i.i2.i.i.i.noexc unwind label %lpad39
 
@@ -7360,6 +7361,8 @@ if.else43:                                        ; preds = %land.rhs.i, %land.e
   store i8 1, ptr %mTransformTiles.i, align 1
   %mInterrupt.i162 = getelementptr inbounds i8, ptr %resampler, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mInterrupt.i162, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i164.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i164.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i177 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %invoke.cont45 unwind label %lpad44
 
@@ -7374,7 +7377,8 @@ invoke.cont45:                                    ; preds = %if.else43
   store i64 %134, ptr %133, align 8
   store ptr %call.i.i2.i.i.i177, ptr %mInterrupt.i162, align 8
   %ref.tmp.i.i164.sroa.4.0.mInterrupt.i162.sroa_idx = getelementptr inbounds i8, ptr %resampler, i64 24
-  store i64 0, ptr %ref.tmp.i.i164.sroa.4.0.mInterrupt.i162.sroa_idx, align 8
+  %135 = load i64, ptr %ref.tmp.i.i164.sroa.4, align 8
+  store i64 %135, ptr %ref.tmp.i.i164.sroa.4.0.mInterrupt.i162.sroa_idx, align 8
   %_M_manager3.i.i.i170 = getelementptr inbounds i8, ptr %resampler, i64 32
   store ptr @_ZNSt17_Function_handlerIFbvESt5_BindIFMN7openvdb5v11_04util15NullInterrupterEFbiEPS5_iEEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i170, align 8
   %_M_invoker4.i.i.i171 = getelementptr inbounds i8, ptr %resampler, i64 40
@@ -7383,6 +7387,7 @@ invoke.cont45:                                    ; preds = %if.else43
   %.pre185 = load ptr, ptr %mTree.i3.i.phi.trans.insert, align 8
   %mTree.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %outGrid, i64 72
   %.pre = load ptr, ptr %mTree.i.i.phi.trans.insert, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i164.sroa.4)
   %mBackground.i.i.i.i = getelementptr inbounds i8, ptr %.pre185, i64 56
   invoke void @_ZN7openvdb5v11_05tools16changeBackgroundINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEvRT_RKNSD_9ValueTypeEbm(ptr noundef nonnull align 8 dereferenceable(1232) %.pre, ptr noundef nonnull align 4 dereferenceable(4) %mBackground.i.i.i.i, i1 noundef zeroext true, i64 noundef 32)
           to label %.noexc unwind label %lpad44
@@ -7393,23 +7398,23 @@ invoke.cont45:                                    ; preds = %if.else43
 
 invoke.cont46:                                    ; preds = %.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools13GridResamplerE, i64 16), ptr %resampler, align 8
-  %135 = load ptr, ptr %_M_manager3.i.i.i170, align 8
-  %tobool.not.i.i.i = icmp eq ptr %135, null
+  %136 = load ptr, ptr %_M_manager3.i.i.i170, align 8
+  %tobool.not.i.i.i = icmp eq ptr %136, null
   br i1 %tobool.not.i.i.i, label %if.end48, label %if.then.i.i.i180
 
 if.then.i.i.i180:                                 ; preds = %invoke.cont46
-  %call.i.i.i = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, i32 noundef 3)
           to label %if.end48 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i180
-  %136 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           catch ptr null
-  %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #29
+  %138 = extractvalue { ptr, i32 } %137, 0
+  call void @__clang_call_terminate(ptr %138) #29
   unreachable
 
 lpad44:                                           ; preds = %.noexc, %invoke.cont45, %if.else43
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_05tools13GridResamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %resampler) #19
   br label %eh.resume
@@ -7418,13 +7423,14 @@ if.end48:                                         ; preds = %if.then.i.i.i180, %
   ret void
 
 eh.resume:                                        ; preds = %lpad44, %lpad39, %ehcleanup38, %lpad
-  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %132, %lpad39 ], [ %.pn.pn, %ehcleanup38 ], [ %138, %lpad44 ]
+  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %132, %lpad39 ], [ %.pn.pn, %ehcleanup38 ], [ %139, %lpad44 ]
   resume { ptr, i32 } %.pn10
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_05tools17doResampleToMatchINS1_12PointSamplerENS0_4util15NullInterrupterENS0_4GridINS0_4tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEEvRKT1_RSI_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %inGrid, ptr noundef nonnull align 8 dereferenceable(88) %outGrid, ptr noundef nonnull align 8 dereferenceable(8) %interrupter) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i.i167.sroa.4 = alloca [24 x i8], align 8
   %xform.i = alloca %"struct.openvdb::v11_0::tools::GridTransformer::MatrixTransform", align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function.696", align 8
@@ -8033,7 +8039,7 @@ _ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit154: ; preds = %_ZNSt1
   %mInterrupt.i = getelementptr inbounds i8, ptr %transformer, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %119 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %119, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i156 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %call.i.i2.i.i.i.noexc unwind label %lpad34
 
@@ -8159,6 +8165,8 @@ if.else38:                                        ; preds = %land.rhs.i, %land.e
   store i8 1, ptr %mTransformTiles.i, align 1
   %mInterrupt.i165 = getelementptr inbounds i8, ptr %resampler, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mInterrupt.i165, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i167.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i167.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i180 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %invoke.cont40 unwind label %lpad39
 
@@ -8173,7 +8181,8 @@ invoke.cont40:                                    ; preds = %if.else38
   store i64 %136, ptr %135, align 8
   store ptr %call.i.i2.i.i.i180, ptr %mInterrupt.i165, align 8
   %ref.tmp.i.i167.sroa.4.0.mInterrupt.i165.sroa_idx = getelementptr inbounds i8, ptr %resampler, i64 24
-  store i64 0, ptr %ref.tmp.i.i167.sroa.4.0.mInterrupt.i165.sroa_idx, align 8
+  %137 = load i64, ptr %ref.tmp.i.i167.sroa.4, align 8
+  store i64 %137, ptr %ref.tmp.i.i167.sroa.4.0.mInterrupt.i165.sroa_idx, align 8
   %_M_manager3.i.i.i173 = getelementptr inbounds i8, ptr %resampler, i64 32
   store ptr @_ZNSt17_Function_handlerIFbvESt5_BindIFMN7openvdb5v11_04util15NullInterrupterEFbiEPS5_iEEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i173, align 8
   %_M_invoker4.i.i.i174 = getelementptr inbounds i8, ptr %resampler, i64 40
@@ -8182,6 +8191,7 @@ invoke.cont40:                                    ; preds = %if.else38
   %.pre191 = load ptr, ptr %mTree.i3.i.phi.trans.insert, align 8
   %mTree.i.i182.phi.trans.insert = getelementptr inbounds i8, ptr %outGrid, i64 72
   %.pre = load ptr, ptr %mTree.i.i182.phi.trans.insert, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i167.sroa.4)
   %mBackground.i.i.i.i183 = getelementptr inbounds i8, ptr %.pre191, i64 56
   invoke void @_ZN7openvdb5v11_05tools16changeBackgroundINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEvRT_RKNSD_9ValueTypeEbm(ptr noundef nonnull align 8 dereferenceable(1232) %.pre, ptr noundef nonnull align 4 dereferenceable(4) %mBackground.i.i.i.i183, i1 noundef zeroext true, i64 noundef 32)
           to label %.noexc184 unwind label %lpad39
@@ -8192,23 +8202,23 @@ invoke.cont40:                                    ; preds = %if.else38
 
 invoke.cont41:                                    ; preds = %.noexc184
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools13GridResamplerE, i64 16), ptr %resampler, align 8
-  %137 = load ptr, ptr %_M_manager3.i.i.i173, align 8
-  %tobool.not.i.i.i = icmp eq ptr %137, null
+  %138 = load ptr, ptr %_M_manager3.i.i.i173, align 8
+  %tobool.not.i.i.i = icmp eq ptr %138, null
   br i1 %tobool.not.i.i.i, label %if.end43, label %if.then.i.i.i186
 
 if.then.i.i.i186:                                 ; preds = %invoke.cont41
-  %call.i.i.i = invoke noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, i32 noundef 3)
           to label %if.end43 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i186
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           catch ptr null
-  %139 = extractvalue { ptr, i32 } %138, 0
-  call void @__clang_call_terminate(ptr %139) #29
+  %140 = extractvalue { ptr, i32 } %139, 0
+  call void @__clang_call_terminate(ptr %140) #29
   unreachable
 
 lpad39:                                           ; preds = %.noexc184, %invoke.cont40, %if.else38
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_05tools13GridResamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %resampler) #19
   br label %eh.resume
@@ -8217,7 +8227,7 @@ if.end43:                                         ; preds = %if.then.i.i.i186, %
   ret void
 
 eh.resume:                                        ; preds = %lpad39, %lpad34, %ehcleanup33, %lpad
-  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %134, %lpad34 ], [ %.pn.pn, %ehcleanup33 ], [ %140, %lpad39 ]
+  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %134, %lpad34 ], [ %.pn.pn, %ehcleanup33 ], [ %141, %lpad39 ]
   resume { ptr, i32 } %.pn10
 }
 
@@ -10775,6 +10785,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad3.i.i.i.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_05tools17doResampleToMatchINS1_10BoxSamplerENS0_4util15NullInterrupterENS0_4GridINS0_4tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEEvRKT1_RSI_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %inGrid, ptr noundef nonnull align 8 dereferenceable(88) %outGrid, ptr noundef nonnull align 8 dereferenceable(8) %interrupter) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i.i164.sroa.4 = alloca [24 x i8], align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function.696", align 8
   %m0.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
@@ -11382,7 +11393,7 @@ _ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit154: ; preds = %_ZNSt1
   %mInterrupt.i = getelementptr inbounds i8, ptr %transformer, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %119 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %119, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i156 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %call.i.i2.i.i.i.noexc unwind label %lpad34
 
@@ -11490,6 +11501,8 @@ if.else38:                                        ; preds = %land.rhs.i, %land.e
   store i8 1, ptr %mTransformTiles.i, align 1
   %mInterrupt.i162 = getelementptr inbounds i8, ptr %resampler, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mInterrupt.i162, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i164.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i164.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i177 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %invoke.cont40 unwind label %lpad39
 
@@ -11504,7 +11517,8 @@ invoke.cont40:                                    ; preds = %if.else38
   store i64 %134, ptr %133, align 8
   store ptr %call.i.i2.i.i.i177, ptr %mInterrupt.i162, align 8
   %ref.tmp.i.i164.sroa.4.0.mInterrupt.i162.sroa_idx = getelementptr inbounds i8, ptr %resampler, i64 24
-  store i64 0, ptr %ref.tmp.i.i164.sroa.4.0.mInterrupt.i162.sroa_idx, align 8
+  %135 = load i64, ptr %ref.tmp.i.i164.sroa.4, align 8
+  store i64 %135, ptr %ref.tmp.i.i164.sroa.4.0.mInterrupt.i162.sroa_idx, align 8
   %_M_manager3.i.i.i170 = getelementptr inbounds i8, ptr %resampler, i64 32
   store ptr @_ZNSt17_Function_handlerIFbvESt5_BindIFMN7openvdb5v11_04util15NullInterrupterEFbiEPS5_iEEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i170, align 8
   %_M_invoker4.i.i.i171 = getelementptr inbounds i8, ptr %resampler, i64 40
@@ -11513,6 +11527,7 @@ invoke.cont40:                                    ; preds = %if.else38
   %.pre185 = load ptr, ptr %mTree.i3.i.phi.trans.insert, align 8
   %mTree.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %outGrid, i64 72
   %.pre = load ptr, ptr %mTree.i.i.phi.trans.insert, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i164.sroa.4)
   %mBackground.i.i.i.i = getelementptr inbounds i8, ptr %.pre185, i64 56
   invoke void @_ZN7openvdb5v11_05tools16changeBackgroundINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEvRT_RKNSD_9ValueTypeEbm(ptr noundef nonnull align 8 dereferenceable(1232) %.pre, ptr noundef nonnull align 8 dereferenceable(8) %mBackground.i.i.i.i, i1 noundef zeroext true, i64 noundef 32)
           to label %.noexc unwind label %lpad39
@@ -11523,23 +11538,23 @@ invoke.cont40:                                    ; preds = %if.else38
 
 invoke.cont41:                                    ; preds = %.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools13GridResamplerE, i64 16), ptr %resampler, align 8
-  %135 = load ptr, ptr %_M_manager3.i.i.i170, align 8
-  %tobool.not.i.i.i = icmp eq ptr %135, null
+  %136 = load ptr, ptr %_M_manager3.i.i.i170, align 8
+  %tobool.not.i.i.i = icmp eq ptr %136, null
   br i1 %tobool.not.i.i.i, label %if.end43, label %if.then.i.i.i180
 
 if.then.i.i.i180:                                 ; preds = %invoke.cont41
-  %call.i.i.i = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i162, i32 noundef 3)
           to label %if.end43 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i180
-  %136 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           catch ptr null
-  %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #29
+  %138 = extractvalue { ptr, i32 } %137, 0
+  call void @__clang_call_terminate(ptr %138) #29
   unreachable
 
 lpad39:                                           ; preds = %.noexc, %invoke.cont40, %if.else38
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_05tools13GridResamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %resampler) #19
   br label %eh.resume
@@ -11548,13 +11563,14 @@ if.end43:                                         ; preds = %if.then.i.i.i180, %
   ret void
 
 eh.resume:                                        ; preds = %lpad39, %lpad34, %ehcleanup33, %lpad
-  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %132, %lpad34 ], [ %.pn.pn, %ehcleanup33 ], [ %138, %lpad39 ]
+  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %132, %lpad34 ], [ %.pn.pn, %ehcleanup33 ], [ %139, %lpad39 ]
   resume { ptr, i32 } %.pn10
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_05tools17doResampleToMatchINS1_12PointSamplerENS0_4util15NullInterrupterENS0_4GridINS0_4tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEEvRKT1_RSI_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %inGrid, ptr noundef nonnull align 8 dereferenceable(88) %outGrid, ptr noundef nonnull align 8 dereferenceable(8) %interrupter) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp.i.i167.sroa.4 = alloca [24 x i8], align 8
   %xform.i = alloca %"struct.openvdb::v11_0::tools::GridTransformer::MatrixTransform", align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function.696", align 8
@@ -12163,7 +12179,7 @@ _ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit154: ; preds = %_ZNSt1
   %mInterrupt.i = getelementptr inbounds i8, ptr %transformer, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %119 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store i64 0, ptr %119, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i156 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %call.i.i2.i.i.i.noexc unwind label %lpad34
 
@@ -12289,6 +12305,8 @@ if.else38:                                        ; preds = %land.rhs.i, %land.e
   store i8 1, ptr %mTransformTiles.i, align 1
   %mInterrupt.i165 = getelementptr inbounds i8, ptr %resampler, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mInterrupt.i165, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i167.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i167.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i2.i.i.i180 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %invoke.cont40 unwind label %lpad39
 
@@ -12303,7 +12321,8 @@ invoke.cont40:                                    ; preds = %if.else38
   store i64 %136, ptr %135, align 8
   store ptr %call.i.i2.i.i.i180, ptr %mInterrupt.i165, align 8
   %ref.tmp.i.i167.sroa.4.0.mInterrupt.i165.sroa_idx = getelementptr inbounds i8, ptr %resampler, i64 24
-  store i64 0, ptr %ref.tmp.i.i167.sroa.4.0.mInterrupt.i165.sroa_idx, align 8
+  %137 = load i64, ptr %ref.tmp.i.i167.sroa.4, align 8
+  store i64 %137, ptr %ref.tmp.i.i167.sroa.4.0.mInterrupt.i165.sroa_idx, align 8
   %_M_manager3.i.i.i173 = getelementptr inbounds i8, ptr %resampler, i64 32
   store ptr @_ZNSt17_Function_handlerIFbvESt5_BindIFMN7openvdb5v11_04util15NullInterrupterEFbiEPS5_iEEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i173, align 8
   %_M_invoker4.i.i.i174 = getelementptr inbounds i8, ptr %resampler, i64 40
@@ -12312,6 +12331,7 @@ invoke.cont40:                                    ; preds = %if.else38
   %.pre191 = load ptr, ptr %mTree.i3.i.phi.trans.insert, align 8
   %mTree.i.i182.phi.trans.insert = getelementptr inbounds i8, ptr %outGrid, i64 72
   %.pre = load ptr, ptr %mTree.i.i182.phi.trans.insert, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i167.sroa.4)
   %mBackground.i.i.i.i183 = getelementptr inbounds i8, ptr %.pre191, i64 56
   invoke void @_ZN7openvdb5v11_05tools16changeBackgroundINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEvRT_RKNSD_9ValueTypeEbm(ptr noundef nonnull align 8 dereferenceable(1232) %.pre, ptr noundef nonnull align 8 dereferenceable(8) %mBackground.i.i.i.i183, i1 noundef zeroext true, i64 noundef 32)
           to label %.noexc184 unwind label %lpad39
@@ -12322,23 +12342,23 @@ invoke.cont40:                                    ; preds = %if.else38
 
 invoke.cont41:                                    ; preds = %.noexc184
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools13GridResamplerE, i64 16), ptr %resampler, align 8
-  %137 = load ptr, ptr %_M_manager3.i.i.i173, align 8
-  %tobool.not.i.i.i = icmp eq ptr %137, null
+  %138 = load ptr, ptr %_M_manager3.i.i.i173, align 8
+  %tobool.not.i.i.i = icmp eq ptr %138, null
   br i1 %tobool.not.i.i.i, label %if.end43, label %if.then.i.i.i186
 
 if.then.i.i.i186:                                 ; preds = %invoke.cont41
-  %call.i.i.i = invoke noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, ptr noundef nonnull align 8 dereferenceable(16) %mInterrupt.i165, i32 noundef 3)
           to label %if.end43 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i186
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           catch ptr null
-  %139 = extractvalue { ptr, i32 } %138, 0
-  call void @__clang_call_terminate(ptr %139) #29
+  %140 = extractvalue { ptr, i32 } %139, 0
+  call void @__clang_call_terminate(ptr %140) #29
   unreachable
 
 lpad39:                                           ; preds = %.noexc184, %invoke.cont40, %if.else38
-  %140 = landingpad { ptr, i32 }
+  %141 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_05tools13GridResamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %resampler) #19
   br label %eh.resume
@@ -12347,7 +12367,7 @@ if.end43:                                         ; preds = %if.then.i.i.i186, %
   ret void
 
 eh.resume:                                        ; preds = %lpad39, %lpad34, %ehcleanup33, %lpad
-  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %134, %lpad34 ], [ %.pn.pn, %ehcleanup33 ], [ %140, %lpad39 ]
+  %.pn10 = phi { ptr, i32 } [ %21, %lpad ], [ %134, %lpad34 ], [ %.pn.pn, %ehcleanup33 ], [ %141, %lpad39 ]
   resume { ptr, i32 } %.pn10
 }
 
@@ -36135,7 +36155,7 @@ sw.bb2:                                           ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %1, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   %call.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE17doSyncAllBuffers1ERKN3tbb6detail2d113blocked_rangeImEE to i64), ptr %call.i.i2.i.i, align 8
   %this.repack4.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 8
@@ -36178,7 +36198,7 @@ sw.bb4:                                           ; preds = %entry
   %_M_manager.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 16
   %_M_invoker.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 8
-  store i64 0, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %call.i.i2.i.i13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE17doSyncAllBuffers2ERKN3tbb6detail2d113blocked_rangeImEE to i64), ptr %call.i.i2.i.i13, align 8
   %this.repack4.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i2.i.i13, i64 8
@@ -36221,7 +36241,7 @@ sw.default:                                       ; preds = %entry
   %_M_manager.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 16
   %_M_invoker.i.i32 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 8
-  store i64 0, ptr %11, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false)
   %call.i.i2.i.i33 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE17doSyncAllBuffersNERKN3tbb6detail2d113blocked_rangeImEE to i64), ptr %call.i.i2.i.i33, align 8
   %this.repack4.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.i2.i.i33, i64 8
@@ -158662,7 +158682,7 @@ sw.bb2:                                           ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %1, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   %call.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE17doSyncAllBuffers1ERKN3tbb6detail2d113blocked_rangeImEE to i64), ptr %call.i.i2.i.i, align 8
   %this.repack4.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i, i64 8
@@ -158705,7 +158725,7 @@ sw.bb4:                                           ; preds = %entry
   %_M_manager.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 16
   %_M_invoker.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 8
-  store i64 0, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %call.i.i2.i.i13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE17doSyncAllBuffers2ERKN3tbb6detail2d113blocked_rangeImEE to i64), ptr %call.i.i2.i.i13, align 8
   %this.repack4.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i2.i.i13, i64 8
@@ -158748,7 +158768,7 @@ sw.default:                                       ; preds = %entry
   %_M_manager.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 16
   %_M_invoker.i.i32 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 8
-  store i64 0, ptr %11, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false)
   %call.i.i2.i.i33 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE17doSyncAllBuffersNERKN3tbb6detail2d113blocked_rangeImEE to i64), ptr %call.i.i2.i.i33, align 8
   %this.repack4.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.i2.i.i33, i64 8

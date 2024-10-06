@@ -706,6 +706,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %offsets, i64 8
+  store i64 0, ptr %2, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i, label %if.then.i.i.i.i.i
 
@@ -1084,6 +1085,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %offsets, i64 8
+  store i64 0, ptr %2, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i, label %if.then.i.i.i.i.i
 

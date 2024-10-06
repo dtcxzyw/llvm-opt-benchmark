@@ -1375,7 +1375,7 @@ _ZN8pybind116objectD2Ev.exit48:                   ; preds = %_ZN8pybind116detail
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %60, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(472) %62, i8 0, i64 432, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(472) %62, i8 0, i64 424, i1 false)
   %63 = getelementptr inbounds i8, ptr %60, i64 48
   store ptr %63, ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %60, i64 8
@@ -7005,7 +7005,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZNS_6detail23all_t
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %4 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
-          to label %.noexc unwind label %20
+          to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %2
   %5 = getelementptr inbounds i8, ptr %4, i64 94
@@ -7013,7 +7013,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZNS_6detail23all_t
   store i16 0, ptr %6, align 8, !noalias !77
   %7 = getelementptr inbounds i8, ptr %4, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !noalias !77
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %4, i8 0, i64 91, i1 false), !noalias !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %4, i8 0, i64 89, i1 false), !noalias !77
   store ptr %4, ptr %3, align 8, !alias.scope !77
   %8 = getelementptr inbounds i8, ptr %4, i64 56
   %9 = load i64, ptr %1, align 8
@@ -7021,42 +7021,44 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZNS_6detail23all_t
   %10 = getelementptr inbounds i8, ptr %4, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail23all_type_info_get_cacheEP11_typeobjectEUlNS_6handleEE_vJS5_EJEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeESJ_, ptr %10, align 8
   store i16 1, ptr %5, align 2
+  %11 = getelementptr inbounds i8, ptr %4, i64 89
+  store i16 0, ptr %11, align 1
   invoke void @_ZN8pybind1112cpp_function18initialize_genericEOSt10unique_ptrINS_6detail15function_recordENS0_33InitializingFunctionRecordDeleterEEPKcPKPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @_ZZN8pybind1112cpp_function10initializeIZNS_6detail23all_type_info_get_cacheEP11_typeobjectEUlNS_6handleEE_vJS5_EJEEEvOT_PFT0_DpT1_EDpRKT2_E9signature, ptr noundef nonnull @_ZZN8pybind1112cpp_function10initializeIZNS_6detail23all_type_info_get_cacheEP11_typeobjectEUlNS_6handleEE_vJS5_EJEEEvOT_PFT0_DpT1_EDpRKT2_E5types, i64 noundef 1)
-          to label %11 unwind label %17
+          to label %12 unwind label %18
 
-11:                                               ; preds = %.noexc
-  %12 = load ptr, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %19, label %13
+12:                                               ; preds = %.noexc
+  %13 = load ptr, ptr %3, align 8
+  %.not.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i, label %20, label %14
 
-13:                                               ; preds = %11
-  invoke void @_ZN8pybind1112cpp_function8destructEPNS_6detail15function_recordEb(ptr noundef nonnull %12, i1 noundef zeroext false)
-          to label %19 unwind label %14
+14:                                               ; preds = %12
+  invoke void @_ZN8pybind1112cpp_function8destructEPNS_6detail15function_recordEb(ptr noundef nonnull %13, i1 noundef zeroext false)
+          to label %20 unwind label %15
 
-14:                                               ; preds = %13
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #25
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #25
   unreachable
 
-17:                                               ; preds = %.noexc
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8pybind116detail15function_recordENS0_12cpp_function33InitializingFunctionRecordDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   br label %.body
 
-19:                                               ; preds = %13, %11
+20:                                               ; preds = %14, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %17, %20
-  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %18, %17 ]
+.body:                                            ; preds = %18, %21
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %19, %18 ]
   call void @_ZN8pybind118functionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -18600,7 +18602,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail14clear_instanceEP7_object(p
   store ptr %12, ptr %13, align 8, !alias.scope !316
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 0, ptr %15, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false), !alias.scope !316
   %16 = load ptr, ptr %12, align 8, !noalias !316
   %17 = load ptr, ptr %16, align 8, !noalias !316
   %18 = getelementptr inbounds i8, ptr %0, i64 48

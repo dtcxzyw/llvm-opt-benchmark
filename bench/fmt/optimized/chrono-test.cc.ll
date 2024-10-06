@@ -129801,7 +129801,7 @@ return:                                           ; preds = %_ZN3fmt3v1019basic_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK3fmt3v106detail14digit_groupingIcE5applyIPccEET_S6_NS0_17basic_string_viewIT0_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %out, ptr %digits.coerce0, i64 %digits.coerce1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont4:
+entry:
   %separators = alloca %"class.fmt::v10::basic_memory_buffer.384", align 8
   %conv = trunc i64 %digits.coerce1 to i32
   %ptr_.i.i = getelementptr inbounds i8, ptr %separators, i64 8
@@ -129818,9 +129818,9 @@ invoke.cont4:
   %call.i1144 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %thousands_sep_.i) #30
   br i1 %call.i1144, label %while.end, label %if.end.i
 
-if.end.i:                                         ; preds = %invoke.cont4, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26
-  %state.sroa.3.046 = phi i32 [ %add28.i, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26 ], [ 0, %invoke.cont4 ]
-  %state.sroa.0.045 = phi ptr [ %state.sroa.0.1, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26 ], [ %call.i, %invoke.cont4 ]
+if.end.i:                                         ; preds = %entry, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26
+  %state.sroa.3.046 = phi i32 [ %add28.i, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26 ], [ 0, %entry ]
+  %state.sroa.0.045 = phi ptr [ %state.sroa.0.1, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26 ], [ %call.i, %entry ]
   %call3.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #30
   %cmp.i.i12 = icmp eq ptr %state.sroa.0.045, %call3.i
   br i1 %cmp.i.i12, label %if.then5.i, label %if.end8.i
@@ -129892,7 +129892,7 @@ _ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26: ; preds = %if.end, %.noexc25
   %call.i11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %thousands_sep_.i) #30
   br i1 %call.i11, label %while.end, label %if.end.i
 
-while.end:                                        ; preds = %invoke.cont6, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26, %if.end8.i, %invoke.cont4
+while.end:                                        ; preds = %invoke.cont6, %_ZN3fmt3v106detail6bufferIiE9push_backERKi.exit26, %if.end8.i, %entry
   %cmp1249 = icmp sgt i32 %conv, 0
   br i1 %cmp1249, label %for.body.preheader, label %for.end
 
