@@ -22629,7 +22629,7 @@ openjdk/jfrMemorySizer.ll 168867983
 openjdk/jfrMetadataEvent.ll 493477802
 openjdk/jfrMethodData.ll 140459711
 openjdk/jfrMethodLookup.ll 60801319
-openjdk/jfrModuleEvent.ll 730972322
+openjdk/jfrModuleEvent.ll 730241346
 openjdk/jfrNativeLibraryLoadEvent.ll 928096565
 openjdk/jfrNativeMemoryEvent.ll 634163713
 openjdk/jfrNetworkUtilization.ll 914732629
