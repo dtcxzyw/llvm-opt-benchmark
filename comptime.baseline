@@ -12215,7 +12215,7 @@ linux/drm_dsc_helper.ll 177203983
 linux/drm_edid.ll 2388834568
 linux/drm_eld.ll 43323337
 linux/drm_encoder.ll 90970792
-linux/drm_file.ll 229707196
+linux/drm_file.ll 229477437
 linux/drm_flip_work.ll 57851189
 linux/drm_format_helper.ll 300093371
 linux/drm_fourcc.ll 86856648
@@ -13363,7 +13363,7 @@ linux/suspend.ll 226221280
 linux/svc.ll 120758693
 linux/svc4proc.ll 134280084
 linux/svc_xprt.ll 412867481
-linux/svcauth.ll 81926105
+linux/svcauth.ll 81844093
 linux/svcauth_gss.ll 643409227
 linux/svcauth_unix.ll 278724059
 linux/svclock.ll 282420305
@@ -35610,7 +35610,7 @@ verilator/V3Global.cpp.ll 1119925307
 verilator/V3Graph.cpp.ll 1211240431
 verilator/V3GraphAcyc.cpp.ll 1205277917
 verilator/V3GraphAlg.cpp.ll 1893094540
-verilator/V3GraphPathChecker.cpp.ll 337061010
+verilator/V3GraphPathChecker.cpp.ll 336723699
 verilator/V3GraphTest.cpp.ll 376734818
 verilator/V3Hash.cpp.ll 55366772
 verilator/V3Hasher.cpp.ll 3157520915
@@ -38024,7 +38024,7 @@ yaml-cpp/node_data.cpp.ll 595426489
 yaml-cpp/nodebuilder.cpp.ll 571777111
 yaml-cpp/nodeevents.cpp.ll 471913688
 yaml-cpp/ostream_wrapper.cpp.ll 181786088
-yaml-cpp/parse.cpp.ll 271342529
+yaml-cpp/parse.cpp.ll 271071186
 yaml-cpp/parser.cpp.ll 388620274
 yaml-cpp/regex_yaml.cpp.ll 258695204
 yaml-cpp/scanner.cpp.ll 1312716837
