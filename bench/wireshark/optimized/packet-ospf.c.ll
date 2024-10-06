@@ -2397,41 +2397,46 @@ define internal fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, 
 38:                                               ; preds = %5
   %39 = add i8 %16, -9
   %or.cond5.i = icmp ult i8 %39, 3
-  br i1 %or.cond5.i, label %ospf_ls_type_to_filter.exit247, label %proto_item_set_hidden.exit
+  br i1 %or.cond5.i, label %ospf_ls_type_to_filter.exit247, label %proto_item_set_hidden.exit.thread
+
+proto_item_set_hidden.exit.thread:                ; preds = %38
+  %40 = and i8 %31, 1
+  %.not241280 = icmp eq i8 %40, 0
+  %.str.557..str.725281 = select i1 %.not241280, ptr @.str.557, ptr @.str.725
+  br label %72
 
 ospf_ls_type_to_filter.exit:                      ; preds = %5
-  %40 = add nsw i32 %23, -1
-  %41 = sext i32 %40 to i64
+  %41 = add nsw i32 %23, -1
+  %42 = sext i32 %41 to i64
   br label %ospf_ls_type_to_filter.exit247
 
 ospf_ls_type_to_filter.exit247:                   ; preds = %38, %ospf_ls_type_to_filter.exit
-  %.0.i246 = phi i64 [ %41, %ospf_ls_type_to_filter.exit ], [ 8, %38 ]
-  %42 = getelementptr [9 x ptr], ptr @hf_ospf_ls_type_array, i64 0, i64 %.0.i246
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %43, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %44, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0) #5
-  %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %46
+  %.0.i246 = phi i64 [ %42, %ospf_ls_type_to_filter.exit ], [ 8, %38 ]
+  %43 = getelementptr [9 x ptr], ptr @hf_ospf_ls_type_array, i64 0, i64 %.0.i246
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i32, ptr %44, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %45, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0) #5
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %47
 
-46:                                               ; preds = %ospf_ls_type_to_filter.exit247
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %.not5.i = icmp eq ptr %48, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %49
+47:                                               ; preds = %ospf_ls_type_to_filter.exit247
+  %48 = getelementptr inbounds i8, ptr %46, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %.not5.i = icmp eq ptr %49, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %50
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %48, i64 28
-  %51 = load i32, ptr %50, align 4
-  %52 = or i32 %51, 1
-  store i32 %52, ptr %50, align 4
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %49, i64 28
+  %52 = load i32, ptr %51, align 4
+  %53 = or i32 %52, 1
+  store i32 %53, ptr %51, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf_ls_type_to_filter.exit247
-  %53 = and i8 %31, 1
-  %.not241 = icmp eq i8 %53, 0
+proto_item_set_hidden.exit:                       ; preds = %50, %47, %ospf_ls_type_to_filter.exit247
+  %54 = and i8 %31, 1
+  %.not241 = icmp eq i8 %54, 0
   %.str.557..str.725 = select i1 %.not241, ptr @.str.557, ptr @.str.725
-  %54 = add nsw i32 %23, -12
-  %55 = icmp ult i32 %54, -3
+  %55 = icmp ult i8 %16, 9
   br i1 %55, label %72, label %56
 
 56:                                               ; preds = %proto_item_set_hidden.exit
@@ -2457,13 +2462,15 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   %71 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %70, ptr noundef %0, i32 noundef %62, i32 noundef 3, i32 noundef 0) #5
   br label %76
 
-72:                                               ; preds = %proto_item_set_hidden.exit
+72:                                               ; preds = %proto_item_set_hidden.exit.thread, %proto_item_set_hidden.exit
+  %.str.557..str.725283 = phi ptr [ %.str.557..str.725281, %proto_item_set_hidden.exit.thread ], [ %.str.557..str.725, %proto_item_set_hidden.exit ]
   %73 = load i32, ptr @hf_ospf_ls_id, align 4
   %74 = add i32 %2, 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0) #5
   br label %76
 
 76:                                               ; preds = %63, %69, %72
+  %.str.557..str.725282 = phi ptr [ %.str.557..str.725, %63 ], [ %.str.557..str.725, %69 ], [ %.str.557..str.725283, %72 ]
   %.0231 = phi i8 [ 1, %63 ], [ %58, %69 ], [ 0, %72 ]
   %77 = load i32, ptr @hf_ospf_adv_router, align 4
   %78 = add i32 %2, 8
@@ -2573,7 +2580,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %144, ptr noundef nonnull @.str.729, ptr noundef %145) #5
   %146 = load i32, ptr @hf_ospf_ls_router_nummetrics, align 4
   %147 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %146, ptr noundef %0, i32 noundef %121, i32 noundef 1, i32 noundef 0) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.729, ptr noundef nonnull %.str.557..str.725) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.729, ptr noundef nonnull %.str.557..str.725282) #5
   %148 = load i32, ptr @hf_ospf_ls_router_metric0, align 4
   %149 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %148, ptr noundef %0, i32 noundef %134, i32 noundef 2, i32 noundef 0) #5
   %150 = add i32 %.0230268, 12
@@ -2592,7 +2599,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   %157 = zext i8 %156 to i32
   %158 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %153) #5
   %159 = zext i16 %158 to i32
-  %160 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %137, i32 noundef %152, ptr noundef %0, i32 noundef %.1264, i32 noundef 4, i32 noundef %155, ptr noundef nonnull @.str.732, ptr noundef nonnull %.str.557..str.725, i32 noundef %157, i32 noundef %159) #5
+  %160 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %137, i32 noundef %152, ptr noundef %0, i32 noundef %.1264, i32 noundef 4, i32 noundef %155, ptr noundef nonnull @.str.732, ptr noundef nonnull %.str.557..str.725282, i32 noundef %157, i32 noundef %159) #5
   %161 = add i32 %.1264, 4
   %162 = add nuw nsw i16 %.0233263, 1
   %exitcond.not = icmp eq i16 %162, %151

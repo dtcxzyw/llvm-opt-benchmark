@@ -12,22 +12,20 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 1, 5) i32 @gb18030_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
-  %3 = zext i8 %2 to i64
-  %4 = add nsw i64 %3, -129
-  %.not = icmp ult i64 %4, 126
-  br i1 %.not, label %5, label %11
+  %3 = add i8 %2, 127
+  %.not = icmp ult i8 %3, 126
+  br i1 %.not, label %4, label %9
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i64
-  %9 = add nsw i64 %8, -48
-  %10 = icmp ult i64 %9, 10
-  %. = select i1 %10, i32 4, i32 2
-  br label %11
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = add i8 %6, -48
+  %8 = icmp ult i8 %7, 10
+  %. = select i1 %8, i32 4, i32 2
+  br label %9
 
-11:                                               ; preds = %5, %1
-  %.0 = phi i32 [ 1, %1 ], [ %., %5 ]
+9:                                                ; preds = %4, %1
+  %.0 = phi i32 [ 1, %1 ], [ %., %4 ]
   ret i32 %.0
 }
 
@@ -42,60 +40,56 @@ define internal i32 @gb18030_mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #3 {
   %.not = icmp ult i32 %0, 16777216
-  br i1 %.not, label %13, label %2
+  br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 24
-  %4 = zext nneg i32 %3 to i64
-  %5 = add nsw i64 %4, -129
-  %6 = icmp ult i64 %5, 126
-  br i1 %6, label %7, label %31
+  %4 = add nsw i32 %3, -129
+  %5 = icmp ult i32 %4, 126
+  br i1 %5, label %6, label %27
 
-7:                                                ; preds = %2
-  %8 = lshr i32 %0, 16
-  %9 = and i32 %8, 254
-  %10 = zext nneg i32 %9 to i64
-  %11 = add nsw i64 %10, -48
-  %12 = icmp ult i64 %11, 10
-  br i1 %12, label %32, label %31
+6:                                                ; preds = %2
+  %7 = lshr i32 %0, 16
+  %8 = and i32 %7, 254
+  %9 = add nsw i32 %8, -48
+  %10 = icmp ult i32 %9, 10
+  br i1 %10, label %28, label %27
 
-13:                                               ; preds = %1
+11:                                               ; preds = %1
   %.not13 = icmp ult i32 %0, 65536
-  br i1 %.not13, label %14, label %32
+  br i1 %.not13, label %12, label %28
 
-14:                                               ; preds = %13
+12:                                               ; preds = %11
   %.not14 = icmp ult i32 %0, 256
-  br i1 %.not14, label %28, label %15
+  br i1 %.not14, label %25, label %13
 
-15:                                               ; preds = %14
-  %16 = lshr i32 %0, 8
-  %17 = zext nneg i32 %16 to i64
-  %18 = add nsw i64 %17, -129
-  %19 = icmp ult i64 %18, 126
-  br i1 %19, label %20, label %31
+13:                                               ; preds = %12
+  %14 = lshr i32 %0, 8
+  %15 = add nsw i32 %14, -129
+  %16 = icmp ult i32 %15, 126
+  br i1 %16, label %17, label %27
 
-20:                                               ; preds = %15
-  %21 = and i32 %0, 255
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr @GB18030_MAP, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = add nsw i64 %22, -129
-  %26 = icmp ult i64 %25, 126
-  %27 = icmp eq i8 %24, 1
-  %or.cond = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond, label %32, label %31
+17:                                               ; preds = %13
+  %18 = and i32 %0, 255
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = add nsw i32 %18, -129
+  %23 = icmp ult i32 %22, 126
+  %24 = icmp eq i8 %21, 1
+  %or.cond = select i1 %23, i1 true, i1 %24
+  br i1 %or.cond, label %28, label %27
 
-28:                                               ; preds = %14
-  %29 = zext nneg i32 %0 to i64
-  %30 = add nsw i64 %29, -129
-  %.not15 = icmp ult i64 %30, 126
-  br i1 %.not15, label %31, label %32
+25:                                               ; preds = %12
+  %26 = add nsw i32 %0, -129
+  %.not15 = icmp ult i32 %26, 126
+  br i1 %.not15, label %27, label %28
 
-31:                                               ; preds = %28, %15, %20, %2, %7
-  br label %32
+27:                                               ; preds = %25, %13, %17, %2, %6
+  br label %28
 
-32:                                               ; preds = %28, %20, %13, %7, %31
-  %.0 = phi i32 [ -400, %31 ], [ 4, %7 ], [ -400, %13 ], [ 2, %20 ], [ 1, %28 ]
+28:                                               ; preds = %25, %17, %11, %6, %27
+  %.0 = phi i32 [ -400, %27 ], [ 4, %6 ], [ -400, %11 ], [ 2, %17 ], [ 1, %25 ]
   ret i32 %.0
 }
 

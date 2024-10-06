@@ -1171,20 +1171,21 @@ GetPredictionCostCrossColorBlue.exit84.i:         ; preds = %161
   br i1 %or.cond94.i, label %144, label %191, !llvm.loop !23
 
 191:                                              ; preds = %GetPredictionCostCrossColorBlue.exit84.i
-  %192 = add nsw i64 %indvars.iv99.i, -4
-  %193 = icmp ult i64 %192, 3
-  %194 = or i32 %.4.i, %.461.i
-  %195 = icmp eq i32 %194, 0
-  %or.cond5.i = select i1 %193, i1 %195, i1 false
+  %192 = trunc i64 %indvars.iv99.i to i32
+  %193 = add i32 %192, -4
+  %194 = icmp ult i32 %193, 3
+  %195 = or i32 %.4.i, %.461.i
+  %196 = icmp eq i32 %195, 0
+  %or.cond5.i = select i1 %194, i1 %196, i1 false
   br i1 %or.cond5.i, label %GetBestGreenRedToBlue.exit, label %136
 
 GetBestGreenRedToBlue.exit:                       ; preds = %136, %191
   %.158.i = phi i32 [ 0, %191 ], [ %.461.i, %136 ]
   %.1.i = phi i32 [ 0, %191 ], [ %.4.i, %136 ]
-  %196 = trunc i32 %.158.i to i24
-  %.sroa.5.0.insert.ext = shl i24 %196, 16
-  %197 = trunc i32 %.1.i to i24
-  %.sroa.3.0.insert.ext = shl i24 %197, 8
+  %197 = trunc i32 %.158.i to i24
+  %.sroa.5.0.insert.ext = shl i24 %197, 16
+  %198 = trunc i32 %.1.i to i24
+  %.sroa.3.0.insert.ext = shl i24 %198, 8
   %.sroa.3.0.insert.shift = and i24 %.sroa.3.0.insert.ext, 65280
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.5.0.insert.ext
   %.sroa.0.0.insert.ext = zext i8 %.0.lcssa.i to i24

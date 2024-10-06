@@ -1259,7 +1259,6 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load i8, ptr %0, align 8
-  %conv.i = zext i8 %1 to i32
   %cmp.i = icmp ugt i8 %1, 21
   br i1 %cmp.i, label %if.then, label %if.end
 
@@ -1275,6 +1274,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
+  %conv.i = zext nneg i8 %1 to i32
   %4 = load i32, ptr %this, align 8
   %xor.i = xor i32 %4, 64
   %spec.select = select i1 %nongreedy, i32 %xor.i, i32 %4
@@ -1289,14 +1289,14 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true, %if.end
-  %conv.i.off = add nsw i32 %conv.i, -7
-  %switch = icmp ult i32 %conv.i.off, 3
+  %6 = add nsw i8 %1, -7
+  %switch = icmp ult i8 %6, 3
   br i1 %switch, label %land.lhs.true27, label %if.end33
 
 land.lhs.true27:                                  ; preds = %if.end15
   %parse_flags_.i15 = getelementptr inbounds i8, ptr %0, i64 2
-  %6 = load i16, ptr %parse_flags_.i15, align 2
-  %conv.i16 = zext i16 %6 to i32
+  %7 = load i16, ptr %parse_flags_.i15, align 2
+  %conv.i16 = zext i16 %7 to i32
   %cmp30 = icmp eq i32 %spec.select, %conv.i16
   br i1 %cmp30, label %if.then31, label %if.end33
 
@@ -1312,51 +1312,51 @@ if.end33:                                         ; preds = %if.end15, %land.lhs
 if.end.i:                                         ; preds = %if.end33
   %nsub_.i = getelementptr inbounds i8, ptr %call34, i64 6
   store i16 1, ptr %nsub_.i, align 2
-  %7 = load ptr, ptr %stacktop_, align 8
-  %down_ = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load ptr, ptr %down_, align 8
+  %8 = load ptr, ptr %stacktop_, align 8
+  %down_ = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %down_, align 8
   %down_36 = getelementptr inbounds i8, ptr %call34, i64 16
-  store ptr %8, ptr %down_36, align 8
+  store ptr %9, ptr %down_36, align 8
   store ptr null, ptr %down_, align 8
-  %9 = load i8, ptr %7, align 8
-  %cmp2.i = icmp eq i8 %9, 20
+  %10 = load i8, ptr %8, align 8
+  %cmp2.i = icmp eq i8 %10, 20
   br i1 %cmp2.i, label %land.lhs.true.i, label %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %ccb_.i = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load ptr, ptr %ccb_.i, align 8
-  %cmp3.not.i = icmp eq ptr %10, null
+  %ccb_.i = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = load ptr, ptr %ccb_.i, align 8
+  %cmp3.not.i = icmp eq ptr %11, null
   br i1 %cmp3.not.i, label %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr null, ptr %ccb_.i, align 8
-  %call.i = tail call noundef ptr @_ZN3re216CharClassBuilder12GetCharClassEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
-  store ptr %call.i, ptr %11, align 8
-  %ranges_.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
-  %12 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %ranges_.i.i, ptr noundef %12)
+  %call.i = tail call noundef ptr @_ZN3re216CharClassBuilder12GetCharClassEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+  store ptr %call.i, ptr %12, align 8
+  %ranges_.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %ranges_.i.i, ptr noundef %13)
           to label %_ZN3re216CharClassBuilderD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then4.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #29
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #29
   unreachable
 
 _ZN3re216CharClassBuilderD2Ev.exit.i:             ; preds = %if.then4.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #28
   br label %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit
 
 _ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit: ; preds = %if.end.i, %land.lhs.true.i, %_ZN3re216CharClassBuilderD2Ev.exit.i
-  %15 = load i16, ptr %nsub_.i, align 2
-  %cmp.i19 = icmp ult i16 %15, 2
-  %16 = getelementptr inbounds i8, ptr %call34, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %retval.0.i = select i1 %cmp.i19, ptr %16, ptr %17
-  store ptr %7, ptr %retval.0.i, align 8
+  %16 = load i16, ptr %nsub_.i, align 2
+  %cmp.i19 = icmp ult i16 %16, 2
+  %17 = getelementptr inbounds i8, ptr %call34, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %retval.0.i = select i1 %cmp.i19, ptr %17, ptr %18
+  store ptr %8, ptr %retval.0.i, align 8
   %call40 = tail call noundef zeroext i1 @_ZN3re26Regexp13ComputeSimpleEv(ptr noundef nonnull align 8 dereferenceable(40) %call34)
   %conv = zext i1 %call40 to i8
   %simple_ = getelementptr inbounds i8, ptr %call34, i64 1
@@ -1365,10 +1365,10 @@ _ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit: ; preds = %if.end.i, %land.l
   br label %return
 
 lpad:                                             ; preds = %if.end33
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call34) #28
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %19
 
 return:                                           ; preds = %land.lhs.true, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit, %if.then31, %if.then
   %retval.0 = phi i1 [ false, %if.then ], [ true, %if.then31 ], [ true, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit ], [ true, %land.lhs.true ]

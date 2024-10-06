@@ -14214,9 +14214,9 @@ for.body97.i.preheader:                           ; preds = %if.end33.i
   %scevgep = getelementptr i8, ptr %39, i64 %53
   %load_initial = load ptr, ptr %scevgep, align 8
   %54 = add nsw i64 %conv.i, -1
-  %55 = add nsw i64 %conv.i, -2
   %xtraiter205 = and i64 %54, 3
-  %56 = icmp ult i64 %55, 3
+  %55 = add i32 %42, -2
+  %56 = icmp ult i32 %55, 3
   br i1 %56, label %cleanup.i.loopexit.unr-lcssa, label %for.body97.i.preheader.new
 
 for.body97.i.preheader.new:                       ; preds = %for.body97.i.preheader
@@ -15338,9 +15338,9 @@ for.body97.preheader:                             ; preds = %if.then86
   %scevgep = getelementptr i8, ptr %2, i64 %47
   %load_initial = load ptr, ptr %scevgep, align 8
   %48 = add nsw i64 %conv, -1
-  %49 = add nsw i64 %conv, -2
   %xtraiter291 = and i64 %48, 3
-  %50 = icmp ult i64 %49, 3
+  %49 = add i32 %6, -2
+  %50 = icmp ult i32 %49, 3
   br i1 %50, label %cleanup.loopexit275.unr-lcssa, label %for.body97.preheader.new
 
 for.body97.preheader.new:                         ; preds = %for.body97.preheader

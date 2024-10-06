@@ -3850,17 +3850,16 @@ entry:
   %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1022
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %call.off = add nsw i32 %bf.cast.i, -238
-  %switch = icmp ult i32 %call.off, 4
+  %1 = add nsw i16 %bf.clear.i, -238
+  %switch = icmp ult i16 %1, 4
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store ptr %0, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %1 = trunc nuw nsw i64 %bf.lshr.i.i to i32
-  %bf.cast.i.i = and i32 %1, 1048575
+  %2 = trunc nuw nsw i64 %bf.lshr.i.i to i32
+  %bf.cast.i.i = and i32 %2, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -3888,8 +3887,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %if.then.i
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %bf.load.i.i6 = load i64, ptr %0, align 8
-  %2 = and i64 %bf.load.i.i6, 1152920405095219200
-  %cmp.not.i.i = icmp eq i64 %2, 1152920405095219200
+  %3 = and i64 %bf.load.i.i6, 1152920405095219200
+  %cmp.not.i.i = icmp eq i64 %3, 1152920405095219200
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
@@ -3906,17 +3905,17 @@ if.then13.i.i13:                                  ; preds = %if.then.i.i7
           to label %if.end unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then13.i.i13
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #26
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 lpad:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #23
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %if.then13.i.i13, %if.then.i.i7, %invoke.cont, %entry
   ret void
@@ -11917,9 +11916,8 @@ cond.end10:                                       ; preds = %cond.end, %cond.tru
   %d_kind.i21 = getelementptr inbounds i8, ptr %satom.sroa.0.0, i64 8
   %bf.load.i22 = load i16, ptr %d_kind.i21, align 8
   %bf.clear.i23 = and i16 %bf.load.i22, 1022
-  %bf.cast.i24 = zext nneg i16 %bf.clear.i23 to i32
-  %3 = add nsw i32 %bf.cast.i24, -242
-  %switch.selectcmp.i = icmp ult i32 %3, -4
+  %3 = add nsw i16 %bf.clear.i23, -242
+  %switch.selectcmp.i = icmp ult i16 %3, -4
   br i1 %switch.selectcmp.i, label %if.end31, label %if.then
 
 if.then:                                          ; preds = %cond.end10

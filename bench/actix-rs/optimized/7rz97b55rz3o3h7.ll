@@ -10472,24 +10472,24 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit101.thread: ; preds = %_ZN4c
 
 737:                                              ; preds = %732
   %.val32.i = load i32, ptr %736, align 4, !noalias !1360
-  %738 = zext i32 %.val32.i to i64
-  %739 = add nsw i64 %738, -16384
-  %or.cond.i.i.i = icmp ult i64 %739, 16760832
-  br i1 %or.cond.i.i.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit.i.i", label %740
+  %738 = add i32 %.val32.i, -16384
+  %or.cond.i.i.i = icmp ult i32 %738, 16760832
+  br i1 %or.cond.i.i.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit.i.i", label %739
 
-740:                                              ; preds = %737
+739:                                              ; preds = %737
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.21485e1265fb022e2e7f2941cf96c40d.1, i64 noundef 94, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.21485e1265fb022e2e7f2941cf96c40d.3) #27
           to label %.noexc39.i unwind label %746, !noalias !1418
 
-.noexc39.i:                                       ; preds = %740
+.noexc39.i:                                       ; preds = %739
   unreachable
 
 "_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit.i.i": ; preds = %737
+  %740 = zext nneg i32 %.val32.i to i64
   %741 = getelementptr inbounds i8, ptr %46, i64 16
-  store i64 %738, ptr %741, align 8, !alias.scope !1514, !noalias !1360
+  store i64 %740, ptr %741, align 8, !alias.scope !1514, !noalias !1360
   %742 = getelementptr inbounds i8, ptr %46, i64 872
   %743 = load i64, ptr %742, align 8, !alias.scope !1514, !noalias !1360, !noundef !4
-  %744 = invoke noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %743, i64 noundef %738)
+  %744 = invoke noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %743, i64 noundef %740)
           to label %"_ZN2h25codec18Codec$LT$T$C$B$GT$23set_max_recv_frame_size17h6abad18fcd5f7fb7E.exit.i" unwind label %746, !noalias !1418
 
 "_ZN2h25codec18Codec$LT$T$C$B$GT$23set_max_recv_frame_size17h6abad18fcd5f7fb7E.exit.i": ; preds = %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit.i.i"
@@ -10497,7 +10497,7 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit101.thread: ; preds = %_ZN4c
   store i64 %744, ptr %745, align 8, !alias.scope !1514, !noalias !1360
   br label %748
 
-746:                                              ; preds = %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit.i.i", %740
+746:                                              ; preds = %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit.i.i", %739
   %747 = landingpad { ptr, i32 }
           cleanup
   br label %866
@@ -13553,24 +13553,24 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %375
 
 722:                                              ; preds = %717
   %.val32.i = load i32, ptr %721, align 4, !noalias !1728
-  %723 = zext i32 %.val32.i to i64
-  %724 = add nsw i64 %723, -16384
-  %or.cond.i.i.i = icmp ult i64 %724, 16760832
-  br i1 %or.cond.i.i.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit.i.i", label %725
+  %723 = add i32 %.val32.i, -16384
+  %or.cond.i.i.i = icmp ult i32 %723, 16760832
+  br i1 %or.cond.i.i.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit.i.i", label %724
 
-725:                                              ; preds = %722
+724:                                              ; preds = %722
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.21485e1265fb022e2e7f2941cf96c40d.1, i64 noundef 94, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.21485e1265fb022e2e7f2941cf96c40d.3) #27
           to label %.noexc39.i unwind label %731, !noalias !1786
 
-.noexc39.i:                                       ; preds = %725
+.noexc39.i:                                       ; preds = %724
   unreachable
 
 "_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit.i.i": ; preds = %722
+  %725 = zext nneg i32 %.val32.i to i64
   %726 = getelementptr inbounds i8, ptr %47, i64 16
-  store i64 %723, ptr %726, align 8, !alias.scope !1871, !noalias !1728
+  store i64 %725, ptr %726, align 8, !alias.scope !1871, !noalias !1728
   %727 = getelementptr inbounds i8, ptr %47, i64 880
   %728 = load i64, ptr %727, align 8, !alias.scope !1871, !noalias !1728, !noundef !4
-  %729 = invoke noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %728, i64 noundef %723)
+  %729 = invoke noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %728, i64 noundef %725)
           to label %"_ZN2h25codec18Codec$LT$T$C$B$GT$23set_max_recv_frame_size17hd6a496c791479be3E.exit.i" unwind label %731, !noalias !1786
 
 "_ZN2h25codec18Codec$LT$T$C$B$GT$23set_max_recv_frame_size17hd6a496c791479be3E.exit.i": ; preds = %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit.i.i"
@@ -13578,7 +13578,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %375
   store i64 %729, ptr %730, align 8, !alias.scope !1871, !noalias !1728
   br label %733
 
-731:                                              ; preds = %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit.i.i", %725
+731:                                              ; preds = %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit.i.i", %724
   %732 = landingpad { ptr, i32 }
           cleanup
   br label %851

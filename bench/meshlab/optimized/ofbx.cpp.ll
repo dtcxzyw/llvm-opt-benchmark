@@ -14644,33 +14644,33 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit:     ; preds = %_ZN4ofbxL8skipLineE
   store ptr %78, ptr %0, align 8
   store ptr %78, ptr %72, align 8
   %79 = icmp ult ptr %78, %4
-  br i1 %79, label %.lr.ph171.preheader.i, label %.critedge.i63
+  br i1 %79, label %.lr.ph168.preheader.i, label %.critedge.i63
 
-.lr.ph171.preheader.i:                            ; preds = %76
+.lr.ph168.preheader.i:                            ; preds = %76
   %80 = sub i64 %26, %73
-  %scevgep189.i = getelementptr i8, ptr %68, i64 %80
-  br label %.lr.ph171.i
+  %scevgep186.i = getelementptr i8, ptr %68, i64 %80
+  br label %.lr.ph168.i
 
-.lr.ph171.i:                                      ; preds = %83, %.lr.ph171.preheader.i
-  %81 = phi ptr [ %84, %83 ], [ %78, %.lr.ph171.preheader.i ]
+.lr.ph168.i:                                      ; preds = %83, %.lr.ph168.preheader.i
+  %81 = phi ptr [ %84, %83 ], [ %78, %.lr.ph168.preheader.i ]
   %82 = load i8, ptr %81, align 1
-  %.not109.i = icmp eq i8 %82, 34
-  br i1 %.not109.i, label %87, label %83
+  %.not106.i = icmp eq i8 %82, 34
+  br i1 %.not106.i, label %87, label %83
 
-83:                                               ; preds = %.lr.ph171.i
+83:                                               ; preds = %.lr.ph168.i
   %84 = getelementptr inbounds i8, ptr %81, i64 1
   store ptr %84, ptr %0, align 8
-  %exitcond190.not.i = icmp eq ptr %84, %4
-  br i1 %exitcond190.not.i, label %.critedge.i63, label %.lr.ph171.i, !llvm.loop !216
+  %exitcond187.not.i = icmp eq ptr %84, %4
+  br i1 %exitcond187.not.i, label %.critedge.i63, label %.lr.ph168.i, !llvm.loop !216
 
 .critedge.i63:                                    ; preds = %83, %76
   %85 = phi ptr [ %78, %76 ], [ %84, %83 ]
-  %.lcssa.i64 = phi ptr [ %78, %76 ], [ %scevgep189.i, %83 ]
+  %.lcssa.i64 = phi ptr [ %78, %76 ], [ %scevgep186.i, %83 ]
   %86 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %.lcssa.i64, ptr %86, align 8
   br label %190
 
-87:                                               ; preds = %.lr.ph171.i
+87:                                               ; preds = %.lr.ph168.i
   %88 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %81, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %81, i64 1
@@ -14678,9 +14678,8 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit:     ; preds = %_ZN4ofbxL8skipLineE
   br label %190
 
 90:                                               ; preds = %70
-  %91 = zext i8 %74 to i32
-  %isdigittmp.i = add nsw i32 %91, -48
-  %isdigit.i = icmp ult i32 %isdigittmp.i, 10
+  %91 = add i8 %74, -48
+  %isdigit.i = icmp ult i8 %91, 10
   %92 = icmp eq i8 %74, 45
   %or.cond.i = or i1 %92, %isdigit.i
   br i1 %or.cond.i, label %93, label %136
@@ -14699,37 +14698,36 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit:     ; preds = %_ZN4ofbxL8skipLineE
 
 97:                                               ; preds = %95, %93
   %98 = phi ptr [ %96, %95 ], [ %68, %93 ]
-  %.promoted164183.pre-phi.i = phi i64 [ %.pre.i, %95 ], [ %73, %93 ]
+  %.promoted161180.pre-phi.i = phi i64 [ %.pre.i, %95 ], [ %73, %93 ]
   %99 = icmp ult ptr %98, %4
-  br i1 %99, label %.lr.ph165.preheader.i, label %.critedge2.i
+  br i1 %99, label %.lr.ph162.preheader.i, label %.critedge2.i
 
-.lr.ph165.preheader.i:                            ; preds = %97
-  %100 = sub i64 %26, %.promoted164183.pre-phi.i
-  %scevgep184.i = getelementptr i8, ptr %98, i64 %100
-  br label %.lr.ph165.i
+.lr.ph162.preheader.i:                            ; preds = %97
+  %100 = sub i64 %26, %.promoted161180.pre-phi.i
+  %scevgep181.i = getelementptr i8, ptr %98, i64 %100
+  br label %.lr.ph162.i
 
-.lr.ph165.i:                                      ; preds = %104, %.lr.ph165.preheader.i
-  %101 = phi ptr [ %105, %104 ], [ %98, %.lr.ph165.preheader.i ]
+.lr.ph162.i:                                      ; preds = %104, %.lr.ph162.preheader.i
+  %101 = phi ptr [ %105, %104 ], [ %98, %.lr.ph162.preheader.i ]
   %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %isdigittmp101.i = add nsw i32 %103, -48
-  %isdigit102.i = icmp ult i32 %isdigittmp101.i, 10
-  br i1 %isdigit102.i, label %104, label %108
+  %103 = add i8 %102, -48
+  %isdigit101.i = icmp ult i8 %103, 10
+  br i1 %isdigit101.i, label %104, label %108
 
-104:                                              ; preds = %.lr.ph165.i
+104:                                              ; preds = %.lr.ph162.i
   %105 = getelementptr inbounds i8, ptr %101, i64 1
   store ptr %105, ptr %0, align 8
-  %exitcond185.not.i = icmp eq ptr %105, %scevgep184.i
-  br i1 %exitcond185.not.i, label %.critedge2.i, label %.lr.ph165.i, !llvm.loop !217
+  %exitcond182.not.i = icmp eq ptr %105, %scevgep181.i
+  br i1 %exitcond182.not.i, label %.critedge2.i, label %.lr.ph162.i, !llvm.loop !217
 
 .critedge2.i:                                     ; preds = %104, %97
   %106 = phi ptr [ %98, %97 ], [ %105, %104 ]
-  %.lcssa150.i = phi ptr [ %98, %97 ], [ %scevgep184.i, %104 ]
+  %.lcssa147.i = phi ptr [ %98, %97 ], [ %scevgep181.i, %104 ]
   %107 = getelementptr inbounds i8, ptr %71, i64 24
-  store ptr %.lcssa150.i, ptr %107, align 8
+  store ptr %.lcssa147.i, ptr %107, align 8
   br label %190
 
-108:                                              ; preds = %.lr.ph165.i
+108:                                              ; preds = %.lr.ph162.i
   %109 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %101, ptr %109, align 8
   %110 = icmp eq i8 %102, 46
@@ -14740,18 +14738,17 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit:     ; preds = %_ZN4ofbxL8skipLineE
   br label %112
 
 112:                                              ; preds = %114, %111
-  %.pn108.i = phi ptr [ %101, %111 ], [ %storemerge103.i, %114 ]
-  %storemerge103.i = getelementptr inbounds i8, ptr %.pn108.i, i64 1
-  store ptr %storemerge103.i, ptr %0, align 8
-  %113 = icmp ult ptr %storemerge103.i, %4
+  %.pn105.i = phi ptr [ %101, %111 ], [ %storemerge102.i, %114 ]
+  %storemerge102.i = getelementptr inbounds i8, ptr %.pn105.i, i64 1
+  store ptr %storemerge102.i, ptr %0, align 8
+  %113 = icmp ult ptr %storemerge102.i, %4
   br i1 %113, label %114, label %.critedge6.i
 
 114:                                              ; preds = %112
-  %115 = load i8, ptr %storemerge103.i, align 1
-  %116 = zext i8 %115 to i32
-  %isdigittmp104.i = add nsw i32 %116, -48
-  %isdigit105.i = icmp ult i32 %isdigittmp104.i, 10
-  br i1 %isdigit105.i, label %112, label %117, !llvm.loop !218
+  %115 = load i8, ptr %storemerge102.i, align 1
+  %116 = add i8 %115, -48
+  %isdigit103.i = icmp ult i8 %116, 10
+  br i1 %isdigit103.i, label %112, label %117, !llvm.loop !218
 
 117:                                              ; preds = %114
   switch i8 %115, label %.critedge6.i [
@@ -14760,7 +14757,7 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit:     ; preds = %_ZN4ofbxL8skipLineE
   ]
 
 118:                                              ; preds = %117, %117
-  %119 = getelementptr inbounds i8, ptr %.pn108.i, i64 2
+  %119 = getelementptr inbounds i8, ptr %.pn105.i, i64 2
   store ptr %119, ptr %0, align 8
   %120 = icmp ult ptr %119, %4
   br i1 %120, label %121, label %126
@@ -14771,38 +14768,37 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit:     ; preds = %_ZN4ofbxL8skipLineE
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %.pn108.i, i64 3
+  %125 = getelementptr inbounds i8, ptr %.pn105.i, i64 3
   store ptr %125, ptr %0, align 8
   br label %126
 
 126:                                              ; preds = %124, %121, %118
-  %.promoted167.i = phi ptr [ %125, %124 ], [ %119, %121 ], [ %119, %118 ]
-  %127 = icmp ult ptr %.promoted167.i, %4
-  br i1 %127, label %.lr.ph168.preheader.i, label %.critedge6.i
+  %.promoted164.i = phi ptr [ %125, %124 ], [ %119, %121 ], [ %119, %118 ]
+  %127 = icmp ult ptr %.promoted164.i, %4
+  br i1 %127, label %.lr.ph165.preheader.i, label %.critedge6.i
 
-.lr.ph168.preheader.i:                            ; preds = %126
-  %.promoted167186.i = ptrtoint ptr %.promoted167.i to i64
-  %128 = sub i64 %26, %.promoted167186.i
-  %scevgep187.i = getelementptr i8, ptr %.promoted167.i, i64 %128
-  br label %.lr.ph168.i
+.lr.ph165.preheader.i:                            ; preds = %126
+  %.promoted164183.i = ptrtoint ptr %.promoted164.i to i64
+  %128 = sub i64 %26, %.promoted164183.i
+  %scevgep184.i = getelementptr i8, ptr %.promoted164.i, i64 %128
+  br label %.lr.ph165.i
 
-.lr.ph168.i:                                      ; preds = %132, %.lr.ph168.preheader.i
-  %129 = phi ptr [ %133, %132 ], [ %.promoted167.i, %.lr.ph168.preheader.i ]
+.lr.ph165.i:                                      ; preds = %132, %.lr.ph165.preheader.i
+  %129 = phi ptr [ %133, %132 ], [ %.promoted164.i, %.lr.ph165.preheader.i ]
   %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %isdigittmp106.i = add nsw i32 %131, -48
-  %isdigit107.i = icmp ult i32 %isdigittmp106.i, 10
-  br i1 %isdigit107.i, label %132, label %.critedge6.i
+  %131 = add i8 %130, -48
+  %isdigit104.i = icmp ult i8 %131, 10
+  br i1 %isdigit104.i, label %132, label %.critedge6.i
 
-132:                                              ; preds = %.lr.ph168.i
+132:                                              ; preds = %.lr.ph165.i
   %133 = getelementptr inbounds i8, ptr %129, i64 1
   store ptr %133, ptr %0, align 8
-  %exitcond188.not.i = icmp eq ptr %133, %scevgep187.i
-  br i1 %exitcond188.not.i, label %.critedge6.i, label %.lr.ph168.i, !llvm.loop !219
+  %exitcond185.not.i = icmp eq ptr %133, %scevgep184.i
+  br i1 %exitcond185.not.i, label %.critedge6.i, label %.lr.ph165.i, !llvm.loop !219
 
-.critedge6.i:                                     ; preds = %112, %132, %.lr.ph168.i, %126, %117
-  %134 = phi ptr [ %.promoted167.i, %126 ], [ %storemerge103.i, %117 ], [ %133, %132 ], [ %129, %.lr.ph168.i ], [ %storemerge103.i, %112 ]
-  %135 = phi ptr [ %.promoted167.i, %126 ], [ %storemerge103.i, %117 ], [ %scevgep187.i, %132 ], [ %129, %.lr.ph168.i ], [ %storemerge103.i, %112 ]
+.critedge6.i:                                     ; preds = %112, %132, %.lr.ph165.i, %126, %117
+  %134 = phi ptr [ %.promoted164.i, %126 ], [ %storemerge102.i, %117 ], [ %133, %132 ], [ %129, %.lr.ph165.i ], [ %storemerge102.i, %112 ]
+  %135 = phi ptr [ %.promoted164.i, %126 ], [ %storemerge102.i, %117 ], [ %scevgep184.i, %132 ], [ %129, %.lr.ph165.i ], [ %storemerge102.i, %112 ]
   store ptr %135, ptr %109, align 8
   br label %190
 
@@ -14872,9 +14868,9 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
   %158 = getelementptr inbounds i8, ptr %71, i64 8
   store i32 0, ptr %158, align 8
   %159 = icmp ult ptr %157, %4
-  br i1 %159, label %.lr.ph.preheader.i56, label %.thread200.i
+  br i1 %159, label %.lr.ph.preheader.i56, label %.thread197.i
 
-.thread200.i:                                     ; preds = %_ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i
+.thread197.i:                                     ; preds = %_ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i
   %160 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %157, ptr %160, align 8
   br label %190
@@ -14887,7 +14883,7 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
 
 .lr.ph.i58:                                       ; preds = %.thread.i, %.lr.ph.preheader.i56
   %163 = phi i32 [ %177, %.thread.i ], [ 0, %.lr.ph.preheader.i56 ]
-  %.0157.i = phi i8 [ %.1138.i, %.thread.i ], [ 0, %.lr.ph.preheader.i56 ]
+  %.0154.i = phi i8 [ %.1135.i, %.thread.i ], [ 0, %.lr.ph.preheader.i56 ]
   %164 = phi ptr [ %178, %.thread.i ], [ %157, %.lr.ph.preheader.i56 ]
   %165 = load i8, ptr %164, align 1
   switch i8 %165, label %170 [
@@ -14896,7 +14892,7 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
   ]
 
 166:                                              ; preds = %.lr.ph.i58
-  %167 = trunc nuw i8 %.0157.i to i1
+  %167 = trunc nuw i8 %.0154.i to i1
   br i1 %167, label %168, label %.thread.i
 
 168:                                              ; preds = %166
@@ -14910,8 +14906,8 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
   %172 = tail call i32 @isspace(i32 noundef %171) #30
   %.not99.i = icmp ne i32 %172, 0
   %.not100.i = icmp eq i8 %165, 10
-  %or.cond110.i = or i1 %.not100.i, %.not99.i
-  %spec.select.i = select i1 %or.cond110.i, i8 %.0157.i, i8 1
+  %or.cond107.i = or i1 %.not100.i, %.not99.i
+  %spec.select.i = select i1 %or.cond107.i, i8 %.0154.i, i8 1
   br label %173
 
 173:                                              ; preds = %170, %168
@@ -14927,21 +14923,21 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
 
 .thread.i:                                        ; preds = %176, %173, %166
   %177 = phi i32 [ %174, %176 ], [ %174, %173 ], [ %163, %166 ]
-  %.1138.i = phi i8 [ %.1.ph.i, %176 ], [ %.1.ph.i, %173 ], [ 0, %166 ]
+  %.1135.i = phi i8 [ %.1.ph.i, %176 ], [ %.1.ph.i, %173 ], [ 0, %166 ]
   %178 = getelementptr inbounds i8, ptr %164, i64 1
   store ptr %178, ptr %0, align 8
   %exitcond.not.i59 = icmp eq ptr %178, %scevgep.i57
-  br i1 %exitcond.not.i59, label %.critedge10.thread204.i, label %.lr.ph.i58, !llvm.loop !221
+  br i1 %exitcond.not.i59, label %.critedge10.thread201.i, label %.lr.ph.i58, !llvm.loop !221
 
 .critedge10.i:                                    ; preds = %.lr.ph.i58
-  %179 = trunc nuw i8 %.0157.i to i1
-  br i1 %179, label %183, label %.thread213.i
+  %179 = trunc nuw i8 %.0154.i to i1
+  br i1 %179, label %183, label %.thread210.i
 
-.critedge10.thread204.i:                          ; preds = %.thread.i
-  %180 = trunc nuw i8 %.1138.i to i1
-  br i1 %180, label %.thread210.i, label %185
+.critedge10.thread201.i:                          ; preds = %.thread.i
+  %180 = trunc nuw i8 %.1135.i to i1
+  br i1 %180, label %.thread207.i, label %185
 
-.thread210.i:                                     ; preds = %.critedge10.thread204.i
+.thread207.i:                                     ; preds = %.critedge10.thread201.i
   %181 = add nsw i32 %177, 1
   store i32 %181, ptr %158, align 8
   %182 = getelementptr inbounds i8, ptr %71, i64 24
@@ -14951,14 +14947,14 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
 183:                                              ; preds = %.critedge10.i
   %184 = add nsw i32 %163, 1
   store i32 %184, ptr %158, align 8
-  br label %.thread213.i
+  br label %.thread210.i
 
-185:                                              ; preds = %.critedge10.thread204.i
+185:                                              ; preds = %.critedge10.thread201.i
   %186 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %scevgep.i57, ptr %186, align 8
   br label %190
 
-.thread213.i:                                     ; preds = %183, %.critedge10.i
+.thread210.i:                                     ; preds = %183, %.critedge10.i
   %187 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %164, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %164, i64 1
@@ -14971,8 +14967,8 @@ _ZN4ofbxL28skipInsignificantWhitespacesEPNS_6CursorE.exit.i: ; preds = %155, %.l
   tail call fastcc void @_ZN4ofbxL13deleteElementEPNS_7ElementE(ptr noundef nonnull %61)
   br label %.critedge2
 
-190:                                              ; preds = %137, %.critedge.i63, %87, %.critedge2.i, %.critedge6.i, %108, %.thread213.i, %185, %.thread200.i, %.thread210.i
-  %191 = phi ptr [ %139, %137 ], [ %85, %.critedge.i63 ], [ %89, %87 ], [ %106, %.critedge2.i ], [ %134, %.critedge6.i ], [ %101, %108 ], [ %188, %.thread213.i ], [ %178, %185 ], [ %157, %.thread200.i ], [ %178, %.thread210.i ]
+190:                                              ; preds = %137, %.critedge.i63, %87, %.critedge2.i, %.critedge6.i, %108, %.thread210.i, %185, %.thread197.i, %.thread207.i
+  %191 = phi ptr [ %139, %137 ], [ %85, %.critedge.i63 ], [ %89, %87 ], [ %106, %.critedge2.i ], [ %134, %.critedge6.i ], [ %101, %108 ], [ %188, %.thread210.i ], [ %178, %185 ], [ %157, %.thread197.i ], [ %178, %.thread207.i ]
   %192 = icmp ult ptr %191, %4
   br i1 %192, label %193, label %_ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit90
 

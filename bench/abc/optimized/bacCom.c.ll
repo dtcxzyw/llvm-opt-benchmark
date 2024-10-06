@@ -2148,7 +2148,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noca
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %35, label %.preheader
+  br i1 %4, label %34, label %.preheader
 
 .preheader:                                       ; preds = %1
   %5 = getelementptr i8, ptr %0, i64 84
@@ -2161,73 +2161,72 @@ define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noca
   %8 = getelementptr i8, ptr %0, i64 104
   br label %9
 
-9:                                                ; preds = %.lr.ph, %32
-  %.val.pre28 = phi i32 [ %.val22, %.lr.ph ], [ %.val.pre29, %32 ]
-  %.val26 = phi i32 [ %.val22, %.lr.ph ], [ %.val, %32 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.024 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
+9:                                                ; preds = %.lr.ph, %31
+  %.val.pre28 = phi i32 [ %.val22, %.lr.ph ], [ %.val.pre29, %31 ]
+  %.val26 = phi i32 [ %.val22, %.lr.ph ], [ %.val, %31 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %.1, %31 ]
   %.val18 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %.val18, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = lshr i8 %11, 1
-  %13 = zext nneg i8 %12 to i32
-  %14 = add nsw i32 %13, -73
-  %15 = icmp ult i32 %14, -68
-  br i1 %15, label %32, label %16
+  %13 = add nsw i8 %12, -73
+  %14 = icmp ult i8 %13, -68
+  br i1 %14, label %31, label %15
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   %.mask.i = and i8 %11, -2
   %.not = icmp eq i8 %.mask.i, 10
-  br i1 %.not, label %17, label %29
+  br i1 %.not, label %16, label %28
 
-17:                                               ; preds = %16
+16:                                               ; preds = %15
   %.val20 = load ptr, ptr %0, align 8
   %.val21 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
+  %17 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
 
-Bac_ManNtkIsOk.exit.i.i:                          ; preds = %17
-  %21 = getelementptr i8, ptr %.val20, i64 36
-  %.val.i.i.i = load i32, ptr %21, align 4
-  %.not4.i.i = icmp sgt i32 %19, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %22
+Bac_ManNtkIsOk.exit.i.i:                          ; preds = %16
+  %20 = getelementptr i8, ptr %.val20, i64 36
+  %.val.i.i.i = load i32, ptr %20, align 4
+  %.not4.i.i = icmp sgt i32 %18, %.val.i.i.i
+  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %21
 
-22:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
-  %23 = getelementptr inbounds i8, ptr %.val20, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %25 = zext nneg i32 %19 to i64
-  %26 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %24, i64 %25
+21:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
+  %22 = getelementptr inbounds i8, ptr %.val20, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = zext nneg i32 %18 to i64
+  %25 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %23, i64 %24
   br label %Bac_BoxNtk.exit
 
-Bac_BoxNtk.exit:                                  ; preds = %17, %Bac_ManNtkIsOk.exit.i.i, %22
-  %27 = phi ptr [ %26, %22 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %17 ]
-  %28 = tail call fastcc i32 @Bac_ManBoxNum_rec(ptr noundef %27)
+Bac_BoxNtk.exit:                                  ; preds = %16, %Bac_ManNtkIsOk.exit.i.i, %21
+  %26 = phi ptr [ %25, %21 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %16 ]
+  %27 = tail call fastcc i32 @Bac_ManBoxNum_rec(ptr noundef %26)
   %.val.pre.pre = load i32, ptr %5, align 4
-  br label %29
+  br label %28
 
-29:                                               ; preds = %16, %Bac_BoxNtk.exit
-  %.val.pre = phi i32 [ %.val.pre.pre, %Bac_BoxNtk.exit ], [ %.val.pre28, %16 ]
-  %30 = phi i32 [ %28, %Bac_BoxNtk.exit ], [ 1, %16 ]
-  %31 = add nuw nsw i32 %30, %.024
-  br label %32
+28:                                               ; preds = %15, %Bac_BoxNtk.exit
+  %.val.pre = phi i32 [ %.val.pre.pre, %Bac_BoxNtk.exit ], [ %.val.pre28, %15 ]
+  %29 = phi i32 [ %27, %Bac_BoxNtk.exit ], [ 1, %15 ]
+  %30 = add nuw nsw i32 %29, %.024
+  br label %31
 
-32:                                               ; preds = %29, %9
-  %.val.pre29 = phi i32 [ %.val.pre, %29 ], [ %.val.pre28, %9 ]
-  %.val = phi i32 [ %.val.pre, %29 ], [ %.val26, %9 ]
-  %.1 = phi i32 [ %31, %29 ], [ %.024, %9 ]
+31:                                               ; preds = %28, %9
+  %.val.pre29 = phi i32 [ %.val.pre, %28 ], [ %.val.pre28, %9 ]
+  %.val = phi i32 [ %.val.pre, %28 ], [ %.val26, %9 ]
+  %.1 = phi i32 [ %30, %28 ], [ %.024, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = sext i32 %.val to i64
-  %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %9, label %._crit_edge, !llvm.loop !22
+  %32 = sext i32 %.val to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %9, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %32, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %32 ]
+._crit_edge:                                      ; preds = %31, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %31 ]
   store i32 %.0.lcssa, ptr %2, align 8
-  br label %35
+  br label %34
 
-35:                                               ; preds = %1, %._crit_edge
+34:                                               ; preds = %1, %._crit_edge
   %.015 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %3, %1 ]
   ret i32 %.015
 }

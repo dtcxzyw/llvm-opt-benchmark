@@ -1808,15 +1808,13 @@ ehcleanup57:                                      ; preds = %ehcleanup50, %clean
   br label %eh.resume
 
 if.else59:                                        ; preds = %if.then
-  %23 = add nsw i32 %bf.cast.i, -361
-  %or.cond = icmp ult i32 %23, 2
+  %23 = add nsw i16 %bf.clear.i, -361
+  %or.cond = icmp ult i16 %23, 2
   br i1 %or.cond, label %if.then62, label %if.end127
 
 if.then62:                                        ; preds = %if.else59
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %cmp.i.i.i.i.i81 = icmp eq i16 %bf.clear.i, 1023
-  %cond.i.i.i.i.i82 = select i1 %cmp.i.i.i.i.i81, i32 -1, i32 %bf.cast.i
-  %call2.i.i.i83 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i82), !noalias !46
+  %call2.i.i.i83 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !46
   %cmp.i.i84 = icmp eq i32 %call2.i.i.i83, 2
   %d_children.i.i87 = getelementptr inbounds i8, ptr %0, i64 16
   %idxprom.i.i88 = zext i1 %cmp.i.i84 to i64

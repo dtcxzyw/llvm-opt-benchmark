@@ -2032,26 +2032,25 @@ declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr nound
 define dso_local ptr @crypto_get_attr_type(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %14, label %4
+  br i1 %3, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = load i16, ptr %2, align 2
-  %6 = zext i16 %5 to i64
-  %7 = add nsw i64 %6, -4
-  %8 = icmp ult i64 %7, 8
-  br i1 %8, label %14, label %9
+  %6 = add i16 %5, -4
+  %7 = icmp ult i16 %6, 8
+  br i1 %7, label %13, label %8
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 2
-  %11 = load i16, ptr %10, align 2
-  %12 = icmp eq i16 %11, 2
-  %13 = getelementptr i8, ptr %2, i64 4
-  %spec.select = select i1 %12, ptr %13, ptr inttoptr (i64 -22 to ptr)
-  br label %14
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %2, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = icmp eq i16 %10, 2
+  %12 = getelementptr i8, ptr %2, i64 4
+  %spec.select = select i1 %11, ptr %12, ptr inttoptr (i64 -22 to ptr)
+  br label %13
 
-14:                                               ; preds = %9, %4, %1
-  %15 = phi ptr [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ], [ %spec.select, %9 ]
-  ret ptr %15
+13:                                               ; preds = %8, %4, %1
+  %14 = phi ptr [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ], [ %spec.select, %8 ]
+  ret ptr %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -2062,76 +2061,74 @@ define dso_local i32 @crypto_check_attr_type(ptr nocapture noundef readonly %0, 
 
 6:                                                ; preds = %3
   %7 = load i16, ptr %4, align 2
-  %8 = zext i16 %7 to i64
-  %9 = add nsw i64 %8, -4
-  %10 = icmp ult i64 %9, 8
-  br i1 %10, label %.thread, label %11
+  %8 = add i16 %7, -4
+  %9 = icmp ult i16 %8, 8
+  br i1 %9, label %.thread, label %10
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 2
-  %13 = load i16, ptr %12, align 2
-  %14 = icmp eq i16 %13, 2
-  %15 = getelementptr i8, ptr %4, i64 4
-  br i1 %14, label %16, label %.thread
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %4, i64 2
+  %12 = load i16, ptr %11, align 2
+  %13 = icmp eq i16 %12, 2
+  %14 = getelementptr i8, ptr %4, i64 4
+  br i1 %13, label %15, label %.thread
 
-16:                                               ; preds = %11
-  %17 = icmp ugt ptr %15, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %.thread, label %21
+15:                                               ; preds = %10
+  %16 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
+  br i1 %16, label %.thread, label %20
 
-.thread:                                          ; preds = %11, %6, %3, %16
-  %18 = phi ptr [ %15, %16 ], [ inttoptr (i64 -22 to ptr), %11 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -2 to ptr), %3 ]
-  %19 = ptrtoint ptr %18 to i64
-  %20 = trunc i64 %19 to i32
-  br label %32
+.thread:                                          ; preds = %10, %6, %3, %15
+  %17 = phi ptr [ %14, %15 ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -2 to ptr), %3 ]
+  %18 = ptrtoint ptr %17 to i64
+  %19 = trunc i64 %18 to i32
+  br label %31
 
-21:                                               ; preds = %16
-  %22 = load i32, ptr %15, align 4
-  %23 = xor i32 %22, %1
-  %24 = getelementptr i8, ptr %4, i64 8
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %23, %25
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %32
+20:                                               ; preds = %15
+  %21 = load i32, ptr %14, align 4
+  %22 = xor i32 %21, %1
+  %23 = getelementptr i8, ptr %4, i64 8
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %22, %24
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %31
 
-28:                                               ; preds = %21
-  %29 = and i32 %22, 65920
-  %30 = xor i32 %29, 65920
-  %31 = and i32 %30, %25
-  store i32 %31, ptr %2, align 4
-  br label %32
+27:                                               ; preds = %20
+  %28 = and i32 %21, 65920
+  %29 = xor i32 %28, 65920
+  %30 = and i32 %29, %24
+  store i32 %30, ptr %2, align 4
+  br label %31
 
-32:                                               ; preds = %28, %21, %.thread
-  %33 = phi i32 [ %20, %.thread ], [ 0, %28 ], [ -22, %21 ]
-  ret i32 %33
+31:                                               ; preds = %27, %20, %.thread
+  %32 = phi i32 [ %19, %.thread ], [ 0, %27 ], [ -22, %20 ]
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef ptr @crypto_attr_alg_name(ptr noundef %0) #7 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %15, label %3
+  br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
   %4 = load i16, ptr %0, align 2
-  %5 = zext i16 %4 to i64
-  %6 = add nsw i64 %5, -4
-  %7 = icmp ult i64 %6, 128
-  br i1 %7, label %15, label %8
+  %5 = add i16 %4, -4
+  %6 = icmp ult i16 %5, 128
+  br i1 %6, label %14, label %7
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i16, ptr %9, align 2
-  %11 = icmp eq i16 %10, 1
-  br i1 %11, label %12, label %15
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = icmp eq i16 %9, 1
+  br i1 %10, label %11, label %14
 
-12:                                               ; preds = %8
-  %13 = getelementptr i8, ptr %0, i64 4
-  %14 = getelementptr i8, ptr %0, i64 131
-  store i8 0, ptr %14, align 1
-  br label %15
+11:                                               ; preds = %7
+  %12 = getelementptr i8, ptr %0, i64 4
+  %13 = getelementptr i8, ptr %0, i64 131
+  store i8 0, ptr %13, align 1
+  br label %14
 
-15:                                               ; preds = %12, %8, %3, %1
-  %16 = phi ptr [ %13, %12 ], [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %8 ]
-  ret ptr %16
+14:                                               ; preds = %11, %7, %3, %1
+  %15 = phi ptr [ %12, %11 ], [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %7 ]
+  ret ptr %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid

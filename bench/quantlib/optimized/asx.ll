@@ -129,9 +129,8 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %in, align 8, !tbaa !12
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1, !tbaa !13
-  %conv = zext i8 %2 to i32
-  %3 = add nsw i32 %conv, -58
-  %isdigit = icmp ult i32 %3, -10
+  %3 = add i8 %2, -58
+  %isdigit = icmp ult i8 %3, -10
   br i1 %isdigit, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -535,9 +534,8 @@ if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %asxCode, align 8, !tbaa !12
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1
   %2 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !13
-  %conv.i = zext i8 %2 to i32
-  %3 = add nsw i32 %conv.i, -58
-  %isdigit.i = icmp ult i32 %3, -10
+  %3 = add i8 %2, -58
+  %isdigit.i = icmp ult i8 %3, -10
   br i1 %isdigit.i, label %if.then, label %_ZN8QuantLib3ASX9isASXcodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
 
 _ZN8QuantLib3ASX9isASXcodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %if.end.i

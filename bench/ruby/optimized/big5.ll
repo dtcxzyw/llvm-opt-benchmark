@@ -123,7 +123,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %7, label %48
+  br i1 %.not, label %7, label %46
 
 7:                                                ; preds = %4
   %8 = load i8, ptr %1, align 1
@@ -140,66 +140,64 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   %scevgep43 = getelementptr i8, ptr %1, i64 %14
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %20
-  %.135.us = phi ptr [ %15, %20 ], [ %1, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %19
+  %.135.us = phi ptr [ %15, %19 ], [ %1, %.lr.ph ]
   %15 = getelementptr inbounds i8, ptr %.135.us, i64 -1
   %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i64
-  %18 = add nsw i64 %17, -135
-  %19 = icmp ult i64 %18, 120
-  br i1 %19, label %20, label %.loopexit
+  %17 = add i8 %16, 121
+  %18 = icmp ult i8 %17, 120
+  br i1 %18, label %19, label %.loopexit
 
-20:                                               ; preds = %.lr.ph.split.us
-  %21 = icmp ugt ptr %15, %0
-  br i1 %21, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !6
+19:                                               ; preds = %.lr.ph.split.us
+  %20 = icmp ugt ptr %15, %0
+  br i1 %20, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !6
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %27
-  %.135 = phi ptr [ %22, %27 ], [ %1, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %.135, i64 -1
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i64
-  %25 = add nsw i64 %24, -161
-  %26 = icmp ult i64 %25, 94
-  br i1 %26, label %27, label %.loopexit
+.lr.ph.split:                                     ; preds = %.lr.ph, %25
+  %.135 = phi ptr [ %21, %25 ], [ %1, %.lr.ph ]
+  %21 = getelementptr inbounds i8, ptr %.135, i64 -1
+  %22 = load i8, ptr %21, align 1
+  %23 = add i8 %22, 95
+  %24 = icmp ult i8 %23, 94
+  br i1 %24, label %25, label %.loopexit
 
-27:                                               ; preds = %.lr.ph.split
-  %28 = icmp ugt ptr %22, %0
-  br i1 %28, label %.lr.ph.split, label %.loopexit, !llvm.loop !6
+25:                                               ; preds = %.lr.ph.split
+  %26 = icmp ugt ptr %21, %0
+  br i1 %26, label %.lr.ph.split, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %27, %.lr.ph.split, %20, %.lr.ph.split.us, %7
-  %.028 = phi ptr [ %1, %7 ], [ %scevgep43, %20 ], [ %.135.us, %.lr.ph.split.us ], [ %scevgep43, %27 ], [ %.135, %.lr.ph.split ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %36
+.loopexit:                                        ; preds = %25, %.lr.ph.split, %19, %.lr.ph.split.us, %7
+  %.028 = phi ptr [ %1, %7 ], [ %scevgep43, %19 ], [ %.135.us, %.lr.ph.split.us ], [ %scevgep43, %25 ], [ %.135, %.lr.ph.split ]
+  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 20
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %28, %30
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %.loopexit
+  %33 = icmp ult ptr %.028, %2
+  %spec.select = select i1 %33, i32 %28, i32 0
+  br label %36
 
 34:                                               ; preds = %.loopexit
-  %35 = icmp ult ptr %.028, %2
-  %spec.select = select i1 %35, i32 %30, i32 0
-  br label %38
+  %35 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.028, ptr noundef %2, ptr noundef nonnull %3) #3
+  br label %36
 
-36:                                               ; preds = %.loopexit
-  %37 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.028, ptr noundef %2, ptr noundef nonnull %3) #3
-  br label %38
+36:                                               ; preds = %32, %34
+  %37 = phi i32 [ %35, %34 ], [ %spec.select, %32 ]
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %.028, i64 %38
+  %40 = icmp ugt ptr %39, %1
+  br i1 %40, label %46, label %41
 
-38:                                               ; preds = %34, %36
-  %39 = phi i32 [ %37, %36 ], [ %spec.select, %34 ]
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %.028, i64 %40
-  %42 = icmp ugt ptr %41, %1
-  br i1 %42, label %48, label %43
+41:                                               ; preds = %36
+  %42 = ptrtoint ptr %39 to i64
+  %43 = sub i64 %5, %42
+  %44 = and i64 %43, -2
+  %45 = getelementptr inbounds i8, ptr %39, i64 %44
+  br label %46
 
-43:                                               ; preds = %38
-  %44 = ptrtoint ptr %41 to i64
-  %45 = sub i64 %5, %44
-  %46 = and i64 %45, -2
-  %47 = getelementptr inbounds i8, ptr %41, i64 %46
-  br label %48
-
-48:                                               ; preds = %38, %4, %43
-  %.0 = phi ptr [ %47, %43 ], [ %1, %4 ], [ %.028, %38 ]
+46:                                               ; preds = %36, %4, %41
+  %.0 = phi ptr [ %45, %41 ], [ %1, %4 ], [ %.028, %36 ]
   ret ptr %.0
 }
 

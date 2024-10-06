@@ -6348,9 +6348,9 @@ define internal range(i32 -2147483648, 1) i32 @inet_validate_link_af(ptr noundef
   %26 = getelementptr i8, ptr %19, i64 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %27 = phi ptr [ %47, %42 ], [ %26, %.lr.ph.preheader ]
-  %28 = phi i32 [ %45, %42 ], [ %25, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %27 = phi ptr [ %46, %41 ], [ %26, %.lr.ph.preheader ]
+  %28 = phi i32 [ %44, %41 ], [ %25, %.lr.ph.preheader ]
   %29 = load i16, ptr %27, align 2
   %30 = icmp ult i16 %29, 4
   %31 = zext i16 %29 to i32
@@ -6367,24 +6367,23 @@ define internal range(i32 -2147483648, 1) i32 @inet_validate_link_af(ptr noundef
   %36 = getelementptr inbounds i8, ptr %27, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 16383
-  %39 = zext nneg i16 %38 to i32
-  %40 = add nsw i32 %39, -1
-  %41 = icmp ult i32 %40, 33
-  br i1 %41, label %42, label %.critedge
+  %39 = add nsw i16 %38, -1
+  %40 = icmp ult i16 %39, 33
+  br i1 %40, label %41, label %.critedge
 
-42:                                               ; preds = %35
-  %43 = add nuw nsw i32 %31, 3
-  %44 = and i32 %43, 131068
-  %45 = sub nsw i32 %28, %44
-  %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr i8, ptr %27, i64 %46
-  %48 = icmp sgt i32 %45, 3
-  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !146
+41:                                               ; preds = %35
+  %42 = add nuw nsw i32 %31, 3
+  %43 = and i32 %42, 131068
+  %44 = sub nsw i32 %28, %43
+  %45 = zext nneg i32 %43 to i64
+  %46 = getelementptr i8, ptr %27, i64 %45
+  %47 = icmp sgt i32 %44, 3
+  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !146
 
-.critedge:                                        ; preds = %32, %35, %42, %.lr.ph, %21, %17, %10, %6
-  %49 = phi i32 [ -97, %6 ], [ %15, %10 ], [ 0, %17 ], [ 0, %21 ], [ -22, %32 ], [ -22, %35 ], [ 0, %42 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %32, %35, %41, %.lr.ph, %21, %17, %10, %6
+  %48 = phi i32 [ -97, %6 ], [ %15, %10 ], [ 0, %17 ], [ 0, %21 ], [ -22, %32 ], [ -22, %35 ], [ 0, %41 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  ret i32 %49
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

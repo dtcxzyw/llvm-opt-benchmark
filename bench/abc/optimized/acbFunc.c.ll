@@ -6933,134 +6933,133 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val78 = load ptr, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %.val78, i64 %8
   %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i32
-  switch i8 %55, label %65 [
-    i8 7, label %104
-    i8 8, label %57
-    i8 11, label %58
-    i8 12, label %61
+  switch i8 %55, label %64 [
+    i8 7, label %103
+    i8 8, label %56
+    i8 11, label %57
+    i8 12, label %60
   ]
 
+56:                                               ; preds = %.critedge
+  br label %103
+
 57:                                               ; preds = %.critedge
-  br label %104
+  %58 = getelementptr i8, ptr %3, i64 8
+  %.val77 = load ptr, ptr %58, align 8
+  %59 = load i32, ptr %.val77, align 4
+  br label %103
 
-58:                                               ; preds = %.critedge
-  %59 = getelementptr i8, ptr %3, i64 8
-  %.val77 = load ptr, ptr %59, align 8
-  %60 = load i32, ptr %.val77, align 4
-  br label %104
+60:                                               ; preds = %.critedge
+  %61 = getelementptr i8, ptr %3, i64 8
+  %.val76 = load ptr, ptr %61, align 8
+  %62 = load i32, ptr %.val76, align 4
+  %63 = xor i32 %62, 1
+  br label %103
 
-61:                                               ; preds = %.critedge
-  %62 = getelementptr i8, ptr %3, i64 8
-  %.val76 = load ptr, ptr %62, align 8
-  %63 = load i32, ptr %.val76, align 4
-  %64 = xor i32 %63, 1
-  br label %104
+64:                                               ; preds = %.critedge
+  %65 = icmp eq i8 %55, 14
+  %66 = add i8 %55, -13
+  %or.cond = icmp ult i8 %66, 2
+  br i1 %or.cond, label %.preheader, label %77
 
-65:                                               ; preds = %.critedge
-  %66 = icmp eq i8 %55, 14
-  %67 = add nsw i32 %56, -13
-  %or.cond = icmp ult i32 %67, 2
-  br i1 %or.cond, label %.preheader, label %78
-
-.preheader:                                       ; preds = %65
+.preheader:                                       ; preds = %64
   %.val7294 = load i32, ptr %5, align 4
-  %68 = icmp sgt i32 %.val7294, 0
-  br i1 %68, label %.lr.ph97, label %.critedge3
+  %67 = icmp sgt i32 %.val7294, 0
+  br i1 %67, label %.lr.ph97, label %.critedge3
 
 .lr.ph97:                                         ; preds = %.preheader
-  %69 = getelementptr i8, ptr %3, i64 8
-  br label %70
+  %68 = getelementptr i8, ptr %3, i64 8
+  br label %69
 
-70:                                               ; preds = %.lr.ph97, %70
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next109, %70 ]
-  %.096 = phi i32 [ 1, %.lr.ph97 ], [ %73, %70 ]
-  %.val75 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i32, ptr %.val75, i64 %indvars.iv108
-  %72 = load i32, ptr %71, align 4
-  %73 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.096, i32 noundef %72) #31
+69:                                               ; preds = %.lr.ph97, %69
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next109, %69 ]
+  %.096 = phi i32 [ 1, %.lr.ph97 ], [ %72, %69 ]
+  %.val75 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i32, ptr %.val75, i64 %indvars.iv108
+  %71 = load i32, ptr %70, align 4
+  %72 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.096, i32 noundef %71) #31
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.val72 = load i32, ptr %5, align 4
-  %74 = sext i32 %.val72 to i64
-  %75 = icmp slt i64 %indvars.iv.next109, %74
-  br i1 %75, label %70, label %.critedge3, !llvm.loop !63
+  %73 = sext i32 %.val72 to i64
+  %74 = icmp slt i64 %indvars.iv.next109, %73
+  br i1 %74, label %69, label %.critedge3, !llvm.loop !63
 
-.critedge3:                                       ; preds = %70, %.preheader
-  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %73, %70 ]
-  %76 = zext i1 %66 to i32
-  %77 = xor i32 %.0.lcssa, %76
-  br label %104
+.critedge3:                                       ; preds = %69, %.preheader
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %72, %69 ]
+  %75 = zext i1 %65 to i32
+  %76 = xor i32 %.0.lcssa, %75
+  br label %103
 
-78:                                               ; preds = %65
-  %79 = icmp eq i8 %55, 16
-  %80 = add nsw i32 %56, -15
-  %or.cond5 = icmp ult i32 %80, 2
-  br i1 %or.cond5, label %.preheader82, label %91
+77:                                               ; preds = %64
+  %78 = icmp eq i8 %55, 16
+  %79 = add i8 %55, -15
+  %or.cond5 = icmp ult i8 %79, 2
+  br i1 %or.cond5, label %.preheader82, label %90
 
-.preheader82:                                     ; preds = %78
+.preheader82:                                     ; preds = %77
   %.val7189 = load i32, ptr %5, align 4
-  %81 = icmp sgt i32 %.val7189, 0
-  br i1 %81, label %.lr.ph92, label %.critedge7
+  %80 = icmp sgt i32 %.val7189, 0
+  br i1 %80, label %.lr.ph92, label %.critedge7
 
 .lr.ph92:                                         ; preds = %.preheader82
-  %82 = getelementptr i8, ptr %3, i64 8
-  br label %83
+  %81 = getelementptr i8, ptr %3, i64 8
+  br label %82
 
-83:                                               ; preds = %.lr.ph92, %83
-  %indvars.iv105 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next106, %83 ]
-  %.191 = phi i32 [ 0, %.lr.ph92 ], [ %86, %83 ]
-  %.val74 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i32, ptr %.val74, i64 %indvars.iv105
-  %85 = load i32, ptr %84, align 4
-  %86 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.191, i32 noundef %85) #31
+82:                                               ; preds = %.lr.ph92, %82
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next106, %82 ]
+  %.191 = phi i32 [ 0, %.lr.ph92 ], [ %85, %82 ]
+  %.val74 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i32, ptr %.val74, i64 %indvars.iv105
+  %84 = load i32, ptr %83, align 4
+  %85 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.191, i32 noundef %84) #31
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.val71 = load i32, ptr %5, align 4
-  %87 = sext i32 %.val71 to i64
-  %88 = icmp slt i64 %indvars.iv.next106, %87
-  br i1 %88, label %83, label %.critedge7, !llvm.loop !64
+  %86 = sext i32 %.val71 to i64
+  %87 = icmp slt i64 %indvars.iv.next106, %86
+  br i1 %87, label %82, label %.critedge7, !llvm.loop !64
 
-.critedge7:                                       ; preds = %83, %.preheader82
-  %.1.lcssa = phi i32 [ 0, %.preheader82 ], [ %86, %83 ]
-  %89 = zext i1 %79 to i32
-  %90 = xor i32 %.1.lcssa, %89
-  br label %104
+.critedge7:                                       ; preds = %82, %.preheader82
+  %.1.lcssa = phi i32 [ 0, %.preheader82 ], [ %85, %82 ]
+  %88 = zext i1 %78 to i32
+  %89 = xor i32 %.1.lcssa, %88
+  br label %103
 
-91:                                               ; preds = %78
-  %92 = icmp eq i8 %55, 18
-  %93 = add nsw i32 %56, -17
-  %or.cond9 = icmp ult i32 %93, 2
-  br i1 %or.cond9, label %.preheader83, label %104
+90:                                               ; preds = %77
+  %91 = icmp eq i8 %55, 18
+  %92 = add i8 %55, -17
+  %or.cond9 = icmp ult i8 %92, 2
+  br i1 %or.cond9, label %.preheader83, label %103
 
-.preheader83:                                     ; preds = %91
+.preheader83:                                     ; preds = %90
   %.val85 = load i32, ptr %5, align 4
-  %94 = icmp sgt i32 %.val85, 0
-  br i1 %94, label %.lr.ph88, label %.critedge11
+  %93 = icmp sgt i32 %.val85, 0
+  br i1 %93, label %.lr.ph88, label %.critedge11
 
 .lr.ph88:                                         ; preds = %.preheader83
-  %95 = getelementptr i8, ptr %3, i64 8
-  br label %96
+  %94 = getelementptr i8, ptr %3, i64 8
+  br label %95
 
-96:                                               ; preds = %.lr.ph88, %96
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next103, %96 ]
-  %.287 = phi i32 [ 0, %.lr.ph88 ], [ %99, %96 ]
-  %.val73 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i32, ptr %.val73, i64 %indvars.iv102
-  %98 = load i32, ptr %97, align 4
-  %99 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.287, i32 noundef %98) #31
+95:                                               ; preds = %.lr.ph88, %95
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next103, %95 ]
+  %.287 = phi i32 [ 0, %.lr.ph88 ], [ %98, %95 ]
+  %.val73 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i32, ptr %.val73, i64 %indvars.iv102
+  %97 = load i32, ptr %96, align 4
+  %98 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.287, i32 noundef %97) #31
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.val = load i32, ptr %5, align 4
-  %100 = sext i32 %.val to i64
-  %101 = icmp slt i64 %indvars.iv.next103, %100
-  br i1 %101, label %96, label %.critedge11, !llvm.loop !65
+  %99 = sext i32 %.val to i64
+  %100 = icmp slt i64 %indvars.iv.next103, %99
+  br i1 %100, label %95, label %.critedge11, !llvm.loop !65
 
-.critedge11:                                      ; preds = %96, %.preheader83
-  %.2.lcssa = phi i32 [ 0, %.preheader83 ], [ %99, %96 ]
-  %102 = zext i1 %92 to i32
-  %103 = xor i32 %.2.lcssa, %102
-  br label %104
+.critedge11:                                      ; preds = %95, %.preheader83
+  %.2.lcssa = phi i32 [ 0, %.preheader83 ], [ %98, %95 ]
+  %101 = zext i1 %91 to i32
+  %102 = xor i32 %.2.lcssa, %101
+  br label %103
 
-104:                                              ; preds = %91, %.critedge, %.critedge11, %.critedge7, %.critedge3, %61, %58, %57
-  %.066 = phi i32 [ 1, %57 ], [ %60, %58 ], [ %64, %61 ], [ %77, %.critedge3 ], [ %90, %.critedge7 ], [ %103, %.critedge11 ], [ 0, %.critedge ], [ -1, %91 ]
+103:                                              ; preds = %90, %.critedge, %.critedge11, %.critedge7, %.critedge3, %60, %57, %56
+  %.066 = phi i32 [ 1, %56 ], [ %59, %57 ], [ %63, %60 ], [ %76, %.critedge3 ], [ %89, %.critedge7 ], [ %102, %.critedge11 ], [ 0, %.critedge ], [ -1, %90 ]
   ret i32 %.066
 }
 

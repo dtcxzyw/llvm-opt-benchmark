@@ -15471,9 +15471,9 @@ if.end.i167.i.i:                                  ; preds = %land.lhs.true.i163.
   %sub.i176.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i176.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i.i = zext i8 %sub.i176.i.i to i64
-  %27 = add nsw i64 %conv.i.i.i.i, -1
   %xtraiter = and i64 %conv.i.i.i.i, 3
-  %28 = icmp ult i64 %27, 3
+  %27 = add i8 %sub.i176.i.i, -1
+  %28 = icmp ult i8 %27, 3
   br i1 %28, label %for.cond.cleanup.i.i.i.i.unr-lcssa, label %if.end.i167.i.i.new
 
 if.end.i167.i.i.new:                              ; preds = %if.end.i167.i.i
@@ -15825,9 +15825,9 @@ if.end.i177.i.i:                                  ; preds = %land.lhs.true.i173.
   %sub.i186.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i186.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i187.i = zext i8 %sub.i186.i.i to i64
-  %65 = add nsw i64 %conv.i.i.i187.i, -1
   %xtraiter417 = and i64 %conv.i.i.i187.i, 3
-  %66 = icmp ult i64 %65, 3
+  %65 = add i8 %sub.i186.i.i, -1
+  %66 = icmp ult i8 %65, 3
   br i1 %66, label %for.cond.cleanup.i.i.i197.i.unr-lcssa, label %if.end.i177.i.i.new
 
 if.end.i177.i.i.new:                              ; preds = %if.end.i177.i.i
@@ -16488,9 +16488,9 @@ if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.
   %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
-  %27 = add nsw i64 %conv.i.i.i.i, -1
   %xtraiter = and i64 %conv.i.i.i.i, 3
-  %28 = icmp ult i64 %27, 3
+  %27 = add i8 %sub.i173.i.i, -1
+  %28 = icmp ult i8 %27, 3
   br i1 %28, label %for.cond.cleanup.i.i.i.i.unr-lcssa, label %if.end.i165.i.i.new
 
 if.end.i165.i.i.new:                              ; preds = %if.end.i165.i.i
@@ -16842,9 +16842,9 @@ if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.
   %sub.i183.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
-  %65 = add nsw i64 %conv.i.i.i188.i, -1
   %xtraiter417 = and i64 %conv.i.i.i188.i, 3
-  %66 = icmp ult i64 %65, 3
+  %65 = add i8 %sub.i183.i.i, -1
+  %66 = icmp ult i8 %65, 3
   br i1 %66, label %for.cond.cleanup.i.i.i198.i.unr-lcssa, label %if.end.i175.i.i.new
 
 if.end.i175.i.i.new:                              ; preds = %if.end.i175.i.i
@@ -17505,9 +17505,9 @@ if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.
   %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
-  %27 = add nsw i64 %conv.i.i.i.i, -1
   %xtraiter = and i64 %conv.i.i.i.i, 3
-  %28 = icmp ult i64 %27, 3
+  %27 = add i8 %sub.i173.i.i, -1
+  %28 = icmp ult i8 %27, 3
   br i1 %28, label %for.cond.cleanup.i.i.i.i.unr-lcssa, label %if.end.i165.i.i.new
 
 if.end.i165.i.i.new:                              ; preds = %if.end.i165.i.i
@@ -17849,9 +17849,9 @@ if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.
   %sub.i183.i.i = sub nuw i8 %60, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
-  %61 = add nsw i64 %conv.i.i.i188.i, -1
   %xtraiter392 = and i64 %conv.i.i.i188.i, 3
-  %62 = icmp ult i64 %61, 3
+  %61 = add i8 %sub.i183.i.i, -1
+  %62 = icmp ult i8 %61, 3
   br i1 %62, label %for.cond.cleanup.i.i.i198.i.unr-lcssa, label %if.end.i175.i.i.new
 
 if.end.i175.i.i.new:                              ; preds = %if.end.i175.i.i
@@ -19220,9 +19220,9 @@ if.end.i167.i.i:                                  ; preds = %land.lhs.true.i163.
   %sub.i176.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i176.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i.i = zext i8 %sub.i176.i.i to i64
-  %27 = add nsw i64 %conv.i.i.i.i, -1
   %xtraiter = and i64 %conv.i.i.i.i, 3
-  %28 = icmp ult i64 %27, 3
+  %27 = add i8 %sub.i176.i.i, -1
+  %28 = icmp ult i8 %27, 3
   br i1 %28, label %for.cond.cleanup.i.i.i.i.unr-lcssa, label %if.end.i167.i.i.new
 
 if.end.i167.i.i.new:                              ; preds = %if.end.i167.i.i
@@ -19574,9 +19574,9 @@ if.end.i177.i.i:                                  ; preds = %land.lhs.true.i173.
   %sub.i186.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i186.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i187.i = zext i8 %sub.i186.i.i to i64
-  %65 = add nsw i64 %conv.i.i.i187.i, -1
   %xtraiter417 = and i64 %conv.i.i.i187.i, 3
-  %66 = icmp ult i64 %65, 3
+  %65 = add i8 %sub.i186.i.i, -1
+  %66 = icmp ult i8 %65, 3
   br i1 %66, label %for.cond.cleanup.i.i.i197.i.unr-lcssa, label %if.end.i177.i.i.new
 
 if.end.i177.i.i.new:                              ; preds = %if.end.i177.i.i
@@ -20237,9 +20237,9 @@ if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.
   %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
-  %27 = add nsw i64 %conv.i.i.i.i, -1
   %xtraiter = and i64 %conv.i.i.i.i, 3
-  %28 = icmp ult i64 %27, 3
+  %27 = add i8 %sub.i173.i.i, -1
+  %28 = icmp ult i8 %27, 3
   br i1 %28, label %for.cond.cleanup.i.i.i.i.unr-lcssa, label %if.end.i165.i.i.new
 
 if.end.i165.i.i.new:                              ; preds = %if.end.i165.i.i
@@ -20591,9 +20591,9 @@ if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.
   %sub.i183.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
-  %65 = add nsw i64 %conv.i.i.i188.i, -1
   %xtraiter417 = and i64 %conv.i.i.i188.i, 3
-  %66 = icmp ult i64 %65, 3
+  %65 = add i8 %sub.i183.i.i, -1
+  %66 = icmp ult i8 %65, 3
   br i1 %66, label %for.cond.cleanup.i.i.i198.i.unr-lcssa, label %if.end.i175.i.i.new
 
 if.end.i175.i.i.new:                              ; preds = %if.end.i175.i.i
@@ -21254,9 +21254,9 @@ if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.
   %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
-  %27 = add nsw i64 %conv.i.i.i.i, -1
   %xtraiter = and i64 %conv.i.i.i.i, 3
-  %28 = icmp ult i64 %27, 3
+  %27 = add i8 %sub.i173.i.i, -1
+  %28 = icmp ult i8 %27, 3
   br i1 %28, label %for.cond.cleanup.i.i.i.i.unr-lcssa, label %if.end.i165.i.i.new
 
 if.end.i165.i.i.new:                              ; preds = %if.end.i165.i.i
@@ -21598,9 +21598,9 @@ if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.
   %sub.i183.i.i = sub nuw i8 %60, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
-  %61 = add nsw i64 %conv.i.i.i188.i, -1
   %xtraiter392 = and i64 %conv.i.i.i188.i, 3
-  %62 = icmp ult i64 %61, 3
+  %61 = add i8 %sub.i183.i.i, -1
+  %62 = icmp ult i8 %61, 3
   br i1 %62, label %for.cond.cleanup.i.i.i198.i.unr-lcssa, label %if.end.i175.i.i.new
 
 if.end.i175.i.i.new:                              ; preds = %if.end.i175.i.i

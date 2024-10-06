@@ -5575,9 +5575,8 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.then.i39:                                      ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %score.i.i.i)
   %552 = load i32, ptr %num_states1.i.i.i.i.i, align 8
-  %conv.i.i.i = zext i32 %552 to i64
-  %553 = add nsw i64 %conv.i.i.i, -257
-  %or.cond.i.i.i.i = icmp ult i64 %553, 128
+  %553 = add i32 %552, -257
+  %or.cond.i.i.i.i = icmp ult i32 %553, 128
   br i1 %or.cond.i.i.i.i, label %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i39
@@ -5620,9 +5619,8 @@ _ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType0EE4callERKNS0_10build_infoE.exit
 if.then.i.i33:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %score.i.i.i.i)
   %559 = load i32, ptr %num_states1.i.i.i.i.i, align 8
-  %conv.i.i.i3.i = zext i32 %559 to i64
-  %560 = add nsw i64 %conv.i.i.i3.i, -257
-  %or.cond.i.i.i.i.i34 = icmp ult i64 %560, 128
+  %560 = add i32 %559, -257
+  %or.cond.i.i.i.i.i34 = icmp ult i32 %560, 128
   br i1 %or.cond.i.i.i.i.i34, label %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i, label %if.end.i.i.i.i.i35
 
 if.end.i.i.i.i.i35:                               ; preds = %if.then.i.i33
@@ -5658,16 +5656,15 @@ call11.i.i.i.i.noexc:                             ; preds = %if.end10.i.i.i.i
   br label %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType1EE4callERKNS0_10build_infoE.exit.i.i
 
 _ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType1EE4callERKNS0_10build_infoE.exit.i.i: ; preds = %call11.i.i.i.i.noexc, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i
-  %retval.0.i.i.i4.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i ], [ %spec.select5.i.i.i.i, %call11.i.i.i.i.noexc ]
+  %retval.0.i.i.i3.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i ], [ %spec.select5.i.i.i.i, %call11.i.i.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %score.i.i.i.i)
   br label %invoke.cont14
 
 if.then.i.i.i28:                                  ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %score.i.i.i.i.i)
   %566 = load i32, ptr %num_states1.i.i.i.i.i, align 8
-  %conv.i.i.i3.i.i = zext i32 %566 to i64
-  %567 = add nsw i64 %conv.i.i.i3.i.i, -257
-  %or.cond.i.i.i.i.i.i = icmp ult i64 %567, 128
+  %567 = add i32 %566, -257
+  %or.cond.i.i.i.i.i.i = icmp ult i32 %567, 128
   br i1 %or.cond.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i29
 
 if.end.i.i.i.i.i.i29:                             ; preds = %if.then.i.i.i28
@@ -5703,16 +5700,15 @@ call11.i.i.i.i.i.noexc:                           ; preds = %if.end10.i.i.i.i.i3
   br label %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType2EE4callERKNS0_10build_infoE.exit.i.i.i
 
 _ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType2EE4callERKNS0_10build_infoE.exit.i.i.i: ; preds = %call11.i.i.i.i.i.noexc, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i
-  %retval.0.i.i.i4.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i, %call11.i.i.i.i.i.noexc ]
+  %retval.0.i.i.i3.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i, %call11.i.i.i.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %score.i.i.i.i.i)
   br label %invoke.cont14
 
 if.then.i.i.i.i51:                                ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %score.i.i.i.i.i.i)
   %573 = load i32, ptr %num_states1.i.i.i.i.i, align 8
-  %conv.i.i.i3.i.i.i = zext i32 %573 to i64
-  %574 = add nsw i64 %conv.i.i.i3.i.i.i, -257
-  %or.cond.i.i.i.i.i.i.i = icmp ult i64 %574, 128
+  %574 = add i32 %573, -257
+  %or.cond.i.i.i.i.i.i.i = icmp ult i32 %574, 128
   br i1 %or.cond.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i52
 
 if.end.i.i.i.i.i.i.i52:                           ; preds = %if.then.i.i.i.i51
@@ -5748,16 +5744,15 @@ call11.i.i.i.i.i.i.noexc:                         ; preds = %if.end10.i.i.i.i.i.
   br label %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType3EE4callERKNS0_10build_infoE.exit.i.i.i.i
 
 _ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType3EE4callERKNS0_10build_infoE.exit.i.i.i.i: ; preds = %call11.i.i.i.i.i.i.noexc, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i
-  %retval.0.i.i.i4.i.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i.i, %call11.i.i.i.i.i.i.noexc ]
+  %retval.0.i.i.i3.i.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i.i, %call11.i.i.i.i.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %score.i.i.i.i.i.i)
   br label %invoke.cont14
 
 if.then.i.i.i.i.i45:                              ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %score.i.i.i.i.i.i.i)
   %580 = load i32, ptr %num_states1.i.i.i.i.i, align 8
-  %conv.i.i.i3.i.i.i.i = zext i32 %580 to i64
-  %581 = add nsw i64 %conv.i.i.i3.i.i.i.i, -257
-  %or.cond.i.i.i.i.i.i.i.i = icmp ult i64 %581, 128
+  %581 = add i32 %580, -257
+  %or.cond.i.i.i.i.i.i.i.i = icmp ult i32 %581, 128
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i46
 
 if.end.i.i.i.i.i.i.i.i46:                         ; preds = %if.then.i.i.i.i.i45
@@ -5793,16 +5788,15 @@ call11.i.i.i.i.i.i.i.noexc:                       ; preds = %if.end10.i.i.i.i.i.
   br label %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType4EE4callERKNS0_10build_infoE.exit.i.i.i.i.i
 
 _ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType4EE4callERKNS0_10build_infoE.exit.i.i.i.i.i: ; preds = %call11.i.i.i.i.i.i.i.noexc, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i
-  %retval.0.i.i.i4.i.i.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i.i.i, %call11.i.i.i.i.i.i.i.noexc ]
+  %retval.0.i.i.i3.i.i.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i.i.i, %call11.i.i.i.i.i.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %score.i.i.i.i.i.i.i)
   br label %invoke.cont14
 
 if.else.i.i.i.i.i55:                              ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %score.i.i.i.i.i.i.i.i)
   %587 = load i32, ptr %num_states1.i.i.i.i.i, align 8
-  %conv.i.i.i3.i.i.i.i.i = zext i32 %587 to i64
-  %588 = add nsw i64 %conv.i.i.i3.i.i.i.i.i, -257
-  %or.cond.i.i.i.i.i.i.i.i.i = icmp ult i64 %588, 128
+  %588 = add i32 %587, -257
+  %or.cond.i.i.i.i.i.i.i.i.i = icmp ult i32 %588, 128
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i56
 
 if.end.i.i.i.i.i.i.i.i.i56:                       ; preds = %if.else.i.i.i.i.i55
@@ -5838,12 +5832,12 @@ call11.i.i.i.i.i.i.i.i.noexc:                     ; preds = %if.end10.i.i.i.i.i.
   br label %_ZN3ue212_GLOBAL__N_126DISPATCH_BY_LIMEX_TYPE_INTINS0_8scoreNfaEiNS0_10build_infoEL13NFAEngineType5EE4doOpES4_RKS3_.exit.i.i.i.i.i
 
 _ZN3ue212_GLOBAL__N_126DISPATCH_BY_LIMEX_TYPE_INTINS0_8scoreNfaEiNS0_10build_infoEL13NFAEngineType5EE4doOpES4_RKS3_.exit.i.i.i.i.i: ; preds = %call11.i.i.i.i.i.i.i.i.noexc, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i4.i.i.i.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i.i.i.i, %call11.i.i.i.i.i.i.i.i.noexc ]
+  %retval.0.i.i.i3.i.i.i.i.i = phi i32 [ -1, %_ZN3ue212_GLOBAL__N_117findContainerSizeEm.exit.i.i.i.i.i.i.i.i ], [ %spec.select5.i.i.i.i.i.i.i.i, %call11.i.i.i.i.i.i.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %score.i.i.i.i.i.i.i.i)
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZN3ue212_GLOBAL__N_126DISPATCH_BY_LIMEX_TYPE_INTINS0_8scoreNfaEiNS0_10build_infoEL13NFAEngineType5EE4doOpES4_RKS3_.exit.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType4EE4callERKNS0_10build_infoE.exit.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType3EE4callERKNS0_10build_infoE.exit.i.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType2EE4callERKNS0_10build_infoE.exit.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType1EE4callERKNS0_10build_infoE.exit.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType0EE4callERKNS0_10build_infoE.exit.i
-  %retval.0.i = phi i32 [ %retval.0.i.i.i43, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType0EE4callERKNS0_10build_infoE.exit.i ], [ %retval.0.i.i.i4.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType1EE4callERKNS0_10build_infoE.exit.i.i ], [ %retval.0.i.i.i4.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType2EE4callERKNS0_10build_infoE.exit.i.i.i ], [ %retval.0.i.i.i4.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType3EE4callERKNS0_10build_infoE.exit.i.i.i.i ], [ %retval.0.i.i.i4.i.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType4EE4callERKNS0_10build_infoE.exit.i.i.i.i.i ], [ %retval.0.i.i.i4.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_126DISPATCH_BY_LIMEX_TYPE_INTINS0_8scoreNfaEiNS0_10build_infoEL13NFAEngineType5EE4doOpES4_RKS3_.exit.i.i.i.i.i ]
+  %retval.0.i = phi i32 [ %retval.0.i.i.i43, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType0EE4callERKNS0_10build_infoE.exit.i ], [ %retval.0.i.i.i3.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType1EE4callERKNS0_10build_infoE.exit.i.i ], [ %retval.0.i.i.i3.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType2EE4callERKNS0_10build_infoE.exit.i.i.i ], [ %retval.0.i.i.i3.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType3EE4callERKNS0_10build_infoE.exit.i.i.i.i ], [ %retval.0.i.i.i3.i.i.i.i, %_ZN3ue212_GLOBAL__N_18scoreNfaIL13NFAEngineType4EE4callERKNS0_10build_infoE.exit.i.i.i.i.i ], [ %retval.0.i.i.i3.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_126DISPATCH_BY_LIMEX_TYPE_INTINS0_8scoreNfaEiNS0_10build_infoEL13NFAEngineType5EE4doOpES4_RKS3_.exit.i.i.i.i.i ]
   %cmp16 = icmp sgt i32 %retval.0.i, -1
   br i1 %cmp16, label %do.end19, label %for.inc
 
