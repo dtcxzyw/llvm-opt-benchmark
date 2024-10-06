@@ -7,44 +7,44 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @SHA1Transform(ptr nocapture noundef %state, ptr nocapture noundef readonly %buffer) local_unnamed_addr #0 {
 entry:
   %block.sroa.0.0.copyload = load i32, ptr %buffer, align 1
-  %block.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 4
+  %block.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 4
   %block.sroa.43.0.copyload = load i32, ptr %block.sroa.43.0..sroa_idx, align 1
-  %block.sroa.84.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 8
+  %block.sroa.84.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %block.sroa.84.0.copyload = load i32, ptr %block.sroa.84.0..sroa_idx, align 1
-  %block.sroa.125.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 12
+  %block.sroa.125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 12
   %block.sroa.125.0.copyload = load i32, ptr %block.sroa.125.0..sroa_idx, align 1
-  %block.sroa.166.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 16
+  %block.sroa.166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %block.sroa.166.0.copyload = load i32, ptr %block.sroa.166.0..sroa_idx, align 1
-  %block.sroa.207.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 20
+  %block.sroa.207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 20
   %block.sroa.207.0.copyload = load i32, ptr %block.sroa.207.0..sroa_idx, align 1
-  %block.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 24
+  %block.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %block.sroa.248.0.copyload = load i32, ptr %block.sroa.248.0..sroa_idx, align 1
-  %block.sroa.289.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 28
+  %block.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 28
   %block.sroa.289.0.copyload = load i32, ptr %block.sroa.289.0..sroa_idx, align 1
-  %block.sroa.330.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 32
+  %block.sroa.330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %block.sroa.330.0.copyload = load i32, ptr %block.sroa.330.0..sroa_idx, align 1
-  %block.sroa.371.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 36
+  %block.sroa.371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 36
   %block.sroa.371.0.copyload = load i32, ptr %block.sroa.371.0..sroa_idx, align 1
-  %block.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 40
+  %block.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 40
   %block.sroa.412.0.copyload = load i32, ptr %block.sroa.412.0..sroa_idx, align 1
-  %block.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 44
+  %block.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 44
   %block.sroa.453.0.copyload = load i32, ptr %block.sroa.453.0..sroa_idx, align 1
-  %block.sroa.494.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 48
+  %block.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 48
   %block.sroa.494.0.copyload = load i32, ptr %block.sroa.494.0..sroa_idx, align 1
-  %block.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 52
+  %block.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 52
   %block.sroa.535.0.copyload = load i32, ptr %block.sroa.535.0..sroa_idx, align 1
-  %block.sroa.576.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 56
+  %block.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %block.sroa.576.0.copyload = load i32, ptr %block.sroa.576.0..sroa_idx, align 1
-  %block.sroa.617.0..sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 60
+  %block.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 60
   %block.sroa.617.0.copyload = load i32, ptr %block.sroa.617.0..sroa_idx, align 1
   %0 = load i32, ptr %state, align 4
-  %arrayidx1 = getelementptr inbounds i8, ptr %state, i64 4
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %state, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %state, i64 8
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %state, i64 8
   %2 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %state, i64 12
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %state, i64 12
   %3 = load i32, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %state, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %state, i64 16
   %4 = load i32, ptr %arrayidx4, align 4
   %xor = xor i32 %3, %2
   %and = and i32 %xor, %1
@@ -1041,16 +1041,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define dso_local void @SHA1Init(ptr nocapture noundef writeonly %context) local_unnamed_addr #3 {
 entry:
   store i32 1732584193, ptr %context, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %context, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %context, i64 4
   store i32 -271733879, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %context, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %context, i64 8
   store i32 -1732584194, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %context, i64 12
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %context, i64 12
   store i32 271733878, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %context, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %context, i64 16
   store i32 -1009589776, ptr %arrayidx8, align 4
-  %count = getelementptr inbounds i8, ptr %context, i64 20
-  %arrayidx9 = getelementptr inbounds i8, ptr %context, i64 24
+  %count = getelementptr inbounds nuw i8, ptr %context, i64 20
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %context, i64 24
   store i32 0, ptr %arrayidx9, align 4
   store i32 0, ptr %count, align 4
   ret void
@@ -1059,18 +1059,18 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @SHA1Update(ptr nocapture noundef %context, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #4 {
 entry:
-  %count = getelementptr inbounds i8, ptr %context, i64 20
+  %count = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %count, align 4
   %shl = shl i32 %len, 3
   %add = add i32 %0, %shl
   store i32 %add, ptr %count, align 4
   %cmp = icmp ult i32 %add, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %context, i64 24
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %context, i64 24
   %1 = load i32, ptr %arrayidx4, align 4
   %inc = zext i1 %cmp to i32
   %2 = add i32 %1, %inc
   %shr = lshr i32 %len, 29
-  %arrayidx6 = getelementptr inbounds i8, ptr %context, i64 24
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %context, i64 24
   %add7 = add i32 %2, %shr
   store i32 %add7, ptr %arrayidx6, align 4
   %shr8 = lshr i32 %0, 3
@@ -1080,9 +1080,9 @@ entry:
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %entry
-  %buffer = getelementptr inbounds i8, ptr %context, i64 28
+  %buffer = getelementptr inbounds nuw i8, ptr %context, i64 28
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx12 = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %idxprom
   %sub = sub nuw nsw i32 64, %and
   %conv = zext nneg i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx12, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %conv, i1 false)
@@ -1094,7 +1094,7 @@ if.then11:                                        ; preds = %entry
 for.body:                                         ; preds = %if.then11, %for.body
   %i.026 = phi i32 [ %add22, %for.body ], [ %sub, %if.then11 ]
   %idxprom20 = zext i32 %i.026 to i64
-  %arrayidx21 = getelementptr inbounds i8, ptr %data, i64 %idxprom20
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %data, i64 %idxprom20
   tail call void @SHA1Transform(ptr noundef %context, ptr noundef %arrayidx21)
   %add22 = add i32 %i.026, 64
   %add15 = add i32 %i.026, 127
@@ -1108,10 +1108,10 @@ if.else:                                          ; preds = %entry
 if.end23:                                         ; preds = %for.body, %if.then11, %if.else
   %i.1 = phi i32 [ 0, %if.else ], [ %sub, %if.then11 ], [ %add22, %for.body ]
   %j.0 = phi i64 [ %3, %if.else ], [ 0, %if.then11 ], [ 0, %for.body ]
-  %buffer24 = getelementptr inbounds i8, ptr %context, i64 28
-  %arrayidx26 = getelementptr inbounds [64 x i8], ptr %buffer24, i64 0, i64 %j.0
+  %buffer24 = getelementptr inbounds nuw i8, ptr %context, i64 28
+  %arrayidx26 = getelementptr inbounds nuw [64 x i8], ptr %buffer24, i64 0, i64 %j.0
   %idxprom27 = zext i32 %i.1 to i64
-  %arrayidx28 = getelementptr inbounds i8, ptr %data, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %data, i64 %idxprom27
   %sub29 = sub i32 %len, %i.1
   %conv30 = zext i32 %sub29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26, ptr align 1 %arrayidx28, i64 %conv30, i1 false)
@@ -1123,14 +1123,14 @@ define dso_local void @SHA1Final(ptr nocapture noundef writeonly %digest, ptr no
 entry:
   %finalcount = alloca [8 x i8], align 8
   %c = alloca i8, align 1
-  %count = getelementptr inbounds i8, ptr %context, i64 20
+  %count = getelementptr inbounds nuw i8, ptr %context, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %cmp1 = icmp ult i64 %indvars.iv, 4
   %idxprom = zext i1 %cmp1 to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr %count, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr %count, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %1 = shl i32 %indvars.iv.tr, 3
@@ -1138,7 +1138,7 @@ for.body:                                         ; preds = %entry, %for.body
   %mul = xor i32 %sub, 24
   %shr = lshr i32 %0, %mul
   %conv = trunc i32 %shr to i8
-  %arrayidx4 = getelementptr inbounds [8 x i8], ptr %finalcount, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [8 x i8], ptr %finalcount, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1150,7 +1150,7 @@ for.end:                                          ; preds = %for.body
   %add.i = add i32 %2, 8
   store i32 %add.i, ptr %count, align 4
   %cmp.i = icmp ugt i32 %2, -9
-  %arrayidx4.i = getelementptr inbounds i8, ptr %context, i64 24
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %context, i64 24
   %3 = load i32, ptr %arrayidx4.i, align 4
   %inc.i = zext i1 %cmp.i to i32
   %4 = add i32 %3, %inc.i
@@ -1161,11 +1161,12 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp10.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %for.end
-  %buffer.i = getelementptr inbounds i8, ptr %context, i64 28
-  %arrayidx12.i = getelementptr inbounds i8, ptr %context, i64 91
+  %buffer.i = getelementptr inbounds nuw i8, ptr %context, i64 28
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %context, i64 91
   %5 = load i8, ptr %c, align 1
   store i8 %5, ptr %arrayidx12.i, align 1
   tail call void @SHA1Transform(ptr noundef nonnull %context, ptr noundef nonnull %buffer.i)
+  %.pre = load i32, ptr %count, align 4
   br label %SHA1Update.exit
 
 if.else.i:                                        ; preds = %for.end
@@ -1173,22 +1174,22 @@ if.else.i:                                        ; preds = %for.end
   br label %SHA1Update.exit
 
 SHA1Update.exit:                                  ; preds = %if.then11.i, %if.else.i
+  %7 = phi i32 [ %add.i, %if.else.i ], [ %.pre, %if.then11.i ]
   %i.1.i = phi i32 [ 0, %if.else.i ], [ 1, %if.then11.i ]
   %j.0.i = phi i64 [ %6, %if.else.i ], [ 0, %if.then11.i ]
-  %buffer24.i = getelementptr inbounds i8, ptr %context, i64 28
-  %arrayidx26.i = getelementptr inbounds [64 x i8], ptr %buffer24.i, i64 0, i64 %j.0.i
+  %buffer24.i = getelementptr inbounds nuw i8, ptr %context, i64 28
+  %arrayidx26.i = getelementptr inbounds nuw [64 x i8], ptr %buffer24.i, i64 0, i64 %j.0.i
   %idxprom27.i = zext nneg i32 %i.1.i to i64
-  %arrayidx28.i = getelementptr inbounds i8, ptr %c, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %c, i64 %idxprom27.i
   %sub29.i = xor i32 %i.1.i, 1
   %conv30.i = zext nneg i32 %sub29.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26.i, ptr nonnull readonly align 1 %arrayidx28.i, i64 %conv30.i, i1 false)
-  %7 = load i32, ptr %count, align 4
   %and787 = and i32 %7, 504
   %cmp8.not88 = icmp eq i32 %and787, 448
   br i1 %cmp8.not88, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %SHA1Update.exit
-  %arrayidx12.i38 = getelementptr inbounds i8, ptr %context, i64 91
+  %arrayidx12.i38 = getelementptr inbounds nuw i8, ptr %context, i64 91
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %SHA1Update.exit50
@@ -1209,6 +1210,7 @@ while.body:                                       ; preds = %while.body.preheade
 if.then11.i35:                                    ; preds = %while.body
   store i8 0, ptr %arrayidx12.i38, align 1
   tail call void @SHA1Transform(ptr noundef nonnull %context, ptr noundef nonnull %buffer24.i)
+  %.pre98 = load i32, ptr %count, align 4
   br label %SHA1Update.exit50
 
 if.else.i26:                                      ; preds = %while.body
@@ -1216,15 +1218,15 @@ if.else.i26:                                      ; preds = %while.body
   br label %SHA1Update.exit50
 
 SHA1Update.exit50:                                ; preds = %if.then11.i35, %if.else.i26
+  %12 = phi i32 [ %add.i17, %if.else.i26 ], [ %.pre98, %if.then11.i35 ]
   %i.1.i27 = phi i32 [ 0, %if.else.i26 ], [ 1, %if.then11.i35 ]
   %j.0.i28 = phi i64 [ %11, %if.else.i26 ], [ 0, %if.then11.i35 ]
-  %arrayidx26.i30 = getelementptr inbounds [64 x i8], ptr %buffer24.i, i64 0, i64 %j.0.i28
+  %arrayidx26.i30 = getelementptr inbounds nuw [64 x i8], ptr %buffer24.i, i64 0, i64 %j.0.i28
   %idxprom27.i31 = zext nneg i32 %i.1.i27 to i64
-  %arrayidx28.i32 = getelementptr inbounds i8, ptr %c, i64 %idxprom27.i31
+  %arrayidx28.i32 = getelementptr inbounds nuw i8, ptr %c, i64 %idxprom27.i31
   %sub29.i33 = xor i32 %i.1.i27, 1
   %conv30.i34 = zext nneg i32 %sub29.i33 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26.i30, ptr nonnull readonly align 1 %arrayidx28.i32, i64 %conv30.i34, i1 false)
-  %12 = load i32, ptr %count, align 4
   %and7 = and i32 %12, 504
   %cmp8.not = icmp eq i32 %and7, 448
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !8
@@ -1238,7 +1240,7 @@ while.end:                                        ; preds = %SHA1Update.exit50, 
   %inc.i55 = zext i1 %cmp.i53 to i32
   %14 = add i32 %13, %inc.i55
   store i32 %14, ptr %arrayidx4.i, align 4
-  %arrayidx12.i73 = getelementptr inbounds i8, ptr %context, i64 84
+  %arrayidx12.i73 = getelementptr inbounds nuw i8, ptr %context, i64 84
   %15 = load i64, ptr %finalcount, align 8
   store i64 %15, ptr %arrayidx12.i73, align 1
   tail call void @SHA1Transform(ptr noundef nonnull %context, ptr noundef nonnull %buffer24.i)
@@ -1248,7 +1250,7 @@ for.body13:                                       ; preds = %while.end, %for.bod
   %indvars.iv93 = phi i64 [ 0, %while.end ], [ %indvars.iv.next94, %for.body13 ]
   %shr14 = lshr i64 %indvars.iv93, 2
   %idxprom15 = and i64 %shr14, 1073741823
-  %arrayidx16 = getelementptr inbounds [5 x i32], ptr %context, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds nuw [5 x i32], ptr %context, i64 0, i64 %idxprom15
   %16 = load i32, ptr %arrayidx16, align 4
   %indvars.iv93.tr = trunc i64 %indvars.iv93 to i32
   %17 = shl i32 %indvars.iv93.tr, 3
@@ -1256,7 +1258,7 @@ for.body13:                                       ; preds = %while.end, %for.bod
   %mul19 = xor i32 %sub18, 24
   %shr20 = lshr i32 %16, %mul19
   %conv22 = trunc i32 %shr20 to i8
-  %arrayidx24 = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv93
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %digest, i64 %indvars.iv93
   store i8 %conv22, ptr %arrayidx24, align 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, 20

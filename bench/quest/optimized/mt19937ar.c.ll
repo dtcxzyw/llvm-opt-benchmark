@@ -20,7 +20,7 @@ define void @init_genrand(i64 noundef %0) local_unnamed_addr #0 {
   %6 = xor i64 %5, %4
   %7 = mul nuw nsw i64 %6, 1812433253
   %8 = add nuw i64 %7, %indvars.iv
-  %9 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv
   %10 = and i64 %8, 4294967295
   store i64 %10, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -44,7 +44,7 @@ define void @init_by_array(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   %6 = xor i64 %5, %4
   %7 = mul nuw nsw i64 %6, 1812433253
   %8 = add nuw i64 %7, %indvars.iv.i
-  %9 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.i
   %10 = and i64 %8, 4294967295
   store i64 %10, ptr %9, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -169,7 +169,7 @@ init_genrand.exit.preheader:                      ; preds = %7, %._crit_edge39
   %10 = xor i64 %9, %8
   %11 = mul nuw nsw i64 %10, 1812433253
   %12 = add nuw i64 %11, %indvars.iv.i
-  %13 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.i
   %14 = and i64 %12, 4294967295
   store i64 %14, ptr %13, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -177,25 +177,25 @@ init_genrand.exit.preheader:                      ; preds = %7, %._crit_edge39
   br i1 %exitcond.not.i, label %init_genrand.exit.preheader, label %7
 
 .lr.ph.preheader:                                 ; preds = %init_genrand.exit
-  %.pre35 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 1816), align 8
+  %.pre35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mt, i64 1816), align 8
   br label %.lr.ph
 
 init_genrand.exit:                                ; preds = %init_genrand.exit.preheader, %init_genrand.exit
   %15 = phi i64 [ %19, %init_genrand.exit ], [ %.ph, %init_genrand.exit.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %init_genrand.exit ], [ 0, %init_genrand.exit.preheader ]
-  %16 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv
   %17 = and i64 %15, 2147483648
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.next
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 2147483646
   %21 = or disjoint i64 %20, %17
   %22 = add nuw nsw i64 %indvars.iv, 397
-  %23 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = lshr exact i64 %21, 1
   %26 = and i64 %19, 1
-  %27 = getelementptr inbounds [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = xor i64 %28, %24
   %30 = xor i64 %29, %25
@@ -206,19 +206,19 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = phi i64 [ %.pre35, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %indvars.iv31 = phi i64 [ 227, %.lr.ph.preheader ], [ %indvars.iv.next32, %.lr.ph ]
-  %32 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv31
+  %32 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv31
   %33 = and i64 %31, 2147483648
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %34 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.next32
+  %34 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %indvars.iv.next32
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 2147483646
   %37 = or disjoint i64 %36, %33
   %38 = add nsw i64 %indvars.iv31, -227
-  %39 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [624 x i64], ptr @mt, i64 0, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = lshr exact i64 %37, 1
   %42 = and i64 %35, 1
-  %43 = getelementptr inbounds [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = xor i64 %44, %40
   %46 = xor i64 %45, %41
@@ -235,7 +235,7 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
   %52 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 3168), align 16
   %53 = lshr exact i64 %51, 1
   %54 = and i64 %49, 1
-  %55 = getelementptr inbounds [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i64], ptr @genrand_int32.mag01, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = xor i64 %56, %52
   %58 = xor i64 %57, %53

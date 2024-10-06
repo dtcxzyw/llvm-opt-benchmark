@@ -84,11 +84,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10Im
           to label %3 unwind label %65
 
 3:                                                ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %2, align 8
   store ptr %2, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
   %5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8 unwind label %65
 
@@ -98,29 +98,29 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10Im
           to label %7 unwind label %65
 
 7:                                                ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %2, align 8
   store i64 %11, ptr %6, align 8
   store ptr %6, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
   tail call void @_ZdlPv(ptr noundef nonnull %2) #14
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
   %12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %13 unwind label %65
 
 13:                                               ; preds = %7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev17StbiHdrImageSaverE, i64 16), ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
   %15 = icmp ult ptr %10, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
   store ptr %12, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %38
 
 18:                                               ; preds = %13
@@ -157,11 +157,11 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
   %34 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %storemerge.i.i.i22, i64 %23
   %35 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %storemerge.i.i.i22, i64 %.0.i.i.i19
   store ptr %12, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge.i.i.i22, ptr align 8 %19, i64 %22, i1 false)
   store ptr %storemerge.i.i.i22, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, align 8
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
   %.not.i5.i.i23 = icmp eq ptr %19, null
   br i1 %.not.i5.i.i23, label %38, label %37
 
@@ -171,19 +171,19 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
 
 38:                                               ; preds = %37, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21, %16
   %.0.i24 = phi ptr [ %17, %16 ], [ %36, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21 ], [ %36, %37 ]
-  store ptr %.0.i24, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %.0.i24, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
   %39 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %40 unwind label %65
 
 40:                                               ; preds = %38
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev17StbiLdrImageSaverE, i64 16), ptr %39, align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
   %42 = icmp ult ptr %.0.i24, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
   store ptr %39, ptr %.0.i24, align 8
-  %44 = getelementptr inbounds i8, ptr %.0.i24, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
   br label %67
 
 45:                                               ; preds = %40
@@ -234,11 +234,11 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
   %61 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %storemerge.i.i.i34, i64 %50
   %62 = getelementptr inbounds %"class.std::__1::unique_ptr", ptr %storemerge.i.i.i34, i64 %.0.i.i.i31
   store ptr %39, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge.i.i.i34, ptr align 8 %46, i64 %49, i1 false)
   store ptr %storemerge.i.i.i34, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, align 8
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
   %.not.i5.i.i35 = icmp eq ptr %46, null
   br i1 %.not.i5.i.i35, label %67, label %64
 
@@ -254,7 +254,7 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
 
 67:                                               ; preds = %64, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33, %43
   %.0.i36 = phi ptr [ %44, %43 ], [ %63, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33 ], [ %63, %64 ]
-  store ptr %.0.i36, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
+  store ptr %.0.i36, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
   ret void
 }
 
@@ -267,7 +267,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSa
   br i1 %.not.i, label %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE16__destroy_vectorclB8ne190000Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
@@ -282,7 +282,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSa
 
 _ZNKSt3__114default_deleteIN3tev10ImageSaverEEclB8ne190000EPS2_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i

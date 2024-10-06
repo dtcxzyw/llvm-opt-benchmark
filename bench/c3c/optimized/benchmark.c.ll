@@ -26,7 +26,7 @@ define dso_local double @bench_mark() local_unnamed_addr #0 {
   %5 = load i64, ptr %1, align 8
   %6 = sub nsw i64 %5, %2
   %7 = sitofp i64 %6 to double
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = sub nsw i64 %9, %3
   %11 = sitofp i64 %10 to double
@@ -43,7 +43,7 @@ define dso_local double @benchmark(i64 %0, i64 %1) local_unnamed_addr #0 {
   %5 = load i64, ptr %3, align 8
   %6 = sub nsw i64 %5, %0
   %7 = sitofp i64 %6 to double
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = sub nsw i64 %9, %1
   %11 = sitofp i64 %10 to double
@@ -58,7 +58,7 @@ define dso_local { i64, i64 } @benchstart() local_unnamed_addr #0 {
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #3
   %.fca.0.load = load i64, ptr %1, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %1, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert

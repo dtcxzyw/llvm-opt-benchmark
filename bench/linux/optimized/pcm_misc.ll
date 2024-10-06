@@ -233,10 +233,10 @@ define dso_local ptr @snd_pcm_format_silence_64(i32 noundef %0) #0 align 16 {
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr [53 x %struct.pcm_format_data], ptr @pcm_formats, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = select i1 %8, ptr null, ptr %9
   br label %11
 
@@ -257,91 +257,89 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 n
 7:                                                ; preds = %5
   %8 = zext nneg i32 %0 to i64
   %9 = getelementptr [53 x %struct.pcm_format_data], ptr @pcm_formats, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
-  %14 = icmp ne i8 %11, 0
-  %15 = icmp ne ptr %13, null
-  %16 = select i1 %14, i1 %15, i1 false
-  br i1 %16, label %17, label %.loopexit
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %.loopexit, label %14
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %9, i64 3
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %19, 1
-  %21 = icmp ult i8 %11, 9
-  %22 = or i1 %21, %20
-  br i1 %22, label %23, label %28
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 1
+  %18 = icmp ult i8 %11, 9
+  %19 = or i1 %18, %17
+  br i1 %19, label %20, label %25
 
-23:                                               ; preds = %17
-  %24 = mul i32 %2, %12
-  %25 = lshr i32 %24, 3
-  %26 = load i8, ptr %13, align 4
-  %27 = zext nneg i32 %25 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %26, i64 %27, i1 false)
+20:                                               ; preds = %14
+  %21 = mul i32 %2, %12
+  %22 = lshr i32 %21, 3
+  %23 = load i8, ptr %13, align 4
+  %24 = zext nneg i32 %22 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %23, i64 %24, i1 false)
   br label %.loopexit
 
-28:                                               ; preds = %17
-  %29 = lshr i32 %12, 3
-  switch i32 %29, label %.loopexit [
-    i32 2, label %34
+25:                                               ; preds = %14
+  %26 = lshr i32 %12, 3
+  switch i32 %26, label %.loopexit [
+    i32 2, label %31
     i32 3, label %.preheader
-    i32 4, label %32
-    i32 8, label %30
+    i32 4, label %29
+    i32 8, label %27
   ]
 
-30:                                               ; preds = %28
-  %31 = load i64, ptr %13, align 4
-  br label %53
+27:                                               ; preds = %25
+  %28 = load i64, ptr %13, align 4
+  br label %50
 
-32:                                               ; preds = %28
-  %33 = load i32, ptr %13, align 4
-  br label %47
+29:                                               ; preds = %25
+  %30 = load i32, ptr %13, align 4
+  br label %44
 
-34:                                               ; preds = %28
-  %35 = load i16, ptr %13, align 4
-  br label %36
+31:                                               ; preds = %25
+  %32 = load i16, ptr %13, align 4
+  br label %33
 
-36:                                               ; preds = %36, %34
-  %37 = phi ptr [ %1, %34 ], [ %40, %36 ]
-  %38 = phi i32 [ %2, %34 ], [ %39, %36 ]
-  %39 = add i32 %38, -1
-  store i16 %35, ptr %37, align 1
-  %40 = getelementptr i8, ptr %37, i64 2
-  %41 = icmp eq i32 %39, 0
-  br i1 %41, label %.loopexit, label %36, !llvm.loop !5
+33:                                               ; preds = %33, %31
+  %34 = phi ptr [ %1, %31 ], [ %37, %33 ]
+  %35 = phi i32 [ %2, %31 ], [ %36, %33 ]
+  %36 = add i32 %35, -1
+  store i16 %32, ptr %34, align 1
+  %37 = getelementptr i8, ptr %34, i64 2
+  %38 = icmp eq i32 %36, 0
+  br i1 %38, label %.loopexit, label %33, !llvm.loop !5
 
-.preheader:                                       ; preds = %28, %.preheader
-  %42 = phi ptr [ %45, %.preheader ], [ %1, %28 ]
-  %43 = phi i32 [ %44, %.preheader ], [ %2, %28 ]
-  %44 = add i32 %43, -1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %42, ptr noundef nonnull align 4 dereferenceable(3) %13, i64 3, i1 false)
-  %45 = getelementptr i8, ptr %42, i64 3
-  %46 = icmp eq i32 %44, 0
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !8
+.preheader:                                       ; preds = %25, %.preheader
+  %39 = phi ptr [ %42, %.preheader ], [ %1, %25 ]
+  %40 = phi i32 [ %41, %.preheader ], [ %2, %25 ]
+  %41 = add i32 %40, -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %39, ptr noundef nonnull align 4 dereferenceable(3) %13, i64 3, i1 false)
+  %42 = getelementptr i8, ptr %39, i64 3
+  %43 = icmp eq i32 %41, 0
+  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !8
 
-47:                                               ; preds = %47, %32
-  %48 = phi ptr [ %1, %32 ], [ %51, %47 ]
-  %49 = phi i32 [ %2, %32 ], [ %50, %47 ]
-  %50 = add i32 %49, -1
-  store i32 %33, ptr %48, align 1
-  %51 = getelementptr i8, ptr %48, i64 4
-  %52 = icmp eq i32 %50, 0
-  br i1 %52, label %.loopexit, label %47, !llvm.loop !9
+44:                                               ; preds = %44, %29
+  %45 = phi ptr [ %1, %29 ], [ %48, %44 ]
+  %46 = phi i32 [ %2, %29 ], [ %47, %44 ]
+  %47 = add i32 %46, -1
+  store i32 %30, ptr %45, align 1
+  %48 = getelementptr i8, ptr %45, i64 4
+  %49 = icmp eq i32 %47, 0
+  br i1 %49, label %.loopexit, label %44, !llvm.loop !9
 
-53:                                               ; preds = %53, %30
-  %54 = phi ptr [ %1, %30 ], [ %57, %53 ]
-  %55 = phi i32 [ %2, %30 ], [ %56, %53 ]
-  %56 = add i32 %55, -1
-  store i64 %31, ptr %54, align 1
-  %57 = getelementptr i8, ptr %54, i64 8
-  %58 = icmp eq i32 %56, 0
-  br i1 %58, label %.loopexit, label %53, !llvm.loop !10
+50:                                               ; preds = %50, %27
+  %51 = phi ptr [ %1, %27 ], [ %54, %50 ]
+  %52 = phi i32 [ %2, %27 ], [ %53, %50 ]
+  %53 = add i32 %52, -1
+  store i64 %28, ptr %51, align 1
+  %54 = getelementptr i8, ptr %51, i64 8
+  %55 = icmp eq i32 %53, 0
+  br i1 %55, label %.loopexit, label %50, !llvm.loop !10
 
-.loopexit:                                        ; preds = %53, %47, %.preheader, %36, %28, %23, %7, %5, %3
-  %59 = phi i32 [ 0, %23 ], [ -22, %3 ], [ 0, %5 ], [ -22, %7 ], [ 0, %28 ], [ 0, %36 ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %53 ]
-  ret i32 %59
+.loopexit:                                        ; preds = %50, %44, %.preheader, %33, %25, %20, %7, %5, %3
+  %56 = phi i32 [ 0, %20 ], [ -22, %3 ], [ 0, %5 ], [ -22, %7 ], [ 0, %25 ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %44 ], [ 0, %50 ]
+  ret i32 %56
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -357,7 +355,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #
   br i1 %3, label %4, label %.loopexit3
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   br label %7
 
@@ -373,7 +371,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #
   %14 = zext nneg i32 %8 to i64
   %15 = getelementptr i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %16, ptr %17, align 8
   br label %.loopexit3
 
@@ -383,7 +381,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #
   br i1 %20, label %.loopexit3, label %7, !llvm.loop !11
 
 .loopexit3:                                       ; preds = %18, %12, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %22
 
 22:                                               ; preds = %26, %.loopexit3
@@ -404,7 +402,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #
   %33 = zext nneg i32 %24 to i64
   %34 = getelementptr i32, ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %35, ptr %36, align 4
   br label %.loopexit
 

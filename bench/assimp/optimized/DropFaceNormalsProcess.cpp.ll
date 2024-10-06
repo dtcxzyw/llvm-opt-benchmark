@@ -73,13 +73,13 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 16
   %1 = load i32, ptr %mNumMeshes, align 8
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %if.else, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -102,9 +102,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh.exit ]
   %bHas.08 = phi i1 [ false, %for.body.lr.ph ], [ %or6, %_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh.exit ]
   %4 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  %mNormals.i = getelementptr inbounds i8, ptr %5, i64 24
+  %mNormals.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load ptr, ptr %mNormals.i, align 8
   %cmp.i = icmp ne ptr %6, null
   br i1 %cmp.i, label %delete.notnull.i, label %_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh.exit
@@ -185,7 +185,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6Assimp22DropFaceNormalsProcess19DropMeshFaceNormalsEP6aiMesh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef %mesh) local_unnamed_addr #3 align 2 {
 entry:
-  %mNormals = getelementptr inbounds i8, ptr %mesh, i64 24
+  %mNormals = getelementptr inbounds nuw i8, ptr %mesh, i64 24
   %0 = load ptr, ptr %mNormals, align 8
   %cmp = icmp ne ptr %0, null
   br i1 %cmp, label %delete.notnull, label %return

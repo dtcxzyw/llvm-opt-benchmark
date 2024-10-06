@@ -26,7 +26,7 @@ entry:
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 31)
   %conv3.i = zext nneg i32 %.sroa.speculated.i to i64
   %call4.i = call ptr @strncpy(ptr noundef nonnull %buf.i, ptr noundef %0, i64 noundef %conv3.i) #8
-  %arrayidx.i = getelementptr inbounds [32 x i8], ptr %buf.i, i64 0, i64 %conv3.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %buf.i, i64 0, i64 %conv3.i
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %buf.i, ptr %pend.i, align 8
   %call6.i = tail call ptr @__errno_location() #9
@@ -81,7 +81,7 @@ entry:
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 31)
   %conv3.i = zext nneg i32 %.sroa.speculated.i to i64
   %call4.i = call ptr @strncpy(ptr noundef nonnull %buf.i, ptr noundef %0, i64 noundef %conv3.i) #8
-  %arrayidx.i = getelementptr inbounds [32 x i8], ptr %buf.i, i64 0, i64 %conv3.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %buf.i, i64 0, i64 %conv3.i
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %buf.i, ptr %pend.i, align 8
   %call6.i = tail call ptr @__errno_location() #9
@@ -185,7 +185,7 @@ _resume.i:                                        ; preds = %if.end62.i, %_resum
   %arrayidx.i = getelementptr inbounds [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %idx.ext5.i = zext i8 %5 to i64
-  %add.ptr6.i = getelementptr inbounds i8, ptr @_ZL23_double_parser_indicies, i64 %idx.ext5.i
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr @_ZL23_double_parser_indicies, i64 %idx.ext5.i
   %arrayidx8.i = getelementptr inbounds [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = sext i8 %6 to i32
@@ -197,7 +197,7 @@ _resume.i:                                        ; preds = %if.end62.i, %_resum
   br i1 %cmp14.not.i, label %cond.end.i, label %land.lhs.true15.i
 
 land.lhs.true15.i:                                ; preds = %_resume.i
-  %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %9 = load i8, ptr %arrayidx17.i, align 1
   %conv18.i = zext i8 %9 to i32
   %cmp19.not.i = icmp ugt i32 %conv13.i, %conv18.i

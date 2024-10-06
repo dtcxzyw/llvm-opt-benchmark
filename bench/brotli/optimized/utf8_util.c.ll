@@ -31,7 +31,7 @@ land.lhs.true.i:                                  ; preds = %if.end7.i
   br i1 %cmp13.i, label %land.lhs.true15.i, label %if.end32.i
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true.i
-  %arrayidx16.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %1 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %1 to i32
   %and18.i = and i32 %conv17.i, 192
@@ -56,7 +56,7 @@ land.lhs.true35.i:                                ; preds = %if.end32.i
   br i1 %cmp39.i, label %land.lhs.true41.i, label %if.end71.i
 
 land.lhs.true41.i:                                ; preds = %land.lhs.true35.i
-  %arrayidx42.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %arrayidx42.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %2 = load i8, ptr %arrayidx42.i, align 1
   %conv43.i = zext i8 %2 to i32
   %and44.i = and i32 %conv43.i, 192
@@ -64,7 +64,7 @@ land.lhs.true41.i:                                ; preds = %land.lhs.true35.i
   br i1 %cmp45.i, label %land.lhs.true47.i, label %if.end71.i
 
 land.lhs.true47.i:                                ; preds = %land.lhs.true41.i
-  %arrayidx48.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %arrayidx48.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %3 = load i8, ptr %arrayidx48.i, align 1
   %conv49.i = zext i8 %3 to i32
   %and50.i = and i32 %conv49.i, 192
@@ -90,7 +90,7 @@ if.end71.i:                                       ; preds = %if.then53.i, %land.
   br i1 %or.cond8, label %land.lhs.true80.i, label %if.end124.i
 
 land.lhs.true80.i:                                ; preds = %if.end71.i
-  %arrayidx81.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %arrayidx81.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %4 = load i8, ptr %arrayidx81.i, align 1
   %conv82.i = zext i8 %4 to i32
   %and83.i = and i32 %conv82.i, 192
@@ -98,7 +98,7 @@ land.lhs.true80.i:                                ; preds = %if.end71.i
   br i1 %cmp84.i, label %land.lhs.true86.i, label %if.end124.i
 
 land.lhs.true86.i:                                ; preds = %land.lhs.true80.i
-  %arrayidx87.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %arrayidx87.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %5 = load i8, ptr %arrayidx87.i, align 1
   %conv88.i = zext i8 %5 to i32
   %and89.i = and i32 %conv88.i, 192
@@ -106,7 +106,7 @@ land.lhs.true86.i:                                ; preds = %land.lhs.true80.i
   br i1 %cmp90.i, label %land.lhs.true92.i, label %if.end124.i
 
 land.lhs.true92.i:                                ; preds = %land.lhs.true86.i
-  %arrayidx93.i = getelementptr inbounds i8, ptr %arrayidx, i64 3
+  %arrayidx93.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
   %6 = load i8, ptr %arrayidx93.i, align 1
   %conv94.i = zext i8 %6 to i32
   %and95.i = and i32 %conv94.i, 192

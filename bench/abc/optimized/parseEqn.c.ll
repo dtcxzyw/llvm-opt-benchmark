@@ -244,7 +244,7 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 
 75:                                               ; preds = %.lr.ph, %83
   %indvars.iv308 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next309, %83 ]
-  %76 = getelementptr inbounds ptr, ptr %.val202, i64 %indvars.iv308
+  %76 = getelementptr inbounds nuw ptr, ptr %.val202, i64 %indvars.iv308
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 @strncmp(ptr noundef nonnull %.1152, ptr noundef %77, i64 noundef %indvars.iv) #7
   %79 = icmp eq i32 %78, 0
