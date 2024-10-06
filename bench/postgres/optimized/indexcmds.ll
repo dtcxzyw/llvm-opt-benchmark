@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %union.ListCell = type { ptr }
 %struct.VirtualTransactionId = type { i32, i32 }
 %struct.LockRelId = type { i32, i32 }
@@ -304,7 +302,7 @@ list_length.exit:                                 ; preds = %5, %12
 ._crit_edge.thread:                               ; preds = %84
   %87 = shl nsw i64 %77, 3
   %88 = tail call ptr @palloc(i64 noundef %87) #12
-  br label %._crit_edge186.thread
+  br label %._crit_edge187.thread
 
 .lr.ph:                                           ; preds = %84
   %89 = getelementptr inbounds i8, ptr %85, i64 64
@@ -381,13 +379,14 @@ list_length.exit:                                 ; preds = %5, %12
 
 135:                                              ; preds = %131, %127, %123, %119, %115, %111, %107, %103, %99, %95, %90
   %136 = load ptr, ptr %89, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 24
-  %138 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %137, i64 0, i64 %indvars.iv, i32 2
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %137 = getelementptr i8, ptr %136, i64 92
+  %138 = getelementptr i8, ptr %137, i64 %.idx
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr i32, ptr %42, i64 %indvars.iv
   %141 = load i32, ptr %140, align 4
   %.not169 = icmp eq i32 %139, %141
-  br i1 %.not169, label %142, label %.thread175
+  br i1 %.not169, label %142, label %.thread176
 
 142:                                              ; preds = %131, %135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -397,23 +396,23 @@ list_length.exit:                                 ; preds = %5, %12
 ._crit_edge:                                      ; preds = %142
   %143 = shl nuw nsw i64 %77, 3
   %144 = tail call ptr @palloc(i64 noundef %143) #12
-  %wide.trip.count200 = zext nneg i32 %72 to i64
-  br label %.lr.ph185
+  %wide.trip.count201 = zext nneg i32 %72 to i64
+  br label %.lr.ph186
 
-.lr.ph185:                                        ; preds = %._crit_edge, %.lr.ph185
-  %indvars.iv197 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next198, %.lr.ph185 ]
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %145 = trunc nuw nsw i64 %indvars.iv.next198 to i16
+.lr.ph186:                                        ; preds = %._crit_edge, %.lr.ph186
+  %indvars.iv198 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next199, %.lr.ph186 ]
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %145 = trunc nuw nsw i64 %indvars.iv.next199 to i16
   %146 = tail call i64 @get_attoptions(i32 noundef %0, i16 noundef signext %145) #12
-  %147 = getelementptr i64, ptr %144, i64 %indvars.iv197
+  %147 = getelementptr i64, ptr %144, i64 %indvars.iv198
   store i64 %146, ptr %147, align 8
-  %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %.lr.ph.split.us.i, label %.lr.ph185, !llvm.loop !7
+  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
+  br i1 %exitcond202.not, label %.lr.ph.split.us.i, label %.lr.ph186, !llvm.loop !7
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph185
-  %.not215 = icmp eq ptr %46, null
+.lr.ph.split.us.i:                                ; preds = %.lr.ph186
+  %.not216 = icmp eq ptr %46, null
   %wide.trip.count62.i = zext nneg i32 %72 to i64
-  br i1 %.not215, label %.thread.us.i, label %.lr.ph.split.us.split.us.i
+  br i1 %.not216, label %.thread.us.i, label %.lr.ph.split.us.split.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %.thread22.us.us.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %.thread22.us.us.i ], [ 0, %.lr.ph.split.us.i ]
@@ -439,7 +438,7 @@ list_length.exit:                                 ; preds = %5, %12
 .thread22.us.us.i:                                ; preds = %157, %155
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
-  br i1 %exitcond63.not.i, label %._crit_edge186.thread, label %.lr.ph.split.us.split.us.i, !llvm.loop !8
+  br i1 %exitcond63.not.i, label %._crit_edge187.thread, label %.lr.ph.split.us.split.us.i, !llvm.loop !8
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i, %.thread22.us.i
   %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %.thread22.us.i ], [ 0, %.lr.ph.split.us.i ]
@@ -451,40 +450,40 @@ list_length.exit:                                 ; preds = %5, %12
 .thread22.us.i:                                   ; preds = %.thread.us.i
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count62.i
-  br i1 %exitcond58.not.i, label %._crit_edge186.thread, label %.thread.us.i, !llvm.loop !8
+  br i1 %exitcond58.not.i, label %._crit_edge187.thread, label %.thread.us.i, !llvm.loop !8
 
 CompareOpclassOptions.exit:                       ; preds = %154, %155, %157, %.thread.us.i
   tail call void @pfree(ptr noundef nonnull %144) #12
-  br label %.thread175
+  br label %.thread176
 
-._crit_edge186.thread:                            ; preds = %.thread22.us.us.i, %.thread22.us.i, %._crit_edge.thread
-  %.ph209 = phi ptr [ %88, %._crit_edge.thread ], [ %144, %.thread22.us.i ], [ %144, %.thread22.us.us.i ]
-  tail call void @pfree(ptr noundef %.ph209) #12
+._crit_edge187.thread:                            ; preds = %.thread22.us.us.i, %.thread22.us.i, %._crit_edge.thread
+  %.ph210 = phi ptr [ %88, %._crit_edge.thread ], [ %144, %.thread22.us.i ], [ %144, %.thread22.us.us.i ]
+  tail call void @pfree(ptr noundef %.ph210) #12
   %161 = getelementptr inbounds i8, ptr %39, i64 112
   %162 = load ptr, ptr %161, align 8
   %.not170 = icmp eq ptr %162, null
-  br i1 %.not170, label %.thread175, label %163
+  br i1 %.not170, label %.thread176, label %163
 
-163:                                              ; preds = %._crit_edge186.thread
+163:                                              ; preds = %._crit_edge187.thread
   call void @RelationGetExclusionInfo(ptr noundef %85, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
   %164 = load ptr, ptr %6, align 8
   %165 = load ptr, ptr %161, align 8
   %bcmp171 = call i32 @bcmp(ptr %164, ptr %165, i64 %78)
   %166 = icmp eq i32 %bcmp171, 0
-  br i1 %166, label %.preheader, label %.thread175
+  br i1 %166, label %.preheader, label %.thread176
 
 .preheader:                                       ; preds = %163
   %167 = getelementptr inbounds i8, ptr %85, i64 64
-  br i1 %86, label %.lr.ph188.preheader, label %.thread175
+  br i1 %86, label %.lr.ph189.preheader, label %.thread176
 
-.lr.ph188.preheader:                              ; preds = %.preheader
-  %wide.trip.count205 = zext nneg i32 %72 to i64
-  br label %.lr.ph188
+.lr.ph189.preheader:                              ; preds = %.preheader
+  %wide.trip.count206 = zext nneg i32 %72 to i64
+  br label %.lr.ph189
 
-.lr.ph188:                                        ; preds = %.lr.ph188.preheader, %210
-  %indvars.iv202 = phi i64 [ 0, %.lr.ph188.preheader ], [ %indvars.iv.next203, %210 ]
+.lr.ph189:                                        ; preds = %.lr.ph189.preheader, %210
+  %indvars.iv203 = phi i64 [ 0, %.lr.ph189.preheader ], [ %indvars.iv.next204, %210 ]
   %168 = load ptr, ptr %161, align 8
-  %169 = getelementptr i32, ptr %168, i64 %indvars.iv202
+  %169 = getelementptr i32, ptr %168, i64 %indvars.iv203
   %170 = load i32, ptr %169, align 4
   call void @op_input_types(i32 noundef %170, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
   %171 = load i32, ptr %9, align 4
@@ -530,28 +529,29 @@ CompareOpclassOptions.exit:                       ; preds = %154, %155, %157, %.
   %or.cond41 = select i1 %or.cond35, i1 true, i1 %202
   br i1 %or.cond41, label %203, label %210
 
-203:                                              ; preds = %.lr.ph188
+203:                                              ; preds = %.lr.ph189
   %204 = load ptr, ptr %167, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 24
-  %206 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %205, i64 0, i64 %indvars.iv202, i32 2
+  %.idx172 = mul nuw nsw i64 %indvars.iv203, 104
+  %205 = getelementptr i8, ptr %204, i64 92
+  %206 = getelementptr i8, ptr %205, i64 %.idx172
   %207 = load i32, ptr %206, align 4
-  %208 = getelementptr i32, ptr %42, i64 %indvars.iv202
+  %208 = getelementptr i32, ptr %42, i64 %indvars.iv203
   %209 = load i32, ptr %208, align 4
-  %.not172 = icmp eq i32 %207, %209
-  br i1 %.not172, label %210, label %.thread175
+  %.not173 = icmp eq i32 %207, %209
+  br i1 %.not173, label %210, label %.thread176
 
-210:                                              ; preds = %203, %.lr.ph188
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %.thread175, label %.lr.ph188, !llvm.loop !9
+210:                                              ; preds = %203, %.lr.ph189
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
+  br i1 %exitcond207.not, label %.thread176, label %.lr.ph189, !llvm.loop !9
 
-.thread175:                                       ; preds = %135, %210, %203, %CompareOpclassOptions.exit, %.preheader, %163, %._crit_edge186.thread
-  %.2162 = phi i1 [ false, %163 ], [ true, %._crit_edge186.thread ], [ false, %CompareOpclassOptions.exit ], [ true, %.preheader ], [ true, %210 ], [ false, %203 ], [ false, %135 ]
+.thread176:                                       ; preds = %135, %210, %203, %CompareOpclassOptions.exit, %.preheader, %163, %._crit_edge187.thread
+  %.2162 = phi i1 [ false, %163 ], [ true, %._crit_edge187.thread ], [ false, %CompareOpclassOptions.exit ], [ true, %.preheader ], [ true, %210 ], [ false, %203 ], [ false, %135 ]
   call void @index_close(ptr noundef %85, i32 noundef 0) #12
   br label %211
 
-211:                                              ; preds = %.thread, %80, %.thread175, %68
-  %.0 = phi i1 [ %.2162, %.thread175 ], [ false, %68 ], [ false, %80 ], [ false, %.thread ]
+211:                                              ; preds = %.thread, %80, %.thread176, %68
+  %.0 = phi i1 [ %.2162, %.thread176 ], [ false, %68 ], [ false, %80 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -2357,16 +2357,16 @@ CheckPredicate.exit:                              ; preds = %413, %402
 .thread568:                                       ; preds = %.thread566, %542
   %586 = getelementptr inbounds i8, ptr %74, i64 64
   %587 = load ptr, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %587, i64 24
-  %589 = load ptr, ptr %477, align 8
-  %590 = getelementptr i16, ptr %589, i64 %indvars.iv710
-  %591 = load i16, ptr %590, align 2
-  %592 = sext i16 %591 to i64
-  %593 = add nsw i64 %592, -1
-  %594 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %594)
-  %595 = call i32 @errcode(i32 noundef 1088) #12
-  %596 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %588, i64 0, i64 %593, i32 1
+  %588 = load ptr, ptr %477, align 8
+  %589 = getelementptr i16, ptr %588, i64 %indvars.iv710
+  %590 = load i16, ptr %589, align 2
+  %591 = sext i16 %590 to i64
+  %592 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %592)
+  %593 = call i32 @errcode(i32 noundef 1088) #12
+  %594 = mul nsw i64 %591, 104
+  %595 = getelementptr i8, ptr %587, i64 -76
+  %596 = getelementptr i8, ptr %595, i64 %594
   %597 = load ptr, ptr %481, align 8
   %598 = getelementptr i32, ptr %597, i64 %indvars.iv707
   %599 = load i32, ptr %598, align 4
@@ -2385,20 +2385,20 @@ CheckPredicate.exit:                              ; preds = %413, %402
 .critedge:                                        ; preds = %.preheader, %.thread565, %.thread565.us
   %605 = getelementptr inbounds i8, ptr %74, i64 64
   %606 = load ptr, ptr %605, align 8
-  %607 = getelementptr inbounds i8, ptr %606, i64 24
-  %608 = load ptr, ptr %477, align 8
-  %609 = getelementptr i16, ptr %608, i64 %indvars.iv710
-  %610 = load i16, ptr %609, align 2
-  %611 = sext i16 %610 to i64
-  %612 = add nsw i64 %611, -1
-  %613 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %613)
-  %614 = call i32 @errcode(i32 noundef 1088) #12
-  %615 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #12
-  %616 = load ptr, ptr %75, align 8
-  %617 = getelementptr inbounds i8, ptr %616, i64 4
-  %618 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %607, i64 0, i64 %612, i32 1
-  %619 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30, ptr noundef nonnull %.0467, ptr noundef nonnull %617, ptr noundef %618) #12
+  %607 = load ptr, ptr %477, align 8
+  %608 = getelementptr i16, ptr %607, i64 %indvars.iv710
+  %609 = load i16, ptr %608, align 2
+  %610 = sext i16 %609 to i64
+  %611 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %611)
+  %612 = call i32 @errcode(i32 noundef 1088) #12
+  %613 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #12
+  %614 = load ptr, ptr %75, align 8
+  %615 = getelementptr inbounds i8, ptr %614, i64 4
+  %616 = mul nsw i64 %610, 104
+  %617 = getelementptr i8, ptr %606, i64 -76
+  %618 = getelementptr i8, ptr %617, i64 %616
+  %619 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30, ptr noundef nonnull %.0467, ptr noundef nonnull %615, ptr noundef %618) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1088, ptr noundef nonnull @__func__.DefineIndex) #12
   unreachable
 

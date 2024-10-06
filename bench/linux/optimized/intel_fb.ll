@@ -9,8 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.drm_framebuffer_funcs = type { ptr, ptr, ptr }
 %struct.drm_format_info = type { i32, i8, i8, %union.anon.48, [4 x i8], [4 x i8], i8, i8, i8, i8, i8 }
 %union.anon.48 = type { [4 x i8] }
-%struct.i915_color_plane_view = type { i32, i32, i32, i32, i32 }
 %struct.fb_plane_view_dims = type { i32, i32, i32, i32 }
+%struct.i915_color_plane_view = type { i32, i32, i32, i32, i32 }
 %struct.drm_rect = type { i32, i32, i32, i32 }
 %struct.intel_remapped_plane_info = type { i32, %union.anon.51 }
 %union.anon.51 = type { i32, [4 x i8] }
@@ -1948,9 +1948,10 @@ define dso_local noundef i32 @intel_plane_adjust_aligned_offset(ptr nocapture no
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 196
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 296
-  %12 = sext i32 %3 to i64
-  %13 = getelementptr [4 x %struct.i915_color_plane_view], ptr %11, i64 0, i64 %12, i32 3
+  %11 = sext i32 %3 to i64
+  %.idx = mul nsw i64 %11, 20
+  %12 = getelementptr i8, ptr %2, i64 308
+  %13 = getelementptr i8, ptr %12, i64 %.idx
   %14 = load i32, ptr %13, align 4
   %15 = tail call fastcc i32 @intel_adjust_aligned_offset(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %3, i32 noundef %10, i32 noundef %14, i32 noundef %4, i32 noundef %5)
   ret i32 %5
@@ -2187,9 +2188,10 @@ define dso_local i32 @intel_plane_compute_aligned_offset(ptr nocapture noundef %
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 196
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 296
-  %12 = sext i32 %3 to i64
-  %13 = getelementptr [4 x %struct.i915_color_plane_view], ptr %11, i64 0, i64 %12, i32 3
+  %11 = sext i32 %3 to i64
+  %.idx = mul nsw i64 %11, 20
+  %12 = getelementptr i8, ptr %2, i64 308
+  %13 = getelementptr i8, ptr %12, i64 %.idx
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %5, i64 1324
   %16 = load i32, ptr %15, align 4

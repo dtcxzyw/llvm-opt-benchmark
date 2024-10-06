@@ -708,6 +708,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %102 = getelementptr inbounds i8, ptr %0, i64 33884
   %103 = sext i32 %98 to i64
   %104 = zext i32 %98 to i64
+  %invariant.gep = getelementptr i8, ptr %0, i64 34048
   br label %113
 
 105:                                              ; preds = %.loopexit55, %.loopexit54
@@ -823,6 +824,8 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %175 = phi i32 [ %.ph43, %.thread45 ], [ %156, %164 ]
   %176 = phi i32 [ %.ph43, %.thread45 ], [ %155, %164 ]
   %177 = phi i1 [ %.ph, %.thread45 ], [ %136, %164 ]
+  %.idx = mul i64 %114, 1204
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   %178 = zext nneg i32 %176 to i64
   %179 = getelementptr i8, ptr %3, i64 %178
   %180 = sub nsw i32 %175, %176
@@ -859,7 +862,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
 199:                                              ; preds = %.preheader51
   %200 = add i32 %194, 1
   %201 = sext i32 %194 to i64
-  %202 = getelementptr %struct.group_data, ptr %102, i64 %114, i32 2, i64 %201
+  %202 = getelementptr [258 x i32], ptr %gep, i64 0, i64 %201
   %203 = trunc i64 %193 to i32
   store i32 %203, ptr %202, align 4
   br label %204

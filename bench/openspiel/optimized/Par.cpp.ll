@@ -1903,7 +1903,8 @@ define i32 @DealerParBin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32
   %20 = mul nuw nsw i64 %indvar, 10
   %gep = getelementptr i8, ptr %invariant.gep, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %scevgep, ptr noundef nonnull align 2 dereferenceable(10) %gep, i64 10, i1 false)
-  %21 = getelementptr inbounds [10 x [10 x i8]], ptr %9, i64 0, i64 %indvar, i64 1
+  %.offs = or disjoint i64 %20, 1
+  %21 = getelementptr inbounds i8, ptr %9, i64 %.offs
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %28 [
     i8 78, label %.sink.split

@@ -24,10 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.BytecodeStream = type { %class.BaseBytecodeStream.base, i32 }
 %class.BaseBytecodeStream.base = type <{ [8 x i8], %class.methodHandle, i32, i32, i32, i32, i8, i8 }>
 %class.methodHandle = type { ptr, ptr }
-%class.ResolvedFieldEntry = type <{ ptr, i32, i16, i16, i8, i8, i8, i8, [4 x i8] }>
-%class.ResolvedIndyEntry = type { ptr, i16, i16, i16, i8, i8 }
-%class.ResolvedMethodEntry = type { ptr, %union.anon.7, i16, i16, i8, i8, i8, i8 }
-%union.anon.7 = type { ptr }
 %class.CheckedExceptionElement = type { i16 }
 %class.MethodParametersElement = type { i16, i16 }
 
@@ -1795,8 +1791,8 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %.fr53 = freeze i16 %12
-  %15 = and i16 %.fr53, 1
+  %.fr55 = freeze i16 %12
+  %15 = and i16 %.fr55, 1
   %.not = icmp eq i16 %15, 0
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1807,7 +1803,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit.us
   %21 = phi i32 [ %43, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %13, %.lr.ph ]
-  %.052.us = phi ptr [ %42, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %1, %.lr.ph ]
+  %.054.us = phi ptr [ %42, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %1, %.lr.ph ]
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -1818,7 +1814,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
   %29 = trunc i8 %28 to i1
   %30 = trunc i32 %21 to i8
   %31 = select i1 %29, i8 -60, i8 %30
-  store i8 %31, ptr %.052.us, align 1
+  store i8 %31, ptr %.054.us, align 1
   %32 = icmp sgt i32 %27, 1
   br i1 %32, label %33, label %_ZN5Bytes11put_Java_u2EPht.exit.us
 
@@ -1826,7 +1822,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
   %34 = getelementptr inbounds i8, ptr %24, i64 56
   %35 = sext i32 %25 to i64
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  %37 = getelementptr inbounds i8, ptr %.052.us, i64 1
+  %37 = getelementptr inbounds i8, ptr %.054.us, i64 1
   %38 = getelementptr inbounds i8, ptr %36, i64 1
   %39 = add nsw i32 %27, -1
   %40 = zext nneg i32 %39 to i64
@@ -1835,14 +1831,14 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
 
 _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.us
   %41 = sext i32 %27 to i64
-  %42 = getelementptr inbounds i8, ptr %.052.us, i64 %41
+  %42 = getelementptr inbounds i8, ptr %.054.us, i64 %41
   %43 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit
   %45 = phi i32 [ %159, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %13, %.lr.ph ]
-  %.052 = phi ptr [ %158, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %1, %.lr.ph ]
+  %.054 = phi ptr [ %158, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %1, %.lr.ph ]
   %46 = load ptr, ptr %16, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
@@ -1853,7 +1849,7 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %53 = trunc i8 %52 to i1
   %54 = trunc i32 %45 to i8
   %55 = select i1 %53, i8 -60, i8 %54
-  store i8 %55, ptr %.052, align 1
+  store i8 %55, ptr %.054, align 1
   %56 = icmp sgt i32 %51, 1
   br i1 %56, label %57, label %_ZN5Bytes11put_Java_u2EPht.exit
 
@@ -1861,7 +1857,7 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %58 = getelementptr inbounds i8, ptr %48, i64 56
   %59 = sext i32 %49 to i64
   %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  %61 = getelementptr inbounds i8, ptr %.052, i64 1
+  %61 = getelementptr inbounds i8, ptr %.054, i64 1
   %62 = getelementptr inbounds i8, ptr %60, i64 1
   %63 = add nsw i32 %51, -1
   %64 = zext nneg i32 %63 to i64
@@ -1891,9 +1887,10 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = zext i16 %.0.i.i to i64
-  %77 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %75, i64 %76, i32 3
+  %75 = zext i16 %.0.i.i to i64
+  %.idx53 = mul nuw nsw i64 %75, 24
+  %76 = getelementptr i8, ptr %74, i64 22
+  %77 = getelementptr i8, ptr %76, i64 %.idx53
   %78 = load i16, ptr %77, align 2
   %79 = call noundef i16 @llvm.bswap.i16(i16 %78)
   %80 = ptrtoint ptr %61 to i64
@@ -1924,18 +1921,20 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %.0.i.i47 = load i32, ptr %62, align 1
   %95 = getelementptr inbounds i8, ptr %93, i64 40
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
-  %98 = sext i32 %.0.i.i47 to i64
-  %99 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %97, i64 %98, i32 2
+  %97 = sext i32 %.0.i.i47 to i64
+  %.idx52 = shl nsw i64 %97, 4
+  %98 = getelementptr i8, ptr %96, i64 18
+  %99 = getelementptr i8, ptr %98, i64 %.idx52
   br label %106
 
 100:                                              ; preds = %85
   %.0.i.i46 = load i16, ptr %62, align 1
   %101 = getelementptr inbounds i8, ptr %93, i64 56
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %104 = zext i16 %.0.i.i46 to i64
-  %105 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %103, i64 %104, i32 2
+  %103 = zext i16 %.0.i.i46 to i64
+  %.idx = mul nuw nsw i64 %103, 24
+  %104 = getelementptr i8, ptr %102, i64 24
+  %105 = getelementptr i8, ptr %104, i64 %.idx
   br label %106
 
 106:                                              ; preds = %100, %94
@@ -1959,9 +1958,9 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
   br i1 %86, label %113, label %_ZN5Bytes11put_Java_u2EPht.exit
 
 113:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit48
-  %114 = getelementptr inbounds i8, ptr %.052, i64 4
+  %114 = getelementptr inbounds i8, ptr %.054, i64 4
   store i8 0, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %.052, i64 3
+  %115 = getelementptr inbounds i8, ptr %.054, i64 3
   store i8 0, ptr %115, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
@@ -1974,8 +1973,8 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
 .thread:                                          ; preds = %57
   %119 = load i32, ptr %20, align 4
   %120 = and i32 %119, -2
-  %switch56 = icmp eq i32 %120, 230
-  br i1 %switch56, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
+  %switch58 = icmp eq i32 %120, 230
+  br i1 %switch58, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
 
 121:                                              ; preds = %116
   %.0.i.i49 = load i16, ptr %62, align 1
@@ -2027,7 +2026,7 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
 
 _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %116, %.lr.ph.split, %140, %139, %84, %83, %113, %_ZN5Bytes11put_Java_u2EPht.exit48, %141, %57
   %157 = sext i32 %51 to i64
-  %158 = getelementptr inbounds i8, ptr %.052, i64 %157
+  %158 = getelementptr inbounds i8, ptr %.054, i64 %157
   %159 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %160 = icmp sgt i32 %159, -1
   br i1 %160, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13

@@ -16,7 +16,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_get_dat
 %union.acpi_object = type { %struct.anon.4 }
 %struct.anon.4 = type { i32, i32, i64, i32 }
 %struct.acpi_get_devices_info = type { ptr, ptr, ptr }
-%struct.acpi_pnp_device_id = type { i32, ptr }
 
 @_acpi_module_name = internal constant [9 x i8] c"nsxfeval\00", align 1
 @.str = private unnamed_addr constant [29 x i8] c"%s did not return any object\00", align 1
@@ -564,9 +563,9 @@ define internal i32 @acpi_ns_get_device_callback(ptr noundef %0, i32 noundef %1,
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
-  %38 = load ptr, ptr %17, align 8
-  %39 = zext i32 %34 to i64
+  %37 = load ptr, ptr %17, align 8
+  %38 = zext i32 %34 to i64
+  %39 = getelementptr i8, ptr %33, i64 16
   br label %44
 
 40:                                               ; preds = %30
@@ -574,14 +573,15 @@ define internal i32 @acpi_ns_get_device_callback(ptr noundef %0, i32 noundef %1,
 
 41:                                               ; preds = %44
   %42 = add nuw nsw i64 %45, 1
-  %43 = icmp eq i64 %42, %39
+  %43 = icmp eq i64 %42, %38
   br i1 %43, label %.loopexit, label %44, !llvm.loop !10
 
 44:                                               ; preds = %41, %36
   %45 = phi i64 [ 0, %36 ], [ %42, %41 ]
-  %46 = getelementptr [0 x %struct.acpi_pnp_device_id], ptr %37, i64 0, i64 %45, i32 1
+  %.idx = shl i64 %45, 4
+  %46 = getelementptr i8, ptr %39, i64 %.idx
   %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @strcmp(ptr noundef %47, ptr noundef %38) #6
+  %48 = call i32 @strcmp(ptr noundef %47, ptr noundef %37) #6
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %41
 

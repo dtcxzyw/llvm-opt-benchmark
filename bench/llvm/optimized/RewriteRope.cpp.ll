@@ -677,14 +677,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr 
   %.pre = load i32, ptr %0, align 8
   br label %.lr.ph45
 
-tailrecurse.loopexit:                             ; preds = %97
-  %6 = getelementptr inbounds i8, ptr %98, i64 4
+tailrecurse.loopexit:                             ; preds = %98
+  %6 = getelementptr inbounds i8, ptr %99, i64 4
   %.val.val.i.i = load i8, ptr %6, align 4
   %7 = trunc i8 %.val.val.i.i to i1
   br i1 %7, label %tailrecurse._crit_edge, label %.lr.ph45
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexit, %3
-  %.tr.lcssa = phi ptr [ %0, %3 ], [ %98, %tailrecurse.loopexit ]
+  %.tr.lcssa = phi ptr [ %0, %3 ], [ %99, %tailrecurse.loopexit ]
   %.tr9.lcssa = phi i32 [ %1, %3 ], [ %.1.i834, %tailrecurse.loopexit ]
   %.tr10.lcssa = phi i32 [ %2, %3 ], [ %.030.i33, %tailrecurse.loopexit ]
   %.not69.i = icmp eq i32 %.tr9.lcssa, 0
@@ -854,104 +854,106 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %_ZN4llvm9RopePieceD
 
 80:                                               ; preds = %78
   %81 = zext i32 %.041.lcssa.i to i64
-  %82 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %81, i32 1
-  %83 = load i32, ptr %82, align 8
-  %84 = add i32 %83, %.0.i
-  store i32 %84, ptr %82, align 8
-  %85 = load i32, ptr %.tr.lcssa, align 8
-  %86 = sub i32 %85, %.0.i
-  store i32 %86, ptr %.tr.lcssa, align 8
+  %.idx.i = shl nuw nsw i64 %81, 4
+  %82 = getelementptr inbounds i8, ptr %.tr.lcssa, i64 16
+  %83 = getelementptr i8, ptr %82, i64 %.idx.i
+  %84 = load i32, ptr %83, align 8
+  %85 = add i32 %84, %.0.i
+  store i32 %85, ptr %83, align 8
+  %86 = load i32, ptr %.tr.lcssa, align 8
+  %87 = sub i32 %86, %.0.i
+  store i32 %87, ptr %.tr.lcssa, align 8
   br label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %tailrecurse.loopexit
-  %87 = phi i32 [ %.val39.i, %tailrecurse.loopexit ], [ %.pre, %.lr.ph45.preheader ]
+  %88 = phi i32 [ %.val39.i, %tailrecurse.loopexit ], [ %.pre, %.lr.ph45.preheader ]
   %.tr1044 = phi i32 [ %.030.i33, %tailrecurse.loopexit ], [ %2, %.lr.ph45.preheader ]
   %.tr943 = phi i32 [ %.1.i834, %tailrecurse.loopexit ], [ %1, %.lr.ph45.preheader ]
-  %.tr42 = phi ptr [ %98, %tailrecurse.loopexit ], [ %0, %.lr.ph45.preheader ]
-  %88 = sub i32 %87, %.tr1044
-  store i32 %88, ptr %.tr42, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.tr42, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %.val41.i25 = load i32, ptr %90, align 4
+  %.tr42 = phi ptr [ %99, %tailrecurse.loopexit ], [ %0, %.lr.ph45.preheader ]
+  %89 = sub i32 %88, %.tr1044
+  store i32 %89, ptr %.tr42, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.tr42, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %.val41.i25 = load i32, ptr %91, align 4
   %.not.i726 = icmp ult i32 %.tr943, %.val41.i25
   br i1 %.not.i726, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %.lr.ph45
-  %.031.i.lcssa = phi i32 [ 0, %.lr.ph45 ], [ %93, %.lr.ph ]
-  %.0.i6.lcssa = phi i32 [ %.tr943, %.lr.ph45 ], [ %92, %.lr.ph ]
+  %.031.i.lcssa = phi i32 [ 0, %.lr.ph45 ], [ %94, %.lr.ph ]
+  %.0.i6.lcssa = phi i32 [ %.tr943, %.lr.ph45 ], [ %93, %.lr.ph ]
   %.not33.i3236 = icmp eq i32 %.tr1044, 0
   br i1 %.not33.i3236, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit, label %.lr.ph35.lr.ph
 
 .lr.ph35.lr.ph:                                   ; preds = %.preheader
-  %91 = getelementptr inbounds nuw i8, ptr %.tr42, i64 5
+  %92 = getelementptr inbounds nuw i8, ptr %.tr42, i64 5
   br label %.lr.ph35
 
 .lr.ph:                                           ; preds = %.lr.ph45, %.lr.ph
   %.val41.i29 = phi i32 [ %.val41.i, %.lr.ph ], [ %.val41.i25, %.lr.ph45 ]
-  %.0.i628 = phi i32 [ %92, %.lr.ph ], [ %.tr943, %.lr.ph45 ]
-  %.031.i27 = phi i32 [ %93, %.lr.ph ], [ 0, %.lr.ph45 ]
-  %92 = sub nuw i32 %.0.i628, %.val41.i29
-  %93 = add i32 %.031.i27, 1
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds [16 x ptr], ptr %89, i64 0, i64 %94
-  %96 = load ptr, ptr %95, align 8
-  %.val41.i = load i32, ptr %96, align 4
-  %.not.i7 = icmp ult i32 %92, %.val41.i
+  %.0.i628 = phi i32 [ %93, %.lr.ph ], [ %.tr943, %.lr.ph45 ]
+  %.031.i27 = phi i32 [ %94, %.lr.ph ], [ 0, %.lr.ph45 ]
+  %93 = sub nuw i32 %.0.i628, %.val41.i29
+  %94 = add i32 %.031.i27, 1
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds [16 x ptr], ptr %90, i64 0, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  %.val41.i = load i32, ptr %97, align 4
+  %.not.i7 = icmp ult i32 %93, %.val41.i
   br i1 %.not.i7, label %.preheader, label %.lr.ph, !llvm.loop !17
 
-97:                                               ; preds = %.lr.ph35, %118
-  %.1.i834 = phi i32 [ %.1.i8.ph39, %.lr.ph35 ], [ 0, %118 ]
-  %.030.i33 = phi i32 [ %.030.i.ph38, %.lr.ph35 ], [ %110, %118 ]
-  %98 = load ptr, ptr %105, align 8
-  %99 = add i32 %.1.i834, %.030.i33
-  %.val39.i = load i32, ptr %98, align 4
-  %100 = icmp ult i32 %99, %.val39.i
-  br i1 %100, label %tailrecurse.loopexit, label %101
+98:                                               ; preds = %.lr.ph35, %119
+  %.1.i834 = phi i32 [ %.1.i8.ph39, %.lr.ph35 ], [ 0, %119 ]
+  %.030.i33 = phi i32 [ %.030.i.ph38, %.lr.ph35 ], [ %111, %119 ]
+  %99 = load ptr, ptr %106, align 8
+  %100 = add i32 %.1.i834, %.030.i33
+  %.val39.i = load i32, ptr %99, align 4
+  %101 = icmp ult i32 %100, %.val39.i
+  br i1 %101, label %tailrecurse.loopexit, label %102
 
-101:                                              ; preds = %97
+102:                                              ; preds = %98
   %.not34.i = icmp eq i32 %.1.i834, 0
-  br i1 %.not34.i, label %109, label %.outer
+  br i1 %.not34.i, label %110, label %.outer
 
-.outer:                                           ; preds = %101
-  %102 = sub i32 %.val39.i, %.1.i834
-  tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 dereferenceable(5) %98, i32 noundef %.1.i834, i32 noundef %102)
-  %103 = sub i32 %.030.i33, %102
-  %.not33.i32 = icmp eq i32 %103, 0
+.outer:                                           ; preds = %102
+  %103 = sub i32 %.val39.i, %.1.i834
+  tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 dereferenceable(5) %99, i32 noundef %.1.i834, i32 noundef %103)
+  %104 = sub i32 %.030.i33, %103
+  %.not33.i32 = icmp eq i32 %104, 0
   br i1 %.not33.i32, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit, label %.lr.ph35, !llvm.loop !18
 
 .lr.ph35:                                         ; preds = %.lr.ph35.lr.ph, %.outer
   %.1.i8.ph39 = phi i32 [ %.0.i6.lcssa, %.lr.ph35.lr.ph ], [ 0, %.outer ]
-  %.030.i.ph38 = phi i32 [ %.tr1044, %.lr.ph35.lr.ph ], [ %103, %.outer ]
-  %.132.i.ph37 = phi i32 [ %.031.i.lcssa, %.lr.ph35.lr.ph ], [ %106, %.outer ]
-  %104 = zext i32 %.132.i.ph37 to i64
-  %105 = getelementptr inbounds [16 x ptr], ptr %89, i64 0, i64 %104
-  %106 = add i32 %.132.i.ph37, 1
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds [16 x ptr], ptr %89, i64 0, i64 %107
-  br label %97
+  %.030.i.ph38 = phi i32 [ %.tr1044, %.lr.ph35.lr.ph ], [ %104, %.outer ]
+  %.132.i.ph37 = phi i32 [ %.031.i.lcssa, %.lr.ph35.lr.ph ], [ %107, %.outer ]
+  %105 = zext i32 %.132.i.ph37 to i64
+  %106 = getelementptr inbounds [16 x ptr], ptr %90, i64 0, i64 %105
+  %107 = add i32 %.132.i.ph37, 1
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds [16 x ptr], ptr %90, i64 0, i64 %108
+  br label %98
 
-109:                                              ; preds = %101
-  %110 = sub i32 %.030.i33, %.val39.i
-  tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %98)
-  %111 = load i8, ptr %91, align 1
-  %112 = add i8 %111, -1
-  store i8 %112, ptr %91, align 1
-  %113 = zext i8 %112 to i32
-  %.not35.i = icmp eq i32 %.132.i.ph37, %113
-  br i1 %.not35.i, label %118, label %114
+110:                                              ; preds = %102
+  %111 = sub i32 %.030.i33, %.val39.i
+  tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %99)
+  %112 = load i8, ptr %92, align 1
+  %113 = add i8 %112, -1
+  store i8 %113, ptr %92, align 1
+  %114 = zext i8 %113 to i32
+  %.not35.i = icmp eq i32 %.132.i.ph37, %114
+  br i1 %.not35.i, label %119, label %115
 
-114:                                              ; preds = %109
-  %115 = sub i32 %113, %.132.i.ph37
-  %116 = zext i32 %115 to i64
-  %117 = shl nuw nsw i64 %116, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %105, ptr nonnull align 8 %108, i64 %117, i1 false)
-  br label %118
+115:                                              ; preds = %110
+  %116 = sub i32 %114, %.132.i.ph37
+  %117 = zext i32 %116 to i64
+  %118 = shl nuw nsw i64 %117, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 8 %109, i64 %118, i1 false)
+  br label %119
 
-118:                                              ; preds = %114, %109
-  %.not33.i = icmp eq i32 %110, 0
-  br i1 %.not33.i, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit, label %97, !llvm.loop !18
+119:                                              ; preds = %115, %110
+  %.not33.i = icmp eq i32 %111, 0
+  br i1 %.not33.i, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit, label %98, !llvm.loop !18
 
-_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit: ; preds = %.preheader, %.outer, %118, %80, %78
+_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit: ; preds = %.preheader, %.outer, %119, %80, %78
   ret void
 }
 

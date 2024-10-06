@@ -1805,8 +1805,9 @@ check_for_freed_segments_locked.exit.i:           ; preds = %33, %9
 check_for_freed_segments.exit:                    ; preds = %3, %check_for_freed_segments_locked.exit.i
   %36 = lshr i64 %1, 40
   %37 = and i64 %1, 1099511627775
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = getelementptr [1024 x %struct.dsa_segment_map], ptr %38, i64 0, i64 %36, i32 1
+  %.idx = mul nuw nsw i64 %36, 40
+  %38 = getelementptr i8, ptr %0, i64 24
+  %39 = getelementptr i8, ptr %38, i64 %.idx
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
@@ -2309,178 +2310,179 @@ define dso_local void @dsa_trim(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40984
   %3 = getelementptr inbounds i8, ptr %0, i64 40976
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %6
+  %5 = getelementptr i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %7
 
-6:                                                ; preds = %1, %91
-  %indvars.iv = phi i64 [ 37, %1 ], [ %indvars.iv.next, %91 ]
-  %7 = icmp eq i64 %indvars.iv, 1
-  br i1 %7, label %91, label %8
+7:                                                ; preds = %1, %92
+  %indvars.iv = phi i64 [ 37, %1 ], [ %indvars.iv.next, %92 ]
+  %8 = icmp eq i64 %indvars.iv, 1
+  br i1 %8, label %92, label %9
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4288
-  %11 = getelementptr [38 x %struct.dsa_area_pool], ptr %10, i64 0, i64 %indvars.iv
-  %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef 0) #10
-  %13 = getelementptr i8, ptr %11, i64 24
-  %14 = load i64, ptr %13, align 8
-  %.not19 = icmp eq i64 %14, 0
+9:                                                ; preds = %7
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 4288
+  %12 = getelementptr [38 x %struct.dsa_area_pool], ptr %11, i64 0, i64 %indvars.iv
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #10
+  %14 = getelementptr i8, ptr %12, i64 24
+  %15 = load i64, ptr %14, align 8
+  %.not19 = icmp eq i64 %15, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %87
-  %.01820 = phi i64 [ %80, %87 ], [ %14, %8 ]
+.lr.ph:                                           ; preds = %9, %88
+  %.01820 = phi i64 [ %81, %88 ], [ %15, %9 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 6144
-  %17 = load i64, ptr %16, align 8
-  %18 = load i64, ptr %2, align 8
-  %.not.i.i = icmp eq i64 %18, %17
-  br i1 %.not.i.i, label %check_for_freed_segments.exit.i, label %19
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 6144
+  %18 = load i64, ptr %17, align 8
+  %19 = load i64, ptr %2, align 8
+  %.not.i.i = icmp eq i64 %19, %18
+  br i1 %.not.i.i, label %check_for_freed_segments.exit.i, label %20
 
-19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %15, i64 6156
-  %21 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %20, i32 noundef 0) #10
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 6144
-  %24 = load i64, ptr %23, align 8
-  %25 = load i64, ptr %2, align 8
-  %.not.i.i.i = icmp eq i64 %25, %24
+20:                                               ; preds = %.lr.ph
+  %21 = getelementptr inbounds i8, ptr %16, i64 6156
+  %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %21, i32 noundef 0) #10
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 6144
+  %25 = load i64, ptr %24, align 8
+  %26 = load i64, ptr %2, align 8
+  %.not.i.i.i = icmp eq i64 %26, %25
   br i1 %.not.i.i.i, label %check_for_freed_segments_locked.exit.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %19, %36
-  %26 = phi i64 [ %38, %36 ], [ 0, %19 ]
-  %.024.i.i.i = phi i32 [ %37, %36 ], [ 0, %19 ]
-  %27 = getelementptr [1024 x %struct.dsa_segment_map], ptr %4, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %.not23.i.i.i = icmp eq ptr %29, null
-  br i1 %.not23.i.i.i, label %36, label %30
+.preheader.i.i.i:                                 ; preds = %20, %37
+  %27 = phi i64 [ %39, %37 ], [ 0, %20 ]
+  %.024.i.i.i = phi i32 [ %38, %37 ], [ 0, %20 ]
+  %28 = getelementptr [1024 x %struct.dsa_segment_map], ptr %4, i64 0, i64 %27
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not23.i.i.i = icmp eq ptr %30, null
+  br i1 %.not23.i.i.i, label %37, label %31
 
-30:                                               ; preds = %.preheader.i.i.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %36
+31:                                               ; preds = %.preheader.i.i.i
+  %32 = getelementptr inbounds i8, ptr %30, i64 48
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %27, align 8
-  tail call void @dsm_detach(ptr noundef %35) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  br label %36
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %28, align 8
+  tail call void @dsm_detach(ptr noundef %36) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  br label %37
 
-36:                                               ; preds = %34, %30, %.preheader.i.i.i
-  %37 = add i32 %.024.i.i.i, 1
-  %38 = sext i32 %37 to i64
-  %39 = load i64, ptr %3, align 8
-  %.not22.i.i.i = icmp ult i64 %39, %38
-  br i1 %.not22.i.i.i, label %40, label %.preheader.i.i.i, !llvm.loop !13
+37:                                               ; preds = %35, %31, %.preheader.i.i.i
+  %38 = add i32 %.024.i.i.i, 1
+  %39 = sext i32 %38 to i64
+  %40 = load i64, ptr %3, align 8
+  %.not22.i.i.i = icmp ult i64 %40, %39
+  br i1 %.not22.i.i.i, label %41, label %.preheader.i.i.i, !llvm.loop !13
 
-40:                                               ; preds = %36
-  store i64 %24, ptr %2, align 8
+41:                                               ; preds = %37
+  store i64 %25, ptr %2, align 8
   %.pre.i.i = load ptr, ptr %0, align 8
   br label %check_for_freed_segments_locked.exit.i.i
 
-check_for_freed_segments_locked.exit.i.i:         ; preds = %40, %19
-  %41 = phi ptr [ %22, %19 ], [ %.pre.i.i, %40 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 6156
-  tail call void @LWLockRelease(ptr noundef nonnull %42) #10
+check_for_freed_segments_locked.exit.i.i:         ; preds = %41, %20
+  %42 = phi ptr [ %23, %20 ], [ %.pre.i.i, %41 ]
+  %43 = getelementptr inbounds i8, ptr %42, i64 6156
+  tail call void @LWLockRelease(ptr noundef nonnull %43) #10
   br label %check_for_freed_segments.exit.i
 
 check_for_freed_segments.exit.i:                  ; preds = %check_for_freed_segments_locked.exit.i.i, %.lr.ph
-  %43 = lshr i64 %.01820, 40
-  %44 = and i64 %.01820, 1099511627775
-  %45 = getelementptr [1024 x %struct.dsa_segment_map], ptr %4, i64 0, i64 %43, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %dsa_get_address.exit
+  %44 = lshr i64 %.01820, 40
+  %45 = and i64 %.01820, 1099511627775
+  %.idx.i = mul nuw nsw i64 %44, 40
+  %46 = getelementptr i8, ptr %5, i64 %.idx.i
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %dsa_get_address.exit
 
-48:                                               ; preds = %check_for_freed_segments.exit.i
-  %49 = getelementptr [1024 x %struct.dsa_segment_map], ptr %4, i64 0, i64 %43
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 60
-  %53 = getelementptr [1024 x i32], ptr %52, i64 0, i64 %43
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %59
+49:                                               ; preds = %check_for_freed_segments.exit.i
+  %50 = getelementptr [1024 x %struct.dsa_segment_map], ptr %4, i64 0, i64 %44
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 60
+  %54 = getelementptr [1024 x i32], ptr %53, i64 0, i64 %44
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %60
 
-56:                                               ; preds = %48
-  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %57)
-  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #10
+57:                                               ; preds = %49
+  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %58)
+  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1775, ptr noundef nonnull @__func__.get_segment_by_index) #10
   unreachable
 
-59:                                               ; preds = %48
-  %60 = load ptr, ptr @CurrentResourceOwner, align 8
-  %61 = load ptr, ptr %5, align 8
+60:                                               ; preds = %49
+  %61 = load ptr, ptr @CurrentResourceOwner, align 8
+  %62 = load ptr, ptr %6, align 8
+  store ptr %62, ptr @CurrentResourceOwner, align 8
+  %63 = tail call ptr @dsm_attach(i32 noundef %55) #10
   store ptr %61, ptr @CurrentResourceOwner, align 8
-  %62 = tail call ptr @dsm_attach(i32 noundef %54) #10
-  store ptr %60, ptr @CurrentResourceOwner, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %67
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %59
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #10
+65:                                               ; preds = %60
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %66)
+  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1782, ptr noundef nonnull @__func__.get_segment_by_index) #10
   unreachable
 
-67:                                               ; preds = %59
-  store ptr %62, ptr %49, align 8
-  %68 = tail call ptr @dsm_segment_address(ptr noundef nonnull %62) #10
-  store ptr %68, ptr %50, align 8
-  %69 = getelementptr inbounds i8, ptr %49, i64 16
-  store ptr %68, ptr %69, align 8
-  %70 = getelementptr i8, ptr %68, i64 56
-  %71 = getelementptr inbounds i8, ptr %49, i64 24
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr i8, ptr %68, i64 1152
-  %73 = getelementptr inbounds i8, ptr %49, i64 32
-  store ptr %72, ptr %73, align 8
-  %74 = load i64, ptr %3, align 8
-  %75 = icmp ult i64 %74, %43
-  br i1 %75, label %76, label %dsa_get_address.exit
+68:                                               ; preds = %60
+  store ptr %63, ptr %50, align 8
+  %69 = tail call ptr @dsm_segment_address(ptr noundef nonnull %63) #10
+  store ptr %69, ptr %51, align 8
+  %70 = getelementptr inbounds i8, ptr %50, i64 16
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr i8, ptr %69, i64 56
+  %72 = getelementptr inbounds i8, ptr %50, i64 24
+  store ptr %71, ptr %72, align 8
+  %73 = getelementptr i8, ptr %69, i64 1152
+  %74 = getelementptr inbounds i8, ptr %50, i64 32
+  store ptr %73, ptr %74, align 8
+  %75 = load i64, ptr %3, align 8
+  %76 = icmp ult i64 %75, %44
+  br i1 %76, label %77, label %dsa_get_address.exit
 
-76:                                               ; preds = %67
-  store i64 %43, ptr %3, align 8
-  %.pre.i.pre = load ptr, ptr %45, align 8
+77:                                               ; preds = %68
+  store i64 %44, ptr %3, align 8
   br label %dsa_get_address.exit
 
-dsa_get_address.exit:                             ; preds = %76, %67, %check_for_freed_segments.exit.i
-  %77 = phi ptr [ %46, %check_for_freed_segments.exit.i ], [ %68, %67 ], [ %.pre.i.pre, %76 ]
-  %78 = getelementptr i8, ptr %77, i64 %44
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 44
-  %82 = load i16, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %78, i64 48
-  %84 = load i16, ptr %83, align 8
-  %85 = icmp eq i16 %82, %84
-  br i1 %85, label %86, label %87
+dsa_get_address.exit:                             ; preds = %77, %68, %check_for_freed_segments.exit.i
+  %78 = phi ptr [ %47, %check_for_freed_segments.exit.i ], [ %69, %68 ], [ %69, %77 ]
+  %79 = getelementptr i8, ptr %78, i64 %45
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %79, i64 44
+  %83 = load i16, ptr %82, align 4
+  %84 = getelementptr inbounds i8, ptr %79, i64 48
+  %85 = load i16, ptr %84, align 8
+  %86 = icmp eq i16 %83, %85
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %dsa_get_address.exit
+87:                                               ; preds = %dsa_get_address.exit
   tail call fastcc void @destroy_superblock(ptr noundef nonnull %0, i64 noundef %.01820)
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %dsa_get_address.exit
-  %.not = icmp eq i64 %80, 0
+88:                                               ; preds = %87, %dsa_get_address.exit
+  %.not = icmp eq i64 %81, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %87, %8
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4288
-  %90 = getelementptr [38 x %struct.dsa_area_pool], ptr %89, i64 0, i64 %indvars.iv
-  tail call void @LWLockRelease(ptr noundef %90) #10
-  br label %91
+._crit_edge:                                      ; preds = %88, %9
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 4288
+  %91 = getelementptr [38 x %struct.dsa_area_pool], ptr %90, i64 0, i64 %indvars.iv
+  tail call void @LWLockRelease(ptr noundef %91) #10
+  br label %92
 
-91:                                               ; preds = %6, %._crit_edge
+92:                                               ; preds = %7, %._crit_edge
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not24 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not24, label %92, label %6, !llvm.loop !19
+  br i1 %.not24, label %93, label %7, !llvm.loop !19
 
-92:                                               ; preds = %91
+93:                                               ; preds = %92
   ret void
 }
 
@@ -2570,17 +2572,17 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
   %59 = getelementptr inbounds i8, ptr %0, i64 40976
   br label %60
 
-60:                                               ; preds = %check_for_freed_segments_locked.exit, %.loopexit74
-  %.078 = phi i64 [ 0, %check_for_freed_segments_locked.exit ], [ %123, %.loopexit74 ]
+60:                                               ; preds = %check_for_freed_segments_locked.exit, %.loopexit75
+  %.079 = phi i64 [ 0, %check_for_freed_segments_locked.exit ], [ %123, %.loopexit75 ]
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 4160
-  %63 = getelementptr [16 x i64], ptr %62, i64 0, i64 %.078
+  %63 = getelementptr [16 x i64], ptr %62, i64 0, i64 %.079
   %64 = load i64, ptr %63, align 8
-  %.not69 = icmp eq i64 %64, -1
-  br i1 %.not69, label %.loopexit74, label %65
+  %.not70 = icmp eq i64 %64, -1
+  br i1 %.not70, label %.loopexit75, label %65
 
 65:                                               ; preds = %60
-  %66 = icmp eq i64 %.078, 0
+  %66 = icmp eq i64 %.079, 0
   %67 = load ptr, ptr @stderr, align 8
   br i1 %66, label %68, label %70
 
@@ -2589,23 +2591,23 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
   br label %75
 
 70:                                               ; preds = %65
-  %71 = trunc nuw i64 %.078 to i32
+  %71 = trunc nuw i64 %.079 to i32
   %72 = add nsw i32 %71, -1
   %73 = shl nuw nsw i32 1, %72
-  %74 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef nonnull @.str.15, i64 noundef %.078, i32 noundef %73) #10
+  %74 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef nonnull @.str.15, i64 noundef %.079, i32 noundef %73) #10
   br label %75
 
 75:                                               ; preds = %70, %68
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 4160
-  %78 = getelementptr [16 x i64], ptr %77, i64 0, i64 %.078
-  %.06575 = load i64, ptr %78, align 8
-  %.not7076 = icmp eq i64 %.06575, -1
-  br i1 %.not7076, label %.loopexit74, label %.lr.ph
+  %78 = getelementptr [16 x i64], ptr %77, i64 0, i64 %.079
+  %.06576 = load i64, ptr %78, align 8
+  %.not7177 = icmp eq i64 %.06576, -1
+  br i1 %.not7177, label %.loopexit75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75, %get_segment_by_index.exit
-  %.06577 = phi i64 [ %.065, %get_segment_by_index.exit ], [ %.06575, %75 ]
-  %79 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %.06577
+  %.06578 = phi i64 [ %.065, %get_segment_by_index.exit ], [ %.06576, %75 ]
+  %79 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %.06578
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -2614,7 +2616,7 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
 83:                                               ; preds = %.lr.ph
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 60
-  %86 = getelementptr [1024 x i32], ptr %85, i64 0, i64 %.06577
+  %86 = getelementptr [1024 x i32], ptr %85, i64 0, i64 %.06578
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %92
@@ -2655,16 +2657,16 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
   %106 = getelementptr inbounds i8, ptr %79, i64 32
   store ptr %105, ptr %106, align 8
   %107 = load i64, ptr %59, align 8
-  %108 = icmp ult i64 %107, %.06577
+  %108 = icmp ult i64 %107, %.06578
   br i1 %108, label %109, label %get_segment_by_index.exit
 
 109:                                              ; preds = %100
-  store i64 %.06577, ptr %59, align 8
-  %.pre87 = load ptr, ptr %80, align 8
+  store i64 %.06578, ptr %59, align 8
+  %.pre88 = load ptr, ptr %80, align 8
   br label %get_segment_by_index.exit
 
 get_segment_by_index.exit:                        ; preds = %.lr.ph, %100, %109
-  %110 = phi ptr [ %81, %.lr.ph ], [ %101, %100 ], [ %.pre87, %109 ]
+  %110 = phi ptr [ %81, %.lr.ph ], [ %101, %100 ], [ %.pre88, %109 ]
   %111 = load ptr, ptr @stderr, align 8
   %112 = getelementptr inbounds i8, ptr %79, i64 16
   %113 = load ptr, ptr %112, align 8
@@ -2674,253 +2676,257 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph, %100, %109
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 48
   %119 = load i64, ptr %118, align 8
-  %120 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %111, ptr noundef nonnull @.str.16, i64 noundef %.06577, i64 noundef %115, i64 noundef %119, ptr noundef %110) #10
+  %120 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %111, ptr noundef nonnull @.str.16, i64 noundef %.06578, i64 noundef %115, i64 noundef %119, ptr noundef %110) #10
   %121 = load ptr, ptr %112, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 32
   %.065 = load i64, ptr %122, align 8
-  %.not70 = icmp eq i64 %.065, -1
-  br i1 %.not70, label %.loopexit74, label %.lr.ph, !llvm.loop !20
+  %.not71 = icmp eq i64 %.065, -1
+  br i1 %.not71, label %.loopexit75, label %.lr.ph, !llvm.loop !20
 
-.loopexit74:                                      ; preds = %get_segment_by_index.exit, %75, %60
-  %123 = add nuw nsw i64 %.078, 1
+.loopexit75:                                      ; preds = %get_segment_by_index.exit, %75, %60
+  %123 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %123, 16
   br i1 %exitcond.not, label %124, label %60, !llvm.loop !21
 
-124:                                              ; preds = %.loopexit74
+124:                                              ; preds = %.loopexit75
   %125 = load ptr, ptr %0, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 6156
   tail call void @LWLockRelease(ptr noundef nonnull %126) #10
   %127 = load ptr, ptr @stderr, align 8
   %128 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %127, ptr noundef nonnull @.str.17) #10
-  br label %129
+  %129 = getelementptr i8, ptr %0, i64 24
+  br label %130
 
-129:                                              ; preds = %124, %.loopexit73
-  %.183 = phi i64 [ 0, %124 ], [ %245, %.loopexit73 ]
-  %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 4288
-  %132 = getelementptr [38 x %struct.dsa_area_pool], ptr %131, i64 0, i64 %.183
-  %133 = tail call zeroext i1 @LWLockAcquire(ptr noundef %132, i32 noundef 0) #10
-  %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 4288
-  br label %136
+130:                                              ; preds = %124, %.loopexit74
+  %.184 = phi i64 [ 0, %124 ], [ %248, %.loopexit74 ]
+  %131 = load ptr, ptr %0, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 4288
+  %133 = getelementptr [38 x %struct.dsa_area_pool], ptr %132, i64 0, i64 %.184
+  %134 = tail call zeroext i1 @LWLockAcquire(ptr noundef %133, i32 noundef 0) #10
+  %135 = load ptr, ptr %0, align 8
+  %.idx68 = mul nuw nsw i64 %.184, 48
+  %136 = getelementptr i8, ptr %135, i64 4304
+  %137 = getelementptr i8, ptr %136, i64 %.idx68
+  br label %138
 
-136:                                              ; preds = %129, %136
-  %.06180 = phi i1 [ false, %129 ], [ %spec.select, %136 ]
-  %.06379 = phi i64 [ 0, %129 ], [ %139, %136 ]
-  %137 = getelementptr [38 x %struct.dsa_area_pool], ptr %135, i64 0, i64 %.183, i32 1, i64 %.06379
-  %138 = load i64, ptr %137, align 8
-  %.not68 = icmp ne i64 %138, 0
-  %spec.select = select i1 %.not68, i1 true, i1 %.06180
-  %139 = add nuw nsw i64 %.06379, 1
-  %exitcond84.not = icmp eq i64 %139, 4
-  br i1 %exitcond84.not, label %140, label %136, !llvm.loop !22
+138:                                              ; preds = %130, %138
+  %.06181 = phi i1 [ false, %130 ], [ %spec.select, %138 ]
+  %.06380 = phi i64 [ 0, %130 ], [ %141, %138 ]
+  %139 = getelementptr [4 x i64], ptr %137, i64 0, i64 %.06380
+  %140 = load i64, ptr %139, align 8
+  %.not69 = icmp ne i64 %140, 0
+  %spec.select = select i1 %.not69, i1 true, i1 %.06181
+  %141 = add nuw nsw i64 %.06380, 1
+  %exitcond85.not = icmp eq i64 %141, 4
+  br i1 %exitcond85.not, label %142, label %138, !llvm.loop !22
 
-140:                                              ; preds = %136
-  br i1 %spec.select, label %141, label %.loopexit73
+142:                                              ; preds = %138
+  br i1 %spec.select, label %143, label %.loopexit74
 
-141:                                              ; preds = %140
-  %142 = load ptr, ptr @stderr, align 8
-  switch i64 %.183, label %147 [
-    i64 0, label %143
-    i64 1, label %145
+143:                                              ; preds = %142
+  %144 = load ptr, ptr @stderr, align 8
+  switch i64 %.184, label %149 [
+    i64 0, label %145
+    i64 1, label %147
   ]
 
-143:                                              ; preds = %141
-  %144 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %142, ptr noundef nonnull @.str.18) #10
+145:                                              ; preds = %143
+  %146 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %144, ptr noundef nonnull @.str.18) #10
   br label %.preheader
 
-145:                                              ; preds = %141
-  %146 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %142, ptr noundef nonnull @.str.19) #10
+147:                                              ; preds = %143
+  %148 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %144, ptr noundef nonnull @.str.19) #10
   br label %.preheader
 
-147:                                              ; preds = %141
-  %148 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %.183
-  %149 = load i16, ptr %148, align 2
-  %150 = zext i16 %149 to i32
-  %151 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %142, ptr noundef nonnull @.str.20, i64 noundef %.183, i32 noundef %150) #10
+149:                                              ; preds = %143
+  %150 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %.184
+  %151 = load i16, ptr %150, align 2
+  %152 = zext i16 %151 to i32
+  %153 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %144, ptr noundef nonnull @.str.20, i64 noundef %.184, i32 noundef %152) #10
   br label %.preheader
 
-.preheader:                                       ; preds = %145, %147, %143
-  br label %152
+.preheader:                                       ; preds = %147, %149, %145
+  br label %154
 
-152:                                              ; preds = %.preheader, %.loopexit
-  %.16482 = phi i64 [ %241, %.loopexit ], [ 0, %.preheader ]
-  %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 4288
-  %155 = getelementptr [38 x %struct.dsa_area_pool], ptr %154, i64 0, i64 %.183, i32 1, i64 %.16482
-  %156 = load i64, ptr %155, align 8
-  %.not = icmp eq i64 %156, 0
-  %157 = load ptr, ptr @stderr, align 8
-  br i1 %.not, label %158, label %160
+154:                                              ; preds = %.preheader, %.loopexit
+  %.16483 = phi i64 [ %244, %.loopexit ], [ 0, %.preheader ]
+  %155 = load ptr, ptr %0, align 8
+  %156 = getelementptr i8, ptr %155, i64 4304
+  %157 = getelementptr i8, ptr %156, i64 %.idx68
+  %158 = getelementptr [4 x i64], ptr %157, i64 0, i64 %.16483
+  %159 = load i64, ptr %158, align 8
+  %.not = icmp eq i64 %159, 0
+  %160 = load ptr, ptr @stderr, align 8
+  br i1 %.not, label %161, label %163
 
-158:                                              ; preds = %152
-  %159 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %157, ptr noundef nonnull @.str.21, i64 noundef %.16482) #10
+161:                                              ; preds = %154
+  %162 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %160, ptr noundef nonnull @.str.21, i64 noundef %.16483) #10
   br label %.loopexit
 
-160:                                              ; preds = %152
-  %161 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %157, ptr noundef nonnull @.str.22, i64 noundef %.16482) #10
-  br label %162
+163:                                              ; preds = %154
+  %164 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %160, ptr noundef nonnull @.str.22, i64 noundef %.16483) #10
+  br label %165
 
-162:                                              ; preds = %160, %dsa_get_address.exit
-  %.06081 = phi i64 [ %156, %160 ], [ %240, %dsa_get_address.exit ]
+165:                                              ; preds = %163, %dsa_get_address.exit
+  %.06082 = phi i64 [ %159, %163 ], [ %243, %dsa_get_address.exit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
-  %163 = load ptr, ptr %0, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 6144
-  %165 = load i64, ptr %164, align 8
-  %166 = load i64, ptr %8, align 8
-  %.not.i.i = icmp eq i64 %166, %165
-  br i1 %.not.i.i, label %check_for_freed_segments.exit.i, label %167
+  %166 = load ptr, ptr %0, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 6144
+  %168 = load i64, ptr %167, align 8
+  %169 = load i64, ptr %8, align 8
+  %.not.i.i = icmp eq i64 %169, %168
+  br i1 %.not.i.i, label %check_for_freed_segments.exit.i, label %170
 
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %163, i64 6156
-  %169 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %168, i32 noundef 0) #10
-  %170 = load ptr, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 6144
-  %172 = load i64, ptr %171, align 8
-  %173 = load i64, ptr %8, align 8
-  %.not.i.i.i = icmp eq i64 %173, %172
+170:                                              ; preds = %165
+  %171 = getelementptr inbounds i8, ptr %166, i64 6156
+  %172 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %171, i32 noundef 0) #10
+  %173 = load ptr, ptr %0, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 6144
+  %175 = load i64, ptr %174, align 8
+  %176 = load i64, ptr %8, align 8
+  %.not.i.i.i = icmp eq i64 %176, %175
   br i1 %.not.i.i.i, label %check_for_freed_segments_locked.exit.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %167, %184
-  %174 = phi i64 [ %186, %184 ], [ 0, %167 ]
-  %.024.i.i.i = phi i32 [ %185, %184 ], [ 0, %167 ]
-  %175 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %174
-  %176 = getelementptr inbounds i8, ptr %175, i64 16
-  %177 = load ptr, ptr %176, align 8
-  %.not23.i.i.i = icmp eq ptr %177, null
-  br i1 %.not23.i.i.i, label %184, label %178
+.preheader.i.i.i:                                 ; preds = %170, %187
+  %177 = phi i64 [ %189, %187 ], [ 0, %170 ]
+  %.024.i.i.i = phi i32 [ %188, %187 ], [ 0, %170 ]
+  %178 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %177
+  %179 = getelementptr inbounds i8, ptr %178, i64 16
+  %180 = load ptr, ptr %179, align 8
+  %.not23.i.i.i = icmp eq ptr %180, null
+  br i1 %.not23.i.i.i, label %187, label %181
 
-178:                                              ; preds = %.preheader.i.i.i
-  %179 = getelementptr inbounds i8, ptr %177, i64 48
-  %180 = load i8, ptr %179, align 8
-  %181 = trunc i8 %180 to i1
-  br i1 %181, label %182, label %184
+181:                                              ; preds = %.preheader.i.i.i
+  %182 = getelementptr inbounds i8, ptr %180, i64 48
+  %183 = load i8, ptr %182, align 8
+  %184 = trunc i8 %183 to i1
+  br i1 %184, label %185, label %187
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %175, align 8
-  tail call void @dsm_detach(ptr noundef %183) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, i8 0, i64 24, i1 false)
-  br label %184
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %178, align 8
+  tail call void @dsm_detach(ptr noundef %186) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
+  br label %187
 
-184:                                              ; preds = %182, %178, %.preheader.i.i.i
-  %185 = add i32 %.024.i.i.i, 1
-  %186 = sext i32 %185 to i64
-  %187 = load i64, ptr %59, align 8
-  %.not22.i.i.i = icmp ult i64 %187, %186
-  br i1 %.not22.i.i.i, label %188, label %.preheader.i.i.i, !llvm.loop !13
+187:                                              ; preds = %185, %181, %.preheader.i.i.i
+  %188 = add i32 %.024.i.i.i, 1
+  %189 = sext i32 %188 to i64
+  %190 = load i64, ptr %59, align 8
+  %.not22.i.i.i = icmp ult i64 %190, %189
+  br i1 %.not22.i.i.i, label %191, label %.preheader.i.i.i, !llvm.loop !13
 
-188:                                              ; preds = %184
-  store i64 %172, ptr %8, align 8
+191:                                              ; preds = %187
+  store i64 %175, ptr %8, align 8
   %.pre.i.i = load ptr, ptr %0, align 8
   br label %check_for_freed_segments_locked.exit.i.i
 
-check_for_freed_segments_locked.exit.i.i:         ; preds = %188, %167
-  %189 = phi ptr [ %170, %167 ], [ %.pre.i.i, %188 ]
-  %190 = getelementptr inbounds i8, ptr %189, i64 6156
-  tail call void @LWLockRelease(ptr noundef nonnull %190) #10
+check_for_freed_segments_locked.exit.i.i:         ; preds = %191, %170
+  %192 = phi ptr [ %173, %170 ], [ %.pre.i.i, %191 ]
+  %193 = getelementptr inbounds i8, ptr %192, i64 6156
+  tail call void @LWLockRelease(ptr noundef nonnull %193) #10
   br label %check_for_freed_segments.exit.i
 
-check_for_freed_segments.exit.i:                  ; preds = %check_for_freed_segments_locked.exit.i.i, %162
-  %191 = lshr i64 %.06081, 40
-  %192 = and i64 %.06081, 1099511627775
-  %193 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %191, i32 1
-  %194 = load ptr, ptr %193, align 8
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %196, label %dsa_get_address.exit
+check_for_freed_segments.exit.i:                  ; preds = %check_for_freed_segments_locked.exit.i.i, %165
+  %194 = lshr i64 %.06082, 40
+  %195 = and i64 %.06082, 1099511627775
+  %.idx.i = mul nuw nsw i64 %194, 40
+  %196 = getelementptr i8, ptr %129, i64 %.idx.i
+  %197 = load ptr, ptr %196, align 8
+  %198 = icmp eq ptr %197, null
+  br i1 %198, label %199, label %dsa_get_address.exit
 
-196:                                              ; preds = %check_for_freed_segments.exit.i
-  %197 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %191
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
-  %199 = load ptr, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 60
-  %201 = getelementptr [1024 x i32], ptr %200, i64 0, i64 %191
-  %202 = load i32, ptr %201, align 4
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %207
+199:                                              ; preds = %check_for_freed_segments.exit.i
+  %200 = getelementptr [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %194
+  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  %202 = load ptr, ptr %0, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 60
+  %204 = getelementptr [1024 x i32], ptr %203, i64 0, i64 %194
+  %205 = load i32, ptr %204, align 4
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %210
 
-204:                                              ; preds = %196
-  %205 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %205)
-  %206 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #10
+207:                                              ; preds = %199
+  %208 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %208)
+  %209 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1775, ptr noundef nonnull @__func__.get_segment_by_index) #10
   unreachable
 
-207:                                              ; preds = %196
-  %208 = load ptr, ptr @CurrentResourceOwner, align 8
-  %209 = load ptr, ptr %58, align 8
-  store ptr %209, ptr @CurrentResourceOwner, align 8
-  %210 = tail call ptr @dsm_attach(i32 noundef %202) #10
-  store ptr %208, ptr @CurrentResourceOwner, align 8
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %215
+210:                                              ; preds = %199
+  %211 = load ptr, ptr @CurrentResourceOwner, align 8
+  %212 = load ptr, ptr %58, align 8
+  store ptr %212, ptr @CurrentResourceOwner, align 8
+  %213 = tail call ptr @dsm_attach(i32 noundef %205) #10
+  store ptr %211, ptr @CurrentResourceOwner, align 8
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %215, label %218
 
-212:                                              ; preds = %207
-  %213 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %213)
-  %214 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #10
+215:                                              ; preds = %210
+  %216 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %216)
+  %217 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1782, ptr noundef nonnull @__func__.get_segment_by_index) #10
   unreachable
 
-215:                                              ; preds = %207
-  store ptr %210, ptr %197, align 8
-  %216 = tail call ptr @dsm_segment_address(ptr noundef nonnull %210) #10
-  store ptr %216, ptr %198, align 8
-  %217 = getelementptr inbounds i8, ptr %197, i64 16
-  store ptr %216, ptr %217, align 8
-  %218 = getelementptr i8, ptr %216, i64 56
-  %219 = getelementptr inbounds i8, ptr %197, i64 24
-  store ptr %218, ptr %219, align 8
-  %220 = getelementptr i8, ptr %216, i64 1152
-  %221 = getelementptr inbounds i8, ptr %197, i64 32
-  store ptr %220, ptr %221, align 8
-  %222 = load i64, ptr %59, align 8
-  %223 = icmp ult i64 %222, %191
-  br i1 %223, label %224, label %dsa_get_address.exit
+218:                                              ; preds = %210
+  store ptr %213, ptr %200, align 8
+  %219 = tail call ptr @dsm_segment_address(ptr noundef nonnull %213) #10
+  store ptr %219, ptr %201, align 8
+  %220 = getelementptr inbounds i8, ptr %200, i64 16
+  store ptr %219, ptr %220, align 8
+  %221 = getelementptr i8, ptr %219, i64 56
+  %222 = getelementptr inbounds i8, ptr %200, i64 24
+  store ptr %221, ptr %222, align 8
+  %223 = getelementptr i8, ptr %219, i64 1152
+  %224 = getelementptr inbounds i8, ptr %200, i64 32
+  store ptr %223, ptr %224, align 8
+  %225 = load i64, ptr %59, align 8
+  %226 = icmp ult i64 %225, %194
+  br i1 %226, label %227, label %dsa_get_address.exit
 
-224:                                              ; preds = %215
-  store i64 %191, ptr %59, align 8
-  %.pre.i.pre = load ptr, ptr %193, align 8
+227:                                              ; preds = %218
+  store i64 %194, ptr %59, align 8
   br label %dsa_get_address.exit
 
-dsa_get_address.exit:                             ; preds = %224, %215, %check_for_freed_segments.exit.i
-  %225 = phi ptr [ %194, %check_for_freed_segments.exit.i ], [ %216, %215 ], [ %.pre.i.pre, %224 ]
-  %226 = getelementptr i8, ptr %225, i64 %192
-  %227 = load ptr, ptr @stderr, align 8
-  %228 = getelementptr inbounds i8, ptr %226, i64 24
-  %229 = load i64, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %226, i64 32
-  %231 = load i64, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %226, i64 44
-  %233 = load i16, ptr %232, align 4
-  %234 = zext i16 %233 to i32
-  %235 = getelementptr inbounds i8, ptr %226, i64 48
-  %236 = load i16, ptr %235, align 8
+dsa_get_address.exit:                             ; preds = %227, %218, %check_for_freed_segments.exit.i
+  %228 = phi ptr [ %197, %check_for_freed_segments.exit.i ], [ %219, %218 ], [ %219, %227 ]
+  %229 = getelementptr i8, ptr %228, i64 %195
+  %230 = load ptr, ptr @stderr, align 8
+  %231 = getelementptr inbounds i8, ptr %229, i64 24
+  %232 = load i64, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %229, i64 32
+  %234 = load i64, ptr %233, align 8
+  %235 = getelementptr inbounds i8, ptr %229, i64 44
+  %236 = load i16, ptr %235, align 4
   %237 = zext i16 %236 to i32
-  %238 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %227, ptr noundef nonnull @.str.23, i64 noundef %.06081, i64 noundef %229, i64 noundef %231, i32 noundef %234, i32 noundef %237) #10
-  %239 = getelementptr inbounds i8, ptr %226, i64 16
-  %240 = load i64, ptr %239, align 8
-  %.not67 = icmp eq i64 %240, 0
-  br i1 %.not67, label %.loopexit, label %162, !llvm.loop !23
+  %238 = getelementptr inbounds i8, ptr %229, i64 48
+  %239 = load i16, ptr %238, align 8
+  %240 = zext i16 %239 to i32
+  %241 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %230, ptr noundef nonnull @.str.23, i64 noundef %.06082, i64 noundef %232, i64 noundef %234, i32 noundef %237, i32 noundef %240) #10
+  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %243 = load i64, ptr %242, align 8
+  %.not67 = icmp eq i64 %243, 0
+  br i1 %.not67, label %.loopexit, label %165, !llvm.loop !23
 
-.loopexit:                                        ; preds = %dsa_get_address.exit, %158
-  %241 = add nuw nsw i64 %.16482, 1
-  %exitcond85.not = icmp eq i64 %241, 4
-  br i1 %exitcond85.not, label %.loopexit73.loopexit, label %152, !llvm.loop !24
+.loopexit:                                        ; preds = %dsa_get_address.exit, %161
+  %244 = add nuw nsw i64 %.16483, 1
+  %exitcond86.not = icmp eq i64 %244, 4
+  br i1 %exitcond86.not, label %.loopexit74.loopexit, label %154, !llvm.loop !24
 
-.loopexit73.loopexit:                             ; preds = %.loopexit
-  %.pre89 = load ptr, ptr %0, align 8
-  br label %.loopexit73
+.loopexit74.loopexit:                             ; preds = %.loopexit
+  %.pre90 = load ptr, ptr %0, align 8
+  br label %.loopexit74
 
-.loopexit73:                                      ; preds = %.loopexit73.loopexit, %140
-  %242 = phi ptr [ %.pre89, %.loopexit73.loopexit ], [ %134, %140 ]
-  %243 = getelementptr inbounds i8, ptr %242, i64 4288
-  %244 = getelementptr [38 x %struct.dsa_area_pool], ptr %243, i64 0, i64 %.183
-  tail call void @LWLockRelease(ptr noundef %244) #10
-  %245 = add nuw nsw i64 %.183, 1
-  %exitcond86.not = icmp eq i64 %245, 38
-  br i1 %exitcond86.not, label %246, label %129, !llvm.loop !25
+.loopexit74:                                      ; preds = %.loopexit74.loopexit, %142
+  %245 = phi ptr [ %.pre90, %.loopexit74.loopexit ], [ %135, %142 ]
+  %246 = getelementptr inbounds i8, ptr %245, i64 4288
+  %247 = getelementptr [38 x %struct.dsa_area_pool], ptr %246, i64 0, i64 %.184
+  tail call void @LWLockRelease(ptr noundef %247) #10
+  %248 = add nuw nsw i64 %.184, 1
+  %exitcond87.not = icmp eq i64 %248, 38
+  br i1 %exitcond87.not, label %249, label %130, !llvm.loop !25
 
-246:                                              ; preds = %.loopexit73
+249:                                              ; preds = %.loopexit74
   ret void
 }
 

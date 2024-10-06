@@ -1377,7 +1377,8 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %90, label %.split.us.split.split.us.us.i, label %.split.us.split.split.us65.i
 
 .split59.us.us.i:                                 ; preds = %.split.us.split.split.us.us.i, %.split.us.split.us.us.i, %.split.us.split.split.us65.i
-  %91 = getelementptr inbounds [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv84.i, i64 1, i32 2
+  %.sink51 = phi ptr [ %114, %.split.us.split.split.us.us.i ], [ %94, %.split.us.split.us.us.i ], [ %102, %.split.us.split.split.us65.i ]
+  %91 = getelementptr inbounds i8, ptr %.sink51, i64 2
   store i8 1, ptr %91, align 1
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond87.not.i = icmp eq i64 %indvars.iv.next85.i, 4
@@ -1388,7 +1389,9 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   store i8 0, ptr %92, align 1
   %93 = getelementptr inbounds i8, ptr %92, i64 2
   store i8 0, ptr %93, align 1
-  %94 = getelementptr inbounds [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv84.i, i64 1
+  %.idx44 = shl nsw i64 %indvars.iv84.i, 3
+  %.offs45 = or disjoint i64 %.idx44, 4
+  %94 = getelementptr inbounds i8, ptr %64, i64 %.offs45
   store i8 0, ptr %94, align 1
   br label %.split59.us.us.i
 
@@ -1405,7 +1408,9 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   store i8 %88, ptr %100, align 1
   %101 = getelementptr inbounds i8, ptr %98, i64 2
   store i8 0, ptr %101, align 1
-  %102 = getelementptr inbounds [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv84.i, i64 1
+  %.idx = shl nsw i64 %indvars.iv84.i, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %102 = getelementptr inbounds i8, ptr %64, i64 %.offs
   %103 = getelementptr inbounds i8, ptr %102, i64 1
   store i8 %95, ptr %103, align 1
   store i8 %97, ptr %102, align 1
@@ -1431,7 +1436,9 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   store i8 %88, ptr %112, align 1
   %113 = getelementptr inbounds i8, ptr %110, i64 2
   store i8 0, ptr %113, align 1
-  %114 = getelementptr inbounds [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv84.i, i64 1
+  %.idx42 = shl nsw i64 %indvars.iv84.i, 3
+  %.offs43 = or disjoint i64 %.idx42, 4
+  %114 = getelementptr inbounds i8, ptr %64, i64 %.offs43
   %115 = getelementptr inbounds i8, ptr %114, i64 1
   store i8 %107, ptr %115, align 1
   store i8 %109, ptr %114, align 1

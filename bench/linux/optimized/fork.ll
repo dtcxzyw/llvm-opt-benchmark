@@ -2504,12 +2504,12 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   store i32 %90, ptr %75, align 4
   %91 = getelementptr inbounds i8, ptr %72, i64 1896
   store i64 -262401, ptr %91, align 8
-  %.pre36 = load i8, ptr %78, align 4
+  %.pre37 = load i8, ptr %78, align 4
   br label %92
 
 92:                                               ; preds = %89, %84
   %93 = phi i32 [ %90, %89 ], [ %85, %84 ]
-  %94 = phi i8 [ %.pre36, %89 ], [ %86, %84 ]
+  %94 = phi i8 [ %.pre37, %89 ], [ %86, %84 ]
   %95 = and i8 %94, 2
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %99, label %97
@@ -2782,19 +2782,19 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   %250 = getelementptr inbounds i8, ptr %9, i64 2136
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null
-  br i1 %252, label %.thread34, label %253
+  br i1 %252, label %.thread35, label %253
 
 253:                                              ; preds = %249
   %254 = call i32 @__copy_io(i64 noundef %7, ptr noundef nonnull %72) #18
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %.thread34, label %541
+  br i1 %255, label %.thread35, label %541
 
-.thread34:                                        ; preds = %249, %253
+.thread35:                                        ; preds = %249, %253
   %256 = call i32 @copy_thread(ptr noundef nonnull %72, ptr noundef %3) #18
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %258, label %536
 
-258:                                              ; preds = %.thread34
+258:                                              ; preds = %.thread35
   %259 = icmp eq ptr %0, @init_struct_pid
   br i1 %259, label %274, label %260
 
@@ -2836,7 +2836,7 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   %287 = trunc i64 %286 to i32
   call void @llvm.write_register.i64(metadata !0, i64 %285)
   %288 = icmp eq i32 %287, 0
-  br i1 %288, label %289, label %.thread35
+  br i1 %288, label %289, label %.thread36
 
 289:                                              ; preds = %279, %274
   %290 = phi i32 [ %277, %279 ], [ -1, %274 ]
@@ -3000,11 +3000,12 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   br i1 %305, label %385, label %378
 
 378:                                              ; preds = %377
-  %379 = getelementptr inbounds i8, ptr %275, i64 96
-  %380 = getelementptr inbounds i8, ptr %275, i64 4
-  %381 = load i32, ptr %380, align 4
-  %382 = zext i32 %381 to i64
-  %383 = getelementptr [0 x %struct.upid], ptr %379, i64 0, i64 %382, i32 1
+  %379 = getelementptr inbounds i8, ptr %275, i64 4
+  %380 = load i32, ptr %379, align 4
+  %381 = zext i32 %380 to i64
+  %.idx = shl nuw nsw i64 %381, 4
+  %382 = getelementptr i8, ptr %275, i64 104
+  %383 = getelementptr i8, ptr %382, i64 %.idx
   %384 = load ptr, ptr %383, align 8
   br label %385
 
@@ -3078,7 +3079,9 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   br i1 %305, label %435, label %432
 
 432:                                              ; preds = %431
-  %433 = getelementptr [0 x %struct.upid], ptr %424, i64 0, i64 %427, i32 1
+  %.idx34 = shl nuw nsw i64 %427, 4
+  %.offs = or disjoint i64 %.idx34, 8
+  %433 = getelementptr i8, ptr %424, i64 %.offs
   %434 = load ptr, ptr %433, align 8
   br label %435
 
@@ -3253,9 +3256,9 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
 
 525:                                              ; preds = %522, %320
   %526 = phi i32 [ %329, %320 ], [ %523, %522 ]
-  br i1 %48, label %530, label %.thread35
+  br i1 %48, label %530, label %.thread36
 
-.thread35:                                        ; preds = %279, %525
+.thread36:                                        ; preds = %279, %525
   %527 = phi i32 [ %290, %525 ], [ %277, %279 ]
   %528 = phi i32 [ %526, %525 ], [ %287, %279 ]
   %529 = load ptr, ptr %6, align 8
@@ -3263,8 +3266,8 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   call void @put_unused_fd(i32 noundef %527) #18
   br label %530
 
-530:                                              ; preds = %.thread35, %525, %276
-  %531 = phi i32 [ %277, %276 ], [ %528, %.thread35 ], [ %526, %525 ]
+530:                                              ; preds = %.thread36, %525, %276
+  %531 = phi i32 [ %277, %276 ], [ %528, %.thread36 ], [ %526, %525 ]
   %532 = icmp eq ptr %275, @init_struct_pid
   br i1 %532, label %534, label %533
 
@@ -3277,8 +3280,8 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   call void @exit_thread(ptr noundef nonnull %72) #18
   br label %536
 
-536:                                              ; preds = %534, %.thread34
-  %537 = phi i32 [ %256, %.thread34 ], [ %535, %534 ]
+536:                                              ; preds = %534, %.thread35
+  %537 = phi i32 [ %256, %.thread35 ], [ %535, %534 ]
   %538 = load ptr, ptr %190, align 8
   %539 = icmp eq ptr %538, null
   br i1 %539, label %541, label %540

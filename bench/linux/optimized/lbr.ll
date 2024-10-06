@@ -2016,22 +2016,23 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr nocapture noundef %0, ptr 
   br i1 %52, label %.loopexit4, label %.split.preheader
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %1, i64 2472
-  %55 = icmp sgt i32 %44, 0
-  %56 = getelementptr inbounds i8, ptr %1, i64 3240
-  %57 = zext nneg i32 %44 to i64
-  br i1 %55, label %.preheader.us, label %.split.preheader
+  %54 = icmp sgt i32 %44, 0
+  %55 = getelementptr inbounds i8, ptr %1, i64 3240
+  %56 = zext nneg i32 %44 to i64
+  %57 = getelementptr i8, ptr %1, i64 2488
+  br i1 %54, label %.preheader.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %.thread, %53
   %58 = phi ptr [ %47, %53 ], [ %50, %.thread ]
   %59 = getelementptr inbounds i8, ptr %1, i64 3240
-  %60 = getelementptr inbounds i8, ptr %1, i64 2472
+  %60 = getelementptr i8, ptr %1, i64 2488
   br label %.split
 
 .preheader.us:                                    ; preds = %53, %.loopexit.us
   %61 = phi i64 [ %84, %.loopexit.us ], [ 0, %53 ]
   %62 = phi i32 [ %83, %.loopexit.us ], [ 0, %53 ]
-  %63 = getelementptr [32 x %struct.perf_branch_entry], ptr %54, i64 0, i64 %61, i32 2
+  %.idx.us = mul nsw i64 %61, 24
+  %63 = getelementptr i8, ptr %57, i64 %.idx.us
   %64 = load i64, ptr %63, align 8
   %65 = lshr i64 %64, 33
   br label %66
@@ -2049,11 +2050,11 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr nocapture noundef %0, ptr 
   %76 = shl i64 %74, %75
   %77 = or i64 %76, %68
   %78 = add nuw nsw i64 %67, 1
-  %79 = icmp eq i64 %78, %57
+  %79 = icmp eq i64 %78, %56
   br i1 %79, label %.loopexit.us, label %66, !llvm.loop !45
 
 .loopexit.us:                                     ; preds = %66
-  %80 = getelementptr [32 x i64], ptr %56, i64 0, i64 %61
+  %80 = getelementptr [32 x i64], ptr %55, i64 0, i64 %61
   store i64 %77, ptr %80, align 8
   %81 = load i64, ptr %63, align 8
   %82 = and i64 %81, 8589934591
@@ -2067,7 +2068,8 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr nocapture noundef %0, ptr 
 .split:                                           ; preds = %.split.preheader, %.split
   %87 = phi i64 [ %94, %.split ], [ 0, %.split.preheader ]
   %88 = phi i32 [ %93, %.split ], [ 0, %.split.preheader ]
-  %89 = getelementptr [32 x %struct.perf_branch_entry], ptr %60, i64 0, i64 %87, i32 2
+  %.idx = mul nsw i64 %87, 24
+  %89 = getelementptr i8, ptr %60, i64 %.idx
   %90 = getelementptr [32 x i64], ptr %59, i64 0, i64 %87
   store i64 0, ptr %90, align 8
   %91 = load i64, ptr %89, align 8

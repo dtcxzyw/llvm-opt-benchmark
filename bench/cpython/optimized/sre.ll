@@ -25392,31 +25392,32 @@ do.end.i:                                         ; preds = %if.then1.i16.i, %if
   br i1 %cmp114.i, label %do.body2.lr.ph.i, label %template_clear.exit
 
 do.body2.lr.ph.i:                                 ; preds = %do.end.i
-  %items.i = getelementptr inbounds i8, ptr %self, i64 40
+  %5 = getelementptr i8, ptr %self, i64 48
   br label %do.body2.i
 
 do.body2.i:                                       ; preds = %for.inc.i, %do.body2.lr.ph.i
   %i.015.i = phi i64 [ 0, %do.body2.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %literal4.i = getelementptr [0 x %struct.anon.771], ptr %items.i, i64 0, i64 %i.015.i, i32 1
-  %5 = load ptr, ptr %literal4.i, align 8
-  %cmp6.not.i = icmp eq ptr %5, null
+  %literal4.idx.i = shl i64 %i.015.i, 4
+  %literal4.i = getelementptr i8, ptr %5, i64 %literal4.idx.i
+  %6 = load ptr, ptr %literal4.i, align 8
+  %cmp6.not.i = icmp eq ptr %6, null
   br i1 %cmp6.not.i, label %for.inc.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %do.body2.i
   store ptr null, ptr %literal4.i, align 8
-  %6 = load i64, ptr %5, align 8
-  %7 = and i64 %6, 2147483648
-  %cmp.i23.not.i = icmp eq i64 %7, 0
+  %7 = load i64, ptr %6, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i23.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i23.not.i, label %if.end.i.i, label %for.inc.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
-  %dec.i.i = add i64 %6, -1
-  store i64 %dec.i.i, ptr %5, align 8
+  %dec.i.i = add i64 %7, -1
+  store i64 %dec.i.i, ptr %6, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %5) #14
+  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #14
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.then7.i, %do.body2.i
@@ -25426,15 +25427,15 @@ for.inc.i:                                        ; preds = %if.then1.i.i, %if.e
 
 template_clear.exit:                              ; preds = %for.inc.i, %do.end.i
   %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
-  %8 = load ptr, ptr %tp_free, align 8
-  tail call void %8(ptr noundef nonnull %self) #14
-  %9 = load i64, ptr %self.val, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i3.not = icmp eq i64 %10, 0
+  %9 = load ptr, ptr %tp_free, align 8
+  tail call void %9(ptr noundef nonnull %self) #14
+  %10 = load i64, ptr %self.val, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i3.not = icmp eq i64 %11, 0
   br i1 %cmp.i3.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %template_clear.exit
-  %dec.i = add i64 %9, -1
+  %dec.i = add i64 %10, -1
   store i64 %dec.i, ptr %self.val, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -25478,18 +25479,19 @@ do.end16:                                         ; preds = %do.body6, %if.then8
   br i1 %cmp20, label %do.body18.lr.ph, label %return
 
 do.body18.lr.ph:                                  ; preds = %do.end16
-  %items = getelementptr inbounds i8, ptr %self, i64 40
+  %3 = getelementptr i8, ptr %self, i64 48
   br label %do.body18
 
 do.body18:                                        ; preds = %do.body18.lr.ph, %for.inc
   %i.021 = phi i64 [ 0, %do.body18.lr.ph ], [ %inc, %for.inc ]
-  %literal19 = getelementptr [0 x %struct.anon.771], ptr %items, i64 0, i64 %i.021, i32 1
-  %3 = load ptr, ptr %literal19, align 8
-  %tobool20.not = icmp eq ptr %3, null
+  %literal19.idx = shl i64 %i.021, 4
+  %literal19 = getelementptr i8, ptr %3, i64 %literal19.idx
+  %4 = load ptr, ptr %literal19, align 8
+  %tobool20.not = icmp eq ptr %4, null
   br i1 %tobool20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %do.body18
-  %call26 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #14
+  %call26 = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %for.inc, label %return
 
@@ -25535,31 +25537,32 @@ do.end:                                           ; preds = %entry, %if.then, %i
   br i1 %cmp114, label %do.body2.lr.ph, label %for.end
 
 do.body2.lr.ph:                                   ; preds = %do.end
-  %items = getelementptr inbounds i8, ptr %self, i64 40
+  %4 = getelementptr i8, ptr %self, i64 48
   br label %do.body2
 
 do.body2:                                         ; preds = %do.body2.lr.ph, %for.inc
   %i.015 = phi i64 [ 0, %do.body2.lr.ph ], [ %inc, %for.inc ]
-  %literal4 = getelementptr [0 x %struct.anon.771], ptr %items, i64 0, i64 %i.015, i32 1
-  %4 = load ptr, ptr %literal4, align 8
-  %cmp6.not = icmp eq ptr %4, null
+  %literal4.idx = shl i64 %i.015, 4
+  %literal4 = getelementptr i8, ptr %4, i64 %literal4.idx
+  %5 = load ptr, ptr %literal4, align 8
+  %cmp6.not = icmp eq ptr %5, null
   br i1 %cmp6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %do.body2
   store ptr null, ptr %literal4, align 8
-  %5 = load i64, ptr %4, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i23.not = icmp eq i64 %6, 0
+  %6 = load i64, ptr %5, align 8
+  %7 = and i64 %6, 2147483648
+  %cmp.i23.not = icmp eq i64 %7, 0
   br i1 %cmp.i23.not, label %if.end.i, label %for.inc
 
 if.end.i:                                         ; preds = %if.then7
-  %dec.i = add i64 %5, -1
-  store i64 %dec.i, ptr %4, align 8
+  %dec.i = add i64 %6, -1
+  store i64 %dec.i, ptr %5, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %for.inc
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %4) #14
+  tail call void @_Py_Dealloc(ptr noundef nonnull %5) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.then7, %do.body2

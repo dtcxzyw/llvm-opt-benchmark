@@ -727,12 +727,13 @@ virtio_mmio_soft_reset.exit.thread:               ; preds = %entry
   br label %if.end
 
 for.cond.preheader.i:                             ; preds = %entry
-  %vqs.i = getelementptr inbounds i8, ptr %call.i, i64 1260
+  %1 = getelementptr i8, ptr %call.i, i64 1262
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %enabled.i = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs.i, i64 0, i64 %indvars.iv.i, i32 1
+  %2 = mul nuw nsw i64 %indvars.iv.i, 28
+  %enabled.i = getelementptr i8, ptr %1, i64 %2
   store i8 0, ptr %enabled.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
@@ -749,11 +750,12 @@ virtio_mmio_soft_reset.exit:                      ; preds = %for.body.i
   %arrayidx = getelementptr i8, ptr %call.i, i64 1256
   store i32 0, ptr %arrayidx, align 4
   store i32 0, ptr %guest_features, align 4
+  %vqs = getelementptr inbounds i8, ptr %call.i, i64 1260
   br label %for.body
 
 for.body:                                         ; preds = %virtio_mmio_soft_reset.exit, %for.body
   %indvars.iv = phi i64 [ 0, %virtio_mmio_soft_reset.exit ], [ %indvars.iv.next, %for.body ]
-  %arrayidx3 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs.i, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs, i64 0, i64 %indvars.iv
   store i16 0, ptr %arrayidx3, align 4
   %desc = getelementptr inbounds i8, ptr %arrayidx3, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1065,37 +1067,38 @@ if.then105:                                       ; preds = %do.body97
   br label %return
 
 if.end108:                                        ; preds = %sw.bb93
-  %vqs = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel109 = getelementptr inbounds i8, ptr %cond.i, i64 170
   %27 = load i16, ptr %queue_sel109, align 2
   %idxprom = zext i16 %27 to i64
-  %enabled = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs, i64 0, i64 %idxprom, i32 1
-  %28 = load i8, ptr %enabled, align 2
-  %29 = and i8 %28, 1
-  %conv111 = zext nneg i8 %29 to i64
+  %enabled.idx = mul nuw nsw i64 %idxprom, 28
+  %28 = getelementptr i8, ptr %opaque, i64 1262
+  %enabled = getelementptr i8, ptr %28, i64 %enabled.idx
+  %29 = load i8, ptr %enabled, align 2
+  %30 = and i8 %29, 1
+  %conv111 = zext nneg i8 %30 to i64
   br label %return
 
 while.end:                                        ; preds = %if.end45
   %isr = getelementptr inbounds i8, ptr %cond.i, i64 169
-  %30 = load atomic i8, ptr %isr monotonic, align 1
-  %conv115 = zext i8 %30 to i64
+  %31 = load atomic i8, ptr %isr monotonic, align 1
+  %conv115 = zext i8 %31 to i64
   br label %return
 
 sw.bb116:                                         ; preds = %if.end45
   %status = getelementptr inbounds i8, ptr %cond.i, i64 168
-  %31 = load i8, ptr %status, align 8
-  %conv117 = zext i8 %31 to i64
+  %32 = load i8, ptr %status, align 8
+  %conv117 = zext i8 %32 to i64
   br label %return
 
 sw.bb118:                                         ; preds = %if.end45
   %legacy119 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %32 = load i8, ptr %legacy119, align 8
-  %tobool120 = trunc i8 %32 to i1
+  %33 = load i8, ptr %legacy119, align 8
+  %tobool120 = trunc i8 %33 to i1
   br i1 %tobool120, label %do.body122, label %if.end133
 
 do.body122:                                       ; preds = %sw.bb118
-  %33 = load i32, ptr @qemu_loglevel, align 4
-  %and.i53 = and i32 %33, 2048
+  %34 = load i32, ptr @qemu_loglevel, align 4
+  %and.i53 = and i32 %34, 2048
   %cmp.i54.not = icmp eq i32 %and.i53, 0
   br i1 %cmp.i54.not, label %return, label %if.then130
 
@@ -1105,16 +1108,16 @@ if.then130:                                       ; preds = %do.body122
 
 if.end133:                                        ; preds = %sw.bb118
   %generation = getelementptr inbounds i8, ptr %cond.i, i64 220
-  %34 = load i32, ptr %generation, align 4
-  %conv134 = zext i32 %34 to i64
+  %35 = load i32, ptr %generation, align 4
+  %conv134 = zext i32 %35 to i64
   br label %return
 
 sw.bb135:                                         ; preds = %if.end45, %if.end45
   br label %return
 
 do.body137:                                       ; preds = %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45, %if.end45
-  %35 = load i32, ptr @qemu_loglevel, align 4
-  %and.i55 = and i32 %35, 2048
+  %36 = load i32, ptr @qemu_loglevel, align 4
+  %and.i55 = and i32 %36, 2048
   %cmp.i56.not = icmp eq i32 %and.i55, 0
   br i1 %cmp.i56.not, label %return, label %if.then145
 
@@ -1123,8 +1126,8 @@ if.then145:                                       ; preds = %do.body137
   br label %return
 
 do.body149:                                       ; preds = %if.end45
-  %36 = load i32, ptr @qemu_loglevel, align 4
-  %and.i57 = and i32 %36, 2048
+  %37 = load i32, ptr @qemu_loglevel, align 4
+  %and.i57 = and i32 %37, 2048
   %cmp.i58.not = icmp eq i32 %and.i57, 0
   br i1 %cmp.i58.not, label %return, label %if.then157
 
@@ -1482,12 +1485,13 @@ if.then155:                                       ; preds = %if.end152
   br i1 %tobool.i, label %sw.epilog445, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then155
-  %vqs.i = getelementptr inbounds i8, ptr %opaque, i64 1260
+  %28 = getelementptr i8, ptr %opaque, i64 1262
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %enabled.i = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs.i, i64 0, i64 %indvars.iv.i, i32 1
+  %29 = mul nuw nsw i64 %indvars.iv.i, 28
+  %enabled.i = getelementptr i8, ptr %28, i64 %29
   store i8 0, ptr %enabled.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
@@ -1495,24 +1499,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
 
 if.else156:                                       ; preds = %if.end152
   %queue_sel157 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %28 = load i16, ptr %queue_sel157, align 2
-  %conv158 = zext i16 %28 to i32
+  %30 = load i16, ptr %queue_sel157, align 2
+  %conv158 = zext i16 %30 to i32
   %guest_page_shift159 = getelementptr inbounds i8, ptr %opaque, i64 1112
-  %29 = load i32, ptr %guest_page_shift159, align 8
-  %sh_prom = zext nneg i32 %29 to i64
+  %31 = load i32, ptr %guest_page_shift159, align 8
+  %sh_prom = zext nneg i32 %31 to i64
   %shl = shl i64 %value, %sh_prom
   tail call void @virtio_queue_set_addr(ptr noundef nonnull %cond.i, i32 noundef %conv158, i64 noundef %shl) #9
   br label %sw.epilog445
 
 sw.bb161:                                         ; preds = %if.end32
   %legacy162 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %30 = load i8, ptr %legacy162, align 8
-  %tobool163 = trunc i8 %30 to i1
+  %32 = load i8, ptr %legacy162, align 8
+  %tobool163 = trunc i8 %32 to i1
   br i1 %tobool163, label %do.body165, label %if.end176
 
 do.body165:                                       ; preds = %sw.bb161
-  %31 = load i32, ptr @qemu_loglevel, align 4
-  %and.i158 = and i32 %31, 2048
+  %33 = load i32, ptr @qemu_loglevel, align 4
+  %and.i158 = and i32 %33, 2048
   %cmp.i159.not = icmp eq i32 %and.i158, 0
   br i1 %cmp.i159.not, label %sw.epilog445, label %if.then173
 
@@ -1522,41 +1526,42 @@ if.then173:                                       ; preds = %do.body165
 
 if.end176:                                        ; preds = %sw.bb161
   %tobool177.not = icmp eq i64 %value, 0
+  %queue_sel239 = getelementptr inbounds i8, ptr %cond.i, i64 170
+  %34 = load i16, ptr %queue_sel239, align 2
   br i1 %tobool177.not, label %if.else237, label %if.then178
 
 if.then178:                                       ; preds = %if.end176
-  %queue_sel179 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %32 = load i16, ptr %queue_sel179, align 2
-  %conv180 = zext i16 %32 to i32
+  %conv180 = zext i16 %34 to i32
   %vqs181 = getelementptr inbounds i8, ptr %opaque, i64 1260
-  %idxprom183 = zext i16 %32 to i64
+  %idxprom183 = zext i16 %34 to i64
   %arrayidx184 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs181, i64 0, i64 %idxprom183
-  %33 = load i16, ptr %arrayidx184, align 4
-  %conv186 = zext i16 %33 to i32
+  %35 = load i16, ptr %arrayidx184, align 4
+  %conv186 = zext i16 %35 to i32
   tail call void @virtio_queue_set_num(ptr noundef nonnull %cond.i, i32 noundef %conv180, i32 noundef %conv186) #9
-  %34 = load i16, ptr %queue_sel179, align 2
-  %conv188 = zext i16 %34 to i32
-  %idxprom191 = zext i16 %34 to i64
+  %36 = load i16, ptr %queue_sel239, align 2
+  %conv188 = zext i16 %36 to i32
+  %idxprom191 = zext i16 %36 to i64
   %arrayidx192 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs181, i64 0, i64 %idxprom191
   %desc = getelementptr inbounds i8, ptr %arrayidx192, i64 4
-  %35 = load i64, ptr %desc, align 4
+  %37 = load i64, ptr %desc, align 4
   %avail = getelementptr inbounds i8, ptr %arrayidx192, i64 12
-  %36 = load i64, ptr %avail, align 4
+  %38 = load i64, ptr %avail, align 4
   %used = getelementptr inbounds i8, ptr %arrayidx192, i64 20
-  %37 = load i64, ptr %used, align 4
-  tail call void @virtio_queue_set_rings(ptr noundef nonnull %cond.i, i32 noundef %conv188, i64 noundef %35, i64 noundef %36, i64 noundef %37) #9
-  %38 = load i16, ptr %queue_sel179, align 2
-  %idxprom235 = zext i16 %38 to i64
-  %enabled = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs181, i64 0, i64 %idxprom235, i32 1
+  %39 = load i64, ptr %used, align 4
+  tail call void @virtio_queue_set_rings(ptr noundef nonnull %cond.i, i32 noundef %conv188, i64 noundef %37, i64 noundef %38, i64 noundef %39) #9
+  %40 = load i16, ptr %queue_sel239, align 2
+  %idxprom235 = zext i16 %40 to i64
+  %enabled.idx = mul nuw nsw i64 %idxprom235, 28
+  %enabled.offs = or disjoint i64 %enabled.idx, 2
+  %enabled = getelementptr i8, ptr %vqs181, i64 %enabled.offs
   store i8 1, ptr %enabled, align 2
   br label %sw.epilog445
 
 if.else237:                                       ; preds = %if.end176
-  %vqs238 = getelementptr inbounds i8, ptr %opaque, i64 1260
-  %queue_sel239 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %39 = load i16, ptr %queue_sel239, align 2
-  %idxprom240 = zext i16 %39 to i64
-  %enabled242 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs238, i64 0, i64 %idxprom240, i32 1
+  %idxprom240 = zext i16 %34 to i64
+  %enabled242.idx = mul nuw nsw i64 %idxprom240, 28
+  %41 = getelementptr i8, ptr %opaque, i64 1262
+  %enabled242 = getelementptr i8, ptr %41, i64 %enabled242.idx
   store i8 0, ptr %enabled242, align 2
   br label %sw.epilog445
 
@@ -1571,9 +1576,9 @@ if.then247:                                       ; preds = %sw.bb244
 
 sw.bb250:                                         ; preds = %if.end32
   %isr = getelementptr inbounds i8, ptr %cond.i, i64 169
-  %40 = trunc i64 %value to i8
-  %conv251 = xor i8 %40, -1
-  %41 = atomicrmw and ptr %isr, i8 %conv251 seq_cst, align 1
+  %42 = trunc i64 %value to i8
+  %conv251 = xor i8 %42, -1
+  %43 = atomicrmw and ptr %isr, i8 %conv251 seq_cst, align 1
   tail call void @virtio_update_irq(ptr noundef nonnull %cond.i) #9
   br label %sw.epilog445
 
@@ -1588,8 +1593,8 @@ if.then254:                                       ; preds = %sw.bb252
 
 if.end255:                                        ; preds = %if.then254, %sw.bb252
   %legacy256 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %42 = load i8, ptr %legacy256, align 8
-  %tobool257 = trunc i8 %42 to i1
+  %44 = load i8, ptr %legacy256, align 8
+  %tobool257 = trunc i8 %44 to i1
   %and258 = and i64 %value, 8
   %tobool259.not = icmp eq i64 %and258, 0
   %or.cond = or i1 %tobool259.not, %tobool257
@@ -1597,8 +1602,8 @@ if.end255:                                        ; preds = %if.then254, %sw.bb2
 
 if.then260:                                       ; preds = %if.end255
   %guest_features261 = getelementptr inbounds i8, ptr %opaque, i64 1252
-  %43 = load i64, ptr %guest_features261, align 4
-  %call269 = tail call i32 @virtio_set_features(ptr noundef nonnull %cond.i, i64 noundef %43) #9
+  %45 = load i64, ptr %guest_features261, align 4
+  %call269 = tail call i32 @virtio_set_features(ptr noundef nonnull %cond.i, i64 noundef %45) #9
   br label %if.end270
 
 if.end270:                                        ; preds = %if.then260, %if.end255
@@ -1612,39 +1617,40 @@ if.then276:                                       ; preds = %if.end270
 
 if.end277:                                        ; preds = %if.then276, %if.end270
   %status = getelementptr inbounds i8, ptr %cond.i, i64 168
-  %44 = load i8, ptr %status, align 8
-  %cmp279 = icmp eq i8 %44, 0
+  %46 = load i8, ptr %status, align 8
+  %cmp279 = icmp eq i8 %46, 0
   br i1 %cmp279, label %if.then281, label %sw.epilog445
 
 if.then281:                                       ; preds = %if.end277
   tail call void @virtio_bus_reset(ptr noundef nonnull %bus) #9
-  %45 = load i8, ptr %legacy256, align 8
-  %tobool.i164 = trunc i8 %45 to i1
+  %47 = load i8, ptr %legacy256, align 8
+  %tobool.i164 = trunc i8 %47 to i1
   br i1 %tobool.i164, label %sw.epilog445, label %for.cond.preheader.i165
 
 for.cond.preheader.i165:                          ; preds = %if.then281
-  %vqs.i166 = getelementptr inbounds i8, ptr %opaque, i64 1260
-  br label %for.body.i167
+  %48 = getelementptr i8, ptr %opaque, i64 1262
+  br label %for.body.i166
 
-for.body.i167:                                    ; preds = %for.body.i167, %for.cond.preheader.i165
-  %indvars.iv.i168 = phi i64 [ 0, %for.cond.preheader.i165 ], [ %indvars.iv.next.i170, %for.body.i167 ]
-  %enabled.i169 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs.i166, i64 0, i64 %indvars.iv.i168, i32 1
-  store i8 0, ptr %enabled.i169, align 2
-  %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i168, 1
-  %exitcond.not.i171 = icmp eq i64 %indvars.iv.next.i170, 1024
-  br i1 %exitcond.not.i171, label %sw.epilog445, label %for.body.i167, !llvm.loop !8
+for.body.i166:                                    ; preds = %for.body.i166, %for.cond.preheader.i165
+  %indvars.iv.i167 = phi i64 [ 0, %for.cond.preheader.i165 ], [ %indvars.iv.next.i169, %for.body.i166 ]
+  %49 = mul nuw nsw i64 %indvars.iv.i167, 28
+  %enabled.i168 = getelementptr i8, ptr %48, i64 %49
+  store i8 0, ptr %enabled.i168, align 2
+  %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i167, 1
+  %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 1024
+  br i1 %exitcond.not.i170, label %sw.epilog445, label %for.body.i166, !llvm.loop !8
 
 sw.bb283:                                         ; preds = %if.end32
   %legacy284 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %46 = load i8, ptr %legacy284, align 8
-  %tobool285 = trunc i8 %46 to i1
+  %50 = load i8, ptr %legacy284, align 8
+  %tobool285 = trunc i8 %50 to i1
   br i1 %tobool285, label %do.body287, label %if.end298
 
 do.body287:                                       ; preds = %sw.bb283
-  %47 = load i32, ptr @qemu_loglevel, align 4
-  %and.i173 = and i32 %47, 2048
-  %cmp.i174.not = icmp eq i32 %and.i173, 0
-  br i1 %cmp.i174.not, label %sw.epilog445, label %if.then295
+  %51 = load i32, ptr @qemu_loglevel, align 4
+  %and.i172 = and i32 %51, 2048
+  %cmp.i173.not = icmp eq i32 %and.i172, 0
+  br i1 %cmp.i173.not, label %sw.epilog445, label %if.then295
 
 if.then295:                                       ; preds = %do.body287
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
@@ -1652,25 +1658,26 @@ if.then295:                                       ; preds = %do.body287
 
 if.end298:                                        ; preds = %sw.bb283
   %conv299 = trunc i64 %value to i32
-  %vqs300 = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel301 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %48 = load i16, ptr %queue_sel301, align 2
-  %idxprom302 = zext i16 %48 to i64
-  %desc304 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs300, i64 0, i64 %idxprom302, i32 2
+  %52 = load i16, ptr %queue_sel301, align 2
+  %idxprom302 = zext i16 %52 to i64
+  %desc304.idx = mul nuw nsw i64 %idxprom302, 28
+  %53 = getelementptr i8, ptr %opaque, i64 1264
+  %desc304 = getelementptr i8, ptr %53, i64 %desc304.idx
   store i32 %conv299, ptr %desc304, align 4
   br label %sw.epilog445
 
 sw.bb306:                                         ; preds = %if.end32
   %legacy307 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %49 = load i8, ptr %legacy307, align 8
-  %tobool308 = trunc i8 %49 to i1
+  %54 = load i8, ptr %legacy307, align 8
+  %tobool308 = trunc i8 %54 to i1
   br i1 %tobool308, label %do.body310, label %if.end321
 
 do.body310:                                       ; preds = %sw.bb306
-  %50 = load i32, ptr @qemu_loglevel, align 4
-  %and.i175 = and i32 %50, 2048
-  %cmp.i176.not = icmp eq i32 %and.i175, 0
-  br i1 %cmp.i176.not, label %sw.epilog445, label %if.then318
+  %55 = load i32, ptr @qemu_loglevel, align 4
+  %and.i174 = and i32 %55, 2048
+  %cmp.i175.not = icmp eq i32 %and.i174, 0
+  br i1 %cmp.i175.not, label %sw.epilog445, label %if.then318
 
 if.then318:                                       ; preds = %do.body310
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
@@ -1678,25 +1685,27 @@ if.then318:                                       ; preds = %do.body310
 
 if.end321:                                        ; preds = %sw.bb306
   %conv322 = trunc i64 %value to i32
-  %vqs323 = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel324 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %51 = load i16, ptr %queue_sel324, align 2
-  %idxprom325 = zext i16 %51 to i64
-  %arrayidx328 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs323, i64 0, i64 %idxprom325, i32 2, i64 1
+  %56 = load i16, ptr %queue_sel324, align 2
+  %idxprom325 = zext i16 %56 to i64
+  %desc327.idx = mul nuw nsw i64 %idxprom325, 28
+  %57 = getelementptr i8, ptr %opaque, i64 1264
+  %desc327 = getelementptr i8, ptr %57, i64 %desc327.idx
+  %arrayidx328 = getelementptr i8, ptr %desc327, i64 4
   store i32 %conv322, ptr %arrayidx328, align 4
   br label %sw.epilog445
 
 sw.bb329:                                         ; preds = %if.end32
   %legacy330 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %52 = load i8, ptr %legacy330, align 8
-  %tobool331 = trunc i8 %52 to i1
+  %58 = load i8, ptr %legacy330, align 8
+  %tobool331 = trunc i8 %58 to i1
   br i1 %tobool331, label %do.body333, label %if.end344
 
 do.body333:                                       ; preds = %sw.bb329
-  %53 = load i32, ptr @qemu_loglevel, align 4
-  %and.i177 = and i32 %53, 2048
-  %cmp.i178.not = icmp eq i32 %and.i177, 0
-  br i1 %cmp.i178.not, label %sw.epilog445, label %if.then341
+  %59 = load i32, ptr @qemu_loglevel, align 4
+  %and.i176 = and i32 %59, 2048
+  %cmp.i177.not = icmp eq i32 %and.i176, 0
+  br i1 %cmp.i177.not, label %sw.epilog445, label %if.then341
 
 if.then341:                                       ; preds = %do.body333
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
@@ -1704,25 +1713,26 @@ if.then341:                                       ; preds = %do.body333
 
 if.end344:                                        ; preds = %sw.bb329
   %conv345 = trunc i64 %value to i32
-  %vqs346 = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel347 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %54 = load i16, ptr %queue_sel347, align 2
-  %idxprom348 = zext i16 %54 to i64
-  %avail350 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs346, i64 0, i64 %idxprom348, i32 3
+  %60 = load i16, ptr %queue_sel347, align 2
+  %idxprom348 = zext i16 %60 to i64
+  %avail350.idx = mul nuw nsw i64 %idxprom348, 28
+  %61 = getelementptr i8, ptr %opaque, i64 1272
+  %avail350 = getelementptr i8, ptr %61, i64 %avail350.idx
   store i32 %conv345, ptr %avail350, align 4
   br label %sw.epilog445
 
 sw.bb352:                                         ; preds = %if.end32
   %legacy353 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %55 = load i8, ptr %legacy353, align 8
-  %tobool354 = trunc i8 %55 to i1
+  %62 = load i8, ptr %legacy353, align 8
+  %tobool354 = trunc i8 %62 to i1
   br i1 %tobool354, label %do.body356, label %if.end367
 
 do.body356:                                       ; preds = %sw.bb352
-  %56 = load i32, ptr @qemu_loglevel, align 4
-  %and.i179 = and i32 %56, 2048
-  %cmp.i180.not = icmp eq i32 %and.i179, 0
-  br i1 %cmp.i180.not, label %sw.epilog445, label %if.then364
+  %63 = load i32, ptr @qemu_loglevel, align 4
+  %and.i178 = and i32 %63, 2048
+  %cmp.i179.not = icmp eq i32 %and.i178, 0
+  br i1 %cmp.i179.not, label %sw.epilog445, label %if.then364
 
 if.then364:                                       ; preds = %do.body356
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
@@ -1730,25 +1740,27 @@ if.then364:                                       ; preds = %do.body356
 
 if.end367:                                        ; preds = %sw.bb352
   %conv368 = trunc i64 %value to i32
-  %vqs369 = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel370 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %57 = load i16, ptr %queue_sel370, align 2
-  %idxprom371 = zext i16 %57 to i64
-  %arrayidx374 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs369, i64 0, i64 %idxprom371, i32 3, i64 1
+  %64 = load i16, ptr %queue_sel370, align 2
+  %idxprom371 = zext i16 %64 to i64
+  %avail373.idx = mul nuw nsw i64 %idxprom371, 28
+  %65 = getelementptr i8, ptr %opaque, i64 1272
+  %avail373 = getelementptr i8, ptr %65, i64 %avail373.idx
+  %arrayidx374 = getelementptr i8, ptr %avail373, i64 4
   store i32 %conv368, ptr %arrayidx374, align 4
   br label %sw.epilog445
 
 sw.bb375:                                         ; preds = %if.end32
   %legacy376 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %58 = load i8, ptr %legacy376, align 8
-  %tobool377 = trunc i8 %58 to i1
+  %66 = load i8, ptr %legacy376, align 8
+  %tobool377 = trunc i8 %66 to i1
   br i1 %tobool377, label %do.body379, label %if.end390
 
 do.body379:                                       ; preds = %sw.bb375
-  %59 = load i32, ptr @qemu_loglevel, align 4
-  %and.i181 = and i32 %59, 2048
-  %cmp.i182.not = icmp eq i32 %and.i181, 0
-  br i1 %cmp.i182.not, label %sw.epilog445, label %if.then387
+  %67 = load i32, ptr @qemu_loglevel, align 4
+  %and.i180 = and i32 %67, 2048
+  %cmp.i181.not = icmp eq i32 %and.i180, 0
+  br i1 %cmp.i181.not, label %sw.epilog445, label %if.then387
 
 if.then387:                                       ; preds = %do.body379
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
@@ -1756,25 +1768,26 @@ if.then387:                                       ; preds = %do.body379
 
 if.end390:                                        ; preds = %sw.bb375
   %conv391 = trunc i64 %value to i32
-  %vqs392 = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel393 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %60 = load i16, ptr %queue_sel393, align 2
-  %idxprom394 = zext i16 %60 to i64
-  %used396 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs392, i64 0, i64 %idxprom394, i32 4
+  %68 = load i16, ptr %queue_sel393, align 2
+  %idxprom394 = zext i16 %68 to i64
+  %used396.idx = mul nuw nsw i64 %idxprom394, 28
+  %69 = getelementptr i8, ptr %opaque, i64 1280
+  %used396 = getelementptr i8, ptr %69, i64 %used396.idx
   store i32 %conv391, ptr %used396, align 4
   br label %sw.epilog445
 
 sw.bb398:                                         ; preds = %if.end32
   %legacy399 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %61 = load i8, ptr %legacy399, align 8
-  %tobool400 = trunc i8 %61 to i1
+  %70 = load i8, ptr %legacy399, align 8
+  %tobool400 = trunc i8 %70 to i1
   br i1 %tobool400, label %do.body402, label %if.end413
 
 do.body402:                                       ; preds = %sw.bb398
-  %62 = load i32, ptr @qemu_loglevel, align 4
-  %and.i183 = and i32 %62, 2048
-  %cmp.i184.not = icmp eq i32 %and.i183, 0
-  br i1 %cmp.i184.not, label %sw.epilog445, label %if.then410
+  %71 = load i32, ptr @qemu_loglevel, align 4
+  %and.i182 = and i32 %71, 2048
+  %cmp.i183.not = icmp eq i32 %and.i182, 0
+  br i1 %cmp.i183.not, label %sw.epilog445, label %if.then410
 
 if.then410:                                       ; preds = %do.body402
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
@@ -1782,35 +1795,37 @@ if.then410:                                       ; preds = %do.body402
 
 if.end413:                                        ; preds = %sw.bb398
   %conv414 = trunc i64 %value to i32
-  %vqs415 = getelementptr inbounds i8, ptr %opaque, i64 1260
   %queue_sel416 = getelementptr inbounds i8, ptr %cond.i, i64 170
-  %63 = load i16, ptr %queue_sel416, align 2
-  %idxprom417 = zext i16 %63 to i64
-  %arrayidx420 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs415, i64 0, i64 %idxprom417, i32 4, i64 1
+  %72 = load i16, ptr %queue_sel416, align 2
+  %idxprom417 = zext i16 %72 to i64
+  %used419.idx = mul nuw nsw i64 %idxprom417, 28
+  %73 = getelementptr i8, ptr %opaque, i64 1280
+  %used419 = getelementptr i8, ptr %73, i64 %used419.idx
+  %arrayidx420 = getelementptr i8, ptr %used419, i64 4
   store i32 %conv414, ptr %arrayidx420, align 4
   br label %sw.epilog445
 
 do.body422:                                       ; preds = %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32
-  %64 = load i32, ptr @qemu_loglevel, align 4
-  %and.i185 = and i32 %64, 2048
-  %cmp.i186.not = icmp eq i32 %and.i185, 0
-  br i1 %cmp.i186.not, label %sw.epilog445, label %if.then430
+  %74 = load i32, ptr @qemu_loglevel, align 4
+  %and.i184 = and i32 %74, 2048
+  %cmp.i185.not = icmp eq i32 %and.i184, 0
+  br i1 %cmp.i185.not, label %sw.epilog445, label %if.then430
 
 if.then430:                                       ; preds = %do.body422
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
   br label %sw.epilog445
 
 do.body434:                                       ; preds = %if.end32
-  %65 = load i32, ptr @qemu_loglevel, align 4
-  %and.i187 = and i32 %65, 2048
-  %cmp.i188.not = icmp eq i32 %and.i187, 0
-  br i1 %cmp.i188.not, label %sw.epilog445, label %if.then442
+  %75 = load i32, ptr @qemu_loglevel, align 4
+  %and.i186 = and i32 %75, 2048
+  %cmp.i187.not = icmp eq i32 %and.i186, 0
+  br i1 %cmp.i187.not, label %sw.epilog445, label %if.then442
 
 if.then442:                                       ; preds = %do.body434
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.virtio_mmio_write, i64 noundef %offset) #9
   br label %sw.epilog445
 
-sw.epilog445:                                     ; preds = %for.body.i167, %for.body.i, %if.then281, %if.then155, %if.then442, %do.body434, %if.then430, %do.body422, %if.then410, %do.body402, %if.then387, %do.body379, %if.then364, %do.body356, %if.then341, %do.body333, %if.then318, %do.body310, %if.then295, %do.body287, %if.end277, %sw.bb244, %if.then247, %if.then178, %if.else237, %if.then173, %do.body165, %if.else156, %if.then149, %do.body141, %if.then130, %do.body122, %if.then107, %if.else110, %sw.bb95, %if.then98, %if.then82, %do.body74, %if.then65, %if.else67, %if.else59, %if.then53, %do.body45, %if.else56, %if.then35, %if.else36, %if.then30, %do.body, %sw.bb11, %sw.bb14, %sw.bb17, %sw.bb, %sw.bb5, %sw.bb8, %trace_virtio_mmio_write_offset.exit, %if.end413, %if.end390, %if.end367, %if.end344, %if.end321, %if.end298, %sw.bb250, %if.end133, %if.end85
+sw.epilog445:                                     ; preds = %for.body.i166, %for.body.i, %if.then281, %if.then155, %if.then442, %do.body434, %if.then430, %do.body422, %if.then410, %do.body402, %if.then387, %do.body379, %if.then364, %do.body356, %if.then341, %do.body333, %if.then318, %do.body310, %if.then295, %do.body287, %if.end277, %sw.bb244, %if.then247, %if.then178, %if.else237, %if.then173, %do.body165, %if.else156, %if.then149, %do.body141, %if.then130, %do.body122, %if.then107, %if.else110, %sw.bb95, %if.then98, %if.then82, %do.body74, %if.then65, %if.else67, %if.else59, %if.then53, %do.body45, %if.else56, %if.then35, %if.else36, %if.then30, %do.body, %sw.bb11, %sw.bb14, %sw.bb17, %sw.bb, %sw.bb5, %sw.bb8, %trace_virtio_mmio_write_offset.exit, %if.end413, %if.end390, %if.end367, %if.end344, %if.end321, %if.end298, %sw.bb250, %if.end133, %if.end85
   ret void
 }
 

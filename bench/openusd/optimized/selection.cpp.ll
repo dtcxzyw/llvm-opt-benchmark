@@ -901,7 +901,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection23GetAllSelected
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
@@ -909,7 +909,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection23GetAllSelected
 11:                                               ; preds = %2, %.loopexit10
   %12 = phi ptr [ null, %2 ], [ %80, %.loopexit10 ]
   %13 = phi i1 [ true, %2 ], [ false, %.loopexit10 ]
-  %indvars.iv = phi i64 [ 0, %2 ], [ 1, %.loopexit10 ]
+  %indvars.iv = phi i64 [ 0, %2 ], [ 56, %.loopexit10 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   br i1 %.not.i, label %14, label %.critedge.i
 
@@ -926,7 +926,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection23GetAllSelected
   br i1 %15, label %.critedge.i, label %.loopexit10
 
 .critedge.i:                                      ; preds = %.noexc, %11
-  %16 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %8, i64 0, i64 %indvars.iv, i32 0, i32 2
+  %16 = getelementptr i8, ptr %8, i64 %indvars.iv
   %.sroa.08.012.i = load ptr, ptr %16, align 8
   %.not1113.i = icmp eq ptr %.sroa.08.012.i, null
   br i1 %.not1113.i, label %.loopexit10, label %.lr.ph.i
@@ -1117,10 +1117,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection29_GetSelectionP
   br i1 %10, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %3, %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %1, align 4
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %11, i64 0, i64 %13, i32 0, i32 2
+  %11 = load i32, ptr %1, align 4
+  %12 = zext i32 %11 to i64
+  %.idx = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr i8, ptr %13, i64 %.idx
   %.sroa.08.012 = load ptr, ptr %14, align 8
   %.not1113 = icmp eq ptr %.sroa.08.012, null
   br i1 %.not1113, label %.loopexit, label %.lr.ph
@@ -1294,9 +1295,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection20GetSelectedPri
 
 .critedge.i:                                      ; preds = %..critedge.i_crit_edge, %3
   %15 = phi i32 [ %.pre, %..critedge.i_crit_edge ], [ %5, %3 ]
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %16, i64 0, i64 %17, i32 0, i32 2
+  %16 = zext i32 %15 to i64
+  %.idx.i = mul nuw nsw i64 %16, 56
+  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr i8, ptr %17, i64 %.idx.i
   %.sroa.08.012.i = load ptr, ptr %18, align 8
   %.not1113.i = icmp eq ptr %.sroa.08.012.i, null
   br i1 %.not1113.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__11HdSelection29_GetSelectionPrimPathsForModeERKNS0_13HighlightModeEPSt6vectorINS_7SdfPathESaIS5_EE.exit, label %.lr.ph.i
@@ -1529,8 +1531,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3
   %61 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3_EERKS5_.exit.preheader ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3_EERKS5_.exit ]
   %.072 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3_EERKS5_.exit.preheader ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3_EERKS5_.exit ]
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %63, i64 0, i64 %.072, i32 0, i32 2
+  %.idx = mul nuw nsw i64 %.072, 56
+  %63 = getelementptr i8, ptr %62, i64 24
+  %64 = getelementptr i8, ptr %63, i64 %.idx
   %.sroa.060.069 = load ptr, ptr %64, align 8
   %.not6470 = icmp eq ptr %.sroa.060.069, null
   br i1 %.not6470, label %_ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3_EERKS5_.exit, label %.lr.ph

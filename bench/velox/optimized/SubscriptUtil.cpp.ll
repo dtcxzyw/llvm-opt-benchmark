@@ -26517,7 +26517,9 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
   br i1 %cmp.i.i.not, label %if.then48, label %for.body.i.i, !llvm.loop !436
 
 if.then23:                                        ; preds = %while.body.i.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %87 = load i32, ptr %second, align 4
   %88 = getelementptr inbounds i8, ptr %this, i64 48
   %89 = load ptr, ptr %88, align 8
@@ -29216,7 +29218,9 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
   br i1 %cmp.i.i.not, label %if.then44, label %for.body.i.i, !llvm.loop !497
 
 if.then22:                                        ; preds = %while.body.i.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %84 = load i32, ptr %second, align 4
   %85 = getelementptr inbounds i8, ptr %this, i64 48
   %86 = load ptr, ptr %85, align 8
@@ -31496,7 +31500,9 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
   br i1 %cmp.i.i.not, label %if.then46, label %for.body.i.i, !llvm.loop !529
 
 if.then22:                                        ; preds = %while.body.i.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %83 = load i32, ptr %second, align 4
   %84 = getelementptr inbounds i8, ptr %this, i64 48
   %85 = load ptr, ptr %84, align 8
@@ -33776,7 +33782,9 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
   br i1 %cmp.i.i.not, label %if.then46, label %for.body.i.i, !llvm.loop !561
 
 if.then22:                                        ; preds = %while.body.i.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %84 = load i32, ptr %second, align 4
   %85 = getelementptr inbounds i8, ptr %this, i64 48
   %86 = load ptr, ptr %85, align 8
@@ -40846,7 +40854,9 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
   br i1 %cmp.i.i.not, label %if.then44, label %for.body.i.i, !llvm.loop !668
 
 if.then22:                                        ; preds = %while.body.i.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %88 = load i32, ptr %second, align 4
   %89 = getelementptr inbounds i8, ptr %this, i64 48
   %90 = load ptr, ptr %89, align 8

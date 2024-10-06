@@ -1207,8 +1207,9 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$std..sync..mpmc..list..Chan
   br label %20
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.01419.i, i64 8
-  %19 = getelementptr inbounds { { { [16 x i64] } }, { i64 } }, ptr %18, i64 %12, i32 0, i32 0, i32 0, i64 1
+  %.idx.i = mul nuw nsw i64 %12, 136
+  %18 = getelementptr i8, ptr %.01419.i, i64 16
+  %19 = getelementptr i8, ptr %18, i64 %.idx.i
   tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19), !noalias !326
   br label %20
 
@@ -24447,8 +24448,9 @@ define hidden void @"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u2
   br label %21
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %20 = getelementptr inbounds { { { [16 x i64] } }, { i64 } }, ptr %19, i64 %12, i32 0, i32 0, i32 0, i64 1
+  %.idx = mul nuw nsw i64 %12, 136
+  %19 = getelementptr i8, ptr %.01419, i64 16
+  %20 = getelementptr i8, ptr %19, i64 %.idx
   tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %20)
   br label %21
 

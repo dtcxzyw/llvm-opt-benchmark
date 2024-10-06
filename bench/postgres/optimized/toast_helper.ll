@@ -665,13 +665,14 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr nocapture nound
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr i8, ptr %6, i64 96
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %11 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %11 = getelementptr i8, ptr %9, i64 %.idx
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, -1
   br i1 %13, label %14, label %29

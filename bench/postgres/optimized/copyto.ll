@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
@@ -373,11 +371,12 @@ list_length.exit:                                 ; preds = %73
   br i1 %176, label %182, label %.split
 
 .split:                                           ; preds = %.lr.ph188
-  %177 = getelementptr inbounds i8, ptr %.0, i64 24
-  %178 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %178)
-  %179 = call i32 @errcode(i32 noundef 393348) #18
-  %180 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %177, i64 0, i64 %174, i32 1
+  %177 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  call void @llvm.assume(i1 %177)
+  %178 = call i32 @errcode(i32 noundef 393348) #18
+  %.idx = mul nsw i64 %174, 104
+  %179 = getelementptr i8, ptr %.0, i64 28
+  %180 = getelementptr i8, ptr %179, i64 %.idx
   %181 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %180) #18
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 603, ptr noundef nonnull @__func__.BeginCopyTo) #18
   unreachable
@@ -865,22 +864,26 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
 
 .lr.ph:                                           ; preds = %60
   %74 = getelementptr inbounds i8, ptr %72, i64 16
-  %75 = getelementptr inbounds i8, ptr %.0, i64 24
-  %76 = getelementptr inbounds i8, ptr %0, i64 84
-  %77 = load i32, ptr %73, align 4
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph107, label %._crit_edge
+  %75 = getelementptr inbounds i8, ptr %0, i64 84
+  %76 = load i32, ptr %73, align 4
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph107.preheader, label %._crit_edge
 
-.lr.ph107:                                        ; preds = %.lr.ph, %90
-  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.lr.ph ]
+.lr.ph107.preheader:                              ; preds = %.lr.ph
+  %78 = getelementptr i8, ptr %.0, i64 92
+  br label %.lr.ph107
+
+.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %90
+  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.lr.ph107.preheader ]
   %79 = load ptr, ptr %74, align 8
   %80 = getelementptr %union.ListCell, ptr %79, i64 %indvars.iv
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, -1
   %83 = sext i32 %82 to i64
-  %84 = load i8, ptr %76, align 4
+  %84 = load i8, ptr %75, align 4
   %85 = trunc i8 %84 to i1
-  %86 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %75, i64 0, i64 %83, i32 2
+  %.idx125 = mul nsw i64 %83, 104
+  %86 = getelementptr i8, ptr %78, i64 %.idx125
   %87 = load i32, ptr %86, align 4
   br i1 %85, label %88, label %89
 
@@ -959,7 +962,7 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
 .lr.ph111:                                        ; preds = %118
   %121 = getelementptr inbounds i8, ptr %119, i64 16
   %122 = getelementptr inbounds i8, ptr %0, i64 136
-  %123 = getelementptr inbounds i8, ptr %.0, i64 24
+  %123 = getelementptr i8, ptr %.0, i64 28
   %124 = getelementptr inbounds i8, ptr %0, i64 86
   %125 = load i32, ptr %120, align 4
   %126 = icmp sgt i32 %125, 0
@@ -1008,7 +1011,8 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
 CopySendChar.exit:                                ; preds = %140, %139, %.lr.ph116
   %151 = add i32 %129, -1
   %152 = sext i32 %151 to i64
-  %153 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %123, i64 0, i64 %152, i32 1
+  %.idx = mul nsw i64 %152, 104
+  %153 = getelementptr i8, ptr %123, i64 %.idx
   %154 = load i8, ptr %124, align 2
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %157

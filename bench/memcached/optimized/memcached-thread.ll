@@ -1195,157 +1195,157 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end266
-  %indvars.iv122 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next123, %for.end266 ]
+  %indvars.iv123 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next124, %for.end266 ]
   %1 = load ptr, ptr @threads, align 8
-  %stats1 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %1, i64 %indvars.iv122, i32 8
+  %stats1 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %1, i64 %indvars.iv123, i32 8
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats1) #15
   %2 = load ptr, ptr @threads, align 8
-  %get_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 1
+  %get_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 1
   %3 = load i64, ptr %get_cmds, align 8
   %4 = load i64, ptr %get_cmds5, align 8
   %add = add i64 %4, %3
   store i64 %add, ptr %get_cmds5, align 8
-  %get_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 2
+  %get_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 2
   %5 = load i64, ptr %get_misses, align 8
   %6 = load i64, ptr %get_misses9, align 8
   %add10 = add i64 %6, %5
   store i64 %add10, ptr %get_misses9, align 8
-  %get_expired = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 3
+  %get_expired = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 3
   %7 = load i64, ptr %get_expired, align 8
   %8 = load i64, ptr %get_expired14, align 8
   %add15 = add i64 %8, %7
   store i64 %add15, ptr %get_expired14, align 8
-  %get_flushed = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 4
+  %get_flushed = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 4
   %9 = load i64, ptr %get_flushed, align 8
   %10 = load i64, ptr %get_flushed19, align 8
   %add20 = add i64 %10, %9
   store i64 %add20, ptr %get_flushed19, align 8
-  %touch_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 5
+  %touch_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 5
   %11 = load i64, ptr %touch_cmds, align 8
   %12 = load i64, ptr %touch_cmds24, align 8
   %add25 = add i64 %12, %11
   store i64 %add25, ptr %touch_cmds24, align 8
-  %touch_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 6
+  %touch_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 6
   %13 = load i64, ptr %touch_misses, align 8
   %14 = load i64, ptr %touch_misses29, align 8
   %add30 = add i64 %14, %13
   store i64 %add30, ptr %touch_misses29, align 8
-  %delete_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 7
+  %delete_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 7
   %15 = load i64, ptr %delete_misses, align 8
   %16 = load i64, ptr %delete_misses34, align 8
   %add35 = add i64 %16, %15
   store i64 %add35, ptr %delete_misses34, align 8
-  %incr_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 8
+  %incr_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 8
   %17 = load i64, ptr %incr_misses, align 8
   %18 = load i64, ptr %incr_misses39, align 8
   %add40 = add i64 %18, %17
   store i64 %add40, ptr %incr_misses39, align 8
-  %decr_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 9
+  %decr_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 9
   %19 = load i64, ptr %decr_misses, align 8
   %20 = load i64, ptr %decr_misses44, align 8
   %add45 = add i64 %20, %19
   store i64 %add45, ptr %decr_misses44, align 8
-  %cas_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 10
+  %cas_misses = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 10
   %21 = load i64, ptr %cas_misses, align 8
   %22 = load i64, ptr %cas_misses49, align 8
   %add50 = add i64 %22, %21
   store i64 %add50, ptr %cas_misses49, align 8
-  %meta_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 11
+  %meta_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 11
   %23 = load i64, ptr %meta_cmds, align 8
   %24 = load i64, ptr %meta_cmds54, align 8
   %add55 = add i64 %24, %23
   store i64 %add55, ptr %meta_cmds54, align 8
-  %bytes_read = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 12
+  %bytes_read = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 12
   %25 = load i64, ptr %bytes_read, align 8
   %26 = load i64, ptr %bytes_read59, align 8
   %add60 = add i64 %26, %25
   store i64 %add60, ptr %bytes_read59, align 8
-  %bytes_written = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 13
+  %bytes_written = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 13
   %27 = load i64, ptr %bytes_written, align 8
   %28 = load i64, ptr %bytes_written64, align 8
   %add65 = add i64 %28, %27
   store i64 %add65, ptr %bytes_written64, align 8
-  %flush_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 14
+  %flush_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 14
   %29 = load i64, ptr %flush_cmds, align 8
   %30 = load i64, ptr %flush_cmds69, align 8
   %add70 = add i64 %30, %29
   store i64 %add70, ptr %flush_cmds69, align 8
-  %conn_yields = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 15
+  %conn_yields = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 15
   %31 = load i64, ptr %conn_yields, align 8
   %32 = load i64, ptr %conn_yields74, align 8
   %add75 = add i64 %32, %31
   store i64 %add75, ptr %conn_yields74, align 8
-  %auth_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 16
+  %auth_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 16
   %33 = load i64, ptr %auth_cmds, align 8
   %34 = load i64, ptr %auth_cmds79, align 8
   %add80 = add i64 %34, %33
   store i64 %add80, ptr %auth_cmds79, align 8
-  %auth_errors = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 17
+  %auth_errors = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 17
   %35 = load i64, ptr %auth_errors, align 8
   %36 = load i64, ptr %auth_errors84, align 8
   %add85 = add i64 %36, %35
   store i64 %add85, ptr %auth_errors84, align 8
-  %idle_kicks = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 18
+  %idle_kicks = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 18
   %37 = load i64, ptr %idle_kicks, align 8
   %38 = load i64, ptr %idle_kicks89, align 8
   %add90 = add i64 %38, %37
   store i64 %add90, ptr %idle_kicks89, align 8
-  %response_obj_oom = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 19
+  %response_obj_oom = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 19
   %39 = load i64, ptr %response_obj_oom, align 8
   %40 = load i64, ptr %response_obj_oom94, align 8
   %add95 = add i64 %40, %39
   store i64 %add95, ptr %response_obj_oom94, align 8
-  %response_obj_count = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 20
+  %response_obj_count = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 20
   %41 = load i64, ptr %response_obj_count, align 8
   %42 = load i64, ptr %response_obj_count99, align 8
   %add100 = add i64 %42, %41
   store i64 %add100, ptr %response_obj_count99, align 8
-  %response_obj_bytes = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 21
+  %response_obj_bytes = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 21
   %43 = load i64, ptr %response_obj_bytes, align 8
   %44 = load i64, ptr %response_obj_bytes104, align 8
   %add105 = add i64 %44, %43
   store i64 %add105, ptr %response_obj_bytes104, align 8
-  %read_buf_oom = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 22
+  %read_buf_oom = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 22
   %45 = load i64, ptr %read_buf_oom, align 8
   %46 = load i64, ptr %read_buf_oom109, align 8
   %add110 = add i64 %46, %45
   store i64 %add110, ptr %read_buf_oom109, align 8
-  %store_too_large = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 23
+  %store_too_large = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 23
   %47 = load i64, ptr %store_too_large, align 8
   %48 = load i64, ptr %store_too_large114, align 8
   %add115 = add i64 %48, %47
   store i64 %add115, ptr %store_too_large114, align 8
-  %store_no_memory = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 24
+  %store_no_memory = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 24
   %49 = load i64, ptr %store_no_memory, align 8
   %50 = load i64, ptr %store_no_memory119, align 8
   %add120 = add i64 %50, %49
   store i64 %add120, ptr %store_no_memory119, align 8
-  %get_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 25
+  %get_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 25
   %51 = load i64, ptr %get_extstore, align 8
   %52 = load i64, ptr %get_extstore124, align 8
   %add125 = add i64 %52, %51
   store i64 %add125, ptr %get_extstore124, align 8
-  %get_aborted_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 26
+  %get_aborted_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 26
   %53 = load i64, ptr %get_aborted_extstore, align 8
   %54 = load i64, ptr %get_aborted_extstore129, align 8
   %add130 = add i64 %54, %53
   store i64 %add130, ptr %get_aborted_extstore129, align 8
-  %get_oom_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 27
+  %get_oom_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 27
   %55 = load i64, ptr %get_oom_extstore, align 8
   %56 = load i64, ptr %get_oom_extstore134, align 8
   %add135 = add i64 %56, %55
   store i64 %add135, ptr %get_oom_extstore134, align 8
-  %recache_from_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 28
+  %recache_from_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 28
   %57 = load i64, ptr %recache_from_extstore, align 8
   %58 = load i64, ptr %recache_from_extstore139, align 8
   %add140 = add i64 %58, %57
   store i64 %add140, ptr %recache_from_extstore139, align 8
-  %miss_from_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 29
+  %miss_from_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 29
   %59 = load i64, ptr %miss_from_extstore, align 8
   %60 = load i64, ptr %miss_from_extstore144, align 8
   %add145 = add i64 %60, %59
   store i64 %add145, ptr %miss_from_extstore144, align 8
-  %badcrc_from_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 30
+  %badcrc_from_extstore = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 30
   %61 = load i64, ptr %badcrc_from_extstore, align 8
   %62 = load i64, ptr %badcrc_from_extstore149, align 8
   %add150 = add i64 %62, %61
@@ -1354,49 +1354,49 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body153:                                      ; preds = %for.body, %for.body153
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body153 ]
-  %arrayidx158 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv
+  %arrayidx158 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv
   %63 = load i64, ptr %arrayidx158, align 8
   %arrayidx161 = getelementptr inbounds [64 x %struct.slab_stats], ptr %slab_stats159, i64 0, i64 %indvars.iv
   %64 = load i64, ptr %arrayidx161, align 8
   %add163 = add i64 %64, %63
   store i64 %add163, ptr %arrayidx161, align 8
-  %get_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 1
+  %get_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 1
   %65 = load i64, ptr %get_hits, align 8
   %get_hits173 = getelementptr inbounds i8, ptr %arrayidx161, i64 8
   %66 = load i64, ptr %get_hits173, align 8
   %add174 = add i64 %66, %65
   store i64 %add174, ptr %get_hits173, align 8
-  %touch_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 2
+  %touch_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 2
   %67 = load i64, ptr %touch_hits, align 8
   %touch_hits184 = getelementptr inbounds i8, ptr %arrayidx161, i64 16
   %68 = load i64, ptr %touch_hits184, align 8
   %add185 = add i64 %68, %67
   store i64 %add185, ptr %touch_hits184, align 8
-  %delete_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 3
+  %delete_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 3
   %69 = load i64, ptr %delete_hits, align 8
   %delete_hits195 = getelementptr inbounds i8, ptr %arrayidx161, i64 24
   %70 = load i64, ptr %delete_hits195, align 8
   %add196 = add i64 %70, %69
   store i64 %add196, ptr %delete_hits195, align 8
-  %cas_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 4
+  %cas_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 4
   %71 = load i64, ptr %cas_hits, align 8
   %cas_hits206 = getelementptr inbounds i8, ptr %arrayidx161, i64 32
   %72 = load i64, ptr %cas_hits206, align 8
   %add207 = add i64 %72, %71
   store i64 %add207, ptr %cas_hits206, align 8
-  %cas_badval = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 5
+  %cas_badval = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 5
   %73 = load i64, ptr %cas_badval, align 8
   %cas_badval217 = getelementptr inbounds i8, ptr %arrayidx161, i64 40
   %74 = load i64, ptr %cas_badval217, align 8
   %add218 = add i64 %74, %73
   store i64 %add218, ptr %cas_badval217, align 8
-  %incr_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 6
+  %incr_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 6
   %75 = load i64, ptr %incr_hits, align 8
   %incr_hits228 = getelementptr inbounds i8, ptr %arrayidx161, i64 48
   %76 = load i64, ptr %incr_hits228, align 8
   %add229 = add i64 %76, %75
   store i64 %add229, ptr %incr_hits228, align 8
-  %decr_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 31, i64 %indvars.iv, i32 7
+  %decr_hits = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 31, i64 %indvars.iv, i32 7
   %77 = load i64, ptr %decr_hits, align 8
   %decr_hits239 = getelementptr inbounds i8, ptr %arrayidx161, i64 56
   %78 = load i64, ptr %decr_hits239, align 8
@@ -1408,53 +1408,55 @@ for.body153:                                      ; preds = %for.body, %for.body
 
 for.body243:                                      ; preds = %for.body153, %for.body243
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %for.body243 ], [ 0, %for.body153 ]
-  %arrayidx248 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 32, i64 %indvars.iv118
+  %arrayidx248 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8, i32 32, i64 %indvars.iv118
   %79 = load i64, ptr %arrayidx248, align 8
   %arrayidx251 = getelementptr inbounds [256 x i64], ptr %lru_hits249, i64 0, i64 %indvars.iv118
   %80 = load i64, ptr %arrayidx251, align 8
   %add252 = add i64 %80, %79
   store i64 %add252, ptr %arrayidx251, align 8
   %81 = load i64, ptr %arrayidx248, align 8
-  %and = and i64 %indvars.iv118, 63
-  %get_hits262 = getelementptr inbounds [64 x %struct.slab_stats], ptr %slab_stats159, i64 0, i64 %and, i32 1
-  %82 = load i64, ptr %get_hits262, align 8
-  %add263 = add i64 %82, %81
+  %82 = shl i64 %indvars.iv118, 6
+  %83 = and i64 %82, 4032
+  %get_hits262.offs = or disjoint i64 %83, 8
+  %get_hits262 = getelementptr inbounds i8, ptr %slab_stats159, i64 %get_hits262.offs
+  %84 = load i64, ptr %get_hits262, align 8
+  %add263 = add i64 %84, %81
   store i64 %add263, ptr %get_hits262, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next119, 256
-  br i1 %exitcond121.not, label %for.end266, label %for.body243, !llvm.loop !15
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, 256
+  br i1 %exitcond122.not, label %for.end266, label %for.body243, !llvm.loop !15
 
 for.end266:                                       ; preds = %for.body243
-  %rbuf_cache = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 11
-  %83 = load ptr, ptr %rbuf_cache, align 8
-  %total = getelementptr inbounds i8, ptr %83, i64 76
-  %84 = load i32, ptr %total, align 4
-  %conv = sext i32 %84 to i64
-  %85 = load i64, ptr %read_buf_count, align 8
-  %add269 = add i64 %85, %conv
+  %rbuf_cache = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 11
+  %85 = load ptr, ptr %rbuf_cache, align 8
+  %total = getelementptr inbounds i8, ptr %85, i64 76
+  %86 = load i32, ptr %total, align 4
+  %conv = sext i32 %86 to i64
+  %87 = load i64, ptr %read_buf_count, align 8
+  %add269 = add i64 %87, %conv
   store i64 %add269, ptr %read_buf_count, align 8
-  %86 = load ptr, ptr %rbuf_cache, align 8
-  %total273 = getelementptr inbounds i8, ptr %86, i64 76
-  %87 = load i32, ptr %total273, align 4
-  %mul = shl nsw i32 %87, 14
+  %88 = load ptr, ptr %rbuf_cache, align 8
+  %total273 = getelementptr inbounds i8, ptr %88, i64 76
+  %89 = load i32, ptr %total273, align 4
+  %mul = shl nsw i32 %89, 14
   %conv274 = sext i32 %mul to i64
-  %88 = load i64, ptr %read_buf_bytes, align 8
-  %add275 = add i64 %88, %conv274
+  %90 = load i64, ptr %read_buf_bytes, align 8
+  %add275 = add i64 %90, %conv274
   store i64 %add275, ptr %read_buf_bytes, align 8
-  %89 = load ptr, ptr %rbuf_cache, align 8
-  %freecurr = getelementptr inbounds i8, ptr %89, i64 80
-  %90 = load i32, ptr %freecurr, align 8
-  %mul279 = shl nsw i32 %90, 14
+  %91 = load ptr, ptr %rbuf_cache, align 8
+  %freecurr = getelementptr inbounds i8, ptr %91, i64 80
+  %92 = load i32, ptr %freecurr, align 8
+  %mul279 = shl nsw i32 %92, 14
   %conv280 = sext i32 %mul279 to i64
-  %91 = load i64, ptr %read_buf_bytes_free, align 8
-  %add281 = add i64 %91, %conv280
+  %93 = load i64, ptr %read_buf_bytes_free, align 8
+  %add281 = add i64 %93, %conv280
   store i64 %add281, ptr %read_buf_bytes_free, align 8
-  %stats284 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8
+  %stats284 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv123, i32 8
   %call286 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats284) #15
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
-  %93 = sext i32 %92 to i64
-  %cmp = icmp slt i64 %indvars.iv.next123, %93
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %94 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
+  %95 = sext i32 %94 to i64
+  %cmp = icmp slt i64 %indvars.iv.next124, %95
   br i1 %cmp, label %for.body, label %for.end289, !llvm.loop !16
 
 for.end289:                                       ; preds = %for.end266, %entry

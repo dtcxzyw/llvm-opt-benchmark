@@ -148,12 +148,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::VtValue, std::allocator<pxrInternal_v0_24__pxrReserved__::VtValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::VtValue, std::allocator<pxrInternal_v0_24__pxrReserved__::VtValue>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::VtValue, std::allocator<pxrInternal_v0_24__pxrReserved__::VtValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside" = type { %"union.std::aligned_storage<8, 8>::type", ptr }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::ArResolvedPath>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.250" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.248" }
-%"struct.std::atomic.248" = type { %"struct.std::__atomic_base.249" }
-%"struct.std::__atomic_base.249" = type { i64 }
-%"struct.std::atomic.250" = type { %"struct.std::__atomic_base.251" }
-%"struct.std::__atomic_base.251" = type { ptr }
 %"struct.std::atomic.252" = type { %"struct.std::__atomic_base.253" }
 %"struct.std::__atomic_base.253" = type { ptr }
 %"class.std::shared_ptr.126" = type { %"class.std::__shared_ptr.127" }
@@ -185,6 +179,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot" = type { %"struct.std::atomic.260", ptr }
 %"struct.std::atomic.260" = type { %"class.std::thread::id" }
 %"class.tbb::detail::d2::concurrent_hash_map<std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::ArResolvedPath>::bucket_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::ArResolvedPath>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.250" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.248" }
+%"struct.std::atomic.248" = type { %"struct.std::__atomic_base.249" }
+%"struct.std::__atomic_base.249" = type { i64 }
+%"struct.std::atomic.250" = type { %"struct.std::__atomic_base.251" }
+%"struct.std::__atomic_base.251" = type { ptr }
 %"class.tbb::detail::d1::tbb_allocator.276" = type { i8 }
 %"class.tbb::detail::d0::raii_guard.280" = type <{ %class.anon.281, i8, [7 x i8] }>
 %class.anon.281 = type { ptr, ptr }
@@ -11701,28 +11701,30 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingISt10shared_ptrINS_12_GL
   %217 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %212, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %217, i8 0, i64 40, i1 false), !noalias !161
-  br label %.preheader13.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.preheader13.i.i.i.i.i.i.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i
   %218 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %219 = getelementptr inbounds nuw i8, ptr %212, i64 72
   br label %222
 
-.preheader13.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.preheader13.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc64
-  %.014.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %221, %.preheader13.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc64 ]
-  %220 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::ArResolvedPath>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %.014.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
+.preheader14.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc64
+  %.015.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %221, %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc64 ]
+  %.idx13.i.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %.015.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %.offs.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i.i.i.i.i.i.i, 8
+  %220 = getelementptr inbounds i8, ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i.i.i.i.i.i.i
   store atomic i64 0, ptr %220 monotonic, align 8, !noalias !161
-  %221 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %221 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %221, 2
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader13.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !164
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !164
 
 222:                                              ; preds = %222, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
-  %.01015.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ %226, %222 ]
-  %223 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %224 = getelementptr inbounds [64 x %"struct.std::atomic.252"], ptr %219, i64 0, i64 %.01015.i.i.i.i.i.i.i.i.i.i.i.i
+  %.01016.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ %226, %222 ]
+  %223 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %224 = getelementptr inbounds [64 x %"struct.std::atomic.252"], ptr %219, i64 0, i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i
   %225 = select i1 %223, i64 %218, i64 0
   store atomic i64 %225, ptr %224 monotonic, align 8, !noalias !161
-  %226 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %226 = add nuw nsw i64 %.01016.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %226, 64
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit.i, label %222, !llvm.loop !165
 

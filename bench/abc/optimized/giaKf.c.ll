@@ -3136,41 +3136,45 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
 
 .lr.ph.i:                                         ; preds = %105, %161
   %141 = phi i32 [ %162, %161 ], [ %134, %105 ]
-  %.045.i = phi i32 [ %.1.i, %161 ], [ 0, %105 ]
-  %.03744.i = phi i32 [ %.138.i, %161 ], [ 0, %105 ]
+  %.047.i = phi i32 [ %.1.i, %161 ], [ 0, %105 ]
+  %.03746.i = phi i32 [ %.138.i, %161 ], [ 0, %105 ]
   %142 = load i32, ptr %69, align 8
-  %143 = icmp slt i32 %.045.i, %142
+  %143 = icmp slt i32 %.047.i, %142
   br i1 %143, label %144, label %.critedge.i
 
 144:                                              ; preds = %.lr.ph.i
-  %145 = sext i32 %.03744.i to i64
-  %146 = getelementptr inbounds [32 x %struct.Kf_Cut_t_], ptr %71, i64 0, i64 %145, i32 6
+  %145 = sext i32 %.03746.i to i64
+  %.idx.i = mul nsw i64 %145, 96
+  %.offs.i = or disjoint i64 %.idx.i, 28
+  %146 = getelementptr inbounds i8, ptr %71, i64 %.offs.i
   %147 = load i32, ptr %146, align 4
-  %148 = sext i32 %.045.i to i64
-  %149 = getelementptr inbounds [32 x %struct.Kf_Cut_t_], ptr %72, i64 0, i64 %148, i32 6
+  %148 = sext i32 %.047.i to i64
+  %.idx41.i = mul nsw i64 %148, 96
+  %.offs42.i = or disjoint i64 %.idx41.i, 28
+  %149 = getelementptr inbounds i8, ptr %72, i64 %.offs42.i
   %150 = load i32, ptr %149, align 4
   %.not.i118 = icmp slt i32 %147, %150
   br i1 %.not.i118, label %156, label %151
 
 151:                                              ; preds = %144
-  %152 = add nsw i32 %.03744.i, 1
+  %152 = add nsw i32 %.03746.i, 1
   %153 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %71, i64 %145
   %154 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %72, i64 %148
-  %155 = sub nsw i32 %142, %.045.i
+  %155 = sub nsw i32 %142, %.047.i
   tail call fastcc void @Kf_SetMergePairs(ptr noundef nonnull %63, ptr noundef nonnull %153, ptr noundef nonnull %154, i32 noundef %155)
   br label %161
 
 156:                                              ; preds = %144
-  %157 = add nsw i32 %.045.i, 1
+  %157 = add nsw i32 %.047.i, 1
   %158 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %72, i64 %148
   %159 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %71, i64 %145
-  %160 = sub nsw i32 %141, %.03744.i
+  %160 = sub nsw i32 %141, %.03746.i
   tail call fastcc void @Kf_SetMergePairs(ptr noundef nonnull %63, ptr noundef nonnull %158, ptr noundef nonnull %159, i32 noundef %160)
   br label %161
 
 161:                                              ; preds = %156, %151
-  %.138.i = phi i32 [ %152, %151 ], [ %.03744.i, %156 ]
-  %.1.i = phi i32 [ %.045.i, %151 ], [ %157, %156 ]
+  %.138.i = phi i32 [ %152, %151 ], [ %.03746.i, %156 ]
+  %.1.i = phi i32 [ %.047.i, %151 ], [ %157, %156 ]
   %162 = load i32, ptr %68, align 4
   %163 = icmp slt i32 %.138.i, %162
   br i1 %163, label %.lr.ph.i, label %.critedge.i, !llvm.loop !35

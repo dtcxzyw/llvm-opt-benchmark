@@ -1645,12 +1645,13 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pfifo_fast_destroy(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr i8, ptr %0, i64 520
   br label %3
 
 3:                                                ; preds = %9, %1
   %4 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %5 = getelementptr [3 x %struct.skb_array], ptr %2, i64 0, i64 %4, i32 0, i32 9
+  %.idx = mul nuw nsw i64 %4, 192
+  %5 = getelementptr i8, ptr %2, i64 %.idx
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8

@@ -11063,14 +11063,15 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   br i1 %26, label %.loopexit13, label %27
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %13, i64 48
-  %29 = zext i8 %15 to i64
+  %28 = zext i8 %15 to i64
+  %29 = getelementptr i8, ptr %13, i64 56
   br label %30
 
 30:                                               ; preds = %30, %27
   %31 = phi i64 [ 0, %27 ], [ %41, %30 ]
   %32 = phi i32 [ %25, %27 ], [ %40, %30 ]
-  %33 = getelementptr [17 x %struct.bio_vec], ptr %28, i64 0, i64 %31, i32 1
+  %.idx = shl i64 %31, 4
+  %33 = getelementptr i8, ptr %29, i64 %.idx
   %34 = load i32, ptr %33, align 8
   %35 = lshr i32 %34, 14
   %36 = and i32 %34, 16383
@@ -11079,7 +11080,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %39 = add i32 %35, %32
   %40 = add i32 %39, %38
   %41 = add nuw nsw i64 %31, 1
-  %42 = icmp eq i64 %41, %29
+  %42 = icmp eq i64 %41, %28
   br i1 %42, label %.loopexit13, label %30, !llvm.loop !64
 
 .loopexit13:                                      ; preds = %30, %2
@@ -12726,17 +12727,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_request_irq(ptr noundef %
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr i8, ptr %0, i64 3456
-  %23 = zext nneg i32 %19 to i64
+  %22 = zext nneg i32 %19 to i64
+  %23 = getelementptr i8, ptr %0, i64 3460
   br label %24
 
 24:                                               ; preds = %24, %21
   %25 = phi i64 [ 0, %21 ], [ %28, %24 ]
   %26 = trunc i64 %25 to i16
-  %27 = getelementptr [8 x %struct.msix_entry], ptr %22, i64 0, i64 %25, i32 1
+  %.idx = shl i64 %25, 3
+  %27 = getelementptr i8, ptr %23, i64 %.idx
   store i16 %26, ptr %27, align 4
   %28 = add nuw nsw i64 %25, 1
-  %29 = icmp eq i64 %28, %23
+  %29 = icmp eq i64 %28, %22
   br i1 %29, label %.loopexit, label %24, !llvm.loop !85
 
 .loopexit:                                        ; preds = %24, %18
@@ -13684,14 +13686,15 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   br i1 %22, label %.loopexit14, label %23
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %9, i64 48
-  %25 = zext i8 %11 to i64
+  %24 = zext i8 %11 to i64
+  %25 = getelementptr i8, ptr %9, i64 56
   br label %26
 
 26:                                               ; preds = %26, %23
   %27 = phi i64 [ 0, %23 ], [ %37, %26 ]
   %28 = phi i32 [ %21, %23 ], [ %36, %26 ]
-  %29 = getelementptr [17 x %struct.bio_vec], ptr %24, i64 0, i64 %27, i32 1
+  %.idx = shl i64 %27, 4
+  %29 = getelementptr i8, ptr %25, i64 %.idx
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 14
   %32 = and i32 %30, 16383
@@ -13700,7 +13703,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %35 = add i32 %31, %28
   %36 = add i32 %35, %34
   %37 = add nuw nsw i64 %27, 1
-  %38 = icmp eq i64 %37, %25
+  %38 = icmp eq i64 %37, %24
   br i1 %38, label %.loopexit14, label %26, !llvm.loop !93
 
 .loopexit14:                                      ; preds = %26, %2

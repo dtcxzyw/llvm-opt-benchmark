@@ -11257,8 +11257,8 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %.lr.ph, %RSTRING_PTR.exit
-  %storemerge32 = phi i32 [ 0, %.lr.ph ], [ %55, %RSTRING_PTR.exit ]
-  %27 = sext i32 %storemerge32 to i64
+  %storemerge33 = phi i32 [ 0, %.lr.ph ], [ %55, %RSTRING_PTR.exit ]
+  %27 = sext i32 %storemerge33 to i64
   %28 = getelementptr i64, ptr %2, i64 %27
   %29 = load i64, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11317,7 +11317,9 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   store ptr %.sroa.2.0.i, ptr %51, align 8
   %52 = load i32, ptr %24, align 8
   %53 = sext i32 %52 to i64
-  %54 = getelementptr [0 x %struct.apply_filename], ptr %25, i64 0, i64 %53, i32 1
+  %.idx32 = shl nsw i64 %53, 4
+  %.offs = or disjoint i64 %.idx32, 8
+  %54 = getelementptr i8, ptr %25, i64 %.offs
   store i64 %43, ptr %54, align 8
   %55 = add i32 %52, 1
   store i32 %55, ptr %24, align 8
@@ -11333,10 +11335,11 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   br i1 %.not, label %67, label %61
 
 61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds i8, ptr %58, i64 32
-  %63 = load i32, ptr %58, align 8
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr [0 x %struct.apply_filename], ptr %62, i64 0, i64 %64, i32 1
+  %62 = load i32, ptr %58, align 8
+  %63 = sext i32 %62 to i64
+  %.idx = shl nsw i64 %63, 4
+  %64 = getelementptr i8, ptr %58, i64 40
+  %65 = getelementptr i8, ptr %64, i64 %.idx
   %66 = load i64, ptr %65, align 8
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %60, i64 noundef %66) #24
   unreachable

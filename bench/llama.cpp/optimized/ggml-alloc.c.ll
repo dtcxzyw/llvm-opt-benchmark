@@ -70,7 +70,7 @@ do.end8:                                          ; preds = %do.body3
   br i1 %cmp1160, label %for.body.lr.ph, label %if.then23
 
 for.body.lr.ph:                                   ; preds = %do.end8
-  %free_blocks = getelementptr inbounds i8, ptr %alloc, i64 40
+  %9 = getelementptr i8, ptr %alloc, i64 48
   %wide.trip.count = zext nneg i32 %sub to i64
   br label %for.body
 
@@ -79,15 +79,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %max_avail.064 = phi i64 [ 0, %for.body.lr.ph ], [ %max_avail.0., %for.body ]
   %best_fit_block.063 = phi i32 [ -1, %for.body.lr.ph ], [ %best_fit_block.1, %for.body ]
   %best_fit_size.062 = phi i64 [ -1, %for.body.lr.ph ], [ %best_fit_size.1, %for.body ]
-  %size12 = getelementptr inbounds [256 x %struct.free_block], ptr %free_blocks, i64 0, i64 %indvars.iv, i32 1
-  %9 = load i64, ptr %size12, align 8
-  %max_avail.0. = tail call i64 @llvm.umax.i64(i64 %max_avail.064, i64 %9)
-  %cmp16.not = icmp ult i64 %9, %add2.i
-  %cmp18.not = icmp ugt i64 %9, %best_fit_size.062
+  %size12.idx = shl nuw nsw i64 %indvars.iv, 4
+  %size12 = getelementptr i8, ptr %9, i64 %size12.idx
+  %10 = load i64, ptr %size12, align 8
+  %max_avail.0. = tail call i64 @llvm.umax.i64(i64 %max_avail.064, i64 %10)
+  %cmp16.not = icmp ult i64 %10, %add2.i
+  %cmp18.not = icmp ugt i64 %10, %best_fit_size.062
   %or.cond = select i1 %cmp16.not, i1 true, i1 %cmp18.not
-  %best_fit_size.1 = select i1 %or.cond, i64 %best_fit_size.062, i64 %9
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %best_fit_block.1 = select i1 %or.cond, i32 %best_fit_block.063, i32 %10
+  %best_fit_size.1 = select i1 %or.cond, i64 %best_fit_size.062, i64 %10
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %best_fit_block.1 = select i1 %or.cond, i32 %best_fit_block.063, i32 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -102,21 +103,22 @@ for.end.if.end48_crit_edge:                       ; preds = %for.end
 
 if.then23:                                        ; preds = %do.end8, %for.end
   %max_avail.0.lcssa76 = phi i64 [ %max_avail.0., %for.end ], [ 0, %do.end8 ]
-  %free_blocks25 = getelementptr inbounds i8, ptr %alloc, i64 40
   %idxprom28 = sext i32 %sub to i64
-  %size30 = getelementptr inbounds [256 x %struct.free_block], ptr %free_blocks25, i64 0, i64 %idxprom28, i32 1
-  %11 = load i64, ptr %size30, align 8
-  %cmp38.not = icmp ult i64 %11, %add2.i
+  %size30.idx = shl nsw i64 %idxprom28, 4
+  %12 = getelementptr i8, ptr %alloc, i64 48
+  %size30 = getelementptr i8, ptr %12, i64 %size30.idx
+  %13 = load i64, ptr %size30, align 8
+  %cmp38.not = icmp ult i64 %13, %add2.i
   br i1 %cmp38.not, label %if.else, label %if.end48
 
 if.else:                                          ; preds = %if.then23
-  %max_avail.0.59 = tail call i64 @llvm.umax.i64(i64 %max_avail.0.lcssa76, i64 %11)
-  %12 = load ptr, ptr @stderr, align 8
-  %call42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.ggml_tallocr_alloc, i64 noundef %add2.i, i64 noundef %max_avail.0.59) #14
-  %13 = load ptr, ptr @stdout, align 8
-  %call44 = tail call i32 @fflush(ptr noundef %13)
+  %max_avail.0.59 = tail call i64 @llvm.umax.i64(i64 %max_avail.0.lcssa76, i64 %13)
   %14 = load ptr, ptr @stderr, align 8
-  %call45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @.str.5) #14
+  %call42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.ggml_tallocr_alloc, i64 noundef %add2.i, i64 noundef %max_avail.0.59) #14
+  %15 = load ptr, ptr @stdout, align 8
+  %call44 = tail call i32 @fflush(ptr noundef %15)
+  %16 = load ptr, ptr @stderr, align 8
+  %call45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @.str.5) #14
   tail call void @ggml_print_backtrace() #15
   tail call void @abort() #16
   unreachable
@@ -126,19 +128,19 @@ if.end48:                                         ; preds = %for.end.if.end48_cr
   %best_fit_block.2 = phi i32 [ %best_fit_block.1, %for.end.if.end48_crit_edge ], [ %sub, %if.then23 ]
   %free_blocks50 = getelementptr inbounds i8, ptr %alloc, i64 40
   %arrayidx52 = getelementptr inbounds [256 x %struct.free_block], ptr %free_blocks50, i64 0, i64 %idxprom51.pre-phi
-  %15 = load ptr, ptr %arrayidx52, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %add2.i
+  %17 = load ptr, ptr %arrayidx52, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %17, i64 %add2.i
   store ptr %add.ptr, ptr %arrayidx52, align 8
   %size56 = getelementptr inbounds i8, ptr %arrayidx52, i64 8
-  %16 = load i64, ptr %size56, align 8
-  %sub57 = sub i64 %16, %add2.i
+  %18 = load i64, ptr %size56, align 8
+  %sub57 = sub i64 %18, %add2.i
   store i64 %sub57, ptr %size56, align 8
-  %cmp59 = icmp eq i64 %16, %add2.i
+  %cmp59 = icmp eq i64 %18, %add2.i
   br i1 %cmp59, label %if.then60, label %if.end75
 
 if.then60:                                        ; preds = %if.end48
-  %17 = load i32, ptr %n_free_blocks, align 8
-  %dec = add nsw i32 %17, -1
+  %19 = load i32, ptr %n_free_blocks, align 8
+  %dec = add nsw i32 %19, -1
   store i32 %dec, ptr %n_free_blocks, align 8
   %cmp6467 = icmp slt i32 %best_fit_block.2, %dec
   br i1 %cmp6467, label %for.body65, label %if.end75
@@ -149,35 +151,35 @@ for.body65:                                       ; preds = %if.then60, %for.bod
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %arrayidx71 = getelementptr inbounds [256 x %struct.free_block], ptr %free_blocks50, i64 0, i64 %indvars.iv.next71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx68, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx71, i64 16, i1 false)
-  %18 = load i32, ptr %n_free_blocks, align 8
-  %19 = sext i32 %18 to i64
-  %cmp64 = icmp slt i64 %indvars.iv.next71, %19
+  %20 = load i32, ptr %n_free_blocks, align 8
+  %21 = sext i32 %20 to i64
+  %cmp64 = icmp slt i64 %indvars.iv.next71, %21
   br i1 %cmp64, label %for.body65, label %if.end75, !llvm.loop !6
 
 if.end75:                                         ; preds = %for.body65, %if.then60, %if.end48
-  store ptr %15, ptr %data, align 8
-  %20 = load ptr, ptr %alloc, align 8
+  store ptr %17, ptr %data, align 8
+  %22 = load ptr, ptr %alloc, align 8
   %buffer78 = getelementptr inbounds i8, ptr %tensor, i64 8
-  store ptr %20, ptr %buffer78, align 8
+  store ptr %22, ptr %buffer78, align 8
   %measure = getelementptr inbounds i8, ptr %alloc, i64 4144
-  %21 = load i8, ptr %measure, align 8
-  %tobool = trunc i8 %21 to i1
+  %23 = load i8, ptr %measure, align 8
+  %tobool = trunc i8 %23 to i1
   br i1 %tobool, label %if.end81, label %if.then79
 
 if.then79:                                        ; preds = %if.end75
-  tail call void @ggml_backend_buffer_init_tensor(ptr noundef %20, ptr noundef nonnull %tensor) #15
+  tail call void @ggml_backend_buffer_init_tensor(ptr noundef %22, ptr noundef nonnull %tensor) #15
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then79, %if.end75
   %max_size = getelementptr inbounds i8, ptr %alloc, i64 4136
-  %22 = load i64, ptr %max_size, align 8
+  %24 = load i64, ptr %max_size, align 8
   %base = getelementptr inbounds i8, ptr %alloc, i64 16
-  %23 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
+  %25 = load ptr, ptr %base, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %17 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %25 to i64
   %sub.ptr.sub = add i64 %add2.i, %sub.ptr.lhs.cast
   %add82 = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
-  %.add82 = tail call i64 @llvm.umax.i64(i64 %22, i64 %add82)
+  %.add82 = tail call i64 @llvm.umax.i64(i64 %24, i64 %add82)
   store i64 %.add82, ptr %max_size, align 8
   ret void
 }

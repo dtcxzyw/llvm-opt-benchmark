@@ -68,7 +68,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %23 = getelementptr inbounds i8, ptr %11, i64 88
   store i64 0, ptr %23, align 8
   %24 = icmp eq ptr %12, null
-  br i1 %24, label %.thread299, label %25
+  br i1 %24, label %.thread300, label %25
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds i8, ptr %12, i64 200
@@ -86,10 +86,10 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %or.cond3 = icmp ne i64 %34, 1
   %35 = load i8, ptr %10, align 1
   %36 = icmp ne i8 %35, 1
-  %or.cond6.not310 = select i1 %or.cond3, i1 true, i1 %36
+  %or.cond6.not311 = select i1 %or.cond3, i1 true, i1 %36
   %37 = load i64, ptr %23, align 8
   %38 = icmp ne i64 %37, -1
-  %or.cond10.not = select i1 %or.cond6.not310, i1 true, i1 %38
+  %or.cond10.not = select i1 %or.cond6.not311, i1 true, i1 %38
   br label %39
 
 39:                                               ; preds = %32, %25
@@ -100,7 +100,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 42:                                               ; preds = %39
   call void @p11ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #5
-  br label %.thread299
+  br label %.thread300
 
 43:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1464) %40, ptr noundef nonnull align 16 dereferenceable(1464) @ckpAttributesTemplate, i64 1464, i1 false)
@@ -110,18 +110,18 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 46:                                               ; preds = %43, %59
   %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %59 ]
-  %.0166315 = phi i64 [ 0, %43 ], [ %.1167, %59 ]
-  %.0168314 = phi i64 [ 0, %43 ], [ %.1169, %59 ]
-  %.0172312 = phi i32 [ -1, %43 ], [ %.2174, %59 ]
-  %.0175311 = phi i32 [ -1, %43 ], [ %.2177, %59 ]
+  %.0166316 = phi i64 [ 0, %43 ], [ %.1167, %59 ]
+  %.0168315 = phi i64 [ 0, %43 ], [ %.1169, %59 ]
+  %.0172313 = phi i32 [ -1, %43 ], [ %.2174, %59 ]
+  %.0175312 = phi i32 [ -1, %43 ], [ %.2177, %59 ]
   %47 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
-  %.not207 = icmp eq i64 %49, -1
-  br i1 %.not207, label %59, label %50
+  %.not208 = icmp eq i64 %49, -1
+  br i1 %.not208, label %59, label %50
 
 50:                                               ; preds = %46
-  %51 = add i64 %49, %.0168314
+  %51 = add i64 %49, %.0168315
   %52 = load i64, ptr %47, align 8
   switch i64 %52, label %57 [
     i64 259, label %53
@@ -129,24 +129,24 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   ]
 
 53:                                               ; preds = %50
-  %54 = trunc i64 %.0166315 to i32
+  %54 = trunc i64 %.0166316 to i32
   br label %57
 
 55:                                               ; preds = %50
-  %56 = trunc i64 %.0166315 to i32
+  %56 = trunc i64 %.0166316 to i32
   br label %57
 
 57:                                               ; preds = %50, %55, %53
-  %.1176 = phi i32 [ %54, %53 ], [ %.0175311, %55 ], [ %.0175311, %50 ]
-  %.1173 = phi i32 [ %.0172312, %53 ], [ %56, %55 ], [ %.0172312, %50 ]
-  %58 = add i64 %.0166315, 1
+  %.1176 = phi i32 [ %54, %53 ], [ %.0175312, %55 ], [ %.0175312, %50 ]
+  %.1173 = phi i32 [ %.0172313, %53 ], [ %56, %55 ], [ %.0172313, %50 ]
+  %58 = add i64 %.0166316, 1
   br label %59
 
 59:                                               ; preds = %46, %57
-  %.2177 = phi i32 [ %.1176, %57 ], [ %.0175311, %46 ]
-  %.2174 = phi i32 [ %.1173, %57 ], [ %.0172312, %46 ]
-  %.1169 = phi i64 [ %51, %57 ], [ %.0168314, %46 ]
-  %.1167 = phi i64 [ %58, %57 ], [ %.0166315, %46 ]
+  %.2177 = phi i32 [ %.1176, %57 ], [ %.0175312, %46 ]
+  %.2174 = phi i32 [ %.1173, %57 ], [ %.0172313, %46 ]
+  %.1169 = phi i64 [ %51, %57 ], [ %.0168315, %46 ]
+  %.1167 = phi i64 [ %58, %57 ], [ %.0166316, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 61
   br i1 %exitcond.not, label %60, label %46, !llvm.loop !6
@@ -154,8 +154,8 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 60:                                               ; preds = %59
   %not..not = xor i1 %.not, true
   %61 = zext i1 %not..not to i64
-  %spec.select215 = add i64 %.1167, %61
-  %62 = mul i64 %spec.select215, 24
+  %spec.select216 = add i64 %.1167, %61
+  %62 = mul i64 %spec.select216, 24
   %63 = add i64 %.1169, 24
   %64 = add i64 %63, %62
   %65 = load ptr, ptr %0, align 8
@@ -164,7 +164,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %68 = trunc i64 %64 to i32
   %69 = call ptr %67(ptr noundef nonnull %0, i32 noundef %68) #5
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.thread269, label %71
+  br i1 %70, label %.thread270, label %71
 
 71:                                               ; preds = %60
   %72 = load ptr, ptr %0, align 8
@@ -172,7 +172,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef null) #5
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread269, label %77
+  br i1 %76, label %.thread270, label %77
 
 77:                                               ; preds = %71
   %78 = getelementptr inbounds i8, ptr %75, i64 16
@@ -188,188 +188,192 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   br label %85
 
 85:                                               ; preds = %77, %96
-  %indvars.iv320 = phi i64 [ 0, %77 ], [ %indvars.iv.next321, %96 ]
-  %.0163318 = phi ptr [ %84, %77 ], [ %.1, %96 ]
-  %.0164317 = phi ptr [ %81, %77 ], [ %.1165, %96 ]
-  %86 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv320
+  %indvars.iv321 = phi i64 [ 0, %77 ], [ %indvars.iv.next322, %96 ]
+  %.0163319 = phi ptr [ %84, %77 ], [ %.1, %96 ]
+  %.0164318 = phi ptr [ %81, %77 ], [ %.1165, %96 ]
+  %86 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv321
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load i64, ptr %87, align 8
-  %.not205 = icmp eq i64 %88, -1
-  br i1 %.not205, label %96, label %89
+  %.not206 = icmp eq i64 %88, -1
+  br i1 %.not206, label %96, label %89
 
 89:                                               ; preds = %85
   %90 = load i64, ptr %86, align 8
-  store i64 %90, ptr %.0164317, align 8
+  store i64 %90, ptr %.0164318, align 8
   %91 = load i64, ptr %87, align 8
-  %92 = getelementptr inbounds i8, ptr %.0164317, i64 16
+  %92 = getelementptr inbounds i8, ptr %.0164318, i64 16
   store i64 %91, ptr %92, align 8
-  %.not206 = icmp eq i64 %91, 0
-  %spec.select = select i1 %.not206, ptr null, ptr %.0163318
-  %93 = getelementptr inbounds i8, ptr %.0164317, i64 8
+  %.not207 = icmp eq i64 %91, 0
+  %spec.select = select i1 %.not207, ptr null, ptr %.0163319
+  %93 = getelementptr inbounds i8, ptr %.0164318, i64 8
   store ptr %spec.select, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.0163318, i64 %91
-  %95 = getelementptr inbounds i8, ptr %.0164317, i64 24
+  %94 = getelementptr inbounds i8, ptr %.0163319, i64 %91
+  %95 = getelementptr inbounds i8, ptr %.0164318, i64 24
   br label %96
 
 96:                                               ; preds = %85, %89
-  %.1165 = phi ptr [ %95, %89 ], [ %.0164317, %85 ]
-  %.1 = phi ptr [ %94, %89 ], [ %.0163318, %85 ]
-  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %exitcond323.not = icmp eq i64 %indvars.iv.next321, 61
-  br i1 %exitcond323.not, label %97, label %85, !llvm.loop !8
+  %.1165 = phi ptr [ %95, %89 ], [ %.0164318, %85 ]
+  %.1 = phi ptr [ %94, %89 ], [ %.0163319, %85 ]
+  %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
+  %exitcond324.not = icmp eq i64 %indvars.iv.next322, 61
+  br i1 %exitcond324.not, label %97, label %85, !llvm.loop !8
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr %26, align 8
-  %99 = call i64 %98(i64 noundef %2, i64 noundef %3, ptr noundef nonnull %81, i64 noundef %spec.select215) #5
+  %99 = call i64 %98(i64 noundef %2, i64 noundef %3, ptr noundef nonnull %81, i64 noundef %spec.select216) #5
   %100 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %99) #5
   %.not200 = icmp eq i64 %100, 0
-  br i1 %.not200, label %101, label %.thread254
+  br i1 %.not200, label %101, label %.thread255
 
 101:                                              ; preds = %97
   %102 = load i64, ptr %8, align 8
   %103 = icmp eq i64 %102, 4
   %104 = icmp ne i32 %.2174, -1
   %or.cond12 = select i1 %103, i1 %104, i1 false
-  br i1 %or.cond12, label %105, label %111
+  br i1 %or.cond12, label %105, label %112
 
 105:                                              ; preds = %101
   %106 = zext i32 %.2174 to i64
-  %107 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %81, i64 %106, i32 1
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i64, ptr %108, align 8
-  %110 = icmp ugt i64 %109, 256
-  br i1 %110, label %.thread254, label %111
+  %.idx = mul nuw nsw i64 %106, 24
+  %107 = getelementptr inbounds i8, ptr %81, i64 %.idx
+  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp ugt i64 %110, 256
+  br i1 %111, label %.thread255, label %112
 
-111:                                              ; preds = %105, %101
-  br i1 %.not, label %113, label %112
+112:                                              ; preds = %105, %101
+  br i1 %.not, label %114, label %113
 
-112:                                              ; preds = %111
+113:                                              ; preds = %112
   store i64 3584088832, ptr %.1165, align 8
-  br label %113
+  br label %114
 
-113:                                              ; preds = %112, %111
+114:                                              ; preds = %113, %112
   %.not201 = icmp eq i32 %.2177, -1
-  br i1 %.not201, label %.thread254, label %114
+  br i1 %.not201, label %.thread255, label %115
 
-114:                                              ; preds = %113
-  %115 = zext i32 %.2177 to i64
-  %116 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %81, i64 %115, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i8, ptr %117, align 1
-  %119 = icmp eq i8 %118, 1
-  br i1 %119, label %120, label %.thread254
+115:                                              ; preds = %114
+  %116 = zext i32 %.2177 to i64
+  %.idx202 = mul nuw nsw i64 %116, 24
+  %117 = getelementptr inbounds i8, ptr %81, i64 %.idx202
+  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = load i8, ptr %119, align 1
+  %121 = icmp eq i8 %120, 1
+  br i1 %121, label %122, label %.thread255
 
-120:                                              ; preds = %114
-  %.not202 = icmp eq i64 %4, 0
-  br i1 %.not202, label %152, label %121
+122:                                              ; preds = %115
+  %.not203 = icmp eq i64 %4, 0
+  br i1 %.not203, label %154, label %123
 
-121:                                              ; preds = %120
-  %122 = call ptr @jMechanismToCKMechanismPtr(ptr noundef nonnull %0, ptr noundef %5) #5
-  %123 = getelementptr inbounds i8, ptr %12, i64 488
-  %124 = load ptr, ptr %123, align 8
-  %125 = call i64 %124(i64 noundef %2, ptr noundef %122, i64 noundef %4, i64 noundef %3, ptr noundef null, ptr noundef nonnull %7) #5
-  %126 = load i64, ptr %7, align 8
-  %.not203 = icmp eq i64 %126, 0
-  br i1 %.not203, label %.thread254, label %127
+123:                                              ; preds = %122
+  %124 = call ptr @jMechanismToCKMechanismPtr(ptr noundef nonnull %0, ptr noundef %5) #5
+  %125 = getelementptr inbounds i8, ptr %12, i64 488
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i64 %126(i64 noundef %2, ptr noundef %124, i64 noundef %4, i64 noundef %3, ptr noundef null, ptr noundef nonnull %7) #5
+  %128 = load i64, ptr %7, align 8
+  %.not204 = icmp eq i64 %128, 0
+  br i1 %.not204, label %.thread255, label %129
 
-127:                                              ; preds = %121
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 1408
-  %130 = load ptr, ptr %129, align 8
-  %131 = add i64 %126, %64
-  %132 = trunc i64 %131 to i32
-  %133 = call ptr %130(ptr noundef nonnull %0, i32 noundef %132) #5
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %.thread254, label %135
+129:                                              ; preds = %123
+  %130 = load ptr, ptr %0, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 1408
+  %132 = load ptr, ptr %131, align 8
+  %133 = add i64 %128, %64
+  %134 = trunc i64 %133 to i32
+  %135 = call ptr %132(ptr noundef nonnull %0, i32 noundef %134) #5
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.thread255, label %137
 
-135:                                              ; preds = %127
-  %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 1472
-  %138 = load ptr, ptr %137, align 8
-  %139 = call ptr %138(ptr noundef nonnull %0, ptr noundef nonnull %133, ptr noundef null) #5
-  %140 = icmp eq ptr %139, null
-  br i1 %140, label %.thread254, label %141
+137:                                              ; preds = %129
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 1472
+  %140 = load ptr, ptr %139, align 8
+  %141 = call ptr %140(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef null) #5
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %.thread255, label %143
 
-141:                                              ; preds = %135
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull align 1 %75, i64 %64, i1 false)
-  %142 = getelementptr inbounds i8, ptr %139, i64 16
-  %143 = getelementptr inbounds i8, ptr %142, i64 %62
-  %144 = getelementptr inbounds i8, ptr %143, i64 %.1169
-  %145 = load i64, ptr %7, align 8
-  store i64 %145, ptr %144, align 1
-  %146 = getelementptr inbounds i8, ptr %144, i64 8
-  %147 = load ptr, ptr %123, align 8
-  %148 = call i64 %147(i64 noundef %2, ptr noundef %122, i64 noundef %4, i64 noundef %3, ptr noundef nonnull %146, ptr noundef nonnull %7) #5
-  %149 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %148) #5
-  %.not204 = icmp eq i64 %149, 0
-  br i1 %.not204, label %150, label %.thread254
+143:                                              ; preds = %137
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr nonnull align 1 %75, i64 %64, i1 false)
+  %144 = getelementptr inbounds i8, ptr %141, i64 16
+  %145 = getelementptr inbounds i8, ptr %144, i64 %62
+  %146 = getelementptr inbounds i8, ptr %145, i64 %.1169
+  %147 = load i64, ptr %7, align 8
+  store i64 %147, ptr %146, align 1
+  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %149 = load ptr, ptr %125, align 8
+  %150 = call i64 %149(i64 noundef %2, ptr noundef %124, i64 noundef %4, i64 noundef %3, ptr noundef nonnull %148, ptr noundef nonnull %7) #5
+  %151 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %150) #5
+  %.not205 = icmp eq i64 %151, 0
+  br i1 %.not205, label %152, label %.thread255
 
-150:                                              ; preds = %141
-  %151 = load i64, ptr %7, align 8
-  store i64 %151, ptr %144, align 1
-  br label %.thread254
+152:                                              ; preds = %143
+  %153 = load i64, ptr %7, align 8
+  store i64 %153, ptr %146, align 1
+  br label %.thread255
 
-152:                                              ; preds = %120
-  %153 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef 96) #5
-  br label %.thread254
+154:                                              ; preds = %122
+  %155 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef 96) #5
+  br label %.thread255
 
-.thread269:                                       ; preds = %71, %60
+.thread270:                                       ; preds = %71, %60
   call void @free(ptr noundef nonnull %40) #5
-  br label %.thread278
+  br label %.thread279
 
-.thread254:                                       ; preds = %97, %113, %105, %127, %135, %141, %150, %121, %152, %114
-  %.0161.ph267 = phi ptr [ null, %105 ], [ null, %127 ], [ null, %135 ], [ null, %141 ], [ %133, %150 ], [ null, %121 ], [ null, %152 ], [ %69, %114 ], [ %69, %113 ], [ null, %97 ]
-  %.0162.ph266 = phi ptr [ null, %105 ], [ %122, %127 ], [ %122, %135 ], [ %122, %141 ], [ %122, %150 ], [ %122, %121 ], [ null, %152 ], [ null, %114 ], [ null, %113 ], [ null, %97 ]
-  %.0178.ph265 = phi ptr [ null, %105 ], [ null, %127 ], [ null, %135 ], [ %139, %141 ], [ %139, %150 ], [ null, %121 ], [ null, %152 ], [ null, %114 ], [ null, %113 ], [ null, %97 ]
-  %.0180.ph263 = phi ptr [ null, %105 ], [ null, %127 ], [ %133, %135 ], [ %133, %141 ], [ %133, %150 ], [ null, %121 ], [ null, %152 ], [ null, %114 ], [ null, %113 ], [ null, %97 ]
+.thread255:                                       ; preds = %97, %114, %105, %129, %137, %143, %152, %123, %154, %115
+  %.0161.ph268 = phi ptr [ null, %105 ], [ null, %129 ], [ null, %137 ], [ null, %143 ], [ %135, %152 ], [ null, %123 ], [ null, %154 ], [ %69, %115 ], [ %69, %114 ], [ null, %97 ]
+  %.0162.ph267 = phi ptr [ null, %105 ], [ %124, %129 ], [ %124, %137 ], [ %124, %143 ], [ %124, %152 ], [ %124, %123 ], [ null, %154 ], [ null, %115 ], [ null, %114 ], [ null, %97 ]
+  %.0178.ph266 = phi ptr [ null, %105 ], [ null, %129 ], [ null, %137 ], [ %141, %143 ], [ %141, %152 ], [ null, %123 ], [ null, %154 ], [ null, %115 ], [ null, %114 ], [ null, %97 ]
+  %.0180.ph264 = phi ptr [ null, %105 ], [ null, %129 ], [ %135, %137 ], [ %135, %143 ], [ %135, %152 ], [ null, %123 ], [ null, %154 ], [ null, %115 ], [ null, %114 ], [ null, %97 ]
   call void @free(ptr noundef nonnull %40) #5
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1536
-  %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef nonnull %75, i32 noundef 0) #5
-  %.not210 = icmp eq ptr %.0178.ph265, null
-  br i1 %.not210, label %.thread278, label %157
+  %156 = load ptr, ptr %0, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 1536
+  %158 = load ptr, ptr %157, align 8
+  call void %158(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef nonnull %75, i32 noundef 0) #5
+  %.not211 = icmp eq ptr %.0178.ph266, null
+  br i1 %.not211, label %.thread279, label %159
 
-157:                                              ; preds = %.thread254
-  %158 = load ptr, ptr %0, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 1536
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull %0, ptr noundef %.0180.ph263, ptr noundef nonnull %.0178.ph265, i32 noundef 0) #5
-  br label %.thread278
+159:                                              ; preds = %.thread255
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 1536
+  %162 = load ptr, ptr %161, align 8
+  call void %162(ptr noundef nonnull %0, ptr noundef %.0180.ph264, ptr noundef nonnull %.0178.ph266, i32 noundef 0) #5
+  br label %.thread279
 
-.thread278:                                       ; preds = %.thread269, %157, %.thread254
-  %.0161238248288 = phi ptr [ %.0161.ph267, %157 ], [ %.0161.ph267, %.thread254 ], [ null, %.thread269 ]
-  %.0162236249287 = phi ptr [ %.0162.ph266, %157 ], [ %.0162.ph266, %.thread254 ], [ null, %.thread269 ]
-  %.0180230251286 = phi ptr [ %.0180.ph263, %157 ], [ %.0180.ph263, %.thread254 ], [ null, %.thread269 ]
-  %.not212 = icmp eq ptr %.0161238248288, %69
-  %or.cond216 = or i1 %70, %.not212
-  br i1 %or.cond216, label %165, label %161
+.thread279:                                       ; preds = %.thread270, %159, %.thread255
+  %.0161239249289 = phi ptr [ %.0161.ph268, %159 ], [ %.0161.ph268, %.thread255 ], [ null, %.thread270 ]
+  %.0162237250288 = phi ptr [ %.0162.ph267, %159 ], [ %.0162.ph267, %.thread255 ], [ null, %.thread270 ]
+  %.0180231252287 = phi ptr [ %.0180.ph264, %159 ], [ %.0180.ph264, %.thread255 ], [ null, %.thread270 ]
+  %.not213 = icmp eq ptr %.0161239249289, %69
+  %or.cond217 = or i1 %70, %.not213
+  br i1 %or.cond217, label %167, label %163
 
-161:                                              ; preds = %.thread278
-  %162 = load ptr, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 184
-  %164 = load ptr, ptr %163, align 8
-  call void %164(ptr noundef nonnull %0, ptr noundef nonnull %69) #5
-  br label %165
+163:                                              ; preds = %.thread279
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 184
+  %166 = load ptr, ptr %165, align 8
+  call void %166(ptr noundef nonnull %0, ptr noundef nonnull %69) #5
+  br label %167
 
-165:                                              ; preds = %161, %.thread278
-  %.not213 = icmp eq ptr %.0180230251286, null
-  %.not214 = icmp eq ptr %.0161238248288, %.0180230251286
-  %or.cond217 = or i1 %.not213, %.not214
-  br i1 %or.cond217, label %.thread299, label %166
+167:                                              ; preds = %163, %.thread279
+  %.not214 = icmp eq ptr %.0180231252287, null
+  %.not215 = icmp eq ptr %.0161239249289, %.0180231252287
+  %or.cond218 = or i1 %.not214, %.not215
+  br i1 %or.cond218, label %.thread300, label %168
 
-166:                                              ; preds = %165
-  %167 = load ptr, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 184
-  %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull %0, ptr noundef nonnull %.0180230251286) #5
-  br label %.thread299
+168:                                              ; preds = %167
+  %169 = load ptr, ptr %0, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 184
+  %171 = load ptr, ptr %170, align 8
+  call void %171(ptr noundef nonnull %0, ptr noundef nonnull %.0180231252287) #5
+  br label %.thread300
 
-.thread299:                                       ; preds = %6, %42, %166, %165
-  %.0161238248288296307 = phi ptr [ %.0161238248288, %166 ], [ %.0161238248288, %165 ], [ null, %42 ], [ null, %6 ]
-  %.0162236249287297306 = phi ptr [ %.0162236249287, %166 ], [ %.0162236249287, %165 ], [ null, %42 ], [ null, %6 ]
-  call void @freeCKMechanismPtr(ptr noundef %.0162236249287297306) #5
-  ret ptr %.0161238248288296307
+.thread300:                                       ; preds = %6, %42, %168, %167
+  %.0161239249289297308 = phi ptr [ %.0161239249289, %168 ], [ %.0161239249289, %167 ], [ null, %42 ], [ null, %6 ]
+  %.0162237250288298307 = phi ptr [ %.0162237250288, %168 ], [ %.0162237250288, %167 ], [ null, %42 ], [ null, %6 ]
+  call void @freeCKMechanismPtr(ptr noundef %.0162237250288298307) #5
+  ret ptr %.0161239249289297308
 }
 
 declare ptr @getFunctionList(ptr noundef, ptr noundef) local_unnamed_addr #1

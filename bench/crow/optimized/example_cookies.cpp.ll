@@ -25670,14 +25670,14 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %6, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  %24 = getelementptr inbounds i8, ptr %0, i64 56
   br label %25
 
 .loopexit26:                                      ; preds = %329, %3
@@ -25751,10 +25751,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   %62 = phi ptr [ %47, %50 ], [ %116, %115 ]
   %63 = load i8, ptr %62, align 1, !tbaa !557
   %64 = sext i8 %63 to i64
-  %65 = getelementptr inbounds [34 x %"struct.crow::Router::PerMethod"], ptr %17, i64 0, i64 %64, i32 1
+  %.idx = mul nsw i64 %64, 96
+  %65 = getelementptr i8, ptr %24, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #36
   call void @llvm.experimental.noalias.scope.decl(metadata !558)
-  store ptr %18, ptr %7, align 8, !tbaa !5, !alias.scope !558
+  store ptr %17, ptr %7, align 8, !tbaa !5, !alias.scope !558
   %66 = load ptr, ptr %31, align 8, !tbaa !12, !noalias !558
   %67 = load i64, ptr %51, align 8, !tbaa !15, !noalias !558
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #36, !noalias !558
@@ -25769,11 +25770,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 71:                                               ; preds = %69
   store ptr %70, ptr %7, align 8, !tbaa !12, !alias.scope !558
   %72 = load i64, ptr %5, align 8, !tbaa !10, !noalias !558
-  store i64 %72, ptr %18, align 8, !tbaa !14, !alias.scope !558
+  store i64 %72, ptr %17, align 8, !tbaa !14, !alias.scope !558
   br label %73
 
 73:                                               ; preds = %71, %61
-  %74 = phi ptr [ %70, %71 ], [ %18, %61 ]
+  %74 = phi ptr [ %70, %71 ], [ %17, %61 ]
   switch i64 %67, label %77 [
     i64 1, label %75
     i64 0, label %78
@@ -25790,14 +25791,14 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 
 78:                                               ; preds = %77, %75, %73
   %79 = load i64, ptr %5, align 8, !tbaa !10, !noalias !558
-  store i64 %79, ptr %19, align 8, !tbaa !15, !alias.scope !558
+  store i64 %79, ptr %18, align 8, !tbaa !15, !alias.scope !558
   %80 = load ptr, ptr %7, align 8, !tbaa !12, !alias.scope !558
   %81 = getelementptr inbounds i8, ptr %80, i64 %79
   store i8 0, ptr %81, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #36, !noalias !558
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #36
   call void @llvm.experimental.noalias.scope.decl(metadata !561)
-  store ptr %20, ptr %8, align 8, !tbaa !5, !alias.scope !561
+  store ptr %19, ptr %8, align 8, !tbaa !5, !alias.scope !561
   %82 = load ptr, ptr %31, align 8, !tbaa !12, !noalias !561
   %83 = load i64, ptr %51, align 8, !tbaa !15, !noalias !561
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #36, !noalias !561
@@ -25812,11 +25813,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 87:                                               ; preds = %85
   store ptr %86, ptr %8, align 8, !tbaa !12, !alias.scope !561
   %88 = load i64, ptr %4, align 8, !tbaa !10, !noalias !561
-  store i64 %88, ptr %20, align 8, !tbaa !14, !alias.scope !561
+  store i64 %88, ptr %19, align 8, !tbaa !14, !alias.scope !561
   br label %89
 
 89:                                               ; preds = %87, %78
-  %90 = phi ptr [ %86, %87 ], [ %20, %78 ]
+  %90 = phi ptr [ %86, %87 ], [ %19, %78 ]
   switch i64 %83, label %93 [
     i64 1, label %91
     i64 0, label %94
@@ -25833,12 +25834,12 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 
 94:                                               ; preds = %93, %91, %89
   %95 = load i64, ptr %4, align 8, !tbaa !10, !noalias !561
-  store i64 %95, ptr %21, align 8, !tbaa !15, !alias.scope !561
+  store i64 %95, ptr %20, align 8, !tbaa !15, !alias.scope !561
   %96 = load ptr, ptr %8, align 8, !tbaa !12, !alias.scope !561
   %97 = getelementptr inbounds i8, ptr %96, i64 %95
   store i8 0, ptr %97, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #36, !noalias !561
-  %98 = load i64, ptr %21, align 8, !tbaa !15
+  %98 = load i64, ptr %20, align 8, !tbaa !15
   %99 = trunc i64 %98 to i32
   %100 = sext i8 %63 to i16
   invoke void @_ZN4crow4Trie3addERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtjt(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull align 8 dereferenceable(32) %7, i16 noundef zeroext 0, i32 noundef %99, i16 noundef zeroext %100)
@@ -25846,11 +25847,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 
 101:                                              ; preds = %94
   %102 = load ptr, ptr %8, align 8, !tbaa !12
-  %103 = icmp eq ptr %102, %20
+  %103 = icmp eq ptr %102, %19
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %101
-  %105 = load i64, ptr %21, align 8, !tbaa !15
+  %105 = load i64, ptr %20, align 8, !tbaa !15
   %106 = icmp ult i64 %105, 16
   call void @llvm.assume(i1 %106)
   br label %108
@@ -25862,11 +25863,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 108:                                              ; preds = %107, %104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #36
   %109 = load ptr, ptr %7, align 8, !tbaa !12
-  %110 = icmp eq ptr %109, %18
+  %110 = icmp eq ptr %109, %17
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %108
-  %112 = load i64, ptr %19, align 8, !tbaa !15
+  %112 = load i64, ptr %18, align 8, !tbaa !15
   %113 = icmp ult i64 %112, 16
   call void @llvm.assume(i1 %113)
   br label %115
@@ -25895,11 +25896,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   %123 = landingpad { ptr, i32 }
           cleanup
   %124 = load ptr, ptr %8, align 8, !tbaa !12
-  %125 = icmp eq ptr %124, %20
+  %125 = icmp eq ptr %124, %19
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %122
-  %127 = load i64, ptr %21, align 8, !tbaa !15
+  %127 = load i64, ptr %20, align 8, !tbaa !15
   %128 = icmp ult i64 %127, 16
   call void @llvm.assume(i1 %128)
   br label %130
@@ -25912,11 +25913,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   %131 = phi { ptr, i32 } [ %121, %120 ], [ %123, %126 ], [ %123, %129 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #36
   %132 = load ptr, ptr %7, align 8, !tbaa !12
-  %133 = icmp eq ptr %132, %18
+  %133 = icmp eq ptr %132, %17
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %130
-  %135 = load i64, ptr %19, align 8, !tbaa !15
+  %135 = load i64, ptr %18, align 8, !tbaa !15
   %136 = icmp ult i64 %135, 16
   call void @llvm.assume(i1 %136)
   br label %138
@@ -25946,7 +25947,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 
 146:                                              ; preds = %58, %39, %35
   %147 = getelementptr inbounds i8, ptr %31, i64 176
-  %148 = load ptr, ptr %22, align 8, !tbaa !26
+  %148 = load ptr, ptr %21, align 8, !tbaa !26
   %149 = load ptr, ptr %147, align 8, !tbaa !26
   %150 = getelementptr inbounds i8, ptr %31, i64 184
   %151 = load ptr, ptr %150, align 8, !tbaa !26
@@ -25981,7 +25982,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
 
 172:                                              ; preds = %.loopexit
   %173 = getelementptr inbounds i8, ptr null, i64 %170
-  store ptr %173, ptr %24, align 8, !tbaa !505
+  store ptr %173, ptr %23, align 8, !tbaa !505
   br label %187
 
 174:                                              ; preds = %.loopexit
@@ -25999,9 +26000,9 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   %181 = ptrtoint ptr %180 to i64
   %182 = ptrtoint ptr %179 to i64
   store ptr %178, ptr %10, align 8, !tbaa !84
-  store ptr %178, ptr %23, align 8, !tbaa !506
+  store ptr %178, ptr %22, align 8, !tbaa !506
   %183 = getelementptr inbounds i8, ptr %178, i64 %170
-  store ptr %183, ptr %24, align 8, !tbaa !505
+  store ptr %183, ptr %23, align 8, !tbaa !505
   %184 = sub i64 %181, %182
   %185 = icmp eq ptr %180, %179
   br i1 %185, label %187, label %186
@@ -26014,7 +26015,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   %188 = phi i64 [ 0, %172 ], [ %184, %177 ], [ %184, %186 ]
   %189 = phi ptr [ null, %172 ], [ %178, %177 ], [ %178, %186 ]
   %190 = getelementptr inbounds i8, ptr %189, i64 %188
-  store ptr %190, ptr %23, align 8, !tbaa !506
+  store ptr %190, ptr %22, align 8, !tbaa !506
   invoke void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9BlueprintESaIS3_EERNS_6detail18middleware_indicesE(ptr noundef nonnull align 8 dereferenceable(3376) %0, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %299 unwind label %339
 
@@ -26061,7 +26062,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router11validate_bpESt6vectorIPNS_9
   %217 = getelementptr inbounds i8, ptr %216, i64 128
   %218 = load ptr, ptr %217, align 8, !tbaa !26
   %219 = load ptr, ptr %2, align 8, !tbaa !26
-  %220 = load ptr, ptr %22, align 8, !tbaa !26
+  %220 = load ptr, ptr %21, align 8, !tbaa !26
   %221 = icmp eq ptr %219, %220
   br i1 %221, label %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit, label %222
 
@@ -26217,7 +26218,7 @@ _ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEv
   br label %303
 
 303:                                              ; preds = %302, %299
-  %304 = load ptr, ptr %22, align 8, !tbaa !77
+  %304 = load ptr, ptr %21, align 8, !tbaa !77
   %305 = load ptr, ptr %2, align 8, !tbaa !75
   %306 = ptrtoint ptr %304 to i64
   %307 = ptrtoint ptr %305 to i64
@@ -26248,7 +26249,7 @@ _ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEv
   br i1 %324, label %326, label %325
 
 325:                                              ; preds = %322
-  store ptr %323, ptr %22, align 8, !tbaa !77
+  store ptr %323, ptr %21, align 8, !tbaa !77
   br label %326
 
 326:                                              ; preds = %325, %322, %320, %318
@@ -60823,30 +60824,30 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %57 = getelementptr inbounds i8, ptr %15, i64 80
   %58 = load ptr, ptr %57, align 8, !tbaa !1247
   %59 = icmp eq ptr %56, %58
-  br i1 %59, label %74, label %.preheader152
+  br i1 %59, label %74, label %.preheader158
 
-.preheader152:                                    ; preds = %53, %69
+.preheader158:                                    ; preds = %53, %69
   %60 = phi ptr [ %70, %69 ], [ %56, %53 ]
   %61 = load ptr, ptr %60, align 8, !tbaa !12
   %62 = getelementptr inbounds i8, ptr %60, i64 16
   %63 = icmp eq ptr %61, %62
   br i1 %63, label %64, label %68
 
-64:                                               ; preds = %.preheader152
+64:                                               ; preds = %.preheader158
   %65 = getelementptr inbounds i8, ptr %60, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !15
   %67 = icmp ult i64 %66, 16
   call void @llvm.assume(i1 %67)
   br label %69
 
-68:                                               ; preds = %.preheader152
+68:                                               ; preds = %.preheader158
   call void @_ZdlPv(ptr noundef %61) #37
   br label %69
 
 69:                                               ; preds = %68, %64
   %70 = getelementptr inbounds i8, ptr %60, i64 32
   %71 = icmp eq ptr %70, %58
-  br i1 %71, label %72, label %.preheader152, !llvm.loop !1248
+  br i1 %71, label %72, label %.preheader158, !llvm.loop !1248
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %55, align 8, !tbaa !515
@@ -60908,9 +60909,10 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
 
 97:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16) #36
-  %98 = getelementptr inbounds i8, ptr %1, i64 32
-  %99 = sext i8 %43 to i64
-  %100 = getelementptr inbounds [34 x %"struct.crow::Router::PerMethod"], ptr %98, i64 0, i64 %99, i32 1
+  %98 = sext i8 %43 to i64
+  %.idx139 = mul nsw i64 %98, 96
+  %99 = getelementptr inbounds i8, ptr %1, i64 56
+  %100 = getelementptr i8, ptr %99, i64 %.idx139
   %101 = getelementptr inbounds i8, ptr %2, i64 40
   invoke void @_ZNK4crow4Trie4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4NodeEjPNS_14routing_paramsEPSt6vectorItSaItEE(ptr dead_on_unwind nonnull writable sret(%"struct.crow::routing_handle_result") align 8 %16, ptr noundef nonnull align 8 dereferenceable(72) %100, ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(72) %100, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %102 unwind label %328
@@ -61001,70 +61003,70 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   store ptr %150, ptr %146, align 8, !tbaa !1401
   %151 = icmp eq ptr %143, %145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false)
-  br i1 %151, label %.loopexit150, label %.preheader149
+  br i1 %151, label %.loopexit156, label %.preheader155
 
-.preheader149:                                    ; preds = %140, %161
+.preheader155:                                    ; preds = %140, %161
   %152 = phi ptr [ %162, %161 ], [ %143, %140 ]
   %153 = load ptr, ptr %152, align 8, !tbaa !12
   %154 = getelementptr inbounds i8, ptr %152, i64 16
   %155 = icmp eq ptr %153, %154
   br i1 %155, label %156, label %160
 
-156:                                              ; preds = %.preheader149
+156:                                              ; preds = %.preheader155
   %157 = getelementptr inbounds i8, ptr %152, i64 8
   %158 = load i64, ptr %157, align 8, !tbaa !15
   %159 = icmp ult i64 %158, 16
   call void @llvm.assume(i1 %159)
   br label %161
 
-160:                                              ; preds = %.preheader149
+160:                                              ; preds = %.preheader155
   call void @_ZdlPv(ptr noundef %153) #37
   br label %161
 
 161:                                              ; preds = %160, %156
   %162 = getelementptr inbounds i8, ptr %152, i64 32
   %163 = icmp eq ptr %162, %145
-  br i1 %163, label %.loopexit150, label %.preheader149, !llvm.loop !1248
+  br i1 %163, label %.loopexit156, label %.preheader155, !llvm.loop !1248
 
-.loopexit150:                                     ; preds = %161, %140
+.loopexit156:                                     ; preds = %161, %140
   %164 = icmp eq ptr %143, null
   br i1 %164, label %166, label %165
 
-165:                                              ; preds = %.loopexit150
+165:                                              ; preds = %.loopexit156
   call void @_ZdlPv(ptr noundef nonnull %143) #37
   br label %166
 
-166:                                              ; preds = %165, %.loopexit150
+166:                                              ; preds = %165, %.loopexit156
   %167 = getelementptr inbounds i8, ptr %16, i64 128
   %168 = load i8, ptr %167, align 8, !tbaa !1396
   store i8 %168, ptr %54, align 8, !tbaa !1396
   %169 = load ptr, ptr %142, align 8, !tbaa !515
   %170 = load ptr, ptr %147, align 8, !tbaa !1247
   %171 = icmp eq ptr %169, %170
-  br i1 %171, label %186, label %.preheader148
+  br i1 %171, label %186, label %.preheader154
 
-.preheader148:                                    ; preds = %166, %181
+.preheader154:                                    ; preds = %166, %181
   %172 = phi ptr [ %182, %181 ], [ %169, %166 ]
   %173 = load ptr, ptr %172, align 8, !tbaa !12
   %174 = getelementptr inbounds i8, ptr %172, i64 16
   %175 = icmp eq ptr %173, %174
   br i1 %175, label %176, label %180
 
-176:                                              ; preds = %.preheader148
+176:                                              ; preds = %.preheader154
   %177 = getelementptr inbounds i8, ptr %172, i64 8
   %178 = load i64, ptr %177, align 8, !tbaa !15
   %179 = icmp ult i64 %178, 16
   call void @llvm.assume(i1 %179)
   br label %181
 
-180:                                              ; preds = %.preheader148
+180:                                              ; preds = %.preheader154
   call void @_ZdlPv(ptr noundef %173) #37
   br label %181
 
 181:                                              ; preds = %180, %176
   %182 = getelementptr inbounds i8, ptr %172, i64 32
   %183 = icmp eq ptr %182, %170
-  br i1 %183, label %184, label %.preheader148, !llvm.loop !1248
+  br i1 %183, label %184, label %.preheader154, !llvm.loop !1248
 
 184:                                              ; preds = %181
   %185 = load ptr, ptr %142, align 8, !tbaa !515
@@ -61205,70 +61207,70 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   store ptr %251, ptr %146, align 8, !tbaa !1401
   %252 = icmp eq ptr %246, %247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %245, i8 0, i64 24, i1 false)
-  br i1 %252, label %.loopexit147, label %.preheader146
+  br i1 %252, label %.loopexit153, label %.preheader152
 
-.preheader146:                                    ; preds = %244, %262
+.preheader152:                                    ; preds = %244, %262
   %253 = phi ptr [ %263, %262 ], [ %246, %244 ]
   %254 = load ptr, ptr %253, align 8, !tbaa !12
   %255 = getelementptr inbounds i8, ptr %253, i64 16
   %256 = icmp eq ptr %254, %255
   br i1 %256, label %257, label %261
 
-257:                                              ; preds = %.preheader146
+257:                                              ; preds = %.preheader152
   %258 = getelementptr inbounds i8, ptr %253, i64 8
   %259 = load i64, ptr %258, align 8, !tbaa !15
   %260 = icmp ult i64 %259, 16
   call void @llvm.assume(i1 %260)
   br label %262
 
-261:                                              ; preds = %.preheader146
+261:                                              ; preds = %.preheader152
   call void @_ZdlPv(ptr noundef %254) #37
   br label %262
 
 262:                                              ; preds = %261, %257
   %263 = getelementptr inbounds i8, ptr %253, i64 32
   %264 = icmp eq ptr %263, %247
-  br i1 %264, label %.loopexit147, label %.preheader146, !llvm.loop !1248
+  br i1 %264, label %.loopexit153, label %.preheader152, !llvm.loop !1248
 
-.loopexit147:                                     ; preds = %262, %244
+.loopexit153:                                     ; preds = %262, %244
   %265 = icmp eq ptr %246, null
   br i1 %265, label %267, label %266
 
-266:                                              ; preds = %.loopexit147
+266:                                              ; preds = %.loopexit153
   call void @_ZdlPv(ptr noundef nonnull %246) #37
   br label %267
 
-267:                                              ; preds = %266, %.loopexit147
+267:                                              ; preds = %266, %.loopexit153
   %268 = getelementptr inbounds i8, ptr %17, i64 128
   %269 = load i8, ptr %268, align 8, !tbaa !1396
   store i8 %269, ptr %54, align 8, !tbaa !1396
   %270 = load ptr, ptr %245, align 8, !tbaa !515
   %271 = load ptr, ptr %248, align 8, !tbaa !1247
   %272 = icmp eq ptr %270, %271
-  br i1 %272, label %287, label %.preheader145
+  br i1 %272, label %287, label %.preheader151
 
-.preheader145:                                    ; preds = %267, %282
+.preheader151:                                    ; preds = %267, %282
   %273 = phi ptr [ %283, %282 ], [ %270, %267 ]
   %274 = load ptr, ptr %273, align 8, !tbaa !12
   %275 = getelementptr inbounds i8, ptr %273, i64 16
   %276 = icmp eq ptr %274, %275
   br i1 %276, label %277, label %281
 
-277:                                              ; preds = %.preheader145
+277:                                              ; preds = %.preheader151
   %278 = getelementptr inbounds i8, ptr %273, i64 8
   %279 = load i64, ptr %278, align 8, !tbaa !15
   %280 = icmp ult i64 %279, 16
   call void @llvm.assume(i1 %280)
   br label %282
 
-281:                                              ; preds = %.preheader145
+281:                                              ; preds = %.preheader151
   call void @_ZdlPv(ptr noundef %274) #37
   br label %282
 
 282:                                              ; preds = %281, %277
   %283 = getelementptr inbounds i8, ptr %273, i64 32
   %284 = icmp eq ptr %283, %271
-  br i1 %284, label %285, label %.preheader145, !llvm.loop !1248
+  br i1 %284, label %285, label %.preheader151, !llvm.loop !1248
 
 285:                                              ; preds = %282
   %286 = load ptr, ptr %245, align 8, !tbaa !515
@@ -61515,7 +61517,9 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   br i1 %400, label %501, label %401
 
 401:                                              ; preds = %398
-  %402 = getelementptr inbounds [34 x %"struct.crow::Router::PerMethod"], ptr %365, i64 0, i64 %399, i32 1
+  %.idx137 = mul nuw nsw i64 %399, 96
+  %.offs138 = or disjoint i64 %.idx137, 24
+  %402 = getelementptr inbounds i8, ptr %365, i64 %.offs138
   %403 = getelementptr inbounds i8, ptr %402, i64 48
   %404 = load ptr, ptr %403, align 8, !tbaa !26
   %405 = getelementptr inbounds i8, ptr %402, i64 56
@@ -62096,7 +62100,9 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %661 = phi i64 [ 0, %366 ], [ %804, %802 ]
   %662 = phi i1 [ false, %366 ], [ %803, %802 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %27) #36
-  %663 = getelementptr inbounds [34 x %"struct.crow::Router::PerMethod"], ptr %365, i64 0, i64 %661, i32 1
+  %.idx = mul nuw nsw i64 %661, 96
+  %.offs = or disjoint i64 %.idx, 24
+  %663 = getelementptr inbounds i8, ptr %365, i64 %.offs
   invoke void @_ZNK4crow4Trie4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4NodeEjPNS_14routing_paramsEPSt6vectorItSaItEE(ptr dead_on_unwind nonnull writable sret(%"struct.crow::routing_handle_result") align 8 %27, ptr noundef nonnull align 8 dereferenceable(72) %663, ptr noundef nonnull align 8 dereferenceable(32) %362, ptr noundef nonnull align 8 dereferenceable(72) %663, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %664 unwind label %707
 
@@ -62106,30 +62112,30 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %667 = load ptr, ptr %368, align 8, !tbaa !515
   %668 = load ptr, ptr %369, align 8, !tbaa !1247
   %669 = icmp eq ptr %667, %668
-  br i1 %669, label %684, label %.preheader151
+  br i1 %669, label %684, label %.preheader157
 
-.preheader151:                                    ; preds = %664, %679
+.preheader157:                                    ; preds = %664, %679
   %670 = phi ptr [ %680, %679 ], [ %667, %664 ]
   %671 = load ptr, ptr %670, align 8, !tbaa !12
   %672 = getelementptr inbounds i8, ptr %670, i64 16
   %673 = icmp eq ptr %671, %672
   br i1 %673, label %674, label %678
 
-674:                                              ; preds = %.preheader151
+674:                                              ; preds = %.preheader157
   %675 = getelementptr inbounds i8, ptr %670, i64 8
   %676 = load i64, ptr %675, align 8, !tbaa !15
   %677 = icmp ult i64 %676, 16
   call void @llvm.assume(i1 %677)
   br label %679
 
-678:                                              ; preds = %.preheader151
+678:                                              ; preds = %.preheader157
   call void @_ZdlPv(ptr noundef %671) #37
   br label %679
 
 679:                                              ; preds = %678, %674
   %680 = getelementptr inbounds i8, ptr %670, i64 32
   %681 = icmp eq ptr %680, %668
-  br i1 %681, label %682, label %.preheader151, !llvm.loop !1248
+  br i1 %681, label %682, label %.preheader157, !llvm.loop !1248
 
 682:                                              ; preds = %679
   %683 = load ptr, ptr %368, align 8, !tbaa !515
@@ -62633,9 +62639,9 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #36
   store ptr %900, ptr %5, align 8, !tbaa !329
   %903 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #39
-          to label %.noexc137 unwind label %959
+          to label %.noexc143 unwind label %959
 
-.noexc137:                                        ; preds = %902
+.noexc143:                                        ; preds = %902
   store ptr null, ptr %903, align 8, !tbaa !21
   %904 = getelementptr inbounds i8, ptr %903, i64 8
   %905 = getelementptr inbounds i8, ptr %903, i64 24
@@ -62644,7 +62650,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %907 = icmp eq ptr %906, %879
   br i1 %907, label %908, label %912
 
-908:                                              ; preds = %.noexc137
+908:                                              ; preds = %.noexc143
   %909 = load i64, ptr %880, align 8, !tbaa !15
   %910 = icmp ult i64 %909, 16
   call void @llvm.assume(i1 %910)
@@ -62652,7 +62658,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %905, ptr noundef nonnull align 8 dereferenceable(1) %906, i64 %911, i1 false)
   br label %915
 
-912:                                              ; preds = %.noexc137
+912:                                              ; preds = %.noexc143
   store ptr %906, ptr %904, align 8, !tbaa !12
   %913 = load i64, ptr %879, align 8, !tbaa !14
   store i64 %913, ptr %905, align 8, !tbaa !14
@@ -62711,7 +62717,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
           cleanup
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #36
-  br label %.body138
+  br label %.body144
 
 940:                                              ; preds = %934
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #36
@@ -62762,26 +62768,26 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
 959:                                              ; preds = %902, %895
   %960 = landingpad { ptr, i32 }
           cleanup
-  br label %.body138
+  br label %.body144
 
-.body138:                                         ; preds = %938, %959
-  %eh.lpad-body139 = phi { ptr, i32 } [ %960, %959 ], [ %939, %938 ]
+.body144:                                         ; preds = %938, %959
+  %eh.lpad-body145 = phi { ptr, i32 } [ %960, %959 ], [ %939, %938 ]
   %961 = load ptr, ptr %33, align 8, !tbaa !12
   %962 = icmp eq ptr %961, %882
   br i1 %962, label %963, label %966
 
-963:                                              ; preds = %.body138
+963:                                              ; preds = %.body144
   %964 = load i64, ptr %897, align 8, !tbaa !15
   %965 = icmp ult i64 %964, 16
   call void @llvm.assume(i1 %965)
   br label %967
 
-966:                                              ; preds = %.body138
+966:                                              ; preds = %.body144
   call void @_ZdlPv(ptr noundef %961) #37
   br label %967
 
 967:                                              ; preds = %966, %963, %957
-  %968 = phi { ptr, i32 } [ %958, %957 ], [ %eh.lpad-body139, %963 ], [ %eh.lpad-body139, %966 ]
+  %968 = phi { ptr, i32 } [ %958, %957 ], [ %eh.lpad-body145, %963 ], [ %eh.lpad-body145, %966 ]
   %969 = load ptr, ptr %32, align 8, !tbaa !12
   %970 = icmp eq ptr %969, %879
   br i1 %970, label %971, label %974
@@ -62940,9 +62946,10 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
 
 1039:                                             ; preds = %96
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %36) #36
-  %1040 = getelementptr inbounds i8, ptr %1, i64 32
-  %1041 = sext i8 %43 to i64
-  %1042 = getelementptr inbounds [34 x %"struct.crow::Router::PerMethod"], ptr %1040, i64 0, i64 %1041, i32 1
+  %1040 = sext i8 %43 to i64
+  %.idx141 = mul nsw i64 %1040, 96
+  %1041 = getelementptr inbounds i8, ptr %1, i64 56
+  %1042 = getelementptr i8, ptr %1041, i64 %.idx141
   %1043 = getelementptr inbounds i8, ptr %2, i64 40
   invoke void @_ZNK4crow4Trie4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4NodeEjPNS_14routing_paramsEPSt6vectorItSaItEE(ptr dead_on_unwind nonnull writable sret(%"struct.crow::routing_handle_result") align 8 %36, ptr noundef nonnull align 8 dereferenceable(72) %1042, ptr noundef nonnull align 8 dereferenceable(32) %1043, ptr noundef nonnull align 8 dereferenceable(72) %1042, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %1044 unwind label %1162
@@ -63033,30 +63040,30 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   store ptr %1092, ptr %1088, align 8, !tbaa !1401
   %1093 = icmp eq ptr %1085, %1087
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1084, i8 0, i64 24, i1 false)
-  br i1 %1093, label %.loopexit, label %.preheader144
+  br i1 %1093, label %.loopexit, label %.preheader150
 
-.preheader144:                                    ; preds = %1082, %1103
+.preheader150:                                    ; preds = %1082, %1103
   %1094 = phi ptr [ %1104, %1103 ], [ %1085, %1082 ]
   %1095 = load ptr, ptr %1094, align 8, !tbaa !12
   %1096 = getelementptr inbounds i8, ptr %1094, i64 16
   %1097 = icmp eq ptr %1095, %1096
   br i1 %1097, label %1098, label %1102
 
-1098:                                             ; preds = %.preheader144
+1098:                                             ; preds = %.preheader150
   %1099 = getelementptr inbounds i8, ptr %1094, i64 8
   %1100 = load i64, ptr %1099, align 8, !tbaa !15
   %1101 = icmp ult i64 %1100, 16
   call void @llvm.assume(i1 %1101)
   br label %1103
 
-1102:                                             ; preds = %.preheader144
+1102:                                             ; preds = %.preheader150
   call void @_ZdlPv(ptr noundef %1095) #37
   br label %1103
 
 1103:                                             ; preds = %1102, %1098
   %1104 = getelementptr inbounds i8, ptr %1094, i64 32
   %1105 = icmp eq ptr %1104, %1087
-  br i1 %1105, label %.loopexit, label %.preheader144, !llvm.loop !1248
+  br i1 %1105, label %.loopexit, label %.preheader150, !llvm.loop !1248
 
 .loopexit:                                        ; preds = %1103, %1082
   %1106 = icmp eq ptr %1085, null
@@ -63073,30 +63080,30 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %1111 = load ptr, ptr %1084, align 8, !tbaa !515
   %1112 = load ptr, ptr %1089, align 8, !tbaa !1247
   %1113 = icmp eq ptr %1111, %1112
-  br i1 %1113, label %1128, label %.preheader143
+  br i1 %1113, label %1128, label %.preheader149
 
-.preheader143:                                    ; preds = %1108, %1123
+.preheader149:                                    ; preds = %1108, %1123
   %1114 = phi ptr [ %1124, %1123 ], [ %1111, %1108 ]
   %1115 = load ptr, ptr %1114, align 8, !tbaa !12
   %1116 = getelementptr inbounds i8, ptr %1114, i64 16
   %1117 = icmp eq ptr %1115, %1116
   br i1 %1117, label %1118, label %1122
 
-1118:                                             ; preds = %.preheader143
+1118:                                             ; preds = %.preheader149
   %1119 = getelementptr inbounds i8, ptr %1114, i64 8
   %1120 = load i64, ptr %1119, align 8, !tbaa !15
   %1121 = icmp ult i64 %1120, 16
   call void @llvm.assume(i1 %1121)
   br label %1123
 
-1122:                                             ; preds = %.preheader143
+1122:                                             ; preds = %.preheader149
   call void @_ZdlPv(ptr noundef %1115) #37
   br label %1123
 
 1123:                                             ; preds = %1122, %1118
   %1124 = getelementptr inbounds i8, ptr %1114, i64 32
   %1125 = icmp eq ptr %1124, %1112
-  br i1 %1125, label %1126, label %.preheader143, !llvm.loop !1248
+  br i1 %1125, label %1126, label %.preheader149, !llvm.loop !1248
 
 1126:                                             ; preds = %1123
   %1127 = load ptr, ptr %1084, align 8, !tbaa !515
@@ -63597,11 +63604,11 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
 
 ._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge: ; preds = %1365
   %.pre = load i32, ptr %1362, align 8, !tbaa !262
-  %.pre153 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !260
+  %.pre159 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !260
   br label %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit
 
 _ZN4crow6loggerlsIA20_cEERS0_RKT_.exit:           ; preds = %._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge, %1361
-  %1367 = phi i32 [ %.pre153, %._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge ], [ %1363, %1361 ]
+  %1367 = phi i32 [ %.pre159, %._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge ], [ %1363, %1361 ]
   %1368 = phi i32 [ %.pre, %._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge ], [ 0, %1361 ]
   %1369 = icmp slt i32 %1368, %1367
   br i1 %1369, label %1375, label %1370
@@ -63614,13 +63621,13 @@ _ZN4crow6loggerlsIA20_cEERS0_RKT_.exit:           ; preds = %._ZN4crow6loggerlsI
           to label %._crit_edge unwind label %1396
 
 ._crit_edge:                                      ; preds = %1370
-  %.pre154 = load i32, ptr %1362, align 8, !tbaa !262
-  %.pre155 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !260
+  %.pre160 = load i32, ptr %1362, align 8, !tbaa !262
+  %.pre161 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !260
   br label %1375
 
 1375:                                             ; preds = %._crit_edge, %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit
-  %1376 = phi i32 [ %.pre155, %._crit_edge ], [ %1367, %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit ]
-  %1377 = phi i32 [ %.pre154, %._crit_edge ], [ %1368, %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit ]
+  %1376 = phi i32 [ %.pre161, %._crit_edge ], [ %1367, %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit ]
+  %1377 = phi i32 [ %.pre160, %._crit_edge ], [ %1368, %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit ]
   %1378 = icmp slt i32 %1377, %1376
   br i1 %1378, label %_ZN4crow6loggerlsIA3_cEERS0_RKT_.exit, label %1379
 
@@ -63629,13 +63636,13 @@ _ZN4crow6loggerlsIA20_cEERS0_RKT_.exit:           ; preds = %._ZN4crow6loggerlsI
           to label %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge unwind label %1396
 
 ._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge: ; preds = %1379
-  %.pre156 = load i32, ptr %1362, align 8, !tbaa !262
-  %.pre157 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !260
+  %.pre162 = load i32, ptr %1362, align 8, !tbaa !262
+  %.pre163 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !260
   br label %_ZN4crow6loggerlsIA3_cEERS0_RKT_.exit
 
 _ZN4crow6loggerlsIA3_cEERS0_RKT_.exit:            ; preds = %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge, %1375
-  %1381 = phi i32 [ %.pre157, %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge ], [ %1376, %1375 ]
-  %1382 = phi i32 [ %.pre156, %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge ], [ %1377, %1375 ]
+  %1381 = phi i32 [ %.pre163, %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge ], [ %1376, %1375 ]
+  %1382 = phi i32 [ %.pre162, %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge ], [ %1377, %1375 ]
   %1383 = icmp slt i32 %1382, %1381
   br i1 %1383, label %1389, label %1384
 

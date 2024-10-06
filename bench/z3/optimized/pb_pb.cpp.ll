@@ -631,18 +631,19 @@ entry:
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_wlits.i = getelementptr inbounds i8, ptr %this, i64 76
+  %2 = getelementptr i8, ptr %this, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %second = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i, i64 0, i64 %indvars.iv, i32 1
+  %second.idx = shl nuw nsw i64 %indvars.iv, 3
+  %second = getelementptr i8, ptr %2, i64 %second.idx
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %second, align 8
   tail call void @_ZN2pb10constraint15unwatch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %agg.tmp.sroa.0.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = load i32, ptr %m_num_watch.i, align 4
-  %3 = zext i32 %2 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %3
+  %3 = load i32, ptr %m_num_watch.i, align 4
+  %4 = zext i32 %3 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
@@ -720,7 +721,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %slack1.087 = phi i32 [ 0, %for.body.lr.ph ], [ %slack1.2, %for.inc ]
   %num_watch.086 = phi i32 [ 0, %for.body.lr.ph ], [ %num_watch.2, %for.inc ]
   %j.085 = phi i32 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
-  %second = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i, i64 0, i64 %indvars.iv, i32 1
+  %second.idx = shl nuw nsw i64 %indvars.iv, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %m_wlits.i, i64 %second.offs
   %agg.tmp28.sroa.0.0.copyload = load i32, ptr %second, align 8
   %vtable31 = load ptr, ptr %s, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 24
@@ -784,7 +787,7 @@ for.cond94.preheader:                             ; preds = %for.end
   br i1 %cmp9597.not, label %for.end103, label %for.body96.lr.ph
 
 for.body96.lr.ph:                                 ; preds = %for.cond94.preheader
-  %m_wlits.i76 = getelementptr inbounds i8, ptr %this, i64 76
+  %13 = getelementptr i8, ptr %this, i64 80
   %wide.trip.count109 = zext i32 %num_watch.2 to i64
   br label %for.body96
 
@@ -792,12 +795,14 @@ if.then52:                                        ; preds = %for.end.thread, %fo
   %j.0.lcssa121 = phi i32 [ 0, %for.end.thread ], [ %j.1, %for.end ]
   %m_wlits.i67 = getelementptr inbounds i8, ptr %this, i64 76
   %idxprom.i68 = zext i32 %j.0.lcssa121 to i64
-  %second54 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i67, i64 0, i64 %idxprom.i68, i32 1
+  %second54.idx = shl nuw nsw i64 %idxprom.i68, 3
+  %second54.offs = or disjoint i64 %second54.idx, 4
+  %second54 = getelementptr inbounds i8, ptr %m_wlits.i67, i64 %second54.offs
   %lit.sroa.0.0.copyload = load i32, ptr %second54, align 8
   %vtable57 = load ptr, ptr %s, align 8
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 24
-  %13 = load ptr, ptr %vfn58, align 8
-  %call59 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %lit.sroa.0.0.copyload)
+  %14 = load ptr, ptr %vfn58, align 8
+  %call59 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %lit.sroa.0.0.copyload)
   %cmp60 = icmp eq i32 %call59, -1
   br i1 %cmp60, label %for.cond65.preheader, label %if.then61
 
@@ -807,7 +812,7 @@ for.cond65.preheader:                             ; preds = %if.then52
   br i1 %cmp6693, label %for.body67.preheader, label %for.end87
 
 for.body67.preheader:                             ; preds = %for.cond65.preheader
-  %14 = zext i32 %i63.092 to i64
+  %15 = zext i32 %i63.092 to i64
   br label %for.body67
 
 if.then61:                                        ; preds = %if.then52
@@ -816,18 +821,20 @@ if.then61:                                        ; preds = %if.then52
   unreachable
 
 for.body67:                                       ; preds = %for.body67.preheader, %for.inc85
-  %indvars.iv102 = phi i64 [ %14, %for.body67.preheader ], [ %indvars.iv.next103, %for.inc85 ]
+  %indvars.iv102 = phi i64 [ %15, %for.body67.preheader ], [ %indvars.iv.next103, %for.inc85 ]
   %lit.sroa.0.094 = phi i32 [ %lit.sroa.0.0.copyload, %for.body67.preheader ], [ %lit.sroa.0.1, %for.inc85 ]
   %vtable70 = load ptr, ptr %s, align 8
   %vfn71 = getelementptr inbounds i8, ptr %vtable70, i64 40
-  %15 = load ptr, ptr %vfn71, align 8
-  %call72 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %lit.sroa.0.094)
-  %second75 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i67, i64 0, i64 %indvars.iv102, i32 1
+  %16 = load ptr, ptr %vfn71, align 8
+  %call72 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %lit.sroa.0.094)
+  %second75.idx = shl nuw nsw i64 %indvars.iv102, 3
+  %second75.offs = or disjoint i64 %second75.idx, 4
+  %second75 = getelementptr inbounds i8, ptr %m_wlits.i67, i64 %second75.offs
   %agg.tmp73.sroa.0.0.copyload = load i32, ptr %second75, align 8
   %vtable77 = load ptr, ptr %s, align 8
   %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 40
-  %16 = load ptr, ptr %vfn78, align 8
-  %call79 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %agg.tmp73.sroa.0.0.copyload)
+  %17 = load ptr, ptr %vfn78, align 8
+  %call79 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %agg.tmp73.sroa.0.0.copyload)
   %cmp80 = icmp ult i32 %call72, %call79
   br i1 %cmp80, label %if.then81, label %for.inc85
 
@@ -846,13 +853,14 @@ for.end87:                                        ; preds = %for.inc85, %for.con
   %lit.sroa.0.0.lcssa = phi i32 [ %lit.sroa.0.0.copyload, %for.cond65.preheader ], [ %lit.sroa.0.1, %for.inc85 ]
   %vtable90 = load ptr, ptr %s, align 8
   %vfn91 = getelementptr inbounds i8, ptr %vtable90, i64 112
-  %17 = load ptr, ptr %vfn91, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 %lit.sroa.0.0.lcssa)
+  %18 = load ptr, ptr %vfn91, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 %lit.sroa.0.0.lcssa)
   br label %return
 
 for.body96:                                       ; preds = %for.body96.lr.ph, %for.body96
   %indvars.iv106 = phi i64 [ 0, %for.body96.lr.ph ], [ %indvars.iv.next107, %for.body96 ]
-  %second99 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i76, i64 0, i64 %indvars.iv106, i32 1
+  %second99.idx = shl nuw nsw i64 %indvars.iv106, 3
+  %second99 = getelementptr i8, ptr %13, i64 %second99.idx
   %agg.tmp97.sroa.0.0.copyload = load i32, ptr %second99, align 8
   tail call void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 %agg.tmp97.sroa.0.0.copyload)
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
@@ -872,18 +880,19 @@ for.end103:                                       ; preds = %for.body96, %for.co
   br i1 %or.cond, label %for.body110.lr.ph, label %return
 
 for.body110.lr.ph:                                ; preds = %for.end103
-  %m_wlits.i79 = getelementptr inbounds i8, ptr %this, i64 76
+  %19 = getelementptr i8, ptr %this, i64 80
   %wide.trip.count114 = zext i32 %j.1 to i64
   br label %for.body110
 
 for.body110:                                      ; preds = %for.body110.lr.ph, %for.body110
   %indvars.iv111 = phi i64 [ 0, %for.body110.lr.ph ], [ %indvars.iv.next112, %for.body110 ]
-  %second113 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i79, i64 0, i64 %indvars.iv111, i32 1
+  %second113.idx = shl nuw nsw i64 %indvars.iv111, 3
+  %second113 = getelementptr i8, ptr %19, i64 %second113.idx
   %agg.tmp111.sroa.0.0.copyload = load i32, ptr %second113, align 8
   %vtable115 = load ptr, ptr %s, align 8
   %vfn116 = getelementptr inbounds i8, ptr %vtable115, i64 104
-  %18 = load ptr, ptr %vfn116, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 %agg.tmp111.sroa.0.0.copyload)
+  %20 = load ptr, ptr %vfn116, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 %agg.tmp111.sroa.0.0.copyload)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
   br i1 %exitcond115.not, label %return, label %for.body110, !llvm.loop !14
@@ -1635,9 +1644,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i32 @_ZNK2pb3pbc7get_litEj(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %i) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_wlits = getelementptr inbounds i8, ptr %this, i64 76
   %idxprom = zext i32 %i to i64
-  %second = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %idxprom, i32 1
+  %second.idx = shl nuw nsw i64 %idxprom, 3
+  %0 = getelementptr i8, ptr %this, i64 80
+  %second = getelementptr i8, ptr %0, i64 %second.idx
   %retval.sroa.0.0.copyload = load i32, ptr %second, align 8
   ret i32 %retval.sroa.0.0.copyload
 }
@@ -1645,9 +1655,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2pb3pbc7set_litEjN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %i, i32 %l.coerce) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_wlits = getelementptr inbounds i8, ptr %this, i64 76
   %idxprom = zext i32 %i to i64
-  %second = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %idxprom, i32 1
+  %second.idx = shl nuw nsw i64 %idxprom, 3
+  %0 = getelementptr i8, ptr %this, i64 80
+  %second = getelementptr i8, ptr %0, i64 %second.idx
   store i32 %l.coerce, ptr %second, align 8
   ret void
 }

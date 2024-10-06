@@ -1189,13 +1189,14 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
   %10 = load i8, ptr %second, align 4
   %idxprom = zext i8 %10 to i64
-  %last_event_time_usec = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom, i32 1
-  %11 = load i64, ptr %last_event_time_usec, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %11, i64 %now_in_usec)
+  %last_event_time_usec.idx = mul nuw nsw i64 %idxprom, 88
+  %11 = getelementptr inbounds i8, ptr %this, i64 96
+  %last_event_time_usec = getelementptr i8, ptr %11, i64 %last_event_time_usec.idx
+  %12 = load i64, ptr %last_event_time_usec, align 8
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %12, i64 %now_in_usec)
   store i64 %.sroa.speculated, ptr %last_event_time_usec, align 8
   br label %return
 
@@ -1301,16 +1302,17 @@ if.end:                                           ; preds = %for.cond.i.i.i.i, %
   br i1 %cmp16.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %11 = getelementptr inbounds i8, ptr %this, i64 96
   %wide.trip.count = zext i8 %10 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %last_event_time_usec.017 = phi i64 [ 0, %for.body.lr.ph ], [ %.sroa.speculated, %for.body ]
-  %last_event_time_usec22 = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %indvars.iv, i32 1
-  %11 = load i64, ptr %last_event_time_usec22, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %last_event_time_usec.017, i64 %11)
+  %last_event_time_usec22.idx = mul nuw nsw i64 %indvars.iv, 88
+  %last_event_time_usec22 = getelementptr i8, ptr %11, i64 %last_event_time_usec22.idx
+  %12 = load i64, ptr %last_event_time_usec22, align 8
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %last_event_time_usec.017, i64 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !56

@@ -1528,13 +1528,13 @@ if.end72.i:                                       ; preds = %if.end61.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end72.i
   %regions.i = getelementptr inbounds i8, ptr %msg_reply.i, i64 20
-  %regions103.i = getelementptr inbounds i8, ptr %msg.i, i64 20
+  %31 = getelementptr inbounds i8, ptr %msg.i, i64 36
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %31 = phi i32 [ %30, %for.body.lr.ph.i ], [ %43, %for.inc.i ]
-  %32 = phi ptr [ %29, %for.body.lr.ph.i ], [ %44, %for.inc.i ]
+  %32 = phi i32 [ %30, %for.body.lr.ph.i ], [ %44, %for.inc.i ]
+  %33 = phi ptr [ %29, %for.body.lr.ph.i ], [ %45, %for.inc.i ]
   %msg_i.04.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %msg_i.1.i, %for.inc.i ]
   %region_i.02.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc108.i, %for.inc.i ]
   %conv78.i = sext i32 %msg_i.04.i to i64
@@ -1543,50 +1543,51 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %arrayidx81.i = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions.i, i64 0, i64 %conv78.i
-  %33 = load i64, ptr %arrayidx81.i, align 4
-  %regions83.i = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = load i64, ptr %arrayidx81.i, align 4
+  %regions83.i = getelementptr inbounds i8, ptr %33, i64 8
   %idxprom84.i = sext i32 %region_i.02.i to i64
   %arrayidx85.i = getelementptr [0 x %struct.vhost_memory_region], ptr %regions83.i, i64 0, i64 %idxprom84.i
-  %34 = load i64, ptr %arrayidx85.i, align 8
-  %cmp87.i = icmp eq i64 %33, %34
+  %35 = load i64, ptr %arrayidx85.i, align 8
+  %cmp87.i = icmp eq i64 %34, %35
   br i1 %cmp87.i, label %if.then89.i, label %for.inc.i
 
 if.then89.i:                                      ; preds = %land.lhs.true.i
   %userspace_addr.i = getelementptr inbounds i8, ptr %arrayidx81.i, i64 16
-  %35 = load i64, ptr %userspace_addr.i, align 4
+  %36 = load i64, ptr %userspace_addr.i, align 4
   %arrayidx96.i = getelementptr [512 x i64], ptr %postcopy_client_bases.i, i64 0, i64 %idxprom84.i
-  store i64 %35, ptr %arrayidx96.i, align 8
-  %userspace_addr106.i = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions103.i, i64 0, i64 %conv78.i, i32 2
-  %36 = load i64, ptr %userspace_addr106.i, align 1
+  store i64 %36, ptr %arrayidx96.i, align 8
+  %userspace_addr106.idx.i = shl nsw i64 %conv78.i, 5
+  %userspace_addr106.i = getelementptr i8, ptr %31, i64 %userspace_addr106.idx.i
+  %37 = load i64, ptr %userspace_addr106.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %37 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %37, 0
-  %38 = load i16, ptr @_TRACE_VHOST_USER_SET_MEM_TABLE_POSTCOPY_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %38, 0
+  %38 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %38, 0
+  %39 = load i16, ptr @_TRACE_VHOST_USER_SET_MEM_TABLE_POSTCOPY_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %39, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_vhost_user_set_mem_table_postcopy.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then89.i
-  %39 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %39, 32768
+  %40 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %40, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_vhost_user_set_mem_table_postcopy.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %40 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %40 to i1
+  %41 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %41 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = call i32 @qemu_get_thread_id() #14
-  %41 = load i64, ptr %_now.i.i.i, align 8
-  %42 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i.i, i64 noundef %41, i64 noundef %42, i64 noundef %35, i64 noundef %36, i32 noundef %msg_i.04.i, i32 noundef %region_i.02.i) #14
+  %42 = load i64, ptr %_now.i.i.i, align 8
+  %43 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i.i, i64 noundef %42, i64 noundef %43, i64 noundef %36, i64 noundef %37, i32 noundef %msg_i.04.i, i32 noundef %region_i.02.i) #14
   br label %trace_vhost_user_set_mem_table_postcopy.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i64 noundef %35, i64 noundef %36, i32 noundef %msg_i.04.i, i32 noundef %region_i.02.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i64 noundef %36, i64 noundef %37, i32 noundef %msg_i.04.i, i32 noundef %region_i.02.i) #14
   br label %trace_vhost_user_set_mem_table_postcopy.exit.i
 
 trace_vhost_user_set_mem_table_postcopy.exit.i:   ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then89.i
@@ -1597,11 +1598,11 @@ trace_vhost_user_set_mem_table_postcopy.exit.i:   ; preds = %if.else.i.i.i, %if.
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %trace_vhost_user_set_mem_table_postcopy.exit.i, %land.lhs.true.i, %for.body.i
-  %43 = phi i32 [ %.pre5.i, %trace_vhost_user_set_mem_table_postcopy.exit.i ], [ %31, %land.lhs.true.i ], [ %31, %for.body.i ]
-  %44 = phi ptr [ %.pre.i, %trace_vhost_user_set_mem_table_postcopy.exit.i ], [ %32, %land.lhs.true.i ], [ %32, %for.body.i ]
+  %44 = phi i32 [ %.pre5.i, %trace_vhost_user_set_mem_table_postcopy.exit.i ], [ %32, %land.lhs.true.i ], [ %32, %for.body.i ]
+  %45 = phi ptr [ %.pre.i, %trace_vhost_user_set_mem_table_postcopy.exit.i ], [ %33, %land.lhs.true.i ], [ %33, %for.body.i ]
   %msg_i.1.i = phi i32 [ %inc.i, %trace_vhost_user_set_mem_table_postcopy.exit.i ], [ %msg_i.04.i, %land.lhs.true.i ], [ %msg_i.04.i, %for.body.i ]
   %inc108.i = add nuw i32 %region_i.02.i, 1
-  %cmp76.i = icmp ult i32 %inc108.i, %43
+  %cmp76.i = icmp ult i32 %inc108.i, %44
   br i1 %cmp76.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end72.i
@@ -1635,9 +1636,9 @@ vhost_user_set_mem_table_postcopy.exit:           ; preds = %if.then32.i, %if.el
 
 if.end:                                           ; preds = %land.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1084) %msg, i8 0, i64 1084, i1 false)
-  %45 = getelementptr inbounds i8, ptr %msg, i64 4
+  %46 = getelementptr inbounds i8, ptr %msg, i64 4
   %spec.select = select i1 %tobool.i, i32 9, i32 1
-  store i32 %spec.select, ptr %45, align 4
+  store i32 %spec.select, ptr %46, align 4
   br i1 %tobool.i20.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %land.end.thread, %if.end
@@ -1647,15 +1648,15 @@ if.then14:                                        ; preds = %land.end.thread, %i
   br i1 %cmp, label %return, label %if.end33
 
 if.else:                                          ; preds = %land.end.thread, %if.end
-  %46 = phi ptr [ %3, %land.end.thread ], [ %45, %if.end ]
+  %47 = phi ptr [ %3, %land.end.thread ], [ %46, %if.end ]
   %tobool.i3538 = phi i1 [ %tobool.i32, %land.end.thread ], [ %tobool.i, %if.end ]
   %call19 = call fastcc i32 @vhost_user_fill_set_mem_table_msg(ptr noundef nonnull %0, ptr noundef nonnull %dev, ptr noundef %msg, ptr noundef %fds, ptr noundef %fd_num, i1 noundef zeroext false)
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.else
-  %47 = load i64, ptr %fd_num, align 8
-  %conv = trunc i64 %47 to i32
+  %48 = load i64, ptr %fd_num, align 8
+  %conv = trunc i64 %48 to i32
   %call24 = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef %msg, ptr noundef nonnull %fds, i32 noundef %conv)
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %return, label %if.end28
@@ -1665,34 +1666,34 @@ if.end28:                                         ; preds = %if.end22
 
 if.then30:                                        ; preds = %if.end28
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i21)
-  %48 = load i32, ptr %46, align 1
-  %and.i22 = and i32 %48, 8
+  %49 = load i32, ptr %47, align 1
+  %and.i22 = and i32 %49, 8
   %cmp.i23 = icmp eq i32 %and.i22, 0
   br i1 %cmp.i23, label %process_message_reply.exit, label %if.end.i24
 
 if.end.i24:                                       ; preds = %if.then30
   %dev.val.i25 = load ptr, ptr %opaque, align 8
-  %49 = getelementptr i8, ptr %dev.val.i25, i64 8
-  %dev.val.val.i26 = load ptr, ptr %49, align 8
+  %50 = getelementptr i8, ptr %dev.val.i25, i64 8
+  %dev.val.val.i26 = load ptr, ptr %50, align 8
   %dev.val.val.val.i27 = load ptr, ptr %dev.val.val.i26, align 8
   %call.i28 = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i27, ptr noundef %msg_reply.i21)
   %cmp1.i = icmp slt i32 %call.i28, 0
   br i1 %cmp1.i, label %process_message_reply.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i24
-  %50 = load i32, ptr %msg_reply.i21, align 4
-  %51 = load i32, ptr %msg, align 4
-  %cmp7.not.i = icmp eq i32 %50, %51
+  %51 = load i32, ptr %msg_reply.i21, align 4
+  %52 = load i32, ptr %msg, align 4
+  %cmp7.not.i = icmp eq i32 %51, %52
   br i1 %cmp7.not.i, label %if.end13.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end3.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %51, i32 noundef %50) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %52, i32 noundef %51) #14
   br label %process_message_reply.exit
 
 if.end13.i:                                       ; preds = %if.end3.i
   %payload.i = getelementptr inbounds i8, ptr %msg_reply.i21, i64 12
-  %52 = load i64, ptr %payload.i, align 4
-  %tobool.not.i = icmp eq i64 %52, 0
+  %53 = load i64, ptr %payload.i, align 4
+  %tobool.not.i = icmp eq i64 %53, 0
   %cond.i = select i1 %tobool.not.i, i32 0, i32 -5
   br label %process_message_reply.exit
 
@@ -4385,87 +4386,88 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.065 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr [512 x i64], ptr %postcopy_client_bases, i64 0, i64 %conv66
   %16 = load i64, ptr %arrayidx, align 8
-  %regions = getelementptr inbounds i8, ptr %15, i64 8
-  %memory_size = getelementptr [0 x %struct.vhost_memory_region], ptr %regions, i64 0, i64 %conv66, i32 1
-  %17 = load i64, ptr %memory_size, align 8
+  %memory_size.idx = shl nuw nsw i64 %conv66, 5
+  %17 = getelementptr i8, ptr %15, i64 16
+  %memory_size = getelementptr i8, ptr %17, i64 %memory_size.idx
+  %18 = load i64, ptr %memory_size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i32)
-  %18 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i33 = icmp ne i32 %18, 0
-  %19 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_FAULT_HANDLER_LOOP_DSTATE, align 2
-  %tobool4.i.i34 = icmp ne i16 %19, 0
+  %19 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i33 = icmp ne i32 %19, 0
+  %20 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_FAULT_HANDLER_LOOP_DSTATE, align 2
+  %tobool4.i.i34 = icmp ne i16 %20, 0
   %or.cond.i.i35 = select i1 %tobool.i.i33, i1 %tobool4.i.i34, i1 false
   br i1 %or.cond.i.i35, label %land.lhs.true5.i.i36, label %trace_vhost_user_postcopy_fault_handler_loop.exit
 
 land.lhs.true5.i.i36:                             ; preds = %for.body
-  %20 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i37 = and i32 %20, 32768
+  %21 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i37 = and i32 %21, 32768
   %cmp.i.not.i.i38 = icmp eq i32 %and.i.i.i37, 0
   br i1 %cmp.i.not.i.i38, label %trace_vhost_user_postcopy_fault_handler_loop.exit, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %land.lhs.true5.i.i36
-  %21 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i40 = trunc i8 %21 to i1
+  %22 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i40 = trunc i8 %22 to i1
   br i1 %tobool7.i.i40, label %if.then8.i.i42, label %if.else.i.i41
 
 if.then8.i.i42:                                   ; preds = %if.then.i.i39
   %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #14
   %call10.i.i44 = tail call i32 @qemu_get_thread_id() #14
-  %22 = load i64, ptr %_now.i.i32, align 8
-  %23 = load i64, ptr %tv_usec.i.i45, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i44, i64 noundef %22, i64 noundef %23, i32 noundef %i.065, i64 noundef %16, i64 noundef %17) #14
+  %23 = load i64, ptr %_now.i.i32, align 8
+  %24 = load i64, ptr %tv_usec.i.i45, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i44, i64 noundef %23, i64 noundef %24, i32 noundef %i.065, i64 noundef %16, i64 noundef %18) #14
   br label %trace_vhost_user_postcopy_fault_handler_loop.exit
 
 if.else.i.i41:                                    ; preds = %if.then.i.i39
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %i.065, i64 noundef %16, i64 noundef %17) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %i.065, i64 noundef %16, i64 noundef %18) #14
   br label %trace_vhost_user_postcopy_fault_handler_loop.exit
 
 trace_vhost_user_postcopy_fault_handler_loop.exit: ; preds = %for.body, %land.lhs.true5.i.i36, %if.then8.i.i42, %if.else.i.i41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i32)
-  %24 = load i64, ptr %arrayidx, align 8
-  %cmp13.not = icmp ult i64 %2, %24
+  %25 = load i64, ptr %arrayidx, align 8
+  %cmp13.not = icmp ult i64 %2, %25
   %.pre = load ptr, ptr %mem, align 8
   br i1 %cmp13.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %trace_vhost_user_postcopy_fault_handler_loop.exit
-  %sub = sub nuw i64 %2, %24
-  %regions19 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %memory_size22 = getelementptr [0 x %struct.vhost_memory_region], ptr %regions19, i64 0, i64 %conv66, i32 1
-  %25 = load i64, ptr %memory_size22, align 8
-  %cmp23 = icmp ult i64 %sub, %25
+  %sub = sub nuw i64 %2, %25
+  %26 = getelementptr i8, ptr %.pre, i64 16
+  %memory_size22 = getelementptr i8, ptr %26, i64 %memory_size.idx
+  %27 = load i64, ptr %memory_size22, align 8
+  %cmp23 = icmp ult i64 %sub, %27
   br i1 %cmp23, label %if.then25, label %for.inc
 
 if.then25:                                        ; preds = %if.then
   %region_rb_offset = getelementptr inbounds i8, ptr %1, i64 4208
-  %26 = load ptr, ptr %region_rb_offset, align 8
-  %arrayidx27 = getelementptr i64, ptr %26, i64 %conv66
-  %27 = load i64, ptr %arrayidx27, align 8
-  %add = add i64 %27, %sub
+  %28 = load ptr, ptr %region_rb_offset, align 8
+  %arrayidx27 = getelementptr i64, ptr %28, i64 %conv66
+  %29 = load i64, ptr %arrayidx27, align 8
+  %add = add i64 %29, %sub
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i46)
-  %28 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i47 = icmp ne i32 %28, 0
-  %29 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_FAULT_HANDLER_FOUND_DSTATE, align 2
-  %tobool4.i.i48 = icmp ne i16 %29, 0
+  %30 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i47 = icmp ne i32 %30, 0
+  %31 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_FAULT_HANDLER_FOUND_DSTATE, align 2
+  %tobool4.i.i48 = icmp ne i16 %31, 0
   %or.cond.i.i49 = select i1 %tobool.i.i47, i1 %tobool4.i.i48, i1 false
   br i1 %or.cond.i.i49, label %land.lhs.true5.i.i50, label %trace_vhost_user_postcopy_fault_handler_found.exit
 
 land.lhs.true5.i.i50:                             ; preds = %if.then25
-  %30 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i51 = and i32 %30, 32768
+  %32 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i51 = and i32 %32, 32768
   %cmp.i.not.i.i52 = icmp eq i32 %and.i.i.i51, 0
   br i1 %cmp.i.not.i.i52, label %trace_vhost_user_postcopy_fault_handler_found.exit, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %land.lhs.true5.i.i50
-  %31 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i54 = trunc i8 %31 to i1
+  %33 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i54 = trunc i8 %33 to i1
   br i1 %tobool7.i.i54, label %if.then8.i.i56, label %if.else.i.i55
 
 if.then8.i.i56:                                   ; preds = %if.then.i.i53
   %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #14
   %call10.i.i58 = tail call i32 @qemu_get_thread_id() #14
-  %32 = load i64, ptr %_now.i.i46, align 8
+  %34 = load i64, ptr %_now.i.i46, align 8
   %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i46, i64 8
-  %33 = load i64, ptr %tv_usec.i.i59, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i58, i64 noundef %32, i64 noundef %33, i32 noundef %i.065, i64 noundef %sub, i64 noundef %add) #14
+  %35 = load i64, ptr %tv_usec.i.i59, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i58, i64 noundef %34, i64 noundef %35, i32 noundef %i.065, i64 noundef %sub, i64 noundef %add) #14
   br label %trace_vhost_user_postcopy_fault_handler_found.exit
 
 if.else.i.i55:                                    ; preds = %if.then.i.i53
@@ -4475,19 +4477,19 @@ if.else.i.i55:                                    ; preds = %if.then.i.i53
 trace_vhost_user_postcopy_fault_handler_found.exit: ; preds = %if.then25, %land.lhs.true5.i.i50, %if.then8.i.i56, %if.else.i.i55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i46)
   %region_rb = getelementptr inbounds i8, ptr %1, i64 4200
-  %34 = load ptr, ptr %region_rb, align 8
-  %arrayidx29 = getelementptr ptr, ptr %34, i64 %conv66
-  %35 = load ptr, ptr %arrayidx29, align 8
-  %call = tail call i32 @postcopy_request_shared_page(ptr noundef %pcfd, ptr noundef %35, i64 noundef %2, i64 noundef %add) #14
+  %36 = load ptr, ptr %region_rb, align 8
+  %arrayidx29 = getelementptr ptr, ptr %36, i64 %conv66
+  %37 = load ptr, ptr %arrayidx29, align 8
+  %call = tail call i32 @postcopy_request_shared_page(ptr noundef %pcfd, ptr noundef %37, i64 noundef %2, i64 noundef %add) #14
   br label %return
 
 for.inc:                                          ; preds = %trace_vhost_user_postcopy_fault_handler_loop.exit, %if.then
   %inc = add i32 %i.065, 1
   %conv = sext i32 %inc to i64
-  %36 = load i32, ptr %.pre, align 8
-  %conv3 = zext i32 %36 to i64
-  %37 = load i64, ptr %region_rb_len, align 8
-  %cond = tail call i64 @llvm.umin.i64(i64 %37, i64 %conv3)
+  %38 = load i32, ptr %.pre, align 8
+  %conv3 = zext i32 %38 to i64
+  %39 = load i64, ptr %region_rb_len, align 8
+  %cond = tail call i64 @llvm.umin.i64(i64 %39, i64 %conv3)
   %cmp5 = icmp ugt i64 %cond, %conv
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !9
 
@@ -4563,63 +4565,64 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %region_rb = getelementptr inbounds i8, ptr %1, i64 4200
   %11 = load ptr, ptr %region_rb, align 8
   %region_rb_offset = getelementptr inbounds i8, ptr %1, i64 4208
-  %regions = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr i8, ptr %8, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %conv59 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
   %i.058 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr ptr, ptr %11, i64 %conv59
-  %12 = load ptr, ptr %arrayidx, align 8
-  %cmp5 = icmp eq ptr %12, %rb
+  %13 = load ptr, ptr %arrayidx, align 8
+  %cmp5 = icmp eq ptr %13, %rb
   br i1 %cmp5, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %13 = load ptr, ptr %region_rb_offset, align 8
-  %arrayidx8 = getelementptr i64, ptr %13, i64 %conv59
-  %14 = load i64, ptr %arrayidx8, align 8
-  %cmp9.not = icmp ult i64 %offset, %14
+  %14 = load ptr, ptr %region_rb_offset, align 8
+  %arrayidx8 = getelementptr i64, ptr %14, i64 %conv59
+  %15 = load i64, ptr %arrayidx8, align 8
+  %cmp9.not = icmp ult i64 %offset, %15
   br i1 %cmp9.not, label %for.inc, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %memory_size = getelementptr [0 x %struct.vhost_memory_region], ptr %regions, i64 0, i64 %conv59, i32 1
-  %15 = load i64, ptr %memory_size, align 8
-  %add = add i64 %15, %14
+  %memory_size.idx = shl nuw nsw i64 %conv59, 5
+  %memory_size = getelementptr i8, ptr %12, i64 %memory_size.idx
+  %16 = load i64, ptr %memory_size, align 8
+  %add = add i64 %16, %15
   %cmp18 = icmp ult i64 %offset, %add
   br i1 %cmp18, label %if.then20, label %for.inc
 
 if.then20:                                        ; preds = %land.lhs.true11
-  %sub = sub i64 %offset, %14
+  %sub = sub i64 %offset, %15
   %postcopy_client_bases = getelementptr inbounds i8, ptr %1, i64 96
   %arrayidx25 = getelementptr [512 x i64], ptr %postcopy_client_bases, i64 0, i64 %conv59
-  %16 = load i64, ptr %arrayidx25, align 8
-  %add26 = add i64 %16, %sub
+  %17 = load i64, ptr %arrayidx25, align 8
+  %add26 = add i64 %17, %sub
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i28)
-  %17 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i29 = icmp ne i32 %17, 0
-  %18 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_WAKER_FOUND_DSTATE, align 2
-  %tobool4.i.i30 = icmp ne i16 %18, 0
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i29 = icmp ne i32 %18, 0
+  %19 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_WAKER_FOUND_DSTATE, align 2
+  %tobool4.i.i30 = icmp ne i16 %19, 0
   %or.cond.i.i31 = select i1 %tobool.i.i29, i1 %tobool4.i.i30, i1 false
   br i1 %or.cond.i.i31, label %land.lhs.true5.i.i32, label %trace_vhost_user_postcopy_waker_found.exit
 
 land.lhs.true5.i.i32:                             ; preds = %if.then20
-  %19 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i33 = and i32 %19, 32768
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i33 = and i32 %20, 32768
   %cmp.i.not.i.i34 = icmp eq i32 %and.i.i.i33, 0
   br i1 %cmp.i.not.i.i34, label %trace_vhost_user_postcopy_waker_found.exit, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %land.lhs.true5.i.i32
-  %20 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i36 = trunc i8 %20 to i1
+  %21 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i36 = trunc i8 %21 to i1
   br i1 %tobool7.i.i36, label %if.then8.i.i38, label %if.else.i.i37
 
 if.then8.i.i38:                                   ; preds = %if.then.i.i35
   %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28, ptr noundef null) #14
   %call10.i.i40 = tail call i32 @qemu_get_thread_id() #14
-  %21 = load i64, ptr %_now.i.i28, align 8
+  %22 = load i64, ptr %_now.i.i28, align 8
   %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i28, i64 8
-  %22 = load i64, ptr %tv_usec.i.i41, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i40, i64 noundef %21, i64 noundef %22, i64 noundef %add26) #14
+  %23 = load i64, ptr %tv_usec.i.i41, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i40, i64 noundef %22, i64 noundef %23, i64 noundef %add26) #14
   br label %trace_vhost_user_postcopy_waker_found.exit
 
 if.else.i.i37:                                    ; preds = %if.then.i.i35
@@ -4640,31 +4643,31 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call29 = tail call ptr @qemu_ram_get_idstr(ptr noundef %rb) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i42)
-  %23 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i43 = icmp ne i32 %23, 0
-  %24 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_WAKER_NOMATCH_DSTATE, align 2
-  %tobool4.i.i44 = icmp ne i16 %24, 0
+  %24 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i43 = icmp ne i32 %24, 0
+  %25 = load i16, ptr @_TRACE_VHOST_USER_POSTCOPY_WAKER_NOMATCH_DSTATE, align 2
+  %tobool4.i.i44 = icmp ne i16 %25, 0
   %or.cond.i.i45 = select i1 %tobool.i.i43, i1 %tobool4.i.i44, i1 false
   br i1 %or.cond.i.i45, label %land.lhs.true5.i.i46, label %trace_vhost_user_postcopy_waker_nomatch.exit
 
 land.lhs.true5.i.i46:                             ; preds = %for.end
-  %25 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i47 = and i32 %25, 32768
+  %26 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i47 = and i32 %26, 32768
   %cmp.i.not.i.i48 = icmp eq i32 %and.i.i.i47, 0
   br i1 %cmp.i.not.i.i48, label %trace_vhost_user_postcopy_waker_nomatch.exit, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %land.lhs.true5.i.i46
-  %26 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i50 = trunc i8 %26 to i1
+  %27 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i50 = trunc i8 %27 to i1
   br i1 %tobool7.i.i50, label %if.then8.i.i52, label %if.else.i.i51
 
 if.then8.i.i52:                                   ; preds = %if.then.i.i49
   %call9.i.i53 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i42, ptr noundef null) #14
   %call10.i.i54 = tail call i32 @qemu_get_thread_id() #14
-  %27 = load i64, ptr %_now.i.i42, align 8
+  %28 = load i64, ptr %_now.i.i42, align 8
   %tv_usec.i.i55 = getelementptr inbounds i8, ptr %_now.i.i42, i64 8
-  %28 = load i64, ptr %tv_usec.i.i55, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i54, i64 noundef %27, i64 noundef %28, ptr noundef %call29, i64 noundef %offset) #14
+  %29 = load i64, ptr %tv_usec.i.i55, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i54, i64 noundef %28, i64 noundef %29, ptr noundef %call29, i64 noundef %offset) #14
   br label %trace_vhost_user_postcopy_waker_nomatch.exit
 
 if.else.i.i51:                                    ; preds = %if.then.i.i49
@@ -5366,11 +5369,14 @@ if.end86.i:                                       ; preds = %if.then78.i, %if.el
   %arrayidx89.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i47, i64 0, i64 %idxprom88.i
   store i64 %125, ptr %arrayidx89.i, align 8
   %127 = load i64, ptr %userspace_addr.i53, align 8
-  %userspace_addr96.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i47, i64 0, i64 %idxprom88.i, i32 2
+  %userspace_addr96.idx.i = shl nsw i64 %idxprom88.i, 5
+  %userspace_addr96.offs.i = or disjoint i64 %userspace_addr96.idx.i, 16
+  %userspace_addr96.i = getelementptr i8, ptr %shadow_regions.i47, i64 %userspace_addr96.offs.i
   store i64 %127, ptr %userspace_addr96.i, align 8
   %memory_size97.i = getelementptr inbounds i8, ptr %77, i64 8
   %128 = load i64, ptr %memory_size97.i, align 8
-  %memory_size102.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i47, i64 0, i64 %idxprom88.i, i32 1
+  %memory_size102.offs.i = or disjoint i64 %userspace_addr96.idx.i, 8
+  %memory_size102.i = getelementptr i8, ptr %shadow_regions.i47, i64 %memory_size102.offs.i
   store i64 %128, ptr %memory_size102.i, align 8
   %inc.i59 = add i32 %126, 1
   store i32 %inc.i59, ptr %num_shadow_regions.i48, align 4

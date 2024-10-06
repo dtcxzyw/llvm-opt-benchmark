@@ -436,7 +436,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr i8, ptr %0, i64 110
   %23 = zext nneg i32 %.140 to i64
   br label %24
 
@@ -448,7 +448,8 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %24
-  %29 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %indvars.iv44, i32 8
+  %.idx = mul nuw nsw i64 %indvars.iv44, 104
+  %29 = getelementptr i8, ptr %22, i64 %.idx
   %30 = load i8, ptr %29, align 2
   %31 = trunc i8 %30 to i1
   br i1 %31, label %36, label %32
@@ -964,13 +965,14 @@ define dso_local i32 @hashTupleDesc(ptr nocapture noundef readonly %0) local_unn
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr i8, ptr %0, i64 92
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.0910 = phi i32 [ %13, %.lr.ph ], [ %26, %17 ]
-  %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv, i32 2
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %18 = getelementptr i8, ptr %16, i64 %.idx
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @hash_bytes_uint32(i32 noundef %19) #11
   %21 = shl i32 %.0910, 6
@@ -1196,10 +1198,10 @@ define dso_local void @TupleDescInitBuiltinEntry(ptr noundef %0, i16 noundef sig
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @TupleDescInitEntryCollation(ptr nocapture noundef writeonly %0, i16 noundef signext %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = sext i16 %1 to i64
-  %6 = add nsw i64 %5, -1
-  %7 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %4, i64 0, i64 %6, i32 20
+  %4 = sext i16 %1 to i64
+  %5 = mul nsw i64 %4, 104
+  %6 = getelementptr i8, ptr %0, i64 20
+  %7 = getelementptr i8, ptr %6, i64 %5
   store i32 %2, ptr %7, align 4
   ret void
 }
@@ -1240,7 +1242,7 @@ list_length.exit:                                 ; preds = %4, %5
   %22 = getelementptr inbounds i8, ptr %2, i64 16
   %23 = getelementptr inbounds i8, ptr %3, i64 4
   %24 = getelementptr inbounds i8, ptr %3, i64 16
-  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %25 = getelementptr i8, ptr %12, i64 20
   br label %26
 
 26:                                               ; preds = %67, %list_length.exit
@@ -1325,8 +1327,8 @@ list_length.exit:                                 ; preds = %4, %5
   %indvars = trunc i32 %74 to i16
   tail call void @TupleDescInitEntry(ptr noundef nonnull %12, i16 noundef signext %indvars, ptr noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef 0)
   %75 = sext i16 %indvars to i64
-  %76 = add nsw i64 %75, -1
-  %77 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %25, i64 0, i64 %76, i32 20
+  %76 = mul nsw i64 %75, 104
+  %77 = getelementptr i8, ptr %25, i64 %76
   store i32 %73, ptr %77, align 4
   br label %26, !llvm.loop !20
 

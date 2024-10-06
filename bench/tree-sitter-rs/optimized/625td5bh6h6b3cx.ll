@@ -5006,7 +5006,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
   %28 = add nuw nsw i64 %11, 1
   %29 = icmp eq i64 %28, 31
-  br i1 %29, label %.preheader, label %31
+  br i1 %29, label %35, label %31
 
 30:                                               ; preds = %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", %8
   ret void
@@ -5015,55 +5015,65 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
   %32 = atomicrmw or ptr %15, i64 2 acq_rel, align 8
   %33 = and i64 %32, 4
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %45
+  br i1 %34, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %48
 
-.preheader:                                       ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h6a33a637cef1163fE.exit", %44
-  %.sroa.01.010.i = phi i64 [ %35, %44 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h6a33a637cef1163fE.exit" ]
-  %35 = add nuw nsw i64 %.sroa.01.010.i, 1
-  %36 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %12, i64 %.sroa.01.010.i, i32 1
-  %37 = load atomic i64, ptr %36 acquire, align 8
-  %38 = and i64 %37, 2
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %44
+35:                                               ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h6a33a637cef1163fE.exit"
+  %36 = getelementptr i8, ptr %6, i64 56
+  br label %37
 
-40:                                               ; preds = %.preheader
-  %41 = atomicrmw or ptr %36, i64 4 acq_rel, align 8
-  %42 = and i64 %41, 2
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %44
+37:                                               ; preds = %47, %35
+  %.sroa.01.010.i = phi i64 [ 0, %35 ], [ %38, %47 ]
+  %38 = add nuw nsw i64 %.sroa.01.010.i, 1
+  %.idx.i = mul nuw nsw i64 %.sroa.01.010.i, 56
+  %39 = getelementptr i8, ptr %36, i64 %.idx.i
+  %40 = load atomic i64, ptr %39 acquire, align 8
+  %41 = and i64 %40, 2
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %47
 
-44:                                               ; preds = %40, %.preheader
-  %exitcond.not.i = icmp eq i64 %35, 30
-  br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %.preheader
+43:                                               ; preds = %37
+  %44 = atomicrmw or ptr %39, i64 4 acq_rel, align 8
+  %45 = and i64 %44, 2
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %47
 
-45:                                               ; preds = %31
-  %46 = icmp ult i64 %11, 29
-  br i1 %46, label %.lr.ph.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split"
+47:                                               ; preds = %43, %37
+  %exitcond.not.i = icmp eq i64 %38, 30
+  br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %37
 
-.lr.ph.i6:                                        ; preds = %45, %56
-  %.sroa.01.010.i7 = phi i64 [ %47, %56 ], [ %28, %45 ]
-  %47 = add nuw nsw i64 %.sroa.01.010.i7, 1
-  %48 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %12, i64 %.sroa.01.010.i7, i32 1
-  %49 = load atomic i64, ptr %48 acquire, align 8
-  %50 = and i64 %49, 2
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %56
+48:                                               ; preds = %31
+  %49 = icmp ult i64 %11, 29
+  br i1 %49, label %.lr.ph.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split"
 
-52:                                               ; preds = %.lr.ph.i6
-  %53 = atomicrmw or ptr %48, i64 4 acq_rel, align 8
-  %54 = and i64 %53, 2
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %56
+.lr.ph.i6:                                        ; preds = %48
+  %50 = getelementptr i8, ptr %6, i64 56
+  br label %51
 
-56:                                               ; preds = %52, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %47, 30
-  br i1 %exitcond.not.i8, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %.lr.ph.i6
+51:                                               ; preds = %61, %.lr.ph.i6
+  %.sroa.01.010.i7 = phi i64 [ %28, %.lr.ph.i6 ], [ %52, %61 ]
+  %52 = add nuw nsw i64 %.sroa.01.010.i7, 1
+  %.idx.i8 = mul nuw nsw i64 %.sroa.01.010.i7, 56
+  %53 = getelementptr i8, ptr %50, i64 %.idx.i8
+  %54 = load atomic i64, ptr %53 acquire, align 8
+  %55 = and i64 %54, 2
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %57, label %61
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split": ; preds = %56, %44, %45
+57:                                               ; preds = %51
+  %58 = atomicrmw or ptr %53, i64 4 acq_rel, align 8
+  %59 = and i64 %58, 2
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit", label %61
+
+61:                                               ; preds = %57, %51
+  %exitcond.not.i9 = icmp eq i64 %52, 30
+  br i1 %exitcond.not.i9, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", label %51
+
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split": ; preds = %61, %47, %48
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 1744, i64 noundef 8) #22
   br label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit"
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit": ; preds = %52, %40, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", %31
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit": ; preds = %57, %43, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hd85856d577cd4b5cE.exit.sink.split", %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   br label %30
 }

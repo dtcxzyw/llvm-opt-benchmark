@@ -30,9 +30,9 @@ target triple = "x86_64-pc-linux-gnu"
 %class.constantTag = type { i8 }
 %class.ExceptionMark = type { ptr }
 %class.ResolvedIndyEntry = type { ptr, i16, i16, i16, i8, i8 }
+%class.ResolvedFieldEntry = type <{ ptr, i32, i16, i16, i8, i8, i8, i8, [4 x i8] }>
 %class.ResolvedMethodEntry = type { ptr, %union.anon.14, i16, i16, i8, i8, i8, i8 }
 %union.anon.14 = type { ptr }
-%class.ResolvedFieldEntry = type <{ ptr, i32, i16, i16, i8, i8, i8, i8, [4 x i8] }>
 %class.constantPoolHandle = type { ptr, ptr }
 %union.jvalue = type { i64 }
 %class.PerfTraceTimedEvent = type { %class.PerfTraceTime, ptr }
@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ResourceMarkImpl = type { ptr, %"class.ResourceArea::SavedState" }
 %"class.ResourceArea::SavedState" = type { ptr, ptr, ptr, i64 }
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz = comdat any
 
@@ -3535,8 +3534,9 @@ define hidden noundef zeroext i1 @_ZN12ConstantPool25has_appendix_at_if_loadedER
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %14, i64 %10, i32 5
+  %.idx6 = shl nsw i64 %10, 4
+  %14 = getelementptr i8, ptr %13, i64 23
+  %15 = getelementptr i8, ptr %14, i64 %.idx6
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 2
   %18 = icmp ne i8 %17, 0
@@ -3545,8 +3545,9 @@ define hidden noundef zeroext i1 @_ZN12ConstantPool25has_appendix_at_if_loadedER
 19:                                               ; preds = %8
   %20 = getelementptr inbounds i8, ptr %6, i64 56
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %22, i64 %10, i32 5
+  %.idx = mul nsw i64 %10, 24
+  %22 = getelementptr i8, ptr %21, i64 29
+  %23 = getelementptr i8, ptr %22, i64 %.idx
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 8
   %26 = icmp ne i8 %25, 0
@@ -3577,9 +3578,10 @@ define hidden noundef ptr @_ZN12ConstantPool21appendix_at_if_loadedERK18constant
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %18, i64 %19, i32 1
+  %18 = sext i32 %1 to i64
+  %.idx.i = shl nsw i64 %18, 4
+  %19 = getelementptr i8, ptr %17, i64 16
+  %20 = getelementptr i8, ptr %19, i64 %.idx.i
   %21 = load i16, ptr %20, align 8
   %22 = load i8, ptr @UseCompressedOops, align 1
   %23 = trunc i8 %22 to i1
@@ -3621,9 +3623,10 @@ define hidden noundef zeroext i1 @_ZN12ConstantPool32has_local_signature_at_if_l
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %6, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %13, i64 %14, i32 5
+  %13 = sext i32 %1 to i64
+  %.idx = mul nsw i64 %13, 24
+  %14 = getelementptr i8, ptr %12, i64 29
+  %15 = getelementptr i8, ptr %14, i64 %.idx
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 16
   %18 = icmp ne i8 %17, 0
@@ -3655,9 +3658,10 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %9, i64 %10, i32 2
+  %9 = sext i32 %1 to i64
+  %.idx.i = shl nsw i64 %9, 4
+  %10 = getelementptr i8, ptr %8, i64 18
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i
   br label %31
 
 12:                                               ; preds = %3, %3, %3, %3
@@ -3665,9 +3669,10 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %17, i64 %18, i32 3
+  %17 = sext i32 %1 to i64
+  %.idx6 = mul nsw i64 %17, 24
+  %18 = getelementptr i8, ptr %16, i64 22
+  %19 = getelementptr i8, ptr %18, i64 %.idx6
   br label %31
 
 20:                                               ; preds = %3, %3, %3, %3, %3, %3
@@ -3675,9 +3680,10 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %25, i64 %26, i32 2
+  %25 = sext i32 %1 to i64
+  %.idx = mul nsw i64 %25, 24
+  %26 = getelementptr i8, ptr %24, i64 24
+  %27 = getelementptr i8, ptr %26, i64 %.idx
   br label %31
 
 28:                                               ; preds = %3
@@ -3858,9 +3864,10 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_at
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %9, i64 %10, i32 2
+  %9 = sext i32 %1 to i64
+  %.idx.i.i = shl nsw i64 %9, 4
+  %10 = getelementptr i8, ptr %8, i64 18
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 12:                                               ; preds = %3, %3, %3, %3
@@ -3868,9 +3875,10 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_at
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %17, i64 %18, i32 3
+  %17 = sext i32 %1 to i64
+  %.idx6.i = mul nsw i64 %17, 24
+  %18 = getelementptr i8, ptr %16, i64 22
+  %19 = getelementptr i8, ptr %18, i64 %.idx6.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 20:                                               ; preds = %3, %3, %3, %3, %3, %3
@@ -3878,9 +3886,10 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_at
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %25, i64 %26, i32 2
+  %25 = sext i32 %1 to i64
+  %.idx.i = mul nsw i64 %25, 24
+  %26 = getelementptr i8, ptr %24, i64 24
+  %27 = getelementptr i8, ptr %26, i64 %.idx.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 28:                                               ; preds = %3
@@ -3930,9 +3939,10 @@ define hidden i8 @_ZN12ConstantPool10tag_ref_atEiN9Bytecodes4CodeE(ptr nocapture
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %9, i64 %10, i32 2
+  %9 = sext i32 %1 to i64
+  %.idx.i.i = shl nsw i64 %9, 4
+  %10 = getelementptr i8, ptr %8, i64 18
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 12:                                               ; preds = %3, %3, %3, %3
@@ -3940,9 +3950,10 @@ define hidden i8 @_ZN12ConstantPool10tag_ref_atEiN9Bytecodes4CodeE(ptr nocapture
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %17, i64 %18, i32 3
+  %17 = sext i32 %1 to i64
+  %.idx6.i = mul nsw i64 %17, 24
+  %18 = getelementptr i8, ptr %16, i64 22
+  %19 = getelementptr i8, ptr %18, i64 %.idx6.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 20:                                               ; preds = %3, %3, %3, %3, %3, %3
@@ -3950,9 +3961,10 @@ define hidden i8 @_ZN12ConstantPool10tag_ref_atEiN9Bytecodes4CodeE(ptr nocapture
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %25, i64 %26, i32 2
+  %25 = sext i32 %1 to i64
+  %.idx.i = mul nsw i64 %25, 24
+  %26 = getelementptr i8, ptr %24, i64 24
+  %27 = getelementptr i8, ptr %26, i64 %.idx.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 28:                                               ; preds = %3
@@ -4007,9 +4019,10 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Byte
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %9, i64 %10, i32 2
+  %9 = sext i32 %1 to i64
+  %.idx.i.i = shl nsw i64 %9, 4
+  %10 = getelementptr i8, ptr %8, i64 18
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 12:                                               ; preds = %3, %3, %3, %3
@@ -4017,9 +4030,10 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Byte
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %17, i64 %18, i32 3
+  %17 = sext i32 %1 to i64
+  %.idx6.i = mul nsw i64 %17, 24
+  %18 = getelementptr i8, ptr %16, i64 22
+  %19 = getelementptr i8, ptr %18, i64 %.idx6.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 20:                                               ; preds = %3, %3, %3, %3, %3, %3
@@ -4027,9 +4041,10 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Byte
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %25, i64 %26, i32 2
+  %25 = sext i32 %1 to i64
+  %.idx.i = mul nsw i64 %25, 24
+  %26 = getelementptr i8, ptr %24, i64 24
+  %27 = getelementptr i8, ptr %26, i64 %.idx.i
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
 28:                                               ; preds = %3
@@ -4096,9 +4111,10 @@ define hidden noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %11, i64 %12, i32 2
+  %11 = sext i32 %1 to i64
+  %.idx.i.i.i = shl nsw i64 %11, 4
+  %12 = getelementptr i8, ptr %10, i64 18
+  %13 = getelementptr i8, ptr %12, i64 %.idx.i.i.i
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
 14:                                               ; preds = %4, %4, %4, %4
@@ -4106,9 +4122,10 @@ define hidden noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %19, i64 %20, i32 3
+  %19 = sext i32 %1 to i64
+  %.idx6.i.i = mul nsw i64 %19, 24
+  %20 = getelementptr i8, ptr %18, i64 22
+  %21 = getelementptr i8, ptr %20, i64 %.idx6.i.i
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
 22:                                               ; preds = %4, %4, %4, %4, %4, %4
@@ -4116,9 +4133,10 @@ define hidden noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %27, i64 %28, i32 2
+  %27 = sext i32 %1 to i64
+  %.idx.i.i = mul nsw i64 %27, 24
+  %28 = getelementptr i8, ptr %26, i64 24
+  %29 = getelementptr i8, ptr %28, i64 %.idx.i.i
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
 30:                                               ; preds = %4
@@ -4199,9 +4217,10 @@ define hidden noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecode
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %9, i64 %10, i32 2
+  %9 = sext i32 %1 to i64
+  %.idx.i.i.i = shl nsw i64 %9, 4
+  %10 = getelementptr i8, ptr %8, i64 18
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
 12:                                               ; preds = %3, %3, %3, %3
@@ -4209,9 +4228,10 @@ define hidden noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecode
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %17, i64 %18, i32 3
+  %17 = sext i32 %1 to i64
+  %.idx6.i.i = mul nsw i64 %17, 24
+  %18 = getelementptr i8, ptr %16, i64 22
+  %19 = getelementptr i8, ptr %18, i64 %.idx6.i.i
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
 20:                                               ; preds = %3, %3, %3, %3, %3, %3
@@ -4219,9 +4239,10 @@ define hidden noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecode
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %25, i64 %26, i32 2
+  %25 = sext i32 %1 to i64
+  %.idx.i.i = mul nsw i64 %25, 24
+  %26 = getelementptr i8, ptr %24, i64 24
+  %27 = getelementptr i8, ptr %26, i64 %.idx.i.i
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
 28:                                               ; preds = %3
@@ -11485,13 +11506,13 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %16 = getelementptr inbounds i8, ptr %2, i64 4980
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %64
+  br i1 %18, label %19, label %65
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %7, i64 52
   %21 = load i8, ptr %20, align 4
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %58, label %23
+  br i1 %22, label %59, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %7, i64 53
@@ -11529,72 +11550,74 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   br i1 %.not11.i.i, label %_ZNK5frame7oop_mapEv.exit, label %_ZNK5frame7oop_mapEv.exit.thread23
 
 _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
-  %45 = lshr i32 %44, 24
-  %46 = getelementptr inbounds i8, ptr %36, i64 8
-  %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %46, i64 %47, i32 1
-  %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr %36, align 4
-  %51 = sext i32 %50 to i64
-  %52 = shl nsw i64 %51, 3
-  %53 = getelementptr inbounds i8, ptr %46, i64 %52
-  %54 = sext i32 %49 to i64
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  store ptr %55, ptr %28, align 8
+  %45 = getelementptr inbounds i8, ptr %36, i64 8
+  %46 = lshr i32 %44, 21
+  %47 = and i32 %46, 2040
+  %48 = or disjoint i32 %47, 4
+  %.offs.i.i.i.i = zext nneg i32 %48 to i64
+  %49 = getelementptr inbounds i8, ptr %45, i64 %.offs.i.i.i.i
+  %50 = load i32, ptr %49, align 4
+  %51 = load i32, ptr %36, align 4
+  %52 = sext i32 %51 to i64
+  %53 = shl nsw i64 %52, 3
+  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %55 = sext i32 %50 to i64
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
+  store ptr %56, ptr %28, align 8
   br label %_ZNK5frame7oop_mapEv.exit.thread
 
 _ZNK5frame7oop_mapEv.exit.thread20:               ; preds = %34, %31
   store ptr null, ptr %28, align 8
-  br label %58
+  br label %59
 
 _ZNK5frame7oop_mapEv.exit:                        ; preds = %38, %42
-  %56 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #17
-  store ptr %56, ptr %28, align 8
-  %.not = icmp eq ptr %56, null
-  br i1 %.not, label %58, label %_ZNK5frame7oop_mapEv.exit.thread
+  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #17
+  store ptr %57, ptr %28, align 8
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %59, label %_ZNK5frame7oop_mapEv.exit.thread
 
 _ZNK5frame7oop_mapEv.exit.thread:                 ; preds = %23, %_ZNK5frame7oop_mapEv.exit.thread23, %_ZNK5frame7oop_mapEv.exit
-  %57 = phi ptr [ %29, %23 ], [ %55, %_ZNK5frame7oop_mapEv.exit.thread23 ], [ %56, %_ZNK5frame7oop_mapEv.exit ]
-  tail call void @_ZNK15ImmutableOopMap19update_register_mapEPK5frameP11RegisterMap(ptr noundef nonnull align 4 dereferenceable(9) %57, ptr noundef nonnull %1, ptr noundef nonnull %2) #17
-  br label %58
+  %58 = phi ptr [ %29, %23 ], [ %56, %_ZNK5frame7oop_mapEv.exit.thread23 ], [ %57, %_ZNK5frame7oop_mapEv.exit ]
+  tail call void @_ZNK15ImmutableOopMap19update_register_mapEPK5frameP11RegisterMap(ptr noundef nonnull align 4 dereferenceable(9) %58, ptr noundef nonnull %1, ptr noundef nonnull %2) #17
+  br label %59
 
-58:                                               ; preds = %_ZNK5frame7oop_mapEv.exit.thread20, %19, %_ZNK5frame7oop_mapEv.exit, %_ZNK5frame7oop_mapEv.exit.thread
-  %59 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr %15, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 4872
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 88
-  store ptr %15, ptr %62, align 8
-  %63 = or i64 %61, 3072
-  store i64 %63, ptr %60, align 8
-  br label %64
+59:                                               ; preds = %_ZNK5frame7oop_mapEv.exit.thread20, %19, %_ZNK5frame7oop_mapEv.exit, %_ZNK5frame7oop_mapEv.exit.thread
+  %60 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %15, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %2, i64 4872
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr %15, ptr %63, align 8
+  %64 = or i64 %62, 3072
+  store i64 %64, ptr %61, align 8
+  br label %65
 
-64:                                               ; preds = %58, %3
-  %65 = tail call noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef %14) #17
-  br i1 %65, label %66, label %74
+65:                                               ; preds = %59, %3
+  %66 = tail call noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef %14) #17
+  br i1 %66, label %67, label %75
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %2, i64 4982
-  %68 = load i8, ptr %67, align 2
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %71
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds i8, ptr %2, i64 4982
+  %69 = load i8, ptr %68, align 2
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %66
+71:                                               ; preds = %67
   tail call void @_ZN12Continuation9top_frameERK5frameP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %2) #17
-  br label %76
+  br label %77
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %2, i64 4960
-  %73 = load ptr, ptr %72, align 8
-  tail call void @_ZN12Continuation26continuation_bottom_senderEP10JavaThreadRK5framePl(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %11) #17
-  br label %76
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds i8, ptr %2, i64 4960
+  %74 = load ptr, ptr %73, align 8
+  tail call void @_ZN12Continuation26continuation_bottom_senderEP10JavaThreadRK5framePl(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %11) #17
+  br label %77
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr %15, align 8
-  tail call void @_ZN5frameC2EPlS0_S0_Ph(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %75, ptr noundef %14)
-  br label %76
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %15, align 8
+  tail call void @_ZN5frameC2EPlS0_S0_Ph(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %76, ptr noundef %14)
+  br label %77
 
-76:                                               ; preds = %74, %71, %70
+77:                                               ; preds = %75, %72, %71
   ret void
 }
 

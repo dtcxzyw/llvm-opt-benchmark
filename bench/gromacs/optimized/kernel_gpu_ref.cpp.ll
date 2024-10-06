@@ -254,16 +254,16 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %.3322441 = phi float [ %.0319, %.preheader389.lr.ph ], [ %.10, %362 ]
   %.0328440 = phi float [ 0.000000e+00, %.preheader389.lr.ph ], [ %.7335, %362 ]
   %138 = load ptr, ptr %57, align 8
-  %139 = load ptr, ptr %64, align 8
-  %140 = getelementptr inbounds %struct.nbnxn_cj_packed_t, ptr %138, i64 %indvars.iv486, i32 1, i64 0, i32 1
-  %141 = load i32, ptr %140, align 4
+  %139 = getelementptr inbounds %struct.nbnxn_cj_packed_t, ptr %138, i64 %indvars.iv486, i32 1, i64 0, i32 1
+  %140 = load ptr, ptr %64, align 8
+  %141 = load i32, ptr %139, align 4
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %struct.nbnxn_excl_t, ptr %139, i64 %142
+  %143 = getelementptr inbounds %struct.nbnxn_excl_t, ptr %140, i64 %142
   store ptr %143, ptr %12, align 16
-  %144 = getelementptr inbounds %struct.nbnxn_cj_packed_t, ptr %138, i64 %indvars.iv486, i32 1, i64 1, i32 1
+  %144 = getelementptr i8, ptr %139, i64 8
   %145 = load i32, ptr %144, align 4
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.nbnxn_excl_t, ptr %139, i64 %146
+  %147 = getelementptr inbounds %struct.nbnxn_excl_t, ptr %140, i64 %146
   store ptr %147, ptr %76, align 8
   br label %.preheader
 

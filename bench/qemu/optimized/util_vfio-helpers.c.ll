@@ -233,11 +233,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bar_region_info = getelementptr inbounds i8, ptr %s, i64 136
   %idxprom = sext i32 %index to i64
-  %size1 = getelementptr [6 x %struct.vfio_region_info], ptr %bar_region_info, i64 0, i64 %idxprom, i32 4
-  %0 = load i64, ptr %size1, align 8
-  %sub = sub i64 %0, %offset
+  %size1.idx = shl nsw i64 %idxprom, 5
+  %0 = getelementptr i8, ptr %s, i64 152
+  %size1 = getelementptr i8, ptr %0, i64 %size1.idx
+  %1 = load i64, ptr %size1, align 8
+  %sub = sub i64 %1, %offset
   %cond = tail call i64 @llvm.umin.i64(i64 %size, i64 %sub)
   %call = tail call i32 @munmap(ptr noundef nonnull %bar, i64 noundef %cond) #16
   br label %if.end

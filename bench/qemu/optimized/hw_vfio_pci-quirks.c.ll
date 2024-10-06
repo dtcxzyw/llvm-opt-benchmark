@@ -556,8 +556,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc17
   %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc17 ]
   %0 = load ptr, ptr %vga, align 8
-  %region = getelementptr inbounds i8, ptr %0, i64 16
-  %quirks = getelementptr [3 x %struct.VFIOVGARegion], ptr %region, i64 0, i64 %indvars.iv18, i32 3
+  %quirks.idx = mul nuw nsw i64 %indvars.iv18, 304
+  %1 = getelementptr i8, ptr %0, i64 304
+  %quirks = getelementptr i8, ptr %1, i64 %quirks.idx
   %quirk.012 = load ptr, ptr %quirks, align 8
   %tobool.not13 = icmp eq ptr %quirk.012, null
   br i1 %tobool.not13, label %for.inc17, label %for.cond4.preheader
@@ -570,8 +571,8 @@ for.cond2.loopexit:                               ; preds = %for.body7, %for.con
 for.cond4.preheader:                              ; preds = %for.body, %for.cond2.loopexit
   %quirk.014 = phi ptr [ %quirk.0, %for.cond2.loopexit ], [ %quirk.012, %for.body ]
   %nr_mem = getelementptr inbounds i8, ptr %quirk.014, i64 32
-  %1 = load i32, ptr %nr_mem, align 8
-  %cmp510 = icmp sgt i32 %1, 0
+  %2 = load i32, ptr %nr_mem, align 8
+  %cmp510 = icmp sgt i32 %2, 0
   br i1 %cmp510, label %for.body7.lr.ph, label %for.cond2.loopexit
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
@@ -580,16 +581,16 @@ for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
   %indvars.iv = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next, %for.body7 ]
-  %2 = load ptr, ptr %vga, align 8
-  %region9 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %vga, align 8
+  %region9 = getelementptr inbounds i8, ptr %3, i64 16
   %arrayidx11 = getelementptr [3 x %struct.VFIOVGARegion], ptr %region9, i64 0, i64 %indvars.iv18
-  %3 = load ptr, ptr %mem12, align 8
-  %arrayidx14 = getelementptr %struct.MemoryRegion, ptr %3, i64 %indvars.iv
+  %4 = load ptr, ptr %mem12, align 8
+  %arrayidx14 = getelementptr %struct.MemoryRegion, ptr %4, i64 %indvars.iv
   tail call void @memory_region_del_subregion(ptr noundef %arrayidx11, ptr noundef %arrayidx14) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = load i32, ptr %nr_mem, align 8
-  %5 = sext i32 %4 to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next, %5
+  %5 = load i32, ptr %nr_mem, align 8
+  %6 = sext i32 %5 to i64
+  %cmp5 = icmp slt i64 %indvars.iv.next, %6
   br i1 %cmp5, label %for.body7, label %for.cond2.loopexit, !llvm.loop !7
 
 for.inc17:                                        ; preds = %for.cond2.loopexit, %for.body
@@ -611,69 +612,72 @@ entry:
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry, %for.inc32
-  %0 = phi ptr [ %.pre, %entry ], [ %13, %for.inc32 ]
+  %0 = phi ptr [ %.pre, %entry ], [ %16, %for.inc32 ]
   %indvars.iv26 = phi i64 [ 0, %entry ], [ %indvars.iv.next27, %for.inc32 ]
-  %region20 = getelementptr inbounds i8, ptr %0, i64 16
-  %quirks21 = getelementptr [3 x %struct.VFIOVGARegion], ptr %region20, i64 0, i64 %indvars.iv26, i32 3
-  %1 = load ptr, ptr %quirks21, align 16
-  %cmp2.not22 = icmp eq ptr %1, null
-  br i1 %cmp2.not22, label %for.inc32, label %while.body
+  %1 = mul nuw nsw i64 %indvars.iv26, 304
+  %region21 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr i8, ptr %region21, i64 %1
+  %quirks22 = getelementptr i8, ptr %2, i64 288
+  %3 = load ptr, ptr %quirks22, align 16
+  %cmp2.not23 = icmp eq ptr %3, null
+  br i1 %cmp2.not23, label %for.inc32, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %for.end
-  %2 = phi ptr [ %12, %for.end ], [ %1, %while.cond.preheader ]
-  %3 = load ptr, ptr %2, align 8
-  %cmp10.not = icmp eq ptr %3, null
-  %le_prev20.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
-  %.pre30 = load ptr, ptr %le_prev20.phi.trans.insert, align 8
+  %4 = phi ptr [ %15, %for.end ], [ %3, %while.cond.preheader ]
+  %5 = load ptr, ptr %4, align 8
+  %cmp10.not = icmp eq ptr %5, null
+  %le_prev20.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.pre31 = load ptr, ptr %le_prev20.phi.trans.insert, align 8
   br i1 %cmp10.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %le_prev16 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %.pre30, ptr %le_prev16, align 8
-  %.pre29 = load ptr, ptr %2, align 8
+  %le_prev16 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.pre31, ptr %le_prev16, align 8
+  %.pre30 = load ptr, ptr %4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %if.then
-  %4 = phi ptr [ %.pre29, %if.then ], [ null, %while.body ]
-  store ptr %4, ptr %.pre30, align 8
-  %nr_mem = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %5 = load i32, ptr %nr_mem, align 8
-  %cmp2618 = icmp sgt i32 %5, 0
-  br i1 %cmp2618, label %for.body28.lr.ph, label %for.end
+  %6 = phi ptr [ %.pre30, %if.then ], [ null, %while.body ]
+  store ptr %6, ptr %.pre31, align 8
+  %nr_mem = getelementptr inbounds i8, ptr %4, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %7 = load i32, ptr %nr_mem, align 8
+  %cmp2619 = icmp sgt i32 %7, 0
+  br i1 %cmp2619, label %for.body28.lr.ph, label %for.end
 
 for.body28.lr.ph:                                 ; preds = %if.end
-  %mem = getelementptr inbounds i8, ptr %2, i64 40
+  %mem = getelementptr inbounds i8, ptr %4, i64 40
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.body28
   %indvars.iv = phi i64 [ 0, %for.body28.lr.ph ], [ %indvars.iv.next, %for.body28 ]
-  %6 = load ptr, ptr %mem, align 8
-  %arrayidx30 = getelementptr %struct.MemoryRegion, ptr %6, i64 %indvars.iv
+  %8 = load ptr, ptr %mem, align 8
+  %arrayidx30 = getelementptr %struct.MemoryRegion, ptr %8, i64 %indvars.iv
   tail call void @object_unparent(ptr noundef %arrayidx30) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %nr_mem, align 8
-  %8 = sext i32 %7 to i64
-  %cmp26 = icmp slt i64 %indvars.iv.next, %8
+  %9 = load i32, ptr %nr_mem, align 8
+  %10 = sext i32 %9 to i64
+  %cmp26 = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp26, label %for.body28, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body28, %if.end
-  %mem31 = getelementptr inbounds i8, ptr %2, i64 40
-  %9 = load ptr, ptr %mem31, align 8
-  tail call void @g_free(ptr noundef %9) #10
-  %data = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = load ptr, ptr %data, align 8
-  tail call void @g_free(ptr noundef %10) #10
-  tail call void @g_free(ptr noundef nonnull %2) #10
-  %11 = load ptr, ptr %vga, align 8
-  %region = getelementptr inbounds i8, ptr %11, i64 16
-  %quirks = getelementptr [3 x %struct.VFIOVGARegion], ptr %region, i64 0, i64 %indvars.iv26, i32 3
-  %12 = load ptr, ptr %quirks, align 16
-  %cmp2.not = icmp eq ptr %12, null
+  %mem31 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = load ptr, ptr %mem31, align 8
+  tail call void @g_free(ptr noundef %11) #10
+  %data = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = load ptr, ptr %data, align 8
+  tail call void @g_free(ptr noundef %12) #10
+  tail call void @g_free(ptr noundef nonnull %4) #10
+  %13 = load ptr, ptr %vga, align 8
+  %region = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr i8, ptr %region, i64 %1
+  %quirks = getelementptr i8, ptr %14, i64 288
+  %15 = load ptr, ptr %quirks, align 16
+  %cmp2.not = icmp eq ptr %15, null
   br i1 %cmp2.not, label %for.inc32, label %while.body, !llvm.loop !10
 
 for.inc32:                                        ; preds = %for.end, %while.cond.preheader
-  %13 = phi ptr [ %0, %while.cond.preheader ], [ %11, %for.end ]
+  %16 = phi ptr [ %0, %while.cond.preheader ], [ %13, %for.end ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next27, 3
   br i1 %exitcond.not, label %for.end34, label %while.cond.preheader, !llvm.loop !11
@@ -1477,61 +1481,62 @@ trace_vfio_ioeventfd_exit.exit:                   ; preds = %if.end29, %land.lhs
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_bar_quirk_finalize(ptr nocapture noundef readonly %vdev, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
-  %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
   %idxprom = sext i32 %nr to i64
-  %quirks = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom, i32 6
-  %0 = load ptr, ptr %quirks, align 8
-  %cmp.not17 = icmp eq ptr %0, null
+  %quirks.idx = mul nsw i64 %idxprom, 88
+  %0 = getelementptr i8, ptr %vdev, i64 2968
+  %quirks = getelementptr i8, ptr %0, i64 %quirks.idx
+  %1 = load ptr, ptr %quirks, align 8
+  %cmp.not17 = icmp eq ptr %1, null
   br i1 %cmp.not17, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %for.end
-  %1 = phi ptr [ %10, %for.end ], [ %0, %entry ]
-  %2 = load ptr, ptr %1, align 8
-  %cmp3.not = icmp eq ptr %2, null
-  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = phi ptr [ %11, %for.end ], [ %1, %entry ]
+  %3 = load ptr, ptr %2, align 8
+  %cmp3.not = icmp eq ptr %3, null
+  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre19 = load ptr, ptr %le_prev12.phi.trans.insert, align 8
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %le_prev8 = getelementptr inbounds i8, ptr %2, i64 8
+  %le_prev8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.pre19, ptr %le_prev8, align 8
-  %.pre = load ptr, ptr %1, align 8
+  %.pre = load ptr, ptr %2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %if.then
-  %3 = phi ptr [ %.pre, %if.then ], [ null, %while.body ]
-  store ptr %3, ptr %.pre19, align 8
-  %nr_mem = getelementptr inbounds i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %4 = load i32, ptr %nr_mem, align 8
-  %cmp1715 = icmp sgt i32 %4, 0
+  %4 = phi ptr [ %.pre, %if.then ], [ null, %while.body ]
+  store ptr %4, ptr %.pre19, align 8
+  %nr_mem = getelementptr inbounds i8, ptr %2, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %5 = load i32, ptr %nr_mem, align 8
+  %cmp1715 = icmp sgt i32 %5, 0
   br i1 %cmp1715, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mem = getelementptr inbounds i8, ptr %1, i64 40
+  %mem = getelementptr inbounds i8, ptr %2, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %5 = load ptr, ptr %mem, align 8
-  %arrayidx19 = getelementptr %struct.MemoryRegion, ptr %5, i64 %indvars.iv
+  %6 = load ptr, ptr %mem, align 8
+  %arrayidx19 = getelementptr %struct.MemoryRegion, ptr %6, i64 %indvars.iv
   tail call void @object_unparent(ptr noundef %arrayidx19) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i32, ptr %nr_mem, align 8
-  %7 = sext i32 %6 to i64
-  %cmp17 = icmp slt i64 %indvars.iv.next, %7
+  %7 = load i32, ptr %nr_mem, align 8
+  %8 = sext i32 %7 to i64
+  %cmp17 = icmp slt i64 %indvars.iv.next, %8
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end
-  %mem20 = getelementptr inbounds i8, ptr %1, i64 40
-  %8 = load ptr, ptr %mem20, align 8
-  tail call void @g_free(ptr noundef %8) #10
-  %data = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load ptr, ptr %data, align 8
+  %mem20 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = load ptr, ptr %mem20, align 8
   tail call void @g_free(ptr noundef %9) #10
-  tail call void @g_free(ptr noundef nonnull %1) #10
-  %10 = load ptr, ptr %quirks, align 8
-  %cmp.not = icmp eq ptr %10, null
+  %data = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = load ptr, ptr %data, align 8
+  tail call void @g_free(ptr noundef %10) #10
+  tail call void @g_free(ptr noundef nonnull %2) #10
+  %11 = load ptr, ptr %quirks, align 8
+  %cmp.not = icmp eq ptr %11, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %for.end, %entry
@@ -1541,29 +1546,30 @@ while.end:                                        ; preds = %for.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_quirk_reset(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
+  %invariant.gep = getelementptr i8, ptr %vdev, i64 2968
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc5
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc5 ]
-  %quirks = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %indvars.iv, i32 6
-  %quirk.08 = load ptr, ptr %quirks, align 8
-  %tobool.not9 = icmp eq ptr %quirk.08, null
-  br i1 %tobool.not9, label %for.inc5, label %for.body2
+  %0 = mul nuw nsw i64 %indvars.iv, 88
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %quirk.09 = load ptr, ptr %gep, align 8
+  %tobool.not10 = icmp eq ptr %quirk.09, null
+  br i1 %tobool.not10, label %for.inc5, label %for.body2
 
 for.body2:                                        ; preds = %for.body, %for.inc
-  %quirk.010 = phi ptr [ %quirk.0, %for.inc ], [ %quirk.08, %for.body ]
-  %reset = getelementptr inbounds i8, ptr %quirk.010, i64 48
-  %0 = load ptr, ptr %reset, align 8
-  %tobool3.not = icmp eq ptr %0, null
+  %quirk.011 = phi ptr [ %quirk.0, %for.inc ], [ %quirk.09, %for.body ]
+  %reset = getelementptr inbounds i8, ptr %quirk.011, i64 48
+  %1 = load ptr, ptr %reset, align 8
+  %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body2
-  tail call void %0(ptr noundef %vdev, ptr noundef nonnull %quirk.010) #10
+  tail call void %1(ptr noundef %vdev, ptr noundef nonnull %quirk.011) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body2, %if.then
-  %quirk.0 = load ptr, ptr %quirk.010, align 8
+  %quirk.0 = load ptr, ptr %quirk.011, align 8
   %tobool.not = icmp eq ptr %quirk.0, null
   br i1 %tobool.not, label %for.inc5, label %for.body2, !llvm.loop !17
 

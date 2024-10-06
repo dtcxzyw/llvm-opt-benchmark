@@ -1567,51 +1567,53 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_format(ptr nound
 define dso_local range(i32 -30, 1) i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.21) #15
   %6 = icmp eq i32 %5, -30
-  br i1 %6, label %24, label %.preheader
+  br i1 %6, label %23, label %.preheader
 
 .preheader:                                       ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 264
   br label %9
 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %9, !llvm.loop !17
+  br i1 %exitcond.not, label %22, label %9, !llvm.loop !17
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds [16 x %struct.archive_read_filter_bidder], ptr %7, i64 0, i64 %indvars.iv, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %8
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
+  %10 = load ptr, ptr %gep, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %8
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds %struct.archive_read_filter_bidder, ptr %7, i64 %indvars.iv
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %3, ptr %15, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %22, label %18
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds %struct.archive_read_filter_bidder, ptr %7, i64 %indvars.iv
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %2, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %3, ptr %14, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %21, label %17
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %24
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %23
 
-22:                                               ; preds = %18, %12
+21:                                               ; preds = %17, %11
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.22) #15
-  br label %24
+  br label %23
 
-23:                                               ; preds = %8
+22:                                               ; preds = %8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.23) #15
-  br label %24
+  br label %23
 
-24:                                               ; preds = %18, %4, %23, %22
-  %.0 = phi i32 [ -30, %22 ], [ -30, %23 ], [ -30, %4 ], [ 0, %18 ]
+23:                                               ; preds = %17, %4, %22, %21
+  %.0 = phi i32 [ -30, %21 ], [ -30, %22 ], [ -30, %4 ], [ 0, %17 ]
   ret i32 %.0
 }
 

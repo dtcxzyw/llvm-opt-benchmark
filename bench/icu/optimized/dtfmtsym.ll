@@ -2165,7 +2165,9 @@ if.then222:                                       ; preds = %while.end217
   %arrayidx228 = getelementptr inbounds i8, ptr %call198, i64 4
   %78 = load i32, ptr %arrayidx228, align 4
   %conv229 = trunc i32 %78 to i8
-  %arrayidx234 = getelementptr inbounds [14 x [2 x i8]], ptr %fCapitalization, i64 0, i64 %idxprom, i64 1
+  %arrayidx234.idx = shl nuw nsw i64 %idxprom, 1
+  %arrayidx234.offs = or disjoint i64 %arrayidx234.idx, 1
+  %arrayidx234 = getelementptr inbounds i8, ptr %fCapitalization, i64 %arrayidx234.offs
   store i8 %conv229, ptr %arrayidx234, align 1
   br label %if.end237
 

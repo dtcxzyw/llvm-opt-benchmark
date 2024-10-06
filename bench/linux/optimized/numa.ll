@@ -262,7 +262,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_add_memblk(i32 noundef %0, 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = icmp eq i64 %1, %2
-  br i1 %5, label %30, label %6
+  br i1 %5, label %29, label %6
 
 6:                                                ; preds = %4
   %7 = icmp ugt i64 %1, %2
@@ -273,7 +273,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 nou
 10:                                               ; preds = %6
   %11 = add i64 %2, -1
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i32 noundef %0, i64 noundef %1, i64 noundef %11) #16
-  br label %30
+  br label %29
 
 13:                                               ; preds = %6
   %14 = load i32, ptr %3, align 8
@@ -282,7 +282,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 nou
 
 16:                                               ; preds = %13
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #16
-  br label %30
+  br label %29
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %3, i64 8
@@ -291,20 +291,20 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 nou
   store i64 %1, ptr %21, align 8
   %22 = load i32, ptr %3, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [128 x %struct.numa_memblk], ptr %19, i64 0, i64 %23, i32 1
-  store i64 %2, ptr %24, align 8
-  %25 = load i32, ptr %3, align 8
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr [128 x %struct.numa_memblk], ptr %19, i64 0, i64 %26, i32 2
-  store i32 %0, ptr %27, align 8
-  %28 = load i32, ptr %3, align 8
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %3, align 8
-  br label %30
+  %.idx = mul nsw i64 %23, 24
+  %24 = getelementptr i8, ptr %19, i64 %.idx
+  %25 = getelementptr i8, ptr %24, i64 8
+  store i64 %2, ptr %25, align 8
+  %26 = getelementptr i8, ptr %24, i64 16
+  store i32 %0, ptr %26, align 8
+  %27 = load i32, ptr %3, align 8
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %3, align 8
+  br label %29
 
-30:                                               ; preds = %18, %16, %10, %4
-  %31 = phi i32 [ 0, %10 ], [ -22, %16 ], [ 0, %18 ], [ 0, %4 ]
-  ret i32 %31
+29:                                               ; preds = %18, %16, %10, %4
+  %30 = phi i32 [ 0, %10 ], [ -22, %16 ], [ 0, %18 ], [ 0, %4 ]
+  ret i32 %30
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

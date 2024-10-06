@@ -41052,8 +41052,8 @@ default.unreachable361:                           ; preds = %171, %144, %.crited
   br i1 %84, label %.loopexit225, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %1, i64 1112
-  %86 = getelementptr inbounds i8, ptr %1, i64 15016
+  %85 = getelementptr inbounds i8, ptr %1, i64 3560
+  %86 = getelementptr inbounds i8, ptr %1, i64 17464
   br label %87
 
 87:                                               ; preds = %110, %.lr.ph.i
@@ -41065,7 +41065,8 @@ default.unreachable361:                           ; preds = %171, %144, %.crited
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds { [1224 x i16], i16, [513 x i16] }, ptr %85, i64 %90, i32 1
+  %.idx.i = mul nuw nsw i64 %90, 3476
+  %93 = getelementptr i8, ptr %85, i64 %.idx.i
   %94 = load i16, ptr %93, align 4, !range !7397, !alias.scope !7391, !noalias !7394, !noundef !15
   %95 = icmp eq i16 %94, 2
   br i1 %95, label %102, label %98
@@ -41129,7 +41130,8 @@ default.unreachable361:                           ; preds = %171, %144, %.crited
   br label %118
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds { [1224 x i16], i16, [513 x i16] }, ptr %86, i64 %100, i32 1
+  %.idx249.i = mul nuw nsw i64 %100, 3476
+  %105 = getelementptr i8, ptr %86, i64 %.idx249.i
   %106 = load i16, ptr %105, align 4, !range !7397, !alias.scope !7391, !noalias !7394, !noundef !15
   %107 = icmp eq i16 %106, 2
   br i1 %107, label %112, label %110
@@ -46348,7 +46350,7 @@ switch.lookup:                                    ; preds = %"_ZN94_$LT$core..sl
   %198 = getelementptr inbounds i8, ptr %1, i64 29056
   %199 = load i64, ptr %171, align 8, !noundef !15
   %200 = load ptr, ptr %169, align 8, !nonnull !15
-  %201 = getelementptr inbounds i8, ptr %1, i64 1112
+  %201 = getelementptr inbounds i8, ptr %1, i64 3560
   br label %1990
 
 202:                                              ; preds = %191
@@ -52066,7 +52068,8 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i627.thread: ;
   br i1 %2372, label %2377, label %2373
 
 2373:                                             ; preds = %2369
-  %2374 = getelementptr inbounds { [1224 x i16], i16, [513 x i16] }, ptr %201, i64 %2371, i32 1
+  %.idx = mul nuw nsw i64 %2371, 3476
+  %2374 = getelementptr i8, ptr %201, i64 %.idx
   %2375 = load i16, ptr %2374, align 4, !range !7397, !noundef !15
   %2376 = icmp eq i16 %2375, 2
   br i1 %2376, label %2379, label %2378

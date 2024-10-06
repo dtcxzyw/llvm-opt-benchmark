@@ -136,6 +136,8 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   %62 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %26
   %63 = icmp eq i32 %25, 0
   %64 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %26
+  %.idx = shl nsw i64 %indvars.iv.next224, 6
+  %invariant.op = or i64 %.idx, 8
   br label %65
 
 65:                                               ; preds = %33, %.loopexit
@@ -170,7 +172,9 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
 78:                                               ; preds = %.thread165, %.thread163
   %79 = phi ptr [ %74, %.thread165 ], [ %77, %.thread163 ]
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds [3 x [2 x %struct.gmx_specatsend_t]], ptr %14, i64 0, i64 %indvars.iv.next224, i64 %indvars.iv220, i32 0, i32 0, i32 0, i32 0, i32 1
+  %.idx226 = shl nuw nsw i64 %indvars.iv220, 5
+  %.offs227.reass = or i64 %.idx226, %invariant.op
+  %81 = getelementptr inbounds i8, ptr %14, i64 %.offs227.reass
   %82 = load ptr, ptr %81, align 8
   %.not170187 = icmp eq ptr %80, %82
   br i1 %.not170187, label %.loopexit, label %.lr.ph190

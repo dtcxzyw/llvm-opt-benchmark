@@ -2708,8 +2708,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 421:                                              ; preds = %.noexc282, %.critedge60
   %422 = phi i1 [ true, %.critedge60 ], [ false, %.noexc282 ]
   %.sroa.0.09.i281.sroa.phi = phi ptr [ %25, %.critedge60 ], [ %.sroa.gep25, %.noexc282 ]
-  %.sroa.0.09.i281 = phi i64 [ 0, %.critedge60 ], [ 1, %.noexc282 ]
-  %423 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 1, i64 %.sroa.0.09.i281
+  %.sroa.0.09.i281 = phi i64 [ 128, %.critedge60 ], [ 192, %.noexc282 ]
+  %423 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i281
   %424 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %423, i64 noundef 16)
           to label %.noexc282 unwind label %.loopexit.split-lp68.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2736,8 +2736,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 431:                                              ; preds = %.noexc285, %.critedge62
   %432 = phi i1 [ true, %.critedge62 ], [ false, %.noexc285 ]
   %.sroa.0.09.i284.sroa.phi = phi ptr [ %24, %.critedge62 ], [ %.sroa.gep29, %.noexc285 ]
-  %.sroa.0.09.i284 = phi i64 [ 0, %.critedge62 ], [ 1, %.noexc285 ]
-  %433 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 2, i64 %.sroa.0.09.i284
+  %.sroa.0.09.i284 = phi i64 [ 256, %.critedge62 ], [ 320, %.noexc285 ]
+  %433 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i284
   %434 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %433, i64 noundef 16)
           to label %.noexc285 unwind label %.loopexit.split-lp68.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2782,8 +2782,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 445:                                              ; preds = %.noexc290, %444
   %446 = phi i1 [ true, %444 ], [ false, %.noexc290 ]
   %.sroa.0.09.i289.sroa.phi = phi ptr [ %.sroa.035, %444 ], [ %.sroa.536, %.noexc290 ]
-  %.sroa.0.09.i289 = phi i64 [ 0, %444 ], [ 1, %.noexc290 ]
-  %447 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 1, i64 %.sroa.0.09.i289
+  %.sroa.0.09.i289 = phi i64 [ 128, %444 ], [ 192, %.noexc290 ]
+  %447 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i289
   %448 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %447, i64 noundef 16)
           to label %.noexc290 unwind label %.loopexit.split-lp68.loopexit
 
@@ -2803,8 +2803,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 450:                                              ; preds = %.noexc293, %449
   %451 = phi i1 [ true, %449 ], [ false, %.noexc293 ]
   %.sroa.0.09.i292.sroa.phi = phi ptr [ %.sroa.038, %449 ], [ %.sroa.539, %.noexc293 ]
-  %.sroa.0.09.i292 = phi i64 [ 0, %449 ], [ 1, %.noexc293 ]
-  %452 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 2, i64 %.sroa.0.09.i292
+  %.sroa.0.09.i292 = phi i64 [ 256, %449 ], [ 320, %.noexc293 ]
+  %452 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i292
   %453 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %452, i64 noundef 16)
           to label %.noexc293 unwind label %.loopexit67
 
@@ -4570,8 +4570,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 421:                                              ; preds = %.noexc282, %.critedge60
   %422 = phi i1 [ true, %.critedge60 ], [ false, %.noexc282 ]
   %.sroa.0.09.i281.sroa.phi = phi ptr [ %25, %.critedge60 ], [ %.sroa.gep25, %.noexc282 ]
-  %.sroa.0.09.i281 = phi i64 [ 0, %.critedge60 ], [ 1, %.noexc282 ]
-  %423 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 1, i64 %.sroa.0.09.i281
+  %.sroa.0.09.i281 = phi i64 [ 128, %.critedge60 ], [ 192, %.noexc282 ]
+  %423 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i281
   %424 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %423, i64 noundef 16)
           to label %.noexc282 unwind label %.loopexit.split-lp68.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4598,8 +4598,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 431:                                              ; preds = %.noexc285, %.critedge62
   %432 = phi i1 [ true, %.critedge62 ], [ false, %.noexc285 ]
   %.sroa.0.09.i284.sroa.phi = phi ptr [ %24, %.critedge62 ], [ %.sroa.gep29, %.noexc285 ]
-  %.sroa.0.09.i284 = phi i64 [ 0, %.critedge62 ], [ 1, %.noexc285 ]
-  %433 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 2, i64 %.sroa.0.09.i284
+  %.sroa.0.09.i284 = phi i64 [ 256, %.critedge62 ], [ 320, %.noexc285 ]
+  %433 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i284
   %434 = invoke { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %433, i64 noundef 16)
           to label %.noexc285 unwind label %.loopexit.split-lp68.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4644,8 +4644,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 445:                                              ; preds = %.noexc290, %444
   %446 = phi i1 [ true, %444 ], [ false, %.noexc290 ]
   %.sroa.0.09.i289.sroa.phi = phi ptr [ %.sroa.035, %444 ], [ %.sroa.536, %.noexc290 ]
-  %.sroa.0.09.i289 = phi i64 [ 0, %444 ], [ 1, %.noexc290 ]
-  %447 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 1, i64 %.sroa.0.09.i289
+  %.sroa.0.09.i289 = phi i64 [ 128, %444 ], [ 192, %.noexc290 ]
+  %447 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i289
   %448 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %447, i64 noundef 16)
           to label %.noexc290 unwind label %.loopexit.split-lp68.loopexit
 
@@ -4665,8 +4665,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 450:                                              ; preds = %.noexc293, %449
   %451 = phi i1 [ true, %449 ], [ false, %.noexc293 ]
   %.sroa.0.09.i292.sroa.phi = phi ptr [ %.sroa.038, %449 ], [ %.sroa.539, %.noexc293 ]
-  %.sroa.0.09.i292 = phi i64 [ 0, %449 ], [ 1, %.noexc293 ]
-  %452 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %410, i64 0, i64 2, i64 %.sroa.0.09.i292
+  %.sroa.0.09.i292 = phi i64 [ 256, %449 ], [ 320, %.noexc293 ]
+  %452 = getelementptr inbounds i8, ptr %410, i64 %.sroa.0.09.i292
   %453 = invoke noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %452, i64 noundef 16)
           to label %.noexc293 unwind label %.loopexit67
 

@@ -2037,7 +2037,9 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr nocapture nounde
   %110 = zext i16 %106 to i64
   %111 = getelementptr [0 x %struct.vring_used_elem], ptr %109, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr [0 x %struct.vring_used_elem], ptr %109, i64 0, i64 %110, i32 1
+  %.idx = shl nuw nsw i64 %110, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %113 = getelementptr i8, ptr %109, i64 %.offs
   %114 = load i32, ptr %113, align 4
   store i32 %114, ptr %1, align 4
   %115 = load i32, ptr %102, align 8

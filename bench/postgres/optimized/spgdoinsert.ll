@@ -16,8 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.spgChooseOut = type { i32, %union.anon }
 %union.anon = type { %struct.anon.1 }
 %struct.anon.1 = type { i8, i64, i32, ptr, i32, i8, i64 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ItemIdData = type { i32 }
 %struct.spgxlogMoveLeafs = type { i16, i8, i8, i8, i16, i16, %struct.spgxlogState, [0 x i16] }
 
@@ -295,7 +293,7 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %22, i64 24
+  %47 = getelementptr i8, ptr %22, i64 96
   br label %48
 
 48:                                               ; preds = %.lr.ph, %68
@@ -307,7 +305,8 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   br i1 %52, label %66, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %47, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %54 = getelementptr i8, ptr %47, i64 %.idx
   %55 = load i16, ptr %54, align 8
   %56 = icmp eq i16 %55, -1
   %57 = getelementptr i64, ptr %3, i64 %indvars.iv

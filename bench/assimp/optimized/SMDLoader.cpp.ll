@@ -1903,7 +1903,11 @@ if.end160:                                        ; preds = %arrayctor.cont157, 
   %mNumFaces162500 = getelementptr inbounds i8, ptr %111, i64 8
   %112 = load i32, ptr %mNumFaces162500, align 8
   %cmp163501.not = icmp eq i32 %112, 0
-  br i1 %cmp163501.not, label %for.cond339.preheader, label %for.body164
+  br i1 %cmp163501.not, label %for.cond339.preheader, label %for.body164.lr.ph
+
+for.body164.lr.ph:                                ; preds = %if.end160
+  %invariant.gep = getelementptr inbounds i8, ptr %call81, i64 16
+  br label %for.body164
 
 for.cond339.preheader:                            ; preds = %for.inc335, %if.end160
   %.lcssa = phi ptr [ %111, %if.end160 ], [ %159, %for.inc335 ]
@@ -1916,12 +1920,12 @@ for.cond339.preheader:                            ; preds = %for.inc335, %if.end
   %cmp343507.not = icmp eq ptr %113, %114
   br i1 %cmp343507.not, label %delete.notnull.i.i334, label %for.body344
 
-for.body164:                                      ; preds = %if.end160, %for.inc335
-  %indvars.iv541 = phi i64 [ %indvars.iv.next542, %for.inc335 ], [ 0, %if.end160 ]
-  %pcNormals.0506 = phi ptr [ %incdec.ptr200, %for.inc335 ], [ %call124, %if.end160 ]
-  %pcUVs.1504 = phi ptr [ %pcUVs.2, %for.inc335 ], [ %pcUVs.0, %if.end160 ]
-  %pcVerts.0503 = phi ptr [ %incdec.ptr189, %for.inc335 ], [ %call136, %if.end160 ]
-  %iNum.1502 = phi i32 [ %inc325, %for.inc335 ], [ 0, %if.end160 ]
+for.body164:                                      ; preds = %for.body164.lr.ph, %for.inc335
+  %indvars.iv541 = phi i64 [ 0, %for.body164.lr.ph ], [ %indvars.iv.next542, %for.inc335 ]
+  %pcNormals.0506 = phi ptr [ %call124, %for.body164.lr.ph ], [ %incdec.ptr200, %for.inc335 ]
+  %pcUVs.1504 = phi ptr [ %pcUVs.0, %for.body164.lr.ph ], [ %pcUVs.2, %for.inc335 ]
+  %pcVerts.0503 = phi ptr [ %call136, %for.body164.lr.ph ], [ %incdec.ptr189, %for.inc335 ]
+  %iNum.1502 = phi i32 [ 0, %for.body164.lr.ph ], [ %inc325, %for.inc335 ]
   %call166 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #29
           to label %invoke.cont165 unwind label %delete.notnull.i.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2186,8 +2190,9 @@ for.body290:                                      ; preds = %if.then278, %for.in
   br i1 %cmp297.not, label %if.end299, label %for.inc307
 
 if.end299:                                        ; preds = %for.body290
-  %_M_finish.i.i255 = getelementptr inbounds %"class.std::vector.45", ptr %.ptr411.ptr, i64 %conv294, i32 0, i32 0, i32 0, i32 1
-  %148 = load ptr, ptr %_M_finish.i.i255, align 8
+  %_M_finish.i.i255.idx = mul nuw nsw i64 %conv294, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %_M_finish.i.i255.idx
+  %148 = load ptr, ptr %gep, align 8
   %second305 = getelementptr inbounds i8, ptr %148, i64 -4
   %149 = load float, ptr %second305, align 4
   %mul306 = fmul float %div279, %149

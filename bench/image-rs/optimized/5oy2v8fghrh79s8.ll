@@ -9059,8 +9059,9 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections..btree..
 8:                                                ; preds = %8, %.lr.ph.i.i.i
   %9 = phi ptr [ %7, %.lr.ph.i.i.i ], [ %12, %8 ]
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !3056
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
-  %11 = getelementptr inbounds { [13 x i64] }, ptr %10, i64 %.sroa.23.0.copyload.i.i.i, i32 0, i64 1
+  %.idx.i.i.i.i = mul nsw i64 %.sroa.23.0.copyload.i.i.i, 104
+  %10 = getelementptr i8, ptr %9, i64 104
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i.i.i.i
   call void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %11), !noalias !3048
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3056
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3056
@@ -9091,8 +9092,9 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections..btree..
 4:                                                ; preds = %4, %.lr.ph.i
   %5 = phi ptr [ %3, %.lr.ph.i ], [ %8, %4 ]
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !3061
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
-  %7 = getelementptr inbounds { [13 x i64] }, ptr %6, i64 %.sroa.23.0.copyload.i, i32 0, i64 1
+  %.idx.i.i = mul nsw i64 %.sroa.23.0.copyload.i, 104
+  %6 = getelementptr i8, ptr %5, i64 104
+  %7 = getelementptr i8, ptr %6, i64 %.idx.i.i
   tail call void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3061
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3061
@@ -19154,8 +19156,9 @@ define hidden void @"_ZN4core3ptr255drop_in_place$LT$exr..block..writer..SortedB
 9:                                                ; preds = %9, %.lr.ph.i.i.i.i
   %10 = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %13, %9 ]
   %.sroa.23.0.copyload.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !noalias !8184
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
-  %12 = getelementptr inbounds { [13 x i64] }, ptr %11, i64 %.sroa.23.0.copyload.i.i.i.i, i32 0, i64 1
+  %.idx.i.i.i.i.i = mul nsw i64 %.sroa.23.0.copyload.i.i.i.i, 104
+  %11 = getelementptr i8, ptr %10, i64 104
+  %12 = getelementptr i8, ptr %11, i64 %.idx.i.i.i.i.i
   call void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %12), !noalias !8178
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !8184
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !8184
@@ -19346,8 +19349,9 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..Paralle
 9:                                                ; preds = %.noexc4, %.lr.ph.i.i.i.i.i
   %10 = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %13, %.noexc4 ]
   %.sroa.23.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !noalias !8273
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
-  %12 = getelementptr inbounds { [13 x i64] }, ptr %11, i64 %.sroa.23.0.copyload.i.i.i.i.i, i32 0, i64 1
+  %.idx.i.i.i.i.i.i = mul nsw i64 %.sroa.23.0.copyload.i.i.i.i.i, 104
+  %11 = getelementptr i8, ptr %10, i64 104
+  %12 = getelementptr i8, ptr %11, i64 %.idx.i.i.i.i.i.i
   call void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %12), !noalias !8267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !8273
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !8273
@@ -52664,8 +52668,9 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 8:                                                ; preds = %8, %.lr.ph.i.i
   %9 = phi ptr [ %7, %.lr.ph.i.i ], [ %12, %8 ]
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !20630
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
-  %11 = getelementptr inbounds { [13 x i64] }, ptr %10, i64 %.sroa.23.0.copyload.i.i, i32 0, i64 1
+  %.idx.i.i.i = mul nsw i64 %.sroa.23.0.copyload.i.i, 104
+  %10 = getelementptr i8, ptr %9, i64 104
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
   call void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !20630
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !20630
@@ -52822,8 +52827,9 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
 4:                                                ; preds = %.lr.ph, %4
   %5 = phi ptr [ %3, %.lr.ph ], [ %8, %4 ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
-  %7 = getelementptr inbounds { [13 x i64] }, ptr %6, i64 %.sroa.23.0.copyload, i32 0, i64 1
+  %.idx.i = mul nsw i64 %.sroa.23.0.copyload, 104
+  %6 = getelementptr i8, ptr %5, i64 104
+  %7 = getelementptr i8, ptr %6, i64 %.idx.i
   tail call void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..CompressedBlock$GT$17ha21e37cad37ff9a9E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)

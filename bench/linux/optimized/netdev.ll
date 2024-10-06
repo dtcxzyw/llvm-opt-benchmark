@@ -15013,20 +15013,21 @@ __skb_put.exit:                                   ; preds = %72
   br i1 %143, label %.loopexit, label %144
 
 144:                                              ; preds = %129
-  %145 = getelementptr inbounds i8, ptr %140, i64 48
-  %146 = zext i8 %142 to i64
+  %145 = zext i8 %142 to i64
+  %146 = getelementptr i8, ptr %140, i64 56
   br label %147
 
 147:                                              ; preds = %147, %144
   %148 = phi i64 [ 0, %144 ], [ %155, %147 ]
   %149 = phi i32 [ %139, %144 ], [ %154, %147 ]
-  %150 = getelementptr [17 x %struct.bio_vec], ptr %145, i64 0, i64 %148, i32 1
+  %.idx = shl i64 %148, 4
+  %150 = getelementptr i8, ptr %146, i64 %.idx
   %151 = load i32, ptr %150, align 8
   %152 = add i32 %136, %151
   %153 = udiv i32 %152, %135
   %154 = add i32 %153, %149
   %155 = add nuw nsw i64 %148, 1
-  %156 = icmp eq i64 %155, %146
+  %156 = icmp eq i64 %155, %145
   br i1 %156, label %.loopexit, label %147, !llvm.loop !93
 
 .loopexit:                                        ; preds = %147, %129

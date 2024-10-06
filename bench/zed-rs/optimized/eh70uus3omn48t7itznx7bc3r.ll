@@ -21018,7 +21018,9 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.09.i.i.i = phi i64 [ %6, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5988)
-  %7 = getelementptr inbounds [0 x { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }], ptr %5, i64 0, i64 %.sroa.0.09.i.i.i, i32 1
+  %.idx.i = shl nsw i64 %.sroa.0.09.i.i.i, 5
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5991)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5994)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5997)
@@ -21046,7 +21048,9 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.110.i.i.i = phi i64 [ %16, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i.i" ], [ %6, %13 ]
   %16 = add i64 %.sroa.0.110.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6004)
-  %17 = getelementptr inbounds [0 x { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }], ptr %5, i64 0, i64 %.sroa.0.110.i.i.i, i32 1
+  %.idx1.i = shl nsw i64 %.sroa.0.110.i.i.i, 5
+  %.offs2.i = or disjoint i64 %.idx1.i, 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 %.offs2.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6007)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6010)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6013)
@@ -33867,7 +33871,9 @@ define hidden void @"_ZN4core3ptr220drop_in_place$LT$sum_tree..cursor..Cursor$LT
   %.sroa.0.09.i.i.i.i = phi i64 [ %7, %"_ZN4core3ptr224drop_in_place$LT$sum_tree..cursor..StackEntry$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$$GT$17ha23a16f06f2c2228E.exit.i.i.i.i" ], [ 0, %5 ]
   %7 = add nuw nsw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10551)
-  %8 = getelementptr inbounds [0 x { ptr, i64, { { ptr, [1 x i64] } } }], ptr %6, i64 0, i64 %.sroa.0.09.i.i.i.i, i32 2
+  %.idx.i.i = shl nsw i64 %.sroa.0.09.i.i.i.i, 5
+  %.offs.i.i = or disjoint i64 %.idx.i.i, 16
+  %8 = getelementptr inbounds i8, ptr %6, i64 %.offs.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10554)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10557)
   %9 = load ptr, ptr %8, align 8, !alias.scope !10560, !noundef !4
@@ -33898,7 +33904,9 @@ define hidden void @"_ZN4core3ptr220drop_in_place$LT$sum_tree..cursor..Cursor$LT
   %.sroa.0.110.i.i.i.i = phi i64 [ %19, %"_ZN4core3ptr224drop_in_place$LT$sum_tree..cursor..StackEntry$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$$GT$17ha23a16f06f2c2228E.exit8.i.i.i.i" ], [ %7, %16 ]
   %19 = add i64 %.sroa.0.110.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10570)
-  %20 = getelementptr inbounds [0 x { ptr, i64, { { ptr, [1 x i64] } } }], ptr %6, i64 0, i64 %.sroa.0.110.i.i.i.i, i32 2
+  %.idx1.i.i = shl nsw i64 %.sroa.0.110.i.i.i.i, 5
+  %.offs2.i.i = or disjoint i64 %.idx1.i.i, 16
+  %20 = getelementptr inbounds i8, ptr %6, i64 %.offs2.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10573)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10576)
   %21 = load ptr, ptr %20, align 8, !alias.scope !10579, !noundef !4
@@ -36855,7 +36863,9 @@ define hidden void @"_ZN4core3ptr271drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.09.i.i.i = phi i64 [ %6, %"_ZN4core3ptr224drop_in_place$LT$sum_tree..cursor..StackEntry$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$$GT$17ha23a16f06f2c2228E.exit.i.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11481)
-  %7 = getelementptr inbounds [0 x { ptr, i64, { { ptr, [1 x i64] } } }], ptr %5, i64 0, i64 %.sroa.0.09.i.i.i, i32 2
+  %.idx.i = shl nsw i64 %.sroa.0.09.i.i.i, 5
+  %.offs.i = or disjoint i64 %.idx.i, 16
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11484)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11487)
   %8 = load ptr, ptr %7, align 8, !alias.scope !11490, !noundef !4
@@ -36886,7 +36896,9 @@ define hidden void @"_ZN4core3ptr271drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.110.i.i.i = phi i64 [ %18, %"_ZN4core3ptr224drop_in_place$LT$sum_tree..cursor..StackEntry$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$$GT$17ha23a16f06f2c2228E.exit8.i.i.i" ], [ %6, %15 ]
   %18 = add i64 %.sroa.0.110.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11500)
-  %19 = getelementptr inbounds [0 x { ptr, i64, { { ptr, [1 x i64] } } }], ptr %5, i64 0, i64 %.sroa.0.110.i.i.i, i32 2
+  %.idx1.i = shl nsw i64 %.sroa.0.110.i.i.i, 5
+  %.offs2.i = or disjoint i64 %.idx1.i, 16
+  %19 = getelementptr inbounds i8, ptr %5, i64 %.offs2.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11503)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11506)
   %20 = load ptr, ptr %19, align 8, !alias.scope !11509, !noundef !4
@@ -72229,7 +72241,9 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$sum_tree..cursor..Cursor$LT$
   %.sroa.0.09.i.i.i.i = phi i64 [ %7, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i.i.i" ], [ 0, %5 ]
   %7 = add nuw nsw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25076)
-  %8 = getelementptr inbounds [0 x { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }], ptr %6, i64 0, i64 %.sroa.0.09.i.i.i.i, i32 1
+  %.idx.i.i = shl nsw i64 %.sroa.0.09.i.i.i.i, 5
+  %.offs.i.i = or disjoint i64 %.idx.i.i, 8
+  %8 = getelementptr inbounds i8, ptr %6, i64 %.offs.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25082)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25085)
@@ -72257,7 +72271,9 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$sum_tree..cursor..Cursor$LT$
   %.sroa.0.110.i.i.i.i = phi i64 [ %17, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i.i.i" ], [ %7, %14 ]
   %17 = add i64 %.sroa.0.110.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25092)
-  %18 = getelementptr inbounds [0 x { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }], ptr %6, i64 0, i64 %.sroa.0.110.i.i.i.i, i32 1
+  %.idx1.i.i = shl nsw i64 %.sroa.0.110.i.i.i.i, 5
+  %.offs2.i.i = or disjoint i64 %.idx1.i.i, 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 %.offs2.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25095)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25098)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25101)
@@ -90219,7 +90235,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.09.i.i = phi i64 [ %6, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28833)
-  %7 = getelementptr inbounds [0 x { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }], ptr %5, i64 0, i64 %.sroa.0.09.i.i, i32 1
+  %.idx = shl nsw i64 %.sroa.0.09.i.i, 5
+  %.offs = or disjoint i64 %.idx, 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28836)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28839)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28842)
@@ -90247,7 +90265,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.110.i.i = phi i64 [ %16, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i" ], [ %6, %13 ]
   %16 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28849)
-  %17 = getelementptr inbounds [0 x { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }], ptr %5, i64 0, i64 %.sroa.0.110.i.i, i32 1
+  %.idx1 = shl nsw i64 %.sroa.0.110.i.i, 5
+  %.offs2 = or disjoint i64 %.idx1, 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 %.offs2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28852)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28855)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28858)
@@ -90995,7 +91015,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.09.i.i = phi i64 [ %6, %"_ZN4core3ptr224drop_in_place$LT$sum_tree..cursor..StackEntry$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$$GT$17ha23a16f06f2c2228E.exit.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29181)
-  %7 = getelementptr inbounds [0 x { ptr, i64, { { ptr, [1 x i64] } } }], ptr %5, i64 0, i64 %.sroa.0.09.i.i, i32 2
+  %.idx = shl nsw i64 %.sroa.0.09.i.i, 5
+  %.offs = or disjoint i64 %.idx, 16
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29187)
   %8 = load ptr, ptr %7, align 8, !alias.scope !29190, !noundef !4
@@ -91026,7 +91048,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.110.i.i = phi i64 [ %18, %"_ZN4core3ptr224drop_in_place$LT$sum_tree..cursor..StackEntry$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$$GT$17ha23a16f06f2c2228E.exit8.i.i" ], [ %6, %15 ]
   %18 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29200)
-  %19 = getelementptr inbounds [0 x { ptr, i64, { { ptr, [1 x i64] } } }], ptr %5, i64 0, i64 %.sroa.0.110.i.i, i32 2
+  %.idx1 = shl nsw i64 %.sroa.0.110.i.i, 5
+  %.offs2 = or disjoint i64 %.idx1, 16
+  %19 = getelementptr inbounds i8, ptr %5, i64 %.offs2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29206)
   %20 = load ptr, ptr %19, align 8, !alias.scope !29209, !noundef !4

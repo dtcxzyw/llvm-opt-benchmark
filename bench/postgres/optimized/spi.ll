@@ -3172,10 +3172,11 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = add nsw i32 %2, -1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %19, i64 0, i64 %21, i32 2
+  %19 = add nsw i32 %2, -1
+  %20 = zext nneg i32 %19 to i64
+  %.idx = mul nuw nsw i64 %20, 104
+  %21 = getelementptr i8, ptr %1, i64 92
+  %22 = getelementptr i8, ptr %21, i64 %.idx
   br label %27
 
 23:                                               ; preds = %16
@@ -3372,10 +3373,11 @@ define dso_local ptr @SPI_gettype(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = add nsw i32 %1, -1
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %13, i32 2
+  %11 = add nsw i32 %1, -1
+  %12 = zext nneg i32 %11 to i64
+  %.idx = mul nuw nsw i64 %12, 104
+  %13 = getelementptr i8, ptr %0, i64 92
+  %14 = getelementptr i8, ptr %13, i64 %.idx
   br label %19
 
 15:                                               ; preds = %8
@@ -3437,10 +3439,11 @@ define dso_local i32 @SPI_gettypeid(ptr nocapture noundef readonly %0, i32 nound
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = add nsw i32 %1, -1
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %13, i32 2
+  %11 = add nsw i32 %1, -1
+  %12 = zext nneg i32 %11 to i64
+  %.idx = mul nuw nsw i64 %12, 104
+  %13 = getelementptr i8, ptr %0, i64 92
+  %14 = getelementptr i8, ptr %13, i64 %.idx
   %15 = load i32, ptr %14, align 4
   br label %21
 

@@ -7193,27 +7193,28 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %196 = load ptr, ptr %0, align 8
   %197 = load ptr, ptr %43, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 80
-  %199 = load ptr, ptr %7, align 8
-  %.not.i11 = icmp eq ptr %199, null
-  br i1 %.not.i11, label %204, label %200
+  %198 = load ptr, ptr %7, align 8
+  %.not.i11 = icmp eq ptr %198, null
+  br i1 %.not.i11, label %203, label %199
 
-200:                                              ; preds = %af_cjk_hints_link_segments.exit
-  %201 = load i32, ptr %6, align 8
-  %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %199, i64 %202
-  br label %204
+199:                                              ; preds = %af_cjk_hints_link_segments.exit
+  %200 = load i32, ptr %6, align 8
+  %201 = zext i32 %200 to i64
+  %202 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %198, i64 %201
+  br label %203
 
-204:                                              ; preds = %200, %af_cjk_hints_link_segments.exit
-  %205 = phi ptr [ %203, %200 ], [ null, %af_cjk_hints_link_segments.exit ]
-  %206 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %206, align 8
-  %207 = load i64, ptr %.in.i, align 8
-  %208 = getelementptr inbounds [2 x %struct.AF_CJKAxisRec_], ptr %198, i64 0, i64 %5, i32 4
+203:                                              ; preds = %199, %af_cjk_hints_link_segments.exit
+  %204 = phi ptr [ %202, %199 ], [ null, %af_cjk_hints_link_segments.exit ]
+  %205 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 0, ptr %205, align 8
+  %206 = load i64, ptr %.in.i, align 8
+  %.idx.i = mul nuw nsw i64 %5, 896
+  %207 = getelementptr i8, ptr %197, i64 488
+  %208 = getelementptr i8, ptr %207, i64 %.idx.i
   %209 = load i64, ptr %208, align 8
   %sext.i = shl i64 %209, 32
   %210 = ashr exact i64 %sext.i, 32
-  %sext220.i = shl i64 %207, 32
+  %sext220.i = shl i64 %206, 32
   %211 = ashr exact i64 %sext220.i, 32
   %212 = mul nsw i64 %210, %211
   %213 = ashr i64 %212, 63
@@ -7224,13 +7225,13 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   %218 = icmp sgt i32 %217, 16
   br i1 %218, label %219, label %221
 
-219:                                              ; preds = %204
-  %220 = tail call i64 @FT_DivFix(i64 noundef 16, i64 noundef %207) #20
+219:                                              ; preds = %203
+  %220 = tail call i64 @FT_DivFix(i64 noundef 16, i64 noundef %206) #20
   br label %221
 
-221:                                              ; preds = %219, %204
-  %.0159.i = phi i64 [ %220, %219 ], [ %209, %204 ]
-  %222 = icmp ult ptr %199, %205
+221:                                              ; preds = %219, %203
+  %.0159.i = phi i64 [ %220, %219 ], [ %209, %203 ]
+  %222 = icmp ult ptr %198, %204
   br i1 %222, label %.preheader228.lr.ph.i, label %._crit_edge234.i
 
 .preheader228.lr.ph.i:                            ; preds = %221
@@ -7238,8 +7239,8 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   br label %.preheader228.i
 
 .preheader228.i:                                  ; preds = %298, %.preheader228.lr.ph.i
-  %.0148233.i = phi ptr [ %199, %.preheader228.lr.ph.i ], [ %299, %298 ]
-  %224 = load i32, ptr %206, align 8
+  %.0148233.i = phi ptr [ %198, %.preheader228.lr.ph.i ], [ %299, %298 ]
+  %224 = load i32, ptr %205, align 8
   %.not240.i = icmp eq i32 %224, 0
   br i1 %.not240.i, label %.preheader228.i.._crit_edge.thread.i_crit_edge, label %.lr.ph.i18
 
@@ -7389,7 +7390,7 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
 
 298:                                              ; preds = %291, %274
   %299 = getelementptr inbounds i8, ptr %.0148233.i, i64 80
-  %300 = icmp ult ptr %299, %205
+  %300 = icmp ult ptr %299, %204
   br i1 %300, label %.preheader228.i, label %._crit_edge234.i, !llvm.loop !95
 
 ._crit_edge234.i:                                 ; preds = %298, %221
@@ -7399,11 +7400,11 @@ af_cjk_hints_link_segments.exit:                  ; preds = %193, %39
   br i1 %.not196.i, label %af_cjk_hints_compute_edges.exit, label %303
 
 303:                                              ; preds = %._crit_edge234.i
-  %304 = load i32, ptr %206, align 8
+  %304 = load i32, ptr %205, align 8
   %305 = zext i32 %304 to i64
   %306 = getelementptr inbounds %struct.AF_EdgeRec_, ptr %302, i64 %305
-  %.not248.i = icmp eq i32 %304, 0
-  br i1 %.not248.i, label %af_cjk_hints_compute_edges.exit, label %.lr.ph237.i
+  %.not249.i = icmp eq i32 %304, 0
+  br i1 %.not249.i, label %af_cjk_hints_compute_edges.exit, label %.lr.ph237.i
 
 .lr.ph237.i:                                      ; preds = %303, %.loopexit227.i
   %.0157235.i = phi ptr [ %313, %.loopexit227.i ], [ %302, %303 ]
@@ -9255,26 +9256,27 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
   br label %85
 
 41:                                               ; preds = %8, %10
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
-  %43 = getelementptr inbounds i8, ptr %5, i64 16
-  %44 = load i32, ptr %43, align 8
-  %.not36.i = icmp eq i32 %44, 0
+  %42 = getelementptr inbounds i8, ptr %5, i64 16
+  %43 = load i32, ptr %42, align 8
+  %.not36.i = icmp eq i32 %43, 0
   br i1 %.not36.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %41
-  %45 = add nuw nsw i64 %spec.select, 32
-  %46 = and i64 %45, 9223372036854775744
+  %44 = add nuw nsw i64 %spec.select, 32
+  %45 = and i64 %44, 9223372036854775744
   br label %53
 
 .lr.ph.preheader.i:                               ; preds = %41
-  %wide.trip.count.i = zext i32 %44 to i64
+  %wide.trip.count.i = zext i32 %43 to i64
+  %46 = getelementptr i8, ptr %5, i64 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
-  %47 = getelementptr inbounds %struct.AF_WidthRec_, ptr %42, i64 %indvars.iv.i, i32 1
+  %.idx = mul nuw nsw i64 %indvars.iv.i, 24
+  %47 = getelementptr i8, ptr %46, i64 %.idx
   %48 = load i64, ptr %47, align 8
   %49 = sub nsw i64 %spec.select, %48
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %49, i1 true)
@@ -9292,7 +9294,7 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
   br i1 %.not.i, label %57, label %53
 
 53:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %54 = phi i64 [ %46, %._crit_edge.thread.i ], [ %52, %._crit_edge.i ]
+  %54 = phi i64 [ %45, %._crit_edge.thread.i ], [ %52, %._crit_edge.i ]
   %.025.lcssa40.i = phi i64 [ %spec.select, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   %55 = or disjoint i64 %54, 48
   %56 = icmp slt i64 %spec.select, %55
@@ -9738,54 +9740,55 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 5152
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 4
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds [61 x ptr], ptr @af_script_classes, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %27, label %23
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds [61 x ptr], ptr @af_script_classes, i64 0, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %26, label %22
 
-23:                                               ; preds = %7
-  %24 = load i32, ptr %10, align 8
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %22, i64 %25
-  br label %27
+22:                                               ; preds = %7
+  %23 = load i32, ptr %10, align 8
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %21, i64 %24
+  br label %26
 
-27:                                               ; preds = %23, %7
-  %28 = phi ptr [ %26, %23 ], [ null, %7 ]
-  %29 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 0, ptr %29, align 8
-  %30 = icmp eq i32 %3, 0
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %.in.i = select i1 %30, ptr %31, ptr %32
-  %33 = load i64, ptr %.in.i, align 8
-  br i1 %30, label %37, label %34
+26:                                               ; preds = %22, %7
+  %27 = phi ptr [ %25, %22 ], [ null, %7 ]
+  %28 = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 0, ptr %28, align 8
+  %29 = icmp eq i32 %3, 0
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %.in.i = select i1 %29, ptr %30, ptr %31
+  %32 = load i64, ptr %.in.i, align 8
+  br i1 %29, label %36, label %33
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %20, i64 24
-  %36 = load i8, ptr %35, align 8
-  br label %40
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds i8, ptr %19, i64 24
+  %35 = load i8, ptr %34, align 8
+  br label %39
 
-37:                                               ; preds = %27
-  %38 = load i64, ptr %32, align 8
-  %39 = tail call i64 @FT_DivFix(i64 noundef 64, i64 noundef %38) #20
-  br label %40
+36:                                               ; preds = %26
+  %37 = load i64, ptr %31, align 8
+  %38 = tail call i64 @FT_DivFix(i64 noundef 64, i64 noundef %37) #20
+  br label %39
 
-40:                                               ; preds = %37, %34
-  %.0175231.i = phi i8 [ 0, %37 ], [ %36, %34 ]
-  %.0183.i = phi i64 [ %39, %37 ], [ 0, %34 ]
-  %41 = tail call i64 @FT_DivFix(i64 noundef 32, i64 noundef %33) #20
-  %42 = getelementptr inbounds [2 x %struct.AF_LatinAxisRec_], ptr %14, i64 0, i64 %9, i32 4
+39:                                               ; preds = %36, %33
+  %.0175231.i = phi i8 [ 0, %36 ], [ %35, %33 ]
+  %.0183.i = phi i64 [ %38, %36 ], [ 0, %33 ]
+  %40 = tail call i64 @FT_DivFix(i64 noundef 32, i64 noundef %32) #20
+  %.idx.i = shl nuw nsw i64 %9, 10
+  %41 = getelementptr i8, ptr %13, i64 488
+  %42 = getelementptr i8, ptr %41, i64 %.idx.i
   %43 = load i64, ptr %42, align 8
   %sext.i = shl i64 %43, 32
   %44 = ashr exact i64 %sext.i, 32
-  %sext239.i = shl i64 %33, 32
+  %sext239.i = shl i64 %32, 32
   %45 = ashr exact i64 %sext239.i, 32
   %46 = mul nsw i64 %44, %45
   %47 = ashr i64 %46, 63
@@ -9795,17 +9798,17 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %51 = trunc i64 %50 to i32
   %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 16)
   %spec.store.select.i = sext i32 %52 to i64
-  %53 = tail call i64 @FT_DivFix(i64 noundef %spec.store.select.i, i64 noundef %33) #20
-  %54 = icmp ult ptr %22, %28
+  %53 = tail call i64 @FT_DivFix(i64 noundef %spec.store.select.i, i64 noundef %32) #20
+  %54 = icmp ult ptr %21, %27
   br i1 %54, label %.lr.ph252.i, label %._crit_edge257.i
 
-.lr.ph252.i:                                      ; preds = %40
+.lr.ph252.i:                                      ; preds = %39
   %55 = mul nsw i64 %.0183.i, 3
   %56 = getelementptr inbounds i8, ptr %10, i64 24
   br label %57
 
 57:                                               ; preds = %124, %.lr.ph252.i
-  %.0176250.i = phi ptr [ %22, %.lr.ph252.i ], [ %125, %124 ]
+  %.0176250.i = phi ptr [ %21, %.lr.ph252.i ], [ %125, %124 ]
   %58 = getelementptr inbounds i8, ptr %.0176250.i, i64 10
   %59 = load i16, ptr %58, align 2
   %60 = sext i16 %59 to i64
@@ -9816,7 +9819,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %63 = getelementptr inbounds i8, ptr %.0176250.i, i64 4
   %64 = load i16, ptr %63, align 4
   %65 = sext i16 %64 to i64
-  %66 = icmp slt i64 %41, %65
+  %66 = icmp slt i64 %40, %65
   br i1 %66, label %124, label %67
 
 67:                                               ; preds = %62
@@ -9839,7 +9842,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   br i1 %78, label %124, label %79
 
 79:                                               ; preds = %74, %71
-  %80 = load i32, ptr %29, align 8
+  %80 = load i32, ptr %28, align 8
   %.not263.i = icmp eq i32 %80, 0
   br i1 %.not263.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
 
@@ -9926,18 +9929,18 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
 
 124:                                              ; preds = %117, %100, %74, %67, %62, %57
   %125 = getelementptr inbounds i8, ptr %.0176250.i, i64 80
-  %126 = icmp ult ptr %125, %28
+  %126 = icmp ult ptr %125, %27
   br i1 %126, label %57, label %.preheader245.i, !llvm.loop !130
 
 .preheader245.i:                                  ; preds = %124, %.thread236.i
-  %.1177255.i = phi ptr [ %148, %.thread236.i ], [ %22, %124 ]
+  %.1177255.i = phi ptr [ %148, %.thread236.i ], [ %21, %124 ]
   %127 = getelementptr inbounds i8, ptr %.1177255.i, i64 1
   %128 = load i8, ptr %127, align 1
   %.not219.i = icmp eq i8 %128, 4
   br i1 %.not219.i, label %.preheader244.i, label %.thread236.i
 
 .preheader244.i:                                  ; preds = %.preheader245.i
-  %129 = load i32, ptr %29, align 8
+  %129 = load i32, ptr %28, align 8
   %.not264.i = icmp eq i32 %129, 0
   br i1 %.not264.i, label %.thread236.i, label %.lr.ph254.i
 
@@ -9978,21 +9981,21 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
 
 .thread236.i:                                     ; preds = %134, %141, %.preheader244.i, %.preheader245.i
   %148 = getelementptr inbounds i8, ptr %.1177255.i, i64 80
-  %149 = icmp ult ptr %148, %28
+  %149 = icmp ult ptr %148, %27
   br i1 %149, label %.preheader245.i, label %._crit_edge257.i, !llvm.loop !132
 
-._crit_edge257.i:                                 ; preds = %.thread236.i, %40
+._crit_edge257.i:                                 ; preds = %.thread236.i, %39
   %150 = getelementptr inbounds i8, ptr %10, i64 24
   %151 = load ptr, ptr %150, align 8
   %.not206.i = icmp eq ptr %151, null
   br i1 %.not206.i, label %af_latin_hints_compute_edges.exit, label %152
 
 152:                                              ; preds = %._crit_edge257.i
-  %153 = load i32, ptr %29, align 8
+  %153 = load i32, ptr %28, align 8
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds %struct.AF_EdgeRec_, ptr %151, i64 %154
-  %.not283.i = icmp eq i32 %153, 0
-  br i1 %.not283.i, label %af_latin_hints_compute_edges.exit, label %.lr.ph260.i
+  %.not284.i = icmp eq i32 %153, 0
+  br i1 %.not284.i, label %af_latin_hints_compute_edges.exit, label %.lr.ph260.i
 
 .lr.ph260.i:                                      ; preds = %152, %.loopexit243.i
   %.0173258.i = phi ptr [ %162, %.loopexit243.i ], [ %151, %152 ]
@@ -11060,26 +11063,27 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   br label %121
 
 70:                                               ; preds = %14, %.critedge
-  %71 = getelementptr inbounds i8, ptr %8, i64 24
-  %72 = getelementptr inbounds i8, ptr %8, i64 16
-  %73 = load i32, ptr %72, align 8
-  %.not36.i = icmp eq i32 %73, 0
+  %71 = getelementptr inbounds i8, ptr %8, i64 16
+  %72 = load i32, ptr %71, align 8
+  %.not36.i = icmp eq i32 %72, 0
   br i1 %.not36.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %70
-  %74 = add nuw nsw i64 %spec.select, 32
-  %75 = and i64 %74, 9223372036854775744
+  %73 = add nuw nsw i64 %spec.select, 32
+  %74 = and i64 %73, 9223372036854775744
   br label %82
 
 .lr.ph.preheader.i:                               ; preds = %70
-  %wide.trip.count.i = zext i32 %73 to i64
+  %wide.trip.count.i = zext i32 %72 to i64
+  %75 = getelementptr i8, ptr %8, i64 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
-  %76 = getelementptr inbounds %struct.AF_WidthRec_, ptr %71, i64 %indvars.iv.i, i32 1
+  %.idx = mul nuw nsw i64 %indvars.iv.i, 24
+  %76 = getelementptr i8, ptr %75, i64 %.idx
   %77 = load i64, ptr %76, align 8
   %78 = sub nsw i64 %spec.select, %77
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %78, i1 true)
@@ -11097,7 +11101,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   br i1 %.not.i, label %86, label %82
 
 82:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %83 = phi i64 [ %75, %._crit_edge.thread.i ], [ %81, %._crit_edge.i ]
+  %83 = phi i64 [ %74, %._crit_edge.thread.i ], [ %81, %._crit_edge.i ]
   %.025.lcssa40.i = phi i64 [ %spec.select, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   %84 = or disjoint i64 %83, 48
   %85 = icmp slt i64 %spec.select, %84

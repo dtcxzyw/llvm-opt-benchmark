@@ -16893,15 +16893,16 @@ define hidden noundef i64 @_ZN4text14BufferSnapshot18summary_for_anchor17h913065
   unreachable
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %194, i64 232
-  %209 = load i64, ptr %167, align 8, !noundef !4
-  %210 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %208, i64 0, i64 %199, i32 6
+  %208 = load i64, ptr %167, align 8, !noundef !4
+  %.idx = mul nuw nsw i64 %199, 152
+  %209 = getelementptr i8, ptr %194, i64 376
+  %210 = getelementptr i8, ptr %209, i64 %.idx
   %211 = load i8, ptr %210, align 8, !range !162, !noundef !4
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %218, label %.noexc60
 
 .noexc60:                                         ; preds = %218, %207
-  %.sroa.011.0 = phi i64 [ %222, %218 ], [ %209, %207 ]
+  %.sroa.011.0 = phi i64 [ %222, %218 ], [ %208, %207 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 0, ptr %5, align 8, !noalias !4830
   %213 = getelementptr inbounds i8, ptr %5, i64 8
@@ -16922,7 +16923,7 @@ define hidden noundef i64 @_ZN4text14BufferSnapshot18summary_for_anchor17h913065
 218:                                              ; preds = %207
   %219 = getelementptr inbounds i8, ptr %144, i64 8
   %220 = load i64, ptr %219, align 8, !noundef !4
-  %221 = add i64 %50, %209
+  %221 = add i64 %50, %208
   %222 = sub i64 %221, %220
   br label %.noexc60
 

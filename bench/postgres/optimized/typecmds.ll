@@ -5,10 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
 %union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 %struct.AlterTypeRecurseParams = type { i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32 }
 
 @binary_upgrade_next_array_pg_type_oid = dso_local local_unnamed_addr global i32 0, align 4
@@ -3307,11 +3307,12 @@ slot_attisnull.exit:                              ; preds = %.lr.ph, %slot_getso
   br i1 %90, label %91, label %75
 
 91:                                               ; preds = %slot_attisnull.exit
-  %92 = getelementptr inbounds i8, ptr %37, i64 24
-  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %93)
-  %94 = tail call i32 @errcode(i32 noundef 33575106) #8
-  %95 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %92, i64 0, i64 %87, i32 1
+  %92 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %92)
+  %93 = tail call i32 @errcode(i32 noundef 33575106) #8
+  %.idx = mul nsw i64 %87, 104
+  %94 = getelementptr i8, ptr %37, i64 28
+  %95 = getelementptr i8, ptr %94, i64 %.idx
   %96 = getelementptr inbounds i8, ptr %35, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 4
@@ -3964,11 +3965,12 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   br i1 %or.cond, label %59, label %85
 
 85:                                               ; preds = %slot_getattr.exit
-  %86 = getelementptr inbounds i8, ptr %27, i64 24
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 @errcode(i32 noundef 67391682) #8
-  %89 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %86, i64 0, i64 %71, i32 1
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %86)
+  %87 = call i32 @errcode(i32 noundef 67391682) #8
+  %.idx = mul nsw i64 %71, 104
+  %88 = getelementptr i8, ptr %27, i64 28
+  %89 = getelementptr i8, ptr %88, i64 %.idx
   %90 = getelementptr inbounds i8, ptr %25, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 4

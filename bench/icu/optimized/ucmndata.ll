@@ -521,7 +521,9 @@ if.then6:                                         ; preds = %if.else.i, %_ZL17st
   %retval.0.i12 = phi i32 [ %dec.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %div16.i, %if.else.i ]
   store i32 -1, ptr %pLength, align 4
   %idxprom = zext nneg i32 %retval.0.i12 to i64
-  %pHeader = getelementptr inbounds [1 x %struct.PointerTOCEntry], ptr %entry4, i64 0, i64 %idxprom, i32 1
+  %pHeader.idx = shl nuw nsw i64 %idxprom, 4
+  %pHeader.offs = or disjoint i64 %pHeader.idx, 8
+  %pHeader = getelementptr inbounds i8, ptr %entry4, i64 %pHeader.offs
   %16 = load ptr, ptr %pHeader, align 8
   %call8 = tail call ptr @UDataMemory_normalizeDataPointer_75(ptr noundef %16)
   br label %return

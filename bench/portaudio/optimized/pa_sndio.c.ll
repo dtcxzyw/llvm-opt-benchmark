@@ -352,10 +352,11 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
 
 78:                                               ; preds = %77
   %.mux = select i1 %.not, ptr %3, ptr %2
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %80 = load i32, ptr %.mux, align 8
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [16 x %struct.PaDeviceInfo], ptr %79, i64 0, i64 %81, i32 1
+  %79 = load i32, ptr %.mux, align 8
+  %80 = sext i32 %79 to i64
+  %.idx = mul nsw i64 %80, 72
+  %81 = getelementptr i8, ptr %0, i64 272
+  %82 = getelementptr i8, ptr %81, i64 %.idx
   %.0 = load ptr, ptr %82, align 8
   %83 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #16
   %84 = icmp eq ptr %83, null
@@ -363,8 +364,8 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
 
 85:                                               ; preds = %78
   %86 = call i32 @sio_setpar(ptr noundef nonnull %83, ptr noundef nonnull %10) #16
-  %.not115 = icmp eq i32 %86, 0
-  br i1 %.not115, label %87, label %88
+  %.not116 = icmp eq i32 %86, 0
+  br i1 %.not116, label %87, label %88
 
 87:                                               ; preds = %85
   call void @sio_close(ptr noundef nonnull %83) #16
@@ -372,8 +373,8 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
 
 88:                                               ; preds = %85
   %89 = call i32 @sio_getpar(ptr noundef nonnull %83, ptr noundef nonnull %10) #16
-  %.not116 = icmp eq i32 %89, 0
-  br i1 %.not116, label %90, label %91
+  %.not117 = icmp eq i32 %89, 0
+  br i1 %.not117, label %90, label %91
 
 90:                                               ; preds = %88
   call void @sio_close(ptr noundef nonnull %83) #16
@@ -388,16 +389,16 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %97 = load i32, ptr %96, align 4
   %.not15.i = icmp eq i32 %97, 0
-  %or.cond137 = select i1 %.not.i, i1 %.not15.i, i1 false
-  br i1 %or.cond137, label %121, label %98
+  %or.cond138 = select i1 %.not.i, i1 %.not15.i, i1 false
+  br i1 %or.cond138, label %121, label %98
 
 98:                                               ; preds = %91
   %99 = icmp ult i32 %93, 2
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %101 = load i32, ptr %100, align 4
   %.not16.i = icmp eq i32 %101, 1
-  %or.cond139 = select i1 %99, i1 true, i1 %.not16.i
-  br i1 %or.cond139, label %102, label %121
+  %or.cond140 = select i1 %99, i1 true, i1 %.not16.i
+  br i1 %or.cond140, label %102, label %121
 
 102:                                              ; preds = %98
   %103 = add i32 %95, -8
@@ -446,16 +447,16 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
 sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %105
   %.sink.i = phi i64 [ %113, %111 ], [ %120, %117 ], [ 2, %105 ], [ 8, %114 ]
   %122 = and i32 %.1, 2
-  %.not118 = icmp eq i32 %122, 0
-  br i1 %.not118, label %129, label %123
+  %.not119 = icmp eq i32 %122, 0
+  br i1 %.not119, label %129, label %123
 
 123:                                              ; preds = %sndioGetFmt.exit
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %125 = load i32, ptr %124, align 4
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %127 = load i32, ptr %126, align 4
-  %.not119 = icmp eq i32 %125, %127
-  br i1 %.not119, label %129, label %128
+  %.not120 = icmp eq i32 %125, %127
+  br i1 %.not120, label %129, label %128
 
 128:                                              ; preds = %123
   call void @sio_close(ptr noundef nonnull %83) #16
@@ -463,16 +464,16 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
 
 129:                                              ; preds = %123, %sndioGetFmt.exit
   %130 = and i32 %.1, 1
-  %.not120 = icmp eq i32 %130, 0
-  br i1 %.not120, label %137, label %131
+  %.not121 = icmp eq i32 %130, 0
+  br i1 %.not121, label %137, label %131
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %135 = load i32, ptr %134, align 4
-  %.not121 = icmp eq i32 %133, %135
-  br i1 %.not121, label %137, label %136
+  %.not122 = icmp eq i32 %133, %135
+  br i1 %.not122, label %137, label %136
 
 136:                                              ; preds = %131
   call void @sio_close(ptr noundef nonnull %83) #16
@@ -502,8 +503,8 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br label %sndioSetFmt.exit.thread
 
 149:                                              ; preds = %145
-  %.not122 = icmp eq ptr %7, null
-  %.v = select i1 %.not122, i64 168, i64 72
+  %.not123 = icmp eq ptr %7, null
+  %.v = select i1 %.not123, i64 168, i64 72
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   call void @PaUtil_InitializeStreamRepresentation(ptr noundef nonnull %146, ptr noundef nonnull %150, ptr noundef %7, ptr noundef %8) #16
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 80
@@ -511,8 +512,8 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
   %155 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef nonnull %151, i32 noundef %.095, i64 noundef %.093, i64 noundef %.sink.i, i32 noundef %.094, i64 noundef %.092, i64 noundef %.sink.i, double noundef %4, i64 noundef %6, i64 noundef %5, i64 noundef %154, i32 noundef 0, ptr noundef %7, ptr noundef %8) #16
-  %.not123 = icmp eq i32 %155, 0
-  br i1 %.not123, label %157, label %156
+  %.not124 = icmp eq i32 %155, 0
+  br i1 %.not124, label %157, label %156
 
 156:                                              ; preds = %149
   call void @PaUtil_FreeMemory(ptr noundef nonnull %146) #16
@@ -520,7 +521,7 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br label %sndioSetFmt.exit.thread
 
 157:                                              ; preds = %149
-  br i1 %.not118, label %170, label %158
+  br i1 %.not119, label %170, label %158
 
 158:                                              ; preds = %157
   %159 = load i32, ptr %152, align 4
@@ -542,7 +543,7 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br label %sndioSetFmt.exit.thread
 
 170:                                              ; preds = %158, %157
-  br i1 %.not120, label %.critedge, label %171
+  br i1 %.not121, label %.critedge, label %171
 
 171:                                              ; preds = %170
   %172 = load i32, ptr %152, align 4
@@ -584,11 +585,11 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   %196 = getelementptr inbounds nuw i8, ptr %146, i64 56
   store double 0.000000e+00, ptr %196, align 8
   %.pre = load i32, ptr %73, align 4
-  %.pre140 = uitofp i32 %.pre to double
+  %.pre141 = uitofp i32 %.pre to double
   br label %197
 
 197:                                              ; preds = %.critedge, %185
-  %.pre-phi = phi double [ %.pre140, %.critedge ], [ %194, %185 ]
+  %.pre-phi = phi double [ %.pre141, %.critedge ], [ %194, %185 ]
   %198 = phi double [ 0.000000e+00, %.critedge ], [ %195, %185 ]
   %199 = getelementptr inbounds nuw i8, ptr %146, i64 64
   store double %198, ptr %199, align 8

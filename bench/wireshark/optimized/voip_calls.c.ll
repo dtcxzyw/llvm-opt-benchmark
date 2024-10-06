@@ -3952,13 +3952,14 @@ append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, 
   %40 = getelementptr [6 x %struct.graph_str], ptr %39, i64 0, i64 %indvars.iv
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = getelementptr [6 x %struct.graph_str], ptr %42, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %42 = getelementptr i8, ptr %41, i64 16
+  %43 = getelementptr i8, ptr %42, i64 %.idx
   %44 = load ptr, ptr %43, align 8
   tail call void @g_free(ptr noundef %44) #12
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = getelementptr [6 x %struct.graph_str], ptr %46, i64 0, i64 %indvars.iv, i32 1
+  %46 = getelementptr i8, ptr %45, i64 16
+  %47 = getelementptr i8, ptr %46, i64 %.idx
   store ptr null, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %3, align 8
@@ -4831,13 +4832,14 @@ append_to_frame_graph.exit:                       ; preds = %110
   %140 = getelementptr [6 x %struct.graph_str], ptr %139, i64 0, i64 %indvars.iv.i.i
   store ptr null, ptr %140, align 8
   %141 = load ptr, ptr %127, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = getelementptr [6 x %struct.graph_str], ptr %142, i64 0, i64 %indvars.iv.i.i, i32 1
+  %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 4
+  %142 = getelementptr i8, ptr %141, i64 16
+  %143 = getelementptr i8, ptr %142, i64 %.idx.i.i
   %144 = load ptr, ptr %143, align 8
   tail call void @g_free(ptr noundef %144) #12
   %145 = load ptr, ptr %127, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 8
-  %147 = getelementptr [6 x %struct.graph_str], ptr %146, i64 0, i64 %indvars.iv.i.i, i32 1
+  %146 = getelementptr i8, ptr %145, i64 16
+  %147 = getelementptr i8, ptr %146, i64 %.idx.i.i
   store ptr null, ptr %147, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %148 = load ptr, ptr %127, align 8
@@ -4869,11 +4871,12 @@ h245_free_labels.exit.i:                          ; preds = %._crit_edge.i.i, %.
   store ptr %156, ptr %162, align 8
   %163 = tail call noalias ptr @g_strdup(ptr noundef nonnull %126) #12
   %164 = load ptr, ptr %127, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 8
-  %166 = getelementptr inbounds i8, ptr %164, i64 4
-  %167 = load i8, ptr %166, align 4
-  %168 = sext i8 %167 to i64
-  %169 = getelementptr [6 x %struct.graph_str], ptr %165, i64 0, i64 %168, i32 1
+  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %166 = load i8, ptr %165, align 4
+  %167 = sext i8 %166 to i64
+  %.idx.i = shl nsw i64 %167, 4
+  %168 = getelementptr i8, ptr %164, i64 16
+  %169 = getelementptr i8, ptr %168, i64 %.idx.i
   store ptr %163, ptr %169, align 8
   %170 = load ptr, ptr %127, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 4

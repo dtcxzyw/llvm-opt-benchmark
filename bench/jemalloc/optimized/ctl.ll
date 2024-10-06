@@ -18964,30 +18964,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %ndalloc = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 1
-  %12 = load i64, ptr %ndalloc, align 8
-  store i64 %12, ptr %oldval, align 8
+  %ndalloc.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10440
+  %ndalloc = getelementptr i8, ptr %12, i64 %ndalloc.idx
+  %13 = load i64, ptr %ndalloc, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19073,30 +19074,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nrequests = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 2
-  %12 = load i64, ptr %nrequests, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nrequests.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10448
+  %nrequests = getelementptr i8, ptr %12, i64 %nrequests.idx
+  %13 = load i64, ptr %nrequests, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19182,30 +19184,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %curregs = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 3
-  %12 = load i64, ptr %curregs, align 8
-  store i64 %12, ptr %oldval, align 8
+  %curregs.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10456
+  %curregs = getelementptr i8, ptr %12, i64 %curregs.idx
+  %13 = load i64, ptr %curregs, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19291,30 +19294,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nfills = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 4
-  %12 = load i64, ptr %nfills, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nfills.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10464
+  %nfills = getelementptr i8, ptr %12, i64 %nfills.idx
+  %13 = load i64, ptr %nfills, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19400,30 +19404,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nflushes = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 5
-  %12 = load i64, ptr %nflushes, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nflushes.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10472
+  %nflushes = getelementptr i8, ptr %12, i64 %nflushes.idx
+  %13 = load i64, ptr %nflushes, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19509,30 +19514,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nslabs = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 6
-  %12 = load i64, ptr %nslabs, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nslabs.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10480
+  %nslabs = getelementptr i8, ptr %12, i64 %nslabs.idx
+  %13 = load i64, ptr %nslabs, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19618,30 +19624,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %reslabs = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 7
-  %12 = load i64, ptr %reslabs, align 8
-  store i64 %12, ptr %oldval, align 8
+  %reslabs.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10488
+  %reslabs = getelementptr i8, ptr %12, i64 %reslabs.idx
+  %13 = load i64, ptr %reslabs, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19727,30 +19734,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %curslabs = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 8
-  %12 = load i64, ptr %curslabs, align 8
-  store i64 %12, ptr %oldval, align 8
+  %curslabs.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10496
+  %curslabs = getelementptr i8, ptr %12, i64 %curslabs.idx
+  %13 = load i64, ptr %curslabs, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19836,30 +19844,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nonfull_slabs = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 0, i32 9
-  %12 = load i64, ptr %nonfull_slabs, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nonfull_slabs.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10504
+  %nonfull_slabs = getelementptr i8, ptr %12, i64 %nonfull_slabs.idx
+  %13 = load i64, ptr %nonfull_slabs, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -19945,30 +19954,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %n_lock_ops = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1, i32 8
-  %12 = load i64, ptr %n_lock_ops, align 8
-  store i64 %12, ptr %oldval, align 8
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %n_lock_ops = getelementptr inbounds i8, ptr %mutex_data, i64 56
+  %13 = load i64, ptr %n_lock_ops, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -20054,30 +20065,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %n_wait_times = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1, i32 2
-  %12 = load i64, ptr %n_wait_times, align 8
-  store i64 %12, ptr %oldval, align 8
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %n_wait_times = getelementptr inbounds i8, ptr %mutex_data, i64 16
+  %13 = load i64, ptr %n_wait_times, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -20163,30 +20176,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %n_spin_acquired = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1, i32 3
-  %12 = load i64, ptr %n_spin_acquired, align 8
-  store i64 %12, ptr %oldval, align 8
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %n_spin_acquired = getelementptr inbounds i8, ptr %mutex_data, i64 24
+  %13 = load i64, ptr %n_spin_acquired, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -20272,30 +20287,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %n_owner_switches = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1, i32 6
-  %12 = load i64, ptr %n_owner_switches, align 8
-  store i64 %12, ptr %oldval, align 8
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %n_owner_switches = getelementptr inbounds i8, ptr %mutex_data, i64 40
+  %13 = load i64, ptr %n_owner_switches, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -20381,11 +20398,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %mutex_data = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1
-  %call5 = tail call i64 @nstime_ns(ptr noundef nonnull %mutex_data) #14
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %call5 = tail call i64 @nstime_ns(ptr noundef %mutex_data) #14
   store i64 %call5, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
@@ -20393,12 +20411,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %12 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %12, 8
+  %13 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %13, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
@@ -20490,10 +20508,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %max_wait_time = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1, i32 1
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %max_wait_time = getelementptr inbounds i8, ptr %mutex_data, i64 8
   %call5 = tail call i64 @nstime_ns(ptr noundef nonnull %max_wait_time) #14
   store i64 %call5, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
@@ -20502,12 +20522,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %12 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %12, 8
+  %13 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %13, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
@@ -20599,30 +20619,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %bstats = getelementptr inbounds i8, ptr %10, i64 10432
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %max_n_thds = getelementptr inbounds [36 x %struct.bin_stats_data_s], ptr %bstats, i64 0, i64 %11, i32 1, i32 4
-  %12 = load i32, ptr %max_n_thds, align 8
-  store i32 %12, ptr %oldval, align 4
+  %mutex_data.idx = mul nsw i64 %11, 144
+  %12 = getelementptr i8, ptr %10, i64 10512
+  %mutex_data = getelementptr i8, ptr %12, i64 %mutex_data.idx
+  %max_n_thds = getelementptr inbounds i8, ptr %mutex_data, i64 32
+  %13 = load i32, ptr %max_n_thds, align 8
+  store i32 %13, ptr %oldval, align 4
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 4
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 4
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 4)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 4)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 4 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i32 %12, ptr %oldp, align 4
+  store i32 %13, ptr %oldp, align 4
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -20825,30 +20847,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %lstats = getelementptr inbounds i8, ptr %10, i64 15616
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %ndalloc = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats, i64 0, i64 %11, i32 1
-  %12 = load atomic i64, ptr %ndalloc monotonic, align 8
-  store i64 %12, ptr %oldval, align 8
+  %ndalloc.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 15624
+  %ndalloc = getelementptr i8, ptr %12, i64 %ndalloc.idx
+  %13 = load atomic i64, ptr %ndalloc monotonic, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11
@@ -20934,30 +20957,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %lstats = getelementptr inbounds i8, ptr %10, i64 15616
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nrequests = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats, i64 0, i64 %11, i32 2
-  %12 = load atomic i64, ptr %nrequests monotonic, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nrequests.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 15632
+  %nrequests = getelementptr i8, ptr %12, i64 %nrequests.idx
+  %13 = load atomic i64, ptr %nrequests monotonic, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11
@@ -21043,30 +21067,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %lstats = getelementptr inbounds i8, ptr %10, i64 15616
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %curlextents = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats, i64 0, i64 %11, i32 5
-  %12 = load i64, ptr %curlextents, align 8
-  store i64 %12, ptr %oldval, align 8
+  %curlextents.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 15656
+  %curlextents = getelementptr i8, ptr %12, i64 %curlextents.idx
+  %13 = load i64, ptr %curlextents, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -21269,30 +21294,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %estats = getelementptr inbounds i8, ptr %10, i64 25024
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nmuzzy = getelementptr inbounds [199 x %struct.pac_estats_s], ptr %estats, i64 0, i64 %11, i32 2
-  %12 = load i64, ptr %nmuzzy, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nmuzzy.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 25040
+  %nmuzzy = getelementptr i8, ptr %12, i64 %nmuzzy.idx
+  %13 = load i64, ptr %nmuzzy, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -21378,30 +21404,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %estats = getelementptr inbounds i8, ptr %10, i64 25024
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %nretained = getelementptr inbounds [199 x %struct.pac_estats_s], ptr %estats, i64 0, i64 %11, i32 4
-  %12 = load i64, ptr %nretained, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nretained.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 25056
+  %nretained = getelementptr i8, ptr %12, i64 %nretained.idx
+  %13 = load i64, ptr %nretained, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -21487,30 +21514,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %estats = getelementptr inbounds i8, ptr %10, i64 25024
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %dirty_bytes = getelementptr inbounds [199 x %struct.pac_estats_s], ptr %estats, i64 0, i64 %11, i32 1
-  %12 = load i64, ptr %dirty_bytes, align 8
-  store i64 %12, ptr %oldval, align 8
+  %dirty_bytes.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 25032
+  %dirty_bytes = getelementptr i8, ptr %12, i64 %dirty_bytes.idx
+  %13 = load i64, ptr %dirty_bytes, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -21596,30 +21624,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %estats = getelementptr inbounds i8, ptr %10, i64 25024
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %muzzy_bytes = getelementptr inbounds [199 x %struct.pac_estats_s], ptr %estats, i64 0, i64 %11, i32 3
-  %12 = load i64, ptr %muzzy_bytes, align 8
-  store i64 %12, ptr %oldval, align 8
+  %muzzy_bytes.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 25048
+  %muzzy_bytes = getelementptr i8, ptr %12, i64 %muzzy_bytes.idx
+  %13 = load i64, ptr %muzzy_bytes, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -21705,30 +21734,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %estats = getelementptr inbounds i8, ptr %10, i64 25024
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 32
   %11 = load i64, ptr %arrayidx3, align 8
-  %retained_bytes = getelementptr inbounds [199 x %struct.pac_estats_s], ptr %estats, i64 0, i64 %11, i32 5
-  %12 = load i64, ptr %retained_bytes, align 8
-  store i64 %12, ptr %oldval, align 8
+  %retained_bytes.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 25064
+  %retained_bytes = getelementptr i8, ptr %12, i64 %retained_bytes.idx
+  %13 = load i64, ptr %retained_bytes, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp6 = icmp ne ptr %oldp, null
   %cmp7 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp6, %cmp7
   br i1 %or.cond1, label %if.then8, label %label_return
 
 if.then8:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp9.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp9.not = icmp eq i64 %14, 8
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end12:                                         ; preds = %if.then8
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end12, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then10
@@ -32531,30 +32561,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %hpastats = getelementptr inbounds i8, ptr %10, i64 34576
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 40
   %11 = load i64, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %hpastats, i64 0, i64 %11, i64 1
-  %12 = load i64, ptr %arrayidx5, align 8
-  store i64 %12, ptr %oldval, align 8
+  %arrayidx5.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 34600
+  %arrayidx5 = getelementptr i8, ptr %12, i64 %arrayidx5.idx
+  %13 = load i64, ptr %arrayidx5, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11
@@ -32640,30 +32671,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %hpastats = getelementptr inbounds i8, ptr %10, i64 34576
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 40
   %11 = load i64, ptr %arrayidx3, align 8
-  %nactive = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %hpastats, i64 0, i64 %11, i64 0, i32 1
-  %12 = load i64, ptr %nactive, align 8
-  store i64 %12, ptr %oldval, align 8
+  %nactive.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 34584
+  %nactive = getelementptr i8, ptr %12, i64 %nactive.idx
+  %13 = load i64, ptr %nactive, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11
@@ -32749,30 +32781,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %hpastats = getelementptr inbounds i8, ptr %10, i64 34576
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 40
   %11 = load i64, ptr %arrayidx3, align 8
-  %nactive = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %hpastats, i64 0, i64 %11, i64 1, i32 1
-  %12 = load i64, ptr %nactive, align 8
-  store i64 %12, ptr %oldval, align 8
+  %arrayidx5.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 34600
+  %arrayidx5 = getelementptr i8, ptr %12, i64 %arrayidx5.idx
+  %nactive = getelementptr inbounds i8, ptr %arrayidx5, i64 8
+  %13 = load i64, ptr %nactive, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11
@@ -32858,30 +32892,31 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %hpastats = getelementptr inbounds i8, ptr %10, i64 34576
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 40
   %11 = load i64, ptr %arrayidx3, align 8
-  %ndirty = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %hpastats, i64 0, i64 %11, i64 0, i32 2
-  %12 = load i64, ptr %ndirty, align 8
-  store i64 %12, ptr %oldval, align 8
+  %ndirty.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 34592
+  %ndirty = getelementptr i8, ptr %12, i64 %ndirty.idx
+  %13 = load i64, ptr %ndirty, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11
@@ -32967,30 +33002,32 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %astats = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %astats, align 8
-  %hpastats = getelementptr inbounds i8, ptr %10, i64 34576
   %arrayidx3 = getelementptr inbounds i8, ptr %mib, i64 40
   %11 = load i64, ptr %arrayidx3, align 8
-  %ndirty = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %hpastats, i64 0, i64 %11, i64 1, i32 2
-  %12 = load i64, ptr %ndirty, align 8
-  store i64 %12, ptr %oldval, align 8
+  %arrayidx5.idx = mul nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %10, i64 34600
+  %arrayidx5 = getelementptr i8, ptr %12, i64 %arrayidx5.idx
+  %ndirty = getelementptr inbounds i8, ptr %arrayidx5, i64 16
+  %13 = load i64, ptr %ndirty, align 8
+  store i64 %13, ptr %oldval, align 8
   %cmp7 = icmp ne ptr %oldp, null
   %cmp8 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp7, %cmp8
   br i1 %or.cond1, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %arenas_i.exit
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp10.not = icmp eq i64 %13, 8
+  %14 = load i64, ptr %oldlenp, align 8
+  %cmp10.not = icmp eq i64 %14, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end13:                                         ; preds = %if.then9
-  store i64 %12, ptr %oldp, align 8
+  store i64 %13, ptr %oldp, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end13, %arenas_i.exit, %malloc_mutex_lock.exit, %if.then11

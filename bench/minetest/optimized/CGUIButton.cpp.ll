@@ -988,9 +988,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @_ZNK3irr3gui10CGUIButton14getSpriteColorENS0_17EGUI_BUTTON_STATEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(651) %this, i32 noundef %state) unnamed_addr #5 align 2 {
 entry:
-  %ButtonSprites = getelementptr inbounds i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %Color = getelementptr inbounds [7 x %"struct.irr::gui::CGUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom, i32 1
+  %Color.idx = mul nuw nsw i64 %idxprom, 12
+  %0 = getelementptr inbounds i8, ptr %this, i64 312
+  %Color = getelementptr i8, ptr %0, i64 %Color.idx
   %retval.sroa.0.0.copyload = load i32, ptr %Color, align 4, !tbaa !62
   ret i32 %retval.sroa.0.0.copyload
 }
@@ -998,22 +999,24 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3irr3gui10CGUIButton13getSpriteLoopENS0_17EGUI_BUTTON_STATEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(651) %this, i32 noundef %state) unnamed_addr #5 align 2 {
 entry:
-  %ButtonSprites = getelementptr inbounds i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %Loop = getelementptr inbounds [7 x %"struct.irr::gui::CGUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom, i32 2
-  %0 = load i8, ptr %Loop, align 4, !tbaa !12, !range !47, !noundef !48
-  %tobool = icmp ne i8 %0, 0
+  %Loop.idx = mul nuw nsw i64 %idxprom, 12
+  %0 = getelementptr inbounds i8, ptr %this, i64 316
+  %Loop = getelementptr i8, ptr %0, i64 %Loop.idx
+  %1 = load i8, ptr %Loop, align 4, !tbaa !12, !range !47, !noundef !48
+  %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3irr3gui10CGUIButton14getSpriteScaleENS0_17EGUI_BUTTON_STATEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(651) %this, i32 noundef %state) unnamed_addr #5 align 2 {
 entry:
-  %ButtonSprites = getelementptr inbounds i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %Scale = getelementptr inbounds [7 x %"struct.irr::gui::CGUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom, i32 3
-  %0 = load i8, ptr %Scale, align 1, !tbaa !13, !range !47, !noundef !48
-  %tobool = icmp ne i8 %0, 0
+  %Scale.idx = mul nuw nsw i64 %idxprom, 12
+  %0 = getelementptr inbounds i8, ptr %this, i64 317
+  %Scale = getelementptr i8, ptr %0, i64 %Scale.idx
+  %1 = load i8, ptr %Scale, align 1, !tbaa !13, !range !47, !noundef !48
+  %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
 }
 

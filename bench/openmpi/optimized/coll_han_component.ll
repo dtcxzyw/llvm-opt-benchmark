@@ -206,15 +206,15 @@ mca_coll_han_query_module_from_mca.exit:          ; preds = %0, %26
   %33 = trunc i64 %32 to i32
   %34 = load ptr, ptr %11, align 8
   %35 = icmp eq ptr %31, %34
-  br i1 %35, label %36, label %mca_coll_han_query_module_from_mca.exit156
+  br i1 %35, label %36, label %mca_coll_han_query_module_from_mca.exit157
 
 36:                                               ; preds = %mca_coll_han_query_module_from_mca.exit
   %37 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %31) #11
-  br label %mca_coll_han_query_module_from_mca.exit156
+  br label %mca_coll_han_query_module_from_mca.exit157
 
-mca_coll_han_query_module_from_mca.exit156:       ; preds = %mca_coll_han_query_module_from_mca.exit, %36
-  %.0.i155 = phi i32 [ %37, %36 ], [ %33, %mca_coll_han_query_module_from_mca.exit ]
-  %38 = tail call i32 @llvm.smax.i32(i32 %.0.i155, i32 0)
+mca_coll_han_query_module_from_mca.exit157:       ; preds = %mca_coll_han_query_module_from_mca.exit, %36
+  %.0.i156 = phi i32 [ %37, %36 ], [ %33, %mca_coll_han_query_module_from_mca.exit ]
+  %38 = tail call i32 @llvm.smax.i32(i32 %.0.i156, i32 0)
   store i32 %38, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 300), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 304), align 8
@@ -230,15 +230,15 @@ mca_coll_han_query_module_from_mca.exit156:       ; preds = %mca_coll_han_query_
   %44 = trunc i64 %43 to i32
   %45 = load ptr, ptr %10, align 8
   %46 = icmp eq ptr %42, %45
-  br i1 %46, label %47, label %mca_coll_han_query_module_from_mca.exit159
+  br i1 %46, label %47, label %mca_coll_han_query_module_from_mca.exit160
 
-47:                                               ; preds = %mca_coll_han_query_module_from_mca.exit156
+47:                                               ; preds = %mca_coll_han_query_module_from_mca.exit157
   %48 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %42) #11
-  br label %mca_coll_han_query_module_from_mca.exit159
+  br label %mca_coll_han_query_module_from_mca.exit160
 
-mca_coll_han_query_module_from_mca.exit159:       ; preds = %mca_coll_han_query_module_from_mca.exit156, %47
-  %.0.i158 = phi i32 [ %48, %47 ], [ %44, %mca_coll_han_query_module_from_mca.exit156 ]
-  %49 = tail call i32 @llvm.smax.i32(i32 %.0.i158, i32 0)
+mca_coll_han_query_module_from_mca.exit160:       ; preds = %mca_coll_han_query_module_from_mca.exit157, %47
+  %.0.i159 = phi i32 [ %48, %47 ], [ %44, %mca_coll_han_query_module_from_mca.exit157 ]
+  %49 = tail call i32 @llvm.smax.i32(i32 %.0.i159, i32 0)
   store i32 %49, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 308), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 312), align 8
@@ -252,15 +252,15 @@ mca_coll_han_query_module_from_mca.exit159:       ; preds = %mca_coll_han_query_
   %54 = trunc i64 %53 to i32
   %55 = load ptr, ptr %9, align 8
   %56 = icmp eq ptr %52, %55
-  br i1 %56, label %57, label %mca_coll_han_query_module_from_mca.exit162
+  br i1 %56, label %57, label %mca_coll_han_query_module_from_mca.exit163
 
-57:                                               ; preds = %mca_coll_han_query_module_from_mca.exit159
+57:                                               ; preds = %mca_coll_han_query_module_from_mca.exit160
   %58 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %52) #11
-  br label %mca_coll_han_query_module_from_mca.exit162
+  br label %mca_coll_han_query_module_from_mca.exit163
 
-mca_coll_han_query_module_from_mca.exit162:       ; preds = %mca_coll_han_query_module_from_mca.exit159, %57
-  %.0.i161 = phi i32 [ %58, %57 ], [ %54, %mca_coll_han_query_module_from_mca.exit159 ]
-  %59 = tail call i32 @llvm.smax.i32(i32 %.0.i161, i32 0)
+mca_coll_han_query_module_from_mca.exit163:       ; preds = %mca_coll_han_query_module_from_mca.exit160, %57
+  %.0.i162 = phi i32 [ %58, %57 ], [ %54, %mca_coll_han_query_module_from_mca.exit160 ]
+  %59 = tail call i32 @llvm.smax.i32(i32 %.0.i162, i32 0)
   store i32 %59, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 312), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 316), align 4
@@ -276,15 +276,15 @@ mca_coll_han_query_module_from_mca.exit162:       ; preds = %mca_coll_han_query_
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %8, align 8
   %67 = icmp eq ptr %63, %66
-  br i1 %67, label %68, label %mca_coll_han_query_module_from_mca.exit165
+  br i1 %67, label %68, label %mca_coll_han_query_module_from_mca.exit166
 
-68:                                               ; preds = %mca_coll_han_query_module_from_mca.exit162
+68:                                               ; preds = %mca_coll_han_query_module_from_mca.exit163
   %69 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %63) #11
-  br label %mca_coll_han_query_module_from_mca.exit165
+  br label %mca_coll_han_query_module_from_mca.exit166
 
-mca_coll_han_query_module_from_mca.exit165:       ; preds = %mca_coll_han_query_module_from_mca.exit162, %68
-  %.0.i164 = phi i32 [ %69, %68 ], [ %65, %mca_coll_han_query_module_from_mca.exit162 ]
-  %70 = tail call i32 @llvm.smax.i32(i32 %.0.i164, i32 0)
+mca_coll_han_query_module_from_mca.exit166:       ; preds = %mca_coll_han_query_module_from_mca.exit163, %68
+  %.0.i165 = phi i32 [ %69, %68 ], [ %65, %mca_coll_han_query_module_from_mca.exit163 ]
+  %70 = tail call i32 @llvm.smax.i32(i32 %.0.i165, i32 0)
   store i32 %70, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 320), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 324), align 4
@@ -298,15 +298,15 @@ mca_coll_han_query_module_from_mca.exit165:       ; preds = %mca_coll_han_query_
   %75 = trunc i64 %74 to i32
   %76 = load ptr, ptr %7, align 8
   %77 = icmp eq ptr %73, %76
-  br i1 %77, label %78, label %mca_coll_han_query_module_from_mca.exit168
+  br i1 %77, label %78, label %mca_coll_han_query_module_from_mca.exit169
 
-78:                                               ; preds = %mca_coll_han_query_module_from_mca.exit165
+78:                                               ; preds = %mca_coll_han_query_module_from_mca.exit166
   %79 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %73) #11
-  br label %mca_coll_han_query_module_from_mca.exit168
+  br label %mca_coll_han_query_module_from_mca.exit169
 
-mca_coll_han_query_module_from_mca.exit168:       ; preds = %mca_coll_han_query_module_from_mca.exit165, %78
-  %.0.i167 = phi i32 [ %79, %78 ], [ %75, %mca_coll_han_query_module_from_mca.exit165 ]
-  %80 = tail call i32 @llvm.smax.i32(i32 %.0.i167, i32 0)
+mca_coll_han_query_module_from_mca.exit169:       ; preds = %mca_coll_han_query_module_from_mca.exit166, %78
+  %.0.i168 = phi i32 [ %79, %78 ], [ %75, %mca_coll_han_query_module_from_mca.exit166 ]
+  %80 = tail call i32 @llvm.smax.i32(i32 %.0.i168, i32 0)
   store i32 %80, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 324), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 328), align 8
@@ -320,15 +320,15 @@ mca_coll_han_query_module_from_mca.exit168:       ; preds = %mca_coll_han_query_
   %85 = trunc i64 %84 to i32
   %86 = load ptr, ptr %6, align 8
   %87 = icmp eq ptr %83, %86
-  br i1 %87, label %88, label %mca_coll_han_query_module_from_mca.exit171
+  br i1 %87, label %88, label %mca_coll_han_query_module_from_mca.exit172
 
-88:                                               ; preds = %mca_coll_han_query_module_from_mca.exit168
+88:                                               ; preds = %mca_coll_han_query_module_from_mca.exit169
   %89 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %83) #11
-  br label %mca_coll_han_query_module_from_mca.exit171
+  br label %mca_coll_han_query_module_from_mca.exit172
 
-mca_coll_han_query_module_from_mca.exit171:       ; preds = %mca_coll_han_query_module_from_mca.exit168, %88
-  %.0.i170 = phi i32 [ %89, %88 ], [ %85, %mca_coll_han_query_module_from_mca.exit168 ]
-  %90 = tail call i32 @llvm.smax.i32(i32 %.0.i170, i32 0)
+mca_coll_han_query_module_from_mca.exit172:       ; preds = %mca_coll_han_query_module_from_mca.exit169, %88
+  %.0.i171 = phi i32 [ %89, %88 ], [ %85, %mca_coll_han_query_module_from_mca.exit169 ]
+  %90 = tail call i32 @llvm.smax.i32(i32 %.0.i171, i32 0)
   store i32 %90, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 328), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 332), align 4
@@ -342,15 +342,15 @@ mca_coll_han_query_module_from_mca.exit171:       ; preds = %mca_coll_han_query_
   %95 = trunc i64 %94 to i32
   %96 = load ptr, ptr %5, align 8
   %97 = icmp eq ptr %93, %96
-  br i1 %97, label %98, label %mca_coll_han_query_module_from_mca.exit174
+  br i1 %97, label %98, label %mca_coll_han_query_module_from_mca.exit175
 
-98:                                               ; preds = %mca_coll_han_query_module_from_mca.exit171
+98:                                               ; preds = %mca_coll_han_query_module_from_mca.exit172
   %99 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %93) #11
-  br label %mca_coll_han_query_module_from_mca.exit174
+  br label %mca_coll_han_query_module_from_mca.exit175
 
-mca_coll_han_query_module_from_mca.exit174:       ; preds = %mca_coll_han_query_module_from_mca.exit171, %98
-  %.0.i173 = phi i32 [ %99, %98 ], [ %95, %mca_coll_han_query_module_from_mca.exit171 ]
-  %100 = tail call i32 @llvm.smax.i32(i32 %.0.i173, i32 0)
+mca_coll_han_query_module_from_mca.exit175:       ; preds = %mca_coll_han_query_module_from_mca.exit172, %98
+  %.0.i174 = phi i32 [ %99, %98 ], [ %95, %mca_coll_han_query_module_from_mca.exit172 ]
+  %100 = tail call i32 @llvm.smax.i32(i32 %.0.i174, i32 0)
   store i32 %100, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 332), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
@@ -364,15 +364,15 @@ mca_coll_han_query_module_from_mca.exit174:       ; preds = %mca_coll_han_query_
   %105 = trunc i64 %104 to i32
   %106 = load ptr, ptr %4, align 8
   %107 = icmp eq ptr %103, %106
-  br i1 %107, label %108, label %mca_coll_han_query_module_from_mca.exit177
+  br i1 %107, label %108, label %mca_coll_han_query_module_from_mca.exit178
 
-108:                                              ; preds = %mca_coll_han_query_module_from_mca.exit174
+108:                                              ; preds = %mca_coll_han_query_module_from_mca.exit175
   %109 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %103) #11
-  br label %mca_coll_han_query_module_from_mca.exit177
+  br label %mca_coll_han_query_module_from_mca.exit178
 
-mca_coll_han_query_module_from_mca.exit177:       ; preds = %mca_coll_han_query_module_from_mca.exit174, %108
-  %.0.i176 = phi i32 [ %109, %108 ], [ %105, %mca_coll_han_query_module_from_mca.exit174 ]
-  %110 = tail call i32 @llvm.smax.i32(i32 %.0.i176, i32 0)
+mca_coll_han_query_module_from_mca.exit178:       ; preds = %mca_coll_han_query_module_from_mca.exit175, %108
+  %.0.i177 = phi i32 [ %109, %108 ], [ %105, %mca_coll_han_query_module_from_mca.exit175 ]
+  %110 = tail call i32 @llvm.smax.i32(i32 %.0.i177, i32 0)
   store i32 %110, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
@@ -386,15 +386,15 @@ mca_coll_han_query_module_from_mca.exit177:       ; preds = %mca_coll_han_query_
   %115 = trunc i64 %114 to i32
   %116 = load ptr, ptr %3, align 8
   %117 = icmp eq ptr %113, %116
-  br i1 %117, label %118, label %mca_coll_han_query_module_from_mca.exit180
+  br i1 %117, label %118, label %mca_coll_han_query_module_from_mca.exit181
 
-118:                                              ; preds = %mca_coll_han_query_module_from_mca.exit177
+118:                                              ; preds = %mca_coll_han_query_module_from_mca.exit178
   %119 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %113) #11
-  br label %mca_coll_han_query_module_from_mca.exit180
+  br label %mca_coll_han_query_module_from_mca.exit181
 
-mca_coll_han_query_module_from_mca.exit180:       ; preds = %mca_coll_han_query_module_from_mca.exit177, %118
-  %.0.i179 = phi i32 [ %119, %118 ], [ %115, %mca_coll_han_query_module_from_mca.exit177 ]
-  %120 = tail call i32 @llvm.smax.i32(i32 %.0.i179, i32 0)
+mca_coll_han_query_module_from_mca.exit181:       ; preds = %mca_coll_han_query_module_from_mca.exit178, %118
+  %.0.i180 = phi i32 [ %119, %118 ], [ %115, %mca_coll_han_query_module_from_mca.exit178 ]
+  %120 = tail call i32 @llvm.smax.i32(i32 %.0.i180, i32 0)
   store i32 %120, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 344), align 8
@@ -408,15 +408,15 @@ mca_coll_han_query_module_from_mca.exit180:       ; preds = %mca_coll_han_query_
   %125 = trunc i64 %124 to i32
   %126 = load ptr, ptr %2, align 8
   %127 = icmp eq ptr %123, %126
-  br i1 %127, label %128, label %mca_coll_han_query_module_from_mca.exit183
+  br i1 %127, label %128, label %mca_coll_han_query_module_from_mca.exit184
 
-128:                                              ; preds = %mca_coll_han_query_module_from_mca.exit180
+128:                                              ; preds = %mca_coll_han_query_module_from_mca.exit181
   %129 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %123) #11
-  br label %mca_coll_han_query_module_from_mca.exit183
+  br label %mca_coll_han_query_module_from_mca.exit184
 
-mca_coll_han_query_module_from_mca.exit183:       ; preds = %mca_coll_han_query_module_from_mca.exit180, %128
-  %.0.i182 = phi i32 [ %129, %128 ], [ %125, %mca_coll_han_query_module_from_mca.exit180 ]
-  %130 = tail call i32 @llvm.smax.i32(i32 %.0.i182, i32 0)
+mca_coll_han_query_module_from_mca.exit184:       ; preds = %mca_coll_han_query_module_from_mca.exit181, %128
+  %.0.i183 = phi i32 [ %129, %128 ], [ %125, %mca_coll_han_query_module_from_mca.exit181 ]
+  %130 = tail call i32 @llvm.smax.i32(i32 %.0.i183, i32 0)
   store i32 %130, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 344), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 348), align 4
@@ -430,30 +430,30 @@ mca_coll_han_query_module_from_mca.exit183:       ; preds = %mca_coll_han_query_
   %135 = trunc i64 %134 to i32
   %136 = load ptr, ptr %1, align 8
   %137 = icmp eq ptr %133, %136
-  br i1 %137, label %138, label %mca_coll_han_query_module_from_mca.exit186
+  br i1 %137, label %138, label %mca_coll_han_query_module_from_mca.exit187
 
-138:                                              ; preds = %mca_coll_han_query_module_from_mca.exit183
+138:                                              ; preds = %mca_coll_han_query_module_from_mca.exit184
   %139 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %133) #11
-  br label %mca_coll_han_query_module_from_mca.exit186
+  br label %mca_coll_han_query_module_from_mca.exit187
 
-mca_coll_han_query_module_from_mca.exit186:       ; preds = %mca_coll_han_query_module_from_mca.exit183, %138
-  %.0.i185 = phi i32 [ %139, %138 ], [ %135, %mca_coll_han_query_module_from_mca.exit183 ]
-  %140 = tail call i32 @llvm.smax.i32(i32 %.0.i185, i32 0)
+mca_coll_han_query_module_from_mca.exit187:       ; preds = %mca_coll_han_query_module_from_mca.exit184, %138
+  %.0.i186 = phi i32 [ %139, %138 ], [ %135, %mca_coll_han_query_module_from_mca.exit184 ]
+  %140 = tail call i32 @llvm.smax.i32(i32 %.0.i186, i32 0)
   store i32 %140, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 348), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   store i8 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 448), align 8
   %141 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 448)) #11
   %142 = tail call i32 @mca_coll_han_init_algorithms() #11
   %143 = icmp eq i32 %142, -1
-  br i1 %143, label %258, label %.preheader199
+  br i1 %143, label %257, label %.preheader200
 
-.preheader199:                                    ; preds = %mca_coll_han_query_module_from_mca.exit186, %183
-  %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %mca_coll_han_query_module_from_mca.exit186 ]
+.preheader200:                                    ; preds = %mca_coll_han_query_module_from_mca.exit187, %183
+  %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %mca_coll_han_query_module_from_mca.exit187 ]
   %144 = trunc nuw nsw i64 %indvars.iv to i32
   %145 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %144) #11
   br i1 %145, label %146, label %183
 
-146:                                              ; preds = %.preheader199
+146:                                              ; preds = %.preheader200
   %147 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 0
@@ -492,8 +492,8 @@ mca_coll_han_query_module_from_mca.exit186:       ; preds = %mca_coll_han_query_
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %166, %169
-  %.0.i187 = phi i32 [ %168, %166 ], [ %172, %169 ]
-  %173 = icmp eq i32 %.0.i187, 0
+  %.0.i188 = phi i32 [ %168, %166 ], [ %172, %169 ]
+  %173 = icmp eq i32 %.0.i188, 0
   br i1 %173, label %174, label %183
 
 174:                                              ; preds = %opal_thread_add_fetch_32.exit
@@ -523,20 +523,20 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   store ptr null, ptr %15, align 8
   br label %183
 
-183:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %.preheader199, %146
+183:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %.preheader200, %146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
-  br i1 %exitcond.not, label %.preheader198, label %.preheader199, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader199, label %.preheader200, !llvm.loop !6
 
-.preheader198:                                    ; preds = %183, %is_simple_implemented.exit
-  %indvars.iv221 = phi i64 [ %indvars.iv.next222, %is_simple_implemented.exit ], [ 0, %183 ]
-  %.not151 = icmp eq i64 %indvars.iv221, 9
-  br i1 %.not151, label %.split150, label %.split
+.preheader199:                                    ; preds = %183, %is_simple_implemented.exit
+  %indvars.iv222 = phi i64 [ %indvars.iv.next223, %is_simple_implemented.exit ], [ 0, %183 ]
+  %.not152 = icmp eq i64 %indvars.iv222, 9
+  br i1 %.not152, label %.split150, label %.split
 
-.split:                                           ; preds = %.preheader198
-  %184 = getelementptr inbounds [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv221
+.split:                                           ; preds = %.preheader199
+  %184 = getelementptr inbounds [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
   store i8 0, ptr %184, align 1
-  %185 = trunc nuw nsw i64 %indvars.iv221 to i32
+  %185 = trunc nuw nsw i64 %indvars.iv222 to i32
   switch i32 %185, label %is_simple_implemented.exit [
     i32 0, label %186
     i32 2, label %186
@@ -545,7 +545,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
     i32 11, label %186
   ]
 
-.split150:                                        ; preds = %.preheader198
+.split150:                                        ; preds = %.preheader199
   store i8 1, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 458), align 2
   br label %186
 
@@ -554,185 +554,187 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %187 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %.pre-phi) #11
   %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.48, ptr noundef %187) #11
   %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.49, ptr noundef %187, ptr noundef %187) #11
-  %190 = getelementptr inbounds [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv221
+  %190 = getelementptr inbounds [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
   %191 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 8, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %190) #11
   br label %is_simple_implemented.exit
 
 is_simple_implemented.exit:                       ; preds = %.split, %186
-  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next222, 22
-  br i1 %exitcond224.not, label %192, label %.preheader198, !llvm.loop !7
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next223, 22
+  br i1 %exitcond225.not, label %192, label %.preheader199, !llvm.loop !7
 
 192:                                              ; preds = %is_simple_implemented.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i8 0, i64 264, i1 false)
   br label %193
 
-193:                                              ; preds = %192, %199
-  %indvars.iv228 = phi i64 [ 0, %192 ], [ %indvars.iv.next229, %199 ]
-  %194 = trunc nuw nsw i64 %indvars.iv228 to i32
+193:                                              ; preds = %192, %198
+  %indvars.iv229 = phi i64 [ 0, %192 ], [ %indvars.iv.next230, %198 ]
+  %194 = trunc nuw nsw i64 %indvars.iv229 to i32
   %195 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %194) #11
-  br i1 %195, label %.preheader197, label %199
+  br i1 %195, label %.preheader198, label %198
 
-.preheader197:                                    ; preds = %193
-  %196 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv228, i64 0
+.preheader198:                                    ; preds = %193
+  %196 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv229, i64 0
   store i32 3, ptr %196, align 4
-  %197 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv228, i64 1
-  store i32 3, ptr %197, align 4
-  %198 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv228, i64 2
-  store i32 6, ptr %198, align 4
-  br label %199
+  %.idx = mul nuw nsw i64 %indvars.iv229, 12
+  %gep270 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 4), i64 %.idx
+  store i32 3, ptr %gep270, align 4
+  %197 = mul nuw nsw i64 %indvars.iv229, 12
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 688), i64 %197
+  store i32 6, ptr %gep, align 4
+  br label %198
 
-199:                                              ; preds = %193, %.preheader197
-  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %exitcond231.not = icmp eq i64 %indvars.iv.next229, 22
-  br i1 %exitcond231.not, label %.preheader196, label %193, !llvm.loop !8
+198:                                              ; preds = %193, %.preheader198
+  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
+  %exitcond233.not = icmp eq i64 %indvars.iv.next230, 22
+  br i1 %exitcond233.not, label %.preheader197, label %193, !llvm.loop !8
 
-.preheader196:                                    ; preds = %199, %.loopexit
-  %indvars.iv244 = phi i64 [ %indvars.iv.next245, %.loopexit ], [ 0, %199 ]
-  %200 = trunc nuw nsw i64 %indvars.iv244 to i32
-  %201 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %200) #11
-  br i1 %201, label %.preheader, label %.loopexit
+.preheader197:                                    ; preds = %198, %.loopexit
+  %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.loopexit ], [ 0, %198 ]
+  %199 = trunc nuw nsw i64 %indvars.iv246 to i32
+  %200 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %199) #11
+  br i1 %200, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.preheader196, %.split215.us
-  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.split215.us ], [ 0, %.preheader196 ]
-  %202 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %200) #11
-  %203 = icmp eq i64 %indvars.iv240, 0
-  br i1 %203, label %mca_coll_han_topo_lvl_to_str.exit, label %.lr.ph
+.preheader:                                       ; preds = %.preheader197, %.split216.us
+  %indvars.iv242 = phi i64 [ %indvars.iv.next243, %.split216.us ], [ 0, %.preheader197 ]
+  %201 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %199) #11
+  %202 = icmp eq i64 %indvars.iv242, 0
+  br i1 %202, label %mca_coll_han_topo_lvl_to_str.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %204
-  %indvars.iv.i204 = phi i64 [ %indvars.iv.next.i, %204 ], [ 0, %.preheader ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i204, 1
+.lr.ph:                                           ; preds = %.preheader, %203
+  %indvars.iv.i205 = phi i64 [ %indvars.iv.next.i, %203 ], [ 0, %.preheader ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i205, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %mca_coll_han_topo_lvl_to_str.exit, label %204, !llvm.loop !9
+  br i1 %exitcond.i, label %mca_coll_han_topo_lvl_to_str.exit, label %203, !llvm.loop !9
 
-204:                                              ; preds = %.lr.ph
-  %205 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i
-  %206 = load i32, ptr %205, align 16
-  %207 = zext i32 %206 to i64
-  %208 = icmp eq i64 %indvars.iv240, %207
-  br i1 %208, label %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit255, label %.lr.ph, !llvm.loop !9
+203:                                              ; preds = %.lr.ph
+  %204 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i
+  %205 = load i32, ptr %204, align 16
+  %206 = zext i32 %205 to i64
+  %207 = icmp eq i64 %indvars.iv242, %206
+  br i1 %207, label %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit257, label %.lr.ph, !llvm.loop !9
 
-mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit255: ; preds = %204
-  %209 = getelementptr inbounds i8, ptr %205, i64 8
-  %210 = load ptr, ptr %209, align 8
+mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit257: ; preds = %203
+  %208 = getelementptr inbounds i8, ptr %204, i64 8
+  %209 = load ptr, ptr %208, align 8
   br label %mca_coll_han_topo_lvl_to_str.exit
 
-mca_coll_han_topo_lvl_to_str.exit:                ; preds = %.lr.ph, %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit255, %.preheader
-  %.05.i = phi ptr [ @.str.9, %.preheader ], [ %210, %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit255 ], [ @.str.8, %.lr.ph ]
-  %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.50, ptr noundef %202, ptr noundef %.05.i) #11
-  %212 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %200) #11
-  br i1 %203, label %mca_coll_han_topo_lvl_to_str.exit194.thread, label %.lr.ph208
+mca_coll_han_topo_lvl_to_str.exit:                ; preds = %.lr.ph, %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit257, %.preheader
+  %.05.i = phi ptr [ @.str.9, %.preheader ], [ %209, %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit257 ], [ @.str.8, %.lr.ph ]
+  %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.50, ptr noundef %201, ptr noundef %.05.i) #11
+  %211 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %199) #11
+  br i1 %202, label %mca_coll_han_topo_lvl_to_str.exit195.thread, label %.lr.ph209
 
-mca_coll_han_topo_lvl_to_str.exit194.thread:      ; preds = %mca_coll_han_topo_lvl_to_str.exit
-  %213 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.51, ptr noundef %212, ptr noundef nonnull @.str.9) #11
-  br label %mca_coll_han_topo_lvl_to_str.exit194.split.preheader
+mca_coll_han_topo_lvl_to_str.exit195.thread:      ; preds = %mca_coll_han_topo_lvl_to_str.exit
+  %212 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.51, ptr noundef %211, ptr noundef nonnull @.str.9) #11
+  br label %mca_coll_han_topo_lvl_to_str.exit195.split.preheader
 
-.lr.ph208:                                        ; preds = %mca_coll_han_topo_lvl_to_str.exit, %214
-  %indvars.iv.i190207 = phi i64 [ %indvars.iv.next.i191, %214 ], [ 0, %mca_coll_han_topo_lvl_to_str.exit ]
-  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i190207, 1
-  %exitcond.i192 = icmp eq i64 %indvars.iv.next.i191, 3
-  br i1 %exitcond.i192, label %mca_coll_han_topo_lvl_to_str.exit194, label %214, !llvm.loop !9
+.lr.ph209:                                        ; preds = %mca_coll_han_topo_lvl_to_str.exit, %213
+  %indvars.iv.i191208 = phi i64 [ %indvars.iv.next.i192, %213 ], [ 0, %mca_coll_han_topo_lvl_to_str.exit ]
+  %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i191208, 1
+  %exitcond.i193 = icmp eq i64 %indvars.iv.next.i192, 3
+  br i1 %exitcond.i193, label %mca_coll_han_topo_lvl_to_str.exit195, label %213, !llvm.loop !9
 
-214:                                              ; preds = %.lr.ph208
-  %215 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i191
-  %216 = load i32, ptr %215, align 16
-  %217 = zext i32 %216 to i64
-  %218 = icmp eq i64 %indvars.iv240, %217
-  br i1 %218, label %mca_coll_han_topo_lvl_to_str.exit194.split.loop.exit, label %.lr.ph208, !llvm.loop !9
+213:                                              ; preds = %.lr.ph209
+  %214 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i192
+  %215 = load i32, ptr %214, align 16
+  %216 = zext i32 %215 to i64
+  %217 = icmp eq i64 %indvars.iv242, %216
+  br i1 %217, label %mca_coll_han_topo_lvl_to_str.exit195.split.loop.exit, label %.lr.ph209, !llvm.loop !9
 
-mca_coll_han_topo_lvl_to_str.exit194.split.loop.exit: ; preds = %214
-  %219 = getelementptr inbounds i8, ptr %215, i64 8
-  %220 = load ptr, ptr %219, align 8
-  br label %mca_coll_han_topo_lvl_to_str.exit194
+mca_coll_han_topo_lvl_to_str.exit195.split.loop.exit: ; preds = %213
+  %218 = getelementptr inbounds i8, ptr %214, i64 8
+  %219 = load ptr, ptr %218, align 8
+  br label %mca_coll_han_topo_lvl_to_str.exit195
 
-mca_coll_han_topo_lvl_to_str.exit194:             ; preds = %.lr.ph208, %mca_coll_han_topo_lvl_to_str.exit194.split.loop.exit
-  %.05.i193 = phi ptr [ %220, %mca_coll_han_topo_lvl_to_str.exit194.split.loop.exit ], [ @.str.8, %.lr.ph208 ]
-  %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.51, ptr noundef %212, ptr noundef %.05.i193) #11
-  %.not218 = icmp eq i64 %indvars.iv240, 2
-  br i1 %.not218, label %mca_coll_han_topo_lvl_to_str.exit194.split.us, label %mca_coll_han_topo_lvl_to_str.exit194.split.preheader
+mca_coll_han_topo_lvl_to_str.exit195:             ; preds = %.lr.ph209, %mca_coll_han_topo_lvl_to_str.exit195.split.loop.exit
+  %.05.i194 = phi ptr [ %219, %mca_coll_han_topo_lvl_to_str.exit195.split.loop.exit ], [ @.str.8, %.lr.ph209 ]
+  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.51, ptr noundef %211, ptr noundef %.05.i194) #11
+  %.not219 = icmp eq i64 %indvars.iv242, 2
+  br i1 %.not219, label %mca_coll_han_topo_lvl_to_str.exit195.split.us, label %mca_coll_han_topo_lvl_to_str.exit195.split.preheader
 
-mca_coll_han_topo_lvl_to_str.exit194.split.preheader: ; preds = %mca_coll_han_topo_lvl_to_str.exit194.thread, %mca_coll_han_topo_lvl_to_str.exit194
-  %.0147212264.ph = phi i32 [ %221, %mca_coll_han_topo_lvl_to_str.exit194 ], [ %213, %mca_coll_han_topo_lvl_to_str.exit194.thread ]
-  br label %mca_coll_han_topo_lvl_to_str.exit194.split
+mca_coll_han_topo_lvl_to_str.exit195.split.preheader: ; preds = %mca_coll_han_topo_lvl_to_str.exit195.thread, %mca_coll_han_topo_lvl_to_str.exit195
+  %.0147213266.ph = phi i32 [ %220, %mca_coll_han_topo_lvl_to_str.exit195 ], [ %212, %mca_coll_han_topo_lvl_to_str.exit195.thread ]
+  br label %mca_coll_han_topo_lvl_to_str.exit195.split
 
-mca_coll_han_topo_lvl_to_str.exit194.split.us:    ; preds = %mca_coll_han_topo_lvl_to_str.exit194, %mca_coll_han_topo_lvl_to_str.exit194.split.us
-  %indvars.iv236 = phi i64 [ %indvars.iv.next237, %mca_coll_han_topo_lvl_to_str.exit194.split.us ], [ 0, %mca_coll_han_topo_lvl_to_str.exit194 ]
-  %.0147212.us = phi i32 [ %229, %mca_coll_han_topo_lvl_to_str.exit194.split.us ], [ %221, %mca_coll_han_topo_lvl_to_str.exit194 ]
-  %222 = sext i32 %.0147212.us to i64
-  %223 = getelementptr inbounds i8, ptr %14, i64 %222
-  %224 = sub nsw i64 256, %222
-  %225 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv236, i32 1
-  %226 = load ptr, ptr %225, align 8
-  %227 = trunc nuw nsw i64 %indvars.iv236 to i32
-  %228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %223, i64 noundef %224, ptr noundef nonnull @.str.52, i32 noundef %227, ptr noundef %226) #11
-  %229 = add nsw i32 %228, %.0147212.us
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %exitcond239.not = icmp eq i64 %indvars.iv.next237, 7
-  br i1 %exitcond239.not, label %.split215.us, label %mca_coll_han_topo_lvl_to_str.exit194.split.us, !llvm.loop !10
+mca_coll_han_topo_lvl_to_str.exit195.split.us:    ; preds = %mca_coll_han_topo_lvl_to_str.exit195, %mca_coll_han_topo_lvl_to_str.exit195.split.us
+  %indvars.iv238 = phi i64 [ %indvars.iv.next239, %mca_coll_han_topo_lvl_to_str.exit195.split.us ], [ 0, %mca_coll_han_topo_lvl_to_str.exit195 ]
+  %.0147213.us = phi i32 [ %228, %mca_coll_han_topo_lvl_to_str.exit195.split.us ], [ %220, %mca_coll_han_topo_lvl_to_str.exit195 ]
+  %221 = sext i32 %.0147213.us to i64
+  %222 = getelementptr inbounds i8, ptr %14, i64 %221
+  %223 = sub nsw i64 256, %221
+  %224 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv238, i32 1
+  %225 = load ptr, ptr %224, align 8
+  %226 = trunc nuw nsw i64 %indvars.iv238 to i32
+  %227 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %222, i64 noundef %223, ptr noundef nonnull @.str.52, i32 noundef %226, ptr noundef %225) #11
+  %228 = add nsw i32 %227, %.0147213.us
+  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
+  %exitcond241.not = icmp eq i64 %indvars.iv.next239, 7
+  br i1 %exitcond241.not, label %.split216.us, label %mca_coll_han_topo_lvl_to_str.exit195.split.us, !llvm.loop !10
 
-mca_coll_han_topo_lvl_to_str.exit194.split:       ; preds = %mca_coll_han_topo_lvl_to_str.exit194.split.preheader, %mca_coll_han_topo_lvl_to_str.exit194.split
-  %.0147212264 = phi i32 [ %237, %mca_coll_han_topo_lvl_to_str.exit194.split ], [ %.0147212264.ph, %mca_coll_han_topo_lvl_to_str.exit194.split.preheader ]
-  %indvars.iv232263 = phi i64 [ %indvars.iv.next233, %mca_coll_han_topo_lvl_to_str.exit194.split ], [ 0, %mca_coll_han_topo_lvl_to_str.exit194.split.preheader ]
-  %230 = sext i32 %.0147212264 to i64
-  %231 = getelementptr inbounds i8, ptr %14, i64 %230
-  %232 = sub nsw i64 256, %230
-  %233 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv232263, i32 1
-  %234 = load ptr, ptr %233, align 8
-  %235 = trunc nuw nsw i64 %indvars.iv232263 to i32
-  %236 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %231, i64 noundef %232, ptr noundef nonnull @.str.52, i32 noundef %235, ptr noundef %234) #11
-  %237 = add nsw i32 %236, %.0147212264
-  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232263, 1
-  %238 = icmp eq i64 %indvars.iv.next233, 6
-  br i1 %238, label %.split215.us, label %mca_coll_han_topo_lvl_to_str.exit194.split
+mca_coll_han_topo_lvl_to_str.exit195.split:       ; preds = %mca_coll_han_topo_lvl_to_str.exit195.split.preheader, %mca_coll_han_topo_lvl_to_str.exit195.split
+  %.0147213266 = phi i32 [ %236, %mca_coll_han_topo_lvl_to_str.exit195.split ], [ %.0147213266.ph, %mca_coll_han_topo_lvl_to_str.exit195.split.preheader ]
+  %indvars.iv234265 = phi i64 [ %indvars.iv.next235, %mca_coll_han_topo_lvl_to_str.exit195.split ], [ 0, %mca_coll_han_topo_lvl_to_str.exit195.split.preheader ]
+  %229 = sext i32 %.0147213266 to i64
+  %230 = getelementptr inbounds i8, ptr %14, i64 %229
+  %231 = sub nsw i64 256, %229
+  %232 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv234265, i32 1
+  %233 = load ptr, ptr %232, align 8
+  %234 = trunc nuw nsw i64 %indvars.iv234265 to i32
+  %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %230, i64 noundef %231, ptr noundef nonnull @.str.52, i32 noundef %234, ptr noundef %233) #11
+  %236 = add nsw i32 %235, %.0147213266
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234265, 1
+  %237 = icmp eq i64 %indvars.iv.next235, 6
+  br i1 %237, label %.split216.us, label %mca_coll_han_topo_lvl_to_str.exit195.split
 
-.split215.us:                                     ; preds = %mca_coll_han_topo_lvl_to_str.exit194.split.us, %mca_coll_han_topo_lvl_to_str.exit194.split
-  %239 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv244, i64 %indvars.iv240
-  %240 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %239) #11
-  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %exitcond243.not = icmp eq i64 %indvars.iv.next241, 3
-  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !11
+.split216.us:                                     ; preds = %mca_coll_han_topo_lvl_to_str.exit195.split.us, %mca_coll_han_topo_lvl_to_str.exit195.split
+  %238 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv246, i64 %indvars.iv242
+  %239 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %238) #11
+  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
+  %exitcond245.not = icmp eq i64 %indvars.iv.next243, 3
+  br i1 %exitcond245.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.split215.us, %.preheader196
-  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
-  %exitcond247.not = icmp eq i64 %indvars.iv.next245, 22
-  br i1 %exitcond247.not, label %241, label %.preheader196, !llvm.loop !12
+.loopexit:                                        ; preds = %.split216.us, %.preheader197
+  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
+  %exitcond249.not = icmp eq i64 %indvars.iv.next247, 22
+  br i1 %exitcond249.not, label %240, label %.preheader197, !llvm.loop !12
 
-241:                                              ; preds = %.loopexit
+240:                                              ; preds = %.loopexit
   store i8 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648), align 8
-  %242 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648)) #11
+  %241 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648)) #11
   store ptr null, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656), align 8
-  %243 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656)) #11
+  %242 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656)) #11
   store i8 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649), align 1
-  %244 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649)) #11
-  %245 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649), align 1
-  %246 = trunc i8 %245 to i1
-  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656), align 8
-  %.not = icmp ne ptr %247, null
-  %or.cond153.not = select i1 %246, i1 true, i1 %.not
-  br i1 %or.cond153.not, label %248, label %256
+  %243 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649)) #11
+  %244 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 649), align 1
+  %245 = trunc i8 %244 to i1
+  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 656), align 8
+  %.not = icmp ne ptr %246, null
+  %or.cond154.not = select i1 %245, i1 true, i1 %.not
+  br i1 %or.cond154.not, label %247, label %255
 
-248:                                              ; preds = %241
-  %249 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648), align 8
-  %250 = trunc i8 %249 to i1
-  br i1 %250, label %256, label %251
+247:                                              ; preds = %240
+  %248 = load i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 648), align 8
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %255, label %250
 
-251:                                              ; preds = %248
-  %252 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %253 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %252) #11
-  br i1 %253, label %254, label %256
+250:                                              ; preds = %247
+  %251 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %252 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %251) #11
+  br i1 %252, label %253, label %255
 
-254:                                              ; preds = %251
-  %255 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %255, ptr noundef nonnull @.str.59) #11
-  br label %256
+253:                                              ; preds = %250
+  %254 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %254, ptr noundef nonnull @.str.59) #11
+  br label %255
 
-256:                                              ; preds = %241, %254, %251, %248
+255:                                              ; preds = %240, %253, %250, %247
   store i32 10, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208), align 8
-  %257 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208)) #11
-  br label %258
+  %256 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208)) #11
+  br label %257
 
-258:                                              ; preds = %mca_coll_han_query_module_from_mca.exit186, %256
-  %.0 = phi i32 [ 0, %256 ], [ -1, %mca_coll_han_query_module_from_mca.exit186 ]
+257:                                              ; preds = %mca_coll_han_query_module_from_mca.exit187, %255
+  %.0 = phi i32 [ 0, %255 ], [ -1, %mca_coll_han_query_module_from_mca.exit187 ]
   ret i32 %.0
 }
 

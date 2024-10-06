@@ -1687,7 +1687,9 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %35, label %36, label %27, !llvm.loop !47
 
 36:                                               ; preds = %27
-  %37 = getelementptr [3 x [2 x [8 x i32]]], ptr %3, i64 0, i64 %24, i64 1
+  %.idx = shl i64 %24, 6
+  %.offs = or disjoint i64 %.idx, 32
+  %37 = getelementptr i8, ptr %3, i64 %.offs
   %38 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %22, i64 0, i64 %24, i64 1
   br label %39
 

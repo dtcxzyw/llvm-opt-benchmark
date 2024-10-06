@@ -55,9 +55,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.platform_device_info = type { ptr, ptr, i8, ptr, i32, ptr, i32, ptr, i64, i64, ptr }
 %struct.cfg80211_chan_def = type { ptr, i32, i32, i32, %struct.ieee80211_edmg, i16 }
 %struct.ieee80211_edmg = type { i8, i32 }
-%struct.anon.10 = type { [6 x i8], %union.anon.11 }
-%union.anon.11 = type { %struct.anon.12 }
-%struct.anon.12 = type { i32, %struct.cfg80211_chan_def }
 
 @__UNIQUE_ID___addressable_get_wiphy_regdom3177 = internal global ptr @get_wiphy_regdom, section ".discard.addressable", align 8
 @__param_str_ieee80211_regdom = internal constant [26 x i8] c"cfg80211.ieee80211_regdom\00", align 16
@@ -6148,26 +6145,26 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
 8:                                                ; preds = %7, %1
   %9 = load ptr, ptr @cfg80211_rdev_list, align 8
   %10 = icmp eq ptr %9, @cfg80211_rdev_list
-  br i1 %10, label %.loopexit19, label %.preheader18
+  br i1 %10, label %.loopexit21, label %.preheader20
 
-.preheader18:                                     ; preds = %8, %.loopexit17
-  %11 = phi ptr [ %143, %.loopexit17 ], [ %9, %8 ]
+.preheader20:                                     ; preds = %8, %.loopexit19
+  %11 = phi ptr [ %143, %.loopexit19 ], [ %9, %8 ]
   %12 = getelementptr i8, ptr %11, i64 952
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15, !prof !39
 
-14:                                               ; preds = %.preheader18
+14:                                               ; preds = %.preheader20
   call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #23, !srcloc !136
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 125, i32 0, i64 12) #23, !srcloc !137
   unreachable
 
-15:                                               ; preds = %.preheader18
+15:                                               ; preds = %.preheader20
   %16 = getelementptr i8, ptr %11, i64 -8
   call void @mutex_lock(ptr noundef nonnull %12) #23
   %17 = getelementptr i8, ptr %11, i64 2088
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
-  br i1 %19, label %.loopexit17, label %.preheader
+  br i1 %19, label %.loopexit19, label %.preheader
 
 .preheader:                                       ; preds = %15, %140
   %20 = phi ptr [ %141, %140 ], [ %18, %15 ]
@@ -6231,7 +6228,9 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   ]
 
 52:                                               ; preds = %51, %51
-  %53 = getelementptr [15 x %struct.anon.10], ptr %35, i64 0, i64 %40, i32 1
+  %.idx12 = mul nuw nsw i64 %40, 48
+  %.offs13 = or disjoint i64 %.idx12, 8
+  %53 = getelementptr i8, ptr %35, i64 %.offs13
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %136, label %56
@@ -6252,7 +6251,9 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   br i1 %63, label %136, label %.thread.sink.split
 
 64:                                               ; preds = %51, %51
-  %65 = getelementptr [15 x %struct.anon.10], ptr %35, i64 0, i64 %40, i32 1
+  %.idx = mul nuw nsw i64 %40, 48
+  %.offs = or disjoint i64 %.idx, 8
+  %65 = getelementptr i8, ptr %35, i64 %.offs
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %136, label %68
@@ -6367,9 +6368,9 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
 128:                                              ; preds = %51
   %129 = load ptr, ptr %34, align 8
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %136, label %.thread12
+  br i1 %130, label %136, label %.thread14
 
-.thread12:                                        ; preds = %128
+.thread14:                                        ; preds = %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef align 8 dereferenceable(32) %34, i64 32, i1 false)
   br label %136
 
@@ -6401,7 +6402,7 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
   %135 = call zeroext i1 @cfg80211_chandef_usable(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef 1) #23
   br i1 %135, label %136, label %139
 
-136:                                              ; preds = %51, %51, %51, %132, %.thread, %134, %.thread12, %46, %52, %58, %61, %64, %68, %128, %51
+136:                                              ; preds = %51, %51, %51, %132, %.thread, %134, %.thread14, %46, %52, %58, %61, %64, %68, %128, %51
   %137 = add nuw nsw i64 %40, 1
   %138 = icmp eq i64 %137, 15
   br i1 %138, label %.loopexit, label %39, !llvm.loop !208
@@ -6418,15 +6419,15 @@ define internal void @reg_check_chans_work(ptr nocapture readnone %0) #2 align 1
 140:                                              ; preds = %.loopexit, %139
   %141 = load ptr, ptr %20, align 8
   %142 = icmp eq ptr %141, %17
-  br i1 %142, label %.loopexit17, label %.preheader, !llvm.loop !209
+  br i1 %142, label %.loopexit19, label %.preheader, !llvm.loop !209
 
-.loopexit17:                                      ; preds = %140, %15
+.loopexit19:                                      ; preds = %140, %15
   call void @mutex_unlock(ptr noundef nonnull %12) #23
   %143 = load ptr, ptr %11, align 8
   %144 = icmp eq ptr %143, @cfg80211_rdev_list
-  br i1 %144, label %.loopexit19, label %.preheader18, !llvm.loop !210
+  br i1 %144, label %.loopexit21, label %.preheader20, !llvm.loop !210
 
-.loopexit19:                                      ; preds = %.loopexit17, %8
+.loopexit21:                                      ; preds = %.loopexit19, %8
   call void @rtnl_unlock() #23
   ret void
 }

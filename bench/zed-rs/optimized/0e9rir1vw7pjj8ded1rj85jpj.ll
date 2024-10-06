@@ -6714,8 +6714,9 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h05b925dd536f3e
   br label %.body29
 
 284:                                              ; preds = %278
-  %285 = getelementptr inbounds i8, ptr %266, i64 24
-  %286 = getelementptr inbounds [0 x { i64, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }], ptr %285, i64 0, i64 %273, i32 1
+  %.idx = shl nuw nsw i64 %273, 7
+  %285 = getelementptr i8, ptr %266, i64 32
+  %286 = getelementptr i8, ptr %285, i64 %.idx
   %287 = invoke noundef align 8 dereferenceable(96) ptr @"_ZN84_$LT$editor..display_map..fold_map..FoldRange$u20$as$u20$core..ops..deref..Deref$GT$5deref17h484b5db389f026afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %286)
           to label %288 unwind label %.loopexit119
 

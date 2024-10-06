@@ -468,37 +468,39 @@ invoke.cont74:                                    ; preds = %_Z16btNormalizeAngl
   store float 0x40090D8080000000, ptr %arrayidx5.i142, align 4
   %arrayidx7.i143 = getelementptr inbounds i8, ptr %ref.tmp75, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i143, align 4
-  br label %for.body.i145
+  %107 = getelementptr inbounds i8, ptr %this, i64 896
+  br label %for.body.i144
 
-for.body.i145:                                    ; preds = %_Z16btNormalizeAnglef.exit.i152, %invoke.cont74
-  %indvars.iv.i146 = phi i64 [ 0, %invoke.cont74 ], [ %indvars.iv.next.i154, %_Z16btNormalizeAnglef.exit.i152 ]
-  %arrayidx.i147 = getelementptr inbounds float, ptr %ref.tmp75, i64 %indvars.iv.i146
-  %107 = load float, ptr %arrayidx.i147, align 4
-  %call.i.i.i148 = tail call noundef float @fmodf(float noundef %107, float noundef 0x401921FB60000000) #13
-  %cmp.i.i149 = fcmp olt float %call.i.i.i148, 0xC00921FB60000000
-  br i1 %cmp.i.i149, label %if.then.i.i158, label %if.else.i.i150
+for.body.i144:                                    ; preds = %_Z16btNormalizeAnglef.exit.i151, %invoke.cont74
+  %indvars.iv.i145 = phi i64 [ 0, %invoke.cont74 ], [ %indvars.iv.next.i153, %_Z16btNormalizeAnglef.exit.i151 ]
+  %arrayidx.i146 = getelementptr inbounds float, ptr %ref.tmp75, i64 %indvars.iv.i145
+  %108 = load float, ptr %arrayidx.i146, align 4
+  %call.i.i.i147 = tail call noundef float @fmodf(float noundef %108, float noundef 0x401921FB60000000) #13
+  %cmp.i.i148 = fcmp olt float %call.i.i.i147, 0xC00921FB60000000
+  br i1 %cmp.i.i148, label %if.then.i.i157, label %if.else.i.i149
 
-if.then.i.i158:                                   ; preds = %for.body.i145
-  %add.i.i159 = fadd float %call.i.i.i148, 0x401921FB60000000
-  br label %_Z16btNormalizeAnglef.exit.i152
+if.then.i.i157:                                   ; preds = %for.body.i144
+  %add.i.i158 = fadd float %call.i.i.i147, 0x401921FB60000000
+  br label %_Z16btNormalizeAnglef.exit.i151
 
-if.else.i.i150:                                   ; preds = %for.body.i145
-  %cmp1.i.i151 = fcmp ogt float %call.i.i.i148, 0x400921FB60000000
-  br i1 %cmp1.i.i151, label %if.then2.i.i156, label %_Z16btNormalizeAnglef.exit.i152
+if.else.i.i149:                                   ; preds = %for.body.i144
+  %cmp1.i.i150 = fcmp ogt float %call.i.i.i147, 0x400921FB60000000
+  br i1 %cmp1.i.i150, label %if.then2.i.i155, label %_Z16btNormalizeAnglef.exit.i151
 
-if.then2.i.i156:                                  ; preds = %if.else.i.i150
-  %sub.i.i157 = fadd float %call.i.i.i148, 0xC01921FB60000000
-  br label %_Z16btNormalizeAnglef.exit.i152
+if.then2.i.i155:                                  ; preds = %if.else.i.i149
+  %sub.i.i156 = fadd float %call.i.i.i147, 0xC01921FB60000000
+  br label %_Z16btNormalizeAnglef.exit.i151
 
-_Z16btNormalizeAnglef.exit.i152:                  ; preds = %if.then2.i.i156, %if.else.i.i150, %if.then.i.i158
-  %retval.0.i.i153 = phi float [ %add.i.i159, %if.then.i.i158 ], [ %sub.i.i157, %if.then2.i.i156 ], [ %call.i.i.i148, %if.else.i.i150 ]
-  %m_hiLimit.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i146, i32 1
-  store float %retval.0.i.i153, ptr %m_hiLimit.i, align 8
-  %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i146, 1
-  %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, 3
-  br i1 %exitcond.not.i155, label %invoke.cont80, label %for.body.i145, !llvm.loop !20
+_Z16btNormalizeAnglef.exit.i151:                  ; preds = %if.then2.i.i155, %if.else.i.i149, %if.then.i.i157
+  %retval.0.i.i152 = phi float [ %add.i.i158, %if.then.i.i157 ], [ %sub.i.i156, %if.then2.i.i155 ], [ %call.i.i.i147, %if.else.i.i149 ]
+  %m_hiLimit.idx.i = shl nuw nsw i64 %indvars.iv.i145, 6
+  %m_hiLimit.i = getelementptr i8, ptr %107, i64 %m_hiLimit.idx.i
+  store float %retval.0.i.i152, ptr %m_hiLimit.i, align 8
+  %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i145, 1
+  %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, 3
+  br i1 %exitcond.not.i154, label %invoke.cont80, label %for.body.i144, !llvm.loop !20
 
-invoke.cont80:                                    ; preds = %_Z16btNormalizeAnglef.exit.i152
+invoke.cont80:                                    ; preds = %_Z16btNormalizeAnglef.exit.i151
   ret void
 }
 

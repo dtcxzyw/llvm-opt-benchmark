@@ -11379,9 +11379,10 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %.sroa.27.0.copyload.i252 = load i64, ptr %.sroa.27.0..sroa_idx.i251, align 8, !noalias !1972
   %230 = icmp ult i64 %.sroa.27.0.copyload.i252, 11
   call void @llvm.assume(i1 %230)
-  %231 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i250, i64 176
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1972
-  %232 = getelementptr inbounds { [26 x i64] }, ptr %231, i64 %.sroa.27.0.copyload.i252, i32 0, i64 16
+  %.idx = mul nuw nsw i64 %.sroa.27.0.copyload.i252, 208
+  %231 = getelementptr i8, ptr %.sroa.0.0.copyload.i250, i64 304
+  %232 = getelementptr i8, ptr %231, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !1973)
   %233 = load ptr, ptr %183, align 8, !alias.scope !1973, !noalias !1976, !nonnull !9, !noundef !9

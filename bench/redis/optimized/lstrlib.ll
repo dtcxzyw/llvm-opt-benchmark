@@ -1577,7 +1577,9 @@ for.cond.i362:                                    ; preds = %for.body.i, %sw.bb6
 
 for.body.i:                                       ; preds = %for.cond.i362
   %11 = add nsw i64 %indvars.iv.i, -1
-  %len.i368 = getelementptr inbounds [32 x %struct.anon], ptr %capture.i.i, i64 0, i64 %11, i32 1
+  %len.i368.idx = shl nsw i64 %11, 4
+  %len.i368.offs = or disjoint i64 %len.i368.idx, 8
+  %len.i368 = getelementptr inbounds i8, ptr %capture.i.i, i64 %len.i368.offs
   %12 = load i64, ptr %len.i368, align 8, !tbaa !29
   %cmp2.i = icmp eq i64 %12, -1
   br i1 %cmp2.i, label %cleanup.loopexit.i, label %for.cond.i362, !llvm.loop !39
@@ -1909,7 +1911,9 @@ lor.lhs.false.i.i:                                ; preds = %if.then48
 
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %idxprom.i.i = zext nneg i32 %sub.i.i to i64
-  %len.i.i = getelementptr inbounds [32 x %struct.anon], ptr %capture.i.i, i64 0, i64 %idxprom.i.i, i32 1
+  %len.i.i.idx = shl nuw nsw i64 %idxprom.i.i, 4
+  %len.i.i.offs = or disjoint i64 %len.i.i.idx, 8
+  %len.i.i = getelementptr inbounds i8, ptr %capture.i.i, i64 %len.i.i.offs
   %49 = load i64, ptr %len.i.i, align 8, !tbaa !29
   %cmp3.i.i = icmp eq i64 %49, -1
   br i1 %cmp3.i.i, label %if.then.i.i, label %check_capture.exit.i

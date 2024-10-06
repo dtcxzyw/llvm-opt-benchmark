@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.relopt_parse_elt = type { ptr, i32, i32 }
 %struct.spgConfigIn = type { i32 }
 %union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 %struct.SpGistLastUsedPage = type { i32, i32 }
 %struct.ItemIdData = type { i32 }
@@ -707,51 +705,52 @@ define dso_local ptr @getSpGistTupleDesc(ptr nocapture noundef readonly %0, ptr 
 
 9:                                                ; preds = %2
   %10 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %5) #9
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
-  %12 = load i32, ptr %1, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 92
-  store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
-  store i32 -1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
-  %16 = load i16, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 96
-  store i16 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 6
-  %19 = load i8, ptr %18, align 2
-  %20 = getelementptr inbounds i8, ptr %10, i64 110
-  %21 = and i8 %19, 1
-  store i8 %21, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 7
-  %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %10, i64 111
-  store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = load i8, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %10, i64 112
-  store i8 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %10, i64 113
-  store i8 0, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %10, i64 124
-  store i32 0, ptr %29, align 4
-  %30 = load i32, ptr %10, align 8
-  %31 = icmp sgt i32 %30, 1
-  br i1 %31, label %.lr.ph.preheader, label %.loopexit
+  %11 = load i32, ptr %1, align 4
+  %12 = getelementptr inbounds i8, ptr %10, i64 92
+  store i32 %11, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %10, i64 104
+  store i32 -1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = load i16, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %10, i64 96
+  store i16 %15, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 6
+  %18 = load i8, ptr %17, align 2
+  %19 = getelementptr inbounds i8, ptr %10, i64 110
+  %20 = and i8 %18, 1
+  store i8 %20, ptr %19, align 2
+  %21 = getelementptr inbounds i8, ptr %1, i64 7
+  %22 = load i8, ptr %21, align 1
+  %23 = getelementptr inbounds i8, ptr %10, i64 111
+  store i8 %22, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load i8, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %10, i64 112
+  store i8 %25, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %10, i64 113
+  store i8 0, ptr %27, align 1
+  %28 = getelementptr inbounds i8, ptr %10, i64 124
+  store i32 0, ptr %28, align 4
+  %29 = load i32, ptr %10, align 8
+  %30 = icmp sgt i32 %29, 1
+  br i1 %30, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %9
-  %32 = zext nneg i32 %30 to i64
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %9
+  %31 = getelementptr i8, ptr %10, i64 100
+  %32 = zext nneg i32 %29 to i64
+  br label %33
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv, i32 5
-  store i32 -1, ptr %33, align 4
+33:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %34 = getelementptr i8, ptr %31, i64 %.idx
+  store i32 -1, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = icmp ult i64 %indvars.iv.next, %32
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  %35 = icmp ult i64 %indvars.iv.next, %32
+  br i1 %35, label %33, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph, %9, %2
-  %.023 = phi ptr [ %5, %2 ], [ %10, %9 ], [ %10, %.lr.ph ]
+.loopexit:                                        ; preds = %33, %9, %2
+  %.023 = phi ptr [ %5, %2 ], [ %10, %9 ], [ %10, %33 ]
   ret ptr %.023
 }
 
@@ -786,61 +785,62 @@ define dso_local void @initSpGistState(ptr nocapture noundef %0, ptr noundef %1)
 
 20:                                               ; preds = %2
   %21 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %16) #9
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
-  %23 = load i32, ptr %7, align 4
-  %24 = getelementptr inbounds i8, ptr %21, i64 92
-  store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %21, i64 104
-  store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = load i16, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %21, i64 96
-  store i16 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 42
-  %30 = load i8, ptr %29, align 2
-  %31 = getelementptr inbounds i8, ptr %21, i64 110
-  %32 = and i8 %30, 1
-  store i8 %32, ptr %31, align 2
-  %33 = getelementptr inbounds i8, ptr %0, i64 43
-  %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %21, i64 111
-  store i8 %34, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
-  %37 = load i8, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %21, i64 112
-  store i8 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %21, i64 113
-  store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %21, i64 124
-  store i32 0, ptr %40, align 4
-  %41 = load i32, ptr %21, align 8
-  %42 = icmp sgt i32 %41, 1
-  br i1 %42, label %.lr.ph.preheader.i, label %getSpGistTupleDesc.exit
+  %22 = load i32, ptr %7, align 4
+  %23 = getelementptr inbounds i8, ptr %21, i64 92
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %21, i64 104
+  store i32 -1, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = load i16, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %21, i64 96
+  store i16 %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 42
+  %29 = load i8, ptr %28, align 2
+  %30 = getelementptr inbounds i8, ptr %21, i64 110
+  %31 = and i8 %29, 1
+  store i8 %31, ptr %30, align 2
+  %32 = getelementptr inbounds i8, ptr %0, i64 43
+  %33 = load i8, ptr %32, align 1
+  %34 = getelementptr inbounds i8, ptr %21, i64 111
+  store i8 %33, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  %36 = load i8, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %21, i64 112
+  store i8 %36, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %21, i64 113
+  store i8 0, ptr %38, align 1
+  %39 = getelementptr inbounds i8, ptr %21, i64 124
+  store i32 0, ptr %39, align 4
+  %40 = load i32, ptr %21, align 8
+  %41 = icmp sgt i32 %40, 1
+  br i1 %41, label %.lr.ph.i, label %getSpGistTupleDesc.exit
 
-.lr.ph.preheader.i:                               ; preds = %20
-  %43 = zext nneg i32 %41 to i64
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %20
+  %42 = getelementptr i8, ptr %21, i64 100
+  %43 = zext nneg i32 %40 to i64
+  br label %44
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %44 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %indvars.iv.i, i32 5
-  store i32 -1, ptr %44, align 4
+44:                                               ; preds = %44, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %45 = getelementptr i8, ptr %42, i64 %.idx.i
+  store i32 -1, ptr %45, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %43
-  br i1 %exitcond.not, label %getSpGistTupleDesc.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not, label %getSpGistTupleDesc.exit, label %44, !llvm.loop !8
 
-getSpGistTupleDesc.exit:                          ; preds = %.lr.ph.i, %2, %20
-  %.023.i = phi ptr [ %16, %2 ], [ %21, %20 ], [ %21, %.lr.ph.i ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %.023.i, ptr %45, align 8
-  %46 = tail call ptr @palloc0(i64 noundef 16) #9
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %46, ptr %47, align 8
-  %48 = tail call i32 @GetTopTransactionIdIfAny() #9
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 92
-  store i8 0, ptr %50, align 4
+getSpGistTupleDesc.exit:                          ; preds = %44, %2, %20
+  %.023.i = phi ptr [ %16, %2 ], [ %21, %20 ], [ %21, %44 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %.023.i, ptr %46, align 8
+  %47 = tail call ptr @palloc0(i64 noundef 16) #9
+  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %47, ptr %48, align 8
+  %49 = tail call i32 @GetTopTransactionIdIfAny() #9
+  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 92
+  store i8 0, ptr %51, align 4
   ret void
 }
 

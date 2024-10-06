@@ -1119,7 +1119,6 @@ define internal void @uhci_detach(ptr nocapture noundef readonly %port1) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %ports = getelementptr inbounds i8, ptr %0, i64 3128
   %index = getelementptr inbounds i8, ptr %port1, i64 48
   %1 = load i32, ptr %index, align 8
   %idxprom = sext i32 %1 to i64
@@ -1149,76 +1148,78 @@ for.inc.i:                                        ; preds = %if.then.i, %land.rh
   br i1 %tobool.not.i, label %uhci_async_cancel_device.exit, label %land.rhs.i, !llvm.loop !12
 
 uhci_async_cancel_device.exit:                    ; preds = %for.inc.i, %entry
-  %ctrl = getelementptr [2 x %struct.UHCIPort], ptr %ports, i64 0, i64 %idxprom, i32 1
-  %7 = load i16, ptr %ctrl, align 8
-  %8 = and i16 %7, 1
-  %tobool.not.not = icmp eq i16 %8, 0
-  %and3 = and i16 %7, -4
-  %9 = or disjoint i16 %and3, 2
-  %10 = select i1 %tobool.not.not, i16 %7, i16 %9
-  %11 = and i16 %10, 4
-  %12 = or disjoint i16 %8, %11
-  %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %15, label %13
+  %ctrl.idx = mul nsw i64 %idxprom, 80
+  %7 = getelementptr i8, ptr %0, i64 3200
+  %ctrl = getelementptr i8, ptr %7, i64 %ctrl.idx
+  %8 = load i16, ptr %ctrl, align 8
+  %9 = and i16 %8, 1
+  %tobool.not.not = icmp eq i16 %9, 0
+  %and3 = and i16 %8, -4
+  %10 = or disjoint i16 %and3, 2
+  %11 = select i1 %tobool.not.not, i16 %8, i16 %10
+  %12 = and i16 %11, 4
+  %13 = or disjoint i16 %9, %12
+  %.not = icmp eq i16 %13, 0
+  br i1 %.not, label %16, label %14
 
-13:                                               ; preds = %uhci_async_cancel_device.exit
-  %tobool11.not.not = icmp eq i16 %11, 0
-  %and15 = and i16 %10, -13
-  %14 = or disjoint i16 %and15, 8
-  %simplifycfg.merge = select i1 %tobool11.not.not, i16 %10, i16 %14
+14:                                               ; preds = %uhci_async_cancel_device.exit
+  %tobool11.not.not = icmp eq i16 %12, 0
+  %and15 = and i16 %11, -13
+  %15 = or disjoint i16 %and15, 8
+  %simplifycfg.merge = select i1 %tobool11.not.not, i16 %11, i16 %15
   store i16 %simplifycfg.merge, ptr %ctrl, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %uhci_async_cancel_device.exit, %13
+16:                                               ; preds = %uhci_async_cancel_device.exit, %14
   %cmd.i = getelementptr inbounds i8, ptr %0, i64 3072
-  %16 = load i16, ptr %cmd.i, align 16
-  %17 = and i16 %16, 8
-  %tobool1.not.i = icmp eq i16 %17, 0
+  %17 = load i16, ptr %cmd.i, align 16
+  %18 = and i16 %17, 8
+  %tobool1.not.i = icmp eq i16 %18, 0
   br i1 %tobool1.not.i, label %uhci_resume.exit, label %if.then2.i
 
-if.then2.i:                                       ; preds = %15
-  %or.i = or i16 %16, 16
+if.then2.i:                                       ; preds = %16
+  %or.i = or i16 %17, 16
   store i16 %or.i, ptr %cmd.i, align 16
   %status.i = getelementptr inbounds i8, ptr %0, i64 3074
-  %18 = load i16, ptr %status.i, align 2
-  %19 = or i16 %18, 4
-  store i16 %19, ptr %status.i, align 2
+  %19 = load i16, ptr %status.i, align 2
+  %20 = or i16 %19, 4
+  store i16 %20, ptr %status.i, align 2
   %status2.i.i = getelementptr inbounds i8, ptr %0, i64 3085
-  %20 = load i8, ptr %status2.i.i, align 1
-  %21 = and i8 %20, 1
-  %tobool.not.i.i = icmp eq i8 %21, 0
+  %21 = load i8, ptr %status2.i.i, align 1
+  %22 = and i8 %21, 1
+  %tobool.not.i.i = icmp eq i8 %22, 0
   br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then2.i
   %intr.i.i = getelementptr inbounds i8, ptr %0, i64 3076
-  %22 = load i16, ptr %intr.i.i, align 4
-  %23 = and i16 %22, 4
-  %tobool3.not.i.i = icmp eq i16 %23, 0
+  %23 = load i16, ptr %intr.i.i, align 4
+  %24 = and i16 %23, 4
+  %tobool3.not.i.i = icmp eq i16 %24, 0
   br i1 %tobool3.not.i.i, label %lor.lhs.false.i.i, label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i, %if.then2.i
-  %24 = and i8 %20, 2
-  %tobool7.not.i.i = icmp eq i8 %24, 0
+  %25 = and i8 %21, 2
+  %tobool7.not.i.i = icmp eq i8 %25, 0
   %intr28.i.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 3076
   %.pre.i.pre = load i16, ptr %intr28.i.phi.trans.insert.i.phi.trans.insert, align 4
-  %25 = and i16 %.pre.i.pre, 8
-  %tobool12.not.i.i = icmp eq i16 %25, 0
+  %26 = and i16 %.pre.i.pre, 8
+  %tobool12.not.i.i = icmp eq i16 %26, 0
   %or.cond = select i1 %tobool7.not.i.i, i1 true, i1 %tobool12.not.i.i
   br i1 %or.cond, label %lor.lhs.false13.i.i, label %if.then.i.i
 
 lor.lhs.false13.i.i:                              ; preds = %lor.lhs.false.i.i
-  %26 = and i16 %18, 2
-  %tobool16.not.i.i = icmp eq i16 %26, 0
-  %27 = and i16 %.pre.i.pre, 1
-  %tobool21.not.i.i = icmp eq i16 %27, 0
+  %27 = and i16 %19, 2
+  %tobool16.not.i.i = icmp eq i16 %27, 0
+  %28 = and i16 %.pre.i.pre, 1
+  %tobool21.not.i.i = icmp eq i16 %28, 0
   %or.cond.i = select i1 %tobool16.not.i.i, i1 true, i1 %tobool21.not.i.i
   br i1 %or.cond.i, label %land.lhs.true27.i.i, label %if.then.i.i
 
 land.lhs.true27.i.i:                              ; preds = %lor.lhs.false13.i.i
-  %28 = and i16 %.pre.i.pre, 2
-  %29 = and i16 %18, 24
-  %30 = or disjoint i16 %28, %29
-  %or.cond11.i.i = icmp eq i16 %30, 0
+  %29 = and i16 %.pre.i.pre, 2
+  %30 = and i16 %19, 24
+  %31 = or disjoint i16 %29, %30
+  %or.cond11.i.i = icmp eq i16 %31, 0
   br i1 %or.cond11.i.i, label %uhci_update_irq.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %land.lhs.true27.i.i, %lor.lhs.false13.i.i, %land.lhs.true.i.i
@@ -1227,11 +1228,11 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
 uhci_update_irq.exit.i:                           ; preds = %if.then.i.i, %land.lhs.true27.i.i
   %level.0.i.i = phi i32 [ 1, %if.then.i.i ], [ 0, %land.lhs.true27.i.i ]
   %irq.i.i = getelementptr inbounds i8, ptr %0, i64 3288
-  %31 = load ptr, ptr %irq.i.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %31, i32 noundef %level.0.i.i) #11
+  %32 = load ptr, ptr %irq.i.i, align 8
+  tail call void @qemu_set_irq(ptr noundef %32, i32 noundef %level.0.i.i) #11
   br label %uhci_resume.exit
 
-uhci_resume.exit:                                 ; preds = %15, %uhci_update_irq.exit.i
+uhci_resume.exit:                                 ; preds = %16, %uhci_update_irq.exit.i
   ret void
 }
 
@@ -1273,68 +1274,69 @@ define internal void @uhci_wakeup(ptr nocapture noundef readonly %port1) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %ports = getelementptr inbounds i8, ptr %0, i64 3128
   %index = getelementptr inbounds i8, ptr %port1, i64 48
   %1 = load i32, ptr %index, align 8
   %idxprom = sext i32 %1 to i64
-  %ctrl = getelementptr [2 x %struct.UHCIPort], ptr %ports, i64 0, i64 %idxprom, i32 1
-  %2 = load i16, ptr %ctrl, align 8
-  %3 = and i16 %2, 4160
-  %or.cond = icmp eq i16 %3, 4096
+  %ctrl.idx = mul nsw i64 %idxprom, 80
+  %2 = getelementptr i8, ptr %0, i64 3200
+  %ctrl = getelementptr i8, ptr %2, i64 %ctrl.idx
+  %3 = load i16, ptr %ctrl, align 8
+  %4 = and i16 %3, 4160
+  %or.cond = icmp eq i16 %4, 4096
   br i1 %or.cond, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %or = or disjoint i16 %2, 64
+  %or = or disjoint i16 %3, 64
   store i16 %or, ptr %ctrl, align 8
   %cmd.i = getelementptr inbounds i8, ptr %0, i64 3072
-  %4 = load i16, ptr %cmd.i, align 16
-  %5 = and i16 %4, 8
-  %tobool1.not.i = icmp eq i16 %5, 0
+  %5 = load i16, ptr %cmd.i, align 16
+  %6 = and i16 %5, 8
+  %tobool1.not.i = icmp eq i16 %6, 0
   br i1 %tobool1.not.i, label %if.end, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %or.i = or i16 %4, 16
+  %or.i = or i16 %5, 16
   store i16 %or.i, ptr %cmd.i, align 16
   %status.i = getelementptr inbounds i8, ptr %0, i64 3074
-  %6 = load i16, ptr %status.i, align 2
-  %7 = or i16 %6, 4
-  store i16 %7, ptr %status.i, align 2
+  %7 = load i16, ptr %status.i, align 2
+  %8 = or i16 %7, 4
+  store i16 %8, ptr %status.i, align 2
   %status2.i.i = getelementptr inbounds i8, ptr %0, i64 3085
-  %8 = load i8, ptr %status2.i.i, align 1
-  %9 = and i8 %8, 1
-  %tobool.not.i.i = icmp eq i8 %9, 0
+  %9 = load i8, ptr %status2.i.i, align 1
+  %10 = and i8 %9, 1
+  %tobool.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then2.i
   %intr.i.i = getelementptr inbounds i8, ptr %0, i64 3076
-  %10 = load i16, ptr %intr.i.i, align 4
-  %11 = and i16 %10, 4
-  %tobool3.not.i.i = icmp eq i16 %11, 0
+  %11 = load i16, ptr %intr.i.i, align 4
+  %12 = and i16 %11, 4
+  %tobool3.not.i.i = icmp eq i16 %12, 0
   br i1 %tobool3.not.i.i, label %lor.lhs.false.i.i, label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i, %if.then2.i
-  %12 = and i8 %8, 2
-  %tobool7.not.i.i = icmp eq i8 %12, 0
+  %13 = and i8 %9, 2
+  %tobool7.not.i.i = icmp eq i8 %13, 0
   %intr28.i.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 3076
   %.pre.i.pre = load i16, ptr %intr28.i.phi.trans.insert.i.phi.trans.insert, align 4
-  %13 = and i16 %.pre.i.pre, 8
-  %tobool12.not.i.i = icmp eq i16 %13, 0
+  %14 = and i16 %.pre.i.pre, 8
+  %tobool12.not.i.i = icmp eq i16 %14, 0
   %or.cond6 = select i1 %tobool7.not.i.i, i1 true, i1 %tobool12.not.i.i
   br i1 %or.cond6, label %lor.lhs.false13.i.i, label %if.then.i.i
 
 lor.lhs.false13.i.i:                              ; preds = %lor.lhs.false.i.i
-  %14 = and i16 %6, 2
-  %tobool16.not.i.i = icmp eq i16 %14, 0
-  %15 = and i16 %.pre.i.pre, 1
-  %tobool21.not.i.i = icmp eq i16 %15, 0
+  %15 = and i16 %7, 2
+  %tobool16.not.i.i = icmp eq i16 %15, 0
+  %16 = and i16 %.pre.i.pre, 1
+  %tobool21.not.i.i = icmp eq i16 %16, 0
   %or.cond.i = select i1 %tobool16.not.i.i, i1 true, i1 %tobool21.not.i.i
   br i1 %or.cond.i, label %land.lhs.true27.i.i, label %if.then.i.i
 
 land.lhs.true27.i.i:                              ; preds = %lor.lhs.false13.i.i
-  %16 = and i16 %.pre.i.pre, 2
-  %17 = and i16 %6, 24
-  %18 = or disjoint i16 %16, %17
-  %or.cond11.i.i = icmp eq i16 %18, 0
+  %17 = and i16 %.pre.i.pre, 2
+  %18 = and i16 %7, 24
+  %19 = or disjoint i16 %17, %18
+  %or.cond11.i.i = icmp eq i16 %19, 0
   br i1 %or.cond11.i.i, label %uhci_update_irq.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %land.lhs.true27.i.i, %lor.lhs.false13.i.i, %land.lhs.true.i.i
@@ -1343,8 +1345,8 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
 uhci_update_irq.exit.i:                           ; preds = %if.then.i.i, %land.lhs.true27.i.i
   %level.0.i.i = phi i32 [ 1, %if.then.i.i ], [ 0, %land.lhs.true27.i.i ]
   %irq.i.i = getelementptr inbounds i8, ptr %0, i64 3288
-  %19 = load ptr, ptr %irq.i.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %19, i32 noundef %level.0.i.i) #11
+  %20 = load ptr, ptr %irq.i.i, align 8
+  tail call void @qemu_set_irq(ptr noundef %20, i32 noundef %level.0.i.i) #11
   br label %if.end
 
 if.end:                                           ; preds = %uhci_update_irq.exit.i, %if.end.i, %entry
@@ -3498,41 +3500,43 @@ sw.bb13:                                          ; preds = %entry, %entry, %ent
 
 if.end:                                           ; preds = %sw.bb13
   %ports = getelementptr inbounds i8, ptr %opaque, i64 3128
-  %idxprom = zext nneg i32 %conv16 to i64
-  %ctrl = getelementptr [2 x %struct.UHCIPort], ptr %ports, i64 0, i64 %idxprom, i32 1
-  %9 = load i16, ptr %ctrl, align 8
-  %conv18 = zext i16 %9 to i32
+  %narrow = mul nuw nsw i32 %conv16, 80
+  %9 = zext nneg i32 %narrow to i64
+  %10 = getelementptr i8, ptr %ports, i64 %9
+  %ctrl = getelementptr i8, ptr %10, i64 72
+  %11 = load i16, ptr %ctrl, align 8
+  %conv18 = zext i16 %11 to i32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb13, %entry, %if.end, %sw.bb11, %sw.bb8, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
   %val.0 = phi i32 [ %conv18, %if.end ], [ %conv12, %sw.bb11 ], [ %shr, %sw.bb8 ], [ %and, %sw.bb7 ], [ %conv6, %sw.bb5 ], [ %conv4, %sw.bb3 ], [ %conv2, %sw.bb1 ], [ %conv, %sw.bb ], [ 65407, %entry ], [ 65407, %sw.bb13 ]
   %conv19 = trunc i64 %addr to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_USB_UHCI_MMIO_READW_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %11, 0
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %12, 0
+  %13 = load i16, ptr @_TRACE_USB_UHCI_MMIO_READW_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %13, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_usb_uhci_mmio_readw.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %12, 32768
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %14, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_usb_uhci_mmio_readw.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %13 to i1
+  %15 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %15 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %14 = load i64, ptr %_now.i.i, align 8
+  %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv19, i32 noundef %val.0) #11
+  %17 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %conv19, i32 noundef %val.0) #11
   br label %trace_usb_uhci_mmio_readw.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

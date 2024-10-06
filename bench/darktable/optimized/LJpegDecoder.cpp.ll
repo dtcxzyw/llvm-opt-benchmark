@@ -547,7 +547,9 @@ define hidden noundef i32 @_ZN8rawspeed12LJpegDecoder10decodeScanEv(ptr noundef 
 
 58:                                               ; preds = %66, %54
   %59 = phi i64 [ 0, %54 ], [ %71, %66 ]
-  %60 = getelementptr inbounds [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %8, i64 0, i64 %59, i32 1
+  %.idx = shl nsw i64 %59, 4
+  %.offs = or disjoint i64 %.idx, 4
+  %60 = getelementptr inbounds i8, ptr %8, i64 %.offs
   %61 = load i32, ptr %60, align 4, !tbaa !132, !noalias !125
   %62 = icmp ult i32 %61, 4
   br i1 %62, label %66, label %63

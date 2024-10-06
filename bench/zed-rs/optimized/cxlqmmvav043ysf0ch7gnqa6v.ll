@@ -10518,9 +10518,10 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   unreachable
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %167, i64 7344
   call void @llvm.experimental.noalias.scope.decl(metadata !2348)
-  %183 = getelementptr inbounds [0 x { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }], ptr %182, i64 0, i64 %172, i32 0, i32 1
+  %.idx = mul nuw nsw i64 %172, 104
+  %182 = getelementptr i8, ptr %167, i64 7352
+  %183 = getelementptr i8, ptr %182, i64 %.idx
   %184 = load i64, ptr %183, align 8, !alias.scope !2348, !noalias !2351, !noundef !21
   call void @"_ZN79_$LT$rope..offset_utf16..OffsetUtf16$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17h6773ff0b81306348E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %184), !noalias !2348
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$12item_summary17haf343fa54b8757daE.exit.thread"
@@ -10928,8 +10929,9 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   unreachable
 
 185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %171, i64 7344
-  %187 = getelementptr inbounds [0 x { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }], ptr %186, i64 0, i64 %176, i32 2
+  %.idx = mul nuw nsw i64 %176, 104
+  %186 = getelementptr i8, ptr %171, i64 7400
+  %187 = getelementptr i8, ptr %186, i64 %.idx
   store ptr %187, ptr %12, align 8, !alias.scope !2418, !noalias !2421
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$12item_summary17h3753c54f0e6a3f58E.exit.thread"
 
@@ -11489,12 +11491,13 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br i1 %.not, label %.loopexit, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h89b3dbbb3f15b32aE.exit
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %25, i64 7344
-  %46 = add nuw nsw i64 %40, 1
-  store i64 %46, ptr %39, align 8
-  %47 = getelementptr inbounds i8, ptr %23, i64 16
-  %48 = getelementptr inbounds [0 x { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }], ptr %45, i64 0, i64 %40, i32 2
-  store ptr %48, ptr %47, align 8, !alias.scope !2551, !noalias !2554
+  %45 = add nuw nsw i64 %40, 1
+  store i64 %45, ptr %39, align 8
+  %46 = getelementptr inbounds i8, ptr %23, i64 16
+  %.idx = mul nuw nsw i64 %40, 104
+  %47 = getelementptr i8, ptr %25, i64 7400
+  %48 = getelementptr i8, ptr %47, i64 %.idx
+  store ptr %48, ptr %46, align 8, !alias.scope !2551, !noalias !2554
   store ptr %48, ptr %18, align 8, !alias.scope !2556, !noalias !2559
   br label %._crit_edge53
 

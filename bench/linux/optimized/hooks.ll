@@ -9030,9 +9030,10 @@ define internal i32 @selinux_task_prlimit(ptr nocapture noundef readonly %0, ptr
 define internal i32 @selinux_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1880
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 672
-  %7 = zext i32 %1 to i64
-  %8 = getelementptr %struct.rlimit, ptr %6, i64 %7, i32 1
+  %6 = zext i32 %1 to i64
+  %.idx = shl nuw nsw i64 %6, 4
+  %7 = getelementptr i8, ptr %5, i64 680
+  %8 = getelementptr i8, ptr %7, i64 %.idx
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8

@@ -3777,7 +3777,7 @@ define dso_local ptr @BuildTupleFromCStrings(ptr nocapture noundef readonly %0, 
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr i8, ptr %3, i64 119
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3786,7 +3786,8 @@ define dso_local ptr @BuildTupleFromCStrings(ptr nocapture noundef readonly %0, 
 
 14:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %10, i64 0, i64 %indvars.iv, i32 17
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %15 = getelementptr i8, ptr %10, i64 %.idx
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %35, label %18

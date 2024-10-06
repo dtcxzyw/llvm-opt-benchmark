@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ToastAttrInfo = type { ptr, i32, i8, i8 }
 %struct.ToastTupleContext = type { ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
@@ -14,6 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64, i64, i64 }
 %struct.pairingheap_node = type { ptr, ptr, ptr }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [51 x i8] c"found toasted toast chunk for toast value %u in %s\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"heaptoast.c\00", align 1
@@ -111,7 +111,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %13, i64 24
+  %42 = getelementptr i8, ptr %13, i64 112
   %43 = getelementptr inbounds i8, ptr %0, i64 56
   br label %44
 
@@ -122,7 +122,8 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 
 47:                                               ; preds = %44
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %42, i64 0, i64 %48, i32 10
+  %.idx = mul nuw nsw i64 %48, 104
+  %49 = getelementptr i8, ptr %42, i64 %.idx
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 120
   br i1 %51, label %52, label %53
@@ -326,7 +327,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr i8, ptr %1, i64 96
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %10
 
@@ -338,7 +339,8 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %15 = getelementptr i8, ptr %9, i64 %.idx
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, -1
   br i1 %17, label %18, label %28
@@ -474,7 +476,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %15, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr i8, ptr %2, i64 96
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %17
 
@@ -487,7 +489,8 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %20, label %37, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %22 = getelementptr i8, ptr %16, i64 %.idx
   %23 = load i16, ptr %22, align 8
   %24 = icmp eq i16 %23, -1
   br i1 %24, label %25, label %37
@@ -611,7 +614,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr nocapture 
   br label %._crit_edge30
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr i8, ptr %0, i64 96
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %12
 
@@ -624,7 +627,8 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr nocapture 
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %17 = getelementptr i8, ptr %11, i64 %.idx
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, -1
   br i1 %19, label %20, label %32

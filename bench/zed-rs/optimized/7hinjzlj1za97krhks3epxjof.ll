@@ -7846,9 +7846,10 @@ define internal fastcc void @"_ZN4core3ptr415drop_in_place$LT$$LT$alloc..collect
 7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4dcff7839ea5680aE.exit.i", %.lr.ph.i
   %8 = phi ptr [ %3, %.lr.ph.i ], [ %31, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4dcff7839ea5680aE.exit.i" ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 360
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2353)
-  %10 = getelementptr inbounds { [3 x i64] }, ptr %9, i64 %.sroa.21.0.copyload.i, i32 0, i64 1
+  %.idx.i.i = mul nsw i64 %.sroa.21.0.copyload.i, 24
+  %9 = getelementptr i8, ptr %8, i64 368
+  %10 = getelementptr i8, ptr %9, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2359)
   %11 = load ptr, ptr %10, align 8, !alias.scope !2362, !nonnull !4, !noundef !4
@@ -21114,9 +21115,10 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
 8:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4dcff7839ea5680aE.exit"
   %9 = phi ptr [ %4, %.lr.ph ], [ %34, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4dcff7839ea5680aE.exit" ]
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 360
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6788)
-  %11 = getelementptr inbounds { [3 x i64] }, ptr %10, i64 %.sroa.25.0.copyload, i32 0, i64 1
+  %.idx.i = mul nsw i64 %.sroa.25.0.copyload, 24
+  %10 = getelementptr i8, ptr %9, i64 368
+  %11 = getelementptr i8, ptr %10, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6791)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6794)
   %12 = load ptr, ptr %11, align 8, !alias.scope !6797, !nonnull !4, !noundef !4

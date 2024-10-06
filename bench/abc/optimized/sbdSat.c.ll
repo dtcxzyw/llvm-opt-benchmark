@@ -2081,6 +2081,7 @@ Vec_IntGrow.exit.i372.us.us.us:                   ; preds = %161, %147
   br i1 %174, label %.lr.ph568, label %._crit_edge569
 
 .lr.ph568:                                        ; preds = %.preheader447
+  %gep565 = getelementptr [38 x [6 x i32]], ptr %invariant.gep564, i64 %indvars.iv755
   %175 = zext nneg i32 %173 to i64
   %wide.trip.count753 = zext i32 %indvars.iv730 to i64
   br label %176
@@ -2229,7 +2230,9 @@ Vec_IntGrow.exit.i384:                            ; preds = %215, %._crit_edge55
   %224 = load i32, ptr %222, align 4
   %225 = shl nsw i32 %224, 1
   %226 = or disjoint i32 %225, 1
-  %227 = getelementptr [38 x [6 x i32]], ptr %invariant.gep564, i64 %indvars.iv755, i64 %indvars.iv736, i64 1
+  %.idx = mul nuw nsw i64 %indvars.iv736, 24
+  %.offs = or disjoint i64 %.idx, 4
+  %227 = getelementptr inbounds i8, ptr %gep565, i64 %.offs
   %228 = load i32, ptr %227, align 4
   %229 = shl nsw i32 %228, 1
   %230 = or disjoint i32 %229, 1

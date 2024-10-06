@@ -3056,7 +3056,7 @@ define hidden void @_ZN2cv8obsensor17V4L2StreamChannel9grabFrameEv(ptr noundef n
   %39 = getelementptr inbounds i8, ptr %12, i64 12
   %40 = getelementptr inbounds i8, ptr %5, i64 72
   %41 = getelementptr inbounds i8, ptr %12, i64 16
-  %42 = getelementptr inbounds i8, ptr %0, i64 144
+  %42 = getelementptr inbounds i8, ptr %0, i64 152
   %43 = getelementptr inbounds i8, ptr %0, i64 120
   %44 = getelementptr inbounds i8, ptr %0, i64 328
   %45 = getelementptr inbounds i8, ptr %0, i64 312
@@ -3294,7 +3294,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit59:          ; preds = %138
   store i32 %146, ptr %39, align 4
   %147 = load i32, ptr %5, align 8
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds [4 x %"struct.cv::obsensor::V4L2FrameBuffer"], ptr %42, i64 0, i64 %148, i32 1
+  %.idx = shl nuw nsw i64 %148, 4
+  %149 = getelementptr i8, ptr %42, i64 %.idx
   %150 = load ptr, ptr %149, align 8
   store ptr %150, ptr %41, align 8
   %151 = load ptr, ptr %43, align 8

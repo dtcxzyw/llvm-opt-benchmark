@@ -67,14 +67,16 @@ define dso_local void @rdmacg_uncharge(ptr noundef %0, ptr noundef %1, i32 nound
 define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %5 = icmp eq ptr %0, %2
-  br i1 %5, label %.loopexit, label %6
+  br i1 %5, label %.loopexit, label %.preheader
 
-6:                                                ; preds = %4
-  %7 = zext nneg i32 %3 to i64
+.preheader:                                       ; preds = %4
+  %6 = shl nuw nsw i32 %3, 3
+  %7 = or disjoint i32 %6, 4
+  %.offs = zext nneg i32 %7 to i64
   br label %8
 
-8:                                                ; preds = %49, %6
-  %9 = phi ptr [ %0, %6 ], [ %51, %49 ]
+8:                                                ; preds = %.preheader, %49
+  %9 = phi ptr [ %51, %49 ], [ %0, %.preheader ]
   %10 = getelementptr inbounds i8, ptr %9, i64 200
   br label %11
 
@@ -101,7 +103,7 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
 
 23:                                               ; preds = %19
   %24 = getelementptr i8, ptr %13, i64 -16
-  %25 = getelementptr [2 x %struct.rdmacg_resource], ptr %24, i64 0, i64 %7, i32 1
+  %25 = getelementptr i8, ptr %24, i64 %.offs
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, -1
   store i32 %27, ptr %25, align 4
@@ -697,7 +699,9 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr nocapture 
   %47 = load ptr, ptr %46, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef %47) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
-  %48 = getelementptr [2 x %struct.rdmacg_resource], ptr %32, i64 0, i64 %45, i32 1
+  %.idx = shl nuw nsw i64 %45, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %48 = getelementptr i8, ptr %32, i64 %.offs
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 2147483647
   br i1 %50, label %.thread, label %.thread4

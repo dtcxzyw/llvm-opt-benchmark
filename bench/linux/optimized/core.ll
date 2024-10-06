@@ -8839,9 +8839,10 @@ define internal void @intel_start_scheduling(ptr nocapture noundef readonly %0) 
   br label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
-  %18 = sext i32 %5 to i64
-  %19 = getelementptr [2 x %struct.intel_excl_states], ptr %17, i64 0, i64 %18, i32 1
+  %17 = sext i32 %5 to i64
+  %.idx = mul nsw i64 %17, 260
+  %18 = getelementptr i8, ptr %3, i64 260
+  %19 = getelementptr i8, ptr %18, i64 %.idx
   store i8 1, ptr %19, align 4
   tail call void @_raw_spin_lock(ptr noundef nonnull %3) #22
   br label %20
@@ -8938,9 +8939,10 @@ define internal void @intel_stop_scheduling(ptr nocapture noundef readonly %0) #
   br label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
-  %18 = sext i32 %5 to i64
-  %19 = getelementptr [2 x %struct.intel_excl_states], ptr %17, i64 0, i64 %18, i32 1
+  %17 = sext i32 %5 to i64
+  %.idx = mul nsw i64 %17, 260
+  %18 = getelementptr i8, ptr %3, i64 260
+  %19 = getelementptr i8, ptr %18, i64 %.idx
   store i8 0, ptr %19, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull %3) #22
   br label %20

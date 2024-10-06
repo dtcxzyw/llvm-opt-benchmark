@@ -2946,8 +2946,9 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   br i1 %.not80, label %97, label %83
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %3, i64 32
-  %85 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %84, i64 0, i64 %68, i32 1
+  %.idx = mul nuw nsw i64 %68, 48
+  %84 = getelementptr i8, ptr %3, i64 36
+  %85 = getelementptr i8, ptr %84, i64 %.idx
   store i32 1, ptr %85, align 4
   %86 = load i32, ptr @gcamel_DisplaySRT, align 4
   %.not81 = icmp eq i32 %86, 0
@@ -3127,8 +3128,9 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   br i1 %.not80, label %proto_item_set_hidden.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
-  %55 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %54, i64 0, i64 %36, i32 1
+  %.idx = mul nuw nsw i64 %36, 48
+  %54 = getelementptr i8, ptr %3, i64 36
+  %55 = getelementptr i8, ptr %54, i64 %.idx
   store i32 1, ptr %55, align 4
   %56 = load i32, ptr @gcamel_DisplaySRT, align 4
   %.not81 = icmp eq i32 %56, 0

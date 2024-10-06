@@ -1426,96 +1426,102 @@ define internal fastcc void @_process_image(ptr noundef %0, i32 noundef range(i3
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !51
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %16, i32 4
-  %18 = load i32, ptr %17, align 4, !tbaa !39
+  %narrow = mul nuw nsw i32 %1, 40
+  %16 = zext nneg i32 %narrow to i64
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  %18 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = load i32, ptr %18, align 4, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store ptr null, ptr %5, align 8, !tbaa !43
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #13
-  %20 = load i64, ptr %11, align 8, !tbaa !49
-  %21 = uitofp i64 %20 to double
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !29
-  %23 = getelementptr inbounds i8, ptr %22, i64 1456
-  %24 = load double, ptr %23, align 8, !tbaa !34
-  %25 = fdiv reassoc nsz arcp contract afn double %21, %24
-  %26 = fptoui double %25 to i64
-  %27 = load i64, ptr %13, align 8, !tbaa !51
-  %28 = uitofp i64 %27 to double
-  %29 = fdiv reassoc nsz arcp contract afn double %28, %24
-  %30 = fptoui double %29 to i64
-  call void @dt_dev_image(i32 noundef %18, i64 noundef %26, i64 noundef %30, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -2, i32 noundef 0) #13
-  %31 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
-  %32 = load i32, ptr %17, align 4, !tbaa !39
-  %33 = icmp eq i32 %32, %18
-  br i1 %33, label %54, label %34
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #13
+  %21 = load i64, ptr %11, align 8, !tbaa !49
+  %22 = uitofp i64 %21 to double
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !29
+  %24 = getelementptr inbounds i8, ptr %23, i64 1456
+  %25 = load double, ptr %24, align 8, !tbaa !34
+  %26 = fdiv reassoc nsz arcp contract afn double %22, %25
+  %27 = fptoui double %26 to i64
+  %28 = load i64, ptr %13, align 8, !tbaa !51
+  %29 = uitofp i64 %28 to double
+  %30 = fdiv reassoc nsz arcp contract afn double %29, %25
+  %31 = fptoui double %30 to i64
+  call void @dt_dev_image(i32 noundef %19, i64 noundef %27, i64 noundef %31, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null, i32 noundef -2, i32 noundef 0) #13
+  %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
+  %33 = load i32, ptr %18, align 4, !tbaa !39
+  %34 = icmp eq i32 %33, %19
+  br i1 %34, label %55, label %35
 
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 52
-  %36 = load i32, ptr %35, align 4, !tbaa !39
-  %37 = icmp eq i32 %36, %18
-  br i1 %37, label %54, label %38
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds i8, ptr %0, i64 52
+  %37 = load i32, ptr %36, align 4, !tbaa !39
+  %38 = icmp eq i32 %37, %19
+  br i1 %38, label %57, label %39
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 92
-  %40 = load i32, ptr %39, align 4, !tbaa !39
-  %41 = icmp eq i32 %40, %18
-  br i1 %41, label %54, label %42
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %0, i64 92
+  %41 = load i32, ptr %40, align 4, !tbaa !39
+  %42 = icmp eq i32 %41, %19
+  br i1 %42, label %57, label %43
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 132
-  %44 = load i32, ptr %43, align 4, !tbaa !39
-  %45 = icmp eq i32 %44, %18
-  br i1 %45, label %54, label %46
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %0, i64 132
+  %45 = load i32, ptr %44, align 4, !tbaa !39
+  %46 = icmp eq i32 %45, %19
+  br i1 %46, label %57, label %47
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 172
-  %48 = load i32, ptr %47, align 4, !tbaa !39
-  %49 = icmp eq i32 %48, %18
-  br i1 %49, label %54, label %50
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %0, i64 172
+  %49 = load i32, ptr %48, align 4, !tbaa !39
+  %50 = icmp eq i32 %49, %19
+  br i1 %50, label %57, label %51
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 212
-  %52 = load i32, ptr %51, align 4, !tbaa !39
-  %53 = icmp eq i32 %52, %18
-  br i1 %53, label %54, label %69
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %0, i64 212
+  %53 = load i32, ptr %52, align 4, !tbaa !39
+  %54 = icmp eq i32 %53, %19
+  br i1 %54, label %57, label %72
 
-54:                                               ; preds = %2, %50, %46, %42, %38, %34
-  %55 = phi i64 [ 3, %46 ], [ 2, %42 ], [ 1, %38 ], [ 0, %34 ], [ 4, %50 ], [ %16, %2 ]
-  %56 = load i64, ptr %11, align 8, !tbaa !49
-  %57 = icmp eq i64 %56, %12
-  br i1 %57, label %58, label %69
+55:                                               ; preds = %2
+  %56 = zext nneg i32 %1 to i64
+  br label %57
 
-58:                                               ; preds = %54
-  %59 = load i64, ptr %13, align 8, !tbaa !51
-  %60 = icmp eq i64 %59, %14
-  br i1 %60, label %61, label %69
+57:                                               ; preds = %55, %51, %47, %43, %39, %35
+  %58 = phi i64 [ %56, %55 ], [ 3, %47 ], [ 2, %43 ], [ 1, %39 ], [ 0, %35 ], [ 4, %51 ]
+  %59 = load i64, ptr %11, align 8, !tbaa !49
+  %60 = icmp eq i64 %59, %12
+  br i1 %60, label %61, label %72
 
-61:                                               ; preds = %58
-  %62 = load i64, ptr %3, align 8, !tbaa !36
-  %63 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %55
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store i64 %62, ptr %64, align 8, !tbaa !50
-  %65 = load i64, ptr %4, align 8, !tbaa !36
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
-  store i64 %65, ptr %66, align 8, !tbaa !52
-  %67 = load ptr, ptr %5, align 8, !tbaa !43
-  store ptr %67, ptr %63, align 8, !tbaa !48
-  %68 = getelementptr inbounds i8, ptr %63, i64 32
-  store i32 0, ptr %68, align 8, !tbaa !40
-  br label %71
+61:                                               ; preds = %57
+  %62 = load i64, ptr %13, align 8, !tbaa !51
+  %63 = icmp eq i64 %62, %14
+  br i1 %63, label %64, label %72
 
-69:                                               ; preds = %58, %54, %50
+64:                                               ; preds = %61
+  %65 = load i64, ptr %3, align 8, !tbaa !36
+  %66 = getelementptr inbounds [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %58
+  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  store i64 %65, ptr %67, align 8, !tbaa !50
+  %68 = load i64, ptr %4, align 8, !tbaa !36
+  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  store i64 %68, ptr %69, align 8, !tbaa !52
   %70 = load ptr, ptr %5, align 8, !tbaa !43
-  call void @free(ptr noundef %70) #13
-  br label %71
+  store ptr %70, ptr %66, align 8, !tbaa !48
+  %71 = getelementptr inbounds i8, ptr %66, i64 32
+  store i32 0, ptr %71, align 8, !tbaa !40
+  br label %74
 
-71:                                               ; preds = %69, %61
-  %72 = load i32, ptr %8, align 4, !tbaa !26
-  %73 = add nsw i32 %72, -1
-  store i32 %73, ptr %8, align 4, !tbaa !26
-  %74 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #13
+72:                                               ; preds = %61, %57, %51
+  %73 = load ptr, ptr %5, align 8, !tbaa !43
+  call void @free(ptr noundef %73) #13
+  br label %74
+
+74:                                               ; preds = %72, %64
+  %75 = load i32, ptr %8, align 4, !tbaa !26
+  %76 = add nsw i32 %75, -1
+  store i32 %76, ptr %8, align 4, !tbaa !26
+  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13

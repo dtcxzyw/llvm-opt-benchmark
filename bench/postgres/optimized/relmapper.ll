@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CritSectionCount = external global i32, align 4
 @allowSystemTableMods = external local_unnamed_addr global i8, align 1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   br i1 %1, label %.preheader34, label %.preheader37
 
@@ -72,13 +72,13 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   br i1 %6, label %.lr.ph48.preheader, label %.preheader
 
 .lr.ph48.preheader:                               ; preds = %.preheader34
-  %wide.trip.count69 = zext nneg i32 %5 to i64
+  %wide.trip.count75 = zext nneg i32 %5 to i64
   br label %.lr.ph48
 
 7:                                                ; preds = %.lr.ph48
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.preheader, label %.lr.ph48, !llvm.loop !5
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
+  br i1 %exitcond76.not, label %.preheader, label %.lr.ph48, !llvm.loop !5
 
 .preheader:                                       ; preds = %7, %.preheader34
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @shared_map, i64 4), align 4
@@ -86,88 +86,77 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   br i1 %9, label %.lr.ph51.preheader, label %.loopexit
 
 .lr.ph51.preheader:                               ; preds = %.preheader
-  %wide.trip.count74 = zext nneg i32 %8 to i64
+  %wide.trip.count80 = zext nneg i32 %8 to i64
   br label %.lr.ph51
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %7
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next67, %7 ]
-  %10 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv66
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next73, %7 ]
+  %10 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv72
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %0, %11
-  br i1 %12, label %13, label %7
+  br i1 %12, label %.loopexit.sink.split, label %7
 
-13:                                               ; preds = %.lr.ph48
-  %14 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv66, i32 1
+13:                                               ; preds = %.lr.ph51
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph51, !llvm.loop !7
+
+.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %13
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next78, %13 ]
+  %14 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv77
   %15 = load i32, ptr %14, align 4
-  br label %.loopexit
+  %16 = icmp eq i32 %0, %15
+  br i1 %16, label %.loopexit.sink.split, label %13
 
-16:                                               ; preds = %.lr.ph51
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph51, !llvm.loop !7
-
-.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %16
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next72, %16 ]
-  %17 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv71
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %0, %18
-  br i1 %19, label %20, label %16
-
-20:                                               ; preds = %.lr.ph51
-  %21 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv71, i32 1
-  %22 = load i32, ptr %21, align 4
-  br label %.loopexit
-
-23:                                               ; preds = %.lr.ph
+17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !8
 
-.preheader35:                                     ; preds = %23, %.preheader37
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @local_map, i64 4), align 4
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph45.preheader, label %.loopexit
+.preheader35:                                     ; preds = %17, %.preheader37
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @local_map, i64 4), align 4
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph45.preheader, label %.loopexit
 
 .lr.ph45.preheader:                               ; preds = %.preheader35
-  %wide.trip.count64 = zext nneg i32 %24 to i64
+  %wide.trip.count70 = zext nneg i32 %18 to i64
   br label %.lr.ph45
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %26 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %0, %27
-  br i1 %28, label %29, label %23
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+  %20 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %0, %21
+  br i1 %22, label %.loopexit.sink.split, label %17
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv, i32 1
-  %31 = load i32, ptr %30, align 4
+23:                                               ; preds = %.lr.ph45
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
+  br i1 %exitcond71.not, label %.loopexit, label %.lr.ph45, !llvm.loop !9
+
+.lr.ph45:                                         ; preds = %.lr.ph45.preheader, %23
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next68, %23 ]
+  %24 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv67
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %0, %25
+  br i1 %26, label %.loopexit.sink.split, label %23
+
+.loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph45, %.lr.ph48, %.lr.ph51
+  %indvars.iv67.lcssa.sink = phi i64 [ %indvars.iv77, %.lr.ph51 ], [ %indvars.iv72, %.lr.ph48 ], [ %indvars.iv67, %.lr.ph45 ], [ %indvars.iv, %.lr.ph ]
+  %.sink87 = phi ptr [ getelementptr inbounds (i8, ptr @shared_map, i64 8), %.lr.ph51 ], [ getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), %.lr.ph48 ], [ getelementptr inbounds (i8, ptr @local_map, i64 8), %.lr.ph45 ], [ getelementptr inbounds (i8, ptr @active_local_updates, i64 8), %.lr.ph ]
+  %.idx = shl nuw nsw i64 %indvars.iv67.lcssa.sink, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %27 = getelementptr i8, ptr %.sink87, i64 %.offs
+  %28 = load i32, ptr %27, align 4
   br label %.loopexit
 
-32:                                               ; preds = %.lr.ph45
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph45, !llvm.loop !9
-
-.lr.ph45:                                         ; preds = %.lr.ph45.preheader, %32
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next62, %32 ]
-  %33 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv61
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %0, %34
-  br i1 %35, label %36, label %32
-
-36:                                               ; preds = %.lr.ph45
-  %37 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv61, i32 1
-  %38 = load i32, ptr %37, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %32, %16, %.preheader35, %.preheader, %36, %29, %20, %13
-  %.033 = phi i32 [ %15, %13 ], [ %22, %20 ], [ %31, %29 ], [ %38, %36 ], [ 0, %.preheader ], [ 0, %.preheader35 ], [ 0, %16 ], [ 0, %32 ]
+.loopexit:                                        ; preds = %23, %13, %.loopexit.sink.split, %.preheader35, %.preheader
+  %.033 = phi i32 [ 0, %.preheader ], [ 0, %.preheader35 ], [ %28, %.loopexit.sink.split ], [ 0, %13 ], [ 0, %23 ]
   ret i32 %.033
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   br i1 %1, label %.preheader34, label %.preheader37
 
 .preheader37:                                     ; preds = %2
@@ -269,7 +258,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.RelMapFile, align 4
   call fastcc void @read_relmap_file(ptr noundef nonnull %3, ptr noundef %0, i1 noundef zeroext false, i32 noundef 21)
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -295,7 +284,9 @@ define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 
   br i1 %12, label %13, label %8
 
 13:                                               ; preds = %9
-  %14 = getelementptr [64 x %struct.RelMapping], ptr %7, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %14 = getelementptr i8, ptr %7, i64 %.offs
   %15 = load i32, ptr %14, align 4
   br label %.loopexit
 
@@ -305,36 +296,36 @@ define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 21, 23) %3) unnamed_addr #2 {
+define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 21, 23) %3) unnamed_addr #1 {
   %5 = alloca [1024 x i8], align 16
   br i1 %2, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr i8, ptr %7, i64 3200
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 1) #12
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 1) #11
   br label %10
 
 10:                                               ; preds = %6, %4
-  %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %1, ptr noundef nonnull @.str.12) #12
-  %12 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #12
+  %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %1, ptr noundef nonnull @.str.12) #11
+  %12 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #11
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
-  %15 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %15 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = call i32 @errcode_for_file_access() #12
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 820, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %17 = call i32 @errcode_for_file_access() #11
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 820, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %19
 
 19:                                               ; preds = %14, %16, %10
   %20 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772196, ptr %20, align 4
-  %21 = call i64 @read(i32 noundef %12, ptr noundef %0, i64 noundef 524) #12
+  %21 = call i64 @read(i32 noundef %12, ptr noundef %0, i64 noundef 524) #11
   %22 = trunc i64 %21 to i32
   %sext.mask = and i64 %21, 4294967295
   %.not = icmp eq i64 %sext.mask, 524
@@ -342,45 +333,45 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
 
 23:                                               ; preds = %19
   %24 = icmp slt i32 %22, 0
-  %25 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %25 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %24, label %26, label %30
 
 26:                                               ; preds = %23
   br i1 %25, label %27, label %.sink.split
 
 27:                                               ; preds = %26
-  %28 = call i32 @errcode_for_file_access() #12
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #12
+  %28 = call i32 @errcode_for_file_access() #11
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #11
   br label %.sink.split.sink.split
 
 30:                                               ; preds = %23
   br i1 %25, label %31, label %.sink.split
 
 31:                                               ; preds = %30
-  %32 = call i32 @errcode(i32 noundef 16779816) #12
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i32 noundef %22, i64 noundef 524) #12
+  %32 = call i32 @errcode(i32 noundef 16779816) #11
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i32 noundef %22, i64 noundef 524) #11
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %27, %31
   %.sink = phi i32 [ 835, %31 ], [ 830, %27 ]
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.read_relmap_file) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %30, %.sink.split.sink.split, %19
   %34 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %34, align 4
-  %35 = call i32 @CloseTransientFile(i32 noundef %12) #12
+  %35 = call i32 @CloseTransientFile(i32 noundef %12) #11
   %.not78 = icmp eq i32 %35, 0
   br i1 %.not78, label %41, label %36
 
 36:                                               ; preds = %.sink.split
-  %37 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %37 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = call i32 @errcode_for_file_access() #12
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 843, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %39 = call i32 @errcode_for_file_access() #11
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 843, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %41
 
 41:                                               ; preds = %36, %38, %.sink.split
@@ -389,7 +380,7 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
 42:                                               ; preds = %41
   %43 = load ptr, ptr @MainLWLockArray, align 8
   %44 = getelementptr i8, ptr %43, i64 3200
-  call void @LWLockRelease(ptr noundef %44) #12
+  call void @LWLockRelease(ptr noundef %44) #11
   br label %45
 
 45:                                               ; preds = %42, %41
@@ -404,17 +395,17 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
   br i1 %or.cond, label %50, label %54
 
 50:                                               ; preds = %47, %45
-  %51 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %51 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %54
 
 54:                                               ; preds = %50, %52, %47
   %55 = load ptr, ptr @pg_comp_crc32c, align 8
-  %56 = call i32 %55(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #12
+  %56 = call i32 %55(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #11
   %57 = getelementptr inbounds i8, ptr %0, i64 520
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, %56
@@ -422,12 +413,12 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %54
-  %62 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %62 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 864, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 864, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %65
 
 65:                                               ; preds = %61, %63, %54
@@ -435,23 +426,23 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.RelMapFile, align 4
   call fastcc void @read_relmap_file(ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext false, i32 noundef 21)
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr i8, ptr %6, i64 3200
-  %8 = call zeroext i1 @LWLockAcquire(ptr noundef %7, i32 noundef 0) #12
+  %8 = call zeroext i1 @LWLockAcquire(ptr noundef %7, i32 noundef 0) #11
   call fastcc void @write_relmap_file(ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %0, i32 noundef %1, ptr noundef %3)
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr i8, ptr %9, i64 3200
-  call void @LWLockRelease(ptr noundef %10) #12
+  call void @LWLockRelease(ptr noundef %10) #11
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #2 {
+define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca [1024 x i8], align 16
   %10 = alloca %struct.xl_relmap_update, align 4
@@ -462,42 +453,42 @@ define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroex
   br i1 %or.cond, label %13, label %16
 
 13:                                               ; preds = %7
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %0, i64 520
   store i32 -1, ptr %17, align 4
   %18 = load ptr, ptr @pg_comp_crc32c, align 8
-  %19 = tail call i32 %18(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #12
+  %19 = tail call i32 %18(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #11
   %20 = xor i32 %19, -1
   store i32 %20, ptr %17, align 4
-  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.12) #12
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.20) #12
-  %23 = call i32 @OpenTransientFile(ptr noundef nonnull %9, i32 noundef 577) #12
+  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.12) #11
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.20) #11
+  %23 = call i32 @OpenTransientFile(ptr noundef nonnull %9, i32 noundef 577) #11
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %16
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %26)
-  %27 = call i32 @errcode_for_file_access() #12
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %9) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 937, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %27 = call i32 @errcode_for_file_access() #11
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %9) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 937, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 29:                                               ; preds = %16
   %30 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772198, ptr %30, align 4
-  %31 = call i64 @write(i32 noundef %23, ptr noundef nonnull %0, i64 noundef 524) #12
+  %31 = call i64 @write(i32 noundef %23, ptr noundef nonnull %0, i64 noundef 524) #11
   %.not = icmp eq i64 %31, 524
   br i1 %.not, label %41, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call ptr @__errno_location() #14
+  %33 = tail call ptr @__errno_location() #13
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
@@ -507,26 +498,26 @@ define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroex
   br label %37
 
 37:                                               ; preds = %36, %32
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode_for_file_access() #12
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %9) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 949, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %39 = call i32 @errcode_for_file_access() #11
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %9) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 949, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %42, align 4
-  %43 = call i32 @CloseTransientFile(i32 noundef %23) #12
+  %43 = call i32 @CloseTransientFile(i32 noundef %23) #11
   %.not33 = icmp eq i32 %43, 0
   br i1 %.not33, label %48, label %44
 
 44:                                               ; preds = %41
-  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %45)
-  %46 = call i32 @errcode_for_file_access() #12
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 958, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %46 = call i32 @errcode_for_file_access() #11
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 958, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 48:                                               ; preds = %41
@@ -541,23 +532,23 @@ define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroex
   store i32 %5, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 524, ptr %53, align 4
-  call void @XLogBeginInsert() #12
-  call void @XLogRegisterData(ptr noundef nonnull %10, i32 noundef 12) #12
-  call void @XLogRegisterData(ptr noundef nonnull %0, i32 noundef 524) #12
-  %54 = call i64 @XLogInsert(i8 noundef zeroext 7, i8 noundef zeroext 0) #12
-  call void @XLogFlush(i64 noundef %54) #12
+  call void @XLogBeginInsert() #11
+  call void @XLogRegisterData(ptr noundef nonnull %10, i32 noundef 12) #11
+  call void @XLogRegisterData(ptr noundef nonnull %0, i32 noundef 524) #11
+  %54 = call i64 @XLogInsert(i8 noundef zeroext 7, i8 noundef zeroext 0) #11
+  call void @XLogFlush(i64 noundef %54) #11
   br label %55
 
 55:                                               ; preds = %49, %48
   %56 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772197, ptr %56, align 4
-  %57 = call i32 @durable_rename(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 21) #12
+  %57 = call i32 @durable_rename(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 21) #11
   %58 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %58, align 4
   br i1 %2, label %59, label %60
 
 59:                                               ; preds = %55
-  call void @CacheInvalidateRelmap(i32 noundef %4) #12
+  call void @CacheInvalidateRelmap(i32 noundef %4) #11
   br label %60
 
 60:                                               ; preds = %59, %55
@@ -569,7 +560,7 @@ define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroex
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr i8, ptr %0, i64 12
   %.sroa.22.0.insert.ext = zext i32 %4 to i64
   %.sroa.22.0.insert.shift = shl nuw i64 %.sroa.22.0.insert.ext, 32
   %.sroa.01.0.insert.ext = zext i32 %5 to i64
@@ -578,9 +569,10 @@ define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroex
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr [64 x %struct.RelMapping], ptr %63, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %65 = getelementptr i8, ptr %63, i64 %.idx
   %66 = load i32, ptr %65, align 4
-  call void @RelationPreserveStorage(i64 %.sroa.01.0.insert.insert, i32 %66, i1 noundef zeroext false) #12
+  call void @RelationPreserveStorage(i64 %.sroa.01.0.insert.insert, i32 %66, i1 noundef zeroext false) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %11, align 4
   %68 = sext i32 %67 to i64
@@ -600,10 +592,10 @@ define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroex
   ret void
 }
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = load i32, ptr @Mode, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
@@ -613,26 +605,26 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   br label %22
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @GetCurrentTransactionNestLevel() #12
+  %9 = tail call i32 @GetCurrentTransactionNestLevel() #11
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.RelationMapUpdateMap) #12
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.RelationMapUpdateMap) #11
   unreachable
 
 14:                                               ; preds = %8
-  %15 = tail call zeroext i1 @IsInParallelMode() #12
+  %15 = tail call zeroext i1 @IsInParallelMode() #11
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @__func__.RelationMapUpdateMap) #12
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @__func__.RelationMapUpdateMap) #11
   unreachable
 
 19:                                               ; preds = %14
@@ -671,7 +663,9 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   br i1 %31, label %32, label %27
 
 32:                                               ; preds = %28
-  %33 = getelementptr [64 x %struct.RelMapping], ptr %26, i64 0, i64 %indvars.iv.i, i32 1
+  %.idx26.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %.offs27.i = or disjoint i64 %.idx26.i, 4
+  %33 = getelementptr i8, ptr %26, i64 %.offs27.i
   store i32 %1, ptr %33, align 4
   br label %apply_map_update.exit
 
@@ -680,10 +674,10 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   br i1 %34, label %35, label %._crit_edge.i.thread
 
 35:                                               ; preds = %._crit_edge.i
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #12
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 ._crit_edge.i.thread:                             ; preds = %22, %._crit_edge.i
@@ -691,7 +685,9 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   %39 = sext i32 %24 to i64
   %40 = getelementptr [64 x %struct.RelMapping], ptr %38, i64 0, i64 %39
   store i32 %0, ptr %40, align 4
-  %41 = getelementptr [64 x %struct.RelMapping], ptr %38, i64 0, i64 %39, i32 1
+  %.idx.i = shl nsw i64 %39, 3
+  %.offs.i = or disjoint i64 %.idx.i, 4
+  %41 = getelementptr i8, ptr %38, i64 %.offs.i
   store i32 %1, ptr %41, align 4
   %42 = load i32, ptr %23, align 4
   %43 = add i32 %42, 1
@@ -702,21 +698,21 @@ apply_map_update.exit:                            ; preds = %32, %._crit_edge.i.
   ret void
 }
 
-declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #3
+declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @IsInParallelMode() local_unnamed_addr #3
+declare zeroext i1 @IsInParallelMode() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
@@ -750,18 +746,18 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
   ret void
 
 ._crit_edge:                                      ; preds = %4, %1
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.RelationMapRemoveMapping) #12
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.RelationMapRemoveMapping) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unnamed_addr #2 {
+define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unnamed_addr #1 {
   br i1 %0, label %2, label %6
 
 2:                                                ; preds = %1
@@ -788,7 +784,7 @@ define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #2 {
+define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #1 {
   %1 = load i32, ptr @shared_map, align 4
   %2 = icmp eq i32 %1, 5842711
   br i1 %2, label %3, label %4
@@ -812,24 +808,24 @@ define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtCCI_RelationMap() local_unnamed_addr #2 {
+define dso_local void @AtCCI_RelationMap() local_unnamed_addr #1 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %27, label %2
 
 2:                                                ; preds = %0
   %3 = icmp sgt i32 %1, 0
-  br i1 %3, label %.lr.ph.split.us.i.preheader, label %merge_map_updates.exit
+  br i1 %3, label %.lr.ph.i, label %merge_map_updates.exit
 
-.lr.ph.split.us.i.preheader:                      ; preds = %2
+.lr.ph.i:                                         ; preds = %2
+  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
   %4 = zext nneg i32 %1 to i64
-  %.pre21 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %apply_map_update.exit.us.i
-  %5 = phi i32 [ %24, %apply_map_update.exit.us.i ], [ %.pre21, %.lr.ph.split.us.i.preheader ]
-  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %apply_map_update.exit.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %6 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 8), i64 0, i64 %indvars.iv22.i
+.lr.ph.split.us.i:                                ; preds = %apply_map_update.exit.us.i, %.lr.ph.i
+  %5 = phi i32 [ %24, %apply_map_update.exit.us.i ], [ %.pre.i, %.lr.ph.i ]
+  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %apply_map_update.exit.us.i ], [ 0, %.lr.ph.i ]
+  %6 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 8), i64 0, i64 %indvars.iv41.i
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
@@ -860,7 +856,9 @@ define dso_local void @AtCCI_RelationMap() local_unnamed_addr #2 {
   %17 = sext i32 %5 to i64
   %18 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %17
   store i32 %7, ptr %18, align 4
-  %19 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %17, i32 1
+  %.idx.i.us.i = shl nsw i64 %17, 3
+  %.offs.i.us.i = or disjoint i64 %.idx.i.us.i, 4
+  %19 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 %.offs.i.us.i
   store i32 %9, ptr %19, align 4
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
   %21 = add i32 %20, 1
@@ -868,22 +866,23 @@ define dso_local void @AtCCI_RelationMap() local_unnamed_addr #2 {
   br label %apply_map_update.exit.us.i
 
 22:                                               ; preds = %11
-  %23 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv.i.us.i, i32 1
+  %.idx26.i.us.i = shl nuw nsw i64 %indvars.iv.i.us.i, 3
+  %.offs27.i.us.i = or disjoint i64 %.idx26.i.us.i, 4
+  %23 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 %.offs27.i.us.i
   store i32 %9, ptr %23, align 4
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
   br label %apply_map_update.exit.us.i
 
 apply_map_update.exit.us.i:                       ; preds = %22, %._crit_edge.i.us.thread.i
-  %24 = phi i32 [ %.pre, %22 ], [ %21, %._crit_edge.i.us.thread.i ]
-  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next23.i, %4
+  %24 = phi i32 [ %5, %22 ], [ %21, %._crit_edge.i.us.thread.i ]
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next42.i, %4
   br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .split.us.i:                                      ; preds = %._crit_edge.i.us.i
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #12
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 merge_map_updates.exit:                           ; preds = %apply_map_update.exit.us.i, %2
@@ -897,83 +896,86 @@ merge_map_updates.exit:                           ; preds = %apply_map_update.ex
 
 29:                                               ; preds = %27
   %30 = icmp sgt i32 %28, 0
-  br i1 %30, label %.lr.ph.split.us.i3.preheader, label %merge_map_updates.exit15
+  br i1 %30, label %.lr.ph.i2, label %merge_map_updates.exit20
 
-.lr.ph.split.us.i3.preheader:                     ; preds = %29
+.lr.ph.i2:                                        ; preds = %29
+  %.pre.i3 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
   %31 = zext nneg i32 %28 to i64
-  %.pre23 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
-  br label %.lr.ph.split.us.i3
+  br label %.lr.ph.split.us.i4
 
-.lr.ph.split.us.i3:                               ; preds = %.lr.ph.split.us.i3.preheader, %apply_map_update.exit.us.i6
-  %32 = phi i32 [ %51, %apply_map_update.exit.us.i6 ], [ %.pre23, %.lr.ph.split.us.i3.preheader ]
-  %indvars.iv22.i4 = phi i64 [ %indvars.iv.next23.i7, %apply_map_update.exit.us.i6 ], [ 0, %.lr.ph.split.us.i3.preheader ]
-  %33 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 8), i64 0, i64 %indvars.iv22.i4
+.lr.ph.split.us.i4:                               ; preds = %apply_map_update.exit.us.i9, %.lr.ph.i2
+  %32 = phi i32 [ %51, %apply_map_update.exit.us.i9 ], [ %.pre.i3, %.lr.ph.i2 ]
+  %indvars.iv41.i5 = phi i64 [ %indvars.iv.next42.i10, %apply_map_update.exit.us.i9 ], [ 0, %.lr.ph.i2 ]
+  %33 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 8), i64 0, i64 %indvars.iv41.i5
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %33, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %32, 0
-  br i1 %37, label %.lr.ph.i.us.i8, label %._crit_edge.i.us.thread.i5
+  br i1 %37, label %.lr.ph.i.us.i11, label %._crit_edge.i.us.thread.i6
 
-.lr.ph.i.us.i8:                                   ; preds = %.lr.ph.split.us.i3
-  %wide.trip.count.i.us.i9 = zext nneg i32 %32 to i64
+.lr.ph.i.us.i11:                                  ; preds = %.lr.ph.split.us.i4
+  %wide.trip.count.i.us.i12 = zext nneg i32 %32 to i64
   br label %38
 
-38:                                               ; preds = %42, %.lr.ph.i.us.i8
-  %indvars.iv.i.us.i10 = phi i64 [ 0, %.lr.ph.i.us.i8 ], [ %indvars.iv.next.i.us.i11, %42 ]
-  %39 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv.i.us.i10
+38:                                               ; preds = %42, %.lr.ph.i.us.i11
+  %indvars.iv.i.us.i13 = phi i64 [ 0, %.lr.ph.i.us.i11 ], [ %indvars.iv.next.i.us.i14, %42 ]
+  %39 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv.i.us.i13
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %34, %40
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %38
-  %indvars.iv.next.i.us.i11 = add nuw nsw i64 %indvars.iv.i.us.i10, 1
-  %exitcond.not.i.us.i12 = icmp eq i64 %indvars.iv.next.i.us.i11, %wide.trip.count.i.us.i9
-  br i1 %exitcond.not.i.us.i12, label %._crit_edge.i.us.i13, label %38, !llvm.loop !16
+  %indvars.iv.next.i.us.i14 = add nuw nsw i64 %indvars.iv.i.us.i13, 1
+  %exitcond.not.i.us.i15 = icmp eq i64 %indvars.iv.next.i.us.i14, %wide.trip.count.i.us.i12
+  br i1 %exitcond.not.i.us.i15, label %._crit_edge.i.us.i16, label %38, !llvm.loop !16
 
-._crit_edge.i.us.i13:                             ; preds = %42
+._crit_edge.i.us.i16:                             ; preds = %42
   %43 = icmp sgt i32 %32, 63
-  br i1 %43, label %.split.us.i14, label %._crit_edge.i.us.thread.i5
+  br i1 %43, label %.split.us.i17, label %._crit_edge.i.us.thread.i6
 
-._crit_edge.i.us.thread.i5:                       ; preds = %._crit_edge.i.us.i13, %.lr.ph.split.us.i3
+._crit_edge.i.us.thread.i6:                       ; preds = %._crit_edge.i.us.i16, %.lr.ph.split.us.i4
   %44 = sext i32 %32 to i64
   %45 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %44
   store i32 %34, ptr %45, align 4
-  %46 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %44, i32 1
+  %.idx.i.us.i7 = shl nsw i64 %44, 3
+  %.offs.i.us.i8 = or disjoint i64 %.idx.i.us.i7, 4
+  %46 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 %.offs.i.us.i8
   store i32 %36, ptr %46, align 4
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
-  br label %apply_map_update.exit.us.i6
+  br label %apply_map_update.exit.us.i9
 
 49:                                               ; preds = %38
-  %50 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv.i.us.i10, i32 1
+  %.idx26.i.us.i18 = shl nuw nsw i64 %indvars.iv.i.us.i13, 3
+  %.offs27.i.us.i19 = or disjoint i64 %.idx26.i.us.i18, 4
+  %50 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 %.offs27.i.us.i19
   store i32 %36, ptr %50, align 4
-  %.pre22 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
-  br label %apply_map_update.exit.us.i6
+  br label %apply_map_update.exit.us.i9
 
-apply_map_update.exit.us.i6:                      ; preds = %49, %._crit_edge.i.us.thread.i5
-  %51 = phi i32 [ %.pre22, %49 ], [ %48, %._crit_edge.i.us.thread.i5 ]
-  %indvars.iv.next23.i7 = add nuw nsw i64 %indvars.iv22.i4, 1
-  %exitcond20.not = icmp eq i64 %indvars.iv.next23.i7, %31
-  br i1 %exitcond20.not, label %merge_map_updates.exit15, label %.lr.ph.split.us.i3, !llvm.loop !18
+apply_map_update.exit.us.i9:                      ; preds = %49, %._crit_edge.i.us.thread.i6
+  %51 = phi i32 [ %32, %49 ], [ %48, %._crit_edge.i.us.thread.i6 ]
+  %indvars.iv.next42.i10 = add nuw nsw i64 %indvars.iv41.i5, 1
+  %exitcond25.not = icmp eq i64 %indvars.iv.next42.i10, %31
+  br i1 %exitcond25.not, label %merge_map_updates.exit20, label %.lr.ph.split.us.i4, !llvm.loop !18
 
-.split.us.i14:                                    ; preds = %._crit_edge.i.us.i13
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+.split.us.i17:                                    ; preds = %._crit_edge.i.us.i16
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #12
+  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
-merge_map_updates.exit15:                         ; preds = %apply_map_update.exit.us.i6, %29
+merge_map_updates.exit20:                         ; preds = %apply_map_update.exit.us.i9, %29
   store i32 0, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
   br label %54
 
-54:                                               ; preds = %merge_map_updates.exit15, %27
+54:                                               ; preds = %merge_map_updates.exit20, %27
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %.not3 = xor i1 %0, true
   %brmerge = or i1 %1, %.not3
   br i1 %brmerge, label %9, label %3
@@ -1010,11 +1012,11 @@ define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca %struct.RelMapFile, align 4
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr i8, ptr %4, i64 3200
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #12
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #11
   br i1 %0, label %7, label %8
 
 7:                                                ; preds = %2
@@ -1040,28 +1042,32 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = getelementptr inbounds i8, ptr %3, i64 4
   %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = zext nneg i32 %12 to i64
-  br i1 %15, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %.pre.i = load i32, ptr %17, align 4
+  br i1 %15, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %apply_map_update.exit.us.i
-  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %apply_map_update.exit.us.i ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr [64 x %struct.RelMapping], ptr %16, i64 0, i64 %indvars.iv22.i
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = load i32, ptr %17, align 4
-  %25 = icmp sgt i32 %24, 0
+.lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i
+  %19 = zext nneg i32 %12 to i64
+  br label %.lr.ph.split.us.i
+
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %apply_map_update.exit.us.i
+  %20 = phi i32 [ %39, %apply_map_update.exit.us.i ], [ %.pre.i, %.lr.ph.split.us.i.preheader ]
+  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %apply_map_update.exit.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
+  %21 = getelementptr [64 x %struct.RelMapping], ptr %16, i64 0, i64 %indvars.iv41.i
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sgt i32 %20, 0
   br i1 %25, label %.lr.ph.i.us.i, label %._crit_edge.i.us.thread.i
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.split.us.i
-  %wide.trip.count.i.us.i = zext nneg i32 %24 to i64
+  %wide.trip.count.i.us.i = zext nneg i32 %20 to i64
   br label %26
 
 26:                                               ; preds = %30, %.lr.ph.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.i.us.i ], [ %indvars.iv.next.i.us.i, %30 ]
   %27 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %indvars.iv.i.us.i
   %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %21, %28
+  %29 = icmp eq i32 %22, %28
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %26
@@ -1070,104 +1076,119 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
   br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %26, !llvm.loop !16
 
 ._crit_edge.i.us.i:                               ; preds = %30
-  %31 = icmp sgt i32 %24, 63
+  %31 = icmp sgt i32 %20, 63
   br i1 %31, label %.split.us.i, label %._crit_edge.i.us.thread.i
 
 ._crit_edge.i.us.thread.i:                        ; preds = %._crit_edge.i.us.i, %.lr.ph.split.us.i
-  %32 = sext i32 %24 to i64
+  %32 = sext i32 %20 to i64
   %33 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %32
-  store i32 %21, ptr %33, align 4
-  %34 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %32, i32 1
-  store i32 %23, ptr %34, align 4
+  store i32 %22, ptr %33, align 4
+  %.idx.i.us.i = shl nsw i64 %32, 3
+  %.offs.i.us.i = or disjoint i64 %.idx.i.us.i, 4
+  %34 = getelementptr i8, ptr %18, i64 %.offs.i.us.i
+  store i32 %24, ptr %34, align 4
   %35 = load i32, ptr %17, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %17, align 4
   br label %apply_map_update.exit.us.i
 
 37:                                               ; preds = %26
-  %38 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %indvars.iv.i.us.i, i32 1
-  store i32 %23, ptr %38, align 4
+  %.idx26.i.us.i = shl nuw nsw i64 %indvars.iv.i.us.i, 3
+  %.offs27.i.us.i = or disjoint i64 %.idx26.i.us.i, 4
+  %38 = getelementptr i8, ptr %18, i64 %.offs27.i.us.i
+  store i32 %24, ptr %38, align 4
   br label %apply_map_update.exit.us.i
 
 apply_map_update.exit.us.i:                       ; preds = %37, %._crit_edge.i.us.thread.i
-  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond18.not = icmp eq i64 %indvars.iv.next23.i, %19
-  br i1 %exitcond18.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
+  %39 = phi i32 [ %20, %37 ], [ %36, %._crit_edge.i.us.thread.i ]
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %exitcond14.not = icmp eq i64 %indvars.iv.next42.i, %19
+  br i1 %exitcond14.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %apply_map_update.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %apply_map_update.exit.i ], [ 0, %.lr.ph.i ]
-  %39 = getelementptr [64 x %struct.RelMapping], ptr %16, i64 0, i64 %indvars.iv.i
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = load i32, ptr %17, align 4
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i
+  %40 = icmp sgt i32 %.pre.i, 0
+  br i1 %40, label %.lr.ph.split.split.us.i, label %._crit_edge.i.loopexit27.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.split.i
-  %wide.trip.count.i.i = zext nneg i32 %43 to i64
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i
+  %wide.trip.count.i.us17.i = zext nneg i32 %.pre.i to i64
+  %41 = zext nneg i32 %12 to i64
+  br label %.lr.ph.i.us16.i
+
+.lr.ph.i.us16.i:                                  ; preds = %apply_map_update.exit.us21.i, %.lr.ph.split.split.us.i
+  %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %apply_map_update.exit.us21.i ], [ 0, %.lr.ph.split.split.us.i ]
+  %42 = getelementptr [64 x %struct.RelMapping], ptr %16, i64 0, i64 %indvars.iv38.i
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %42, i64 4
+  %45 = load i32, ptr %44, align 4
   br label %46
 
-45:                                               ; preds = %46
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %46, !llvm.loop !16
-
-46:                                               ; preds = %45, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
-  %47 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %indvars.iv.i.i
+46:                                               ; preds = %50, %.lr.ph.i.us16.i
+  %indvars.iv.i.us18.i = phi i64 [ 0, %.lr.ph.i.us16.i ], [ %indvars.iv.next.i.us19.i, %50 ]
+  %47 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %indvars.iv.i.us18.i
   %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %40, %48
-  br i1 %49, label %apply_map_update.exit.i, label %45
+  %49 = icmp eq i32 %43, %48
+  br i1 %49, label %apply_map_update.exit.us21.i, label %50
 
-apply_map_update.exit.i:                          ; preds = %46
-  %50 = getelementptr [64 x %struct.RelMapping], ptr %18, i64 0, i64 %indvars.iv.i.i, i32 1
-  store i32 %42, ptr %50, align 4
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.i, !llvm.loop !18
+50:                                               ; preds = %46
+  %indvars.iv.next.i.us19.i = add nuw nsw i64 %indvars.iv.i.us18.i, 1
+  %exitcond.not.i.us20.i = icmp eq i64 %indvars.iv.next.i.us19.i, %wide.trip.count.i.us17.i
+  br i1 %exitcond.not.i.us20.i, label %._crit_edge.i.i, label %46, !llvm.loop !16
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.split.i, %45
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %40) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @__func__.apply_map_update) #12
+apply_map_update.exit.us21.i:                     ; preds = %46
+  %.idx26.i.us23.i = shl nuw nsw i64 %indvars.iv.i.us18.i, 3
+  %.offs27.i.us24.i = or disjoint i64 %.idx26.i.us23.i, 4
+  %51 = getelementptr i8, ptr %18, i64 %.offs27.i.us24.i
+  store i32 %45, ptr %51, align 4
+  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next39.i, %41
+  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.i.us16.i, !llvm.loop !18
+
+._crit_edge.i.loopexit27.i:                       ; preds = %.lr.ph.split.i
+  %.pre44.i = load i32, ptr %16, align 4
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %50, %._crit_edge.i.loopexit27.i
+  %.lcssa.i = phi i32 [ %.pre44.i, %._crit_edge.i.loopexit27.i ], [ %43, %50 ]
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %52)
+  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %.lcssa.i) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 .split.us.i:                                      ; preds = %._crit_edge.i.us.i
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #12
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %54)
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
-merge_map_updates.exit:                           ; preds = %apply_map_update.exit.i, %apply_map_update.exit.us.i, %10
-  %55 = load i32, ptr @MyDatabaseId, align 4
-  %56 = select i1 %0, i32 0, i32 %55
-  %57 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %58 = select i1 %0, i32 1664, i32 %57
-  %59 = load ptr, ptr @DatabasePath, align 8
-  %60 = select i1 %0, ptr @.str.5, ptr %59
-  call fastcc void @write_relmap_file(ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %56, i32 noundef %58, ptr noundef %60)
-  br i1 %0, label %61, label %62
-
-61:                                               ; preds = %merge_map_updates.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) @shared_map, ptr noundef nonnull align 4 dereferenceable(524) %3, i64 524, i1 false)
-  br label %63
+merge_map_updates.exit:                           ; preds = %apply_map_update.exit.us21.i, %apply_map_update.exit.us.i, %10
+  %56 = load i32, ptr @MyDatabaseId, align 4
+  %57 = select i1 %0, i32 0, i32 %56
+  %58 = load i32, ptr @MyDatabaseTableSpace, align 4
+  %59 = select i1 %0, i32 1664, i32 %58
+  %60 = load ptr, ptr @DatabasePath, align 8
+  %61 = select i1 %0, ptr @.str.5, ptr %60
+  call fastcc void @write_relmap_file(ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %57, i32 noundef %59, ptr noundef %61)
+  br i1 %0, label %62, label %63
 
 62:                                               ; preds = %merge_map_updates.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) @local_map, ptr noundef nonnull align 4 dereferenceable(524) %3, i64 524, i1 false)
-  br label %63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) @shared_map, ptr noundef nonnull align 4 dereferenceable(524) %3, i64 524, i1 false)
+  br label %64
 
-63:                                               ; preds = %62, %61
-  %64 = load ptr, ptr @MainLWLockArray, align 8
-  %65 = getelementptr i8, ptr %64, i64 3200
-  call void @LWLockRelease(ptr noundef %65) #12
+63:                                               ; preds = %merge_map_updates.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) @local_map, ptr noundef nonnull align 4 dereferenceable(524) %3, i64 524, i1 false)
+  br label %64
+
+64:                                               ; preds = %63, %62
+  %65 = load ptr, ptr @MainLWLockArray, align 8
+  %66 = getelementptr i8, ptr %65, i64 3200
+  call void @LWLockRelease(ptr noundef %66) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #2 {
+define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #1 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
   %2 = icmp ne i32 %1, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
@@ -1182,37 +1203,37 @@ define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #2 {
   br i1 %or.cond8, label %9, label %13
 
 9:                                                ; preds = %0
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 1088) #12
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 597, ptr noundef nonnull @__func__.AtPrepare_RelationMap) #12
+  %11 = tail call i32 @errcode(i32 noundef 1088) #11
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 597, ptr noundef nonnull @__func__.AtPrepare_RelationMap) #11
   unreachable
 
 13:                                               ; preds = %0
   ret void
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckPointRelationMap() local_unnamed_addr #2 {
+define dso_local void @CheckPointRelationMap() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr i8, ptr %1, i64 3200
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #12
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #11
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr i8, ptr %4, i64 3200
-  tail call void @LWLockRelease(ptr noundef %5) #12
+  tail call void @LWLockRelease(ptr noundef %5) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #2 {
+define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr i8, ptr %1, i64 3200
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 0) #12
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 0) #11
   tail call fastcc void @write_relmap_file(ptr noundef nonnull @shared_map, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, i32 noundef 1664, ptr noundef nonnull @.str.5)
   %4 = load i32, ptr @MyDatabaseId, align 4
   %5 = load i32, ptr @MyDatabaseTableSpace, align 4
@@ -1220,12 +1241,12 @@ define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #2 {
   tail call fastcc void @write_relmap_file(ptr noundef nonnull @local_map, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %4, i32 noundef %5, ptr noundef %6)
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr i8, ptr %7, i64 3200
-  tail call void @LWLockRelease(ptr noundef %8) #12
+  tail call void @LWLockRelease(ptr noundef %8) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @RelationMapInitialize() local_unnamed_addr #6 {
+define dso_local void @RelationMapInitialize() local_unnamed_addr #5 {
   store i32 0, ptr @shared_map, align 4
   store i32 0, ptr @local_map, align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @shared_map, i64 4), align 4
@@ -1238,7 +1259,7 @@ define dso_local void @RelationMapInitialize() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInitializePhase2() local_unnamed_addr #2 {
+define dso_local void @RelationMapInitializePhase2() local_unnamed_addr #1 {
   %1 = load i32, ptr @Mode, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %4, label %3
@@ -1252,7 +1273,7 @@ define dso_local void @RelationMapInitializePhase2() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationMapInitializePhase3() local_unnamed_addr #2 {
+define dso_local void @RelationMapInitializePhase3() local_unnamed_addr #1 {
   %1 = load i32, ptr @Mode, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %5, label %3
@@ -1267,12 +1288,12 @@ define dso_local void @RelationMapInitializePhase3() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @EstimateRelationMapSpace() local_unnamed_addr #7 {
+define dso_local noundef i64 @EstimateRelationMapSpace() local_unnamed_addr #6 {
   ret i64 1048
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %1, ptr noundef nonnull align 4 dereferenceable(524) @active_shared_updates, i64 524, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 524
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %3, ptr noundef nonnull align 4 dereferenceable(524) @active_local_updates, i64 524, i1 false)
@@ -1280,7 +1301,7 @@ define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
   %3 = icmp ne i32 %2, 0
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
@@ -1295,10 +1316,10 @@ define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) loc
   br i1 %or.cond8, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 750, ptr noundef nonnull @__func__.RestoreRelationMap) #12
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 750, ptr noundef nonnull @__func__.RestoreRelationMap) #11
   unreachable
 
 13:                                               ; preds = %1
@@ -1309,7 +1330,7 @@ define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @relmap_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local void @relmap_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.RelMapFile, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -1328,11 +1349,11 @@ define dso_local void @relmap_redo(ptr nocapture noundef readonly %0) local_unna
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #13
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #12
   tail call void @llvm.assume(i1 %15)
   %16 = load i32, ptr %12, align 4
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %16) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1112, ptr noundef nonnull @__func__.relmap_redo) #12
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %16) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1112, ptr noundef nonnull @__func__.relmap_redo) #11
   unreachable
 
 18:                                               ; preds = %9
@@ -1341,81 +1362,80 @@ define dso_local void @relmap_redo(ptr nocapture noundef readonly %0) local_unna
   %20 = load i32, ptr %11, align 4
   %21 = getelementptr inbounds i8, ptr %11, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = tail call ptr @GetDatabasePath(i32 noundef %20, i32 noundef %22) #12
+  %23 = tail call ptr @GetDatabasePath(i32 noundef %20, i32 noundef %22) #11
   %24 = load ptr, ptr @MainLWLockArray, align 8
   %25 = getelementptr i8, ptr %24, i64 3200
-  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #12
+  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #11
   %27 = load i32, ptr %11, align 4
   %28 = load i32, ptr %21, align 4
   call fastcc void @write_relmap_file(ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %27, i32 noundef %28, ptr noundef %23)
   %29 = load ptr, ptr @MainLWLockArray, align 8
   %30 = getelementptr i8, ptr %29, i64 3200
-  call void @LWLockRelease(ptr noundef %30) #12
-  call void @pfree(ptr noundef %23) #12
+  call void @LWLockRelease(ptr noundef %30) #11
+  call void @pfree(ptr noundef %23) #11
   ret void
 
 31:                                               ; preds = %1
   %32 = zext i8 %7 to i32
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #13
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #12
   tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %32) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1141, ptr noundef nonnull @__func__.relmap_redo) #12
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %32) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1141, ptr noundef nonnull @__func__.relmap_redo) #11
   unreachable
 }
 
-declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #3
-
-; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
-
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode_for_file_access() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #9
 
-declare void @XLogBeginInsert() local_unnamed_addr #3
+declare void @XLogBeginInsert() local_unnamed_addr #2
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #3
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #2
 
-declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CacheInvalidateRelmap(i32 noundef) local_unnamed_addr #3
+declare void @CacheInvalidateRelmap(i32 noundef) local_unnamed_addr #2
 
-declare void @RelationPreserveStorage(i64, i32, i1 noundef zeroext) local_unnamed_addr #3
+declare void @RelationPreserveStorage(i64, i32, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

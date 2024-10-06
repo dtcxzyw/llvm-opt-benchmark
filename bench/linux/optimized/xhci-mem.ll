@@ -21,13 +21,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xhci_create_
 %struct.radix_tree_preload = type { %struct.local_lock_t, i32, ptr }
 %struct.local_lock_t = type {}
 %struct.lock_class_key = type {}
-%struct.xhci_virt_ep = type { ptr, i32, ptr, ptr, ptr, i32, i32, %struct.list_head, ptr, ptr, ptr, i8, %struct.xhci_bw_info, %struct.list_head, i32, i8 }
-%struct.xhci_bw_info = type { i32, i32, i32, i32, i32, i32 }
-%struct.list_head = type { ptr, ptr }
 %struct.xhci_stream_ctx = type { i64, [2 x i32] }
 %struct.xhci_root_port_bw_info = type { %struct.list_head, i32, %struct.xhci_interval_bw_table }
+%struct.list_head = type { ptr, ptr }
 %struct.xhci_interval_bw_table = type { i32, [16 x %struct.xhci_interval_bw], i32, i32, i32 }
 %struct.xhci_interval_bw = type { i32, %struct.list_head, [3 x i32] }
+%struct.xhci_virt_ep = type { ptr, i32, ptr, ptr, ptr, i32, i32, %struct.list_head, ptr, ptr, ptr, i8, %struct.xhci_bw_info, %struct.list_head, i32, i8 }
+%struct.xhci_bw_info = type { i32, i32, i32, i32, i32, i32 }
 %struct.xhci_port_cap = type { ptr, i8, i8, i8, i8 }
 %struct.xhci_erst_entry = type { i64, i32, i32 }
 %struct.xhci_intr_reg = type { i32, i32, i32, i32, i64, i64 }
@@ -650,9 +650,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xhci_free_endpoint_ring(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
-  %5 = zext i32 %2 to i64
-  %6 = getelementptr [31 x %struct.xhci_virt_ep], ptr %4, i64 0, i64 %5, i32 2
+  %4 = zext i32 %2 to i64
+  %.idx = mul nuw nsw i64 %4, 144
+  %5 = getelementptr i8, ptr %1, i64 48
+  %6 = getelementptr i8, ptr %5, i64 %.idx
   %7 = load ptr, ptr %6, align 8
   tail call void @xhci_ring_free(ptr noundef %0, ptr noundef %7)
   store ptr null, ptr %6, align 8
@@ -1834,12 +1835,13 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr nocapture
   br label %47
 
 47:                                               ; preds = %44, %29
-  %48 = getelementptr inbounds i8, ptr %27, i64 32
+  %48 = getelementptr i8, ptr %27, i64 40
   br label %49
 
 49:                                               ; preds = %49, %47
   %50 = phi i64 [ 0, %47 ], [ %53, %49 ]
-  %51 = getelementptr [16 x %struct.xhci_interval_bw], ptr %48, i64 0, i64 %50, i32 1
+  %.idx.us = mul nuw nsw i64 %50, 40
+  %51 = getelementptr i8, ptr %48, i64 %.idx.us
   store volatile ptr %51, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store volatile ptr %51, ptr %52, align 8
@@ -1898,12 +1900,13 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr nocapture
   br label %86
 
 86:                                               ; preds = %83, %68
-  %87 = getelementptr inbounds i8, ptr %66, i64 32
+  %87 = getelementptr i8, ptr %66, i64 40
   br label %88
 
 88:                                               ; preds = %88, %86
   %89 = phi i64 [ 0, %86 ], [ %92, %88 ]
-  %90 = getelementptr [16 x %struct.xhci_interval_bw], ptr %87, i64 0, i64 %89, i32 1
+  %.idx = mul nuw nsw i64 %89, 40
+  %90 = getelementptr i8, ptr %87, i64 %.idx
   store volatile ptr %90, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   store volatile ptr %90, ptr %91, align 8
@@ -3285,16 +3288,17 @@ define dso_local void @xhci_clear_endpoint_bw_info(ptr nocapture noundef writeon
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @xhci_update_bw_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 align 16 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr i8, ptr %3, i64 124
   br label %9
 
 9:                                                ; preds = %63, %4
   %10 = phi i64 [ 1, %4 ], [ %13, %63 ]
-  %11 = getelementptr [31 x %struct.xhci_virt_ep], ptr %5, i64 0, i64 %10, i32 12
-  %12 = load i32, ptr %6, align 4
+  %.idx = mul nuw nsw i64 %10, 144
+  %11 = getelementptr i8, ptr %8, i64 %.idx
+  %12 = load i32, ptr %5, align 4
   %13 = add nuw nsw i64 %10, 1
   %14 = trunc i64 %10 to i32
   %15 = shl nuw i32 2, %14
@@ -3317,8 +3321,8 @@ define dso_local void @xhci_update_bw_info(ptr nocapture noundef readonly %0, pt
   %25 = icmp eq i32 %24, 2
   %26 = select i1 %25, i32 2, i32 1
   %27 = add nuw nsw i32 %26, %14
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
   %30 = and i32 %29, 4
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %31, i32 5, i32 6

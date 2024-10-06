@@ -3229,8 +3229,9 @@ define noundef zeroext i1 @_ZN4text6anchor6Anchor8is_valid17h681be9f7d6ae77a6E(p
   unreachable
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hb8cd63d7873b2bfbE.exit.thread": ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %68, i64 232
-  %81 = getelementptr [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %80, i64 0, i64 %73, i32 6
+  %.idx = mul nuw nsw i64 %73, 152
+  %80 = getelementptr i8, ptr %68, i64 376
+  %81 = getelementptr i8, ptr %80, i64 %.idx
   %.val.i = load i8, ptr %81, align 8, !range !452, !alias.scope !594, !noundef !16
   %82 = trunc nuw i8 %.val.i to i1
   br label %"_ZN4core3ptr140drop_in_place$LT$sum_tree..cursor..Cursor$LT$text..Fragment$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h87754f952f1a2cbbE.exit10"

@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.AcpiTable = type { ptr, i8, ptr, ptr, ptr, i32 }
-%struct.NodeInfo = type { i64, ptr, i8, i8, i8, i16, [128 x i8] }
-%struct.CPUArchId = type { i64, i64, %struct.CpuInstanceProperties, ptr, ptr }
-%struct.CpuInstanceProperties = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 %struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"array->len == offset + 4\00", align 1
@@ -4872,21 +4869,23 @@ for.cond.preheader:                               ; preds = %for.body.i
 for.cond4.preheader.us:                           ; preds = %for.cond.preheader, %for.cond4.for.inc19_crit_edge.us
   %i.027.us = phi i32 [ %inc20.us, %for.cond4.for.inc19_crit_edge.us ], [ 0, %for.cond.preheader ]
   %idxprom.us = zext nneg i32 %i.027.us to i64
+  %distance.idx.us = mul nuw nsw i64 %idxprom.us, 152
   br label %for.body7.us
 
 for.body7.us:                                     ; preds = %for.cond4.preheader.us, %for.body.i15.us.preheader
   %j.025.us = phi i32 [ 0, %for.cond4.preheader.us ], [ %inc.us, %for.body.i15.us.preheader ]
   %2 = load ptr, ptr %numa_state, align 8
-  %nodes.us = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr i8, ptr %2, i64 30
+  %distance.us = getelementptr i8, ptr %3, i64 %distance.idx.us
   %idxprom9.us = zext nneg i32 %j.025.us to i64
-  %arrayidx10.us = getelementptr [128 x %struct.NodeInfo], ptr %nodes.us, i64 0, i64 %idxprom.us, i32 6, i64 %idxprom9.us
-  %3 = load i8, ptr %arrayidx10.us, align 1
-  %tobool.not.us = icmp eq i8 %3, 0
+  %arrayidx10.us = getelementptr [128 x i8], ptr %distance.us, i64 0, i64 %idxprom9.us
+  %4 = load i8, ptr %arrayidx10.us, align 1
+  %tobool.not.us = icmp eq i8 %4, 0
   br i1 %tobool.not.us, label %if.else, label %for.body.i15.us.preheader
 
 for.body.i15.us.preheader:                        ; preds = %for.body7.us
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i14)
-  store i8 %3, ptr %val.addr.i.i14, align 1
+  store i8 %4, ptr %val.addr.i.i14, align 1
   %call.i.i19.us = call ptr @g_array_append_vals(ptr noundef %table_data, ptr noundef nonnull %val.addr.i.i14, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i14)
   %inc.us = add nuw nsw i32 %j.025.us, 1
@@ -4903,18 +4902,18 @@ if.else:                                          ; preds = %for.body7.us
   unreachable
 
 for.end21:                                        ; preds = %for.cond4.for.inc19_crit_edge.us, %for.cond.preheader
-  %4 = load ptr, ptr %array, align 8
-  %len.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i32, ptr %len.i, align 8
-  %6 = load i32, ptr %table_offset, align 8
-  %sub.i = sub i32 %5, %6
-  %7 = load ptr, ptr %4, align 8
-  %add.i = add i32 %6, 4
+  %5 = load ptr, ptr %array, align 8
+  %len.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load i32, ptr %len.i, align 8
+  %7 = load i32, ptr %table_offset, align 8
+  %sub.i = sub i32 %6, %7
+  %8 = load ptr, ptr %5, align 8
+  %add.i = add i32 %7, 4
   %idxprom.i = zext i32 %add.i to i64
-  %arrayidx.i = getelementptr i8, ptr %7, i64 %idxprom.i
+  %arrayidx.i = getelementptr i8, ptr %8, i64 %idxprom.i
   store i32 %sub.i, ptr %arrayidx.i, align 1
-  %add5.i = add i32 %6, 9
-  call void @bios_linker_loader_add_checksum(ptr noundef %linker, ptr noundef nonnull @.str.20, i32 noundef %6, i32 noundef %sub.i, i32 noundef %add5.i) #14
+  %add5.i = add i32 %7, 9
+  call void @bios_linker_loader_add_checksum(ptr noundef %linker, ptr noundef nonnull @.str.20, i32 noundef %7, i32 noundef %sub.i, i32 noundef %add5.i) #14
   ret void
 }
 
@@ -4945,7 +4944,7 @@ entry:
   br i1 %cmp46, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cpus4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr i8, ptr %0, i64 24
   %clusters_supported = getelementptr inbounds i8, ptr %call1.i, i64 298
   %has_clusters = getelementptr inbounds i8, ptr %call1.i, i64 299
   %threads = getelementptr inbounds i8, ptr %ms, i64 316
@@ -4959,14 +4958,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %socket_offset.049 = phi i32 [ 0, %for.body.lr.ph ], [ %socket_offset.1, %for.inc ]
   %core_id.048 = phi i64 [ -1, %for.body.lr.ph ], [ %core_id.4, %for.inc ]
   %cluster_id.047 = phi i64 [ -1, %for.body.lr.ph ], [ %cluster_id.2, %for.inc ]
-  %props = getelementptr [0 x %struct.CPUArchId], ptr %cpus4, i64 0, i64 %indvars.iv, i32 2
+  %props.idx = mul nuw nsw i64 %indvars.iv, 160
+  %props = getelementptr i8, ptr %3, i64 %props.idx
   %socket_id5 = getelementptr inbounds i8, ptr %props, i64 56
-  %3 = load i64, ptr %socket_id5, align 8
-  %cmp6.not = icmp eq i64 %3, %socket_id.052
+  %4 = load i64, ptr %socket_id5, align 8
+  %cmp6.not = icmp eq i64 %4, %socket_id.052
   br i1 %cmp6.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %cmp12 = icmp sgt i64 %3, %socket_id.052
+  %cmp12 = icmp sgt i64 %4, %socket_id.052
   br i1 %cmp12, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -4974,9 +4974,9 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %4 = load i32, ptr %len, align 8
-  %sub = sub i32 %4, %1
-  %conv = trunc i64 %3 to i32
+  %5 = load i32, ptr %len, align 8
+  %sub = sub i32 %5, %1
+  %conv = trunc i64 %4 to i32
   tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 1, i32 noundef 0, i32 noundef %conv)
   br label %if.end20
 
@@ -4984,24 +4984,24 @@ if.end20:                                         ; preds = %if.end, %for.body
   %cluster_id.1 = phi i64 [ -1, %if.end ], [ %cluster_id.047, %for.body ]
   %core_id.1 = phi i64 [ -1, %if.end ], [ %core_id.048, %for.body ]
   %socket_offset.1 = phi i32 [ %sub, %if.end ], [ %socket_offset.049, %for.body ]
-  %socket_id.1 = phi i64 [ %3, %if.end ], [ %socket_id.052, %for.body ]
-  %5 = load i8, ptr %clusters_supported, align 2
-  %tobool = trunc i8 %5 to i1
+  %socket_id.1 = phi i64 [ %4, %if.end ], [ %socket_id.052, %for.body ]
+  %6 = load i8, ptr %clusters_supported, align 2
+  %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end54
 
 land.lhs.true:                                    ; preds = %if.end20
-  %6 = load i8, ptr %has_clusters, align 1
-  %tobool23 = trunc i8 %6 to i1
+  %7 = load i8, ptr %has_clusters, align 1
+  %tobool23 = trunc i8 %7 to i1
   br i1 %tobool23, label %if.then25, label %if.end54
 
 if.then25:                                        ; preds = %land.lhs.true
   %cluster_id30 = getelementptr inbounds i8, ptr %props, i64 88
-  %7 = load i64, ptr %cluster_id30, align 8
-  %cmp31.not = icmp eq i64 %7, %cluster_id.1
+  %8 = load i64, ptr %cluster_id30, align 8
+  %cmp31.not = icmp eq i64 %8, %cluster_id.1
   br i1 %cmp31.not, label %if.end54, label %if.then33
 
 if.then33:                                        ; preds = %if.then25
-  %cmp39 = icmp sgt i64 %7, %cluster_id.1
+  %cmp39 = icmp sgt i64 %8, %cluster_id.1
   br i1 %cmp39, label %if.end43, label %if.else42
 
 if.else42:                                        ; preds = %if.then33
@@ -5009,33 +5009,33 @@ if.else42:                                        ; preds = %if.then33
   unreachable
 
 if.end43:                                         ; preds = %if.then33
-  %8 = load i32, ptr %len, align 8
-  %sub50 = sub i32 %8, %1
-  %conv51 = trunc i64 %7 to i32
+  %9 = load i32, ptr %len, align 8
+  %sub50 = sub i32 %9, %1
+  %conv51 = trunc i64 %8 to i32
   tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 0, i32 noundef %socket_offset.1, i32 noundef %conv51)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end20, %land.lhs.true, %if.then25, %if.end43
-  %cluster_id.2 = phi i64 [ %7, %if.end43 ], [ %cluster_id.1, %if.then25 ], [ %cluster_id.1, %land.lhs.true ], [ %cluster_id.1, %if.end20 ]
+  %cluster_id.2 = phi i64 [ %8, %if.end43 ], [ %cluster_id.1, %if.then25 ], [ %cluster_id.1, %land.lhs.true ], [ %cluster_id.1, %if.end20 ]
   %core_id.2 = phi i64 [ -1, %if.end43 ], [ %core_id.1, %if.then25 ], [ %core_id.1, %land.lhs.true ], [ %core_id.1, %if.end20 ]
   %cluster_offset.1 = phi i32 [ %sub50, %if.end43 ], [ %cluster_offset.050, %if.then25 ], [ %socket_offset.1, %land.lhs.true ], [ %socket_offset.1, %if.end20 ]
-  %9 = load i32, ptr %threads, align 4
-  %cmp55 = icmp eq i32 %9, 1
+  %10 = load i32, ptr %threads, align 4
+  %cmp55 = icmp eq i32 %10, 1
   br i1 %cmp55, label %if.then57, label %if.else58
 
 if.then57:                                        ; preds = %if.end54
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 10, i32 noundef %cluster_offset.1, i32 noundef %10)
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 10, i32 noundef %cluster_offset.1, i32 noundef %11)
   br label %for.inc
 
 if.else58:                                        ; preds = %if.end54
   %core_id63 = getelementptr inbounds i8, ptr %props, i64 104
-  %11 = load i64, ptr %core_id63, align 8
-  %cmp64.not = icmp eq i64 %11, %core_id.2
+  %12 = load i64, ptr %core_id63, align 8
+  %cmp64.not = icmp eq i64 %12, %core_id.2
   br i1 %cmp64.not, label %if.end85, label %if.then66
 
 if.then66:                                        ; preds = %if.else58
-  %cmp72 = icmp sgt i64 %11, %core_id.2
+  %cmp72 = icmp sgt i64 %12, %core_id.2
   br i1 %cmp72, label %if.end76, label %if.else75
 
 if.else75:                                        ; preds = %if.then66
@@ -5043,41 +5043,41 @@ if.else75:                                        ; preds = %if.then66
   unreachable
 
 if.end76:                                         ; preds = %if.then66
-  %12 = load i32, ptr %len, align 8
-  %sub83 = sub i32 %12, %1
-  %conv84 = trunc i64 %11 to i32
+  %13 = load i32, ptr %len, align 8
+  %sub83 = sub i32 %13, %1
+  %conv84 = trunc i64 %12 to i32
   tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 0, i32 noundef %cluster_offset.1, i32 noundef %conv84)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end76, %if.else58
-  %core_id.3 = phi i64 [ %11, %if.end76 ], [ %core_id.2, %if.else58 ]
+  %core_id.3 = phi i64 [ %12, %if.end76 ], [ %core_id.2, %if.else58 ]
   %core_offset.1 = phi i32 [ %sub83, %if.end76 ], [ %core_offset.051, %if.else58 ]
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 14, i32 noundef %core_offset.1, i32 noundef %13)
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 14, i32 noundef %core_offset.1, i32 noundef %14)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then57, %if.end85
   %core_id.4 = phi i64 [ %core_id.2, %if.then57 ], [ %core_id.3, %if.end85 ]
   %core_offset.2 = phi i32 [ %core_offset.051, %if.then57 ], [ %core_offset.1, %if.end85 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %0, align 8
-  %15 = sext i32 %14 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %15
+  %15 = load i32, ptr %0, align 8
+  %16 = sext i32 %15 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %16
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %entry
-  %16 = load ptr, ptr %array, align 8
-  %len.i = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i32, ptr %len.i, align 8
-  %18 = load i32, ptr %table_offset, align 8
-  %sub.i = sub i32 %17, %18
-  %19 = load ptr, ptr %16, align 8
-  %add.i = add i32 %18, 4
+  %17 = load ptr, ptr %array, align 8
+  %len.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i32, ptr %len.i, align 8
+  %19 = load i32, ptr %table_offset, align 8
+  %sub.i = sub i32 %18, %19
+  %20 = load ptr, ptr %17, align 8
+  %add.i = add i32 %19, 4
   %idxprom.i = zext i32 %add.i to i64
-  %arrayidx.i = getelementptr i8, ptr %19, i64 %idxprom.i
+  %arrayidx.i = getelementptr i8, ptr %20, i64 %idxprom.i
   store i32 %sub.i, ptr %arrayidx.i, align 1
-  %add5.i = add i32 %18, 9
-  tail call void @bios_linker_loader_add_checksum(ptr noundef %linker, ptr noundef nonnull @.str.20, i32 noundef %18, i32 noundef %sub.i, i32 noundef %add5.i) #14
+  %add5.i = add i32 %19, 9
+  tail call void @bios_linker_loader_add_checksum(ptr noundef %linker, ptr noundef nonnull @.str.20, i32 noundef %19, i32 noundef %sub.i, i32 noundef %add5.i) #14
   ret void
 }
 

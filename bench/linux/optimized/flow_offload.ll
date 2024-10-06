@@ -54,10 +54,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_flow_indr_de
 %struct.atomic_t = type { i32 }
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
-%struct.flow_action_entry = type { i32, i32, i64, i64, i32, ptr, ptr, %union.anon, ptr }
-%union.anon = type { %struct.anon.4 }
-%struct.anon.4 = type { i32, i64, i64, i32, i16, i64, i64, i32, %struct.anon.5, %struct.anon.5 }
-%struct.anon.5 = type { i32, i32 }
 %struct.flow_block_offload = type { i32, i32, i8, i8, ptr, ptr, %struct.list_head, ptr, ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_flow_rule_alloc635 = internal global ptr @flow_rule_alloc, section ".discard.addressable", align 8
@@ -122,22 +118,23 @@ define dso_local noalias ptr @flow_rule_alloc(i32 noundef %0) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %0, ptr %8, align 8
   %9 = icmp eq i32 %0, 0
-  br i1 %9, label %.loopexit, label %10
+  br i1 %9, label %.loopexit, label %.preheader
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
-  br label %12
+.preheader:                                       ; preds = %7
+  %10 = getelementptr i8, ptr %5, i64 56
+  br label %11
 
-12:                                               ; preds = %12, %10
-  %13 = phi i32 [ 0, %10 ], [ %16, %12 ]
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [0 x %struct.flow_action_entry], ptr %11, i64 0, i64 %14, i32 4
-  store i32 7, ptr %15, align 8
-  %16 = add nuw i32 %13, 1
-  %17 = icmp eq i32 %16, %0
-  br i1 %17, label %.loopexit, label %12, !llvm.loop !5
+11:                                               ; preds = %.preheader, %11
+  %12 = phi i32 [ %15, %11 ], [ 0, %.preheader ]
+  %13 = sext i32 %12 to i64
+  %.idx = shl nsw i64 %13, 7
+  %14 = getelementptr i8, ptr %10, i64 %.idx
+  store i32 7, ptr %14, align 8
+  %15 = add nuw i32 %12, 1
+  %16 = icmp eq i32 %15, %0
+  br i1 %16, label %.loopexit, label %11, !llvm.loop !5
 
-.loopexit:                                        ; preds = %12, %7, %1
+.loopexit:                                        ; preds = %11, %7, %1
   ret ptr %5
 }
 
@@ -160,22 +157,23 @@ define dso_local noalias ptr @offload_action_alloc(i32 noundef %0) local_unnamed
   %8 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 %0, ptr %8, align 8
   %9 = icmp eq i32 %0, 0
-  br i1 %9, label %.loopexit, label %10
+  br i1 %9, label %.loopexit, label %.preheader
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 80
-  br label %12
+.preheader:                                       ; preds = %7
+  %10 = getelementptr i8, ptr %5, i64 104
+  br label %11
 
-12:                                               ; preds = %12, %10
-  %13 = phi i32 [ 0, %10 ], [ %16, %12 ]
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [0 x %struct.flow_action_entry], ptr %11, i64 0, i64 %14, i32 4
-  store i32 7, ptr %15, align 8
-  %16 = add nuw i32 %13, 1
-  %17 = icmp eq i32 %16, %0
-  br i1 %17, label %.loopexit, label %12, !llvm.loop !8
+11:                                               ; preds = %.preheader, %11
+  %12 = phi i32 [ %15, %11 ], [ 0, %.preheader ]
+  %13 = sext i32 %12 to i64
+  %.idx = shl nsw i64 %13, 7
+  %14 = getelementptr i8, ptr %10, i64 %.idx
+  store i32 7, ptr %14, align 8
+  %15 = add nuw i32 %12, 1
+  %16 = icmp eq i32 %15, %0
+  br i1 %16, label %.loopexit, label %11, !llvm.loop !8
 
-.loopexit:                                        ; preds = %12, %7, %1
+.loopexit:                                        ; preds = %11, %7, %1
   ret ptr %5
 }
 

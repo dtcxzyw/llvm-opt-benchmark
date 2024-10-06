@@ -6836,8 +6836,9 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit133.i: ; preds =
           to label %529 unwind label %420, !noalias !2022
 
 513:                                              ; preds = %509
-  %514 = getelementptr inbounds i8, ptr %498, i64 136
-  %515 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %514, i64 0, i64 %503, i32 4
+  %.idx.i = mul nuw nsw i64 %503, 600
+  %514 = getelementptr i8, ptr %498, i64 640
+  %515 = getelementptr i8, ptr %514, i64 %.idx.i
   %516 = getelementptr inbounds i8, ptr %515, i64 32
   %517 = load i64, ptr %516, align 8, !alias.scope !2274, !noalias !2277, !noundef !9
   %518 = icmp ugt i64 %517, 4
@@ -9526,8 +9527,9 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit124.i: ; preds =
           to label %.lr.ph.i unwind label %416, !noalias !2701
 
 509:                                              ; preds = %505
-  %510 = getelementptr inbounds i8, ptr %494, i64 136
-  %511 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %510, i64 0, i64 %499, i32 4
+  %.idx.i = mul nuw nsw i64 %499, 600
+  %510 = getelementptr i8, ptr %494, i64 640
+  %511 = getelementptr i8, ptr %510, i64 %.idx.i
   %512 = getelementptr inbounds i8, ptr %511, i64 32
   %513 = load i64, ptr %512, align 8, !alias.scope !2937, !noalias !2940, !noundef !9
   %514 = icmp ugt i64 %513, 4

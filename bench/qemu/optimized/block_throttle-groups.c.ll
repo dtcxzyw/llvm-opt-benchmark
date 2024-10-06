@@ -1536,7 +1536,9 @@ sw.bb7:                                           ; preds = %if.end5
   %type9 = getelementptr inbounds i8, ptr %opaque, i64 8
   %4 = load i32, ptr %type9, align 8
   %idxprom10 = zext i32 %4 to i64
-  %max = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom10, i32 1
+  %max.idx = mul nuw nsw i64 %idxprom10, 40
+  %5 = getelementptr i8, ptr %ts, i64 %max.idx
+  %max = getelementptr i8, ptr %5, i64 8
   store i64 %1, ptr %max, align 8
   br label %sw.epilog
 
@@ -1545,15 +1547,17 @@ sw.bb12:                                          ; preds = %if.end5
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %sw.bb12
-  %5 = load ptr, ptr %opaque, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 848, ptr noundef nonnull @__func__.throttle_group_set, ptr noundef nonnull @.str.41, ptr noundef %5, i32 noundef -1) #7
+  %6 = load ptr, ptr %opaque, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 848, ptr noundef nonnull @__func__.throttle_group_set, ptr noundef nonnull @.str.41, ptr noundef %6, i32 noundef -1) #7
   br label %sw.epilog
 
 if.end16:                                         ; preds = %sw.bb12
   %type18 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %6 = load i32, ptr %type18, align 8
-  %idxprom19 = zext i32 %6 to i64
-  %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom19, i32 4
+  %7 = load i32, ptr %type18, align 8
+  %idxprom19 = zext i32 %7 to i64
+  %burst_length.idx = mul nuw nsw i64 %idxprom19, 40
+  %8 = getelementptr i8, ptr %ts, i64 %burst_length.idx
+  %burst_length = getelementptr i8, ptr %8, i64 32
   store i64 %1, ptr %burst_length, align 8
   br label %sw.epilog
 

@@ -14,14 +14,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.kernel_param = type { ptr, ptr, ptr, i16, i8, i8, %union.anon }
 %union.anon = type { ptr }
 %union.nf_inet_addr = type { [4 x i32] }
-%struct.nf_conntrack_tuple_hash = type { %struct.hlist_nulls_node, %struct.nf_conntrack_tuple }
-%struct.hlist_nulls_node = type { ptr, ptr }
-%struct.nf_conntrack_tuple = type { %struct.nf_conntrack_man, %struct.anon.6 }
-%struct.nf_conntrack_man = type { %union.nf_inet_addr, %union.nf_conntrack_man_proto, i16 }
-%union.nf_conntrack_man_proto = type { i16 }
-%struct.anon.6 = type { %union.nf_inet_addr, %union.anon.7, i8, %struct.anon.14, i8 }
-%union.anon.7 = type { i16 }
-%struct.anon.14 = type {}
 
 @__UNIQUE_ID_file835 = internal constant [41 x i8] c"nf_nat_ftp.file=net/netfilter/nf_nat_ftp\00", section ".modinfo", align 1
 @__UNIQUE_ID_license836 = internal constant [23 x i8] c"nf_nat_ftp.license=GPL\00", section ".modinfo", align 1
@@ -100,92 +92,92 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_ftp(ptr noundef %0, i32 noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(59) %9, i8 0, i64 59, i1 false), !annotation !8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = zext i1 %10 to i32
-  %15 = zext i1 %10 to i64
-  %16 = getelementptr [2 x %struct.nf_conntrack_tuple_hash], ptr %13, i64 0, i64 %15, i32 1, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef align 4 dereferenceable(16) %16, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %6, i64 68
-  %18 = load i16, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 184
-  store i16 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 188
-  store i32 %14, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 104
-  store ptr @nf_nat_follow_master, ptr %21, align 8
-  %22 = tail call i16 @llvm.bswap.i16(i16 %18)
-  %23 = tail call zeroext i16 @nf_nat_exp_find_port(ptr noundef %6, i16 noundef zeroext %22) #10
-  %24 = icmp eq i16 %23, 0
-  br i1 %24, label %25, label %27
+  %.offs2 = select i1 %10, i64 92, i64 36
+  %15 = getelementptr i8, ptr %13, i64 %.offs2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef align 4 dereferenceable(16) %15, i64 16, i1 false)
+  %16 = getelementptr inbounds i8, ptr %6, i64 68
+  %17 = load i16, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %6, i64 184
+  store i16 %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 188
+  store i32 %14, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %6, i64 104
+  store ptr @nf_nat_follow_master, ptr %20, align 8
+  %21 = tail call i16 @llvm.bswap.i16(i16 %17)
+  %22 = tail call zeroext i16 @nf_nat_exp_find_port(ptr noundef %6, i16 noundef zeroext %21) #10
+  %23 = icmp eq i16 %22, 0
+  br i1 %23, label %24, label %26
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr %11, align 8
-  tail call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %26, ptr noundef nonnull @.str.2) #10
-  br label %61
+24:                                               ; preds = %7
+  %25 = load ptr, ptr %11, align 8
+  tail call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %25, ptr noundef nonnull @.str.2) #10
+  br label %60
 
-27:                                               ; preds = %7
+26:                                               ; preds = %7
   switch i32 %2, label %.thread [
-    i32 0, label %28
-    i32 1, label %28
-    i32 2, label %44
-    i32 3, label %53
+    i32 0, label %27
+    i32 1, label %27
+    i32 2, label %43
+    i32 3, label %52
   ]
 
-28:                                               ; preds = %27, %27
-  %29 = load i8, ptr %8, align 4
-  %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %8, i64 1
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %8, i64 2
-  %35 = load i8, ptr %34, align 2
-  %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %8, i64 3
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = zext i16 %23 to i32
-  %41 = lshr i32 %40, 8
-  %42 = and i32 %40, 255
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.4, i32 noundef %30, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %42) #10
-  br label %56
+27:                                               ; preds = %26, %26
+  %28 = load i8, ptr %8, align 4
+  %29 = zext i8 %28 to i32
+  %30 = getelementptr inbounds i8, ptr %8, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = getelementptr inbounds i8, ptr %8, i64 2
+  %34 = load i8, ptr %33, align 2
+  %35 = zext i8 %34 to i32
+  %36 = getelementptr inbounds i8, ptr %8, i64 3
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = zext i16 %22 to i32
+  %40 = lshr i32 %39, 8
+  %41 = and i32 %39, 255
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.4, i32 noundef %29, i32 noundef %32, i32 noundef %35, i32 noundef %38, i32 noundef %40, i32 noundef %41) #10
+  br label %55
 
-44:                                               ; preds = %27
-  %45 = getelementptr inbounds i8, ptr %12, i64 50
-  %46 = load i16, ptr %45, align 2
-  %47 = icmp eq i16 %46, 2
-  %48 = zext i16 %23 to i32
-  br i1 %47, label %49, label %51
+43:                                               ; preds = %26
+  %44 = getelementptr inbounds i8, ptr %12, i64 50
+  %45 = load i16, ptr %44, align 2
+  %46 = icmp eq i16 %45, 2
+  %47 = zext i16 %22 to i32
+  br i1 %46, label %48, label %50
 
-49:                                               ; preds = %44
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.5, ptr noundef nonnull %8, i32 noundef %48) #10
-  br label %56
+48:                                               ; preds = %43
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.5, ptr noundef nonnull %8, i32 noundef %47) #10
+  br label %55
 
-51:                                               ; preds = %44
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.6, ptr noundef nonnull %8, i32 noundef %48) #10
-  br label %56
+50:                                               ; preds = %43
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.6, ptr noundef nonnull %8, i32 noundef %47) #10
+  br label %55
 
-53:                                               ; preds = %27
-  %54 = zext i16 %23 to i32
-  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.7, i32 noundef %54) #10
-  br label %56
+52:                                               ; preds = %26
+  %53 = zext i16 %22 to i32
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 59, ptr noundef nonnull @.str.7, i32 noundef %53) #10
+  br label %55
 
-56:                                               ; preds = %53, %51, %49, %28
-  %57 = phi i32 [ %55, %53 ], [ %50, %49 ], [ %52, %51 ], [ %43, %28 ]
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread, label %59
+55:                                               ; preds = %52, %50, %48, %27
+  %56 = phi i32 [ %54, %52 ], [ %49, %48 ], [ %51, %50 ], [ %42, %27 ]
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.thread, label %58
 
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %12, i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %57, i1 noundef zeroext true) #10
-  br i1 %60, label %61, label %.thread
+58:                                               ; preds = %55
+  %59 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %12, i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %56, i1 noundef zeroext true) #10
+  br i1 %59, label %60, label %.thread
 
-.thread:                                          ; preds = %27, %59, %56
+.thread:                                          ; preds = %26, %58, %55
   call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %12, ptr noundef nonnull @.str.3) #10
   call void @nf_ct_unexpect_related(ptr noundef %6) #10
-  br label %61
+  br label %60
 
-61:                                               ; preds = %.thread, %59, %25
-  %62 = phi i32 [ 0, %25 ], [ 0, %.thread ], [ 1, %59 ]
+60:                                               ; preds = %.thread, %58, %24
+  %61 = phi i32 [ 0, %24 ], [ 0, %.thread ], [ 1, %58 ]
   call void @llvm.lifetime.end.p0(i64 59, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  ret i32 %62
+  ret i32 %61
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

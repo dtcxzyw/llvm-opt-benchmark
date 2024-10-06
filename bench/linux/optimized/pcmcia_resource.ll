@@ -238,17 +238,18 @@ define dso_local noundef range(i32 -13, 1) i32 @pcmcia_fixup_iowidth(ptr nocaptu
   %20 = trunc i32 %19 to i16
   %21 = getelementptr inbounds i8, ptr %3, i64 2
   store i16 %20, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
-  %23 = getelementptr inbounds i8, ptr %3, i64 1
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 352
+  %22 = getelementptr inbounds i8, ptr %3, i64 1
+  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds i8, ptr %4, i64 352
+  %26 = getelementptr i8, ptr %4, i64 80
   br label %27
 
 27:                                               ; preds = %46, %18
   %28 = phi i1 [ true, %18 ], [ false, %46 ]
   %29 = phi i64 [ 0, %18 ], [ 1, %46 ]
-  %30 = getelementptr [2 x %struct.io_window_t], ptr %22, i64 0, i64 %29, i32 2
+  %.idx = shl nuw nsw i64 %29, 4
+  %30 = getelementptr i8, ptr %26, i64 %.idx
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %46, label %33
@@ -257,18 +258,18 @@ define dso_local noundef range(i32 -13, 1) i32 @pcmcia_fixup_iowidth(ptr nocaptu
   %34 = trunc nuw nsw i64 %29 to i8
   store i8 %34, ptr %2, align 8
   store i8 %34, ptr %3, align 8
-  store i8 1, ptr %23, align 1
+  store i8 1, ptr %22, align 1
   %35 = load i64, ptr %31, align 8
-  store i64 %35, ptr %24, align 8
+  store i64 %35, ptr %23, align 8
   %36 = getelementptr inbounds i8, ptr %31, i64 8
   %37 = load i64, ptr %36, align 8
-  store i64 %37, ptr %25, align 8
-  %38 = load ptr, ptr %26, align 8
+  store i64 %37, ptr %24, align 8
+  %38 = load ptr, ptr %25, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %40(ptr noundef %4, ptr noundef nonnull %2) #7
   call void @msleep(i32 noundef 40) #7
-  %42 = load ptr, ptr %26, align 8
+  %42 = load ptr, ptr %25, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 %44(ptr noundef %4, ptr noundef nonnull %3) #7

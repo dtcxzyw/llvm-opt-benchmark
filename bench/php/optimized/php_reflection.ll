@@ -28593,9 +28593,10 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
 
 112:                                              ; preds = %105, %.lr.ph
   %113 = phi ptr [ %.pre458, %105 ], [ %80, %.lr.ph ]
-  %114 = getelementptr inbounds i8, ptr %113, i64 32
-  %115 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %114, i64 0, i64 %indvars.iv, i32 1
-  call fastcc void @format_default_value(ptr noundef %3, ptr noundef nonnull %115)
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
+  %114 = getelementptr i8, ptr %113, i64 40
+  %115 = getelementptr i8, ptr %114, i64 %.idx
+  call fastcc void @format_default_value(ptr noundef %3, ptr noundef %115)
   %116 = load ptr, ptr %3, align 8
   %.not439 = icmp eq ptr %116, null
   br i1 %.not439, label %122, label %117

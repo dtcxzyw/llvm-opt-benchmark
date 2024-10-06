@@ -4549,7 +4549,9 @@ fs_fixup_k.exit:                                  ; preds = %for.inc61.i
 
 do.body.i:                                        ; preds = %fs_fixup_k.exit, %do.body.i
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %do.body.i ], [ 0, %fs_fixup_k.exit ]
-  %line.i114 = getelementptr inbounds %struct.BCInsLine, ptr %add.ptr.i106, i64 %indvars.iv36.i, i32 1
+  %line.idx.i = shl nuw nsw i64 %indvars.iv36.i, 3
+  %line.offs.i = or disjoint i64 %line.idx.i, 4
+  %line.i114 = getelementptr inbounds i8, ptr %add.ptr.i106, i64 %line.offs.i
   %112 = load i32, ptr %line.i114, align 4
   %sub5.i = sub nsw i32 %112, %109
   %conv6.i = trunc i32 %sub5.i to i8
@@ -4564,7 +4566,9 @@ if.else.i110:                                     ; preds = %fs_fixup_k.exit
 
 do.body21.i:                                      ; preds = %if.else.i110, %do.body21.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %do.body21.i ], [ 0, %if.else.i110 ]
-  %line25.i = getelementptr inbounds %struct.BCInsLine, ptr %add.ptr.i106, i64 %indvars.iv30.i, i32 1
+  %line25.idx.i = shl nuw nsw i64 %indvars.iv30.i, 3
+  %line25.offs.i = or disjoint i64 %line25.idx.i, 4
+  %line25.i = getelementptr inbounds i8, ptr %add.ptr.i106, i64 %line25.offs.i
   %113 = load i32, ptr %line25.i, align 4
   %sub26.i = sub nsw i32 %113, %109
   %conv27.i = trunc i32 %sub26.i to i16
@@ -4576,7 +4580,9 @@ do.body21.i:                                      ; preds = %if.else.i110, %do.b
 
 do.body37.i:                                      ; preds = %if.else.i110, %do.body37.i
   %indvars.iv.i111 = phi i64 [ %indvars.iv.next.i112, %do.body37.i ], [ 0, %if.else.i110 ]
-  %line41.i = getelementptr inbounds %struct.BCInsLine, ptr %add.ptr.i106, i64 %indvars.iv.i111, i32 1
+  %line41.idx.i = shl nuw nsw i64 %indvars.iv.i111, 3
+  %line41.offs.i = or disjoint i64 %line41.idx.i, 4
+  %line41.i = getelementptr inbounds i8, ptr %add.ptr.i106, i64 %line41.offs.i
   %114 = load i32, ptr %line41.i, align 4
   %sub42.i = sub nsw i32 %114, %109
   %arrayidx44.i = getelementptr inbounds i32, ptr %add.ptr41, i64 %indvars.iv.i111

@@ -374,10 +374,12 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mmio = getelementptr inbounds i8, ptr %dev, i64 168
-  %idxprom = zext nneg i32 %n to i64
-  %memory = getelementptr [32 x %struct.anon], ptr %mmio, i64 0, i64 %idxprom, i32 1
-  %0 = load ptr, ptr %memory, align 8
-  ret ptr %0
+  %0 = shl nuw nsw i32 %n, 4
+  %1 = or disjoint i32 %0, 8
+  %memory.offs = zext nneg i32 %1 to i64
+  %memory = getelementptr i8, ptr %mmio, i64 %memory.offs
+  %2 = load ptr, ptr %memory, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

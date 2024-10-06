@@ -259,7 +259,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 86:                                               ; preds = %69
   %87 = shl nsw i64 %78, 3
   %88 = tail call noalias ptr @malloc(i64 noundef %87) #26
-  br label %.loopexit34
+  br label %.loopexit42
 
 89:                                               ; preds = %69
   %90 = zext nneg i32 %77 to i64
@@ -267,16 +267,16 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %92 = icmp eq i32 %77, 1
   %93 = and i64 %90, 2147483646
   %94 = icmp eq i64 %91, 0
-  br i1 %92, label %.split.us, label %.preheader35.preheader
+  br i1 %92, label %.split.us, label %.preheader43.preheader
 
-.preheader35.preheader:                           ; preds = %89
+.preheader43.preheader:                           ; preds = %89
   %95 = getelementptr inbounds [2 x float], ptr %83, i64 %93
   %96 = getelementptr inbounds float, ptr %84, i64 %93
   %97 = trunc nuw nsw i64 %93 to i32
-  br label %.preheader35
+  br label %.preheader43
 
 .split.us:                                        ; preds = %89
-  br i1 %94, label %.split50.us.thread, label %.split.us.split
+  br i1 %94, label %.split58.us.thread, label %.split.us.split
 
 .split.us.split:                                  ; preds = %.split.us
   %98 = load <2 x float>, ptr %83, align 4, !tbaa !66
@@ -295,14 +295,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %111 = fmul reassoc nsz arcp contract afn float %110, %72
   %112 = fadd reassoc nsz arcp contract afn float %111, %106
   %113 = fcmp reassoc nsz arcp contract afn olt float %112, 0x47EFFFFFE0000000
-  br i1 %113, label %114, label %.split50.us.thread
+  br i1 %113, label %114, label %.split58.us.thread
 
 114:                                              ; preds = %.split.us.split
   store i32 0, ptr %80, align 4, !tbaa !67
-  br label %.split50.us.thread
+  br label %.split58.us.thread
 
-.preheader35:                                     ; preds = %.preheader35.preheader, %183
-  %115 = phi i64 [ %184, %183 ], [ 0, %.preheader35.preheader ]
+.preheader43:                                     ; preds = %.preheader43.preheader, %183
+  %115 = phi i64 [ %184, %183 ], [ 0, %.preheader43.preheader ]
   %116 = getelementptr inbounds [2 x float], ptr %81, i64 %115
   %117 = load <2 x float>, ptr %116, align 4, !tbaa !66
   %118 = getelementptr inbounds float, ptr %82, i64 %115
@@ -310,9 +310,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %120 = getelementptr inbounds i32, ptr %80, i64 %115
   br label %121
 
-121:                                              ; preds = %.preheader35, %163
-  %122 = phi i64 [ %165, %163 ], [ 0, %.preheader35 ]
-  %123 = phi float [ %164, %163 ], [ 0x47EFFFFFE0000000, %.preheader35 ]
+121:                                              ; preds = %.preheader43, %163
+  %122 = phi i64 [ %165, %163 ], [ 0, %.preheader43 ]
+  %123 = phi float [ %164, %163 ], [ 0x47EFFFFFE0000000, %.preheader43 ]
   %124 = getelementptr inbounds [2 x float], ptr %83, i64 %122
   %125 = load <2 x float>, ptr %124, align 4, !tbaa !66
   %126 = fsub reassoc nsz arcp contract afn <2 x float> %125, %117
@@ -366,12 +366,12 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %164 = phi float [ %159, %161 ], [ %143, %142 ]
   %165 = add nuw i64 %122, 2
   %166 = icmp eq i64 %165, %93
-  br i1 %166, label %.loopexit36, label %121
+  br i1 %166, label %.loopexit44, label %121
 
-.loopexit36:                                      ; preds = %163
+.loopexit44:                                      ; preds = %163
   br i1 %94, label %183, label %167
 
-167:                                              ; preds = %.loopexit36
+167:                                              ; preds = %.loopexit44
   %168 = load <2 x float>, ptr %95, align 4, !tbaa !66
   %169 = fsub reassoc nsz arcp contract afn <2 x float> %168, %117
   %170 = fmul reassoc nsz arcp contract afn <2 x float> %169, %169
@@ -392,16 +392,16 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i32 %97, ptr %120, align 4, !tbaa !67
   br label %183
 
-183:                                              ; preds = %182, %167, %.loopexit36
+183:                                              ; preds = %182, %167, %.loopexit44
   %184 = add nuw nsw i64 %115, 1
   %185 = icmp eq i64 %184, %90
-  br i1 %185, label %.split50.us, label %.preheader35
+  br i1 %185, label %.split58.us, label %.preheader43
 
-.split50.us.thread:                               ; preds = %.split.us.split, %114, %.split.us
+.split58.us.thread:                               ; preds = %.split.us.split, %114, %.split.us
   %186 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #26
   br label %221
 
-.split50.us:                                      ; preds = %183
+.split58.us:                                      ; preds = %183
   %187 = shl nuw nsw i64 %78, 3
   %188 = tail call noalias ptr @malloc(i64 noundef %187) #26
   %189 = getelementptr inbounds i8, ptr %8, i64 16540
@@ -409,7 +409,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %191 = icmp ult i32 %77, 8
   br i1 %191, label %221, label %192
 
-192:                                              ; preds = %.split50.us
+192:                                              ; preds = %.split58.us
   %193 = and i64 %90, 2147483640
   br label %194
 
@@ -430,7 +430,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %208 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %199, zeroinitializer
   %209 = tail call <8 x i32> @llvm.masked.load.v8i32.p0(ptr %201, i32 4, <8 x i1> %208, <8 x i32> poison), !tbaa !67
   %210 = sext <8 x i32> %209 to <8 x i64>
-  %211 = getelementptr inbounds [5 x [2 x float]], ptr %190, i64 0, <8 x i64> %210, i64 1
+  %.idx = shl nsw <8 x i64> %210, <i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3>
+  %.offs = or disjoint <8 x i64> %.idx, <i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4>
+  %211 = getelementptr inbounds i8, ptr %190, <8 x i64> %.offs
   %212 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %211, i32 4, <8 x i1> %208, <8 x float> poison), !tbaa !66
   %213 = fdiv reassoc nsz arcp contract afn <8 x float> %212, %199
   %214 = select <8 x i1> %208, <8 x float> %213, <8 x float> zeroinitializer
@@ -443,17 +445,17 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 219:                                              ; preds = %194
   %220 = icmp eq i64 %193, %90
-  br i1 %220, label %.loopexit34, label %221
+  br i1 %220, label %.loopexit42, label %221
 
-221:                                              ; preds = %.split50.us.thread, %219, %.split50.us
-  %222 = phi ptr [ %188, %.split50.us ], [ %188, %219 ], [ %186, %.split50.us.thread ]
-  %223 = phi i64 [ 0, %.split50.us ], [ %193, %219 ], [ 0, %.split50.us.thread ]
+221:                                              ; preds = %.split58.us.thread, %219, %.split58.us
+  %222 = phi ptr [ %188, %.split58.us ], [ %188, %219 ], [ %186, %.split58.us.thread ]
+  %223 = phi i64 [ 0, %.split58.us ], [ %193, %219 ], [ 0, %.split58.us.thread ]
   %224 = getelementptr inbounds i8, ptr %8, i64 16540
   %225 = getelementptr inbounds i8, ptr %8, i64 8248
-  %226 = getelementptr inbounds i8, ptr %8, i64 8248
+  %226 = getelementptr i8, ptr %8, i64 8252
   br label %243
 
-.loopexit34:                                      ; preds = %268, %219, %86
+.loopexit42:                                      ; preds = %268, %219, %86
   %227 = phi ptr [ %88, %86 ], [ %188, %219 ], [ %222, %268 ]
   %228 = sext i32 %14 to i64
   %229 = sext i32 %12 to i64
@@ -462,7 +464,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %232 = icmp eq i64 %231, 0
   br i1 %232, label %301, label %233
 
-233:                                              ; preds = %.loopexit34
+233:                                              ; preds = %.loopexit42
   %234 = getelementptr inbounds i8, ptr %8, i64 16
   %235 = getelementptr inbounds i8, ptr %8, i64 8308
   %236 = fmul reassoc nsz arcp contract afn float %74, 0x3F747AE140000000
@@ -505,7 +507,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %262 = getelementptr inbounds i32, ptr %80, i64 %244
   %263 = load i32, ptr %262, align 4, !tbaa !67
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds [5 x [2 x float]], ptr %226, i64 0, i64 %264, i64 1
+  %.idx26 = shl nsw i64 %264, 3
+  %265 = getelementptr i8, ptr %226, i64 %.idx26
   %266 = load float, ptr %265, align 4, !tbaa !66
   %267 = fdiv reassoc nsz arcp contract afn float %266, %259
   br label %268
@@ -516,7 +519,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store float %269, ptr %270, align 4, !tbaa !66
   %271 = add nuw nsw i64 %244, 1
   %272 = icmp eq i64 %271, %90
-  br i1 %272, label %.loopexit34, label %243, !llvm.loop !71
+  br i1 %272, label %.loopexit42, label %243, !llvm.loop !71
 
 273:                                              ; preds = %353
   %274 = and i64 %237, 4
@@ -558,7 +561,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store float %300, ptr %294, align 4, !tbaa !66
   br label %301
 
-301:                                              ; preds = %299, %273, %.loopexit34
+301:                                              ; preds = %299, %273, %.loopexit42
   %302 = fcmp reassoc nsz arcp contract afn ogt float %75, 0x3F50624DE0000000
   br i1 %302, label %358, label %366
 
@@ -660,7 +663,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %370 = tail call ptr @dt_alloc_aligned(i64 noundef %369) #25
   call void @llvm.assume(i1 true) [ "align"(ptr %370, i64 64) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %370, i64 64) ]
-  br i1 %232, label %.loopexit33, label %371
+  br i1 %232, label %.loopexit41, label %371
 
 371:                                              ; preds = %366
   %372 = load i32, ptr %76, align 4, !tbaa !65
@@ -675,7 +678,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %381 = icmp eq i64 %380, %374
   br label %382
 
-.loopexit33:                                      ; preds = %587, %366
+.loopexit41:                                      ; preds = %587, %366
   tail call void @free(ptr noundef %370) #25
   tail call void @free(ptr noundef %227) #25
   tail call void @free(ptr noundef %80) #25
@@ -718,15 +721,15 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 405:                                              ; preds = %401
   %406 = getelementptr inbounds i8, ptr %384, i64 4
-  br i1 %376, label %.loopexit32, label %.preheader31
+  br i1 %376, label %.loopexit40, label %.preheader39
 
-.loopexit32:                                      ; preds = %.preheader31, %405
-  %407 = phi float [ undef, %405 ], [ %479, %.preheader31 ]
-  %408 = phi i64 [ 0, %405 ], [ %377, %.preheader31 ]
-  %409 = phi float [ 0x47EFFFFFE0000000, %405 ], [ %479, %.preheader31 ]
+.loopexit40:                                      ; preds = %.preheader39, %405
+  %407 = phi float [ undef, %405 ], [ %479, %.preheader39 ]
+  %408 = phi i64 [ 0, %405 ], [ %377, %.preheader39 ]
+  %409 = phi float [ 0x47EFFFFFE0000000, %405 ], [ %479, %.preheader39 ]
   br i1 %378, label %425, label %410
 
-410:                                              ; preds = %.loopexit32
+410:                                              ; preds = %.loopexit40
   %411 = getelementptr inbounds [2 x float], ptr %81, i64 %408
   %412 = load <2 x float>, ptr %406, align 4, !tbaa !66
   %413 = load <2 x float>, ptr %411, align 4, !tbaa !66
@@ -744,20 +747,20 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %424 = select i1 %423, float %418, float %409
   br label %425
 
-425:                                              ; preds = %410, %.loopexit32
-  %426 = phi float [ %407, %.loopexit32 ], [ %424, %410 ]
+425:                                              ; preds = %410, %.loopexit40
+  %426 = phi float [ %407, %.loopexit40 ], [ %424, %410 ]
   %427 = fcmp reassoc nsz arcp contract afn olt float %426, 0x3EB0C6F7A0000000
-  br i1 %427, label %428, label %.loopexit29
+  br i1 %427, label %428, label %.loopexit37
 
 428:                                              ; preds = %425
-  br i1 %379, label %.preheader87, label %.preheader30
+  br i1 %379, label %.preheader95, label %.preheader38
 
-.preheader87:                                     ; preds = %448, %428
-  %.ph88 = phi i64 [ %380, %448 ], [ 0, %428 ]
+.preheader95:                                     ; preds = %448, %428
+  %.ph96 = phi i64 [ %380, %448 ], [ 0, %428 ]
   br label %482
 
-.preheader30:                                     ; preds = %428, %.preheader30
-  %429 = phi i64 [ %446, %.preheader30 ], [ 0, %428 ]
+.preheader38:                                     ; preds = %428, %.preheader38
+  %429 = phi i64 [ %446, %.preheader38 ], [ 0, %428 ]
   %430 = getelementptr inbounds float, ptr %370, i64 %429
   %431 = getelementptr inbounds i8, ptr %430, i64 32
   %432 = getelementptr inbounds i8, ptr %430, i64 64
@@ -780,14 +783,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store <8 x float> %445, ptr %433, align 32, !tbaa !66
   %446 = add nuw i64 %429, 32
   %447 = icmp eq i64 %446, %380
-  br i1 %447, label %448, label %.preheader30, !llvm.loop !72
+  br i1 %447, label %448, label %.preheader38, !llvm.loop !72
 
-448:                                              ; preds = %.preheader30
-  br i1 %381, label %.loopexit29, label %.preheader87
+448:                                              ; preds = %.preheader38
+  br i1 %381, label %.loopexit37, label %.preheader95
 
-.preheader31:                                     ; preds = %405, %.preheader31
-  %449 = phi i64 [ %480, %.preheader31 ], [ 0, %405 ]
-  %450 = phi float [ %479, %.preheader31 ], [ 0x47EFFFFFE0000000, %405 ]
+.preheader39:                                     ; preds = %405, %.preheader39
+  %449 = phi i64 [ %480, %.preheader39 ], [ 0, %405 ]
+  %450 = phi float [ %479, %.preheader39 ], [ 0x47EFFFFFE0000000, %405 ]
   %451 = getelementptr inbounds [2 x float], ptr %81, i64 %449
   %452 = load <2 x float>, ptr %406, align 4, !tbaa !66
   %453 = load <2 x float>, ptr %451, align 4, !tbaa !66
@@ -821,10 +824,10 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %479 = select i1 %478, float %473, float %464
   %480 = add nuw i64 %449, 2
   %481 = icmp eq i64 %480, %377
-  br i1 %481, label %.loopexit32, label %.preheader31
+  br i1 %481, label %.loopexit40, label %.preheader39
 
-482:                                              ; preds = %.preheader87, %482
-  %483 = phi i64 [ %488, %482 ], [ %.ph88, %.preheader87 ]
+482:                                              ; preds = %.preheader95, %482
+  %483 = phi i64 [ %488, %482 ], [ %.ph96, %.preheader95 ]
   %484 = getelementptr inbounds float, ptr %370, i64 %483
   %485 = load float, ptr %484, align 4, !tbaa !66
   %486 = fcmp reassoc nsz arcp contract afn olt float %485, 0.000000e+00
@@ -832,22 +835,22 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store float %487, ptr %484, align 4, !tbaa !66
   %488 = add nuw nsw i64 %483, 1
   %489 = icmp eq i64 %488, %374
-  br i1 %489, label %.loopexit29, label %482, !llvm.loop !73
+  br i1 %489, label %.loopexit37, label %482, !llvm.loop !73
 
-.loopexit29:                                      ; preds = %482, %448, %425
-  br i1 %379, label %.preheader84, label %.preheader28
+.loopexit37:                                      ; preds = %482, %448, %425
+  br i1 %379, label %.preheader92, label %.preheader36
 
-.preheader84:                                     ; preds = %509, %.loopexit29
-  %.ph85 = phi i64 [ %380, %509 ], [ 0, %.loopexit29 ]
-  %.ph86 = phi float [ %513, %509 ], [ 0.000000e+00, %.loopexit29 ]
+.preheader92:                                     ; preds = %509, %.loopexit37
+  %.ph93 = phi i64 [ %380, %509 ], [ 0, %.loopexit37 ]
+  %.ph94 = phi float [ %513, %509 ], [ 0.000000e+00, %.loopexit37 ]
   br label %538
 
-.preheader28:                                     ; preds = %.loopexit29, %.preheader28
-  %490 = phi i64 [ %507, %.preheader28 ], [ 0, %.loopexit29 ]
-  %491 = phi <8 x float> [ %503, %.preheader28 ], [ zeroinitializer, %.loopexit29 ]
-  %492 = phi <8 x float> [ %504, %.preheader28 ], [ zeroinitializer, %.loopexit29 ]
-  %493 = phi <8 x float> [ %505, %.preheader28 ], [ zeroinitializer, %.loopexit29 ]
-  %494 = phi <8 x float> [ %506, %.preheader28 ], [ zeroinitializer, %.loopexit29 ]
+.preheader36:                                     ; preds = %.loopexit37, %.preheader36
+  %490 = phi i64 [ %507, %.preheader36 ], [ 0, %.loopexit37 ]
+  %491 = phi <8 x float> [ %503, %.preheader36 ], [ zeroinitializer, %.loopexit37 ]
+  %492 = phi <8 x float> [ %504, %.preheader36 ], [ zeroinitializer, %.loopexit37 ]
+  %493 = phi <8 x float> [ %505, %.preheader36 ], [ zeroinitializer, %.loopexit37 ]
+  %494 = phi <8 x float> [ %506, %.preheader36 ], [ zeroinitializer, %.loopexit37 ]
   %495 = getelementptr inbounds float, ptr %370, i64 %490
   %496 = getelementptr inbounds i8, ptr %495, i64 32
   %497 = getelementptr inbounds i8, ptr %495, i64 64
@@ -862,24 +865,24 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %506 = fadd reassoc nsz arcp contract afn <8 x float> %502, %494
   %507 = add nuw i64 %490, 32
   %508 = icmp eq i64 %507, %380
-  br i1 %508, label %509, label %.preheader28, !llvm.loop !74
+  br i1 %508, label %509, label %.preheader36, !llvm.loop !74
 
-509:                                              ; preds = %.preheader28
+509:                                              ; preds = %.preheader36
   %510 = fadd reassoc nsz arcp contract afn <8 x float> %504, %503
   %511 = fadd reassoc nsz arcp contract afn <8 x float> %510, %505
   %512 = fadd reassoc nsz arcp contract afn <8 x float> %511, %506
   %513 = tail call reassoc nsz arcp contract afn float @llvm.vector.reduce.fadd.v8f32(float -0.000000e+00, <8 x float> %512)
-  br i1 %381, label %.loopexit27, label %.preheader84
+  br i1 %381, label %.loopexit35, label %.preheader92
 
-.loopexit27:                                      ; preds = %538, %509
+.loopexit35:                                      ; preds = %538, %509
   %514 = phi float [ %513, %509 ], [ %543, %538 ]
   %515 = fcmp reassoc nsz arcp contract afn ogt float %514, 0.000000e+00
-  br i1 %515, label %516, label %.loopexit26
+  br i1 %515, label %516, label %.loopexit34
 
-516:                                              ; preds = %.loopexit27
-  br i1 %379, label %.preheader83, label %518
+516:                                              ; preds = %.loopexit35
+  br i1 %379, label %.preheader91, label %518
 
-.preheader83:                                     ; preds = %537, %516
+.preheader91:                                     ; preds = %537, %516
   %.ph = phi i64 [ %380, %537 ], [ 0, %516 ]
   %517 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %514
   br label %546
@@ -913,38 +916,38 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %536, label %537, label %521, !llvm.loop !75
 
 537:                                              ; preds = %521
-  br i1 %381, label %.loopexit26, label %.preheader83
+  br i1 %381, label %.loopexit34, label %.preheader91
 
-538:                                              ; preds = %.preheader84, %538
-  %539 = phi i64 [ %544, %538 ], [ %.ph85, %.preheader84 ]
-  %540 = phi float [ %543, %538 ], [ %.ph86, %.preheader84 ]
+538:                                              ; preds = %.preheader92, %538
+  %539 = phi i64 [ %544, %538 ], [ %.ph93, %.preheader92 ]
+  %540 = phi float [ %543, %538 ], [ %.ph94, %.preheader92 ]
   %541 = getelementptr inbounds float, ptr %370, i64 %539
   %542 = load float, ptr %541, align 4, !tbaa !66
   %543 = fadd reassoc nsz arcp contract afn float %542, %540
   %544 = add nuw nsw i64 %539, 1
   %545 = icmp eq i64 %544, %374
-  br i1 %545, label %.loopexit27, label %538, !llvm.loop !76
+  br i1 %545, label %.loopexit35, label %538, !llvm.loop !76
 
-546:                                              ; preds = %.preheader83, %546
-  %547 = phi i64 [ %551, %546 ], [ %.ph, %.preheader83 ]
+546:                                              ; preds = %.preheader91, %546
+  %547 = phi i64 [ %551, %546 ], [ %.ph, %.preheader91 ]
   %548 = getelementptr inbounds float, ptr %370, i64 %547
   %549 = load float, ptr %548, align 4, !tbaa !66
   %550 = fmul reassoc nsz arcp contract afn float %549, %517
   store float %550, ptr %548, align 4, !tbaa !66
   %551 = add nuw nsw i64 %547, 1
   %552 = icmp eq i64 %551, %374
-  br i1 %552, label %.loopexit26, label %546, !llvm.loop !77
+  br i1 %552, label %.loopexit34, label %546, !llvm.loop !77
 
-.loopexit26:                                      ; preds = %546, %537, %.loopexit27
+.loopexit34:                                      ; preds = %546, %537, %.loopexit35
   %553 = getelementptr inbounds float, ptr %3, i64 %389
   %554 = getelementptr inbounds float, ptr %3, i64 %386
   store <2 x float> zeroinitializer, ptr %554, align 4, !tbaa !66
   br i1 %376, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit26
-  %555 = phi i64 [ 0, %.loopexit26 ], [ %377, %.preheader ]
-  %556 = phi float [ 0.000000e+00, %.loopexit26 ], [ %653, %.preheader ]
-  %557 = phi float [ 0.000000e+00, %.loopexit26 ], [ %641, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.loopexit34
+  %555 = phi i64 [ 0, %.loopexit34 ], [ %377, %.preheader ]
+  %556 = phi float [ 0.000000e+00, %.loopexit34 ], [ %653, %.preheader ]
+  %557 = phi float [ 0.000000e+00, %.loopexit34 ], [ %641, %.preheader ]
   br i1 %378, label %587, label %558
 
 558:                                              ; preds = %.loopexit
@@ -972,7 +975,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %579 = getelementptr inbounds i8, ptr %564, i64 4
   %580 = load float, ptr %579, align 4, !tbaa !66
   %581 = fmul reassoc nsz arcp contract afn float %578, %580
-  %582 = getelementptr inbounds [5 x [2 x float]], ptr %83, i64 0, i64 %569, i64 1
+  %.idx32 = shl nsw i64 %569, 3
+  %.offs33 = or disjoint i64 %.idx32, 4
+  %582 = getelementptr inbounds i8, ptr %83, i64 %.offs33
   %583 = load float, ptr %582, align 4, !tbaa !66
   %584 = fadd reassoc nsz arcp contract afn float %581, %583
   %585 = fmul reassoc nsz arcp contract afn float %584, %575
@@ -988,12 +993,12 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store float %590, ptr %591, align 4, !tbaa !66
   %592 = add nuw i64 %383, 4
   %593 = icmp ult i64 %592, %231
-  br i1 %593, label %382, label %.loopexit33
+  br i1 %593, label %382, label %.loopexit41
 
-.preheader:                                       ; preds = %.loopexit26, %.preheader
-  %594 = phi i64 [ %654, %.preheader ], [ 0, %.loopexit26 ]
-  %595 = phi float [ %653, %.preheader ], [ 0.000000e+00, %.loopexit26 ]
-  %596 = phi float [ %641, %.preheader ], [ 0.000000e+00, %.loopexit26 ]
+.preheader:                                       ; preds = %.loopexit34, %.preheader
+  %594 = phi i64 [ %654, %.preheader ], [ 0, %.loopexit34 ]
+  %595 = phi float [ %653, %.preheader ], [ 0.000000e+00, %.loopexit34 ]
+  %596 = phi float [ %641, %.preheader ], [ 0.000000e+00, %.loopexit34 ]
   %597 = getelementptr inbounds float, ptr %370, i64 %594
   %598 = load float, ptr %597, align 8, !tbaa !66
   %599 = getelementptr inbounds [5 x [2 x float]], ptr %81, i64 0, i64 %594
@@ -1018,7 +1023,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %617 = getelementptr inbounds i8, ptr %602, i64 4
   %618 = load float, ptr %617, align 4, !tbaa !66
   %619 = fmul reassoc nsz arcp contract afn float %616, %618
-  %620 = getelementptr inbounds [5 x [2 x float]], ptr %83, i64 0, i64 %607, i64 1
+  %.idx28 = shl nsw i64 %607, 3
+  %.offs29 = or disjoint i64 %.idx28, 4
+  %620 = getelementptr inbounds i8, ptr %83, i64 %.offs29
   %621 = load float, ptr %620, align 4, !tbaa !66
   %622 = fadd reassoc nsz arcp contract afn float %619, %621
   %623 = fmul reassoc nsz arcp contract afn float %622, %613
@@ -1049,7 +1056,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %646 = getelementptr inbounds i8, ptr %631, i64 4
   %647 = load float, ptr %646, align 4, !tbaa !66
   %648 = fmul reassoc nsz arcp contract afn float %645, %647
-  %649 = getelementptr inbounds [5 x [2 x float]], ptr %83, i64 0, i64 %636, i64 1
+  %.idx30 = shl nsw i64 %636, 3
+  %.offs31 = or disjoint i64 %.idx30, 4
+  %649 = getelementptr inbounds i8, ptr %83, i64 %.offs31
   %650 = load float, ptr %649, align 4, !tbaa !66
   %651 = fadd reassoc nsz arcp contract afn float %648, %650
   %652 = fmul reassoc nsz arcp contract afn float %651, %642
@@ -1067,7 +1076,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %660) #25
   br label %661
 
-661:                                              ; preds = %656, %.loopexit33, %361, %6
+661:                                              ; preds = %656, %.loopexit41, %361, %6
   ret void
 }
 

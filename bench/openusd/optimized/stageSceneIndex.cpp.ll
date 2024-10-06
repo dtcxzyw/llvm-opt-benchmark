@@ -33,12 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.283" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.285" = type { %"class.std::__shared_ptr.286" }
 %"class.std::__shared_ptr.286" = type { ptr, %"class.std::__shared_count" }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.18" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.16" }
-%"struct.std::atomic.16" = type { %"struct.std::__atomic_base.17" }
-%"struct.std::__atomic_base.17" = type { i64 }
-%"struct.std::atomic.18" = type { %"struct.std::__atomic_base.19" }
-%"struct.std::__atomic_base.19" = type { ptr }
 %"struct.std::atomic.20" = type { %"struct.std::__atomic_base.21" }
 %"struct.std::__atomic_base.21" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" = type { ptr }
@@ -99,6 +93,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.267" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.267" = type { %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.268", i32, i32 }
 %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.268" = type { ptr, [440 x i8] }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.18" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.16" }
+%"struct.std::atomic.16" = type { %"struct.std::__atomic_base.17" }
+%"struct.std::__atomic_base.17" = type { i64 }
+%"struct.std::atomic.18" = type { %"struct.std::__atomic_base.19" }
+%"struct.std::__atomic_base.19" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.48" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.25" }
 %"class.pxrInternal_v0_24__pxrReserved__::UsdNotice::ObjectsChanged::PathRange::iterator" = type { %"struct.std::_Rb_tree_const_iterator" }
 %"struct.std::_Rb_tree_const_iterator" = type { ptr }
@@ -1158,28 +1158,30 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %125, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i.i
+  br label %.preheader14.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %.preheader13.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %.preheader14.i.i.i.i
   %126 = ptrtoint ptr %.ptr12.i.i.i.i to i64
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %130
 
-.preheader13.i.i.i.i:                             ; preds = %.preheader13.i.i.i.i, %119
-  %.014.i.i.i.i = phi i64 [ %129, %.preheader13.i.i.i.i ], [ 0, %119 ]
-  %128 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i.i, i64 0, i64 %.014.i.i.i.i, i32 1
+.preheader14.i.i.i.i:                             ; preds = %.preheader14.i.i.i.i, %119
+  %.015.i.i.i.i = phi i64 [ %129, %.preheader14.i.i.i.i ], [ 0, %119 ]
+  %.idx13.i.i.i.i = shl nsw i64 %.015.i.i.i.i, 4
+  %.offs.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i, 8
+  %128 = getelementptr inbounds i8, ptr %.ptr12.i.i.i.i, i64 %.offs.i.i.i.i
   store atomic i64 0, ptr %128 monotonic, align 8
-  %129 = add nuw nsw i64 %.014.i.i.i.i, 1
+  %129 = add nuw nsw i64 %.015.i.i.i.i, 1
   %.not.i.i.i.i10 = icmp eq i64 %129, 2
-  br i1 %.not.i.i.i.i10, label %.preheader.i.i.i.i, label %.preheader13.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i10, label %.preheader.i.i.i.i, label %.preheader14.i.i.i.i, !llvm.loop !14
 
 130:                                              ; preds = %130, %.preheader.i.i.i.i
-  %.01015.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %134, %130 ]
-  %131 = icmp eq i64 %.01015.i.i.i.i, 0
-  %132 = getelementptr inbounds [64 x %"struct.std::atomic.20"], ptr %127, i64 0, i64 %.01015.i.i.i.i
+  %.01016.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %134, %130 ]
+  %131 = icmp eq i64 %.01016.i.i.i.i, 0
+  %132 = getelementptr inbounds [64 x %"struct.std::atomic.20"], ptr %127, i64 0, i64 %.01016.i.i.i.i
   %133 = select i1 %131, i64 %126, i64 0
   store atomic i64 %133, ptr %132 monotonic, align 8
-  %134 = add nuw nsw i64 %.01015.i.i.i.i, 1
+  %134 = add nuw nsw i64 %.01016.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %134, 64
   br i1 %exitcond.not.i.i.i.i, label %135, label %130, !llvm.loop !15
 

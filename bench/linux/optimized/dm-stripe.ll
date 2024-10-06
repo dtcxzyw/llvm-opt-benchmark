@@ -81,7 +81,7 @@ define dso_local noundef range(i32 0, 2) i32 @stripe_map(ptr nocapture noundef r
 28:                                               ; preds = %26, %14
   store ptr %19, ptr %23, align 8
   tail call void @bio_associate_blkg(ptr noundef %1) #10
-  br label %105
+  br label %106
 
 29:                                               ; preds = %2
   %30 = trunc i32 %6 to i8
@@ -104,7 +104,7 @@ define dso_local noundef range(i32 0, 2) i32 @stripe_map(ptr nocapture noundef r
 
 36:                                               ; preds = %31
   %37 = tail call fastcc i32 @stripe_map_range(ptr noundef %4, ptr noundef %1, i32 noundef %32), !range !11
-  br label %105
+  br label %106
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds i8, ptr %1, i64 32
@@ -171,35 +171,37 @@ define dso_local noundef range(i32 0, 2) i32 @stripe_map(ptr nocapture noundef r
   store i64 %87, ptr %39, align 8
   %88 = getelementptr inbounds i8, ptr %4, i64 64
   %89 = zext i32 %80 to i64
-  %90 = getelementptr [0 x %struct.stripe], ptr %88, i64 0, i64 %89, i32 1
-  %91 = load i64, ptr %90, align 8
-  %92 = add i64 %87, %91
-  store i64 %92, ptr %39, align 8
-  %93 = getelementptr [0 x %struct.stripe], ptr %88, i64 0, i64 %89
-  %94 = load ptr, ptr %93, align 8
+  %.idx = mul nuw nsw i64 %89, 24
+  %90 = getelementptr i8, ptr %88, i64 %.idx
+  %91 = getelementptr i8, ptr %90, i64 8
+  %92 = load i64, ptr %91, align 8
+  %93 = add i64 %87, %92
+  store i64 %93, ptr %39, align 8
+  %94 = getelementptr [0 x %struct.stripe], ptr %88, i64 0, i64 %89
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 20
-  %97 = load i16, ptr %96, align 4
-  %98 = and i16 %97, -2049
-  store i16 %98, ptr %96, align 4
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, %95
-  br i1 %101, label %104, label %102
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %1, i64 20
+  %98 = load i16, ptr %97, align 4
+  %99 = and i16 %98, -2049
+  store i16 %99, ptr %97, align 4
+  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, %96
+  br i1 %102, label %105, label %103
 
-102:                                              ; preds = %79
-  %103 = and i16 %97, -2113
-  store i16 %103, ptr %96, align 4
-  br label %104
-
-104:                                              ; preds = %102, %79
-  store ptr %95, ptr %99, align 8
-  tail call void @bio_associate_blkg(ptr noundef %1) #10
+103:                                              ; preds = %79
+  %104 = and i16 %98, -2113
+  store i16 %104, ptr %97, align 4
   br label %105
 
-105:                                              ; preds = %104, %36, %28
-  %106 = phi i32 [ 1, %28 ], [ %37, %36 ], [ 1, %104 ]
-  ret i32 %106
+105:                                              ; preds = %103, %79
+  store ptr %96, ptr %100, align 8
+  tail call void @bio_associate_blkg(ptr noundef %1) #10
+  br label %106
+
+106:                                              ; preds = %105, %36, %28
+  %107 = phi i32 [ 1, %28 ], [ %37, %36 ], [ 1, %105 ]
+  ret i32 %107
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -523,7 +525,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.4, ptr %10, align 8
-  br label %135
+  br label %134
 
 11:                                               ; preds = %3
   store i32 0, ptr %6, align 4, !annotation !12
@@ -539,7 +541,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.5, ptr %19, align 8
-  br label %135
+  br label %134
 
 20:                                               ; preds = %11
   %21 = getelementptr i8, ptr %2, i64 8
@@ -554,7 +556,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 28:                                               ; preds = %20
   %29 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.6, ptr %29, align 8
-  br label %135
+  br label %134
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %0, i64 24
@@ -569,7 +571,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 38:                                               ; preds = %30
   %39 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.7, ptr %39, align 8
-  br label %135
+  br label %134
 
 40:                                               ; preds = %30
   %41 = zext i32 %25 to i64
@@ -580,7 +582,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.8, ptr %45, align 8
-  br label %135
+  br label %134
 
 46:                                               ; preds = %40
   %47 = shl i32 %33, 1
@@ -591,7 +593,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.9, ptr %51, align 8
-  br label %135
+  br label %134
 
 52:                                               ; preds = %46
   %53 = mul nuw nsw i64 %34, 24
@@ -603,7 +605,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @.str.10, ptr %58, align 8
-  br label %135
+  br label %134
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds i8, ptr %55, i64 32
@@ -642,7 +644,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 80:                                               ; preds = %73
   call void @kfree(ptr noundef nonnull %55) #10
-  br label %135
+  br label %134
 
 81:                                               ; preds = %73
   %82 = load i32, ptr %6, align 4
@@ -676,10 +678,11 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds i8, ptr %55, i64 64
+  %invariant.gep = getelementptr i8, ptr %55, i64 80
   br label %101
 
 101:                                              ; preds = %128, %99
-  %102 = phi i64 [ 0, %99 ], [ %130, %128 ]
+  %102 = phi i64 [ 0, %99 ], [ %129, %128 ]
   %103 = phi ptr [ %2, %99 ], [ %104, %128 ]
   %104 = getelementptr i8, ptr %103, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
@@ -738,27 +741,28 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit8
   call void @kfree(ptr noundef nonnull %55) #10
-  br label %135
+  br label %134
 
 128:                                              ; preds = %.thread7, %118
-  %129 = getelementptr [0 x %struct.stripe], ptr %100, i64 0, i64 %102, i32 2
-  store volatile i32 0, ptr %129, align 8
-  %130 = add nuw nsw i64 %102, 1
-  %131 = load i32, ptr %6, align 4
-  %132 = zext i32 %131 to i64
-  %133 = icmp ult i64 %130, %132
-  br i1 %133, label %101, label %.loopexit9, !llvm.loop !18
+  %.idx = mul nuw nsw i64 %102, 24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  store volatile i32 0, ptr %gep, align 8
+  %129 = add nuw nsw i64 %102, 1
+  %130 = load i32, ptr %6, align 4
+  %131 = zext i32 %130 to i64
+  %132 = icmp ult i64 %129, %131
+  br i1 %132, label %101, label %.loopexit9, !llvm.loop !18
 
 .loopexit9:                                       ; preds = %128, %95
-  %134 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %55, ptr %134, align 8
-  br label %135
+  %133 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %55, ptr %133, align 8
+  br label %134
 
-135:                                              ; preds = %.loopexit9, %.loopexit, %80, %57, %50, %44, %38, %28, %18, %9
-  %136 = phi i32 [ -22, %9 ], [ -22, %38 ], [ -22, %44 ], [ -22, %50 ], [ %78, %80 ], [ %120, %.loopexit ], [ 0, %.loopexit9 ], [ -12, %57 ], [ -22, %28 ], [ -22, %18 ]
+134:                                              ; preds = %.loopexit9, %.loopexit, %80, %57, %50, %44, %38, %28, %18, %9
+  %135 = phi i32 [ -22, %9 ], [ -22, %38 ], [ -22, %44 ], [ -22, %50 ], [ %78, %80 ], [ %120, %.loopexit ], [ 0, %.loopexit9 ], [ -12, %57 ], [ -22, %28 ], [ -22, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  ret i32 %136
+  ret i32 %135
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -890,7 +894,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %15 = phi i32 [ %13, %10 ], [ 0, %8 ]
   %16 = load i32, ptr %7, align 8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.loopexit14, label %18
+  br i1 %17, label %.loopexit16, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %7, i64 64
@@ -912,42 +916,42 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 28
   %33 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %27, i64 noundef %29, ptr noundef nonnull @.str.16, ptr noundef %32) #10
-  %.pre20 = load i32, ptr %7, align 8
+  %.pre24 = load i32, ptr %7, align 8
   br label %34
 
 34:                                               ; preds = %25, %20
-  %35 = phi i32 [ %.pre20, %25 ], [ %21, %20 ]
+  %35 = phi i32 [ %.pre24, %25 ], [ %21, %20 ]
   %36 = phi i32 [ %33, %25 ], [ 0, %20 ]
   %37 = add i32 %36, %23
   %38 = add nuw nsw i64 %22, 1
   %39 = zext i32 %35 to i64
   %40 = icmp ult i64 %38, %39
-  br i1 %40, label %20, label %.loopexit14, !llvm.loop !22
+  br i1 %40, label %20, label %.loopexit16, !llvm.loop !22
 
-.loopexit14:                                      ; preds = %34, %14
+.loopexit16:                                      ; preds = %34, %14
   %41 = phi i32 [ 0, %14 ], [ %35, %34 ]
   %42 = phi i32 [ %15, %14 ], [ %37, %34 ]
   %43 = icmp ult i32 %42, %4
   br i1 %43, label %44, label %50
 
-44:                                               ; preds = %.loopexit14
+44:                                               ; preds = %.loopexit16
   %45 = zext i32 %42 to i64
   %46 = getelementptr i8, ptr %3, i64 %45
   %47 = sub nuw i32 %4, %42
   %48 = zext i32 %47 to i64
   %49 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %48, ptr noundef nonnull @.str.17) #10
-  %.pre21 = load i32, ptr %7, align 8
+  %.pre25 = load i32, ptr %7, align 8
   br label %50
 
-50:                                               ; preds = %44, %.loopexit14
-  %51 = phi i32 [ %.pre21, %44 ], [ %41, %.loopexit14 ]
-  %52 = phi i32 [ %49, %44 ], [ 0, %.loopexit14 ]
+50:                                               ; preds = %44, %.loopexit16
+  %51 = phi i32 [ %.pre25, %44 ], [ %41, %.loopexit16 ]
+  %52 = phi i32 [ %49, %44 ], [ 0, %.loopexit16 ]
   %53 = icmp eq i32 %51, 0
   br i1 %53, label %.loopexit, label %54
 
 54:                                               ; preds = %50
   %55 = add i32 %52, %42
-  %56 = getelementptr inbounds i8, ptr %7, i64 64
+  %56 = getelementptr i8, ptr %7, i64 80
   br label %57
 
 57:                                               ; preds = %72, %54
@@ -962,16 +966,17 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %64 = getelementptr i8, ptr %3, i64 %63
   %65 = sub nuw i32 %4, %60
   %66 = zext i32 %65 to i64
-  %67 = getelementptr [0 x %struct.stripe], ptr %56, i64 0, i64 %59, i32 2
+  %.idx15 = mul nuw nsw i64 %59, 24
+  %67 = getelementptr i8, ptr %56, i64 %.idx15
   %68 = load volatile i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   %70 = select i1 %69, i32 65, i32 68
   %71 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %64, i64 noundef %66, ptr noundef nonnull @.str.18, i32 noundef %70) #10
-  %.pre22 = load i32, ptr %7, align 8
+  %.pre26 = load i32, ptr %7, align 8
   br label %72
 
 72:                                               ; preds = %62, %57
-  %73 = phi i32 [ %.pre22, %62 ], [ %58, %57 ]
+  %73 = phi i32 [ %.pre26, %62 ], [ %58, %57 ]
   %74 = phi i32 [ %71, %62 ], [ 0, %57 ]
   %75 = add i32 %74, %60
   %76 = add nuw nsw i64 %59, 1
@@ -1073,15 +1078,17 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %147 = add i32 %146, %133
   %148 = load i32, ptr %7, align 8
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %.loopexit16, label %150
+  br i1 %149, label %.loopexit18, label %150
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds i8, ptr %7, i64 64
+  %invariant.gep = getelementptr i8, ptr %7, i64 72
+  %invariant.gep20 = getelementptr i8, ptr %7, i64 80
   br label %152
 
-152:                                              ; preds = %194, %150
-  %153 = phi i64 [ 0, %150 ], [ %197, %194 ]
-  %154 = phi i32 [ %147, %150 ], [ %196, %194 ]
+152:                                              ; preds = %192, %150
+  %153 = phi i64 [ 0, %150 ], [ %195, %192 ]
+  %154 = phi i32 [ %147, %150 ], [ %194, %192 ]
   %155 = icmp ult i32 %154, %4
   br i1 %155, label %156, label %166
 
@@ -1101,61 +1108,63 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
   %167 = phi i32 [ %165, %156 ], [ 0, %152 ]
   %168 = add i32 %167, %154
   %169 = icmp ult i32 %168, %4
-  br i1 %169, label %170, label %179
+  br i1 %169, label %170, label %178
 
 170:                                              ; preds = %166
   %171 = zext i32 %168 to i64
   %172 = getelementptr i8, ptr %3, i64 %171
   %173 = sub nuw i32 %4, %168
   %174 = zext i32 %173 to i64
-  %175 = getelementptr [0 x %struct.stripe], ptr %151, i64 0, i64 %153, i32 1
-  %176 = load i64, ptr %175, align 8
-  %177 = trunc i64 %153 to i32
-  %178 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %172, i64 noundef %174, ptr noundef nonnull @.str.24, i32 noundef %177, i64 noundef %176) #10
-  br label %179
+  %.idx = mul nuw nsw i64 %153, 24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %175 = load i64, ptr %gep, align 8
+  %176 = trunc i64 %153 to i32
+  %177 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %172, i64 noundef %174, ptr noundef nonnull @.str.24, i32 noundef %176, i64 noundef %175) #10
+  br label %178
 
-179:                                              ; preds = %170, %166
-  %180 = phi i32 [ %178, %170 ], [ 0, %166 ]
-  %181 = add i32 %180, %168
-  %182 = icmp ult i32 %181, %4
-  br i1 %182, label %183, label %194
+178:                                              ; preds = %170, %166
+  %179 = phi i32 [ %177, %170 ], [ 0, %166 ]
+  %180 = add i32 %179, %168
+  %181 = icmp ult i32 %180, %4
+  br i1 %181, label %182, label %192
 
-183:                                              ; preds = %179
-  %184 = zext i32 %181 to i64
-  %185 = getelementptr i8, ptr %3, i64 %184
-  %186 = sub nuw i32 %4, %181
-  %187 = zext i32 %186 to i64
-  %188 = getelementptr [0 x %struct.stripe], ptr %151, i64 0, i64 %153, i32 2
-  %189 = load volatile i32, ptr %188, align 4
-  %190 = icmp eq i32 %189, 0
-  %191 = select i1 %190, i32 65, i32 68
-  %192 = trunc i64 %153 to i32
-  %193 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %185, i64 noundef %187, ptr noundef nonnull @.str.25, i32 noundef %192, i32 noundef %191) #10
-  br label %194
+182:                                              ; preds = %178
+  %183 = zext i32 %180 to i64
+  %184 = getelementptr i8, ptr %3, i64 %183
+  %185 = sub nuw i32 %4, %180
+  %186 = zext i32 %185 to i64
+  %.idx14 = mul nuw nsw i64 %153, 24
+  %gep21 = getelementptr i8, ptr %invariant.gep20, i64 %.idx14
+  %187 = load volatile i32, ptr %gep21, align 4
+  %188 = icmp eq i32 %187, 0
+  %189 = select i1 %188, i32 65, i32 68
+  %190 = trunc i64 %153 to i32
+  %191 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %184, i64 noundef %186, ptr noundef nonnull @.str.25, i32 noundef %190, i32 noundef %189) #10
+  br label %192
 
-194:                                              ; preds = %183, %179
-  %195 = phi i32 [ %193, %183 ], [ 0, %179 ]
-  %196 = add i32 %195, %181
-  %197 = add nuw nsw i64 %153, 1
-  %198 = load i32, ptr %7, align 8
-  %199 = zext i32 %198 to i64
-  %200 = icmp ult i64 %197, %199
-  br i1 %200, label %152, label %.loopexit16, !llvm.loop !25
+192:                                              ; preds = %182, %178
+  %193 = phi i32 [ %191, %182 ], [ 0, %178 ]
+  %194 = add i32 %193, %180
+  %195 = add nuw nsw i64 %153, 1
+  %196 = load i32, ptr %7, align 8
+  %197 = zext i32 %196 to i64
+  %198 = icmp ult i64 %195, %197
+  br i1 %198, label %152, label %.loopexit18, !llvm.loop !25
 
-.loopexit16:                                      ; preds = %194, %145
-  %201 = phi i32 [ %147, %145 ], [ %196, %194 ]
-  %202 = icmp ult i32 %201, %4
-  br i1 %202, label %203, label %.loopexit
+.loopexit18:                                      ; preds = %192, %145
+  %199 = phi i32 [ %147, %145 ], [ %194, %192 ]
+  %200 = icmp ult i32 %199, %4
+  br i1 %200, label %201, label %.loopexit
 
-203:                                              ; preds = %.loopexit16
-  %204 = zext i32 %201 to i64
-  %205 = getelementptr i8, ptr %3, i64 %204
-  %206 = sub nuw i32 %4, %201
-  %207 = zext i32 %206 to i64
-  %208 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %205, i64 noundef %207, ptr noundef nonnull @.str.26) #10
+201:                                              ; preds = %.loopexit18
+  %202 = zext i32 %199 to i64
+  %203 = getelementptr i8, ptr %3, i64 %202
+  %204 = sub nuw i32 %4, %199
+  %205 = zext i32 %204 to i64
+  %206 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %203, i64 noundef %205, ptr noundef nonnull @.str.26) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %110, %72, %203, %.loopexit16, %88, %50, %5
+.loopexit:                                        ; preds = %110, %72, %201, %.loopexit18, %88, %50, %5
   ret void
 }
 

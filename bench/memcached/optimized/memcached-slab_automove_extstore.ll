@@ -109,28 +109,29 @@ global_pool_check.exit:                           ; preds = %entry, %if.end.i
   %2 = load i32, ptr %window_cur, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %window_cur, align 4
+  %invariant.gep.i = getelementptr inbounds i8, ptr %arg, i64 4680
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %global_pool_check.exit
   %indvars.iv.i = phi i64 [ 1, %global_pool_check.exit ], [ %indvars.iv.next.i, %for.body.i ]
-  %total_pages.012.i = phi i32 [ 0, %global_pool_check.exit ], [ %conv2.i, %for.body.i ]
-  %total_pages1.i = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_after, i64 0, i64 %indvars.iv.i, i32 3
-  %3 = load i64, ptr %total_pages1.i, align 8
-  %4 = trunc i64 %3 to i32
-  %conv2.i = add i32 %total_pages.012.i, %4
+  %total_pages.013.i = phi i32 [ 0, %global_pool_check.exit ], [ %conv2.i, %for.body.i ]
+  %3 = mul nuw nsw i64 %indvars.iv.i, 24
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %3
+  %4 = load i64, ptr %gep.i, align 8
+  %5 = trunc i64 %4 to i32
+  %conv2.i = add i32 %total_pages.013.i, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
   br i1 %exitcond.not.i, label %memcheck.exit, label %for.body.i, !llvm.loop !5
 
 memcheck.exit:                                    ; preds = %for.body.i
-  %total_pages5.i = getelementptr inbounds i8, ptr %arg, i64 4680
-  %5 = load i64, ptr %total_pages5.i, align 8
-  %6 = trunc i64 %5 to i32
-  %conv8.i = add i32 %conv2.i, %6
+  %6 = load i64, ptr %invariant.gep.i, align 8
+  %7 = trunc i64 %6 to i32
+  %conv8.i = add i32 %conv2.i, %7
   %conv9.i = uitofp i32 %conv8.i to double
   %free_ratio.i = getelementptr inbounds i8, ptr %arg, i64 40
-  %7 = load double, ptr %free_ratio.i, align 8
-  %mul.i = fmul double %7, %conv9.i
+  %8 = load double, ptr %free_ratio.i, align 8
+  %mul.i = fmul double %8, %conv9.i
   %conv10.i = fptoui double %mul.i to i32
   %spec.select.i = call i32 @llvm.umax.i32(i32 %conv10.i, i32 2)
   store i32 %spec.select.i, ptr %global_pool_watermark.i, align 4
@@ -148,37 +149,37 @@ for.body:                                         ; preds = %memcheck.exit, %for
   %too_free.085 = phi i1 [ false, %memcheck.exit ], [ %too_free.184, %for.inc ]
   %arrayidx = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_before, i64 0, i64 %indvars.iv
   %chunk_size = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %8 = load i32, ptr %chunk_size, align 4
-  %9 = load i32, ptr %item_size, align 8
-  %cmp2 = icmp uge i32 %8, %9
-  %10 = load i32, ptr %window_size.i, align 8
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul.i70 = mul i32 %10, %11
-  %12 = load ptr, ptr %arg, align 8
-  %13 = load i32, ptr %window_cur, align 4
-  %rem.i = urem i32 %13, %10
+  %9 = load i32, ptr %chunk_size, align 4
+  %10 = load i32, ptr %item_size, align 8
+  %cmp2 = icmp uge i32 %9, %10
+  %11 = load i32, ptr %window_size.i, align 8
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %mul.i70 = mul i32 %11, %12
+  %13 = load ptr, ptr %arg, align 8
+  %14 = load i32, ptr %window_cur, align 4
+  %rem.i = urem i32 %14, %11
   %add.i = add i32 %rem.i, %mul.i70
   %idxprom.i = zext i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.window_data, ptr %12, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.window_data, ptr %13, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i8 0, i64 32, i1 false)
   %arrayidx6 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_after, i64 0, i64 %indvars.iv
-  %14 = load i32, ptr %arrayidx6, align 8
-  %conv = uitofp i32 %14 to double
+  %15 = load i32, ptr %arrayidx6, align 8
+  %conv = uitofp i32 %15 to double
   %mul7 = fmul double %conv, 1.500000e+00
   %conv8 = fptoui double %mul7 to i32
   %arrayidx11 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_after, i64 0, i64 %indvars.iv
-  %15 = load i64, ptr %arrayidx11, align 8
+  %16 = load i64, ptr %arrayidx11, align 8
   %arrayidx13 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_before, i64 0, i64 %indvars.iv
-  %16 = load i64, ptr %arrayidx13, align 8
-  %cmp15 = icmp sgt i64 %15, %16
+  %17 = load i64, ptr %arrayidx13, align 8
+  %cmp15 = icmp sgt i64 %16, %17
   br i1 %cmp15, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %outofmemory = getelementptr inbounds i8, ptr %arrayidx11, i64 8
-  %17 = load i64, ptr %outofmemory, align 8
+  %18 = load i64, ptr %outofmemory, align 8
   %outofmemory23 = getelementptr inbounds i8, ptr %arrayidx13, i64 8
-  %18 = load i64, ptr %outofmemory23, align 8
-  %cmp25 = icmp sgt i64 %17, %18
+  %19 = load i64, ptr %outofmemory23, align 8
+  %cmp25 = icmp sgt i64 %18, %19
   br i1 %cmp25, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %for.body
@@ -190,10 +191,10 @@ if.then:                                          ; preds = %lor.lhs.false, %for
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   %total_pages = getelementptr inbounds i8, ptr %arrayidx6, i64 16
-  %19 = load i64, ptr %total_pages, align 8
+  %20 = load i64, ptr %total_pages, align 8
   %total_pages34 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %20 = load i64, ptr %total_pages34, align 8
-  %cmp36 = icmp sgt i64 %19, %20
+  %21 = load i64, ptr %total_pages34, align 8
+  %cmp36 = icmp sgt i64 %20, %21
   br i1 %cmp36, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end
@@ -203,10 +204,10 @@ if.then38:                                        ; preds = %if.end
 
 if.end40:                                         ; preds = %if.then38, %if.end
   %free_chunks = getelementptr inbounds i8, ptr %arrayidx6, i64 8
-  %21 = load i64, ptr %free_chunks, align 8
+  %22 = load i64, ptr %free_chunks, align 8
   %mul44 = shl i32 %conv8, 1
   %conv45 = zext i32 %mul44 to i64
-  %cmp46 = icmp sgt i64 %21, %conv45
+  %cmp46 = icmp sgt i64 %22, %conv45
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end40
@@ -216,62 +217,62 @@ if.then48:                                        ; preds = %if.end40
 
 if.end49:                                         ; preds = %if.then48, %if.end40
   %age = getelementptr inbounds i8, ptr %arrayidx11, i64 16
-  %22 = load i32, ptr %age, align 8
-  %conv53 = zext i32 %22 to i64
+  %23 = load i32, ptr %age, align 8
+  %conv53 = zext i32 %23 to i64
   store i64 %conv53, ptr %arrayidx.i, align 8
-  %23 = load ptr, ptr %arg, align 8
+  %24 = load ptr, ptr %arg, align 8
   %idxprom55 = sext i32 %mul.i70 to i64
-  %arrayidx56 = getelementptr inbounds %struct.window_data, ptr %23, i64 %idxprom55
-  %24 = load i32, ptr %window_size.i, align 8
-  %cmp11.not.i = icmp ne i32 %24, 0
+  %arrayidx56 = getelementptr inbounds %struct.window_data, ptr %24, i64 %idxprom55
+  %25 = load i32, ptr %window_size.i, align 8
+  %cmp11.not.i = icmp ne i32 %25, 0
   call void @llvm.assume(i1 %cmp11.not.i)
-  %wide.trip.count.i = zext i32 %24 to i64
+  %wide.trip.count.i = zext i32 %25 to i64
   br label %for.body.i71
 
 for.body.i71:                                     ; preds = %for.body.i71, %if.end49
   %indvars.iv.i72 = phi i64 [ 0, %if.end49 ], [ %indvars.iv.next.i75, %for.body.i71 ]
-  %25 = phi i32 [ 0, %if.end49 ], [ %add7.i, %for.body.i71 ]
-  %26 = phi i64 [ 0, %if.end49 ], [ %add3.i, %for.body.i71 ]
-  %27 = phi i64 [ 0, %if.end49 ], [ %add.i74, %for.body.i71 ]
+  %26 = phi i32 [ 0, %if.end49 ], [ %add7.i, %for.body.i71 ]
+  %27 = phi i64 [ 0, %if.end49 ], [ %add3.i, %for.body.i71 ]
+  %28 = phi i64 [ 0, %if.end49 ], [ %add.i74, %for.body.i71 ]
   %arrayidx.i73 = getelementptr inbounds %struct.window_data, ptr %arrayidx56, i64 %indvars.iv.i72
-  %28 = load i64, ptr %arrayidx.i73, align 8
-  %add.i74 = add i64 %28, %27
+  %29 = load i64, ptr %arrayidx.i73, align 8
+  %add.i74 = add i64 %29, %28
   %dirty.i = getelementptr inbounds i8, ptr %arrayidx.i73, i64 8
-  %29 = load i64, ptr %dirty.i, align 8
-  %add3.i = add i64 %29, %26
+  %30 = load i64, ptr %dirty.i, align 8
+  %add3.i = add i64 %30, %27
   %excess_free.i = getelementptr inbounds i8, ptr %arrayidx.i73, i64 24
-  %30 = load i32, ptr %excess_free.i, align 8
-  %add7.i = add i32 %30, %25
+  %31 = load i32, ptr %excess_free.i, align 8
+  %add7.i = add i32 %31, %26
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %wide.trip.count.i
   br i1 %exitcond.not.i76, label %window_sum.exit.loopexit, label %for.body.i71, !llvm.loop !7
 
 window_sum.exit.loopexit:                         ; preds = %for.body.i71
-  %31 = icmp eq i64 %add3.i, 0
+  %32 = icmp eq i64 %add3.i, 0
   %div = udiv i64 %add.i74, %wide.trip.count.i
-  %32 = load i64, ptr %free_chunks, align 8
-  %conv66 = sitofp i64 %32 to double
-  %33 = load i32, ptr %arrayidx6, align 8
-  %conv71 = uitofp i32 %33 to double
+  %33 = load i64, ptr %free_chunks, align 8
+  %conv66 = sitofp i64 %33 to double
+  %34 = load i32, ptr %arrayidx6, align 8
+  %conv71 = uitofp i32 %34 to double
   %mul72 = fmul double %conv71, 2.500000e+00
   %cmp73 = fcmp olt double %mul72, %conv66
-  %or.cond = select i1 %cmp73, i1 %31, i1 false
+  %or.cond = select i1 %cmp73, i1 %32, i1 false
   br i1 %or.cond, label %if.then78, label %if.end90
 
 if.then78:                                        ; preds = %window_sum.exit.loopexit
   br i1 %cmp2, label %land.lhs.true82, label %if.end90.thread
 
 if.end90.thread:                                  ; preds = %if.then78
-  store i32 %11, ptr %src, align 4
+  store i32 %12, ptr %src, align 4
   store i32 0, ptr %dst, align 4
   br label %for.inc
 
 land.lhs.true82:                                  ; preds = %if.then78
-  %cmp85.not = icmp ult i32 %add7.i, %24
+  %cmp85.not = icmp ult i32 %add7.i, %25
   br i1 %cmp85.not, label %if.end90, label %if.then87
 
 if.then87:                                        ; preds = %land.lhs.true82
-  store i32 %11, ptr %src, align 4
+  store i32 %12, ptr %src, align 4
   store i32 0, ptr %dst, align 4
   br label %if.end90
 
@@ -282,10 +283,10 @@ if.end90:                                         ; preds = %if.then87, %land.lh
   br i1 %or.cond67, label %land.lhs.true95, label %for.inc
 
 land.lhs.true95:                                  ; preds = %if.end90
-  %34 = load i64, ptr %total_pages, align 8
-  %cmp100 = icmp sgt i64 %34, 2
+  %35 = load i64, ptr %total_pages, align 8
+  %cmp100 = icmp sgt i64 %35, 2
   %spec.select = select i1 %cmp100, i64 %div, i64 %oldest_age.086
-  %spec.select68 = select i1 %cmp100, i32 %11, i32 %oldest.087
+  %spec.select68 = select i1 %cmp100, i32 %12, i32 %oldest.087
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end90.thread, %land.lhs.true95, %if.end90
@@ -299,9 +300,9 @@ for.inc:                                          ; preds = %if.end90.thread, %l
 for.end:                                          ; preds = %for.inc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %iam_before, ptr noundef nonnull align 8 dereferenceable(1536) %iam_after, i64 1536, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %sam_before, ptr noundef nonnull align 8 dereferenceable(1536) %sam_after, i64 1536, i1 false)
-  %35 = load i32, ptr %window_cur, align 4
-  %36 = load i32, ptr %window_size.i, align 8
-  %cmp116 = icmp ult i32 %35, %36
+  %36 = load i32, ptr %window_cur, align 4
+  %37 = load i32, ptr %window_size.i, align 8
+  %cmp116 = icmp ult i32 %36, %37
   br i1 %cmp116, label %return, label %if.end119
 
 if.end119:                                        ; preds = %for.end

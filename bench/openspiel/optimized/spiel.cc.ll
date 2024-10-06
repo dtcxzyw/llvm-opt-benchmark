@@ -103,7 +103,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.68" = type { %"struct.absl::debian2::container_internal::btree_iterator", i8, [7 x i8] }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
-%"union.absl::debian2::container_internal::map_slot_type" = type { %"struct.std::pair.70" }
 %"class.absl::debian2::strings_internal::SplitIterator.149" = type <{ i64, i32, [4 x i8], %"class.absl::debian2::string_view", ptr, %"class.absl::debian2::strings_internal::MaxSplitsImpl", [8 x i8] }>
 %"class.std::vector.72" = type { %"struct.std::_Vector_base.73" }
 %"struct.std::_Vector_base.73" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
@@ -135,6 +134,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.94" = type { %"struct.std::_Head_base.97" }
 %"struct.std::_Head_base.97" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"union.absl::debian2::container_internal::map_slot_type" = type { %"struct.std::pair.70" }
 %struct._Guard = type { ptr }
 %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer.142" = type { i8 }
 %"class.std::vector.136" = type { %"struct.std::_Vector_base.137" }
@@ -9407,8 +9407,8 @@ define void @_ZN10open_spiel18GameTypeFromStringERKNSt7__cxx1112basic_stringIcSt
   br i1 %66, label %.preheader, label %74
 
 .preheader:                                       ; preds = %58
-  %.not218 = icmp eq ptr %61, %60
-  br i1 %.not218, label %._crit_edge, label %.lr.ph
+  %.not232 = icmp eq ptr %61, %60
+  br i1 %.not232, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -9455,9 +9455,9 @@ define void @_ZN10open_spiel18GameTypeFromStringERKNSt7__cxx1112basic_stringIcSt
   br label %.body
 
 81:                                               ; preds = %.lr.ph, %99
-  %.sroa.0205.0219 = phi ptr [ %61, %.lr.ph ], [ %100, %99 ]
-  %82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0205.0219) #28
-  %83 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0205.0219) #28
+  %.sroa.0219.0233 = phi ptr [ %61, %.lr.ph ], [ %100, %99 ]
+  %82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0219.0233) #28
+  %83 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0219.0233) #28
   %84 = icmp sgt i64 %83, -1
   br i1 %84, label %_ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit23, label %85
 
@@ -9550,7 +9550,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #28
-  %100 = getelementptr inbounds i8, ptr %.sroa.0205.0219, i64 32
+  %100 = getelementptr inbounds i8, ptr %.sroa.0219.0233, i64 32
   %.not = icmp eq ptr %100, %60
   br i1 %.not, label %._crit_edge, label %81
 
@@ -9656,18 +9656,19 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   unreachable
 
 135:                                              ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i, i64 16
-  %137 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i to i64
-  %138 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %136, i64 %137, i32 0, i32 1
+  %136 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i to i64
+  %.idx.i = shl nuw nsw i64 %136, 6
+  %137 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i, i64 48
+  %138 = getelementptr i8, ptr %137, i64 %.idx.i
   %139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %138)
           to label %140 unwind label %323
 
 140:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA10_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(10) @.str.125)
-          to label %.noexc44 unwind label %323
+          to label %.noexc45 unwind label %323
 
-.noexc44:                                         ; preds = %140
+.noexc45:                                         ; preds = %140
   %141 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %142 = load i8, ptr %141, align 8
   %143 = icmp ne i8 %142, 0
@@ -9688,7 +9689,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   %150 = select i1 %148, i1 %149, i1 false
   br i1 %150, label %.invoke, label %151
 
-151:                                              ; preds = %.noexc44
+151:                                              ; preds = %.noexc45
   %.not1.i.i.i43 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i42, 0
   br i1 %.not1.i.i.i43, label %152, label %153
 
@@ -9708,51 +9709,52 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   unreachable
 
 159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i41, i64 16
-  %161 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i42 to i64
-  %162 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %160, i64 %161, i32 0, i32 1
+  %160 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i42 to i64
+  %.idx.i44 = shl nuw nsw i64 %160, 6
+  %161 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i41, i64 48
+  %162 = getelementptr i8, ptr %161, i64 %.idx.i44
   %163 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %162)
           to label %164 unwind label %323
 
 164:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA9_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(9) @.str.126)
-          to label %.noexc54 unwind label %323
+          to label %.noexc56 unwind label %323
 
-.noexc54:                                         ; preds = %164
+.noexc56:                                         ; preds = %164
   %165 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %166 = load i8, ptr %165, align 8
   %167 = icmp ne i8 %166, 0
-  %.sroa.0.0.copyload.i.i.i.i46 = load ptr, ptr %17, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i47 = getelementptr inbounds i8, ptr %17, i64 8
-  %.sroa.3.0.copyload.i.i.i.i48 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i47, align 8
+  %.sroa.0.0.copyload.i.i.i.i47 = load ptr, ptr %17, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i48 = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.3.0.copyload.i.i.i.i49 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i48, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %.not.i12.i.i.i49 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i46, null
-  %.not.i.i.i.i50 = select i1 %167, i1 true, i1 %.not.i12.i.i.i49
+  %.not.i12.i.i.i50 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i47, null
+  %.not.i.i.i.i51 = select i1 %167, i1 true, i1 %.not.i12.i.i.i50
   %168 = load ptr, ptr %50, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 10
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
-  %..sroa.0.0.copyload.i.i.i.i51 = select i1 %.not.i.i.i.i50, ptr %168, ptr %.sroa.0.0.copyload.i.i.i.i46
-  %..sroa.3.0.copyload.i.i.i.i52 = select i1 %.not.i.i.i.i50, i32 %171, i32 %.sroa.3.0.copyload.i.i.i.i48
-  %172 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i51, %168
-  %173 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i52, %171
+  %..sroa.0.0.copyload.i.i.i.i52 = select i1 %.not.i.i.i.i51, ptr %168, ptr %.sroa.0.0.copyload.i.i.i.i47
+  %..sroa.3.0.copyload.i.i.i.i53 = select i1 %.not.i.i.i.i51, i32 %171, i32 %.sroa.3.0.copyload.i.i.i.i49
+  %172 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i52, %168
+  %173 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i53, %171
   %174 = select i1 %172, i1 %173, i1 false
   br i1 %174, label %.invoke, label %175
 
-175:                                              ; preds = %.noexc54
-  %.not1.i.i.i53 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i52, 0
-  br i1 %.not1.i.i.i53, label %176, label %177
+175:                                              ; preds = %.noexc56
+  %.not1.i.i.i54 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i53, 0
+  br i1 %.not1.i.i.i54, label %176, label %177
 
 176:                                              ; preds = %175
   call void @llvm.trap()
   unreachable
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i51, i64 10
+  %178 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i52, i64 10
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
-  %181 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i52, %180
+  %181 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i53, %180
   br i1 %181, label %183, label %182
 
 182:                                              ; preds = %177
@@ -9760,9 +9762,10 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   unreachable
 
 183:                                              ; preds = %177
-  %184 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i51, i64 16
-  %185 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i52 to i64
-  %186 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %184, i64 %185, i32 0, i32 1
+  %184 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i53 to i64
+  %.idx.i55 = shl nuw nsw i64 %184, 6
+  %185 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i52, i64 48
+  %186 = getelementptr i8, ptr %185, i64 %.idx.i55
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %36, ptr noundef nonnull align 8 dereferenceable(32) %186, i32 noundef 8)
           to label %187 unwind label %323
 
@@ -9775,42 +9778,42 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %36) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA12_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(12) @.str.127)
-          to label %.noexc65 unwind label %323
+          to label %.noexc68 unwind label %323
 
-.noexc65:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit
+.noexc68:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit
   %190 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %191 = load i8, ptr %190, align 8
   %192 = icmp ne i8 %191, 0
-  %.sroa.0.0.copyload.i.i.i.i57 = load ptr, ptr %16, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i58 = getelementptr inbounds i8, ptr %16, i64 8
-  %.sroa.3.0.copyload.i.i.i.i59 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i58, align 8
+  %.sroa.0.0.copyload.i.i.i.i59 = load ptr, ptr %16, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i60 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.3.0.copyload.i.i.i.i61 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i60, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %.not.i12.i.i.i60 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i57, null
-  %.not.i.i.i.i61 = select i1 %192, i1 true, i1 %.not.i12.i.i.i60
+  %.not.i12.i.i.i62 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i59, null
+  %.not.i.i.i.i63 = select i1 %192, i1 true, i1 %.not.i12.i.i.i62
   %193 = load ptr, ptr %50, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 10
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
-  %..sroa.0.0.copyload.i.i.i.i62 = select i1 %.not.i.i.i.i61, ptr %193, ptr %.sroa.0.0.copyload.i.i.i.i57
-  %..sroa.3.0.copyload.i.i.i.i63 = select i1 %.not.i.i.i.i61, i32 %196, i32 %.sroa.3.0.copyload.i.i.i.i59
-  %197 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i62, %193
-  %198 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i63, %196
+  %..sroa.0.0.copyload.i.i.i.i64 = select i1 %.not.i.i.i.i63, ptr %193, ptr %.sroa.0.0.copyload.i.i.i.i59
+  %..sroa.3.0.copyload.i.i.i.i65 = select i1 %.not.i.i.i.i63, i32 %196, i32 %.sroa.3.0.copyload.i.i.i.i61
+  %197 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i64, %193
+  %198 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i65, %196
   %199 = select i1 %197, i1 %198, i1 false
   br i1 %199, label %.invoke, label %200
 
-200:                                              ; preds = %.noexc65
-  %.not1.i.i.i64 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i63, 0
-  br i1 %.not1.i.i.i64, label %201, label %202
+200:                                              ; preds = %.noexc68
+  %.not1.i.i.i66 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i65, 0
+  br i1 %.not1.i.i.i66, label %201, label %202
 
 201:                                              ; preds = %200
   call void @llvm.trap()
   unreachable
 
 202:                                              ; preds = %200
-  %203 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i62, i64 10
+  %203 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i64, i64 10
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i32
-  %206 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i63, %205
+  %206 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i65, %205
   br i1 %206, label %208, label %207
 
 207:                                              ; preds = %202
@@ -9818,9 +9821,10 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   unreachable
 
 208:                                              ; preds = %202
-  %209 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i62, i64 16
-  %210 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i63 to i64
-  %211 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %209, i64 %210, i32 0, i32 1
+  %209 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i65 to i64
+  %.idx.i67 = shl nuw nsw i64 %209, 6
+  %210 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i64, i64 48
+  %211 = getelementptr i8, ptr %210, i64 %.idx.i67
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(32) %211, i32 noundef 8)
           to label %212 unwind label %323
 
@@ -9833,42 +9837,42 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %37) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA12_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(12) @.str.128)
-          to label %.noexc76 unwind label %323
+          to label %.noexc80 unwind label %323
 
-.noexc76:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit
+.noexc80:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %216 = load i8, ptr %215, align 8
   %217 = icmp ne i8 %216, 0
-  %.sroa.0.0.copyload.i.i.i.i68 = load ptr, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i69 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.3.0.copyload.i.i.i.i70 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i69, align 8
+  %.sroa.0.0.copyload.i.i.i.i71 = load ptr, ptr %15, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i72 = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.3.0.copyload.i.i.i.i73 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i72, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %.not.i12.i.i.i71 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i68, null
-  %.not.i.i.i.i72 = select i1 %217, i1 true, i1 %.not.i12.i.i.i71
+  %.not.i12.i.i.i74 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i71, null
+  %.not.i.i.i.i75 = select i1 %217, i1 true, i1 %.not.i12.i.i.i74
   %218 = load ptr, ptr %50, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 10
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
-  %..sroa.0.0.copyload.i.i.i.i73 = select i1 %.not.i.i.i.i72, ptr %218, ptr %.sroa.0.0.copyload.i.i.i.i68
-  %..sroa.3.0.copyload.i.i.i.i74 = select i1 %.not.i.i.i.i72, i32 %221, i32 %.sroa.3.0.copyload.i.i.i.i70
-  %222 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i73, %218
-  %223 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i74, %221
+  %..sroa.0.0.copyload.i.i.i.i76 = select i1 %.not.i.i.i.i75, ptr %218, ptr %.sroa.0.0.copyload.i.i.i.i71
+  %..sroa.3.0.copyload.i.i.i.i77 = select i1 %.not.i.i.i.i75, i32 %221, i32 %.sroa.3.0.copyload.i.i.i.i73
+  %222 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i76, %218
+  %223 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i77, %221
   %224 = select i1 %222, i1 %223, i1 false
   br i1 %224, label %.invoke, label %225
 
-225:                                              ; preds = %.noexc76
-  %.not1.i.i.i75 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i74, 0
-  br i1 %.not1.i.i.i75, label %226, label %227
+225:                                              ; preds = %.noexc80
+  %.not1.i.i.i78 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i77, 0
+  br i1 %.not1.i.i.i78, label %226, label %227
 
 226:                                              ; preds = %225
   call void @llvm.trap()
   unreachable
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i73, i64 10
+  %228 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i76, i64 10
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
-  %231 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i74, %230
+  %231 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i77, %230
   br i1 %231, label %233, label %232
 
 232:                                              ; preds = %227
@@ -9876,9 +9880,10 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   unreachable
 
 233:                                              ; preds = %227
-  %234 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i73, i64 16
-  %235 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i74 to i64
-  %236 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %234, i64 %235, i32 0, i32 1
+  %234 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i77 to i64
+  %.idx.i79 = shl nuw nsw i64 %234, 6
+  %235 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i76, i64 48
+  %236 = getelementptr i8, ptr %235, i64 %.idx.i79
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 8 dereferenceable(32) %236, i32 noundef 8)
           to label %237 unwind label %323
 
@@ -9891,42 +9896,42 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %38) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA8_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(8) @.str.129)
-          to label %.noexc88 unwind label %323
+          to label %.noexc93 unwind label %323
 
-.noexc88:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit
+.noexc93:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit
   %240 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %241 = load i8, ptr %240, align 8
   %242 = icmp ne i8 %241, 0
-  %.sroa.0.0.copyload.i.i.i.i80 = load ptr, ptr %14, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i81 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.3.0.copyload.i.i.i.i82 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i81, align 8
+  %.sroa.0.0.copyload.i.i.i.i84 = load ptr, ptr %14, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i85 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.3.0.copyload.i.i.i.i86 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i85, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %.not.i12.i.i.i83 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i80, null
-  %.not.i.i.i.i84 = select i1 %242, i1 true, i1 %.not.i12.i.i.i83
+  %.not.i12.i.i.i87 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i84, null
+  %.not.i.i.i.i88 = select i1 %242, i1 true, i1 %.not.i12.i.i.i87
   %243 = load ptr, ptr %50, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 10
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
-  %..sroa.0.0.copyload.i.i.i.i85 = select i1 %.not.i.i.i.i84, ptr %243, ptr %.sroa.0.0.copyload.i.i.i.i80
-  %..sroa.3.0.copyload.i.i.i.i86 = select i1 %.not.i.i.i.i84, i32 %246, i32 %.sroa.3.0.copyload.i.i.i.i82
-  %247 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i85, %243
-  %248 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i86, %246
+  %..sroa.0.0.copyload.i.i.i.i89 = select i1 %.not.i.i.i.i88, ptr %243, ptr %.sroa.0.0.copyload.i.i.i.i84
+  %..sroa.3.0.copyload.i.i.i.i90 = select i1 %.not.i.i.i.i88, i32 %246, i32 %.sroa.3.0.copyload.i.i.i.i86
+  %247 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i89, %243
+  %248 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i90, %246
   %249 = select i1 %247, i1 %248, i1 false
   br i1 %249, label %.invoke, label %250
 
-250:                                              ; preds = %.noexc88
-  %.not1.i.i.i87 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i86, 0
-  br i1 %.not1.i.i.i87, label %251, label %252
+250:                                              ; preds = %.noexc93
+  %.not1.i.i.i91 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i90, 0
+  br i1 %.not1.i.i.i91, label %251, label %252
 
 251:                                              ; preds = %250
   call void @llvm.trap()
   unreachable
 
 252:                                              ; preds = %250
-  %253 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i85, i64 10
+  %253 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i89, i64 10
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
-  %256 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i86, %255
+  %256 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i90, %255
   br i1 %256, label %258, label %257
 
 257:                                              ; preds = %252
@@ -9934,9 +9939,10 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   unreachable
 
 258:                                              ; preds = %252
-  %259 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i85, i64 16
-  %260 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i86 to i64
-  %261 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %259, i64 %260, i32 0, i32 1
+  %259 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i90 to i64
+  %.idx.i92 = shl nuw nsw i64 %259, 6
+  %260 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i89, i64 48
+  %261 = getelementptr i8, ptr %260, i64 %.idx.i92
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(32) %261, i32 noundef 8)
           to label %262 unwind label %323
 
@@ -9949,42 +9955,42 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %39) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA13_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.130)
-          to label %.noexc99 unwind label %323
+          to label %.noexc105 unwind label %323
 
-.noexc99:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit
+.noexc105:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit
   %265 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %266 = load i8, ptr %265, align 8
   %267 = icmp ne i8 %266, 0
-  %.sroa.0.0.copyload.i.i.i.i91 = load ptr, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i92 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.3.0.copyload.i.i.i.i93 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i92, align 8
+  %.sroa.0.0.copyload.i.i.i.i96 = load ptr, ptr %13, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i97 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.3.0.copyload.i.i.i.i98 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i97, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %.not.i12.i.i.i94 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i91, null
-  %.not.i.i.i.i95 = select i1 %267, i1 true, i1 %.not.i12.i.i.i94
+  %.not.i12.i.i.i99 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i96, null
+  %.not.i.i.i.i100 = select i1 %267, i1 true, i1 %.not.i12.i.i.i99
   %268 = load ptr, ptr %50, align 8
   %269 = getelementptr inbounds i8, ptr %268, i64 10
   %270 = load i8, ptr %269, align 1
   %271 = zext i8 %270 to i32
-  %..sroa.0.0.copyload.i.i.i.i96 = select i1 %.not.i.i.i.i95, ptr %268, ptr %.sroa.0.0.copyload.i.i.i.i91
-  %..sroa.3.0.copyload.i.i.i.i97 = select i1 %.not.i.i.i.i95, i32 %271, i32 %.sroa.3.0.copyload.i.i.i.i93
-  %272 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i96, %268
-  %273 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i97, %271
+  %..sroa.0.0.copyload.i.i.i.i101 = select i1 %.not.i.i.i.i100, ptr %268, ptr %.sroa.0.0.copyload.i.i.i.i96
+  %..sroa.3.0.copyload.i.i.i.i102 = select i1 %.not.i.i.i.i100, i32 %271, i32 %.sroa.3.0.copyload.i.i.i.i98
+  %272 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i101, %268
+  %273 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i102, %271
   %274 = select i1 %272, i1 %273, i1 false
   br i1 %274, label %.invoke, label %275
 
-275:                                              ; preds = %.noexc99
-  %.not1.i.i.i98 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i97, 0
-  br i1 %.not1.i.i.i98, label %276, label %277
+275:                                              ; preds = %.noexc105
+  %.not1.i.i.i103 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i102, 0
+  br i1 %.not1.i.i.i103, label %276, label %277
 
 276:                                              ; preds = %275
   call void @llvm.trap()
   unreachable
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i96, i64 10
+  %278 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i101, i64 10
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i32
-  %281 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i97, %280
+  %281 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i102, %280
   br i1 %281, label %283, label %282
 
 282:                                              ; preds = %277
@@ -9992,9 +9998,10 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   unreachable
 
 283:                                              ; preds = %277
-  %284 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i96, i64 16
-  %285 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i97 to i64
-  %286 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %284, i64 %285, i32 0, i32 1
+  %284 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i102 to i64
+  %.idx.i104 = shl nuw nsw i64 %284, 6
+  %285 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i101, i64 48
+  %286 = getelementptr i8, ptr %285, i64 %.idx.i104
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 8 dereferenceable(32) %286, i32 noundef 8)
           to label %287 unwind label %323
 
@@ -10007,42 +10014,42 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %40) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA16_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(16) @.str.131)
-          to label %.noexc110 unwind label %323
+          to label %.noexc117 unwind label %323
 
-.noexc110:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit
+.noexc117:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit
   %290 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %291 = load i8, ptr %290, align 8
   %292 = icmp ne i8 %291, 0
-  %.sroa.0.0.copyload.i.i.i.i102 = load ptr, ptr %12, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i103 = getelementptr inbounds i8, ptr %12, i64 8
-  %.sroa.3.0.copyload.i.i.i.i104 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i103, align 8
+  %.sroa.0.0.copyload.i.i.i.i108 = load ptr, ptr %12, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i109 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.3.0.copyload.i.i.i.i110 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i109, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %.not.i12.i.i.i105 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i102, null
-  %.not.i.i.i.i106 = select i1 %292, i1 true, i1 %.not.i12.i.i.i105
+  %.not.i12.i.i.i111 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i108, null
+  %.not.i.i.i.i112 = select i1 %292, i1 true, i1 %.not.i12.i.i.i111
   %293 = load ptr, ptr %50, align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 10
   %295 = load i8, ptr %294, align 1
   %296 = zext i8 %295 to i32
-  %..sroa.0.0.copyload.i.i.i.i107 = select i1 %.not.i.i.i.i106, ptr %293, ptr %.sroa.0.0.copyload.i.i.i.i102
-  %..sroa.3.0.copyload.i.i.i.i108 = select i1 %.not.i.i.i.i106, i32 %296, i32 %.sroa.3.0.copyload.i.i.i.i104
-  %297 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i107, %293
-  %298 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i108, %296
+  %..sroa.0.0.copyload.i.i.i.i113 = select i1 %.not.i.i.i.i112, ptr %293, ptr %.sroa.0.0.copyload.i.i.i.i108
+  %..sroa.3.0.copyload.i.i.i.i114 = select i1 %.not.i.i.i.i112, i32 %296, i32 %.sroa.3.0.copyload.i.i.i.i110
+  %297 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i113, %293
+  %298 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i114, %296
   %299 = select i1 %297, i1 %298, i1 false
   br i1 %299, label %.invoke, label %300
 
-300:                                              ; preds = %.noexc110
-  %.not1.i.i.i109 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i108, 0
-  br i1 %.not1.i.i.i109, label %301, label %302
+300:                                              ; preds = %.noexc117
+  %.not1.i.i.i115 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i114, 0
+  br i1 %.not1.i.i.i115, label %301, label %302
 
 301:                                              ; preds = %300
   call void @llvm.trap()
   unreachable
 
 302:                                              ; preds = %300
-  %303 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i107, i64 10
+  %303 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i113, i64 10
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
-  %306 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i108, %305
+  %306 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i114, %305
   br i1 %306, label %308, label %307
 
 307:                                              ; preds = %302
@@ -10050,9 +10057,10 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   unreachable
 
 308:                                              ; preds = %302
-  %309 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i107, i64 16
-  %310 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i108 to i64
-  %311 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %309, i64 %310, i32 0, i32 1
+  %309 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i114 to i64
+  %.idx.i116 = shl nuw nsw i64 %309, 6
+  %310 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i113, i64 48
+  %311 = getelementptr i8, ptr %310, i64 %.idx.i116
   %312 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %311) #28
   %313 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %311) #28
   %314 = icmp sgt i64 %313, -1
@@ -10086,7 +10094,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 322:                                              ; preds = %321
   unreachable
 
-323:                                              ; preds = %.invoke, %496, %470, %444, %418, %392, %373, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit124, %337, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit, %164, %140, %._crit_edge, %368, %320, %283, %258, %233, %208, %183, %159, %135
+323:                                              ; preds = %.invoke, %496, %470, %444, %418, %392, %373, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132, %337, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit, %164, %140, %._crit_edge, %368, %320, %283, %258, %233, %208, %183, %159, %135
   %324 = landingpad { ptr, i32 }
           cleanup
   br label %575
@@ -10130,42 +10138,42 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 337:                                              ; preds = %317
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA16_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(16) @.str.133)
-          to label %.noexc121 unwind label %323
+          to label %.noexc129 unwind label %323
 
-.noexc121:                                        ; preds = %337
+.noexc129:                                        ; preds = %337
   %338 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %339 = load i8, ptr %338, align 8
   %340 = icmp ne i8 %339, 0
-  %.sroa.0.0.copyload.i.i.i.i113 = load ptr, ptr %10, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i114 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.3.0.copyload.i.i.i.i115 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i114, align 8
+  %.sroa.0.0.copyload.i.i.i.i120 = load ptr, ptr %10, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i121 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.3.0.copyload.i.i.i.i122 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i121, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %.not.i12.i.i.i116 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i113, null
-  %.not.i.i.i.i117 = select i1 %340, i1 true, i1 %.not.i12.i.i.i116
+  %.not.i12.i.i.i123 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i120, null
+  %.not.i.i.i.i124 = select i1 %340, i1 true, i1 %.not.i12.i.i.i123
   %341 = load ptr, ptr %50, align 8
   %342 = getelementptr inbounds i8, ptr %341, i64 10
   %343 = load i8, ptr %342, align 1
   %344 = zext i8 %343 to i32
-  %..sroa.0.0.copyload.i.i.i.i118 = select i1 %.not.i.i.i.i117, ptr %341, ptr %.sroa.0.0.copyload.i.i.i.i113
-  %..sroa.3.0.copyload.i.i.i.i119 = select i1 %.not.i.i.i.i117, i32 %344, i32 %.sroa.3.0.copyload.i.i.i.i115
-  %345 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i118, %341
-  %346 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i119, %344
+  %..sroa.0.0.copyload.i.i.i.i125 = select i1 %.not.i.i.i.i124, ptr %341, ptr %.sroa.0.0.copyload.i.i.i.i120
+  %..sroa.3.0.copyload.i.i.i.i126 = select i1 %.not.i.i.i.i124, i32 %344, i32 %.sroa.3.0.copyload.i.i.i.i122
+  %345 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i125, %341
+  %346 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i126, %344
   %347 = select i1 %345, i1 %346, i1 false
   br i1 %347, label %.invoke, label %348
 
-348:                                              ; preds = %.noexc121
-  %.not1.i.i.i120 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i119, 0
-  br i1 %.not1.i.i.i120, label %349, label %350
+348:                                              ; preds = %.noexc129
+  %.not1.i.i.i127 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i126, 0
+  br i1 %.not1.i.i.i127, label %349, label %350
 
 349:                                              ; preds = %348
   call void @llvm.trap()
   unreachable
 
 350:                                              ; preds = %348
-  %351 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i118, i64 10
+  %351 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i125, i64 10
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
-  %354 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i119, %353
+  %354 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i126, %353
   br i1 %354, label %356, label %355
 
 355:                                              ; preds = %350
@@ -10173,24 +10181,25 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 356:                                              ; preds = %350
-  %357 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i118, i64 16
-  %358 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i119 to i64
-  %359 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %357, i64 %358, i32 0, i32 1
+  %357 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i126 to i64
+  %.idx.i128 = shl nuw nsw i64 %357, 6
+  %358 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i125, i64 48
+  %359 = getelementptr i8, ptr %358, i64 %.idx.i128
   %360 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %359) #28
   %361 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %359) #28
   %362 = icmp sgt i64 %361, -1
-  br i1 %362, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit124, label %363
+  br i1 %362, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132, label %363
 
 363:                                              ; preds = %356
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit124: ; preds = %356
+_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132: ; preds = %356
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %364 = invoke noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto32_baseENS0_11string_viewEPii(ptr %360, i64 %361, ptr noundef nonnull %9, i32 noundef 10)
           to label %365 unwind label %323
 
-365:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit124
+365:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %367 = load i32, ptr %9, align 4
   store i32 %367, ptr %366, align 8
@@ -10218,42 +10227,42 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 373:                                              ; preds = %365
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA34_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(34) @.str.135)
-          to label %.noexc135 unwind label %323
+          to label %.noexc144 unwind label %323
 
-.noexc135:                                        ; preds = %373
+.noexc144:                                        ; preds = %373
   %374 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %375 = load i8, ptr %374, align 8
   %376 = icmp ne i8 %375, 0
-  %.sroa.0.0.copyload.i.i.i.i127 = load ptr, ptr %8, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i128 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.3.0.copyload.i.i.i.i129 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i128, align 8
+  %.sroa.0.0.copyload.i.i.i.i135 = load ptr, ptr %8, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i136 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.3.0.copyload.i.i.i.i137 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i136, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %.not.i12.i.i.i130 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i127, null
-  %.not.i.i.i.i131 = select i1 %376, i1 true, i1 %.not.i12.i.i.i130
+  %.not.i12.i.i.i138 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i135, null
+  %.not.i.i.i.i139 = select i1 %376, i1 true, i1 %.not.i12.i.i.i138
   %377 = load ptr, ptr %50, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 10
   %379 = load i8, ptr %378, align 1
   %380 = zext i8 %379 to i32
-  %..sroa.0.0.copyload.i.i.i.i132 = select i1 %.not.i.i.i.i131, ptr %377, ptr %.sroa.0.0.copyload.i.i.i.i127
-  %..sroa.3.0.copyload.i.i.i.i133 = select i1 %.not.i.i.i.i131, i32 %380, i32 %.sroa.3.0.copyload.i.i.i.i129
-  %381 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i132, %377
-  %382 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i133, %380
+  %..sroa.0.0.copyload.i.i.i.i140 = select i1 %.not.i.i.i.i139, ptr %377, ptr %.sroa.0.0.copyload.i.i.i.i135
+  %..sroa.3.0.copyload.i.i.i.i141 = select i1 %.not.i.i.i.i139, i32 %380, i32 %.sroa.3.0.copyload.i.i.i.i137
+  %381 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i140, %377
+  %382 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i141, %380
   %383 = select i1 %381, i1 %382, i1 false
   br i1 %383, label %.invoke, label %384
 
-384:                                              ; preds = %.noexc135
-  %.not1.i.i.i134 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i133, 0
-  br i1 %.not1.i.i.i134, label %385, label %386
+384:                                              ; preds = %.noexc144
+  %.not1.i.i.i142 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i141, 0
+  br i1 %.not1.i.i.i142, label %385, label %386
 
 385:                                              ; preds = %384
   call void @llvm.trap()
   unreachable
 
 386:                                              ; preds = %384
-  %387 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i132, i64 10
+  %387 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i140, i64 10
   %388 = load i8, ptr %387, align 1
   %389 = zext i8 %388 to i32
-  %390 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i133, %389
+  %390 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i141, %389
   br i1 %390, label %392, label %391
 
 391:                                              ; preds = %386
@@ -10261,9 +10270,10 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 392:                                              ; preds = %386
-  %393 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i132, i64 16
-  %394 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i133 to i64
-  %395 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %393, i64 %394, i32 0, i32 1
+  %393 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i141 to i64
+  %.idx.i143 = shl nuw nsw i64 %393, 6
+  %394 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i140, i64 48
+  %395 = getelementptr i8, ptr %394, i64 %.idx.i143
   %396 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %395, ptr noundef nonnull @.str.109) #28
   %397 = icmp eq i32 %396, 0
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -10271,42 +10281,42 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   store i8 %399, ptr %398, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA34_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(34) @.str.136)
-          to label %.noexc145 unwind label %323
+          to label %.noexc155 unwind label %323
 
-.noexc145:                                        ; preds = %392
+.noexc155:                                        ; preds = %392
   %400 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %401 = load i8, ptr %400, align 8
   %402 = icmp ne i8 %401, 0
-  %.sroa.0.0.copyload.i.i.i.i137 = load ptr, ptr %7, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i138 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.3.0.copyload.i.i.i.i139 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i138, align 8
+  %.sroa.0.0.copyload.i.i.i.i146 = load ptr, ptr %7, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i147 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.3.0.copyload.i.i.i.i148 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i147, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %.not.i12.i.i.i140 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i137, null
-  %.not.i.i.i.i141 = select i1 %402, i1 true, i1 %.not.i12.i.i.i140
+  %.not.i12.i.i.i149 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i146, null
+  %.not.i.i.i.i150 = select i1 %402, i1 true, i1 %.not.i12.i.i.i149
   %403 = load ptr, ptr %50, align 8
   %404 = getelementptr inbounds i8, ptr %403, i64 10
   %405 = load i8, ptr %404, align 1
   %406 = zext i8 %405 to i32
-  %..sroa.0.0.copyload.i.i.i.i142 = select i1 %.not.i.i.i.i141, ptr %403, ptr %.sroa.0.0.copyload.i.i.i.i137
-  %..sroa.3.0.copyload.i.i.i.i143 = select i1 %.not.i.i.i.i141, i32 %406, i32 %.sroa.3.0.copyload.i.i.i.i139
-  %407 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i142, %403
-  %408 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i143, %406
+  %..sroa.0.0.copyload.i.i.i.i151 = select i1 %.not.i.i.i.i150, ptr %403, ptr %.sroa.0.0.copyload.i.i.i.i146
+  %..sroa.3.0.copyload.i.i.i.i152 = select i1 %.not.i.i.i.i150, i32 %406, i32 %.sroa.3.0.copyload.i.i.i.i148
+  %407 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i151, %403
+  %408 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i152, %406
   %409 = select i1 %407, i1 %408, i1 false
   br i1 %409, label %.invoke, label %410
 
-410:                                              ; preds = %.noexc145
-  %.not1.i.i.i144 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i143, 0
-  br i1 %.not1.i.i.i144, label %411, label %412
+410:                                              ; preds = %.noexc155
+  %.not1.i.i.i153 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i152, 0
+  br i1 %.not1.i.i.i153, label %411, label %412
 
 411:                                              ; preds = %410
   call void @llvm.trap()
   unreachable
 
 412:                                              ; preds = %410
-  %413 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i142, i64 10
+  %413 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i151, i64 10
   %414 = load i8, ptr %413, align 1
   %415 = zext i8 %414 to i32
-  %416 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i143, %415
+  %416 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i152, %415
   br i1 %416, label %418, label %417
 
 417:                                              ; preds = %412
@@ -10314,9 +10324,10 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 418:                                              ; preds = %412
-  %419 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i142, i64 16
-  %420 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i143 to i64
-  %421 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %419, i64 %420, i32 0, i32 1
+  %419 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i152 to i64
+  %.idx.i154 = shl nuw nsw i64 %419, 6
+  %420 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i151, i64 48
+  %421 = getelementptr i8, ptr %420, i64 %.idx.i154
   %422 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull @.str.109) #28
   %423 = icmp eq i32 %422, 0
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 93
@@ -10324,42 +10335,42 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   store i8 %425, ptr %424, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA28_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(28) @.str.137)
-          to label %.noexc156 unwind label %323
+          to label %.noexc167 unwind label %323
 
-.noexc156:                                        ; preds = %418
+.noexc167:                                        ; preds = %418
   %426 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %427 = load i8, ptr %426, align 8
   %428 = icmp ne i8 %427, 0
-  %.sroa.0.0.copyload.i.i.i.i148 = load ptr, ptr %6, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i149 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0.copyload.i.i.i.i150 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i149, align 8
+  %.sroa.0.0.copyload.i.i.i.i158 = load ptr, ptr %6, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i159 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0.copyload.i.i.i.i160 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i159, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.not.i12.i.i.i151 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i148, null
-  %.not.i.i.i.i152 = select i1 %428, i1 true, i1 %.not.i12.i.i.i151
+  %.not.i12.i.i.i161 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i158, null
+  %.not.i.i.i.i162 = select i1 %428, i1 true, i1 %.not.i12.i.i.i161
   %429 = load ptr, ptr %50, align 8
   %430 = getelementptr inbounds i8, ptr %429, i64 10
   %431 = load i8, ptr %430, align 1
   %432 = zext i8 %431 to i32
-  %..sroa.0.0.copyload.i.i.i.i153 = select i1 %.not.i.i.i.i152, ptr %429, ptr %.sroa.0.0.copyload.i.i.i.i148
-  %..sroa.3.0.copyload.i.i.i.i154 = select i1 %.not.i.i.i.i152, i32 %432, i32 %.sroa.3.0.copyload.i.i.i.i150
-  %433 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i153, %429
-  %434 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i154, %432
+  %..sroa.0.0.copyload.i.i.i.i163 = select i1 %.not.i.i.i.i162, ptr %429, ptr %.sroa.0.0.copyload.i.i.i.i158
+  %..sroa.3.0.copyload.i.i.i.i164 = select i1 %.not.i.i.i.i162, i32 %432, i32 %.sroa.3.0.copyload.i.i.i.i160
+  %433 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i163, %429
+  %434 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i164, %432
   %435 = select i1 %433, i1 %434, i1 false
   br i1 %435, label %.invoke, label %436
 
-436:                                              ; preds = %.noexc156
-  %.not1.i.i.i155 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i154, 0
-  br i1 %.not1.i.i.i155, label %437, label %438
+436:                                              ; preds = %.noexc167
+  %.not1.i.i.i165 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i164, 0
+  br i1 %.not1.i.i.i165, label %437, label %438
 
 437:                                              ; preds = %436
   call void @llvm.trap()
   unreachable
 
 438:                                              ; preds = %436
-  %439 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i153, i64 10
+  %439 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 10
   %440 = load i8, ptr %439, align 1
   %441 = zext i8 %440 to i32
-  %442 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i154, %441
+  %442 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i164, %441
   br i1 %442, label %444, label %443
 
 443:                                              ; preds = %438
@@ -10367,9 +10378,10 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 444:                                              ; preds = %438
-  %445 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i153, i64 16
-  %446 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i154 to i64
-  %447 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %445, i64 %446, i32 0, i32 1
+  %445 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i164 to i64
+  %.idx.i166 = shl nuw nsw i64 %445, 6
+  %446 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 48
+  %447 = getelementptr i8, ptr %446, i64 %.idx.i166
   %448 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %447, ptr noundef nonnull @.str.109) #28
   %449 = icmp eq i32 %448, 0
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 94
@@ -10377,42 +10389,42 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   store i8 %451, ptr %450, align 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA28_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(28) @.str.138)
-          to label %.noexc166 unwind label %323
+          to label %.noexc178 unwind label %323
 
-.noexc166:                                        ; preds = %444
+.noexc178:                                        ; preds = %444
   %452 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %453 = load i8, ptr %452, align 8
   %454 = icmp ne i8 %453, 0
-  %.sroa.0.0.copyload.i.i.i.i158 = load ptr, ptr %5, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i159 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload.i.i.i.i160 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i159, align 8
+  %.sroa.0.0.copyload.i.i.i.i169 = load ptr, ptr %5, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i170 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3.0.copyload.i.i.i.i171 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i170, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.not.i12.i.i.i161 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i158, null
-  %.not.i.i.i.i162 = select i1 %454, i1 true, i1 %.not.i12.i.i.i161
+  %.not.i12.i.i.i172 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i169, null
+  %.not.i.i.i.i173 = select i1 %454, i1 true, i1 %.not.i12.i.i.i172
   %455 = load ptr, ptr %50, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 10
   %457 = load i8, ptr %456, align 1
   %458 = zext i8 %457 to i32
-  %..sroa.0.0.copyload.i.i.i.i163 = select i1 %.not.i.i.i.i162, ptr %455, ptr %.sroa.0.0.copyload.i.i.i.i158
-  %..sroa.3.0.copyload.i.i.i.i164 = select i1 %.not.i.i.i.i162, i32 %458, i32 %.sroa.3.0.copyload.i.i.i.i160
-  %459 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i163, %455
-  %460 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i164, %458
+  %..sroa.0.0.copyload.i.i.i.i174 = select i1 %.not.i.i.i.i173, ptr %455, ptr %.sroa.0.0.copyload.i.i.i.i169
+  %..sroa.3.0.copyload.i.i.i.i175 = select i1 %.not.i.i.i.i173, i32 %458, i32 %.sroa.3.0.copyload.i.i.i.i171
+  %459 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i174, %455
+  %460 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i175, %458
   %461 = select i1 %459, i1 %460, i1 false
   br i1 %461, label %.invoke, label %462
 
-462:                                              ; preds = %.noexc166
-  %.not1.i.i.i165 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i164, 0
-  br i1 %.not1.i.i.i165, label %463, label %464
+462:                                              ; preds = %.noexc178
+  %.not1.i.i.i176 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i175, 0
+  br i1 %.not1.i.i.i176, label %463, label %464
 
 463:                                              ; preds = %462
   call void @llvm.trap()
   unreachable
 
 464:                                              ; preds = %462
-  %465 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 10
+  %465 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 10
   %466 = load i8, ptr %465, align 1
   %467 = zext i8 %466 to i32
-  %468 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i164, %467
+  %468 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i175, %467
   br i1 %468, label %470, label %469
 
 469:                                              ; preds = %464
@@ -10420,9 +10432,10 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 470:                                              ; preds = %464
-  %471 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 16
-  %472 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i164 to i64
-  %473 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %471, i64 %472, i32 0, i32 1
+  %471 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i175 to i64
+  %.idx.i177 = shl nuw nsw i64 %471, 6
+  %472 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 48
+  %473 = getelementptr i8, ptr %472, i64 %.idx.i177
   %474 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %473, ptr noundef nonnull @.str.109) #28
   %475 = icmp eq i32 %474, 0
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 95
@@ -10430,42 +10443,42 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   store i8 %477, ptr %476, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA37_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(37) @.str.139)
-          to label %.noexc177 unwind label %323
+          to label %.noexc190 unwind label %323
 
-.noexc177:                                        ; preds = %470
+.noexc190:                                        ; preds = %470
   %478 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %479 = load i8, ptr %478, align 8
   %480 = icmp ne i8 %479, 0
-  %.sroa.0.0.copyload.i.i.i.i169 = load ptr, ptr %4, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i170 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload.i.i.i.i171 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i170, align 8
+  %.sroa.0.0.copyload.i.i.i.i181 = load ptr, ptr %4, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i182 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0.copyload.i.i.i.i183 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i182, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.not.i12.i.i.i172 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i169, null
-  %.not.i.i.i.i173 = select i1 %480, i1 true, i1 %.not.i12.i.i.i172
+  %.not.i12.i.i.i184 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i181, null
+  %.not.i.i.i.i185 = select i1 %480, i1 true, i1 %.not.i12.i.i.i184
   %481 = load ptr, ptr %50, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 10
   %483 = load i8, ptr %482, align 1
   %484 = zext i8 %483 to i32
-  %..sroa.0.0.copyload.i.i.i.i174 = select i1 %.not.i.i.i.i173, ptr %481, ptr %.sroa.0.0.copyload.i.i.i.i169
-  %..sroa.3.0.copyload.i.i.i.i175 = select i1 %.not.i.i.i.i173, i32 %484, i32 %.sroa.3.0.copyload.i.i.i.i171
-  %485 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i174, %481
-  %486 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i175, %484
+  %..sroa.0.0.copyload.i.i.i.i186 = select i1 %.not.i.i.i.i185, ptr %481, ptr %.sroa.0.0.copyload.i.i.i.i181
+  %..sroa.3.0.copyload.i.i.i.i187 = select i1 %.not.i.i.i.i185, i32 %484, i32 %.sroa.3.0.copyload.i.i.i.i183
+  %485 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i186, %481
+  %486 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i187, %484
   %487 = select i1 %485, i1 %486, i1 false
   br i1 %487, label %.invoke, label %488
 
-488:                                              ; preds = %.noexc177
-  %.not1.i.i.i176 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i175, 0
-  br i1 %.not1.i.i.i176, label %489, label %490
+488:                                              ; preds = %.noexc190
+  %.not1.i.i.i188 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i187, 0
+  br i1 %.not1.i.i.i188, label %489, label %490
 
 489:                                              ; preds = %488
   call void @llvm.trap()
   unreachable
 
 490:                                              ; preds = %488
-  %491 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 10
+  %491 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i186, i64 10
   %492 = load i8, ptr %491, align 1
   %493 = zext i8 %492 to i32
-  %494 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i175, %493
+  %494 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i187, %493
   br i1 %494, label %496, label %495
 
 495:                                              ; preds = %490
@@ -10473,58 +10486,59 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 496:                                              ; preds = %490
-  %497 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 16
-  %498 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i175 to i64
-  %499 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %497, i64 %498, i32 0, i32 1
+  %497 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i187 to i64
+  %.idx.i189 = shl nuw nsw i64 %497, 6
+  %498 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i186, i64 48
+  %499 = getelementptr i8, ptr %498, i64 %.idx.i189
   %500 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %499, ptr noundef nonnull @.str.109) #28
   %501 = icmp eq i32 %500, 0
   %502 = zext i1 %501 to i8
   store i8 %502, ptr %116, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA24_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(24) @.str.140)
-          to label %.noexc187 unwind label %323
+          to label %.noexc201 unwind label %323
 
-.noexc187:                                        ; preds = %496
+.noexc201:                                        ; preds = %496
   %503 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %504 = load i8, ptr %503, align 8
   %505 = icmp ne i8 %504, 0
-  %.sroa.0.0.copyload.i.i.i.i179 = load ptr, ptr %3, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i180 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0.copyload.i.i.i.i181 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i180, align 8
+  %.sroa.0.0.copyload.i.i.i.i192 = load ptr, ptr %3, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i193 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.3.0.copyload.i.i.i.i194 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i193, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.not.i12.i.i.i182 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i179, null
-  %.not.i.i.i.i183 = select i1 %505, i1 true, i1 %.not.i12.i.i.i182
+  %.not.i12.i.i.i195 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i192, null
+  %.not.i.i.i.i196 = select i1 %505, i1 true, i1 %.not.i12.i.i.i195
   %506 = load ptr, ptr %50, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 10
   %508 = load i8, ptr %507, align 1
   %509 = zext i8 %508 to i32
-  %..sroa.0.0.copyload.i.i.i.i184 = select i1 %.not.i.i.i.i183, ptr %506, ptr %.sroa.0.0.copyload.i.i.i.i179
-  %..sroa.3.0.copyload.i.i.i.i185 = select i1 %.not.i.i.i.i183, i32 %509, i32 %.sroa.3.0.copyload.i.i.i.i181
-  %510 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i184, %506
-  %511 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i185, %509
+  %..sroa.0.0.copyload.i.i.i.i197 = select i1 %.not.i.i.i.i196, ptr %506, ptr %.sroa.0.0.copyload.i.i.i.i192
+  %..sroa.3.0.copyload.i.i.i.i198 = select i1 %.not.i.i.i.i196, i32 %509, i32 %.sroa.3.0.copyload.i.i.i.i194
+  %510 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i197, %506
+  %511 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i198, %509
   %512 = select i1 %510, i1 %511, i1 false
   br i1 %512, label %.invoke, label %513
 
-.invoke:                                          ; preds = %.noexc110, %.noexc99, %.noexc88, %.noexc76, %.noexc65, %.noexc54, %.noexc44, %.noexc34, %.noexc187, %.noexc177, %.noexc166, %.noexc156, %.noexc145, %.noexc135, %.noexc121
+.invoke:                                          ; preds = %.noexc117, %.noexc105, %.noexc93, %.noexc80, %.noexc68, %.noexc56, %.noexc45, %.noexc34, %.noexc201, %.noexc190, %.noexc178, %.noexc167, %.noexc155, %.noexc144, %.noexc129
   invoke void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.206) #29
           to label %.cont unwind label %323
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-513:                                              ; preds = %.noexc187
-  %.not1.i.i.i186 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i185, 0
-  br i1 %.not1.i.i.i186, label %514, label %515
+513:                                              ; preds = %.noexc201
+  %.not1.i.i.i199 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i198, 0
+  br i1 %.not1.i.i.i199, label %514, label %515
 
 514:                                              ; preds = %513
   call void @llvm.trap()
   unreachable
 
 515:                                              ; preds = %513
-  %516 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i184, i64 10
+  %516 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i197, i64 10
   %517 = load i8, ptr %516, align 1
   %518 = zext i8 %517 to i32
-  %519 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i185, %518
+  %519 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i198, %518
   br i1 %519, label %521, label %520
 
 520:                                              ; preds = %515
@@ -10532,51 +10546,52 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 521:                                              ; preds = %515
-  %522 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i184, i64 16
-  %523 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i185 to i64
-  %524 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %522, i64 %523, i32 0, i32 1
+  %522 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i198 to i64
+  %.idx.i200 = shl nuw nsw i64 %522, 6
+  %523 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i197, i64 48
+  %524 = getelementptr i8, ptr %523, i64 %.idx.i200
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #28
   %525 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %46)
-          to label %.noexc189 unwind label %569
+          to label %.noexc203 unwind label %569
 
-.noexc189:                                        ; preds = %521
+.noexc203:                                        ; preds = %521
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %525, ptr noundef nonnull align 1 dereferenceable(1) %47)
-          to label %.noexc190 unwind label %569
+          to label %.noexc204 unwind label %569
 
-.noexc190:                                        ; preds = %.noexc189
+.noexc204:                                        ; preds = %.noexc203
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.115, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %526
 
-526:                                              ; preds = %.noexc190
+526:                                              ; preds = %.noexc204
   %527 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #28
-  br label %.body191
+  br label %.body205
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc190
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc204
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #28
   %528 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %48)
-          to label %.noexc193 unwind label %571
+          to label %.noexc207 unwind label %571
 
-.noexc193:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+.noexc207:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %528, ptr noundef nonnull align 1 dereferenceable(1) %49)
-          to label %.noexc194 unwind label %571
+          to label %.noexc208 unwind label %571
 
-.noexc194:                                        ; preds = %.noexc193
+.noexc208:                                        ; preds = %.noexc207
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 3))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit197 unwind label %529
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211 unwind label %529
 
-529:                                              ; preds = %.noexc194
+529:                                              ; preds = %.noexc208
   %530 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #28
-  br label %.body195
+  br label %.body209
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit197: ; preds = %.noexc194
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ; preds = %.noexc208
   invoke void @_ZN10open_spiel25DeserializeGameParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::map") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %524, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %531 unwind label %573
 
-531:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit197
+531:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %533 = load ptr, ptr %111, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %532, ptr noundef %533)
@@ -10646,8 +10661,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Gam
   %.05.i.i.i.i = phi ptr [ %554, %.lr.ph.i.i.i.i ], [ %552, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #28
   %554 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i198 = icmp eq ptr %554, %553
-  br i1 %.not.i.i.i.i198, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  %.not.i.i.i.i212 = icmp eq ptr %554, %553
+  br i1 %.not.i.i.i.i212, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %25, align 8
@@ -10655,8 +10670,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   %555 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %552, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ]
-  %.not.i.i.i199 = icmp eq ptr %555, null
-  br i1 %.not.i.i.i199, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %556
+  %.not.i.i.i213 = icmp eq ptr %555, null
+  br i1 %.not.i.i.i213, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %556
 
 556:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %557 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -10687,35 +10702,35 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 _ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %564
   ret void
 
-569:                                              ; preds = %.noexc189, %521
+569:                                              ; preds = %.noexc203, %521
   %570 = landingpad { ptr, i32 }
           cleanup
-  br label %.body191
+  br label %.body205
 
-571:                                              ; preds = %.noexc193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+571:                                              ; preds = %.noexc207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %572 = landingpad { ptr, i32 }
           cleanup
-  br label %.body195
+  br label %.body209
 
-573:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit197
+573:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
   %574 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
-  br label %.body195
+  br label %.body209
 
-.body195:                                         ; preds = %571, %529, %573
+.body209:                                         ; preds = %571, %529, %573
   %.pn = phi { ptr, i32 } [ %574, %573 ], [ %572, %571 ], [ %530, %529 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
-  br label %.body191
+  br label %.body205
 
-.body191:                                         ; preds = %569, %526, %.body195
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body195 ], [ %570, %569 ], [ %527, %526 ]
+.body205:                                         ; preds = %569, %526, %.body209
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body209 ], [ %570, %569 ], [ %527, %526 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #28
   br label %575
 
-575:                                              ; preds = %.body191, %371, %335, %333, %331, %329, %327, %325, %323
-  %.pn15 = phi { ptr, i32 } [ %336, %335 ], [ %324, %323 ], [ %372, %371 ], [ %.pn.pn, %.body191 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ]
+575:                                              ; preds = %.body205, %371, %335, %333, %331, %329, %327, %325, %323
+  %.pn15 = phi { ptr, i32 } [ %336, %335 ], [ %324, %323 ], [ %372, %371 ], [ %.pn.pn, %.body205 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %0) #28
   br label %.body
 

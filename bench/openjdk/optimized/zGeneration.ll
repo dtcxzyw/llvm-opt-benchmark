@@ -2797,46 +2797,47 @@ define hidden void @_ZN16ZGenerationYoung11mark_followEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27ZRelocationSetSelectorStats(ptr nocapture nonnull readnone align 64 %0, ptr nocapture noundef readonly byval(%class.ZRelocationSetSelectorStats) align 8 %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 768
-  %4 = getelementptr inbounds i8, ptr %1, i64 1536
+  %3 = getelementptr inbounds i8, ptr %1, i64 784
+  %4 = getelementptr inbounds i8, ptr %1, i64 1552
   br label %5
 
 5:                                                ; preds = %2, %22
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %22 ]
-  %.04669 = phi i64 [ 0, %2 ], [ %23, %22 ]
-  %.04768 = phi i64 [ 0, %2 ], [ %13, %22 ]
-  %.04867 = phi double [ 0.000000e+00, %2 ], [ %.1, %22 ]
-  %.04966 = phi i32 [ 0, %2 ], [ %.150, %22 ]
-  %.05165 = phi i32 [ 0, %2 ], [ %.152, %22 ]
+  %.04670 = phi i64 [ 0, %2 ], [ %23, %22 ]
+  %.04769 = phi i64 [ 0, %2 ], [ %13, %22 ]
+  %.04868 = phi double [ 0.000000e+00, %2 ], [ %.1, %22 ]
+  %.04967 = phi i32 [ 0, %2 ], [ %.150, %22 ]
+  %.05166 = phi i32 [ 0, %2 ], [ %.152, %22 ]
   %6 = getelementptr inbounds [16 x %class.ZRelocationSetSelectorGroupStats], ptr %1, i64 0, i64 %indvars.iv, i32 2
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds [16 x %class.ZRelocationSetSelectorGroupStats], ptr %3, i64 0, i64 %indvars.iv, i32 2
+  %.idx = mul nuw nsw i64 %indvars.iv, 48
+  %8 = getelementptr i8, ptr %3, i64 %.idx
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
-  %11 = getelementptr inbounds [16 x %class.ZRelocationSetSelectorGroupStats], ptr %4, i64 0, i64 %indvars.iv, i32 2
+  %11 = getelementptr i8, ptr %4, i64 %.idx
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %10, %12
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %5
-  %.not55 = icmp eq i64 %.04768, 0
+  %.not55 = icmp eq i64 %.04769, 0
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not55, label %22, label %16
 
 16:                                               ; preds = %14
   %17 = uitofp i64 %13 to double
-  %18 = uitofp i64 %.04768 to double
+  %18 = uitofp i64 %.04769 to double
   %19 = fdiv double %17, %18
-  %20 = fadd double %.04867, %19
-  %21 = add i32 %.04966, 1
+  %20 = fadd double %.04868, %19
+  %21 = add i32 %.04967, 1
   br label %22
 
 22:                                               ; preds = %14, %16, %5
-  %.152 = phi i32 [ %15, %16 ], [ %15, %14 ], [ %.05165, %5 ]
-  %.150 = phi i32 [ %21, %16 ], [ %.04966, %14 ], [ %.04966, %5 ]
-  %.1 = phi double [ %20, %16 ], [ %.04867, %14 ], [ %.04867, %5 ]
-  %23 = add i64 %13, %.04669
+  %.152 = phi i32 [ %15, %16 ], [ %15, %14 ], [ %.05166, %5 ]
+  %.150 = phi i32 [ %21, %16 ], [ %.04967, %14 ], [ %.04967, %5 ]
+  %.1 = phi double [ %20, %16 ], [ %.04868, %14 ], [ %.04868, %5 ]
+  %23 = add i64 %13, %.04670
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %24, label %5, !llvm.loop !18

@@ -3,29 +3,6 @@ source_filename = "bench/openusd/original/entropymode.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RefCntBuffer = type { i32, i32, [7 x i32], i32, [7 x i32], ptr, ptr, %struct.segmentation, i32, i32, i32, i32, [8 x %struct.WarpedMotionParams], i32, i8, %struct.aom_film_grain_t, %struct.aom_codec_frame_buffer, %struct.yv12_buffer_config, i8, [4 x i32], [8 x i8], [2 x i8], %struct.frame_contexts }
-%struct.segmentation = type { i8, i8, i8, i8, [8 x [8 x i16]], [8 x i32], i32, i8 }
-%struct.WarpedMotionParams = type { [8 x i32], i16, i16, i16, i16, i8, i8 }
-%struct.aom_film_grain_t = type { i32, i32, [14 x [2 x i32]], i32, [10 x [2 x i32]], i32, [10 x [2 x i32]], i32, i32, i32, [24 x i32], [25 x i32], [25 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16 }
-%struct.aom_codec_frame_buffer = type { ptr, i64, ptr }
-%struct.yv12_buffer_config = type { %union.anon, %union.anon.0, %union.anon.2, %union.anon.4, %union.anon.6, %union.anon.8, i32, [3 x ptr], ptr, i32, ptr, i64, i32, i64, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { i32, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i32 }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { i32, i32 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr, ptr }
-%struct.frame_contexts = type { [5 x [13 x [3 x i16]]], [5 x [2 x [9 x [3 x i16]]]], [2 x [3 x [3 x i16]]], [2 x [2 x [6 x i16]]], [2 x [2 x [7 x i16]]], [2 x [2 x [8 x i16]]], [2 x [2 x [9 x i16]]], [2 x [2 x [10 x i16]]], [2 x [2 x [11 x i16]]], [2 x [2 x [12 x i16]]], [5 x [2 x [4 x [4 x i16]]]], [5 x [2 x [42 x [5 x i16]]]], [5 x [2 x [21 x [5 x i16]]]], [6 x [3 x i16]], [2 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [8 x [9 x i16]], [22 x [3 x i16]], [22 x [17 x i16]], [4 x [3 x i16]], [22 x [3 x i16]], [4 x [5 x i16]], [22 x [4 x i16]], [22 x [3 x i16]], [7 x [8 x i16]], [7 x [8 x i16]], [7 x [5 x [9 x i16]]], [7 x [5 x [9 x i16]]], [7 x [3 x [3 x i16]]], [2 x [3 x i16]], [5 x [3 x i16]], [3 x [6 x [3 x i16]]], [5 x [3 x i16]], [3 x [3 x [3 x i16]]], [3 x [3 x [3 x i16]]], [3 x [2 x [3 x i16]]], [21 x [3 x i16]], [6 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [3 x [3 x i16]], [4 x [3 x i16]], %struct.nmv_context, %struct.nmv_context, [3 x i16], %struct.segmentation_probs, [22 x [3 x i16]], [6 x i16], [4 x i16], [3 x i16], [3 x i16], [4 x [14 x i16]], [2 x [13 x [15 x i16]]], [20 x [11 x i16]], [16 x [4 x i16]], [5 x [5 x [14 x i16]]], [8 x [8 x i16]], [4 x [3 x [4 x i16]]], [5 x i16], [4 x [5 x i16]], [5 x i16], [3 x [4 x [13 x [17 x i16]]]], [4 x [4 x [17 x i16]]], [9 x i16], [6 x [17 x i16]], i32 }
-%struct.nmv_context = type { [5 x i16], [2 x %struct.nmv_component] }
-%struct.nmv_component = type { [12 x i16], [2 x [5 x i16]], [5 x i16], [3 x i16], [3 x i16], [3 x i16], [3 x i16], [10 x [3 x i16]] }
-%struct.segmentation_probs = type { [9 x i16], [3 x [3 x i16]], [3 x [9 x i16]] }
-
 @av1_get_palette_color_index_context.weights = internal unnamed_addr constant [3 x i32] [i32 2, i32 1, i32 2], align 4
 @palette_color_index_context_lookup = internal unnamed_addr constant [9 x i32] [i32 -1, i32 -1, i32 0, i32 -1, i32 -1, i32 4, i32 3, i32 2, i32 1], align 16
 @__const.av1_fast_palette_color_index_context.scores = private unnamed_addr constant [3 x i32] [i32 2, i32 2, i32 1], align 4
@@ -714,9 +691,9 @@ define hidden void @av1_setup_frame_contexts(ptr nocapture noundef readonly %0) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27716
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.loopexit, label %.preheader18
+  br i1 %.not, label %.loopexit, label %.preheader19
 
-.preheader18:                                     ; preds = %1
+.preheader19:                                     ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %get_ref_frame_map_idx.exit.i
@@ -725,8 +702,8 @@ define hidden void @av1_setup_frame_contexts(ptr nocapture noundef readonly %0) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 27728
   br label %20
 
-get_ref_frame_map_idx.exit.i:                     ; preds = %.preheader18, %get_ref_frame_buf.exit.thread
-  %indvars.iv = phi i64 [ 1, %.preheader18 ], [ %indvars.iv.next, %get_ref_frame_buf.exit.thread ]
+get_ref_frame_map_idx.exit.i:                     ; preds = %.preheader19, %get_ref_frame_buf.exit.thread
+  %indvars.iv = phi i64 [ 1, %.preheader19 ], [ %indvars.iv.next, %get_ref_frame_buf.exit.thread ]
   %11 = add nsw i64 %indvars.iv, -1
   %12 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
@@ -737,8 +714,8 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [8 x ptr], ptr %9, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %get_ref_frame_buf.exit.thread, label %17
+  %.not17 = icmp eq ptr %16, null
+  br i1 %.not17, label %get_ref_frame_buf.exit.thread, label %17
 
 17:                                               ; preds = %get_ref_frame_buf.exit
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 1552
@@ -752,15 +729,17 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
   br i1 %exitcond.not, label %.preheader, label %get_ref_frame_map_idx.exit.i, !llvm.loop !14
 
 20:                                               ; preds = %.preheader, %20
-  %indvars.iv22 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %20 ]
+  %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %20 ]
   %21 = load ptr, ptr %10, align 16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %23 = getelementptr inbounds [16 x %struct.RefCntBuffer], ptr %22, i64 0, i64 %indvars.iv22, i32 22
-  %24 = load ptr, ptr %4, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %23, ptr noundef nonnull align 4 dereferenceable(21264) %24, i64 21264, i1 false)
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16
-  br i1 %exitcond25.not, label %.loopexit, label %20, !llvm.loop !15
+  %23 = mul nuw nsw i64 %indvars.iv23, 22816
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  %25 = getelementptr inbounds i8, ptr %24, i64 1552
+  %26 = load ptr, ptr %4, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %25, ptr noundef nonnull align 4 dereferenceable(21264) %26, i64 21264, i1 false)
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond27.not = icmp eq i64 %indvars.iv.next24, 16
+  br i1 %exitcond27.not, label %.loopexit, label %20, !llvm.loop !15
 
 .loopexit:                                        ; preds = %20, %1
   ret void
@@ -955,9 +934,9 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 27716
   %100 = load i32, ptr %99, align 4
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %av1_setup_frame_contexts.exit, label %.preheader18.i
+  br i1 %.not.i, label %av1_setup_frame_contexts.exit, label %.preheader19.i
 
-.preheader18.i:                                   ; preds = %14
+.preheader19.i:                                   ; preds = %14
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %get_ref_frame_map_idx.exit.i.i
@@ -966,8 +945,8 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 27728
   br label %113
 
-get_ref_frame_map_idx.exit.i.i:                   ; preds = %get_ref_frame_buf.exit.thread.i, %.preheader18.i
-  %indvars.iv.i = phi i64 [ 1, %.preheader18.i ], [ %indvars.iv.next.i, %get_ref_frame_buf.exit.thread.i ]
+get_ref_frame_map_idx.exit.i.i:                   ; preds = %get_ref_frame_buf.exit.thread.i, %.preheader19.i
+  %indvars.iv.i = phi i64 [ 1, %.preheader19.i ], [ %indvars.iv.next.i, %get_ref_frame_buf.exit.thread.i ]
   %104 = add nsw i64 %indvars.iv.i, -1
   %105 = getelementptr inbounds [8 x i32], ptr %101, i64 0, i64 %104
   %106 = load i32, ptr %105, align 4
@@ -978,8 +957,8 @@ get_ref_frame_buf.exit.i:                         ; preds = %get_ref_frame_map_i
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds [8 x ptr], ptr %102, i64 0, i64 %107
   %109 = load ptr, ptr %108, align 8
-  %.not16.i = icmp eq ptr %109, null
-  br i1 %.not16.i, label %get_ref_frame_buf.exit.thread.i, label %110
+  %.not17.i = icmp eq ptr %109, null
+  br i1 %.not17.i, label %get_ref_frame_buf.exit.thread.i, label %110
 
 110:                                              ; preds = %get_ref_frame_buf.exit.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1552
@@ -993,15 +972,17 @@ get_ref_frame_buf.exit.thread.i:                  ; preds = %110, %get_ref_frame
   br i1 %exitcond.not.i, label %.preheader.i, label %get_ref_frame_map_idx.exit.i.i, !llvm.loop !14
 
 113:                                              ; preds = %113, %.preheader.i
-  %indvars.iv22.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next23.i, %113 ]
+  %indvars.iv23.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next24.i, %113 ]
   %114 = load ptr, ptr %103, align 16
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
-  %116 = getelementptr inbounds [16 x %struct.RefCntBuffer], ptr %115, i64 0, i64 %indvars.iv22.i, i32 22
-  %117 = load ptr, ptr %39, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %116, ptr noundef nonnull align 4 dereferenceable(21264) %117, i64 21264, i1 false)
-  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond25.not.i, label %av1_setup_frame_contexts.exit, label %113, !llvm.loop !15
+  %116 = mul nuw nsw i64 %indvars.iv23.i, 22816
+  %117 = getelementptr inbounds i8, ptr %115, i64 %116
+  %118 = getelementptr inbounds i8, ptr %117, i64 1552
+  %119 = load ptr, ptr %39, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %118, ptr noundef nonnull align 4 dereferenceable(21264) %119, i64 21264, i1 false)
+  %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
+  %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, 16
+  br i1 %exitcond27.not.i, label %av1_setup_frame_contexts.exit, label %113, !llvm.loop !15
 
 av1_setup_frame_contexts.exit:                    ; preds = %113, %14
   ret void

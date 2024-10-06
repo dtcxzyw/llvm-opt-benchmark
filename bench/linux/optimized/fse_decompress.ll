@@ -65,7 +65,9 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %36 = trunc i64 %29 to i8
   %37 = add i32 %31, -1
   %38 = zext i32 %31 to i64
-  %39 = getelementptr %struct.FSE_decode_t, ptr %7, i64 %38, i32 1
+  %.idx = shl nuw nsw i64 %38, 2
+  %.offs = or disjoint i64 %.idx, 2
+  %39 = getelementptr i8, ptr %7, i64 %.offs
   store i8 %36, ptr %39, align 2
   br label %44
 
@@ -100,23 +102,23 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %59 = add nuw nsw i32 %58, %56
   br label %65
 
-60:                                               ; preds = %.loopexit12
+60:                                               ; preds = %.loopexit16
   %61 = zext nneg i32 %13 to i64
   %62 = zext nneg i32 %59 to i64
   %63 = zext nneg i32 %12 to i64
   %64 = shl nuw nsw i64 %62, 1
   br label %.critedge
 
-65:                                               ; preds = %.loopexit12, %55
-  %66 = phi i64 [ 0, %55 ], [ %82, %.loopexit12 ]
-  %67 = phi i64 [ 0, %55 ], [ %83, %.loopexit12 ]
-  %68 = phi i64 [ 0, %55 ], [ %81, %.loopexit12 ]
+65:                                               ; preds = %.loopexit16, %55
+  %66 = phi i64 [ 0, %55 ], [ %82, %.loopexit16 ]
+  %67 = phi i64 [ 0, %55 ], [ %83, %.loopexit16 ]
+  %68 = phi i64 [ 0, %55 ], [ %81, %.loopexit16 ]
   %69 = getelementptr i16, ptr %1, i64 %66
   %70 = load i16, ptr %69, align 2
   %71 = getelementptr i8, ptr %10, i64 %68
   store i64 %67, ptr %71, align 1
   %72 = icmp sgt i16 %70, 8
-  br i1 %72, label %73, label %.loopexit12
+  br i1 %72, label %73, label %.loopexit16
 
 73:                                               ; preds = %65
   %74 = zext nneg i16 %70 to i64
@@ -128,9 +130,9 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   store i64 %67, ptr %77, align 1
   %78 = add nuw nsw i64 %76, 8
   %79 = icmp ult i64 %78, %74
-  br i1 %79, label %75, label %.loopexit12, !llvm.loop !9
+  br i1 %79, label %75, label %.loopexit16, !llvm.loop !9
 
-.loopexit12:                                      ; preds = %75, %65
+.loopexit16:                                      ; preds = %75, %65
   %80 = sext i16 %70 to i64
   %81 = add i64 %68, %80
   %82 = add nuw nsw i64 %66, 1
@@ -144,20 +146,24 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %87 = and i64 %86, %61
   %88 = getelementptr i8, ptr %10, i64 %85
   %89 = load i8, ptr %88, align 1
-  %90 = getelementptr %struct.FSE_decode_t, ptr %7, i64 %87, i32 1
+  %.idx13 = shl nuw nsw i64 %87, 2
+  %.offs14 = or disjoint i64 %.idx13, 2
+  %90 = getelementptr i8, ptr %7, i64 %.offs14
   store i8 %89, ptr %90, align 2
   %91 = add nuw nsw i64 %86, %62
   %92 = and i64 %91, %61
   %93 = or disjoint i64 %85, 1
   %94 = getelementptr i8, ptr %10, i64 %93
   %95 = load i8, ptr %94, align 1
-  %96 = getelementptr %struct.FSE_decode_t, ptr %7, i64 %92, i32 1
+  %.idx13.c = shl nuw nsw i64 %92, 2
+  %.offs14.c = or disjoint i64 %.idx13.c, 2
+  %96 = getelementptr i8, ptr %7, i64 %.offs14.c
   store i8 %95, ptr %96, align 2
   %97 = add nuw nsw i64 %86, %64
   %98 = and i64 %97, %61
   %99 = add nuw nsw i64 %85, 2
   %100 = icmp ult i64 %99, %63
-  br i1 %100, label %.critedge, label %.loopexit11, !llvm.loop !11
+  br i1 %100, label %.critedge, label %.loopexit15, !llvm.loop !11
 
 101:                                              ; preds = %51
   %102 = lshr i32 %12, 3
@@ -166,13 +172,13 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %105 = add nuw nsw i32 %104, %103
   br label %106
 
-106:                                              ; preds = %.loopexit13, %101
-  %107 = phi i64 [ 0, %101 ], [ %130, %.loopexit13 ]
-  %108 = phi i32 [ 0, %101 ], [ %129, %.loopexit13 ]
+106:                                              ; preds = %.loopexit17, %101
+  %107 = phi i64 [ 0, %101 ], [ %130, %.loopexit17 ]
+  %108 = phi i32 [ 0, %101 ], [ %129, %.loopexit17 ]
   %109 = getelementptr i16, ptr %1, i64 %107
   %110 = load i16, ptr %109, align 2
   %111 = icmp sgt i16 %110, 0
-  br i1 %111, label %112, label %.loopexit13
+  br i1 %111, label %112, label %.loopexit17
 
 112:                                              ; preds = %106
   %113 = trunc i64 %107 to i8
@@ -182,7 +188,9 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %115 = phi i32 [ 0, %112 ], [ %125, %124 ]
   %116 = phi i32 [ %108, %112 ], [ %122, %124 ]
   %117 = zext i32 %116 to i64
-  %118 = getelementptr %struct.FSE_decode_t, ptr %7, i64 %117, i32 1
+  %.idx11 = shl nuw nsw i64 %117, 2
+  %.offs12 = or disjoint i64 %.idx11, 2
+  %118 = getelementptr i8, ptr %7, i64 %.offs12
   store i8 %113, ptr %118, align 2
   br label %119
 
@@ -198,28 +206,28 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %126 = load i16, ptr %109, align 2
   %127 = sext i16 %126 to i32
   %128 = icmp slt i32 %125, %127
-  br i1 %128, label %114, label %.loopexit13, !llvm.loop !13
+  br i1 %128, label %114, label %.loopexit17, !llvm.loop !13
 
-.loopexit13:                                      ; preds = %124, %106
+.loopexit17:                                      ; preds = %124, %106
   %129 = phi i32 [ %108, %106 ], [ %122, %124 ]
   %130 = add nuw nsw i64 %107, 1
   %131 = icmp eq i64 %130, %14
   br i1 %131, label %132, label %106, !llvm.loop !14
 
-132:                                              ; preds = %.loopexit13
+132:                                              ; preds = %.loopexit17
   %133 = icmp eq i32 %129, 0
-  br i1 %133, label %..loopexit11_crit_edge, label %.loopexit
+  br i1 %133, label %..loopexit15_crit_edge, label %.loopexit
 
-..loopexit11_crit_edge:                           ; preds = %132
+..loopexit15_crit_edge:                           ; preds = %132
   %.pre = zext nneg i32 %12 to i64
-  br label %.loopexit11
+  br label %.loopexit15
 
-.loopexit11:                                      ; preds = %.critedge, %..loopexit11_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %..loopexit11_crit_edge ], [ %63, %.critedge ]
+.loopexit15:                                      ; preds = %.critedge, %..loopexit15_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %..loopexit15_crit_edge ], [ %63, %.critedge ]
   br label %134
 
-134:                                              ; preds = %134, %.loopexit11
-  %135 = phi i64 [ 0, %.loopexit11 ], [ %153, %134 ]
+134:                                              ; preds = %134, %.loopexit15
+  %135 = phi i64 [ 0, %.loopexit15 ], [ %153, %134 ]
   %136 = getelementptr %struct.FSE_decode_t, ptr %7, i64 %135
   %137 = getelementptr inbounds i8, ptr %136, i64 2
   %138 = load i8, ptr %137, align 2
@@ -399,9 +407,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %68 = getelementptr i8, ptr %67, i64 -1
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 0
-  br i1 %70, label %.thread, label %.thread53
+  br i1 %70, label %.thread, label %.thread55
 
-.thread53:                                        ; preds = %65
+.thread55:                                        ; preds = %65
   %71 = zext i8 %69 to i32
   %72 = tail call i32 @llvm.ctlz.i32(i32 %71, i1 true), !range !15
   %73 = trunc nuw nsw i64 %3 to i32
@@ -420,10 +428,10 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %84 = icmp ult i64 %3, -119
   br i1 %84, label %85, label %.thread
 
-85:                                               ; preds = %.thread53, %77
-  %86 = phi ptr [ %2, %.thread53 ], [ %82, %77 ]
-  %87 = phi i32 [ %76, %.thread53 ], [ %81, %77 ]
-  %88 = phi i64 [ %66, %.thread53 ], [ %83, %77 ]
+85:                                               ; preds = %.thread55, %77
+  %86 = phi ptr [ %2, %.thread55 ], [ %82, %77 ]
+  %87 = phi i32 [ %76, %.thread55 ], [ %81, %77 ]
+  %88 = phi i64 [ %66, %.thread55 ], [ %83, %77 ]
   %89 = load i16, ptr %4, align 2
   %90 = zext i16 %89 to i32
   %91 = add nuw nsw i32 %87, %90
@@ -487,17 +495,17 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %137 = lshr i64 %129, %136
   %138 = and i64 %137, %98
   %139 = icmp ugt i32 %133, 64
-  br i1 %139, label %.thread149, label %141
+  br i1 %139, label %.thread151, label %141
 
-.thread149:                                       ; preds = %128
+.thread151:                                       ; preds = %128
   %140 = ptrtoint ptr %2 to i64
-  br label %.thread55
+  br label %.thread57
 
 141:                                              ; preds = %128
   %142 = icmp ult ptr %131, %14
-  br i1 %142, label %150, label %.thread151
+  br i1 %142, label %150, label %.thread153
 
-.thread151:                                       ; preds = %141
+.thread153:                                       ; preds = %141
   %143 = lshr i32 %133, 3
   %144 = and i32 %133, 7
   %145 = zext nneg i32 %143 to i64
@@ -509,9 +517,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 
 150:                                              ; preds = %141
   %151 = icmp eq ptr %131, %2
-  br i1 %151, label %.thread150, label %153
+  br i1 %151, label %.thread152, label %153
 
-.thread150:                                       ; preds = %150
+.thread152:                                       ; preds = %150
   %152 = ptrtoint ptr %2 to i64
   br label %.lr.ph.preheader
 
@@ -534,13 +542,13 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %169 = load i64, ptr %168, align 1
   %170 = ptrtoint ptr %2 to i64
   %171 = icmp ugt i32 %165, 64
-  br i1 %171, label %.thread55, label %.lr.ph.preheader
+  br i1 %171, label %.thread57, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread151, %.thread150, %153
-  %172 = phi i64 [ %152, %.thread150 ], [ %170, %153 ], [ %149, %.thread151 ]
-  %173 = phi ptr [ %2, %.thread150 ], [ %168, %153 ], [ %147, %.thread151 ]
-  %174 = phi i32 [ %133, %.thread150 ], [ %165, %153 ], [ %144, %.thread151 ]
-  %175 = phi i64 [ %129, %.thread150 ], [ %169, %153 ], [ %148, %.thread151 ]
+.lr.ph.preheader:                                 ; preds = %.thread153, %.thread152, %153
+  %172 = phi i64 [ %152, %.thread152 ], [ %170, %153 ], [ %149, %.thread153 ]
+  %173 = phi ptr [ %2, %.thread152 ], [ %168, %153 ], [ %147, %.thread153 ]
+  %174 = phi i32 [ %133, %.thread152 ], [ %165, %153 ], [ %144, %.thread153 ]
+  %175 = phi i64 [ %129, %.thread152 ], [ %169, %153 ], [ %148, %.thread153 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %216
@@ -560,7 +568,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 
 186:                                              ; preds = %.lr.ph
   %187 = icmp eq ptr %179, %2
-  br i1 %187, label %.thread55, label %188
+  br i1 %187, label %.thread57, label %188
 
 188:                                              ; preds = %186
   %189 = lshr i32 %180, 3
@@ -586,19 +594,19 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %207 = load i64, ptr %206, align 1
   %208 = icmp ult ptr %176, %10
   %209 = and i1 %208, %203
-  br i1 %209, label %216, label %.thread55
+  br i1 %209, label %216, label %.thread57
 
-.thread55:                                        ; preds = %200, %216, %186, %.thread149, %153
-  %210 = phi i64 [ %170, %153 ], [ %140, %.thread149 ], [ %172, %186 ], [ %172, %216 ], [ %172, %200 ]
-  %.lcssa92 = phi i64 [ %99, %153 ], [ %99, %.thread149 ], [ %178, %200 ], [ %267, %216 ], [ %178, %186 ]
-  %.lcssa91 = phi i64 [ %138, %153 ], [ %138, %.thread149 ], [ %177, %200 ], [ %286, %216 ], [ %177, %186 ]
-  %.lcssa90 = phi ptr [ %0, %153 ], [ %0, %.thread149 ], [ %176, %200 ], [ %288, %216 ], [ %176, %186 ]
-  %211 = phi ptr [ %168, %153 ], [ %131, %.thread149 ], [ %206, %200 ], [ %206, %216 ], [ %2, %186 ]
-  %212 = phi i32 [ %165, %153 ], [ %133, %.thread149 ], [ %202, %200 ], [ %284, %216 ], [ %180, %186 ]
-  %213 = phi i64 [ %169, %153 ], [ %129, %.thread149 ], [ %207, %200 ], [ %207, %216 ], [ %181, %186 ]
+.thread57:                                        ; preds = %200, %216, %186, %.thread151, %153
+  %210 = phi i64 [ %170, %153 ], [ %140, %.thread151 ], [ %172, %186 ], [ %172, %216 ], [ %172, %200 ]
+  %.lcssa94 = phi i64 [ %99, %153 ], [ %99, %.thread151 ], [ %178, %200 ], [ %267, %216 ], [ %178, %186 ]
+  %.lcssa93 = phi i64 [ %138, %153 ], [ %138, %.thread151 ], [ %177, %200 ], [ %286, %216 ], [ %177, %186 ]
+  %.lcssa92 = phi ptr [ %0, %153 ], [ %0, %.thread151 ], [ %176, %200 ], [ %288, %216 ], [ %176, %186 ]
+  %211 = phi ptr [ %168, %153 ], [ %131, %.thread151 ], [ %206, %200 ], [ %206, %216 ], [ %2, %186 ]
+  %212 = phi i32 [ %165, %153 ], [ %133, %.thread151 ], [ %202, %200 ], [ %284, %216 ], [ %180, %186 ]
+  %213 = phi i64 [ %169, %153 ], [ %129, %.thread151 ], [ %207, %200 ], [ %207, %216 ], [ %181, %186 ]
   %214 = getelementptr i8, ptr %9, i64 -2
-  %215 = icmp ugt ptr %.lcssa90, %214
-  br i1 %215, label %.thread, label %.lr.ph112
+  %215 = icmp ugt ptr %.lcssa92, %214
+  br i1 %215, label %.thread, label %.lr.ph114
 
 216:                                              ; preds = %200
   %217 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %178
@@ -678,15 +686,15 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   store i8 %273, ptr %287, align 1
   %288 = getelementptr i8, ptr %176, i64 4
   %289 = icmp ugt i32 %284, 64
-  br i1 %289, label %.thread55, label %.lr.ph, !llvm.loop !18
+  br i1 %289, label %.thread57, label %.lr.ph, !llvm.loop !18
 
-.lr.ph112:                                        ; preds = %.thread55, %389
-  %290 = phi ptr [ %361, %389 ], [ %.lcssa90, %.thread55 ]
-  %291 = phi i64 [ %360, %389 ], [ %.lcssa91, %.thread55 ]
-  %292 = phi i64 [ %312, %389 ], [ %.lcssa92, %.thread55 ]
-  %293 = phi ptr [ %392, %389 ], [ %211, %.thread55 ]
-  %294 = phi i32 [ %391, %389 ], [ %212, %.thread55 ]
-  %295 = phi i64 [ %390, %389 ], [ %213, %.thread55 ]
+.lr.ph114:                                        ; preds = %.thread57, %389
+  %290 = phi ptr [ %361, %389 ], [ %.lcssa92, %.thread57 ]
+  %291 = phi i64 [ %360, %389 ], [ %.lcssa93, %.thread57 ]
+  %292 = phi i64 [ %312, %389 ], [ %.lcssa94, %.thread57 ]
+  %293 = phi ptr [ %392, %389 ], [ %211, %.thread57 ]
+  %294 = phi i32 [ %391, %389 ], [ %212, %.thread57 ]
+  %295 = phi i64 [ %390, %389 ], [ %213, %.thread57 ]
   %296 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %292
   %297 = load i16, ptr %296, align 2
   %298 = getelementptr inbounds i8, ptr %296, i64 2
@@ -707,9 +715,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %313 = getelementptr i8, ptr %290, i64 1
   store i8 %299, ptr %290, align 1
   %314 = icmp ugt i32 %310, 64
-  br i1 %314, label %.thread60, label %315
+  br i1 %314, label %.thread62, label %315
 
-315:                                              ; preds = %.lr.ph112
+315:                                              ; preds = %.lr.ph114
   %316 = icmp ult ptr %293, %14
   br i1 %316, label %320, label %317
 
@@ -747,8 +755,8 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 
 341:                                              ; preds = %334, %320
   %.ph = phi i64 [ %340, %334 ], [ %295, %320 ]
-  %.ph57 = phi i32 [ %336, %334 ], [ %310, %320 ]
-  %.ph58 = phi ptr [ %339, %334 ], [ %293, %320 ]
+  %.ph59 = phi i32 [ %336, %334 ], [ %310, %320 ]
+  %.ph60 = phi ptr [ %339, %334 ], [ %293, %320 ]
   %342 = icmp ugt ptr %313, %214
   br i1 %342, label %.thread, label %343
 
@@ -760,23 +768,23 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %348 = getelementptr inbounds i8, ptr %344, i64 3
   %349 = load i8, ptr %348, align 1
   %350 = zext i8 %349 to i32
-  %351 = and i32 %.ph57, 63
+  %351 = and i32 %.ph59, 63
   %352 = zext nneg i32 %351 to i64
   %353 = shl i64 %.ph, %352
   %354 = sub nsw i32 0, %350
   %355 = and i32 %354, 63
   %356 = zext nneg i32 %355 to i64
   %357 = lshr i64 %353, %356
-  %358 = add i32 %.ph57, %350
+  %358 = add i32 %.ph59, %350
   %359 = zext i16 %345 to i64
   %360 = add i64 %357, %359
   %361 = getelementptr i8, ptr %290, i64 2
   store i8 %347, ptr %313, align 1
   %362 = icmp ugt i32 %358, 64
-  br i1 %362, label %.thread60, label %363
+  br i1 %362, label %.thread62, label %363
 
 363:                                              ; preds = %343
-  %364 = icmp ult ptr %.ph58, %14
+  %364 = icmp ult ptr %.ph60, %14
   br i1 %364, label %368, label %365
 
 365:                                              ; preds = %363
@@ -785,16 +793,16 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %382
 
 368:                                              ; preds = %363
-  %369 = icmp eq ptr %.ph58, %2
+  %369 = icmp eq ptr %.ph60, %2
   br i1 %369, label %389, label %370
 
 370:                                              ; preds = %368
   %371 = lshr i32 %358, 3
   %372 = zext nneg i32 %371 to i64
   %373 = sub nsw i64 0, %372
-  %374 = getelementptr i8, ptr %.ph58, i64 %373
+  %374 = getelementptr i8, ptr %.ph60, i64 %373
   %375 = icmp ult ptr %374, %2
-  %376 = ptrtoint ptr %.ph58 to i64
+  %376 = ptrtoint ptr %.ph60 to i64
   %377 = sub i64 %376, %210
   %378 = trunc i64 %377 to i32
   %379 = select i1 %375, i32 %378, i32 %371
@@ -807,22 +815,24 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %384 = phi i32 [ %367, %365 ], [ %381, %370 ]
   %385 = zext i32 %383 to i64
   %386 = sub nsw i64 0, %385
-  %387 = getelementptr i8, ptr %.ph58, i64 %386
+  %387 = getelementptr i8, ptr %.ph60, i64 %386
   %388 = load i64, ptr %387, align 1
   br label %389
 
 389:                                              ; preds = %382, %368
   %390 = phi i64 [ %.ph, %368 ], [ %388, %382 ]
   %391 = phi i32 [ %358, %368 ], [ %384, %382 ]
-  %392 = phi ptr [ %.ph58, %368 ], [ %387, %382 ]
+  %392 = phi ptr [ %.ph60, %368 ], [ %387, %382 ]
   %393 = icmp ugt ptr %361, %214
-  br i1 %393, label %.thread, label %.lr.ph112, !llvm.loop !19
+  br i1 %393, label %.thread, label %.lr.ph114, !llvm.loop !19
 
-.thread60:                                        ; preds = %343, %.lr.ph112
-  %394 = phi i64 [ %291, %.lr.ph112 ], [ %312, %343 ]
-  %395 = phi i64 [ 2, %.lr.ph112 ], [ 3, %343 ]
-  %396 = phi ptr [ %313, %.lr.ph112 ], [ %361, %343 ]
-  %397 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %394, i32 1
+.thread62:                                        ; preds = %343, %.lr.ph114
+  %394 = phi i64 [ %291, %.lr.ph114 ], [ %312, %343 ]
+  %395 = phi i64 [ 2, %.lr.ph114 ], [ 3, %343 ]
+  %396 = phi ptr [ %313, %.lr.ph114 ], [ %361, %343 ]
+  %.idx = shl i64 %394, 2
+  %.offs = or disjoint i64 %.idx, 2
+  %397 = getelementptr i8, ptr %132, i64 %.offs
   %398 = load i8, ptr %397, align 2
   %399 = getelementptr i8, ptr %290, i64 %395
   store i8 %398, ptr %396, align 1
@@ -917,9 +927,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %459 = getelementptr i8, ptr %458, i64 -1
   %460 = load i8, ptr %459, align 1
   %461 = icmp eq i8 %460, 0
-  br i1 %461, label %.thread, label %.thread70
+  br i1 %461, label %.thread, label %.thread72
 
-.thread70:                                        ; preds = %456
+.thread72:                                        ; preds = %456
   %462 = zext i8 %460 to i32
   %463 = tail call i32 @llvm.ctlz.i32(i32 %462, i1 true), !range !15
   %464 = trunc nuw nsw i64 %3 to i32
@@ -938,10 +948,10 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %475 = icmp ult i64 %3, -119
   br i1 %475, label %476, label %.thread
 
-476:                                              ; preds = %.thread70, %468
-  %477 = phi ptr [ %2, %.thread70 ], [ %473, %468 ]
-  %478 = phi i32 [ %467, %.thread70 ], [ %472, %468 ]
-  %479 = phi i64 [ %457, %.thread70 ], [ %474, %468 ]
+476:                                              ; preds = %.thread72, %468
+  %477 = phi ptr [ %2, %.thread72 ], [ %473, %468 ]
+  %478 = phi i32 [ %467, %.thread72 ], [ %472, %468 ]
+  %479 = phi i64 [ %457, %.thread72 ], [ %474, %468 ]
   %480 = load i16, ptr %4, align 2
   %481 = zext i16 %480 to i32
   %482 = add nuw nsw i32 %478, %481
@@ -1005,17 +1015,17 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %528 = lshr i64 %520, %527
   %529 = and i64 %528, %489
   %530 = icmp ugt i32 %524, 64
-  br i1 %530, label %.thread152, label %532
+  br i1 %530, label %.thread154, label %532
 
-.thread152:                                       ; preds = %519
+.thread154:                                       ; preds = %519
   %531 = ptrtoint ptr %2 to i64
-  br label %.thread72
+  br label %.thread74
 
 532:                                              ; preds = %519
   %533 = icmp ult ptr %522, %405
-  br i1 %533, label %541, label %.thread154
+  br i1 %533, label %541, label %.thread156
 
-.thread154:                                       ; preds = %532
+.thread156:                                       ; preds = %532
   %534 = lshr i32 %524, 3
   %535 = and i32 %524, 7
   %536 = zext nneg i32 %534 to i64
@@ -1023,15 +1033,15 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %538 = getelementptr i8, ptr %522, i64 %537
   %539 = load i64, ptr %538, align 1
   %540 = ptrtoint ptr %2 to i64
-  br label %.lr.ph114.preheader
+  br label %.lr.ph116.preheader
 
 541:                                              ; preds = %532
   %542 = icmp eq ptr %522, %2
-  br i1 %542, label %.thread153, label %544
+  br i1 %542, label %.thread155, label %544
 
-.thread153:                                       ; preds = %541
+.thread155:                                       ; preds = %541
   %543 = ptrtoint ptr %2 to i64
-  br label %.lr.ph114.preheader
+  br label %.lr.ph116.preheader
 
 544:                                              ; preds = %541
   %545 = lshr i32 %524, 3
@@ -1052,33 +1062,33 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %560 = load i64, ptr %559, align 1
   %561 = ptrtoint ptr %2 to i64
   %562 = icmp ugt i32 %556, 64
-  br i1 %562, label %.thread72, label %.lr.ph114.preheader
+  br i1 %562, label %.thread74, label %.lr.ph116.preheader
 
-.lr.ph114.preheader:                              ; preds = %.thread154, %.thread153, %544
-  %563 = phi i64 [ %543, %.thread153 ], [ %561, %544 ], [ %540, %.thread154 ]
-  %564 = phi ptr [ %2, %.thread153 ], [ %559, %544 ], [ %538, %.thread154 ]
-  %565 = phi i32 [ %524, %.thread153 ], [ %556, %544 ], [ %535, %.thread154 ]
-  %566 = phi i64 [ %520, %.thread153 ], [ %560, %544 ], [ %539, %.thread154 ]
-  br label %.lr.ph114
+.lr.ph116.preheader:                              ; preds = %.thread156, %.thread155, %544
+  %563 = phi i64 [ %543, %.thread155 ], [ %561, %544 ], [ %540, %.thread156 ]
+  %564 = phi ptr [ %2, %.thread155 ], [ %559, %544 ], [ %538, %.thread156 ]
+  %565 = phi i32 [ %524, %.thread155 ], [ %556, %544 ], [ %535, %.thread156 ]
+  %566 = phi i64 [ %520, %.thread155 ], [ %560, %544 ], [ %539, %.thread156 ]
+  br label %.lr.ph116
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %607
-  %567 = phi ptr [ %683, %607 ], [ %0, %.lr.ph114.preheader ]
-  %568 = phi i64 [ %681, %607 ], [ %529, %.lr.ph114.preheader ]
-  %569 = phi i64 [ %661, %607 ], [ %490, %.lr.ph114.preheader ]
-  %570 = phi ptr [ %597, %607 ], [ %564, %.lr.ph114.preheader ]
-  %571 = phi i32 [ %671, %607 ], [ %565, %.lr.ph114.preheader ]
-  %572 = phi i64 [ %598, %607 ], [ %566, %.lr.ph114.preheader ]
+.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %607
+  %567 = phi ptr [ %683, %607 ], [ %0, %.lr.ph116.preheader ]
+  %568 = phi i64 [ %681, %607 ], [ %529, %.lr.ph116.preheader ]
+  %569 = phi i64 [ %661, %607 ], [ %490, %.lr.ph116.preheader ]
+  %570 = phi ptr [ %597, %607 ], [ %564, %.lr.ph116.preheader ]
+  %571 = phi i32 [ %671, %607 ], [ %565, %.lr.ph116.preheader ]
+  %572 = phi i64 [ %598, %607 ], [ %566, %.lr.ph116.preheader ]
   %573 = icmp ult ptr %570, %405
   br i1 %573, label %577, label %574
 
-574:                                              ; preds = %.lr.ph114
+574:                                              ; preds = %.lr.ph116
   %575 = lshr i32 %571, 3
   %576 = and i32 %571, 7
   br label %591
 
-577:                                              ; preds = %.lr.ph114
+577:                                              ; preds = %.lr.ph116
   %578 = icmp eq ptr %570, %2
-  br i1 %578, label %.thread72, label %579
+  br i1 %578, label %.thread74, label %579
 
 579:                                              ; preds = %577
   %580 = lshr i32 %571, 3
@@ -1104,19 +1114,19 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %598 = load i64, ptr %597, align 1
   %599 = icmp ult ptr %567, %10
   %600 = and i1 %599, %594
-  br i1 %600, label %607, label %.thread72
+  br i1 %600, label %607, label %.thread74
 
-.thread72:                                        ; preds = %591, %607, %577, %.thread152, %544
-  %601 = phi i64 [ %561, %544 ], [ %531, %.thread152 ], [ %563, %577 ], [ %563, %607 ], [ %563, %591 ]
-  %.lcssa87 = phi i64 [ %490, %544 ], [ %490, %.thread152 ], [ %569, %591 ], [ %661, %607 ], [ %569, %577 ]
-  %.lcssa86 = phi i64 [ %529, %544 ], [ %529, %.thread152 ], [ %568, %591 ], [ %681, %607 ], [ %568, %577 ]
-  %.lcssa = phi ptr [ %0, %544 ], [ %0, %.thread152 ], [ %567, %591 ], [ %683, %607 ], [ %567, %577 ]
-  %602 = phi ptr [ %559, %544 ], [ %522, %.thread152 ], [ %597, %591 ], [ %597, %607 ], [ %2, %577 ]
-  %603 = phi i32 [ %556, %544 ], [ %524, %.thread152 ], [ %593, %591 ], [ %671, %607 ], [ %571, %577 ]
-  %604 = phi i64 [ %560, %544 ], [ %520, %.thread152 ], [ %598, %591 ], [ %598, %607 ], [ %572, %577 ]
+.thread74:                                        ; preds = %591, %607, %577, %.thread154, %544
+  %601 = phi i64 [ %561, %544 ], [ %531, %.thread154 ], [ %563, %577 ], [ %563, %607 ], [ %563, %591 ]
+  %.lcssa89 = phi i64 [ %490, %544 ], [ %490, %.thread154 ], [ %569, %591 ], [ %661, %607 ], [ %569, %577 ]
+  %.lcssa88 = phi i64 [ %529, %544 ], [ %529, %.thread154 ], [ %568, %591 ], [ %681, %607 ], [ %568, %577 ]
+  %.lcssa = phi ptr [ %0, %544 ], [ %0, %.thread154 ], [ %567, %591 ], [ %683, %607 ], [ %567, %577 ]
+  %602 = phi ptr [ %559, %544 ], [ %522, %.thread154 ], [ %597, %591 ], [ %597, %607 ], [ %2, %577 ]
+  %603 = phi i32 [ %556, %544 ], [ %524, %.thread154 ], [ %593, %591 ], [ %671, %607 ], [ %571, %577 ]
+  %604 = phi i64 [ %560, %544 ], [ %520, %.thread154 ], [ %598, %591 ], [ %598, %607 ], [ %572, %577 ]
   %605 = getelementptr i8, ptr %9, i64 -2
   %606 = icmp ugt ptr %.lcssa, %605
-  br i1 %606, label %.thread, label %.lr.ph135
+  br i1 %606, label %.thread, label %.lr.ph137
 
 607:                                              ; preds = %591
   %608 = getelementptr %struct.FSE_decode_t, ptr %523, i64 %569
@@ -1200,15 +1210,15 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   store i8 %667, ptr %682, align 1
   %683 = getelementptr i8, ptr %567, i64 4
   %684 = icmp ugt i32 %671, 64
-  br i1 %684, label %.thread72, label %.lr.ph114, !llvm.loop !18
+  br i1 %684, label %.thread74, label %.lr.ph116, !llvm.loop !18
 
-.lr.ph135:                                        ; preds = %.thread72, %786
-  %685 = phi ptr [ %758, %786 ], [ %.lcssa, %.thread72 ]
-  %686 = phi i64 [ %757, %786 ], [ %.lcssa86, %.thread72 ]
-  %687 = phi i64 [ %708, %786 ], [ %.lcssa87, %.thread72 ]
-  %688 = phi ptr [ %789, %786 ], [ %602, %.thread72 ]
-  %689 = phi i32 [ %788, %786 ], [ %603, %.thread72 ]
-  %690 = phi i64 [ %787, %786 ], [ %604, %.thread72 ]
+.lr.ph137:                                        ; preds = %.thread74, %786
+  %685 = phi ptr [ %758, %786 ], [ %.lcssa, %.thread74 ]
+  %686 = phi i64 [ %757, %786 ], [ %.lcssa88, %.thread74 ]
+  %687 = phi i64 [ %708, %786 ], [ %.lcssa89, %.thread74 ]
+  %688 = phi ptr [ %789, %786 ], [ %602, %.thread74 ]
+  %689 = phi i32 [ %788, %786 ], [ %603, %.thread74 ]
+  %690 = phi i64 [ %787, %786 ], [ %604, %.thread74 ]
   %691 = getelementptr %struct.FSE_decode_t, ptr %523, i64 %687
   %692 = load i16, ptr %691, align 2
   %693 = getelementptr inbounds i8, ptr %691, i64 2
@@ -1230,9 +1240,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %709 = getelementptr i8, ptr %685, i64 1
   store i8 %694, ptr %685, align 1
   %710 = icmp ugt i32 %698, 64
-  br i1 %710, label %.thread78, label %711
+  br i1 %710, label %.thread80, label %711
 
-711:                                              ; preds = %.lr.ph135
+711:                                              ; preds = %.lr.ph137
   %712 = icmp ult ptr %688, %405
   br i1 %712, label %716, label %713
 
@@ -1269,9 +1279,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %737
 
 737:                                              ; preds = %730, %716
-  %.ph74 = phi i64 [ %736, %730 ], [ %690, %716 ]
-  %.ph75 = phi i32 [ %732, %730 ], [ %698, %716 ]
-  %.ph76 = phi ptr [ %735, %730 ], [ %688, %716 ]
+  %.ph76 = phi i64 [ %736, %730 ], [ %690, %716 ]
+  %.ph77 = phi i32 [ %732, %730 ], [ %698, %716 ]
+  %.ph78 = phi ptr [ %735, %730 ], [ %688, %716 ]
   %738 = icmp ugt ptr %709, %605
   br i1 %738, label %.thread, label %739
 
@@ -1283,11 +1293,11 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %744 = getelementptr inbounds i8, ptr %740, i64 3
   %745 = load i8, ptr %744, align 1
   %746 = zext i8 %745 to i32
-  %747 = add i32 %.ph75, %746
+  %747 = add i32 %.ph77, %746
   %748 = sub i32 0, %747
   %749 = and i32 %748, 63
   %750 = zext nneg i32 %749 to i64
-  %751 = lshr i64 %.ph74, %750
+  %751 = lshr i64 %.ph76, %750
   %752 = zext nneg i8 %745 to i64
   %753 = shl nsw i64 -1, %752
   %754 = xor i64 %753, -1
@@ -1297,10 +1307,10 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %758 = getelementptr i8, ptr %685, i64 2
   store i8 %743, ptr %709, align 1
   %759 = icmp ugt i32 %747, 64
-  br i1 %759, label %.thread78, label %760
+  br i1 %759, label %.thread80, label %760
 
 760:                                              ; preds = %739
-  %761 = icmp ult ptr %.ph76, %405
+  %761 = icmp ult ptr %.ph78, %405
   br i1 %761, label %765, label %762
 
 762:                                              ; preds = %760
@@ -1309,16 +1319,16 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %779
 
 765:                                              ; preds = %760
-  %766 = icmp eq ptr %.ph76, %2
+  %766 = icmp eq ptr %.ph78, %2
   br i1 %766, label %786, label %767
 
 767:                                              ; preds = %765
   %768 = lshr i32 %747, 3
   %769 = zext nneg i32 %768 to i64
   %770 = sub nsw i64 0, %769
-  %771 = getelementptr i8, ptr %.ph76, i64 %770
+  %771 = getelementptr i8, ptr %.ph78, i64 %770
   %772 = icmp ult ptr %771, %2
-  %773 = ptrtoint ptr %.ph76 to i64
+  %773 = ptrtoint ptr %.ph78 to i64
   %774 = sub i64 %773, %601
   %775 = trunc i64 %774 to i32
   %776 = select i1 %772, i32 %775, i32 %768
@@ -1331,22 +1341,24 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %781 = phi i32 [ %764, %762 ], [ %778, %767 ]
   %782 = zext i32 %780 to i64
   %783 = sub nsw i64 0, %782
-  %784 = getelementptr i8, ptr %.ph76, i64 %783
+  %784 = getelementptr i8, ptr %.ph78, i64 %783
   %785 = load i64, ptr %784, align 1
   br label %786
 
 786:                                              ; preds = %779, %765
-  %787 = phi i64 [ %.ph74, %765 ], [ %785, %779 ]
+  %787 = phi i64 [ %.ph76, %765 ], [ %785, %779 ]
   %788 = phi i32 [ %747, %765 ], [ %781, %779 ]
-  %789 = phi ptr [ %.ph76, %765 ], [ %784, %779 ]
+  %789 = phi ptr [ %.ph78, %765 ], [ %784, %779 ]
   %790 = icmp ugt ptr %758, %605
-  br i1 %790, label %.thread, label %.lr.ph135, !llvm.loop !19
+  br i1 %790, label %.thread, label %.lr.ph137, !llvm.loop !19
 
-.thread78:                                        ; preds = %739, %.lr.ph135
-  %791 = phi i64 [ %686, %.lr.ph135 ], [ %708, %739 ]
-  %792 = phi i64 [ 2, %.lr.ph135 ], [ 3, %739 ]
-  %793 = phi ptr [ %709, %.lr.ph135 ], [ %758, %739 ]
-  %794 = getelementptr %struct.FSE_decode_t, ptr %523, i64 %791, i32 1
+.thread80:                                        ; preds = %739, %.lr.ph137
+  %791 = phi i64 [ %686, %.lr.ph137 ], [ %708, %739 ]
+  %792 = phi i64 [ 2, %.lr.ph137 ], [ 3, %739 ]
+  %793 = phi ptr [ %709, %.lr.ph137 ], [ %758, %739 ]
+  %.idx48 = shl i64 %791, 2
+  %.offs49 = or disjoint i64 %.idx48, 2
+  %794 = getelementptr i8, ptr %523, i64 %.offs49
   %795 = load i8, ptr %794, align 2
   %796 = getelementptr i8, ptr %685, i64 %792
   store i8 %795, ptr %793, align 1
@@ -1355,8 +1367,8 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %799 = sub i64 %797, %798
   br label %.thread
 
-.thread:                                          ; preds = %389, %341, %786, %737, %.thread55, %.thread72, %407, %403, %456, %16, %12, %65, %.thread78, %468, %.thread60, %77
-  %800 = phi i64 [ %402, %.thread60 ], [ %3, %77 ], [ %799, %.thread78 ], [ %3, %468 ], [ -72, %12 ], [ -20, %65 ], [ -1, %16 ], [ -72, %403 ], [ -20, %456 ], [ -1, %407 ], [ -70, %.thread72 ], [ -70, %.thread55 ], [ -70, %737 ], [ -70, %786 ], [ -70, %341 ], [ -70, %389 ]
+.thread:                                          ; preds = %389, %341, %786, %737, %.thread57, %.thread74, %407, %403, %456, %16, %12, %65, %.thread80, %468, %.thread62, %77
+  %800 = phi i64 [ %402, %.thread62 ], [ %3, %77 ], [ %799, %.thread80 ], [ %3, %468 ], [ -72, %12 ], [ -20, %65 ], [ -1, %16 ], [ -72, %403 ], [ -20, %456 ], [ -1, %407 ], [ -70, %.thread74 ], [ -70, %.thread57 ], [ -70, %737 ], [ -70, %786 ], [ -70, %341 ], [ -70, %389 ]
   ret i64 %800
 }
 

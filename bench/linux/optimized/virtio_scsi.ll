@@ -17,11 +17,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.scsi_host_template = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i64, i64, i16, i32, i8, i32, ptr, ptr, i64, i32 }
 %struct.static_call_key = type { ptr, %union.anon.3 }
 %union.anon.3 = type { i64 }
-%struct.virtio_scsi_event_node = type { ptr, %struct.virtio_scsi_event, %struct.work_struct }
-%struct.virtio_scsi_event = type { i32, [8 x i8], i32 }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.atomic64_t = type { i64 }
-%struct.list_head = type { ptr, ptr }
 %struct.irq_affinity = type { i32, i32, i32, [4 x i32], ptr, ptr }
 %struct.virtio_scsi_vq = type { %struct.spinlock, ptr }
 %struct.spinlock = type { %union.anon.0 }
@@ -31,6 +26,11 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.1 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
+%struct.virtio_scsi_event_node = type { ptr, %struct.virtio_scsi_event, %struct.work_struct }
+%struct.virtio_scsi_event = type { i32, [8 x i8], i32 }
+%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
+%struct.atomic64_t = type { i64 }
+%struct.list_head = type { ptr, ptr }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
 %struct.blk_mq_queue_map = type { ptr, i32, i32 }
@@ -346,12 +346,13 @@ define internal void @virtscsi_remove(ptr noundef %0) #2 align 16 {
   %10 = getelementptr inbounds i8, ptr %3, i64 2552
   store i8 1, ptr %10, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %9) #12
-  %11 = getelementptr inbounds i8, ptr %3, i64 2072
+  %11 = getelementptr i8, ptr %3, i64 2096
   br label %12
 
 12:                                               ; preds = %12, %8
   %13 = phi i64 [ 0, %8 ], [ %16, %12 ]
-  %14 = getelementptr [8 x %struct.virtio_scsi_event_node], ptr %11, i64 0, i64 %13, i32 2
+  %.idx = mul nuw nsw i64 %13, 56
+  %14 = getelementptr i8, ptr %11, i64 %.idx
   %15 = tail call zeroext i1 @cancel_work_sync(ptr noundef %14) #12
   %16 = add nuw nsw i64 %13, 1
   %17 = icmp eq i64 %16, 8

@@ -3736,18 +3736,19 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl(ptr nocapture noundef
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 132
-  %12 = getelementptr inbounds i8, ptr %4, i64 184
-  %13 = zext nneg i32 %8 to i64
+  %12 = zext nneg i32 %8 to i64
+  %13 = getelementptr i8, ptr %4, i64 192
   br label %14
 
 14:                                               ; preds = %14, %10
   %15 = phi i64 [ 0, %10 ], [ %20, %14 ]
   %16 = phi i32 [ 0, %10 ], [ %19, %14 ]
-  %17 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %12, i64 0, i64 %15, i32 2
+  %.idx = shl i64 %15, 4
+  %17 = getelementptr i8, ptr %13, i64 %.idx
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, %16
   %20 = add nuw nsw i64 %15, 1
-  %21 = icmp eq i64 %20, %13
+  %21 = icmp eq i64 %20, %12
   br i1 %21, label %22, label %14, !llvm.loop !58
 
 22:                                               ; preds = %14
@@ -4179,18 +4180,19 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl_compat(ptr nocapture 
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 132
-  %12 = getelementptr inbounds i8, ptr %4, i64 184
-  %13 = zext nneg i32 %8 to i64
+  %12 = zext nneg i32 %8 to i64
+  %13 = getelementptr i8, ptr %4, i64 192
   br label %14
 
 14:                                               ; preds = %14, %10
   %15 = phi i64 [ 0, %10 ], [ %20, %14 ]
   %16 = phi i32 [ 0, %10 ], [ %19, %14 ]
-  %17 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %12, i64 0, i64 %15, i32 2
+  %.idx = shl i64 %15, 4
+  %17 = getelementptr i8, ptr %13, i64 %.idx
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, %16
   %20 = add nuw nsw i64 %15, 1
-  %21 = icmp eq i64 %20, %13
+  %21 = icmp eq i64 %20, %12
   br i1 %21, label %22, label %14, !llvm.loop !58
 
 22:                                               ; preds = %14
@@ -6250,8 +6252,9 @@ default.unreachable56:                            ; preds = %182
   %524 = getelementptr %struct.usbdevfs_iso_packet_desc, ptr %261, i64 %519
   %525 = load i32, ptr %524, align 4
   %526 = load ptr, ptr %418, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 184
-  %528 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %527, i64 0, i64 %519, i32 1
+  %.idx = shl i64 %519, 4
+  %527 = getelementptr i8, ptr %526, i64 188
+  %528 = getelementptr i8, ptr %527, i64 %.idx
   store i32 %525, ptr %528, align 4
   %529 = add i32 %525, %520
   %530 = add nuw nsw i64 %519, 1

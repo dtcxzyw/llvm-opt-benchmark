@@ -16,8 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
-%struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
 %struct.smart_str = type { ptr, i64 }
+%struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.7, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.8, ptr, ptr, ptr, ptr, i32, i32, %union.anon.9, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.10 }
 %union.anon.7 = type { ptr }
 %union.anon.8 = type { ptr }
@@ -93,9 +93,9 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
   br i1 %.not, label %38, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   store ptr %9, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
@@ -175,9 +175,10 @@ define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapt
   br i1 %.not, label %7, label %33
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
-  %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %8, i64 0, i64 %9, i32 1
+  %8 = zext i32 %2 to i64
+  %.idx = mul nuw nsw i64 %8, 24
+  %9 = getelementptr i8, ptr %1, i64 40
+  %10 = getelementptr i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8

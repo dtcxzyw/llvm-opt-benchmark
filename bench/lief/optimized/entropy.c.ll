@@ -240,7 +240,7 @@ define hidden i32 @mbedtls_entropy_func(ptr noundef %0, ptr nocapture noundef wr
   %5 = alloca i64, align 8
   %6 = alloca [64 x i8], align 16
   %7 = icmp ugt i64 %2, 64
-  br i1 %7, label %69, label %.preheader55
+  br i1 %7, label %70, label %.preheader55
 
 .preheader55:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 224
@@ -391,27 +391,29 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   br i1 %64, label %.lr.ph73, label %._crit_edge74
 
 .lr.ph73:                                         ; preds = %.preheader
-  %65 = zext nneg i32 %63 to i64
-  br label %66
+  %65 = getelementptr i8, ptr %0, i64 248
+  %66 = zext nneg i32 %63 to i64
+  br label %67
 
-66:                                               ; preds = %.lr.ph73, %66
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %66 ]
-  %67 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv84, i32 2
-  store i64 0, ptr %67, align 8
+67:                                               ; preds = %.lr.ph73, %67
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %67 ]
+  %.idx = mul nuw nsw i64 %indvars.iv84, 40
+  %68 = getelementptr i8, ptr %65, i64 %.idx
+  store i64 0, ptr %68, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %68 = icmp ult i64 %indvars.iv.next85, %65
-  br i1 %68, label %66, label %._crit_edge74, !llvm.loop !8
+  %69 = icmp ult i64 %indvars.iv.next85, %66
+  br i1 %69, label %67, label %._crit_edge74, !llvm.loop !8
 
-._crit_edge74:                                    ; preds = %66, %.preheader
+._crit_edge74:                                    ; preds = %67, %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %6, i64 %2, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %entropy_gather_internal.exit.thread51, %entropy_gather_internal.exit.thread, %61, %59, %57, %54, %._crit_edge74
   %.037 = phi i32 [ %56, %54 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ 0, %._crit_edge74 ], [ %.020.i.ph, %entropy_gather_internal.exit.thread ], [ %.119.i.ph, %entropy_gather_internal.exit.thread51 ], [ -60, %.backedge ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #10
-  br label %69
+  br label %70
 
-69:                                               ; preds = %3, %.loopexit
+70:                                               ; preds = %3, %.loopexit
   %.0 = phi i32 [ %.037, %.loopexit ], [ -60, %3 ]
   ret i32 %.0
 }

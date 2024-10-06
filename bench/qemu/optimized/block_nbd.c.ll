@@ -3486,13 +3486,14 @@ if.then57:                                        ; preds = %if.then55
   br label %return
 
 if.end58:                                         ; preds = %if.then55
-  %requests = getelementptr inbounds i8, ptr %s, i64 176
   %conv = shl i64 %cookie, 32
   %sext = add i64 %conv, -4294967296
   %idxprom = ashr exact i64 %sext, 32
-  %offset = getelementptr [16 x %struct.NBDClientRequest], ptr %requests, i64 0, i64 %idxprom, i32 1
-  %11 = load i64, ptr %offset, align 8
-  %call59 = tail call i32 @nbd_co_receive_offset_data_payload(ptr noundef nonnull %s, i64 noundef %11, ptr noundef nonnull %qiov, ptr noundef %errp)
+  %offset.idx = mul nsw i64 %idxprom, 24
+  %11 = getelementptr i8, ptr %s, i64 184
+  %offset = getelementptr i8, ptr %11, i64 %offset.idx
+  %12 = load i64, ptr %offset, align 8
+  %call59 = tail call i32 @nbd_co_receive_offset_data_payload(ptr noundef nonnull %s, i64 noundef %12, ptr noundef nonnull %qiov, ptr noundef %errp)
   br label %return
 
 if.end60:                                         ; preds = %if.end37
@@ -3503,15 +3504,15 @@ if.end60:                                         ; preds = %if.end37
   br i1 %cmp67, label %return, label %if.end70
 
 if.end70:                                         ; preds = %if.end60
-  %12 = load i16, ptr %type, align 1
-  %tobool.i40 = icmp slt i16 %12, 0
+  %13 = load i16, ptr %type, align 1
+  %tobool.i40 = icmp slt i16 %13, 0
   br i1 %tobool.i40, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end70
-  %13 = load ptr, ptr %local_payload, align 8
+  %14 = load ptr, ptr %local_payload, align 8
   %length.i = getelementptr inbounds i8, ptr %s, i64 680
-  %14 = load i32, ptr %length.i, align 1
-  %cmp.i41 = icmp ult i32 %14, 6
+  %15 = load i32, ptr %length.i, align 1
+  %cmp.i41 = icmp ult i32 %15, 6
   br i1 %cmp.i41, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -3519,9 +3520,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %nbd_parse_error_payload.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %.val.i.i = load i32, ptr %13, align 1
-  %15 = call i32 @llvm.bswap.i32(i32 %.val.i.i)
-  %call5.i = call i32 @nbd_errno_to_system_errno(i32 noundef %15) #15
+  %.val.i.i = load i32, ptr %14, align 1
+  %16 = call i32 @llvm.bswap.i32(i32 %.val.i.i)
+  %call5.i = call i32 @nbd_errno_to_system_errno(i32 noundef %16) #15
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %if.then8.i, label %if.end9.i
 
@@ -3530,14 +3531,14 @@ if.then8.i:                                       ; preds = %if.end4.i
   br label %nbd_parse_error_payload.exit
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %add.ptr.i.i = getelementptr i8, ptr %13, i64 4
+  %add.ptr.i.i = getelementptr i8, ptr %14, i64 4
   %sub.i = sub i32 0, %call5.i
   store i32 %sub.i, ptr %request_ret, align 4
   %.val.i7.i = load i16, ptr %add.ptr.i.i, align 1
-  %16 = call i16 @llvm.bswap.i16(i16 %.val.i7.i)
-  %conv11.i = zext i16 %16 to i64
-  %17 = load i32, ptr %length.i, align 1
-  %conv13.i = zext i32 %17 to i64
+  %17 = call i16 @llvm.bswap.i16(i16 %.val.i7.i)
+  %conv11.i = zext i16 %17 to i64
+  %18 = load i32, ptr %length.i, align 1
+  %conv13.i = zext i32 %18 to i64
   %sub15.i = add nsw i64 %conv13.i, -6
   %cmp16.i = icmp ult i64 %sub15.i, %conv11.i
   br i1 %cmp16.i, label %if.then18.i, label %nbd_parse_error_payload.exit
@@ -3548,8 +3549,8 @@ if.then18.i:                                      ; preds = %if.end9.i
 
 nbd_parse_error_payload.exit:                     ; preds = %if.then3.i, %if.then8.i, %if.end9.i, %if.then18.i
   %retval.0.i = phi i32 [ -22, %if.then3.i ], [ -22, %if.then8.i ], [ -22, %if.then18.i ], [ 0, %if.end9.i ]
-  %18 = load ptr, ptr %local_payload, align 8
-  call void @g_free(ptr noundef %18) #15
+  %19 = load ptr, ptr %local_payload, align 8
+  call void @g_free(ptr noundef %19) #15
   br label %return
 
 return:                                           ; preds = %if.end70, %if.end60, %if.end46, %if.end18, %nbd_parse_error_payload.exit, %if.end58, %if.then57, %if.then48, %if.then45, %if.end26, %if.then17, %if.then2
@@ -3602,23 +3603,25 @@ entry:
   br i1 %cmp61, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %sub = add i64 %cookie, -1
   %requests = getelementptr inbounds i8, ptr %s, i64 176
-  %receiving15 = getelementptr [16 x %struct.NBDClientRequest], ptr %requests, i64 0, i64 %sub, i32 2
+  %invariant.gep = getelementptr i8, ptr %s, i64 168
+  %1 = mul i64 %cookie, 24
+  %2 = getelementptr i8, ptr %requests, i64 %1
+  %receiving15 = getelementptr i8, ptr %2, i64 -8
   %bs = getelementptr inbounds i8, ptr %s, i64 704
   %mode = getelementptr inbounds i8, ptr %s, i64 32
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %while.cond.backedge
-  %1 = phi i64 [ %0, %if.end.lr.ph ], [ %25, %while.cond.backedge ]
-  %cmp6.not = icmp eq i64 %1, 0
+  %3 = phi i64 [ %0, %if.end.lr.ph ], [ %28, %while.cond.backedge ]
+  %cmp6.not = icmp eq i64 %3, 0
   br i1 %cmp6.not, label %if.end31, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %sub10 = add i64 %1, -1
-  %receiving = getelementptr [16 x %struct.NBDClientRequest], ptr %requests, i64 0, i64 %sub10, i32 2
-  %2 = load i8, ptr %receiving, align 8
-  %tobool = trunc i8 %2 to i1
+  %4 = mul i64 %3, 24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %4
+  %5 = load i8, ptr %gep, align 8
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else, label %if.end12
 
 if.else:                                          ; preds = %if.then7
@@ -3630,8 +3633,8 @@ if.end12:                                         ; preds = %if.then7
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %receive_mutex) #15
   tail call void @qemu_coroutine_yield() #15
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %receive_mutex) #15
-  %3 = load i8, ptr %receiving15, align 8
-  %tobool21 = trunc i8 %3 to i1
+  %6 = load i8, ptr %receiving15, align 8
+  %tobool21 = trunc i8 %6 to i1
   br i1 %tobool21, label %if.else23, label %while.cond.backedge
 
 if.else23:                                        ; preds = %if.end12
@@ -3639,10 +3642,10 @@ if.else23:                                        ; preds = %if.end12
   unreachable
 
 if.end31:                                         ; preds = %if.end
-  %4 = load ptr, ptr %bs, align 8
-  %5 = load ptr, ptr %s, align 8
-  %6 = load i32, ptr %mode, align 8
-  %call33 = tail call i32 @nbd_receive_reply(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %reply, i32 noundef %6, ptr noundef %errp) #15
+  %7 = load ptr, ptr %bs, align 8
+  %8 = load ptr, ptr %s, align 8
+  %9 = load i32, ptr %mode, align 8
+  %call33 = tail call i32 @nbd_receive_reply(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %reply, i32 noundef %9, ptr noundef %errp) #15
   %cmp34 = icmp eq i32 %call33, 0
   br i1 %cmp34, label %if.end36.thread, label %if.end36
 
@@ -3657,17 +3660,17 @@ if.end36:                                         ; preds = %if.end31
 if.then38:                                        ; preds = %if.end36, %if.end36.thread
   %ret.057 = phi i32 [ -5, %if.end36.thread ], [ %call33, %if.end36 ]
   %requests_lock.i = getelementptr inbounds i8, ptr %s, i64 96
-  %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %8 = inttoptr i64 %7 to ptr
-  tail call void %8(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %11 = inttoptr i64 %10 to ptr
+  tail call void %11(ptr noundef nonnull %requests_lock.i, ptr noundef nonnull @.str.7, i32 noundef 122) #15
   %state.i.i = getelementptr inbounds i8, ptr %s, i64 144
-  %9 = load i32, ptr %state.i.i, align 8
-  %cmp.i.i = icmp eq i32 %9, 2
+  %12 = load i32, ptr %state.i.i, align 8
+  %cmp.i.i = icmp eq i32 %12, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then38
-  %10 = load ptr, ptr %s, align 8
-  %call.i.i = tail call i32 @qio_channel_shutdown(ptr noundef %10, i32 noundef 3, ptr noundef null) #15
+  %13 = load ptr, ptr %s, align 8
+  %call.i.i = tail call i32 @qio_channel_shutdown(ptr noundef %13, i32 noundef 3, ptr noundef null) #15
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then38
@@ -3675,14 +3678,14 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.th
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end9.sink.split.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %11 = load i32, ptr %state.i.i, align 8
-  %cmp4.i.i = icmp eq i32 %11, 2
+  %14 = load i32, ptr %state.i.i, align 8
+  %cmp4.i.i = icmp eq i32 %14, 2
   br i1 %cmp4.i.i, label %if.then5.i.i, label %nbd_channel_error.exit
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
   %reconnect_delay.i.i = getelementptr inbounds i8, ptr %s, i64 712
-  %12 = load i32, ptr %reconnect_delay.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %12, 0
+  %15 = load i32, ptr %reconnect_delay.i.i, align 8
+  %tobool.not.i.i = icmp eq i32 %15, 0
   %cond.i.i = zext i1 %tobool.not.i.i to i32
   br label %if.end9.sink.split.i.i
 
@@ -3701,23 +3704,23 @@ if.end39:                                         ; preds = %if.end36
   br i1 %cmp.i, label %land.lhs.true, label %if.end46
 
 land.lhs.true:                                    ; preds = %if.end39
-  %13 = load i32, ptr %mode, align 8
-  %cmp44 = icmp ult i32 %13, 3
+  %16 = load i32, ptr %mode, align 8
+  %cmp44 = icmp ult i32 %16, 3
   br i1 %cmp44, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %land.lhs.true
   %requests_lock.i36 = getelementptr inbounds i8, ptr %s, i64 96
-  %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %15 = inttoptr i64 %14 to ptr
-  tail call void %15(ptr noundef nonnull %requests_lock.i36, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %17 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %18 = inttoptr i64 %17 to ptr
+  tail call void %18(ptr noundef nonnull %requests_lock.i36, ptr noundef nonnull @.str.7, i32 noundef 122) #15
   %state.i.i37 = getelementptr inbounds i8, ptr %s, i64 144
-  %16 = load i32, ptr %state.i.i37, align 8
-  %cmp.i.i38 = icmp eq i32 %16, 2
+  %19 = load i32, ptr %state.i.i37, align 8
+  %cmp.i.i38 = icmp eq i32 %19, 2
   br i1 %cmp.i.i38, label %if.then.i.i42, label %nbd_channel_error.exit44
 
 if.then.i.i42:                                    ; preds = %if.then45
-  %17 = load ptr, ptr %s, align 8
-  %call.i.i43 = tail call i32 @qio_channel_shutdown(ptr noundef %17, i32 noundef 3, ptr noundef null) #15
+  %20 = load ptr, ptr %s, align 8
+  %call.i.i43 = tail call i32 @qio_channel_shutdown(ptr noundef %20, i32 noundef 3, ptr noundef null) #15
   br label %nbd_channel_error.exit44
 
 nbd_channel_error.exit44:                         ; preds = %if.then45, %if.then.i.i42
@@ -3727,30 +3730,30 @@ nbd_channel_error.exit44:                         ; preds = %if.then45, %if.then
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end46:                                         ; preds = %land.lhs.true, %if.end39
-  %18 = load i64, ptr %cookie3, align 8
-  %sub49 = add i64 %18, -1
+  %21 = load i64, ptr %cookie3, align 8
+  %sub49 = add i64 %21, -1
   %cmp50 = icmp ugt i64 %sub49, 15
   br i1 %cmp50, label %if.then54, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end46
   %arrayidx52 = getelementptr [16 x %struct.NBDClientRequest], ptr %requests, i64 0, i64 %sub49
-  %19 = load ptr, ptr %arrayidx52, align 8
-  %tobool53.not = icmp eq ptr %19, null
+  %22 = load ptr, ptr %arrayidx52, align 8
+  %tobool53.not = icmp eq ptr %22, null
   br i1 %tobool53.not, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %lor.lhs.false, %if.end46
   %requests_lock.i45 = getelementptr inbounds i8, ptr %s, i64 96
-  %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %21 = inttoptr i64 %20 to ptr
-  tail call void %21(ptr noundef nonnull %requests_lock.i45, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %23 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %24 = inttoptr i64 %23 to ptr
+  tail call void %24(ptr noundef nonnull %requests_lock.i45, ptr noundef nonnull @.str.7, i32 noundef 122) #15
   %state.i.i46 = getelementptr inbounds i8, ptr %s, i64 144
-  %22 = load i32, ptr %state.i.i46, align 8
-  %cmp.i.i47 = icmp eq i32 %22, 2
+  %25 = load i32, ptr %state.i.i46, align 8
+  %cmp.i.i47 = icmp eq i32 %25, 2
   br i1 %cmp.i.i47, label %if.then.i.i51, label %nbd_channel_error.exit53
 
 if.then.i.i51:                                    ; preds = %if.then54
-  %23 = load ptr, ptr %s, align 8
-  %call.i.i52 = tail call i32 @qio_channel_shutdown(ptr noundef %23, i32 noundef 3, ptr noundef null) #15
+  %26 = load ptr, ptr %s, align 8
+  %call.i.i52 = tail call i32 @qio_channel_shutdown(ptr noundef %26, i32 noundef 3, ptr noundef null) #15
   br label %nbd_channel_error.exit53
 
 nbd_channel_error.exit53:                         ; preds = %if.then54, %if.then.i.i51
@@ -3760,23 +3763,23 @@ nbd_channel_error.exit53:                         ; preds = %if.then54, %if.then
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end55:                                         ; preds = %lor.lhs.false
-  %cmp58 = icmp eq i64 %18, %cookie
+  %cmp58 = icmp eq i64 %21, %cookie
   br i1 %cmp58, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end60
 
 if.end60:                                         ; preds = %if.end55
   %receiving.i = getelementptr inbounds i8, ptr %arrayidx52, i64 16
-  %24 = load i8, ptr %receiving.i, align 8
-  %tobool.i = trunc i8 %24 to i1
+  %27 = load i8, ptr %receiving.i, align 8
+  %tobool.i = trunc i8 %27 to i1
   br i1 %tobool.i, label %if.then.i, label %while.cond.backedge
 
 if.then.i:                                        ; preds = %if.end60
   store i8 0, ptr %receiving.i, align 8
-  tail call void @aio_co_wake(ptr noundef nonnull %19) #15
+  tail call void @aio_co_wake(ptr noundef nonnull %22) #15
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then.i, %if.end60, %if.end12
-  %25 = load i64, ptr %cookie3, align 8
-  %cmp = icmp eq i64 %25, %cookie
+  %28 = load i64, ptr %cookie3, align 8
+  %cmp = icmp eq i64 %28, %cookie
   br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %while.cond.backedge, %if.end55, %entry, %nbd_channel_error.exit53, %nbd_channel_error.exit44, %nbd_channel_error.exit

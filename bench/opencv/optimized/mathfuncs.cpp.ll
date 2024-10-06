@@ -7331,7 +7331,9 @@ _ZN2cv3Mat2atIdEERT_i.exit228.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
 
 .lr.ph321:                                        ; preds = %.lr.ph321.preheader, %345
   %indvars.iv352 = phi i64 [ 0, %.lr.ph321.preheader ], [ %indvars.iv.next353, %345 ]
-  %340 = getelementptr inbounds %"class.cv::Complex", ptr %83, i64 %indvars.iv352, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv352, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %340 = getelementptr inbounds i8, ptr %83, i64 %.offs
   %341 = load double, ptr %340, align 8
   %342 = call double @llvm.fabs.f64(double %341)
   %343 = fcmp olt double %342, 1.000000e-100

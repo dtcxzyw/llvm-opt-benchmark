@@ -215,7 +215,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
 
 .lr.ph.i.i:                                       ; preds = %75
   %83 = getelementptr inbounds i8, ptr %61, i64 80
-  %84 = getelementptr inbounds i8, ptr %61, i64 152
+  %84 = getelementptr i8, ptr %61, i64 156
   %wide.trip.count.i.i = zext nneg i32 %59 to i64
   br label %85
 
@@ -226,7 +226,8 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %88 = fptrunc double %87 to float
   %89 = getelementptr inbounds [6 x %struct.Map_TimeStruct_t_], ptr %83, i64 0, i64 %indvars.iv.i.i
   store float %88, ptr %89, align 4
-  %90 = getelementptr inbounds [6 x %struct.Map_TimeStruct_t_], ptr %84, i64 0, i64 %indvars.iv.i.i, i32 1
+  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
+  %90 = getelementptr i8, ptr %84, i64 %.idx.i.i
   store float %88, ptr %90, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i

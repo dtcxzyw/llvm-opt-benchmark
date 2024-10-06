@@ -808,90 +808,92 @@ define dso_local { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13Legalit
   %9 = add i32 %8, -52
   %spec.select.i.i = select i1 %.not.i.i, i32 %4, i32 %9
   %10 = zext i32 %spec.select.i.i to i64
-  %11 = getelementptr inbounds [244 x %"class.llvm::LegalizeRuleSet"], ptr %5, i64 0, i64 %10, i32 2
-  %12 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
-  br i1 %12, label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit, label %13
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
+  br i1 %13, label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit, label %14
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %11, align 8
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
-  %16 = getelementptr inbounds %"class.llvm::LegalizeRule", ptr %14, i64 %15
-  %.not18.i = icmp eq i64 %15, 0
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %12, align 8
+  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
+  %17 = getelementptr inbounds %"class.llvm::LegalizeRule", ptr %15, i64 %16
+  %.not18.i = icmp eq i64 %16, 0
   br i1 %.not18.i, label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %37
-  %.019.i = phi ptr [ %38, %37 ], [ %14, %13 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %.not.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i, label %19, label %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
+.lr.ph.i:                                         ; preds = %14, %38
+  %.019.i = phi ptr [ %39, %38 ], [ %15, %14 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i.i, label %20, label %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
 
-19:                                               ; preds = %.lr.ph.i
+20:                                               ; preds = %.lr.ph.i
   tail call void @_ZSt25__throw_bad_function_callv() #14
   unreachable
 
 _ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i: ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %.019.i, ptr noundef nonnull align 8 dereferenceable(40) %1) #13
-  br i1 %22, label %23, label %37
+  %21 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %.019.i, ptr noundef nonnull align 8 dereferenceable(40) %1) #13
+  br i1 %23, label %24, label %38
 
-23:                                               ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 56
-  %25 = load ptr, ptr %24, align 8
-  %.not.i.i.not.i.i = icmp eq ptr %25, null
+24:                                               ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
+  %25 = getelementptr inbounds nuw i8, ptr %.019.i, i64 56
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i, label %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i, label %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i
 
-_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i: ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %.019.i, i64 40
-  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 64
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call { i32, i64 } %28(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(40) %1) #13
-  %30 = extractvalue { i32, i64 } %29, 0
-  %31 = extractvalue { i32, i64 } %29, 1
-  %32 = zext i32 %30 to i64
-  %33 = shl nuw i64 %32, 32
+_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i: ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call { i32, i64 } %29(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(40) %1) #13
+  %31 = extractvalue { i32, i64 } %30, 0
+  %32 = extractvalue { i32, i64 } %30, 1
+  %33 = zext i32 %31 to i64
+  %34 = shl nuw i64 %33, 32
   br label %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i
 
-_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i: ; preds = %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i, %23
-  %.sroa.04.0.i.i = phi i64 [ %33, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i ], [ 0, %23 ]
-  %.sroa.3.0.i.i = phi i64 [ %31, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i ], [ 0, %23 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
-  %35 = load i8, ptr %34, align 8
-  %36 = zext i8 %35 to i64
+_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i: ; preds = %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i, %24
+  %.sroa.04.0.i.i = phi i64 [ %34, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i ], [ 0, %24 ]
+  %.sroa.3.0.i.i = phi i64 [ %32, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i ], [ 0, %24 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
+  %36 = load i8, ptr %35, align 8
+  %37 = zext i8 %36 to i64
   br label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit
 
-37:                                               ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
-  %38 = getelementptr inbounds i8, ptr %.019.i, i64 72
-  %.not.i = icmp eq ptr %38, %16
+38:                                               ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
+  %39 = getelementptr inbounds i8, ptr %.019.i, i64 72
+  %.not.i = icmp eq ptr %39, %17
   br i1 %.not.i, label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit, label %.lr.ph.i
 
-_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit: ; preds = %37, %2, %13, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i
-  %.sroa.014.0.i = phi i64 [ %36, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i ], [ 11, %2 ], [ 9, %13 ], [ 9, %37 ]
-  %.sroa.415.0.i = phi i64 [ %.sroa.04.0.i.i, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i ], [ 0, %2 ], [ 0, %13 ], [ 0, %37 ]
-  %.sroa.7.0.i = phi i64 [ %.sroa.3.0.i.i, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i ], [ 0, %2 ], [ 0, %13 ], [ 0, %37 ]
+_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit: ; preds = %38, %2, %14, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i
+  %.sroa.014.0.i = phi i64 [ %37, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i ], [ 11, %2 ], [ 9, %14 ], [ 9, %38 ]
+  %.sroa.415.0.i = phi i64 [ %.sroa.04.0.i.i, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i ], [ 0, %2 ], [ 0, %14 ], [ 0, %38 ]
+  %.sroa.7.0.i = phi i64 [ %.sroa.3.0.i.i, %_ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit.i ], [ 0, %2 ], [ 0, %14 ], [ 0, %38 ]
   %.sroa.415.0.i.masked = and i64 %.sroa.415.0.i, 255
-  %39 = or i64 %.sroa.415.0.i.masked, %.sroa.014.0.i
-  %.not = icmp eq i64 %39, 11
-  br i1 %.not, label %42, label %40
+  %40 = or i64 %.sroa.415.0.i.masked, %.sroa.014.0.i
+  %.not = icmp eq i64 %40, 11
+  br i1 %.not, label %43, label %41
 
-40:                                               ; preds = %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit
-  %41 = and i64 %.sroa.415.0.i, 4294967040
+41:                                               ; preds = %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit
+  %42 = and i64 %.sroa.415.0.i, 4294967040
   br label %_ZN4llvm18LegalizeActionStepC2ENS_24LegacyLegalizeActionStepE.exit
 
-42:                                               ; preds = %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 41000
-  %44 = tail call { i64, i64 } @_ZNK4llvm19LegacyLegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(80040) %43, ptr noundef nonnull align 8 dereferenceable(40) %1) #13
-  %45 = extractvalue { i64, i64 } %44, 0
-  %46 = extractvalue { i64, i64 } %44, 1
-  %.pre = and i64 %45, 255
+43:                                               ; preds = %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 41000
+  %45 = tail call { i64, i64 } @_ZNK4llvm19LegacyLegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(80040) %44, ptr noundef nonnull align 8 dereferenceable(40) %1) #13
+  %46 = extractvalue { i64, i64 } %45, 0
+  %47 = extractvalue { i64, i64 } %45, 1
+  %.pre = and i64 %46, 255
   br label %_ZN4llvm18LegalizeActionStepC2ENS_24LegacyLegalizeActionStepE.exit
 
-_ZN4llvm18LegalizeActionStepC2ENS_24LegacyLegalizeActionStepE.exit: ; preds = %42, %40
-  %.sroa.0.0.insert.ext.pre-phi = phi i64 [ %.pre, %42 ], [ %39, %40 ]
-  %.sroa.3.sroa.0.0 = phi i64 [ 0, %42 ], [ %41, %40 ]
-  %.sroa.4.0 = phi i64 [ %46, %42 ], [ %.sroa.7.0.i, %40 ]
-  %.sroa.35.0.in.in = phi i64 [ %45, %42 ], [ %.sroa.415.0.i, %40 ]
+_ZN4llvm18LegalizeActionStepC2ENS_24LegacyLegalizeActionStepE.exit: ; preds = %43, %41
+  %.sroa.0.0.insert.ext.pre-phi = phi i64 [ %.pre, %43 ], [ %40, %41 ]
+  %.sroa.3.sroa.0.0 = phi i64 [ 0, %43 ], [ %42, %41 ]
+  %.sroa.4.0 = phi i64 [ %47, %43 ], [ %.sroa.7.0.i, %41 ]
+  %.sroa.35.0.in.in = phi i64 [ %46, %43 ], [ %.sroa.415.0.i, %41 ]
   %.sroa.35.0.in = and i64 %.sroa.35.0.in.in, -4294967296
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.35.0.in, %.sroa.3.sroa.0.0
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext.pre-phi

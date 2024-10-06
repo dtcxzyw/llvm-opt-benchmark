@@ -1505,19 +1505,19 @@ define internal fastcc void @ohci_work(ptr noundef %0) unnamed_addr #0 align 16 
   store i8 %27, ptr %2, align 4
   %28 = load ptr, ptr %10, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %.preheader16
+  br i1 %29, label %.loopexit, label %.preheader21
 
-.preheader16:                                     ; preds = %26, %293
+.preheader21:                                     ; preds = %26, %293
   %30 = phi ptr [ %294, %293 ], [ %28, %26 ]
   %31 = load ptr, ptr %11, align 8
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %33, label %34
 
-33:                                               ; preds = %.preheader16
+33:                                               ; preds = %.preheader21
   store ptr null, ptr %11, align 8
   br label %37
 
-34:                                               ; preds = %.preheader16
+34:                                               ; preds = %.preheader21
   %35 = getelementptr inbounds i8, ptr %30, i64 40
   %36 = load ptr, ptr %35, align 8
   br label %37
@@ -1561,11 +1561,12 @@ define internal fastcc void @ohci_work(ptr noundef %0) unnamed_addr #0 align 16 
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %40, i64 184
-  %66 = getelementptr inbounds i8, ptr %30, i64 20
-  %67 = load i8, ptr %66, align 4
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %65, i64 0, i64 %68, i32 1
+  %65 = getelementptr inbounds i8, ptr %30, i64 20
+  %66 = load i8, ptr %65, align 4
+  %67 = zext i8 %66 to i64
+  %.idx.i = shl nuw nsw i64 %67, 4
+  %68 = getelementptr i8, ptr %40, i64 188
+  %69 = getelementptr i8, ptr %68, i64 %.idx.i
   %70 = load i32, ptr %69, align 4
   br label %75
 
@@ -1586,14 +1587,18 @@ define internal fastcc void @ohci_work(ptr noundef %0) unnamed_addr #0 align 16 
   %82 = getelementptr inbounds i8, ptr %30, i64 20
   %83 = load i8, ptr %82, align 4
   %84 = zext i8 %83 to i64
-  %85 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %81, i64 0, i64 %84, i32 2
+  %.idx2.i = shl nuw nsw i64 %84, 4
+  %.offs.i = or disjoint i64 %.idx2.i, 8
+  %85 = getelementptr i8, ptr %81, i64 %.offs.i
   store i32 %77, ptr %85, align 8
   %86 = zext nneg i32 %76 to i64
   %87 = getelementptr [16 x i32], ptr @cc_to_error, i64 0, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = load i8, ptr %82, align 4
   %90 = zext i8 %89 to i64
-  %91 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %81, i64 0, i64 %90, i32 3
+  %.idx3.i = shl nuw nsw i64 %90, 4
+  %.offs4.i = or disjoint i64 %.idx3.i, 12
+  %91 = getelementptr i8, ptr %81, i64 %.offs4.i
   store i32 %88, ptr %91, align 4
   br label %td_done.exit
 
@@ -1930,7 +1935,7 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
 293:                                              ; preds = %290, %287, %283, %278, %274, %255, %251
   %294 = load ptr, ptr %10, align 8
   %295 = icmp eq ptr %294, null
-  br i1 %295, label %.loopexit, label %.preheader16, !llvm.loop !31
+  br i1 %295, label %.loopexit, label %.preheader21, !llvm.loop !31
 
 .loopexit:                                        ; preds = %293, %26
   %296 = load ptr, ptr %13, align 8
@@ -1969,7 +1974,7 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %317 = icmp eq ptr %316, %315
   %.phi.trans.insert = getelementptr inbounds i8, ptr %304, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %317, label %._crit_edge31, label %318
+  br i1 %317, label %._crit_edge36, label %318
 
 318:                                              ; preds = %314
   %319 = and i32 %.pre, -32
@@ -1984,9 +1989,9 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %326 = getelementptr i8, ptr %316, i64 -32
   %327 = load ptr, ptr %326, align 8
   %328 = icmp eq ptr %327, null
-  br i1 %328, label %._crit_edge31, label %312
+  br i1 %328, label %._crit_edge36, label %312
 
-._crit_edge31:                                    ; preds = %314, %325
+._crit_edge36:                                    ; preds = %314, %325
   %329 = getelementptr inbounds i8, ptr %304, i64 8
   %330 = and i32 %.pre, -2
   store i32 %330, ptr %329, align 8
@@ -2000,20 +2005,20 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %335 = load ptr, ptr %334, align 16
   store ptr %335, ptr %305, align 8
   store ptr null, ptr %334, align 16
-  %.pre32 = load ptr, ptr %315, align 16
+  %.pre37 = load ptr, ptr %315, align 16
   br label %336
 
-336:                                              ; preds = %558, %._crit_edge31
-  %337 = phi ptr [ %.pre32, %._crit_edge31 ], [ %559, %558 ]
-  %338 = phi i32 [ 0, %._crit_edge31 ], [ %553, %558 ]
+336:                                              ; preds = %558, %._crit_edge36
+  %337 = phi ptr [ %.pre37, %._crit_edge36 ], [ %559, %558 ]
+  %338 = phi i32 [ 0, %._crit_edge36 ], [ %553, %558 ]
   %339 = icmp eq ptr %337, %315
   br i1 %339, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %336, %finish_urb.exit12
-  %340 = phi ptr [ %344, %finish_urb.exit12 ], [ %337, %336 ]
-  %341 = phi ptr [ %554, %finish_urb.exit12 ], [ %329, %336 ]
-  %342 = phi i32 [ %553, %finish_urb.exit12 ], [ %338, %336 ]
-  %343 = phi i32 [ %552, %finish_urb.exit12 ], [ 0, %336 ]
+.preheader:                                       ; preds = %336, %finish_urb.exit17
+  %340 = phi ptr [ %344, %finish_urb.exit17 ], [ %337, %336 ]
+  %341 = phi ptr [ %554, %finish_urb.exit17 ], [ %329, %336 ]
+  %342 = phi i32 [ %553, %finish_urb.exit17 ], [ %338, %336 ]
+  %343 = phi i32 [ %552, %finish_urb.exit17 ], [ 0, %336 ]
   %344 = load ptr, ptr %340, align 8
   %345 = getelementptr i8, ptr %340, i64 -72
   %346 = getelementptr i8, ptr %340, i64 -24
@@ -2027,7 +2032,7 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
 
 353:                                              ; preds = %.preheader
   %354 = getelementptr i8, ptr %340, i64 -64
-  br label %finish_urb.exit12
+  br label %finish_urb.exit17
 
 355:                                              ; preds = %.preheader
   %356 = load i32, ptr %341, align 4
@@ -2079,7 +2084,7 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %382 = zext i16 %381 to i32
   %383 = lshr i32 %382, 12
   %384 = icmp ult i32 %372, 268435456
-  br i1 %384, label %385, label %td_done.exit10
+  br i1 %384, label %385, label %td_done.exit15
 
 385:                                              ; preds = %379
   %386 = getelementptr inbounds i8, ptr %347, i64 80
@@ -2089,11 +2094,12 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   br i1 %389, label %390, label %397
 
 390:                                              ; preds = %385
-  %391 = getelementptr inbounds i8, ptr %347, i64 184
-  %392 = getelementptr i8, ptr %340, i64 -52
-  %393 = load i8, ptr %392, align 4
-  %394 = zext i8 %393 to i64
-  %395 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %391, i64 0, i64 %394, i32 1
+  %391 = getelementptr i8, ptr %340, i64 -52
+  %392 = load i8, ptr %391, align 4
+  %393 = zext i8 %392 to i64
+  %.idx.i14 = shl nuw nsw i64 %393, 4
+  %394 = getelementptr i8, ptr %347, i64 188
+  %395 = getelementptr i8, ptr %394, i64 %.idx.i14
   %396 = load i32, ptr %395, align 4
   br label %401
 
@@ -2114,16 +2120,20 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %408 = getelementptr i8, ptr %340, i64 -52
   %409 = load i8, ptr %408, align 4
   %410 = zext i8 %409 to i64
-  %411 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %407, i64 0, i64 %410, i32 2
+  %.idx2.i10 = shl nuw nsw i64 %410, 4
+  %.offs.i11 = or disjoint i64 %.idx2.i10, 8
+  %411 = getelementptr i8, ptr %407, i64 %.offs.i11
   store i32 %403, ptr %411, align 8
   %412 = zext nneg i32 %402 to i64
   %413 = getelementptr [16 x i32], ptr @cc_to_error, i64 0, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = load i8, ptr %408, align 4
   %416 = zext i8 %415 to i64
-  %417 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %407, i64 0, i64 %416, i32 3
+  %.idx3.i12 = shl nuw nsw i64 %416, 4
+  %.offs4.i13 = or disjoint i64 %.idx3.i12, 12
+  %417 = getelementptr i8, ptr %407, i64 %.offs4.i13
   store i32 %414, ptr %417, align 4
-  br label %td_done.exit10
+  br label %td_done.exit15
 
 418:                                              ; preds = %371
   %419 = getelementptr inbounds i8, ptr %347, i64 80
@@ -2140,11 +2150,11 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %428 = icmp ne i8 %427, 0
   %429 = icmp ne i32 %422, 0
   %430 = select i1 %428, i1 %429, i1 false
-  br i1 %430, label %433, label %td_done.exit10
+  br i1 %430, label %433, label %td_done.exit15
 
 431:                                              ; preds = %418
   %432 = icmp eq i32 %422, 0
-  br i1 %432, label %td_done.exit10, label %433
+  br i1 %432, label %td_done.exit15, label %433
 
 433:                                              ; preds = %431, %425
   %434 = getelementptr i8, ptr %340, i64 -68
@@ -2162,15 +2172,15 @@ finish_urb.exit:                                  ; preds = %239, %236, %td_done
   %444 = sub i32 %443, %441
   %445 = add i32 %444, %440
   store i32 %445, ptr %439, align 4
-  br label %td_done.exit10
+  br label %td_done.exit15
 
 446:                                              ; preds = %433
   %447 = sub i32 %435, %441
   %448 = add i32 %447, %440
   store i32 %448, ptr %439, align 4
-  br label %td_done.exit10
+  br label %td_done.exit15
 
-td_done.exit10:                                   ; preds = %379, %401, %425, %431, %442, %446
+td_done.exit15:                                   ; preds = %379, %401, %425, %431, %442, %446
   %449 = getelementptr inbounds i8, ptr %349, i64 10
   %450 = load i16, ptr %449, align 2
   %451 = add i16 %450, 1
@@ -2178,9 +2188,9 @@ td_done.exit10:                                   ; preds = %379, %401, %425, %4
   %452 = getelementptr inbounds i8, ptr %349, i64 8
   %453 = load i16, ptr %452, align 8
   %454 = icmp ult i16 %451, %453
-  br i1 %454, label %finish_urb.exit12, label %455
+  br i1 %454, label %finish_urb.exit17, label %455
 
-455:                                              ; preds = %td_done.exit10
+455:                                              ; preds = %td_done.exit15
   %456 = load ptr, ptr %20, align 8
   %457 = getelementptr inbounds i8, ptr %347, i64 72
   %458 = load ptr, ptr %457, align 8
@@ -2194,7 +2204,7 @@ td_done.exit10:                                   ; preds = %379, %401, %425, %4
   %464 = getelementptr inbounds i8, ptr %463, i64 8
   %465 = load i16, ptr %464, align 8
   %466 = icmp eq i16 %465, 0
-  br i1 %466, label %urb_free_priv.exit13, label %467
+  br i1 %466, label %urb_free_priv.exit18, label %467
 
 467:                                              ; preds = %460
   %468 = getelementptr inbounds i8, ptr %463, i64 32
@@ -2254,9 +2264,9 @@ td_done.exit10:                                   ; preds = %379, %401, %425, %4
 501:                                              ; preds = %498, %496, %470
   %502 = add nuw nsw i64 %471, 1
   %503 = icmp eq i64 %502, %469
-  br i1 %503, label %urb_free_priv.exit13, label %470, !llvm.loop !29
+  br i1 %503, label %urb_free_priv.exit18, label %470, !llvm.loop !29
 
-urb_free_priv.exit13:                             ; preds = %501, %460
+urb_free_priv.exit18:                             ; preds = %501, %460
   %504 = getelementptr inbounds i8, ptr %463, i64 16
   %505 = getelementptr inbounds i8, ptr %463, i64 24
   %506 = load ptr, ptr %505, align 8
@@ -2276,7 +2286,7 @@ urb_free_priv.exit13:                             ; preds = %501, %460
     i32 1, label %526
   ]
 
-512:                                              ; preds = %urb_free_priv.exit13
+512:                                              ; preds = %urb_free_priv.exit18
   %513 = load i32, ptr %22, align 8
   %514 = add i32 %513, -1
   store i32 %514, ptr %22, align 8
@@ -2291,11 +2301,11 @@ urb_free_priv.exit13:                             ; preds = %501, %460
 
 520:                                              ; preds = %516
   tail call void @usb_amd_quirk_pll_enable() #14
-  %.pre.i11 = load i64, ptr %17, align 8
+  %.pre.i16 = load i64, ptr %17, align 8
   br label %521
 
 521:                                              ; preds = %520, %516
-  %522 = phi i64 [ %.pre.i11, %520 ], [ %517, %516 ]
+  %522 = phi i64 [ %.pre.i16, %520 ], [ %517, %516 ]
   %523 = and i64 %522, 1024
   %524 = icmp eq i64 %523, 0
   br i1 %524, label %529, label %525
@@ -2304,13 +2314,13 @@ urb_free_priv.exit13:                             ; preds = %501, %460
   tail call void @sb800_prefetch(ptr noundef %456, i32 noundef 0) #14
   br label %529
 
-526:                                              ; preds = %urb_free_priv.exit13
+526:                                              ; preds = %urb_free_priv.exit18
   %527 = load i32, ptr %21, align 4
   %528 = add i32 %527, -1
   store i32 %528, ptr %21, align 4
   br label %529
 
-529:                                              ; preds = %526, %525, %521, %512, %urb_free_priv.exit13
+529:                                              ; preds = %526, %525, %521, %512, %urb_free_priv.exit18
   tail call void @usb_hcd_unlink_urb_from_ep(ptr noundef %20, ptr noundef %461) #14
   tail call void @_raw_spin_unlock(ptr noundef %0) #14
   tail call void @usb_hcd_giveback_urb(ptr noundef %20, ptr noundef %461, i32 noundef 0) #14
@@ -2336,7 +2346,7 @@ urb_free_priv.exit13:                             ; preds = %501, %460
 540:                                              ; preds = %535, %532, %529
   %541 = load volatile ptr, ptr %459, align 8
   %542 = icmp eq ptr %541, %459
-  br i1 %542, label %finish_urb.exit12, label %543
+  br i1 %542, label %finish_urb.exit17, label %543
 
 543:                                              ; preds = %540
   %544 = getelementptr i8, ptr %541, i64 -16
@@ -2347,16 +2357,16 @@ urb_free_priv.exit13:                             ; preds = %501, %460
   %549 = load i16, ptr %548, align 8
   %550 = icmp ugt i16 %547, %549
   %551 = getelementptr i8, ptr %541, i64 -24
-  br i1 %550, label %460, label %finish_urb.exit12
+  br i1 %550, label %460, label %finish_urb.exit17
 
-finish_urb.exit12:                                ; preds = %543, %540, %td_done.exit10, %353
-  %552 = phi i32 [ %343, %353 ], [ %343, %td_done.exit10 ], [ 1, %540 ], [ 1, %543 ]
-  %553 = phi i32 [ %342, %353 ], [ %342, %td_done.exit10 ], [ 1, %540 ], [ 1, %543 ]
-  %554 = phi ptr [ %354, %353 ], [ %341, %td_done.exit10 ], [ %341, %540 ], [ %341, %543 ]
+finish_urb.exit17:                                ; preds = %543, %540, %td_done.exit15, %353
+  %552 = phi i32 [ %343, %353 ], [ %343, %td_done.exit15 ], [ 1, %540 ], [ 1, %543 ]
+  %553 = phi i32 [ %342, %353 ], [ %342, %td_done.exit15 ], [ 1, %540 ], [ 1, %543 ]
+  %554 = phi ptr [ %354, %353 ], [ %341, %td_done.exit15 ], [ %341, %540 ], [ %341, %543 ]
   %555 = icmp eq ptr %344, %315
   br i1 %555, label %556, label %.preheader, !llvm.loop !33
 
-556:                                              ; preds = %finish_urb.exit12
+556:                                              ; preds = %finish_urb.exit17
   %557 = icmp eq i32 %552, 0
   br i1 %557, label %.thread, label %558
 
@@ -2406,11 +2416,11 @@ finish_urb.exit12:                                ; preds = %543, %540, %td_done
   %581 = phi ptr [ %305, %564 ], [ %305, %574 ], [ %579, %576 ]
   %.not = icmp eq i32 %561, 0
   %582 = select i1 %.not, ptr %581, ptr %13
-  %.pre33 = load i32, ptr %15, align 8
+  %.pre38 = load i32, ptr %15, align 8
   br label %583
 
 583:                                              ; preds = %580, %312
-  %584 = phi i32 [ %303, %312 ], [ %.pre33, %580 ]
+  %584 = phi i32 [ %303, %312 ], [ %.pre38, %580 ]
   %585 = phi ptr [ %313, %312 ], [ %582, %580 ]
   %586 = load ptr, ptr %585, align 8
   %587 = icmp eq ptr %586, null
@@ -2475,9 +2485,9 @@ finish_urb.exit12:                                ; preds = %543, %540, %td_done
   %620 = load i32, ptr %18, align 8
   %621 = and i32 %620, 32
   %622 = icmp eq i32 %621, 0
-  br i1 %622, label %.thread14, label %626
+  br i1 %622, label %.thread19, label %626
 
-.thread14:                                        ; preds = %619
+.thread19:                                        ; preds = %619
   %623 = or disjoint i32 %610, 32
   %624 = load ptr, ptr %12, align 8
   %625 = getelementptr inbounds i8, ptr %624, i64 44
@@ -2488,9 +2498,9 @@ finish_urb.exit12:                                ; preds = %543, %540, %td_done
   %627 = phi i32 [ %614, %619 ], [ %608, %607 ]
   br i1 %609, label %641, label %628
 
-628:                                              ; preds = %.thread14, %626
-  %629 = phi i32 [ %623, %.thread14 ], [ %610, %626 ]
-  %630 = phi i32 [ %614, %.thread14 ], [ %627, %626 ]
+628:                                              ; preds = %.thread19, %626
+  %629 = phi i32 [ %623, %.thread19 ], [ %610, %626 ]
+  %630 = phi i32 [ %614, %.thread19 ], [ %627, %626 ]
   %631 = load i32, ptr %18, align 8
   %632 = or i32 %631, %629
   store i32 %632, ptr %18, align 8
@@ -2501,11 +2511,11 @@ finish_urb.exit12:                                ; preds = %543, %540, %td_done
 
 636:                                              ; preds = %628
   tail call void @__const_udelay(i64 noundef 4295000) #14
-  %.pre34 = load i32, ptr %18, align 8
+  %.pre39 = load i32, ptr %18, align 8
   br label %637
 
 637:                                              ; preds = %636, %628
-  %638 = phi i32 [ %.pre34, %636 ], [ %632, %628 ]
+  %638 = phi i32 [ %.pre39, %636 ], [ %632, %628 ]
   %639 = load ptr, ptr %12, align 8
   %640 = getelementptr inbounds i8, ptr %639, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %638, ptr elementtype(i32) %640) #14, !srcloc !9

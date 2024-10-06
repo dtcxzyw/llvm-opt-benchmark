@@ -19,11 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::allocator" = type { i8 }
-%"struct.cmCTest::Private::PartInfo" = type { %"class.std::vector", i8, %"class.std::__cxx11::basic_string" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::tuple.1129" = type { %"struct.std::_Tuple_impl.1130" }
 %"struct.std::_Tuple_impl.1130" = type { %"struct.std::_Head_base.1131" }
 %"struct.std::_Head_base.1131" = type { ptr }
@@ -116,6 +111,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::set.90" = type { %"class.std::_Rb_tree.91" }
 %"class.std::_Rb_tree.91" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.64" = type { %"struct.std::__uniq_ptr_data.65" }
 %"struct.std::__uniq_ptr_data.65" = type { %"class.std::__uniq_ptr_impl.66" }
 %"class.std::__uniq_ptr_impl.66" = type { %"class.std::tuple.67" }
@@ -325,6 +324,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.892" = type { %"class.std::_Rb_tree.893" }
 %"class.std::_Rb_tree.893" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, cmCTestGenericHandler *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, cmCTestGenericHandler *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, cmCTestGenericHandler *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, cmCTestGenericHandler *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.cmCTest::Private::PartInfo" = type { %"class.std::vector", i8, %"class.std::__cxx11::basic_string" }
 %"class.std::tuple.1141" = type { %"struct.std::_Tuple_impl.1142" }
 %"struct.std::_Tuple_impl.1142" = type { %"struct.std::_Head_base.1143" }
 %"struct.std::_Head_base.1143" = type { ptr }
@@ -2981,8 +2981,9 @@ _ZN7cmCTest7Private8PartInfo7SetNameERKNSt7__cxx1112basic_stringIcSt11char_trait
 128:                                              ; preds = %_ZN7cmCTest7Private8PartInfo7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit130, %135
   %indvars.iv = phi i64 [ 0, %_ZN7cmCTest7Private8PartInfo7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit130 ], [ %indvars.iv.next, %135 ]
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 14088
-  %131 = getelementptr inbounds [12 x %"struct.cmCTest::Private::PartInfo"], ptr %130, i64 0, i64 %indvars.iv, i32 2
+  %.idx = shl nuw nsw i64 %indvars.iv, 6
+  %130 = getelementptr i8, ptr %129, i64 14120
+  %131 = getelementptr i8, ptr %130, i64 %.idx
   invoke void @_ZN5cmsys11SystemTools9LowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %131)
           to label %132 unwind label %.loopexit
 
@@ -8347,8 +8348,9 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest7SetTestERKNSt7__cxx1112basic_st
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %3 ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 14088
-  %11 = getelementptr inbounds [12 x %"struct.cmCTest::Private::PartInfo"], ptr %10, i64 0, i64 %indvars.iv, i32 1
+  %.idx18 = shl nuw nsw i64 %indvars.iv, 6
+  %10 = getelementptr i8, ptr %9, i64 14112
+  %11 = getelementptr i8, ptr %10, i64 %.idx18
   store i8 1, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 12
@@ -8361,9 +8363,10 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest7SetTestERKNSt7__cxx1112basic_st
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 14088
-  %17 = zext i32 %13 to i64
-  %18 = getelementptr inbounds [12 x %"struct.cmCTest::Private::PartInfo"], ptr %16, i64 0, i64 %17, i32 1
+  %16 = zext i32 %13 to i64
+  %.idx = shl nuw nsw i64 %16, 6
+  %17 = getelementptr i8, ptr %15, i64 14112
+  %18 = getelementptr i8, ptr %17, i64 %.idx
   store i8 1, ptr %18, align 8
   br label %.loopexit
 
@@ -9100,12 +9103,13 @@ define dso_local noundef range(i32 0, 128) i32 @_ZN7cmCTest12ProcessStepsEv(ptr 
   %17 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 14088
+  %20 = getelementptr i8, ptr %19, i64 14112
   br label %21
 
 21:                                               ; preds = %1, %21
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds [12 x %"struct.cmCTest::Private::PartInfo"], ptr %20, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 6
+  %22 = getelementptr i8, ptr %20, i64 %.idx
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -26574,8 +26578,9 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 .preheader.i:                                     ; preds = %30, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %30 ]
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 14088
-  %41 = getelementptr inbounds [12 x %"struct.cmCTest::Private::PartInfo"], ptr %40, i64 0, i64 %indvars.iv.i, i32 1
+  %.idx18.i = shl nuw nsw i64 %indvars.iv.i, 6
+  %40 = getelementptr i8, ptr %39, i64 14112
+  %41 = getelementptr i8, ptr %40, i64 %.idx18.i
   store i8 1, ptr %41, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not17.i = icmp eq i64 %indvars.iv.next.i, 12
@@ -26588,9 +26593,10 @@ _ZN7cmCTest13CheckArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 14088
-  %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds [12 x %"struct.cmCTest::Private::PartInfo"], ptr %46, i64 0, i64 %47, i32 1
+  %46 = zext i32 %43 to i64
+  %.idx.i = shl nuw nsw i64 %46, 6
+  %47 = getelementptr i8, ptr %45, i64 14112
+  %48 = getelementptr i8, ptr %47, i64 %.idx.i
   store i8 1, ptr %48, align 8
   br label %_ZN7cmCTest7SetTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.thread
 

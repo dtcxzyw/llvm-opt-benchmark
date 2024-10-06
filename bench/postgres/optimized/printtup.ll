@@ -94,184 +94,187 @@ define internal noundef zeroext i1 @printtup(ptr noundef %0, ptr noundef %1) #0 
   %26 = tail call ptr @palloc0(i64 noundef %25) #10
   store ptr %26, ptr %17, align 8
   %.not39.i = icmp eq ptr %16, null
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %invariant.gep.i = getelementptr i8, ptr %4, i64 92
   br i1 %.not39.i, label %.thread.us.i, label %.split.i
 
 .thread.us.i:                                     ; preds = %23, %.thread.us.i
-  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.thread.us.i ], [ 0, %23 ]
-  %28 = load ptr, ptr %17, align 8
-  %29 = getelementptr %struct.PrinttupAttrInfo, ptr %28, i64 %indvars.iv44.i
-  %30 = getelementptr inbounds i8, ptr %29, i64 10
-  store i16 0, ptr %30, align 2
-  %31 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %27, i64 0, i64 %indvars.iv44.i, i32 2
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
-  tail call void @getTypeOutputInfo(i32 noundef %32, ptr noundef %29, ptr noundef nonnull %33) #10
-  %34 = load i32, ptr %29, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 16
-  tail call void @fmgr_info(i32 noundef %34, ptr noundef nonnull %35) #10
-  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %24
-  br i1 %exitcond48.not.i, label %printtup_prepare_info.exit, label %.thread.us.i, !llvm.loop !5
+  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.thread.us.i ], [ 0, %23 ]
+  %27 = load ptr, ptr %17, align 8
+  %28 = getelementptr %struct.PrinttupAttrInfo, ptr %27, i64 %indvars.iv45.i
+  %29 = getelementptr inbounds i8, ptr %28, i64 10
+  store i16 0, ptr %29, align 2
+  %.idx40.us.i = mul nuw nsw i64 %indvars.iv45.i, 104
+  %30 = getelementptr i8, ptr %invariant.gep.i, i64 %.idx40.us.i
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  tail call void @getTypeOutputInfo(i32 noundef %31, ptr noundef %28, ptr noundef nonnull %32) #10
+  %33 = load i32, ptr %28, align 8
+  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  tail call void @fmgr_info(i32 noundef %33, ptr noundef nonnull %34) #10
+  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %24
+  br i1 %exitcond49.not.i, label %printtup_prepare_info.exit, label %.thread.us.i, !llvm.loop !5
 
-.split.i:                                         ; preds = %23, %55
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %23 ]
-  %36 = load ptr, ptr %17, align 8
-  %37 = getelementptr %struct.PrinttupAttrInfo, ptr %36, i64 %indvars.iv.i
-  %38 = getelementptr i16, ptr %16, i64 %indvars.iv.i
-  %39 = load i16, ptr %38, align 2
-  %40 = getelementptr inbounds i8, ptr %37, i64 10
-  store i16 %39, ptr %40, align 2
-  switch i16 %39, label %50 [
-    i16 0, label %41
-    i16 1, label %45
+.split.i:                                         ; preds = %23, %53
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %23 ]
+  %35 = load ptr, ptr %17, align 8
+  %36 = getelementptr %struct.PrinttupAttrInfo, ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr i16, ptr %16, i64 %indvars.iv.i
+  %38 = load i16, ptr %37, align 2
+  %39 = getelementptr inbounds i8, ptr %36, i64 10
+  store i16 %38, ptr %39, align 2
+  switch i16 %38, label %48 [
+    i16 0, label %40
+    i16 1, label %44
   ]
 
-41:                                               ; preds = %.split.i
-  %42 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %27, i64 0, i64 %indvars.iv.i, i32 2
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %37, i64 8
-  tail call void @getTypeOutputInfo(i32 noundef %43, ptr noundef %37, ptr noundef nonnull %44) #10
-  br label %55
+40:                                               ; preds = %.split.i
+  %.idx40.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %41 = getelementptr i8, ptr %invariant.gep.i, i64 %.idx40.i
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  tail call void @getTypeOutputInfo(i32 noundef %42, ptr noundef %36, ptr noundef nonnull %43) #10
+  br label %53
 
-45:                                               ; preds = %.split.i
-  %46 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %27, i64 0, i64 %indvars.iv.i, i32 2
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %37, i64 4
-  %49 = getelementptr inbounds i8, ptr %37, i64 8
-  tail call void @getTypeBinaryOutputInfo(i32 noundef %47, ptr noundef nonnull %48, ptr noundef nonnull %49) #10
-  br label %55
+44:                                               ; preds = %.split.i
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
+  %45 = load i32, ptr %gep.i, align 4
+  %46 = getelementptr inbounds i8, ptr %36, i64 4
+  %47 = getelementptr inbounds i8, ptr %36, i64 8
+  tail call void @getTypeBinaryOutputInfo(i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %47) #10
+  br label %53
 
-50:                                               ; preds = %.split.i
-  %51 = sext i16 %39 to i32
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %51) #10
+48:                                               ; preds = %.split.i
+  %49 = sext i16 %38 to i32
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %50)
+  %51 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %49) #10
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 292, ptr noundef nonnull @__func__.printtup_prepare_info) #10
   unreachable
 
-55:                                               ; preds = %45, %41
-  %.sink.in.i = phi ptr [ %37, %41 ], [ %48, %45 ]
+53:                                               ; preds = %44, %40
+  %.sink.in.i = phi ptr [ %36, %40 ], [ %46, %44 ]
   %.sink.i = load i32, ptr %.sink.in.i, align 4
-  %56 = getelementptr inbounds i8, ptr %37, i64 16
-  tail call void @fmgr_info(i32 noundef %.sink.i, ptr noundef nonnull %56) #10
+  %54 = getelementptr inbounds i8, ptr %36, i64 16
+  tail call void @fmgr_info(i32 noundef %.sink.i, ptr noundef nonnull %54) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not.i, label %printtup_prepare_info.exit, label %.split.i, !llvm.loop !5
 
-printtup_prepare_info.exit:                       ; preds = %55, %.thread.us.i, %20, %9
-  %57 = load ptr, ptr %3, align 8
-  %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 6
-  %60 = load i16, ptr %59, align 2
-  %61 = sext i16 %60 to i32
-  %62 = icmp sgt i32 %58, %61
-  br i1 %62, label %63, label %slot_getallattrs.exit
+printtup_prepare_info.exit:                       ; preds = %53, %.thread.us.i, %20, %9
+  %55 = load ptr, ptr %3, align 8
+  %56 = load i32, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 6
+  %58 = load i16, ptr %57, align 2
+  %59 = sext i16 %58 to i32
+  %60 = icmp sgt i32 %56, %59
+  br i1 %60, label %61, label %slot_getallattrs.exit
 
-63:                                               ; preds = %printtup_prepare_info.exit
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef %58) #10
+61:                                               ; preds = %printtup_prepare_info.exit
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef %56) #10
   br label %slot_getallattrs.exit
 
-slot_getallattrs.exit:                            ; preds = %printtup_prepare_info.exit, %63
-  %64 = getelementptr inbounds i8, ptr %1, i64 104
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %65, ptr @CurrentMemoryContext, align 8
+slot_getallattrs.exit:                            ; preds = %printtup_prepare_info.exit, %61
+  %62 = getelementptr inbounds i8, ptr %1, i64 104
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %63, ptr @CurrentMemoryContext, align 8
   tail call void @pq_beginmessage_reuse(ptr noundef nonnull %5, i8 noundef signext 68) #10
-  %67 = trunc i32 %6 to i16
+  %65 = trunc i32 %6 to i16
   tail call void @enlargeStringInfo(ptr noundef nonnull %5, i32 noundef 2) #10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %68 = tail call i16 @llvm.bswap.i16(i16 %67)
-  %69 = load ptr, ptr %5, align 8, !alias.scope !7
-  %70 = getelementptr inbounds i8, ptr %1, i64 88
-  %71 = load i32, ptr %70, align 8, !alias.scope !7
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr i8, ptr %69, i64 %72
-  store i16 %68, ptr %73, align 1, !noalias !7
-  %74 = add i32 %71, 2
-  store i32 %74, ptr %70, align 8, !alias.scope !7
-  %75 = icmp sgt i32 %6, 0
-  br i1 %75, label %.lr.ph, label %._crit_edge
+  %66 = tail call i16 @llvm.bswap.i16(i16 %65)
+  %67 = load ptr, ptr %5, align 8, !alias.scope !7
+  %68 = getelementptr inbounds i8, ptr %1, i64 88
+  %69 = load i32, ptr %68, align 8, !alias.scope !7
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr i8, ptr %67, i64 %70
+  store i16 %66, ptr %71, align 1, !noalias !7
+  %72 = add i32 %69, 2
+  store i32 %72, ptr %68, align 8, !alias.scope !7
+  %73 = icmp sgt i32 %6, 0
+  br i1 %73, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit
-  %76 = getelementptr inbounds i8, ptr %1, i64 72
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
-  %78 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = getelementptr inbounds i8, ptr %1, i64 72
+  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %76 = getelementptr inbounds i8, ptr %0, i64 32
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %79
+  br label %77
 
-79:                                               ; preds = %.lr.ph, %119
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %119 ]
-  %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr i64, ptr %80, i64 %indvars.iv
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %78, align 8
-  %84 = getelementptr i8, ptr %83, i64 %indvars.iv
-  %85 = load i8, ptr %84, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %93
+77:                                               ; preds = %.lr.ph, %117
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %117 ]
+  %78 = load ptr, ptr %75, align 8
+  %79 = getelementptr i64, ptr %78, i64 %indvars.iv
+  %80 = load i64, ptr %79, align 8
+  %81 = load ptr, ptr %76, align 8
+  %82 = getelementptr i8, ptr %81, i64 %indvars.iv
+  %83 = load i8, ptr %82, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %91
 
-87:                                               ; preds = %79
+85:                                               ; preds = %77
   tail call void @enlargeStringInfo(ptr noundef nonnull %5, i32 noundef 4) #10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %88 = load ptr, ptr %5, align 8, !alias.scope !10
-  %89 = load i32, ptr %70, align 8, !alias.scope !10
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr i8, ptr %88, i64 %90
-  store i32 -1, ptr %91, align 1, !noalias !10
-  %92 = add i32 %89, 4
-  store i32 %92, ptr %70, align 8, !alias.scope !10
-  br label %119
+  %86 = load ptr, ptr %5, align 8, !alias.scope !10
+  %87 = load i32, ptr %68, align 8, !alias.scope !10
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr i8, ptr %86, i64 %88
+  store i32 -1, ptr %89, align 1, !noalias !10
+  %90 = add i32 %87, 4
+  store i32 %90, ptr %68, align 8, !alias.scope !10
+  br label %117
 
-93:                                               ; preds = %79
-  %94 = load ptr, ptr %76, align 8
-  %95 = getelementptr %struct.PrinttupAttrInfo, ptr %94, i64 %indvars.iv
-  %96 = getelementptr inbounds i8, ptr %95, i64 10
-  %97 = load i16, ptr %96, align 2
-  %98 = icmp eq i16 %97, 0
-  %99 = getelementptr inbounds i8, ptr %95, i64 16
-  br i1 %98, label %100, label %104
+91:                                               ; preds = %77
+  %92 = load ptr, ptr %74, align 8
+  %93 = getelementptr %struct.PrinttupAttrInfo, ptr %92, i64 %indvars.iv
+  %94 = getelementptr inbounds i8, ptr %93, i64 10
+  %95 = load i16, ptr %94, align 2
+  %96 = icmp eq i16 %95, 0
+  %97 = getelementptr inbounds i8, ptr %93, i64 16
+  br i1 %96, label %98, label %102
 
-100:                                              ; preds = %93
-  %101 = tail call ptr @OutputFunctionCall(ptr noundef nonnull %99, i64 noundef %82) #10
-  %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #12
-  %103 = trunc i64 %102 to i32
-  tail call void @pq_sendcountedtext(ptr noundef nonnull %5, ptr noundef %101, i32 noundef %103, i1 noundef zeroext false) #10
-  br label %119
+98:                                               ; preds = %91
+  %99 = tail call ptr @OutputFunctionCall(ptr noundef nonnull %97, i64 noundef %80) #10
+  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #12
+  %101 = trunc i64 %100 to i32
+  tail call void @pq_sendcountedtext(ptr noundef nonnull %5, ptr noundef %99, i32 noundef %101, i1 noundef zeroext false) #10
+  br label %117
 
-104:                                              ; preds = %93
-  %105 = tail call ptr @SendFunctionCall(ptr noundef nonnull %99, i64 noundef %82) #10
-  %106 = load i32, ptr %105, align 4
-  %107 = lshr i32 %106, 2
-  %108 = add nsw i32 %107, -4
+102:                                              ; preds = %91
+  %103 = tail call ptr @SendFunctionCall(ptr noundef nonnull %97, i64 noundef %80) #10
+  %104 = load i32, ptr %103, align 4
+  %105 = lshr i32 %104, 2
+  %106 = add nsw i32 %105, -4
   tail call void @enlargeStringInfo(ptr noundef nonnull %5, i32 noundef 4) #10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %109 = tail call i32 @llvm.bswap.i32(i32 %108)
-  %110 = load ptr, ptr %5, align 8, !alias.scope !13
-  %111 = load i32, ptr %70, align 8, !alias.scope !13
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr i8, ptr %110, i64 %112
-  store i32 %109, ptr %113, align 1, !noalias !13
-  %114 = add i32 %111, 4
-  store i32 %114, ptr %70, align 8, !alias.scope !13
-  %115 = getelementptr inbounds i8, ptr %105, i64 4
-  %116 = load i32, ptr %105, align 4
-  %117 = lshr i32 %116, 2
-  %118 = add nsw i32 %117, -4
-  tail call void @pq_sendbytes(ptr noundef nonnull %5, ptr noundef nonnull %115, i32 noundef %118) #10
-  br label %119
+  %107 = tail call i32 @llvm.bswap.i32(i32 %106)
+  %108 = load ptr, ptr %5, align 8, !alias.scope !13
+  %109 = load i32, ptr %68, align 8, !alias.scope !13
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr i8, ptr %108, i64 %110
+  store i32 %107, ptr %111, align 1, !noalias !13
+  %112 = add i32 %109, 4
+  store i32 %112, ptr %68, align 8, !alias.scope !13
+  %113 = getelementptr inbounds i8, ptr %103, i64 4
+  %114 = load i32, ptr %103, align 4
+  %115 = lshr i32 %114, 2
+  %116 = add nsw i32 %115, -4
+  tail call void @pq_sendbytes(ptr noundef nonnull %5, ptr noundef nonnull %113, i32 noundef %116) #10
+  br label %117
 
-119:                                              ; preds = %100, %104, %87
+117:                                              ; preds = %98, %102, %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %77, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %119, %slot_getallattrs.exit
+._crit_edge:                                      ; preds = %117, %slot_getallattrs.exit
   tail call void @pq_endmessage_reuse(ptr noundef nonnull %5) #10
-  store ptr %66, ptr @CurrentMemoryContext, align 8
-  %120 = load ptr, ptr %64, align 8
-  tail call void @MemoryContextReset(ptr noundef %120) #10
+  store ptr %64, ptr @CurrentMemoryContext, align 8
+  %118 = load ptr, ptr %62, align 8
+  tail call void @MemoryContextReset(ptr noundef %118) #10
   ret i1 true
 }
 

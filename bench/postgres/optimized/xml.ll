@@ -6,9 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TableFuncRoutine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.pg_tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
+%union.ListCell = type { ptr }
 %struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
 
 @xmlbinary = dso_local local_unnamed_addr global i32 0, align 4
 @xmloption = dso_local local_unnamed_addr global i32 1, align 4
@@ -1301,8 +1301,8 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %18 to i64
+  %20 = getelementptr i8, ptr %0, i64 119
   br label %22
 
 21:                                               ; preds = %22
@@ -1312,7 +1312,8 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
 
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %23 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %20, i64 0, i64 %indvars.iv, i32 17
+  %.idx = mul i64 %indvars.iv, 104
+  %23 = getelementptr i8, ptr %20, i64 %.idx
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %21, label %26

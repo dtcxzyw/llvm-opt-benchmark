@@ -3226,19 +3226,19 @@ for.cond:                                         ; preds = %for.body
 
 for.body10.lr.ph:                                 ; preds = %for.cond
   %companion_ports13 = getelementptr inbounds i8, ptr %bus, i64 1904
-  %ports17 = getelementptr inbounds i8, ptr %bus, i64 1472
+  %0 = getelementptr i8, ptr %bus, i64 1480
   %portsc = getelementptr inbounds i8, ptr %bus, i64 1416
   %wide.trip.count39 = zext i32 %portcount to i64
   br label %for.body10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %0 = trunc nuw i64 %indvars.iv to i32
-  %add2 = add i32 %firstport, %0
+  %1 = trunc nuw i64 %indvars.iv to i32
+  %add2 = add i32 %firstport, %1
   %idxprom = zext i32 %add2 to i64
   %arrayidx = getelementptr [6 x ptr], ptr %companion_ports, i64 0, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %1, null
+  %2 = load ptr, ptr %arrayidx, align 8
+  %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.cond, label %if.then3
 
 if.then3:                                         ; preds = %for.body
@@ -3249,15 +3249,16 @@ if.then3:                                         ; preds = %for.body
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.body10
   %indvars.iv36 = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next37, %for.body10 ]
   %arrayidx12 = getelementptr ptr, ptr %ports, i64 %indvars.iv36
-  %2 = load ptr, ptr %arrayidx12, align 8
-  %3 = trunc nuw i64 %indvars.iv36 to i32
-  %add14 = add i32 %firstport, %3
+  %3 = load ptr, ptr %arrayidx12, align 8
+  %4 = trunc nuw i64 %indvars.iv36 to i32
+  %add14 = add i32 %firstport, %4
   %idxprom15 = zext i32 %add14 to i64
   %arrayidx16 = getelementptr [6 x ptr], ptr %companion_ports13, i64 0, i64 %idxprom15
-  store ptr %2, ptr %arrayidx16, align 8
-  %speedmask = getelementptr [6 x %struct.USBPort], ptr %ports17, i64 0, i64 %idxprom15, i32 1
-  %4 = load i32, ptr %speedmask, align 8
-  %or = or i32 %4, 3
+  store ptr %3, ptr %arrayidx16, align 8
+  %speedmask.idx = mul nuw nsw i64 %idxprom15, 72
+  %speedmask = getelementptr i8, ptr %0, i64 %speedmask.idx
+  %5 = load i32, ptr %speedmask, align 8
+  %or = or i32 %5, 3
   store i32 %or, ptr %speedmask, align 8
   %arrayidx23 = getelementptr [6 x i32], ptr %portsc, i64 0, i64 %idxprom15
   store i32 8192, ptr %arrayidx23, align 4
@@ -3267,8 +3268,8 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
 
 for.end26:                                        ; preds = %for.body10, %for.cond.preheader
   %companion_count = getelementptr inbounds i8, ptr %bus, i64 1312
-  %5 = load i32, ptr %companion_count, align 16
-  %inc27 = add i32 %5, 1
+  %6 = load i32, ptr %companion_count, align 16
+  %inc27 = add i32 %6, 1
   store i32 %inc27, ptr %companion_count, align 16
   %shl = shl i32 %inc27, 4
   %or29 = or i32 %shl, %portcount

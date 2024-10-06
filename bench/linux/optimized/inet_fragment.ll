@@ -32,7 +32,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inet_frag_pu
 %union.anon.32 = type { %struct.anon.33, [16 x i8] }
 %struct.anon.33 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @ip_frag_ecn_table = dso_local constant [16 x i8] c"\00\00\00\FF\00\FF\00\FF\00\FF\03\FF\03\FF\03\FF", align 16
 @__UNIQUE_ID___addressable_ip_frag_ecn_table805 = internal global ptr @ip_frag_ecn_table, section ".discard.addressable", align 8
@@ -1726,18 +1725,19 @@ define dso_local ptr @inet_frag_reasm_prepare(ptr noundef %0, ptr noundef %1, pt
   br i1 %101, label %.loopexit, label %102
 
 102:                                              ; preds = %76
-  %103 = getelementptr inbounds i8, ptr %98, i64 48
-  %104 = zext i8 %100 to i64
+  %103 = zext i8 %100 to i64
+  %104 = getelementptr i8, ptr %98, i64 56
   br label %105
 
 105:                                              ; preds = %105, %102
   %106 = phi i64 [ 0, %102 ], [ %111, %105 ]
   %107 = phi i32 [ 0, %102 ], [ %110, %105 ]
-  %108 = getelementptr [17 x %struct.bio_vec], ptr %103, i64 0, i64 %106, i32 1
+  %.idx = shl i64 %106, 4
+  %108 = getelementptr i8, ptr %104, i64 %.idx
   %109 = load i32, ptr %108, align 8
   %110 = add i32 %109, %107
   %111 = add nuw nsw i64 %106, 1
-  %112 = icmp eq i64 %111, %104
+  %112 = icmp eq i64 %111, %103
   br i1 %112, label %.loopexit, label %105, !llvm.loop !66
 
 .loopexit:                                        ; preds = %105, %76

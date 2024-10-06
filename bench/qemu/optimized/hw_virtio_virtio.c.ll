@@ -4295,27 +4295,27 @@ for.cond31.preheader.loopexit:                    ; preds = %for.body22
   br label %for.cond31.preheader
 
 for.cond31.preheader:                             ; preds = %for.cond31.preheader.loopexit, %for.cond18.preheader
-  %9 = phi i32 [ %13, %for.cond31.preheader.loopexit ], [ 0, %for.cond18.preheader ]
+  %9 = phi i32 [ %14, %for.cond31.preheader.loopexit ], [ 0, %for.cond18.preheader ]
   %10 = phi i32 [ %.pre, %for.cond31.preheader.loopexit ], [ %4, %for.cond18.preheader ]
   %cmp3337.not = icmp eq i32 %10, 0
   br i1 %cmp3337.not, label %for.cond48.preheader, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %for.cond31.preheader
   %in_sg = getelementptr inbounds i8, ptr %call10, i64 40
-  %in_sg38 = getelementptr inbounds i8, ptr %data, i64 16400
+  %11 = getelementptr inbounds i8, ptr %data, i64 16408
   br label %for.body35
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.body22
   %i.136 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc29, %for.body22 ]
   %idxprom23 = sext i32 %i.136 to i64
   %arrayidx24 = getelementptr [1024 x i64], ptr %out_addr, i64 0, i64 %idxprom23
-  %11 = load i64, ptr %arrayidx24, align 8
-  %12 = load ptr, ptr %out_addr25, align 8
-  %arrayidx27 = getelementptr i64, ptr %12, i64 %idxprom23
-  store i64 %11, ptr %arrayidx27, align 8
+  %12 = load i64, ptr %arrayidx24, align 8
+  %13 = load ptr, ptr %out_addr25, align 8
+  %arrayidx27 = getelementptr i64, ptr %13, i64 %idxprom23
+  store i64 %12, ptr %arrayidx27, align 8
   %inc29 = add nuw i32 %i.136, 1
-  %13 = load i32, ptr %out_num19, align 4
-  %cmp20 = icmp ult i32 %inc29, %13
+  %14 = load i32, ptr %out_num19, align 4
+  %cmp20 = icmp ult i32 %inc29, %14
   br i1 %cmp20, label %for.body22, label %for.cond31.preheader.loopexit, !llvm.loop !33
 
 for.cond48.preheader.loopexit:                    ; preds = %for.body35
@@ -4323,50 +4323,52 @@ for.cond48.preheader.loopexit:                    ; preds = %for.body35
   br label %for.cond48.preheader
 
 for.cond48.preheader:                             ; preds = %for.cond48.preheader.loopexit, %for.cond31.preheader
-  %14 = phi i32 [ %.pre41, %for.cond48.preheader.loopexit ], [ %9, %for.cond31.preheader ]
-  %cmp5039.not = icmp eq i32 %14, 0
+  %15 = phi i32 [ %.pre41, %for.cond48.preheader.loopexit ], [ %9, %for.cond31.preheader ]
+  %cmp5039.not = icmp eq i32 %15, 0
   br i1 %cmp5039.not, label %for.end66, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %for.cond48.preheader
   %out_sg = getelementptr inbounds i8, ptr %call10, i64 48
-  %out_sg56 = getelementptr inbounds i8, ptr %data, i64 32784
+  %16 = getelementptr inbounds i8, ptr %data, i64 32792
   br label %for.body52
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.body35
   %i.238 = phi i32 [ 0, %for.body35.lr.ph ], [ %inc46, %for.body35 ]
-  %15 = load ptr, ptr %in_sg, align 8
-  %idxprom36 = sext i32 %i.238 to i64
-  %arrayidx37 = getelementptr %struct.iovec, ptr %15, i64 %idxprom36
-  store ptr null, ptr %arrayidx37, align 8
-  %iov_len = getelementptr [1024 x %struct.iovec], ptr %in_sg38, i64 0, i64 %idxprom36, i32 1
-  %16 = load i64, ptr %iov_len, align 8
   %17 = load ptr, ptr %in_sg, align 8
-  %iov_len44 = getelementptr %struct.iovec, ptr %17, i64 %idxprom36, i32 1
-  store i64 %16, ptr %iov_len44, align 8
+  %idxprom36 = sext i32 %i.238 to i64
+  %arrayidx37 = getelementptr %struct.iovec, ptr %17, i64 %idxprom36
+  store ptr null, ptr %arrayidx37, align 8
+  %iov_len.idx = shl nsw i64 %idxprom36, 4
+  %iov_len = getelementptr i8, ptr %11, i64 %iov_len.idx
+  %18 = load i64, ptr %iov_len, align 8
+  %19 = load ptr, ptr %in_sg, align 8
+  %iov_len44 = getelementptr %struct.iovec, ptr %19, i64 %idxprom36, i32 1
+  store i64 %18, ptr %iov_len44, align 8
   %inc46 = add nuw i32 %i.238, 1
-  %18 = load i32, ptr %in_num12, align 8
-  %cmp33 = icmp ult i32 %inc46, %18
+  %20 = load i32, ptr %in_num12, align 8
+  %cmp33 = icmp ult i32 %inc46, %20
   br i1 %cmp33, label %for.body35, label %for.cond48.preheader.loopexit, !llvm.loop !34
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.body52
   %i.340 = phi i32 [ 0, %for.body52.lr.ph ], [ %inc65, %for.body52 ]
-  %19 = load ptr, ptr %out_sg, align 8
-  %idxprom53 = sext i32 %i.340 to i64
-  %arrayidx54 = getelementptr %struct.iovec, ptr %19, i64 %idxprom53
-  store ptr null, ptr %arrayidx54, align 8
-  %iov_len59 = getelementptr [1024 x %struct.iovec], ptr %out_sg56, i64 0, i64 %idxprom53, i32 1
-  %20 = load i64, ptr %iov_len59, align 8
   %21 = load ptr, ptr %out_sg, align 8
-  %iov_len63 = getelementptr %struct.iovec, ptr %21, i64 %idxprom53, i32 1
-  store i64 %20, ptr %iov_len63, align 8
+  %idxprom53 = sext i32 %i.340 to i64
+  %arrayidx54 = getelementptr %struct.iovec, ptr %21, i64 %idxprom53
+  store ptr null, ptr %arrayidx54, align 8
+  %iov_len59.idx = shl nsw i64 %idxprom53, 4
+  %iov_len59 = getelementptr i8, ptr %16, i64 %iov_len59.idx
+  %22 = load i64, ptr %iov_len59, align 8
+  %23 = load ptr, ptr %out_sg, align 8
+  %iov_len63 = getelementptr %struct.iovec, ptr %23, i64 %idxprom53, i32 1
+  store i64 %22, ptr %iov_len63, align 8
   %inc65 = add nuw i32 %i.340, 1
-  %22 = load i32, ptr %out_num19, align 4
-  %cmp50 = icmp ult i32 %inc65, %22
+  %24 = load i32, ptr %out_num19, align 4
+  %cmp50 = icmp ult i32 %inc65, %24
   br i1 %cmp50, label %for.body52, label %for.end66, !llvm.loop !35
 
 for.end66:                                        ; preds = %for.body52, %for.cond48.preheader
-  %23 = getelementptr i8, ptr %vdev, i64 176
-  %vdev.val = load i64, ptr %23, align 8
+  %25 = getelementptr i8, ptr %vdev, i64 176
+  %vdev.val = load i64, ptr %25, align 8
   %and.i.i = and i64 %vdev.val, 17179869184
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.i.not, label %if.end69, label %if.then68
@@ -4518,16 +4520,16 @@ for.cond20.preheader:                             ; preds = %for.body11, %for.co
 for.body23.lr.ph:                                 ; preds = %for.cond20.preheader
   %in_sg = getelementptr inbounds i8, ptr %elem, i64 40
   %7 = load ptr, ptr %in_sg, align 8
-  %in_sg26 = getelementptr inbounds i8, ptr %data, i64 16400
+  %8 = getelementptr inbounds i8, ptr %data, i64 16408
   br label %for.body23
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
   %i.131 = phi i32 [ 0, %for.body11.lr.ph ], [ %inc18, %for.body11 ]
   %idxprom12 = sext i32 %i.131 to i64
   %arrayidx13 = getelementptr i64, ptr %5, i64 %idxprom12
-  %8 = load i64, ptr %arrayidx13, align 8
+  %9 = load i64, ptr %arrayidx13, align 8
   %arrayidx16 = getelementptr [1024 x i64], ptr %out_addr14, i64 0, i64 %idxprom12
-  store i64 %8, ptr %arrayidx16, align 8
+  store i64 %9, ptr %arrayidx16, align 8
   %inc18 = add nuw i32 %i.131, 1
   %exitcond36.not = icmp eq i32 %inc18, %3
   br i1 %exitcond36.not, label %for.cond20.preheader, label %for.body11, !llvm.loop !37
@@ -4537,17 +4539,18 @@ for.cond33.preheader:                             ; preds = %for.body23, %for.co
 
 for.body36.lr.ph:                                 ; preds = %for.cond33.preheader
   %out_sg = getelementptr inbounds i8, ptr %elem, i64 48
-  %9 = load ptr, ptr %out_sg, align 8
-  %out_sg40 = getelementptr inbounds i8, ptr %data, i64 32784
+  %10 = load ptr, ptr %out_sg, align 8
+  %11 = getelementptr inbounds i8, ptr %data, i64 32792
   br label %for.body36
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %i.233 = phi i32 [ 0, %for.body23.lr.ph ], [ %inc31, %for.body23 ]
   %idxprom24 = sext i32 %i.233 to i64
   %iov_len = getelementptr %struct.iovec, ptr %7, i64 %idxprom24, i32 1
-  %10 = load i64, ptr %iov_len, align 8
-  %iov_len29 = getelementptr [1024 x %struct.iovec], ptr %in_sg26, i64 0, i64 %idxprom24, i32 1
-  store i64 %10, ptr %iov_len29, align 8
+  %12 = load i64, ptr %iov_len, align 8
+  %iov_len29.idx = shl nsw i64 %idxprom24, 4
+  %iov_len29 = getelementptr i8, ptr %8, i64 %iov_len29.idx
+  store i64 %12, ptr %iov_len29, align 8
   %inc31 = add nuw i32 %i.233, 1
   %exitcond37.not = icmp eq i32 %inc31, %2
   br i1 %exitcond37.not, label %for.cond33.preheader, label %for.body23, !llvm.loop !38
@@ -4555,17 +4558,18 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.body36
   %i.335 = phi i32 [ 0, %for.body36.lr.ph ], [ %inc45, %for.body36 ]
   %idxprom37 = sext i32 %i.335 to i64
-  %iov_len39 = getelementptr %struct.iovec, ptr %9, i64 %idxprom37, i32 1
-  %11 = load i64, ptr %iov_len39, align 8
-  %iov_len43 = getelementptr [1024 x %struct.iovec], ptr %out_sg40, i64 0, i64 %idxprom37, i32 1
-  store i64 %11, ptr %iov_len43, align 8
+  %iov_len39 = getelementptr %struct.iovec, ptr %10, i64 %idxprom37, i32 1
+  %13 = load i64, ptr %iov_len39, align 8
+  %iov_len43.idx = shl nsw i64 %idxprom37, 4
+  %iov_len43 = getelementptr i8, ptr %11, i64 %iov_len43.idx
+  store i64 %13, ptr %iov_len43, align 8
   %inc45 = add nuw i32 %i.335, 1
   %exitcond38.not = icmp eq i32 %inc45, %3
   br i1 %exitcond38.not, label %for.end46, label %for.body36, !llvm.loop !39
 
 for.end46:                                        ; preds = %for.body36, %for.cond33.preheader
-  %12 = getelementptr i8, ptr %vdev, i64 176
-  %vdev.val = load i64, ptr %12, align 8
+  %14 = getelementptr i8, ptr %vdev, i64 176
+  %vdev.val = load i64, ptr %14, align 8
   %and.i.i = and i64 %vdev.val, 17179869184
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.i.not, label %if.end, label %if.then

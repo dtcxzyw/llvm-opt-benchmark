@@ -555,7 +555,7 @@ list_length.exit.i:                               ; preds = %check_publication_a
 .lr.ph.i:                                         ; preds = %list_length.exit.i
   %80 = getelementptr inbounds i8, ptr %71, i64 16
   %81 = getelementptr inbounds i8, ptr %69, i64 72
-  %82 = getelementptr inbounds i8, ptr %73, i64 24
+  %82 = getelementptr i8, ptr %73, i64 118
   br label %83
 
 83:                                               ; preds = %121, %.lr.ph.i
@@ -598,7 +598,8 @@ list_length.exit.i:                               ; preds = %check_publication_a
 106:                                              ; preds = %100
   %107 = add nsw i32 %91, -1
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %82, i64 0, i64 %108, i32 16
+  %.idx.i = mul nuw nsw i64 %108, 104
+  %109 = getelementptr i8, ptr %82, i64 %.idx.i
   %110 = load i8, ptr %109, align 2
   %.not39.i = icmp eq i8 %110, 0
   br i1 %.not39.i, label %115, label %111

@@ -544,7 +544,9 @@ detect_data_type.exit:                            ; preds = %17, %31, %.preheade
   %.03651.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ %55, %88 ]
   %.03849.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.139.i.i, %88 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %53 = getelementptr inbounds %struct.ct_data_s, ptr %37, i64 %indvars.iv.next.i.i, i32 1
+  %.idx37.i = shl nsw i64 %indvars.iv.next.i.i, 2
+  %.offs.i = or disjoint i64 %.idx37.i, 2
+  %53 = getelementptr inbounds i8, ptr %37, i64 %.offs.i
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   %56 = add nsw i32 %.03452.i.i, 1
@@ -655,7 +657,9 @@ scan_tree.exit.i:                                 ; preds = %88, %34
   %.03651.i23.i = phi i32 [ %98, %.lr.ph.i15.i ], [ %107, %140 ]
   %.03849.i24.i = phi i32 [ -1, %.lr.ph.i15.i ], [ %.139.i31.i, %140 ]
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i19.i, 1
-  %105 = getelementptr inbounds %struct.ct_data_s, ptr %89, i64 %indvars.iv.next.i25.i, i32 1
+  %.idx38.i = shl nsw i64 %indvars.iv.next.i25.i, 2
+  %.offs39.i = or disjoint i64 %.idx38.i, 2
+  %105 = getelementptr inbounds i8, ptr %89, i64 %.offs39.i
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i32
   %108 = add nsw i32 %.03452.i22.i, 1
@@ -735,27 +739,28 @@ scan_tree.exit.i:                                 ; preds = %88, %34
 scan_tree.exit36.i:                               ; preds = %140, %scan_tree.exit.i
   %141 = getelementptr inbounds i8, ptr %0, i64 2952
   tail call fastcc void @build_tree(ptr noundef nonnull %0, ptr noundef nonnull %141)
-  %142 = getelementptr inbounds i8, ptr %0, i64 2748
+  %142 = getelementptr i8, ptr %0, i64 2750
   br label %143
 
 143:                                              ; preds = %150, %scan_tree.exit36.i
-  %.037.i = phi i32 [ 18, %scan_tree.exit36.i ], [ %151, %150 ]
-  %144 = zext nneg i32 %.037.i to i64
+  %.040.i = phi i32 [ 18, %scan_tree.exit36.i ], [ %151, %150 ]
+  %144 = zext nneg i32 %.040.i to i64
   %145 = getelementptr inbounds [19 x i8], ptr @bl_order, i64 0, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds [39 x %struct.ct_data_s], ptr %142, i64 0, i64 %147, i32 1
+  %.idx.i = shl nuw nsw i64 %147, 2
+  %148 = getelementptr i8, ptr %142, i64 %.idx.i
   %149 = load i16, ptr %148, align 2
   %.not.i90 = icmp eq i16 %149, 0
   br i1 %.not.i90, label %150, label %build_bl_tree.exit
 
 150:                                              ; preds = %143
-  %151 = add nsw i32 %.037.i, -1
-  %152 = icmp ugt i32 %.037.i, 3
+  %151 = add nsw i32 %.040.i, -1
+  %152 = icmp ugt i32 %.040.i, 3
   br i1 %152, label %143, label %build_bl_tree.exit, !llvm.loop !12
 
 build_bl_tree.exit:                               ; preds = %143, %150
-  %.0.lcssa.i = phi i32 [ %.037.i, %143 ], [ 2, %150 ]
+  %.0.lcssa.i = phi i32 [ %.040.i, %143 ], [ 2, %150 ]
   %153 = sext i32 %.0.lcssa.i to i64
   %154 = mul nsw i64 %153, 3
   %155 = getelementptr inbounds i8, ptr %0, i64 5912
@@ -1062,7 +1067,7 @@ build_bl_tree.exit:                               ; preds = %143, %150
   br i1 %362, label %.lr.ph.i, label %send_all_trees.exit
 
 .lr.ph.i:                                         ; preds = %360
-  %363 = getelementptr inbounds i8, ptr %0, i64 2748
+  %363 = getelementptr i8, ptr %0, i64 2750
   %364 = getelementptr inbounds i8, ptr %0, i64 5936
   %365 = getelementptr inbounds i8, ptr %0, i64 16
   %366 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1077,7 +1082,8 @@ build_bl_tree.exit:                               ; preds = %143, %150
   %371 = getelementptr inbounds [19 x i8], ptr @bl_order, i64 0, i64 %indvars.iv.i91
   %372 = load i8, ptr %371, align 1
   %373 = zext i8 %372 to i64
-  %374 = getelementptr inbounds [39 x %struct.ct_data_s], ptr %363, i64 0, i64 %373, i32 1
+  %.idx108.i = shl nuw nsw i64 %373, 2
+  %374 = getelementptr i8, ptr %363, i64 %.idx108.i
   %375 = load i16, ptr %374, align 2
   %376 = zext i16 %375 to i32
   %377 = shl i32 %376, %369

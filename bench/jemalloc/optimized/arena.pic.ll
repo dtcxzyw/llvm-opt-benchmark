@@ -1098,10 +1098,11 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i14, %if.the
 do.end8:                                          ; preds = %if.end.i, %sz_size2index.exit
   %retval.i.022 = phi i32 [ %add36.i, %sz_size2index.exit ], [ 232, %if.end.i ]
   %sub = add nsw i32 %retval.i.022, -36
-  %lstats = getelementptr inbounds i8, ptr %arena, i64 992
   %idxprom = zext i32 %sub to i64
-  %ndalloc11 = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats, i64 0, i64 %idxprom, i32 1
-  %10 = atomicrmw add ptr %ndalloc11, i64 1 monotonic, align 8
+  %ndalloc11.idx = mul nuw nsw i64 %idxprom, 48
+  %10 = getelementptr i8, ptr %arena, i64 1000
+  %ndalloc11 = getelementptr i8, ptr %10, i64 %ndalloc11.idx
+  %11 = atomicrmw add ptr %ndalloc11, i64 1 monotonic, align 8
   br label %if.end
 
 if.end:                                           ; preds = %do.end8, %malloc_mutex_lock.exit

@@ -265,8 +265,9 @@ define hidden noundef i64 @_ZNK8NMTUsage9committedE8MEMFLAGS(ptr nocapture nound
   %3 = zext i8 %1 to i64
   %4 = getelementptr inbounds [28 x i64], ptr %0, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
-  %7 = getelementptr inbounds [28 x %struct.NMTUsagePair], ptr %6, i64 0, i64 %3, i32 1
+  %.idx = shl nuw nsw i64 %3, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr i8, ptr %6, i64 %.idx
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   ret i64 %9

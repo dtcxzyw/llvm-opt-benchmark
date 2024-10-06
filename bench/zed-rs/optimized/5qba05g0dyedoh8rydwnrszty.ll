@@ -13363,7 +13363,9 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.09.i.i.i = phi i64 [ %6, %"_ZN4core3ptr56drop_in_place$LT$editor..display_map..fold_map..Fold$GT$17hf298d5c38ceca300E.exit.i.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3184)
-  %7 = getelementptr inbounds [0 x { i64, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }], ptr %5, i64 0, i64 %.sroa.0.09.i.i.i, i32 2
+  %.idx.i = shl nsw i64 %.sroa.0.09.i.i.i, 7
+  %.offs.i = or disjoint i64 %.idx.i, 104
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3193)
@@ -13391,7 +13393,9 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.110.i.i.i = phi i64 [ %16, %"_ZN4core3ptr56drop_in_place$LT$editor..display_map..fold_map..Fold$GT$17hf298d5c38ceca300E.exit8.i.i.i" ], [ %6, %13 ]
   %16 = add i64 %.sroa.0.110.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3200)
-  %17 = getelementptr inbounds [0 x { i64, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }], ptr %5, i64 0, i64 %.sroa.0.110.i.i.i, i32 2
+  %.idx1.i = shl nsw i64 %.sroa.0.110.i.i.i, 7
+  %.offs2.i = or disjoint i64 %.idx1.i, 104
+  %17 = getelementptr inbounds i8, ptr %5, i64 %.offs2.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3209)
@@ -45827,7 +45831,9 @@ define hidden void @"_ZN4core3ptr296drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.09.i.i.i = phi i64 [ %6, %"_ZN4core3ptr249drop_in_place$LT$sum_tree..tree_map..MapEntry$LT$core..option..Option$LT$core..any..TypeId$GT$$C$alloc..sync..Arc$LT$$LP$gpui..style..HighlightStyle$C$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$RP$$GT$$GT$$GT$17hec493d148932bdd8E.exit.i.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12801)
-  %7 = getelementptr inbounds [0 x { { i64, [2 x i64] }, ptr }], ptr %5, i64 0, i64 %.sroa.0.09.i.i.i, i32 1
+  %.idx.i = shl nsw i64 %.sroa.0.09.i.i.i, 5
+  %.offs.i = or disjoint i64 %.idx.i, 24
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12804)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12807)
   %8 = load ptr, ptr %7, align 8, !alias.scope !12810, !nonnull !4, !noundef !4
@@ -45854,7 +45860,9 @@ define hidden void @"_ZN4core3ptr296drop_in_place$LT$arrayvec..arrayvec..ArrayVe
   %.sroa.0.110.i.i.i = phi i64 [ %16, %"_ZN4core3ptr249drop_in_place$LT$sum_tree..tree_map..MapEntry$LT$core..option..Option$LT$core..any..TypeId$GT$$C$alloc..sync..Arc$LT$$LP$gpui..style..HighlightStyle$C$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$RP$$GT$$GT$$GT$17hec493d148932bdd8E.exit8.i.i.i" ], [ %6, %13 ]
   %16 = add i64 %.sroa.0.110.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12814)
-  %17 = getelementptr inbounds [0 x { { i64, [2 x i64] }, ptr }], ptr %5, i64 0, i64 %.sroa.0.110.i.i.i, i32 1
+  %.idx1.i = shl nsw i64 %.sroa.0.110.i.i.i, 5
+  %.offs2.i = or disjoint i64 %.idx1.i, 24
+  %17 = getelementptr inbounds i8, ptr %5, i64 %.offs2.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12820)
   %18 = load ptr, ptr %17, align 8, !alias.scope !12823, !nonnull !4, !noundef !4
@@ -124631,7 +124639,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.09.i.i = phi i64 [ %6, %"_ZN4core3ptr56drop_in_place$LT$editor..display_map..fold_map..Fold$GT$17hf298d5c38ceca300E.exit.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43609)
-  %7 = getelementptr inbounds [0 x { i64, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }], ptr %5, i64 0, i64 %.sroa.0.09.i.i, i32 2
+  %.idx = shl nsw i64 %.sroa.0.09.i.i, 7
+  %.offs = or disjoint i64 %.idx, 104
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43612)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43615)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43618)
@@ -124659,7 +124669,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.110.i.i = phi i64 [ %16, %"_ZN4core3ptr56drop_in_place$LT$editor..display_map..fold_map..Fold$GT$17hf298d5c38ceca300E.exit8.i.i" ], [ %6, %13 ]
   %16 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43625)
-  %17 = getelementptr inbounds [0 x { i64, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }], ptr %5, i64 0, i64 %.sroa.0.110.i.i, i32 2
+  %.idx1 = shl nsw i64 %.sroa.0.110.i.i, 7
+  %.offs2 = or disjoint i64 %.idx1, 104
+  %17 = getelementptr inbounds i8, ptr %5, i64 %.offs2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43628)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43631)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43634)
@@ -124706,7 +124718,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.09.i.i = phi i64 [ %6, %"_ZN4core3ptr249drop_in_place$LT$sum_tree..tree_map..MapEntry$LT$core..option..Option$LT$core..any..TypeId$GT$$C$alloc..sync..Arc$LT$$LP$gpui..style..HighlightStyle$C$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$RP$$GT$$GT$$GT$17hec493d148932bdd8E.exit.i.i" ], [ 0, %4 ]
   %6 = add nuw nsw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43647)
-  %7 = getelementptr inbounds [0 x { { i64, [2 x i64] }, ptr }], ptr %5, i64 0, i64 %.sroa.0.09.i.i, i32 1
+  %.idx = shl nsw i64 %.sroa.0.09.i.i, 5
+  %.offs = or disjoint i64 %.idx, 24
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.offs
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43653)
   %8 = load ptr, ptr %7, align 8, !alias.scope !43656, !nonnull !4, !noundef !4
@@ -124733,7 +124747,9 @@ define hidden void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %.sroa.0.110.i.i = phi i64 [ %16, %"_ZN4core3ptr249drop_in_place$LT$sum_tree..tree_map..MapEntry$LT$core..option..Option$LT$core..any..TypeId$GT$$C$alloc..sync..Arc$LT$$LP$gpui..style..HighlightStyle$C$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$RP$$GT$$GT$$GT$17hec493d148932bdd8E.exit8.i.i" ], [ %6, %13 ]
   %16 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43660)
-  %17 = getelementptr inbounds [0 x { { i64, [2 x i64] }, ptr }], ptr %5, i64 0, i64 %.sroa.0.110.i.i, i32 1
+  %.idx1 = shl nsw i64 %.sroa.0.110.i.i, 5
+  %.offs2 = or disjoint i64 %.idx1, 24
+  %17 = getelementptr inbounds i8, ptr %5, i64 %.offs2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43663)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43666)
   %18 = load ptr, ptr %17, align 8, !alias.scope !43669, !nonnull !4, !noundef !4

@@ -79869,12 +79869,13 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   br i1 %.not21, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rbimpl_size_mul_or_raise.exit
-  %13 = getelementptr inbounds i8, ptr %.16.val.152.val, i64 4
+  %13 = getelementptr i8, ptr %.16.val.152.val, i64 12
   br label %14
 
 14:                                               ; preds = %.lr.ph, %ibf_dump_iseq.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ibf_dump_iseq.exit ]
-  %15 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %13, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
+  %15 = getelementptr i8, ptr %13, i64 %.idx
   %16 = load ptr, ptr %15, align 1
   %17 = icmp eq ptr %16, null
   br i1 %17, label %ibf_dump_iseq.exit, label %18

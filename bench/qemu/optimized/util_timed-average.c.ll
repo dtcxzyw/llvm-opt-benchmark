@@ -305,8 +305,8 @@ check_expirations.exit:                           ; preds = %for.inc.i
   %spec.select.i = zext i1 %cmp12.i to i32
   %5 = getelementptr inbounds i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
-  %idxprom.i = zext i1 %cmp12.i to i64
-  %max = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %idxprom.i, i32 1
+  %max.offs = select i1 %cmp12.i, i64 48, i64 8
+  %max = getelementptr i8, ptr %windows.i, i64 %max.offs
   %6 = load i64, ptr %max, align 8
   ret i64 %6
 }
@@ -365,8 +365,8 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %tobool.not.i, label %check_expirations.exit, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.end.i
-  %idxprom20.i = zext i1 %cmp12.i to i64
-  %expiration22.i = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %idxprom20.i, i32 4
+  %expiration22.idx.i = select i1 %cmp12.i, i64 40, i64 0
+  %expiration22.i = getelementptr i8, ptr %expiration8.i, i64 %expiration22.idx.i
   %6 = load i64, ptr %expiration22.i, align 8
   %sub24.i = sub i64 %sub1.i.i, %6
   store i64 %sub24.i, ptr %elapsed, align 8
@@ -376,9 +376,11 @@ if.then17.i:                                      ; preds = %for.end.i
 check_expirations.exit:                           ; preds = %for.end.i, %if.then17.i
   %7 = phi i32 [ %spec.select.i, %for.end.i ], [ %.pre, %if.then17.i ]
   %idxprom.i = zext i32 %7 to i64
-  %sum = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %idxprom.i, i32 2
-  %8 = load i64, ptr %sum, align 8
-  ret i64 %8
+  %sum.idx = mul nuw nsw i64 %idxprom.i, 40
+  %8 = getelementptr i8, ptr %windows.i, i64 %sum.idx
+  %sum = getelementptr i8, ptr %8, i64 16
+  %9 = load i64, ptr %sum, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: noreturn nounwind

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.VP8BitWriter = type { i32, i32, i32, i32, ptr, i64, i64, i32 }
-%struct.VP8SegmentInfo = type { %struct.VP8Matrix, %struct.VP8Matrix, %struct.VP8Matrix, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.VP8Matrix = type { [16 x i16], [16 x i16], [16 x i32], [16 x i32], [16 x i16] }
 
 @__const.PutRIFFHeader.riff = private unnamed_addr constant [12 x i8] c"RIFF\00\00\00\00WEBP", align 1
 @__const.PutVP8XHeader.vp8x = private unnamed_addr constant <{ i8, i8, i8, i8, [14 x i8] }> <{ i8 86, i8 80, i8 56, i8 88, [14 x i8] zeroinitializer }>, align 16
@@ -96,39 +94,45 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   %48 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %47) #4
   %49 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef 1) #4
   %.not26.i.i = icmp eq i32 %49, 0
-  br i1 %.not26.i.i, label %.loopexit30.i.i, label %50
+  br i1 %.not26.i.i, label %.loopexit33.i.i, label %50
 
 50:                                               ; preds = %45
   %51 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef 1) #4
-  %52 = getelementptr inbounds i8, ptr %0, i64 608
-  br label %53
+  %invariant.gep.i.i = getelementptr inbounds i8, ptr %0, i64 1288
+  br label %52
 
-53:                                               ; preds = %53, %50
-  %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %53 ]
-  %54 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %52, i64 0, i64 %indvars.iv.i.i, i32 5
-  %55 = load i32, ptr %54, align 8
-  tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %55, i32 noundef 7) #4
+.preheader32.i.i:                                 ; preds = %52
+  %invariant.gep35.i.i = getelementptr inbounds i8, ptr %0, i64 1292
+  br label %55
+
+52:                                               ; preds = %52, %50
+  %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %52 ]
+  %53 = mul nuw nsw i64 %indvars.iv.i.i, 744
+  %gep.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i, i64 %53
+  %54 = load i32, ptr %gep.i.i, align 8
+  tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %54, i32 noundef 7) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %.preheader29.i.i, label %53, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %.preheader32.i.i, label %52, !llvm.loop !6
 
-.preheader29.i.i:                                 ; preds = %53, %.preheader29.i.i
-  %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.preheader29.i.i ], [ 0, %53 ]
-  %56 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %52, i64 0, i64 %indvars.iv35.i.i, i32 6
-  %57 = load i32, ptr %56, align 4
+55:                                               ; preds = %55, %.preheader32.i.i
+  %indvars.iv41.i.i = phi i64 [ 0, %.preheader32.i.i ], [ %indvars.iv.next42.i.i, %55 ]
+  %56 = mul nuw nsw i64 %indvars.iv41.i.i, 744
+  %gep36.i.i = getelementptr inbounds i8, ptr %invariant.gep35.i.i, i64 %56
+  %57 = load i32, ptr %gep36.i.i, align 4
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %57, i32 noundef 6) #4
-  %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
-  %exitcond38.not.i.i = icmp eq i64 %indvars.iv.next36.i.i, 4
-  br i1 %exitcond38.not.i.i, label %.loopexit30.i.i, label %.preheader29.i.i, !llvm.loop !7
+  %indvars.iv.next42.i.i = add nuw nsw i64 %indvars.iv41.i.i, 1
+  %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next42.i.i, 4
+  br i1 %exitcond45.not.i.i, label %.loopexit33.i.i, label %55, !llvm.loop !7
 
-.loopexit30.i.i:                                  ; preds = %.preheader29.i.i, %45
+.loopexit33.i.i:                                  ; preds = %55, %45
   %58 = load i32, ptr %46, align 4
   %.not27.i.i = icmp eq i32 %58, 0
   br i1 %.not27.i.i, label %PutSegmentHeader.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.loopexit30.i.i, %67
-  %indvars.iv39.i.i = phi i64 [ %indvars.iv.next40.i.i, %67 ], [ 0, %.loopexit30.i.i ]
-  %59 = getelementptr inbounds [3 x i8], ptr %40, i64 0, i64 %indvars.iv39.i.i
+.preheader.i.i:                                   ; preds = %.loopexit33.i.i, %67
+  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %67 ], [ 0, %.loopexit33.i.i ]
+  %59 = getelementptr inbounds [3 x i8], ptr %40, i64 0, i64 %indvars.iv46.i.i
   %60 = load i8, ptr %59, align 1
   %61 = icmp ne i8 %60, -1
   %62 = zext i1 %61 to i32
@@ -143,11 +147,11 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   br label %67
 
 67:                                               ; preds = %64, %.preheader.i.i
-  %indvars.iv.next40.i.i = add nuw nsw i64 %indvars.iv39.i.i, 1
-  %exitcond42.not.i.i = icmp eq i64 %indvars.iv.next40.i.i, 3
-  br i1 %exitcond42.not.i.i, label %PutSegmentHeader.exit.i, label %.preheader.i.i, !llvm.loop !8
+  %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
+  %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 3
+  br i1 %exitcond49.not.i.i, label %PutSegmentHeader.exit.i, label %.preheader.i.i, !llvm.loop !8
 
-PutSegmentHeader.exit.i:                          ; preds = %67, %.loopexit30.i.i, %36
+PutSegmentHeader.exit.i:                          ; preds = %67, %.loopexit33.i.i, %36
   %68 = getelementptr inbounds i8, ptr %0, i64 16
   %69 = getelementptr inbounds i8, ptr %0, i64 28
   %70 = load i32, ptr %69, align 4
@@ -296,14 +300,15 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
   br i1 %157, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %GeneratePartition0.exit.thread
-  %158 = getelementptr inbounds i8, ptr %0, i64 112
+  %158 = getelementptr i8, ptr %0, i64 136
   %wide.trip.count = zext nneg i32 %152 to i64
   br label %159
 
 159:                                              ; preds = %.lr.ph, %159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
   %.075111 = phi i64 [ %156, %.lr.ph ], [ %161, %159 ]
-  %160 = getelementptr %struct.VP8BitWriter, ptr %158, i64 %indvars.iv, i32 5
+  %.idx = mul nuw nsw i64 %indvars.iv, 48
+  %160 = getelementptr i8, ptr %158, i64 %.idx
   %.val89 = load i64, ptr %160, align 8
   %161 = add i64 %.val89, %.075111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -599,13 +604,14 @@ PutWebPHeaders.exit:                              ; preds = %177, %195, %PutAlph
   br i1 %318, label %.lr.ph.i, label %EmitPartitionsSize.exit
 
 .lr.ph.i:                                         ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %0, i64 112
+  %319 = getelementptr i8, ptr %0, i64 136
   %wide.trip.count.i = zext nneg i32 %317 to i64
   br label %320
 
 320:                                              ; preds = %323, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %323 ]
-  %321 = getelementptr %struct.VP8BitWriter, ptr %319, i64 %indvars.iv.i, i32 5
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 48
+  %321 = getelementptr i8, ptr %319, i64 %.idx.i
   %.val.i98 = load i64, ptr %321, align 8
   %322 = icmp ugt i64 %.val.i98, 16777215
   br i1 %322, label %EmitPartitionsSize.exit.sink.split, label %323

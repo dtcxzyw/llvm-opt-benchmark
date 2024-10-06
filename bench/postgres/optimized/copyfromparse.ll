@@ -1582,12 +1582,13 @@ list_length.exit:                                 ; preds = %103, %108
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 64
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 24
-  %141 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %141)
-  %142 = tail call i32 @errcode(i32 noundef 67240066) #17
-  %143 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #17
-  %144 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %140, i64 0, i64 %128, i32 1
+  %140 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %140)
+  %141 = tail call i32 @errcode(i32 noundef 67240066) #17
+  %142 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #17
+  %.idx = mul nsw i64 %128, 104
+  %143 = getelementptr i8, ptr %139, i64 28
+  %144 = getelementptr i8, ptr %143, i64 %.idx
   %145 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30, ptr noundef %144) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1932, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #17
   unreachable
@@ -1976,12 +1977,13 @@ list_length.exit:                                 ; preds = %147, %149
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 64
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 24
-  %181 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %181)
-  %182 = tail call i32 @errcode(i32 noundef 67240066) #17
-  %183 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #17
-  %184 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %180, i64 0, i64 %169, i32 1
+  %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %180)
+  %181 = tail call i32 @errcode(i32 noundef 67240066) #17
+  %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #17
+  %.idx = mul nsw i64 %169, 104
+  %183 = getelementptr i8, ptr %179, i64 28
+  %184 = getelementptr i8, ptr %183, i64 %.idx
   %185 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30, ptr noundef %184) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1717, ptr noundef nonnull @__func__.CopyReadAttributesText) #17
   unreachable

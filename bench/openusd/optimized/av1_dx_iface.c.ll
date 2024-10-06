@@ -3037,7 +3037,11 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr nocapture noundef re
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 431876
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %28, i64 %31, i32 1
+  %.idx = shl nsw i64 %28, 10
+  %.idx18 = shl nsw i64 %31, 4
+  %.offs = add nsw i64 %.idx18, %.idx
+  %.offs19 = or disjoint i64 %.offs, 8
+  %32 = getelementptr inbounds i8, ptr %25, i64 %.offs19
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %17, align 8
   %34 = load i32, ptr %26, align 32

@@ -134,7 +134,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.647" = type { %"class.llvm::PointerIntPair.648" }
 %"class.llvm::PointerIntPair.648" = type { %"struct.llvm::detail::PunnedPointer.377" }
 %union.anon.649 = type { ptr }
-%"class.clang::OffsetOfNode" = type { %"class.clang::SourceRange", i64 }
 %"struct.llvm::detail::DenseMapPair.708" = type { %"struct.std::pair.709" }
 %"struct.std::pair.709" = type { ptr, %"class.clang::CharUnits" }
 %"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
@@ -9044,7 +9043,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp17InterpretOffsetOfERNS0_11
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr i8, ptr %2, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = zext i32 %8 to i64
   br label %14
@@ -9054,7 +9053,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp17InterpretOffsetOfERNS0_11
   %.04393 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
   %.sroa.073.091 = phi i64 [ 0, %.lr.ph ], [ %.sroa.073.1, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
   %.sroa.068.090 = phi i64 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.068.1, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
-  %15 = getelementptr inbounds %"class.clang::OffsetOfNode", ptr %11, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %15 = getelementptr i8, ptr %11, i64 %.idx
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 3

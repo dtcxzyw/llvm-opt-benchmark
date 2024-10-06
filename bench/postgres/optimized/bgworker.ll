@@ -247,9 +247,10 @@ FindRegisteredWorkerBySlotNumber.exit:            ; preds = %20
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr @BackgroundWorkerData, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
-  %42 = sext i32 %22 to i64
-  %43 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %41, i64 0, i64 %42, i32 2
+  %41 = sext i32 %22 to i64
+  %.idx.i = mul nsw i64 %41, 1488
+  %42 = getelementptr i8, ptr %40, i64 20
+  %43 = getelementptr i8, ptr %42, i64 %.idx.i
   store i32 0, ptr %43, align 4
   %44 = getelementptr i8, ptr %.sroa.0.0.i, i64 -40
   %45 = load i32, ptr %44, align 8
@@ -423,14 +424,15 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReportBackgroundWorkerPID(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @BackgroundWorkerData, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
-  %5 = load i32, ptr %4, align 8
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 1480
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %3, i64 0, i64 %6, i32 2
-  store i32 %8, ptr %9, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = load i32, ptr %3, align 8
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds i8, ptr %0, i64 1480
+  %7 = load i32, ptr %6, align 8
+  %.idx = mul nsw i64 %5, 1488
+  %8 = getelementptr i8, ptr %2, i64 20
+  %9 = getelementptr i8, ptr %8, i64 %.idx
+  store i32 %7, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 1464
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
@@ -506,14 +508,15 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local void @ReportBackgroundWorkerExit(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr @BackgroundWorkerData, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = getelementptr i8, ptr %2, i64 -8
-  %6 = load i32, ptr %5, align 8
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr i8, ptr %2, i64 -24
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %4, i64 0, i64 %7, i32 2
-  store i32 %9, ptr %10, align 4
+  %4 = getelementptr i8, ptr %2, i64 -8
+  %5 = load i32, ptr %4, align 8
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr i8, ptr %2, i64 -24
+  %8 = load i32, ptr %7, align 8
+  %.idx = mul nsw i64 %6, 1488
+  %9 = getelementptr i8, ptr %3, i64 20
+  %10 = getelementptr i8, ptr %9, i64 %.idx
+  store i32 %8, ptr %10, align 4
   %11 = getelementptr i8, ptr %2, i64 -40
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %2, i64 -4
@@ -525,59 +528,60 @@ define dso_local void @ReportBackgroundWorkerExit(ptr nocapture noundef %0) loca
   %17 = getelementptr i8, ptr %2, i64 -1304
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %43
+  br i1 %19, label %20, label %44
 
 20:                                               ; preds = %16, %1
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr i8, ptr %21, i64 -1504
-  %23 = getelementptr i8, ptr %21, i64 -8
-  %24 = load i32, ptr %23, align 8
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %4, i64 0, i64 %25
-  %27 = getelementptr i8, ptr %21, i64 -1312
-  %28 = load i32, ptr %27, align 8
-  %29 = and i32 %28, 16
-  %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %34, label %30
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr i8, ptr %21, i64 -8
+  %25 = load i32, ptr %24, align 8
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %23, i64 0, i64 %26
+  %28 = getelementptr i8, ptr %21, i64 -1312
+  %29 = load i32, ptr %28, align 8
+  %30 = and i32 %29, 16
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %35, label %31
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 8
-  br label %34
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 8
+  br label %35
 
-34:                                               ; preds = %30, %20
+35:                                               ; preds = %31, %20
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  store i8 0, ptr %26, align 8
-  %35 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %35, label %36, label %ForgetBackgroundWorker.exit
+  store i8 0, ptr %27, align 8
+  %36 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %36, label %37, label %ForgetBackgroundWorker.exit
 
-36:                                               ; preds = %34
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %22) #14
+37:                                               ; preds = %35
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %22) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 457, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
   br label %ForgetBackgroundWorker.exit
 
-ForgetBackgroundWorker.exit:                      ; preds = %34, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8
-  store ptr %39, ptr %41, align 8
-  %42 = load ptr, ptr %40, align 8
-  store ptr %42, ptr %0, align 8
+ForgetBackgroundWorker.exit:                      ; preds = %35, %37
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8
+  store ptr %40, ptr %42, align 8
+  %43 = load ptr, ptr %41, align 8
+  store ptr %43, ptr %0, align 8
   tail call void @pfree(ptr noundef %22) #14
-  br label %43
+  br label %44
 
-43:                                               ; preds = %ForgetBackgroundWorker.exit, %16
+44:                                               ; preds = %ForgetBackgroundWorker.exit, %16
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %46, label %44
+  br i1 %.not, label %47, label %45
 
-44:                                               ; preds = %43
-  %45 = tail call i32 @kill(i32 noundef %12, i32 noundef 10) #14
-  br label %46
+45:                                               ; preds = %44
+  %46 = tail call i32 @kill(i32 noundef %12, i32 noundef 10) #14
+  br label %47
 
-46:                                               ; preds = %44, %43
+47:                                               ; preds = %45, %44
   ret void
 }
 
@@ -617,67 +621,69 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   %.pre19 = load ptr, ptr @BackgroundWorkerData, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %.lr.ph.preheader
-  %2 = phi ptr [ %29, %28 ], [ %.pre19, %.lr.ph.preheader ]
-  %.sroa.0.017 = phi ptr [ %storemerge18, %28 ], [ %1, %.lr.ph.preheader ]
-  %.sroa.9.016 = phi ptr [ %.sroa.0.1, %28 ], [ @BackgroundWorkerList, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %29, %.lr.ph.preheader
+  %2 = phi ptr [ %30, %29 ], [ %.pre19, %.lr.ph.preheader ]
+  %.sroa.0.017 = phi ptr [ %storemerge18, %29 ], [ %1, %.lr.ph.preheader ]
+  %.sroa.9.016 = phi ptr [ %.sroa.0.1, %29 ], [ @BackgroundWorkerList, %.lr.ph.preheader ]
   %storemerge18 = load ptr, ptr %.sroa.0.017, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = getelementptr i8, ptr %.sroa.0.017, i64 -8
-  %5 = load i32, ptr %4, align 8
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %3, i64 0, i64 %6, i32 2
+  %3 = getelementptr i8, ptr %.sroa.0.017, i64 -8
+  %4 = load i32, ptr %3, align 8
+  %5 = sext i32 %4 to i64
+  %.idx = mul nsw i64 %5, 1488
+  %6 = getelementptr i8, ptr %2, i64 20
+  %7 = getelementptr i8, ptr %6, i64 %.idx
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %10, label %28
+  br i1 %9, label %10, label %29
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr i8, ptr %.sroa.0.017, i64 -40
   %12 = load i32, ptr %11, align 8
   %.not9 = icmp eq i32 %12, 0
-  br i1 %.not9, label %28, label %13
+  br i1 %.not9, label %29, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr i8, ptr %.sroa.0.017, i64 -1504
-  %15 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %3, i64 0, i64 %6
-  %16 = getelementptr i8, ptr %.sroa.0.017, i64 -1312
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 16
-  %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %23, label %19
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr [0 x %struct.BackgroundWorkerSlot], ptr %15, i64 0, i64 %5
+  %17 = getelementptr i8, ptr %.sroa.0.017, i64 -1312
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 16
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %24, label %20
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %20, align 8
-  br label %23
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %21, align 8
+  br label %24
 
-23:                                               ; preds = %19, %13
+24:                                               ; preds = %20, %13
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  store i8 0, ptr %15, align 8
-  %24 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %24, label %25, label %ForgetBackgroundWorker.exit
+  store i8 0, ptr %16, align 8
+  %25 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %25, label %26, label %ForgetBackgroundWorker.exit
 
-25:                                               ; preds = %23
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %14) #14
+26:                                               ; preds = %24
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %14) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 457, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
   br label %ForgetBackgroundWorker.exit
 
-ForgetBackgroundWorker.exit:                      ; preds = %23, %25
+ForgetBackgroundWorker.exit:                      ; preds = %24, %26
   store ptr %storemerge18, ptr %.sroa.9.016, align 8
   tail call void @pfree(ptr noundef %14) #14
-  %27 = tail call i32 @kill(i32 noundef %12, i32 noundef 10) #14
+  %28 = tail call i32 @kill(i32 noundef %12, i32 noundef 10) #14
   %.pre = load ptr, ptr @BackgroundWorkerData, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %10, %ForgetBackgroundWorker.exit
-  %29 = phi ptr [ %2, %10 ], [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %.lr.ph ]
+29:                                               ; preds = %.lr.ph, %10, %ForgetBackgroundWorker.exit
+  %30 = phi ptr [ %2, %10 ], [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %.lr.ph ]
   %.sroa.0.1 = phi ptr [ %.sroa.0.017, %10 ], [ %.sroa.9.016, %ForgetBackgroundWorker.exit ], [ %.sroa.0.017, %.lr.ph ]
   %.not10 = icmp eq ptr %storemerge18, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %28, %0
+._crit_edge:                                      ; preds = %29, %0
   ret void
 }
 

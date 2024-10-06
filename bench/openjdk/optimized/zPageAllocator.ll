@@ -942,7 +942,9 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds [2 x %struct.anon], ptr %16, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds [2 x %struct.anon], ptr %16, i64 0, i64 %19, i32 1
+  %.idx = shl nuw nsw i64 %19, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 %.offs
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 448
   %25 = getelementptr inbounds [2 x i64], ptr %24, i64 0, i64 %19

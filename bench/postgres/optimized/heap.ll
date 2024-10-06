@@ -314,23 +314,24 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
   unreachable
 
 9:                                                ; preds = %3
-  switch i8 %1, label %.preheader42 [
+  switch i8 %1, label %.preheader46 [
     i8 118, label %.loopexit
     i8 99, label %.loopexit
   ]
 
-.preheader42:                                     ; preds = %9
+.preheader46:                                     ; preds = %9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader42
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+.lr.ph:                                           ; preds = %.preheader46
+  %10 = getelementptr i8, ptr %0, i64 28
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %SystemAttributeByName.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %SystemAttributeByName.exit.thread ]
-  %12 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %10, i64 0, i64 %indvars.iv, i32 1
+  %.idx41 = mul nuw nsw i64 %indvars.iv, 104
+  %12 = getelementptr i8, ptr %10, i64 %.idx41
   br label %14
 
 13:                                               ; preds = %14
@@ -362,36 +363,40 @@ SystemAttributeByName.exit.thread:                ; preds = %13
 
 .loopexit:                                        ; preds = %SystemAttributeByName.exit.thread, %9, %9
   %23 = icmp sgt i32 %4, 1
-  br i1 %23, label %.preheader41.lr.ph, label %.preheader
+  br i1 %23, label %.preheader45.lr.ph, label %.preheader
 
-.preheader41.lr.ph:                               ; preds = %.loopexit
+.preheader45.lr.ph:                               ; preds = %.loopexit
   %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count62 = zext nneg i32 %4 to i64
-  br label %.preheader41
+  %wide.trip.count66 = zext nneg i32 %4 to i64
+  br label %.preheader45
 
-.preheader41:                                     ; preds = %.preheader41.lr.ph, %36
-  %indvars.iv59 = phi i64 [ 1, %.preheader41.lr.ph ], [ %indvars.iv.next60, %36 ]
-  %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %24, i64 0, i64 %indvars.iv59, i32 1
+.preheader45:                                     ; preds = %.preheader45.lr.ph, %36
+  %indvars.iv63 = phi i64 [ 1, %.preheader45.lr.ph ], [ %indvars.iv.next64, %36 ]
+  %.idx39 = mul nuw nsw i64 %indvars.iv63, 104
+  %.offs40 = or disjoint i64 %.idx39, 4
+  %25 = getelementptr i8, ptr %24, i64 %.offs40
   br label %28
 
 .preheader:                                       ; preds = %36, %.loopexit
-  %.not49 = icmp eq i32 %4, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph48
+  %.not53 = icmp eq i32 %4, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph52
 
-.lr.ph48:                                         ; preds = %.preheader
+.lr.ph52:                                         ; preds = %.preheader
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count67 = zext nneg i32 %smax to i64
+  %wide.trip.count71 = zext nneg i32 %smax to i64
   br label %37
 
 27:                                               ; preds = %28
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %indvars.iv59
-  br i1 %exitcond58.not, label %36, label %28, !llvm.loop !8
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %indvars.iv63
+  br i1 %exitcond62.not, label %36, label %28, !llvm.loop !8
 
-28:                                               ; preds = %.preheader41, %27
-  %indvars.iv54 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next55, %27 ]
-  %29 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %24, i64 0, i64 %indvars.iv54, i32 1
+28:                                               ; preds = %.preheader45, %27
+  %indvars.iv58 = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next59, %27 ]
+  %.idx = mul nuw nsw i64 %indvars.iv58, 104
+  %.offs = or disjoint i64 %.idx, 4
+  %29 = getelementptr i8, ptr %24, i64 %.offs
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %25) #12
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %27
@@ -405,24 +410,24 @@ SystemAttributeByName.exit.thread:                ; preds = %13
   unreachable
 
 36:                                               ; preds = %27
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.preheader, label %.preheader41, !llvm.loop !9
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %.preheader, label %.preheader45, !llvm.loop !9
 
-37:                                               ; preds = %.lr.ph48, %37
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next65, %37 ]
-  %38 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv64
+37:                                               ; preds = %.lr.ph52, %37
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next69, %37 ]
+  %38 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv68
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = getelementptr inbounds i8, ptr %38, i64 68
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %38, i64 100
   %43 = load i32, ptr %42, align 4
   tail call void @CheckAttributeType(ptr noundef nonnull %39, i32 noundef %41, i32 noundef %43, ptr noundef null, i32 noundef %2)
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge, label %37, !llvm.loop !10
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
+  br i1 %exitcond72.not, label %._crit_edge, label %37, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %37, %.preheader42, %.preheader
+._crit_edge:                                      ; preds = %37, %.preheader46, %.preheader
   ret void
 }
 

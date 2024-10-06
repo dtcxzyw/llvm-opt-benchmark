@@ -910,16 +910,21 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr n
   %166 = icmp eq i8 %165, 0
   br i1 %166, label %.thread6, label %.preheader
 
-.preheader:                                       ; preds = %164, %.preheader
-  %167 = phi i64 [ %170, %.preheader ], [ 0, %164 ]
-  %168 = getelementptr [4 x %struct.drm_dp_remote_i2c_read_tx], ptr %126, i64 0, i64 %167, i32 2
-  %169 = load ptr, ptr %168, align 8
+.preheader:                                       ; preds = %164
+  %invariant.gep = getelementptr i8, ptr %1, i64 24
+  br label %167
+
+167:                                              ; preds = %.preheader, %167
+  %168 = phi i64 [ %170, %167 ], [ 0, %.preheader ]
+  %.idx = mul nuw nsw i64 %168, 24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %169 = load ptr, ptr %gep, align 8
   tail call void @kfree(ptr noundef %169) #21
-  %170 = add nuw nsw i64 %167, 1
+  %170 = add nuw nsw i64 %168, 1
   %171 = load i8, ptr %119, align 8
   %172 = zext i8 %171 to i64
   %173 = icmp ult i64 %170, %172
-  br i1 %173, label %.preheader, label %.thread6, !llvm.loop !20
+  br i1 %173, label %167, label %.thread6, !llvm.loop !20
 
 .loopexit8:                                       ; preds = %147, %118
   %.ph = phi i32 [ 1, %118 ], [ %150, %147 ]
@@ -1007,8 +1012,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr n
 .loopexit:                                        ; preds = %41, %.loopexit8, %216, %185, %91, %69, %65, %22, %5, %2
   br label %.thread6
 
-.thread6:                                         ; preds = %.preheader, %164, %.loopexit, %185, %91
-  %233 = phi i32 [ 0, %.loopexit ], [ -12, %185 ], [ -12, %91 ], [ -12, %164 ], [ -12, %.preheader ]
+.thread6:                                         ; preds = %167, %164, %.loopexit, %185, %91
+  %233 = phi i32 [ 0, %.loopexit ], [ -12, %185 ], [ -12, %91 ], [ -12, %164 ], [ -12, %167 ]
   ret i32 %233
 }
 
@@ -8758,45 +8763,46 @@ define internal fastcc void @drm_dp_mst_dump_sideband_msg_tx(ptr noundef %0, ptr
   call void @drm_dp_dump_sideband_msg_req_body(ptr noundef nonnull %4, i32 noundef 1, ptr noundef %0)
   %54 = load i8, ptr %4, align 8
   switch i8 %54, label %.loopexit [
-    i8 33, label %61
+    i8 33, label %60
     i8 34, label %55
-    i8 35, label %72
+    i8 35, label %71
   ]
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %4, i64 8
   %57 = load i8, ptr %56, align 8
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %.loopexit, label %59
+  br i1 %58, label %.loopexit, label %.preheader
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %64
+.preheader:                                       ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %4, i64 24
+  br label %63
 
-61:                                               ; preds = %53
-  %62 = getelementptr inbounds i8, ptr %4, i64 24
-  %63 = load ptr, ptr %62, align 8
-  call void @kfree(ptr noundef %63) #21
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds i8, ptr %4, i64 24
+  %62 = load ptr, ptr %61, align 8
+  call void @kfree(ptr noundef %62) #21
   br label %.loopexit
 
-64:                                               ; preds = %64, %59
-  %65 = phi i64 [ 0, %59 ], [ %68, %64 ]
-  %66 = getelementptr [4 x %struct.drm_dp_remote_i2c_read_tx], ptr %60, i64 0, i64 %65, i32 2
-  %67 = load ptr, ptr %66, align 8
-  call void @kfree(ptr noundef %67) #21
-  %68 = add nuw nsw i64 %65, 1
-  %69 = load i8, ptr %56, align 8
-  %70 = zext i8 %69 to i64
-  %71 = icmp ult i64 %68, %70
-  br i1 %71, label %64, label %.loopexit, !llvm.loop !108
+63:                                               ; preds = %.preheader, %63
+  %64 = phi i64 [ %67, %63 ], [ 0, %.preheader ]
+  %.idx = mul nuw nsw i64 %64, 24
+  %65 = getelementptr i8, ptr %59, i64 %.idx
+  %66 = load ptr, ptr %65, align 8
+  call void @kfree(ptr noundef %66) #21
+  %67 = add nuw nsw i64 %64, 1
+  %68 = load i8, ptr %56, align 8
+  %69 = zext i8 %68 to i64
+  %70 = icmp ult i64 %67, %69
+  br i1 %70, label %63, label %.loopexit, !llvm.loop !108
 
-72:                                               ; preds = %53
-  %73 = getelementptr inbounds i8, ptr %4, i64 16
-  %74 = load ptr, ptr %73, align 8
-  call void @kfree(ptr noundef %74) #21
+71:                                               ; preds = %53
+  %72 = getelementptr inbounds i8, ptr %4, i64 16
+  %73 = load ptr, ptr %72, align 8
+  call void @kfree(ptr noundef %73) #21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %72, %61, %55, %53, %52
+.loopexit:                                        ; preds = %63, %71, %60, %55, %53, %52
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
   ret void

@@ -247,14 +247,15 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr nocapture noundef readonly 
 
 .lr.ph117:                                        ; preds = %.preheader111
   %40 = getelementptr inbounds i8, ptr %8, i64 168
-  %41 = getelementptr inbounds i8, ptr %8, i64 252
+  %41 = getelementptr i8, ptr %8, i64 260
   br label %42
 
 42:                                               ; preds = %.lr.ph117, %42
   %indvars.iv132 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next133, %42 ]
   %43 = getelementptr inbounds [10 x ptr], ptr %40, i64 0, i64 %indvars.iv132
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds [10 x %struct.lhd_output_ptr_info], ptr %41, i64 0, i64 %indvars.iv132, i32 2
+  %.idx = mul nuw nsw i64 %indvars.iv132, 12
+  %45 = getelementptr i8, ptr %41, i64 %.idx
   %46 = load i32, ptr %45, align 4
   %47 = mul i32 %46, %4
   %48 = zext i32 %47 to i64

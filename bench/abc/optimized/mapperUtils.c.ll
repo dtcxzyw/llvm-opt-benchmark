@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Map_TimeStruct_t_ = type { float, float, float }
-%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
 
 @.str = private unnamed_addr constant [16 x i8] c"Output  %-*s : \00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Delay = (%5.2f, %5.2f)  \00", align 1
@@ -402,11 +401,13 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   %27 = xor i64 %26, 1
   %28 = and i64 %23, 1
   %29 = xor i64 %28, 1
-  %30 = getelementptr inbounds i8, ptr %22, i64 96
-  %31 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %30, i64 0, i64 %27, i32 2
+  %.idx.i.i = mul nuw nsw i64 %27, 12
+  %30 = getelementptr i8, ptr %22, i64 104
+  %31 = getelementptr i8, ptr %30, i64 %.idx.i.i
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %25, i64 96
-  %34 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %33, i64 0, i64 %29, i32 2
+  %.idx14.i.i = mul nuw nsw i64 %29, 12
+  %33 = getelementptr i8, ptr %25, i64 104
+  %34 = getelementptr i8, ptr %33, i64 %.idx14.i.i
   %35 = load float, ptr %34, align 4
   %36 = fcmp uge float %32, %35
   br i1 %36, label %37, label %9, !llvm.loop !10
@@ -824,8 +825,9 @@ define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef read
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
-  %9 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %8, i64 0, i64 %5, i32 3
+  %.idx = mul nsw i64 %5, 40
+  %8 = getelementptr i8, ptr %1, i64 96
+  %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -874,8 +876,9 @@ define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_un
   %spec.select = select i1 %24, i64 %19, i64 %20
   %25 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 %spec.select
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
-  %28 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %27, i64 0, i64 %spec.select, i32 5
+  %.idx = mul nuw nsw i64 %spec.select, 40
+  %27 = getelementptr i8, ptr %26, i64 116
+  %28 = getelementptr i8, ptr %27, i64 %.idx
   %29 = load float, ptr %28, align 4
   %30 = fadd float %.01921, %29
   br label %31

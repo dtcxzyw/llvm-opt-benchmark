@@ -23299,7 +23299,7 @@ _ZL28partCheckCachedScoreVsActualjj.exit:         ; preds = %_ZNK10LogicMTask8st
   tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
   %7 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 184
+  %9 = getelementptr i8, ptr %.sroa.0.0, i64 184
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 100
   %12 = load i32, ptr %11, align 4

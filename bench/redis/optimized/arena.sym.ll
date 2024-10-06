@@ -969,13 +969,14 @@ sz_size2index_compute.exit.i:                     ; preds = %entry
   %cmp1.i = icmp ult i32 %6, -39
   %spec.select.i = select i1 %cmp1.i, i32 %6, i32 0
   %7 = zext i32 %spec.select.i to i64
+  %8 = mul nuw nsw i64 %7, 48
   br label %arena_large_dalloc_stats_update.exit
 
 arena_large_dalloc_stats_update.exit:             ; preds = %entry, %sz_size2index_compute.exit.i
-  %idxprom.i = phi i64 [ 196, %entry ], [ %7, %sz_size2index_compute.exit.i ]
-  %lstats.i = getelementptr inbounds i8, ptr %arena, i64 976
-  %ndalloc.i = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats.i, i64 0, i64 %idxprom.i, i32 1
-  %8 = atomicrmw add ptr %ndalloc.i, i64 1 monotonic, align 8
+  %idxprom.i = phi i64 [ 9408, %entry ], [ %8, %sz_size2index_compute.exit.i ]
+  %9 = getelementptr i8, ptr %arena, i64 984
+  %ndalloc.i = getelementptr i8, ptr %9, i64 %idxprom.i
+  %10 = atomicrmw add ptr %ndalloc.i, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1040,12 +1041,14 @@ sz_size2index_compute.exit.i4.i:                  ; preds = %arena_large_malloc_
   %cmp1.i16.i = icmp ult i32 %13, -39
   %spec.select.i17.i = select i1 %cmp1.i16.i, i32 %13, i32 0
   %14 = zext i32 %spec.select.i17.i to i64
+  %15 = mul nuw nsw i64 %14, 48
   br label %arena_large_ralloc_stats_update.exit
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %sz_size2index_compute.exit.i4.i
-  %idxprom.i18.i = phi i64 [ 196, %arena_large_malloc_stats_update.exit.i ], [ %14, %sz_size2index_compute.exit.i4.i ]
-  %ndalloc.i.i = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats.i.i, i64 0, i64 %idxprom.i18.i, i32 1
-  %15 = atomicrmw add ptr %ndalloc.i.i, i64 1 monotonic, align 8
+  %idxprom.i18.i = phi i64 [ 9408, %arena_large_malloc_stats_update.exit.i ], [ %15, %sz_size2index_compute.exit.i4.i ]
+  %16 = getelementptr i8, ptr %arena, i64 984
+  %ndalloc.i.i = getelementptr i8, ptr %16, i64 %idxprom.i18.i
+  %17 = atomicrmw add ptr %ndalloc.i.i, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1110,12 +1113,14 @@ sz_size2index_compute.exit.i4.i:                  ; preds = %arena_large_malloc_
   %cmp1.i16.i = icmp ult i32 %13, -39
   %spec.select.i17.i = select i1 %cmp1.i16.i, i32 %13, i32 0
   %14 = zext i32 %spec.select.i17.i to i64
+  %15 = mul nuw nsw i64 %14, 48
   br label %arena_large_ralloc_stats_update.exit
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %sz_size2index_compute.exit.i4.i
-  %idxprom.i18.i = phi i64 [ 196, %arena_large_malloc_stats_update.exit.i ], [ %14, %sz_size2index_compute.exit.i4.i ]
-  %ndalloc.i.i = getelementptr inbounds [196 x %struct.arena_stats_large_s], ptr %lstats.i.i, i64 0, i64 %idxprom.i18.i, i32 1
-  %15 = atomicrmw add ptr %ndalloc.i.i, i64 1 monotonic, align 8
+  %idxprom.i18.i = phi i64 [ 9408, %arena_large_malloc_stats_update.exit.i ], [ %15, %sz_size2index_compute.exit.i4.i ]
+  %16 = getelementptr i8, ptr %arena, i64 984
+  %ndalloc.i.i = getelementptr i8, ptr %16, i64 %idxprom.i18.i
+  %17 = atomicrmw add ptr %ndalloc.i.i, i64 1 monotonic, align 8
   ret void
 }
 

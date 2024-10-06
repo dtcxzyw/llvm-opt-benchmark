@@ -8997,7 +8997,9 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %5 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 16)
   %6 = extractvalue { i16, i16 } %5, 0
   %7 = extractvalue { i16, i16 } %5, 1
-  %8 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 1
+  %.idx = shl nuw nsw i64 %.0, 7
+  %.offs = or disjoint i64 %.idx, 64
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.offs
   %9 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %8, i64 noundef 16)
   %10 = extractvalue { i16, i16 } %9, 0
   %11 = extractvalue { i16, i16 } %9, 1
@@ -9086,7 +9088,9 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   %4 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 0
   %5 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 16)
-  %6 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 1
+  %.idx = shl nuw nsw i64 %.0, 7
+  %.offs = or disjoint i64 %.idx, 64
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.offs
   %7 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %6, i64 noundef 16)
   %8 = bitcast float %5 to i32
   %9 = bitcast float %7 to i32

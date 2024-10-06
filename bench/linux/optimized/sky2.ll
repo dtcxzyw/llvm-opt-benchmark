@@ -2334,8 +2334,9 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %256 = phi ptr [ %248, %252 ], [ %267, %254 ]
   %257 = getelementptr [2 x i64], ptr %253, i64 0, i64 %255
   %258 = load i64, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %256, i64 48
-  %260 = getelementptr [17 x %struct.bio_vec], ptr %259, i64 0, i64 %255, i32 1
+  %.idx = shl nuw nsw i64 %255, 4
+  %259 = getelementptr i8, ptr %256, i64 56
+  %260 = getelementptr i8, ptr %259, i64 %.idx
   %261 = load i32, ptr %260, align 8
   %262 = zext i32 %261 to i64
   tail call void @dma_unmap_page_attrs(ptr noundef %237, i64 noundef %258, i64 noundef %262, i32 noundef 2, i64 noundef 0) #23
@@ -9369,8 +9370,9 @@ define internal fastcc void @sky2_rx_clean(ptr nocapture noundef readonly %0) un
   %42 = phi ptr [ %34, %38 ], [ %53, %40 ]
   %43 = getelementptr [2 x i64], ptr %39, i64 0, i64 %41
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = getelementptr [17 x %struct.bio_vec], ptr %45, i64 0, i64 %41, i32 1
+  %.idx = shl nuw nsw i64 %41, 4
+  %45 = getelementptr i8, ptr %42, i64 56
+  %46 = getelementptr i8, ptr %45, i64 %.idx
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
   tail call void @dma_unmap_page_attrs(ptr noundef %23, i64 noundef %44, i64 noundef %48, i32 noundef 2, i64 noundef 0) #23
@@ -10766,8 +10768,9 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %85 = load i32, ptr %44, align 4
   %86 = zext i32 %85 to i64
   %87 = getelementptr i8, ptr %84, i64 %86
-  %88 = getelementptr inbounds i8, ptr %87, i64 48
-  %89 = getelementptr [17 x %struct.bio_vec], ptr %88, i64 0, i64 %81, i32 1
+  %.idx = shl nuw nsw i64 %81, 4
+  %88 = getelementptr i8, ptr %87, i64 56
+  %89 = getelementptr i8, ptr %88, i64 %.idx
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
   tail call void @dma_unmap_page_attrs(ptr noundef %5, i64 noundef %83, i64 noundef %91, i32 noundef 2, i64 noundef 0) #23

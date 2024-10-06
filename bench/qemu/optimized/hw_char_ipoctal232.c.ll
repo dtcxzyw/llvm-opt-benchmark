@@ -163,12 +163,14 @@ entry:
   %idxprom = zext nneg i32 %shr2 to i64
   %arrayidx = getelementptr [8 x %struct.SCC2698Channel], ptr %ch4, i64 0, i64 %idxprom
   %blk5 = getelementptr inbounds i8, ptr %call.i, i64 816
-  %idxprom6 = zext nneg i32 %shr to i64
-  %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom6, i32 1
-  %0 = load i8, ptr %isr, align 1
-  %1 = add nsw i32 %xor, -1
-  %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 31)
-  switch i32 %2, label %if.end74 [
+  %0 = shl nuw nsw i32 %shr, 1
+  %1 = or disjoint i32 %0, 1
+  %isr.offs = zext nneg i32 %1 to i64
+  %isr = getelementptr i8, ptr %blk5, i64 %isr.offs
+  %2 = load i8, ptr %isr, align 1
+  %3 = add nsw i32 %xor, -1
+  %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 31)
+  switch i32 %4, label %if.end74 [
     i32 0, label %sw.bb
     i32 8, label %sw.bb
     i32 1, label %sw.bb12
@@ -181,54 +183,54 @@ entry:
 sw.bb:                                            ; preds = %entry, %entry
   %mr = getelementptr inbounds i8, ptr %arrayidx, i64 65
   %mr_idx = getelementptr inbounds i8, ptr %arrayidx, i64 67
-  %3 = load i8, ptr %mr_idx, align 1
-  %idxprom8 = zext i8 %3 to i64
+  %5 = load i8, ptr %mr_idx, align 1
+  %idxprom8 = zext i8 %5 to i64
   %arrayidx9 = getelementptr [2 x i8], ptr %mr, i64 0, i64 %idxprom8
-  %4 = load i8, ptr %arrayidx9, align 1
+  %6 = load i8, ptr %arrayidx9, align 1
   store i8 1, ptr %mr_idx, align 1
   %.pre = load i8, ptr %isr, align 1
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry, %entry
   %sr = getelementptr inbounds i8, ptr %arrayidx, i64 68
-  %5 = load i8, ptr %sr, align 4
+  %7 = load i8, ptr %sr, align 4
   br label %if.end74
 
 sw.bb16:                                          ; preds = %entry, %entry
   %rhr = getelementptr inbounds i8, ptr %arrayidx, i64 69
   %rhr_idx = getelementptr inbounds i8, ptr %arrayidx, i64 72
-  %6 = load i8, ptr %rhr_idx, align 8
-  %idxprom17 = zext i8 %6 to i64
+  %8 = load i8, ptr %rhr_idx, align 8
+  %idxprom17 = zext i8 %8 to i64
   %arrayidx18 = getelementptr [3 x i8], ptr %rhr, i64 0, i64 %idxprom17
-  %7 = load i8, ptr %arrayidx18, align 1
+  %9 = load i8, ptr %arrayidx18, align 1
   %rx_pending = getelementptr inbounds i8, ptr %arrayidx, i64 73
-  %8 = load i8, ptr %rx_pending, align 1
-  %cmp.not = icmp eq i8 %8, 0
+  %10 = load i8, ptr %rx_pending, align 1
+  %cmp.not = icmp eq i8 %10, 0
   br i1 %cmp.not, label %if.end74, label %if.then
 
 if.then:                                          ; preds = %sw.bb16
-  %dec = add i8 %8, -1
+  %dec = add i8 %10, -1
   store i8 %dec, ptr %rx_pending, align 1
   %cmp25 = icmp eq i8 %dec, 0
   br i1 %cmp25, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.then
   %sr28 = getelementptr inbounds i8, ptr %arrayidx, i64 68
-  %9 = load i8, ptr %sr28, align 4
-  %10 = and i8 %9, -2
-  store i8 %10, ptr %sr28, align 4
-  %11 = and i32 %conv, 16
-  %tobool.not = icmp eq i32 %11, 0
+  %11 = load i8, ptr %sr28, align 4
+  %12 = and i8 %11, -2
+  store i8 %12, ptr %sr28, align 4
+  %13 = and i32 %conv, 16
+  %tobool.not = icmp eq i32 %13, 0
   %not = select i1 %tobool.not, i8 -3, i8 -33
-  %12 = load i8, ptr %isr, align 1
-  %and35 = and i8 %12, %not
+  %14 = load i8, ptr %isr, align 1
+  %and35 = and i8 %14, %not
   store i8 %and35, ptr %isr, align 1
   %dev37 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %dev37) #6
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %conv39 = zext i8 %6 to i16
+  %conv39 = zext i8 %8 to i16
   %add = add nuw nsw i16 %conv39, 1
   %rem = urem i16 %add, 3
   %conv40 = trunc nuw nsw i16 %rem to i8
@@ -237,16 +239,16 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.else, %if.then27
   %sr42 = getelementptr inbounds i8, ptr %arrayidx, i64 68
-  %13 = load i8, ptr %sr42, align 4
-  %tobool45.not = icmp sgt i8 %13, -1
+  %15 = load i8, ptr %sr42, align 4
+  %tobool45.not = icmp sgt i8 %15, -1
   %.pre26 = load i8, ptr %isr, align 1
   br i1 %tobool45.not, label %sw.epilog, label %if.then46
 
 if.then46:                                        ; preds = %if.end
-  %14 = and i8 %13, 127
-  store i8 %14, ptr %sr42, align 4
-  %15 = and i32 %conv, 16
-  %tobool52.not = icmp eq i32 %15, 0
+  %16 = and i8 %15, 127
+  store i8 %16, ptr %sr42, align 4
+  %17 = and i32 %conv, 16
+  %tobool52.not = icmp eq i32 %17, 0
   %cond53 = select i1 %tobool52.not, i8 4, i8 64
   %or = or i8 %.pre26, %cond53
   store i8 %or, ptr %isr, align 1
@@ -256,18 +258,19 @@ sw.bb61:                                          ; preds = %entry
   br label %if.end74
 
 sw.epilog:                                        ; preds = %if.then46, %if.end, %sw.bb
-  %16 = phi i8 [ %or, %if.then46 ], [ %.pre26, %if.end ], [ %.pre, %sw.bb ]
-  %ret.0.shrunk = phi i8 [ %7, %if.then46 ], [ %7, %if.end ], [ %4, %sw.bb ]
-  %cmp71.not = icmp eq i8 %0, %16
+  %18 = phi i8 [ %or, %if.then46 ], [ %.pre26, %if.end ], [ %.pre, %sw.bb ]
+  %ret.0.shrunk = phi i8 [ %9, %if.then46 ], [ %9, %if.end ], [ %6, %sw.bb ]
+  %cmp71.not = icmp eq i8 %2, %18
   br i1 %cmp71.not, label %if.end74, label %if.then73
 
 if.then73:                                        ; preds = %sw.epilog
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #6
-  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom6
+  %idxprom.i = zext nneg i32 %shr to i64
+  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom.i
   %isr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
-  %17 = load i8, ptr %isr.i, align 1
-  %18 = load i8, ptr %arrayidx.i, align 1
-  %and11.i = and i8 %18, %17
+  %19 = load i8, ptr %isr.i, align 1
+  %20 = load i8, ptr %arrayidx.i, align 1
+  %and11.i = and i8 %20, %19
   %tobool.not.i = icmp eq i8 %and11.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %update_irq.exit
 
@@ -276,9 +279,9 @@ lor.lhs.false.i:                                  ; preds = %if.then73
   %idxprom3.i = zext nneg i32 %xor.i to i64
   %arrayidx4.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom3.i
   %isr6.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 1
-  %19 = load i8, ptr %isr6.i, align 1
-  %20 = load i8, ptr %arrayidx4.i, align 1
-  %and1012.i = and i8 %20, %19
+  %21 = load i8, ptr %isr6.i, align 1
+  %22 = load i8, ptr %arrayidx4.i, align 1
+  %and1012.i = and i8 %22, %21
   %tobool11.not.i = icmp ne i8 %and1012.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
   br label %update_irq.exit
@@ -287,15 +290,15 @@ update_irq.exit:                                  ; preds = %if.then73, %lor.lhs
   %.sink13.i = phi i32 [ 1, %if.then73 ], [ %spec.select.i, %lor.lhs.false.i ]
   %div9.i = lshr i32 %conv, 6
   %irq14.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
-  %21 = load ptr, ptr %irq14.i, align 8
+  %23 = load ptr, ptr %irq14.i, align 8
   %idxprom15.i = zext nneg i32 %div9.i to i64
-  %arrayidx16.i = getelementptr ptr, ptr %21, i64 %idxprom15.i
-  %22 = load ptr, ptr %arrayidx16.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %22, i32 noundef %.sink13.i) #6
+  %arrayidx16.i = getelementptr ptr, ptr %23, i64 %idxprom15.i
+  %24 = load ptr, ptr %arrayidx16.i, align 8
+  tail call void @qemu_set_irq(ptr noundef %24, i32 noundef %.sink13.i) #6
   br label %if.end74
 
 if.end74:                                         ; preds = %sw.bb12, %sw.bb16, %sw.bb61, %entry, %update_irq.exit, %sw.epilog
-  %ret.0.shrunk29 = phi i8 [ %ret.0.shrunk, %update_irq.exit ], [ %ret.0.shrunk, %sw.epilog ], [ %5, %sw.bb12 ], [ %7, %sw.bb16 ], [ %0, %sw.bb61 ], [ 0, %entry ]
+  %ret.0.shrunk29 = phi i8 [ %ret.0.shrunk, %update_irq.exit ], [ %ret.0.shrunk, %sw.epilog ], [ %7, %sw.bb12 ], [ %9, %sw.bb16 ], [ %2, %sw.bb61 ], [ 0, %entry ]
   %ret.0 = zext i8 %ret.0.shrunk29 to i16
   ret i16 %ret.0
 }
@@ -740,20 +743,22 @@ while.end:                                        ; preds = %while.cond
   %tobool24.not = icmp eq i32 %and23, 0
   %cond = select i1 %tobool24.not, i8 2, i8 32
   %blk = getelementptr inbounds i8, ptr %0, i64 816
-  %idxprom25 = zext nneg i32 %div20 to i64
-  %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom25, i32 1
-  %7 = load i8, ptr %isr, align 1
-  %or = or i8 %7, %cond
+  %7 = or i32 %channel.0, 1
+  %isr.offs = zext i32 %7 to i64
+  %isr = getelementptr i8, ptr %blk, i64 %isr.offs
+  %8 = load i8, ptr %isr, align 1
+  %or = or i8 %8, %cond
   store i8 %or, ptr %isr, align 1
-  %8 = load i8, ptr %sr, align 4
-  %9 = or i8 %8, 1
-  store i8 %9, ptr %sr, align 4
+  %9 = load i8, ptr %sr, align 4
+  %10 = or i8 %9, 1
+  store i8 %10, ptr %sr, align 4
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #6
-  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom25
+  %idxprom.i = zext nneg i32 %div20 to i64
+  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom.i
   %isr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
-  %10 = load i8, ptr %isr.i, align 1
-  %11 = load i8, ptr %arrayidx.i, align 1
-  %and11.i = and i8 %11, %10
+  %11 = load i8, ptr %isr.i, align 1
+  %12 = load i8, ptr %arrayidx.i, align 1
+  %and11.i = and i8 %12, %11
   %tobool.not.i = icmp eq i8 %and11.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %update_irq.exit
 
@@ -762,9 +767,9 @@ lor.lhs.false.i:                                  ; preds = %while.end
   %idxprom3.i = zext nneg i32 %xor.i to i64
   %arrayidx4.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom3.i
   %isr6.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 1
-  %12 = load i8, ptr %isr6.i, align 1
-  %13 = load i8, ptr %arrayidx4.i, align 1
-  %and1012.i = and i8 %13, %12
+  %13 = load i8, ptr %isr6.i, align 1
+  %14 = load i8, ptr %arrayidx4.i, align 1
+  %and1012.i = and i8 %14, %13
   %tobool11.not.i = icmp ne i8 %and1012.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
   br label %update_irq.exit
@@ -773,11 +778,11 @@ update_irq.exit:                                  ; preds = %while.end, %lor.lhs
   %.sink13.i = phi i32 [ 1, %while.end ], [ %spec.select.i, %lor.lhs.false.i ]
   %div9.i = lshr i32 %channel.0, 2
   %irq14.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
-  %14 = load ptr, ptr %irq14.i, align 8
+  %15 = load ptr, ptr %irq14.i, align 8
   %idxprom15.i = zext nneg i32 %div9.i to i64
-  %arrayidx16.i = getelementptr ptr, ptr %14, i64 %idxprom15.i
-  %15 = load ptr, ptr %arrayidx16.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %15, i32 noundef %.sink13.i) #6
+  %arrayidx16.i = getelementptr ptr, ptr %15, i64 %idxprom15.i
+  %16 = load ptr, ptr %arrayidx16.i, align 8
+  tail call void @qemu_set_irq(ptr noundef %16, i32 noundef %.sink13.i) #6
   br label %if.end33
 
 if.end33:                                         ; preds = %update_irq.exit, %for.end
@@ -812,17 +817,17 @@ while.cond:                                       ; preds = %while.cond, %if.the
   br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond
-  %div10 = lshr i32 %channel.0, 1
   %2 = or disjoint i8 %0, -128
   store i8 %2, ptr %sr, align 4
   %and9 = and i32 %channel.0, 1
   %tobool10.not = icmp eq i32 %and9, 0
   %cond = select i1 %tobool10.not, i8 4, i8 64
   %blk = getelementptr inbounds i8, ptr %1, i64 816
-  %idxprom11 = zext nneg i32 %div10 to i64
-  %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom11, i32 1
-  %3 = load i8, ptr %isr, align 1
-  %or14 = or i8 %3, %cond
+  %3 = or i32 %channel.0, 1
+  %isr.offs = zext i32 %3 to i64
+  %isr = getelementptr i8, ptr %blk, i64 %isr.offs
+  %4 = load i8, ptr %isr, align 1
+  %or14 = or i8 %4, %cond
   store i8 %or14, ptr %isr, align 1
   br label %if.end
 

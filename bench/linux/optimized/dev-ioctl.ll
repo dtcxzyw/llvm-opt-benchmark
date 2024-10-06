@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.13 = type { %struct.args_timeout }
 %struct.args_timeout = type { i64 }
 %struct.path = type { ptr, ptr }
-%struct.upid = type { i32, ptr }
 
 @__UNIQUE_ID_alias353 = internal constant [32 x i8] c"autofs4.alias=char-major-10-235\00", section ".modinfo", align 1
 @__UNIQUE_ID_alias354 = internal constant [29 x i8] c"autofs4.alias=devname:autofs\00", section ".modinfo", align 1
@@ -534,11 +533,12 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 96
-  %20 = getelementptr inbounds i8, ptr %16, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr [0 x %struct.upid], ptr %19, i64 0, i64 %22, i32 1
+  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  %.idx = shl nuw nsw i64 %21, 4
+  %22 = getelementptr i8, ptr %16, i64 104
+  %23 = getelementptr i8, ptr %22, i64 %.idx
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -550,11 +550,12 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %28, i64 96
-  %32 = getelementptr inbounds i8, ptr %28, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr [0 x %struct.upid], ptr %31, i64 0, i64 %34, i32 1
+  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = zext i32 %32 to i64
+  %.idx4 = shl nuw nsw i64 %33, 4
+  %34 = getelementptr i8, ptr %28, i64 104
+  %35 = getelementptr i8, ptr %34, i64 %.idx4
   %36 = load ptr, ptr %35, align 8
   br label %37
 

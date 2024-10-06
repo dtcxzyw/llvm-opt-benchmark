@@ -6997,8 +6997,9 @@ sw.bb730:                                         ; preds = %if.then728
 
 sw.bb735:                                         ; preds = %if.then728
   %185 = load ptr, ptr %fSymbols666, align 8
-  %fCapitalization737 = getelementptr inbounds i8, ptr %185, i64 832
-  %arrayidx740 = getelementptr inbounds [14 x [2 x i8]], ptr %fCapitalization737, i64 0, i64 %capContextUsageType.0, i64 1
+  %arrayidx740.idx = shl nuw nsw i64 %capContextUsageType.0, 1
+  %186 = getelementptr i8, ptr %185, i64 833
+  %arrayidx740 = getelementptr i8, ptr %186, i64 %arrayidx740.idx
   br label %sw.epilog742
 
 sw.epilog742:                                     ; preds = %sw.bb735, %sw.bb730
@@ -7008,22 +7009,22 @@ sw.epilog742:                                     ; preds = %sw.bb735, %sw.bb730
   br i1 %tobool743.not, label %if.end759, label %if.then744
 
 if.then744:                                       ; preds = %if.then728, %sw.epilog742
-  %186 = load ptr, ptr %fCapitalizationBrkIter, align 8
-  %vtable746 = load ptr, ptr %186, align 8
+  %187 = load ptr, ptr %fCapitalizationBrkIter, align 8
+  %vtable746 = load ptr, ptr %187, align 8
   %vfn747 = getelementptr inbounds i8, ptr %vtable746, i64 32
-  %187 = load ptr, ptr %vfn747, align 8
-  %call748 = call noundef ptr %187(ptr noundef nonnull align 8 dereferenceable(479) %186)
+  %188 = load ptr, ptr %vfn747, align 8
+  %call748 = call noundef ptr %188(ptr noundef nonnull align 8 dereferenceable(479) %187)
   call void @_ZN6icu_7513UnicodeStringC1ERKS0_i(ptr noundef nonnull align 8 dereferenceable(64) %firstField, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, i32 noundef %cond.i547)
   %call751 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7toTitleEPNS_13BreakIteratorERKNS_6LocaleEj(ptr noundef nonnull align 8 dereferenceable(64) %firstField, ptr noundef %call748, ptr noundef nonnull align 8 dereferenceable(217) %fLocale.i420, i32 noundef 768)
           to label %invoke.cont752 unwind label %lpad749
 
 invoke.cont752:                                   ; preds = %if.then744
-  %188 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i444 = icmp slt i16 %188, 0
-  %189 = ashr i16 %188, 5
-  %shr.i.i445 = sext i16 %189 to i32
-  %190 = load i32, ptr %fLength.i, align 4
-  %cond.i447 = select i1 %cmp.i.i444, i32 %190, i32 %shr.i.i445
+  %189 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i444 = icmp slt i16 %189, 0
+  %190 = ashr i16 %189, 5
+  %shr.i.i445 = sext i16 %190 to i32
+  %191 = load i32, ptr %fLength.i, align 4
+  %cond.i447 = select i1 %cmp.i.i444, i32 %191, i32 %shr.i.i445
   %call755 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString14replaceBetweenEiiRKS0_(ptr noundef nonnull align 8 dereferenceable(64) %appendTo, i32 noundef %cond.i547, i32 noundef %cond.i447, ptr noundef nonnull align 8 dereferenceable(64) %firstField)
           to label %invoke.cont754 unwind label %lpad749
 
@@ -7034,8 +7035,8 @@ invoke.cont754:                                   ; preds = %invoke.cont752
 delete.notnull:                                   ; preds = %invoke.cont754
   %vtable756 = load ptr, ptr %call748, align 8
   %vfn757 = getelementptr inbounds i8, ptr %vtable756, i64 8
-  %191 = load ptr, ptr %vfn757, align 8
-  call void %191(ptr noundef nonnull align 8 dereferenceable(479) %call748) #21
+  %192 = load ptr, ptr %vfn757, align 8
+  call void %192(ptr noundef nonnull align 8 dereferenceable(479) %call748) #21
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont754
@@ -7043,30 +7044,30 @@ delete.end:                                       ; preds = %delete.notnull, %in
   br label %if.end759
 
 lpad749:                                          ; preds = %invoke.cont752, %if.then744
-  %192 = landingpad { ptr, i32 }
+  %193 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %firstField) #21
   br label %eh.resume
 
 if.end759:                                        ; preds = %if.then728, %sw.epilog742, %delete.end, %land.lhs.true724, %land.lhs.true721, %land.lhs.true719, %sw.epilog717
   %call760 = call noundef i32 @_ZN6icu_7517DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %fieldToOutput.tr)
-  %193 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i449 = icmp slt i16 %193, 0
-  %194 = ashr i16 %193, 5
-  %shr.i.i450 = sext i16 %194 to i32
-  %195 = load i32, ptr %fLength.i, align 4
-  %cond.i452 = select i1 %cmp.i.i449, i32 %195, i32 %shr.i.i450
+  %194 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i449 = icmp slt i16 %194, 0
+  %195 = ashr i16 %194, 5
+  %shr.i.i450 = sext i16 %195 to i32
+  %196 = load i32, ptr %fLength.i, align 4
+  %cond.i452 = select i1 %cmp.i.i449, i32 %196, i32 %shr.i.i450
   %vtable762 = load ptr, ptr %handler, align 8
   %vfn763 = getelementptr inbounds i8, ptr %vtable762, i64 16
-  %196 = load ptr, ptr %vfn763, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(12) %handler, i32 noundef %call760, i32 noundef %cond.i547, i32 noundef %cond.i452)
+  %197 = load ptr, ptr %vfn763, align 8
+  call void %197(ptr noundef nonnull align 8 dereferenceable(12) %handler, i32 noundef %call760, i32 noundef %cond.i547, i32 noundef %cond.i452)
   br label %return
 
 return:                                           ; preds = %cond.end, %init.end, %if.end263, %if.end233, %if.then5, %if.then7, %if.end759, %if.then22
   ret void
 
 eh.resume:                                        ; preds = %lpad749, %lpad315.body, %lpad300, %lpad189, %lpad
-  %.pn = phi { ptr, i32 } [ %192, %lpad749 ], [ %eh.lpad-body, %lpad315.body ], [ %95, %lpad300 ], [ %57, %lpad189 ], [ %4, %lpad ]
+  %.pn = phi { ptr, i32 } [ %193, %lpad749 ], [ %eh.lpad-body, %lpad315.body ], [ %95, %lpad300 ], [ %57, %lpad189 ], [ %4, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

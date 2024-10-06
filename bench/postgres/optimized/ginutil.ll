@@ -166,169 +166,172 @@ define dso_local void @initGinState(ptr noundef %0, ptr noundef %1) local_unname
   %17 = getelementptr inbounds i8, ptr %0, i64 3352
   %18 = getelementptr inbounds i8, ptr %0, i64 6424
   %19 = getelementptr inbounds i8, ptr %0, i64 4888
-  %20 = getelementptr inbounds i8, ptr %0, i64 7960
-  %21 = getelementptr inbounds i8, ptr %0, i64 9496
-  %22 = getelementptr inbounds i8, ptr %1, i64 432
-  %23 = getelementptr inbounds i8, ptr %0, i64 9528
-  br label %24
+  %20 = getelementptr i8, ptr %0, i64 4896
+  %21 = getelementptr i8, ptr %0, i64 6432
+  %22 = getelementptr inbounds i8, ptr %0, i64 7960
+  %23 = getelementptr inbounds i8, ptr %0, i64 9496
+  %24 = getelementptr inbounds i8, ptr %1, i64 432
+  %25 = getelementptr inbounds i8, ptr %0, i64 9528
+  br label %26
 
-24:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %indvars.iv
-  %26 = load i8, ptr %8, align 8
-  %27 = trunc i8 %26 to i1
-  %28 = getelementptr [32 x ptr], ptr %14, i64 0, i64 %indvars.iv
-  br i1 %27, label %29, label %31
+26:                                               ; preds = %.lr.ph, %109
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %109 ]
+  %27 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %indvars.iv
+  %28 = load i8, ptr %8, align 8
+  %29 = trunc i8 %28 to i1
+  %30 = getelementptr [32 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  br i1 %29, label %31, label %33
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %10, align 8
-  store ptr %30, ptr %28, align 8
-  br label %44
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %30, align 8
+  br label %46
 
-31:                                               ; preds = %24
-  %32 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 2) #7
-  store ptr %32, ptr %28, align 8
-  tail call void @TupleDescInitEntry(ptr noundef %32, i16 noundef signext 1, ptr noundef null, i32 noundef 21, i32 noundef -1, i32 noundef 0) #7
-  %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 68
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %25, i64 80
+33:                                               ; preds = %26
+  %34 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 2) #7
+  store ptr %34, ptr %30, align 8
+  tail call void @TupleDescInitEntry(ptr noundef %34, i16 noundef signext 1, ptr noundef null, i32 noundef 21, i32 noundef -1, i32 noundef 0) #7
+  %35 = load ptr, ptr %30, align 8
+  %36 = getelementptr inbounds i8, ptr %27, i64 68
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %25, i64 84
-  %39 = load i16, ptr %38, align 4
-  %40 = sext i16 %39 to i32
-  tail call void @TupleDescInitEntry(ptr noundef %33, i16 noundef signext 2, ptr noundef null, i32 noundef %35, i32 noundef %37, i32 noundef %40) #7
-  %41 = load ptr, ptr %28, align 8
-  %42 = getelementptr inbounds i8, ptr %25, i64 100
-  %43 = load i32, ptr %42, align 4
-  tail call void @TupleDescInitEntryCollation(ptr noundef %41, i16 noundef signext 2, i32 noundef %43) #7
-  br label %44
+  %38 = getelementptr inbounds i8, ptr %27, i64 80
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %27, i64 84
+  %41 = load i16, ptr %40, align 4
+  %42 = sext i16 %41 to i32
+  tail call void @TupleDescInitEntry(ptr noundef %35, i16 noundef signext 2, ptr noundef null, i32 noundef %37, i32 noundef %39, i32 noundef %42) #7
+  %43 = load ptr, ptr %30, align 8
+  %44 = getelementptr inbounds i8, ptr %27, i64 100
+  %45 = load i32, ptr %44, align 4
+  tail call void @TupleDescInitEntryCollation(ptr noundef %43, i16 noundef signext 2, i32 noundef %45) #7
+  br label %46
 
-44:                                               ; preds = %31, %29
+46:                                               ; preds = %33, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = trunc i64 %indvars.iv.next to i16
-  %46 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %45, i16 noundef zeroext 1) #7
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %51, label %47
+  %47 = trunc i64 %indvars.iv.next to i16
+  %48 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 1) #7
+  %.not = icmp eq i32 %48, 0
+  br i1 %.not, label %53, label %49
 
-47:                                               ; preds = %44
-  %48 = getelementptr [32 x %struct.FmgrInfo], ptr %15, i64 0, i64 %indvars.iv
-  %49 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %45, i16 noundef zeroext 1) #7
-  %50 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %48, ptr noundef %49, ptr noundef %50) #7
-  br label %68
+49:                                               ; preds = %46
+  %50 = getelementptr [32 x %struct.FmgrInfo], ptr %15, i64 0, i64 %indvars.iv
+  %51 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 1) #7
+  %52 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %50, ptr noundef %51, ptr noundef %52) #7
+  br label %70
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %25, i64 68
-  %53 = load i32, ptr %52, align 4
-  %54 = tail call ptr @lookup_type_cache(i32 noundef %53, i32 noundef 64) #7
-  %55 = getelementptr inbounds i8, ptr %54, i64 128
-  %56 = load i32, ptr %55, align 8
-  %.not102 = icmp eq i32 %56, 0
-  br i1 %.not102, label %57, label %64
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds i8, ptr %27, i64 68
+  %55 = load i32, ptr %54, align 4
+  %56 = tail call ptr @lookup_type_cache(i32 noundef %55, i32 noundef 64) #7
+  %57 = getelementptr inbounds i8, ptr %56, i64 128
+  %58 = load i32, ptr %57, align 8
+  %.not102 = icmp eq i32 %58, 0
+  br i1 %.not102, label %59, label %66
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %25, i64 68
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 @errcode(i32 noundef 52461700) #7
-  %61 = load i32, ptr %58, align 4
-  %62 = tail call ptr @format_type_be(i32 noundef %61) #7
-  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %62) #7
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds i8, ptr %27, i64 68
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %61)
+  %62 = tail call i32 @errcode(i32 noundef 52461700) #7
+  %63 = load i32, ptr %60, align 4
+  %64 = tail call ptr @format_type_be(i32 noundef %63) #7
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %64) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.initGinState) #7
   unreachable
 
-64:                                               ; preds = %51
-  %65 = getelementptr inbounds i8, ptr %54, i64 120
-  %66 = getelementptr [32 x %struct.FmgrInfo], ptr %15, i64 0, i64 %indvars.iv
-  %67 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %66, ptr noundef nonnull %65, ptr noundef %67) #7
-  br label %68
+66:                                               ; preds = %53
+  %67 = getelementptr inbounds i8, ptr %56, i64 120
+  %68 = getelementptr [32 x %struct.FmgrInfo], ptr %15, i64 0, i64 %indvars.iv
+  %69 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %68, ptr noundef nonnull %67, ptr noundef %69) #7
+  br label %70
 
-68:                                               ; preds = %64, %47
-  %69 = getelementptr [32 x %struct.FmgrInfo], ptr %16, i64 0, i64 %indvars.iv
-  %70 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %45, i16 noundef zeroext 2) #7
-  %71 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %69, ptr noundef %70, ptr noundef %71) #7
-  %72 = getelementptr [32 x %struct.FmgrInfo], ptr %17, i64 0, i64 %indvars.iv
-  %73 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %45, i16 noundef zeroext 3) #7
-  %74 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %72, ptr noundef %73, ptr noundef %74) #7
-  %75 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %45, i16 noundef zeroext 6) #7
-  %.not103 = icmp eq i32 %75, 0
-  br i1 %.not103, label %80, label %76
+70:                                               ; preds = %66, %49
+  %71 = getelementptr [32 x %struct.FmgrInfo], ptr %16, i64 0, i64 %indvars.iv
+  %72 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 2) #7
+  %73 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %71, ptr noundef %72, ptr noundef %73) #7
+  %74 = getelementptr [32 x %struct.FmgrInfo], ptr %17, i64 0, i64 %indvars.iv
+  %75 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 3) #7
+  %76 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %74, ptr noundef %75, ptr noundef %76) #7
+  %77 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 6) #7
+  %.not103 = icmp eq i32 %77, 0
+  br i1 %.not103, label %82, label %78
 
-76:                                               ; preds = %68
-  %77 = getelementptr [32 x %struct.FmgrInfo], ptr %18, i64 0, i64 %indvars.iv
-  %78 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %45, i16 noundef zeroext 6) #7
-  %79 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %77, ptr noundef %78, ptr noundef %79) #7
-  br label %80
+78:                                               ; preds = %70
+  %79 = getelementptr [32 x %struct.FmgrInfo], ptr %18, i64 0, i64 %indvars.iv
+  %80 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 6) #7
+  %81 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %79, ptr noundef %80, ptr noundef %81) #7
+  br label %82
 
-80:                                               ; preds = %76, %68
-  %81 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %45, i16 noundef zeroext 4) #7
-  %.not104 = icmp eq i32 %81, 0
-  br i1 %.not104, label %86, label %82
+82:                                               ; preds = %78, %70
+  %83 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 4) #7
+  %.not104 = icmp eq i32 %83, 0
+  br i1 %.not104, label %88, label %84
 
-82:                                               ; preds = %80
-  %83 = getelementptr [32 x %struct.FmgrInfo], ptr %19, i64 0, i64 %indvars.iv
-  %84 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %45, i16 noundef zeroext 4) #7
-  %85 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %83, ptr noundef %84, ptr noundef %85) #7
-  br label %86
+84:                                               ; preds = %82
+  %85 = getelementptr [32 x %struct.FmgrInfo], ptr %19, i64 0, i64 %indvars.iv
+  %86 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 4) #7
+  %87 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %85, ptr noundef %86, ptr noundef %87) #7
+  br label %88
 
-86:                                               ; preds = %82, %80
-  %87 = getelementptr [32 x %struct.FmgrInfo], ptr %19, i64 0, i64 %indvars.iv, i32 1
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %101
+88:                                               ; preds = %84, %82
+  %.idx = mul nuw nsw i64 %indvars.iv, 48
+  %89 = getelementptr i8, ptr %20, i64 %.idx
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %103
 
-90:                                               ; preds = %86
-  %91 = getelementptr [32 x %struct.FmgrInfo], ptr %18, i64 0, i64 %indvars.iv, i32 1
-  %92 = load i32, ptr %91, align 8
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %101
+92:                                               ; preds = %88
+  %93 = getelementptr i8, ptr %21, i64 %.idx
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %103
 
-94:                                               ; preds = %90
-  %95 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds i8, ptr %1, i64 56
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
-  %100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 4, i32 noundef 6, i32 noundef %95, ptr noundef nonnull %99) #7
+96:                                               ; preds = %92
+  %97 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %98)
+  %99 = getelementptr inbounds i8, ptr %1, i64 56
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 4, i32 noundef 6, i32 noundef %97, ptr noundef nonnull %101) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 186, ptr noundef nonnull @__func__.initGinState) #7
   unreachable
 
-101:                                              ; preds = %90, %86
-  %102 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %45, i16 noundef zeroext 5) #7
-  %.not105 = icmp eq i32 %102, 0
-  br i1 %.not105, label %107, label %103
+103:                                              ; preds = %92, %88
+  %104 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 5) #7
+  %.not106 = icmp eq i32 %104, 0
+  br i1 %.not106, label %109, label %105
 
-103:                                              ; preds = %101
-  %104 = getelementptr [32 x %struct.FmgrInfo], ptr %20, i64 0, i64 %indvars.iv
-  %105 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %45, i16 noundef zeroext 5) #7
-  %106 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef %104, ptr noundef %105, ptr noundef %106) #7
-  br label %107
+105:                                              ; preds = %103
+  %106 = getelementptr [32 x %struct.FmgrInfo], ptr %22, i64 0, i64 %indvars.iv
+  %107 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 5) #7
+  %108 = load ptr, ptr @CurrentMemoryContext, align 8
+  tail call void @fmgr_info_copy(ptr noundef %106, ptr noundef %107, ptr noundef %108) #7
+  br label %109
 
-107:                                              ; preds = %101, %103
-  %.sink = phi i8 [ 1, %103 ], [ 0, %101 ]
-  %108 = getelementptr [32 x i8], ptr %21, i64 0, i64 %indvars.iv
-  store i8 %.sink, ptr %108, align 1
-  %109 = load ptr, ptr %22, align 8
-  %110 = getelementptr i32, ptr %109, i64 %indvars.iv
-  %111 = load i32, ptr %110, align 4
-  %.not106 = icmp eq i32 %111, 0
-  %. = select i1 %.not106, i32 100, i32 %111
-  %112 = getelementptr [32 x i32], ptr %23, i64 0, i64 %indvars.iv
-  store i32 %., ptr %112, align 4
-  %113 = load i32, ptr %4, align 8
-  %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %24, label %._crit_edge, !llvm.loop !5
+109:                                              ; preds = %103, %105
+  %.sink = phi i8 [ 1, %105 ], [ 0, %103 ]
+  %110 = getelementptr [32 x i8], ptr %23, i64 0, i64 %indvars.iv
+  store i8 %.sink, ptr %110, align 1
+  %111 = load ptr, ptr %24, align 8
+  %112 = getelementptr i32, ptr %111, i64 %indvars.iv
+  %113 = load i32, ptr %112, align 4
+  %.not107 = icmp eq i32 %113, 0
+  %. = select i1 %.not107, i32 100, i32 %113
+  %114 = getelementptr [32 x i32], ptr %25, i64 0, i64 %indvars.iv
+  store i32 %., ptr %114, align 4
+  %115 = load i32, ptr %4, align 8
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next, %116
+  br i1 %117, label %26, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %107, %2
+._crit_edge:                                      ; preds = %109, %2
   ret void
 }
 

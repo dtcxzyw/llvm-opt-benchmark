@@ -4011,7 +4011,9 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
   unreachable
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 %.offs
   %12 = load i32, ptr %11, align 4
   %13 = shl nuw nsw i64 %wide.trip.count, 3
   %14 = getelementptr inbounds i8, ptr %3, i64 %13

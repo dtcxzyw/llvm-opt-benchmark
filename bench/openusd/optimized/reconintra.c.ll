@@ -1182,7 +1182,8 @@ define hidden void @av1_predict_intra_block(ptr nocapture noundef readonly %0, p
 35:                                               ; preds = %16
   %36 = icmp ne i32 %15, 0
   %37 = zext i1 %36 to i64
-  %38 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %34, i64 0, i64 %37, i32 8
+  %.offs = select i1 %36, i64 2768, i64 160
+  %38 = getelementptr inbounds i8, ptr %34, i64 %.offs
   %39 = load ptr, ptr %38, align 16
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 47796
   %41 = getelementptr inbounds [2 x i16], ptr %40, i64 0, i64 %37

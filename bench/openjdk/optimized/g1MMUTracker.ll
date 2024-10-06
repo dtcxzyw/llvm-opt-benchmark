@@ -54,16 +54,17 @@ define hidden void @_ZN12G1MMUTracker22remove_expired_entriesEd(ptr nocapture no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 1044
-  %.promoted4 = load i32, ptr %8, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 1044
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %.promoted4 = load i32, ptr %7, align 4
   br label %9
 
 9:                                                ; preds = %.lr.ph, %17
   %10 = phi i32 [ %.promoted4, %.lr.ph ], [ %19, %17 ]
   %11 = phi i32 [ %.promoted, %.lr.ph ], [ %20, %17 ]
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %7, i64 0, i64 %12, i32 1
+  %.idx = shl nsw i64 %12, 4
+  %13 = getelementptr i8, ptr %8, i64 %.idx
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %4
   %16 = fcmp olt double %15, 0x3E7AD7F29ABCAF48
@@ -72,7 +73,7 @@ define hidden void @_ZN12G1MMUTracker22remove_expired_entriesEd(ptr nocapture no
 17:                                               ; preds = %9
   %18 = add nsw i32 %10, 65
   %19 = srem i32 %18, 64
-  store i32 %19, ptr %8, align 4
+  store i32 %19, ptr %7, align 4
   %20 = add nsw i32 %11, -1
   store i32 %20, ptr %5, align 8
   %21 = icmp sgt i32 %11, 1
@@ -159,16 +160,17 @@ define hidden void @_ZN12G1MMUTracker9add_pauseEdd(ptr nocapture noundef nonnull
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 1044
-  %.promoted4.i = load i32, ptr %9, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 1044
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %.promoted4.i = load i32, ptr %8, align 4
   br label %10
 
 10:                                               ; preds = %17, %.lr.ph.i
   %11 = phi i32 [ %.promoted4.i, %.lr.ph.i ], [ %19, %17 ]
   %.pr = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %20, %17 ]
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %8, i64 0, i64 %12, i32 1
+  %.idx.i = shl nsw i64 %12, 4
+  %13 = getelementptr i8, ptr %9, i64 %.idx.i
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %5
   %16 = fcmp olt double %15, 0x3E7AD7F29ABCAF48
@@ -177,7 +179,7 @@ define hidden void @_ZN12G1MMUTracker9add_pauseEdd(ptr nocapture noundef nonnull
 17:                                               ; preds = %10
   %18 = add nsw i32 %11, 65
   %19 = srem i32 %18, 64
-  store i32 %19, ptr %9, align 4
+  store i32 %19, ptr %8, align 4
   %20 = add nsw i32 %.pr, -1
   store i32 %20, ptr %6, align 8
   %21 = icmp sgt i32 %.pr, 1
@@ -205,7 +207,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit: ; preds = %10
   store i32 %30, ptr %27, align 8
   %31 = add nsw i32 %11, 65
   %32 = srem i32 %31, 64
-  store i32 %32, ptr %9, align 4
+  store i32 %32, ptr %8, align 4
   br label %39
 
 _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_edge.i, %_ZN12G1MMUTracker22remove_expired_entriesEd.exit

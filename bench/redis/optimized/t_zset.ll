@@ -331,8 +331,9 @@ for.body61:                                       ; preds = %for.cond58.preheade
   %24 = load ptr, ptr %zsl, align 8
   %arrayidx66 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv95
   store ptr %24, ptr %arrayidx66, align 8
-  %level69 = getelementptr inbounds i8, ptr %24, i64 24
-  %span72 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level69, i64 0, i64 %indvars.iv95, i32 1
+  %span72.idx = shl nsw i64 %indvars.iv95, 4
+  %25 = getelementptr i8, ptr %24, i64 32
+  %span72 = getelementptr i8, ptr %25, i64 %span72.idx
   store i64 %.pre, ptr %span72, align 8
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %cmp59 = icmp slt i64 %indvars.iv.next96, %23
@@ -343,22 +344,22 @@ for.end74:                                        ; preds = %for.body61
   br label %if.end
 
 if.end:                                           ; preds = %for.end74, %zslRandomLevel.exit
-  %25 = shl nuw nsw i32 %cond.i, 4
-  %narrow = add nuw nsw i32 %25, 24
+  %26 = shl nuw nsw i32 %cond.i, 4
+  %narrow = add nuw nsw i32 %26, 24
   %add.i75 = zext nneg i32 %narrow to i64
   %call.i76 = tail call noalias noundef ptr @zmalloc(i64 noundef %add.i75) #18
   %score1.i = getelementptr inbounds i8, ptr %call.i76, i64 8
   store double %score, ptr %score1.i, align 8
   store ptr %ele, ptr %call.i76, align 8
   %level87 = getelementptr inbounds i8, ptr %call.i76, i64 24
-  %26 = load i64, ptr %rank, align 16
-  %sub115 = add i64 %26, 1
+  %27 = load i64, ptr %rank, align 16
+  %sub115 = add i64 %27, 1
   %wide.trip.count = zext nneg i32 %cond.i to i64
   br label %for.body80
 
 for.cond126.preheader:                            ; preds = %for.body80
-  %27 = load i32, ptr %level3, align 8
-  %cmp12892 = icmp slt i32 %cond.i, %27
+  %28 = load i32, ptr %level3, align 8
+  %cmp12892 = icmp slt i32 %cond.i, %28
   br i1 %cmp12892, label %for.body130.preheader, label %for.end140
 
 for.body130.preheader:                            ; preds = %for.cond126.preheader
@@ -368,22 +369,24 @@ for.body130.preheader:                            ; preds = %for.cond126.prehead
 for.body80:                                       ; preds = %if.end, %for.body80
   %indvars.iv98 = phi i64 [ 0, %if.end ], [ %indvars.iv.next99, %for.body80 ]
   %arrayidx82 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv98
-  %28 = load ptr, ptr %arrayidx82, align 8
-  %level83 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = load ptr, ptr %arrayidx82, align 8
+  %level83 = getelementptr inbounds i8, ptr %29, i64 24
   %arrayidx85 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level83, i64 0, i64 %indvars.iv98
-  %29 = load ptr, ptr %arrayidx85, align 8
+  %30 = load ptr, ptr %arrayidx85, align 8
   %arrayidx89 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level87, i64 0, i64 %indvars.iv98
-  store ptr %29, ptr %arrayidx89, align 8
+  store ptr %30, ptr %arrayidx89, align 8
   store ptr %call.i76, ptr %arrayidx85, align 8
-  %span102 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level83, i64 0, i64 %indvars.iv98, i32 1
-  %30 = load i64, ptr %span102, align 8
+  %span102.idx = shl nuw nsw i64 %indvars.iv98, 4
+  %31 = getelementptr i8, ptr %29, i64 32
+  %span102 = getelementptr i8, ptr %31, i64 %span102.idx
+  %32 = load i64, ptr %span102, align 8
   %arrayidx105 = getelementptr inbounds [32 x i64], ptr %rank, i64 0, i64 %indvars.iv98
-  %31 = load i64, ptr %arrayidx105, align 8
-  %sub106.neg = sub i64 %30, %26
-  %sub107 = add i64 %sub106.neg, %31
+  %33 = load i64, ptr %arrayidx105, align 8
+  %sub106.neg = sub i64 %32, %27
+  %sub107 = add i64 %sub106.neg, %33
   %span111 = getelementptr inbounds i8, ptr %arrayidx89, i64 8
   store i64 %sub107, ptr %span111, align 8
-  %add116 = sub i64 %sub115, %31
+  %add116 = sub i64 %sub115, %33
   store i64 %add116, ptr %span102, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
@@ -392,31 +395,32 @@ for.body80:                                       ; preds = %if.end, %for.body80
 for.body130:                                      ; preds = %for.body130.preheader, %for.body130
   %indvars.iv105 = phi i64 [ %umin104, %for.body130.preheader ], [ %indvars.iv.next106, %for.body130 ]
   %arrayidx132 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv105
-  %32 = load ptr, ptr %arrayidx132, align 8
-  %level133 = getelementptr inbounds i8, ptr %32, i64 24
-  %span136 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level133, i64 0, i64 %indvars.iv105, i32 1
-  %33 = load i64, ptr %span136, align 8
-  %inc137 = add i64 %33, 1
+  %34 = load ptr, ptr %arrayidx132, align 8
+  %span136.idx = shl nuw nsw i64 %indvars.iv105, 4
+  %35 = getelementptr i8, ptr %34, i64 32
+  %span136 = getelementptr i8, ptr %35, i64 %span136.idx
+  %36 = load i64, ptr %span136, align 8
+  %inc137 = add i64 %36, 1
   store i64 %inc137, ptr %span136, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %34 = load i32, ptr %level3, align 8
-  %35 = sext i32 %34 to i64
-  %cmp128 = icmp slt i64 %indvars.iv.next106, %35
+  %37 = load i32, ptr %level3, align 8
+  %38 = sext i32 %37 to i64
+  %cmp128 = icmp slt i64 %indvars.iv.next106, %38
   br i1 %cmp128, label %for.body130, label %for.end140, !llvm.loop !12
 
 for.end140:                                       ; preds = %for.body130, %for.cond126.preheader
-  %36 = load ptr, ptr %update, align 16
-  %37 = load ptr, ptr %zsl, align 8
-  %cmp143 = icmp eq ptr %36, %37
-  %cond149 = select i1 %cmp143, ptr null, ptr %36
+  %39 = load ptr, ptr %update, align 16
+  %40 = load ptr, ptr %zsl, align 8
+  %cmp143 = icmp eq ptr %39, %40
+  %cond149 = select i1 %cmp143, ptr null, ptr %39
   %backward = getelementptr inbounds i8, ptr %call.i76, i64 16
   store ptr %cond149, ptr %backward, align 8
-  %38 = load ptr, ptr %level87, align 8
-  %tobool153.not = icmp eq ptr %38, null
+  %41 = load ptr, ptr %level87, align 8
+  %tobool153.not = icmp eq ptr %41, null
   br i1 %tobool153.not, label %if.else, label %if.then154
 
 if.then154:                                       ; preds = %for.end140
-  %backward158 = getelementptr inbounds i8, ptr %38, i64 16
+  %backward158 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %call.i76, ptr %backward158, align 8
   br label %if.end159
 
@@ -427,8 +431,8 @@ if.else:                                          ; preds = %for.end140
 
 if.end159:                                        ; preds = %if.else, %if.then154
   %length160 = getelementptr inbounds i8, ptr %zsl, i64 16
-  %39 = load i64, ptr %length160, align 8
-  %inc161 = add i64 %39, 1
+  %42 = load i64, ptr %length160, align 8
+  %inc161 = add i64 %42, 1
   store i64 %inc161, ptr %length160, align 8
   ret ptr %call.i76
 }
@@ -1128,12 +1132,16 @@ if.end:                                           ; preds = %zslIsInRange.exit
   %arrayidx146 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level.i, i64 0, i64 %idxprom
   %12 = load ptr, ptr %arrayidx146, align 8
   %tobool2.not147 = icmp eq ptr %12, null
-  br i1 %tobool2.not147, label %while.end, label %land.rhs
+  br i1 %tobool2.not147, label %while.end, label %land.rhs.lr.ph
 
-land.rhs:                                         ; preds = %if.end, %while.body
-  %x.0 = phi ptr [ %16, %while.body ], [ %12, %if.end ]
-  %x.0149 = phi ptr [ %x.0, %while.body ], [ %7, %if.end ]
-  %edge_rank.0148 = phi i64 [ %add, %while.body ], [ 0, %if.end ]
+land.rhs.lr.ph:                                   ; preds = %if.end
+  %span.idx = shl nsw i64 %idxprom, 4
+  br label %land.rhs
+
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
+  %x.0 = phi ptr [ %12, %land.rhs.lr.ph ], [ %16, %while.body ]
+  %x.0149 = phi ptr [ %7, %land.rhs.lr.ph ], [ %x.0, %while.body ]
+  %edge_rank.0148 = phi i64 [ 0, %land.rhs.lr.ph ], [ %add, %while.body ]
   %score = getelementptr inbounds i8, ptr %x.0, i64 8
   %13 = load double, ptr %score, align 8
   %cmp.i73 = fcmp ule double %13, %0
@@ -1142,8 +1150,8 @@ land.rhs:                                         ; preds = %if.end, %while.body
   br i1 %cond.in.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %14 = getelementptr inbounds i8, ptr %x.0149, i64 24
-  %span = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %14, i64 0, i64 %idxprom, i32 1
+  %14 = getelementptr i8, ptr %x.0149, i64 32
+  %span = getelementptr i8, ptr %14, i64 %span.idx
   %15 = load i64, ptr %span, align 8
   %add = add i64 %15, %edge_rank.0148
   %level1 = getelementptr inbounds i8, ptr %x.0, i64 24
@@ -1183,12 +1191,16 @@ while.cond20.preheader:                           ; preds = %while.cond20.prehea
   %arrayidx23178 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level21177, i64 0, i64 %indvars.iv205
   %19 = load ptr, ptr %arrayidx23178, align 8
   %tobool25.not179 = icmp eq ptr %19, null
-  br i1 %tobool25.not179, label %for.inc, label %land.rhs26
+  br i1 %tobool25.not179, label %for.inc, label %land.rhs26.lr.ph
 
-land.rhs26:                                       ; preds = %while.cond20.preheader, %while.body36
-  %20 = phi ptr [ %24, %while.body36 ], [ %19, %while.cond20.preheader ]
-  %edge_rank.2181 = phi i64 [ %add41, %while.body36 ], [ %edge_rank.1190, %while.cond20.preheader ]
-  %x.2180 = phi ptr [ %20, %while.body36 ], [ %x.1188, %while.cond20.preheader ]
+land.rhs26.lr.ph:                                 ; preds = %while.cond20.preheader
+  %span40.idx = shl nuw nsw i64 %indvars.iv205, 4
+  br label %land.rhs26
+
+land.rhs26:                                       ; preds = %land.rhs26.lr.ph, %while.body36
+  %20 = phi ptr [ %19, %land.rhs26.lr.ph ], [ %24, %while.body36 ]
+  %edge_rank.2181 = phi i64 [ %edge_rank.1190, %land.rhs26.lr.ph ], [ %add41, %while.body36 ]
+  %x.2180 = phi ptr [ %x.1188, %land.rhs26.lr.ph ], [ %20, %while.body36 ]
   %score31 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load double, ptr %score31, align 8
   %cmp.i76 = fcmp ule double %21, %0
@@ -1197,8 +1209,8 @@ land.rhs26:                                       ; preds = %while.cond20.prehea
   br i1 %cond.in.i78, label %while.body36, label %for.inc
 
 while.body36:                                     ; preds = %land.rhs26
-  %22 = getelementptr inbounds i8, ptr %x.2180, i64 24
-  %span40 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %22, i64 0, i64 %indvars.iv205, i32 1
+  %22 = getelementptr i8, ptr %x.2180, i64 32
+  %span40 = getelementptr i8, ptr %22, i64 %span40.idx
   %23 = load i64, ptr %span40, align 8
   %add41 = add i64 %23, %edge_rank.2181
   %level21 = getelementptr inbounds i8, ptr %20, i64 24
@@ -1300,12 +1312,16 @@ while.cond83.preheader:                           ; preds = %while.cond83.prehea
   %arrayidx86157 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level84156, i64 0, i64 %indvars.iv.next
   %31 = load ptr, ptr %arrayidx86157, align 8
   %tobool88.not158 = icmp eq ptr %31, null
-  br i1 %tobool88.not158, label %for.inc109, label %land.rhs89
+  br i1 %tobool88.not158, label %for.inc109, label %land.rhs89.lr.ph
 
-land.rhs89:                                       ; preds = %while.cond83.preheader, %while.body98
-  %32 = phi ptr [ %36, %while.body98 ], [ %31, %while.cond83.preheader ]
-  %edge_rank.4160 = phi i64 [ %add103, %while.body98 ], [ %edge_rank.3169, %while.cond83.preheader ]
-  %x.7159 = phi ptr [ %32, %while.body98 ], [ %x.6168, %while.cond83.preheader ]
+land.rhs89.lr.ph:                                 ; preds = %while.cond83.preheader
+  %span102.idx = shl nsw i64 %indvars.iv.next, 4
+  br label %land.rhs89
+
+land.rhs89:                                       ; preds = %land.rhs89.lr.ph, %while.body98
+  %32 = phi ptr [ %31, %land.rhs89.lr.ph ], [ %36, %while.body98 ]
+  %edge_rank.4160 = phi i64 [ %edge_rank.3169, %land.rhs89.lr.ph ], [ %add103, %while.body98 ]
+  %x.7159 = phi ptr [ %x.6168, %land.rhs89.lr.ph ], [ %32, %while.body98 ]
   %score94 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load double, ptr %score94, align 8
   %cmp.i93 = fcmp uge double %33, %1
@@ -1314,8 +1330,8 @@ land.rhs89:                                       ; preds = %while.cond83.prehea
   br i1 %cond.in.i95, label %for.inc109, label %while.body98
 
 while.body98:                                     ; preds = %land.rhs89
-  %34 = getelementptr inbounds i8, ptr %x.7159, i64 24
-  %span102 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %34, i64 0, i64 %indvars.iv.next, i32 1
+  %34 = getelementptr i8, ptr %x.7159, i64 32
+  %span102 = getelementptr i8, ptr %34, i64 %span102.idx
   %35 = load i64, ptr %span102, align 8
   %add103 = add i64 %35, %edge_rank.4160
   %level84 = getelementptr inbounds i8, ptr %32, i64 24

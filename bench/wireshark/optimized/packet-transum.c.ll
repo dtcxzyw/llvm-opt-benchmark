@@ -1235,7 +1235,7 @@ define internal void @init_globals() #0 {
   %2 = tail call ptr @find_protocol_by_id(i32 noundef %1) #6
   %3 = tail call i32 @proto_is_protocol_enabled(ptr noundef %2) #6
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %97, label %4
+  br i1 %.not, label %99, label %4
 
 4:                                                ; preds = %0
   store i32 -1, ptr @highest_tcp_stream_no, align 4
@@ -1259,8 +1259,8 @@ define internal void @init_globals() #0 {
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %22 ]
   %15 = getelementptr [29 x %struct._HF_OF_INTEREST_INFO], ptr @hf_of_interest, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 16
-  %.not26 = icmp eq i32 %16, -1
-  br i1 %.not26, label %19, label %17
+  %.not27 = icmp eq i32 %16, -1
+  br i1 %.not27, label %19, label %17
 
 17:                                               ; preds = %14
   %18 = tail call ptr @g_array_append_vals(ptr noundef %13, ptr noundef nonnull %15, i32 noundef 1) #6
@@ -1288,122 +1288,126 @@ define internal void @init_globals() #0 {
   store ptr %28, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
   %29 = load ptr, ptr @tcp_svc_port_range_values, align 8
   %30 = load i32, ptr %29, align 4
-  %.not41 = icmp eq i32 %30, 0
-  br i1 %.not41, label %.preheader, label %.lr.ph32
+  %.not42 = icmp eq i32 %30, 0
+  br i1 %.not42, label %.preheader, label %.lr.ph33
 
 .preheader:                                       ; preds = %._crit_edge, %23
   %31 = load ptr, ptr @udp_svc_port_range_values, align 8
   %32 = load i32, ptr %31, align 4
-  %.not42 = icmp eq i32 %32, 0
-  br i1 %.not42, label %._crit_edge40, label %.lr.ph39
+  %.not43 = icmp eq i32 %32, 0
+  br i1 %.not43, label %._crit_edge41, label %.lr.ph40
 
-.lr.ph32:                                         ; preds = %23, %._crit_edge
-  %33 = phi i32 [ %49, %._crit_edge ], [ %30, %23 ]
-  %34 = phi ptr [ %50, %._crit_edge ], [ %29, %23 ]
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %._crit_edge ], [ 0, %23 ]
+.lr.ph33:                                         ; preds = %23, %._crit_edge
+  %33 = phi i32 [ %50, %._crit_edge ], [ %30, %23 ]
+  %34 = phi ptr [ %51, %._crit_edge ], [ %29, %23 ]
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %._crit_edge ], [ 0, %23 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 4
-  %36 = getelementptr [1 x %struct.range_admin_tag], ptr %35, i64 0, i64 %indvars.iv44
+  %36 = getelementptr [1 x %struct.range_admin_tag], ptr %35, i64 0, i64 %indvars.iv45
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr [1 x %struct.range_admin_tag], ptr %35, i64 0, i64 %indvars.iv44, i32 1
-  %39 = load i32, ptr %38, align 4
-  %.not2528 = icmp ugt i32 %37, %39
-  br i1 %.not2528, label %._crit_edge, label %.lr.ph
+  %.idx25 = shl nuw nsw i64 %indvars.iv45, 3
+  %38 = getelementptr i8, ptr %34, i64 8
+  %39 = getelementptr i8, ptr %38, i64 %.idx25
+  %40 = load i32, ptr %39, align 4
+  %.not2629 = icmp ugt i32 %37, %40
+  br i1 %.not2629, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph32, %.lr.ph
-  %.02129 = phi i32 [ %44, %.lr.ph ], [ %37, %.lr.ph32 ]
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
-  %41 = zext i32 %.02129 to i64
-  %42 = inttoptr i64 %41 to ptr
-  %43 = tail call ptr @wmem_map_insert(ptr noundef %40, ptr noundef %42, ptr noundef nonnull inttoptr (i64 2 to ptr)) #6
-  %44 = add i32 %.02129, 1
-  %45 = load ptr, ptr @tcp_svc_port_range_values, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
-  %47 = getelementptr [1 x %struct.range_admin_tag], ptr %46, i64 0, i64 %indvars.iv44, i32 1
-  %48 = load i32, ptr %47, align 4
-  %.not25 = icmp ugt i32 %44, %48
-  br i1 %.not25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+.lr.ph:                                           ; preds = %.lr.ph33, %.lr.ph
+  %.02130 = phi i32 [ %45, %.lr.ph ], [ %37, %.lr.ph33 ]
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
+  %42 = zext i32 %.02130 to i64
+  %43 = inttoptr i64 %42 to ptr
+  %44 = tail call ptr @wmem_map_insert(ptr noundef %41, ptr noundef %43, ptr noundef nonnull inttoptr (i64 2 to ptr)) #6
+  %45 = add i32 %.02130, 1
+  %46 = load ptr, ptr @tcp_svc_port_range_values, align 8
+  %47 = getelementptr i8, ptr %46, i64 8
+  %48 = getelementptr i8, ptr %47, i64 %.idx25
+  %49 = load i32, ptr %48, align 4
+  %.not26 = icmp ugt i32 %45, %49
+  br i1 %.not26, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr %45, align 4
+  %.pre = load i32, ptr %46, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph32
-  %49 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %33, %.lr.ph32 ]
-  %50 = phi ptr [ %45, %._crit_edge.loopexit ], [ %34, %.lr.ph32 ]
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %51 = zext i32 %49 to i64
-  %52 = icmp ult i64 %indvars.iv.next45, %51
-  br i1 %52, label %.lr.ph32, label %.preheader, !llvm.loop !10
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph33
+  %50 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %33, %.lr.ph33 ]
+  %51 = phi ptr [ %46, %._crit_edge.loopexit ], [ %34, %.lr.ph33 ]
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %52 = zext i32 %50 to i64
+  %53 = icmp ult i64 %indvars.iv.next46, %52
+  br i1 %53, label %.lr.ph33, label %.preheader, !llvm.loop !10
 
-.lr.ph39:                                         ; preds = %.preheader, %._crit_edge37
-  %53 = phi i32 [ %69, %._crit_edge37 ], [ %32, %.preheader ]
-  %54 = phi ptr [ %70, %._crit_edge37 ], [ %31, %.preheader ]
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge37 ], [ 0, %.preheader ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
-  %56 = getelementptr [1 x %struct.range_admin_tag], ptr %55, i64 0, i64 %indvars.iv47
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr [1 x %struct.range_admin_tag], ptr %55, i64 0, i64 %indvars.iv47, i32 1
-  %59 = load i32, ptr %58, align 4
-  %.not2433 = icmp ugt i32 %57, %59
-  br i1 %.not2433, label %._crit_edge37, label %.lr.ph36
+.lr.ph40:                                         ; preds = %.preheader, %._crit_edge38
+  %54 = phi i32 [ %71, %._crit_edge38 ], [ %32, %.preheader ]
+  %55 = phi ptr [ %72, %._crit_edge38 ], [ %31, %.preheader ]
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge38 ], [ 0, %.preheader ]
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = getelementptr [1 x %struct.range_admin_tag], ptr %56, i64 0, i64 %indvars.iv48
+  %58 = load i32, ptr %57, align 4
+  %.idx = shl nuw nsw i64 %indvars.iv48, 3
+  %59 = getelementptr i8, ptr %55, i64 8
+  %60 = getelementptr i8, ptr %59, i64 %.idx
+  %61 = load i32, ptr %60, align 4
+  %.not2434 = icmp ugt i32 %58, %61
+  br i1 %.not2434, label %._crit_edge38, label %.lr.ph37
 
-.lr.ph36:                                         ; preds = %.lr.ph39, %.lr.ph36
-  %.034 = phi i32 [ %64, %.lr.ph36 ], [ %57, %.lr.ph39 ]
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
-  %61 = zext i32 %.034 to i64
-  %62 = inttoptr i64 %61 to ptr
-  %63 = tail call ptr @wmem_map_insert(ptr noundef %60, ptr noundef %62, ptr noundef nonnull inttoptr (i64 3 to ptr)) #6
-  %64 = add i32 %.034, 1
-  %65 = load ptr, ptr @udp_svc_port_range_values, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
-  %67 = getelementptr [1 x %struct.range_admin_tag], ptr %66, i64 0, i64 %indvars.iv47, i32 1
-  %68 = load i32, ptr %67, align 4
-  %.not24 = icmp ugt i32 %64, %68
-  br i1 %.not24, label %._crit_edge37.loopexit, label %.lr.ph36, !llvm.loop !11
+.lr.ph37:                                         ; preds = %.lr.ph40, %.lr.ph37
+  %.035 = phi i32 [ %66, %.lr.ph37 ], [ %58, %.lr.ph40 ]
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
+  %63 = zext i32 %.035 to i64
+  %64 = inttoptr i64 %63 to ptr
+  %65 = tail call ptr @wmem_map_insert(ptr noundef %62, ptr noundef %64, ptr noundef nonnull inttoptr (i64 3 to ptr)) #6
+  %66 = add i32 %.035, 1
+  %67 = load ptr, ptr @udp_svc_port_range_values, align 8
+  %68 = getelementptr i8, ptr %67, i64 8
+  %69 = getelementptr i8, ptr %68, i64 %.idx
+  %70 = load i32, ptr %69, align 4
+  %.not24 = icmp ugt i32 %66, %70
+  br i1 %.not24, label %._crit_edge38.loopexit, label %.lr.ph37, !llvm.loop !11
 
-._crit_edge37.loopexit:                           ; preds = %.lr.ph36
-  %.pre50 = load i32, ptr %65, align 4
-  br label %._crit_edge37
+._crit_edge38.loopexit:                           ; preds = %.lr.ph37
+  %.pre51 = load i32, ptr %67, align 4
+  br label %._crit_edge38
 
-._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %.lr.ph39
-  %69 = phi i32 [ %.pre50, %._crit_edge37.loopexit ], [ %53, %.lr.ph39 ]
-  %70 = phi ptr [ %65, %._crit_edge37.loopexit ], [ %54, %.lr.ph39 ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %71 = zext i32 %69 to i64
-  %72 = icmp ult i64 %indvars.iv.next48, %71
-  br i1 %72, label %.lr.ph39, label %._crit_edge40, !llvm.loop !12
+._crit_edge38:                                    ; preds = %._crit_edge38.loopexit, %.lr.ph40
+  %71 = phi i32 [ %.pre51, %._crit_edge38.loopexit ], [ %54, %.lr.ph40 ]
+  %72 = phi ptr [ %67, %._crit_edge38.loopexit ], [ %55, %.lr.ph40 ]
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %73 = zext i32 %71 to i64
+  %74 = icmp ult i64 %indvars.iv.next49, %73
+  br i1 %74, label %.lr.ph40, label %._crit_edge41, !llvm.loop !12
 
-._crit_edge40:                                    ; preds = %._crit_edge37, %.preheader
-  %73 = tail call ptr @wmem_file_scope() #6
-  %74 = tail call noalias ptr @wmem_map_new(ptr noundef %73, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  store ptr %74, ptr @dcerpc_context_zero, align 8
+._crit_edge41:                                    ; preds = %._crit_edge38, %.preheader
   %75 = tail call ptr @wmem_file_scope() #6
   %76 = tail call noalias ptr @wmem_map_new(ptr noundef %75, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  store ptr %76, ptr @dcerpc_req_pkt_type, align 8
+  store ptr %76, ptr @dcerpc_context_zero, align 8
   %77 = tail call ptr @wmem_file_scope() #6
   %78 = tail call noalias ptr @wmem_map_new(ptr noundef %77, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  store ptr %78, ptr @dcerpc_streams, align 8
-  %79 = load ptr, ptr @dcerpc_req_pkt_type, align 8
-  %80 = tail call ptr @wmem_map_insert(ptr noundef %79, ptr noundef null, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
+  store ptr %78, ptr @dcerpc_req_pkt_type, align 8
+  %79 = tail call ptr @wmem_file_scope() #6
+  %80 = tail call noalias ptr @wmem_map_new(ptr noundef %79, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
+  store ptr %80, ptr @dcerpc_streams, align 8
   %81 = load ptr, ptr @dcerpc_req_pkt_type, align 8
-  %82 = tail call ptr @wmem_map_insert(ptr noundef %81, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
+  %82 = tail call ptr @wmem_map_insert(ptr noundef %81, ptr noundef null, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %83 = load ptr, ptr @dcerpc_req_pkt_type, align 8
-  %84 = tail call ptr @wmem_map_insert(ptr noundef %83, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
-  %85 = load ptr, ptr @dcerpc_context_zero, align 8
-  %86 = tail call ptr @wmem_map_insert(ptr noundef %85, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
+  %84 = tail call ptr @wmem_map_insert(ptr noundef %83, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
+  %85 = load ptr, ptr @dcerpc_req_pkt_type, align 8
+  %86 = tail call ptr @wmem_map_insert(ptr noundef %85, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %87 = load ptr, ptr @dcerpc_context_zero, align 8
-  %88 = tail call ptr @wmem_map_insert(ptr noundef %87, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull inttoptr (i64 12 to ptr)) #6
+  %88 = tail call ptr @wmem_map_insert(ptr noundef %87, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
   %89 = load ptr, ptr @dcerpc_context_zero, align 8
-  %90 = tail call ptr @wmem_map_insert(ptr noundef %89, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull inttoptr (i64 14 to ptr)) #6
+  %90 = tail call ptr @wmem_map_insert(ptr noundef %89, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull inttoptr (i64 12 to ptr)) #6
   %91 = load ptr, ptr @dcerpc_context_zero, align 8
-  %92 = tail call ptr @wmem_map_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull inttoptr (i64 15 to ptr)) #6
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
-  %94 = tail call ptr @wmem_map_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 445 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr)) #6
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
-  %96 = tail call ptr @wmem_map_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 53 to ptr), ptr noundef nonnull inttoptr (i64 7 to ptr)) #6
-  br label %97
+  %92 = tail call ptr @wmem_map_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull inttoptr (i64 14 to ptr)) #6
+  %93 = load ptr, ptr @dcerpc_context_zero, align 8
+  %94 = tail call ptr @wmem_map_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull inttoptr (i64 15 to ptr)) #6
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
+  %96 = tail call ptr @wmem_map_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 445 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr)) #6
+  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 16), align 8
+  %98 = tail call ptr @wmem_map_insert(ptr noundef %97, ptr noundef nonnull inttoptr (i64 53 to ptr), ptr noundef nonnull inttoptr (i64 7 to ptr)) #6
+  br label %99
 
-97:                                               ; preds = %0, %._crit_edge40
+99:                                               ; preds = %0, %._crit_edge41
   ret void
 }
 

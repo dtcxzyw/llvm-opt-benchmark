@@ -80,7 +80,9 @@ if.then17:                                        ; preds = %for.body
   %conv18 = trunc i64 %indvars.iv to i8
   %dec = add i32 %highThreshold.047, -1
   %idxprom19 = zext i32 %highThreshold.047 to i64
-  %symbol = getelementptr inbounds %struct.FSEv05_decode_t, ptr %add.ptr, i64 %idxprom19, i32 1
+  %symbol.idx = shl nuw nsw i64 %idxprom19, 2
+  %symbol.offs = or disjoint i64 %symbol.idx, 2
+  %symbol = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol.offs
   store i8 %conv18, ptr %symbol, align 2
   br label %for.inc
 
@@ -116,7 +118,9 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   %position.153 = phi i32 [ %position.055, %for.body46.lr.ph ], [ %position.2, %for.inc56 ]
   %i.052 = phi i32 [ 0, %for.body46.lr.ph ], [ %inc57, %for.inc56 ]
   %idxprom48 = zext i32 %position.153 to i64
-  %symbol50 = getelementptr inbounds %struct.FSEv05_decode_t, ptr %add.ptr, i64 %idxprom48, i32 1
+  %symbol50.idx = shl nuw nsw i64 %idxprom48, 2
+  %symbol50.offs = or disjoint i64 %symbol50.idx, 2
+  %symbol50 = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol50.offs
   store i8 %conv47, ptr %symbol50, align 2
   br label %while.cond
 
@@ -6746,7 +6750,9 @@ BITv05_reloadDStream.exit.i:                      ; preds = %if.end22.i.i, %if.e
 
 for.body.i:                                       ; preds = %BITv05_reloadDStream.exit.i
   %dec.i = add nsw i32 %nbSeq.0310.i, -1
-  %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds %struct.FSEv05_decode_t, ptr %add.ptr.i53.i, i64 %seqState.sroa.62.0315.i, i32 1
+  %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.idx.i = shl nsw i64 %seqState.sroa.62.0315.i, 2
+  %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.offs.i = or disjoint i64 %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.idx.i, 2
+  %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i53.i, i64 %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.offs.i
   %DInfo.sroa.1.0.copyload.i.i.i = load i8, ptr %DInfo.sroa.1.0.arrayidx.sroa_idx.i.i.i, align 2
   %conv.i162.i = zext i8 %DInfo.sroa.1.0.copyload.i.i.i to i64
   %tobool.not.i163.i = icmp eq i8 %DInfo.sroa.1.0.copyload.i.i.i, 0
@@ -6803,7 +6809,9 @@ if.end26.i.i:                                     ; preds = %if.end.i188.i, %if.
 if.end32.i165.i:                                  ; preds = %if.end26.i.i, %for.body.i
   %dumps.0.i.i = phi ptr [ %seqState.sroa.80.0311.i, %for.body.i ], [ %spec.select.i.i, %if.end26.i.i ]
   %litLength.0.i.i = phi i64 [ %conv.i162.i, %for.body.i ], [ %litLength.1.i.i, %if.end26.i.i ]
-  %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.i = getelementptr inbounds %struct.FSEv05_decode_t, ptr %add.ptr.i80.i, i64 %seqState.sroa.67.0314.i, i32 1
+  %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.idx.i = shl nsw i64 %seqState.sroa.67.0314.i, 2
+  %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.offs.i = or disjoint i64 %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.idx.i, 2
+  %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.i = getelementptr inbounds i8, ptr %add.ptr.i80.i, i64 %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.offs.i
   %DInfo.sroa.1.0.copyload.i69.i.i = load i8, ptr %DInfo.sroa.1.0.arrayidx.sroa_idx.i68.i.i, align 2
   %conv34.i166.i = zext i8 %DInfo.sroa.1.0.copyload.i69.i.i to i32
   %sub.i167.i = add nsw i32 %conv34.i166.i, -1

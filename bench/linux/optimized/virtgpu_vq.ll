@@ -20,6 +20,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.list_head = type { ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
+%struct.virtio_gpu_display_one = type { %struct.virtio_gpu_rect, i32, i32 }
+%struct.virtio_gpu_rect = type { i32, i32, i32, i32 }
+%struct.virtio_gpu_drv_capset = type { i32, i32, i32 }
 %struct.virtio_gpu_output = type { i32, %struct.drm_crtc, %struct.drm_connector, %struct.drm_encoder, %struct.virtio_gpu_display_one, %struct.virtio_gpu_update_cursor, ptr, i32, i32, i8 }
 %struct.drm_crtc = type { ptr, ptr, %struct.list_head, ptr, %struct.drm_modeset_lock, %struct.drm_mode_object, ptr, ptr, i32, i32, i32, i8, %struct.drm_display_mode, %struct.drm_display_mode, i32, i32, ptr, i32, ptr, ptr, %struct.drm_object_properties, ptr, ptr, %struct.list_head, %struct.spinlock, ptr, %struct.drm_crtc_crc, i32, %struct.spinlock, i64, [32 x i8], ptr }
 %struct.drm_modeset_lock = type { %struct.ww_mutex, %struct.list_head }
@@ -52,12 +55,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { %struct.hdr_static_metadata }
 %struct.hdr_static_metadata = type { i8, i8, i16, i16, i16 }
 %struct.drm_encoder = type { ptr, %struct.list_head, %struct.drm_mode_object, ptr, i32, i32, i32, i32, ptr, %struct.list_head, ptr, ptr, ptr }
-%struct.virtio_gpu_display_one = type { %struct.virtio_gpu_rect, i32, i32 }
-%struct.virtio_gpu_rect = type { i32, i32, i32, i32 }
 %struct.virtio_gpu_update_cursor = type { %struct.virtio_gpu_ctrl_hdr, %struct.virtio_gpu_cursor_pos, i32, i32, i32, i32 }
 %struct.virtio_gpu_ctrl_hdr = type { i32, i32, i64, i32, i8, [3 x i8] }
 %struct.virtio_gpu_cursor_pos = type { i32, i32, i32, i32 }
-%struct.virtio_gpu_drv_capset = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [17 x i8] c"virtio-gpu-vbufs\00", align 1
 @virtio_gpu_dequeue_ctrl_func._rs = internal global %struct.ratelimit_state { %struct.raw_spinlock zeroinitializer, i32 5000, i32 10, i32 0, i32 0, i64 0, i64 0 }, align 8
@@ -1275,15 +1275,16 @@ define internal void @virtio_gpu_cmd_get_display_info_cb(ptr noundef %0, ptr noc
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr i8, ptr %0, i64 3776
   br label %12
 
 12:                                               ; preds = %29, %9
   %13 = phi i32 [ 0, %9 ], [ %30, %29 ]
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [16 x %struct.virtio_gpu_output], ptr %10, i64 0, i64 %14, i32 4
-  %16 = getelementptr [16 x %struct.virtio_gpu_display_one], ptr %11, i64 0, i64 %14
+  %.idx = mul nsw i64 %14, 3864
+  %15 = getelementptr i8, ptr %11, i64 %.idx
+  %16 = getelementptr [16 x %struct.virtio_gpu_display_one], ptr %10, i64 0, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %15, ptr noundef align 8 dereferenceable(24) %16, i64 24, i1 false)
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8

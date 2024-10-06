@@ -6147,7 +6147,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
   %33 = zext i16 %32 to i32
   %34 = load i8, ptr %6, align 4
   %35 = zext i8 %34 to i64
-  %36 = getelementptr [9 x %struct._mtp3_stat_si_code_t], ptr %25, i64 0, i64 %35, i32 1
+  %.idx = shl nuw nsw i64 %35, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %36 = getelementptr i8, ptr %25, i64 %.offs
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, %33
   store i32 %38, ptr %36, align 4

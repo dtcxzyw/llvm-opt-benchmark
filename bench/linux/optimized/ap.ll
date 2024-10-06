@@ -16,11 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.41 }
 %union.anon.41 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.anon.8 = type { [6 x i8], %union.anon.9 }
-%union.anon.9 = type { %struct.anon.10 }
-%struct.anon.10 = type { i32, %struct.cfg80211_chan_def }
-%struct.cfg80211_chan_def = type { ptr, i32, i32, i32, %struct.ieee80211_edmg, i16 }
-%struct.ieee80211_edmg = type { i8, i32 }
 
 @cfg80211_disconnect_work = external dso_local global %struct.work_struct, align 8
 @__tracepoint_rdev_stop_ap = external dso_local global %struct.tracepoint, align 8
@@ -116,9 +111,10 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   ]
 
 14:                                               ; preds = %11, %11
-  %15 = getelementptr inbounds i8, ptr %6, i64 408
-  %16 = zext i32 %2 to i64
-  %17 = getelementptr [15 x %struct.anon.8], ptr %15, i64 0, i64 %16, i32 1
+  %15 = zext i32 %2 to i64
+  %.idx = mul nuw nsw i64 %15, 48
+  %16 = getelementptr i8, ptr %6, i64 416
+  %17 = getelementptr i8, ptr %16, i64 %.idx
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %129, label %20

@@ -5,12 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.TableFuncRoutine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %union.ListCell = type { ptr }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 
 @TTSOpsMinimalTuple = external constant %struct.TupleTableSlotOps, align 8
 @XmlTableRoutine = external constant %struct.TableFuncRoutine, align 8
@@ -118,12 +118,13 @@ define dso_local noundef ptr @ExecInitTableFuncScan(ptr noundef %0, ptr noundef 
   br i1 %66, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %67 = getelementptr inbounds i8, ptr %19, i64 24
+  %67 = getelementptr i8, ptr %19, i64 92
   br label %68
 
 68:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %67, i64 0, i64 %indvars.iv, i32 2
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %69 = getelementptr i8, ptr %67, i64 %.idx
   %70 = load i32, ptr %69, align 4
   %71 = load ptr, ptr %64, align 8
   %72 = getelementptr i32, ptr %71, i64 %indvars.iv

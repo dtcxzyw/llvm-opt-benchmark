@@ -4080,8 +4080,9 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %78
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds = %78, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.pre-phi686 = phi i64 [ %85, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %78 ]
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 5468
-  %89 = getelementptr inbounds [233 x [491 x i8]], ptr %88, i64 0, i64 %.pre-phi686, i64 171
+  %.idx = mul nuw nsw i64 %.pre-phi686, 491
+  %88 = getelementptr i8, ptr %83, i64 5639
+  %89 = getelementptr i8, ptr %88, i64 %.idx
   %90 = load i8, ptr %89, align 1
   %91 = and i8 %90, -5
   %spec.select.i221 = icmp eq i8 %91, 0

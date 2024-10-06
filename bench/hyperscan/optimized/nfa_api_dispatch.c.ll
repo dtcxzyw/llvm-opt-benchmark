@@ -514,103 +514,109 @@ entry:
   %cur = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i32, ptr %cur, align 8
   %idxprom = zext i32 %0 to i64
-  %location = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom, i32 1
-  %1 = load i64, ptr %location, align 8
-  %cmp = icmp sgt i64 %1, %end
+  %location.idx = mul nuw nsw i64 %idxprom, 24
+  %1 = getelementptr inbounds i8, ptr %items, i64 %location.idx
+  %location = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load i64, ptr %location, align 8
+  %cmp = icmp sgt i64 %2, %end
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %length = getelementptr inbounds i8, ptr %q, i64 48
-  %2 = load i64, ptr %length, align 8
-  %cmp1 = icmp sgt i64 %end, %2
+  %3 = load i64, ptr %length, align 8
+  %cmp1 = icmp sgt i64 %end, %3
   %spec.select = zext i1 %cmp1 to i8
-  %spec.select104 = tail call i64 @llvm.smin.i64(i64 %end, i64 %2)
+  %spec.select104 = tail call i64 @llvm.smin.i64(i64 %end, i64 %3)
   %maxBiAnchoredWidth.i = getelementptr inbounds i8, ptr %nfa, i64 11
-  %3 = load i8, ptr %maxBiAnchoredWidth.i, align 1
-  %tobool.i.not = icmp eq i8 %3, 0
+  %4 = load i8, ptr %maxBiAnchoredWidth.i, align 1
+  %tobool.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
   %offset.i = getelementptr inbounds i8, ptr %q, i64 32
-  %4 = load i64, ptr %offset.i, align 8
-  %add.i = add i64 %4, %spec.select104
-  %conv4.i = zext i8 %3 to i64
+  %5 = load i64, ptr %offset.i, align 8
+  %add.i = add i64 %5, %spec.select104
+  %conv4.i = zext i8 %4 to i64
   %cmp.i = icmp ugt i64 %add.i, %conv4.i
   br i1 %cmp.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end
   %maxOffset.i = getelementptr inbounds i8, ptr %nfa, i64 40
-  %5 = load i32, ptr %maxOffset.i, align 8
-  %tobool8.i.not = icmp eq i32 %5, 0
+  %6 = load i32, ptr %maxOffset.i, align 8
+  %tobool8.i.not = icmp eq i32 %6, 0
   br i1 %tobool8.i.not, label %if.end11, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %offset10.i = getelementptr inbounds i8, ptr %q, i64 32
-  %6 = load i64, ptr %offset10.i, align 8
-  %conv12.i = zext i32 %5 to i64
-  %cmp13.i.not = icmp ult i64 %6, %conv12.i
+  %7 = load i64, ptr %offset10.i, align 8
+  %conv12.i = zext i32 %6 to i64
+  %cmp13.i.not = icmp ult i64 %7, %conv12.i
   br i1 %cmp13.i.not, label %if.end18.i, label %if.then5
 
 if.end18.i:                                       ; preds = %if.then9.i
-  %add20.i = add i64 %6, %spec.select104
+  %add20.i = add i64 %7, %spec.select104
   %cmp23.i = icmp ugt i64 %add20.i, %conv12.i
   br i1 %cmp23.i, label %if.then25.i, label %if.end11
 
 if.then25.i:                                      ; preds = %if.end18.i
-  %sub.i = sub nsw i64 %conv12.i, %6
+  %sub.i = sub nsw i64 %conv12.i, %7
   %end31.i = getelementptr inbounds i8, ptr %q, i64 12
+  %invariant.gep = getelementptr inbounds i8, ptr %q, i64 112
   %end31.i.promoted = load i32, ptr %end31.i, align 4
-  %cmp32.i113 = icmp ugt i32 %end31.i.promoted, %0
-  br i1 %cmp32.i113, label %land.rhs.i.preheader, label %nfaQueueCanMatch.exit
+  %cmp32.i115 = icmp ugt i32 %end31.i.promoted, %0
+  br i1 %cmp32.i115, label %land.rhs.i.preheader, label %nfaQueueCanMatch.exit
 
 land.rhs.i.preheader:                             ; preds = %if.then25.i
-  %7 = add nuw i32 %0, 1
-  %sub35.i122 = add i32 %end31.i.promoted, -1
-  %idxprom.i123 = zext i32 %sub35.i122 to i64
-  %location.i124 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i123, i32 1
-  %8 = load i64, ptr %location.i124, align 8
-  %cmp36.i125 = icmp sgt i64 %8, %sub.i
-  br i1 %cmp36.i125, label %while.body.i.lr.ph, label %nfaQueueCanMatch.exit
+  %8 = add nuw i32 %0, 1
+  %sub35.i124 = add i32 %end31.i.promoted, -1
+  %idxprom.i125 = zext i32 %sub35.i124 to i64
+  %location.i.idx126 = mul nuw nsw i64 %idxprom.i125, 24
+  %gep127 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx126
+  %9 = load i64, ptr %gep127, align 8
+  %cmp36.i128 = icmp sgt i64 %9, %sub.i
+  br i1 %cmp36.i128, label %while.body.i.lr.ph, label %nfaQueueCanMatch.exit
 
 while.body.i.lr.ph:                               ; preds = %land.rhs.i.preheader
-  %9 = zext i32 %end31.i.promoted to i64
+  %10 = zext i32 %end31.i.promoted to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end65.i
-  %location.i129 = phi ptr [ %location.i124, %while.body.i.lr.ph ], [ %location.i, %if.end65.i ]
-  %idxprom.i128 = phi i64 [ %idxprom.i123, %while.body.i.lr.ph ], [ %idxprom.i, %if.end65.i ]
-  %sub35.i127 = phi i32 [ %sub35.i122, %while.body.i.lr.ph ], [ %sub35.i, %if.end65.i ]
-  %10 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %13, %if.end65.i ]
-  %11 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %sub35.i127, %if.end65.i ]
-  %indvars.iv126 = phi i64 [ %9, %while.body.i.lr.ph ], [ %indvars.iv.next, %if.end65.i ]
-  store i64 %sub.i, ptr %location.i129, align 8
-  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i128
+  %gep132 = phi ptr [ %gep127, %while.body.i.lr.ph ], [ %gep, %if.end65.i ]
+  %idxprom.i131 = phi i64 [ %idxprom.i125, %while.body.i.lr.ph ], [ %idxprom.i, %if.end65.i ]
+  %sub35.i130 = phi i32 [ %sub35.i124, %while.body.i.lr.ph ], [ %sub35.i, %if.end65.i ]
+  %11 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %14, %if.end65.i ]
+  %12 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %sub35.i130, %if.end65.i ]
+  %indvars.iv129 = phi i64 [ %10, %while.body.i.lr.ph ], [ %indvars.iv.next, %if.end65.i ]
+  store i64 %sub.i, ptr %gep132, align 8
+  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i131
   store i32 1, ptr %arrayidx50.i, align 8
-  %sub53.i = sub i32 %11, %0
+  %sub53.i = sub i32 %12, %0
   %cmp54.i = icmp ult i32 %sub53.i, 2
   br i1 %cmp54.i, label %nfaQueueCanMatch.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.body.i
-  %sub58.i = add i64 %indvars.iv126, 4294967294
+  %sub58.i = add i64 %indvars.iv129, 4294967294
   %idxprom59.i = and i64 %sub58.i, 4294967295
-  %location61.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom59.i, i32 1
-  %12 = load i64, ptr %location61.i, align 8
-  %cmp62.i.not = icmp sgt i64 %12, %sub.i
+  %location61.i.idx = mul nuw nsw i64 %idxprom59.i, 24
+  %gep114 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location61.i.idx
+  %13 = load i64, ptr %gep114, align 8
+  %cmp62.i.not = icmp sgt i64 %13, %sub.i
   br i1 %cmp62.i.not, label %if.end65.i, label %nfaQueueCanMatch.exit
 
 if.end65.i:                                       ; preds = %lor.lhs.false.i
-  store i32 %sub35.i127, ptr %end31.i, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv126, -1
-  %13 = trunc nuw i64 %indvars.iv.next to i32
-  %sub35.i = add i32 %13, -1
+  store i32 %sub35.i130, ptr %end31.i, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv129, -1
+  %14 = trunc nuw i64 %indvars.iv.next to i32
+  %sub35.i = add i32 %14, -1
   %idxprom.i = zext i32 %sub35.i to i64
-  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i, i32 1
-  %14 = load i64, ptr %location.i, align 8
-  %cmp36.i = icmp sgt i64 %14, %sub.i
+  %location.i.idx = mul nuw nsw i64 %idxprom.i, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx
+  %15 = load i64, ptr %gep, align 8
+  %cmp36.i = icmp sgt i64 %15, %sub.i
   br i1 %cmp36.i, label %while.body.i, label %nfaQueueCanMatch.exit
 
 nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lhs.false.i, %while.body.i, %land.rhs.i.preheader, %if.then25.i
-  %.lcssa = phi i32 [ %end31.i.promoted, %if.then25.i ], [ %end31.i.promoted, %land.rhs.i.preheader ], [ %7, %while.body.i ], [ %10, %lor.lhs.false.i ], [ %13, %if.end65.i ]
+  %.lcssa = phi i32 [ %end31.i.promoted, %if.then25.i ], [ %end31.i.promoted, %land.rhs.i.preheader ], [ %8, %while.body.i ], [ %11, %lor.lhs.false.i ], [ %14, %if.end65.i ]
   %q_trimmed.4 = phi i8 [ %spec.select, %if.then25.i ], [ %spec.select, %land.rhs.i.preheader ], [ 1, %while.body.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end65.i ]
   %sub69.i = sub i32 %.lcssa, %0
   %cmp70.i = icmp ult i32 %sub69.i, 2
@@ -618,8 +624,8 @@ nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lh
 
 if.then5:                                         ; preds = %if.then9.i, %land.lhs.true.i, %nfaQueueCanMatch.exit
   %report_current = getelementptr inbounds i8, ptr %q, i64 80
-  %15 = load i8, ptr %report_current, align 8
-  %tobool6.not = icmp eq i8 %15, 0
+  %16 = load i8, ptr %report_current, align 8
+  %tobool6.not = icmp eq i8 %16, 0
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
@@ -630,8 +636,8 @@ if.then7:                                         ; preds = %if.then5
 if.end11:                                         ; preds = %if.end.i, %if.end18.i, %nfaQueueCanMatch.exit
   %q_trimmed.1112 = phi i8 [ %q_trimmed.4, %nfaQueueCanMatch.exit ], [ %spec.select, %if.end18.i ], [ %spec.select, %if.end.i ]
   %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
-  %16 = load i8, ptr %type.i, align 8
-  switch i8 %16, label %nfaQueueExec_i.exit [
+  %17 = load i8, ptr %type.i, align 8
+  switch i8 %17, label %nfaQueueExec_i.exit [
     i8 0, label %sw.bb.i
     i8 1, label %sw.bb1.i
     i8 2, label %sw.bb3.i
@@ -743,8 +749,8 @@ nfaQueueExec_i.exit:                              ; preds = %if.end11, %sw.bb39.
   %retval.i.0 = phi i8 [ %call40.i, %sw.bb39.i ], [ %call38.i, %sw.bb37.i ], [ %call36.i, %sw.bb35.i ], [ %call34.i, %sw.bb33.i ], [ %call32.i, %sw.bb31.i ], [ %call30.i, %sw.bb29.i ], [ %call28.i, %sw.bb27.i ], [ %call26.i, %sw.bb25.i ], [ %call24.i, %sw.bb23.i ], [ %call22.i, %sw.bb21.i ], [ %call20.i, %sw.bb19.i ], [ %call18.i, %sw.bb17.i ], [ %call16.i, %sw.bb15.i ], [ %call14.i, %sw.bb13.i ], [ %call12.i, %sw.bb11.i ], [ %call10.i, %sw.bb9.i ], [ %call8.i, %sw.bb7.i ], [ %call6.i, %sw.bb5.i ], [ %call4.i, %sw.bb3.i ], [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %if.end11 ]
   %tobool15 = icmp ne i8 %retval.i.0, 0
   %tobool16.not = icmp eq i8 %q_trimmed.1112, 0
-  %17 = and i1 %tobool16.not, %tobool15
-  %conv17 = zext i1 %17 to i8
+  %18 = and i1 %tobool16.not, %tobool15
+  %conv17 = zext i1 %18 to i8
   br label %return
 
 return:                                           ; preds = %if.then5, %if.then7, %entry, %nfaQueueExec_i.exit
@@ -877,102 +883,108 @@ entry:
   %cur = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i32, ptr %cur, align 8
   %idxprom = zext i32 %0 to i64
-  %location = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom, i32 1
-  %1 = load i64, ptr %location, align 8
-  %cmp = icmp sgt i64 %1, %end
+  %location.idx = mul nuw nsw i64 %idxprom, 24
+  %1 = getelementptr inbounds i8, ptr %items, i64 %location.idx
+  %location = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load i64, ptr %location, align 8
+  %cmp = icmp sgt i64 %2, %end
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %length = getelementptr inbounds i8, ptr %q, i64 48
-  %2 = load i64, ptr %length, align 8
-  %cmp1 = icmp sle i64 %end, %2
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %end, i64 %2)
+  %3 = load i64, ptr %length, align 8
+  %cmp1 = icmp sle i64 %end, %3
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %end, i64 %3)
   %maxBiAnchoredWidth.i = getelementptr inbounds i8, ptr %nfa, i64 11
-  %3 = load i8, ptr %maxBiAnchoredWidth.i, align 1
-  %tobool.i.not = icmp eq i8 %3, 0
+  %4 = load i8, ptr %maxBiAnchoredWidth.i, align 1
+  %tobool.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
   %offset.i = getelementptr inbounds i8, ptr %q, i64 32
-  %4 = load i64, ptr %offset.i, align 8
-  %add.i = add i64 %4, %spec.select
-  %conv4.i = zext i8 %3 to i64
+  %5 = load i64, ptr %offset.i, align 8
+  %add.i = add i64 %5, %spec.select
+  %conv4.i = zext i8 %4 to i64
   %cmp.i = icmp ugt i64 %add.i, %conv4.i
   br i1 %cmp.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end
   %maxOffset.i = getelementptr inbounds i8, ptr %nfa, i64 40
-  %5 = load i32, ptr %maxOffset.i, align 8
-  %tobool8.i.not = icmp eq i32 %5, 0
+  %6 = load i32, ptr %maxOffset.i, align 8
+  %tobool8.i.not = icmp eq i32 %6, 0
   br i1 %tobool8.i.not, label %if.end11, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %offset10.i = getelementptr inbounds i8, ptr %q, i64 32
-  %6 = load i64, ptr %offset10.i, align 8
-  %conv12.i = zext i32 %5 to i64
-  %cmp13.i.not = icmp ult i64 %6, %conv12.i
+  %7 = load i64, ptr %offset10.i, align 8
+  %conv12.i = zext i32 %6 to i64
+  %cmp13.i.not = icmp ult i64 %7, %conv12.i
   br i1 %cmp13.i.not, label %if.end18.i, label %if.then5
 
 if.end18.i:                                       ; preds = %if.then9.i
-  %add20.i = add i64 %6, %spec.select
+  %add20.i = add i64 %7, %spec.select
   %cmp23.i = icmp ugt i64 %add20.i, %conv12.i
   br i1 %cmp23.i, label %if.then25.i, label %if.end11
 
 if.then25.i:                                      ; preds = %if.end18.i
-  %sub.i = sub nsw i64 %conv12.i, %6
+  %sub.i = sub nsw i64 %conv12.i, %7
   %end31.i = getelementptr inbounds i8, ptr %q, i64 12
+  %invariant.gep = getelementptr inbounds i8, ptr %q, i64 112
   %end31.i.promoted = load i32, ptr %end31.i, align 4
-  %cmp32.i118 = icmp ugt i32 %end31.i.promoted, %0
-  br i1 %cmp32.i118, label %land.rhs.i.preheader, label %nfaQueueCanMatch.exit
+  %cmp32.i120 = icmp ugt i32 %end31.i.promoted, %0
+  br i1 %cmp32.i120, label %land.rhs.i.preheader, label %nfaQueueCanMatch.exit
 
 land.rhs.i.preheader:                             ; preds = %if.then25.i
-  %7 = add nuw i32 %0, 1
-  %sub35.i127 = add i32 %end31.i.promoted, -1
-  %idxprom.i128 = zext i32 %sub35.i127 to i64
-  %location.i129 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i128, i32 1
-  %8 = load i64, ptr %location.i129, align 8
-  %cmp36.i130 = icmp sgt i64 %8, %sub.i
-  br i1 %cmp36.i130, label %while.body.i.lr.ph, label %nfaQueueCanMatch.exit
+  %8 = add nuw i32 %0, 1
+  %sub35.i129 = add i32 %end31.i.promoted, -1
+  %idxprom.i130 = zext i32 %sub35.i129 to i64
+  %location.i.idx131 = mul nuw nsw i64 %idxprom.i130, 24
+  %gep132 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx131
+  %9 = load i64, ptr %gep132, align 8
+  %cmp36.i133 = icmp sgt i64 %9, %sub.i
+  br i1 %cmp36.i133, label %while.body.i.lr.ph, label %nfaQueueCanMatch.exit
 
 while.body.i.lr.ph:                               ; preds = %land.rhs.i.preheader
-  %9 = zext i32 %end31.i.promoted to i64
+  %10 = zext i32 %end31.i.promoted to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end65.i
-  %location.i134 = phi ptr [ %location.i129, %while.body.i.lr.ph ], [ %location.i, %if.end65.i ]
-  %idxprom.i133 = phi i64 [ %idxprom.i128, %while.body.i.lr.ph ], [ %idxprom.i, %if.end65.i ]
-  %sub35.i132 = phi i32 [ %sub35.i127, %while.body.i.lr.ph ], [ %sub35.i, %if.end65.i ]
-  %10 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %13, %if.end65.i ]
-  %11 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %sub35.i132, %if.end65.i ]
-  %indvars.iv131 = phi i64 [ %9, %while.body.i.lr.ph ], [ %indvars.iv.next, %if.end65.i ]
-  store i64 %sub.i, ptr %location.i134, align 8
-  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i133
+  %gep137 = phi ptr [ %gep132, %while.body.i.lr.ph ], [ %gep, %if.end65.i ]
+  %idxprom.i136 = phi i64 [ %idxprom.i130, %while.body.i.lr.ph ], [ %idxprom.i, %if.end65.i ]
+  %sub35.i135 = phi i32 [ %sub35.i129, %while.body.i.lr.ph ], [ %sub35.i, %if.end65.i ]
+  %11 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %14, %if.end65.i ]
+  %12 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %sub35.i135, %if.end65.i ]
+  %indvars.iv134 = phi i64 [ %10, %while.body.i.lr.ph ], [ %indvars.iv.next, %if.end65.i ]
+  store i64 %sub.i, ptr %gep137, align 8
+  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i136
   store i32 1, ptr %arrayidx50.i, align 8
-  %sub53.i = sub i32 %11, %0
+  %sub53.i = sub i32 %12, %0
   %cmp54.i = icmp ult i32 %sub53.i, 2
   br i1 %cmp54.i, label %nfaQueueCanMatch.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.body.i
-  %sub58.i = add i64 %indvars.iv131, 4294967294
+  %sub58.i = add i64 %indvars.iv134, 4294967294
   %idxprom59.i = and i64 %sub58.i, 4294967295
-  %location61.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom59.i, i32 1
-  %12 = load i64, ptr %location61.i, align 8
-  %cmp62.i.not = icmp sgt i64 %12, %sub.i
+  %location61.i.idx = mul nuw nsw i64 %idxprom59.i, 24
+  %gep119 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location61.i.idx
+  %13 = load i64, ptr %gep119, align 8
+  %cmp62.i.not = icmp sgt i64 %13, %sub.i
   br i1 %cmp62.i.not, label %if.end65.i, label %nfaQueueCanMatch.exit
 
 if.end65.i:                                       ; preds = %lor.lhs.false.i
-  store i32 %sub35.i132, ptr %end31.i, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv131, -1
-  %13 = trunc nuw i64 %indvars.iv.next to i32
-  %sub35.i = add i32 %13, -1
+  store i32 %sub35.i135, ptr %end31.i, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv134, -1
+  %14 = trunc nuw i64 %indvars.iv.next to i32
+  %sub35.i = add i32 %14, -1
   %idxprom.i = zext i32 %sub35.i to i64
-  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i, i32 1
-  %14 = load i64, ptr %location.i, align 8
-  %cmp36.i = icmp sgt i64 %14, %sub.i
+  %location.i.idx = mul nuw nsw i64 %idxprom.i, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx
+  %15 = load i64, ptr %gep, align 8
+  %cmp36.i = icmp sgt i64 %15, %sub.i
   br i1 %cmp36.i, label %while.body.i, label %nfaQueueCanMatch.exit
 
 nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lhs.false.i, %while.body.i, %land.rhs.i.preheader, %if.then25.i
-  %.lcssa = phi i32 [ %end31.i.promoted, %if.then25.i ], [ %end31.i.promoted, %land.rhs.i.preheader ], [ %7, %while.body.i ], [ %10, %lor.lhs.false.i ], [ %13, %if.end65.i ]
+  %.lcssa = phi i32 [ %end31.i.promoted, %if.then25.i ], [ %end31.i.promoted, %land.rhs.i.preheader ], [ %8, %while.body.i ], [ %11, %lor.lhs.false.i ], [ %14, %if.end65.i ]
   %q_trimmed.3 = phi i8 [ 0, %if.then25.i ], [ 0, %land.rhs.i.preheader ], [ 1, %while.body.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end65.i ]
   %sub69.i = sub i32 %.lcssa, %0
   %cmp70.i = icmp ult i32 %sub69.i, 2
@@ -980,8 +992,8 @@ nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lh
 
 if.then5:                                         ; preds = %if.then9.i, %land.lhs.true.i, %nfaQueueCanMatch.exit
   %report_current = getelementptr inbounds i8, ptr %q, i64 80
-  %15 = load i8, ptr %report_current, align 8
-  %tobool6.not = icmp eq i8 %15, 0
+  %16 = load i8, ptr %report_current, align 8
+  %tobool6.not = icmp eq i8 %16, 0
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
@@ -992,8 +1004,8 @@ if.then7:                                         ; preds = %if.then5
 if.end11:                                         ; preds = %if.end.i, %if.end18.i, %nfaQueueCanMatch.exit
   %q_trimmed.0114 = phi i8 [ %q_trimmed.3, %nfaQueueCanMatch.exit ], [ 0, %if.end18.i ], [ 0, %if.end.i ]
   %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
-  %16 = load i8, ptr %type.i, align 8
-  switch i8 %16, label %if.end27 [
+  %17 = load i8, ptr %type.i, align 8
+  switch i8 %17, label %if.end27 [
     i8 0, label %sw.bb.i
     i8 1, label %sw.bb1.i
     i8 2, label %sw.bb3.i
@@ -1106,14 +1118,16 @@ if.then17:                                        ; preds = %nfaQueueExec2_i.exi
   br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
-  %17 = load i32, ptr %maxOffset.i, align 8
-  %add = add i32 %17, 1
+  %18 = load i32, ptr %maxOffset.i, align 8
+  %add = add i32 %18, 1
   %conv20 = zext i32 %add to i64
   %end22 = getelementptr inbounds i8, ptr %q, i64 12
-  %18 = load i32, ptr %end22, align 4
-  %sub = add i32 %18, -1
+  %19 = load i32, ptr %end22, align 4
+  %sub = add i32 %19, -1
   %idxprom23 = zext i32 %sub to i64
-  %location25 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom23, i32 1
+  %location25.idx = mul nuw nsw i64 %idxprom23, 24
+  %20 = getelementptr inbounds i8, ptr %items, i64 %location25.idx
+  %location25 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 %conv20, ptr %location25, align 8
   br label %return
 
@@ -1122,8 +1136,8 @@ if.end27:                                         ; preds = %if.end11, %nfaQueue
   %tobool29 = icmp ne i8 %retval.i.0117, 0
   %tobool30 = icmp eq i8 %q_trimmed.0114, 0
   %or.cond.not = and i1 %tobool30, %tobool29
-  %19 = and i1 %cmp1, %or.cond.not
-  %conv32 = zext i1 %19 to i8
+  %21 = and i1 %cmp1, %or.cond.not
+  %conv32 = zext i1 %21 to i8
   br label %return
 
 return:                                           ; preds = %if.then17, %if.then19, %if.then5, %if.then7, %entry, %if.end27

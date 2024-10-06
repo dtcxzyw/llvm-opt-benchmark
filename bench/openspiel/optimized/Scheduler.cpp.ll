@@ -824,7 +824,9 @@ _ZNK9Scheduler6FanoutERK4deal.exit:               ; preds = %69
   store i32 %12, ptr %86, align 8
   %87 = load i32, ptr %9, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %88, i32 1
+  %.idx = mul nsw i64 %88, 24
+  %.offs = or disjoint i64 %.idx, 4
+  %89 = getelementptr inbounds i8, ptr %8, i64 %.offs
   store i32 %73, ptr %89, align 4
   %90 = add nsw i32 %87, 1
   store i32 %90, ptr %9, align 8
@@ -860,21 +862,21 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27200
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph157, label %._crit_edge158
+  br i1 %4, label %.lr.ph159, label %._crit_edge160
 
-.lr.ph157:                                        ; preds = %1
+.lr.ph159:                                        ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 22400
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27212
   %7 = getelementptr inbounds i8, ptr %0, i64 39212
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 27204
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 43212
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 41612
-  %wide.trip.count191 = zext nneg i32 %3 to i64
+  %wide.trip.count193 = zext nneg i32 %3 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph157, %.loopexit
-  %indvars.iv188 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next189, %.loopexit ]
-  %12 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv188
+11:                                               ; preds = %.lr.ph159, %.loopexit
+  %indvars.iv190 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next191, %.loopexit ]
+  %12 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv190
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
@@ -900,28 +902,28 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %27, %31
-  br i1 %32, label %.preheader124, label %.thread
+  br i1 %32, label %.preheader126, label %.thread
 
-.preheader124:                                    ; preds = %21
+.preheader126:                                    ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader124, %._crit_edge
-  %indvars.iv166 = phi i64 [ 0, %.preheader124 ], [ %indvars.iv.next167, %._crit_edge ]
-  %.199132 = phi i8 [ 1, %.preheader124 ], [ %spec.select, %._crit_edge ]
-  %35 = trunc nuw i8 %.199132 to i1
+.preheader:                                       ; preds = %.preheader126, %._crit_edge
+  %indvars.iv168 = phi i64 [ 0, %.preheader126 ], [ %indvars.iv.next169, %._crit_edge ]
+  %.199134 = phi i8 [ 1, %.preheader126 ], [ %spec.select, %._crit_edge ]
+  %35 = trunc nuw i8 %.199134 to i1
   br i1 %35, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.2130 = phi i8 [ %spec.select, %.lr.ph ], [ %.199132, %.preheader ]
-  %36 = getelementptr inbounds [4 x [4 x i32]], ptr %33, i64 0, i64 %indvars.iv166, i64 %indvars.iv
+  %.2132 = phi i8 [ %spec.select, %.lr.ph ], [ %.199134, %.preheader ]
+  %36 = getelementptr inbounds [4 x [4 x i32]], ptr %33, i64 0, i64 %indvars.iv168, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds [4 x [4 x i32]], ptr %34, i64 0, i64 %indvars.iv166, i64 %indvars.iv
+  %38 = getelementptr inbounds [4 x [4 x i32]], ptr %34, i64 0, i64 %indvars.iv168, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
-  %.not111 = icmp eq i32 %37, %39
-  %spec.select = select i1 %.not111, i8 %.2130, i8 0
+  %.not113 = icmp eq i32 %37, %39
+  %spec.select = select i1 %.not113, i8 %.2132, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp ult i64 %indvars.iv, 3
   %41 = trunc nuw i8 %spec.select to i1
@@ -929,8 +931,8 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %43 = icmp ult i64 %indvars.iv166, 3
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %43 = icmp ult i64 %indvars.iv168, 3
   %44 = select i1 %43, i1 %41, i1 false
   br i1 %44, label %.preheader, label %45, !llvm.loop !18
 
@@ -958,7 +960,9 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   %56 = load i32, ptr %8, align 4
   %57 = load i32, ptr %2, align 8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %58, i32 1
+  %.idx111 = mul nsw i64 %58, 24
+  %.offs112 = or disjoint i64 %.idx111, 4
+  %59 = getelementptr inbounds i8, ptr %5, i64 %.offs112
   store i32 %56, ptr %59, align 4
   %60 = add nsw i32 %57, 1
   store i32 %60, ptr %2, align 8
@@ -969,17 +973,17 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
 62:                                               ; preds = %11
   store i32 %20, ptr %9, align 4
   %63 = icmp sgt i32 %20, 0
-  br i1 %63, label %.lr.ph136, label %_ZNK9Scheduler8SameHandEii.exit.preheader.thread
+  br i1 %63, label %.lr.ph138, label %_ZNK9Scheduler8SameHandEii.exit.preheader.thread
 
-.preheader123:                                    ; preds = %.lr.ph136
+.preheader125:                                    ; preds = %.lr.ph138
   %64 = icmp sgt i32 %71, 1
-  br i1 %64, label %.lr.ph139, label %_ZNK9Scheduler8SameHandEii.exit.preheader.thread
+  br i1 %64, label %.lr.ph141, label %_ZNK9Scheduler8SameHandEii.exit.preheader.thread
 
-.lr.ph136:                                        ; preds = %62, %.lr.ph136
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.lr.ph136 ], [ 0, %62 ]
-  %.0106.in133 = phi ptr [ %67, %.lr.ph136 ], [ %18, %62 ]
-  %.0106 = load i32, ptr %.0106.in133, align 4
-  %65 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv168
+.lr.ph138:                                        ; preds = %62, %.lr.ph138
+  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %.lr.ph138 ], [ 0, %62 ]
+  %.0106.in135 = phi ptr [ %67, %.lr.ph138 ], [ %18, %62 ]
+  %.0106 = load i32, ptr %.0106.in135, align 4
+  %65 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv170
   store i32 %.0106, ptr %65, align 4
   %66 = sext i32 %.0106 to i64
   %67 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %66
@@ -987,81 +991,81 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %69, ptr %70, align 8
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %71 = load i32, ptr %9, align 4
   %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next169, %72
-  br i1 %73, label %.lr.ph136, label %.preheader123, !llvm.loop !19
+  %73 = icmp slt i64 %indvars.iv.next171, %72
+  br i1 %73, label %.lr.ph138, label %.preheader125, !llvm.loop !19
 
-_ZNK9Scheduler8SameHandEii.exit.preheader.thread: ; preds = %.preheader123, %62
-  %.lcssa.ph = phi i32 [ %71, %.preheader123 ], [ %20, %62 ]
+_ZNK9Scheduler8SameHandEii.exit.preheader.thread: ; preds = %.preheader125, %62
+  %.lcssa.ph = phi i32 [ %71, %.preheader125 ], [ %20, %62 ]
   %74 = add i32 %.lcssa.ph, -1
   br label %.critedge2
 
 _ZNK9Scheduler8SameHandEii.exit.preheader:        ; preds = %.critedge
   %75 = add i32 %89, -1
   %76 = icmp sgt i32 %89, 1
-  br i1 %76, label %.lr.ph142.preheader, label %.critedge2
+  br i1 %76, label %.lr.ph144.preheader, label %.critedge2
 
-.lr.ph142.preheader:                              ; preds = %_ZNK9Scheduler8SameHandEii.exit.preheader
+.lr.ph144.preheader:                              ; preds = %_ZNK9Scheduler8SameHandEii.exit.preheader
   %wide.trip.count = zext nneg i32 %75 to i64
-  br label %.lr.ph142
+  br label %.lr.ph144
 
-.lr.ph139:                                        ; preds = %.preheader123, %.critedge
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.critedge ], [ 1, %.preheader123 ]
-  %77 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv171
+.lr.ph141:                                        ; preds = %.preheader125, %.critedge
+  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.critedge ], [ 1, %.preheader125 ]
+  %77 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv173
   %.sroa.0.0.copyload = load i32, ptr %77, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %77, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   br label %78
 
-78:                                               ; preds = %.lr.ph139, %83
-  %indvars.iv173 = phi i64 [ %indvars.iv171, %.lr.ph139 ], [ %indvars.iv.next174, %83 ]
-  %indvars.iv.next174 = add nsw i64 %indvars.iv173, -1
-  %79 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next174
+78:                                               ; preds = %.lr.ph141, %83
+  %indvars.iv175 = phi i64 [ %indvars.iv173, %.lr.ph141 ], [ %indvars.iv.next176, %83 ]
+  %indvars.iv.next176 = add nsw i64 %indvars.iv175, -1
+  %79 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next176
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 8
   %82 = icmp sgt i32 %.sroa.2.0.copyload, %81
   br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv173
+  %84 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv175
   %85 = load i64, ptr %79, align 4
   store i64 %85, ptr %84, align 4
-  %86 = icmp eq i64 %indvars.iv.next174, 0
+  %86 = icmp eq i64 %indvars.iv.next176, 0
   br i1 %86, label %.critedge, label %78, !llvm.loop !20
 
 .critedge:                                        ; preds = %83, %78
-  %.0103.lcssa = phi i64 [ 0, %83 ], [ %indvars.iv173, %78 ]
+  %.0103.lcssa = phi i64 [ 0, %83 ], [ %indvars.iv175, %78 ]
   %sext = shl i64 %.0103.lcssa, 32
   %87 = ashr exact i64 %sext, 32
   %88 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %87
   store i32 %.sroa.0.0.copyload, ptr %88, align 4
   %.sroa.2.0..sroa_idx49 = getelementptr inbounds i8, ptr %88, i64 4
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx49, align 8
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %89 = load i32, ptr %9, align 4
   %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next172, %90
-  br i1 %91, label %.lr.ph139, label %_ZNK9Scheduler8SameHandEii.exit.preheader, !llvm.loop !21
+  %91 = icmp slt i64 %indvars.iv.next174, %90
+  br i1 %91, label %.lr.ph141, label %_ZNK9Scheduler8SameHandEii.exit.preheader, !llvm.loop !21
 
 _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %104
-  %exitcond.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph142, !llvm.loop !22
+  %exitcond.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph144, !llvm.loop !22
 
-.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %_ZNK9Scheduler8SameHandEii.exit.loopexit
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next178, %_ZNK9Scheduler8SameHandEii.exit.loopexit ]
-  %92 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv177
+.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %_ZNK9Scheduler8SameHandEii.exit.loopexit
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph144.preheader ], [ %indvars.iv.next180, %_ZNK9Scheduler8SameHandEii.exit.loopexit ]
+  %92 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv179
   %93 = load i32, ptr %92, align 4
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %94 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next178
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %94 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next180
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %93 to i64
   %97 = sext i32 %95 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %104, %.lr.ph142
-  %indvars.iv21.i = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next22.i, %104 ]
+.preheader.i:                                     ; preds = %104, %.lr.ph144
+  %indvars.iv21.i = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next22.i, %104 ]
   br label %99
 
 98:                                               ; preds = %99
@@ -1084,102 +1088,102 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %104
   br i1 %exitcond24.i, label %_ZNK9Scheduler8SameHandEii.exit.loopexit, label %.preheader.i, !llvm.loop !22
 
 .critedge2.loopexit:                              ; preds = %99
-  %105 = trunc nuw nsw i64 %indvars.iv177 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv179 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK9Scheduler8SameHandEii.exit.preheader.thread, %.critedge2.loopexit, %_ZNK9Scheduler8SameHandEii.exit.preheader
   %106 = phi i32 [ %75, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %75, %.critedge2.loopexit ], [ %74, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
-  %.0101128 = phi i32 [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %105, %.critedge2.loopexit ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
-  %107 = icmp eq i32 %.0101128, %106
+  %.0101130 = phi i32 [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %105, %.critedge2.loopexit ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
+  %107 = icmp eq i32 %.0101130, %106
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %.critedge2
   %109 = load i32, ptr %10, align 4
   store i32 %109, ptr %18, align 4
-  %110 = zext i32 %.0101128 to i64
+  %110 = zext i32 %.0101130 to i64
   %111 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %112, ptr %113, align 4
-  %114 = add i32 %.0101128, 1
+  %114 = add i32 %.0101130, 1
   store i32 %114, ptr %19, align 4
-  %.not159 = icmp eq i32 %.0101128, 0
-  br i1 %.not159, label %._crit_edge149, label %.lr.ph148
+  %.not161 = icmp eq i32 %.0101130, 0
+  br i1 %.not161, label %._crit_edge151, label %.lr.ph150
 
-.lr.ph148:                                        ; preds = %108, %.lr.ph148
-  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.lr.ph148 ], [ 0, %108 ]
-  %.1107145 = phi i32 [ %116, %.lr.ph148 ], [ %109, %108 ]
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %115 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next181
+.lr.ph150:                                        ; preds = %108, %.lr.ph150
+  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.lr.ph150 ], [ 0, %108 ]
+  %.1107147 = phi i32 [ %116, %.lr.ph150 ], [ %109, %108 ]
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %115 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next183
   %116 = load i32, ptr %115, align 4
-  %117 = sext i32 %.1107145 to i64
+  %117 = sext i32 %.1107147 to i64
   %118 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %117
   store i32 %116, ptr %118, align 8
-  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %110
-  br i1 %exitcond184.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !24
+  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %110
+  br i1 %exitcond186.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !24
 
-._crit_edge149:                                   ; preds = %.lr.ph148, %108
-  %.1107.lcssa = phi i32 [ %109, %108 ], [ %116, %.lr.ph148 ]
+._crit_edge151:                                   ; preds = %.lr.ph150, %108
+  %.1107.lcssa = phi i32 [ %109, %108 ], [ %116, %.lr.ph150 ]
   %119 = sext i32 %.1107.lcssa to i64
   %120 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %119
   store i32 -1, ptr %120, align 8
   %121 = load i32, ptr %9, align 4
   %122 = icmp slt i32 %114, %121
-  br i1 %122, label %.lr.ph154.preheader, label %.loopexit
+  br i1 %122, label %.lr.ph156.preheader, label %.loopexit
 
-.lr.ph154.preheader:                              ; preds = %._crit_edge149
+.lr.ph156.preheader:                              ; preds = %._crit_edge151
   %123 = sext i32 %114 to i64
-  br label %.lr.ph154
+  br label %.lr.ph156
 
-.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %160
-  %indvars.iv185 = phi i64 [ %123, %.lr.ph154.preheader ], [ %indvars.iv.next186, %160 ]
-  %.0152 = phi ptr [ %18, %.lr.ph154.preheader ], [ %.1, %160 ]
-  %124 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv185
+.lr.ph156:                                        ; preds = %.lr.ph156.preheader, %160
+  %indvars.iv187 = phi i64 [ %123, %.lr.ph156.preheader ], [ %indvars.iv.next188, %160 ]
+  %.0154 = phi ptr [ %18, %.lr.ph156.preheader ], [ %.1, %160 ]
+  %124 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv187
   %125 = load i32, ptr %124, align 4
-  %126 = add nsw i64 %indvars.iv185, -1
+  %126 = add nsw i64 %indvars.iv187, -1
   %127 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %125 to i64
   %130 = sext i32 %128 to i64
-  br label %.preheader.i112
+  br label %.preheader.i114
 
-.preheader.i112:                                  ; preds = %137, %.lr.ph154
-  %indvars.iv21.i113 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next22.i118, %137 ]
+.preheader.i114:                                  ; preds = %137, %.lr.ph156
+  %indvars.iv21.i115 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next22.i120, %137 ]
   br label %132
 
 131:                                              ; preds = %132
-  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i114, 1
-  %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 4
-  br i1 %exitcond.not.i117, label %137, label %132, !llvm.loop !23
+  %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i116, 1
+  %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, 4
+  br i1 %exitcond.not.i119, label %137, label %132, !llvm.loop !23
 
-132:                                              ; preds = %131, %.preheader.i112
-  %indvars.iv.i114 = phi i64 [ 0, %.preheader.i112 ], [ %indvars.iv.next.i116, %131 ]
-  %133 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %129, i32 2, i64 %indvars.iv21.i113, i64 %indvars.iv.i114
+132:                                              ; preds = %131, %.preheader.i114
+  %indvars.iv.i116 = phi i64 [ 0, %.preheader.i114 ], [ %indvars.iv.next.i118, %131 ]
+  %133 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %129, i32 2, i64 %indvars.iv21.i115, i64 %indvars.iv.i116
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %130, i32 2, i64 %indvars.iv21.i113, i64 %indvars.iv.i114
+  %135 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %130, i32 2, i64 %indvars.iv21.i115, i64 %indvars.iv.i116
   %136 = load i32, ptr %135, align 4
-  %.not.i115 = icmp eq i32 %134, %136
-  br i1 %.not.i115, label %131, label %_ZNK9Scheduler8SameHandEii.exit120
+  %.not.i117 = icmp eq i32 %134, %136
+  br i1 %.not.i117, label %131, label %_ZNK9Scheduler8SameHandEii.exit122
 
 137:                                              ; preds = %131
-  %indvars.iv.next22.i118 = add nuw nsw i64 %indvars.iv21.i113, 1
-  %exitcond24.i119 = icmp eq i64 %indvars.iv.next22.i118, 4
-  br i1 %exitcond24.i119, label %138, label %.preheader.i112, !llvm.loop !22
+  %indvars.iv.next22.i120 = add nuw nsw i64 %indvars.iv21.i115, 1
+  %exitcond24.i121 = icmp eq i64 %indvars.iv.next22.i120, 4
+  br i1 %exitcond24.i121, label %138, label %.preheader.i114, !llvm.loop !22
 
 138:                                              ; preds = %137
   %139 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %130
   store i32 %125, ptr %139, align 8
   %140 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %129
   store i32 -1, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %.0152, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %.0154, i64 4
   store i32 %125, ptr %141, align 4
-  %142 = getelementptr inbounds nuw i8, ptr %.0152, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %.0154, i64 8
   %143 = load i32, ptr %142, align 4
   %144 = add nsw i32 %143, 1
   store i32 %144, ptr %142, align 4
   br label %160
 
-_ZNK9Scheduler8SameHandEii.exit120:               ; preds = %132
+_ZNK9Scheduler8SameHandEii.exit122:               ; preds = %132
   %145 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %129
   store i32 -1, ptr %145, align 8
   %146 = load i32, ptr %8, align 4
@@ -1197,7 +1201,9 @@ _ZNK9Scheduler8SameHandEii.exit120:               ; preds = %132
   %154 = load i32, ptr %8, align 4
   %155 = load i32, ptr %2, align 8
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %156, i32 1
+  %.idx = mul nsw i64 %156, 24
+  %.offs = or disjoint i64 %.idx, 4
+  %157 = getelementptr inbounds i8, ptr %5, i64 %.offs
   store i32 %154, ptr %157, align 4
   %158 = add nsw i32 %155, 1
   store i32 %158, ptr %2, align 8
@@ -1205,20 +1211,20 @@ _ZNK9Scheduler8SameHandEii.exit120:               ; preds = %132
   store i32 %159, ptr %8, align 4
   br label %160
 
-160:                                              ; preds = %_ZNK9Scheduler8SameHandEii.exit120, %138
-  %.1 = phi ptr [ %.0152, %138 ], [ %148, %_ZNK9Scheduler8SameHandEii.exit120 ]
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+160:                                              ; preds = %_ZNK9Scheduler8SameHandEii.exit122, %138
+  %.1 = phi ptr [ %.0154, %138 ], [ %148, %_ZNK9Scheduler8SameHandEii.exit122 ]
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %161 = load i32, ptr %9, align 4
   %162 = sext i32 %161 to i64
-  %163 = icmp slt i64 %indvars.iv.next186, %162
-  br i1 %163, label %.lr.ph154, label %.loopexit, !llvm.loop !25
+  %163 = icmp slt i64 %indvars.iv.next188, %162
+  br i1 %163, label %.lr.ph156, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %_ZNK9Scheduler8SameHandEii.exit.loopexit, %160, %._crit_edge149, %11, %.thread, %.critedge2, %45
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %._crit_edge158, label %11, !llvm.loop !26
+.loopexit:                                        ; preds = %_ZNK9Scheduler8SameHandEii.exit.loopexit, %160, %._crit_edge151, %11, %.thread, %.critedge2, %45
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
+  br i1 %exitcond194.not, label %._crit_edge160, label %11, !llvm.loop !26
 
-._crit_edge158:                                   ; preds = %.loopexit, %1
+._crit_edge160:                                   ; preds = %.loopexit, %1
   ret void
 }
 

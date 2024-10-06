@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 
@@ -130,7 +128,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %14, %10
   %17 = phi ptr [ %16, %14 ], [ null, %10 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr i8, ptr %1, i64 119
   %19 = getelementptr i8, ptr %0, i64 4
   %20 = getelementptr i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -139,7 +137,8 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 21:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.02934 = phi ptr [ %17, %.lr.ph ], [ %.1, %38 ]
-  %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %18, i64 0, i64 %indvars.iv, i32 17
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %22 = getelementptr i8, ptr %18, i64 %.idx
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %38, label %.preheader

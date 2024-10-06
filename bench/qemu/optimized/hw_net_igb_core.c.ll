@@ -3819,13 +3819,14 @@ igb_intrmgr_pci_realize.exit:                     ; preds = %for.body10.i.i
   %call1 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @igb_vm_state_change, ptr noundef nonnull %core) #15
   %vmstate = getelementptr inbounds i8, ptr %core, i64 134912
   store ptr %call1, ptr %vmstate, align 8
-  %tx = getelementptr inbounds i8, ptr %core, i64 133200
+  %invariant.gep = getelementptr i8, ptr %core, i64 133248
   br label %for.body
 
 for.body:                                         ; preds = %igb_intrmgr_pci_realize.exit, %for.body
   %indvars.iv = phi i64 [ 0, %igb_intrmgr_pci_realize.exit ], [ %indvars.iv.next, %for.body ]
-  %tx_pkt = getelementptr [16 x %struct.igb_tx], ptr %tx, i64 0, i64 %indvars.iv, i32 5
-  tail call void @net_tx_pkt_init(ptr noundef %tx_pkt, i32 noundef 64) #15
+  %2 = mul nuw nsw i64 %indvars.iv, 56
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %2
+  tail call void @net_tx_pkt_init(ptr noundef %gep, i32 noundef 64) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
@@ -3835,12 +3836,12 @@ for.end:                                          ; preds = %for.body
   tail call void @net_rx_pkt_init(ptr noundef nonnull %rx_pkt) #15
   %eeprom = getelementptr inbounds i8, ptr %core, i64 131136
   %owner = getelementptr inbounds i8, ptr %core, i64 135040
-  %2 = load ptr, ptr %owner, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %2) #15
+  %3 = load ptr, ptr %owner, align 8
+  %call.i = tail call ptr @object_get_class(ptr noundef %3) #15
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.197, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #15
   %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
-  %3 = load i16, ptr %device_id, align 2
-  tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom, ptr noundef %eeprom_templ, i32 noundef %eeprom_size, i16 noundef zeroext %3, ptr noundef %macaddr) #15
+  %4 = load i16, ptr %device_id, align 2
+  tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom, ptr noundef %eeprom_templ, i32 noundef %eeprom_size, i16 noundef zeroext %4, ptr noundef %macaddr) #15
   tail call fastcc void @igb_update_rx_offloads(ptr noundef %core)
   ret void
 }
@@ -4127,22 +4128,23 @@ igb_intrmgr_pci_unint.exit:                       ; preds = %timer_free.exit.i
   %vmstate = getelementptr inbounds i8, ptr %core, i64 134912
   %2 = load ptr, ptr %vmstate, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %2) #15
-  %tx = getelementptr inbounds i8, ptr %core, i64 133200
+  %invariant.gep = getelementptr i8, ptr %core, i64 133248
   br label %for.body
 
 for.body:                                         ; preds = %igb_intrmgr_pci_unint.exit, %for.body
   %indvars.iv = phi i64 [ 0, %igb_intrmgr_pci_unint.exit ], [ %indvars.iv.next, %for.body ]
-  %tx_pkt = getelementptr [16 x %struct.igb_tx], ptr %tx, i64 0, i64 %indvars.iv, i32 5
-  %3 = load ptr, ptr %tx_pkt, align 8
-  tail call void @net_tx_pkt_uninit(ptr noundef %3) #15
+  %3 = mul nuw nsw i64 %indvars.iv, 56
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %3
+  %4 = load ptr, ptr %gep, align 8
+  tail call void @net_tx_pkt_uninit(ptr noundef %4) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body
   %rx_pkt = getelementptr inbounds i8, ptr %core, i64 134096
-  %4 = load ptr, ptr %rx_pkt, align 8
-  tail call void @net_rx_pkt_uninit(ptr noundef %4) #15
+  %5 = load ptr, ptr %rx_pkt, align 8
+  tail call void @net_rx_pkt_uninit(ptr noundef %5) #15
   ret void
 }
 

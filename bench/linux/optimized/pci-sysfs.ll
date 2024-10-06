@@ -621,9 +621,10 @@ define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 
 
 12:                                               ; preds = %8
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %9, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %1) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 920
-  %15 = sext i32 %1 to i64
-  %16 = getelementptr [11 x %struct.resource], ptr %14, i64 0, i64 %15, i32 3
+  %14 = sext i32 %1 to i64
+  %.idx = shl nsw i64 %14, 6
+  %15 = getelementptr i8, ptr %0, i64 944
+  %16 = getelementptr i8, ptr %15, i64 %.idx
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 256
   %19 = icmp eq i64 %18, 0

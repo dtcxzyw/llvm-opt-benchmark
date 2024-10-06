@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/gistscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.IndexOrderByDistance = type { double, i8 }
@@ -191,9 +189,9 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %58 = trunc i64 %indvars.iv149 to i16
   %59 = getelementptr inbounds i8, ptr %55, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = add nsw i64 %indvars.iv149, -1
-  %63 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %61, i64 0, i64 %62, i32 2
+  %61 = mul i64 %indvars.iv149, 104
+  %62 = getelementptr i8, ptr %60, i64 -12
+  %63 = getelementptr i8, ptr %62, i64 %61
   %64 = load i32, ptr %63, align 4
   tail call void @TupleDescInitEntry(ptr noundef %57, i16 noundef signext %58, ptr noundef null, i32 noundef %64, i32 noundef -1, i32 noundef 0) #6
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
@@ -467,72 +465,74 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = getelementptr inbounds i8, ptr %1, i64 56
-  br label %9
+  %9 = getelementptr i8, ptr %1, i64 64
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %30
-  %10 = phi i32 [ %5, %.lr.ph ], [ %31, %30 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %11 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %7, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load i8, ptr %12, align 8
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %19
+10:                                               ; preds = %.lr.ph, %31
+  %11 = phi i32 [ %5, %.lr.ph ], [ %32, %31 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %12 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load i8, ptr %13, align 8
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %20
 
-15:                                               ; preds = %9
-  %16 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv, i32 1
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %30, label %.loopexit
+16:                                               ; preds = %10
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %17 = getelementptr i8, ptr %9, i64 %.idx
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %31, label %.loopexit
 
-19:                                               ; preds = %9
-  %20 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %.loopexit, label %24
+20:                                               ; preds = %10
+  %21 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.loopexit, label %25
 
-24:                                               ; preds = %19
-  %25 = load double, ptr %11, align 8
-  %26 = load double, ptr %20, align 8
-  %27 = tail call i32 @float8_cmp_internal(double noundef %25, double noundef %26) #6
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge26, label %28
+25:                                               ; preds = %20
+  %26 = load double, ptr %12, align 8
+  %27 = load double, ptr %21, align 8
+  %28 = tail call i32 @float8_cmp_internal(double noundef %26, double noundef %27) #6
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %._crit_edge26, label %29
 
-._crit_edge26:                                    ; preds = %24
+._crit_edge26:                                    ; preds = %25
   %.pre = load i32, ptr %4, align 4
-  br label %30
+  br label %31
 
-28:                                               ; preds = %24
-  %29 = sub i32 0, %27
+29:                                               ; preds = %25
+  %30 = sub i32 0, %28
   br label %.loopexit
 
-30:                                               ; preds = %._crit_edge26, %15
-  %31 = phi i32 [ %.pre, %._crit_edge26 ], [ %10, %15 ]
+31:                                               ; preds = %._crit_edge26, %16
+  %32 = phi i32 [ %.pre, %._crit_edge26 ], [ %11, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %9, label %._crit_edge, !llvm.loop !12
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %10, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %30, %3
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, -1
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, -1
-  br i1 %36, label %40, label %41
-
-40:                                               ; preds = %._crit_edge
-  br i1 %39, label %.thread, label %.loopexit
+._crit_edge:                                      ; preds = %31, %3
+  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, -1
+  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, -1
+  br i1 %37, label %41, label %42
 
 41:                                               ; preds = %._crit_edge
-  br i1 %39, label %.loopexit, label %.thread
+  br i1 %40, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %40, %41
+42:                                               ; preds = %._crit_edge
+  br i1 %40, label %.loopexit, label %.thread
+
+.thread:                                          ; preds = %41, %42
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %15, %41, %40, %.thread, %28
-  %.0 = phi i32 [ %29, %28 ], [ 0, %.thread ], [ 1, %40 ], [ -1, %41 ], [ 1, %19 ], [ -1, %15 ]
+.loopexit:                                        ; preds = %20, %16, %42, %41, %.thread, %29
+  %.0 = phi i32 [ %30, %29 ], [ 0, %.thread ], [ 1, %41 ], [ -1, %42 ], [ 1, %20 ], [ -1, %16 ]
   ret i32 %.0
 }
 

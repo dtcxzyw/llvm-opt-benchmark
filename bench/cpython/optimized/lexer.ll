@@ -759,11 +759,13 @@ if.end68.i.i:                                     ; preds = %if.end54.i.i
   %85 = load i32, ptr %lineno.i.i, align 8
   %86 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom76.i.i = sext i32 %86 to i64
-  %f_string_line_start.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom76.i.i, i32 8
-  %87 = load i32, ptr %f_string_line_start.i.i, align 8
-  store i32 %87, ptr %lineno.i.i, align 8
-  %88 = load i32, ptr %f_string_quote_size.i.i, align 8
-  %cmp80.i.i = icmp eq i32 %88, 3
+  %f_string_line_start.idx.i.i = mul nsw i64 %idxprom76.i.i, 96
+  %87 = getelementptr i8, ptr %tok, i64 2896
+  %f_string_line_start.i.i = getelementptr i8, ptr %87, i64 %f_string_line_start.idx.i.i
+  %88 = load i32, ptr %f_string_line_start.i.i, align 8
+  store i32 %88, ptr %lineno.i.i, align 8
+  %89 = load i32, ptr %f_string_quote_size.i.i, align 8
+  %cmp80.i.i = icmp eq i32 %89, 3
   br i1 %cmp80.i.i, label %if.then82.i.i, label %if.else85.i.i
 
 if.then82.i.i:                                    ; preds = %if.end68.i.i
@@ -777,8 +779,8 @@ if.else85.i.i:                                    ; preds = %if.end68.i.i
   br label %tok_get.exit
 
 if.end88.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %89 = load i8, ptr %f_string_quote.i.i, align 4
-  %conv90.i.i = sext i8 %89 to i32
+  %90 = load i8, ptr %f_string_quote.i.i, align 4
+  %conv90.i.i = sext i8 %90 to i32
   %cmp91.i.i = icmp eq i32 %retval.0.i303480.i.i, %conv90.i.i
   br i1 %cmp91.i.i, label %if.then93.i.i, label %if.else94.i.i
 
@@ -810,8 +812,8 @@ if.then98.i.i:                                    ; preds = %if.else94.i.i
 if.then104.i.i:                                   ; preds = %if.then98.i.i
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %call99.i.i)
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef 123)
-  %90 = load i32, ptr %curly_bracket_expr_start_depth41.i.i, align 8
-  %inc106.i.i = add i32 %90, 1
+  %91 = load i32, ptr %curly_bracket_expr_start_depth41.i.i, align 8
+  %inc106.i.i = add i32 %91, 1
   store i32 %inc106.i.i, ptr %curly_bracket_expr_start_depth41.i.i, align 8
   %cmp108.i.i = icmp sgt i32 %inc106.i.i, 2
   br i1 %cmp108.i.i, label %if.then110.i.i, label %if.end113.i.i
@@ -822,20 +824,20 @@ if.then110.i.i:                                   ; preds = %if.then104.i.i
   br label %tok_get.exit
 
 if.end113.i.i:                                    ; preds = %if.then104.i.i
-  %91 = load i32, ptr %tok_mode_stack_index.i, align 8
-  %idxprom116.i.i = sext i32 %91 to i64
+  %92 = load i32, ptr %tok_mode_stack_index.i, align 8
+  %idxprom116.i.i = sext i32 %92 to i64
   %arrayidx117.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom116.i.i
   store i32 0, ptr %arrayidx117.i.i, align 8
-  %92 = load ptr, ptr %cur.i.i, align 8
+  %93 = load ptr, ptr %cur.i.i, align 8
   br label %if.end124.i.i
 
 if.else121.i.i:                                   ; preds = %if.then98.i.i
-  %93 = load ptr, ptr %cur.i.i, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %93, i64 -1
+  %94 = load ptr, ptr %cur.i.i, align 8
+  %add.ptr.i.i = getelementptr i8, ptr %94, i64 -1
   br label %if.end124.i.i
 
 if.end124.i.i:                                    ; preds = %if.else121.i.i, %if.end113.i.i
-  %p_end.0.i.i = phi ptr [ %92, %if.end113.i.i ], [ %add.ptr.i.i, %if.else121.i.i ]
+  %p_end.0.i.i = phi ptr [ %93, %if.end113.i.i ], [ %add.ptr.i.i, %if.else121.i.i ]
   %p_start.0.i.i = load ptr, ptr %start.i.i, align 8
   %call125.i.i = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 60, ptr noundef %p_start.0.i.i, ptr noundef %p_end.0.i.i) #8
   br label %tok_get.exit
@@ -845,8 +847,8 @@ if.then129.i.i:                                   ; preds = %if.else94.i.i
   br i1 %tobool130.not.i.i, label %if.end135.i.i, label %if.then131.i.i
 
 if.then131.i.i:                                   ; preds = %if.then129.i.i
-  %94 = load ptr, ptr %start.i.i, align 8
-  %call134.i.i = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 60, ptr noundef %94, ptr noundef %71) #8
+  %95 = load ptr, ptr %start.i.i, align 8
+  %call134.i.i = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 60, ptr noundef %95, ptr noundef %71) #8
   br label %tok_get.exit
 
 if.end135.i.i:                                    ; preds = %if.then129.i.i
@@ -856,35 +858,35 @@ if.end135.i.i:                                    ; preds = %if.then129.i.i
   br i1 %or.cond3.i.i, label %if.else146.i.i, label %if.then142.i.i
 
 if.then142.i.i:                                   ; preds = %if.end135.i.i
-  %95 = load ptr, ptr %cur.i.i, align 8
-  %add.ptr145.i.i = getelementptr i8, ptr %95, i64 -1
+  %96 = load ptr, ptr %cur.i.i, align 8
+  %add.ptr145.i.i = getelementptr i8, ptr %96, i64 -1
   br label %if.end154.i.i
 
 if.else146.i.i:                                   ; preds = %if.end135.i.i
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %call137.i.i)
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef 125)
-  %96 = load i32, ptr %tok_mode_stack_index.i, align 8
-  %idxprom149.i.i = sext i32 %96 to i64
+  %97 = load i32, ptr %tok_mode_stack_index.i, align 8
+  %idxprom149.i.i = sext i32 %97 to i64
   %arrayidx150.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom149.i.i
   store i32 0, ptr %arrayidx150.i.i, align 8
-  %97 = load ptr, ptr %cur.i.i, align 8
+  %98 = load ptr, ptr %cur.i.i, align 8
   br label %if.end154.i.i
 
 if.end154.i.i:                                    ; preds = %if.else146.i.i, %if.then142.i.i
-  %p_end.1.i.i = phi ptr [ %97, %if.else146.i.i ], [ %add.ptr145.i.i, %if.then142.i.i ]
+  %p_end.1.i.i = phi ptr [ %98, %if.else146.i.i ], [ %add.ptr145.i.i, %if.then142.i.i ]
   %p_start.1.i.i = load ptr, ptr %start.i.i, align 8
   %call155.i.i = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 60, ptr noundef %p_start.1.i.i, ptr noundef %p_end.1.i.i) #8
   br label %tok_get.exit
 
 for.cond.i339.i.i:                                ; preds = %if.else94.i.i, %if.end16.i355.i.i
-  %.pre.i337684.i.i = phi ptr [ %102, %if.end16.i355.i.i ], [ %71, %if.else94.i.i ]
-  %.pre31.i371.i.i = phi ptr [ %103, %if.end16.i355.i.i ], [ %.pre31.i338.i.i, %if.else94.i.i ]
+  %.pre.i337684.i.i = phi ptr [ %103, %if.end16.i355.i.i ], [ %71, %if.else94.i.i ]
+  %.pre31.i371.i.i = phi ptr [ %104, %if.end16.i355.i.i ], [ %.pre31.i338.i.i, %if.else94.i.i ]
   %cmp.not.i340.i.i = icmp eq ptr %.pre.i337684.i.i, %.pre31.i371.i.i
   br i1 %cmp.not.i340.i.i, label %if.end7.i350.i.i, label %if.then.i341.i.i
 
 if.then.i341.i.i:                                 ; preds = %for.cond.i339.i.i
-  %98 = load i32, ptr %col_offset.i.i, align 4
-  %cmp1.i343.i.i = icmp ugt i32 %98, 2147483646
+  %99 = load i32, ptr %col_offset.i.i, align 4
+  %cmp1.i343.i.i = icmp ugt i32 %99, 2147483646
   br i1 %cmp1.i343.i.i, label %if.then2.i349.i.i, label %tok_nextc.exit364.i.i
 
 if.then2.i349.i.i:                                ; preds = %if.then.i341.i.i
@@ -892,56 +894,56 @@ if.then2.i349.i.i:                                ; preds = %if.then.i341.i.i
   br label %if.end198.i.i
 
 if.end7.i350.i.i:                                 ; preds = %for.cond.i339.i.i
-  %99 = load i32, ptr %done8.i.i.i, align 8
-  %cmp9.not.i351.i.i = icmp eq i32 %99, 10
+  %100 = load i32, ptr %done8.i.i.i, align 8
+  %cmp9.not.i351.i.i = icmp eq i32 %100, 10
   br i1 %cmp9.not.i351.i.i, label %if.end12.i352.i.i, label %if.end198.i.i
 
 if.end12.i352.i.i:                                ; preds = %if.end7.i350.i.i
-  %100 = load ptr, ptr %underflow.i.i.i, align 8
-  %call.i353.i.i = tail call i32 %100(ptr noundef nonnull %tok) #8
+  %101 = load ptr, ptr %underflow.i.i.i, align 8
+  %call.i353.i.i = tail call i32 %101(ptr noundef nonnull %tok) #8
   %tobool.not.i354.i.i = icmp eq i32 %call.i353.i.i, 0
   br i1 %tobool.not.i354.i.i, label %if.then13.i363.i.i, label %if.end16.i355.i.i
 
 if.then13.i363.i.i:                               ; preds = %if.end12.i352.i.i
-  %101 = load ptr, ptr %inp.i.i.i, align 8
-  store ptr %101, ptr %cur.i.i, align 8
+  %102 = load ptr, ptr %inp.i.i.i, align 8
+  store ptr %102, ptr %cur.i.i, align 8
   br label %if.end198.i.i
 
 if.end16.i355.i.i:                                ; preds = %if.end12.i352.i.i
-  %102 = load ptr, ptr %cur.i.i, align 8
-  store ptr %102, ptr %line_start.i.i.i, align 8
-  %103 = load ptr, ptr %inp.i.i.i, align 8
-  %sub.ptr.lhs.cast.i356.i.i = ptrtoint ptr %103 to i64
-  %sub.ptr.rhs.cast.i357.i.i = ptrtoint ptr %102 to i64
+  %103 = load ptr, ptr %cur.i.i, align 8
+  store ptr %103, ptr %line_start.i.i.i, align 8
+  %104 = load ptr, ptr %inp.i.i.i, align 8
+  %sub.ptr.lhs.cast.i356.i.i = ptrtoint ptr %104 to i64
+  %sub.ptr.rhs.cast.i357.i.i = ptrtoint ptr %103 to i64
   %sub.ptr.sub.i358.i.i = sub i64 %sub.ptr.lhs.cast.i356.i.i, %sub.ptr.rhs.cast.i357.i.i
-  %call.i.i359.i.i = tail call ptr @memchr(ptr noundef readonly %102, i32 noundef 0, i64 noundef %sub.ptr.sub.i358.i.i) #7
+  %call.i.i359.i.i = tail call ptr @memchr(ptr noundef readonly %103, i32 noundef 0, i64 noundef %sub.ptr.sub.i358.i.i) #7
   %cmp.i.not.i360.i.i = icmp eq ptr %call.i.i359.i.i, null
   br i1 %cmp.i.not.i360.i.i, label %for.cond.i339.i.i, label %if.then23.i361.i.i
 
 if.then23.i361.i.i:                               ; preds = %if.end16.i355.i.i
   %call24.i362.i.i = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
-  %104 = load ptr, ptr %inp.i.i.i, align 8
-  store ptr %104, ptr %cur.i.i, align 8
+  %105 = load ptr, ptr %inp.i.i.i, align 8
+  store ptr %105, ptr %cur.i.i, align 8
   br label %if.end198.i.i
 
 tok_nextc.exit364.i.i:                            ; preds = %if.then.i341.i.i
-  %inc.i345.i.i = add nuw nsw i32 %98, 1
+  %inc.i345.i.i = add nuw nsw i32 %99, 1
   store i32 %inc.i345.i.i, ptr %col_offset.i.i, align 4
   %incdec.ptr.i346.i.i = getelementptr i8, ptr %.pre.i337684.i.i, i64 1
   store ptr %incdec.ptr.i346.i.i, ptr %cur.i.i, align 8
-  %105 = load i8, ptr %.pre.i337684.i.i, align 1
-  %cmp162.i.i = icmp eq i8 %105, 13
+  %106 = load i8, ptr %.pre.i337684.i.i, align 1
+  %cmp162.i.i = icmp eq i8 %106, 13
   br i1 %cmp162.i.i, label %for.cond.i372.i.i, label %if.end166.i.i
 
 for.cond.i372.i.i:                                ; preds = %tok_nextc.exit364.i.i, %if.end16.i388.i.i
-  %106 = phi ptr [ %114, %if.end16.i388.i.i ], [ %.pre31.i371.i.i, %tok_nextc.exit364.i.i ]
-  %107 = phi ptr [ %113, %if.end16.i388.i.i ], [ %incdec.ptr.i346.i.i, %tok_nextc.exit364.i.i ]
-  %cmp.not.i373.i.i = icmp eq ptr %107, %106
+  %107 = phi ptr [ %115, %if.end16.i388.i.i ], [ %.pre31.i371.i.i, %tok_nextc.exit364.i.i ]
+  %108 = phi ptr [ %114, %if.end16.i388.i.i ], [ %incdec.ptr.i346.i.i, %tok_nextc.exit364.i.i ]
+  %cmp.not.i373.i.i = icmp eq ptr %108, %107
   br i1 %cmp.not.i373.i.i, label %if.end7.i383.i.i, label %if.then.i374.i.i
 
 if.then.i374.i.i:                                 ; preds = %for.cond.i372.i.i
-  %108 = load i32, ptr %col_offset.i.i, align 4
-  %cmp1.i376.i.i = icmp ugt i32 %108, 2147483646
+  %109 = load i32, ptr %col_offset.i.i, align 4
+  %cmp1.i376.i.i = icmp ugt i32 %109, 2147483646
   br i1 %cmp1.i376.i.i, label %if.then2.i382.i.i, label %if.end.i377.i.i
 
 if.then2.i382.i.i:                                ; preds = %if.then.i374.i.i
@@ -949,50 +951,50 @@ if.then2.i382.i.i:                                ; preds = %if.then.i374.i.i
   br label %if.end198.i.i
 
 if.end.i377.i.i:                                  ; preds = %if.then.i374.i.i
-  %inc.i378.i.i = add nuw nsw i32 %108, 1
+  %inc.i378.i.i = add nuw nsw i32 %109, 1
   store i32 %inc.i378.i.i, ptr %col_offset.i.i, align 4
-  %incdec.ptr.i379.i.i = getelementptr i8, ptr %107, i64 1
+  %incdec.ptr.i379.i.i = getelementptr i8, ptr %108, i64 1
   store ptr %incdec.ptr.i379.i.i, ptr %cur.i.i, align 8
-  %109 = load i8, ptr %107, align 1
+  %110 = load i8, ptr %108, align 1
   br label %if.end166.i.i
 
 if.end7.i383.i.i:                                 ; preds = %for.cond.i372.i.i
-  %110 = load i32, ptr %done8.i.i.i, align 8
-  %cmp9.not.i384.i.i = icmp eq i32 %110, 10
+  %111 = load i32, ptr %done8.i.i.i, align 8
+  %cmp9.not.i384.i.i = icmp eq i32 %111, 10
   br i1 %cmp9.not.i384.i.i, label %if.end12.i385.i.i, label %if.end198.i.i
 
 if.end12.i385.i.i:                                ; preds = %if.end7.i383.i.i
-  %111 = load ptr, ptr %underflow.i.i.i, align 8
-  %call.i386.i.i = tail call i32 %111(ptr noundef nonnull %tok) #8
+  %112 = load ptr, ptr %underflow.i.i.i, align 8
+  %call.i386.i.i = tail call i32 %112(ptr noundef nonnull %tok) #8
   %tobool.not.i387.i.i = icmp eq i32 %call.i386.i.i, 0
   br i1 %tobool.not.i387.i.i, label %if.then13.i396.i.i, label %if.end16.i388.i.i
 
 if.then13.i396.i.i:                               ; preds = %if.end12.i385.i.i
-  %112 = load ptr, ptr %inp.i.i.i, align 8
-  store ptr %112, ptr %cur.i.i, align 8
+  %113 = load ptr, ptr %inp.i.i.i, align 8
+  store ptr %113, ptr %cur.i.i, align 8
   br label %if.end198.i.i
 
 if.end16.i388.i.i:                                ; preds = %if.end12.i385.i.i
-  %113 = load ptr, ptr %cur.i.i, align 8
-  store ptr %113, ptr %line_start.i.i.i, align 8
-  %114 = load ptr, ptr %inp.i.i.i, align 8
-  %sub.ptr.lhs.cast.i389.i.i = ptrtoint ptr %114 to i64
-  %sub.ptr.rhs.cast.i390.i.i = ptrtoint ptr %113 to i64
+  %114 = load ptr, ptr %cur.i.i, align 8
+  store ptr %114, ptr %line_start.i.i.i, align 8
+  %115 = load ptr, ptr %inp.i.i.i, align 8
+  %sub.ptr.lhs.cast.i389.i.i = ptrtoint ptr %115 to i64
+  %sub.ptr.rhs.cast.i390.i.i = ptrtoint ptr %114 to i64
   %sub.ptr.sub.i391.i.i = sub i64 %sub.ptr.lhs.cast.i389.i.i, %sub.ptr.rhs.cast.i390.i.i
-  %call.i.i392.i.i = tail call ptr @memchr(ptr noundef readonly %113, i32 noundef 0, i64 noundef %sub.ptr.sub.i391.i.i) #7
+  %call.i.i392.i.i = tail call ptr @memchr(ptr noundef readonly %114, i32 noundef 0, i64 noundef %sub.ptr.sub.i391.i.i) #7
   %cmp.i.not.i393.i.i = icmp eq ptr %call.i.i392.i.i, null
   br i1 %cmp.i.not.i393.i.i, label %for.cond.i372.i.i, label %if.then23.i394.i.i
 
 if.then23.i394.i.i:                               ; preds = %if.end16.i388.i.i
   %call24.i395.i.i = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
-  %115 = load ptr, ptr %inp.i.i.i, align 8
-  store ptr %115, ptr %cur.i.i, align 8
+  %116 = load ptr, ptr %inp.i.i.i, align 8
+  store ptr %116, ptr %cur.i.i, align 8
   br label %if.end198.i.i
 
 if.end166.i.i:                                    ; preds = %if.end.i377.i.i, %tok_nextc.exit364.i.i
-  %.pre31.i417.i.i = phi ptr [ %.pre31.i371.i.i, %tok_nextc.exit364.i.i ], [ %106, %if.end.i377.i.i ]
+  %.pre31.i417.i.i = phi ptr [ %.pre31.i371.i.i, %tok_nextc.exit364.i.i ], [ %107, %if.end.i377.i.i ]
   %.pre.i416.i.i = phi ptr [ %incdec.ptr.i346.i.i, %tok_nextc.exit364.i.i ], [ %incdec.ptr.i379.i.i, %if.end.i377.i.i ]
-  %peek160.0.in.i.i = phi i8 [ %105, %tok_nextc.exit364.i.i ], [ %109, %if.end.i377.i.i ]
+  %peek160.0.in.i.i = phi i8 [ %106, %tok_nextc.exit364.i.i ], [ %110, %if.end.i377.i.i ]
   %peek160.0.i.i = zext i8 %peek160.0.in.i.i to i32
   switch i8 %peek160.0.in.i.i, label %if.end181.i.i [
     i8 125, label %if.then172.i.i
@@ -1000,8 +1002,8 @@ if.end166.i.i:                                    ; preds = %if.end.i377.i.i, %t
   ]
 
 if.then172.i.i:                                   ; preds = %if.end166.i.i, %if.end166.i.i
-  %116 = load i32, ptr %f_string_raw.i.i, align 4
-  %tobool173.not.i.i = icmp eq i32 %116, 0
+  %117 = load i32, ptr %f_string_raw.i.i, align 4
+  %tobool173.not.i.i = icmp eq i32 %117, 0
   br i1 %tobool173.not.i.i, label %if.then174.i.i, label %if.then.i399.i.i
 
 if.then174.i.i:                                   ; preds = %if.then172.i.i
@@ -1018,11 +1020,11 @@ if.then177.i.i:                                   ; preds = %if.then174.i.i
   br label %tok_get.exit
 
 if.then.i399.i.i:                                 ; preds = %if.then174.if.then.i399_crit_edge.i.i, %if.then172.i.i
-  %117 = phi ptr [ %.pre.i.i, %if.then174.if.then.i399_crit_edge.i.i ], [ %.pre.i416.i.i, %if.then172.i.i ]
-  %incdec.ptr.i401.i.i = getelementptr i8, ptr %117, i64 -1
+  %118 = phi ptr [ %.pre.i.i, %if.then174.if.then.i399_crit_edge.i.i ], [ %.pre.i416.i.i, %if.then172.i.i ]
+  %incdec.ptr.i401.i.i = getelementptr i8, ptr %118, i64 -1
   store ptr %incdec.ptr.i401.i.i, ptr %cur.i.i, align 8
-  %118 = load ptr, ptr %tok, align 8
-  %cmp1.i402.i.i = icmp ult ptr %incdec.ptr.i401.i.i, %118
+  %119 = load ptr, ptr %tok, align 8
+  %cmp1.i402.i.i = icmp ult ptr %incdec.ptr.i401.i.i, %119
   br i1 %cmp1.i402.i.i, label %if.then2.i409.i.i, label %if.end.i403.i.i
 
 if.then2.i409.i.i:                                ; preds = %if.then.i399.i.i
@@ -1030,8 +1032,8 @@ if.then2.i409.i.i:                                ; preds = %if.then.i399.i.i
   unreachable
 
 if.end.i403.i.i:                                  ; preds = %if.then.i399.i.i
-  %119 = load i8, ptr %incdec.ptr.i401.i.i, align 1
-  %cmp6.not.i404.i.i = icmp eq i8 %119, %peek160.0.in.i.i
+  %120 = load i8, ptr %incdec.ptr.i401.i.i, align 1
+  %cmp6.not.i404.i.i = icmp eq i8 %120, %peek160.0.in.i.i
   br i1 %cmp6.not.i404.i.i, label %tok_backup.exit410.i.i, label %if.then8.i405.i.i
 
 if.then8.i405.i.i:                                ; preds = %if.end.i403.i.i
@@ -1039,28 +1041,28 @@ if.then8.i405.i.i:                                ; preds = %if.end.i403.i.i
   unreachable
 
 tok_backup.exit410.i.i:                           ; preds = %if.end.i403.i.i
-  %120 = load i32, ptr %col_offset.i.i, align 4
-  %dec.i408.i.i = add i32 %120, -1
+  %121 = load i32, ptr %col_offset.i.i, align 4
+  %dec.i408.i.i = add i32 %121, -1
   store i32 %dec.i408.i.i, ptr %col_offset.i.i, align 4
   %.pre693.i.i = load i32, ptr %f_string_quote_size.i.i, align 8
   br label %while.cond.backedge.i.i
 
 if.end181.i.i:                                    ; preds = %if.end166.i.i
-  %121 = load i32, ptr %f_string_raw.i.i, align 4
-  %tobool183.i.i = icmp eq i32 %121, 0
+  %122 = load i32, ptr %f_string_raw.i.i, align 4
+  %tobool183.i.i = icmp eq i32 %122, 0
   %cmp185.i.i = icmp eq i8 %peek160.0.in.i.i, 78
   %or.cond5.i.i = and i1 %cmp185.i.i, %tobool183.i.i
   br i1 %or.cond5.i.i, label %for.cond.i418.i.i, label %if.end198.i.i
 
 for.cond.i418.i.i:                                ; preds = %if.end181.i.i, %if.end16.i434.i.i
-  %122 = phi ptr [ %129, %if.end16.i434.i.i ], [ %.pre31.i417.i.i, %if.end181.i.i ]
-  %123 = phi ptr [ %128, %if.end16.i434.i.i ], [ %.pre.i416.i.i, %if.end181.i.i ]
-  %cmp.not.i419.i.i = icmp eq ptr %123, %122
+  %123 = phi ptr [ %130, %if.end16.i434.i.i ], [ %.pre31.i417.i.i, %if.end181.i.i ]
+  %124 = phi ptr [ %129, %if.end16.i434.i.i ], [ %.pre.i416.i.i, %if.end181.i.i ]
+  %cmp.not.i419.i.i = icmp eq ptr %124, %123
   br i1 %cmp.not.i419.i.i, label %if.end7.i429.i.i, label %if.then.i420.i.i
 
 if.then.i420.i.i:                                 ; preds = %for.cond.i418.i.i
-  %124 = load i32, ptr %col_offset.i.i, align 4
-  %cmp1.i422.i.i = icmp ugt i32 %124, 2147483646
+  %125 = load i32, ptr %col_offset.i.i, align 4
+  %cmp1.i422.i.i = icmp ugt i32 %125, 2147483646
   br i1 %cmp1.i422.i.i, label %if.then2.i428.i.i, label %tok_nextc.exit443.i.i
 
 if.then2.i428.i.i:                                ; preds = %if.then.i420.i.i
@@ -1068,51 +1070,51 @@ if.then2.i428.i.i:                                ; preds = %if.then.i420.i.i
   br label %if.end198.i.i
 
 if.end7.i429.i.i:                                 ; preds = %for.cond.i418.i.i
-  %125 = load i32, ptr %done8.i.i.i, align 8
-  %cmp9.not.i430.i.i = icmp eq i32 %125, 10
+  %126 = load i32, ptr %done8.i.i.i, align 8
+  %cmp9.not.i430.i.i = icmp eq i32 %126, 10
   br i1 %cmp9.not.i430.i.i, label %if.end12.i431.i.i, label %if.end198.i.i
 
 if.end12.i431.i.i:                                ; preds = %if.end7.i429.i.i
-  %126 = load ptr, ptr %underflow.i.i.i, align 8
-  %call.i432.i.i = tail call i32 %126(ptr noundef nonnull %tok) #8
+  %127 = load ptr, ptr %underflow.i.i.i, align 8
+  %call.i432.i.i = tail call i32 %127(ptr noundef nonnull %tok) #8
   %tobool.not.i433.i.i = icmp eq i32 %call.i432.i.i, 0
   br i1 %tobool.not.i433.i.i, label %if.then13.i442.i.i, label %if.end16.i434.i.i
 
 if.then13.i442.i.i:                               ; preds = %if.end12.i431.i.i
-  %127 = load ptr, ptr %inp.i.i.i, align 8
-  store ptr %127, ptr %cur.i.i, align 8
+  %128 = load ptr, ptr %inp.i.i.i, align 8
+  store ptr %128, ptr %cur.i.i, align 8
   br label %if.end198.i.i
 
 if.end16.i434.i.i:                                ; preds = %if.end12.i431.i.i
-  %128 = load ptr, ptr %cur.i.i, align 8
-  store ptr %128, ptr %line_start.i.i.i, align 8
-  %129 = load ptr, ptr %inp.i.i.i, align 8
-  %sub.ptr.lhs.cast.i435.i.i = ptrtoint ptr %129 to i64
-  %sub.ptr.rhs.cast.i436.i.i = ptrtoint ptr %128 to i64
+  %129 = load ptr, ptr %cur.i.i, align 8
+  store ptr %129, ptr %line_start.i.i.i, align 8
+  %130 = load ptr, ptr %inp.i.i.i, align 8
+  %sub.ptr.lhs.cast.i435.i.i = ptrtoint ptr %130 to i64
+  %sub.ptr.rhs.cast.i436.i.i = ptrtoint ptr %129 to i64
   %sub.ptr.sub.i437.i.i = sub i64 %sub.ptr.lhs.cast.i435.i.i, %sub.ptr.rhs.cast.i436.i.i
-  %call.i.i438.i.i = tail call ptr @memchr(ptr noundef readonly %128, i32 noundef 0, i64 noundef %sub.ptr.sub.i437.i.i) #7
+  %call.i.i438.i.i = tail call ptr @memchr(ptr noundef readonly %129, i32 noundef 0, i64 noundef %sub.ptr.sub.i437.i.i) #7
   %cmp.i.not.i439.i.i = icmp eq ptr %call.i.i438.i.i, null
   br i1 %cmp.i.not.i439.i.i, label %for.cond.i418.i.i, label %if.then23.i440.i.i
 
 if.then23.i440.i.i:                               ; preds = %if.end16.i434.i.i
   %call24.i441.i.i = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
-  %130 = load ptr, ptr %inp.i.i.i, align 8
-  store ptr %130, ptr %cur.i.i, align 8
+  %131 = load ptr, ptr %inp.i.i.i, align 8
+  store ptr %131, ptr %cur.i.i, align 8
   br label %if.end198.i.i
 
 tok_nextc.exit443.i.i:                            ; preds = %if.then.i420.i.i
-  %inc.i424.i.i = add nuw nsw i32 %124, 1
+  %inc.i424.i.i = add nuw nsw i32 %125, 1
   store i32 %inc.i424.i.i, ptr %col_offset.i.i, align 4
-  %incdec.ptr.i425.i.i = getelementptr i8, ptr %123, i64 1
+  %incdec.ptr.i425.i.i = getelementptr i8, ptr %124, i64 1
   store ptr %incdec.ptr.i425.i.i, ptr %cur.i.i, align 8
-  %131 = load i8, ptr %123, align 1
-  %cmp189.i.i = icmp eq i8 %131, 123
+  %132 = load i8, ptr %124, align 1
+  %cmp189.i.i = icmp eq i8 %132, 123
   br i1 %cmp189.i.i, label %if.end198.i.i, label %if.then.i445.i.i
 
 if.then.i445.i.i:                                 ; preds = %tok_nextc.exit443.i.i
-  store ptr %123, ptr %cur.i.i, align 8
-  %132 = load ptr, ptr %tok, align 8
-  %cmp1.i448.i.i = icmp ult ptr %123, %132
+  store ptr %124, ptr %cur.i.i, align 8
+  %133 = load ptr, ptr %tok, align 8
+  %cmp1.i448.i.i = icmp ult ptr %124, %133
   br i1 %cmp1.i448.i.i, label %if.then2.i455.i.i, label %if.end.i449.i.i
 
 if.then2.i455.i.i:                                ; preds = %if.then.i445.i.i
@@ -1120,8 +1122,8 @@ if.then2.i455.i.i:                                ; preds = %if.then.i445.i.i
   unreachable
 
 if.end.i449.i.i:                                  ; preds = %if.then.i445.i.i
-  %133 = load i8, ptr %123, align 1
-  %cmp6.not.i450.i.i = icmp eq i8 %133, %131
+  %134 = load i8, ptr %124, align 1
+  %cmp6.not.i450.i.i = icmp eq i8 %134, %132
   br i1 %cmp6.not.i450.i.i, label %if.end9.i452.i.i, label %if.then8.i451.i.i
 
 if.then8.i451.i.i:                                ; preds = %if.end.i449.i.i
@@ -1129,21 +1131,21 @@ if.then8.i451.i.i:                                ; preds = %if.end.i449.i.i
   unreachable
 
 if.end9.i452.i.i:                                 ; preds = %if.end.i449.i.i
-  store i32 %124, ptr %col_offset.i.i, align 4
+  store i32 %125, ptr %col_offset.i.i, align 4
   br label %if.end198.i.i
 
 if.end198.i.i:                                    ; preds = %if.else94.i.i, %if.end7.i429.i.i, %if.end7.i350.i.i, %if.end7.i383.i.i, %if.end9.i452.i.i, %tok_nextc.exit443.i.i, %if.then23.i440.i.i, %if.then13.i442.i.i, %if.then2.i428.i.i, %if.end181.i.i, %if.then23.i394.i.i, %if.then13.i396.i.i, %if.then2.i382.i.i, %if.then23.i361.i.i, %if.then13.i363.i.i, %if.then2.i349.i.i
-  %.pre.i337683.i.i = phi ptr [ %.pre.i416.i.i, %if.end181.i.i ], [ %incdec.ptr.i425.i.i, %tok_nextc.exit443.i.i ], [ %123, %if.end9.i452.i.i ], [ %101, %if.then13.i363.i.i ], [ %104, %if.then23.i361.i.i ], [ %.pre.i337684.i.i, %if.then2.i349.i.i ], [ %112, %if.then13.i396.i.i ], [ %115, %if.then23.i394.i.i ], [ %107, %if.then2.i382.i.i ], [ %127, %if.then13.i442.i.i ], [ %130, %if.then23.i440.i.i ], [ %123, %if.then2.i428.i.i ], [ %107, %if.end7.i383.i.i ], [ %.pre.i337684.i.i, %if.end7.i350.i.i ], [ %123, %if.end7.i429.i.i ], [ %71, %if.else94.i.i ]
-  %.pre.i292672.i.i = phi ptr [ %.pre.i416.i.i, %if.end181.i.i ], [ %incdec.ptr.i425.i.i, %tok_nextc.exit443.i.i ], [ %123, %if.end9.i452.i.i ], [ %101, %if.then13.i363.i.i ], [ %104, %if.then23.i361.i.i ], [ %.pre.i337684.i.i, %if.then2.i349.i.i ], [ %112, %if.then13.i396.i.i ], [ %115, %if.then23.i394.i.i ], [ %107, %if.then2.i382.i.i ], [ %127, %if.then13.i442.i.i ], [ %130, %if.then23.i440.i.i ], [ %123, %if.then2.i428.i.i ], [ %107, %if.end7.i383.i.i ], [ %.pre.i337684.i.i, %if.end7.i350.i.i ], [ %123, %if.end7.i429.i.i ], [ %.pre.i292673.i.i, %if.else94.i.i ]
+  %.pre.i337683.i.i = phi ptr [ %.pre.i416.i.i, %if.end181.i.i ], [ %incdec.ptr.i425.i.i, %tok_nextc.exit443.i.i ], [ %124, %if.end9.i452.i.i ], [ %102, %if.then13.i363.i.i ], [ %105, %if.then23.i361.i.i ], [ %.pre.i337684.i.i, %if.then2.i349.i.i ], [ %113, %if.then13.i396.i.i ], [ %116, %if.then23.i394.i.i ], [ %108, %if.then2.i382.i.i ], [ %128, %if.then13.i442.i.i ], [ %131, %if.then23.i440.i.i ], [ %124, %if.then2.i428.i.i ], [ %108, %if.end7.i383.i.i ], [ %.pre.i337684.i.i, %if.end7.i350.i.i ], [ %124, %if.end7.i429.i.i ], [ %71, %if.else94.i.i ]
+  %.pre.i292672.i.i = phi ptr [ %.pre.i416.i.i, %if.end181.i.i ], [ %incdec.ptr.i425.i.i, %tok_nextc.exit443.i.i ], [ %124, %if.end9.i452.i.i ], [ %102, %if.then13.i363.i.i ], [ %105, %if.then23.i361.i.i ], [ %.pre.i337684.i.i, %if.then2.i349.i.i ], [ %113, %if.then13.i396.i.i ], [ %116, %if.then23.i394.i.i ], [ %108, %if.then2.i382.i.i ], [ %128, %if.then13.i442.i.i ], [ %131, %if.then23.i440.i.i ], [ %124, %if.then2.i428.i.i ], [ %108, %if.end7.i383.i.i ], [ %.pre.i337684.i.i, %if.end7.i350.i.i ], [ %124, %if.end7.i429.i.i ], [ %.pre.i292673.i.i, %if.else94.i.i ]
   %unicode_escape.1.i.i = phi i32 [ %unicode_escape.0.ph577.i.i, %if.end181.i.i ], [ 1, %tok_nextc.exit443.i.i ], [ %unicode_escape.0.ph577.i.i, %if.end9.i452.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then13.i363.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then23.i361.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then2.i349.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then13.i396.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then23.i394.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then2.i382.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then13.i442.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then23.i440.i.i ], [ %unicode_escape.0.ph577.i.i, %if.then2.i428.i.i ], [ %unicode_escape.0.ph577.i.i, %if.end7.i383.i.i ], [ %unicode_escape.0.ph577.i.i, %if.end7.i350.i.i ], [ %unicode_escape.0.ph577.i.i, %if.end7.i429.i.i ], [ %unicode_escape.0.ph577.i.i, %if.else94.i.i ]
-  %134 = load i32, ptr %f_string_quote_size.i.i, align 8
-  %cmp30.not574.i.i = icmp eq i32 %134, 0
+  %135 = load i32, ptr %f_string_quote_size.i.i, align 8
+  %cmp30.not574.i.i = icmp eq i32 %135, 0
   br i1 %cmp30.not574.i.i, label %for.end209.i.i, label %while.body.lr.ph.i.i, !llvm.loop !7
 
 if.then.i458.i.i:                                 ; preds = %tok_backup.exit469.i.i, %for.body204.i.preheader.i
-  %135 = phi ptr [ %.pre.i337685.i.i, %for.body204.i.preheader.i ], [ %incdec.ptr.i460.i.i, %tok_backup.exit469.i.i ]
+  %136 = phi ptr [ %.pre.i337685.i.i, %for.body204.i.preheader.i ], [ %incdec.ptr.i460.i.i, %tok_backup.exit469.i.i ]
   %i199.0579.i.i = phi i32 [ 0, %for.body204.i.preheader.i ], [ %inc208.i.i, %tok_backup.exit469.i.i ]
-  %incdec.ptr.i460.i.i = getelementptr i8, ptr %135, i64 -1
+  %incdec.ptr.i460.i.i = getelementptr i8, ptr %136, i64 -1
   store ptr %incdec.ptr.i460.i.i, ptr %cur.i.i, align 8
   %cmp1.i461.i.i = icmp ult ptr %incdec.ptr.i460.i.i, %60
   br i1 %cmp1.i461.i.i, label %if.then2.i468.i.i, label %if.end.i462.i.i
@@ -1153,8 +1155,8 @@ if.then2.i468.i.i:                                ; preds = %if.then.i458.i.i
   unreachable
 
 if.end.i462.i.i:                                  ; preds = %if.then.i458.i.i
-  %136 = load i8, ptr %incdec.ptr.i460.i.i, align 1
-  %cmp6.not.i463.i.i = icmp eq i8 %136, %58
+  %137 = load i8, ptr %incdec.ptr.i460.i.i, align 1
+  %cmp6.not.i463.i.i = icmp eq i8 %137, %58
   br i1 %cmp6.not.i463.i.i, label %tok_backup.exit469.i.i, label %if.then8.i464.i.i
 
 if.then8.i464.i.i:                                ; preds = %if.end.i462.i.i
@@ -1162,24 +1164,24 @@ if.then8.i464.i.i:                                ; preds = %if.end.i462.i.i
   unreachable
 
 tok_backup.exit469.i.i:                           ; preds = %if.end.i462.i.i
-  %137 = load i32, ptr %col_offset.i.i, align 4
-  %dec.i467.i.i = add i32 %137, -1
+  %138 = load i32, ptr %col_offset.i.i, align 4
+  %dec.i467.i.i = add i32 %138, -1
   store i32 %dec.i467.i.i, ptr %col_offset.i.i, align 4
   %inc208.i.i = add nuw nsw i32 %i199.0579.i.i, 1
   %exitcond.not = icmp eq i32 %inc208.i.i, %.pre694.i.i
   br i1 %exitcond.not, label %for.end209.i.i, label %if.then.i458.i.i, !llvm.loop !8
 
 for.end209.i.i:                                   ; preds = %if.end198.i.i, %tok_backup.exit469.i.i, %for.body204.lr.ph.i.i, %for.cond200.preheader.i.i, %tok_backup.exit286.i.i
-  %138 = phi ptr [ %.pre.i337685.i.i, %for.cond200.preheader.i.i ], [ %.pre.i337685.i.i, %for.body204.lr.ph.i.i ], [ %.pre.i292680.i.i, %tok_backup.exit286.i.i ], [ %incdec.ptr.i460.i.i, %tok_backup.exit469.i.i ], [ %.pre.i337683.i.i, %if.end198.i.i ]
-  %139 = load ptr, ptr %start.i.i, align 8
-  %call212.i.i = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 60, ptr noundef %139, ptr noundef %138) #8
+  %139 = phi ptr [ %.pre.i337685.i.i, %for.cond200.preheader.i.i ], [ %.pre.i337685.i.i, %for.body204.lr.ph.i.i ], [ %.pre.i292680.i.i, %tok_backup.exit286.i.i ], [ %incdec.ptr.i460.i.i, %tok_backup.exit469.i.i ], [ %.pre.i337683.i.i, %if.end198.i.i ]
+  %140 = load ptr, ptr %start.i.i, align 8
+  %call212.i.i = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 60, ptr noundef %140, ptr noundef %139) #8
   br label %tok_get.exit
 
 tok_get.exit:                                     ; preds = %if.then.i, %if.then6.i.i, %if.end.i.i, %if.end24.i.i, %if.then35.i.i, %if.then52.i.i, %tok_backup.exit331.i.i, %if.then82.i.i, %if.else85.i.i, %if.then110.i.i, %if.end124.i.i, %if.then131.i.i, %if.end154.i.i, %if.then177.i.i, %for.end209.i.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %call8.i.i, %if.then6.i.i ], [ %call9.i.i, %if.end.i.i ], [ %call36.i.i, %if.then35.i.i ], [ %call53.i.i, %if.then52.i.i ], [ %call67.i.i, %tok_backup.exit331.i.i ], [ %call84.i.i, %if.then82.i.i ], [ %call87.i.i, %if.else85.i.i ], [ %call112.i.i, %if.then110.i.i ], [ %call125.i.i, %if.end124.i.i ], [ %call134.i.i, %if.then131.i.i ], [ %call155.i.i, %if.end154.i.i ], [ %call178.i.i, %if.then177.i.i ], [ %call212.i.i, %for.end209.i.i ], [ %call28.i.i, %if.end24.i.i ]
   %decoding_erred = getelementptr inbounds i8, ptr %tok, i64 2748
-  %140 = load i32, ptr %decoding_erred, align 4
-  %tobool.not = icmp eq i32 %140, 0
+  %141 = load i32, ptr %decoding_erred, align 4
+  %tobool.not = icmp eq i32 %141, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %tok_get.exit

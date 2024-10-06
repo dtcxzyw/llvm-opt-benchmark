@@ -1800,8 +1800,8 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %24, ptr %25, align 8
   %26 = load i32, ptr %23, align 8
   %27 = zext i32 %26 to i64
-  %sext285 = shl i64 %27, 48
-  %28 = ashr exact i64 %sext285, 48
+  %sext286 = shl i64 %27, 48
+  %28 = ashr exact i64 %sext286, 48
   %29 = tail call ptr @palloc0(i64 noundef %28) #11
   %30 = getelementptr inbounds i8, ptr %15, i64 200
   store ptr %29, ptr %30, align 8
@@ -1831,9 +1831,9 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %42 = getelementptr inbounds i8, ptr %40, i64 16
   %43 = load i32, ptr %41, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph310, label %.thread
+  br i1 %44, label %.lr.ph312, label %.thread
 
-.lr.ph310:                                        ; preds = %.lr.ph, %57
+.lr.ph312:                                        ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %42, align 8
   %46 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv
@@ -1844,17 +1844,18 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %51 = tail call zeroext i1 @list_member_int(ptr noundef %50, i32 noundef %47) #11
   br i1 %51, label %57, label %.split
 
-.split:                                           ; preds = %.lr.ph310
-  %52 = getelementptr inbounds i8, ptr %23, i64 24
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode(i32 noundef 393348) #11
-  %55 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %52, i64 0, i64 %49, i32 1
+.split:                                           ; preds = %.lr.ph312
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %52)
+  %53 = tail call i32 @errcode(i32 noundef 393348) #11
+  %.idx = mul nsw i64 %49, 104
+  %54 = getelementptr i8, ptr %23, i64 28
+  %55 = getelementptr i8, ptr %54, i64 %.idx
   %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %55) #11
   tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 1453, ptr noundef nonnull @__func__.BeginCopyFrom) #11
   unreachable
 
-57:                                               ; preds = %.lr.ph310
+57:                                               ; preds = %.lr.ph312
   %58 = load ptr, ptr %30, align 8
   %59 = getelementptr i8, ptr %58, i64 %49
   store i8 1, ptr %59, align 1
@@ -1862,7 +1863,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %60 = load i32, ptr %41, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph310, label %.thread
+  br i1 %62, label %.lr.ph312, label %.thread
 
 .thread:                                          ; preds = %57, %38, %.lr.ph, %35, %34
   %63 = getelementptr inbounds i8, ptr %15, i64 236
@@ -1904,65 +1905,66 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 83:                                               ; preds = %77
   tail call void @llvm.memset.p0.i64(ptr align 1 %78, i8 1, i64 %28, i1 false)
-  br label %.thread298
+  br label %.thread300
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds i8, ptr %15, i64 208
   %86 = load ptr, ptr %85, align 8
   %.not278 = icmp eq ptr %86, null
-  br i1 %.not278, label %.thread298, label %87
+  br i1 %.not278, label %.thread300, label %87
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %21, align 8
   %89 = tail call ptr @CopyGetAttnums(ptr noundef nonnull %23, ptr noundef %88, ptr noundef nonnull %86) #11
   %.not279 = icmp eq ptr %89, null
-  br i1 %.not279, label %.thread298, label %.lr.ph312
+  br i1 %.not279, label %.thread300, label %.lr.ph314
 
-.lr.ph312:                                        ; preds = %87
+.lr.ph314:                                        ; preds = %87
   %90 = getelementptr inbounds i8, ptr %89, i64 4
   %91 = getelementptr inbounds i8, ptr %89, i64 16
   %92 = load i32, ptr %90, align 4
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph318, label %.thread298
+  br i1 %93, label %.lr.ph320, label %.thread300
 
-.lr.ph318:                                        ; preds = %.lr.ph312, %106
-  %indvars.iv339 = phi i64 [ %indvars.iv.next340, %106 ], [ 0, %.lr.ph312 ]
+.lr.ph320:                                        ; preds = %.lr.ph314, %106
+  %indvars.iv341 = phi i64 [ %indvars.iv.next342, %106 ], [ 0, %.lr.ph314 ]
   %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr %union.ListCell, ptr %94, i64 %indvars.iv339
+  %95 = getelementptr %union.ListCell, ptr %94, i64 %indvars.iv341
   %96 = load i32, ptr %95, align 8
   %97 = add i32 %96, -1
   %98 = sext i32 %97 to i64
   %99 = load ptr, ptr %25, align 8
   %100 = tail call zeroext i1 @list_member_int(ptr noundef %99, i32 noundef %96) #11
-  br i1 %100, label %106, label %.split315
+  br i1 %100, label %106, label %.split317
 
-.split315:                                        ; preds = %.lr.ph318
-  %101 = getelementptr inbounds i8, ptr %23, i64 24
-  %102 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %102)
-  %103 = tail call i32 @errcode(i32 noundef 393348) #11
-  %104 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %101, i64 0, i64 %98, i32 1
+.split317:                                        ; preds = %.lr.ph320
+  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %101)
+  %102 = tail call i32 @errcode(i32 noundef 393348) #11
+  %.idx281 = mul nsw i64 %98, 104
+  %103 = getelementptr i8, ptr %23, i64 28
+  %104 = getelementptr i8, ptr %103, i64 %.idx281
   %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %104) #11
   tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 1495, ptr noundef nonnull @__func__.BeginCopyFrom) #11
   unreachable
 
-106:                                              ; preds = %.lr.ph318
+106:                                              ; preds = %.lr.ph320
   %107 = load ptr, ptr %79, align 8
   %108 = getelementptr i8, ptr %107, i64 %98
   store i8 1, ptr %108, align 1
-  %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
+  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %109 = load i32, ptr %90, align 4
   %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next340, %110
-  br i1 %111, label %.lr.ph318, label %.thread298
+  %111 = icmp slt i64 %indvars.iv.next342, %110
+  br i1 %111, label %.lr.ph320, label %.thread300
 
-.thread298:                                       ; preds = %106, %87, %.lr.ph312, %84, %83
+.thread300:                                       ; preds = %106, %87, %.lr.ph314, %84, %83
   %112 = getelementptr inbounds i8, ptr %15, i64 232
   %113 = load i8, ptr %112, align 8
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %115, label %.thread302
+  br i1 %114, label %115, label %.thread304
 
-115:                                              ; preds = %.thread298
+115:                                              ; preds = %.thread300
   %116 = tail call ptr @palloc0(i64 noundef %28) #11
   %117 = getelementptr inbounds i8, ptr %15, i64 248
   store ptr %116, ptr %117, align 8
@@ -1970,58 +1972,59 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %119 = getelementptr inbounds i8, ptr %15, i64 240
   %120 = load ptr, ptr %119, align 8
   %121 = tail call ptr @CopyGetAttnums(ptr noundef nonnull %23, ptr noundef %118, ptr noundef %120) #11
-  %.not281 = icmp eq ptr %121, null
-  br i1 %.not281, label %.thread302, label %.lr.ph320
+  %.not282 = icmp eq ptr %121, null
+  br i1 %.not282, label %.thread304, label %.lr.ph322
 
-.lr.ph320:                                        ; preds = %115
+.lr.ph322:                                        ; preds = %115
   %122 = getelementptr inbounds i8, ptr %121, i64 4
   %123 = getelementptr inbounds i8, ptr %121, i64 16
   %124 = load i32, ptr %122, align 4
   %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph326, label %.thread302
+  br i1 %125, label %.lr.ph328, label %.thread304
 
-.lr.ph326:                                        ; preds = %.lr.ph320, %138
-  %indvars.iv342 = phi i64 [ %indvars.iv.next343, %138 ], [ 0, %.lr.ph320 ]
+.lr.ph328:                                        ; preds = %.lr.ph322, %138
+  %indvars.iv344 = phi i64 [ %indvars.iv.next345, %138 ], [ 0, %.lr.ph322 ]
   %126 = load ptr, ptr %123, align 8
-  %127 = getelementptr %union.ListCell, ptr %126, i64 %indvars.iv342
+  %127 = getelementptr %union.ListCell, ptr %126, i64 %indvars.iv344
   %128 = load i32, ptr %127, align 8
   %129 = add i32 %128, -1
   %130 = sext i32 %129 to i64
   %131 = load ptr, ptr %25, align 8
   %132 = tail call zeroext i1 @list_member_int(ptr noundef %131, i32 noundef %128) #11
-  br i1 %132, label %138, label %.split323
+  br i1 %132, label %138, label %.split325
 
-.split323:                                        ; preds = %.lr.ph326
-  %133 = getelementptr inbounds i8, ptr %23, i64 24
-  %134 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %134)
-  %135 = tail call i32 @errcode(i32 noundef 393348) #11
-  %136 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %133, i64 0, i64 %130, i32 1
+.split325:                                        ; preds = %.lr.ph328
+  %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %133)
+  %134 = tail call i32 @errcode(i32 noundef 393348) #11
+  %.idx296 = mul nsw i64 %130, 104
+  %135 = getelementptr i8, ptr %23, i64 28
+  %136 = getelementptr i8, ptr %135, i64 %.idx296
   %137 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %136) #11
   tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 1519, ptr noundef nonnull @__func__.BeginCopyFrom) #11
   unreachable
 
-138:                                              ; preds = %.lr.ph326
+138:                                              ; preds = %.lr.ph328
   %139 = load ptr, ptr %117, align 8
   %140 = getelementptr i8, ptr %139, i64 %130
   store i8 1, ptr %140, align 1
-  %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
+  %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %141 = load i32, ptr %122, align 4
   %142 = sext i32 %141 to i64
-  %143 = icmp slt i64 %indvars.iv.next343, %142
-  br i1 %143, label %.lr.ph326, label %.thread302
+  %143 = icmp slt i64 %indvars.iv.next345, %142
+  br i1 %143, label %.lr.ph328, label %.thread304
 
-.thread302:                                       ; preds = %138, %115, %.lr.ph320, %.thread298
+.thread304:                                       ; preds = %138, %115, %.lr.ph322, %.thread300
   %144 = load i32, ptr %20, align 8
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %148
 
-146:                                              ; preds = %.thread302
+146:                                              ; preds = %.thread304
   %147 = tail call i32 @pg_get_client_encoding() #11
   br label %148
 
-148:                                              ; preds = %.thread302, %146
-  %.sink = phi i32 [ %147, %146 ], [ %144, %.thread302 ]
+148:                                              ; preds = %.thread304, %146
+  %.sink = phi i32 [ %147, %146 ], [ %144, %.thread304 ]
   %149 = getelementptr inbounds i8, ptr %15, i64 28
   store i32 %.sink, ptr %149, align 4
   %150 = tail call i32 @GetDatabaseEncoding() #11
@@ -2051,8 +2054,8 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %164 = tail call i32 @FindDefaultConversionProc(i32 noundef %162, i32 noundef %163) #11
   %165 = getelementptr inbounds i8, ptr %15, i64 36
   store i32 %164, ptr %165, align 4
-  %.not283 = icmp eq i32 %164, 0
-  br i1 %.not283, label %166, label %174
+  %.not284 = icmp eq i32 %164, 0
+  br i1 %.not284, label %166, label %174
 
 166:                                              ; preds = %160
   %167 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2105,9 +2108,9 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %197
 
 197:                                              ; preds = %189, %193
-  %.sink347 = phi ptr [ %194, %193 ], [ %183, %189 ]
+  %.sink349 = phi ptr [ %194, %193 ], [ %183, %189 ]
   %198 = getelementptr inbounds i8, ptr %15, i64 488
-  store ptr %.sink347, ptr %198, align 8
+  store ptr %.sink349, ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %15, i64 504
   store i8 0, ptr %199, align 8
   %200 = getelementptr inbounds i8, ptr %15, i64 456
@@ -2117,8 +2120,8 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 201:                                              ; preds = %197, %174
   %202 = getelementptr inbounds i8, ptr %15, i64 416
   tail call void @initStringInfo(ptr noundef nonnull %202) #11
-  %.not284 = icmp eq ptr %0, null
-  br i1 %.not284, label %210, label %203
+  %.not285 = icmp eq ptr %0, null
+  br i1 %.not285, label %210, label %203
 
 203:                                              ; preds = %201
   %204 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2134,28 +2137,28 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 210:                                              ; preds = %203, %201
   %211 = mul nsw i64 %28, 48
   %212 = tail call ptr @palloc(i64 noundef %211) #11
-  %213 = ashr exact i64 %sext285, 46
+  %213 = ashr exact i64 %sext286, 46
   %214 = tail call ptr @palloc(i64 noundef %213) #11
   %215 = tail call ptr @palloc(i64 noundef %213) #11
-  %216 = ashr exact i64 %sext285, 45
+  %216 = ashr exact i64 %sext286, 45
   %217 = tail call ptr @palloc(i64 noundef %216) #11
   %sext = shl i32 %26, 16
   %218 = ashr exact i32 %sext, 16
-  %.not286327 = icmp slt i32 %218, 1
-  br i1 %.not286327, label %._crit_edge, label %.lr.ph331
+  %.not287329 = icmp slt i32 %218, 1
+  br i1 %.not287329, label %._crit_edge, label %.lr.ph333
 
-.lr.ph331:                                        ; preds = %210
+.lr.ph333:                                        ; preds = %210
   %219 = getelementptr inbounds i8, ptr %23, i64 24
   %220 = getelementptr inbounds i8, ptr %15, i64 120
   %221 = add nuw nsw i32 %218, 1
   %wide.trip.count = zext nneg i32 %221 to i64
   br label %222
 
-222:                                              ; preds = %.lr.ph331, %267
-  %indvars.iv345 = phi i64 [ 1, %.lr.ph331 ], [ %indvars.iv.next346, %267 ]
-  %.0330 = phi i16 [ 0, %.lr.ph331 ], [ %.1, %267 ]
-  %.0255329 = phi i8 [ 0, %.lr.ph331 ], [ %.1256, %267 ]
-  %223 = add nsw i64 %indvars.iv345, -1
+222:                                              ; preds = %.lr.ph333, %267
+  %indvars.iv347 = phi i64 [ 1, %.lr.ph333 ], [ %indvars.iv.next348, %267 ]
+  %.0332 = phi i16 [ 0, %.lr.ph333 ], [ %.1, %267 ]
+  %.0255331 = phi i8 [ 0, %.lr.ph333 ], [ %.1256, %267 ]
+  %223 = add nsw i64 %indvars.iv347, -1
   %224 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %219, i64 0, i64 %223
   %225 = getelementptr inbounds i8, ptr %224, i64 95
   %226 = load i8, ptr %225, align 1
@@ -2185,27 +2188,27 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %239 = getelementptr ptr, ptr %217, i64 %223
   store ptr null, ptr %239, align 8
   %240 = load ptr, ptr %220, align 8
-  %.not292 = icmp eq ptr %240, null
-  br i1 %.not292, label %241, label %245
+  %.not293 = icmp eq ptr %240, null
+  br i1 %.not293, label %241, label %245
 
 241:                                              ; preds = %236
   %242 = load ptr, ptr %25, align 8
-  %243 = trunc nuw nsw i64 %indvars.iv345 to i32
+  %243 = trunc nuw nsw i64 %indvars.iv347 to i32
   %244 = call zeroext i1 @list_member_int(ptr noundef %242, i32 noundef %243) #11
   br i1 %244, label %267, label %245
 
 245:                                              ; preds = %241, %236
   %246 = getelementptr inbounds i8, ptr %224, i64 94
   %247 = load i8, ptr %246, align 2
-  %.not293 = icmp eq i8 %247, 0
-  br i1 %.not293, label %248, label %267
+  %.not294 = icmp eq i8 %247, 0
+  br i1 %.not294, label %248, label %267
 
 248:                                              ; preds = %245
   %249 = load ptr, ptr %21, align 8
-  %250 = trunc nuw nsw i64 %indvars.iv345 to i32
+  %250 = trunc nuw nsw i64 %indvars.iv347 to i32
   %251 = call ptr @build_column_default(ptr noundef %249, i32 noundef %250) #11
-  %.not294 = icmp eq ptr %251, null
-  br i1 %.not294, label %267, label %252
+  %.not295 = icmp eq ptr %251, null
+  br i1 %.not295, label %267, label %252
 
 252:                                              ; preds = %248
   %253 = call ptr @expression_planner(ptr noundef nonnull %251) #11
@@ -2216,16 +2219,16 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %256, label %262, label %257
 
 257:                                              ; preds = %252
-  %258 = sext i16 %.0330 to i64
+  %258 = sext i16 %.0332 to i64
   %259 = getelementptr i32, ptr %215, i64 %258
   %260 = trunc nuw nsw i64 %223 to i32
   store i32 %260, ptr %259, align 4
-  %261 = add i16 %.0330, 1
+  %261 = add i16 %.0332, 1
   br label %262
 
 262:                                              ; preds = %257, %252
-  %.2 = phi i16 [ %.0330, %252 ], [ %261, %257 ]
-  %263 = trunc nuw i8 %.0255329 to i1
+  %.2 = phi i16 [ %.0332, %252 ], [ %261, %257 ]
+  %263 = trunc nuw i8 %.0255331 to i1
   br i1 %263, label %267, label %264
 
 264:                                              ; preds = %262
@@ -2234,10 +2237,10 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 267:                                              ; preds = %241, %245, %262, %264, %248, %222
-  %.1256 = phi i8 [ %.0255329, %222 ], [ %.0255329, %245 ], [ %.0255329, %262 ], [ %266, %264 ], [ %.0255329, %248 ], [ %.0255329, %241 ]
-  %.1 = phi i16 [ %.0330, %222 ], [ %.0330, %245 ], [ %.2, %262 ], [ %.2, %264 ], [ %.0330, %248 ], [ %.0330, %241 ]
-  %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count
+  %.1256 = phi i8 [ %.0255331, %222 ], [ %.0255331, %245 ], [ %.0255331, %262 ], [ %266, %264 ], [ %.0255331, %248 ], [ %.0255331, %241 ]
+  %.1 = phi i16 [ %.0332, %222 ], [ %.0332, %245 ], [ %.2, %262 ], [ %.2, %264 ], [ %.0332, %248 ], [ %.0332, %241 ]
+  %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %222, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %267
@@ -2253,8 +2256,8 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %272 = getelementptr inbounds i8, ptr %15, i64 368
   store ptr %271, ptr %272, align 8
   %273 = load ptr, ptr %21, align 8
-  %.not287 = icmp eq ptr %273, null
-  br i1 %.not287, label %277, label %274
+  %.not288 = icmp eq ptr %273, null
+  br i1 %.not288, label %277, label %274
 
 274:                                              ; preds = %._crit_edge
   %275 = getelementptr inbounds i8, ptr %273, i64 72
@@ -2280,8 +2283,8 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i16 %.0.lcssa, ptr %285, align 8
   %286 = getelementptr inbounds i8, ptr %15, i64 64
   store i8 %13, ptr %286, align 8
-  %.not288 = icmp eq ptr %5, null
-  br i1 %.not288, label %290, label %287
+  %.not289 = icmp eq ptr %5, null
+  br i1 %.not289, label %290, label %287
 
 287:                                              ; preds = %277
   %288 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2368,8 +2371,8 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 327:                                              ; preds = %314
   %328 = call i32 @fileno(ptr noundef nonnull %315) #11
   %329 = call i32 @fstat(i32 noundef %328, ptr noundef nonnull %12) #11
-  %.not289 = icmp eq i32 %329, 0
-  br i1 %.not289, label %335, label %330
+  %.not290 = icmp eq i32 %329, 0
+  br i1 %.not290, label %335, label %330
 
 330:                                              ; preds = %327
   %331 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2432,12 +2435,12 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 list_length.exit:                                 ; preds = %356, %358
   %361 = phi i32 [ %360, %358 ], [ 0, %356 ]
   %362 = zext i32 %361 to i64
-  %sext290 = shl i32 %361, 16
-  %363 = ashr exact i32 %sext290, 16
+  %sext291 = shl i32 %361, 16
+  %363 = ashr exact i32 %sext291, 16
   %364 = getelementptr inbounds i8, ptr %15, i64 440
   store i32 %363, ptr %364, align 8
-  %sext291 = shl i64 %362, 48
-  %365 = ashr exact i64 %sext291, 45
+  %sext292 = shl i64 %362, 48
+  %365 = ashr exact i64 %sext292, 45
   %366 = call ptr @palloc(i64 noundef %365) #11
   %367 = getelementptr inbounds i8, ptr %15, i64 448
   store ptr %366, ptr %367, align 8

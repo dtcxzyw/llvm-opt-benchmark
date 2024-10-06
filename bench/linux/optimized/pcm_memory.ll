@@ -17,7 +17,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_pcm_lib_
 %struct.kernel_param_ops = type { i32, ptr, ptr, ptr }
 %struct.kernel_param = type { ptr, ptr, ptr, i16, i8, i8, %union.anon }
 %union.anon = type { ptr }
-%struct.snd_pcm_str = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr }
 %struct.snd_dma_buffer = type { %struct.snd_dma_device, ptr, i64, i64, ptr }
 %struct.snd_dma_device = type { i32, i32, i8, ptr }
 
@@ -135,63 +134,63 @@ define internal fastcc void @do_free_pages(ptr noundef %0, ptr noundef %1) unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_pcm_lib_preallocate_free_for_all(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr i8, ptr %0, i64 208
   br label %3
 
 3:                                                ; preds = %.loopexit, %1
   %4 = phi i1 [ true, %1 ], [ false, %.loopexit ]
-  %5 = phi i64 [ 0, %1 ], [ 1, %.loopexit ]
-  %6 = getelementptr [2 x %struct.snd_pcm_str], ptr %2, i64 0, i64 %5, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader
+  %.idx = phi i64 [ 0, %1 ], [ 56, %.loopexit ]
+  %5 = getelementptr i8, ptr %2, i64 %.idx
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3, %27
-  %9 = phi ptr [ %29, %27 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
-  %11 = getelementptr inbounds i8, ptr %9, i64 144
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %27, label %14
+.preheader:                                       ; preds = %3, %26
+  %8 = phi ptr [ %28, %26 ], [ %6, %3 ]
+  %9 = getelementptr inbounds i8, ptr %8, i64 120
+  %10 = getelementptr inbounds i8, ptr %8, i64 144
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %26, label %13
 
-14:                                               ; preds = %.preheader
-  %15 = load ptr, ptr %9, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 160
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 1448
-  tail call void @mutex_lock(ptr noundef %19) #8
-  %20 = getelementptr inbounds i8, ptr %16, i64 1440
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp ult i64 %21, %18
-  br i1 %22, label %23, label %24, !prof !5
+13:                                               ; preds = %.preheader
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 160
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 1448
+  tail call void @mutex_lock(ptr noundef %18) #8
+  %19 = getelementptr inbounds i8, ptr %15, i64 1440
+  %20 = load i64, ptr %19, align 8
+  %21 = icmp ult i64 %20, %17
+  br i1 %21, label %22, label %23, !prof !5
 
-23:                                               ; preds = %14
+22:                                               ; preds = %13
   tail call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #8, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 49, i32 2305, i64 12) #8, !srcloc !7
   tail call void asm sideeffect "350: nop\0A\09.pushsection .discard.instr_end\0A\09.long 350b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 350) #8, !srcloc !8
-  %.pre = load i64, ptr %20, align 8
-  br label %24
+  %.pre = load i64, ptr %19, align 8
+  br label %23
 
-24:                                               ; preds = %23, %14
-  %25 = phi i64 [ %.pre, %23 ], [ %21, %14 ]
-  %26 = sub i64 %25, %18
-  store i64 %26, ptr %20, align 8
-  tail call void @mutex_unlock(ptr noundef %19) #8
-  tail call void @snd_dma_free_pages(ptr noundef %10) #8
-  store ptr null, ptr %11, align 8
-  br label %27
+23:                                               ; preds = %22, %13
+  %24 = phi i64 [ %.pre, %22 ], [ %20, %13 ]
+  %25 = sub i64 %24, %17
+  store i64 %25, ptr %19, align 8
+  tail call void @mutex_unlock(ptr noundef %18) #8
+  tail call void @snd_dma_free_pages(ptr noundef %9) #8
+  store ptr null, ptr %10, align 8
+  br label %26
 
-27:                                               ; preds = %24, %.preheader
-  %28 = getelementptr inbounds i8, ptr %9, i64 224
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !9
+26:                                               ; preds = %23, %.preheader
+  %27 = getelementptr inbounds i8, ptr %8, i64 224
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %27, %3
-  br i1 %4, label %3, label %31, !llvm.loop !12
+.loopexit:                                        ; preds = %26, %3
+  br i1 %4, label %3, label %30, !llvm.loop !12
 
-31:                                               ; preds = %.loopexit
+30:                                               ; preds = %.loopexit
   ret void
 }
 
@@ -378,30 +377,30 @@ define internal fastcc range(i32 -2147483648, 1) i32 @preallocate_pages(ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_pcm_lib_preallocate_pages_for_all(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr i8, ptr %0, i64 208
   br label %7
 
 7:                                                ; preds = %.loopexit2, %5
   %8 = phi i1 [ true, %5 ], [ false, %.loopexit2 ]
-  %9 = phi i64 [ 0, %5 ], [ 1, %.loopexit2 ]
-  %10 = getelementptr [2 x %struct.snd_pcm_str], ptr %6, i64 0, i64 %9, i32 4
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit2, label %.preheader
+  %.idx = phi i64 [ 0, %5 ], [ 56, %.loopexit2 ]
+  %9 = getelementptr i8, ptr %6, i64 %.idx
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.loopexit2, label %.preheader
 
-13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %17, i64 224
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit2, label %.preheader, !llvm.loop !15
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds i8, ptr %16, i64 224
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.loopexit2, label %.preheader, !llvm.loop !15
 
-.preheader:                                       ; preds = %7, %13
-  %17 = phi ptr [ %15, %13 ], [ %11, %7 ]
-  %18 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !13
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.loopexit, label %13
+.preheader:                                       ; preds = %7, %12
+  %16 = phi ptr [ %14, %12 ], [ %10, %7 ]
+  %17 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !13
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %.loopexit, label %12
 
-.loopexit2:                                       ; preds = %13, %7
+.loopexit2:                                       ; preds = %12, %7
   br i1 %8, label %7, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.loopexit2, %.preheader
@@ -416,35 +415,35 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_set_managed_buffer(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_set_managed_buffer_all(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr i8, ptr %0, i64 208
   br label %7
 
 7:                                                ; preds = %.loopexit3, %5
   %8 = phi i1 [ true, %5 ], [ false, %.loopexit3 ]
-  %9 = phi i64 [ 0, %5 ], [ 1, %.loopexit3 ]
-  %10 = getelementptr [2 x %struct.snd_pcm_str], ptr %6, i64 0, i64 %9, i32 4
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit3, label %.preheader
+  %.idx = phi i64 [ 0, %5 ], [ 56, %.loopexit3 ]
+  %9 = getelementptr i8, ptr %6, i64 %.idx
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.loopexit3, label %.preheader
 
-13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %17, i64 224
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit3, label %.preheader, !llvm.loop !15
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds i8, ptr %16, i64 224
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.loopexit3, label %.preheader, !llvm.loop !15
 
-.preheader:                                       ; preds = %7, %13
-  %17 = phi ptr [ %15, %13 ], [ %11, %7 ]
-  %18 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !13
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.loopexit, label %13
+.preheader:                                       ; preds = %7, %12
+  %16 = phi ptr [ %14, %12 ], [ %10, %7 ]
+  %17 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !13
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %.loopexit, label %12
 
-.loopexit3:                                       ; preds = %13, %7
+.loopexit3:                                       ; preds = %12, %7
   br i1 %8, label %7, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.loopexit3, %.preheader
-  %20 = phi i32 [ %18, %.preheader ], [ 0, %.loopexit3 ]
-  ret i32 %20
+  %19 = phi i32 [ %17, %.preheader ], [ 0, %.loopexit3 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

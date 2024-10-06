@@ -47,8 +47,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.nf_nat_hooks_net = type { ptr, i32 }
 %struct.nf_hook_ops = type { ptr, ptr, ptr, i8, i8, i32, i32 }
 %struct.nf_nat_proto_clean = type { i8, i8 }
-%struct.nf_conntrack_tuple_hash = type { %struct.hlist_nulls_node, %struct.nf_conntrack_tuple }
-%struct.hlist_nulls_node = type { ptr, ptr }
 
 @__UNIQUE_ID___addressable_nf_ct_nat_ext_add875 = internal global ptr @nf_ct_nat_ext_add, section ".discard.addressable", align 8
 @.str = private unnamed_addr constant [28 x i8] c"net/netfilter/nf_nat_core.c\00", align 1
@@ -2326,7 +2324,7 @@ define internal void @__nf_nat_decode_session(ptr nocapture noundef readonly %0,
   %5 = and i64 %4, -8
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq i64 %5, 0
-  br i1 %7, label %75, label %8
+  br i1 %7, label %73, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %6, i64 50
@@ -2335,125 +2333,125 @@ define internal void @__nf_nat_decode_session(ptr nocapture noundef readonly %0,
   %12 = icmp ugt i64 %11, 2
   %13 = select i1 %12, i64 16, i64 32
   %14 = trunc i16 %10 to i8
-  switch i8 %14, label %75 [
+  switch i8 %14, label %73 [
     i8 2, label %15
-    i8 10, label %43
+    i8 10, label %42
   ]
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
-  %17 = zext i1 %12 to i64
-  %18 = getelementptr [2 x %struct.nf_conntrack_tuple_hash], ptr %16, i64 0, i64 %17, i32 1
-  %19 = getelementptr inbounds i8, ptr %6, i64 128
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, %13
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %33, label %23
+  %.offs1 = select i1 %12, i64 72, i64 16
+  %17 = getelementptr i8, ptr %16, i64 %.offs1
+  %18 = getelementptr inbounds i8, ptr %6, i64 128
+  %19 = load i64, ptr %18, align 8
+  %20 = and i64 %19, %13
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %32, label %22
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %18, i64 20
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 44
-  store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 38
-  %28 = load i8, ptr %27, align 2
-  switch i8 %28, label %33 [
-    i8 6, label %29
-    i8 17, label %29
-    i8 -120, label %29
-    i8 33, label %29
-    i8 -124, label %29
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %17, i64 20
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 44
+  store i32 %24, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %17, i64 38
+  %27 = load i8, ptr %26, align 2
+  switch i8 %27, label %32 [
+    i8 6, label %28
+    i8 17, label %28
+    i8 -120, label %28
+    i8 33, label %28
+    i8 -124, label %28
   ]
 
-29:                                               ; preds = %23, %23, %23, %23, %23
-  %30 = getelementptr inbounds i8, ptr %18, i64 36
-  %31 = load i16, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
-  store i16 %31, ptr %32, align 8
-  br label %33
+28:                                               ; preds = %22, %22, %22, %22, %22
+  %29 = getelementptr inbounds i8, ptr %17, i64 36
+  %30 = load i16, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  store i16 %30, ptr %31, align 8
+  br label %32
 
-33:                                               ; preds = %29, %23, %15
-  %34 = xor i64 %13, 48
-  %35 = load i64, ptr %19, align 8
-  %36 = and i64 %35, %34
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %75, label %38
+32:                                               ; preds = %28, %22, %15
+  %33 = xor i64 %13, 48
+  %34 = load i64, ptr %18, align 8
+  %35 = and i64 %34, %33
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %73, label %37
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
-  store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 38
-  %42 = load i8, ptr %41, align 2
-  switch i8 %42, label %75 [
-    i8 6, label %69
-    i8 17, label %69
-    i8 -120, label %69
-    i8 33, label %69
-    i8 -124, label %69
+37:                                               ; preds = %32
+  %38 = load i32, ptr %17, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  store i32 %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %17, i64 38
+  %41 = load i8, ptr %40, align 2
+  switch i8 %41, label %73 [
+    i8 6, label %67
+    i8 17, label %67
+    i8 -120, label %67
+    i8 33, label %67
+    i8 -124, label %67
   ]
 
-43:                                               ; preds = %8
-  %44 = getelementptr inbounds i8, ptr %6, i64 16
-  %45 = zext i1 %12 to i64
-  %46 = getelementptr [2 x %struct.nf_conntrack_tuple_hash], ptr %44, i64 0, i64 %45, i32 1
-  %47 = getelementptr inbounds i8, ptr %6, i64 128
-  %48 = load i64, ptr %47, align 8
-  %49 = and i64 %48, %13
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %60, label %51
+42:                                               ; preds = %8
+  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %.offs = select i1 %12, i64 72, i64 16
+  %44 = getelementptr i8, ptr %43, i64 %.offs
+  %45 = getelementptr inbounds i8, ptr %6, i64 128
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, %13
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %58, label %49
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %1, i64 40
-  %53 = getelementptr inbounds i8, ptr %46, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %52, ptr noundef align 4 dereferenceable(16) %53, i64 16, i1 false)
-  %54 = getelementptr inbounds i8, ptr %46, i64 38
-  %55 = load i8, ptr %54, align 2
-  switch i8 %55, label %60 [
-    i8 6, label %56
-    i8 17, label %56
-    i8 -120, label %56
-    i8 33, label %56
-    i8 -124, label %56
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds i8, ptr %1, i64 40
+  %51 = getelementptr inbounds i8, ptr %44, i64 20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %50, ptr noundef align 4 dereferenceable(16) %51, i64 16, i1 false)
+  %52 = getelementptr inbounds i8, ptr %44, i64 38
+  %53 = load i8, ptr %52, align 2
+  switch i8 %53, label %58 [
+    i8 6, label %54
+    i8 17, label %54
+    i8 -120, label %54
+    i8 33, label %54
+    i8 -124, label %54
   ]
 
-56:                                               ; preds = %51, %51, %51, %51, %51
-  %57 = getelementptr inbounds i8, ptr %46, i64 36
-  %58 = load i16, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 76
-  store i16 %58, ptr %59, align 4
-  br label %60
+54:                                               ; preds = %49, %49, %49, %49, %49
+  %55 = getelementptr inbounds i8, ptr %44, i64 36
+  %56 = load i16, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %1, i64 76
+  store i16 %56, ptr %57, align 4
+  br label %58
 
-60:                                               ; preds = %56, %51, %43
-  %61 = xor i64 %13, 48
-  %62 = load i64, ptr %47, align 8
-  %63 = and i64 %62, %61
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %75, label %65
+58:                                               ; preds = %54, %49, %42
+  %59 = xor i64 %13, 48
+  %60 = load i64, ptr %45, align 8
+  %61 = and i64 %60, %59
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %73, label %63
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %66, ptr noundef align 8 dereferenceable(16) %46, i64 16, i1 false)
-  %67 = getelementptr inbounds i8, ptr %46, i64 38
-  %68 = load i8, ptr %67, align 2
-  switch i8 %68, label %75 [
-    i8 6, label %69
-    i8 17, label %69
-    i8 -120, label %69
-    i8 33, label %69
-    i8 -124, label %69
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %64, ptr noundef align 8 dereferenceable(16) %44, i64 16, i1 false)
+  %65 = getelementptr inbounds i8, ptr %44, i64 38
+  %66 = load i8, ptr %65, align 2
+  switch i8 %66, label %73 [
+    i8 6, label %67
+    i8 17, label %67
+    i8 -120, label %67
+    i8 33, label %67
+    i8 -124, label %67
   ]
 
-69:                                               ; preds = %65, %65, %65, %65, %65, %38, %38, %38, %38, %38
-  %70 = phi ptr [ %18, %38 ], [ %18, %38 ], [ %18, %38 ], [ %18, %38 ], [ %18, %38 ], [ %46, %65 ], [ %46, %65 ], [ %46, %65 ], [ %46, %65 ], [ %46, %65 ]
-  %71 = phi i64 [ 50, %38 ], [ 50, %38 ], [ 50, %38 ], [ 50, %38 ], [ 50, %38 ], [ 78, %65 ], [ 78, %65 ], [ 78, %65 ], [ 78, %65 ], [ 78, %65 ]
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
-  %73 = load i16, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 %71
-  store i16 %73, ptr %74, align 2
-  br label %75
+67:                                               ; preds = %63, %63, %63, %63, %63, %37, %37, %37, %37, %37
+  %68 = phi ptr [ %17, %37 ], [ %17, %37 ], [ %17, %37 ], [ %17, %37 ], [ %17, %37 ], [ %44, %63 ], [ %44, %63 ], [ %44, %63 ], [ %44, %63 ], [ %44, %63 ]
+  %69 = phi i64 [ 50, %37 ], [ 50, %37 ], [ 50, %37 ], [ 50, %37 ], [ 50, %37 ], [ 78, %63 ], [ 78, %63 ], [ 78, %63 ], [ 78, %63 ], [ 78, %63 ]
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load i16, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %1, i64 %69
+  store i16 %71, ptr %72, align 2
+  br label %73
 
-75:                                               ; preds = %69, %65, %60, %38, %33, %8, %2
+73:                                               ; preds = %67, %63, %58, %37, %32, %8, %2
   ret void
 }
 

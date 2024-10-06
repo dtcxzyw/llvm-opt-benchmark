@@ -420,8 +420,9 @@ define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i
   br i1 %34, label %.thread, label %.preheader.split.us, !prof !17, !llvm.loop !18
 
 35:                                               ; preds = %3
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  %37 = getelementptr [10 x %struct.cpuidle_state], ptr %36, i64 0, i64 %7, i32 4
+  %.idx = mul nsw i64 %7, 104
+  %36 = getelementptr i8, ptr %0, i64 88
+  %37 = getelementptr i8, ptr %36, i64 %.idx
   %38 = load i32, ptr %37, align 8
   %39 = or i32 %38, 8
   store i32 %39, ptr %37, align 8

@@ -437,7 +437,9 @@ for.cond10.preheader.i.i.i.i:                     ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.i.i.i.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::elf::InputSection<mold::elf::M68K> *const, std::vector<mold::elf::Symbol<mold::elf::M68K> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i.i, i64 0, i64 %i.07.i.i.i.i, i32 1
+  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
+  %node_list.i.i.i.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8, !alias.scope !7
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2

@@ -1702,7 +1702,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   store i64 %19, ptr %25, align 16
   %.ptr = getelementptr inbounds i8, ptr %25, i64 8
   %26 = icmp eq i32 %18, 0
-  br i1 %26, label %.loopexit65.thread, label %27
+  br i1 %26, label %.loopexit66.thread, label %27
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds %"class.cv::Mat", ptr %.ptr, i64 %19
@@ -1713,30 +1713,30 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #28
   %31 = getelementptr inbounds i8, ptr %30, i64 96
   %32 = icmp eq ptr %31, %28
-  br i1 %32, label %.loopexit65, label %29
+  br i1 %32, label %.loopexit66, label %29
 
-.loopexit65:                                      ; preds = %29
+.loopexit66:                                      ; preds = %29
   %.pre = load i32, ptr %17, align 8
   %.pre.fr = freeze i32 %.pre
   %33 = sext i32 %.pre.fr to i64
   %34 = icmp slt i32 %.pre.fr, 0
   %35 = shl nsw i64 %33, 2
   %spec.select = select i1 %34, i64 -1, i64 %35
-  br label %.loopexit65.thread
+  br label %.loopexit66.thread
 
-.loopexit65.thread:                               ; preds = %.loopexit65, %3
-  %36 = phi i32 [ 0, %3 ], [ %.pre.fr, %.loopexit65 ]
-  %37 = phi i64 [ 0, %3 ], [ %spec.select, %.loopexit65 ]
+.loopexit66.thread:                               ; preds = %.loopexit66, %3
+  %36 = phi i32 [ 0, %3 ], [ %.pre.fr, %.loopexit66 ]
+  %37 = phi i64 [ 0, %3 ], [ %spec.select, %.loopexit66 ]
   %38 = call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #29
   %39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #29
   %40 = icmp sgt i32 %36, 0
-  br i1 %40, label %.lr.ph.preheader, label %.preheader64
+  br i1 %40, label %.lr.ph.preheader, label %.preheader65
 
-.lr.ph.preheader:                                 ; preds = %.loopexit65.thread
+.lr.ph.preheader:                                 ; preds = %.loopexit66.thread
   %wide.trip.count = zext nneg i32 %36 to i64
   br label %.lr.ph
 
-.preheader64:                                     ; preds = %.lr.ph, %.loopexit65.thread
+.preheader65:                                     ; preds = %.lr.ph, %.loopexit66.thread
   %41 = getelementptr inbounds i8, ptr %0, i64 448
   br label %43
 
@@ -1746,15 +1746,15 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   store float 0xC7EFFFFFE0000000, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader64, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader65, label %.lr.ph, !llvm.loop !19
 
-43:                                               ; preds = %.preheader64, %43
-  %indvars.iv76 = phi i64 [ 0, %.preheader64 ], [ %indvars.iv.next77, %43 ]
-  %44 = getelementptr inbounds [4 x %"class.cv::RNG"], ptr %41, i64 0, i64 %indvars.iv76
+43:                                               ; preds = %.preheader65, %43
+  %indvars.iv77 = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next78, %43 ]
+  %44 = getelementptr inbounds [4 x %"class.cv::RNG"], ptr %41, i64 0, i64 %indvars.iv77
   store i64 4294967295, ptr %44, align 8
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next77, 4
-  br i1 %exitcond79.not, label %45, label %43, !llvm.loop !20
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
+  br i1 %exitcond80.not, label %45, label %43, !llvm.loop !20
 
 45:                                               ; preds = %43
   store i32 0, ptr %5, align 4
@@ -1821,9 +1821,9 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   %77 = getelementptr inbounds i8, ptr %0, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph72, label %._crit_edge73
+  br i1 %79, label %.lr.ph73, label %._crit_edge74
 
-.lr.ph72:                                         ; preds = %76
+.lr.ph73:                                         ; preds = %76
   %80 = getelementptr inbounds i8, ptr %0, i64 240
   %81 = getelementptr inbounds i8, ptr %0, i64 296
   %82 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1831,39 +1831,41 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   %84 = getelementptr inbounds i8, ptr %0, i64 12
   %85 = load i32, ptr %84, align 4
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph72.split, label %._crit_edge73
+  br i1 %86, label %.lr.ph73.split, label %._crit_edge74
 
-.lr.ph72.split:                                   ; preds = %.lr.ph72, %._crit_edge
-  %87 = phi i32 [ %137, %._crit_edge ], [ %78, %.lr.ph72 ]
-  %88 = phi i32 [ %138, %._crit_edge ], [ %85, %.lr.ph72 ]
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %._crit_edge ], [ 0, %.lr.ph72 ]
+.lr.ph73.split:                                   ; preds = %.lr.ph73, %._crit_edge
+  %87 = phi i32 [ %137, %._crit_edge ], [ %78, %.lr.ph73 ]
+  %88 = phi i32 [ %138, %._crit_edge ], [ %85, %.lr.ph73 ]
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %._crit_edge ], [ 0, %.lr.ph73 ]
   %89 = load ptr, ptr %80, align 8
   %90 = load ptr, ptr %81, align 8
   %91 = load i64, ptr %90, align 8
-  %92 = mul i64 %91, %indvars.iv83
+  %92 = mul i64 %91, %indvars.iv84
   %93 = getelementptr inbounds i8, ptr %89, i64 %92
   %94 = load ptr, ptr %82, align 8
   %95 = load ptr, ptr %83, align 8
   %96 = load i64, ptr %95, align 8
-  %97 = mul i64 %96, %indvars.iv83
+  %97 = mul i64 %96, %indvars.iv84
   %98 = getelementptr inbounds i8, ptr %94, i64 %97
   %99 = icmp sgt i32 %88, 0
-  br i1 %99, label %.lr.ph69, label %._crit_edge
+  br i1 %99, label %.lr.ph70, label %._crit_edge
 
-.lr.ph69:                                         ; preds = %.lr.ph72.split
-  %100 = trunc nuw nsw i64 %indvars.iv83 to i32
+.lr.ph70:                                         ; preds = %.lr.ph73.split
+  %100 = trunc nuw nsw i64 %indvars.iv84 to i32
   %101 = uitofp nneg i32 %100 to float
   br label %102
 
-102:                                              ; preds = %.lr.ph69, %102
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next81, %102 ]
-  %103 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv80
+102:                                              ; preds = %.lr.ph70, %102
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next82, %102 ]
+  %103 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv81
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %"class.cv::Mat", ptr %.ptr, i64 %105, i32 4
+  %.idx64 = mul nsw i64 %105, 96
+  %.offs = or disjoint i64 %.idx64, 16
+  %106 = getelementptr inbounds i8, ptr %.ptr, i64 %.offs
   %107 = load ptr, ptr %106, align 8
   %108 = load float, ptr %107, align 4
-  %109 = trunc nuw nsw i64 %indvars.iv80 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv81 to i32
   %110 = uitofp nneg i32 %109 to float
   %111 = getelementptr inbounds i8, ptr %107, i64 4
   %112 = load float, ptr %111, align 4
@@ -1885,12 +1887,12 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   %128 = fsub float %126, %101
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %127, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %128, i64 1
-  %129 = getelementptr inbounds %"class.cv::Point_", ptr %98, i64 %indvars.iv80
+  %129 = getelementptr inbounds %"class.cv::Point_", ptr %98, i64 %indvars.iv81
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %129, align 4
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %130 = load i32, ptr %84, align 4
   %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next81, %131
+  %132 = icmp slt i64 %indvars.iv.next82, %131
   br i1 %132, label %102, label %._crit_edge.loopexit, !llvm.loop !21
 
 133:                                              ; preds = %45
@@ -1904,23 +1906,23 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   br label %144
 
 ._crit_edge.loopexit:                             ; preds = %102
-  %.pre86 = load i32, ptr %77, align 8
+  %.pre87 = load i32, ptr %77, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph72.split
-  %137 = phi i32 [ %.pre86, %._crit_edge.loopexit ], [ %87, %.lr.ph72.split ]
-  %138 = phi i32 [ %130, %._crit_edge.loopexit ], [ %88, %.lr.ph72.split ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph73.split
+  %137 = phi i32 [ %.pre87, %._crit_edge.loopexit ], [ %87, %.lr.ph73.split ]
+  %138 = phi i32 [ %130, %._crit_edge.loopexit ], [ %88, %.lr.ph73.split ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %139 = sext i32 %137 to i64
-  %140 = icmp slt i64 %indvars.iv.next84, %139
-  br i1 %140, label %.lr.ph72.split, label %._crit_edge73, !llvm.loop !22
+  %140 = icmp slt i64 %indvars.iv.next85, %139
+  br i1 %140, label %.lr.ph73.split, label %._crit_edge74, !llvm.loop !22
 
-._crit_edge73:                                    ; preds = %._crit_edge, %.lr.ph72, %76
+._crit_edge74:                                    ; preds = %._crit_edge, %.lr.ph73, %76
   %141 = load i64, ptr %25, align 8
   %142 = icmp eq i64 %141, 0
   br i1 %142, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %._crit_edge73
+.preheader.preheader:                             ; preds = %._crit_edge74
   %.idx = mul nsw i64 %141, 96
   %.add = or disjoint i64 %.idx, 8
   br label %.preheader
@@ -1933,7 +1935,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   %143 = icmp eq i64 %.add54, 8
   br i1 %143, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge73
+.loopexit:                                        ; preds = %.preheader, %._crit_edge74
   call void @_ZdaPv(ptr noundef nonnull %25) #30
   call void @_ZdaPv(ptr noundef nonnull %38) #30
   call void @_ZdaPv(ptr noundef nonnull %39) #30

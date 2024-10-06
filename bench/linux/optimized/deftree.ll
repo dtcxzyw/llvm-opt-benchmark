@@ -942,22 +942,22 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %20 = zext i16 %19 to i32
   %21 = add i32 %16, %20
   %22 = icmp eq i64 %17, 7
-  br i1 %22, label %.preheader23, label %14, !llvm.loop !24
+  br i1 %22, label %.preheader33, label %14, !llvm.loop !24
 
-.preheader23:                                     ; preds = %14, %.preheader23
-  %23 = phi i64 [ %25, %.preheader23 ], [ 7, %14 ]
-  %24 = phi i32 [ %29, %.preheader23 ], [ 0, %14 ]
+.preheader33:                                     ; preds = %14, %.preheader33
+  %23 = phi i64 [ %25, %.preheader33 ], [ 7, %14 ]
+  %24 = phi i32 [ %29, %.preheader33 ], [ 0, %14 ]
   %25 = add nuw nsw i64 %23, 1
   %26 = getelementptr [573 x %struct.ct_data_s], ptr %13, i64 0, i64 %23
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i32
   %29 = add i32 %24, %28
   %30 = icmp eq i64 %25, 128
-  br i1 %30, label %.preheader, label %.preheader23, !llvm.loop !25
+  br i1 %30, label %.preheader, label %.preheader33, !llvm.loop !25
 
-.preheader:                                       ; preds = %.preheader23, %.preheader
-  %31 = phi i64 [ %33, %.preheader ], [ 128, %.preheader23 ]
-  %32 = phi i32 [ %37, %.preheader ], [ %21, %.preheader23 ]
+.preheader:                                       ; preds = %.preheader33, %.preheader
+  %31 = phi i64 [ %33, %.preheader ], [ 128, %.preheader33 ]
+  %32 = phi i32 [ %37, %.preheader ], [ %21, %.preheader33 ]
   %33 = add nuw nsw i64 %31, 1
   %34 = getelementptr [573 x %struct.ct_data_s], ptr %13, i64 0, i64 %31
   %35 = load i16, ptr %34, align 4
@@ -985,10 +985,12 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %50 = load i16, ptr %49, align 2
   %51 = add i32 %48, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr %struct.ct_data_s, ptr %46, i64 %52, i32 1
+  %.idx = shl nsw i64 %52, 2
+  %.offs = or disjoint i64 %.idx, 2
+  %53 = getelementptr i8, ptr %46, i64 %.offs
   store i16 -1, ptr %53, align 2
   %54 = icmp slt i32 %48, 0
-  br i1 %54, label %.loopexit22, label %55
+  br i1 %54, label %.loopexit32, label %55
 
 55:                                               ; preds = %43
   %56 = icmp eq i16 %50, 0
@@ -1011,7 +1013,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %71 = phi i32 [ %59, %55 ], [ %76, %114 ]
   %72 = phi i32 [ -1, %55 ], [ %115, %114 ]
   %73 = add nuw nsw i64 %67, 1
-  %74 = getelementptr %struct.ct_data_s, ptr %46, i64 %73, i32 1
+  %.idx21 = shl i64 %73, 2
+  %.offs22 = or disjoint i64 %.idx21, 2
+  %74 = getelementptr i8, ptr %46, i64 %.offs22
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
   %77 = add nsw i32 %70, 1
@@ -1086,9 +1090,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %117 = phi i32 [ %69, %66 ], [ 138, %109 ], [ %112, %111 ]
   %118 = phi i32 [ %68, %66 ], [ 3, %109 ], [ %113, %111 ]
   %119 = icmp eq i64 %73, %65
-  br i1 %119, label %.loopexit22, label %66, !llvm.loop !27
+  br i1 %119, label %.loopexit32, label %66, !llvm.loop !27
 
-.loopexit22:                                      ; preds = %114, %43
+.loopexit32:                                      ; preds = %114, %43
   %120 = getelementptr inbounds i8, ptr %0, i64 2480
   %121 = getelementptr inbounds i8, ptr %0, i64 2912
   %122 = load i32, ptr %121, align 8
@@ -1096,12 +1100,14 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %124 = load i16, ptr %123, align 2
   %125 = add i32 %122, 1
   %126 = sext i32 %125 to i64
-  %127 = getelementptr %struct.ct_data_s, ptr %120, i64 %126, i32 1
+  %.idx23 = shl nsw i64 %126, 2
+  %.offs24 = or disjoint i64 %.idx23, 2
+  %127 = getelementptr i8, ptr %120, i64 %.offs24
   store i16 -1, ptr %127, align 2
   %128 = icmp slt i32 %122, 0
-  br i1 %128, label %.loopexit21, label %129
+  br i1 %128, label %.loopexit31, label %129
 
-129:                                              ; preds = %.loopexit22
+129:                                              ; preds = %.loopexit32
   %130 = icmp eq i16 %124, 0
   %131 = select i1 %130, i32 3, i32 4
   %132 = select i1 %130, i32 138, i32 7
@@ -1122,7 +1128,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %145 = phi i32 [ %133, %129 ], [ %150, %188 ]
   %146 = phi i32 [ -1, %129 ], [ %189, %188 ]
   %147 = add nuw nsw i64 %141, 1
-  %148 = getelementptr %struct.ct_data_s, ptr %120, i64 %147, i32 1
+  %.idx25 = shl i64 %147, 2
+  %.offs26 = or disjoint i64 %.idx25, 2
+  %148 = getelementptr i8, ptr %120, i64 %.offs26
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i32
   %151 = add nsw i32 %144, 1
@@ -1197,21 +1205,22 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %191 = phi i32 [ %143, %140 ], [ 138, %183 ], [ %186, %185 ]
   %192 = phi i32 [ %142, %140 ], [ 3, %183 ], [ %187, %185 ]
   %193 = icmp eq i64 %147, %139
-  br i1 %193, label %.loopexit21, label %140, !llvm.loop !27
+  br i1 %193, label %.loopexit31, label %140, !llvm.loop !27
 
-.loopexit21:                                      ; preds = %188, %.loopexit22
+.loopexit31:                                      ; preds = %188, %.loopexit32
   %194 = getelementptr inbounds i8, ptr %0, i64 2928
   tail call fastcc void @build_tree(ptr noundef %0, ptr noundef %194)
-  %195 = getelementptr inbounds i8, ptr %0, i64 2724
+  %195 = getelementptr i8, ptr %0, i64 2726
   br label %196
 
-196:                                              ; preds = %205, %.loopexit21
-  %197 = phi i32 [ 18, %.loopexit21 ], [ %206, %205 ]
+196:                                              ; preds = %205, %.loopexit31
+  %197 = phi i32 [ 18, %.loopexit31 ], [ %206, %205 ]
   %198 = zext nneg i32 %197 to i64
   %199 = getelementptr [19 x i8], ptr @bl_order, i64 0, i64 %198
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i64
-  %202 = getelementptr [39 x %struct.ct_data_s], ptr %195, i64 0, i64 %201, i32 1
+  %.idx27 = shl nuw nsw i64 %201, 2
+  %202 = getelementptr i8, ptr %195, i64 %.idx27
   %203 = load i16, ptr %202, align 2
   %204 = icmp eq i16 %203, 0
   br i1 %204, label %205, label %208
@@ -1510,29 +1519,30 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br label %419
 
 419:                                              ; preds = %413, %386
-  %.sink28 = phi i16 [ %411, %386 ], [ %417, %413 ]
+  %.sink38 = phi i16 [ %411, %386 ], [ %417, %413 ]
   %.pr = phi i32 [ %412, %386 ], [ %418, %413 ]
-  store i16 %.sink28, ptr %239, align 8
+  store i16 %.sink38, ptr %239, align 8
   store i32 %.pr, ptr %236, align 4
   %420 = icmp ult i32 %226, 2147483647
   br i1 %420, label %421, label %.loopexit
 
 421:                                              ; preds = %419
-  %422 = getelementptr inbounds i8, ptr %0, i64 2724
-  %423 = getelementptr inbounds i8, ptr %0, i64 16
-  %424 = getelementptr inbounds i8, ptr %0, i64 40
-  %425 = zext nneg i32 %316 to i64
+  %422 = getelementptr inbounds i8, ptr %0, i64 16
+  %423 = getelementptr inbounds i8, ptr %0, i64 40
+  %424 = zext nneg i32 %316 to i64
+  %425 = getelementptr i8, ptr %0, i64 2726
   br label %426
 
 426:                                              ; preds = %462, %421
-  %427 = phi i16 [ %463, %462 ], [ %.sink28, %421 ]
+  %427 = phi i16 [ %463, %462 ], [ %.sink38, %421 ]
   %428 = phi i32 [ %464, %462 ], [ %.pr, %421 ]
   %429 = phi i64 [ %465, %462 ], [ 0, %421 ]
   %430 = icmp sgt i32 %428, 13
   %431 = getelementptr [19 x i8], ptr @bl_order, i64 0, i64 %429
   %432 = load i8, ptr %431, align 1
   %433 = zext i8 %432 to i64
-  %434 = getelementptr [39 x %struct.ct_data_s], ptr %422, i64 0, i64 %433, i32 1
+  %.idx29 = shl nuw nsw i64 %433, 2
+  %434 = getelementptr i8, ptr %425, i64 %.idx29
   %435 = load i16, ptr %434, align 2
   %436 = zext i16 %435 to i32
   %437 = shl i32 %436, %428
@@ -1543,20 +1553,20 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 440:                                              ; preds = %426
   %441 = trunc i16 %439 to i8
-  %442 = load ptr, ptr %423, align 8
-  %443 = load i32, ptr %424, align 8
+  %442 = load ptr, ptr %422, align 8
+  %443 = load i32, ptr %423, align 8
   %444 = add i32 %443, 1
-  store i32 %444, ptr %424, align 8
+  store i32 %444, ptr %423, align 8
   %445 = sext i32 %443 to i64
   %446 = getelementptr i8, ptr %442, i64 %445
   store i8 %441, ptr %446, align 1
   %447 = load i16, ptr %239, align 8
   %448 = lshr i16 %447, 8
   %449 = trunc nuw i16 %448 to i8
-  %450 = load ptr, ptr %423, align 8
-  %451 = load i32, ptr %424, align 8
+  %450 = load ptr, ptr %422, align 8
+  %451 = load i32, ptr %423, align 8
   %452 = add i32 %451, 1
-  store i32 %452, ptr %424, align 8
+  store i32 %452, ptr %423, align 8
   %453 = sext i32 %451 to i64
   %454 = getelementptr i8, ptr %450, i64 %453
   store i8 %449, ptr %454, align 1
@@ -1577,7 +1587,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %464 = phi i32 [ %461, %460 ], [ %459, %440 ]
   store i32 %464, ptr %236, align 4
   %465 = add nuw nsw i64 %429, 1
-  %466 = icmp eq i64 %465, %425
+  %466 = icmp eq i64 %465, %424
   br i1 %466, label %.loopexit, label %426, !llvm.loop !29
 
 .loopexit:                                        ; preds = %462, %419

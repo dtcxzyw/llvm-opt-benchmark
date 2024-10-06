@@ -1603,12 +1603,12 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %191 = icmp sgt i32 %3, 0
   %192 = and i1 %190, %191
   %193 = load ptr, ptr %166, align 8, !tbaa !102
-  br i1 %192, label %194, label %.loopexit26
+  br i1 %192, label %194, label %.loopexit34
 
 194:                                              ; preds = %187
   %195 = zext nneg i32 %3 to i64
   %196 = icmp ult i32 %3, 32
-  br i1 %196, label %.preheader43, label %197
+  br i1 %196, label %.preheader51, label %197
 
 197:                                              ; preds = %194
   %198 = and i64 %195, 2147483616
@@ -1646,14 +1646,14 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 223:                                              ; preds = %199
   %224 = icmp eq i64 %198, %195
-  br i1 %224, label %.loopexit26, label %.preheader43
+  br i1 %224, label %.loopexit34, label %.preheader51
 
-.preheader43:                                     ; preds = %223, %194
-  %.ph44 = phi i64 [ %198, %223 ], [ 0, %194 ]
+.preheader51:                                     ; preds = %223, %194
+  %.ph52 = phi i64 [ %198, %223 ], [ 0, %194 ]
   br label %225
 
-225:                                              ; preds = %.preheader43, %225
-  %226 = phi i64 [ %232, %225 ], [ %.ph44, %.preheader43 ]
+225:                                              ; preds = %.preheader51, %225
+  %226 = phi i64 [ %232, %225 ], [ %.ph52, %.preheader51 ]
   %227 = getelementptr inbounds i16, ptr %193, i64 %226
   %228 = load i16, ptr %227, align 2, !tbaa !113
   %229 = uitofp i16 %228 to float
@@ -1662,9 +1662,9 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   store float %230, ptr %231, align 4, !tbaa !6
   %232 = add nuw nsw i64 %226, 1
   %233 = icmp eq i64 %232, %195
-  br i1 %233, label %.loopexit26, label %225, !llvm.loop !117
+  br i1 %233, label %.loopexit34, label %225, !llvm.loop !117
 
-.loopexit26:                                      ; preds = %225, %223, %187
+.loopexit34:                                      ; preds = %225, %223, %187
   tail call void @free(ptr noundef %193) #20
   tail call void @free(ptr noundef %162) #20
   br label %.loopexit
@@ -1727,12 +1727,12 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %271 = icmp sgt i32 %3, 0
   %272 = and i1 %270, %271
   %273 = load ptr, ptr %246, align 8, !tbaa !102
-  br i1 %272, label %274, label %.loopexit25
+  br i1 %272, label %274, label %.loopexit33
 
 274:                                              ; preds = %267
   %275 = zext nneg i32 %3 to i64
   %276 = icmp ult i32 %3, 32
-  br i1 %276, label %.preheader41, label %277
+  br i1 %276, label %.preheader49, label %277
 
 277:                                              ; preds = %274
   %278 = and i64 %275, 2147483616
@@ -1770,14 +1770,14 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 303:                                              ; preds = %279
   %304 = icmp eq i64 %278, %275
-  br i1 %304, label %.loopexit25, label %.preheader41
+  br i1 %304, label %.loopexit33, label %.preheader49
 
-.preheader41:                                     ; preds = %303, %274
-  %.ph42 = phi i64 [ %278, %303 ], [ 0, %274 ]
+.preheader49:                                     ; preds = %303, %274
+  %.ph50 = phi i64 [ %278, %303 ], [ 0, %274 ]
   br label %305
 
-305:                                              ; preds = %.preheader41, %305
-  %306 = phi i64 [ %312, %305 ], [ %.ph42, %.preheader41 ]
+305:                                              ; preds = %.preheader49, %305
+  %306 = phi i64 [ %312, %305 ], [ %.ph50, %.preheader49 ]
   %307 = getelementptr inbounds i16, ptr %273, i64 %306
   %308 = load i16, ptr %307, align 2, !tbaa !113
   %309 = uitofp i16 %308 to float
@@ -1786,9 +1786,9 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   store float %310, ptr %311, align 4, !tbaa !6
   %312 = add nuw nsw i64 %306, 1
   %313 = icmp eq i64 %312, %275
-  br i1 %313, label %.loopexit25, label %305, !llvm.loop !119
+  br i1 %313, label %.loopexit33, label %305, !llvm.loop !119
 
-.loopexit25:                                      ; preds = %305, %303, %267
+.loopexit33:                                      ; preds = %305, %303, %267
   tail call void @free(ptr noundef %273) #20
   tail call void @free(ptr noundef %242) #20
   %314 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #21
@@ -1806,7 +1806,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %322 = icmp sgt i32 %321, 0
   br i1 %322, label %323, label %384
 
-323:                                              ; preds = %.loopexit25
+323:                                              ; preds = %.loopexit33
   %324 = getelementptr inbounds i8, ptr %314, i64 24
   %325 = zext nneg i32 %321 to i64
   %326 = icmp ult i32 %321, 16
@@ -1844,48 +1844,50 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 350:                                              ; preds = %332
   %351 = trunc i64 %331 to i8
   %352 = icmp eq i64 %331, %325
-  br i1 %352, label %.loopexit22, label %353
+  br i1 %352, label %.loopexit30, label %353
 
 353:                                              ; preds = %350, %323
   %354 = phi i64 [ 0, %323 ], [ %331, %350 ]
   %355 = phi i8 [ 0, %323 ], [ %351, %350 ]
   %356 = and i64 %325, 3
   %357 = icmp eq i64 %356, 0
-  br i1 %357, label %.loopexit24, label %.preheader23.preheader
+  br i1 %357, label %.loopexit32, label %.preheader31.preheader
 
-.preheader23.preheader:                           ; preds = %353
+.preheader31.preheader:                           ; preds = %353
   %358 = zext i8 %355 to i64
-  br label %.preheader23
+  br label %.preheader31
 
-.preheader23:                                     ; preds = %.preheader23.preheader, %.preheader23
-  %indvars.iv = phi i64 [ %358, %.preheader23.preheader ], [ %indvars.iv.next, %.preheader23 ]
-  %359 = phi i64 [ %354, %.preheader23.preheader ], [ %367, %.preheader23 ]
-  %360 = phi i64 [ 0, %.preheader23.preheader ], [ %368, %.preheader23 ]
+.preheader31:                                     ; preds = %.preheader31.preheader, %.preheader31
+  %indvars.iv = phi i64 [ %358, %.preheader31.preheader ], [ %indvars.iv.next, %.preheader31 ]
+  %359 = phi i64 [ %354, %.preheader31.preheader ], [ %367, %.preheader31 ]
+  %360 = phi i64 [ 0, %.preheader31.preheader ], [ %368, %.preheader31 ]
   %361 = getelementptr inbounds [5 x float], ptr %251, i64 0, i64 %359
   %362 = load float, ptr %361, align 4, !tbaa !6
   %363 = getelementptr inbounds [5 x float], ptr %250, i64 0, i64 %359
   %364 = load float, ptr %363, align 4, !tbaa !6
   %365 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %indvars.iv
   store float %362, ptr %365, align 8, !tbaa !107
-  %366 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %366 = getelementptr inbounds i8, ptr %324, i64 %.offs
   store float %364, ptr %366, align 4, !tbaa !109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %367 = add nuw nsw i64 %359, 1
   %368 = add nuw nsw i64 %360, 1
   %369 = icmp eq i64 %368, %356
-  br i1 %369, label %.loopexit24.loopexit, label %.preheader23, !llvm.loop !121
+  br i1 %369, label %.loopexit32.loopexit, label %.preheader31, !llvm.loop !121
 
-.loopexit24.loopexit:                             ; preds = %.preheader23
+.loopexit32.loopexit:                             ; preds = %.preheader31
   %370 = trunc nuw i64 %indvars.iv.next to i8
-  br label %.loopexit24
+  br label %.loopexit32
 
-.loopexit24:                                      ; preds = %.loopexit24.loopexit, %353
-  %371 = phi i8 [ undef, %353 ], [ %370, %.loopexit24.loopexit ]
-  %372 = phi i64 [ %354, %353 ], [ %367, %.loopexit24.loopexit ]
-  %373 = phi i8 [ %355, %353 ], [ %370, %.loopexit24.loopexit ]
+.loopexit32:                                      ; preds = %.loopexit32.loopexit, %353
+  %371 = phi i8 [ undef, %353 ], [ %370, %.loopexit32.loopexit ]
+  %372 = phi i64 [ %354, %353 ], [ %367, %.loopexit32.loopexit ]
+  %373 = phi i8 [ %355, %353 ], [ %370, %.loopexit32.loopexit ]
   %374 = sub nsw i64 %354, %325
   %375 = icmp ugt i64 %374, -4
-  br i1 %375, label %.loopexit22, label %.preheader21
+  br i1 %375, label %.loopexit30, label %.preheader29
 
 376:                                              ; preds = %241
   %377 = getelementptr inbounds i8, ptr %5, i64 36
@@ -1898,24 +1900,24 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   store float %380, ptr %382, align 4, !tbaa !109
   br label %267
 
-.loopexit22:                                      ; preds = %.preheader21, %.loopexit24, %350
-  %383 = phi i8 [ %351, %350 ], [ %371, %.loopexit24 ], [ %525, %.preheader21 ]
+.loopexit30:                                      ; preds = %.preheader29, %.loopexit32, %350
+  %383 = phi i8 [ %351, %350 ], [ %371, %.loopexit32 ], [ %525, %.preheader29 ]
   store i8 %383, ptr %319, align 4, !tbaa !110
   br label %384
 
-384:                                              ; preds = %.loopexit22, %.loopexit25
+384:                                              ; preds = %.loopexit30, %.loopexit33
   store i32 %3, ptr %315, align 8, !tbaa !111
   store i32 65536, ptr %316, align 4, !tbaa !112
   %385 = tail call i32 @CurveDataSample(ptr noundef nonnull %314, ptr noundef nonnull %315) #20
   %386 = icmp ne ptr %1, null
   %387 = and i1 %386, %271
   %388 = load ptr, ptr %318, align 8, !tbaa !102
-  br i1 %387, label %389, label %.loopexit20
+  br i1 %387, label %389, label %.loopexit28
 
 389:                                              ; preds = %384
   %390 = zext nneg i32 %3 to i64
   %391 = icmp ult i32 %3, 32
-  br i1 %391, label %.preheader38, label %392
+  br i1 %391, label %.preheader46, label %392
 
 392:                                              ; preds = %389
   %393 = and i64 %390, 2147483616
@@ -1953,14 +1955,14 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 418:                                              ; preds = %394
   %419 = icmp eq i64 %393, %390
-  br i1 %419, label %.loopexit20, label %.preheader38
+  br i1 %419, label %.loopexit28, label %.preheader46
 
-.preheader38:                                     ; preds = %418, %389
+.preheader46:                                     ; preds = %418, %389
   %.ph = phi i64 [ %393, %418 ], [ 0, %389 ]
   br label %420
 
-420:                                              ; preds = %.preheader38, %420
-  %421 = phi i64 [ %427, %420 ], [ %.ph, %.preheader38 ]
+420:                                              ; preds = %.preheader46, %420
+  %421 = phi i64 [ %427, %420 ], [ %.ph, %.preheader46 ]
   %422 = getelementptr inbounds i16, ptr %388, i64 %421
   %423 = load i16, ptr %422, align 2, !tbaa !113
   %424 = uitofp i16 %423 to float
@@ -1969,14 +1971,14 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   store float %425, ptr %426, align 4, !tbaa !6
   %427 = add nuw nsw i64 %421, 1
   %428 = icmp eq i64 %427, %390
-  br i1 %428, label %.loopexit20, label %420, !llvm.loop !124
+  br i1 %428, label %.loopexit28, label %420, !llvm.loop !124
 
-.loopexit20:                                      ; preds = %420, %418, %384
+.loopexit28:                                      ; preds = %420, %418, %384
   tail call void @free(ptr noundef %388) #20
   tail call void @free(ptr noundef %314) #20
   br i1 %271, label %429, label %.loopexit
 
-429:                                              ; preds = %.loopexit20
+429:                                              ; preds = %.loopexit28
   %430 = zext nneg i32 %3 to i64
   %431 = icmp ult i32 %3, 32
   br i1 %431, label %471, label %432
@@ -2036,11 +2038,11 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %472 = phi i64 [ 0, %432 ], [ 0, %429 ], [ %440, %469 ]
   %473 = and i64 %430, 3
   %474 = icmp eq i64 %473, 0
-  br i1 %474, label %.loopexit19, label %.preheader18
+  br i1 %474, label %.loopexit27, label %.preheader26
 
-.preheader18:                                     ; preds = %471, %.preheader18
-  %475 = phi i64 [ %483, %.preheader18 ], [ %472, %471 ]
-  %476 = phi i64 [ %484, %.preheader18 ], [ 0, %471 ]
+.preheader26:                                     ; preds = %471, %.preheader26
+  %475 = phi i64 [ %483, %.preheader26 ], [ %472, %471 ]
+  %476 = phi i64 [ %484, %.preheader26 ], [ 0, %471 ]
   %477 = getelementptr inbounds float, ptr %1, i64 %475
   %478 = load float, ptr %477, align 4, !tbaa !6
   %479 = getelementptr inbounds float, ptr %2, i64 %475
@@ -2051,17 +2053,17 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %483 = add nuw nsw i64 %475, 1
   %484 = add nuw nsw i64 %476, 1
   %485 = icmp eq i64 %484, %473
-  br i1 %485, label %.loopexit19, label %.preheader18, !llvm.loop !131
+  br i1 %485, label %.loopexit27, label %.preheader26, !llvm.loop !131
 
-.loopexit19:                                      ; preds = %.preheader18, %471
-  %486 = phi i64 [ %472, %471 ], [ %483, %.preheader18 ]
+.loopexit27:                                      ; preds = %.preheader26, %471
+  %486 = phi i64 [ %472, %471 ], [ %483, %.preheader26 ]
   %487 = sub nsw i64 %472, %430
   %488 = icmp ugt i64 %487, -4
   br i1 %488, label %.loopexit, label %.preheader
 
-.preheader21:                                     ; preds = %.loopexit24, %.preheader21
-  %489 = phi i64 [ %526, %.preheader21 ], [ %372, %.loopexit24 ]
-  %490 = phi i8 [ %525, %.preheader21 ], [ %373, %.loopexit24 ]
+.preheader29:                                     ; preds = %.loopexit32, %.preheader29
+  %489 = phi i64 [ %526, %.preheader29 ], [ %372, %.loopexit32 ]
+  %490 = phi i8 [ %525, %.preheader29 ], [ %373, %.loopexit32 ]
   %491 = getelementptr inbounds [5 x float], ptr %251, i64 0, i64 %489
   %492 = load float, ptr %491, align 4, !tbaa !6
   %493 = getelementptr inbounds [5 x float], ptr %250, i64 0, i64 %489
@@ -2069,7 +2071,9 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %495 = zext i8 %490 to i64
   %496 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %495
   store float %492, ptr %496, align 8, !tbaa !107
-  %497 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %495, i32 1
+  %.idx18 = shl nuw nsw i64 %495, 3
+  %.offs19 = or disjoint i64 %.idx18, 4
+  %497 = getelementptr inbounds i8, ptr %324, i64 %.offs19
   store float %494, ptr %497, align 4, !tbaa !109
   %498 = add i8 %490, 1
   %499 = add nuw nsw i64 %489, 1
@@ -2080,7 +2084,9 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %504 = zext i8 %498 to i64
   %505 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %504
   store float %501, ptr %505, align 8, !tbaa !107
-  %506 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %504, i32 1
+  %.idx20 = shl nuw nsw i64 %504, 3
+  %.offs21 = or disjoint i64 %.idx20, 4
+  %506 = getelementptr inbounds i8, ptr %324, i64 %.offs21
   store float %503, ptr %506, align 4, !tbaa !109
   %507 = add i8 %490, 2
   %508 = add nuw nsw i64 %489, 2
@@ -2091,7 +2097,9 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %513 = zext i8 %507 to i64
   %514 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %513
   store float %510, ptr %514, align 8, !tbaa !107
-  %515 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %513, i32 1
+  %.idx22 = shl nuw nsw i64 %513, 3
+  %.offs23 = or disjoint i64 %.idx22, 4
+  %515 = getelementptr inbounds i8, ptr %324, i64 %.offs23
   store float %512, ptr %515, align 4, !tbaa !109
   %516 = add i8 %490, 3
   %517 = add nuw nsw i64 %489, 3
@@ -2102,15 +2110,17 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %522 = zext i8 %516 to i64
   %523 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %522
   store float %519, ptr %523, align 8, !tbaa !107
-  %524 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %324, i64 0, i64 %522, i32 1
+  %.idx24 = shl nuw nsw i64 %522, 3
+  %.offs25 = or disjoint i64 %.idx24, 4
+  %524 = getelementptr inbounds i8, ptr %324, i64 %.offs25
   store float %521, ptr %524, align 4, !tbaa !109
   %525 = add i8 %490, 4
   %526 = add nuw nsw i64 %489, 4
   %527 = icmp eq i64 %526, %325
-  br i1 %527, label %.loopexit22, label %.preheader21, !llvm.loop !132
+  br i1 %527, label %.loopexit30, label %.preheader29, !llvm.loop !132
 
-.preheader:                                       ; preds = %.loopexit19, %.preheader
-  %528 = phi i64 [ %556, %.preheader ], [ %486, %.loopexit19 ]
+.preheader:                                       ; preds = %.loopexit27, %.preheader
+  %528 = phi i64 [ %556, %.preheader ], [ %486, %.loopexit27 ]
   %529 = getelementptr inbounds float, ptr %1, i64 %528
   %530 = load float, ptr %529, align 4, !tbaa !6
   %531 = getelementptr inbounds float, ptr %2, i64 %528
@@ -2146,7 +2156,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
   %557 = icmp eq i64 %556, %430
   br i1 %557, label %.loopexit, label %.preheader, !llvm.loop !133
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit19, %469, %.loopexit20, %.loopexit26
+.loopexit:                                        ; preds = %.preheader, %.loopexit27, %469, %.loopexit28, %.loopexit34
   ret void
 }
 

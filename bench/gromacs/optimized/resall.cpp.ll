@@ -43,11 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<const std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<const std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
 %struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.BondedInteractionList = type { i32, %"class.std::vector.42" }
-%"class.std::vector.42" = type { %"struct.std::_Vector_base.43" }
-%"struct.std::_Vector_base.43" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" }
-%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::LogEntryWriter" = type { %"struct.gmx::LogEntry" }
 %"struct.gmx::LogEntry" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.gmx::StringToEnumValueConverter" = type { %"class.std::map" }
@@ -68,6 +63,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl" = type { %"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.gmx::EnumerationArray" = type { [6 x %struct.BondedInteractionList] }
+%struct.BondedInteractionList = type { i32, %"class.std::vector.42" }
+%"class.std::vector.42" = type { %"struct.std::_Vector_base.43" }
+%"struct.std::_Vector_base.43" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" }
+%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.BondedInteraction = type <{ %"struct.std::array.51", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"struct.std::array.51" = type { [6 x %"class.std::__cxx11::basic_string"] }
 %"class.std::tuple.82" = type { %"struct.std::_Tuple_impl.83" }
@@ -917,12 +917,13 @@ _ZNSt8optionalIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22
 _ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exit: ; preds = %_ZNSt8optionalIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, %38
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %85 = getelementptr inbounds i8, ptr %.sroa.023.032, i64 152
+  %85 = getelementptr inbounds i8, ptr %.sroa.023.032, i64 160
   br label %86
 
 86:                                               ; preds = %_ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exit, %_ZL16print_resbondedsP8_IO_FILE11BondedTypesRK17PreprocessResidue.exit
   %indvars.iv = phi i64 [ 0, %_ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exit ], [ %indvars.iv.next, %_ZL16print_resbondedsP8_IO_FILE11BondedTypesRK17PreprocessResidue.exit ]
-  %87 = getelementptr inbounds [6 x %struct.BondedInteractionList], ptr %85, i64 0, i64 %indvars.iv, i32 1
+  %.idx.i = shl nsw i64 %indvars.iv, 5
+  %87 = getelementptr i8, ptr %85, i64 %.idx.i
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %87, i64 8
   %90 = load ptr, ptr %89, align 8
@@ -1708,7 +1709,7 @@ _ZNSt6vectorI17PreprocessResidueSaIS0_EE9push_backERKS0_.exit: ; preds = %._ZNSt
   %298 = getelementptr inbounds i8, ptr %272, i64 -240
   %299 = getelementptr inbounds i8, ptr %272, i64 -264
   %300 = getelementptr inbounds i8, ptr %272, i64 -216
-  %301 = getelementptr inbounds i8, ptr %272, i64 -192
+  %301 = getelementptr i8, ptr %272, i64 -184
   br label %302
 
 302:                                              ; preds = %.preheader, %590
@@ -1975,7 +1976,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11BondedTypesN3gm
 
 .lr.ph30.i:                                       ; preds = %.noexc108
   %379 = sext i32 %.sroa.04.0.i.i to i64
-  %380 = getelementptr inbounds [6 x %struct.BondedInteractionList], ptr %301, i64 0, i64 %379, i32 1
+  %.idx.i = shl nsw i64 %379, 5
+  %380 = getelementptr i8, ptr %301, i64 %.idx.i
   %381 = getelementptr inbounds i8, ptr %380, i64 8
   %382 = getelementptr inbounds i8, ptr %380, i64 16
   br label %383

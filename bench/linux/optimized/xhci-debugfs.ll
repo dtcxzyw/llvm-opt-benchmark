@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.debugfs_reg32 = type { ptr, i64 }
 %struct.xhci_file_map = type { ptr, ptr }
-%struct.xhci_virt_ep = type { ptr, i32, ptr, ptr, ptr, i32, i32, %struct.list_head, ptr, ptr, ptr, i8, %struct.xhci_bw_info, %struct.list_head, i32, i8 }
-%struct.xhci_bw_info = type { i32, i32, i32, i32, i32, i32 }
-%struct.list_head = type { ptr, ptr }
 %struct.xhci_port = type { ptr, i32, i32, ptr, ptr, i8, i64, i8, %struct.completion, %struct.completion }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
@@ -16,6 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qspinlock = type { %union.anon.0 }
 %union.anon.0 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
+%struct.list_head = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %union.xhci_trb = type { %struct.xhci_link_trb }
 %struct.xhci_link_trb = type { i64, i32, i32 }
@@ -306,8 +304,9 @@ define dso_local void @xhci_debugfs_create_endpoint(ptr nocapture noundef readno
   br i1 %16, label %35, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = getelementptr [31 x %struct.xhci_virt_ep], ptr %18, i64 0, i64 %9, i32 2
+  %.idx = mul nsw i64 %9, 144
+  %18 = getelementptr i8, ptr %1, i64 48
+  %19 = getelementptr i8, ptr %18, i64 %.idx
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %15, i64 48
   store ptr %20, ptr %21, align 8
@@ -394,8 +393,9 @@ define dso_local void @xhci_debugfs_create_stream_files(ptr nocapture noundef re
   br i1 %12, label %30, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
-  %15 = getelementptr [31 x %struct.xhci_virt_ep], ptr %14, i64 0, i64 %9, i32 3
+  %.idx = mul nsw i64 %9, 144
+  %14 = getelementptr i8, ptr %1, i64 56
+  %15 = getelementptr i8, ptr %14, i64 %.idx
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %30, label %18

@@ -2450,9 +2450,10 @@ entry:
   %now_arg = getelementptr inbounds i8, ptr %ackm, i64 248
   %1 = load ptr, ptr %now_arg, align 8
   %call = tail call i64 %0(ptr noundef %1) #11
-  %rx_history.i.i = getelementptr inbounds i8, ptr %ackm, i64 144
-  %2 = getelementptr [3 x %struct.rx_pkt_history_st], ptr %rx_history.i.i, i64 0, i64 %idxprom, i32 0, i32 1
-  %x.015.i = load ptr, ptr %2, align 8
+  %.idx.i = shl nsw i64 %idxprom, 5
+  %2 = getelementptr i8, ptr %ackm, i64 152
+  %3 = getelementptr i8, ptr %2, i64 %.idx.i
+  %x.015.i = load ptr, ptr %3, align 8
   %cmp16.not.i = icmp eq ptr %x.015.i, null
   br i1 %cmp16.not.i, label %ackm_fill_rx_ack_ranges.exit, label %for.body.lr.ph.i
 
@@ -2464,20 +2465,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %x.018.i = phi ptr [ %x.015.i, %for.body.lr.ph.i ], [ %x.0.i, %for.body.i ]
   %i.017.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %range.i = getelementptr inbounds i8, ptr %x.018.i, i64 16
-  %3 = load i64, ptr %range.i, align 8
+  %4 = load i64, ptr %range.i, align 8
   %arrayidx3.i = getelementptr inbounds [3 x [32 x %struct.ossl_quic_ack_range_st]], ptr %ack_ranges.i, i64 0, i64 %idxprom, i64 %i.017.i
-  store i64 %3, ptr %arrayidx3.i, align 8
+  store i64 %4, ptr %arrayidx3.i, align 8
   %end.i = getelementptr inbounds i8, ptr %x.018.i, i64 24
-  %4 = load i64, ptr %end.i, align 8
+  %5 = load i64, ptr %end.i, align 8
   %end10.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 8
-  store i64 %4, ptr %end10.i, align 8
-  %5 = getelementptr i8, ptr %x.018.i, i64 8
+  store i64 %5, ptr %end10.i, align 8
+  %6 = getelementptr i8, ptr %x.018.i, i64 8
   %inc.i = add nuw nsw i64 %i.017.i, 1
-  %x.0.i = load ptr, ptr %5, align 8
+  %x.0.i = load ptr, ptr %6, align 8
   %cmp.i = icmp ne ptr %x.0.i, null
   %cmp2.i = icmp ult i64 %i.017.i, 2
-  %6 = and i1 %cmp2.i, %cmp.i
-  br i1 %6, label %for.body.i, label %ackm_fill_rx_ack_ranges.exit, !llvm.loop !20
+  %7 = and i1 %cmp2.i, %cmp.i
+  br i1 %7, label %for.body.i, label %ackm_fill_rx_ack_ranges.exit, !llvm.loop !20
 
 ackm_fill_rx_ack_ranges.exit:                     ; preds = %for.body.i, %entry
   %i.0.lcssa.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
@@ -2488,19 +2489,19 @@ ackm_fill_rx_ack_ranges.exit:                     ; preds = %for.body.i, %entry
   store i64 %i.0.lcssa.i, ptr %num_ack_ranges.i, align 8
   %rx_largest_time = getelementptr inbounds i8, ptr %ackm, i64 2216
   %arrayidx4 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_largest_time, i64 0, i64 %idxprom
-  %7 = load i64, ptr %arrayidx4, align 8
-  %cmp.i34.not = icmp eq i64 %7, 0
+  %8 = load i64, ptr %arrayidx4, align 8
+  %cmp.i34.not = icmp eq i64 %8, 0
   br i1 %cmp.i34.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %ackm_fill_rx_ack_ranges.exit
-  %cmp = icmp ugt i64 %call, %7
+  %cmp = icmp ugt i64 %call, %8
   %cmp14 = icmp eq i32 %pkt_space, 2
   %or.cond = and i1 %cmp14, %cmp
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
   %delay_time = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %retval.sroa.0.0.i = sub nuw i64 %call, %7
+  %retval.sroa.0.0.i = sub nuw i64 %call, %8
   store i64 %retval.sroa.0.0.i, ptr %delay_time, align 8
   br label %if.end
 
@@ -2512,19 +2513,19 @@ if.else:                                          ; preds = %land.lhs.true, %ack
 if.end:                                           ; preds = %if.else, %if.then
   %rx_ect0 = getelementptr inbounds i8, ptr %ackm, i64 2240
   %arrayidx27 = getelementptr inbounds [3 x i64], ptr %rx_ect0, i64 0, i64 %idxprom
-  %8 = load i64, ptr %arrayidx27, align 8
+  %9 = load i64, ptr %arrayidx27, align 8
   %ect0 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store i64 %8, ptr %ect0, align 8
+  store i64 %9, ptr %ect0, align 8
   %rx_ect1 = getelementptr inbounds i8, ptr %ackm, i64 2264
   %arrayidx29 = getelementptr inbounds [3 x i64], ptr %rx_ect1, i64 0, i64 %idxprom
-  %9 = load i64, ptr %arrayidx29, align 8
+  %10 = load i64, ptr %arrayidx29, align 8
   %ect1 = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  store i64 %9, ptr %ect1, align 8
+  store i64 %10, ptr %ect1, align 8
   %rx_ecnce = getelementptr inbounds i8, ptr %ackm, i64 2288
   %arrayidx31 = getelementptr inbounds [3 x i64], ptr %rx_ecnce, i64 0, i64 %idxprom
-  %10 = load i64, ptr %arrayidx31, align 8
+  %11 = load i64, ptr %arrayidx31, align 8
   %ecnce = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  store i64 %10, ptr %ecnce, align 8
+  store i64 %11, ptr %ecnce, align 8
   %ecn_present = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %bf.load = load i8, ptr %ecn_present, align 8
   %bf.set = or i8 %bf.load, 1
@@ -2542,17 +2543,17 @@ if.end:                                           ; preds = %if.else, %if.then
   %arrayidx.i = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline.i, i64 0, i64 %idxprom
   store i64 -1, ptr %arrayidx.i, align 8
   %ack_deadline_cb.i = getelementptr inbounds i8, ptr %ackm, i64 2384
-  %11 = load ptr, ptr %ack_deadline_cb.i, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %ack_deadline_cb.i, align 8
+  %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %ackm_set_flush_deadline.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %12 = load i8, ptr %arrayidx37, align 1
-  %tobool.not.i.i = icmp eq i8 %12, 0
+  %13 = load i8, ptr %arrayidx37, align 1
+  %tobool.not.i.i = icmp eq i8 %13, 0
   %spec.select.i = sext i1 %tobool.not.i.i to i64
   %ack_deadline_cb_arg.i = getelementptr inbounds i8, ptr %ackm, i64 2392
-  %13 = load ptr, ptr %ack_deadline_cb_arg.i, align 8
-  tail call void %11(i64 %spec.select.i, i32 noundef %pkt_space, ptr noundef %13) #11
+  %14 = load ptr, ptr %ack_deadline_cb_arg.i, align 8
+  tail call void %12(i64 %spec.select.i, i32 noundef %pkt_space, ptr noundef %14) #11
   br label %ackm_set_flush_deadline.exit
 
 ackm_set_flush_deadline.exit:                     ; preds = %if.end, %if.then.i

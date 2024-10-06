@@ -205,7 +205,9 @@ read_token.exit36:                                ; preds = %54, %54
   %76 = getelementptr [6 x %struct.used_variable_t], ptr %73, i64 0, i64 %75
   store ptr %72, ptr %76, align 8
   %77 = load ptr, ptr %10, align 8
-  %78 = getelementptr [6 x %struct.used_variable_t], ptr %73, i64 0, i64 %75, i32 1
+  %.idx.i = shl nuw nsw i64 %75, 4
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %78 = getelementptr i8, ptr %73, i64 %.offs.i
   store ptr %77, ptr %78, align 8
   %79 = add i32 %74, 1
   store i32 %79, ptr %64, align 8
@@ -283,7 +285,9 @@ read_token.exit45:                                ; preds = %90, %90
   %112 = getelementptr [6 x %struct.used_variable_t], ptr %109, i64 0, i64 %111
   store ptr %108, ptr %112, align 8
   %113 = load ptr, ptr %8, align 8
-  %114 = getelementptr [6 x %struct.used_variable_t], ptr %109, i64 0, i64 %111, i32 1
+  %.idx.i47 = shl nuw nsw i64 %111, 4
+  %.offs.i48 = or disjoint i64 %.idx.i47, 8
+  %114 = getelementptr i8, ptr %109, i64 %.offs.i48
   store ptr %113, ptr %114, align 8
   %115 = add i32 %110, 1
   store i32 %115, ptr %100, align 4
@@ -297,38 +301,38 @@ rule_check_port_vars.exit:                        ; preds = %read_token.exit45, 
   %118 = getelementptr i8, ptr %116, i64 %117
   br label %119
 
-119:                                              ; preds = %.critedge.i.i48, %rule_check_port_vars.exit
-  %.0.i.i47 = phi i32 [ 0, %rule_check_port_vars.exit ], [ %123, %.critedge.i.i48 ]
-  %120 = sext i32 %.0.i.i47 to i64
+119:                                              ; preds = %.critedge.i.i50, %rule_check_port_vars.exit
+  %.0.i.i49 = phi i32 [ 0, %rule_check_port_vars.exit ], [ %123, %.critedge.i.i50 ]
+  %120 = sext i32 %.0.i.i49 to i64
   %121 = getelementptr i8, ptr %118, i64 %120
   %122 = load i8, ptr %121, align 1
-  switch i8 %122, label %skipWhiteSpace.exit.i49 [
-    i8 32, label %.critedge.i.i48
-    i8 9, label %.critedge.i.i48
+  switch i8 %122, label %skipWhiteSpace.exit.i51 [
+    i8 32, label %.critedge.i.i50
+    i8 9, label %.critedge.i.i50
   ]
 
-.critedge.i.i48:                                  ; preds = %119, %119
-  %123 = add i32 %.0.i.i47, 1
+.critedge.i.i50:                                  ; preds = %119, %119
+  %123 = add i32 %.0.i.i49, 1
   br label %119, !llvm.loop !4
 
-skipWhiteSpace.exit.i49:                          ; preds = %119
+skipWhiteSpace.exit.i51:                          ; preds = %119
   %124 = getelementptr i8, ptr %118, i64 %120
-  %125 = add i32 %.0.i.i47, %95
+  %125 = add i32 %.0.i.i49, %95
   br label %126
 
-126:                                              ; preds = %126, %skipWhiteSpace.exit.i49
-  %.021.i50 = phi i32 [ 0, %skipWhiteSpace.exit.i49 ], [ %130, %126 ]
-  %127 = sext i32 %.021.i50 to i64
+126:                                              ; preds = %126, %skipWhiteSpace.exit.i51
+  %.021.i52 = phi i32 [ 0, %skipWhiteSpace.exit.i51 ], [ %130, %126 ]
+  %127 = sext i32 %.021.i52 to i64
   %128 = getelementptr i8, ptr %124, i64 %127
   %129 = load i8, ptr %128, align 1
-  %130 = add i32 %.021.i50, 1
+  %130 = add i32 %.021.i52, 1
   switch i8 %129, label %126 [
-    i8 32, label %read_token.exit54
-    i8 0, label %read_token.exit54
+    i8 32, label %read_token.exit56
+    i8 0, label %read_token.exit56
   ]
 
-read_token.exit54:                                ; preds = %126, %126
-  %131 = add i32 %125, %.021.i50
+read_token.exit56:                                ; preds = %126, %126
+  %131 = add i32 %125, %.021.i52
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @read_token.static_buffer, ptr nonnull align 1 %124, i64 %127, i1 false)
   %132 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %127
   store i8 0, ptr %132, align 1
@@ -337,38 +341,38 @@ read_token.exit54:                                ; preds = %126, %126
   %135 = getelementptr i8, ptr %133, i64 %134
   br label %136
 
-136:                                              ; preds = %.critedge.i.i56, %read_token.exit54
-  %.0.i.i55 = phi i32 [ 0, %read_token.exit54 ], [ %140, %.critedge.i.i56 ]
-  %137 = sext i32 %.0.i.i55 to i64
+136:                                              ; preds = %.critedge.i.i58, %read_token.exit56
+  %.0.i.i57 = phi i32 [ 0, %read_token.exit56 ], [ %140, %.critedge.i.i58 ]
+  %137 = sext i32 %.0.i.i57 to i64
   %138 = getelementptr i8, ptr %135, i64 %137
   %139 = load i8, ptr %138, align 1
-  switch i8 %139, label %skipWhiteSpace.exit.i57 [
-    i8 32, label %.critedge.i.i56
-    i8 9, label %.critedge.i.i56
+  switch i8 %139, label %skipWhiteSpace.exit.i59 [
+    i8 32, label %.critedge.i.i58
+    i8 9, label %.critedge.i.i58
   ]
 
-.critedge.i.i56:                                  ; preds = %136, %136
-  %140 = add i32 %.0.i.i55, 1
+.critedge.i.i58:                                  ; preds = %136, %136
+  %140 = add i32 %.0.i.i57, 1
   br label %136, !llvm.loop !4
 
-skipWhiteSpace.exit.i57:                          ; preds = %136
+skipWhiteSpace.exit.i59:                          ; preds = %136
   %141 = getelementptr i8, ptr %135, i64 %137
-  %142 = add i32 %.0.i.i55, %131
+  %142 = add i32 %.0.i.i57, %131
   br label %143
 
-143:                                              ; preds = %143, %skipWhiteSpace.exit.i57
-  %.021.i58 = phi i32 [ 0, %skipWhiteSpace.exit.i57 ], [ %147, %143 ]
-  %144 = sext i32 %.021.i58 to i64
+143:                                              ; preds = %143, %skipWhiteSpace.exit.i59
+  %.021.i60 = phi i32 [ 0, %skipWhiteSpace.exit.i59 ], [ %147, %143 ]
+  %144 = sext i32 %.021.i60 to i64
   %145 = getelementptr i8, ptr %141, i64 %144
   %146 = load i8, ptr %145, align 1
-  %147 = add i32 %.021.i58, 1
+  %147 = add i32 %.021.i60, 1
   switch i8 %146, label %143 [
-    i8 32, label %read_token.exit62
-    i8 0, label %read_token.exit62
+    i8 32, label %read_token.exit64
+    i8 0, label %read_token.exit64
   ]
 
-read_token.exit62:                                ; preds = %143, %143
-  %148 = add i32 %142, %.021.i58
+read_token.exit64:                                ; preds = %143, %143
+  %148 = add i32 %142, %.021.i60
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @read_token.static_buffer, ptr nonnull align 1 %141, i64 %144, i1 false)
   %149 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %144
   store i8 0, ptr %149, align 1
@@ -378,20 +382,20 @@ read_token.exit62:                                ; preds = %143, %143
   store ptr null, ptr %6, align 8
   %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @read_token.static_buffer) #15
   %151 = icmp ult i64 %150, 2
-  br i1 %151, label %rule_check_ip_vars.exit64, label %152
+  br i1 %151, label %rule_check_ip_vars.exit68, label %152
 
-152:                                              ; preds = %read_token.exit62
+152:                                              ; preds = %read_token.exit64
   %153 = getelementptr inbounds i8, ptr %1, i64 3464
   %154 = load i32, ptr %153, align 8
   %155 = icmp ugt i32 %154, 5
-  br i1 %155, label %rule_check_ip_vars.exit64, label %156
+  br i1 %155, label %rule_check_ip_vars.exit68, label %156
 
 156:                                              ; preds = %152
   %157 = getelementptr inbounds i8, ptr %0, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = call i32 @g_hash_table_lookup_extended(ptr noundef %158, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %5, ptr noundef nonnull %6) #16
-  %.not.i63 = icmp eq i32 %159, 0
-  br i1 %.not.i63, label %rule_check_ip_vars.exit64, label %160
+  %.not.i65 = icmp eq i32 %159, 0
+  br i1 %.not.i65, label %rule_check_ip_vars.exit68, label %160
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %5, align 8
@@ -401,13 +405,15 @@ read_token.exit62:                                ; preds = %143, %143
   %165 = getelementptr [6 x %struct.used_variable_t], ptr %162, i64 0, i64 %164
   store ptr %161, ptr %165, align 8
   %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr [6 x %struct.used_variable_t], ptr %162, i64 0, i64 %164, i32 1
+  %.idx.i66 = shl nuw nsw i64 %164, 4
+  %.offs.i67 = or disjoint i64 %.idx.i66, 8
+  %167 = getelementptr i8, ptr %162, i64 %.offs.i67
   store ptr %166, ptr %167, align 8
   %168 = add i32 %163, 1
   store i32 %168, ptr %153, align 8
-  br label %rule_check_ip_vars.exit64
+  br label %rule_check_ip_vars.exit68
 
-rule_check_ip_vars.exit64:                        ; preds = %read_token.exit62, %152, %156, %160
+rule_check_ip_vars.exit68:                        ; preds = %read_token.exit64, %152, %156, %160
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %169 = load ptr, ptr %1, align 8
@@ -415,36 +421,36 @@ rule_check_ip_vars.exit64:                        ; preds = %read_token.exit62, 
   %171 = getelementptr i8, ptr %169, i64 %170
   br label %172
 
-172:                                              ; preds = %.critedge.i.i66, %rule_check_ip_vars.exit64
-  %.0.i.i65 = phi i32 [ 0, %rule_check_ip_vars.exit64 ], [ %177, %.critedge.i.i66 ]
-  %173 = sext i32 %.0.i.i65 to i64
+172:                                              ; preds = %.critedge.i.i70, %rule_check_ip_vars.exit68
+  %.0.i.i69 = phi i32 [ 0, %rule_check_ip_vars.exit68 ], [ %177, %.critedge.i.i70 ]
+  %173 = sext i32 %.0.i.i69 to i64
   %174 = getelementptr i8, ptr %171, i64 %173
   %175 = load i8, ptr %174, align 1
-  switch i8 %175, label %skipWhiteSpace.exit.i67.preheader [
-    i8 32, label %.critedge.i.i66
-    i8 9, label %.critedge.i.i66
+  switch i8 %175, label %skipWhiteSpace.exit.i71.preheader [
+    i8 32, label %.critedge.i.i70
+    i8 9, label %.critedge.i.i70
   ]
 
-skipWhiteSpace.exit.i67.preheader:                ; preds = %172
+skipWhiteSpace.exit.i71.preheader:                ; preds = %172
   %176 = getelementptr i8, ptr %171, i64 %173
-  br label %skipWhiteSpace.exit.i67
+  br label %skipWhiteSpace.exit.i71
 
-.critedge.i.i66:                                  ; preds = %172, %172
-  %177 = add i32 %.0.i.i65, 1
+.critedge.i.i70:                                  ; preds = %172, %172
+  %177 = add i32 %.0.i.i69, 1
   br label %172, !llvm.loop !4
 
-skipWhiteSpace.exit.i67:                          ; preds = %skipWhiteSpace.exit.i67.preheader, %skipWhiteSpace.exit.i67
-  %.021.i68 = phi i32 [ %181, %skipWhiteSpace.exit.i67 ], [ 0, %skipWhiteSpace.exit.i67.preheader ]
-  %178 = sext i32 %.021.i68 to i64
+skipWhiteSpace.exit.i71:                          ; preds = %skipWhiteSpace.exit.i71.preheader, %skipWhiteSpace.exit.i71
+  %.021.i72 = phi i32 [ %181, %skipWhiteSpace.exit.i71 ], [ 0, %skipWhiteSpace.exit.i71.preheader ]
+  %178 = sext i32 %.021.i72 to i64
   %179 = getelementptr i8, ptr %176, i64 %178
   %180 = load i8, ptr %179, align 1
-  %181 = add i32 %.021.i68, 1
-  switch i8 %180, label %skipWhiteSpace.exit.i67 [
-    i8 32, label %read_token.exit72
-    i8 0, label %read_token.exit72
+  %181 = add i32 %.021.i72, 1
+  switch i8 %180, label %skipWhiteSpace.exit.i71 [
+    i8 32, label %read_token.exit76
+    i8 0, label %read_token.exit76
   ]
 
-read_token.exit72:                                ; preds = %skipWhiteSpace.exit.i67, %skipWhiteSpace.exit.i67
+read_token.exit76:                                ; preds = %skipWhiteSpace.exit.i71, %skipWhiteSpace.exit.i71
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @read_token.static_buffer, ptr nonnull align 1 %176, i64 %178, i1 false)
   %182 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %178
   store i8 0, ptr %182, align 1
@@ -454,20 +460,20 @@ read_token.exit72:                                ; preds = %skipWhiteSpace.exit
   store ptr null, ptr %4, align 8
   %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @read_token.static_buffer) #15
   %184 = icmp ult i64 %183, 2
-  br i1 %184, label %rule_check_port_vars.exit74, label %185
+  br i1 %184, label %rule_check_port_vars.exit80, label %185
 
-185:                                              ; preds = %read_token.exit72
+185:                                              ; preds = %read_token.exit76
   %186 = getelementptr inbounds i8, ptr %1, i64 3364
   %187 = load i32, ptr %186, align 4
   %188 = icmp ugt i32 %187, 5
-  br i1 %188, label %rule_check_port_vars.exit74, label %189
+  br i1 %188, label %rule_check_port_vars.exit80, label %189
 
 189:                                              ; preds = %185
   %190 = getelementptr inbounds i8, ptr %0, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = call i32 @g_hash_table_lookup_extended(ptr noundef %191, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %.not.i73 = icmp eq i32 %192, 0
-  br i1 %.not.i73, label %rule_check_port_vars.exit74, label %193
+  %.not.i77 = icmp eq i32 %192, 0
+  br i1 %.not.i77, label %rule_check_port_vars.exit80, label %193
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %3, align 8
@@ -477,19 +483,21 @@ read_token.exit72:                                ; preds = %skipWhiteSpace.exit
   %198 = getelementptr [6 x %struct.used_variable_t], ptr %195, i64 0, i64 %197
   store ptr %194, ptr %198, align 8
   %199 = load ptr, ptr %4, align 8
-  %200 = getelementptr [6 x %struct.used_variable_t], ptr %195, i64 0, i64 %197, i32 1
+  %.idx.i78 = shl nuw nsw i64 %197, 4
+  %.offs.i79 = or disjoint i64 %.idx.i78, 8
+  %200 = getelementptr i8, ptr %195, i64 %.offs.i79
   store ptr %199, ptr %200, align 8
   %201 = add i32 %196, 1
   store i32 %201, ptr %186, align 4
-  br label %rule_check_port_vars.exit74
+  br label %rule_check_port_vars.exit80
 
-rule_check_port_vars.exit74:                      ; preds = %read_token.exit72, %185, %189, %193
+rule_check_port_vars.exit80:                      ; preds = %read_token.exit76, %185, %189, %193
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i32 1, ptr %11, align 8
   br label %202
 
-202:                                              ; preds = %2, %rule_check_port_vars.exit74
+202:                                              ; preds = %2, %rule_check_port_vars.exit80
   ret void
 }
 

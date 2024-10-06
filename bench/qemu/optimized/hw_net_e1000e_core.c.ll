@@ -3158,20 +3158,20 @@ e1000e_intrmgr_pci_realize.exit:                  ; preds = %for.body62.i.i
   %call1 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @e1000e_vm_state_change, ptr noundef nonnull %core) #13
   %vmstate = getelementptr inbounds i8, ptr %core, i64 132128
   store ptr %call1, ptr %vmstate, align 8
-  %tx_pkt = getelementptr i8, ptr %core, i64 131712
-  tail call void @net_tx_pkt_init(ptr noundef %tx_pkt, i32 noundef 64) #13
+  %2 = getelementptr i8, ptr %core, i64 131712
+  tail call void @net_tx_pkt_init(ptr noundef %2, i32 noundef 64) #13
   %tx_pkt.c = getelementptr i8, ptr %core, i64 131744
   tail call void @net_tx_pkt_init(ptr noundef %tx_pkt.c, i32 noundef 64) #13
   %rx_pkt = getelementptr inbounds i8, ptr %core, i64 131752
   tail call void @net_rx_pkt_init(ptr noundef nonnull %rx_pkt) #13
   %eeprom = getelementptr inbounds i8, ptr %core, i64 131520
   %owner = getelementptr inbounds i8, ptr %core, i64 132176
-  %2 = load ptr, ptr %owner, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %2) #13
+  %3 = load ptr, ptr %owner, align 8
+  %call.i = tail call ptr @object_get_class(ptr noundef %3) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.230, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
   %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
-  %3 = load i16, ptr %device_id, align 2
-  tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom, ptr noundef %eeprom_templ, i32 noundef %eeprom_size, i16 noundef zeroext %3, ptr noundef %macaddr) #13
+  %4 = load i16, ptr %device_id, align 2
+  tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom, ptr noundef %eeprom_templ, i32 noundef %eeprom_size, i16 noundef zeroext %4, ptr noundef %macaddr) #13
   tail call fastcc void @e1000e_update_rx_offloads(ptr noundef %core)
   ret void
 }
@@ -3662,15 +3662,15 @@ e1000e_intrmgr_pci_unint.exit:                    ; preds = %timer_free.exit26.i
   %vmstate = getelementptr inbounds i8, ptr %core, i64 132128
   %8 = load ptr, ptr %vmstate, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %8) #13
-  %tx_pkt = getelementptr i8, ptr %core, i64 131712
-  %9 = load ptr, ptr %tx_pkt, align 8
-  tail call void @net_tx_pkt_uninit(ptr noundef %9) #13
-  %tx_pkt.c = getelementptr i8, ptr %core, i64 131744
-  %10 = load ptr, ptr %tx_pkt.c, align 8
+  %9 = getelementptr i8, ptr %core, i64 131712
+  %10 = load ptr, ptr %9, align 8
   tail call void @net_tx_pkt_uninit(ptr noundef %10) #13
+  %tx_pkt.c = getelementptr i8, ptr %core, i64 131744
+  %11 = load ptr, ptr %tx_pkt.c, align 8
+  tail call void @net_tx_pkt_uninit(ptr noundef %11) #13
   %rx_pkt = getelementptr inbounds i8, ptr %core, i64 131752
-  %11 = load ptr, ptr %rx_pkt, align 8
-  tail call void @net_rx_pkt_uninit(ptr noundef %11) #13
+  %12 = load ptr, ptr %rx_pkt, align 8
+  tail call void @net_rx_pkt_uninit(ptr noundef %12) #13
   ret void
 }
 

@@ -29,8 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CheckPoint = type { i64, i32, i32, i8, %struct.FullTransactionId, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32 }
 %struct.FullTransactionId = type { i64 }
 %struct.xl_restore_point = type { i64, [64 x i8] }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
-%struct.RelFileLocator = type { i32, i32, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -9510,9 +9508,10 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %211
   %203 = phi ptr [ %215, %211 ], [ %13, %.lr.ph ]
   %.06379.us = phi i8 [ %213, %211 ], [ 0, %.lr.ph ]
-  %204 = getelementptr inbounds i8, ptr %203, i64 88
-  %205 = zext i8 %.06379.us to i64
-  %206 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %204, i64 0, i64 %205, i32 6
+  %204 = zext i8 %.06379.us to i64
+  %.idx.us = shl nuw nsw i64 %204, 6
+  %205 = getelementptr i8, ptr %203, i64 117
+  %206 = getelementptr i8, ptr %205, i64 %.idx.us
   %207 = load i8, ptr %206, align 1
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %.split.us
@@ -9536,9 +9535,10 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %232
   %218 = phi ptr [ %233, %232 ], [ %13, %.lr.ph ]
   %.06379 = phi i8 [ %234, %232 ], [ 0, %.lr.ph ]
-  %219 = getelementptr inbounds i8, ptr %218, i64 88
-  %220 = zext i8 %.06379 to i64
-  %221 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %219, i64 0, i64 %220, i32 6
+  %219 = zext i8 %.06379 to i64
+  %.idx = shl nuw nsw i64 %219, 6
+  %220 = getelementptr i8, ptr %218, i64 117
+  %221 = getelementptr i8, ptr %220, i64 %.idx
   %222 = load i8, ptr %221, align 1
   %223 = trunc i8 %222 to i1
   br i1 %223, label %226, label %232

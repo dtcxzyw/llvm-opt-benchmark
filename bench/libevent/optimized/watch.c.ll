@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
-%struct.evwatch_list = type { ptr, ptr }
 
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 
@@ -139,26 +138,27 @@ if.then6:                                         ; preds = %do.body5
 
 if.else:                                          ; preds = %do.body5
   %5 = load ptr, ptr %base, align 8
-  %watchers = getelementptr inbounds i8, ptr %5, i64 1176
   %type = getelementptr inbounds i8, ptr %watcher, i64 24
   %6 = load i32, ptr %type, align 8
   %idxprom = zext i32 %6 to i64
-  %tqh_last = getelementptr inbounds [2 x %struct.evwatch_list], ptr %watchers, i64 0, i64 %idxprom, i32 1
+  %tqh_last.idx = shl nuw nsw i64 %idxprom, 4
+  %7 = getelementptr i8, ptr %5, i64 1184
+  %tqh_last = getelementptr i8, ptr %7, i64 %tqh_last.idx
   store ptr %4, ptr %tqh_last, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then6
-  %7 = load ptr, ptr %watcher, align 8
-  store ptr %7, ptr %4, align 8
-  %8 = load ptr, ptr %base, align 8
-  %th_base_lock24 = getelementptr inbounds i8, ptr %8, i64 952
-  %9 = load ptr, ptr %th_base_lock24, align 8
-  %tobool25.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %watcher, align 8
+  store ptr %8, ptr %4, align 8
+  %9 = load ptr, ptr %base, align 8
+  %th_base_lock24 = getelementptr inbounds i8, ptr %9, i64 952
+  %10 = load ptr, ptr %th_base_lock24, align 8
+  %tobool25.not = icmp eq ptr %10, null
   br i1 %tobool25.not, label %do.end32, label %if.then26
 
 if.then26:                                        ; preds = %if.end15
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call29 = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %9) #5
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %call29 = tail call i32 %11(i32 noundef 0, ptr noundef nonnull %10) #5
   br label %do.end32
 
 do.end32:                                         ; preds = %if.then26, %if.end15

@@ -245,9 +245,10 @@ define hidden noundef i64 @_ZNK17FreeListAllocator10free_countEv(ptr noundef non
 define hidden noundef i64 @_ZNK17FreeListAllocator13pending_countEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load volatile i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
-  %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5, i32 2
+  %4 = zext i32 %3 to i64
+  %.idx = mul nuw nsw i64 %4, 24
+  %5 = getelementptr inbounds i8, ptr %0, i64 536
+  %6 = getelementptr i8, ptr %5, i64 %.idx
   %7 = load volatile i64, ptr %6, align 8
   ret i64 %7
 }

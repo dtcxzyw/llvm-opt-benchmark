@@ -2620,9 +2620,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48.i: 
           to label %952 unwind label %963
 
 952:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48.i
-  %953 = getelementptr inbounds nuw i8, ptr %106, i64 804
-  %954 = zext i16 %951 to i64
-  %955 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %953, i64 0, i64 %954, i32 2
+  %953 = zext i16 %951 to i64
+  %.idx.i.i = mul nuw nsw i64 %953, 6
+  %954 = getelementptr inbounds i8, ptr %106, i64 808
+  %955 = getelementptr i8, ptr %954, i64 %.idx.i.i
   %956 = load i8, ptr %955, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #19

@@ -207,7 +207,9 @@ if.end32:                                         ; preds = %if.end11
   %conv39 = trunc i64 %latency to i32
   %6 = load i32, ptr %ts.0, align 4
   %idxprom42 = sext i32 %6 to i64
-  %latency44 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples13, i64 0, i64 %idxprom42, i32 1
+  %latency44.idx = shl nsw i64 %idxprom42, 3
+  %latency44.offs = or disjoint i64 %latency44.idx, 4
+  %latency44 = getelementptr inbounds i8, ptr %samples13, i64 %latency44.offs
   store i32 %conv39, ptr %latency44, align 4
   %inc = add nsw i32 %6, 1
   %cmp47 = icmp eq i32 %inc, 160

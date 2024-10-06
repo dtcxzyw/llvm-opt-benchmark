@@ -2668,8 +2668,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EnterCXXTryStmtERKNS_
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %9 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack9pushCatchEj(ptr noundef nonnull align 8 dereferenceable(320) %8, i32 noundef %7) #18
-  %.not35 = icmp eq i32 %7, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq i32 %7, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2677,11 +2677,12 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EnterCXXTryStmtERKNS_
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %invariant.gep = getelementptr inbounds i8, ptr %9, i64 48
   %15 = zext i32 %7 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph, %114
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
+16:                                               ; preds = %.lr.ph, %112
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
@@ -2696,7 +2697,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EnterCXXTryStmtERKNS_
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not26 = icmp eq ptr %24, null
-  br i1 %.not26, label %95, label %25
+  br i1 %.not26, label %94, label %25
 
 25:                                               ; preds = %16
   store i64 0, ptr %5, align 8
@@ -2824,44 +2825,46 @@ _ZN5clang7CodeGen13CodeGenModule14getObjCRuntimeEv.exit: ; preds = %73, %76
   store ptr %.sroa.09.1, ptr %93, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 8
   store i32 %.sroa.4.1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %94 = getelementptr inbounds %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %14, i64 %indvars.iv, i32 1
-  store ptr %22, ptr %94, align 8
-  br label %114
+  %.idx.i = mul nuw nsw i64 %indvars.iv, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx.i
+  store ptr %22, ptr %gep, align 8
+  br label %112
 
-95:                                               ; preds = %16
-  %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 224
+94:                                               ; preds = %16
+  %95 = load ptr, ptr %13, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 224
+  %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 288
-  %101 = load ptr, ptr %100, align 8
-  %102 = call { ptr, i32 } %101(ptr noundef nonnull align 8 dereferenceable(24) %98) #18
-  %103 = extractvalue { ptr, i32 } %102, 0
-  %104 = extractvalue { ptr, i32 } %102, 1
-  %105 = getelementptr inbounds %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %14, i64 %indvars.iv
-  store ptr %103, ptr %105, align 8
-  %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds i8, ptr %105, i64 8
-  store i32 %104, ptr %.sroa.2.0..sroa_idx.i29, align 8
-  %106 = getelementptr inbounds %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %14, i64 %indvars.iv, i32 1
-  store ptr %22, ptr %106, align 8
-  %107 = load ptr, ptr %13, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 152
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load i64, ptr %110, align 8
-  %112 = and i64 %111, 70368744177664
-  %.not27 = icmp eq i64 %112, 0
-  br i1 %.not27, label %114, label %113
+  %99 = getelementptr inbounds i8, ptr %98, i64 288
+  %100 = load ptr, ptr %99, align 8
+  %101 = call { ptr, i32 } %100(ptr noundef nonnull align 8 dereferenceable(24) %97) #18
+  %102 = extractvalue { ptr, i32 } %101, 0
+  %103 = extractvalue { ptr, i32 } %101, 1
+  %104 = getelementptr inbounds %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %14, i64 %indvars.iv
+  store ptr %102, ptr %104, align 8
+  %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds i8, ptr %104, i64 8
+  store i32 %103, ptr %.sroa.2.0..sroa_idx.i29, align 8
+  %.idx.i30 = mul nuw nsw i64 %indvars.iv, 24
+  %gep39 = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx.i30
+  store ptr %22, ptr %gep39, align 8
+  %105 = load ptr, ptr %13, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 152
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %109 = load i64, ptr %108, align 8
+  %110 = and i64 %109, 70368744177664
+  %.not27 = icmp eq i64 %110, 0
+  br i1 %.not27, label %112, label %111
 
-113:                                              ; preds = %95
+111:                                              ; preds = %94
   call void @_ZN5clang7CodeGen15CodeGenFunction20EmitSehTryScopeBeginEv(ptr noundef nonnull align 8 dereferenceable(6488) %0) #18
-  br label %114
+  br label %112
 
-114:                                              ; preds = %92, %113, %95
+112:                                              ; preds = %92, %111, %94
   %.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %114, %3
+._crit_edge:                                      ; preds = %112, %3
   ret void
 }
 
@@ -2899,13 +2902,14 @@ _ZNK5clang7CodeGen7EHScope13hasEHBranchesEv.exit.thread: ; preds = %3, %_ZNK5cla
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang7CodeGen7EHScope13hasEHBranchesEv.exit.thread
   %21 = lshr i32 %20, 3
-  %22 = getelementptr inbounds i8, ptr %14, i64 32
+  %22 = getelementptr i8, ptr %14, i64 48
   %23 = zext nneg i32 %21 to i64
   br label %24
 
 24:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %25 = getelementptr inbounds %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %22, i64 %indvars.iv.i, i32 1
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
+  %25 = getelementptr i8, ptr %22, i64 %.idx.i
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -7901,13 +7905,14 @@ _ZNK5clang7CodeGen7EHScope13hasEHBranchesEv.exit.thread: ; preds = %31, %_ZNK5cl
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang7CodeGen7EHScope13hasEHBranchesEv.exit.thread
   %42 = lshr i32 %41, 3
-  %43 = getelementptr inbounds i8, ptr %35, i64 32
+  %43 = getelementptr i8, ptr %35, i64 48
   %44 = zext nneg i32 %42 to i64
   br label %45
 
 45:                                               ; preds = %50, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
-  %46 = getelementptr inbounds %"struct.clang::CodeGen::EHCatchScope::Handler", ptr %43, i64 %indvars.iv.i, i32 1
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
+  %46 = getelementptr i8, ptr %43, i64 %.idx.i
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %50, label %49

@@ -454,8 +454,9 @@ define dso_local void @e820__print_table(ptr noundef %0) local_unnamed_addr #3 s
   %14 = add i64 %13, %12
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0, i64 noundef %10, i64 noundef %14) #16
   %16 = load ptr, ptr @e820_table, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
-  %18 = getelementptr [320 x %struct.e820_entry], ptr %17, i64 0, i64 %8, i32 2
+  %.idx = mul nsw i64 %8, 20
+  %17 = getelementptr i8, ptr %16, i64 20
+  %18 = getelementptr i8, ptr %17, i64 %.idx
   %19 = load i32, ptr %18, align 4
   tail call fastcc void @e820_print_type(i32 noundef %19) #15
   %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #16

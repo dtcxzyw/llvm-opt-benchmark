@@ -4086,7 +4086,9 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nocapt
   %29 = phi i64 [ %26, %25 ], [ %20, %22 ]
   %30 = phi i64 [ %23, %25 ], [ %14, %22 ]
   %31 = phi i1 [ true, %25 ], [ false, %22 ]
-  %32 = getelementptr [11 x %struct.resource], ptr %6, i64 0, i64 %30, i32 1
+  %.idx = shl nsw i64 %30, 6
+  %.offs = or disjoint i64 %.idx, 8
+  %32 = getelementptr i8, ptr %6, i64 %.offs
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   %35 = add i64 %33, 1

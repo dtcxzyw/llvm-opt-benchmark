@@ -17,11 +17,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.hashmap_entry = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.attr_check_item = type { ptr, ptr }
-%struct.attr_state = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.all_attrs_item = type { ptr, ptr, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
+%struct.attr_state = type { ptr, ptr }
 
 @git_attr__true = dso_local constant [14 x i8] c"(builtin)true\00", align 1
 @git_attr__false = dso_local constant [16 x i8] c"\00(builtin)false\00", align 16
@@ -667,7 +667,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp4.not.i, label %drop_all_attr_stacks.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then2, %drop_attr_stack.exit.i
-  %2 = phi i64 [ %20, %drop_attr_stack.exit.i ], [ %1, %if.then2 ]
+  %2 = phi i64 [ %21, %drop_attr_stack.exit.i ], [ %1, %if.then2 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %drop_attr_stack.exit.i ], [ 0, %if.then2 ]
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @check_vector, i64 16), align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
@@ -678,7 +678,7 @@ for.body.i:                                       ; preds = %if.then2, %drop_att
   br i1 %tobool.not4.i.i, label %drop_attr_stack.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i, %attr_stack_free.exit.i
-  %6 = phi ptr [ %19, %attr_stack_free.exit.i ], [ %5, %for.body.i ]
+  %6 = phi ptr [ %20, %attr_stack_free.exit.i ], [ %5, %for.body.i ]
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %stack.i, align 8
   %origin.i.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -704,49 +704,50 @@ for.body.i.i:                                     ; preds = %for.end.i.i, %for.b
   br i1 %cmp217.not.i.i, label %for.end.i.i, label %for.body3.lr.ph.i.i
 
 for.body3.lr.ph.i.i:                              ; preds = %for.body.i.i
-  %state.i.i = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr i8, ptr %11, i64 48
   br label %for.body3.i.i
 
 for.body3.i.i:                                    ; preds = %for.inc.i.i, %for.body3.lr.ph.i.i
-  %13 = phi i64 [ %12, %for.body3.lr.ph.i.i ], [ %15, %for.inc.i.i ]
+  %14 = phi i64 [ %12, %for.body3.lr.ph.i.i ], [ %16, %for.inc.i.i ]
   %j.018.i.i = phi i64 [ 0, %for.body3.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
-  %setto5.i.i = getelementptr inbounds [0 x %struct.attr_state], ptr %state.i.i, i64 0, i64 %j.018.i.i, i32 1
-  %14 = load ptr, ptr %setto5.i.i, align 8
-  %cmp6.i.i = icmp eq ptr %14, @git_attr__true
-  %cmp7.i.i = icmp eq ptr %14, @git_attr__false
+  %setto5.idx.i.i = shl nsw i64 %j.018.i.i, 4
+  %setto5.i.i = getelementptr i8, ptr %13, i64 %setto5.idx.i.i
+  %15 = load ptr, ptr %setto5.i.i, align 8
+  %cmp6.i.i = icmp eq ptr %15, @git_attr__true
+  %cmp7.i.i = icmp eq ptr %15, @git_attr__false
   %or.cond.i.i = or i1 %cmp6.i.i, %cmp7.i.i
-  %cmp9.i.i = icmp eq ptr %14, null
+  %cmp9.i.i = icmp eq ptr %15, null
   %or.cond1.i.i = or i1 %cmp9.i.i, %or.cond.i.i
-  %cmp11.i.i = icmp eq ptr %14, @git_attr__unknown
+  %cmp11.i.i = icmp eq ptr %15, @git_attr__unknown
   %or.cond2.i.i = or i1 %cmp11.i.i, %or.cond1.i.i
   br i1 %or.cond2.i.i, label %for.inc.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body3.i.i
-  tail call void @free(ptr noundef %14) #21
+  tail call void @free(ptr noundef %15) #21
   %.pre.i.i = load i64, ptr %num_attr.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %for.body3.i.i
-  %15 = phi i64 [ %.pre.i.i, %if.else.i.i ], [ %13, %for.body3.i.i ]
+  %16 = phi i64 [ %.pre.i.i, %if.else.i.i ], [ %14, %for.body3.i.i ]
   %inc.i.i = add nuw i64 %j.018.i.i, 1
-  %cmp2.i.i = icmp ult i64 %inc.i.i, %15
+  %cmp2.i.i = icmp ult i64 %inc.i.i, %16
   br i1 %cmp2.i.i, label %for.body3.i.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %for.body.i.i
   tail call void @free(ptr noundef nonnull %11) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %16 = load i32, ptr %num_matches.i.i, align 8
-  %17 = zext i32 %16 to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %17
+  %17 = load i32, ptr %num_matches.i.i, align 8
+  %18 = zext i32 %17 to i64
+  %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %18
   br i1 %cmp.i.i, label %for.body.i.i, label %attr_stack_free.exit.i, !llvm.loop !13
 
 attr_stack_free.exit.i:                           ; preds = %for.end.i.i, %while.body.i.i
   %attrs15.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %18 = load ptr, ptr %attrs15.i.i, align 8
-  tail call void @free(ptr noundef %18) #21
+  %19 = load ptr, ptr %attrs15.i.i, align 8
+  tail call void @free(ptr noundef %19) #21
   tail call void @free(ptr noundef nonnull %6) #21
-  %19 = load ptr, ptr %stack.i, align 8
-  %tobool.not.i.i = icmp eq ptr %19, null
+  %20 = load ptr, ptr %stack.i, align 8
+  %tobool.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i, label %drop_attr_stack.exit.loopexit.i, label %while.body.i.i, !llvm.loop !9
 
 drop_attr_stack.exit.loopexit.i:                  ; preds = %attr_stack_free.exit.i
@@ -754,9 +755,9 @@ drop_attr_stack.exit.loopexit.i:                  ; preds = %attr_stack_free.exi
   br label %drop_attr_stack.exit.i
 
 drop_attr_stack.exit.i:                           ; preds = %drop_attr_stack.exit.loopexit.i, %for.body.i
-  %20 = phi i64 [ %.pre.i, %drop_attr_stack.exit.loopexit.i ], [ %2, %for.body.i ]
+  %21 = phi i64 [ %.pre.i, %drop_attr_stack.exit.loopexit.i ], [ %2, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ugt i64 %20, %indvars.iv.next.i
+  %cmp.i = icmp ugt i64 %21, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %drop_all_attr_stacks.exit, !llvm.loop !14
 
 drop_all_attr_stacks.exit:                        ; preds = %drop_attr_stack.exit.i, %if.then2
@@ -1918,46 +1919,47 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp217.not, label %for.end, label %for.body3.lr.ph
 
 for.body3.lr.ph:                                  ; preds = %for.body
-  %state = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr i8, ptr %3, i64 48
   br label %for.body3
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %for.inc
-  %5 = phi i64 [ %4, %for.body3.lr.ph ], [ %7, %for.inc ]
+  %6 = phi i64 [ %4, %for.body3.lr.ph ], [ %8, %for.inc ]
   %j.018 = phi i64 [ 0, %for.body3.lr.ph ], [ %inc, %for.inc ]
-  %setto5 = getelementptr inbounds [0 x %struct.attr_state], ptr %state, i64 0, i64 %j.018, i32 1
-  %6 = load ptr, ptr %setto5, align 8
-  %cmp6 = icmp eq ptr %6, @git_attr__true
-  %cmp7 = icmp eq ptr %6, @git_attr__false
+  %setto5.idx = shl nsw i64 %j.018, 4
+  %setto5 = getelementptr i8, ptr %5, i64 %setto5.idx
+  %7 = load ptr, ptr %setto5, align 8
+  %cmp6 = icmp eq ptr %7, @git_attr__true
+  %cmp7 = icmp eq ptr %7, @git_attr__false
   %or.cond = or i1 %cmp6, %cmp7
-  %cmp9 = icmp eq ptr %6, null
+  %cmp9 = icmp eq ptr %7, null
   %or.cond1 = or i1 %cmp9, %or.cond
-  %cmp11 = icmp eq ptr %6, @git_attr__unknown
+  %cmp11 = icmp eq ptr %7, @git_attr__unknown
   %or.cond2 = or i1 %cmp11, %or.cond1
   br i1 %or.cond2, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %for.body3
-  tail call void @free(ptr noundef %6) #21
+  tail call void @free(ptr noundef %7) #21
   %.pre = load i64, ptr %num_attr, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %for.body3
-  %7 = phi i64 [ %.pre, %if.else ], [ %5, %for.body3 ]
+  %8 = phi i64 [ %.pre, %if.else ], [ %6, %for.body3 ]
   %inc = add nuw i64 %j.018, 1
-  %cmp2 = icmp ult i64 %inc, %7
+  %cmp2 = icmp ult i64 %inc, %8
   br i1 %cmp2, label %for.body3, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %for.body
   tail call void @free(ptr noundef nonnull %3) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %num_matches, align 8
-  %9 = zext i32 %8 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %9
+  %9 = load i32, ptr %num_matches, align 8
+  %10 = zext i32 %9 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end14, !llvm.loop !13
 
 for.end14:                                        ; preds = %for.end, %entry
   %attrs15 = getelementptr inbounds i8, ptr %e, i64 32
-  %10 = load ptr, ptr %attrs15, align 8
-  tail call void @free(ptr noundef %10) #21
+  %11 = load ptr, ptr %attrs15, align 8
+  tail call void @free(ptr noundef %11) #21
   tail call void @free(ptr noundef nonnull %e) #21
   ret void
 }

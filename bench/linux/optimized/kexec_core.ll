@@ -253,7 +253,9 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr nocapture 
   %78 = phi i64 [ 0, %67 ], [ %89, %86 ]
   %79 = phi i32 [ 0, %67 ], [ %88, %86 ]
   %80 = phi i64 [ 0, %67 ], [ %87, %86 ]
-  %81 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %78, i32 3
+  %.idx = shl nsw i64 %78, 5
+  %.offs = or disjoint i64 %.idx, 24
+  %81 = getelementptr i8, ptr %7, i64 %.offs
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, 4095
   %84 = lshr i64 %83, 12

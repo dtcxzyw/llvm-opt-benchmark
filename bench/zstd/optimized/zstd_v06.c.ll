@@ -347,7 +347,9 @@ if.then13:                                        ; preds = %for.body
   %conv14 = trunc i64 %indvars.iv to i8
   %dec = add i32 %highThreshold.048, -1
   %idxprom15 = zext i32 %highThreshold.048 to i64
-  %symbol = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr, i64 %idxprom15, i32 1
+  %symbol.idx = shl nuw nsw i64 %idxprom15, 2
+  %symbol.offs = or disjoint i64 %symbol.idx, 2
+  %symbol = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol.offs
   store i8 %conv14, ptr %symbol, align 2
   br label %for.inc
 
@@ -395,7 +397,9 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   %i.053 = phi i32 [ 0, %for.body48.lr.ph ], [ %inc59, %for.inc58 ]
   %position.152 = phi i32 [ %position.057, %for.body48.lr.ph ], [ %position.2, %for.inc58 ]
   %idxprom50 = zext i32 %position.152 to i64
-  %symbol52 = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr, i64 %idxprom50, i32 1
+  %symbol52.idx = shl nuw nsw i64 %idxprom50, 2
+  %symbol52.offs = or disjoint i64 %symbol52.idx, 2
+  %symbol52 = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol52.offs
   store i8 %conv49, ptr %symbol52, align 2
   br label %while.cond
 
@@ -937,7 +941,9 @@ if.end22.i232:                                    ; preds = %if.end10.i230
   br label %if.end74.i43
 
 cond.true64.i87:                                  ; preds = %cond.true50.i90
-  %DInfo.sroa.2.0.arrayidx.sroa_idx.i257 = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i63, i64 %state2.i16.sroa.0.1976, i32 1
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i257.idx = shl nsw i64 %state2.i16.sroa.0.1976, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i257.offs = or disjoint i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i257.idx, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i257 = getelementptr inbounds i8, ptr %add.ptr.i63, i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i257.offs
   %DInfo.sroa.2.0.copyload.i258 = load i8, ptr %DInfo.sroa.2.0.arrayidx.sroa_idx.i257, align 2
   %incdec.ptr73.i86 = getelementptr inbounds i8, ptr %op.i11.1980, i64 2
   store i8 %DInfo.sroa.2.0.copyload.i258, ptr %incdec.ptr.i40, align 1
@@ -1015,7 +1021,9 @@ BITv06_reloadDStream.exit332:                     ; preds = %if.end10.i309, %if.
   br i1 %cmp45.i31, label %return, label %cond.true50.i90
 
 cond.true96.i71:                                  ; preds = %cond.true81.i74
-  %DInfo.sroa.2.0.arrayidx.sroa_idx.i336 = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i63, i64 %add.i214, i32 1
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i336.idx = shl nsw i64 %add.i214, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i336.offs = or disjoint i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i336.idx, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i336 = getelementptr inbounds i8, ptr %add.ptr.i63, i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i336.offs
   %DInfo.sroa.2.0.copyload.i337 = load i8, ptr %DInfo.sroa.2.0.arrayidx.sroa_idx.i336, align 2
   %incdec.ptr105.i66 = getelementptr inbounds i8, ptr %op.i11.1980, i64 3
   store i8 %DInfo.sroa.2.0.copyload.i337, ptr %incdec.ptr90.i54, align 1
@@ -1448,7 +1456,9 @@ if.end22.i664:                                    ; preds = %if.end10.i662
   br label %if.end74.i
 
 cond.false67.i:                                   ; preds = %cond.false53.i
-  %DInfo.sroa.2.0.arrayidx.sroa_idx.i689 = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i440, i64 %state2.i.sroa.0.1988, i32 1
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i689.idx = shl nsw i64 %state2.i.sroa.0.1988, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i689.offs = or disjoint i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i689.idx, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i689 = getelementptr inbounds i8, ptr %add.ptr.i440, i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i689.offs
   %DInfo.sroa.2.0.copyload.i690 = load i8, ptr %DInfo.sroa.2.0.arrayidx.sroa_idx.i689, align 2
   %incdec.ptr73.i = getelementptr inbounds i8, ptr %op.i.1989, i64 2
   store i8 %DInfo.sroa.2.0.copyload.i690, ptr %incdec.ptr.i, align 1
@@ -1527,7 +1537,9 @@ BITv06_reloadDStream.exit764:                     ; preds = %if.end10.i741, %if.
   br i1 %cmp45.i, label %return, label %cond.false53.i
 
 cond.false99.i:                                   ; preds = %cond.false84.i
-  %DInfo.sroa.2.0.arrayidx.sroa_idx.i768 = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i440, i64 %add.i646, i32 1
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i768.idx = shl nsw i64 %add.i646, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i768.offs = or disjoint i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i768.idx, 2
+  %DInfo.sroa.2.0.arrayidx.sroa_idx.i768 = getelementptr inbounds i8, ptr %add.ptr.i440, i64 %DInfo.sroa.2.0.arrayidx.sroa_idx.i768.offs
   %DInfo.sroa.2.0.copyload.i769 = load i8, ptr %DInfo.sroa.2.0.arrayidx.sroa_idx.i768, align 2
   %incdec.ptr105.i = getelementptr inbounds i8, ptr %op.i.1989, i64 3
   store i8 %DInfo.sroa.2.0.copyload.i769, ptr %incdec.ptr90.i, align 1
@@ -6172,7 +6184,9 @@ if.then13.i.i.i:                                  ; preds = %for.body.i.i.i
   %conv14.i.i.i = trunc i64 %indvars.iv.i.i.i to i8
   %dec.i.i.i = add i32 %highThreshold.048.i.i.i, -1
   %idxprom15.i.i.i = zext i32 %highThreshold.048.i.i.i to i64
-  %symbol.i.i.i = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i.i.i, i64 %idxprom15.i.i.i, i32 1
+  %symbol.idx.i.i.i = shl nuw nsw i64 %idxprom15.i.i.i, 2
+  %symbol.offs.i.i.i = or disjoint i64 %symbol.idx.i.i.i, 2
+  %symbol.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %symbol.offs.i.i.i
   store i8 %conv14.i.i.i, ptr %symbol.i.i.i, align 2
   br label %for.inc.i.i.i
 
@@ -6214,7 +6228,9 @@ for.body48.i.i.i:                                 ; preds = %for.inc58.i.i.i, %f
   %i.053.i.i.i = phi i32 [ 0, %for.body48.lr.ph.i.i.i ], [ %inc59.i.i.i, %for.inc58.i.i.i ]
   %position.152.i.i.i = phi i32 [ %position.057.i.i.i, %for.body48.lr.ph.i.i.i ], [ %position.2.i.i.i, %for.inc58.i.i.i ]
   %idxprom50.i.i.i = zext nneg i32 %position.152.i.i.i to i64
-  %symbol52.i.i.i = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i.i.i, i64 %idxprom50.i.i.i, i32 1
+  %symbol52.idx.i.i.i = shl nuw nsw i64 %idxprom50.i.i.i, 2
+  %symbol52.offs.i.i.i = or disjoint i64 %symbol52.idx.i.i.i, 2
+  %symbol52.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %symbol52.offs.i.i.i
   store i8 %conv49.i.i.i, ptr %symbol52.i.i.i, align 2
   br label %while.cond.i.i.i
 
@@ -6362,7 +6378,9 @@ if.then13.i.i:                                    ; preds = %for.body.i.i
   %conv14.i244.i = trunc i64 %indvars.iv.i.i to i8
   %dec.i.i = add i32 %highThreshold.048.i.i, -1
   %idxprom15.i.i = zext i32 %highThreshold.048.i.i to i64
-  %symbol.i.i = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i233.i, i64 %idxprom15.i.i, i32 1
+  %symbol.idx.i.i = shl nuw nsw i64 %idxprom15.i.i, 2
+  %symbol.offs.i.i = or disjoint i64 %symbol.idx.i.i, 2
+  %symbol.i.i = getelementptr inbounds i8, ptr %add.ptr.i233.i, i64 %symbol.offs.i.i
   store i8 %conv14.i244.i, ptr %symbol.i.i, align 2
   br label %for.inc.i.i
 
@@ -6404,7 +6422,9 @@ for.body48.i.i:                                   ; preds = %for.inc58.i.i, %for
   %i.053.i.i = phi i32 [ 0, %for.body48.lr.ph.i.i ], [ %inc59.i.i, %for.inc58.i.i ]
   %position.152.i.i = phi i32 [ %position.057.i.i, %for.body48.lr.ph.i.i ], [ %position.2.i.i, %for.inc58.i.i ]
   %idxprom50.i.i = zext i32 %position.152.i.i to i64
-  %symbol52.i.i = getelementptr inbounds %struct.FSEv06_decode_t, ptr %add.ptr.i233.i, i64 %idxprom50.i.i, i32 1
+  %symbol52.idx.i.i = shl nuw nsw i64 %idxprom50.i.i, 2
+  %symbol52.offs.i.i = or disjoint i64 %symbol52.idx.i.i, 2
+  %symbol52.i.i = getelementptr inbounds i8, ptr %add.ptr.i233.i, i64 %symbol52.offs.i.i
   store i8 %conv49.i.i, ptr %symbol52.i.i, align 2
   br label %while.cond.i.i
 

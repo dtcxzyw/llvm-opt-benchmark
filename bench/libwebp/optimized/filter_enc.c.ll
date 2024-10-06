@@ -301,7 +301,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
   br i1 %.not, label %19, label %.preheader45
 
 .preheader45:                                     ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 608
+  %6 = getelementptr i8, ptr %3, i64 1292
   br label %7
 
 7:                                                ; preds = %.preheader45, %17
@@ -327,7 +327,8 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
   br i1 %exitcond.not, label %17, label %12, !llvm.loop !12
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %6, i64 0, i64 %indvars.iv53, i32 6
+  %.idx = mul nuw nsw i64 %indvars.iv53, 744
+  %18 = getelementptr i8, ptr %6, i64 %.idx
   store i32 %.1, ptr %18, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4

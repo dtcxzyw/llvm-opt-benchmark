@@ -193,24 +193,25 @@ define dso_local void @virtio_gpu_modeset_fini(ptr nocapture noundef readonly %0
   %2 = getelementptr inbounds i8, ptr %0, i64 61840
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.loopexit, label %5
+  br i1 %4, label %.loopexit, label %.preheader
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %7
+.preheader:                                       ; preds = %1
+  %5 = getelementptr i8, ptr %0, i64 3856
+  br label %6
 
-7:                                                ; preds = %7, %5
-  %8 = phi i32 [ 0, %5 ], [ %12, %7 ]
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr [16 x %struct.virtio_gpu_output], ptr %6, i64 0, i64 %9, i32 6
-  %11 = load ptr, ptr %10, align 8
-  tail call void @kfree(ptr noundef %11) #6
-  %12 = add nuw i32 %8, 1
-  %13 = load i32, ptr %2, align 8
-  %14 = icmp ult i32 %12, %13
-  br i1 %14, label %7, label %.loopexit, !llvm.loop !10
+6:                                                ; preds = %.preheader, %6
+  %7 = phi i32 [ %11, %6 ], [ 0, %.preheader ]
+  %8 = sext i32 %7 to i64
+  %.idx = mul nsw i64 %8, 3864
+  %9 = getelementptr i8, ptr %5, i64 %.idx
+  %10 = load ptr, ptr %9, align 8
+  tail call void @kfree(ptr noundef %10) #6
+  %11 = add nuw i32 %7, 1
+  %12 = load i32, ptr %2, align 8
+  %13 = icmp ult i32 %11, %12
+  br i1 %13, label %6, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %7, %1
+.loopexit:                                        ; preds = %6, %1
   ret void
 }
 

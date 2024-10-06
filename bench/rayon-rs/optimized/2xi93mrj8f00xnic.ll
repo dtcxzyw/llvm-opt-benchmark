@@ -920,7 +920,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
   %25 = load atomic i64, ptr %24 monotonic, align 128
   %26 = lshr i64 %25, 1
   %27 = icmp eq i64 %.lcssa30, %26
-  br i1 %27, label %88, label %28
+  br i1 %27, label %90, label %28
 
 28:                                               ; preds = %23
   %.not.unshifted = xor i64 %25, %.lcssa32
@@ -933,7 +933,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
   %.09 = phi i64 [ %9, %._crit_edge ], [ %spec.select, %28 ]
   %31 = cmpxchg weak ptr %1, i64 %.lcssa32, i64 %.09 seq_cst acquire, align 8
   %32 = extractvalue { i64, i1 } %31, 1
-  br i1 %32, label %33, label %88
+  br i1 %32, label %33, label %90
 
 33:                                               ; preds = %30
   %34 = icmp eq i64 %.lcssa29, 62
@@ -1021,7 +1021,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
   %67 = load ptr, ptr %53, align 8
   %68 = getelementptr inbounds i8, ptr %53, i64 8
   %69 = load ptr, ptr %68, align 8
-  br i1 %34, label %.lr.ph.i24.preheader, label %70
+  br i1 %34, label %.lr.ph.i24, label %70
 
 70:                                               ; preds = %"_ZN15crossbeam_deque5deque13Slot$LT$T$GT$10wait_write17hf0de3e7d241e307cE.exit"
   %71 = atomicrmw or ptr %54, i64 2 acq_rel, align 8
@@ -1031,44 +1031,46 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
 
 74:                                               ; preds = %70
   %.not9.i = icmp eq i64 %.lcssa29, 0
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i24.preheader
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i24
 
-.lr.ph.i24.preheader:                             ; preds = %"_ZN15crossbeam_deque5deque13Slot$LT$T$GT$10wait_write17hf0de3e7d241e307cE.exit", %74
-  br label %.lr.ph.i24
+.lr.ph.i24:                                       ; preds = %"_ZN15crossbeam_deque5deque13Slot$LT$T$GT$10wait_write17hf0de3e7d241e307cE.exit", %74
+  %75 = getelementptr i8, ptr %.0.i.le, i64 24
+  br label %76
 
-._crit_edge.i:                                    ; preds = %85, %74
+._crit_edge.i:                                    ; preds = %87, %74
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.i.le, i64 noundef 1520, i64 noundef 8) #14
   br label %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit"
 
-.lr.ph.i24:                                       ; preds = %.lr.ph.i24.preheader, %85
-  %.sroa.5.010.i = phi i64 [ %75, %85 ], [ %.lcssa29, %.lr.ph.i24.preheader ]
-  %75 = add nsw i64 %.sroa.5.010.i, -1
-  %76 = icmp ult i64 %.sroa.5.010.i, 64
-  tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds { { ptr, ptr }, { i64 } }, ptr %52, i64 %75, i32 1
-  %78 = load atomic i64, ptr %77 acquire, align 8
-  %79 = and i64 %78, 2
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %81, label %85
+76:                                               ; preds = %87, %.lr.ph.i24
+  %.sroa.5.010.i = phi i64 [ %.lcssa29, %.lr.ph.i24 ], [ %77, %87 ]
+  %77 = add nsw i64 %.sroa.5.010.i, -1
+  %78 = icmp ult i64 %.sroa.5.010.i, 64
+  tail call void @llvm.assume(i1 %78)
+  %.idx.i = mul nuw nsw i64 %77, 24
+  %79 = getelementptr i8, ptr %75, i64 %.idx.i
+  %80 = load atomic i64, ptr %79 acquire, align 8
+  %81 = and i64 %80, 2
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %.lr.ph.i24
-  %82 = atomicrmw or ptr %77, i64 4 acq_rel, align 8
-  %83 = and i64 %82, 2
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit", label %85
+83:                                               ; preds = %76
+  %84 = atomicrmw or ptr %79, i64 4 acq_rel, align 8
+  %85 = and i64 %84, 2
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit", label %87
 
-85:                                               ; preds = %81, %.lr.ph.i24
-  %.not.i = icmp eq i64 %75, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i24
+87:                                               ; preds = %83, %76
+  %.not.i = icmp eq i64 %77, 0
+  br i1 %.not.i, label %._crit_edge.i, label %76
 
-"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit": ; preds = %81, %._crit_edge.i, %70
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %67, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %69, ptr %87, align 8
-  br label %88
+"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit": ; preds = %83, %._crit_edge.i, %70
+  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %67, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %69, ptr %89, align 8
+  br label %90
 
-88:                                               ; preds = %23, %30, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit"
+90:                                               ; preds = %23, %30, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit"
   %storemerge28 = phi i64 [ 1, %"_ZN15crossbeam_deque5deque14Block$LT$T$GT$7destroy17hbd0fd57196cc56baE.exit" ], [ 0, %23 ], [ 2, %30 ]
   store i64 %storemerge28, ptr %0, align 8
   ret void

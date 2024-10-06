@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.10 = type { i64 }
 %union.anon.11 = type { i64 }
 %union.anon.12 = type { i64 }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
 %struct.pg_tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.DateTimeErrorExtra = type { ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -4123,9 +4122,10 @@ GetRmgr.exit.i.i:                                 ; preds = %402, %394
 
 410:                                              ; preds = %407
   %411 = load ptr, ptr %395, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 88
-  %413 = sext i32 %.024.i.i to i64
-  %414 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %412, i64 0, i64 %413, i32 7
+  %412 = sext i32 %.024.i.i to i64
+  %.idx.i.i = shl nsw i64 %412, 6
+  %413 = getelementptr i8, ptr %411, i64 118
+  %414 = getelementptr i8, ptr %413, i64 %.idx.i.i
   %415 = load i8, ptr %414, align 2
   %416 = trunc i8 %415 to i1
   br i1 %416, label %467, label %417
@@ -6117,9 +6117,10 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
 
 23:                                               ; preds = %22, %21
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 88
-  %26 = sext i32 %.014.i to i64
-  %27 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %25, i64 0, i64 %26, i32 6
+  %25 = sext i32 %.014.i to i64
+  %.idx.i = shl nsw i64 %25, 6
+  %26 = getelementptr i8, ptr %24, i64 117
+  %27 = getelementptr i8, ptr %26, i64 %.idx.i
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %31

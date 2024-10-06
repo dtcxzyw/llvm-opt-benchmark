@@ -623,12 +623,13 @@ define internal void @pci_fixup_i450gx(ptr noundef %0) #0 align 16 {
 define internal void @pci_fixup_umc_ide(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %2, ptr noundef nonnull @.str.2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr i8, ptr %0, i64 944
   br label %4
 
 4:                                                ; preds = %4, %1
   %5 = phi i64 [ 0, %1 ], [ %9, %4 ]
-  %6 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %5, i32 3
+  %.idx = shl i64 %5, 6
+  %6 = getelementptr i8, ptr %3, i64 %.idx
   %7 = load i64, ptr %6, align 8
   %8 = or i64 %7, 1
   store i64 %8, ptr %6, align 8

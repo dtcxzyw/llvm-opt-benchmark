@@ -89,7 +89,9 @@ define dso_local range(i32 -12, 1) i32 @hidraw_report_event(ptr nocapture nounde
 27:                                               ; preds = %21
   %28 = load i32, ptr %14, align 8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr [64 x %struct.hidraw_report], ptr %13, i64 0, i64 %29, i32 1
+  %.idx = shl nsw i64 %29, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %30 = getelementptr i8, ptr %13, i64 %.offs
   store i32 %2, ptr %30, align 8
   store i32 %17, ptr %14, align 8
   %31 = getelementptr i8, ptr %12, i64 -16

@@ -178,11 +178,12 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @ide_get_bios_chs_trans(ptr nocapture noundef readonly %bus, i32 noundef %unit) local_unnamed_addr #3 {
 entry:
-  %ifs = getelementptr inbounds i8, ptr %bus, i64 136
   %idxprom = sext i32 %unit to i64
-  %chs_trans = getelementptr [2 x %struct.IDEState], ptr %ifs, i64 0, i64 %idxprom, i32 8
-  %0 = load i32, ptr %chs_trans, align 4
-  ret i32 %0
+  %chs_trans.idx = mul nsw i64 %idxprom, 984
+  %0 = getelementptr i8, ptr %bus, i64 172
+  %chs_trans = getelementptr i8, ptr %0, i64 %chs_trans.idx
+  %1 = load i32, ptr %chs_trans, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

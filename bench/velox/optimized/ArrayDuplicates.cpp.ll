@@ -8698,7 +8698,9 @@ if.then16:                                        ; preds = %while.end.i, %if.en
   br label %for.inc
 
 if.else18:                                        ; preds = %while.body.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<2, 1>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv.i, i32 0, i64 1
+  %second.idx = shl nuw nsw i64 %conv.i, 1
+  %second.offs = or disjoint i64 %second.idx, 1
+  %second = getelementptr inbounds i8, ptr %rawItems_.i.i, i64 %second.offs
   %55 = load i8, ptr %second, align 1
   %tobool = trunc i8 %55 to i1
   br i1 %tobool, label %if.then20, label %for.inc
@@ -17805,7 +17807,9 @@ if.then16:                                        ; preds = %while.end.i, %if.en
   br label %for.inc
 
 if.else18:                                        ; preds = %while.body.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %51 = load i8, ptr %second, align 4
   %tobool = trunc i8 %51 to i1
   br i1 %tobool, label %if.then20, label %for.inc
@@ -23197,7 +23201,9 @@ if.then16:                                        ; preds = %while.end.i, %if.en
   br label %for.inc
 
 if.else18:                                        ; preds = %while.body.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<2, 1>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv.i, i32 0, i64 1
+  %second.idx = shl nuw nsw i64 %conv.i, 1
+  %second.offs = or disjoint i64 %second.idx, 1
+  %second = getelementptr inbounds i8, ptr %rawItems_.i.i, i64 %second.offs
   %51 = load i8, ptr %second, align 1
   %tobool = trunc i8 %51 to i1
   br i1 %tobool, label %if.then20, label %for.inc
@@ -28587,7 +28593,9 @@ if.then16:                                        ; preds = %while.end.i, %if.en
   br label %for.inc
 
 if.else18:                                        ; preds = %while.body.i
-  %second = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 2>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv.i, i32 0, i64 2
+  %second.idx = shl nuw nsw i64 %conv.i, 2
+  %second.offs = or disjoint i64 %second.idx, 2
+  %second = getelementptr inbounds i8, ptr %rawItems_.i.i, i64 %second.offs
   %51 = load i8, ptr %second, align 2
   %tobool = trunc i8 %51 to i1
   br i1 %tobool, label %if.then20, label %for.inc
@@ -44944,7 +44952,9 @@ _ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIfbvvvEEEixERKf.exit
   br label %for.inc
 
 if.else18:                                        ; preds = %while.body.i
-  %second = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 4>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i, i32 0, i64 4
+  %second.idx = shl nuw nsw i64 %conv.i, 3
+  %second.offs = or disjoint i64 %second.idx, 4
+  %second = getelementptr inbounds i8, ptr %rawItems_.i, i64 %second.offs
   %58 = load i8, ptr %second, align 4
   %tobool = trunc i8 %58 to i1
   br i1 %tobool, label %if.then20, label %for.inc

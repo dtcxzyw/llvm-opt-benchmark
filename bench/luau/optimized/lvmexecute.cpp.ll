@@ -970,7 +970,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   br i1 %522, label %.critedge6._crit_edge, label %523
 
 .critedge6._crit_edge:                            ; preds = %.critedge6
-  %.pre3582.pre = load ptr, ptr %6, align 8
+  %.pre3583.pre = load ptr, ptr %6, align 8
   br label %527
 
 523:                                              ; preds = %.critedge6
@@ -978,18 +978,18 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %525 = load i8, ptr %524, align 1
   %526 = and i8 %525, 2
   %.not3275 = icmp eq i8 %526, 0
-  %.pre3582.pre3585 = load ptr, ptr %6, align 8
-  br i1 %.not3275, label %._crit_edge3580, label %527
+  %.pre3583.pre3586 = load ptr, ptr %6, align 8
+  br i1 %.not3275, label %._crit_edge3581, label %527
 
 527:                                              ; preds = %.critedge6._crit_edge, %523
-  %.pre3582 = phi ptr [ %.pre3582.pre, %.critedge6._crit_edge ], [ %.pre3582.pre3585, %523 ]
+  %.pre3583 = phi ptr [ %.pre3583.pre, %.critedge6._crit_edge ], [ %.pre3583.pre3586, %523 ]
   %528 = getelementptr inbounds i8, ptr %480, i64 4
   %529 = load i8, ptr %528, align 4
   %.not3276 = icmp eq i8 %529, 0
-  br i1 %.not3276, label %530, label %._crit_edge3580
+  br i1 %.not3276, label %530, label %._crit_edge3581
 
 530:                                              ; preds = %527
-  %531 = getelementptr inbounds i8, ptr %.pre3582, i64 24
+  %531 = getelementptr inbounds i8, ptr %.pre3583, i64 24
   store ptr %473, ptr %531, align 8
   %532 = load ptr, ptr %476, align 8
   %533 = call noundef ptr @_Z11luaH_setstrP9lua_StateP5TableP7TString(ptr noundef nonnull %0, ptr noundef nonnull %480, ptr noundef %532)
@@ -1029,8 +1029,8 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   call void @_Z17luaC_barriertableP9lua_StateP5TableP8GCObject(ptr noundef nonnull %0, ptr noundef nonnull %480, ptr noundef nonnull %552)
   br label %.backedge.backedge
 
-._crit_edge3580:                                  ; preds = %523, %527
-  %557 = phi ptr [ %.pre3582, %527 ], [ %.pre3582.pre3585, %523 ]
+._crit_edge3581:                                  ; preds = %523, %527
+  %557 = phi ptr [ %.pre3583, %527 ], [ %.pre3583.pre3586, %523 ]
   store i32 %485, ptr %12, align 4
   %558 = getelementptr inbounds i8, ptr %557, i64 24
   store ptr %473, ptr %558, align 8
@@ -1417,8 +1417,8 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %810 = getelementptr inbounds i8, ptr %793, i64 12
   store i32 7, ptr %810, align 4
   %811 = load i8, ptr %804, align 1
-  %.not3480 = icmp eq i8 %811, 0
-  br i1 %.not3480, label %._crit_edge3476, label %.lr.ph3475
+  %.not3481 = icmp eq i8 %811, 0
+  br i1 %.not3481, label %._crit_edge3476, label %.lr.ph3475
 
 .lr.ph3475:                                       ; preds = %787
   %812 = getelementptr inbounds i8, ptr %.0, i64 32
@@ -1426,7 +1426,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   br label %814
 
 814:                                              ; preds = %.lr.ph3475, %839
-  %indvars.iv3563 = phi i64 [ 0, %.lr.ph3475 ], [ %indvars.iv.next3564, %839 ]
+  %indvars.iv3564 = phi i64 [ 0, %.lr.ph3475 ], [ %indvars.iv.next3565, %839 ]
   %.230563473 = phi ptr [ %788, %.lr.ph3475 ], [ %815, %839 ]
   %815 = getelementptr inbounds i8, ptr %.230563473, i64 4
   %816 = load i32, ptr %.230563473, align 4
@@ -1443,12 +1443,12 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %820 = and i32 %819, 255
   %821 = zext nneg i32 %820 to i64
   %822 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %821
-  %823 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %813, i64 0, i64 %indvars.iv3563
+  %823 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %813, i64 0, i64 %indvars.iv3564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %823, ptr noundef nonnull align 8 dereferenceable(16) %822, i64 16, i1 false)
   br label %839
 
 824:                                              ; preds = %814
-  %825 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %813, i64 0, i64 %indvars.iv3563
+  %825 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %813, i64 0, i64 %indvars.iv3564
   %826 = lshr i32 %816, 16
   %827 = and i32 %826, 255
   %828 = zext nneg i32 %827 to i64
@@ -1464,7 +1464,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %834 = and i32 %833, 255
   %835 = zext nneg i32 %834 to i64
   %836 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %812, i64 0, i64 %835
-  %837 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %813, i64 0, i64 %indvars.iv3563
+  %837 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %813, i64 0, i64 %indvars.iv3564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %837, ptr noundef nonnull align 8 dereferenceable(16) %836, i64 16, i1 false)
   br label %839
 
@@ -1472,10 +1472,10 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   unreachable
 
 839:                                              ; preds = %818, %824, %832
-  %indvars.iv.next3564 = add nuw nsw i64 %indvars.iv3563, 1
+  %indvars.iv.next3565 = add nuw nsw i64 %indvars.iv3564, 1
   %840 = load i8, ptr %804, align 1
   %841 = zext i8 %840 to i64
-  %842 = icmp ult i64 %indvars.iv.next3564, %841
+  %842 = icmp ult i64 %indvars.iv.next3565, %841
   br i1 %842, label %814, label %._crit_edge3476, !llvm.loop !5
 
 ._crit_edge3476:                                  ; preds = %839, %787
@@ -1693,7 +1693,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   br i1 %.not3250, label %..thread3328_crit_edge, label %982
 
 ..thread3328_crit_edge:                           ; preds = %977
-  %.pre3577 = load i8, ptr %974, align 1
+  %.pre3578 = load i8, ptr %974, align 1
   br label %.thread3328
 
 982:                                              ; preds = %977
@@ -1705,7 +1705,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   br label %1048
 
 .thread3328:                                      ; preds = %..thread3328_crit_edge, %973
-  %985 = phi i8 [ %.pre3577, %..thread3328_crit_edge ], [ %975, %973 ]
+  %985 = phi i8 [ %.pre3578, %..thread3328_crit_edge ], [ %975, %973 ]
   %986 = and i8 %985, 1
   %.not3251 = icmp eq i8 %986, 0
   br i1 %.not3251, label %987, label %.thread3331
@@ -1814,11 +1814,11 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %1050 = getelementptr inbounds i8, ptr %1049, i64 3296
   %1051 = load ptr, ptr %1050, align 8
   %.not3257 = icmp eq ptr %1051, null
-  %.pre3579.pre3583 = load ptr, ptr %6, align 8
+  %.pre3580.pre3584 = load ptr, ptr %6, align 8
   br i1 %.not3257, label %1060, label %1052
 
 1052:                                             ; preds = %1048
-  %1053 = getelementptr inbounds i8, ptr %.pre3579.pre3583, i64 24
+  %1053 = getelementptr inbounds i8, ptr %.pre3580.pre3584, i64 24
   store ptr %.03054, ptr %1053, align 8
   %1054 = load ptr, ptr %6, align 8
   %1055 = getelementptr inbounds i8, ptr %1054, i64 24
@@ -1829,11 +1829,11 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %1058 = load ptr, ptr %7, align 8
   %1059 = load i8, ptr %9, align 1
   %.not3258 = icmp eq i8 %1059, 0
-  %.pre3579.pre = load ptr, ptr %6, align 8
+  %.pre3580.pre = load ptr, ptr %6, align 8
   br i1 %.not3258, label %1060, label %.loopexit3371.sink.split
 
 1060:                                             ; preds = %1052, %1048
-  %.pre3579 = phi ptr [ %.pre3579.pre, %1052 ], [ %.pre3579.pre3583, %1048 ]
+  %.pre3580 = phi ptr [ %.pre3580.pre, %1052 ], [ %.pre3580.pre3584, %1048 ]
   %.3 = phi ptr [ %1058, %1052 ], [ %.03052, %1048 ]
   %1061 = getelementptr inbounds i8, ptr %.03054, i64 4
   %1062 = load i32, ptr %.03054, align 4
@@ -1858,15 +1858,15 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   br i1 %.not3259, label %1083, label %1080
 
 1080:                                             ; preds = %1060
-  %1081 = getelementptr inbounds i8, ptr %.pre3579, i64 24
+  %1081 = getelementptr inbounds i8, ptr %.pre3580, i64 24
   store ptr %1061, ptr %1081, align 8
   call void @_Z14luaV_tryfuncTMP9lua_StateP10lua_TValue(ptr noundef nonnull %0, ptr noundef nonnull %1066)
   %1082 = getelementptr inbounds i8, ptr %1077, i64 16
-  %.pre3578 = load ptr, ptr %6, align 8
+  %.pre3579 = load ptr, ptr %6, align 8
   br label %1083
 
 1083:                                             ; preds = %1080, %1060
-  %1084 = phi ptr [ %.pre3578, %1080 ], [ %.pre3579, %1060 ]
+  %1084 = phi ptr [ %.pre3579, %1080 ], [ %.pre3580, %1060 ]
   %.03058 = phi ptr [ %1082, %1080 ], [ %1077, %1060 ]
   %1085 = load ptr, ptr %1066, align 8
   %1086 = getelementptr inbounds i8, ptr %1084, i64 24
@@ -2040,11 +2040,11 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %1176 = getelementptr inbounds i8, ptr %1175, i64 3296
   %1177 = load ptr, ptr %1176, align 8
   %.not3245 = icmp eq ptr %1177, null
-  %.pre3576 = load ptr, ptr %6, align 8
+  %.pre3577 = load ptr, ptr %6, align 8
   br i1 %.not3245, label %1186, label %1178
 
 1178:                                             ; preds = %1174
-  %1179 = getelementptr inbounds i8, ptr %.pre3576, i64 24
+  %1179 = getelementptr inbounds i8, ptr %.pre3577, i64 24
   store ptr %.13055, ptr %1179, align 8
   %1180 = load ptr, ptr %6, align 8
   %1181 = getelementptr inbounds i8, ptr %1180, i64 24
@@ -2055,11 +2055,11 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %1184 = load ptr, ptr %7, align 8
   %1185 = load i8, ptr %9, align 1
   %.not3246 = icmp eq i8 %1185, 0
-  %.pre3575 = load ptr, ptr %6, align 8
+  %.pre3576 = load ptr, ptr %6, align 8
   br i1 %.not3246, label %1186, label %.loopexit3371.sink.split
 
 1186:                                             ; preds = %1178, %1174
-  %1187 = phi ptr [ %.pre3575, %1178 ], [ %.pre3576, %1174 ]
+  %1187 = phi ptr [ %.pre3576, %1178 ], [ %.pre3577, %1174 ]
   %.4 = phi ptr [ %1184, %1178 ], [ %.1, %1174 ]
   %1188 = load i32, ptr %.13055, align 4
   %1189 = lshr i32 %1188, 8
@@ -2374,13 +2374,13 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   br i1 %1382, label %..critedge3307_crit_edge, label %1450
 
 ..critedge3307_crit_edge:                         ; preds = %1377
-  %.pre3573 = load ptr, ptr %1292, align 8
-  %.pre3574 = load ptr, ptr %1294, align 8
+  %.pre3574 = load ptr, ptr %1292, align 8
+  %.pre3575 = load ptr, ptr %1294, align 8
   br label %.critedge3307
 
 .critedge3307:                                    ; preds = %..critedge3307_crit_edge, %1372, %1374
-  %1383 = phi ptr [ %.pre3574, %..critedge3307_crit_edge ], [ %1368, %1372 ], [ %1368, %1374 ]
-  %1384 = phi ptr [ %.pre3573, %..critedge3307_crit_edge ], [ %1365, %1372 ], [ %1365, %1374 ]
+  %1383 = phi ptr [ %.pre3575, %..critedge3307_crit_edge ], [ %1368, %1372 ], [ %1368, %1374 ]
+  %1384 = phi ptr [ %.pre3574, %..critedge3307_crit_edge ], [ %1365, %1372 ], [ %1365, %1374 ]
   %1385 = icmp eq ptr %1384, %1383
   %1386 = ashr i32 %1287, 16
   %1387 = sext i32 %1386 to i64
@@ -2417,13 +2417,13 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   br i1 %.not3238, label %..thread3335_crit_edge, label %1415
 
 ..thread3335_crit_edge:                           ; preds = %1403
-  %.pre3571 = load ptr, ptr %1292, align 8
-  %.pre3572 = load ptr, ptr %1294, align 8
+  %.pre3572 = load ptr, ptr %1292, align 8
+  %.pre3573 = load ptr, ptr %1294, align 8
   br label %.thread3335
 
 .thread3335:                                      ; preds = %..thread3335_crit_edge, %1400, %1398
-  %1408 = phi ptr [ %.pre3572, %..thread3335_crit_edge ], [ %1394, %1400 ], [ %1394, %1398 ]
-  %1409 = phi ptr [ %.pre3571, %..thread3335_crit_edge ], [ %1391, %1400 ], [ %1391, %1398 ]
+  %1408 = phi ptr [ %.pre3573, %..thread3335_crit_edge ], [ %1394, %1400 ], [ %1394, %1398 ]
+  %1409 = phi ptr [ %.pre3572, %..thread3335_crit_edge ], [ %1391, %1400 ], [ %1391, %1398 ]
   %1410 = icmp eq ptr %1409, %1408
   %1411 = ashr i32 %1287, 16
   %1412 = sext i32 %1411 to i64
@@ -2663,13 +2663,13 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br i1 %1556, label %..critedge3309_crit_edge, label %1622
 
 ..critedge3309_crit_edge:                         ; preds = %1551
-  %.pre3569 = load ptr, ptr %1469, align 8
-  %.pre3570 = load ptr, ptr %1471, align 8
+  %.pre3570 = load ptr, ptr %1469, align 8
+  %.pre3571 = load ptr, ptr %1471, align 8
   br label %.critedge3309
 
 .critedge3309:                                    ; preds = %..critedge3309_crit_edge, %1546, %1548
-  %1557 = phi ptr [ %.pre3570, %..critedge3309_crit_edge ], [ %1542, %1546 ], [ %1542, %1548 ]
-  %1558 = phi ptr [ %.pre3569, %..critedge3309_crit_edge ], [ %1539, %1546 ], [ %1539, %1548 ]
+  %1557 = phi ptr [ %.pre3571, %..critedge3309_crit_edge ], [ %1542, %1546 ], [ %1542, %1548 ]
+  %1558 = phi ptr [ %.pre3570, %..critedge3309_crit_edge ], [ %1539, %1546 ], [ %1539, %1548 ]
   %.not3232 = icmp eq ptr %1558, %1557
   %1559 = ashr i32 %1464, 16
   %1560 = sext i32 %1559 to i64
@@ -2706,13 +2706,13 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br i1 %.not3226, label %..thread3340_crit_edge, label %1587
 
 ..thread3340_crit_edge:                           ; preds = %1576
-  %.pre3567 = load ptr, ptr %1469, align 8
-  %.pre3568 = load ptr, ptr %1471, align 8
+  %.pre3568 = load ptr, ptr %1469, align 8
+  %.pre3569 = load ptr, ptr %1471, align 8
   br label %.thread3340
 
 .thread3340:                                      ; preds = %..thread3340_crit_edge, %1573, %1571
-  %1581 = phi ptr [ %.pre3568, %..thread3340_crit_edge ], [ %1567, %1573 ], [ %1567, %1571 ]
-  %1582 = phi ptr [ %.pre3567, %..thread3340_crit_edge ], [ %1564, %1573 ], [ %1564, %1571 ]
+  %1581 = phi ptr [ %.pre3569, %..thread3340_crit_edge ], [ %1567, %1573 ], [ %1567, %1571 ]
+  %1582 = phi ptr [ %.pre3568, %..thread3340_crit_edge ], [ %1564, %1573 ], [ %1564, %1571 ]
   %.not3227 = icmp eq ptr %1582, %1581
   %1583 = ashr i32 %1464, 16
   %1584 = sext i32 %1583 to i64
@@ -4934,20 +4934,20 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br i1 %2976, label %.lr.ph3441, label %._crit_edge3442
 
 .lr.ph3441:                                       ; preds = %2973
-  %wide.trip.count3561 = zext nneg i32 %.03070 to i64
+  %wide.trip.count3562 = zext nneg i32 %.03070 to i64
   br label %2977
 
 2977:                                             ; preds = %.lr.ph3441, %2977
-  %indvars.iv3558 = phi i64 [ 0, %.lr.ph3441 ], [ %indvars.iv.next3559, %2977 ]
-  %2978 = getelementptr inbounds %struct.lua_TValue, ptr %2943, i64 %indvars.iv3558
-  %2979 = trunc nuw nsw i64 %indvars.iv3558 to i32
+  %indvars.iv3559 = phi i64 [ 0, %.lr.ph3441 ], [ %indvars.iv.next3560, %2977 ]
+  %2978 = getelementptr inbounds %struct.lua_TValue, ptr %2943, i64 %indvars.iv3559
+  %2979 = trunc nuw nsw i64 %indvars.iv3559 to i32
   %2980 = add i32 %2965, %2979
   %2981 = zext i32 %2980 to i64
   %2982 = getelementptr inbounds %struct.lua_TValue, ptr %2975, i64 %2981
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2982, ptr noundef nonnull align 8 dereferenceable(16) %2978, i64 16, i1 false)
-  %indvars.iv.next3559 = add nuw nsw i64 %indvars.iv3558, 1
-  %exitcond3562.not = icmp eq i64 %indvars.iv.next3559, %wide.trip.count3561
-  br i1 %exitcond3562.not, label %._crit_edge3442, label %2977, !llvm.loop !12
+  %indvars.iv.next3560 = add nuw nsw i64 %indvars.iv3559, 1
+  %exitcond3563.not = icmp eq i64 %indvars.iv.next3560, %wide.trip.count3562
+  br i1 %exitcond3563.not, label %._crit_edge3442, label %2977, !llvm.loop !12
 
 ._crit_edge3442:                                  ; preds = %2977, %2973
   %2983 = getelementptr inbounds i8, ptr %2960, i64 1
@@ -5096,9 +5096,9 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br label %3074
 
 3074:                                             ; preds = %3064, %3073
-  %.sink3639 = phi i64 [ 8, %3073 ], [ 16, %3064 ]
+  %.sink3640 = phi i64 [ 8, %3073 ], [ 16, %3064 ]
   %3075 = load ptr, ptr %3070, align 8
-  %3076 = getelementptr inbounds i8, ptr %3075, i64 %.sink3639
+  %3076 = getelementptr inbounds i8, ptr %3075, i64 %.sink3640
   %3077 = load ptr, ptr %3076, align 8
   %3078 = icmp eq ptr %3077, null
   br i1 %3078, label %.critedge3311, label %3079
@@ -5249,17 +5249,18 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br i1 %3160, label %.preheader3368, label %.loopexit
 
 .preheader3368:                                   ; preds = %3151
-  %3161 = getelementptr inbounds i8, ptr %3142, i64 48
-  %wide.trip.count3550 = zext nneg i32 %3143 to i64
+  %3161 = getelementptr i8, ptr %3142, i64 60
+  %wide.trip.count3551 = zext nneg i32 %3143 to i64
   br label %3162
 
 3162:                                             ; preds = %.preheader3368, %3162
-  %indvars.iv3547 = phi i64 [ 2, %.preheader3368 ], [ %indvars.iv.next3548, %3162 ]
-  %3163 = getelementptr inbounds %struct.lua_TValue, ptr %3161, i64 %indvars.iv3547, i32 2
+  %indvars.iv3548 = phi i64 [ 2, %.preheader3368 ], [ %indvars.iv.next3549, %3162 ]
+  %.idx = shl nuw nsw i64 %indvars.iv3548, 4
+  %3163 = getelementptr i8, ptr %3161, i64 %.idx
   store i32 0, ptr %3163, align 4
-  %indvars.iv.next3548 = add nuw nsw i64 %indvars.iv3547, 1
-  %exitcond3551.not = icmp eq i64 %indvars.iv.next3548, %wide.trip.count3550
-  br i1 %exitcond3551.not, label %.loopexit, label %3162, !llvm.loop !13
+  %indvars.iv.next3549 = add nuw nsw i64 %indvars.iv3548, 1
+  %exitcond3552.not = icmp eq i64 %indvars.iv.next3549, %wide.trip.count3551
+  br i1 %exitcond3552.not, label %.loopexit, label %3162, !llvm.loop !13
 
 .loopexit:                                        ; preds = %3162, %3151
   %3164 = icmp slt i32 %3143, 0
@@ -5291,20 +5292,20 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
 .lr.ph3431:                                       ; preds = %3176
   %3178 = getelementptr inbounds i8, ptr %3153, i64 24
   %3179 = load ptr, ptr %3178, align 8
-  %sext3587 = shl i64 %3156, 32
-  %3180 = ashr exact i64 %sext3587, 32
+  %sext3588 = shl i64 %3156, 32
+  %3180 = ashr exact i64 %sext3588, 32
   br label %3181
 
 3181:                                             ; preds = %.lr.ph3431, %3200
-  %indvars.iv3552 = phi i64 [ %3180, %.lr.ph3431 ], [ %indvars.iv.next3553, %3200 ]
-  %3182 = getelementptr inbounds %struct.lua_TValue, ptr %3179, i64 %indvars.iv3552
+  %indvars.iv3553 = phi i64 [ %3180, %.lr.ph3431 ], [ %indvars.iv.next3554, %3200 ]
+  %3182 = getelementptr inbounds %struct.lua_TValue, ptr %3179, i64 %indvars.iv3553
   %3183 = getelementptr inbounds i8, ptr %3182, i64 12
   %3184 = load i32, ptr %3183, align 4
   %3185 = icmp eq i32 %3184, 0
   br i1 %3185, label %3200, label %3186
 
 3186:                                             ; preds = %3181
-  %3187 = trunc nsw i64 %indvars.iv3552 to i32
+  %3187 = trunc nsw i64 %indvars.iv3553 to i32
   %3188 = add nuw nsw i32 %3187, 1
   %3189 = sext i32 %3188 to i64
   %3190 = inttoptr i64 %3189 to ptr
@@ -5326,8 +5327,8 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br label %.backedge.backedge
 
 3200:                                             ; preds = %3181
-  %indvars.iv.next3553 = add nuw nsw i64 %indvars.iv3552, 1
-  %3201 = trunc nsw i64 %indvars.iv.next3553 to i32
+  %indvars.iv.next3554 = add nuw nsw i64 %indvars.iv3553, 1
+  %3201 = trunc nsw i64 %indvars.iv.next3554 to i32
   %3202 = icmp ugt i32 %3159, %3201
   br i1 %3202, label %3181, label %._crit_edge3432, !llvm.loop !14
 
@@ -5348,7 +5349,7 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br label %3211
 
 3211:                                             ; preds = %.lr.ph3437, %3238
-  %indvars.iv3555 = phi i64 [ %3210, %.lr.ph3437 ], [ %indvars.iv.next3556, %3238 ]
+  %indvars.iv3556 = phi i64 [ %3210, %.lr.ph3437 ], [ %indvars.iv.next3557, %3238 ]
   %3212 = phi i32 [ %3206, %.lr.ph3437 ], [ %3240, %3238 ]
   %3213 = sext i32 %3212 to i64
   %3214 = getelementptr inbounds %struct.LuaNode, ptr %3209, i64 %3213
@@ -5358,9 +5359,9 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br i1 %3217, label %3238, label %3218
 
 3218:                                             ; preds = %3211
-  %3219 = shl i64 %indvars.iv3555, 32
-  %sext3588 = add i64 %3219, 4294967296
-  %3220 = ashr exact i64 %sext3588, 32
+  %3219 = shl i64 %indvars.iv3556, 32
+  %sext3589 = add i64 %3219, 4294967296
+  %3220 = ashr exact i64 %sext3589, 32
   %3221 = inttoptr i64 %3220 to ptr
   store ptr %3221, ptr %3154, align 8
   %3222 = getelementptr inbounds i8, ptr %3142, i64 40
@@ -5388,8 +5389,8 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br label %.backedge.backedge
 
 3238:                                             ; preds = %3211
-  %indvars.iv.next3556 = add i64 %indvars.iv3555, 1
-  %3239 = trunc i64 %indvars.iv.next3556 to i32
+  %indvars.iv.next3557 = add i64 %indvars.iv3556, 1
+  %3239 = trunc i64 %indvars.iv.next3557 to i32
   %3240 = sub i32 %3239, %3159
   %.highbits = lshr i32 %3240, %3205
   %3241 = icmp eq i32 %.highbits, 0
@@ -5623,13 +5624,13 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br label %3393
 
 3393:                                             ; preds = %.lr.ph3426, %3393
-  %indvars.iv3542 = phi i64 [ 0, %.lr.ph3426 ], [ %indvars.iv.next3543, %3393 ]
-  %3394 = getelementptr inbounds %struct.lua_TValue, ptr %3392, i64 %indvars.iv3542
-  %3395 = getelementptr inbounds %struct.lua_TValue, ptr %3388, i64 %indvars.iv3542
+  %indvars.iv3543 = phi i64 [ 0, %.lr.ph3426 ], [ %indvars.iv.next3544, %3393 ]
+  %3394 = getelementptr inbounds %struct.lua_TValue, ptr %3392, i64 %indvars.iv3543
+  %3395 = getelementptr inbounds %struct.lua_TValue, ptr %3388, i64 %indvars.iv3543
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3395, ptr noundef nonnull align 8 dereferenceable(16) %3394, i64 16, i1 false)
-  %indvars.iv.next3543 = add nuw nsw i64 %indvars.iv3542, 1
-  %exitcond3546.not = icmp eq i64 %indvars.iv.next3543, %3390
-  br i1 %exitcond3546.not, label %._crit_edge3427, label %3393, !llvm.loop !16
+  %indvars.iv.next3544 = add nuw nsw i64 %indvars.iv3543, 1
+  %exitcond3547.not = icmp eq i64 %indvars.iv.next3544, %3390
+  br i1 %exitcond3547.not, label %._crit_edge3427, label %3393, !llvm.loop !16
 
 ._crit_edge3427:                                  ; preds = %3393, %3383
   %3396 = sext i32 %.fr to i64
@@ -5650,42 +5651,42 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   %3404 = sext i32 %.fr to i64
   %3405 = sub nsw i64 0, %3404
   %3406 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %3405
-  %wide.trip.count3535 = zext nneg i32 %invariant.smin to i64
+  %wide.trip.count3536 = zext nneg i32 %invariant.smin to i64
   br label %3409
 
 .preheader3369:                                   ; preds = %3409, %3398
   %3407 = icmp slt i32 %.fr, %3356
   br i1 %3407, label %.lr.ph3423.preheader, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.lr.ph3423, %.preheader3369, %3894, %3896, %3844, %3846, %3803, %3805, %3056, %3058, %._crit_edge3442, %2986, %764, %772, %776, %781, %684, %692, %696, %701, %530, %547, %551, %556, %506, %510, %514, %519, %260, %268, %271, %232, %250, %254, %259, %189, %193, %197, %202, %48, %54, %56, %63, %76, %86, %96, %142, %.critedge, %.critedge2, %230, %290, %292, %340, %357, %358, %389, %418, %445, %.thread3317, %._crit_edge3580, %587, %.thread3320, %639, %.critedge8, %.critedge10, %728, %.critedge12, %.critedge14, %852, %1134, %1172, %1233, %1243, %1264, %1282, %1301, %1305, %1326, %1329, %_Z10luai_veceqPKfS0_.exit.thread, %1356, %.critedge3307, %.thread3335, %1446, %1450, %1460, %1478, %1480, %1498, %1501, %1528, %1531, %.critedge3309, %.thread3340, %1618, %1622, %1632, %1652, %1664, %.critedge18.thread, %1698, %1710, %.critedge20.thread, %1744, %1756, %.critedge22.thread, %1790, %1802, %.critedge24.thread, %1840, %1849, %1876, %1890, %1911, %1920, %1947, %1961, %1981, %1989, %2003, %2020, %2047, %2061, %2081, %2089, %2103, %2120, %2147, %2161, %2182, %2192, %2229, %2243, %2265, %2280, %2302, %2314, %2332, %2344, %2362, %2374, %2391, %2396, %2420, %2435, %2452, %2457, %2481, %2496, %2513, %2519, %2553, %2568, %2586, %2601, %2636, %2646, %2667, %2689, %2711, %2733, %2761, %2780, %2796, %2800, %2822, %2836, %2859, %2863, %2867, %2873, %2905, %2931, %3025, %3060, %3119, %3174, %3186, %3218, %._crit_edge3438, %3243, %3300, %3334, %._crit_edge3427, %3505, %._crit_edge, %3556, %3562, %3586, %3642, %3645, %3673, %3685, %3702, %3707, %3728, %3765, %3924, %3928, %3960, %3986, %4012, %3622, %3617, %3744, %3729, %3783, %3767, %3824, %3808, %3865, %3849
-  %.13055.be = phi ptr [ %55, %54 ], [ %.13055, %48 ], [ %2498, %2513 ], [ %2498, %2519 ], [ %2498, %2553 ], [ %2498, %2568 ], [ %2163, %2182 ], [ %2163, %2192 ], [ %2163, %2229 ], [ %2163, %2243 ], [ %4018, %4012 ], [ %3992, %3986 ], [ %3966, %3960 ], [ %3943, %3928 ], [ %3122, %3119 ], [ %3811, %3824 ], [ %3811, %3808 ], [ %3770, %3783 ], [ %3770, %3767 ], [ %3766, %3765 ], [ %3730, %3744 ], [ %3730, %3729 ], [ %3687, %3702 ], [ %3687, %3707 ], [ %3687, %3728 ], [ %3657, %3673 ], [ %3657, %3685 ], [ %3646, %3645 ], [ %3644, %3642 ], [ %3593, %3622 ], [ %3593, %3617 ], [ %3591, %3586 ], [ %3569, %3562 ], [ %3510, %._crit_edge ], [ %3508, %3505 ], [ %3352, %._crit_edge3427 ], [ %3337, %3334 ], [ %3852, %3865 ], [ %3852, %3849 ], [ %3303, %3300 ], [ %3175, %3174 ], [ %3199, %3186 ], [ %3237, %3218 ], [ %3242, %._crit_edge3438 ], [ %3266, %3243 ], [ %3063, %3060 ], [ %3027, %3025 ], [ %2908, %2931 ], [ %2886, %2905 ], [ %2838, %2859 ], [ %2838, %2863 ], [ %2838, %2867 ], [ %2838, %2873 ], [ %2784, %2796 ], [ %2784, %2800 ], [ %2784, %2822 ], [ %2784, %2836 ], [ %2764, %2780 ], [ %2736, %2761 ], [ %2714, %2733 ], [ %2692, %2711 ], [ %2670, %2689 ], [ %2648, %2667 ], [ %2603, %2636 ], [ %2603, %2646 ], [ %2570, %2586 ], [ %2570, %2601 ], [ %2437, %2452 ], [ %2437, %2457 ], [ %2437, %2481 ], [ %2437, %2496 ], [ %2376, %2391 ], [ %2376, %2396 ], [ %2376, %2420 ], [ %2376, %2435 ], [ %2346, %2362 ], [ %2346, %2374 ], [ %2316, %2332 ], [ %2316, %2344 ], [ %2282, %2302 ], [ %2282, %2314 ], [ %2245, %2265 ], [ %2245, %2280 ], [ %2063, %2081 ], [ %2063, %2089 ], [ %2063, %2103 ], [ %2063, %2120 ], [ %2063, %2147 ], [ %2063, %2161 ], [ %1963, %1981 ], [ %1963, %1989 ], [ %1963, %2003 ], [ %1963, %2020 ], [ %1963, %2047 ], [ %1963, %2061 ], [ %1892, %1911 ], [ %1892, %1920 ], [ %1892, %1947 ], [ %1892, %1961 ], [ %1821, %1840 ], [ %1821, %1849 ], [ %1821, %1876 ], [ %1821, %1890 ], [ %1797, %1790 ], [ %1810, %1802 ], [ %1819, %.critedge24.thread ], [ %1705, %1698 ], [ %1718, %1710 ], [ %1727, %.critedge20.thread ], [ %1620, %1618 ], [ %1631, %1622 ], [ %1586, %.thread3340 ], [ %1562, %.critedge3309 ], [ %1537, %1531 ], [ %1530, %1528 ], [ %1508, %1501 ], [ %1500, %1498 ], [ %1486, %1480 ], [ %1479, %1478 ], [ %1635, %1632 ], [ %1751, %1744 ], [ %1764, %1756 ], [ %1773, %.critedge22.thread ], [ %1659, %1652 ], [ %1672, %1664 ], [ %1681, %.critedge18.thread ], [ %1448, %1446 ], [ %1459, %1450 ], [ %1414, %.thread3335 ], [ %1389, %.critedge3307 ], [ %1363, %1356 ], [ %1355, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1336, %1329 ], [ %1328, %1326 ], [ %1312, %1305 ], [ %1304, %1301 ], [ %1461, %1460 ], [ %1284, %1282 ], [ %1266, %1264 ], [ %3561, %3556 ], [ %1248, %1243 ], [ %1240, %1233 ], [ %1061, %1172 ], [ %1137, %1134 ], [ %.23056.lcssa, %852 ], [ %739, %.critedge14 ], [ %706, %728 ], [ %706, %.critedge12 ], [ %473, %._crit_edge3580 ], [ %473, %587 ], [ %473, %.thread3320 ], [ %311, %340 ], [ %311, %358 ], [ %311, %357 ], [ %311, %389 ], [ %311, %418 ], [ %311, %445 ], [ %311, %.thread3317 ], [ %648, %.critedge10 ], [ %606, %.critedge8 ], [ %606, %639 ], [ %293, %292 ], [ %291, %290 ], [ %212, %230 ], [ %158, %.critedge2 ], [ %114, %.critedge ], [ %114, %142 ], [ %97, %96 ], [ %87, %86 ], [ %77, %76 ], [ %75, %63 ], [ %57, %56 ], [ %.13055, %3924 ], [ %158, %202 ], [ %158, %197 ], [ %158, %193 ], [ %158, %189 ], [ %233, %259 ], [ %233, %254 ], [ %233, %250 ], [ %233, %232 ], [ %261, %271 ], [ %261, %268 ], [ %261, %260 ], [ %473, %519 ], [ %473, %514 ], [ %473, %510 ], [ %473, %506 ], [ %473, %556 ], [ %473, %551 ], [ %473, %547 ], [ %473, %530 ], [ %648, %701 ], [ %648, %696 ], [ %648, %692 ], [ %648, %684 ], [ %739, %781 ], [ %739, %776 ], [ %739, %772 ], [ %739, %764 ], [ %2946, %2986 ], [ %2946, %._crit_edge3442 ], [ %3042, %3058 ], [ %3042, %3056 ], [ %3772, %3805 ], [ %3772, %3803 ], [ %3813, %3846 ], [ %3813, %3844 ], [ %3854, %3896 ], [ %3854, %3894 ], [ %3352, %.preheader3369 ], [ %3352, %.lr.ph3423 ]
-  %.03053.be = phi ptr [ %.03053, %54 ], [ %.03053, %48 ], [ %.03053, %2513 ], [ %.03053, %2519 ], [ %.03053, %2553 ], [ %.03053, %2568 ], [ %.03053, %2182 ], [ %.03053, %2192 ], [ %.03053, %2229 ], [ %.03053, %2243 ], [ %.03053, %4012 ], [ %.03053, %3986 ], [ %.03053, %3960 ], [ %.03053, %3928 ], [ %.03053, %3119 ], [ %.03053, %3824 ], [ %.03053, %3808 ], [ %.03053, %3783 ], [ %.03053, %3767 ], [ %.03053, %3765 ], [ %.03053, %3744 ], [ %.03053, %3729 ], [ %.03053, %3702 ], [ %.03053, %3707 ], [ %.03053, %3728 ], [ %.03053, %3673 ], [ %.03053, %3685 ], [ %.03053, %3645 ], [ %.03053, %3642 ], [ %.03053, %3622 ], [ %.03053, %3617 ], [ %.03053, %3586 ], [ %.03053, %3562 ], [ %.03053, %._crit_edge ], [ %.03053, %3505 ], [ %.03053, %._crit_edge3427 ], [ %.03053, %3334 ], [ %.03053, %3865 ], [ %.03053, %3849 ], [ %.03053, %3300 ], [ %.03053, %3174 ], [ %.03053, %3186 ], [ %.03053, %3218 ], [ %.03053, %._crit_edge3438 ], [ %.03053, %3243 ], [ %.03053, %3060 ], [ %.03053, %3025 ], [ %.03053, %2931 ], [ %.03053, %2905 ], [ %.03053, %2859 ], [ %.03053, %2863 ], [ %.03053, %2867 ], [ %.03053, %2873 ], [ %.03053, %2796 ], [ %.03053, %2800 ], [ %.03053, %2822 ], [ %.03053, %2836 ], [ %.03053, %2780 ], [ %.03053, %2761 ], [ %.03053, %2733 ], [ %.03053, %2711 ], [ %.03053, %2689 ], [ %.03053, %2667 ], [ %.03053, %2636 ], [ %.03053, %2646 ], [ %.03053, %2586 ], [ %.03053, %2601 ], [ %.03053, %2452 ], [ %.03053, %2457 ], [ %.03053, %2481 ], [ %.03053, %2496 ], [ %.03053, %2391 ], [ %.03053, %2396 ], [ %.03053, %2420 ], [ %.03053, %2435 ], [ %.03053, %2362 ], [ %.03053, %2374 ], [ %.03053, %2332 ], [ %.03053, %2344 ], [ %.03053, %2302 ], [ %.03053, %2314 ], [ %.03053, %2265 ], [ %.03053, %2280 ], [ %.03053, %2081 ], [ %.03053, %2089 ], [ %.03053, %2103 ], [ %.03053, %2120 ], [ %.03053, %2147 ], [ %.03053, %2161 ], [ %.03053, %1981 ], [ %.03053, %1989 ], [ %.03053, %2003 ], [ %.03053, %2020 ], [ %.03053, %2047 ], [ %.03053, %2061 ], [ %.03053, %1911 ], [ %.03053, %1920 ], [ %.03053, %1947 ], [ %.03053, %1961 ], [ %.03053, %1840 ], [ %.03053, %1849 ], [ %.03053, %1876 ], [ %.03053, %1890 ], [ %.03053, %1790 ], [ %.03053, %1802 ], [ %.03053, %.critedge24.thread ], [ %.03053, %1698 ], [ %.03053, %1710 ], [ %.03053, %.critedge20.thread ], [ %.03053, %1618 ], [ %.03053, %1622 ], [ %.03053, %.thread3340 ], [ %.03053, %.critedge3309 ], [ %.03053, %1531 ], [ %.03053, %1528 ], [ %.03053, %1501 ], [ %.03053, %1498 ], [ %.03053, %1480 ], [ %.03053, %1478 ], [ %.03053, %1632 ], [ %.03053, %1744 ], [ %.03053, %1756 ], [ %.03053, %.critedge22.thread ], [ %.03053, %1652 ], [ %.03053, %1664 ], [ %.03053, %.critedge18.thread ], [ %.03053, %1446 ], [ %.03053, %1450 ], [ %.03053, %.thread3335 ], [ %.03053, %.critedge3307 ], [ %.03053, %1356 ], [ %.03053, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.03053, %1329 ], [ %.03053, %1326 ], [ %.03053, %1305 ], [ %.03053, %1301 ], [ %.03053, %1460 ], [ %.03053, %1282 ], [ %.03053, %1264 ], [ %.03053, %3556 ], [ %.03053, %1243 ], [ %1242, %1233 ], [ %.03053, %1172 ], [ %1140, %1134 ], [ %.03053, %852 ], [ %.03053, %.critedge14 ], [ %.03053, %728 ], [ %.03053, %.critedge12 ], [ %.03053, %._crit_edge3580 ], [ %.03053, %587 ], [ %.03053, %.thread3320 ], [ %.03053, %340 ], [ %.03053, %358 ], [ %.03053, %357 ], [ %.03053, %389 ], [ %.03053, %418 ], [ %.03053, %445 ], [ %.03053, %.thread3317 ], [ %.03053, %.critedge10 ], [ %.03053, %.critedge8 ], [ %.03053, %639 ], [ %.03053, %292 ], [ %.03053, %290 ], [ %.03053, %230 ], [ %.03053, %.critedge2 ], [ %.03053, %.critedge ], [ %.03053, %142 ], [ %.03053, %96 ], [ %.03053, %86 ], [ %.03053, %76 ], [ %.03053, %63 ], [ %.03053, %56 ], [ %.03053, %3924 ], [ %.03053, %202 ], [ %.03053, %197 ], [ %.03053, %193 ], [ %.03053, %189 ], [ %.03053, %259 ], [ %.03053, %254 ], [ %.03053, %250 ], [ %.03053, %232 ], [ %.03053, %271 ], [ %.03053, %268 ], [ %.03053, %260 ], [ %.03053, %519 ], [ %.03053, %514 ], [ %.03053, %510 ], [ %.03053, %506 ], [ %.03053, %556 ], [ %.03053, %551 ], [ %.03053, %547 ], [ %.03053, %530 ], [ %.03053, %701 ], [ %.03053, %696 ], [ %.03053, %692 ], [ %.03053, %684 ], [ %.03053, %781 ], [ %.03053, %776 ], [ %.03053, %772 ], [ %.03053, %764 ], [ %.03053, %2986 ], [ %.03053, %._crit_edge3442 ], [ %.03053, %3058 ], [ %.03053, %3056 ], [ %.03053, %3805 ], [ %.03053, %3803 ], [ %.03053, %3846 ], [ %.03053, %3844 ], [ %.03053, %3896 ], [ %.03053, %3894 ], [ %.03053, %.preheader3369 ], [ %.03053, %.lr.ph3423 ]
-  %.1.be = phi ptr [ %.1, %54 ], [ %.2, %48 ], [ %.1, %2513 ], [ %.1, %2519 ], [ %2560, %2553 ], [ %.16, %2568 ], [ %.1, %2182 ], [ %.1, %2192 ], [ %2236, %2229 ], [ %.9, %2243 ], [ %.1, %4012 ], [ %.1, %3986 ], [ %.1, %3960 ], [ %.1, %3928 ], [ %.21, %3119 ], [ %.1, %3824 ], [ %.1, %3808 ], [ %.1, %3783 ], [ %.1, %3767 ], [ %.1, %3765 ], [ %.1, %3744 ], [ %.1, %3729 ], [ %.1, %3702 ], [ %.1, %3707 ], [ %.27, %3728 ], [ %.1, %3673 ], [ %.26, %3685 ], [ %.1, %3645 ], [ %.1, %3642 ], [ %.1, %3622 ], [ %.1, %3617 ], [ %.25, %3586 ], [ %.1, %3562 ], [ %3529, %._crit_edge ], [ %.23, %3505 ], [ %3384, %._crit_edge3427 ], [ %.1, %3334 ], [ %.1, %3865 ], [ %.1, %3849 ], [ %.1, %3300 ], [ %.22, %3174 ], [ %.22, %3186 ], [ %.22, %3218 ], [ %.22, %._crit_edge3438 ], [ %3253, %3243 ], [ %.20, %3060 ], [ %.1, %3025 ], [ %2932, %2931 ], [ %2906, %2905 ], [ %.1, %2859 ], [ %2866, %2863 ], [ %.1, %2867 ], [ %2876, %2873 ], [ %.1, %2796 ], [ %.1, %2800 ], [ %2828, %2822 ], [ %.19, %2836 ], [ %.1, %2780 ], [ %2762, %2761 ], [ %.1, %2733 ], [ %.1, %2711 ], [ %.1, %2689 ], [ %.1, %2667 ], [ %.1, %2636 ], [ %.18, %2646 ], [ %.1, %2586 ], [ %.17, %2601 ], [ %.1, %2452 ], [ %.1, %2457 ], [ %2488, %2481 ], [ %.15, %2496 ], [ %.1, %2391 ], [ %.1, %2396 ], [ %2427, %2420 ], [ %.14, %2435 ], [ %.1, %2362 ], [ %.13, %2374 ], [ %.1, %2332 ], [ %.12, %2344 ], [ %.1, %2302 ], [ %.11, %2314 ], [ %.1, %2265 ], [ %.10, %2280 ], [ %.1, %2081 ], [ %.1, %2089 ], [ %.1, %2103 ], [ %.1, %2120 ], [ %2154, %2147 ], [ %.8, %2161 ], [ %.1, %1981 ], [ %.1, %1989 ], [ %.1, %2003 ], [ %.1, %2020 ], [ %2054, %2047 ], [ %.7, %2061 ], [ %.1, %1911 ], [ %.1, %1920 ], [ %1954, %1947 ], [ %.6, %1961 ], [ %.1, %1840 ], [ %.1, %1849 ], [ %1883, %1876 ], [ %.5, %1890 ], [ %.1, %1790 ], [ %.1, %1802 ], [ %1814, %.critedge24.thread ], [ %.1, %1698 ], [ %.1, %1710 ], [ %1722, %.critedge20.thread ], [ %1607, %1618 ], [ %1626, %1622 ], [ %.1, %.thread3340 ], [ %.1, %.critedge3309 ], [ %.1, %1531 ], [ %.1, %1528 ], [ %.1, %1501 ], [ %.1, %1498 ], [ %.1, %1480 ], [ %.1, %1478 ], [ %.1, %1632 ], [ %.1, %1744 ], [ %.1, %1756 ], [ %1768, %.critedge22.thread ], [ %.1, %1652 ], [ %.1, %1664 ], [ %1676, %.critedge18.thread ], [ %1435, %1446 ], [ %1454, %1450 ], [ %.1, %.thread3335 ], [ %.1, %.critedge3307 ], [ %.1, %1356 ], [ %.1, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.1, %1329 ], [ %.1, %1326 ], [ %.1, %1305 ], [ %.1, %1301 ], [ %.1, %1460 ], [ %.1, %1282 ], [ %.1, %1264 ], [ %.24, %3556 ], [ %.1, %1243 ], [ %1223, %1233 ], [ %1167, %1172 ], [ %1138, %1134 ], [ %853, %852 ], [ %786, %.critedge14 ], [ %.1, %728 ], [ %737, %.critedge12 ], [ %559, %._crit_edge3580 ], [ %596, %587 ], [ %604, %.thread3320 ], [ %.1, %340 ], [ %361, %358 ], [ %.1, %357 ], [ %397, %389 ], [ %.1, %418 ], [ %453, %445 ], [ %461, %.thread3317 ], [ %704, %.critedge10 ], [ %646, %.critedge8 ], [ %.1, %639 ], [ %299, %292 ], [ %.1, %290 ], [ %.1, %230 ], [ %205, %.critedge2 ], [ %145, %.critedge ], [ %.1, %142 ], [ %.1, %96 ], [ %.1, %86 ], [ %.1, %76 ], [ %.1, %63 ], [ %.1, %56 ], [ %.28, %3924 ], [ %.1, %202 ], [ %.1, %197 ], [ %.1, %193 ], [ %.1, %189 ], [ %.1, %259 ], [ %.1, %254 ], [ %.1, %250 ], [ %.1, %232 ], [ %.1, %271 ], [ %.1, %268 ], [ %.1, %260 ], [ %.1, %519 ], [ %.1, %514 ], [ %.1, %510 ], [ %.1, %506 ], [ %.1, %556 ], [ %.1, %551 ], [ %.1, %547 ], [ %.1, %530 ], [ %.1, %701 ], [ %.1, %696 ], [ %.1, %692 ], [ %.1, %684 ], [ %.1, %781 ], [ %.1, %776 ], [ %.1, %772 ], [ %.1, %764 ], [ %.1, %2986 ], [ %.1, %._crit_edge3442 ], [ %.20, %3058 ], [ %.20, %3056 ], [ %.1, %3805 ], [ %.1, %3803 ], [ %.1, %3846 ], [ %.1, %3844 ], [ %.1, %3896 ], [ %.1, %3894 ], [ %.1, %.preheader3369 ], [ %.1, %.lr.ph3423 ]
-  %.0.be = phi ptr [ %.0, %54 ], [ %.0, %48 ], [ %.0, %2513 ], [ %.0, %2519 ], [ %.0, %2553 ], [ %.0, %2568 ], [ %.0, %2182 ], [ %.0, %2192 ], [ %.0, %2229 ], [ %.0, %2243 ], [ %.0, %4012 ], [ %.0, %3986 ], [ %.0, %3960 ], [ %.0, %3928 ], [ %.0, %3119 ], [ %.0, %3824 ], [ %.0, %3808 ], [ %.0, %3783 ], [ %.0, %3767 ], [ %.0, %3765 ], [ %.0, %3744 ], [ %.0, %3729 ], [ %.0, %3702 ], [ %.0, %3707 ], [ %.0, %3728 ], [ %.0, %3673 ], [ %.0, %3685 ], [ %.0, %3645 ], [ %.0, %3642 ], [ %.0, %3622 ], [ %.0, %3617 ], [ %.0, %3586 ], [ %.0, %3562 ], [ %.0, %._crit_edge ], [ %.0, %3505 ], [ %.0, %._crit_edge3427 ], [ %.0, %3334 ], [ %.0, %3865 ], [ %.0, %3849 ], [ %.0, %3300 ], [ %.0, %3174 ], [ %.0, %3186 ], [ %.0, %3218 ], [ %.0, %._crit_edge3438 ], [ %.0, %3243 ], [ %.0, %3060 ], [ %.0, %3025 ], [ %.0, %2931 ], [ %.0, %2905 ], [ %.0, %2859 ], [ %.0, %2863 ], [ %.0, %2867 ], [ %.0, %2873 ], [ %.0, %2796 ], [ %.0, %2800 ], [ %.0, %2822 ], [ %.0, %2836 ], [ %.0, %2780 ], [ %.0, %2761 ], [ %.0, %2733 ], [ %.0, %2711 ], [ %.0, %2689 ], [ %.0, %2667 ], [ %.0, %2636 ], [ %.0, %2646 ], [ %.0, %2586 ], [ %.0, %2601 ], [ %.0, %2452 ], [ %.0, %2457 ], [ %.0, %2481 ], [ %.0, %2496 ], [ %.0, %2391 ], [ %.0, %2396 ], [ %.0, %2420 ], [ %.0, %2435 ], [ %.0, %2362 ], [ %.0, %2374 ], [ %.0, %2332 ], [ %.0, %2344 ], [ %.0, %2302 ], [ %.0, %2314 ], [ %.0, %2265 ], [ %.0, %2280 ], [ %.0, %2081 ], [ %.0, %2089 ], [ %.0, %2103 ], [ %.0, %2120 ], [ %.0, %2147 ], [ %.0, %2161 ], [ %.0, %1981 ], [ %.0, %1989 ], [ %.0, %2003 ], [ %.0, %2020 ], [ %.0, %2047 ], [ %.0, %2061 ], [ %.0, %1911 ], [ %.0, %1920 ], [ %.0, %1947 ], [ %.0, %1961 ], [ %.0, %1840 ], [ %.0, %1849 ], [ %.0, %1876 ], [ %.0, %1890 ], [ %.0, %1790 ], [ %.0, %1802 ], [ %.0, %.critedge24.thread ], [ %.0, %1698 ], [ %.0, %1710 ], [ %.0, %.critedge20.thread ], [ %.0, %1618 ], [ %.0, %1622 ], [ %.0, %.thread3340 ], [ %.0, %.critedge3309 ], [ %.0, %1531 ], [ %.0, %1528 ], [ %.0, %1501 ], [ %.0, %1498 ], [ %.0, %1480 ], [ %.0, %1478 ], [ %.0, %1632 ], [ %.0, %1744 ], [ %.0, %1756 ], [ %.0, %.critedge22.thread ], [ %.0, %1652 ], [ %.0, %1664 ], [ %.0, %.critedge18.thread ], [ %.0, %1446 ], [ %.0, %1450 ], [ %.0, %.thread3335 ], [ %.0, %.critedge3307 ], [ %.0, %1356 ], [ %.0, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.0, %1329 ], [ %.0, %1326 ], [ %.0, %1305 ], [ %.0, %1301 ], [ %.0, %1460 ], [ %.0, %1282 ], [ %.0, %1264 ], [ %.0, %3556 ], [ %.0, %1243 ], [ %1236, %1233 ], [ %.0, %1172 ], [ %1085, %1134 ], [ %.0, %852 ], [ %.0, %.critedge14 ], [ %.0, %728 ], [ %.0, %.critedge12 ], [ %.0, %._crit_edge3580 ], [ %.0, %587 ], [ %.0, %.thread3320 ], [ %.0, %340 ], [ %.0, %358 ], [ %.0, %357 ], [ %.0, %389 ], [ %.0, %418 ], [ %.0, %445 ], [ %.0, %.thread3317 ], [ %.0, %.critedge10 ], [ %.0, %.critedge8 ], [ %.0, %639 ], [ %.0, %292 ], [ %.0, %290 ], [ %.0, %230 ], [ %.0, %.critedge2 ], [ %.0, %.critedge ], [ %.0, %142 ], [ %.0, %96 ], [ %.0, %86 ], [ %.0, %76 ], [ %.0, %63 ], [ %.0, %56 ], [ %.0, %3924 ], [ %.0, %202 ], [ %.0, %197 ], [ %.0, %193 ], [ %.0, %189 ], [ %.0, %259 ], [ %.0, %254 ], [ %.0, %250 ], [ %.0, %232 ], [ %.0, %271 ], [ %.0, %268 ], [ %.0, %260 ], [ %.0, %519 ], [ %.0, %514 ], [ %.0, %510 ], [ %.0, %506 ], [ %.0, %556 ], [ %.0, %551 ], [ %.0, %547 ], [ %.0, %530 ], [ %.0, %701 ], [ %.0, %696 ], [ %.0, %692 ], [ %.0, %684 ], [ %.0, %781 ], [ %.0, %776 ], [ %.0, %772 ], [ %.0, %764 ], [ %.0, %2986 ], [ %.0, %._crit_edge3442 ], [ %.0, %3058 ], [ %.0, %3056 ], [ %.0, %3805 ], [ %.0, %3803 ], [ %.0, %3846 ], [ %.0, %3844 ], [ %.0, %3896 ], [ %.0, %3894 ], [ %.0, %.preheader3369 ], [ %.0, %.lr.ph3423 ]
-  %.be = phi ptr [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %54 ], [ %53, %48 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2513 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2519 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2553 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2568 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2182 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2192 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2229 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2243 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %4012 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3986 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3960 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3928 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3119 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3824 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3808 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3783 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3767 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3765 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3744 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3729 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3702 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3707 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3728 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3673 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3685 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3645 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3642 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3622 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3617 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3586 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3562 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3505 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3427 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3334 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3865 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3849 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3300 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3174 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3186 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3218 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3438 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3243 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3060 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3025 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2931 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2905 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2859 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2863 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2867 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2873 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2796 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2800 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2822 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2836 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2780 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2761 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2733 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2711 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2689 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2667 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2636 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2646 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2586 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2601 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2452 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2457 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2481 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2496 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2391 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2396 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2420 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2435 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2362 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2374 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2332 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2344 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2302 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2314 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2265 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2280 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2081 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2089 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2103 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2120 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2147 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2161 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1981 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1989 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2003 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2020 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2047 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2061 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1911 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1920 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1947 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1961 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1840 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1849 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1876 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1890 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1790 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1802 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge24.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1698 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1710 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge20.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1618 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1622 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3340 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge3309 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1531 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1528 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1501 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1498 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1480 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1478 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1632 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1744 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1756 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge22.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1652 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1664 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge18.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1446 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1450 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3335 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge3307 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1356 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %_Z10luai_veceqPKfS0_.exit.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1329 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1326 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1305 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1301 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1460 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1282 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1264 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3556 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1243 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1233 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1172 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1134 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %852 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge14 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %728 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge12 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3580 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %587 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3320 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %340 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %358 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %357 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %389 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %418 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %445 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3317 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge10 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge8 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %639 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %292 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %290 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %230 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge2 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %142 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %96 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %86 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %76 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %63 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %56 ], [ %3927, %3924 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %202 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %197 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %193 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %189 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %259 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %254 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %250 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %232 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %271 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %268 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %260 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %519 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %514 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %510 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %506 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %556 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %551 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %547 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %530 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %701 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %696 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %692 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %684 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %781 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %776 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %772 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %764 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2986 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3442 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3058 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3056 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3805 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3803 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3846 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3844 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3896 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3894 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.preheader3369 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.lr.ph3423 ]
+.backedge.backedge:                               ; preds = %.lr.ph3423, %.preheader3369, %3894, %3896, %3844, %3846, %3803, %3805, %3056, %3058, %._crit_edge3442, %2986, %764, %772, %776, %781, %684, %692, %696, %701, %530, %547, %551, %556, %506, %510, %514, %519, %260, %268, %271, %232, %250, %254, %259, %189, %193, %197, %202, %48, %54, %56, %63, %76, %86, %96, %142, %.critedge, %.critedge2, %230, %290, %292, %340, %357, %358, %389, %418, %445, %.thread3317, %._crit_edge3581, %587, %.thread3320, %639, %.critedge8, %.critedge10, %728, %.critedge12, %.critedge14, %852, %1134, %1172, %1233, %1243, %1264, %1282, %1301, %1305, %1326, %1329, %_Z10luai_veceqPKfS0_.exit.thread, %1356, %.critedge3307, %.thread3335, %1446, %1450, %1460, %1478, %1480, %1498, %1501, %1528, %1531, %.critedge3309, %.thread3340, %1618, %1622, %1632, %1652, %1664, %.critedge18.thread, %1698, %1710, %.critedge20.thread, %1744, %1756, %.critedge22.thread, %1790, %1802, %.critedge24.thread, %1840, %1849, %1876, %1890, %1911, %1920, %1947, %1961, %1981, %1989, %2003, %2020, %2047, %2061, %2081, %2089, %2103, %2120, %2147, %2161, %2182, %2192, %2229, %2243, %2265, %2280, %2302, %2314, %2332, %2344, %2362, %2374, %2391, %2396, %2420, %2435, %2452, %2457, %2481, %2496, %2513, %2519, %2553, %2568, %2586, %2601, %2636, %2646, %2667, %2689, %2711, %2733, %2761, %2780, %2796, %2800, %2822, %2836, %2859, %2863, %2867, %2873, %2905, %2931, %3025, %3060, %3119, %3174, %3186, %3218, %._crit_edge3438, %3243, %3300, %3334, %._crit_edge3427, %3505, %._crit_edge, %3556, %3562, %3586, %3642, %3645, %3673, %3685, %3702, %3707, %3728, %3765, %3924, %3928, %3960, %3986, %4012, %3622, %3617, %3744, %3729, %3783, %3767, %3824, %3808, %3865, %3849
+  %.13055.be = phi ptr [ %55, %54 ], [ %.13055, %48 ], [ %2498, %2513 ], [ %2498, %2519 ], [ %2498, %2553 ], [ %2498, %2568 ], [ %2163, %2182 ], [ %2163, %2192 ], [ %2163, %2229 ], [ %2163, %2243 ], [ %4018, %4012 ], [ %3992, %3986 ], [ %3966, %3960 ], [ %3943, %3928 ], [ %3122, %3119 ], [ %3811, %3824 ], [ %3811, %3808 ], [ %3770, %3783 ], [ %3770, %3767 ], [ %3766, %3765 ], [ %3730, %3744 ], [ %3730, %3729 ], [ %3687, %3702 ], [ %3687, %3707 ], [ %3687, %3728 ], [ %3657, %3673 ], [ %3657, %3685 ], [ %3646, %3645 ], [ %3644, %3642 ], [ %3593, %3622 ], [ %3593, %3617 ], [ %3591, %3586 ], [ %3569, %3562 ], [ %3510, %._crit_edge ], [ %3508, %3505 ], [ %3352, %._crit_edge3427 ], [ %3337, %3334 ], [ %3852, %3865 ], [ %3852, %3849 ], [ %3303, %3300 ], [ %3175, %3174 ], [ %3199, %3186 ], [ %3237, %3218 ], [ %3242, %._crit_edge3438 ], [ %3266, %3243 ], [ %3063, %3060 ], [ %3027, %3025 ], [ %2908, %2931 ], [ %2886, %2905 ], [ %2838, %2859 ], [ %2838, %2863 ], [ %2838, %2867 ], [ %2838, %2873 ], [ %2784, %2796 ], [ %2784, %2800 ], [ %2784, %2822 ], [ %2784, %2836 ], [ %2764, %2780 ], [ %2736, %2761 ], [ %2714, %2733 ], [ %2692, %2711 ], [ %2670, %2689 ], [ %2648, %2667 ], [ %2603, %2636 ], [ %2603, %2646 ], [ %2570, %2586 ], [ %2570, %2601 ], [ %2437, %2452 ], [ %2437, %2457 ], [ %2437, %2481 ], [ %2437, %2496 ], [ %2376, %2391 ], [ %2376, %2396 ], [ %2376, %2420 ], [ %2376, %2435 ], [ %2346, %2362 ], [ %2346, %2374 ], [ %2316, %2332 ], [ %2316, %2344 ], [ %2282, %2302 ], [ %2282, %2314 ], [ %2245, %2265 ], [ %2245, %2280 ], [ %2063, %2081 ], [ %2063, %2089 ], [ %2063, %2103 ], [ %2063, %2120 ], [ %2063, %2147 ], [ %2063, %2161 ], [ %1963, %1981 ], [ %1963, %1989 ], [ %1963, %2003 ], [ %1963, %2020 ], [ %1963, %2047 ], [ %1963, %2061 ], [ %1892, %1911 ], [ %1892, %1920 ], [ %1892, %1947 ], [ %1892, %1961 ], [ %1821, %1840 ], [ %1821, %1849 ], [ %1821, %1876 ], [ %1821, %1890 ], [ %1797, %1790 ], [ %1810, %1802 ], [ %1819, %.critedge24.thread ], [ %1705, %1698 ], [ %1718, %1710 ], [ %1727, %.critedge20.thread ], [ %1620, %1618 ], [ %1631, %1622 ], [ %1586, %.thread3340 ], [ %1562, %.critedge3309 ], [ %1537, %1531 ], [ %1530, %1528 ], [ %1508, %1501 ], [ %1500, %1498 ], [ %1486, %1480 ], [ %1479, %1478 ], [ %1635, %1632 ], [ %1751, %1744 ], [ %1764, %1756 ], [ %1773, %.critedge22.thread ], [ %1659, %1652 ], [ %1672, %1664 ], [ %1681, %.critedge18.thread ], [ %1448, %1446 ], [ %1459, %1450 ], [ %1414, %.thread3335 ], [ %1389, %.critedge3307 ], [ %1363, %1356 ], [ %1355, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1336, %1329 ], [ %1328, %1326 ], [ %1312, %1305 ], [ %1304, %1301 ], [ %1461, %1460 ], [ %1284, %1282 ], [ %1266, %1264 ], [ %3561, %3556 ], [ %1248, %1243 ], [ %1240, %1233 ], [ %1061, %1172 ], [ %1137, %1134 ], [ %.23056.lcssa, %852 ], [ %739, %.critedge14 ], [ %706, %728 ], [ %706, %.critedge12 ], [ %473, %._crit_edge3581 ], [ %473, %587 ], [ %473, %.thread3320 ], [ %311, %340 ], [ %311, %358 ], [ %311, %357 ], [ %311, %389 ], [ %311, %418 ], [ %311, %445 ], [ %311, %.thread3317 ], [ %648, %.critedge10 ], [ %606, %.critedge8 ], [ %606, %639 ], [ %293, %292 ], [ %291, %290 ], [ %212, %230 ], [ %158, %.critedge2 ], [ %114, %.critedge ], [ %114, %142 ], [ %97, %96 ], [ %87, %86 ], [ %77, %76 ], [ %75, %63 ], [ %57, %56 ], [ %.13055, %3924 ], [ %158, %202 ], [ %158, %197 ], [ %158, %193 ], [ %158, %189 ], [ %233, %259 ], [ %233, %254 ], [ %233, %250 ], [ %233, %232 ], [ %261, %271 ], [ %261, %268 ], [ %261, %260 ], [ %473, %519 ], [ %473, %514 ], [ %473, %510 ], [ %473, %506 ], [ %473, %556 ], [ %473, %551 ], [ %473, %547 ], [ %473, %530 ], [ %648, %701 ], [ %648, %696 ], [ %648, %692 ], [ %648, %684 ], [ %739, %781 ], [ %739, %776 ], [ %739, %772 ], [ %739, %764 ], [ %2946, %2986 ], [ %2946, %._crit_edge3442 ], [ %3042, %3058 ], [ %3042, %3056 ], [ %3772, %3805 ], [ %3772, %3803 ], [ %3813, %3846 ], [ %3813, %3844 ], [ %3854, %3896 ], [ %3854, %3894 ], [ %3352, %.preheader3369 ], [ %3352, %.lr.ph3423 ]
+  %.03053.be = phi ptr [ %.03053, %54 ], [ %.03053, %48 ], [ %.03053, %2513 ], [ %.03053, %2519 ], [ %.03053, %2553 ], [ %.03053, %2568 ], [ %.03053, %2182 ], [ %.03053, %2192 ], [ %.03053, %2229 ], [ %.03053, %2243 ], [ %.03053, %4012 ], [ %.03053, %3986 ], [ %.03053, %3960 ], [ %.03053, %3928 ], [ %.03053, %3119 ], [ %.03053, %3824 ], [ %.03053, %3808 ], [ %.03053, %3783 ], [ %.03053, %3767 ], [ %.03053, %3765 ], [ %.03053, %3744 ], [ %.03053, %3729 ], [ %.03053, %3702 ], [ %.03053, %3707 ], [ %.03053, %3728 ], [ %.03053, %3673 ], [ %.03053, %3685 ], [ %.03053, %3645 ], [ %.03053, %3642 ], [ %.03053, %3622 ], [ %.03053, %3617 ], [ %.03053, %3586 ], [ %.03053, %3562 ], [ %.03053, %._crit_edge ], [ %.03053, %3505 ], [ %.03053, %._crit_edge3427 ], [ %.03053, %3334 ], [ %.03053, %3865 ], [ %.03053, %3849 ], [ %.03053, %3300 ], [ %.03053, %3174 ], [ %.03053, %3186 ], [ %.03053, %3218 ], [ %.03053, %._crit_edge3438 ], [ %.03053, %3243 ], [ %.03053, %3060 ], [ %.03053, %3025 ], [ %.03053, %2931 ], [ %.03053, %2905 ], [ %.03053, %2859 ], [ %.03053, %2863 ], [ %.03053, %2867 ], [ %.03053, %2873 ], [ %.03053, %2796 ], [ %.03053, %2800 ], [ %.03053, %2822 ], [ %.03053, %2836 ], [ %.03053, %2780 ], [ %.03053, %2761 ], [ %.03053, %2733 ], [ %.03053, %2711 ], [ %.03053, %2689 ], [ %.03053, %2667 ], [ %.03053, %2636 ], [ %.03053, %2646 ], [ %.03053, %2586 ], [ %.03053, %2601 ], [ %.03053, %2452 ], [ %.03053, %2457 ], [ %.03053, %2481 ], [ %.03053, %2496 ], [ %.03053, %2391 ], [ %.03053, %2396 ], [ %.03053, %2420 ], [ %.03053, %2435 ], [ %.03053, %2362 ], [ %.03053, %2374 ], [ %.03053, %2332 ], [ %.03053, %2344 ], [ %.03053, %2302 ], [ %.03053, %2314 ], [ %.03053, %2265 ], [ %.03053, %2280 ], [ %.03053, %2081 ], [ %.03053, %2089 ], [ %.03053, %2103 ], [ %.03053, %2120 ], [ %.03053, %2147 ], [ %.03053, %2161 ], [ %.03053, %1981 ], [ %.03053, %1989 ], [ %.03053, %2003 ], [ %.03053, %2020 ], [ %.03053, %2047 ], [ %.03053, %2061 ], [ %.03053, %1911 ], [ %.03053, %1920 ], [ %.03053, %1947 ], [ %.03053, %1961 ], [ %.03053, %1840 ], [ %.03053, %1849 ], [ %.03053, %1876 ], [ %.03053, %1890 ], [ %.03053, %1790 ], [ %.03053, %1802 ], [ %.03053, %.critedge24.thread ], [ %.03053, %1698 ], [ %.03053, %1710 ], [ %.03053, %.critedge20.thread ], [ %.03053, %1618 ], [ %.03053, %1622 ], [ %.03053, %.thread3340 ], [ %.03053, %.critedge3309 ], [ %.03053, %1531 ], [ %.03053, %1528 ], [ %.03053, %1501 ], [ %.03053, %1498 ], [ %.03053, %1480 ], [ %.03053, %1478 ], [ %.03053, %1632 ], [ %.03053, %1744 ], [ %.03053, %1756 ], [ %.03053, %.critedge22.thread ], [ %.03053, %1652 ], [ %.03053, %1664 ], [ %.03053, %.critedge18.thread ], [ %.03053, %1446 ], [ %.03053, %1450 ], [ %.03053, %.thread3335 ], [ %.03053, %.critedge3307 ], [ %.03053, %1356 ], [ %.03053, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.03053, %1329 ], [ %.03053, %1326 ], [ %.03053, %1305 ], [ %.03053, %1301 ], [ %.03053, %1460 ], [ %.03053, %1282 ], [ %.03053, %1264 ], [ %.03053, %3556 ], [ %.03053, %1243 ], [ %1242, %1233 ], [ %.03053, %1172 ], [ %1140, %1134 ], [ %.03053, %852 ], [ %.03053, %.critedge14 ], [ %.03053, %728 ], [ %.03053, %.critedge12 ], [ %.03053, %._crit_edge3581 ], [ %.03053, %587 ], [ %.03053, %.thread3320 ], [ %.03053, %340 ], [ %.03053, %358 ], [ %.03053, %357 ], [ %.03053, %389 ], [ %.03053, %418 ], [ %.03053, %445 ], [ %.03053, %.thread3317 ], [ %.03053, %.critedge10 ], [ %.03053, %.critedge8 ], [ %.03053, %639 ], [ %.03053, %292 ], [ %.03053, %290 ], [ %.03053, %230 ], [ %.03053, %.critedge2 ], [ %.03053, %.critedge ], [ %.03053, %142 ], [ %.03053, %96 ], [ %.03053, %86 ], [ %.03053, %76 ], [ %.03053, %63 ], [ %.03053, %56 ], [ %.03053, %3924 ], [ %.03053, %202 ], [ %.03053, %197 ], [ %.03053, %193 ], [ %.03053, %189 ], [ %.03053, %259 ], [ %.03053, %254 ], [ %.03053, %250 ], [ %.03053, %232 ], [ %.03053, %271 ], [ %.03053, %268 ], [ %.03053, %260 ], [ %.03053, %519 ], [ %.03053, %514 ], [ %.03053, %510 ], [ %.03053, %506 ], [ %.03053, %556 ], [ %.03053, %551 ], [ %.03053, %547 ], [ %.03053, %530 ], [ %.03053, %701 ], [ %.03053, %696 ], [ %.03053, %692 ], [ %.03053, %684 ], [ %.03053, %781 ], [ %.03053, %776 ], [ %.03053, %772 ], [ %.03053, %764 ], [ %.03053, %2986 ], [ %.03053, %._crit_edge3442 ], [ %.03053, %3058 ], [ %.03053, %3056 ], [ %.03053, %3805 ], [ %.03053, %3803 ], [ %.03053, %3846 ], [ %.03053, %3844 ], [ %.03053, %3896 ], [ %.03053, %3894 ], [ %.03053, %.preheader3369 ], [ %.03053, %.lr.ph3423 ]
+  %.1.be = phi ptr [ %.1, %54 ], [ %.2, %48 ], [ %.1, %2513 ], [ %.1, %2519 ], [ %2560, %2553 ], [ %.16, %2568 ], [ %.1, %2182 ], [ %.1, %2192 ], [ %2236, %2229 ], [ %.9, %2243 ], [ %.1, %4012 ], [ %.1, %3986 ], [ %.1, %3960 ], [ %.1, %3928 ], [ %.21, %3119 ], [ %.1, %3824 ], [ %.1, %3808 ], [ %.1, %3783 ], [ %.1, %3767 ], [ %.1, %3765 ], [ %.1, %3744 ], [ %.1, %3729 ], [ %.1, %3702 ], [ %.1, %3707 ], [ %.27, %3728 ], [ %.1, %3673 ], [ %.26, %3685 ], [ %.1, %3645 ], [ %.1, %3642 ], [ %.1, %3622 ], [ %.1, %3617 ], [ %.25, %3586 ], [ %.1, %3562 ], [ %3529, %._crit_edge ], [ %.23, %3505 ], [ %3384, %._crit_edge3427 ], [ %.1, %3334 ], [ %.1, %3865 ], [ %.1, %3849 ], [ %.1, %3300 ], [ %.22, %3174 ], [ %.22, %3186 ], [ %.22, %3218 ], [ %.22, %._crit_edge3438 ], [ %3253, %3243 ], [ %.20, %3060 ], [ %.1, %3025 ], [ %2932, %2931 ], [ %2906, %2905 ], [ %.1, %2859 ], [ %2866, %2863 ], [ %.1, %2867 ], [ %2876, %2873 ], [ %.1, %2796 ], [ %.1, %2800 ], [ %2828, %2822 ], [ %.19, %2836 ], [ %.1, %2780 ], [ %2762, %2761 ], [ %.1, %2733 ], [ %.1, %2711 ], [ %.1, %2689 ], [ %.1, %2667 ], [ %.1, %2636 ], [ %.18, %2646 ], [ %.1, %2586 ], [ %.17, %2601 ], [ %.1, %2452 ], [ %.1, %2457 ], [ %2488, %2481 ], [ %.15, %2496 ], [ %.1, %2391 ], [ %.1, %2396 ], [ %2427, %2420 ], [ %.14, %2435 ], [ %.1, %2362 ], [ %.13, %2374 ], [ %.1, %2332 ], [ %.12, %2344 ], [ %.1, %2302 ], [ %.11, %2314 ], [ %.1, %2265 ], [ %.10, %2280 ], [ %.1, %2081 ], [ %.1, %2089 ], [ %.1, %2103 ], [ %.1, %2120 ], [ %2154, %2147 ], [ %.8, %2161 ], [ %.1, %1981 ], [ %.1, %1989 ], [ %.1, %2003 ], [ %.1, %2020 ], [ %2054, %2047 ], [ %.7, %2061 ], [ %.1, %1911 ], [ %.1, %1920 ], [ %1954, %1947 ], [ %.6, %1961 ], [ %.1, %1840 ], [ %.1, %1849 ], [ %1883, %1876 ], [ %.5, %1890 ], [ %.1, %1790 ], [ %.1, %1802 ], [ %1814, %.critedge24.thread ], [ %.1, %1698 ], [ %.1, %1710 ], [ %1722, %.critedge20.thread ], [ %1607, %1618 ], [ %1626, %1622 ], [ %.1, %.thread3340 ], [ %.1, %.critedge3309 ], [ %.1, %1531 ], [ %.1, %1528 ], [ %.1, %1501 ], [ %.1, %1498 ], [ %.1, %1480 ], [ %.1, %1478 ], [ %.1, %1632 ], [ %.1, %1744 ], [ %.1, %1756 ], [ %1768, %.critedge22.thread ], [ %.1, %1652 ], [ %.1, %1664 ], [ %1676, %.critedge18.thread ], [ %1435, %1446 ], [ %1454, %1450 ], [ %.1, %.thread3335 ], [ %.1, %.critedge3307 ], [ %.1, %1356 ], [ %.1, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.1, %1329 ], [ %.1, %1326 ], [ %.1, %1305 ], [ %.1, %1301 ], [ %.1, %1460 ], [ %.1, %1282 ], [ %.1, %1264 ], [ %.24, %3556 ], [ %.1, %1243 ], [ %1223, %1233 ], [ %1167, %1172 ], [ %1138, %1134 ], [ %853, %852 ], [ %786, %.critedge14 ], [ %.1, %728 ], [ %737, %.critedge12 ], [ %559, %._crit_edge3581 ], [ %596, %587 ], [ %604, %.thread3320 ], [ %.1, %340 ], [ %361, %358 ], [ %.1, %357 ], [ %397, %389 ], [ %.1, %418 ], [ %453, %445 ], [ %461, %.thread3317 ], [ %704, %.critedge10 ], [ %646, %.critedge8 ], [ %.1, %639 ], [ %299, %292 ], [ %.1, %290 ], [ %.1, %230 ], [ %205, %.critedge2 ], [ %145, %.critedge ], [ %.1, %142 ], [ %.1, %96 ], [ %.1, %86 ], [ %.1, %76 ], [ %.1, %63 ], [ %.1, %56 ], [ %.28, %3924 ], [ %.1, %202 ], [ %.1, %197 ], [ %.1, %193 ], [ %.1, %189 ], [ %.1, %259 ], [ %.1, %254 ], [ %.1, %250 ], [ %.1, %232 ], [ %.1, %271 ], [ %.1, %268 ], [ %.1, %260 ], [ %.1, %519 ], [ %.1, %514 ], [ %.1, %510 ], [ %.1, %506 ], [ %.1, %556 ], [ %.1, %551 ], [ %.1, %547 ], [ %.1, %530 ], [ %.1, %701 ], [ %.1, %696 ], [ %.1, %692 ], [ %.1, %684 ], [ %.1, %781 ], [ %.1, %776 ], [ %.1, %772 ], [ %.1, %764 ], [ %.1, %2986 ], [ %.1, %._crit_edge3442 ], [ %.20, %3058 ], [ %.20, %3056 ], [ %.1, %3805 ], [ %.1, %3803 ], [ %.1, %3846 ], [ %.1, %3844 ], [ %.1, %3896 ], [ %.1, %3894 ], [ %.1, %.preheader3369 ], [ %.1, %.lr.ph3423 ]
+  %.0.be = phi ptr [ %.0, %54 ], [ %.0, %48 ], [ %.0, %2513 ], [ %.0, %2519 ], [ %.0, %2553 ], [ %.0, %2568 ], [ %.0, %2182 ], [ %.0, %2192 ], [ %.0, %2229 ], [ %.0, %2243 ], [ %.0, %4012 ], [ %.0, %3986 ], [ %.0, %3960 ], [ %.0, %3928 ], [ %.0, %3119 ], [ %.0, %3824 ], [ %.0, %3808 ], [ %.0, %3783 ], [ %.0, %3767 ], [ %.0, %3765 ], [ %.0, %3744 ], [ %.0, %3729 ], [ %.0, %3702 ], [ %.0, %3707 ], [ %.0, %3728 ], [ %.0, %3673 ], [ %.0, %3685 ], [ %.0, %3645 ], [ %.0, %3642 ], [ %.0, %3622 ], [ %.0, %3617 ], [ %.0, %3586 ], [ %.0, %3562 ], [ %.0, %._crit_edge ], [ %.0, %3505 ], [ %.0, %._crit_edge3427 ], [ %.0, %3334 ], [ %.0, %3865 ], [ %.0, %3849 ], [ %.0, %3300 ], [ %.0, %3174 ], [ %.0, %3186 ], [ %.0, %3218 ], [ %.0, %._crit_edge3438 ], [ %.0, %3243 ], [ %.0, %3060 ], [ %.0, %3025 ], [ %.0, %2931 ], [ %.0, %2905 ], [ %.0, %2859 ], [ %.0, %2863 ], [ %.0, %2867 ], [ %.0, %2873 ], [ %.0, %2796 ], [ %.0, %2800 ], [ %.0, %2822 ], [ %.0, %2836 ], [ %.0, %2780 ], [ %.0, %2761 ], [ %.0, %2733 ], [ %.0, %2711 ], [ %.0, %2689 ], [ %.0, %2667 ], [ %.0, %2636 ], [ %.0, %2646 ], [ %.0, %2586 ], [ %.0, %2601 ], [ %.0, %2452 ], [ %.0, %2457 ], [ %.0, %2481 ], [ %.0, %2496 ], [ %.0, %2391 ], [ %.0, %2396 ], [ %.0, %2420 ], [ %.0, %2435 ], [ %.0, %2362 ], [ %.0, %2374 ], [ %.0, %2332 ], [ %.0, %2344 ], [ %.0, %2302 ], [ %.0, %2314 ], [ %.0, %2265 ], [ %.0, %2280 ], [ %.0, %2081 ], [ %.0, %2089 ], [ %.0, %2103 ], [ %.0, %2120 ], [ %.0, %2147 ], [ %.0, %2161 ], [ %.0, %1981 ], [ %.0, %1989 ], [ %.0, %2003 ], [ %.0, %2020 ], [ %.0, %2047 ], [ %.0, %2061 ], [ %.0, %1911 ], [ %.0, %1920 ], [ %.0, %1947 ], [ %.0, %1961 ], [ %.0, %1840 ], [ %.0, %1849 ], [ %.0, %1876 ], [ %.0, %1890 ], [ %.0, %1790 ], [ %.0, %1802 ], [ %.0, %.critedge24.thread ], [ %.0, %1698 ], [ %.0, %1710 ], [ %.0, %.critedge20.thread ], [ %.0, %1618 ], [ %.0, %1622 ], [ %.0, %.thread3340 ], [ %.0, %.critedge3309 ], [ %.0, %1531 ], [ %.0, %1528 ], [ %.0, %1501 ], [ %.0, %1498 ], [ %.0, %1480 ], [ %.0, %1478 ], [ %.0, %1632 ], [ %.0, %1744 ], [ %.0, %1756 ], [ %.0, %.critedge22.thread ], [ %.0, %1652 ], [ %.0, %1664 ], [ %.0, %.critedge18.thread ], [ %.0, %1446 ], [ %.0, %1450 ], [ %.0, %.thread3335 ], [ %.0, %.critedge3307 ], [ %.0, %1356 ], [ %.0, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.0, %1329 ], [ %.0, %1326 ], [ %.0, %1305 ], [ %.0, %1301 ], [ %.0, %1460 ], [ %.0, %1282 ], [ %.0, %1264 ], [ %.0, %3556 ], [ %.0, %1243 ], [ %1236, %1233 ], [ %.0, %1172 ], [ %1085, %1134 ], [ %.0, %852 ], [ %.0, %.critedge14 ], [ %.0, %728 ], [ %.0, %.critedge12 ], [ %.0, %._crit_edge3581 ], [ %.0, %587 ], [ %.0, %.thread3320 ], [ %.0, %340 ], [ %.0, %358 ], [ %.0, %357 ], [ %.0, %389 ], [ %.0, %418 ], [ %.0, %445 ], [ %.0, %.thread3317 ], [ %.0, %.critedge10 ], [ %.0, %.critedge8 ], [ %.0, %639 ], [ %.0, %292 ], [ %.0, %290 ], [ %.0, %230 ], [ %.0, %.critedge2 ], [ %.0, %.critedge ], [ %.0, %142 ], [ %.0, %96 ], [ %.0, %86 ], [ %.0, %76 ], [ %.0, %63 ], [ %.0, %56 ], [ %.0, %3924 ], [ %.0, %202 ], [ %.0, %197 ], [ %.0, %193 ], [ %.0, %189 ], [ %.0, %259 ], [ %.0, %254 ], [ %.0, %250 ], [ %.0, %232 ], [ %.0, %271 ], [ %.0, %268 ], [ %.0, %260 ], [ %.0, %519 ], [ %.0, %514 ], [ %.0, %510 ], [ %.0, %506 ], [ %.0, %556 ], [ %.0, %551 ], [ %.0, %547 ], [ %.0, %530 ], [ %.0, %701 ], [ %.0, %696 ], [ %.0, %692 ], [ %.0, %684 ], [ %.0, %781 ], [ %.0, %776 ], [ %.0, %772 ], [ %.0, %764 ], [ %.0, %2986 ], [ %.0, %._crit_edge3442 ], [ %.0, %3058 ], [ %.0, %3056 ], [ %.0, %3805 ], [ %.0, %3803 ], [ %.0, %3846 ], [ %.0, %3844 ], [ %.0, %3896 ], [ %.0, %3894 ], [ %.0, %.preheader3369 ], [ %.0, %.lr.ph3423 ]
+  %.be = phi ptr [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %54 ], [ %53, %48 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2513 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2519 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2553 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2568 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2182 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2192 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2229 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2243 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %4012 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3986 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3960 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3928 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3119 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3824 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3808 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3783 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3767 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3765 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3744 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3729 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3702 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3707 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3728 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3673 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3685 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3645 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3642 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3622 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3617 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3586 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3562 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3505 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3427 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3334 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3865 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3849 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3300 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3174 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3186 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3218 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3438 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3243 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3060 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3025 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2931 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2905 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2859 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2863 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2867 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2873 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2796 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2800 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2822 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2836 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2780 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2761 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2733 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2711 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2689 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2667 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2636 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2646 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2586 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2601 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2452 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2457 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2481 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2496 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2391 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2396 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2420 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2435 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2362 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2374 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2332 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2344 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2302 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2314 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2265 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2280 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2081 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2089 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2103 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2120 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2147 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2161 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1981 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1989 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2003 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2020 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2047 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2061 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1911 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1920 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1947 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1961 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1840 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1849 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1876 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1890 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1790 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1802 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge24.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1698 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1710 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge20.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1618 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1622 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3340 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge3309 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1531 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1528 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1501 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1498 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1480 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1478 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1632 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1744 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1756 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge22.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1652 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1664 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge18.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1446 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1450 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3335 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge3307 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1356 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %_Z10luai_veceqPKfS0_.exit.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1329 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1326 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1305 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1301 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1460 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1282 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1264 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3556 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1243 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1233 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1172 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %1134 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %852 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge14 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %728 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge12 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3581 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %587 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3320 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %340 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %358 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %357 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %389 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %418 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %445 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.thread3317 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge10 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge8 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %639 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %292 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %290 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %230 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge2 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.critedge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %142 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %96 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %86 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %76 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %63 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %56 ], [ %3927, %3924 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %202 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %197 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %193 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %189 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %259 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %254 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %250 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %232 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %271 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %268 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %260 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %519 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %514 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %510 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %506 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %556 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %551 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %547 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %530 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %701 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %696 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %692 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %684 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %781 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %776 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %772 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %764 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %2986 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %._crit_edge3442 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3058 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3056 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3805 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3803 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3846 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3844 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3896 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %3894 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.preheader3369 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %32), %.lr.ph3423 ]
   br label %.backedge
 
 .lr.ph3423.preheader:                             ; preds = %.preheader3369
   %3408 = sext i32 %.fr to i64
-  %wide.trip.count3540 = sext i32 %3356 to i64
+  %wide.trip.count3541 = sext i32 %3356 to i64
   br label %.lr.ph3423
 
 3409:                                             ; preds = %.lr.ph3421, %3409
-  %indvars.iv3532 = phi i64 [ 0, %.lr.ph3421 ], [ %indvars.iv.next3533, %3409 ]
-  %3410 = getelementptr inbounds %struct.lua_TValue, ptr %3406, i64 %indvars.iv3532
-  %3411 = getelementptr inbounds %struct.lua_TValue, ptr %3402, i64 %indvars.iv3532
+  %indvars.iv3533 = phi i64 [ 0, %.lr.ph3421 ], [ %indvars.iv.next3534, %3409 ]
+  %3410 = getelementptr inbounds %struct.lua_TValue, ptr %3406, i64 %indvars.iv3533
+  %3411 = getelementptr inbounds %struct.lua_TValue, ptr %3402, i64 %indvars.iv3533
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3411, ptr noundef nonnull align 8 dereferenceable(16) %3410, i64 16, i1 false)
-  %indvars.iv.next3533 = add nuw nsw i64 %indvars.iv3532, 1
-  %exitcond3536.not = icmp eq i64 %indvars.iv.next3533, %wide.trip.count3535
-  br i1 %exitcond3536.not, label %.preheader3369, label %3409, !llvm.loop !17
+  %indvars.iv.next3534 = add nuw nsw i64 %indvars.iv3533, 1
+  %exitcond3537.not = icmp eq i64 %indvars.iv.next3534, %wide.trip.count3536
+  br i1 %exitcond3537.not, label %.preheader3369, label %3409, !llvm.loop !17
 
 .lr.ph3423:                                       ; preds = %.lr.ph3423.preheader, %.lr.ph3423
-  %indvars.iv3537 = phi i64 [ %3408, %.lr.ph3423.preheader ], [ %indvars.iv.next3538, %.lr.ph3423 ]
-  %3412 = getelementptr inbounds %struct.lua_TValue, ptr %3402, i64 %indvars.iv3537, i32 2
+  %indvars.iv3538 = phi i64 [ %3408, %.lr.ph3423.preheader ], [ %indvars.iv.next3539, %.lr.ph3423 ]
+  %3412 = getelementptr inbounds %struct.lua_TValue, ptr %3402, i64 %indvars.iv3538, i32 2
   store i32 0, ptr %3412, align 4
-  %indvars.iv.next3538 = add nsw i64 %indvars.iv3537, 1
-  %exitcond3541.not = icmp eq i64 %indvars.iv.next3538, %wide.trip.count3540
-  br i1 %exitcond3541.not, label %.backedge.backedge, label %.lr.ph3423, !llvm.loop !18
+  %indvars.iv.next3539 = add nsw i64 %indvars.iv3538, 1
+  %exitcond3542.not = icmp eq i64 %indvars.iv.next3539, %wide.trip.count3541
+  br i1 %exitcond3542.not, label %.backedge.backedge, label %.lr.ph3423, !llvm.loop !18
 
 3413:                                             ; preds = %.backedge
   %3414 = getelementptr inbounds i8, ptr %.13055, i64 4
@@ -5867,11 +5868,11 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
 
 3527:                                             ; preds = %3509
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %3524)
-  %.pre3566 = load ptr, ptr %10, align 8
+  %.pre3567 = load ptr, ptr %10, align 8
   br label %3528
 
 3528:                                             ; preds = %3509, %3527
-  %3529 = phi ptr [ %3517, %3509 ], [ %.pre3566, %3527 ]
+  %3529 = phi ptr [ %3517, %3509 ], [ %.pre3567, %3527 ]
   %3530 = load ptr, ptr %7, align 8
   %.not3478 = icmp eq i32 %3513, 0
   br i1 %.not3478, label %._crit_edge, label %.lr.ph.preheader
@@ -6567,8 +6568,8 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   br label %.loopexit3371.sink.split
 
 .loopexit3371.sink.split:                         ; preds = %1178, %1052, %.loopexit3371.sink.split.sink.split
-  %.sink3642 = phi ptr [ %4019, %.loopexit3371.sink.split.sink.split ], [ %.pre3579.pre, %1052 ], [ %.pre3575, %1178 ]
-  %4020 = getelementptr inbounds i8, ptr %.sink3642, i64 24
+  %.sink3643 = phi ptr [ %4019, %.loopexit3371.sink.split.sink.split ], [ %.pre3580.pre, %1052 ], [ %.pre3576, %1178 ]
+  %4020 = getelementptr inbounds i8, ptr %.sink3643, i64 24
   %4021 = load ptr, ptr %4020, align 8
   %4022 = getelementptr inbounds i8, ptr %4021, i64 -4
   store ptr %4022, ptr %4020, align 8
@@ -7928,8 +7929,8 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   %921 = getelementptr inbounds i8, ptr %904, i64 12
   store i32 7, ptr %921, align 4
   %922 = load i8, ptr %915, align 1
-  %.not3669 = icmp eq i8 %922, 0
-  br i1 %.not3669, label %._crit_edge3665, label %.lr.ph3664
+  %.not3670 = icmp eq i8 %922, 0
+  br i1 %.not3670, label %._crit_edge3665, label %.lr.ph3664
 
 .lr.ph3664:                                       ; preds = %898
   %923 = getelementptr inbounds i8, ptr %.0, i64 32
@@ -7937,7 +7938,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   br label %925
 
 925:                                              ; preds = %.lr.ph3664, %950
-  %indvars.iv3754 = phi i64 [ 0, %.lr.ph3664 ], [ %indvars.iv.next3755, %950 ]
+  %indvars.iv3755 = phi i64 [ 0, %.lr.ph3664 ], [ %indvars.iv.next3756, %950 ]
   %.232393662 = phi ptr [ %899, %.lr.ph3664 ], [ %926, %950 ]
   %926 = getelementptr inbounds i8, ptr %.232393662, i64 4
   %927 = load i32, ptr %.232393662, align 4
@@ -7954,12 +7955,12 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   %931 = and i32 %930, 255
   %932 = zext nneg i32 %931 to i64
   %933 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %932
-  %934 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %924, i64 0, i64 %indvars.iv3754
+  %934 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %924, i64 0, i64 %indvars.iv3755
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %934, ptr noundef nonnull align 8 dereferenceable(16) %933, i64 16, i1 false)
   br label %950
 
 935:                                              ; preds = %925
-  %936 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %924, i64 0, i64 %indvars.iv3754
+  %936 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %924, i64 0, i64 %indvars.iv3755
   %937 = lshr i32 %927, 16
   %938 = and i32 %937, 255
   %939 = zext nneg i32 %938 to i64
@@ -7975,7 +7976,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   %945 = and i32 %944, 255
   %946 = zext nneg i32 %945 to i64
   %947 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %923, i64 0, i64 %946
-  %948 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %924, i64 0, i64 %indvars.iv3754
+  %948 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %924, i64 0, i64 %indvars.iv3755
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %948, ptr noundef nonnull align 8 dereferenceable(16) %947, i64 16, i1 false)
   br label %950
 
@@ -7983,10 +7984,10 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   unreachable
 
 950:                                              ; preds = %929, %935, %943
-  %indvars.iv.next3755 = add nuw nsw i64 %indvars.iv3754, 1
+  %indvars.iv.next3756 = add nuw nsw i64 %indvars.iv3755, 1
   %951 = load i8, ptr %915, align 1
   %952 = zext i8 %951 to i64
-  %953 = icmp ult i64 %indvars.iv.next3755, %952
+  %953 = icmp ult i64 %indvars.iv.next3756, %952
   br i1 %953, label %925, label %._crit_edge3665, !llvm.loop !21
 
 ._crit_edge3665:                                  ; preds = %950, %898
@@ -8207,7 +8208,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   br i1 %.not3434, label %..thread3512_crit_edge, label %1096
 
 ..thread3512_crit_edge:                           ; preds = %1091
-  %.pre3766 = load i8, ptr %1088, align 1
+  %.pre3767 = load i8, ptr %1088, align 1
   br label %.thread3512
 
 1096:                                             ; preds = %1091
@@ -8219,7 +8220,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   br label %1162
 
 .thread3512:                                      ; preds = %..thread3512_crit_edge, %1087
-  %1099 = phi i8 [ %.pre3766, %..thread3512_crit_edge ], [ %1089, %1087 ]
+  %1099 = phi i8 [ %.pre3767, %..thread3512_crit_edge ], [ %1089, %1087 ]
   %1100 = and i8 %1099, 1
   %.not3435 = icmp eq i8 %1100, 0
   br i1 %.not3435, label %1101, label %.thread3515
@@ -8939,13 +8940,13 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   br i1 %1545, label %..critedge3491_crit_edge, label %1622
 
 ..critedge3491_crit_edge:                         ; preds = %1540
-  %.pre3764 = load ptr, ptr %1437, align 8
-  %.pre3765 = load ptr, ptr %1439, align 8
+  %.pre3765 = load ptr, ptr %1437, align 8
+  %.pre3766 = load ptr, ptr %1439, align 8
   br label %.critedge3491
 
 .critedge3491:                                    ; preds = %..critedge3491_crit_edge, %1535, %1537
-  %1546 = phi ptr [ %.pre3765, %..critedge3491_crit_edge ], [ %1531, %1535 ], [ %1531, %1537 ]
-  %1547 = phi ptr [ %.pre3764, %..critedge3491_crit_edge ], [ %1528, %1535 ], [ %1528, %1537 ]
+  %1546 = phi ptr [ %.pre3766, %..critedge3491_crit_edge ], [ %1531, %1535 ], [ %1531, %1537 ]
+  %1547 = phi ptr [ %.pre3765, %..critedge3491_crit_edge ], [ %1528, %1535 ], [ %1528, %1537 ]
   %1548 = icmp eq ptr %1547, %1546
   %1549 = ashr i32 %1432, 16
   %1550 = sext i32 %1549 to i64
@@ -8985,13 +8986,13 @@ _Z10luai_veceqPKfS0_.exit.thread:                 ; preds = %_Z10luai_veceqPKfS0
   br i1 %.not3421, label %..thread3519_crit_edge, label %1584
 
 ..thread3519_crit_edge:                           ; preds = %1569
-  %.pre3762 = load ptr, ptr %1437, align 8
-  %.pre3763 = load ptr, ptr %1439, align 8
+  %.pre3763 = load ptr, ptr %1437, align 8
+  %.pre3764 = load ptr, ptr %1439, align 8
   br label %.thread3519
 
 .thread3519:                                      ; preds = %..thread3519_crit_edge, %1566, %1564
-  %1574 = phi ptr [ %.pre3763, %..thread3519_crit_edge ], [ %1560, %1566 ], [ %1560, %1564 ]
-  %1575 = phi ptr [ %.pre3762, %..thread3519_crit_edge ], [ %1557, %1566 ], [ %1557, %1564 ]
+  %1574 = phi ptr [ %.pre3764, %..thread3519_crit_edge ], [ %1560, %1566 ], [ %1560, %1564 ]
+  %1575 = phi ptr [ %.pre3763, %..thread3519_crit_edge ], [ %1557, %1566 ], [ %1557, %1564 ]
   %1576 = icmp eq ptr %1575, %1574
   %1577 = ashr i32 %1432, 16
   %1578 = sext i32 %1577 to i64
@@ -9261,13 +9262,13 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br i1 %1752, label %..critedge3493_crit_edge, label %1827
 
 ..critedge3493_crit_edge:                         ; preds = %1747
-  %.pre3760 = load ptr, ptr %1647, align 8
-  %.pre3761 = load ptr, ptr %1649, align 8
+  %.pre3761 = load ptr, ptr %1647, align 8
+  %.pre3762 = load ptr, ptr %1649, align 8
   br label %.critedge3493
 
 .critedge3493:                                    ; preds = %..critedge3493_crit_edge, %1742, %1744
-  %1753 = phi ptr [ %.pre3761, %..critedge3493_crit_edge ], [ %1738, %1742 ], [ %1738, %1744 ]
-  %1754 = phi ptr [ %.pre3760, %..critedge3493_crit_edge ], [ %1735, %1742 ], [ %1735, %1744 ]
+  %1753 = phi ptr [ %.pre3762, %..critedge3493_crit_edge ], [ %1738, %1742 ], [ %1738, %1744 ]
+  %1754 = phi ptr [ %.pre3761, %..critedge3493_crit_edge ], [ %1735, %1742 ], [ %1735, %1744 ]
   %.not3415 = icmp eq ptr %1754, %1753
   %1755 = ashr i32 %1642, 16
   %1756 = sext i32 %1755 to i64
@@ -9307,13 +9308,13 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br i1 %.not3409, label %..thread3524_crit_edge, label %1789
 
 ..thread3524_crit_edge:                           ; preds = %1775
-  %.pre3758 = load ptr, ptr %1647, align 8
-  %.pre3759 = load ptr, ptr %1649, align 8
+  %.pre3759 = load ptr, ptr %1647, align 8
+  %.pre3760 = load ptr, ptr %1649, align 8
   br label %.thread3524
 
 .thread3524:                                      ; preds = %..thread3524_crit_edge, %1772, %1770
-  %1780 = phi ptr [ %.pre3759, %..thread3524_crit_edge ], [ %1766, %1772 ], [ %1766, %1770 ]
-  %1781 = phi ptr [ %.pre3758, %..thread3524_crit_edge ], [ %1763, %1772 ], [ %1763, %1770 ]
+  %1780 = phi ptr [ %.pre3760, %..thread3524_crit_edge ], [ %1766, %1772 ], [ %1766, %1770 ]
+  %1781 = phi ptr [ %.pre3759, %..thread3524_crit_edge ], [ %1763, %1772 ], [ %1763, %1770 ]
   %.not3410 = icmp eq ptr %1781, %1780
   %1782 = ashr i32 %1642, 16
   %1783 = sext i32 %1782 to i64
@@ -11775,20 +11776,20 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br i1 %3415, label %.lr.ph3630, label %._crit_edge3631
 
 .lr.ph3630:                                       ; preds = %3412
-  %wide.trip.count3752 = zext nneg i32 %.03253 to i64
+  %wide.trip.count3753 = zext nneg i32 %.03253 to i64
   br label %3416
 
 3416:                                             ; preds = %.lr.ph3630, %3416
-  %indvars.iv3749 = phi i64 [ 0, %.lr.ph3630 ], [ %indvars.iv.next3750, %3416 ]
-  %3417 = getelementptr inbounds %struct.lua_TValue, ptr %3382, i64 %indvars.iv3749
-  %3418 = trunc nuw nsw i64 %indvars.iv3749 to i32
+  %indvars.iv3750 = phi i64 [ 0, %.lr.ph3630 ], [ %indvars.iv.next3751, %3416 ]
+  %3417 = getelementptr inbounds %struct.lua_TValue, ptr %3382, i64 %indvars.iv3750
+  %3418 = trunc nuw nsw i64 %indvars.iv3750 to i32
   %3419 = add i32 %3404, %3418
   %3420 = zext i32 %3419 to i64
   %3421 = getelementptr inbounds %struct.lua_TValue, ptr %3414, i64 %3420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3421, ptr noundef nonnull align 8 dereferenceable(16) %3417, i64 16, i1 false)
-  %indvars.iv.next3750 = add nuw nsw i64 %indvars.iv3749, 1
-  %exitcond3753.not = icmp eq i64 %indvars.iv.next3750, %wide.trip.count3752
-  br i1 %exitcond3753.not, label %._crit_edge3631, label %3416, !llvm.loop !27
+  %indvars.iv.next3751 = add nuw nsw i64 %indvars.iv3750, 1
+  %exitcond3754.not = icmp eq i64 %indvars.iv.next3751, %wide.trip.count3753
+  br i1 %exitcond3754.not, label %._crit_edge3631, label %3416, !llvm.loop !27
 
 ._crit_edge3631:                                  ; preds = %3416, %3412
   %3422 = getelementptr inbounds i8, ptr %3399, i64 1
@@ -11955,9 +11956,9 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br label %3527
 
 3527:                                             ; preds = %3517, %3526
-  %.sink3822 = phi i64 [ 8, %3526 ], [ 16, %3517 ]
+  %.sink3823 = phi i64 [ 8, %3526 ], [ 16, %3517 ]
   %3528 = load ptr, ptr %3523, align 8
-  %3529 = getelementptr inbounds i8, ptr %3528, i64 %.sink3822
+  %3529 = getelementptr inbounds i8, ptr %3528, i64 %.sink3823
   %3530 = load ptr, ptr %3529, align 8
   %3531 = icmp eq ptr %3530, null
   br i1 %3531, label %.critedge3495, label %3532
@@ -12111,17 +12112,18 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br i1 %3616, label %.preheader3552, label %.loopexit
 
 .preheader3552:                                   ; preds = %3607
-  %3617 = getelementptr inbounds i8, ptr %3598, i64 48
-  %wide.trip.count3741 = zext nneg i32 %3599 to i64
+  %3617 = getelementptr i8, ptr %3598, i64 60
+  %wide.trip.count3742 = zext nneg i32 %3599 to i64
   br label %3618
 
 3618:                                             ; preds = %.preheader3552, %3618
-  %indvars.iv3738 = phi i64 [ 2, %.preheader3552 ], [ %indvars.iv.next3739, %3618 ]
-  %3619 = getelementptr inbounds %struct.lua_TValue, ptr %3617, i64 %indvars.iv3738, i32 2
+  %indvars.iv3739 = phi i64 [ 2, %.preheader3552 ], [ %indvars.iv.next3740, %3618 ]
+  %.idx = shl nuw nsw i64 %indvars.iv3739, 4
+  %3619 = getelementptr i8, ptr %3617, i64 %.idx
   store i32 0, ptr %3619, align 4
-  %indvars.iv.next3739 = add nuw nsw i64 %indvars.iv3738, 1
-  %exitcond3742.not = icmp eq i64 %indvars.iv.next3739, %wide.trip.count3741
-  br i1 %exitcond3742.not, label %.loopexit, label %3618, !llvm.loop !28
+  %indvars.iv.next3740 = add nuw nsw i64 %indvars.iv3739, 1
+  %exitcond3743.not = icmp eq i64 %indvars.iv.next3740, %wide.trip.count3742
+  br i1 %exitcond3743.not, label %.loopexit, label %3618, !llvm.loop !28
 
 .loopexit:                                        ; preds = %3618, %3607
   %3620 = icmp slt i32 %3599, 0
@@ -12156,20 +12158,20 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
 .lr.ph3620:                                       ; preds = %3635
   %3637 = getelementptr inbounds i8, ptr %3609, i64 24
   %3638 = load ptr, ptr %3637, align 8
-  %sext3767 = shl i64 %3612, 32
-  %3639 = ashr exact i64 %sext3767, 32
+  %sext3768 = shl i64 %3612, 32
+  %3639 = ashr exact i64 %sext3768, 32
   br label %3640
 
 3640:                                             ; preds = %.lr.ph3620, %3662
-  %indvars.iv3743 = phi i64 [ %3639, %.lr.ph3620 ], [ %indvars.iv.next3744, %3662 ]
-  %3641 = getelementptr inbounds %struct.lua_TValue, ptr %3638, i64 %indvars.iv3743
+  %indvars.iv3744 = phi i64 [ %3639, %.lr.ph3620 ], [ %indvars.iv.next3745, %3662 ]
+  %3641 = getelementptr inbounds %struct.lua_TValue, ptr %3638, i64 %indvars.iv3744
   %3642 = getelementptr inbounds i8, ptr %3641, i64 12
   %3643 = load i32, ptr %3642, align 4
   %3644 = icmp eq i32 %3643, 0
   br i1 %3644, label %3662, label %3645
 
 3645:                                             ; preds = %3640
-  %3646 = trunc nsw i64 %indvars.iv3743 to i32
+  %3646 = trunc nsw i64 %indvars.iv3744 to i32
   %3647 = add nuw nsw i32 %3646, 1
   %3648 = sext i32 %3647 to i64
   %3649 = inttoptr i64 %3648 to ptr
@@ -12194,8 +12196,8 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br label %.backedge.backedge
 
 3662:                                             ; preds = %3640
-  %indvars.iv.next3744 = add nuw nsw i64 %indvars.iv3743, 1
-  %3663 = trunc nsw i64 %indvars.iv.next3744 to i32
+  %indvars.iv.next3745 = add nuw nsw i64 %indvars.iv3744, 1
+  %3663 = trunc nsw i64 %indvars.iv.next3745 to i32
   %3664 = icmp ugt i32 %3615, %3663
   br i1 %3664, label %3640, label %._crit_edge3621, !llvm.loop !29
 
@@ -12216,7 +12218,7 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br label %3673
 
 3673:                                             ; preds = %.lr.ph3626, %3703
-  %indvars.iv3746 = phi i64 [ %3672, %.lr.ph3626 ], [ %indvars.iv.next3747, %3703 ]
+  %indvars.iv3747 = phi i64 [ %3672, %.lr.ph3626 ], [ %indvars.iv.next3748, %3703 ]
   %3674 = phi i32 [ %3668, %.lr.ph3626 ], [ %3705, %3703 ]
   %3675 = sext i32 %3674 to i64
   %3676 = getelementptr inbounds %struct.LuaNode, ptr %3671, i64 %3675
@@ -12226,9 +12228,9 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br i1 %3679, label %3703, label %3680
 
 3680:                                             ; preds = %3673
-  %3681 = shl i64 %indvars.iv3746, 32
-  %sext3768 = add i64 %3681, 4294967296
-  %3682 = ashr exact i64 %sext3768, 32
+  %3681 = shl i64 %indvars.iv3747, 32
+  %sext3769 = add i64 %3681, 4294967296
+  %3682 = ashr exact i64 %sext3769, 32
   %3683 = inttoptr i64 %3682 to ptr
   store ptr %3683, ptr %3610, align 8
   %3684 = getelementptr inbounds i8, ptr %3598, i64 40
@@ -12259,8 +12261,8 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br label %.backedge.backedge
 
 3703:                                             ; preds = %3673
-  %indvars.iv.next3747 = add i64 %indvars.iv3746, 1
-  %3704 = trunc i64 %indvars.iv.next3747 to i32
+  %indvars.iv.next3748 = add i64 %indvars.iv3747, 1
+  %3704 = trunc i64 %indvars.iv.next3748 to i32
   %3705 = sub i32 %3704, %3615
   %.highbits = lshr i32 %3705, %3667
   %3706 = icmp eq i32 %.highbits, 0
@@ -12506,13 +12508,13 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   br label %3870
 
 3870:                                             ; preds = %.lr.ph3615, %3870
-  %indvars.iv3733 = phi i64 [ 0, %.lr.ph3615 ], [ %indvars.iv.next3734, %3870 ]
-  %3871 = getelementptr inbounds %struct.lua_TValue, ptr %3869, i64 %indvars.iv3733
-  %3872 = getelementptr inbounds %struct.lua_TValue, ptr %3865, i64 %indvars.iv3733
+  %indvars.iv3734 = phi i64 [ 0, %.lr.ph3615 ], [ %indvars.iv.next3735, %3870 ]
+  %3871 = getelementptr inbounds %struct.lua_TValue, ptr %3869, i64 %indvars.iv3734
+  %3872 = getelementptr inbounds %struct.lua_TValue, ptr %3865, i64 %indvars.iv3734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3872, ptr noundef nonnull align 8 dereferenceable(16) %3871, i64 16, i1 false)
-  %indvars.iv.next3734 = add nuw nsw i64 %indvars.iv3733, 1
-  %exitcond3737.not = icmp eq i64 %indvars.iv.next3734, %3867
-  br i1 %exitcond3737.not, label %._crit_edge3616, label %3870, !llvm.loop !31
+  %indvars.iv.next3735 = add nuw nsw i64 %indvars.iv3734, 1
+  %exitcond3738.not = icmp eq i64 %indvars.iv.next3735, %3867
+  br i1 %exitcond3738.not, label %._crit_edge3616, label %3870, !llvm.loop !31
 
 ._crit_edge3616:                                  ; preds = %3870, %3860
   %3873 = sext i32 %.fr to i64
@@ -12536,7 +12538,7 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   %3884 = sext i32 %.fr to i64
   %3885 = sub nsw i64 0, %3884
   %3886 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %3885
-  %wide.trip.count3726 = zext nneg i32 %invariant.smin to i64
+  %wide.trip.count3727 = zext nneg i32 %invariant.smin to i64
   br label %3889
 
 .preheader3553:                                   ; preds = %3889, %3878
@@ -12545,25 +12547,25 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
 
 .lr.ph3611.preheader:                             ; preds = %.preheader3553
   %3888 = sext i32 %.fr to i64
-  %wide.trip.count3731 = sext i32 %3833 to i64
+  %wide.trip.count3732 = sext i32 %3833 to i64
   br label %.lr.ph3611
 
 3889:                                             ; preds = %.lr.ph3609, %3889
-  %indvars.iv3723 = phi i64 [ 0, %.lr.ph3609 ], [ %indvars.iv.next3724, %3889 ]
-  %3890 = getelementptr inbounds %struct.lua_TValue, ptr %3886, i64 %indvars.iv3723
-  %3891 = getelementptr inbounds %struct.lua_TValue, ptr %3882, i64 %indvars.iv3723
+  %indvars.iv3724 = phi i64 [ 0, %.lr.ph3609 ], [ %indvars.iv.next3725, %3889 ]
+  %3890 = getelementptr inbounds %struct.lua_TValue, ptr %3886, i64 %indvars.iv3724
+  %3891 = getelementptr inbounds %struct.lua_TValue, ptr %3882, i64 %indvars.iv3724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3891, ptr noundef nonnull align 8 dereferenceable(16) %3890, i64 16, i1 false)
-  %indvars.iv.next3724 = add nuw nsw i64 %indvars.iv3723, 1
-  %exitcond3727.not = icmp eq i64 %indvars.iv.next3724, %wide.trip.count3726
-  br i1 %exitcond3727.not, label %.preheader3553, label %3889, !llvm.loop !32
+  %indvars.iv.next3725 = add nuw nsw i64 %indvars.iv3724, 1
+  %exitcond3728.not = icmp eq i64 %indvars.iv.next3725, %wide.trip.count3727
+  br i1 %exitcond3728.not, label %.preheader3553, label %3889, !llvm.loop !32
 
 .lr.ph3611:                                       ; preds = %.lr.ph3611.preheader, %.lr.ph3611
-  %indvars.iv3728 = phi i64 [ %3888, %.lr.ph3611.preheader ], [ %indvars.iv.next3729, %.lr.ph3611 ]
-  %3892 = getelementptr inbounds %struct.lua_TValue, ptr %3882, i64 %indvars.iv3728, i32 2
+  %indvars.iv3729 = phi i64 [ %3888, %.lr.ph3611.preheader ], [ %indvars.iv.next3730, %.lr.ph3611 ]
+  %3892 = getelementptr inbounds %struct.lua_TValue, ptr %3882, i64 %indvars.iv3729, i32 2
   store i32 0, ptr %3892, align 4
-  %indvars.iv.next3729 = add nsw i64 %indvars.iv3728, 1
-  %exitcond3732.not = icmp eq i64 %indvars.iv.next3729, %wide.trip.count3731
-  br i1 %exitcond3732.not, label %._crit_edge3612, label %.lr.ph3611, !llvm.loop !33
+  %indvars.iv.next3730 = add nsw i64 %indvars.iv3729, 1
+  %exitcond3733.not = icmp eq i64 %indvars.iv.next3730, %wide.trip.count3732
+  br i1 %exitcond3733.not, label %._crit_edge3612, label %.lr.ph3611, !llvm.loop !33
 
 ._crit_edge3612:                                  ; preds = %.lr.ph3611, %.preheader3553
   %3893 = load i32, ptr %3829, align 4
@@ -12754,11 +12756,11 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
 
 4013:                                             ; preds = %3995
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %4010)
-  %.pre3757 = load ptr, ptr %25, align 8
+  %.pre3758 = load ptr, ptr %25, align 8
   br label %4014
 
 4014:                                             ; preds = %3995, %4013
-  %4015 = phi ptr [ %4003, %3995 ], [ %.pre3757, %4013 ]
+  %4015 = phi ptr [ %4003, %3995 ], [ %.pre3758, %4013 ]
   %4016 = load ptr, ptr %24, align 8
   %.not3667 = icmp eq i32 %3999, 0
   br i1 %.not3667, label %._crit_edge, label %.lr.ph.preheader

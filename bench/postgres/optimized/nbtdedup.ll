@@ -846,11 +846,12 @@ _bt_form_posting.exit:                            ; preds = %58, %70
   %74 = zext nneg i16 %73 to i64
   %75 = load i32, ptr %10, align 4
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds i8, ptr %1, i64 68
-  %78 = getelementptr inbounds i8, ptr %1, i64 64
-  %79 = load i32, ptr %78, align 8
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr [408 x %struct.BTDedupInterval], ptr %77, i64 0, i64 %80, i32 1
+  %77 = getelementptr inbounds i8, ptr %1, i64 64
+  %78 = load i32, ptr %77, align 8
+  %79 = sext i32 %78 to i64
+  %.idx = shl nsw i64 %79, 2
+  %80 = getelementptr i8, ptr %1, i64 70
+  %81 = getelementptr i8, ptr %80, i64 %.idx
   store i16 %76, ptr %81, align 2
   %82 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %74, i16 noundef zeroext %narrow, i32 noundef 0) #9
   %83 = icmp eq i16 %82, 0
@@ -869,9 +870,9 @@ _bt_form_posting.exit:                            ; preds = %58, %70
   %89 = load i64, ptr %88, align 8
   %reass.sub = sub i64 %89, %74
   %90 = add i64 %reass.sub, -4
-  %91 = load i32, ptr %78, align 8
+  %91 = load i32, ptr %77, align 8
   %92 = add i32 %91, 1
-  store i32 %92, ptr %78, align 8
+  store i32 %92, ptr %77, align 8
   br label %93
 
 93:                                               ; preds = %15, %87
@@ -1570,15 +1571,16 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
 ._crit_edge.thread151:                            ; preds = %.loopexit.thread150, %._crit_edge
   %.lcssa153 = phi i32 [ %156, %._crit_edge ], [ %159, %.loopexit.thread150 ]
   %176 = trunc i32 %.lcssa153 to i16
-  %177 = getelementptr inbounds i8, ptr %1, i64 68
-  %178 = getelementptr inbounds i8, ptr %1, i64 64
-  %179 = load i32, ptr %178, align 8
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr [408 x %struct.BTDedupInterval], ptr %177, i64 0, i64 %180, i32 1
+  %177 = getelementptr inbounds i8, ptr %1, i64 64
+  %178 = load i32, ptr %177, align 8
+  %179 = sext i32 %178 to i64
+  %.idx = shl nsw i64 %179, 2
+  %180 = getelementptr i8, ptr %1, i64 70
+  %181 = getelementptr i8, ptr %180, i64 %.idx
   store i16 %176, ptr %181, align 2
-  %182 = load i32, ptr %178, align 8
+  %182 = load i32, ptr %177, align 8
   %183 = add i32 %182, 1
-  store i32 %183, ptr %178, align 8
+  store i32 %183, ptr %177, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.loopexit.thread, %3, %._crit_edge.thread151, %._crit_edge

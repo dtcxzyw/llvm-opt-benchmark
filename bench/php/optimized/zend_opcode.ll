@@ -18,9 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
-%struct._zend_internal_arg_info = type { ptr, %struct.zend_type, ptr }
-%struct.zend_type = type { ptr, i32 }
 %struct._zend_arg_info = type { ptr, %struct.zend_type, ptr }
+%struct.zend_type = type { ptr, i32 }
 %struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_class_name = type { ptr, ptr }
 %struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
@@ -222,7 +221,9 @@ define void @zend_function_dtor(ptr nocapture noundef readonly %0) local_unnamed
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %37 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %35, i64 %indvars.iv.i, i32 1
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %37 = getelementptr inbounds i8, ptr %35, i64 %.offs.i
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = load i32, ptr %39, align 8
@@ -440,7 +441,9 @@ define hidden void @zend_free_internal_arg_info(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %11, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
+  %.offs = or disjoint i64 %.idx, 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 %.offs
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
@@ -2411,7 +2414,9 @@ define void @destroy_zend_class(ptr nocapture noundef readonly %0) local_unnamed
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %564 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %562, i64 %indvars.iv.i, i32 1
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %564 = getelementptr inbounds i8, ptr %562, i64 %.offs.i
   %565 = load ptr, ptr %564, align 8
   %566 = getelementptr inbounds i8, ptr %564, i64 8
   %567 = load i32, ptr %566, align 8

@@ -4,11 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ExpandedObjectMethods = type { ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [25 x i8] c"type %s is not composite\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"expandedrecord.c\00", align 1
@@ -678,7 +678,7 @@ get_short_term_cxt.exit:                          ; preds = %69, %73
   %117 = getelementptr inbounds i8, ptr %0, i64 72
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %0, i64 96
-  %120 = getelementptr inbounds i8, ptr %118, i64 24
+  %120 = getelementptr i8, ptr %118, i64 110
   %121 = getelementptr inbounds i8, ptr %0, i64 88
   br label %122
 
@@ -692,7 +692,8 @@ get_short_term_cxt.exit:                          ; preds = %69, %73
   br i1 %127, label %139, label %128
 
 128:                                              ; preds = %122
-  %129 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %120, i64 0, i64 %indvars.iv, i32 8
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %129 = getelementptr i8, ptr %120, i64 %.idx
   %130 = load i8, ptr %129, align 2
   %131 = trunc i8 %130 to i1
   br i1 %131, label %139, label %132

@@ -2184,7 +2184,7 @@ define internal fastcc i32 @hash_stlike_lookup(i64 noundef %0, i64 noundef %1, p
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 32768
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %7, label %40
+  br i1 %.not.i, label %7, label %41
 
 7:                                                ; preds = %3
   %8 = and i64 %5, 983040
@@ -2247,20 +2247,22 @@ ar_find_entry.exit.i:                             ; preds = %29
   br i1 %.not.i7, label %ar_lookup.exit, label %36
 
 36:                                               ; preds = %35
-  %37 = and i64 %indvars.iv.i.i.i, 4294967295
-  %38 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %25, i64 0, i64 %37, i32 1
-  %39 = load i64, ptr %38, align 8
-  store i64 %39, ptr %2, align 8
+  %37 = shl i64 %indvars.iv.i.i.i, 4
+  %38 = and i64 %37, 4294967280
+  %.offs.i = or disjoint i64 %38, 8
+  %39 = getelementptr i8, ptr %25, i64 %.offs.i
+  %40 = load i64, ptr %39, align 8
+  store i64 %40, ptr %2, align 8
   br label %ar_lookup.exit
 
-40:                                               ; preds = %3
-  %41 = add i64 %0, 24
-  %42 = inttoptr i64 %41 to ptr
-  %43 = tail call i32 @rb_st_lookup(ptr noundef nonnull %42, i64 noundef %1, ptr noundef %2) #24
+41:                                               ; preds = %3
+  %42 = add i64 %0, 24
+  %43 = inttoptr i64 %42 to ptr
+  %44 = tail call i32 @rb_st_lookup(ptr noundef nonnull %43, i64 noundef %1, ptr noundef %2) #24
   br label %ar_lookup.exit
 
-ar_lookup.exit:                                   ; preds = %33, %36, %35, %ar_find_entry.exit.i, %18, %14, %7, %40
-  %.0 = phi i32 [ %43, %40 ], [ %17, %14 ], [ 0, %7 ], [ 0, %ar_find_entry.exit.i ], [ 1, %36 ], [ 1, %35 ], [ 0, %18 ], [ 0, %33 ]
+ar_lookup.exit:                                   ; preds = %33, %36, %35, %ar_find_entry.exit.i, %18, %14, %7, %41
+  %.0 = phi i32 [ %44, %41 ], [ %17, %14 ], [ 0, %7 ], [ 0, %ar_find_entry.exit.i ], [ 1, %36 ], [ 1, %35 ], [ 0, %18 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -2525,7 +2527,7 @@ define hidden i32 @rb_hash_stlike_delete(i64 noundef %0, ptr noundef %1, ptr nou
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 32768
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %7, label %53
+  br i1 %.not.i, label %7, label %57
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %1, align 8
@@ -2590,52 +2592,55 @@ ar_find_entry.exit.thread.i:                      ; preds = %32, %ar_find_entry.
 
 35:                                               ; preds = %ar_find_entry.exit.i
   %.not.i7 = icmp eq ptr %2, null
-  %.pre.i = and i64 %indvars.iv.i.i.i, 4294967295
-  br i1 %.not.i7, label %._crit_edge.i, label %36
+  br i1 %.not.i7, label %41, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %24, i64 0, i64 %.pre.i, i32 1
-  %38 = load i64, ptr %37, align 8
-  store i64 %38, ptr %2, align 8
-  br label %._crit_edge.i
+  %37 = shl i64 %indvars.iv.i.i.i, 4
+  %38 = and i64 %37, 4294967280
+  %.offs.i = or disjoint i64 %38, 8
+  %39 = getelementptr i8, ptr %24, i64 %.offs.i
+  %40 = load i64, ptr %39, align 8
+  store i64 %40, ptr %2, align 8
+  br label %41
 
-._crit_edge.i:                                    ; preds = %36, %35
-  %39 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %24, i64 0, i64 %.pre.i
-  store i64 36, ptr %39, align 8
-  %40 = getelementptr [8 x i8], ptr %23, i64 0, i64 %.pre.i
-  store i8 -1, ptr %40, align 1
-  %41 = load i64, ptr %4, align 8
-  %42 = trunc i64 %41 to i32
-  %43 = lshr i32 %42, 16
-  %44 = and i32 %43, 15
-  %45 = add nsw i32 %44, -1
-  %.not.i22.i = icmp eq i32 %45, 0
-  br i1 %.not.i22.i, label %51, label %46
+41:                                               ; preds = %36, %35
+  %42 = and i64 %indvars.iv.i.i.i, 4294967295
+  %43 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %24, i64 0, i64 %42
+  store i64 36, ptr %43, align 8
+  %44 = getelementptr [8 x i8], ptr %23, i64 0, i64 %42
+  store i8 -1, ptr %44, align 1
+  %45 = load i64, ptr %4, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = lshr i32 %46, 16
+  %48 = and i32 %47, 15
+  %49 = add nsw i32 %48, -1
+  %.not.i22.i = icmp eq i32 %49, 0
+  br i1 %.not.i22.i, label %55, label %50
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = sext i32 %45 to i64
-  %48 = and i64 %41, -983041
-  %49 = shl nsw i64 %47, 16
-  %50 = or i64 %49, %48
+50:                                               ; preds = %41
+  %51 = sext i32 %49 to i64
+  %52 = and i64 %45, -983041
+  %53 = shl nsw i64 %51, 16
+  %54 = or i64 %53, %52
   br label %RHASH_AR_TABLE_SIZE_DEC.exit.i
 
-51:                                               ; preds = %._crit_edge.i
-  %52 = and i64 %41, -16711681
+55:                                               ; preds = %41
+  %56 = and i64 %45, -16711681
   br label %RHASH_AR_TABLE_SIZE_DEC.exit.i
 
-RHASH_AR_TABLE_SIZE_DEC.exit.i:                   ; preds = %51, %46
-  %storemerge.i.i = phi i64 [ %50, %46 ], [ %52, %51 ]
+RHASH_AR_TABLE_SIZE_DEC.exit.i:                   ; preds = %55, %50
+  %storemerge.i.i = phi i64 [ %54, %50 ], [ %56, %55 ]
   store i64 %storemerge.i.i, ptr %4, align 8
   br label %ar_delete.exit
 
-53:                                               ; preds = %3
-  %54 = add i64 %0, 24
-  %55 = inttoptr i64 %54 to ptr
-  %56 = tail call i32 @rb_st_delete(ptr noundef nonnull %55, ptr noundef %1, ptr noundef %2) #24
+57:                                               ; preds = %3
+  %58 = add i64 %0, 24
+  %59 = inttoptr i64 %58 to ptr
+  %60 = tail call i32 @rb_st_delete(ptr noundef nonnull %59, ptr noundef %1, ptr noundef %2) #24
   br label %ar_delete.exit
 
-ar_delete.exit:                                   ; preds = %RHASH_AR_TABLE_SIZE_DEC.exit.i, %34, %ar_find_entry.exit.thread.i, %12, %53
-  %.0 = phi i32 [ %56, %53 ], [ %15, %12 ], [ 1, %RHASH_AR_TABLE_SIZE_DEC.exit.i ], [ 0, %34 ], [ 0, %ar_find_entry.exit.thread.i ]
+ar_delete.exit:                                   ; preds = %RHASH_AR_TABLE_SIZE_DEC.exit.i, %34, %ar_find_entry.exit.thread.i, %12, %57
+  %.0 = phi i32 [ %60, %57 ], [ %15, %12 ], [ 1, %RHASH_AR_TABLE_SIZE_DEC.exit.i ], [ 0, %34 ], [ 0, %ar_find_entry.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -3449,13 +3454,13 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
   %.0.i = phi i64 [ %7, %5 ], [ %12, %8 ]
   %13 = tail call i64 @rb_ary_new_capa(i64 noundef %.0.i) #24
   %14 = icmp eq i64 %.0.i, 0
-  br i1 %14, label %53, label %15
+  br i1 %14, label %54, label %15
 
 15:                                               ; preds = %RHASH_SIZE.exit
   %16 = load i64, ptr %2, align 8
   %17 = and i64 %16, 32768
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %18, label %47
+  br i1 %.not.i, label %18, label %48
 
 18:                                               ; preds = %15
   tail call void @rb_gc_writebarrier_remember(i64 noundef %13) #24
@@ -3466,8 +3471,8 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
   %23 = and i32 %22, 15
   %24 = getelementptr i64, ptr %19, i64 %.0.i
   %25 = icmp eq i32 %23, 0
-  %.idx.mask.i = and i64 %.0.i, 2305843009213693951
-  %26 = icmp eq i64 %.idx.mask.i, 0
+  %.idx21.mask.i = and i64 %.0.i, 2305843009213693951
+  %26 = icmp eq i64 %.idx21.mask.i, 0
   %or.cond18.i = or i1 %26, %25
   br i1 %or.cond18.i, label %ar_values.exit, label %.lr.ph.i
 
@@ -3475,61 +3480,63 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
   %27 = add i64 %0, 24
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = zext nneg i32 %23 to i64
-  br label %31
+  %30 = getelementptr i8, ptr %28, i64 16
+  %31 = zext nneg i32 %23 to i64
+  br label %32
 
-31:                                               ; preds = %40, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %.020.i = phi ptr [ %19, %.lr.ph.i ], [ %.1.i, %40 ]
-  %32 = getelementptr [8 x i8], ptr %28, i64 0, i64 %indvars.iv.i
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp eq i8 %33, -1
-  br i1 %34, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
+32:                                               ; preds = %41, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
+  %.020.i = phi ptr [ %19, %.lr.ph.i ], [ %.1.i, %41 ]
+  %33 = getelementptr [8 x i8], ptr %28, i64 0, i64 %indvars.iv.i
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, -1
+  br i1 %35, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
 
-ar_cleared_entry.exit.i:                          ; preds = %31
-  %35 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %29, i64 0, i64 %indvars.iv.i
-  %36 = load i64, ptr %35, align 8
-  %.not.i25 = icmp eq i64 %36, 36
-  br i1 %.not.i25, label %40, label %ar_cleared_entry.exit.thread.i
+ar_cleared_entry.exit.i:                          ; preds = %32
+  %36 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %29, i64 0, i64 %indvars.iv.i
+  %37 = load i64, ptr %36, align 8
+  %.not.i25 = icmp eq i64 %37, 36
+  br i1 %.not.i25, label %41, label %ar_cleared_entry.exit.thread.i
 
-ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.exit.i, %31
-  %37 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %29, i64 0, i64 %indvars.iv.i, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr i8, ptr %.020.i, i64 8
-  store i64 %38, ptr %.020.i, align 8
-  br label %40
+ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.exit.i, %32
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
+  %38 = getelementptr i8, ptr %30, i64 %.idx.i
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr i8, ptr %.020.i, i64 8
+  store i64 %39, ptr %.020.i, align 8
+  br label %41
 
-40:                                               ; preds = %ar_cleared_entry.exit.thread.i, %ar_cleared_entry.exit.i
-  %.1.i = phi ptr [ %.020.i, %ar_cleared_entry.exit.i ], [ %39, %ar_cleared_entry.exit.thread.i ]
+41:                                               ; preds = %ar_cleared_entry.exit.thread.i, %ar_cleared_entry.exit.i
+  %.1.i = phi ptr [ %.020.i, %ar_cleared_entry.exit.i ], [ %40, %ar_cleared_entry.exit.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %41 = icmp uge i64 %indvars.iv.next.i, %30
-  %42 = icmp eq ptr %.1.i, %24
-  %or.cond.i = select i1 %41, i1 true, i1 %42
-  br i1 %or.cond.i, label %ar_values.exit, label %31, !llvm.loop !18
+  %42 = icmp uge i64 %indvars.iv.next.i, %31
+  %43 = icmp eq ptr %.1.i, %24
+  %or.cond.i = select i1 %42, i1 true, i1 %43
+  br i1 %or.cond.i, label %ar_values.exit, label %32, !llvm.loop !18
 
-ar_values.exit:                                   ; preds = %40, %18
-  %.0.lcssa.i = phi ptr [ %19, %18 ], [ %.1.i, %40 ]
-  %43 = ptrtoint ptr %.0.lcssa.i to i64
-  %44 = ptrtoint ptr %19 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  br label %52
-
-47:                                               ; preds = %15
-  %48 = add i64 %0, 24
-  %49 = inttoptr i64 %48 to ptr
-  tail call void @rb_gc_writebarrier_remember(i64 noundef %13) #24
-  %50 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %13) #24
-  %51 = tail call i64 @rb_st_values(ptr noundef nonnull %49, ptr noundef %50, i64 noundef %.0.i) #24
-  br label %52
-
-52:                                               ; preds = %47, %ar_values.exit
-  %.024 = phi i64 [ %46, %ar_values.exit ], [ %51, %47 ]
-  tail call void @rb_ary_ptr_use_end(i64 noundef %13) #24
-  tail call void @rb_ary_set_len(i64 noundef %13, i64 noundef %.024) #24
+ar_values.exit:                                   ; preds = %41, %18
+  %.0.lcssa.i = phi ptr [ %19, %18 ], [ %.1.i, %41 ]
+  %44 = ptrtoint ptr %.0.lcssa.i to i64
+  %45 = ptrtoint ptr %19 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
   br label %53
 
-53:                                               ; preds = %RHASH_SIZE.exit, %52
+48:                                               ; preds = %15
+  %49 = add i64 %0, 24
+  %50 = inttoptr i64 %49 to ptr
+  tail call void @rb_gc_writebarrier_remember(i64 noundef %13) #24
+  %51 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %13) #24
+  %52 = tail call i64 @rb_st_values(ptr noundef nonnull %50, ptr noundef %51, i64 noundef %.0.i) #24
+  br label %53
+
+53:                                               ; preds = %48, %ar_values.exit
+  %.024 = phi i64 [ %47, %ar_values.exit ], [ %52, %48 ]
+  tail call void @rb_ary_ptr_use_end(i64 noundef %13) #24
+  tail call void @rb_ary_set_len(i64 noundef %13, i64 noundef %.024) #24
+  br label %54
+
+54:                                               ; preds = %RHASH_SIZE.exit, %53
   ret i64 %13
 }
 
@@ -10666,7 +10673,7 @@ define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 nound
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32768
   %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %77
+  br i1 %.not.i, label %8, label %78
 
 8:                                                ; preds = %3
   %9 = trunc i64 %5 to i8
@@ -10712,7 +10719,7 @@ ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_en
   %27 = lshr i32 %26, 16
   %28 = and i32 %27, 15
   %29 = icmp ugt i32 %28, 7
-  br i1 %29, label %77, label %30
+  br i1 %29, label %78, label %30
 
 30:                                               ; preds = %ar_find_entry.exit.thread
   %31 = lshr i32 %26, 20
@@ -10822,15 +10829,17 @@ ar_compact_table.exit:                            ; preds = %.ar_compact_table.e
   %72 = add nuw nsw i64 %71, 65536
   %73 = or i64 %70, %72
   store i64 %73, ptr %4, align 8
-  br label %77
+  br label %78
 
 74:                                               ; preds = %ar_find_entry.exit
-  %75 = and i64 %indvars.iv.i.i, 4294967295
-  %76 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %75, i32 1
-  store i64 %2, ptr %76, align 8
-  br label %77
+  %75 = shl i64 %indvars.iv.i.i, 4
+  %76 = and i64 %75, 4294967280
+  %.offs = or disjoint i64 %76, 8
+  %77 = getelementptr i8, ptr %15, i64 %.offs
+  store i64 %2, ptr %77, align 8
+  br label %78
 
-77:                                               ; preds = %ar_find_entry.exit.thread, %3, %74, %ar_compact_table.exit
+78:                                               ; preds = %ar_find_entry.exit.thread, %3, %74, %ar_compact_table.exit
   ret void
 }
 

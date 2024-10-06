@@ -106,9 +106,10 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define float @Map_CutGetRootArea(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
-  %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %3, i64 0, i64 %4, i32 3
+  %3 = sext i32 %1 to i64
+  %.idx = mul nsw i64 %3, 40
+  %4 = getelementptr i8, ptr %0, i64 96
+  %5 = getelementptr i8, ptr %4, i64 %.idx
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 236
   %8 = load float, ptr %7, align 4
@@ -117,9 +118,10 @@ define float @Map_CutGetRootArea(ptr nocapture noundef readonly %0, i32 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
-  %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %4, i64 0, i64 %5, i32 2
+  %4 = sext i32 %1 to i64
+  %.idx = mul nsw i64 %4, 40
+  %5 = getelementptr i8, ptr %0, i64 92
+  %6 = getelementptr i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 4
   %8 = xor i32 %7, -1
   %9 = lshr i32 %8, %2
@@ -133,8 +135,9 @@ define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr nocapture noundef readonly 
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
-  %9 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %8, i64 0, i64 %5, i32 2
+  %.idx = mul nsw i64 %5, 40
+  %8 = getelementptr i8, ptr %7, i64 92
+  %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, -1
   %12 = lshr i32 %11, %2

@@ -4899,19 +4899,19 @@ prepare_recv_req_converter.exit.thread140:        ; preds = %prepare_recv_req_co
   %376 = load volatile ptr, ptr %367, align 8
   %377 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
   %378 = trunc i8 %377 to i1
-  br i1 %378, label %.sink.split235, label %379
+  br i1 %378, label %.sink.split237, label %379
 
 379:                                              ; preds = %362
   %380 = load i8, ptr @opal_uses_threads, align 1
   %381 = trunc i8 %380 to i1
-  br i1 %381, label %.sink.split235, label %384
+  br i1 %381, label %.sink.split237, label %384
 
-.sink.split235:                                   ; preds = %379, %362
+.sink.split237:                                   ; preds = %379, %362
   %382 = getelementptr inbounds i8, ptr %5, i64 40
   %383 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %382) #10
   br label %384
 
-384:                                              ; preds = %.sink.split235, %379
+384:                                              ; preds = %.sink.split237, %379
   %385 = load i8, ptr %364, align 8
   switch i8 %385, label %397 [
     i8 65, label %386
@@ -5042,19 +5042,19 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %432, %424
   %448 = load volatile ptr, ptr %439, align 8
   %449 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
   %450 = trunc i8 %449 to i1
-  br i1 %450, label %.sink.split236, label %451
+  br i1 %450, label %.sink.split238, label %451
 
 451:                                              ; preds = %436
   %452 = load i8, ptr @opal_uses_threads, align 1
   %453 = trunc i8 %452 to i1
-  br i1 %453, label %.sink.split236, label %456
+  br i1 %453, label %.sink.split238, label %456
 
-.sink.split236:                                   ; preds = %451, %436
+.sink.split238:                                   ; preds = %451, %436
   %454 = getelementptr inbounds i8, ptr %5, i64 40
   %455 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %454) #10
   br label %456
 
-456:                                              ; preds = %.sink.split236, %451
+456:                                              ; preds = %.sink.split238, %451
   %457 = getelementptr inbounds i8, ptr %0, i64 472
   store ptr %.0145, ptr %457, align 8
   %458 = getelementptr inbounds i8, ptr %.0145, i64 160
@@ -5075,7 +5075,9 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %432, %424
 .lr.ph.i.i122:                                    ; preds = %463, %.lr.ph.i.i122
   %.09.i.i = phi i64 [ %466, %.lr.ph.i.i122 ], [ 0, %463 ]
   %.078.i.i = phi i64 [ %467, %.lr.ph.i.i122 ], [ 0, %463 ]
-  %464 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %458, i64 %.078.i.i, i32 1
+  %.idx147 = shl nsw i64 %.078.i.i, 4
+  %.offs148 = or disjoint i64 %.idx147, 8
+  %464 = getelementptr inbounds i8, ptr %458, i64 %.offs148
   %465 = load i64, ptr %464, align 8
   %466 = add i64 %465, %.09.i.i
   %467 = add nuw i64 %.078.i.i, 1
@@ -5107,19 +5109,19 @@ mca_pml_ob1_recv_request_matched_probe.exit:      ; preds = %456, %463, %mca_pml
 476:                                              ; preds = %.critedge
   %477 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
   %478 = trunc i8 %477 to i1
-  br i1 %478, label %.sink.split237, label %479
+  br i1 %478, label %.sink.split239, label %479
 
 479:                                              ; preds = %476
   %480 = load i8, ptr @opal_uses_threads, align 1
   %481 = trunc i8 %480 to i1
-  br i1 %481, label %.sink.split237, label %484
+  br i1 %481, label %.sink.split239, label %484
 
-.sink.split237:                                   ; preds = %479, %476
+.sink.split239:                                   ; preds = %479, %476
   %482 = getelementptr inbounds i8, ptr %5, i64 40
   %483 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %482) #10
   br label %484
 
-484:                                              ; preds = %.sink.split237, %479
+484:                                              ; preds = %.sink.split239, %479
   %485 = getelementptr inbounds i8, ptr %.0145, i64 160
   %486 = getelementptr inbounds i8, ptr %.0145, i64 136
   %487 = load i64, ptr %486, align 8
@@ -5138,7 +5140,9 @@ mca_pml_ob1_recv_request_matched_probe.exit:      ; preds = %456, %463, %mca_pml
 .lr.ph.i.i125:                                    ; preds = %490, %.lr.ph.i.i125
   %.09.i.i126 = phi i64 [ %493, %.lr.ph.i.i125 ], [ 0, %490 ]
   %.078.i.i127 = phi i64 [ %494, %.lr.ph.i.i125 ], [ 0, %490 ]
-  %491 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %485, i64 %.078.i.i127, i32 1
+  %.idx = shl nsw i64 %.078.i.i127, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %491 = getelementptr inbounds i8, ptr %485, i64 %.offs
   %492 = load i64, ptr %491, align 8
   %493 = add i64 %492, %.09.i.i126
   %494 = add nuw i64 %.078.i.i127, 1

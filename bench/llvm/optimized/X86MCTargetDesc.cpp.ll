@@ -8008,11 +8008,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6X86_MC18X86MCInstrAnalysis14evalu
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i64
   %20 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %23 = load i16, ptr %22, align 4
-  %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds %"class.llvm::MCOperandInfo", ptr %21, i64 %24, i32 2
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %22 = load i16, ptr %21, align 4
+  %23 = zext i16 %22 to i64
+  %.idx = mul nuw nsw i64 %23, 6
+  %24 = getelementptr i8, ptr %20, i64 35
+  %25 = getelementptr i8, ptr %24, i64 %.idx
   %26 = load i8, ptr %25, align 1
   %.not = icmp eq i8 %26, 4
   br i1 %.not, label %27, label %.critedge

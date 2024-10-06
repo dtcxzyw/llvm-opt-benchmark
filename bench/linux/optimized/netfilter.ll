@@ -64,7 +64,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_br_ip6_fragm
 %struct.nf_ipv6_ops = type { ptr, ptr, ptr }
 %struct.ip6_frag_state = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i8 }
 %struct.ip6_fraglist_iter = type { ptr, ptr, i32, i32, i32, i8 }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @__UNIQUE_ID___addressable_ip6_route_me_harder1068 = internal global ptr @ip6_route_me_harder, section ".discard.addressable", align 8
 @__nf_ip6_route.fake_pinfo = internal constant %struct.ipv6_pinfo zeroinitializer, align 8
@@ -427,15 +426,16 @@ define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %78, label %.loopexit17, label %79
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %67, i64 48
-  %81 = zext i8 %77 to i64
+  %80 = zext i8 %77 to i64
+  %81 = getelementptr i8, ptr %67, i64 56
   br label %82
 
 82:                                               ; preds = %82, %79
-  %83 = phi i64 [ %81, %79 ], [ %85, %82 ]
+  %83 = phi i64 [ %80, %79 ], [ %85, %82 ]
   %84 = phi i32 [ 0, %79 ], [ %88, %82 ]
   %85 = add nsw i64 %83, -1
-  %86 = getelementptr [17 x %struct.bio_vec], ptr %80, i64 0, i64 %85, i32 1
+  %.idx = shl i64 %85, 4
+  %86 = getelementptr i8, ptr %81, i64 %.idx
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, %84
   %89 = icmp ugt i64 %83, 1

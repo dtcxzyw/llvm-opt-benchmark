@@ -5130,7 +5130,7 @@ define dso_local { i8, i64 } @_ZNK4llvm19LegacyLegalizerInfo21findScalarLegalAct
   %28 = getelementptr inbounds [244 x %"class.std::unordered_map"], ptr %27, i64 0, i64 %13
   %.0.in.in.i2782 = lshr i64 %9, 19
   %29 = trunc i64 %.0.in.in.i2782 to i16
-  br label %58
+  br label %59
 
 30:                                               ; preds = %14
   %31 = and i64 %.0.in.in.i, 65535
@@ -5159,7 +5159,7 @@ define dso_local { i8, i64 } @_ZNK4llvm19LegacyLegalizerInfo21findScalarLegalAct
   %46 = getelementptr inbounds [244 x %"class.std::unordered_map"], ptr %45, i64 0, i64 %13
   %.0.in.in.i2787 = lshr i64 %9, 19
   %47 = trunc i64 %.0.in.in.i2787 to i16
-  br label %67
+  br label %68
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %43
   %.018.i.i.i.i = phi ptr [ %48, %43 ], [ %39, %38 ]
@@ -5176,192 +5176,193 @@ define dso_local { i8, i64 } @_ZNK4llvm19LegacyLegalizerInfo21findScalarLegalAct
   br i1 %.not17.i.i.i.i, label %43, label %.loopexit, !llvm.loop !56
 
 .critedge:                                        ; preds = %38
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 52712
   %.phi.trans.insert74 = zext nneg i32 %7 to i64
-  %.phi.trans.insert76 = getelementptr inbounds [244 x %"class.std::unordered_map"], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert74, i32 0, i32 3
+  %.phi.trans.insert76.idx = mul nuw nsw i64 %.phi.trans.insert74, 56
+  %54 = getelementptr inbounds i8, ptr %0, i64 52736
+  %.phi.trans.insert76 = getelementptr i8, ptr %54, i64 %.phi.trans.insert76.idx
   %.pre = load i64, ptr %.phi.trans.insert76, align 8
-  %54 = icmp eq i64 %.pre, 0
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 52712
-  %56 = getelementptr inbounds [244 x %"class.std::unordered_map"], ptr %55, i64 0, i64 %.phi.trans.insert74
+  %55 = icmp eq i64 %.pre, 0
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 52712
+  %57 = getelementptr inbounds [244 x %"class.std::unordered_map"], ptr %56, i64 0, i64 %.phi.trans.insert74
   %.0.in.in.i27 = lshr i64 %9, 19
-  %57 = trunc i64 %.0.in.in.i27 to i16
-  br i1 %54, label %58, label %67
+  %58 = trunc i64 %.0.in.in.i27 to i16
+  br i1 %55, label %59, label %68
 
-58:                                               ; preds = %.critedge.thread, %.critedge
-  %59 = phi i16 [ %29, %.critedge.thread ], [ %57, %.critedge ]
-  %60 = phi ptr [ %28, %.critedge.thread ], [ %56, %.critedge ]
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  br label %62
+59:                                               ; preds = %.critedge.thread, %.critedge
+  %60 = phi i16 [ %29, %.critedge.thread ], [ %58, %.critedge ]
+  %61 = phi ptr [ %28, %.critedge.thread ], [ %57, %.critedge ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  br label %63
 
-62:                                               ; preds = %63, %58
-  %.sroa.06.0.in.i.i36 = phi ptr [ %61, %58 ], [ %.sroa.06.0.i.i37, %63 ]
+63:                                               ; preds = %64, %59
+  %.sroa.06.0.in.i.i36 = phi ptr [ %62, %59 ], [ %.sroa.06.0.i.i37, %64 ]
   %.sroa.06.0.i.i37 = load ptr, ptr %.sroa.06.0.in.i.i36, align 8
   %.not.i.i38 = icmp eq ptr %.sroa.06.0.i.i37, null
-  br i1 %.not.i.i38, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %63
+  br i1 %.not.i.i38, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %64
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i37, i64 8
-  %65 = load i16, ptr %64, align 2
-  %66 = icmp eq i16 %65, %59
-  br i1 %66, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %62, !llvm.loop !58
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i37, i64 8
+  %66 = load i16, ptr %65, align 2
+  %67 = icmp eq i16 %66, %60
+  br i1 %67, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %63, !llvm.loop !58
 
-67:                                               ; preds = %.critedge.thread83, %.critedge
-  %68 = phi i16 [ %47, %.critedge.thread83 ], [ %57, %.critedge ]
+68:                                               ; preds = %.critedge.thread83, %.critedge
+  %69 = phi i16 [ %47, %.critedge.thread83 ], [ %58, %.critedge ]
   %.0.in.in.i2788 = phi i64 [ %.0.in.in.i2787, %.critedge.thread83 ], [ %.0.in.in.i27, %.critedge ]
-  %69 = phi ptr [ %46, %.critedge.thread83 ], [ %56, %.critedge ]
-  %70 = and i64 %.0.in.in.i2788, 65535
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = urem i64 %70, %72
-  %74 = load ptr, ptr %69, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %73
-  %76 = load ptr, ptr %75, align 8
-  %.not.i.i.i.i30 = icmp eq ptr %76, null
-  br i1 %.not.i.i.i.i30, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %77
+  %70 = phi ptr [ %46, %.critedge.thread83 ], [ %57, %.critedge ]
+  %71 = and i64 %.0.in.in.i2788, 65535
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %73 = load i64, ptr %72, align 8
+  %74 = urem i64 %71, %73
+  %75 = load ptr, ptr %70, align 8
+  %76 = getelementptr inbounds ptr, ptr %75, i64 %74
+  %77 = load ptr, ptr %76, align 8
+  %.not.i.i.i.i30 = icmp eq ptr %77, null
+  br i1 %.not.i.i.i.i30, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %78
 
-77:                                               ; preds = %67
-  %78 = load ptr, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load i16, ptr %79, align 2
-  %81 = icmp eq i16 %80, %68
-  br i1 %81, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %.lr.ph.i.i.i.i31
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %77, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = load i16, ptr %80, align 2
+  %82 = icmp eq i16 %81, %69
+  br i1 %82, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %.lr.ph.i.i.i.i31
 
-82:                                               ; preds = %85
-  %83 = icmp eq i16 %87, %68
-  br i1 %83, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %.lr.ph.i.i.i.i31, !llvm.loop !56
+83:                                               ; preds = %86
+  %84 = icmp eq i16 %88, %69
+  br i1 %84, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %.lr.ph.i.i.i.i31, !llvm.loop !56
 
-.lr.ph.i.i.i.i31:                                 ; preds = %77, %82
-  %.018.i.i.i.i32 = phi ptr [ %84, %82 ], [ %78, %77 ]
-  %84 = load ptr, ptr %.018.i.i.i.i32, align 8
-  %.not16.i.i.i.i33 = icmp eq ptr %84, null
-  br i1 %.not16.i.i.i.i33, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %85
+.lr.ph.i.i.i.i31:                                 ; preds = %78, %83
+  %.018.i.i.i.i32 = phi ptr [ %85, %83 ], [ %79, %78 ]
+  %85 = load ptr, ptr %.018.i.i.i.i32, align 8
+  %.not16.i.i.i.i33 = icmp eq ptr %85, null
+  br i1 %.not16.i.i.i.i33, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, label %86
 
-85:                                               ; preds = %.lr.ph.i.i.i.i31
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
-  %87 = load i16, ptr %86, align 2
-  %88 = zext i16 %87 to i64
-  %89 = urem i64 %88, %72
-  %.not17.i.i.i.i34 = icmp eq i64 %89, %73
-  br i1 %.not17.i.i.i.i34, label %82, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, !llvm.loop !56
+86:                                               ; preds = %.lr.ph.i.i.i.i31
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i64
+  %90 = urem i64 %89, %73
+  %.not17.i.i.i.i34 = icmp eq i64 %90, %74
+  br i1 %.not17.i.i.i.i34, label %83, label %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39, !llvm.loop !56
 
-_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39: ; preds = %82, %.lr.ph.i.i.i.i31, %85, %62, %63, %67, %77
-  %.sroa.06.1.i.i35 = phi ptr [ null, %67 ], [ %78, %77 ], [ null, %62 ], [ %.sroa.06.0.i.i37, %63 ], [ %84, %82 ], [ null, %.lr.ph.i.i.i.i31 ], [ null, %85 ]
-  %90 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i35, i64 16
-  br label %93
+_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39: ; preds = %83, %.lr.ph.i.i.i.i31, %86, %63, %64, %68, %78
+  %.sroa.06.1.i.i35 = phi ptr [ null, %68 ], [ %79, %78 ], [ null, %63 ], [ %.sroa.06.0.i.i37, %64 ], [ %85, %83 ], [ null, %.lr.ph.i.i.i.i31 ], [ null, %86 ]
+  %91 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i35, i64 16
+  br label %94
 
 _ZNK4llvm3LLT9isPointerEv.exit24.thread:          ; preds = %6
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 33192
-  %92 = getelementptr inbounds [244 x %"class.llvm::SmallVector.5"], ptr %91, i64 0, i64 %13
-  br label %93
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 33192
+  %93 = getelementptr inbounds [244 x %"class.llvm::SmallVector.5"], ptr %92, i64 0, i64 %13
+  br label %94
 
-93:                                               ; preds = %_ZNK4llvm3LLT9isPointerEv.exit24.thread, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39
-  %94 = phi ptr [ %90, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39 ], [ %92, %_ZNK4llvm3LLT9isPointerEv.exit24.thread ]
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = zext i32 %96 to i64
-  %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %94) #16
-  %.not = icmp ugt i64 %98, %97
-  br i1 %.not, label %99, label %.loopexit
+94:                                               ; preds = %_ZNK4llvm3LLT9isPointerEv.exit24.thread, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39
+  %95 = phi ptr [ %91, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit39 ], [ %93, %_ZNK4llvm3LLT9isPointerEv.exit24.thread ]
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = zext i32 %97 to i64
+  %99 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #16
+  %.not = icmp ugt i64 %99, %98
+  br i1 %.not, label %100, label %.loopexit
 
-99:                                               ; preds = %93
-  %100 = load i32, ptr %95, align 4
-  %101 = zext i32 %100 to i64
-  %102 = load ptr, ptr %94, align 8
-  %103 = getelementptr inbounds %"class.std::vector", ptr %102, i64 %101
-  %104 = load i64, ptr %8, align 8
-  %105 = and i64 %104, -7
-  %spec.select.i.i.i = icmp ne i64 %105, 0
-  %106 = and i64 %104, 2
-  %.not.i.not.i = icmp eq i64 %106, 0
-  %107 = and i64 %104, 6
-  %108 = icmp eq i64 %107, 2
-  %or.cond.i40 = and i1 %spec.select.i.i.i, %108
-  %109 = and i64 %104, 1
-  %110 = icmp ne i64 %109, 0
-  %or.cond14.i = or i1 %110, %or.cond.i40
-  br i1 %or.cond14.i, label %111, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
+100:                                              ; preds = %94
+  %101 = load i32, ptr %96, align 4
+  %102 = zext i32 %101 to i64
+  %103 = load ptr, ptr %95, align 8
+  %104 = getelementptr inbounds %"class.std::vector", ptr %103, i64 %102
+  %105 = load i64, ptr %8, align 8
+  %106 = and i64 %105, -7
+  %spec.select.i.i.i = icmp ne i64 %106, 0
+  %107 = and i64 %105, 2
+  %.not.i.not.i = icmp eq i64 %107, 0
+  %108 = and i64 %105, 6
+  %109 = icmp eq i64 %108, 2
+  %or.cond.i40 = and i1 %spec.select.i.i.i, %109
+  %110 = and i64 %105, 1
+  %111 = icmp ne i64 %110, 0
+  %or.cond14.i = or i1 %111, %or.cond.i40
+  br i1 %or.cond14.i, label %112, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
 
-111:                                              ; preds = %99
-  %.not.i1.i = icmp eq i64 %109, 0
-  br i1 %.not.i1.i, label %114, label %112
+112:                                              ; preds = %100
+  %.not.i1.i = icmp eq i64 %110, 0
+  br i1 %.not.i1.i, label %115, label %113
 
-112:                                              ; preds = %111
-  %113 = lshr i64 %104, 3
+113:                                              ; preds = %112
+  %114 = lshr i64 %105, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-114:                                              ; preds = %111
-  %115 = and i64 %104, 4
-  %.not1.i2.i = icmp eq i64 %115, 0
-  br i1 %.not1.i2.i, label %119, label %116
+115:                                              ; preds = %112
+  %116 = and i64 %105, 4
+  %.not1.i2.i = icmp eq i64 %116, 0
+  br i1 %.not1.i2.i, label %120, label %117
 
-116:                                              ; preds = %114
-  %117 = lshr i64 %104, 19
-  %118 = and i64 %117, 65535
-  %spec.select.i.i41 = select i1 %.not.i.not.i, i64 %117, i64 %118
+117:                                              ; preds = %115
+  %118 = lshr i64 %105, 19
+  %119 = and i64 %118, 65535
+  %spec.select.i.i41 = select i1 %.not.i.not.i, i64 %118, i64 %119
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-119:                                              ; preds = %114
-  %120 = lshr i64 %104, 3
-  %121 = and i64 %120, 65535
+120:                                              ; preds = %115
+  %121 = lshr i64 %105, 3
+  %122 = and i64 %121, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i:    ; preds = %99
-  %122 = lshr i64 %104, 3
-  %.sroa.0.0.insert.ext.i.i.i = and i64 %122, 65535
-  %123 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %124 = and i64 %123, %104
-  %.not1.i4.i = icmp ne i64 %124, 0
-  %125 = and i64 %104, 4
-  %.not1.i8.i = icmp eq i64 %125, 0
-  %126 = lshr i64 %104, 19
-  %127 = and i64 %126, 65535
-  %spec.select.i10.i = select i1 %.not.i.not.i, i64 %126, i64 %127
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i:    ; preds = %100
+  %123 = lshr i64 %105, 3
+  %.sroa.0.0.insert.ext.i.i.i = and i64 %123, 65535
+  %124 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %125 = and i64 %124, %105
+  %.not1.i4.i = icmp ne i64 %125, 0
+  %126 = and i64 %105, 4
+  %.not1.i8.i = icmp eq i64 %126, 0
+  %127 = lshr i64 %105, 19
+  %128 = and i64 %127, 65535
+  %spec.select.i10.i = select i1 %.not.i.not.i, i64 %127, i64 %128
   %.0.in.i6.i = select i1 %.not1.i8.i, i64 %.sroa.0.0.insert.ext.i.i.i, i64 %spec.select.i10.i
-  %128 = mul nuw nsw i64 %.0.in.i6.i, %.sroa.0.0.insert.ext.i.i.i
-  %129 = zext i1 %.not1.i4.i to i8
+  %129 = mul nuw nsw i64 %.0.in.i6.i, %.sroa.0.0.insert.ext.i.i.i
+  %130 = zext i1 %.not1.i4.i to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %112, %116, %119, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
-  %.sroa.012.0.in.i = phi i64 [ %128, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ %113, %112 ], [ %121, %119 ], [ %spec.select.i.i41, %116 ]
-  %.sroa.3.0.i = phi i8 [ %129, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %112 ], [ 0, %119 ], [ 0, %116 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %113, %117, %120, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
+  %.sroa.012.0.in.i = phi i64 [ %129, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ %114, %113 ], [ %122, %120 ], [ %spec.select.i.i41, %117 ]
+  %.sroa.3.0.i = phi i8 [ %130, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %113 ], [ 0, %120 ], [ 0, %117 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %130 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #16
-  %131 = trunc i64 %130 to i32
-  %132 = call i32 @_ZN4llvm19LegacyLegalizerInfo10findActionERKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEj(ptr noundef nonnull align 8 dereferenceable(24) %103, i32 noundef %131)
-  %.sroa.3.0.extract.shift64 = lshr i32 %132, 16
+  %131 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #16
+  %132 = trunc i64 %131 to i32
+  %133 = call i32 @_ZN4llvm19LegacyLegalizerInfo10findActionERKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEj(ptr noundef nonnull align 8 dereferenceable(24) %104, i32 noundef %132)
+  %.sroa.3.0.extract.shift64 = lshr i32 %133, 16
   %.sroa.3.0.extract.trunc = trunc nuw i32 %.sroa.3.0.extract.shift64 to i8
-  %133 = load i64, ptr %8, align 8
-  %134 = and i64 %133, 1
-  %.not65 = icmp eq i64 %134, 0
-  br i1 %.not65, label %140, label %135
+  %134 = load i64, ptr %8, align 8
+  %135 = and i64 %134, 1
+  %.not65 = icmp eq i64 %135, 0
+  br i1 %.not65, label %141, label %136
 
-135:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %136 = shl nuw nsw i32 %132, 3
-  %137 = and i32 %136, 524280
-  %138 = or disjoint i32 %137, 1
-  %139 = zext nneg i32 %138 to i64
+136:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %137 = shl nuw nsw i32 %133, 3
+  %138 = and i32 %137, 524280
+  %139 = or disjoint i32 %138, 1
+  %140 = zext nneg i32 %139 to i64
   br label %.loopexit
 
-140:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %141 = and i64 %133, 4
-  %.not.i42 = icmp eq i64 %141, 0
+141:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %142 = and i64 %134, 4
+  %.not.i42 = icmp eq i64 %142, 0
   %.0.in.in.v.i43 = select i1 %.not.i42, i64 19, i64 35
-  %.0.in.in.i44 = lshr i64 %133, %.0.in.in.v.i43
+  %.0.in.in.i44 = lshr i64 %134, %.0.in.in.v.i43
   %.0.i45 = shl nuw i64 %.0.in.in.i44, 19
-  %142 = and i64 %.0.i45, 8796092497920
-  %143 = shl nuw nsw i32 %132, 3
-  %144 = and i32 %143, 524280
-  %145 = or disjoint i32 %144, 2
-  %146 = zext nneg i32 %145 to i64
-  %147 = or disjoint i64 %142, %146
+  %143 = and i64 %.0.i45, 8796092497920
+  %144 = shl nuw nsw i32 %133, 3
+  %145 = and i32 %144, 524280
+  %146 = or disjoint i32 %145, 2
+  %147 = zext nneg i32 %146 to i64
+  %148 = or disjoint i64 %143, %147
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %49, %22, %135, %140, %93, %30, %2
-  %.sroa.060.0 = phi i8 [ 10, %2 ], [ 10, %30 ], [ 10, %93 ], [ %.sroa.3.0.extract.trunc, %140 ], [ %.sroa.3.0.extract.trunc, %135 ], [ 10, %22 ], [ 10, %49 ], [ 10, %.lr.ph.i.i.i.i ]
-  %.sroa.5.0 = phi i64 [ 0, %2 ], [ 0, %30 ], [ 0, %93 ], [ %147, %140 ], [ %139, %135 ], [ 0, %22 ], [ 0, %49 ], [ 0, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %49, %22, %136, %141, %94, %30, %2
+  %.sroa.060.0 = phi i8 [ 10, %2 ], [ 10, %30 ], [ 10, %94 ], [ %.sroa.3.0.extract.trunc, %141 ], [ %.sroa.3.0.extract.trunc, %136 ], [ 10, %22 ], [ 10, %49 ], [ 10, %.lr.ph.i.i.i.i ]
+  %.sroa.5.0 = phi i64 [ 0, %2 ], [ 0, %30 ], [ 0, %94 ], [ %148, %141 ], [ %140, %136 ], [ 0, %22 ], [ 0, %49 ], [ 0, %.lr.ph.i.i.i.i ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.060.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i8, i64 } %.fca.1.insert

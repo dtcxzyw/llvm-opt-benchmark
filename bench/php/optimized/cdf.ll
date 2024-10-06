@@ -2370,7 +2370,9 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %43 = getelementptr inbounds i8, ptr %27, i64 8
   %44 = load i64, ptr %32, align 1
   store i64 %44, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0121165, i32 2
+  %.idx = mul nsw i64 %.0121165, 528
+  %.offs = or disjoint i64 %.idx, 8
+  %45 = getelementptr inbounds i8, ptr %25, i64 %.offs
   store i64 %44, ptr %45, align 8
   %46 = load i16, ptr %27, align 8
   %47 = icmp ult i16 %46, 14

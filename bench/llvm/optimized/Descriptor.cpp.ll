@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::APInt" = type <{ %union.anon.43, i32, [4 x i8] }>
 %union.anon.43 = type { i64 }
 %"class.clang::interp::IntegralAP.44" = type { %"class.llvm::APInt" }
-%"class.clang::interp::Floating" = type { %"class.llvm::APFloat" }
 %"class.clang::interp::Pointer" = type <{ i64, ptr, ptr, %union.anon.45, i32, [4 x i8] }>
 %union.anon.45 = type { %"struct.clang::interp::BlockPointer", [8 x i8] }
 %"struct.clang::interp::BlockPointer" = type { ptr, i32 }
@@ -1984,37 +1983,38 @@ define internal void @_ZL11ctorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
   %8 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, -1
-  br i1 %13, label %._crit_edge, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %._crit_edge, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load i32, ptr %14, align 8
-  %.not = icmp ugt i32 %15, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load i32, ptr %13, align 8
+  %.not = icmp ugt i32 %14, %11
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
-  %16 = udiv i32 %12, %15
-  %wide.trip.count = zext i32 %16 to i64
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+  %15 = udiv i32 %11, %14
+  %16 = getelementptr i8, ptr %1, i64 40
+  %wide.trip.count = zext i32 %15 to i64
+  br label %17
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+17:                                               ; preds = %.lr.ph, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %17 = getelementptr inbounds %"class.clang::interp::Floating", ptr %10, i64 %indvars.iv, i32 0, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
+  %18 = getelementptr i8, ptr %16, i64 %.idx
   call void @_ZN4llvm6detail9IEEEFloatC1Ef(ptr noundef nonnull align 8 dereferenceable(24) %8, float noundef 0.000000e+00) #20
-  %18 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #23
-  call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %8, ptr noundef nonnull align 1 %18) #20
+  %19 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() #23
+  call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull %8, ptr noundef nonnull align 1 %19) #20
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph, %7, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+._crit_edge:                                      ; preds = %17, %7, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   ret void
 }
 
@@ -3170,27 +3170,28 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %39, %26, %7, %3
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %._crit_edge, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, -1
+  br i1 %46, label %._crit_edge, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load i32, ptr %48, align 8
-  %.not = icmp ugt i32 %49, %46
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %48 = load i32, ptr %47, align 8
+  %.not = icmp ugt i32 %48, %45
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
-  %50 = udiv i32 %46, %49
+  %49 = udiv i32 %45, %48
+  %50 = getelementptr i8, ptr %1, i64 40
   %51 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #23
-  %wide.trip.count = zext i32 %50 to i64
+  %wide.trip.count = zext i32 %49 to i64
   br label %52
 
 52:                                               ; preds = %.lr.ph, %_ZN5clang6interp8FloatingD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang6interp8FloatingD2Ev.exit ]
-  %53 = getelementptr inbounds %"class.clang::interp::Floating", ptr %44, i64 %indvars.iv, i32 0, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
+  %53 = getelementptr i8, ptr %50, i64 %.idx
   %54 = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %54, %51
   br i1 %.not.i.i, label %56, label %55
@@ -4851,29 +4852,30 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, -1
-  br i1 %49, label %._crit_edge, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %._crit_edge, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
 
 _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %51 = load i32, ptr %50, align 8
-  %.not = icmp ugt i32 %51, %48
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %49 = load i32, ptr %48, align 8
+  %.not = icmp ugt i32 %49, %46
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
-  %52 = udiv i32 %48, %51
+  %50 = udiv i32 %46, %49
+  %51 = getelementptr i8, ptr %2, i64 40
+  %52 = getelementptr i8, ptr %1, i64 40
   %53 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #23
-  %wide.trip.count = zext i32 %52 to i64
+  %wide.trip.count = zext i32 %50 to i64
   br label %54
 
 54:                                               ; preds = %.lr.ph, %_ZN5clang6interp8FloatingC2EOS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang6interp8FloatingC2EOS1_.exit ]
-  %55 = getelementptr inbounds %"class.clang::interp::Floating", ptr %46, i64 %indvars.iv, i32 0, i32 1
-  %56 = getelementptr inbounds %"class.clang::interp::Floating", ptr %45, i64 %indvars.iv, i32 0, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
+  %55 = getelementptr i8, ptr %51, i64 %.idx
+  %56 = getelementptr i8, ptr %52, i64 %.idx
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.i = icmp eq ptr %57, %53
   br i1 %.not.i.i.i, label %59, label %58

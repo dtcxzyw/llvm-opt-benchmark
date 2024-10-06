@@ -41383,9 +41383,9 @@ define linkonce_odr void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adapti
 
 .thread:                                          ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.01.0.copyload.i.i33 = load ptr, ptr %13, align 8
-  %.idx.i.i34 = shl nsw i64 %8, 3
-  %14 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i33, i64 %.idx.i.i34
+  %.sroa.01.0.copyload.i.i34 = load ptr, ptr %13, align 8
+  %.idx.i.i35 = shl nsw i64 %8, 3
+  %14 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i34, i64 %.idx.i.i35
   br label %18
 
 15:                                               ; preds = %4
@@ -41398,17 +41398,17 @@ define linkonce_odr void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adapti
 
 18:                                               ; preds = %.thread, %15
   %19 = phi ptr [ %14, %.thread ], [ %17, %15 ]
-  %.sroa.01.0.copyload.i.i36 = phi ptr [ %.sroa.01.0.copyload.i.i33, %.thread ], [ %.sroa.01.0.copyload.i.i, %15 ]
+  %.sroa.01.0.copyload.i.i37 = phi ptr [ %.sroa.01.0.copyload.i.i34, %.thread ], [ %.sroa.01.0.copyload.i.i, %15 ]
   %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 true)
   %21 = shl nuw nsw i64 %20, 1
   %22 = xor i64 %21, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_T1_(ptr %.sroa.01.0.copyload.i.i36, ptr nonnull %19, i64 noundef %22)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_T1_(ptr %.sroa.01.0.copyload.i.i37, ptr nonnull %19, i64 noundef %22)
   %23 = icmp sgt i64 %8, 16
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i36, i64 128
-  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i36, ptr nonnull %25)
+  %25 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i37, i64 128
+  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i37, ptr nonnull %25)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %24
@@ -41419,7 +41419,7 @@ define linkonce_odr void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adapti
   br i1 %.not.i.i.i.i.i.i, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !378
 
 27:                                               ; preds = %18
-  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i36, ptr nonnull %19)
+  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i37, ptr nonnull %19)
   br label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit
 
 28:                                               ; preds = %10
@@ -41432,214 +41432,217 @@ define linkonce_odr void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adapti
   store i8 0, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  br label %36
+  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  br label %37
 
 thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
-  %.promoted.i27.pre = load i8, ptr %30, align 2
+  %.promoted.i28.pre = load i8, ptr %30, align 2
   %.pre = load i8, ptr %11, align 4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %thread-pre-split, %28
-  %37 = phi i8 [ %.pre, %thread-pre-split ], [ %12, %28 ]
-  %38 = phi i8 [ %.promoted.i27.pre, %thread-pre-split ], [ 1, %28 ]
-  %39 = icmp ult i8 %38, 8
-  br i1 %39, label %.lr.ph.i, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
+37:                                               ; preds = %thread-pre-split, %28
+  %38 = phi i8 [ %.pre, %thread-pre-split ], [ %12, %28 ]
+  %39 = phi i8 [ %.promoted.i28.pre, %thread-pre-split ], [ 1, %28 ]
+  %40 = icmp ult i8 %39, 8
+  br i1 %40, label %.lr.ph.i, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
 
-.lr.ph.i:                                         ; preds = %36
+.lr.ph.i:                                         ; preds = %37
   %.pre.i = load i8, ptr %6, align 8
   %.phi.trans.insert.i = zext i8 %.pre.i to i64
   %.phi.trans.insert5.i = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %.phi.trans.insert.i
   %.pre6.i = load i8, ptr %.phi.trans.insert5.i, align 1
-  %40 = icmp ult i8 %.pre6.i, %37
-  br i1 %40, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
+  %41 = icmp ult i8 %.pre6.i, %38
+  br i1 %41, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
 
 _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i: ; preds = %.lr.ph.i, %.noexc
-  %41 = phi i8 [ %55, %.noexc ], [ %.pre.i, %.lr.ph.i ]
-  %42 = phi i8 [ %59, %.noexc ], [ %38, %.lr.ph.i ]
-  %43 = zext i8 %41 to i64
-  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %43
-  %45 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %43, i32 1
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp ugt i64 %46, 499
-  br i1 %47, label %.noexc, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
+  %42 = phi i8 [ %56, %.noexc ], [ %.pre.i, %.lr.ph.i ]
+  %43 = phi i8 [ %60, %.noexc ], [ %39, %.lr.ph.i ]
+  %44 = zext i8 %42 to i64
+  %45 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %44
+  %.idx.i.i11 = mul nuw nsw i64 %44, 24
+  %46 = getelementptr i8, ptr %33, i64 %.idx.i.i11
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp ugt i64 %47, 499
+  br i1 %48, label %.noexc, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
 
 .noexc:                                           ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i
-  %48 = add i8 %41, 1
-  %49 = and i8 %48, 7
-  store i8 %49, ptr %6, align 8
-  %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %50
-  %52 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
-  call void @_ZN3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS6_SaIS6_EEEENS6_12FastLessThanEEC2ERSD_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51)
-  %53 = load i8, ptr %44, align 1
-  %54 = add i8 %53, 1
-  store i8 %54, ptr %44, align 1
-  %55 = load i8, ptr %6, align 8
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %56
-  store i8 %54, ptr %57, align 1
-  %58 = load i8, ptr %30, align 2
-  %59 = add i8 %58, 1
-  store i8 %59, ptr %30, align 2
-  %60 = icmp ult i8 %59, 8
-  %61 = icmp ult i8 %54, %37
-  %or.cond = select i1 %60, i1 %61, i1 false
+  %49 = add i8 %42, 1
+  %50 = and i8 %49, 7
+  store i8 %50, ptr %6, align 8
+  %51 = zext nneg i8 %50 to i64
+  %52 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %51
+  %53 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+  call void @_ZN3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS6_SaIS6_EEEENS6_12FastLessThanEEC2ERSD_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %52)
+  %54 = load i8, ptr %45, align 1
+  %55 = add i8 %54, 1
+  store i8 %55, ptr %45, align 1
+  %56 = load i8, ptr %6, align 8
+  %57 = zext i8 %56 to i64
+  %58 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %57
+  store i8 %55, ptr %58, align 1
+  %59 = load i8, ptr %30, align 2
+  %60 = add i8 %59, 1
+  store i8 %60, ptr %30, align 2
+  %61 = icmp ult i8 %60, 8
+  %62 = icmp ult i8 %55, %38
+  %or.cond = select i1 %61, i1 %62, i1 false
   br i1 %or.cond, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit, !llvm.loop !437
 
-_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i, %.noexc, %.lr.ph.i, %36
-  %.pr38 = phi i8 [ %38, %36 ], [ %38, %.lr.ph.i ], [ %59, %.noexc ], [ %42, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i ]
-  %62 = load ptr, ptr %33, align 32
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load atomic i8, ptr %63 monotonic, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge
+_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i, %.noexc, %.lr.ph.i, %37
+  %.pr39 = phi i8 [ %39, %37 ], [ %39, %.lr.ph.i ], [ %60, %.noexc ], [ %43, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.i ]
+  %63 = load ptr, ptr %34, align 32
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %65 = load atomic i8, ptr %64 monotonic, align 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge
 
 _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
-  %.pre44 = load i8, ptr %6, align 8
-  %.pre46 = zext i8 %.pre44 to i64
+  %.pre45 = load i8, ptr %6, align 8
+  %.pre47 = zext i8 %.pre45 to i64
   br label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
 
-66:                                               ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
-  %67 = load i8, ptr %11, align 4
-  %68 = add i8 %67, 1
-  store i8 %68, ptr %11, align 4
-  %69 = icmp ugt i8 %.pr38, 1
-  br i1 %69, label %.noexc11, label %100
+67:                                               ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
+  %68 = load i8, ptr %11, align 4
+  %69 = add i8 %68, 1
+  store i8 %69, ptr %11, align 4
+  %70 = icmp ugt i8 %.pr39, 1
+  br i1 %70, label %.noexc12, label %101
 
-.noexc11:                                         ; preds = %66
-  %70 = load i8, ptr %29, align 1
-  %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1
+.noexc12:                                         ; preds = %67
+  %71 = load i8, ptr %29, align 1
+  %72 = zext i8 %71 to i64
+  %73 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %72
+  %74 = load i8, ptr %73, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %74 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
-  %75 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %71
-  %76 = getelementptr inbounds i8, ptr %74, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %76, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %74, align 64
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 104
-  %79 = load i64, ptr %34, align 8
-  %80 = lshr i64 %79, 1
-  store i64 %80, ptr %34, align 8
-  store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 112
-  store i32 2, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 116
-  %83 = load i8, ptr %35, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %74, i64 120
-  %85 = load i64, ptr %5, align 8
-  store i64 %85, ptr %84, align 8
-  %86 = sub i8 %83, %73
-  store i8 %86, ptr %82, align 4
-  %87 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %3)
-  %88 = load ptr, ptr %33, align 32
-  store ptr %88, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i32 2, ptr %89, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %91 = load i64, ptr %5, align 8
-  store i64 %91, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store i8 0, ptr %92, align 1
-  store ptr %87, ptr %33, align 32
-  %93 = getelementptr inbounds nuw i8, ptr %74, i64 96
-  store ptr %87, ptr %93, align 32
-  %94 = load ptr, ptr %3, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %74, ptr noundef nonnull align 8 dereferenceable(128) %94)
+  %75 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  %76 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %72
+  %77 = getelementptr inbounds i8, ptr %75, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, i8 0, i64 56, i1 false)
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %75, align 64
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 104
+  %80 = load i64, ptr %35, align 8
+  %81 = lshr i64 %80, 1
+  store i64 %81, ptr %35, align 8
+  store i64 %81, ptr %79, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 112
+  store i32 2, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 116
+  %84 = load i8, ptr %36, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 120
+  %86 = load i64, ptr %5, align 8
+  store i64 %86, ptr %85, align 8
+  %87 = sub i8 %84, %74
+  store i8 %87, ptr %83, align 4
+  %88 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  %89 = load ptr, ptr %34, align 32
+  store ptr %89, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  store i32 2, ptr %90, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %92 = load i64, ptr %5, align 8
+  store i64 %92, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store i8 0, ptr %93, align 1
+  store ptr %88, ptr %34, align 32
+  %94 = getelementptr inbounds nuw i8, ptr %75, i64 96
+  store ptr %88, ptr %94, align 32
+  %95 = load ptr, ptr %3, align 8
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %75, ptr noundef nonnull align 8 dereferenceable(128) %95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %95 = load i8, ptr %30, align 2
-  %96 = add i8 %95, -1
-  store i8 %96, ptr %30, align 2
-  %97 = load i8, ptr %29, align 1
-  %98 = add i8 %97, 1
-  %99 = and i8 %98, 7
-  store i8 %99, ptr %29, align 1
-  br label %thread-pre-split37
+  %96 = load i8, ptr %30, align 2
+  %97 = add i8 %96, -1
+  store i8 %97, ptr %30, align 2
+  %98 = load i8, ptr %29, align 1
+  %99 = add i8 %98, 1
+  %100 = and i8 %99, 7
+  store i8 %100, ptr %29, align 1
+  br label %thread-pre-split38
 
-100:                                              ; preds = %66
-  %101 = load i8, ptr %6, align 8
-  %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %102
-  %104 = load i8, ptr %103, align 1
-  %105 = icmp ult i8 %104, %68
-  br i1 %105, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
+101:                                              ; preds = %67
+  %102 = load i8, ptr %6, align 8
+  %103 = zext i8 %102 to i64
+  %104 = getelementptr inbounds [8 x i8], ptr %31, i64 0, i64 %103
+  %105 = load i8, ptr %104, align 1
+  %106 = icmp ult i8 %105, %69
+  br i1 %106, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
 
-_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit: ; preds = %100
-  %106 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %102, i32 1
-  %107 = load i64, ptr %106, align 8
-  %108 = icmp ugt i64 %107, 499
-  br i1 %108, label %thread-pre-split37, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
+_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit: ; preds = %101
+  %.idx.i = mul nuw nsw i64 %103, 24
+  %107 = getelementptr i8, ptr %33, i64 %.idx.i
+  %108 = load i64, ptr %107, align 8
+  %109 = icmp ugt i64 %108, 499
+  br i1 %109, label %thread-pre-split38, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
 
-_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge, %100, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit
-  %.pre-phi = phi i64 [ %.pre46, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge ], [ %102, %100 ], [ %102, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit ]
-  %109 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %.pre-phi
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %.sroa.01.0.copyload.i.i15 = load ptr, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %112 = load i64, ptr %111, align 8
-  %.idx.i.i16 = shl nsw i64 %112, 3
-  %113 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i15, i64 %.idx.i.i16
-  %.not.i.i.i.i17 = icmp eq i64 %112, 0
-  br i1 %.not.i.i.i.i17, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit25, label %.noexc21
+_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge, %101, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit
+  %.pre-phi = phi i64 [ %.pre47, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread_crit_edge ], [ %103, %101 ], [ %103, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit ]
+  %110 = getelementptr inbounds %"class.tbb::detail::d1::quick_sort_range", ptr %32, i64 %.pre-phi
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %.sroa.01.0.copyload.i.i16 = load ptr, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %113 = load i64, ptr %112, align 8
+  %.idx.i.i17 = shl nsw i64 %113, 3
+  %114 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i16, i64 %.idx.i.i17
+  %.not.i.i.i.i18 = icmp eq i64 %113, 0
+  br i1 %.not.i.i.i.i18, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit26, label %.noexc22
 
-.noexc21:                                         ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
-  %114 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %112, i1 true)
-  %115 = shl nuw nsw i64 %114, 1
-  %116 = xor i64 %115, 126
-  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_T1_(ptr %.sroa.01.0.copyload.i.i15, ptr nonnull %113, i64 noundef %116)
-  %117 = icmp sgt i64 %112, 16
-  br i1 %117, label %.lr.ph.i.i.i.i.i.i18.preheader, label %120
+.noexc22:                                         ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
+  %115 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %113, i1 true)
+  %116 = shl nuw nsw i64 %115, 1
+  %117 = xor i64 %116, 126
+  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_T1_(ptr %.sroa.01.0.copyload.i.i16, ptr nonnull %114, i64 noundef %117)
+  %118 = icmp sgt i64 %113, 16
+  br i1 %118, label %.lr.ph.i.i.i.i.i.i19.preheader, label %121
 
-.lr.ph.i.i.i.i.i.i18.preheader:                   ; preds = %.noexc21
-  %118 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i15, i64 128
-  call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i15, ptr nonnull %118)
-  br label %.lr.ph.i.i.i.i.i.i18
+.lr.ph.i.i.i.i.i.i19.preheader:                   ; preds = %.noexc22
+  %119 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i.i16, i64 128
+  call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i16, ptr nonnull %119)
+  br label %.lr.ph.i.i.i.i.i.i19
 
-.lr.ph.i.i.i.i.i.i18:                             ; preds = %.lr.ph.i.i.i.i.i.i18.preheader, %.lr.ph.i.i.i.i.i.i18
-  %.sroa.0.07.i.i.i.i.i.i19 = phi ptr [ %119, %.lr.ph.i.i.i.i.i.i18 ], [ %118, %.lr.ph.i.i.i.i.i.i18.preheader ]
-  call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS3_12FastLessThanEEEEvT_T0_(ptr nonnull %.sroa.0.07.i.i.i.i.i.i19)
-  %119 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i.i19, i64 8
-  %.not.i.i.i.i.i.i20 = icmp eq ptr %119, %113
-  br i1 %.not.i.i.i.i.i.i20, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit25, label %.lr.ph.i.i.i.i.i.i18, !llvm.loop !378
+.lr.ph.i.i.i.i.i.i19:                             ; preds = %.lr.ph.i.i.i.i.i.i19.preheader, %.lr.ph.i.i.i.i.i.i19
+  %.sroa.0.07.i.i.i.i.i.i20 = phi ptr [ %120, %.lr.ph.i.i.i.i.i.i19 ], [ %119, %.lr.ph.i.i.i.i.i.i19.preheader ]
+  call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS3_12FastLessThanEEEEvT_T0_(ptr nonnull %.sroa.0.07.i.i.i.i.i.i20)
+  %120 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i.i20, i64 8
+  %.not.i.i.i.i.i.i21 = icmp eq ptr %120, %114
+  br i1 %.not.i.i.i.i.i.i21, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit26, label %.lr.ph.i.i.i.i.i.i19, !llvm.loop !378
 
-120:                                              ; preds = %.noexc21
-  call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i15, ptr nonnull %113)
-  br label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit25
+121:                                              ; preds = %.noexc22
+  call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEEvT_SD_T0_(ptr %.sroa.01.0.copyload.i.i16, ptr nonnull %114)
+  br label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit26
 
-_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit25: ; preds = %.lr.ph.i.i.i.i.i.i18, %120, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
-  %121 = load i8, ptr %30, align 2
-  %122 = add i8 %121, -1
-  store i8 %122, ptr %30, align 2
-  %123 = load i8, ptr %6, align 8
-  %124 = add i8 %123, 7
-  %125 = and i8 %124, 7
-  store i8 %125, ptr %6, align 8
-  br label %thread-pre-split37
+_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit26: ; preds = %.lr.ph.i.i.i.i.i.i19, %121, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread
+  %122 = load i8, ptr %30, align 2
+  %123 = add i8 %122, -1
+  store i8 %123, ptr %30, align 2
+  %124 = load i8, ptr %6, align 8
+  %125 = add i8 %124, 7
+  %126 = and i8 %125, 7
+  store i8 %126, ptr %6, align 8
+  br label %thread-pre-split38
 
-thread-pre-split37:                               ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit25, %.noexc11
-  %126 = phi i8 [ %122, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit25 ], [ %96, %.noexc11 ], [ %.pr38, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit ]
-  %127 = icmp eq i8 %126, 0
-  br i1 %127, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit, label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
+thread-pre-split38:                               ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit26, %.noexc12
+  %127 = phi i8 [ %123, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit26 ], [ %97, %.noexc12 ], [ %.pr39, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit ]
+  %128 = icmp eq i8 %127, 0
+  br i1 %128, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit, label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
 
-_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; preds = %thread-pre-split37
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 15
-  %130 = load atomic i8, ptr %129 monotonic, align 1
-  %131 = icmp eq i8 %130, -1
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %.0.i.i = select i1 %131, ptr %133, ptr %128
-  %134 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i)
-  br i1 %134, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit, label %thread-pre-split, !llvm.loop !438
+_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; preds = %thread-pre-split38
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 15
+  %131 = load atomic i8, ptr %130 monotonic, align 1
+  %132 = icmp eq i8 %131, -1
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %.0.i.i = select i1 %132, ptr %134, ptr %129
+  %135 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i)
+  br i1 %135, label %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit, label %thread-pre-split, !llvm.loop !438
 
-_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit: ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit, %thread-pre-split37, %.lr.ph.i.i.i.i.i.i, %27, %15
+_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEENS1_15quick_sort_bodyISC_SD_EEKNS1_16auto_partitionerEE8run_bodyERSE_.exit: ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit, %thread-pre-split38, %.lr.ph.i.i.i.i.i.i, %27, %15
   ret void
 }
 

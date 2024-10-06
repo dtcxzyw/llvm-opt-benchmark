@@ -1957,22 +1957,23 @@ define internal fastcc void @mroute_clean_tables(ptr noundef %0, i32 noundef %1)
   br i1 %13, label %14, label %.loopexit7
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
-  %16 = and i32 %1, 8
-  %17 = icmp eq i32 %16, 0
-  %18 = and i32 %1, 4
-  %19 = icmp eq i32 %18, 0
+  %15 = and i32 %1, 8
+  %16 = icmp eq i32 %15, 0
+  %17 = and i32 %1, 4
+  %18 = icmp eq i32 %17, 0
+  %19 = getelementptr i8, ptr %0, i64 162
   br label %20
 
 20:                                               ; preds = %33, %14
   %21 = phi i32 [ %12, %14 ], [ %34, %33 ]
   %22 = phi i64 [ 0, %14 ], [ %35, %33 ]
-  %23 = getelementptr [32 x %struct.vif_device], ptr %15, i64 0, i64 %22, i32 8
+  %.idx = mul nuw nsw i64 %22, 104
+  %23 = getelementptr i8, ptr %19, i64 %.idx
   %24 = load i16, ptr %23, align 2
   %25 = icmp slt i16 %24, 0
-  %26 = and i1 %17, %25
+  %26 = and i1 %16, %25
   %27 = icmp sgt i16 %24, -1
-  %28 = and i1 %19, %27
+  %28 = and i1 %18, %27
   %29 = or i1 %26, %28
   br i1 %29, label %33, label %30
 

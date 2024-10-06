@@ -337,9 +337,10 @@ define internal i32 @v2_write_file_info(ptr noundef %0, i32 noundef %1) #2 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @v2_free_file_info(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 328
-  %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.mem_dqinfo, ptr %3, i64 %4, i32 8
+  %3 = sext i32 %1 to i64
+  %.idx = mul nsw i64 %3, 72
+  %4 = getelementptr i8, ptr %0, i64 392
+  %5 = getelementptr i8, ptr %4, i64 %.idx
   %6 = load ptr, ptr %5, align 8
   tail call void @kfree(ptr noundef %6) #8
   ret i32 0
@@ -354,9 +355,10 @@ define internal i32 @v2_read_dquot(ptr noundef %0) #2 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 328
-  %9 = sext i32 %7 to i64
-  %10 = getelementptr %struct.mem_dqinfo, ptr %8, i64 %9, i32 8
+  %8 = sext i32 %7 to i64
+  %.idx = mul nsw i64 %8, 72
+  %9 = getelementptr i8, ptr %5, i64 392
+  %10 = getelementptr i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @qtree_read_dquot(ptr noundef %11, ptr noundef %0) #8
   tail call void @up_read(ptr noundef %4) #8
@@ -385,9 +387,10 @@ define internal i32 @v2_write_dquot(ptr noundef %0) #2 align 16 {
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 116
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 328
-  %15 = sext i32 %13 to i64
-  %16 = getelementptr %struct.mem_dqinfo, ptr %14, i64 %15, i32 8
+  %14 = sext i32 %13 to i64
+  %.idx = mul nsw i64 %14, 72
+  %15 = getelementptr i8, ptr %11, i64 392
+  %16 = getelementptr i8, ptr %15, i64 %.idx
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @qtree_write_dquot(ptr noundef %17, ptr noundef %0) #8
   br i1 %6, label %19, label %20
@@ -413,9 +416,10 @@ define internal i32 @v2_release_dquot(ptr noundef %0) #2 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 328
-  %9 = sext i32 %7 to i64
-  %10 = getelementptr %struct.mem_dqinfo, ptr %8, i64 %9, i32 8
+  %8 = sext i32 %7 to i64
+  %.idx = mul nsw i64 %8, 72
+  %9 = getelementptr i8, ptr %5, i64 392
+  %10 = getelementptr i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @qtree_release_dquot(ptr noundef %11, ptr noundef %0) #8
   tail call void @up_write(ptr noundef %4) #8
@@ -428,9 +432,10 @@ define internal i32 @v2_get_next_id(ptr noundef %0, ptr noundef %1) #2 align 16 
   tail call void @down_read(ptr noundef %3) #8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 328
-  %7 = sext i32 %5 to i64
-  %8 = getelementptr %struct.mem_dqinfo, ptr %6, i64 %7, i32 8
+  %6 = sext i32 %5 to i64
+  %.idx = mul nsw i64 %6, 72
+  %7 = getelementptr i8, ptr %0, i64 392
+  %8 = getelementptr i8, ptr %7, i64 %.idx
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @qtree_get_next_id(ptr noundef %9, ptr noundef %1) #8
   tail call void @up_read(ptr noundef %3) #8
@@ -469,9 +474,10 @@ define internal void @v2r0_mem2diskdqb(ptr noundef %0, ptr nocapture noundef rea
   %6 = getelementptr inbounds i8, ptr %1, i64 112
   %7 = getelementptr inbounds i8, ptr %1, i64 116
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 328
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr %struct.mem_dqinfo, ptr %9, i64 %10, i32 8
+  %9 = sext i32 %8 to i64
+  %.idx = mul nsw i64 %9, 72
+  %10 = getelementptr i8, ptr %5, i64 392
+  %11 = getelementptr i8, ptr %10, i64 %.idx
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 168
   %14 = load i64, ptr %13, align 8
@@ -593,9 +599,10 @@ define internal range(i32 0, 2) i32 @v2r0_is_id(ptr noundef %0, ptr nocapture no
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 116
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 328
-  %8 = sext i32 %6 to i64
-  %9 = getelementptr %struct.mem_dqinfo, ptr %7, i64 %8, i32 8
+  %7 = sext i32 %6 to i64
+  %.idx = mul nsw i64 %7, 72
+  %8 = getelementptr i8, ptr %4, i64 392
+  %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @qtree_entry_unused(ptr noundef %10, ptr noundef %0) #8
   %12 = icmp eq i32 %11, 0
@@ -645,9 +652,10 @@ define internal void @v2r1_mem2diskdqb(ptr noundef %0, ptr nocapture noundef rea
   %6 = getelementptr inbounds i8, ptr %1, i64 112
   %7 = getelementptr inbounds i8, ptr %1, i64 116
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 328
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr %struct.mem_dqinfo, ptr %9, i64 %10, i32 8
+  %9 = sext i32 %8 to i64
+  %.idx = mul nsw i64 %9, 72
+  %10 = getelementptr i8, ptr %5, i64 392
+  %11 = getelementptr i8, ptr %10, i64 %.idx
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 168
   %14 = load i64, ptr %13, align 8
@@ -761,9 +769,10 @@ define internal range(i32 0, 2) i32 @v2r1_is_id(ptr noundef %0, ptr nocapture no
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 116
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 328
-  %8 = sext i32 %6 to i64
-  %9 = getelementptr %struct.mem_dqinfo, ptr %7, i64 %8, i32 8
+  %7 = sext i32 %6 to i64
+  %.idx = mul nsw i64 %7, 72
+  %8 = getelementptr i8, ptr %4, i64 392
+  %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @qtree_entry_unused(ptr noundef %10, ptr noundef %0) #8
   %12 = icmp eq i32 %11, 0

@@ -1423,11 +1423,12 @@ define internal i32 @lg_g15_led_get(ptr nocapture noundef readonly %0) #2 align 
   br label %43
 
 43:                                               ; preds = %16, %13
-  %44 = getelementptr inbounds i8, ptr %7, i64 112
-  %45 = getelementptr inbounds i8, ptr %0, i64 412
-  %46 = load i32, ptr %45, align 4
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr [6 x %struct.lg_g15_led], ptr %44, i64 0, i64 %47, i32 1
+  %44 = getelementptr inbounds i8, ptr %0, i64 412
+  %45 = load i32, ptr %44, align 4
+  %46 = zext i32 %45 to i64
+  %.idx = mul nuw nsw i64 %46, 424
+  %47 = getelementptr i8, ptr %7, i64 520
+  %48 = getelementptr i8, ptr %47, i64 %.idx
   %49 = load i32, ptr %48, align 8
   tail call void @mutex_unlock(ptr noundef %8) #10
   ret i32 %49
@@ -1459,8 +1460,8 @@ define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr nocapture noundef %0, i3
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %8, i64 112
-  %21 = zext i32 %17 to i64
+  %20 = zext i32 %17 to i64
+  %21 = getelementptr i8, ptr %8, i64 520
   br label %30
 
 22:                                               ; preds = %13
@@ -1477,11 +1478,12 @@ define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr nocapture noundef %0, i3
 30:                                               ; preds = %37, %19
   %31 = phi i64 [ 2, %19 ], [ %47, %37 ]
   %32 = phi i8 [ 0, %19 ], [ %46, %37 ]
-  %33 = icmp eq i64 %31, %21
+  %33 = icmp eq i64 %31, %20
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr [6 x %struct.lg_g15_led], ptr %20, i64 0, i64 %31, i32 1
+  %.idx = mul nuw nsw i64 %31, 424
+  %35 = getelementptr i8, ptr %21, i64 %.idx
   %36 = load i32, ptr %35, align 8
   br label %37
 
@@ -1645,18 +1647,19 @@ define internal range(i32 3, 2) i32 @lg_g510_mkey_led_set(ptr nocapture noundef 
   tail call void @mutex_lock(ptr noundef %14) #10
   %15 = getelementptr inbounds i8, ptr %0, i64 412
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 112
-  %18 = zext i32 %16 to i64
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr i8, ptr %8, i64 520
   br label %19
 
 19:                                               ; preds = %26, %13
   %20 = phi i64 [ 2, %13 ], [ %36, %26 ]
   %21 = phi i8 [ 0, %13 ], [ %35, %26 ]
-  %22 = icmp eq i64 %20, %18
+  %22 = icmp eq i64 %20, %17
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr [6 x %struct.lg_g15_led], ptr %17, i64 0, i64 %20, i32 1
+  %.idx = mul nuw nsw i64 %20, 424
+  %24 = getelementptr i8, ptr %18, i64 %.idx
   %25 = load i32, ptr %24, align 8
   br label %26
 
@@ -1751,11 +1754,12 @@ define internal i32 @lg_g510_mkey_led_get(ptr nocapture noundef readonly %0) #2 
   %32 = zext nneg i8 %31 to i32
   %33 = getelementptr i8, ptr %7, i64 2640
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 112
-  %35 = getelementptr inbounds i8, ptr %0, i64 412
-  %36 = load i32, ptr %35, align 4
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr [6 x %struct.lg_g15_led], ptr %34, i64 0, i64 %37, i32 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 412
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  %.idx = mul nuw nsw i64 %36, 424
+  %37 = getelementptr i8, ptr %7, i64 520
+  %38 = getelementptr i8, ptr %37, i64 %.idx
   %39 = load i32, ptr %38, align 8
   tail call void @mutex_unlock(ptr noundef %8) #10
   ret i32 %39

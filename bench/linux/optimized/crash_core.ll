@@ -43,8 +43,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.range = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.kexec_segment = type { %union.anon.1, i64, i64, i64 }
-%union.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"Crash kernel\00", align 1
 @crashk_res = dso_local global %struct.resource { i64 0, i64 0, ptr @.str, i64 2164261376, i64 1, ptr null, ptr null, ptr null }, align 8
@@ -1455,18 +1453,19 @@ define internal fastcc void @crash_handle_hotplug_event(i32 noundef range(i32 1,
   br i1 %21, label %.loopexit.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
-  %24 = load i64, ptr @page_offset_base, align 8
+  %23 = load i64, ptr @page_offset_base, align 8
+  %24 = getelementptr i8, ptr %7, i64 80
   br label %25
 
 25:                                               ; preds = %37, %22
-  %.pr4 = phi i32 [ %16, %22 ], [ %.pr3, %37 ]
+  %.pr5 = phi i32 [ %16, %22 ], [ %.pr4, %37 ]
   %26 = phi i64 [ 0, %22 ], [ %39, %37 ]
   %27 = phi i32 [ 0, %22 ], [ %38, %37 ]
-  %28 = getelementptr [16 x %struct.kexec_segment], ptr %23, i64 0, i64 %26, i32 2
+  %.idx = shl nuw nsw i64 %26, 5
+  %28 = getelementptr i8, ptr %24, i64 %.idx
   %29 = load i64, ptr %28, align 8
-  %.idx = and i64 %29, -4096
-  %30 = add i64 %.idx, %24
+  %.idx3 = and i64 %29, -4096
+  %30 = add i64 %.idx3, %23
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %37, label %32
 
@@ -1481,14 +1480,14 @@ define internal fastcc void @crash_handle_hotplug_event(i32 noundef range(i32 1,
   br label %37
 
 37:                                               ; preds = %36, %32, %25
-  %.pr3 = phi i32 [ %27, %36 ], [ %.pr4, %32 ], [ %.pr4, %25 ]
+  %.pr4 = phi i32 [ %27, %36 ], [ %.pr5, %32 ], [ %.pr5, %25 ]
   %38 = add i32 %27, 1
   %39 = zext i32 %38 to i64
   %40 = icmp ugt i64 %20, %39
   br i1 %40, label %25, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %37
-  %41 = icmp slt i32 %.pr3, 0
+  %41 = icmp slt i32 %.pr4, 0
   br i1 %41, label %.loopexit.thread, label %.thread
 
 .loopexit.thread:                                 ; preds = %18, %.loopexit

@@ -59,7 +59,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %56 = getelementptr inbounds i8, ptr %36, i64 1397376
   %57 = add i32 %13, %9
   %58 = icmp sgt i32 %13, -16
-  br i1 %58, label %59, label %.loopexit369
+  br i1 %58, label %59, label %.loopexit370
 
 59:                                               ; preds = %6
   %60 = add i32 %11, %7
@@ -77,7 +77,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %72 = getelementptr inbounds i8, ptr %36, i64 666368
   %73 = getelementptr inbounds i8, ptr %4, i64 8
   %74 = getelementptr i8, ptr %4, i64 12
-  br i1 %61, label %75, label %.loopexit369
+  br i1 %61, label %75, label %.loopexit370
 
 75:                                               ; preds = %59
   %76 = add i32 %7, -16
@@ -152,49 +152,49 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br label %145
 
 145:                                              ; preds = %5743, %75
-  %indvars.iv451 = phi i32 [ %indvars.iv.next452, %5743 ], [ %144, %75 ]
-  %indvars.iv444 = phi i32 [ %indvars.iv.next445, %5743 ], [ %143, %75 ]
+  %indvars.iv452 = phi i32 [ %indvars.iv.next453, %5743 ], [ %144, %75 ]
+  %indvars.iv445 = phi i32 [ %indvars.iv.next446, %5743 ], [ %143, %75 ]
   %146 = phi i64 [ %5748, %5743 ], [ 0, %75 ]
   %147 = phi i64 [ %5744, %5743 ], [ %90, %75 ]
   %148 = phi i32 [ %5746, %5743 ], [ %80, %75 ]
   %149 = phi <8 x i32> [ %5747, %5743 ], [ %86, %75 ]
-  %indvars455 = trunc i64 %146 to i32
-  %smin450 = tail call i32 @llvm.smin.i32(i32 %148, i32 %63)
-  %150 = add i32 %smin450, %indvars.iv451
+  %indvars456 = trunc i64 %146 to i32
+  %smin451 = tail call i32 @llvm.smin.i32(i32 %148, i32 %63)
+  %150 = add i32 %smin451, %indvars.iv452
   %151 = tail call i32 @llvm.smax.i32(i32 %150, i32 17)
-  %smax453 = zext nneg i32 %151 to i64
-  %152 = add i32 %smin450, %indvars.iv444
+  %smax454 = zext nneg i32 %151 to i64
+  %152 = add i32 %smin451, %indvars.iv445
   %153 = tail call i32 @llvm.smax.i32(i32 %152, i32 9)
   %smax = zext nneg i32 %153 to i64
   %154 = mul nuw nsw i64 %146, %131
   %155 = add nuw i64 %154, %129
-  %156 = shl i32 %indvars455, 7
+  %156 = shl i32 %indvars456, 7
   %157 = add i32 %156, %77
   %158 = extractelement <8 x i32> %149, i64 7
-  %159 = add i32 %158, %smin450
+  %159 = add i32 %158, %smin451
   %160 = tail call i32 @llvm.smax.i32(i32 %159, i32 17)
   %161 = zext nneg i32 %160 to i64
   %162 = mul nuw nsw i64 %161, 640
   %163 = extractelement <8 x i32> %149, i64 0
-  %164 = add i32 %163, %smin450
+  %164 = add i32 %163, %smin451
   %165 = tail call i32 @llvm.smax.i32(i32 %164, i32 15)
   %166 = extractelement <8 x i32> %149, i64 1
-  %167 = add i32 %166, %smin450
+  %167 = add i32 %166, %smin451
   %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 13)
   %169 = extractelement <8 x i32> %149, i64 2
-  %170 = add i32 %169, %smin450
+  %170 = add i32 %169, %smin451
   %171 = tail call i32 @llvm.smax.i32(i32 %170, i32 11)
   %172 = extractelement <8 x i32> %149, i64 3
-  %173 = add i32 %172, %smin450
+  %173 = add i32 %172, %smin451
   %174 = tail call i32 @llvm.smax.i32(i32 %173, i32 9)
   %175 = extractelement <8 x i32> %149, i64 4
-  %176 = add i32 %175, %smin450
+  %176 = add i32 %175, %smin451
   %177 = tail call i32 @llvm.smax.i32(i32 %176, i32 7)
   %178 = extractelement <8 x i32> %149, i64 5
-  %179 = add i32 %178, %smin450
+  %179 = add i32 %178, %smin451
   %180 = tail call i32 @llvm.smax.i32(i32 %179, i32 5)
   %181 = extractelement <8 x i32> %149, i64 6
-  %182 = add i32 %181, %smin450
+  %182 = add i32 %181, %smin451
   %183 = tail call i32 @llvm.smax.i32(i32 %182, i32 3)
   %184 = add nsw i64 %147, 160
   %185 = trunc i64 %184 to i32
@@ -237,13 +237,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %222 = getelementptr i8, ptr %99, i64 %221
   br label %223
 
-223:                                              ; preds = %.loopexit349, %145
-  %224 = phi i64 [ 0, %145 ], [ %309, %.loopexit349 ]
-  %225 = phi i64 [ %87, %145 ], [ %303, %.loopexit349 ]
-  %226 = phi i32 [ %7, %145 ], [ %308, %.loopexit349 ]
-  %227 = phi i32 [ %81, %145 ], [ %307, %.loopexit349 ]
-  %228 = phi i32 [ %79, %145 ], [ %306, %.loopexit349 ]
-  %229 = phi i32 [ %78, %145 ], [ %305, %.loopexit349 ]
+223:                                              ; preds = %.loopexit350, %145
+  %224 = phi i64 [ 0, %145 ], [ %309, %.loopexit350 ]
+  %225 = phi i64 [ %87, %145 ], [ %303, %.loopexit350 ]
+  %226 = phi i32 [ %7, %145 ], [ %308, %.loopexit350 ]
+  %227 = phi i32 [ %81, %145 ], [ %307, %.loopexit350 ]
+  %228 = phi i32 [ %79, %145 ], [ %306, %.loopexit350 ]
+  %229 = phi i32 [ %78, %145 ], [ %305, %.loopexit350 ]
   %230 = trunc i64 %224 to i32
   %231 = shl i32 %230, 7
   %232 = tail call i32 @llvm.smin.i32(i32 %229, i32 %64)
@@ -275,59 +275,59 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %257 = icmp sgt i64 %250, %88
   %258 = sub i32 %60, %253
   %259 = select i1 %257, i32 %258, i32 %254
-  br i1 %189, label %5408, label %.loopexit368
+  br i1 %189, label %5408, label %.loopexit369
 
-.loopexit368:                                     ; preds = %.loopexit345, %223
-  br i1 %195, label %5549, label %.loopexit367
+.loopexit369:                                     ; preds = %.loopexit346, %223
+  br i1 %195, label %5549, label %.loopexit368
 
-.loopexit367:                                     ; preds = %.loopexit340, %.loopexit368
-  br i1 %196, label %5387, label %.loopexit366
+.loopexit368:                                     ; preds = %.loopexit341, %.loopexit369
+  br i1 %196, label %5387, label %.loopexit367
 
-.loopexit366:                                     ; preds = %.loopexit335, %.loopexit367
+.loopexit367:                                     ; preds = %.loopexit336, %.loopexit368
   %260 = select i1 %255, i1 %195, i1 false
-  br i1 %260, label %5628, label %.loopexit365
+  br i1 %260, label %5628, label %.loopexit366
 
-.loopexit365:                                     ; preds = %4540, %.loopexit366
+.loopexit366:                                     ; preds = %4540, %.loopexit367
   %261 = icmp sge i32 %259, %254
   %262 = select i1 %261, i1 true, i1 %197
-  br i1 %262, label %.loopexit364, label %263
+  br i1 %262, label %.loopexit365, label %263
 
-263:                                              ; preds = %.loopexit365
+263:                                              ; preds = %.loopexit366
   %264 = sext i32 %259 to i64
   br label %5248
 
-.loopexit364:                                     ; preds = %5248, %.loopexit365
+.loopexit365:                                     ; preds = %5248, %.loopexit366
   %265 = select i1 %189, i1 %255, i1 false
-  br i1 %265, label %.preheader362, label %.loopexit363
+  br i1 %265, label %.preheader363, label %.loopexit364
 
-.loopexit363:                                     ; preds = %.preheader362, %.loopexit364
+.loopexit364:                                     ; preds = %.preheader363, %.loopexit365
   %266 = or i1 %261, %198
-  br i1 %266, label %.loopexit361, label %267
+  br i1 %266, label %.loopexit362, label %267
 
-267:                                              ; preds = %.loopexit363
+267:                                              ; preds = %.loopexit364
   %268 = sext i32 %259 to i64
   br label %5009
 
-.loopexit361:                                     ; preds = %5009, %.loopexit363
+.loopexit362:                                     ; preds = %5009, %.loopexit364
   %269 = or i1 %261, %199
-  br i1 %269, label %.loopexit360, label %270
+  br i1 %269, label %.loopexit361, label %270
 
-270:                                              ; preds = %.loopexit361
+270:                                              ; preds = %.loopexit362
   %271 = sext i32 %259 to i64
   br label %4889
 
-.loopexit360:                                     ; preds = %4889, %.loopexit361
+.loopexit361:                                     ; preds = %4889, %.loopexit362
   %272 = select i1 %196, i1 %255, i1 false
-  br i1 %272, label %.preheader358, label %.loopexit359
+  br i1 %272, label %.preheader359, label %.loopexit360
 
-.loopexit359:                                     ; preds = %.preheader358, %.loopexit360
-  br i1 %200, label %5630, label %.loopexit351
+.loopexit360:                                     ; preds = %.preheader359, %.loopexit361
+  br i1 %200, label %5630, label %.loopexit352
 
-273:                                              ; preds = %.loopexit328
+273:                                              ; preds = %.loopexit329
   %274 = icmp ne i32 %3253, %3252
   %275 = icmp ne i32 %3251, %3250
   %276 = select i1 %274, i1 %275, i1 false
-  br i1 %276, label %277, label %.loopexit354
+  br i1 %276, label %277, label %.loopexit355
 
 277:                                              ; preds = %273
   %278 = add nsw i32 %3252, 1
@@ -340,7 +340,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %285 = tail call i32 @llvm.smin.i32(i32 %279, i32 %284)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(12160) %71, i8 0, i64 12160, i1 false)
   %286 = icmp slt i32 %281, %282
-  br i1 %286, label %287, label %.loopexit354
+  br i1 %286, label %287, label %.loopexit355
 
 287:                                              ; preds = %277
   %288 = mul i32 %281, 160
@@ -348,19 +348,19 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %290 = tail call i32 @llvm.smin.i32(i32 %173, i32 %278)
   br label %3146
 
-.loopexit354:                                     ; preds = %.loopexit326, %277, %273
-  %291 = phi i32 [ %3250, %273 ], [ %285, %277 ], [ %285, %.loopexit326 ]
-  %292 = phi i32 [ %3251, %273 ], [ %283, %277 ], [ %283, %.loopexit326 ]
-  %293 = phi i32 [ %3252, %273 ], [ %282, %277 ], [ %282, %.loopexit326 ]
-  %294 = phi i32 [ %3253, %273 ], [ %281, %277 ], [ %281, %.loopexit326 ]
-  br i1 %204, label %5636, label %.loopexit353
+.loopexit355:                                     ; preds = %.loopexit327, %277, %273
+  %291 = phi i32 [ %3250, %273 ], [ %285, %277 ], [ %285, %.loopexit327 ]
+  %292 = phi i32 [ %3251, %273 ], [ %283, %277 ], [ %283, %.loopexit327 ]
+  %293 = phi i32 [ %3252, %273 ], [ %282, %277 ], [ %282, %.loopexit327 ]
+  %294 = phi i32 [ %3253, %273 ], [ %281, %277 ], [ %281, %.loopexit327 ]
+  br i1 %204, label %5636, label %.loopexit354
 
-.loopexit353:                                     ; preds = %.loopexit325, %.loopexit354
+.loopexit354:                                     ; preds = %.loopexit326, %.loopexit355
   %295 = icmp slt i32 %294, %293
   %296 = and i1 %276, %295
-  br i1 %296, label %297, label %.loopexit352
+  br i1 %296, label %297, label %.loopexit353
 
-297:                                              ; preds = %.loopexit353
+297:                                              ; preds = %.loopexit354
   %298 = mul i32 %294, 160
   %299 = add i32 %298, %292
   %300 = sext i32 %294 to i64
@@ -368,7 +368,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %302 = sext i32 %293 to i64
   br label %2528
 
-.loopexit349:                                     ; preds = %.loopexit, %.loopexit350, %5378
+.loopexit350:                                     ; preds = %.loopexit, %.loopexit351, %5378
   %303 = add nsw i64 %225, 128
   %304 = icmp slt i64 %303, %88
   %305 = add i32 %229, 128
@@ -385,8 +385,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 .loopexit:                                        ; preds = %340, %5729, %310
   %313 = add nuw nsw i64 %311, 1
-  %exitcond454.not = icmp eq i64 %313, %smax453
-  br i1 %exitcond454.not, label %.loopexit349, label %310, !llvm.loop !30
+  %exitcond455.not = icmp eq i64 %313, %smax454
+  br i1 %exitcond455.not, label %.loopexit350, label %310, !llvm.loop !30
 
 314:                                              ; preds = %5730, %340
   %315 = phi i64 [ %341, %340 ], [ %5731, %5730 ]
@@ -423,8 +423,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 335:                                              ; preds = %332, %330, %327
   %336 = phi float [ %334, %332 ], [ 0.000000e+00, %330 ], [ %329, %327 ]
-  %.reass418 = add i64 %315, %invariant.op417
-  %337 = shl nsw i64 %.reass418, 2
+  %.reass419 = add i64 %315, %invariant.op418
+  %337 = shl nsw i64 %.reass419, 2
   %338 = or disjoint i64 %337, 1
   %339 = getelementptr inbounds float, ptr %2, i64 %338
   store float %336, ptr %339, align 4, !tbaa !27
@@ -491,9 +491,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %386 = zext nneg i32 %385 to i64
   %387 = getelementptr inbounds float, ptr %47, i64 %386
   %388 = load float, ptr %387, align 4, !tbaa !27
-  %.neg311 = fadd reassoc nsz arcp contract afn float %374, 2.000000e+00
+  %.neg312 = fadd reassoc nsz arcp contract afn float %374, 2.000000e+00
   %389 = fadd reassoc nsz arcp contract afn float %378, %383
-  %390 = fsub reassoc nsz arcp contract afn float %.neg311, %389
+  %390 = fsub reassoc nsz arcp contract afn float %.neg312, %389
   %391 = fadd reassoc nsz arcp contract afn float %390, %388
   %392 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %391
   %393 = zext nneg i32 %362 to i64
@@ -617,9 +617,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %490 = and i64 %489, 2147483647
   %491 = getelementptr inbounds float, ptr %47, i64 %490
   %492 = load float, ptr %491, align 4, !tbaa !27
-  %.neg308 = fadd reassoc nsz arcp contract afn float %479, 2.000000e+00
+  %.neg309 = fadd reassoc nsz arcp contract afn float %479, 2.000000e+00
   %493 = fadd reassoc nsz arcp contract afn float %482, %487
-  %494 = fsub reassoc nsz arcp contract afn float %.neg308, %493
+  %494 = fsub reassoc nsz arcp contract afn float %.neg309, %493
   %495 = fadd reassoc nsz arcp contract afn float %494, %492
   %496 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %495
   %497 = getelementptr inbounds float, ptr %36, i64 %468
@@ -718,7 +718,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 571:                                              ; preds = %567, %470, %466
   %572 = or disjoint i64 %468, 1
-  %573 = icmp slt i64 %467, %invariant.op411
+  %573 = icmp slt i64 %467, %invariant.op412
   br i1 %573, label %574, label %616
 
 574:                                              ; preds = %571
@@ -753,8 +753,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 594:                                              ; preds = %591, %589, %586
   %595 = phi float [ %593, %591 ], [ 0.000000e+00, %589 ], [ %588, %586 ]
-  %.reass410 = add i64 %467, %invariant.op409
-  %596 = shl nsw i64 %.reass410, 2
+  %.reass411 = add i64 %467, %invariant.op410
+  %596 = shl nsw i64 %.reass411, 2
   %597 = getelementptr inbounds float, ptr %2, i64 %596
   store float %595, ptr %597, align 4, !tbaa !27
   %598 = load float, ptr %578, align 4, !tbaa !27
@@ -957,7 +957,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 729:                                              ; preds = %725, %686, %682
   %730 = or disjoint i64 %684, 1
-  %731 = icmp slt i64 %683, %invariant.op414
+  %731 = icmp slt i64 %683, %invariant.op415
   br i1 %731, label %732, label %831
 
 732:                                              ; preds = %729
@@ -984,9 +984,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %751 = and i64 %750, 2147483647
   %752 = getelementptr inbounds float, ptr %47, i64 %751
   %753 = load float, ptr %752, align 4, !tbaa !27
-  %.neg314 = fadd reassoc nsz arcp contract afn float %741, 2.000000e+00
+  %.neg315 = fadd reassoc nsz arcp contract afn float %741, 2.000000e+00
   %754 = fadd reassoc nsz arcp contract afn float %745, %748
-  %755 = fsub reassoc nsz arcp contract afn float %.neg314, %754
+  %755 = fsub reassoc nsz arcp contract afn float %.neg315, %754
   %756 = fadd reassoc nsz arcp contract afn float %755, %753
   %757 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %756
   %758 = getelementptr inbounds float, ptr %36, i64 %730
@@ -1030,8 +1030,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 789:                                              ; preds = %786, %784, %781
   %790 = phi float [ %788, %786 ], [ 0.000000e+00, %784 ], [ %783, %781 ]
-  %.reass413 = add i64 %683, %invariant.op412
-  %791 = shl nsw i64 %.reass413, 2
+  %.reass414 = add i64 %683, %invariant.op413
+  %791 = shl nsw i64 %.reass414, 2
   %792 = getelementptr inbounds float, ptr %2, i64 %791
   store float %790, ptr %792, align 4, !tbaa !27
   %793 = load float, ptr %758, align 4, !tbaa !27
@@ -1090,9 +1090,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %835 = icmp sgt i32 %356, %834
   br i1 %835, label %682, label %621, !llvm.loop !35
 
-836:                                              ; preds = %5657, %.loopexit315
-  %837 = phi i32 [ 2254, %5657 ], [ %847, %.loopexit315 ]
-  %838 = phi i32 [ 14, %5657 ], [ %846, %.loopexit315 ]
+836:                                              ; preds = %5657, %.loopexit316
+  %837 = phi i32 [ 2254, %5657 ], [ %847, %.loopexit316 ]
+  %838 = phi i32 [ 14, %5657 ], [ %846, %.loopexit316 ]
   %839 = shl nuw i32 %838, 1
   %840 = and i32 %839, 14
   %841 = shl nuw nsw i32 %840, 1
@@ -1100,9 +1100,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %843 = and i32 %842, 1
   %844 = or disjoint i32 %843, 14
   %845 = icmp slt i32 %844, %5658
-  br i1 %845, label %5647, label %.loopexit315
+  br i1 %845, label %5647, label %.loopexit316
 
-.loopexit315:                                     ; preds = %849, %836
+.loopexit316:                                     ; preds = %849, %836
   %846 = add nuw nsw i32 %838, 1
   %847 = add i32 %837, 160
   %848 = icmp eq i32 %846, %165
@@ -1246,19 +1246,19 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %983 = add nuw nsw i32 %851, 2
   %984 = add nuw nsw i64 %850, 2
   %985 = icmp slt i32 %983, %5658
-  br i1 %985, label %849, label %.loopexit315, !llvm.loop !37
+  br i1 %985, label %849, label %.loopexit316, !llvm.loop !37
 
-986:                                              ; preds = %5645, %.loopexit316
-  %987 = phi i32 [ 0, %5645 ], [ %1020, %.loopexit316 ]
-  %988 = phi i32 [ %83, %5645 ], [ %1019, %.loopexit316 ]
-  %989 = phi i32 [ %31, %5645 ], [ %1017, %.loopexit316 ]
+986:                                              ; preds = %5645, %.loopexit317
+  %987 = phi i32 [ 0, %5645 ], [ %1020, %.loopexit317 ]
+  %988 = phi i32 [ %83, %5645 ], [ %1019, %.loopexit317 ]
+  %989 = phi i32 [ %31, %5645 ], [ %1017, %.loopexit317 ]
   %990 = mul nuw nsw i32 %989, 160
   %991 = lshr exact i32 %990, 1
   %992 = or disjoint i32 %991, 6
   %993 = add i32 %5646, %990
   %994 = ashr i32 %993, 1
   %995 = icmp slt i32 %992, %994
-  br i1 %995, label %996, label %.loopexit316
+  br i1 %995, label %996, label %.loopexit317
 
 996:                                              ; preds = %986
   %997 = mul i32 %987, -160
@@ -1269,9 +1269,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1001 = zext i32 %1000 to i64
   %1002 = add nuw nsw i64 %1001, 1
   %1003 = icmp ult i32 %1000, 7
-  br i1 %1003, label %.preheader523, label %1004
+  br i1 %1003, label %.preheader524, label %1004
 
-.preheader523:                                    ; preds = %1014, %996
+.preheader524:                                    ; preds = %1014, %996
   %.ph = phi i64 [ %1015, %1014 ], [ %998, %996 ]
   br label %1021
 
@@ -1294,17 +1294,17 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 1014:                                             ; preds = %1006
   %1015 = add nuw nsw i64 %1005, %998
   %1016 = icmp eq i64 %1002, %1005
-  br i1 %1016, label %.loopexit316, label %.preheader523
+  br i1 %1016, label %.loopexit317, label %.preheader524
 
-.loopexit316:                                     ; preds = %1021, %1014, %986
+.loopexit317:                                     ; preds = %1021, %1014, %986
   %1017 = add nuw nsw i32 %989, 2
   %1018 = icmp slt i32 %1017, %206
   %1019 = add i32 %988, 160
   %1020 = add nuw nsw i32 %987, 1
-  br i1 %1018, label %986, label %.loopexit350, !llvm.loop !40
+  br i1 %1018, label %986, label %.loopexit351, !llvm.loop !40
 
-1021:                                             ; preds = %.preheader523, %1021
-  %1022 = phi i64 [ %1026, %1021 ], [ %.ph, %.preheader523 ]
+1021:                                             ; preds = %.preheader524, %1021
+  %1022 = phi i64 [ %1026, %1021 ], [ %.ph, %.preheader524 ]
   %1023 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %1022
   %1024 = load float, ptr %1023, align 4, !tbaa !27
   %1025 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %1022
@@ -1313,12 +1313,12 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1026 = add nuw nsw i64 %1022, 1
   %1027 = trunc i64 %1026 to i32
   %1028 = icmp sgt i32 %994, %1027
-  br i1 %1028, label %1021, label %.loopexit316, !llvm.loop !41
+  br i1 %1028, label %1021, label %.loopexit317, !llvm.loop !41
 
-1029:                                             ; preds = %5643, %.loopexit317
-  %1030 = phi i32 [ 0, %5643 ], [ %1596, %.loopexit317 ]
-  %1031 = phi i32 [ 1932, %5643 ], [ %1594, %.loopexit317 ]
-  %1032 = phi i32 [ 12, %5643 ], [ %1593, %.loopexit317 ]
+1029:                                             ; preds = %5643, %.loopexit318
+  %1030 = phi i32 [ 0, %5643 ], [ %1596, %.loopexit318 ]
+  %1031 = phi i32 [ 1932, %5643 ], [ %1594, %.loopexit318 ]
+  %1032 = phi i32 [ 12, %5643 ], [ %1593, %.loopexit318 ]
   %1033 = mul i32 %1030, 160
   %1034 = add i32 %1033, 1932
   %1035 = lshr exact i32 %1034, 1
@@ -1336,7 +1336,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1047 = and i32 %1046, 1
   %1048 = or disjoint i32 %1047, 12
   %1049 = icmp slt i32 %1048, %5644
-  br i1 %1049, label %1050, label %.loopexit317
+  br i1 %1049, label %1050, label %.loopexit318
 
 1050:                                             ; preds = %1029
   %1051 = or disjoint i32 %1047, %1031
@@ -1344,17 +1344,17 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1053 = zext nneg i32 %1052 to i64
   %1054 = sext i32 %1051 to i64
   %1055 = add i32 %239, %1047
-  %1056 = sub i32 %invariant.op407, %1055
+  %1056 = sub i32 %invariant.op408, %1055
   %1057 = lshr i32 %1056, 1
   %1058 = add nuw i32 %1057, 1
   %1059 = zext i32 %1058 to i64
   %1060 = icmp ult i32 %1056, 30
-  br i1 %1060, label %.preheader524, label %1061
+  br i1 %1060, label %.preheader525, label %1061
 
-.preheader524:                                    ; preds = %1589, %1109, %1061, %1050
-  %.ph525 = phi i64 [ %1279, %1589 ], [ %1054, %1050 ], [ %1054, %1061 ], [ %1054, %1109 ]
-  %.ph526 = phi i64 [ %1590, %1589 ], [ %1053, %1050 ], [ %1053, %1061 ], [ %1053, %1109 ]
-  %.ph527 = phi i32 [ %1591, %1589 ], [ %1048, %1050 ], [ %1048, %1061 ], [ %1048, %1109 ]
+.preheader525:                                    ; preds = %1589, %1109, %1061, %1050
+  %.ph526 = phi i64 [ %1279, %1589 ], [ %1054, %1050 ], [ %1054, %1061 ], [ %1054, %1109 ]
+  %.ph527 = phi i64 [ %1590, %1589 ], [ %1053, %1050 ], [ %1053, %1061 ], [ %1053, %1109 ]
+  %.ph528 = phi i32 [ %1591, %1589 ], [ %1048, %1050 ], [ %1048, %1061 ], [ %1048, %1109 ]
   br label %1597
 
 1061:                                             ; preds = %1050
@@ -1405,7 +1405,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1106 = or i1 %1092, %1105
   %1107 = or i1 %1095, %1106
   %1108 = or i1 %1098, %1107
-  br i1 %1108, label %.preheader524, label %1109
+  br i1 %1108, label %.preheader525, label %1109
 
 1109:                                             ; preds = %1061
   %1110 = shl nuw nsw i64 %1053, 2
@@ -1574,7 +1574,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1273 = icmp ult ptr %1096, %1127
   %1274 = and i1 %1272, %1273
   %1275 = or i1 %1274, %1271
-  br i1 %1275, label %.preheader524, label %1276
+  br i1 %1275, label %.preheader525, label %1276
 
 1276:                                             ; preds = %1109
   %1277 = and i64 %1059, 4294967288
@@ -1899,19 +1899,19 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1590 = add nuw nsw i64 %1277, %1053
   %1591 = or disjoint i32 %1281, %1048
   %1592 = icmp eq i64 %1277, %1059
-  br i1 %1592, label %.loopexit317, label %.preheader524
+  br i1 %1592, label %.loopexit318, label %.preheader525
 
-.loopexit317:                                     ; preds = %1864, %1589, %1029
+.loopexit318:                                     ; preds = %1864, %1589, %1029
   %1593 = add nuw nsw i32 %1032, 1
   %1594 = add i32 %1031, 160
   %1595 = icmp eq i32 %1593, %168
   %1596 = add nuw nsw i32 %1030, 1
-  br i1 %1595, label %.loopexit351, label %1029, !llvm.loop !84
+  br i1 %1595, label %.loopexit352, label %1029, !llvm.loop !84
 
-1597:                                             ; preds = %.preheader524, %1864
-  %1598 = phi i64 [ %1866, %1864 ], [ %.ph525, %.preheader524 ]
-  %1599 = phi i64 [ %1867, %1864 ], [ %.ph526, %.preheader524 ]
-  %1600 = phi i32 [ %1865, %1864 ], [ %.ph527, %.preheader524 ]
+1597:                                             ; preds = %.preheader525, %1864
+  %1598 = phi i64 [ %1866, %1864 ], [ %.ph526, %.preheader525 ]
+  %1599 = phi i64 [ %1867, %1864 ], [ %.ph527, %.preheader525 ]
+  %1600 = phi i32 [ %1865, %1864 ], [ %.ph528, %.preheader525 ]
   %1601 = lshr i64 %1598, 1
   %1602 = and i64 %1601, 2147483647
   %1603 = getelementptr inbounds float, ptr %37, i64 %1602
@@ -2286,18 +2286,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1866 = add nuw nsw i64 %1598, 2
   %1867 = add nuw nsw i64 %1599, 1
   %1868 = icmp slt i32 %1865, %5644
-  br i1 %1868, label %1597, label %.loopexit317, !llvm.loop !85
+  br i1 %1868, label %1597, label %.loopexit318, !llvm.loop !85
 
-1869:                                             ; preds = %5641, %.loopexit318
-  %1870 = phi i32 [ 1610, %5641 ], [ %1883, %.loopexit318 ]
-  %1871 = phi i32 [ 10, %5641 ], [ %1882, %.loopexit318 ]
+1869:                                             ; preds = %5641, %.loopexit319
+  %1870 = phi i32 [ 1610, %5641 ], [ %1883, %.loopexit319 ]
+  %1871 = phi i32 [ 10, %5641 ], [ %1882, %.loopexit319 ]
   %1872 = shl i32 %1871, 2
   %1873 = and i32 %1872, 28
   %1874 = lshr i32 %5, %1873
   %1875 = and i32 %1874, 1
   %1876 = or disjoint i32 %1875, 10
   %1877 = icmp slt i32 %1876, %5642
-  br i1 %1877, label %1878, label %.loopexit318
+  br i1 %1877, label %1878, label %.loopexit319
 
 1878:                                             ; preds = %1869
   %1879 = or disjoint i32 %1875, %1870
@@ -2305,7 +2305,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1881 = lshr i64 %1880, 1
   br label %1885
 
-.loopexit318:                                     ; preds = %1928, %1869
+.loopexit319:                                     ; preds = %1928, %1869
   %1882 = add nuw nsw i32 %1871, 1
   %1883 = add i32 %1870, 160
   %1884 = icmp eq i32 %1882, %171
@@ -2383,18 +2383,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1948 = add nuw nsw i64 %1886, 2
   %1949 = add nuw nsw i64 %1887, 1
   %1950 = icmp slt i32 %1947, %5642
-  br i1 %1950, label %1885, label %.loopexit318, !llvm.loop !87
+  br i1 %1950, label %1885, label %.loopexit319, !llvm.loop !87
 
-1951:                                             ; preds = %5639, %.loopexit319
-  %1952 = phi i32 [ 1288, %5639 ], [ %1966, %.loopexit319 ]
-  %1953 = phi i32 [ 8, %5639 ], [ %1965, %.loopexit319 ]
+1951:                                             ; preds = %5639, %.loopexit320
+  %1952 = phi i32 [ 1288, %5639 ], [ %1966, %.loopexit320 ]
+  %1953 = phi i32 [ 8, %5639 ], [ %1965, %.loopexit320 ]
   %1954 = shl i32 %1953, 2
   %1955 = and i32 %1954, 28
   %1956 = lshr i32 %5, %1955
   %1957 = and i32 %1956, 1
   %1958 = or disjoint i32 %1957, 8
   %1959 = icmp slt i32 %1958, %5640
-  br i1 %1959, label %1960, label %.loopexit319
+  br i1 %1959, label %1960, label %.loopexit320
 
 1960:                                             ; preds = %1951
   %1961 = or disjoint i32 %1957, %1952
@@ -2403,7 +2403,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1964 = sext i32 %1961 to i64
   br label %1968
 
-.loopexit319:                                     ; preds = %2409, %1951
+.loopexit320:                                     ; preds = %2409, %1951
   %1965 = add nuw nsw i32 %1953, 1
   %1966 = add i32 %1952, 160
   %1967 = icmp eq i32 %1965, %174
@@ -2970,11 +2970,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2410 = add nuw nsw i32 %1971, 2
   %2411 = add nuw nsw i64 %1970, 1
   %2412 = icmp slt i32 %2410, %5640
-  br i1 %2412, label %1968, label %.loopexit319, !llvm.loop !89
+  br i1 %2412, label %1968, label %.loopexit320, !llvm.loop !89
 
-2413:                                             ; preds = %.loopexit352, %.loopexit321
-  %2414 = phi i32 [ 960, %.loopexit352 ], [ %2475, %.loopexit321 ]
-  %2415 = phi i32 [ 6, %.loopexit352 ], [ %2474, %.loopexit321 ]
+2413:                                             ; preds = %.loopexit353, %.loopexit322
+  %2414 = phi i32 [ 960, %.loopexit353 ], [ %2475, %.loopexit322 ]
+  %2415 = phi i32 [ 6, %.loopexit353 ], [ %2474, %.loopexit322 ]
   %2416 = or disjoint i32 %2414, 6
   %2417 = sext i32 %2416 to i64
   %2418 = shl i32 %2415, 2
@@ -2985,11 +2985,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %2422, label %2473, label %2423
 
 2423:                                             ; preds = %2413
-  br i1 %5638, label %.preheader322, label %.loopexit321
+  br i1 %5638, label %.preheader323, label %.loopexit322
 
-.preheader322:                                    ; preds = %2423, %.preheader322
-  %2424 = phi i64 [ %2471, %.preheader322 ], [ %2417, %2423 ]
-  %2425 = phi i32 [ %2470, %.preheader322 ], [ 6, %2423 ]
+.preheader323:                                    ; preds = %2423, %.preheader323
+  %2424 = phi i64 [ %2471, %.preheader323 ], [ %2417, %2423 ]
+  %2425 = phi i32 [ %2470, %.preheader323 ], [ 6, %2423 ]
   %2426 = getelementptr inbounds float, ptr %53, i64 %2424
   %2427 = load float, ptr %2426, align 8, !tbaa !27
   %2428 = getelementptr i8, ptr %2426, i64 636
@@ -3041,20 +3041,20 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2470 = add nuw nsw i32 %2425, 2
   %2471 = add nuw nsw i64 %2424, 2
   %2472 = icmp slt i32 %2470, %5635
-  br i1 %2472, label %.preheader322, label %.loopexit321, !llvm.loop !90
+  br i1 %2472, label %.preheader323, label %.loopexit322, !llvm.loop !90
 
 2473:                                             ; preds = %2413
-  br i1 %5638, label %.preheader320, label %.loopexit321
+  br i1 %5638, label %.preheader321, label %.loopexit322
 
-.loopexit321:                                     ; preds = %.preheader322, %.preheader320, %2473, %2423
+.loopexit322:                                     ; preds = %.preheader323, %.preheader321, %2473, %2423
   %2474 = add nuw nsw i32 %2415, 1
   %2475 = add i32 %2414, 160
   %2476 = icmp eq i32 %2474, %177
   br i1 %2476, label %5381, label %2413, !llvm.loop !91
 
-.preheader320:                                    ; preds = %2473, %.preheader320
-  %2477 = phi i64 [ %2526, %.preheader320 ], [ %2417, %2473 ]
-  %2478 = phi i32 [ %2525, %.preheader320 ], [ 6, %2473 ]
+.preheader321:                                    ; preds = %2473, %.preheader321
+  %2477 = phi i64 [ %2526, %.preheader321 ], [ %2417, %2473 ]
+  %2478 = phi i32 [ %2525, %.preheader321 ], [ 6, %2473 ]
   %2479 = getelementptr float, ptr %53, i64 %2477
   %2480 = getelementptr i8, ptr %2479, i64 -636
   %2481 = load float, ptr %2480, align 4, !tbaa !27
@@ -3108,11 +3108,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2525 = add nuw nsw i32 %2478, 2
   %2526 = add nuw nsw i64 %2477, 2
   %2527 = icmp slt i32 %2525, %5635
-  br i1 %2527, label %.preheader320, label %.loopexit321, !llvm.loop !92
+  br i1 %2527, label %.preheader321, label %.loopexit322, !llvm.loop !92
 
-2528:                                             ; preds = %.loopexit324, %297
-  %2529 = phi i64 [ %300, %297 ], [ %2547, %.loopexit324 ]
-  %2530 = phi i32 [ %299, %297 ], [ %2548, %.loopexit324 ]
+2528:                                             ; preds = %.loopexit325, %297
+  %2529 = phi i64 [ %300, %297 ], [ %2547, %.loopexit325 ]
+  %2530 = phi i32 [ %299, %297 ], [ %2548, %.loopexit325 ]
   %2531 = trunc i64 %2529 to i32
   %2532 = mul nsw i64 %2529, 160
   %2533 = mul nsw i32 %2531, 160
@@ -3125,7 +3125,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2540 = add nsw i64 %2532, %301
   %2541 = sext i32 %2539 to i64
   %2542 = icmp sgt i64 %2540, %2541
-  br i1 %2542, label %2543, label %.loopexit324
+  br i1 %2542, label %2543, label %.loopexit325
 
 2543:                                             ; preds = %2528
   %2544 = sext i32 %2530 to i64
@@ -3133,11 +3133,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2546 = add nsw i64 %2545, %2544
   br label %2550
 
-.loopexit324:                                     ; preds = %2698, %2528
+.loopexit325:                                     ; preds = %2698, %2528
   %2547 = add nsw i64 %2529, 1
   %2548 = add i32 %2530, 160
   %2549 = icmp eq i64 %2547, %302
-  br i1 %2549, label %.loopexit352, label %2528, !llvm.loop !93
+  br i1 %2549, label %.loopexit353, label %2528, !llvm.loop !93
 
 2550:                                             ; preds = %2698, %2543
   %2551 = phi i64 [ %2546, %2543 ], [ %2699, %2698 ]
@@ -3298,11 +3298,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 2698:                                             ; preds = %2560, %2558
   %2699 = phi i64 [ %2559, %2558 ], [ %2599, %2560 ]
   %2700 = icmp slt i64 %2699, %2540
-  br i1 %2700, label %2550, label %.loopexit324, !llvm.loop !98
+  br i1 %2700, label %2550, label %.loopexit325, !llvm.loop !98
 
-2701:                                             ; preds = %5636, %.loopexit325
-  %2702 = phi i64 [ 8, %5636 ], [ %2718, %.loopexit325 ]
-  %2703 = phi i32 [ 1288, %5636 ], [ %2719, %.loopexit325 ]
+2701:                                             ; preds = %5636, %.loopexit326
+  %2702 = phi i64 [ 8, %5636 ], [ %2718, %.loopexit326 ]
+  %2703 = phi i32 [ 1288, %5636 ], [ %2719, %.loopexit326 ]
   %2704 = trunc i64 %2702 to i32
   %2705 = shl i32 %2704, 2
   %2706 = and i32 %2705, 28
@@ -3313,7 +3313,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2711 = or disjoint i32 %2710, 8
   %2712 = add i32 %5637, %2709
   %2713 = icmp slt i32 %2711, %2712
-  br i1 %2713, label %2714, label %.loopexit325
+  br i1 %2713, label %2714, label %.loopexit326
 
 2714:                                             ; preds = %2701
   %2715 = or disjoint i32 %2708, %2703
@@ -3321,11 +3321,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2717 = sext i32 %2712 to i64
   br label %2720
 
-.loopexit325:                                     ; preds = %2806, %2701
+.loopexit326:                                     ; preds = %2806, %2701
   %2718 = add nuw nsw i64 %2702, 1
   %2719 = add nuw i32 %2703, 160
   %exitcond.not = icmp eq i64 %2718, %smax
-  br i1 %exitcond.not, label %.loopexit353, label %2701, !llvm.loop !99
+  br i1 %exitcond.not, label %.loopexit354, label %2701, !llvm.loop !99
 
 2720:                                             ; preds = %2806, %2714
   %2721 = phi i64 [ %2716, %2714 ], [ %2809, %2806 ]
@@ -3426,16 +3426,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 2806:                                             ; preds = %2804, %2777
   %2807 = phi reassoc nsz arcp contract afn float [ %2803, %2777 ], [ 0.000000e+00, %2804 ]
-  %2808 = getelementptr inbounds %struct.s_hv, ptr %49, i64 %2751, i32 1
+  %.idx = shl nsw i64 %2751, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %2808 = getelementptr inbounds i8, ptr %49, i64 %.offs
   store float %2807, ptr %2808, align 4, !tbaa !97
   %2809 = add nuw nsw i64 %2721, 2
   %2810 = icmp slt i64 %2809, %2717
-  br i1 %2810, label %2720, label %.loopexit325, !llvm.loop !100
+  br i1 %2810, label %2720, label %.loopexit326, !llvm.loop !100
 
-2811:                                             ; preds = %5382, %.loopexit326
-  %2812 = phi i32 [ %289, %5382 ], [ %2830, %.loopexit326 ]
-  %2813 = phi i32 [ %5384, %5382 ], [ %2829, %.loopexit326 ]
-  %2814 = phi i32 [ %281, %5382 ], [ %2828, %.loopexit326 ]
+2811:                                             ; preds = %5382, %.loopexit327
+  %2812 = phi i32 [ %289, %5382 ], [ %2830, %.loopexit327 ]
+  %2813 = phi i32 [ %5384, %5382 ], [ %2829, %.loopexit327 ]
+  %2814 = phi i32 [ %281, %5382 ], [ %2828, %.loopexit327 ]
   %2815 = mul nuw nsw i32 %2814, 160
   %2816 = add nuw nsw i32 %2815, %283
   %2817 = shl i32 %2814, 2
@@ -3445,7 +3447,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2821 = or disjoint i32 %2820, %2816
   %2822 = add nsw i32 %2815, %285
   %2823 = icmp slt i32 %2821, %2822
-  br i1 %2823, label %2824, label %.loopexit326
+  br i1 %2823, label %2824, label %.loopexit327
 
 2824:                                             ; preds = %2811
   %2825 = or disjoint i32 %2820, %2813
@@ -3453,12 +3455,12 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2827 = zext i32 %2826 to i64
   br label %2832
 
-.loopexit326:                                     ; preds = %3141, %2811
+.loopexit327:                                     ; preds = %3141, %2811
   %2828 = add nuw nsw i32 %2814, 1
   %2829 = add i32 %2813, 160
   %2830 = add i32 %2812, 160
   %2831 = icmp eq i32 %2828, %290
-  br i1 %2831, label %.loopexit354, label %2811, !llvm.loop !101
+  br i1 %2831, label %.loopexit355, label %2811, !llvm.loop !101
 
 2832:                                             ; preds = %3141, %2824
   %2833 = phi i64 [ %2827, %2824 ], [ %3142, %3141 ]
@@ -3810,11 +3812,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3143 = trunc i64 %3142 to i32
   %3144 = icmp sgt i32 %2822, %3143
   %3145 = add i32 %2834, 2
-  br i1 %3144, label %2832, label %.loopexit326, !llvm.loop !103
+  br i1 %3144, label %2832, label %.loopexit327, !llvm.loop !103
 
-3146:                                             ; preds = %.loopexit327, %287
-  %3147 = phi i32 [ %289, %287 ], [ %3162, %.loopexit327 ]
-  %3148 = phi i32 [ %281, %287 ], [ %3161, %.loopexit327 ]
+3146:                                             ; preds = %.loopexit328, %287
+  %3147 = phi i32 [ %289, %287 ], [ %3162, %.loopexit328 ]
+  %3148 = phi i32 [ %281, %287 ], [ %3161, %.loopexit328 ]
   %3149 = mul nuw nsw i32 %3148, 160
   %3150 = add nuw nsw i32 %3149, %283
   %3151 = shl i32 %3148, 2
@@ -3824,14 +3826,14 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3155 = or disjoint i32 %3154, %3150
   %3156 = add nsw i32 %3149, %285
   %3157 = icmp slt i32 %3155, %3156
-  br i1 %3157, label %3158, label %.loopexit327
+  br i1 %3157, label %3158, label %.loopexit328
 
 3158:                                             ; preds = %3146
   %3159 = or disjoint i32 %3154, %3147
   %3160 = zext i32 %3159 to i64
   br label %3164
 
-.loopexit327:                                     ; preds = %3230, %3146
+.loopexit328:                                     ; preds = %3230, %3146
   %3161 = add nuw nsw i32 %3148, 1
   %3162 = add i32 %3147, 160
   %3163 = icmp eq i32 %3161, %290
@@ -3915,37 +3917,37 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3233 = getelementptr inbounds i8, ptr %46, i64 %3232
   store i8 %3231, ptr %3233, align 1, !tbaa !94
   %3234 = icmp sgt i32 %3156, %3195
-  br i1 %3234, label %3164, label %.loopexit327, !llvm.loop !105
+  br i1 %3234, label %3164, label %.loopexit328, !llvm.loop !105
 
-.preheader355:                                    ; preds = %.loopexit329, %.loopexit328
-  %3235 = phi i32 [ %3255, %.loopexit328 ], [ 966, %.loopexit329 ]
-  %3236 = phi i32 [ %3254, %.loopexit328 ], [ 6, %.loopexit329 ]
-  %3237 = phi i32 [ %3253, %.loopexit328 ], [ 0, %.loopexit329 ]
-  %3238 = phi i32 [ %3252, %.loopexit328 ], [ 0, %.loopexit329 ]
-  %3239 = phi i32 [ %3251, %.loopexit328 ], [ 161, %.loopexit329 ]
-  %3240 = phi i32 [ %3250, %.loopexit328 ], [ 0, %.loopexit329 ]
+.preheader356:                                    ; preds = %.loopexit330, %.loopexit329
+  %3235 = phi i32 [ %3255, %.loopexit329 ], [ 966, %.loopexit330 ]
+  %3236 = phi i32 [ %3254, %.loopexit329 ], [ 6, %.loopexit330 ]
+  %3237 = phi i32 [ %3253, %.loopexit329 ], [ 0, %.loopexit330 ]
+  %3238 = phi i32 [ %3252, %.loopexit329 ], [ 0, %.loopexit330 ]
+  %3239 = phi i32 [ %3251, %.loopexit329 ], [ 161, %.loopexit330 ]
+  %3240 = phi i32 [ %3250, %.loopexit329 ], [ 0, %.loopexit330 ]
   %3241 = shl i32 %3236, 2
   %3242 = and i32 %3241, 28
   %3243 = lshr i32 %5, %3242
   %3244 = and i32 %3243, 1
   %3245 = or disjoint i32 %3244, 6
   %3246 = icmp slt i32 %3245, %5635
-  br i1 %3246, label %3247, label %.loopexit328
+  br i1 %3246, label %3247, label %.loopexit329
 
-3247:                                             ; preds = %.preheader355
+3247:                                             ; preds = %.preheader356
   %3248 = or disjoint i32 %3244, %3235
   %3249 = zext i32 %3248 to i64
   br label %3257
 
-.loopexit328:                                     ; preds = %3274, %.preheader355
-  %3250 = phi i32 [ %3240, %.preheader355 ], [ %3275, %3274 ]
-  %3251 = phi i32 [ %3239, %.preheader355 ], [ %3276, %3274 ]
-  %3252 = phi i32 [ %3238, %.preheader355 ], [ %3277, %3274 ]
-  %3253 = phi i32 [ %3237, %.preheader355 ], [ %3278, %3274 ]
+.loopexit329:                                     ; preds = %3274, %.preheader356
+  %3250 = phi i32 [ %3240, %.preheader356 ], [ %3275, %3274 ]
+  %3251 = phi i32 [ %3239, %.preheader356 ], [ %3276, %3274 ]
+  %3252 = phi i32 [ %3238, %.preheader356 ], [ %3277, %3274 ]
+  %3253 = phi i32 [ %3237, %.preheader356 ], [ %3278, %3274 ]
   %3254 = add nuw nsw i32 %3236, 1
   %3255 = add i32 %3235, 160
   %3256 = icmp eq i32 %3254, %177
-  br i1 %3256, label %273, label %.preheader355, !llvm.loop !106
+  br i1 %3256, label %273, label %.preheader356, !llvm.loop !106
 
 3257:                                             ; preds = %3274, %3247
   %3258 = phi i64 [ %3249, %3247 ], [ %3280, %3274 ]
@@ -3977,29 +3979,29 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3279 = add nuw nsw i32 %3259, 2
   %3280 = add nuw nsw i64 %3258, 2
   %3281 = icmp slt i32 %3279, %5635
-  br i1 %3281, label %3257, label %.loopexit328, !llvm.loop !107
+  br i1 %3281, label %3257, label %.loopexit329, !llvm.loop !107
 
-.preheader356:                                    ; preds = %.loopexit330, %.loopexit329
-  %3282 = phi i32 [ %3294, %.loopexit329 ], [ 966, %.loopexit330 ]
-  %3283 = phi i32 [ %3293, %.loopexit329 ], [ 6, %.loopexit330 ]
+.preheader357:                                    ; preds = %.loopexit331, %.loopexit330
+  %3282 = phi i32 [ %3294, %.loopexit330 ], [ 966, %.loopexit331 ]
+  %3283 = phi i32 [ %3293, %.loopexit330 ], [ 6, %.loopexit331 ]
   %3284 = shl i32 %3283, 2
   %3285 = and i32 %3284, 28
   %3286 = lshr i32 %5, %3285
   %3287 = and i32 %3286, 1
   %3288 = or disjoint i32 %3287, 6
   %3289 = icmp slt i32 %3288, %5635
-  br i1 %3289, label %3290, label %.loopexit329
+  br i1 %3289, label %3290, label %.loopexit330
 
-3290:                                             ; preds = %.preheader356
+3290:                                             ; preds = %.preheader357
   %3291 = or disjoint i32 %3287, %3282
   %3292 = sext i32 %3291 to i64
   br label %3296
 
-.loopexit329:                                     ; preds = %3296, %.preheader356
+.loopexit330:                                     ; preds = %3296, %.preheader357
   %3293 = add nuw nsw i32 %3283, 1
   %3294 = add i32 %3282, 160
   %3295 = icmp eq i32 %3293, %177
-  br i1 %3295, label %.preheader355, label %.preheader356, !llvm.loop !108
+  br i1 %3295, label %.preheader356, label %.preheader357, !llvm.loop !108
 
 3296:                                             ; preds = %3296, %3290
   %3297 = phi i64 [ %3292, %3290 ], [ %3322, %3296 ]
@@ -4147,29 +4149,29 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %3435, ptr %3438, align 4, !tbaa !27
   %3439 = add nuw nsw i32 %3298, 2
   %3440 = icmp slt i32 %3439, %5635
-  br i1 %3440, label %3296, label %.loopexit329, !llvm.loop !109
+  br i1 %3440, label %3296, label %.loopexit330, !llvm.loop !109
 
-3441:                                             ; preds = %5634, %.loopexit330
-  %3442 = phi i32 [ 966, %5634 ], [ %3454, %.loopexit330 ]
-  %3443 = phi i32 [ 6, %5634 ], [ %3453, %.loopexit330 ]
+3441:                                             ; preds = %5634, %.loopexit331
+  %3442 = phi i32 [ 966, %5634 ], [ %3454, %.loopexit331 ]
+  %3443 = phi i32 [ 6, %5634 ], [ %3453, %.loopexit331 ]
   %3444 = shl i32 %3443, 2
   %3445 = and i32 %3444, 28
   %3446 = lshr i32 %5, %3445
   %3447 = and i32 %3446, 1
   %3448 = or disjoint i32 %3447, 6
   %3449 = icmp slt i32 %3448, %5635
-  br i1 %3449, label %3450, label %.loopexit330
+  br i1 %3449, label %3450, label %.loopexit331
 
 3450:                                             ; preds = %3441
   %3451 = or disjoint i32 %3447, %3442
   %3452 = sext i32 %3451 to i64
   br label %3456
 
-.loopexit330:                                     ; preds = %3620, %3441
+.loopexit331:                                     ; preds = %3620, %3441
   %3453 = add nuw nsw i32 %3443, 1
   %3454 = add i32 %3442, 160
   %3455 = icmp eq i32 %3453, %177
-  br i1 %3455, label %.preheader356, label %3441, !llvm.loop !110
+  br i1 %3455, label %.preheader357, label %3441, !llvm.loop !110
 
 3456:                                             ; preds = %3620, %3450
   %3457 = phi i64 [ %3452, %3450 ], [ %3487, %3620 ]
@@ -4347,15 +4349,15 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %3621, ptr %3624, align 4, !tbaa !27
   %3625 = add nuw nsw i32 %3458, 2
   %3626 = icmp slt i32 %3625, %5635
-  br i1 %3626, label %3456, label %.loopexit330, !llvm.loop !111
+  br i1 %3626, label %3456, label %.loopexit331, !llvm.loop !111
 
-.preheader357:                                    ; preds = %.loopexit332, %.loopexit331
-  %3627 = phi i32 [ %3639, %.loopexit331 ], [ %238, %.loopexit332 ]
-  %3628 = phi i32 [ %3638, %.loopexit331 ], [ 640, %.loopexit332 ]
-  %3629 = phi i32 [ %3637, %.loopexit331 ], [ 4, %.loopexit332 ]
-  br i1 %5633, label %3630, label %.loopexit331
+.preheader358:                                    ; preds = %.loopexit333, %.loopexit332
+  %3627 = phi i32 [ %3639, %.loopexit332 ], [ %238, %.loopexit333 ]
+  %3628 = phi i32 [ %3638, %.loopexit332 ], [ 640, %.loopexit333 ]
+  %3629 = phi i32 [ %3637, %.loopexit332 ], [ 4, %.loopexit333 ]
+  br i1 %5633, label %3630, label %.loopexit332
 
-3630:                                             ; preds = %.preheader357
+3630:                                             ; preds = %.preheader358
   %3631 = shl i32 %3629, 2
   %3632 = and i32 %3631, 28
   %3633 = lshr i32 %5, %3632
@@ -4364,12 +4366,12 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3636 = sext i32 %3635 to i64
   br label %3641
 
-.loopexit331:                                     ; preds = %4029, %.preheader357
+.loopexit332:                                     ; preds = %4029, %.preheader358
   %3637 = add nuw nsw i32 %3629, 1
   %3638 = add i32 %3628, 160
   %3639 = add i32 %3627, 160
   %3640 = icmp eq i32 %3637, %180
-  br i1 %3640, label %5385, label %.preheader357, !llvm.loop !112
+  br i1 %3640, label %5385, label %.preheader358, !llvm.loop !112
 
 3641:                                             ; preds = %4029, %3630
   %3642 = phi i64 [ %3636, %3630 ], [ %4031, %4029 ]
@@ -4963,21 +4965,21 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4031 = add nsw i64 %3642, 1
   %4032 = trunc i64 %4031 to i32
   %4033 = icmp eq i32 %3627, %4032
-  br i1 %4033, label %.loopexit331, label %3641, !llvm.loop !113
+  br i1 %4033, label %.loopexit332, label %3641, !llvm.loop !113
 
-4034:                                             ; preds = %5632, %.loopexit332
-  %indvars.iv441 = phi i64 [ 0, %5632 ], [ %indvars.iv.next442, %.loopexit332 ]
-  %4035 = phi i32 [ %238, %5632 ], [ %4266, %.loopexit332 ]
-  %4036 = phi i32 [ 640, %5632 ], [ %4265, %.loopexit332 ]
-  %4037 = phi i32 [ 4, %5632 ], [ %4264, %.loopexit332 ]
-  %4038 = trunc nuw nsw i64 %indvars.iv441 to i32
+4034:                                             ; preds = %5632, %.loopexit333
+  %indvars.iv442 = phi i64 [ 0, %5632 ], [ %indvars.iv.next443, %.loopexit333 ]
+  %4035 = phi i32 [ %238, %5632 ], [ %4266, %.loopexit333 ]
+  %4036 = phi i32 [ 640, %5632 ], [ %4265, %.loopexit333 ]
+  %4037 = phi i32 [ 4, %5632 ], [ %4264, %.loopexit333 ]
+  %4038 = trunc nuw nsw i64 %indvars.iv442 to i32
   %4039 = mul i32 %4038, 160
   %4040 = add i32 %4039, %238
   %4041 = sext i32 %4040 to i64
   %4042 = add nsw i64 %4041, -4
   %4043 = sext i32 %4036 to i64
   %4044 = sub nsw i64 %4042, %4043
-  br i1 %5633, label %4045, label %.loopexit332
+  br i1 %5633, label %4045, label %.loopexit333
 
 4045:                                             ; preds = %4034
   %4046 = shl i32 %4037, 2
@@ -4993,13 +4995,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4056 = getelementptr inbounds float, ptr %132, i64 %4052
   %4057 = load float, ptr %4056, align 16, !tbaa !27
   %4058 = icmp ult i64 %4044, 8
-  br i1 %4058, label %.preheader529, label %4059
+  br i1 %4058, label %.preheader530, label %4059
 
-.preheader529:                                    ; preds = %4258, %4045
-  %.ph530 = phi float [ %4057, %4045 ], [ %4262, %4258 ]
-  %.ph531 = phi float [ %4055, %4045 ], [ %4263, %4258 ]
-  %.ph532 = phi i64 [ %4052, %4045 ], [ %4259, %4258 ]
-  %.ph533 = phi i1 [ %4050, %4045 ], [ %4260, %4258 ]
+.preheader530:                                    ; preds = %4258, %4045
+  %.ph531 = phi float [ %4057, %4045 ], [ %4262, %4258 ]
+  %.ph532 = phi float [ %4055, %4045 ], [ %4263, %4258 ]
+  %.ph533 = phi i64 [ %4052, %4045 ], [ %4259, %4258 ]
+  %.ph534 = phi i1 [ %4050, %4045 ], [ %4260, %4258 ]
   br label %4268
 
 4059:                                             ; preds = %4045
@@ -5219,21 +5221,21 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4261 = icmp eq i64 %4060, 0
   %4262 = extractelement <8 x float> %4170, i64 7
   %4263 = extractelement <8 x float> %4112, i64 7
-  br i1 %4261, label %.loopexit332, label %.preheader529
+  br i1 %4261, label %.loopexit333, label %.preheader530
 
-.loopexit332:                                     ; preds = %4393, %4258, %4034
+.loopexit333:                                     ; preds = %4393, %4258, %4034
   %4264 = add nuw nsw i32 %4037, 1
   %4265 = add i32 %4036, 160
   %4266 = add i32 %4035, 160
   %4267 = icmp eq i32 %4264, %180
-  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
-  br i1 %4267, label %.preheader357, label %4034, !llvm.loop !115
+  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
+  br i1 %4267, label %.preheader358, label %4034, !llvm.loop !115
 
-4268:                                             ; preds = %.preheader529, %4393
-  %4269 = phi float [ %4325, %4393 ], [ %.ph530, %.preheader529 ]
-  %4270 = phi float [ %4414, %4393 ], [ %.ph531, %.preheader529 ]
-  %4271 = phi i64 [ %4323, %4393 ], [ %.ph532, %.preheader529 ]
-  %4272 = phi i1 [ %4383, %4393 ], [ %.ph533, %.preheader529 ]
+4268:                                             ; preds = %.preheader530, %4393
+  %4269 = phi float [ %4325, %4393 ], [ %.ph531, %.preheader530 ]
+  %4270 = phi float [ %4414, %4393 ], [ %.ph532, %.preheader530 ]
+  %4271 = phi i64 [ %4323, %4393 ], [ %.ph533, %.preheader530 ]
+  %4272 = phi i1 [ %4383, %4393 ], [ %.ph534, %.preheader530 ]
   %4273 = insertelement <4 x i64> poison, i64 %4271, i64 0
   %4274 = shufflevector <4 x i64> %4273, <4 x i64> poison, <4 x i32> zeroinitializer
   %4275 = add nsw <4 x i64> %4274, <i64 1, i64 160, i64 -1, i64 -160>
@@ -5336,10 +5338,10 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4368 = extractelement <2 x float> %4340, i64 0
   %4369 = extractelement <4 x float> %4319, i64 0
   %4370 = extractelement <2 x float> %4337, i64 0
-  %.neg291 = fmul reassoc nsz arcp contract afn float %4369, %4370
-  %.neg292 = fmul reassoc nsz arcp contract afn float %4367, %4368
-  %reass.add294 = fadd reassoc nsz arcp contract afn float %.neg291, %.neg292
-  %4371 = fsub reassoc nsz arcp contract afn float %4270, %reass.add294
+  %.neg292 = fmul reassoc nsz arcp contract afn float %4369, %4370
+  %.neg293 = fmul reassoc nsz arcp contract afn float %4367, %4368
+  %reass.add295 = fadd reassoc nsz arcp contract afn float %.neg292, %.neg293
+  %4371 = fsub reassoc nsz arcp contract afn float %4270, %reass.add295
   %4372 = fsub reassoc nsz arcp contract afn <2 x float> %4351, %4343
   br label %4373
 
@@ -5397,13 +5399,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4411, ptr %4412, align 4, !tbaa !27
   %4413 = icmp eq i64 %4323, %4053
   %4414 = extractelement <4 x float> %4286, i64 0
-  br i1 %4413, label %.loopexit332, label %4268, !llvm.loop !116
+  br i1 %4413, label %.loopexit333, label %4268, !llvm.loop !116
 
-4415:                                             ; preds = %5630, %.loopexit333
-  %indvars.iv = phi i64 [ 0, %5630 ], [ %indvars.iv.next, %.loopexit333 ]
-  %4416 = phi i32 [ %235, %5630 ], [ %4492, %.loopexit333 ]
-  %4417 = phi i32 [ 320, %5630 ], [ %4491, %.loopexit333 ]
-  %4418 = phi i32 [ 2, %5630 ], [ %4490, %.loopexit333 ]
+4415:                                             ; preds = %5630, %.loopexit334
+  %indvars.iv = phi i64 [ 0, %5630 ], [ %indvars.iv.next, %.loopexit334 ]
+  %4416 = phi i32 [ %235, %5630 ], [ %4492, %.loopexit334 ]
+  %4417 = phi i32 [ 320, %5630 ], [ %4491, %.loopexit334 ]
+  %4418 = phi i32 [ 2, %5630 ], [ %4490, %.loopexit334 ]
   %4419 = trunc nuw nsw i64 %indvars.iv to i32
   %4420 = mul i32 %4419, 160
   %4421 = add i32 %4420, %235
@@ -5411,7 +5413,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4423 = add nsw i64 %4422, -2
   %4424 = zext i32 %4417 to i64
   %4425 = sub nsw i64 %4423, %4424
-  br i1 %5631, label %4426, label %.loopexit333
+  br i1 %5631, label %4426, label %.loopexit334
 
 4426:                                             ; preds = %4415
   %4427 = or disjoint i32 %4417, 2
@@ -5420,11 +5422,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4430 = getelementptr float, ptr %53, i64 %4428
   %4431 = load float, ptr %4430, align 8, !tbaa !27
   %4432 = icmp ult i64 %4425, 8
-  br i1 %4432, label %.preheader534, label %4433
+  br i1 %4432, label %.preheader535, label %4433
 
-.preheader534:                                    ; preds = %4486, %4426
-  %.ph535 = phi float [ %4431, %4426 ], [ %4489, %4486 ]
-  %.ph536 = phi i64 [ %4428, %4426 ], [ %4487, %4486 ]
+.preheader535:                                    ; preds = %4486, %4426
+  %.ph536 = phi float [ %4431, %4426 ], [ %4489, %4486 ]
+  %.ph537 = phi i64 [ %4428, %4426 ], [ %4487, %4486 ]
   br label %4494
 
 4433:                                             ; preds = %4426
@@ -5491,9 +5493,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4487 = add nsw i64 %4435, %4428
   %4488 = icmp eq i64 %4434, 0
   %4489 = extractelement <8 x float> %4443, i64 7
-  br i1 %4488, label %.loopexit333, label %.preheader534
+  br i1 %4488, label %.loopexit334, label %.preheader535
 
-.loopexit333:                                     ; preds = %4494, %4486, %4415
+.loopexit334:                                     ; preds = %4494, %4486, %4415
   %4490 = add nuw nsw i32 %4418, 1
   %4491 = add i32 %4417, 160
   %4492 = add i32 %4416, 160
@@ -5501,9 +5503,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %4493, label %5386, label %4415, !llvm.loop !118
 
-4494:                                             ; preds = %.preheader534, %4494
-  %4495 = phi float [ %4499, %4494 ], [ %.ph535, %.preheader534 ]
-  %4496 = phi i64 [ %4497, %4494 ], [ %.ph536, %.preheader534 ]
+4494:                                             ; preds = %.preheader535, %4494
+  %4495 = phi float [ %4499, %4494 ], [ %.ph536, %.preheader535 ]
+  %4496 = phi i64 [ %4497, %4494 ], [ %.ph537, %.preheader535 ]
   %4497 = add nuw nsw i64 %4496, 1
   %4498 = getelementptr inbounds float, ptr %53, i64 %4497
   %4499 = load float, ptr %4498, align 4, !tbaa !27
@@ -5550,7 +5552,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4538 = getelementptr inbounds float, ptr %37, i64 %4496
   store float %4537, ptr %4538, align 4, !tbaa !27
   %4539 = icmp eq i64 %4497, %4429
-  br i1 %4539, label %.loopexit333, label %4494, !llvm.loop !119
+  br i1 %4539, label %.loopexit334, label %4494, !llvm.loop !119
 
 4540:                                             ; preds = %5628, %4540
   %4541 = phi i64 [ %211, %5628 ], [ %4657, %4540 ]
@@ -5703,15 +5705,15 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4653, ptr %4656, align 4, !tbaa !27
   %4657 = add nuw nsw i64 %4541, 1
   %4658 = icmp eq i64 %4657, %213
-  br i1 %4658, label %.loopexit365, label %4540, !llvm.loop !120
+  br i1 %4658, label %.loopexit366, label %4540, !llvm.loop !120
 
-.loopexit335:                                     ; preds = %4661, %.loopexit337, %5608, %5368
+.loopexit336:                                     ; preds = %4661, %.loopexit338, %5608, %5368
   %4659 = add nuw nsw i64 %5369, 1
   %4660 = icmp eq i64 %4659, 16
-  br i1 %4660, label %.loopexit366, label %5368, !llvm.loop !121
+  br i1 %4660, label %.loopexit367, label %5368, !llvm.loop !121
 
-4661:                                             ; preds = %.preheader334, %4661
-  %4662 = phi i64 [ %4686, %4661 ], [ %5625, %.preheader334 ]
+4661:                                             ; preds = %.preheader335, %4661
+  %4662 = phi i64 [ %4686, %4661 ], [ %5625, %.preheader335 ]
   %4663 = trunc i64 %4662 to i32
   %4664 = add i32 %5571, %4663
   %4665 = sext i32 %4664 to i64
@@ -5722,40 +5724,40 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4667, ptr %4669, align 4, !tbaa !27
   %4670 = getelementptr inbounds float, ptr %36, i64 %4668
   store float %4667, ptr %4670, align 4, !tbaa !27
-  %.reass497 = add i32 %invariant.op496, %4663
-  %4671 = sext i32 %.reass497 to i64
+  %.reass498 = add i32 %invariant.op497, %4663
+  %4671 = sext i32 %.reass498 to i64
   %4672 = getelementptr inbounds float, ptr %1, i64 %4671
   %4673 = load float, ptr %4672, align 4, !tbaa !27
-  %.reass402 = add i64 %4662, %invariant.op401
-  %4674 = getelementptr inbounds float, ptr %53, i64 %.reass402
+  %.reass403 = add i64 %4662, %invariant.op402
+  %4674 = getelementptr inbounds float, ptr %53, i64 %.reass403
   store float %4673, ptr %4674, align 4, !tbaa !27
-  %4675 = getelementptr inbounds float, ptr %36, i64 %.reass402
+  %4675 = getelementptr inbounds float, ptr %36, i64 %.reass403
   store float %4673, ptr %4675, align 4, !tbaa !27
-  %.reass499 = add i32 %invariant.op498, %4663
-  %4676 = sext i32 %.reass499 to i64
+  %.reass500 = add i32 %invariant.op499, %4663
+  %4676 = sext i32 %.reass500 to i64
   %4677 = getelementptr inbounds float, ptr %1, i64 %4676
   %4678 = load float, ptr %4677, align 4, !tbaa !27
-  %.reass404 = add i64 %4662, %invariant.op403
-  %4679 = getelementptr inbounds float, ptr %53, i64 %.reass404
+  %.reass405 = add i64 %4662, %invariant.op404
+  %4679 = getelementptr inbounds float, ptr %53, i64 %.reass405
   store float %4678, ptr %4679, align 4, !tbaa !27
-  %4680 = getelementptr inbounds float, ptr %36, i64 %.reass404
+  %4680 = getelementptr inbounds float, ptr %36, i64 %.reass405
   store float %4678, ptr %4680, align 4, !tbaa !27
-  %.reass501 = add i32 %invariant.op500, %4663
-  %4681 = sext i32 %.reass501 to i64
+  %.reass502 = add i32 %invariant.op501, %4663
+  %4681 = sext i32 %.reass502 to i64
   %4682 = getelementptr inbounds float, ptr %1, i64 %4681
   %4683 = load float, ptr %4682, align 4, !tbaa !27
-  %.reass406 = add i64 %4662, %invariant.op405
-  %4684 = getelementptr inbounds float, ptr %53, i64 %.reass406
+  %.reass407 = add i64 %4662, %invariant.op406
+  %4684 = getelementptr inbounds float, ptr %53, i64 %.reass407
   store float %4683, ptr %4684, align 4, !tbaa !27
-  %4685 = getelementptr inbounds float, ptr %36, i64 %.reass406
+  %4685 = getelementptr inbounds float, ptr %36, i64 %.reass407
   store float %4683, ptr %4685, align 4, !tbaa !27
   %4686 = add nuw nsw i64 %4662, 4
   %4687 = icmp eq i64 %4686, %5390
-  br i1 %4687, label %.loopexit335, label %4661, !llvm.loop !122
+  br i1 %4687, label %.loopexit336, label %4661, !llvm.loop !122
 
-4688:                                             ; preds = %5549, %.loopexit340
-  %4689 = phi i32 [ 0, %5549 ], [ %4700, %.loopexit340 ]
-  %4690 = phi i64 [ %211, %5549 ], [ %4698, %.loopexit340 ]
+4688:                                             ; preds = %5549, %.loopexit341
+  %4689 = phi i32 [ 0, %5549 ], [ %4700, %.loopexit341 ]
+  %4690 = phi i64 [ %211, %5549 ], [ %4698, %.loopexit341 ]
   %reass.add = add i32 %218, %4689
   %reass.mul = mul i32 %reass.add, %11
   %4691 = add i32 %5569, %reass.mul
@@ -5765,16 +5767,16 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4695 = add nsw i64 %4692, %5552
   %4696 = shl nsw i64 %4695, 2
   %4697 = getelementptr i8, ptr %5560, i64 %4696
-  br i1 %5550, label %5489, label %.loopexit340
+  br i1 %5550, label %5489, label %.loopexit341
 
-.loopexit340:                                     ; preds = %4701, %.loopexit342, %5529, %4688
+.loopexit341:                                     ; preds = %4701, %.loopexit343, %5529, %4688
   %4698 = add nuw nsw i64 %4690, 1
   %4699 = icmp eq i64 %4698, %213
   %4700 = add i32 %4689, 1
-  br i1 %4699, label %.loopexit367, label %4688, !llvm.loop !123
+  br i1 %4699, label %.loopexit368, label %4688, !llvm.loop !123
 
-4701:                                             ; preds = %.preheader339, %4701
-  %4702 = phi i64 [ %4726, %4701 ], [ %5546, %.preheader339 ]
+4701:                                             ; preds = %.preheader340, %4701
+  %4702 = phi i64 [ %4726, %4701 ], [ %5546, %.preheader340 ]
   %4703 = add nuw nsw i64 %4702, %5491
   %4704 = trunc i64 %4702 to i32
   %4705 = add i32 %5494, %4704
@@ -5785,39 +5787,39 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4708, ptr %4709, align 4, !tbaa !27
   %4710 = getelementptr inbounds float, ptr %36, i64 %4703
   store float %4708, ptr %4710, align 4, !tbaa !27
-  %.reass396 = add nuw i64 %4702, %invariant.op395
-  %.reass491 = add i32 %invariant.op490, %4704
-  %4711 = sext i32 %.reass491 to i64
+  %.reass397 = add nuw i64 %4702, %invariant.op396
+  %.reass492 = add i32 %invariant.op491, %4704
+  %4711 = sext i32 %.reass492 to i64
   %4712 = getelementptr inbounds float, ptr %1, i64 %4711
   %4713 = load float, ptr %4712, align 4, !tbaa !27
-  %4714 = getelementptr inbounds float, ptr %53, i64 %.reass396
+  %4714 = getelementptr inbounds float, ptr %53, i64 %.reass397
   store float %4713, ptr %4714, align 4, !tbaa !27
-  %4715 = getelementptr inbounds float, ptr %36, i64 %.reass396
+  %4715 = getelementptr inbounds float, ptr %36, i64 %.reass397
   store float %4713, ptr %4715, align 4, !tbaa !27
-  %.reass398 = add nuw i64 %4702, %invariant.op397
-  %.reass493 = add i32 %invariant.op492, %4704
-  %4716 = sext i32 %.reass493 to i64
+  %.reass399 = add nuw i64 %4702, %invariant.op398
+  %.reass494 = add i32 %invariant.op493, %4704
+  %4716 = sext i32 %.reass494 to i64
   %4717 = getelementptr inbounds float, ptr %1, i64 %4716
   %4718 = load float, ptr %4717, align 4, !tbaa !27
-  %4719 = getelementptr inbounds float, ptr %53, i64 %.reass398
+  %4719 = getelementptr inbounds float, ptr %53, i64 %.reass399
   store float %4718, ptr %4719, align 4, !tbaa !27
-  %4720 = getelementptr inbounds float, ptr %36, i64 %.reass398
+  %4720 = getelementptr inbounds float, ptr %36, i64 %.reass399
   store float %4718, ptr %4720, align 4, !tbaa !27
-  %.reass400 = add nuw i64 %4702, %invariant.op399
-  %.reass495 = add i32 %invariant.op494, %4704
-  %4721 = sext i32 %.reass495 to i64
+  %.reass401 = add nuw i64 %4702, %invariant.op400
+  %.reass496 = add i32 %invariant.op495, %4704
+  %4721 = sext i32 %.reass496 to i64
   %4722 = getelementptr inbounds float, ptr %1, i64 %4721
   %4723 = load float, ptr %4722, align 4, !tbaa !27
-  %4724 = getelementptr inbounds float, ptr %53, i64 %.reass400
+  %4724 = getelementptr inbounds float, ptr %53, i64 %.reass401
   store float %4723, ptr %4724, align 4, !tbaa !27
-  %4725 = getelementptr inbounds float, ptr %36, i64 %.reass400
+  %4725 = getelementptr inbounds float, ptr %36, i64 %.reass401
   store float %4723, ptr %4725, align 4, !tbaa !27
   %4726 = add nuw nsw i64 %4702, 4
   %4727 = icmp eq i64 %4726, %5552
-  br i1 %4727, label %.loopexit340, label %4701, !llvm.loop !124
+  br i1 %4727, label %.loopexit341, label %4701, !llvm.loop !124
 
-4728:                                             ; preds = %5408, %.loopexit345
-  %4729 = phi i64 [ 0, %5408 ], [ %4739, %.loopexit345 ]
+4728:                                             ; preds = %5408, %.loopexit346
+  %4729 = phi i64 [ 0, %5408 ], [ %4739, %.loopexit346 ]
   %4730 = trunc i64 %4729 to i32
   %4731 = mul i32 %11, %4730
   %4732 = sub i32 %5416, %4731
@@ -5827,15 +5829,15 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4736 = add nsw i64 %4733, %5413
   %4737 = shl nsw i64 %4736, 2
   %4738 = getelementptr i8, ptr %5422, i64 %4737
-  br i1 %5411, label %5430, label %.loopexit345
+  br i1 %5411, label %5430, label %.loopexit346
 
-.loopexit345:                                     ; preds = %4741, %.loopexit347, %5469, %4728
+.loopexit346:                                     ; preds = %4741, %.loopexit348, %5469, %4728
   %4739 = add nuw nsw i64 %4729, 1
   %4740 = icmp eq i64 %4739, 16
-  br i1 %4740, label %.loopexit368, label %4728, !llvm.loop !125
+  br i1 %4740, label %.loopexit369, label %4728, !llvm.loop !125
 
-4741:                                             ; preds = %.preheader344, %4741
-  %4742 = phi i64 [ %4766, %4741 ], [ %5486, %.preheader344 ]
+4741:                                             ; preds = %.preheader345, %4741
+  %4742 = phi i64 [ %4766, %4741 ], [ %5486, %.preheader345 ]
   %4743 = trunc i64 %4742 to i32
   %4744 = add i32 %5433, %4743
   %4745 = sext i32 %4744 to i64
@@ -5846,8 +5848,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4747, ptr %4749, align 4, !tbaa !27
   %4750 = getelementptr inbounds float, ptr %36, i64 %4748
   store float %4747, ptr %4750, align 4, !tbaa !27
-  %.reass485 = add i32 %invariant.op484, %4743
-  %4751 = sext i32 %.reass485 to i64
+  %.reass486 = add i32 %invariant.op485, %4743
+  %4751 = sext i32 %.reass486 to i64
   %4752 = getelementptr inbounds float, ptr %1, i64 %4751
   %4753 = load float, ptr %4752, align 4, !tbaa !27
   %.reass = add nuw i64 %4742, %invariant.op
@@ -5855,27 +5857,27 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4753, ptr %4754, align 4, !tbaa !27
   %4755 = getelementptr inbounds float, ptr %36, i64 %.reass
   store float %4753, ptr %4755, align 4, !tbaa !27
-  %.reass487 = add i32 %invariant.op486, %4743
-  %4756 = sext i32 %.reass487 to i64
+  %.reass488 = add i32 %invariant.op487, %4743
+  %4756 = sext i32 %.reass488 to i64
   %4757 = getelementptr inbounds float, ptr %1, i64 %4756
   %4758 = load float, ptr %4757, align 4, !tbaa !27
-  %.reass391 = add nuw i64 %4742, %invariant.op390
-  %4759 = getelementptr inbounds float, ptr %53, i64 %.reass391
+  %.reass392 = add nuw i64 %4742, %invariant.op391
+  %4759 = getelementptr inbounds float, ptr %53, i64 %.reass392
   store float %4758, ptr %4759, align 4, !tbaa !27
-  %4760 = getelementptr inbounds float, ptr %36, i64 %.reass391
+  %4760 = getelementptr inbounds float, ptr %36, i64 %.reass392
   store float %4758, ptr %4760, align 4, !tbaa !27
-  %.reass489 = add i32 %invariant.op488, %4743
-  %4761 = sext i32 %.reass489 to i64
+  %.reass490 = add i32 %invariant.op489, %4743
+  %4761 = sext i32 %.reass490 to i64
   %4762 = getelementptr inbounds float, ptr %1, i64 %4761
   %4763 = load float, ptr %4762, align 4, !tbaa !27
-  %.reass393 = add nuw i64 %4742, %invariant.op392
-  %4764 = getelementptr inbounds float, ptr %53, i64 %.reass393
+  %.reass394 = add nuw i64 %4742, %invariant.op393
+  %4764 = getelementptr inbounds float, ptr %53, i64 %.reass394
   store float %4763, ptr %4764, align 4, !tbaa !27
-  %4765 = getelementptr inbounds float, ptr %36, i64 %.reass393
+  %4765 = getelementptr inbounds float, ptr %36, i64 %.reass394
   store float %4763, ptr %4765, align 4, !tbaa !27
   %4766 = add nuw nsw i64 %4742, 4
   %4767 = icmp eq i64 %4766, %5413
-  br i1 %4767, label %.loopexit345, label %4741, !llvm.loop !126
+  br i1 %4767, label %.loopexit346, label %4741, !llvm.loop !126
 
 4768:                                             ; preds = %343
   br i1 %357, label %5664, label %623
@@ -5883,8 +5885,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 4769:                                             ; preds = %343
   br i1 %357, label %5659, label %360
 
-.preheader358:                                    ; preds = %.loopexit360, %.preheader358
-  %4770 = phi i64 [ %4887, %.preheader358 ], [ 0, %.loopexit360 ]
+.preheader359:                                    ; preds = %.loopexit361, %.preheader359
+  %4770 = phi i64 [ %4887, %.preheader359 ], [ 0, %.loopexit361 ]
   %4771 = trunc i64 %4770 to i32
   %4772 = sub i32 %65, %4771
   %4773 = mul nsw i32 %4772, %11
@@ -6035,7 +6037,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %4883, ptr %4886, align 4, !tbaa !27
   %4887 = add nuw nsw i64 %4770, 1
   %4888 = icmp eq i64 %4887, 16
-  br i1 %4888, label %.loopexit359, label %.preheader358, !llvm.loop !127
+  br i1 %4888, label %.loopexit360, label %.preheader359, !llvm.loop !127
 
 4889:                                             ; preds = %4889, %270
   %4890 = phi i64 [ 0, %270 ], [ %5007, %4889 ]
@@ -6189,7 +6191,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %5003, ptr %5006, align 4, !tbaa !27
   %5007 = add nuw nsw i64 %4890, 1
   %5008 = icmp eq i64 %5007, 16
-  br i1 %5008, label %.loopexit360, label %4889, !llvm.loop !128
+  br i1 %5008, label %.loopexit361, label %4889, !llvm.loop !128
 
 5009:                                             ; preds = %5009, %267
   %5010 = phi i64 [ 0, %267 ], [ %5128, %5009 ]
@@ -6344,10 +6346,10 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %5124, ptr %5127, align 4, !tbaa !27
   %5128 = add nuw nsw i64 %5010, 1
   %5129 = icmp eq i64 %5128, 16
-  br i1 %5129, label %.loopexit361, label %5009, !llvm.loop !129
+  br i1 %5129, label %.loopexit362, label %5009, !llvm.loop !129
 
-.preheader362:                                    ; preds = %.loopexit364, %.preheader362
-  %5130 = phi i64 [ %5246, %.preheader362 ], [ 0, %.loopexit364 ]
+.preheader363:                                    ; preds = %.loopexit365, %.preheader363
+  %5130 = phi i64 [ %5246, %.preheader363 ], [ 0, %.loopexit365 ]
   %5131 = trunc i64 %5130 to i32
   %5132 = sub i32 %67, %5131
   %5133 = mul nsw i32 %5132, %11
@@ -6497,7 +6499,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %5242, ptr %5245, align 4, !tbaa !27
   %5246 = add nuw nsw i64 %5130, 1
   %5247 = icmp eq i64 %5246, 16
-  br i1 %5247, label %.loopexit363, label %.preheader362, !llvm.loop !130
+  br i1 %5247, label %.loopexit364, label %.preheader363, !llvm.loop !130
 
 5248:                                             ; preds = %5248, %263
   %5249 = phi i64 [ %211, %263 ], [ %5366, %5248 ]
@@ -6651,52 +6653,52 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   store float %5362, ptr %5365, align 4, !tbaa !27
   %5366 = add nuw nsw i64 %5249, 1
   %5367 = icmp eq i64 %5366, %213
-  br i1 %5367, label %.loopexit364, label %5248, !llvm.loop !131
+  br i1 %5367, label %.loopexit365, label %5248, !llvm.loop !131
 
-5368:                                             ; preds = %5387, %.loopexit335
-  %5369 = phi i64 [ 0, %5387 ], [ %4659, %.loopexit335 ]
+5368:                                             ; preds = %5387, %.loopexit336
+  %5369 = phi i64 [ 0, %5387 ], [ %4659, %.loopexit336 ]
   %5370 = trunc i64 %5369 to i32
-  %reass.add278 = sub i32 %65, %5370
-  %reass.mul279 = mul i32 %reass.add278, %11
-  %5371 = add i32 %5407, %reass.mul279
+  %reass.add279 = sub i32 %65, %5370
+  %reass.mul280 = mul i32 %reass.add279, %11
+  %5371 = add i32 %5407, %reass.mul280
   %5372 = sext i32 %5371 to i64
   %5373 = shl nsw i64 %5372, 2
   %5374 = getelementptr i8, ptr %1, i64 %5373
   %5375 = add nsw i64 %5372, %5390
   %5376 = shl nsw i64 %5375, 2
   %5377 = getelementptr i8, ptr %5398, i64 %5376
-  br i1 %5388, label %5570, label %.loopexit335
+  br i1 %5388, label %5570, label %.loopexit336
 
-5378:                                             ; preds = %.loopexit315
-  br i1 %210, label %5669, label %.loopexit349
+5378:                                             ; preds = %.loopexit316
+  br i1 %210, label %5669, label %.loopexit350
 
-.loopexit350:                                     ; preds = %.loopexit316, %.loopexit351
-  br i1 %209, label %5657, label %.loopexit349
+.loopexit351:                                     ; preds = %.loopexit317, %.loopexit352
+  br i1 %209, label %5657, label %.loopexit350
 
-.loopexit351:                                     ; preds = %.loopexit317, %5386, %5385, %5381, %5380, %5379, %.loopexit359
-  br i1 %208, label %5645, label %.loopexit350
+.loopexit352:                                     ; preds = %.loopexit318, %5386, %5385, %5381, %5380, %5379, %.loopexit360
+  br i1 %208, label %5645, label %.loopexit351
 
-5379:                                             ; preds = %.loopexit318
-  br i1 %207, label %5643, label %.loopexit351
+5379:                                             ; preds = %.loopexit319
+  br i1 %207, label %5643, label %.loopexit352
 
-5380:                                             ; preds = %.loopexit319
-  br i1 %205, label %5641, label %.loopexit351
+5380:                                             ; preds = %.loopexit320
+  br i1 %205, label %5641, label %.loopexit352
 
-5381:                                             ; preds = %.loopexit321
-  br i1 %204, label %5639, label %.loopexit351
+5381:                                             ; preds = %.loopexit322
+  br i1 %204, label %5639, label %.loopexit352
 
-5382:                                             ; preds = %.loopexit327
+5382:                                             ; preds = %.loopexit328
   %5383 = add nsw i32 %283, -966
   %5384 = add i32 %5383, %288
   br label %2811
 
-5385:                                             ; preds = %.loopexit331
-  br i1 %202, label %5634, label %.loopexit351
+5385:                                             ; preds = %.loopexit332
+  br i1 %202, label %5634, label %.loopexit352
 
-5386:                                             ; preds = %.loopexit333
-  br i1 %201, label %5632, label %.loopexit351
+5386:                                             ; preds = %.loopexit334
+  br i1 %201, label %5632, label %.loopexit352
 
-5387:                                             ; preds = %.loopexit367
+5387:                                             ; preds = %.loopexit368
   %5388 = icmp slt i32 %256, %259
   %5389 = zext nneg i32 %256 to i64
   %5390 = zext i32 %259 to i64
@@ -6717,7 +6719,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5405 = icmp eq i64 %5399, %5403
   %5406 = add i32 %76, %231
   %5407 = add i32 %5406, %256
-  %.pre461 = sub nsw i64 %5390, %5404
+  %.pre462 = sub nsw i64 %5390, %5404
   br label %5368
 
 5408:                                             ; preds = %223
@@ -6742,7 +6744,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5427 = and i64 %5423, -32
   %5428 = or disjoint i64 %5427, %5412
   %5429 = icmp eq i64 %5423, %5427
-  %.pre458 = sub nsw i64 %5413, %5428
+  %.pre459 = sub nsw i64 %5413, %5428
   br label %4728
 
 5430:                                             ; preds = %4728
@@ -6750,26 +6752,26 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5432 = mul nsw i32 %5431, %11
   %5433 = add i32 %5432, %253
   %5434 = mul nuw nsw i64 %4729, 160
-  br i1 %5424, label %._crit_edge457, label %5435
+  br i1 %5424, label %._crit_edge458, label %5435
 
 5435:                                             ; preds = %5430
   %5436 = add i32 %4732, %5425
   %5437 = icmp slt i32 %5436, %4732
   %5438 = or i1 %5426, %5437
-  br i1 %5438, label %._crit_edge457, label %5439
+  br i1 %5438, label %._crit_edge458, label %5439
 
 5439:                                             ; preds = %5435
   %5440 = icmp ult ptr %5418, %4738
   %5441 = icmp ult ptr %4735, %5420
   %5442 = and i1 %5441, %5440
-  br i1 %5442, label %._crit_edge457, label %.preheader348
+  br i1 %5442, label %._crit_edge458, label %.preheader349
 
-.preheader348:                                    ; preds = %5439
+.preheader349:                                    ; preds = %5439
   %5443 = add i32 %5433, %256
   br label %5444
 
-5444:                                             ; preds = %.preheader348, %5444
-  %5445 = phi i64 [ %5467, %5444 ], [ 0, %.preheader348 ]
+5444:                                             ; preds = %.preheader349, %5444
+  %5445 = phi i64 [ %5467, %5444 ], [ 0, %.preheader349 ]
   %5446 = or disjoint i64 %5445, %5412
   %5447 = trunc i64 %5445 to i32
   %5448 = add i32 %5443, %5447
@@ -6804,18 +6806,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %5468, label %5469, label %5444, !llvm.loop !137
 
 5469:                                             ; preds = %5444
-  br i1 %5429, label %.loopexit345, label %._crit_edge457
+  br i1 %5429, label %.loopexit346, label %._crit_edge458
 
-._crit_edge457:                                   ; preds = %5469, %5439, %5435, %5430
-  %.pre-phi = phi i64 [ %5423, %5439 ], [ %5423, %5435 ], [ %5423, %5430 ], [ %.pre458, %5469 ]
+._crit_edge458:                                   ; preds = %5469, %5439, %5435, %5430
+  %.pre-phi = phi i64 [ %5423, %5439 ], [ %5423, %5435 ], [ %5423, %5430 ], [ %.pre459, %5469 ]
   %5470 = phi i64 [ %5412, %5439 ], [ %5412, %5435 ], [ %5412, %5430 ], [ %5428, %5469 ]
   %5471 = and i64 %.pre-phi, 3
   %5472 = icmp eq i64 %5471, 0
-  br i1 %5472, label %.loopexit347, label %.preheader346
+  br i1 %5472, label %.loopexit348, label %.preheader347
 
-.preheader346:                                    ; preds = %._crit_edge457, %.preheader346
-  %5473 = phi i64 [ %5483, %.preheader346 ], [ %5470, %._crit_edge457 ]
-  %5474 = phi i64 [ %5484, %.preheader346 ], [ 0, %._crit_edge457 ]
+.preheader347:                                    ; preds = %._crit_edge458, %.preheader347
+  %5473 = phi i64 [ %5483, %.preheader347 ], [ %5470, %._crit_edge458 ]
+  %5474 = phi i64 [ %5484, %.preheader347 ], [ 0, %._crit_edge458 ]
   %5475 = trunc i64 %5473 to i32
   %5476 = add i32 %5433, %5475
   %5477 = sext i32 %5476 to i64
@@ -6829,21 +6831,21 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5483 = add nuw nsw i64 %5473, 1
   %5484 = add nuw nsw i64 %5474, 1
   %5485 = icmp eq i64 %5484, %5471
-  br i1 %5485, label %.loopexit347, label %.preheader346, !llvm.loop !138
+  br i1 %5485, label %.loopexit348, label %.preheader347, !llvm.loop !138
 
-.loopexit347:                                     ; preds = %.preheader346, %._crit_edge457
-  %5486 = phi i64 [ %5470, %._crit_edge457 ], [ %5483, %.preheader346 ]
+.loopexit348:                                     ; preds = %.preheader347, %._crit_edge458
+  %5486 = phi i64 [ %5470, %._crit_edge458 ], [ %5483, %.preheader347 ]
   %5487 = sub nsw i64 %5470, %5413
   %5488 = icmp ugt i64 %5487, -4
-  br i1 %5488, label %.loopexit345, label %.preheader344
+  br i1 %5488, label %.loopexit346, label %.preheader345
 
-.preheader344:                                    ; preds = %.loopexit347
+.preheader345:                                    ; preds = %.loopexit348
   %invariant.op = or disjoint i64 %5434, 1
-  %invariant.op390 = or disjoint i64 %5434, 2
-  %invariant.op392 = or disjoint i64 %5434, 3
-  %invariant.op484 = add i32 %5433, 1
-  %invariant.op486 = add i32 %5433, 2
-  %invariant.op488 = add i32 %5433, 3
+  %invariant.op391 = or disjoint i64 %5434, 2
+  %invariant.op393 = or disjoint i64 %5434, 3
+  %invariant.op485 = add i32 %5433, 1
+  %invariant.op487 = add i32 %5433, 2
+  %invariant.op489 = add i32 %5433, 3
   br label %4741
 
 5489:                                             ; preds = %4688
@@ -6852,26 +6854,26 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5492 = trunc i64 %5490 to i32
   %5493 = mul i32 %11, %5492
   %5494 = add i32 %5493, %253
-  br i1 %5562, label %._crit_edge456, label %5495
+  br i1 %5562, label %._crit_edge457, label %5495
 
 5495:                                             ; preds = %5489
   %5496 = add i32 %4691, %5563
   %5497 = icmp slt i32 %5496, %4691
   %5498 = or i1 %5564, %5497
-  br i1 %5498, label %._crit_edge456, label %5499
+  br i1 %5498, label %._crit_edge457, label %5499
 
 5499:                                             ; preds = %5495
   %5500 = icmp ult ptr %5556, %4697
   %5501 = icmp ult ptr %4694, %5558
   %5502 = and i1 %5501, %5500
-  br i1 %5502, label %._crit_edge456, label %.preheader343
+  br i1 %5502, label %._crit_edge457, label %.preheader344
 
-.preheader343:                                    ; preds = %5499
+.preheader344:                                    ; preds = %5499
   %5503 = add i32 %5494, %256
   br label %5504
 
-5504:                                             ; preds = %.preheader343, %5504
-  %5505 = phi i64 [ %5527, %5504 ], [ 0, %.preheader343 ]
+5504:                                             ; preds = %.preheader344, %5504
+  %5505 = phi i64 [ %5527, %5504 ], [ 0, %.preheader344 ]
   %5506 = or disjoint i64 %5505, %5551
   %5507 = trunc i64 %5505 to i32
   %5508 = add nuw nsw i64 %5506, %5491
@@ -6906,18 +6908,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %5528, label %5529, label %5504, !llvm.loop !145
 
 5529:                                             ; preds = %5504
-  br i1 %5567, label %.loopexit340, label %._crit_edge456
+  br i1 %5567, label %.loopexit341, label %._crit_edge457
 
-._crit_edge456:                                   ; preds = %5529, %5499, %5495, %5489
-  %.pre-phi460 = phi i64 [ %5561, %5499 ], [ %5561, %5495 ], [ %5561, %5489 ], [ %.pre459, %5529 ]
+._crit_edge457:                                   ; preds = %5529, %5499, %5495, %5489
+  %.pre-phi461 = phi i64 [ %5561, %5499 ], [ %5561, %5495 ], [ %5561, %5489 ], [ %.pre460, %5529 ]
   %5530 = phi i64 [ %5551, %5499 ], [ %5551, %5495 ], [ %5551, %5489 ], [ %5566, %5529 ]
-  %5531 = and i64 %.pre-phi460, 3
+  %5531 = and i64 %.pre-phi461, 3
   %5532 = icmp eq i64 %5531, 0
-  br i1 %5532, label %.loopexit342, label %.preheader341
+  br i1 %5532, label %.loopexit343, label %.preheader342
 
-.preheader341:                                    ; preds = %._crit_edge456, %.preheader341
-  %5533 = phi i64 [ %5543, %.preheader341 ], [ %5530, %._crit_edge456 ]
-  %5534 = phi i64 [ %5544, %.preheader341 ], [ 0, %._crit_edge456 ]
+.preheader342:                                    ; preds = %._crit_edge457, %.preheader342
+  %5533 = phi i64 [ %5543, %.preheader342 ], [ %5530, %._crit_edge457 ]
+  %5534 = phi i64 [ %5544, %.preheader342 ], [ 0, %._crit_edge457 ]
   %5535 = add nuw nsw i64 %5533, %5491
   %5536 = trunc i64 %5533 to i32
   %5537 = add i32 %5494, %5536
@@ -6931,24 +6933,24 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5543 = add nuw nsw i64 %5533, 1
   %5544 = add nuw nsw i64 %5534, 1
   %5545 = icmp eq i64 %5544, %5531
-  br i1 %5545, label %.loopexit342, label %.preheader341, !llvm.loop !146
+  br i1 %5545, label %.loopexit343, label %.preheader342, !llvm.loop !146
 
-.loopexit342:                                     ; preds = %.preheader341, %._crit_edge456
-  %5546 = phi i64 [ %5530, %._crit_edge456 ], [ %5543, %.preheader341 ]
+.loopexit343:                                     ; preds = %.preheader342, %._crit_edge457
+  %5546 = phi i64 [ %5530, %._crit_edge457 ], [ %5543, %.preheader342 ]
   %5547 = sub nsw i64 %5530, %5552
   %5548 = icmp ugt i64 %5547, -4
-  br i1 %5548, label %.loopexit340, label %.preheader339
+  br i1 %5548, label %.loopexit341, label %.preheader340
 
-.preheader339:                                    ; preds = %.loopexit342
-  %invariant.op395 = or disjoint i64 %5491, 1
-  %invariant.op397 = or disjoint i64 %5491, 2
-  %invariant.op399 = or disjoint i64 %5491, 3
-  %invariant.op490 = add i32 %5494, 1
-  %invariant.op492 = add i32 %5494, 2
-  %invariant.op494 = add i32 %5494, 3
+.preheader340:                                    ; preds = %.loopexit343
+  %invariant.op396 = or disjoint i64 %5491, 1
+  %invariant.op398 = or disjoint i64 %5491, 2
+  %invariant.op400 = or disjoint i64 %5491, 3
+  %invariant.op491 = add i32 %5494, 1
+  %invariant.op493 = add i32 %5494, 2
+  %invariant.op495 = add i32 %5494, 3
   br label %4701
 
-5549:                                             ; preds = %.loopexit368
+5549:                                             ; preds = %.loopexit369
   %5550 = icmp slt i32 %256, %259
   %5551 = zext nneg i32 %256 to i64
   %5552 = zext i32 %259 to i64
@@ -6969,11 +6971,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5567 = icmp eq i64 %5561, %5565
   %5568 = or disjoint i32 %256, %231
   %5569 = add i32 %5568, %76
-  %.pre459 = sub nsw i64 %5552, %5566
+  %.pre460 = sub nsw i64 %5552, %5566
   br label %4688
 
 5570:                                             ; preds = %5368
-  %5571 = add i32 %reass.mul279, %253
+  %5571 = add i32 %reass.mul280, %253
   %5572 = add nsw i64 %5369, %212
   %5573 = mul nsw i64 %5572, 160
   br i1 %5400, label %._crit_edge, label %5574
@@ -6988,14 +6990,14 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5579 = icmp ult ptr %5394, %5377
   %5580 = icmp ult ptr %5374, %5396
   %5581 = and i1 %5580, %5579
-  br i1 %5581, label %._crit_edge, label %.preheader338
+  br i1 %5581, label %._crit_edge, label %.preheader339
 
-.preheader338:                                    ; preds = %5578
+.preheader339:                                    ; preds = %5578
   %5582 = add i32 %5571, %256
   br label %5583
 
-5583:                                             ; preds = %.preheader338, %5583
-  %5584 = phi i64 [ %5606, %5583 ], [ 0, %.preheader338 ]
+5583:                                             ; preds = %.preheader339, %5583
+  %5584 = phi i64 [ %5606, %5583 ], [ 0, %.preheader339 ]
   %5585 = or disjoint i64 %5584, %5389
   %5586 = trunc i64 %5584 to i32
   %5587 = add i32 %5582, %5586
@@ -7030,18 +7032,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %5607, label %5608, label %5583, !llvm.loop !152
 
 5608:                                             ; preds = %5583
-  br i1 %5405, label %.loopexit335, label %._crit_edge
+  br i1 %5405, label %.loopexit336, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5608, %5578, %5574, %5570
-  %.pre-phi462 = phi i64 [ %5399, %5578 ], [ %5399, %5574 ], [ %5399, %5570 ], [ %.pre461, %5608 ]
+  %.pre-phi463 = phi i64 [ %5399, %5578 ], [ %5399, %5574 ], [ %5399, %5570 ], [ %.pre462, %5608 ]
   %5609 = phi i64 [ %5389, %5578 ], [ %5389, %5574 ], [ %5389, %5570 ], [ %5404, %5608 ]
-  %5610 = and i64 %.pre-phi462, 3
+  %5610 = and i64 %.pre-phi463, 3
   %5611 = icmp eq i64 %5610, 0
-  br i1 %5611, label %.loopexit337, label %.preheader336
+  br i1 %5611, label %.loopexit338, label %.preheader337
 
-.preheader336:                                    ; preds = %._crit_edge, %.preheader336
-  %5612 = phi i64 [ %5622, %.preheader336 ], [ %5609, %._crit_edge ]
-  %5613 = phi i64 [ %5623, %.preheader336 ], [ 0, %._crit_edge ]
+.preheader337:                                    ; preds = %._crit_edge, %.preheader337
+  %5612 = phi i64 [ %5622, %.preheader337 ], [ %5609, %._crit_edge ]
+  %5613 = phi i64 [ %5623, %.preheader337 ], [ 0, %._crit_edge ]
   %5614 = trunc i64 %5612 to i32
   %5615 = add i32 %5571, %5614
   %5616 = sext i32 %5615 to i64
@@ -7055,28 +7057,28 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5622 = add nuw nsw i64 %5612, 1
   %5623 = add nuw nsw i64 %5613, 1
   %5624 = icmp eq i64 %5623, %5610
-  br i1 %5624, label %.loopexit337, label %.preheader336, !llvm.loop !153
+  br i1 %5624, label %.loopexit338, label %.preheader337, !llvm.loop !153
 
-.loopexit337:                                     ; preds = %.preheader336, %._crit_edge
-  %5625 = phi i64 [ %5609, %._crit_edge ], [ %5622, %.preheader336 ]
+.loopexit338:                                     ; preds = %.preheader337, %._crit_edge
+  %5625 = phi i64 [ %5609, %._crit_edge ], [ %5622, %.preheader337 ]
   %5626 = sub nsw i64 %5609, %5390
   %5627 = icmp ugt i64 %5626, -4
-  br i1 %5627, label %.loopexit335, label %.preheader334
+  br i1 %5627, label %.loopexit336, label %.preheader335
 
-.preheader334:                                    ; preds = %.loopexit337
-  %invariant.op401 = or disjoint i64 %5573, 1
-  %invariant.op403 = or disjoint i64 %5573, 2
-  %invariant.op405 = or disjoint i64 %5573, 3
-  %invariant.op496 = add i32 %5571, 1
-  %invariant.op498 = add i32 %5571, 2
-  %invariant.op500 = add i32 %5571, 3
+.preheader335:                                    ; preds = %.loopexit338
+  %invariant.op402 = or disjoint i64 %5573, 1
+  %invariant.op404 = or disjoint i64 %5573, 2
+  %invariant.op406 = or disjoint i64 %5573, 3
+  %invariant.op497 = add i32 %5571, 1
+  %invariant.op499 = add i32 %5571, 2
+  %invariant.op501 = add i32 %5571, 3
   br label %4661
 
-5628:                                             ; preds = %.loopexit366
+5628:                                             ; preds = %.loopexit367
   %5629 = add i32 %253, 32
   br label %4540
 
-5630:                                             ; preds = %.loopexit359
+5630:                                             ; preds = %.loopexit360
   %5631 = icmp sgt i32 %254, 4
   br label %4415
 
@@ -7088,11 +7090,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5635 = add nsw i32 %254, -6
   br label %3441
 
-5636:                                             ; preds = %.loopexit354
+5636:                                             ; preds = %.loopexit355
   %5637 = add i32 %254, -8
   br label %2701
 
-.loopexit352:                                     ; preds = %.loopexit324, %.loopexit353
+.loopexit353:                                     ; preds = %.loopexit325, %.loopexit354
   %5638 = icmp sgt i32 %254, 12
   br label %2413
 
@@ -7106,10 +7108,10 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 5643:                                             ; preds = %5379
   %5644 = add nsw i32 %254, -12
-  %invariant.op407 = add i32 %232, -9
+  %invariant.op408 = add i32 %232, -9
   br label %1029
 
-5645:                                             ; preds = %.loopexit351
+5645:                                             ; preds = %.loopexit352
   %5646 = add i32 %254, -12
   br label %986
 
@@ -7125,7 +7127,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5656 = zext i32 %5655 to i64
   br label %849
 
-5657:                                             ; preds = %.loopexit350
+5657:                                             ; preds = %.loopexit351
   %5658 = add nsw i32 %254, -14
   br label %836
 
@@ -7134,8 +7136,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5661 = mul nsw i32 %5660, %348
   %5662 = sext i32 %5660 to i64
   %5663 = sext i32 %5661 to i64
-  %invariant.op409 = add nsw i64 %5663, 1
-  %invariant.op411 = add nsw i64 %5662, -1
+  %invariant.op410 = add nsw i64 %5663, 1
+  %invariant.op412 = add nsw i64 %5662, -1
   br label %466
 
 5664:                                             ; preds = %4768
@@ -7143,8 +7145,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5666 = mul nsw i32 %5665, %348
   %5667 = sext i32 %5665 to i64
   %5668 = sext i32 %5666 to i64
-  %invariant.op412 = add nsw i64 %5668, 1
-  %invariant.op414 = add nsw i64 %5667, -1
+  %invariant.op413 = add nsw i64 %5668, 1
+  %invariant.op415 = add nsw i64 %5667, -1
   br label %682
 
 5669:                                             ; preds = %5378
@@ -7159,8 +7161,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5676 = load i32, ptr %73, align 4, !tbaa !13
   %5677 = sext i32 %5676 to i64
   %5678 = mul i64 %312, %5677
-  %.idx = mul nuw nsw i64 %311, 640
-  %5679 = getelementptr i8, ptr %36, i64 %.idx
+  %.idx276 = mul nuw nsw i64 %311, 640
+  %5679 = getelementptr i8, ptr %36, i64 %.idx276
   br i1 %5737, label %5730, label %5680
 
 5680:                                             ; preds = %5675
@@ -7185,7 +7187,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5697 = getelementptr i8, ptr %5679, i64 64
   %.scalar = add i64 %225, %5678
   %5698 = insertelement <8 x i64> poison, i64 %.scalar, i64 0
-  %invariant.op415 = shufflevector <8 x i64> %5698, <8 x i64> poison, <8 x i32> zeroinitializer
+  %invariant.op416 = shufflevector <8 x i64> %5698, <8 x i64> poison, <8 x i32> zeroinitializer
   br label %5699
 
 5699:                                             ; preds = %5699, %5692
@@ -7212,8 +7214,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5720 = select <8 x i1> %5716, <8 x i1> %5717, <8 x i1> zeroinitializer
   %5721 = select <8 x i1> %5720, <8 x float> zeroinitializer, <8 x float> %5719
   %5722 = select <8 x i1> %5713, <8 x float> %5715, <8 x float> %5721
-  %.reass416 = add <8 x i64> %5701, %invariant.op415
-  %5723 = shl nsw <8 x i64> %.reass416, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
+  %.reass417 = add <8 x i64> %5701, %invariant.op416
+  %5723 = shl nsw <8 x i64> %.reass417, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
   %5724 = or disjoint <8 x i64> %5723, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
   %5725 = getelementptr inbounds float, ptr %2, <8 x i64> %5724
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %5722, <8 x ptr> %5725, i32 4, <8 x i1> %5707), !tbaa !27, !alias.scope !159, !noalias !161
@@ -7227,7 +7229,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 5730:                                             ; preds = %5729, %5680, %5675
   %5731 = phi i64 [ 16, %5680 ], [ 16, %5675 ], [ %5739, %5729 ]
-  %invariant.op417 = add i64 %225, %5678
+  %invariant.op418 = add i64 %225, %5678
   br label %314
 
 5732:                                             ; preds = %678
@@ -7243,17 +7245,17 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5742 = icmp eq i64 %243, %5738
   br label %310
 
-5743:                                             ; preds = %.loopexit349
+5743:                                             ; preds = %.loopexit350
   %5744 = add nsw i64 %147, 128
   %5745 = icmp slt i64 %5744, %91
   %5746 = add i32 %148, 128
   %5747 = add <8 x i32> %149, <i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128>
   %5748 = add nuw nsw i64 %146, 1
-  %indvars.iv.next445 = add i32 %indvars.iv444, -128
-  %indvars.iv.next452 = add i32 %indvars.iv451, -128
-  br i1 %5745, label %145, label %.loopexit369, !llvm.loop !163
+  %indvars.iv.next446 = add i32 %indvars.iv445, -128
+  %indvars.iv.next453 = add i32 %indvars.iv452, -128
+  br i1 %5745, label %145, label %.loopexit370, !llvm.loop !163
 
-.loopexit369:                                     ; preds = %5743, %59, %6
+.loopexit370:                                     ; preds = %5743, %59, %6
   tail call void @free(ptr noundef %32) #10
   ret void
 }

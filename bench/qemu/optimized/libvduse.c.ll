@@ -361,13 +361,14 @@ if.end47:                                         ; preds = %if.end43
   store i64 %inc.i, ptr %counter.i, align 8
   %log.i = getelementptr inbounds i8, ptr %vq, i64 120
   %20 = load ptr, ptr %log.i, align 8
-  %desc.i = getelementptr inbounds i8, ptr %20, i64 16
   %idxprom.i26 = zext i16 %14 to i64
-  %counter1.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc.i, i64 0, i64 %idxprom.i26, i32 3
+  %counter1.idx.i = shl nuw nsw i64 %idxprom.i26, 4
+  %21 = getelementptr i8, ptr %20, i64 24
+  %counter1.i = getelementptr i8, ptr %21, i64 %counter1.idx.i
   store i64 %19, ptr %counter1.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
-  %21 = load ptr, ptr %log.i, align 8
-  %desc4.i = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load ptr, ptr %log.i, align 8
+  %desc4.i = getelementptr inbounds i8, ptr %22, i64 16
   %arrayidx6.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc4.i, i64 0, i64 %idxprom.i26
   store i8 1, ptr %arrayidx6.i, align 8
   br label %return
@@ -1389,7 +1390,7 @@ for.cond57.preheader.i:                           ; preds = %if.then48.i
   br i1 %cmp6250.not.i, label %for.end94.i, label %for.body64.i
 
 for.body64.i:                                     ; preds = %for.cond57.preheader.i, %for.inc92.i
-  %38 = phi ptr [ %47, %for.inc92.i ], [ %28, %for.cond57.preheader.i ]
+  %38 = phi ptr [ %48, %for.inc92.i ], [ %28, %for.cond57.preheader.i ]
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %for.inc92.i ], [ 0, %for.cond57.preheader.i ]
   %desc67.i = getelementptr inbounds i8, ptr %38, i64 16
   %arrayidx69.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc67.i, i64 0, i64 %indvars.iv53.i
@@ -1405,27 +1406,28 @@ if.then72.i:                                      ; preds = %for.body64.i
   %arrayidx77.i = getelementptr %struct.VduseVirtqInflightDesc, ptr %40, i64 %idxprom76.i
   store i16 %conv73.i, ptr %arrayidx77.i, align 8
   %42 = load ptr, ptr %log.i, align 8
-  %desc80.i = getelementptr inbounds i8, ptr %42, i64 16
-  %counter83.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc80.i, i64 0, i64 %indvars.iv53.i, i32 3
-  %43 = load i64, ptr %counter83.i, align 8
-  %44 = load ptr, ptr %resubmit_list.i, align 8
-  %45 = load i16, ptr %resubmit_num.i, align 8
-  %idxprom86.i = zext i16 %45 to i64
-  %counter88.i = getelementptr %struct.VduseVirtqInflightDesc, ptr %44, i64 %idxprom86.i, i32 1
-  store i64 %43, ptr %counter88.i, align 8
+  %counter83.idx.i = shl nuw nsw i64 %indvars.iv53.i, 4
+  %43 = getelementptr i8, ptr %42, i64 24
+  %counter83.i = getelementptr i8, ptr %43, i64 %counter83.idx.i
+  %44 = load i64, ptr %counter83.i, align 8
+  %45 = load ptr, ptr %resubmit_list.i, align 8
   %46 = load i16, ptr %resubmit_num.i, align 8
-  %inc90.i = add i16 %46, 1
+  %idxprom86.i = zext i16 %46 to i64
+  %counter88.i = getelementptr %struct.VduseVirtqInflightDesc, ptr %45, i64 %idxprom86.i, i32 1
+  store i64 %44, ptr %counter88.i, align 8
+  %47 = load i16, ptr %resubmit_num.i, align 8
+  %inc90.i = add i16 %47, 1
   store i16 %inc90.i, ptr %resubmit_num.i, align 8
   %.pre57.i = load ptr, ptr %log.i, align 8
   br label %for.inc92.i
 
 for.inc92.i:                                      ; preds = %if.then72.i, %for.body64.i
-  %47 = phi ptr [ %38, %for.body64.i ], [ %.pre57.i, %if.then72.i ]
+  %48 = phi ptr [ %38, %for.body64.i ], [ %.pre57.i, %if.then72.i ]
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %desc_num60.i = getelementptr inbounds i8, ptr %47, i64 10
-  %48 = load i16, ptr %desc_num60.i, align 2
-  %49 = zext i16 %48 to i64
-  %cmp62.i = icmp ult i64 %indvars.iv.next54.i, %49
+  %desc_num60.i = getelementptr inbounds i8, ptr %48, i64 10
+  %49 = load i16, ptr %desc_num60.i, align 2
+  %50 = zext i16 %49 to i64
+  %cmp62.i = icmp ult i64 %indvars.iv.next54.i, %50
   br i1 %cmp62.i, label %for.body64.i, label %for.end94.loopexit.i
 
 for.end94.loopexit.i:                             ; preds = %for.inc92.i
@@ -1434,43 +1436,43 @@ for.end94.loopexit.i:                             ; preds = %for.inc92.i
 
 for.end94.i:                                      ; preds = %for.end94.loopexit.i, %for.cond57.preheader.i
   %.pre59.i = phi ptr [ %.pre59.pre.i, %for.end94.loopexit.i ], [ %call51.i, %for.cond57.preheader.i ]
-  %50 = load i16, ptr %resubmit_num.i, align 8
-  %cmp97.i = icmp ugt i16 %50, 1
+  %51 = load i16, ptr %resubmit_num.i, align 8
+  %cmp97.i = icmp ugt i16 %51, 1
   br i1 %cmp97.i, label %if.then99.i, label %if.end103.i
 
 if.then99.i:                                      ; preds = %for.end94.i
-  %conv102.i = zext i16 %50 to i64
+  %conv102.i = zext i16 %51 to i64
   call void @qsort(ptr noundef %.pre59.i, i64 noundef %conv102.i, i64 noundef 16, ptr noundef nonnull @inflight_desc_compare) #19
   %.pre58.i = load ptr, ptr %resubmit_list.i, align 8
   br label %if.end103.i
 
 if.end103.i:                                      ; preds = %if.then99.i, %for.end94.i
-  %51 = phi ptr [ %.pre58.i, %if.then99.i ], [ %.pre59.i, %for.end94.i ]
-  %counter106.i = getelementptr inbounds i8, ptr %51, i64 8
-  %52 = load i64, ptr %counter106.i, align 8
-  %add107.i = add i64 %52, 1
+  %52 = phi ptr [ %.pre58.i, %if.then99.i ], [ %.pre59.i, %for.end94.i ]
+  %counter106.i = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load i64, ptr %counter106.i, align 8
+  %add107.i = add i64 %53, 1
   store i64 %add107.i, ptr %counter.i, align 8
   br label %if.end49
 
 if.then45:                                        ; preds = %if.then.i, %if.then48.i
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = load i32, ptr %index, align 4
-  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.37, i32 noundef %54) #21
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = load i32, ptr %index, align 4
+  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.37, i32 noundef %55) #21
   %call48 = call i32 @close(i32 noundef %call25) #19
   br label %return
 
 if.end49:                                         ; preds = %if.end103.i, %for.end.i
-  %55 = load i32, ptr %index, align 4
-  %56 = getelementptr i8, ptr %19, i64 8248
-  %.val.i = load i32, ptr %56, align 8
+  %56 = load i32, ptr %index, align 4
+  %57 = getelementptr i8, ptr %19, i64 8248
+  %.val.i = load i32, ptr %57, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %index.addr.i.i)
-  store i32 %55, ptr %index.addr.i.i, align 4
+  store i32 %56, ptr %index.addr.i.i, align 4
   %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i, i64 noundef 1074037015, ptr noundef nonnull %index.addr.i.i) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %index.addr.i.i)
   %ops = getelementptr inbounds i8, ptr %0, i64 8240
-  %57 = load ptr, ptr %ops, align 8
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef %0, ptr noundef nonnull %vq) #19
+  %58 = load ptr, ptr %ops, align 8
+  %59 = load ptr, ptr %58, align 8
+  call void %59(ptr noundef %0, ptr noundef nonnull %vq) #19
   br label %return
 
 return:                                           ; preds = %if.end, %if.end49, %if.then45, %if.then36, %if.then26, %if.then21, %if.then

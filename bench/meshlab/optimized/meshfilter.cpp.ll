@@ -206253,113 +206253,116 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity6INS_8FaceBaseI10PUsed
   br i1 %81, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity6INS_8FaceBaseI10PUsedTypesEENS0_8PolyInfoENS0_6PFVAdjENS0_6PFFAdjENS0_7Color4bENS0_8BitFlagsENS0_8Normal3fEEEE10ImportDataI5PFaceEEvRKT_.exit
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 60
   %82 = getelementptr inbounds i8, ptr %0, i64 40
+  %invariant.gep33 = getelementptr inbounds i8, ptr %29, i64 60
   br label %83
 
-83:                                               ; preds = %.preheader, %100
-  %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %100 ]
-  %84 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %58, i64 0, i64 %indvars.iv33, i32 1
-  %85 = load i16, ptr %84, align 4
-  %86 = sext i16 %85 to i64
-  %87 = load ptr, ptr %82, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %87, align 8
+83:                                               ; preds = %.preheader, %99
+  %indvars.iv39 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next40, %99 ]
+  %.idx = mul nuw nsw i64 %indvars.iv39, 12
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
+  %84 = load i16, ptr %gep, align 4
+  %85 = sext i16 %84 to i64
+  %86 = load ptr, ptr %82, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %86, align 8
+  %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
-  %92 = ptrtoint ptr %90 to i64
-  %93 = sub i64 %91, %92
-  %94 = ashr exact i64 %93, 2
-  %95 = icmp ugt i64 %94, %86
-  br i1 %95, label %96, label %100
+  %92 = sub i64 %90, %91
+  %93 = ashr exact i64 %92, 2
+  %94 = icmp ugt i64 %93, %85
+  br i1 %94, label %95, label %99
 
-96:                                               ; preds = %83
-  %97 = getelementptr inbounds i32, ptr %90, i64 %86
-  %98 = load i32, ptr %97, align 4
-  %99 = trunc i32 %98 to i16
-  br label %100
+95:                                               ; preds = %83
+  %96 = getelementptr inbounds i32, ptr %89, i64 %85
+  %97 = load i32, ptr %96, align 4
+  %98 = trunc i32 %97 to i16
+  br label %99
 
-100:                                              ; preds = %83, %96
-  %.sink = phi i16 [ %99, %96 ], [ %85, %83 ]
-  %101 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %59, i64 0, i64 %indvars.iv33, i32 1
-  store i16 %.sink, ptr %101, align 2
-  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next34, 3
+99:                                               ; preds = %83, %95
+  %.sink = phi i16 [ %98, %95 ], [ %84, %83 ]
+  %gep36 = getelementptr inbounds i8, ptr %invariant.gep33, i64 %.idx
+  store i16 %.sink, ptr %gep36, align 2
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next40, 3
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !2760
 
-.loopexit:                                        ; preds = %100, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity6INS_8FaceBaseI10PUsedTypesEENS0_8PolyInfoENS0_6PFVAdjENS0_6PFFAdjENS0_7Color4bENS0_8BitFlagsENS0_8Normal3fEEEE10ImportDataI5PFaceEEvRKT_.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 48
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i8, ptr %103, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit
+.loopexit:                                        ; preds = %99, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity6INS_8FaceBaseI10PUsedTypesEENS0_8PolyInfoENS0_6PFVAdjENS0_6PFFAdjENS0_7Color4bENS0_8BitFlagsENS0_8Normal3fEEEE10ImportDataI5PFaceEEvRKT_.exit
+  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %101 = load ptr, ptr %100, align 8
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit
 
-106:                                              ; preds = %.loopexit
-  %107 = load ptr, ptr %11, align 8
-  %108 = load ptr, ptr %17, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 72
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
-  %112 = getelementptr inbounds i8, ptr %108, i64 72
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %115 = sub i64 %21, %114
-  %116 = load ptr, ptr %111, align 8
-  %117 = sdiv exact i64 %115, 11
-  %118 = getelementptr inbounds i8, ptr %116, i64 %117
-  %119 = load i64, ptr %118, align 8
-  %120 = load ptr, ptr %109, align 8
-  %121 = getelementptr inbounds %class.PFace, ptr %120, i64 %119
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %.lr.ph.i, label %_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit
+104:                                              ; preds = %.loopexit
+  %105 = load ptr, ptr %11, align 8
+  %106 = load ptr, ptr %17, align 8
+  %107 = getelementptr inbounds i8, ptr %105, i64 72
+  %108 = load ptr, ptr %14, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %110 = getelementptr inbounds i8, ptr %106, i64 72
+  %111 = load ptr, ptr %110, align 8
+  %112 = ptrtoint ptr %111 to i64
+  %113 = sub i64 %21, %112
+  %114 = load ptr, ptr %109, align 8
+  %115 = sdiv exact i64 %113, 11
+  %116 = getelementptr inbounds i8, ptr %114, i64 %115
+  %117 = load i64, ptr %116, align 8
+  %118 = load ptr, ptr %107, align 8
+  %119 = getelementptr inbounds %class.PFace, ptr %118, i64 %117
+  %120 = load i32, ptr %119, align 4
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %.lr.ph.i, label %_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit
 
-.lr.ph.i:                                         ; preds = %106
-  %124 = getelementptr inbounds i8, ptr %1, i64 16
-  %125 = getelementptr inbounds i8, ptr %121, i64 16
-  %126 = getelementptr inbounds i8, ptr %1, i64 24
-  %127 = getelementptr inbounds i8, ptr %121, i64 24
-  br label %128
+.lr.ph.i:                                         ; preds = %104
+  %122 = getelementptr inbounds i8, ptr %1, i64 16
+  %123 = getelementptr inbounds i8, ptr %119, i64 16
+  %124 = getelementptr inbounds i8, ptr %1, i64 24
+  %125 = getelementptr inbounds i8, ptr %119, i64 24
+  br label %126
 
-128:                                              ; preds = %151, %.lr.ph.i
-  %129 = phi i32 [ %122, %.lr.ph.i ], [ %152, %151 ]
-  %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i29, %151 ]
-  %130 = load ptr, ptr %124, align 8
-  %131 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv.i28
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %112, align 8
-  %134 = ptrtoint ptr %132 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = load ptr, ptr %111, align 8
-  %138 = sdiv exact i64 %136, 11
-  %139 = getelementptr inbounds i8, ptr %137, i64 %138
-  %140 = load i64, ptr %139, align 8
-  %.not.i = icmp eq i64 %140, -1
-  br i1 %.not.i, label %151, label %141
+126:                                              ; preds = %149, %.lr.ph.i
+  %127 = phi i32 [ %120, %.lr.ph.i ], [ %150, %149 ]
+  %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i29, %149 ]
+  %128 = load ptr, ptr %122, align 8
+  %129 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv.i28
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %110, align 8
+  %132 = ptrtoint ptr %130 to i64
+  %133 = ptrtoint ptr %131 to i64
+  %134 = sub i64 %132, %133
+  %135 = load ptr, ptr %109, align 8
+  %136 = sdiv exact i64 %134, 11
+  %137 = getelementptr inbounds i8, ptr %135, i64 %136
+  %138 = load i64, ptr %137, align 8
+  %.not.i = icmp eq i64 %138, -1
+  br i1 %.not.i, label %149, label %139
 
-141:                                              ; preds = %128
-  %142 = load ptr, ptr %109, align 8
-  %143 = getelementptr inbounds %class.PFace, ptr %142, i64 %140
-  %144 = load ptr, ptr %125, align 8
-  %145 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv.i28
-  store ptr %143, ptr %145, align 8
-  %146 = load ptr, ptr %126, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 %indvars.iv.i28
-  %148 = load i8, ptr %147, align 1
-  %149 = load ptr, ptr %127, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 %indvars.iv.i28
-  store i8 %148, ptr %150, align 1
-  %.pre.i = load i32, ptr %121, align 4
-  br label %151
+139:                                              ; preds = %126
+  %140 = load ptr, ptr %107, align 8
+  %141 = getelementptr inbounds %class.PFace, ptr %140, i64 %138
+  %142 = load ptr, ptr %123, align 8
+  %143 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv.i28
+  store ptr %141, ptr %143, align 8
+  %144 = load ptr, ptr %124, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 %indvars.iv.i28
+  %146 = load i8, ptr %145, align 1
+  %147 = load ptr, ptr %125, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 %indvars.iv.i28
+  store i8 %146, ptr %148, align 1
+  %.pre.i = load i32, ptr %119, align 4
+  br label %149
 
-151:                                              ; preds = %141, %128
-  %152 = phi i32 [ %129, %128 ], [ %.pre.i, %141 ]
+149:                                              ; preds = %139, %126
+  %150 = phi i32 [ %127, %126 ], [ %.pre.i, %139 ]
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
-  %153 = sext i32 %152 to i64
-  %154 = icmp slt i64 %indvars.iv.next.i29, %153
-  br i1 %154, label %128, label %_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit, !llvm.loop !2761
+  %151 = sext i32 %150 to i64
+  %152 = icmp slt i64 %indvars.iv.next.i29, %151
+  br i1 %152, label %126, label %_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit, !llvm.loop !2761
 
-_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit: ; preds = %151, %106, %.loopexit, %6
+_ZN3vcg3tri6AppendI5PMeshS2_E13ImportFaceAdjERS2_RKS2_R5PFaceRKS7_RNS3_5RemapE.exit: ; preds = %149, %104, %.loopexit, %6
   ret void
 }
 

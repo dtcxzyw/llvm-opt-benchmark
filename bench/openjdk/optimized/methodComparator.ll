@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.Bytecode_loadconstant = type { %class.Bytecode.base, ptr }
 %class.Bytecode.base = type <{ ptr, i32 }>
-%class.ResolvedIndyEntry = type { ptr, i16, i16, i16, i8, i8 }
 
 $_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_85ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
@@ -590,7 +589,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit193:     ; preds = %_ZNK14BytecodeStrea
   %52 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %30) #10
   %53 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %51) #10
   %.not187 = icmp eq ptr %52, %53
-  br i1 %.not187, label %54, label %.loopexit264
+  br i1 %.not187, label %54, label %.loopexit265
 
 54:                                               ; preds = %_ZNK14BytecodeStream12get_index_u2Ev.exit193
   %55 = icmp eq i32 %0, 197
@@ -616,7 +615,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit193:     ; preds = %_ZNK14BytecodeStrea
   %73 = getelementptr inbounds i8, ptr %72, i64 3
   %74 = load i8, ptr %73, align 1
   %.not188 = icmp eq i8 %65, %74
-  br i1 %.not188, label %.loopexit, label %.loopexit264
+  br i1 %.not188, label %.loopexit, label %.loopexit265
 
 75:                                               ; preds = %6, %6, %6, %6
   %76 = getelementptr inbounds i8, ptr %2, i64 8
@@ -682,7 +681,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit203:     ; preds = %_ZNK14BytecodeStrea
   %118 = tail call noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %96, i32 noundef %0) #10
   %119 = tail call noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %117, i32 noundef %0) #10
   %.not184 = icmp eq ptr %118, %119
-  br i1 %.not184, label %120, label %.loopexit264
+  br i1 %.not184, label %120, label %.loopexit265
 
 120:                                              ; preds = %_ZNK14BytecodeStream12get_index_u2Ev.exit203
   %121 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %96, i32 noundef %0) #10
@@ -700,13 +699,13 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit203:     ; preds = %_ZNK14BytecodeStrea
   %133 = getelementptr inbounds i64, ptr %131, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not185 = icmp eq ptr %127, %134
-  br i1 %.not185, label %135, label %.loopexit264
+  br i1 %.not185, label %135, label %.loopexit265
 
 135:                                              ; preds = %120
   %136 = tail call noundef ptr @_ZN12ConstantPool16signature_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %96, i32 noundef %0)
   %137 = tail call noundef ptr @_ZN12ConstantPool16signature_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %117, i32 noundef %0)
   %.not186 = icmp eq ptr %136, %137
-  br i1 %.not186, label %.loopexit, label %.loopexit264
+  br i1 %.not186, label %.loopexit, label %.loopexit265
 
 138:                                              ; preds = %6, %6, %6, %6
   %139 = getelementptr inbounds i8, ptr %2, i64 8
@@ -772,7 +771,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit213:     ; preds = %_ZNK14BytecodeStrea
   %181 = tail call noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %159, i32 noundef %0) #10
   %182 = tail call noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %180, i32 noundef %0) #10
   %.not181 = icmp eq ptr %181, %182
-  br i1 %.not181, label %183, label %.loopexit264
+  br i1 %.not181, label %183, label %.loopexit265
 
 183:                                              ; preds = %_ZNK14BytecodeStream12get_index_u2Ev.exit213
   %184 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %159, i32 noundef %0) #10
@@ -790,13 +789,13 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit213:     ; preds = %_ZNK14BytecodeStrea
   %196 = getelementptr inbounds i64, ptr %194, i64 %195
   %197 = load ptr, ptr %196, align 8
   %.not182 = icmp eq ptr %190, %197
-  br i1 %.not182, label %198, label %.loopexit264
+  br i1 %.not182, label %198, label %.loopexit265
 
 198:                                              ; preds = %183
   %199 = tail call noundef ptr @_ZN12ConstantPool16signature_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %159, i32 noundef %0)
   %200 = tail call noundef ptr @_ZN12ConstantPool16signature_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %180, i32 noundef %0)
   %.not183 = icmp eq ptr %199, %200
-  br i1 %.not183, label %.loopexit, label %.loopexit264
+  br i1 %.not183, label %.loopexit, label %.loopexit265
 
 201:                                              ; preds = %6
   %202 = getelementptr inbounds i8, ptr %2, i64 8
@@ -842,43 +841,45 @@ _ZNK14BytecodeStream12get_index_u4Ev.exit217:     ; preds = %_ZNK14BytecodeStrea
   %228 = tail call noundef ptr @_ZN12ConstantPool11name_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %.0.i.i.i.i, i32 noundef 186)
   %229 = tail call noundef ptr @_ZN12ConstantPool11name_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %.0.i.i.i.i216, i32 noundef 186)
   %.not176 = icmp eq ptr %228, %229
-  br i1 %.not176, label %230, label %.loopexit264
+  br i1 %.not176, label %230, label %.loopexit265
 
 230:                                              ; preds = %_ZNK14BytecodeStream12get_index_u4Ev.exit217
   %231 = tail call noundef ptr @_ZN12ConstantPool16signature_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %.0.i.i.i.i, i32 noundef 186)
   %232 = tail call noundef ptr @_ZN12ConstantPool16signature_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %.0.i.i.i.i216, i32 noundef 186)
   %.not177 = icmp eq ptr %231, %232
-  br i1 %.not177, label %233, label %.loopexit264
+  br i1 %.not177, label %233, label %.loopexit265
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds i8, ptr %4, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 40
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
-  %239 = sext i32 %.0.i.i.i.i to i64
-  %240 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %238, i64 %239, i32 2
+  %238 = sext i32 %.0.i.i.i.i to i64
+  %.idx = shl nsw i64 %238, 4
+  %239 = getelementptr i8, ptr %237, i64 18
+  %240 = getelementptr i8, ptr %239, i64 %.idx
   %241 = load i16, ptr %240, align 2
   %242 = zext i16 %241 to i32
   %243 = getelementptr inbounds i8, ptr %5, i64 16
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 40
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 8
-  %248 = sext i32 %.0.i.i.i.i216 to i64
-  %249 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %247, i64 %248, i32 2
+  %247 = sext i32 %.0.i.i.i.i216 to i64
+  %.idx264 = shl nsw i64 %247, 4
+  %248 = getelementptr i8, ptr %246, i64 18
+  %249 = getelementptr i8, ptr %248, i64 %.idx264
   %250 = load i16, ptr %249, align 2
   %251 = zext i16 %250 to i32
   %252 = tail call noundef ptr @_ZN12ConstantPool20uncached_name_ref_atEi(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %242)
   %253 = tail call noundef ptr @_ZN12ConstantPool20uncached_name_ref_atEi(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %251)
   %.not178 = icmp eq ptr %252, %253
-  br i1 %.not178, label %254, label %.loopexit264
+  br i1 %.not178, label %254, label %.loopexit265
 
 254:                                              ; preds = %233
   %255 = tail call noundef ptr @_ZN12ConstantPool25uncached_signature_ref_atEi(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %242)
   %256 = tail call noundef ptr @_ZN12ConstantPool25uncached_signature_ref_atEi(ptr noundef nonnull align 8 dereferenceable(68) %5, i32 noundef %251)
   %.not179 = icmp eq ptr %255, %256
-  br i1 %.not179, label %257, label %.loopexit264
+  br i1 %.not179, label %257, label %.loopexit265
 
 257:                                              ; preds = %254
   %258 = getelementptr inbounds i8, ptr %4, i64 72
@@ -930,7 +931,7 @@ _ZNK14BytecodeStream12get_index_u4Ev.exit217:     ; preds = %_ZNK14BytecodeStrea
   %304 = load i16, ptr %303, align 2
   %305 = zext i16 %304 to i32
   %306 = tail call noundef zeroext i1 @_ZN16MethodComparator19pool_constants_sameEiiP12ConstantPoolS1_(i32 noundef %281, i32 noundef %305, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br i1 %306, label %307, label %.loopexit264
+  br i1 %306, label %307, label %.loopexit265
 
 307:                                              ; preds = %257
   %308 = load i32, ptr %260, align 4
@@ -975,19 +976,19 @@ _ZNK14BytecodeStream12get_index_u4Ev.exit217:     ; preds = %_ZNK14BytecodeStrea
   %347 = getelementptr i8, ptr %346, i64 2
   %348 = load i16, ptr %347, align 2
   %.not180 = icmp eq i16 %327, %348
-  br i1 %.not180, label %.preheader, label %.loopexit264
+  br i1 %.not180, label %.preheader, label %.loopexit265
 
 .preheader:                                       ; preds = %307
-  %.not266 = icmp eq i16 %327, 0
-  br i1 %.not266, label %.loopexit, label %.lr.ph
+  %.not267 = icmp eq i16 %327, 0
+  br i1 %.not267, label %.loopexit, label %.lr.ph
 
 349:                                              ; preds = %.lr.ph
-  %350 = add nuw nsw i32 %.0159265, 1
+  %350 = add nuw nsw i32 %.0159266, 1
   %exitcond.not = icmp eq i32 %350, %328
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %349
-  %.0159265 = phi i32 [ %350, %349 ], [ 0, %.preheader ]
+  %.0159266 = phi i32 [ %350, %349 ], [ 0, %.preheader ]
   %351 = load i32, ptr %260, align 4
   %352 = load ptr, ptr %262, align 8
   %353 = shl i32 %351, 1
@@ -1004,7 +1005,7 @@ _ZNK14BytecodeStream12get_index_u4Ev.exit217:     ; preds = %_ZNK14BytecodeStrea
   %364 = shl nuw i32 %363, 16
   %365 = zext i16 %358 to i32
   %366 = or disjoint i32 %364, %365
-  %367 = add nuw nsw i32 %.0159265, 2
+  %367 = add nuw nsw i32 %.0159266, 2
   %368 = add i32 %366, %367
   %369 = sext i32 %368 to i64
   %370 = getelementptr inbounds i16, ptr %355, i64 %369
@@ -1032,7 +1033,7 @@ _ZNK14BytecodeStream12get_index_u4Ev.exit217:     ; preds = %_ZNK14BytecodeStrea
   %392 = load i16, ptr %391, align 2
   %393 = zext i16 %392 to i32
   %394 = tail call noundef zeroext i1 @_ZN16MethodComparator19pool_constants_sameEiiP12ConstantPoolS1_(i32 noundef %372, i32 noundef %393, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br i1 %394, label %349, label %.loopexit264
+  br i1 %394, label %349, label %.loopexit265
 
 395:                                              ; preds = %6, %6
   %396 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1082,7 +1083,7 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219: ; preds = %_ZN21Bytecode
   %422 = call noundef i32 @_ZNK21Bytecode_loadconstant10pool_indexEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   %423 = call noundef i32 @_ZNK21Bytecode_loadconstant10pool_indexEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
   %424 = call noundef zeroext i1 @_ZN16MethodComparator19pool_constants_sameEiiP12ConstantPoolS1_(i32 noundef %422, i32 noundef %423, ptr noundef %4, ptr noundef %5)
-  br i1 %424, label %.loopexit, label %.loopexit264
+  br i1 %424, label %.loopexit, label %.loopexit265
 
 425:                                              ; preds = %6
   %426 = tail call noundef zeroext i16 @_ZNK14BytecodeStream12get_index_u2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2)
@@ -1102,7 +1103,7 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219: ; preds = %_ZN21Bytecode
   %439 = load volatile i8, ptr %438, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %.not173 = icmp eq i8 %433, %439
-  br i1 %.not173, label %440, label %.loopexit264
+  br i1 %.not173, label %440, label %.loopexit265
 
 440:                                              ; preds = %425
   %441 = getelementptr inbounds i8, ptr %4, i64 72
@@ -1112,7 +1113,7 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219: ; preds = %_ZN21Bytecode
   %444 = getelementptr inbounds i64, ptr %443, i64 %437
   %.0.i.i.i220 = load i64, ptr %444, align 1
   %.not175 = icmp eq i64 %.0.i.i.i, %.0.i.i.i220
-  br i1 %.not175, label %.loopexit, label %.loopexit264
+  br i1 %.not175, label %.loopexit, label %.loopexit265
 
 445:                                              ; preds = %6
   %446 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1138,13 +1139,13 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219: ; preds = %_ZN21Bytecode
   %466 = getelementptr inbounds i8, ptr %465, i64 1
   %467 = load i8, ptr %466, align 1
   %.not172 = icmp eq i8 %456, %467
-  br i1 %.not172, label %.loopexit, label %.loopexit264
+  br i1 %.not172, label %.loopexit, label %.loopexit265
 
 468:                                              ; preds = %6
   %469 = tail call noundef zeroext i16 @_ZNK14BytecodeStream12get_index_u2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %470 = tail call noundef zeroext i16 @_ZNK14BytecodeStream12get_index_u2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %.not171 = icmp eq i16 %469, %470
-  br i1 %.not171, label %.loopexit, label %.loopexit264
+  br i1 %.not171, label %.loopexit, label %.loopexit265
 
 471:                                              ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %472 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1153,7 +1154,7 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219: ; preds = %_ZN21Bytecode
   %475 = load i8, ptr %474, align 8
   %476 = xor i8 %475, %473
   %477 = trunc i8 %476 to i1
-  br i1 %477, label %.loopexit264, label %478
+  br i1 %477, label %.loopexit265, label %478
 
 478:                                              ; preds = %471
   %479 = trunc i8 %473 to i1
@@ -1246,7 +1247,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit.i227:    ; preds = %519, %517
 _ZNK14BytecodeStream9get_indexEv.exit231:         ; preds = %_ZNK18BaseBytecodeStream8bytecodeEv.exit.i227, %529
   %533 = phi i16 [ %.0.i.i230, %_ZNK18BaseBytecodeStream8bytecodeEv.exit.i227 ], [ %532, %529 ]
   %.not170 = icmp eq i16 %506, %533
-  br i1 %.not170, label %.loopexit, label %.loopexit264
+  br i1 %.not170, label %.loopexit, label %.loopexit265
 
 534:                                              ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %535 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1290,7 +1291,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit237:      ; preds = %_ZNK18BaseBytecodeS
   %560 = getelementptr inbounds i8, ptr %556, i64 1
   %.0.i.i.i.i238 = load i16, ptr %560, align 1
   %.not168 = icmp eq i16 %.0.i.i.i.i233, %.0.i.i.i.i238
-  br i1 %.not168, label %.loopexit, label %.loopexit264
+  br i1 %.not168, label %.loopexit, label %.loopexit265
 
 561:                                              ; preds = %6
   %562 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1299,7 +1300,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit237:      ; preds = %_ZNK18BaseBytecodeS
   %565 = load i8, ptr %564, align 8
   %566 = xor i8 %565, %563
   %567 = trunc i8 %566 to i1
-  br i1 %567, label %.loopexit264, label %568
+  br i1 %567, label %.loopexit265, label %568
 
 568:                                              ; preds = %561
   %569 = trunc i8 %563 to i1
@@ -1329,13 +1330,13 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit237:      ; preds = %_ZNK18BaseBytecodeS
   %.0.i.i.i239 = load i16, ptr %579, align 1
   %.0.i.i.i240 = load i16, ptr %589, align 1
   %.not166 = icmp eq i16 %.0.i.i.i239, %.0.i.i.i240
-  br i1 %.not166, label %.loopexit, label %.loopexit264
+  br i1 %.not166, label %.loopexit, label %.loopexit265
 
 591:                                              ; preds = %568
   %.0.i.i.i241 = load i32, ptr %579, align 1
   %.0.i.i.i242 = load i32, ptr %589, align 1
   %.not167 = icmp eq i32 %.0.i.i.i241, %.0.i.i.i242
-  br i1 %.not167, label %.loopexit, label %.loopexit264
+  br i1 %.not167, label %.loopexit, label %.loopexit265
 
 592:                                              ; preds = %6, %6
   %593 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1379,7 +1380,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit251:      ; preds = %_ZNK18BaseBytecodeS
   %618 = getelementptr inbounds i8, ptr %614, i64 1
   %.0.i.i.i.i252 = load i32, ptr %618, align 1
   %.not164 = icmp eq i32 %.0.i.i.i.i247, %.0.i.i.i.i252
-  br i1 %.not164, label %.loopexit, label %.loopexit264
+  br i1 %.not164, label %.loopexit, label %.loopexit265
 
 619:                                              ; preds = %6, %6
   %620 = getelementptr inbounds i8, ptr %2, i64 28
@@ -1393,7 +1394,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit251:      ; preds = %_ZNK18BaseBytecodeS
   %628 = load i32, ptr %627, align 8
   %629 = sub nsw i32 %626, %628
   %.not = icmp eq i32 %624, %629
-  br i1 %.not, label %630, label %.loopexit264
+  br i1 %.not, label %630, label %.loopexit265
 
 630:                                              ; preds = %619
   %631 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1413,12 +1414,12 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit251:      ; preds = %_ZNK18BaseBytecodeS
   %645 = sext i32 %624 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %637, ptr nonnull %644, i64 %645)
   %.not163 = icmp eq i32 %bcmp, 0
-  br i1 %.not163, label %.loopexit, label %.loopexit264
+  br i1 %.not163, label %.loopexit, label %.loopexit265
 
 .loopexit:                                        ; preds = %349, %440, %.preheader, %6, %630, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251, %590, %591, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237, %_ZNK14BytecodeStream9get_indexEv.exit231, %468, %445, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219, %198, %135, %54, %56
-  br label %.loopexit264
+  br label %.loopexit265
 
-.loopexit264:                                     ; preds = %.lr.ph, %440, %630, %619, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251, %591, %590, %561, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237, %_ZNK14BytecodeStream9get_indexEv.exit231, %471, %468, %445, %425, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219, %307, %257, %233, %254, %_ZNK14BytecodeStream12get_index_u4Ev.exit217, %230, %_ZNK14BytecodeStream12get_index_u2Ev.exit213, %183, %198, %_ZNK14BytecodeStream12get_index_u2Ev.exit203, %120, %135, %56, %_ZNK14BytecodeStream12get_index_u2Ev.exit193, %.loopexit
+.loopexit265:                                     ; preds = %.lr.ph, %440, %630, %619, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251, %591, %590, %561, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237, %_ZNK14BytecodeStream9get_indexEv.exit231, %471, %468, %445, %425, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219, %307, %257, %233, %254, %_ZNK14BytecodeStream12get_index_u4Ev.exit217, %230, %_ZNK14BytecodeStream12get_index_u2Ev.exit213, %183, %198, %_ZNK14BytecodeStream12get_index_u2Ev.exit203, %120, %135, %56, %_ZNK14BytecodeStream12get_index_u2Ev.exit193, %.loopexit
   %.0 = phi i1 [ true, %.loopexit ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit193 ], [ false, %56 ], [ false, %135 ], [ false, %120 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit203 ], [ false, %198 ], [ false, %183 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit213 ], [ false, %230 ], [ false, %_ZNK14BytecodeStream12get_index_u4Ev.exit217 ], [ false, %254 ], [ false, %233 ], [ false, %257 ], [ false, %307 ], [ false, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219 ], [ false, %425 ], [ false, %445 ], [ false, %468 ], [ false, %471 ], [ false, %_ZNK14BytecodeStream9get_indexEv.exit231 ], [ false, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237 ], [ false, %561 ], [ false, %590 ], [ false, %591 ], [ false, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251 ], [ false, %619 ], [ false, %630 ], [ false, %440 ], [ false, %.lr.ph ]
   ret i1 %.0
 }

@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
+%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
 %struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
-%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
 
 @Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1700, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pgoutput_startup.publication_callback_registered = internal unnamed_addr global i1 false, align 1
@@ -877,9 +877,9 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
   br i1 %154, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %slot_getallattrs.exit97.i
-  %155 = getelementptr inbounds i8, ptr %152, i64 24
-  %156 = getelementptr inbounds i8, ptr %.085, i64 32
-  %157 = getelementptr inbounds i8, ptr %.068, i64 32
+  %155 = getelementptr inbounds i8, ptr %.085, i64 32
+  %156 = getelementptr inbounds i8, ptr %.068, i64 32
+  %157 = getelementptr i8, ptr %152, i64 96
   %158 = getelementptr inbounds i8, ptr %.085, i64 24
   %159 = getelementptr inbounds i8, ptr %.068, i64 24
   br label %160
@@ -888,21 +888,22 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
   %161 = phi i32 [ %153, %.lr.ph.i ], [ %228, %227 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %227 ]
   %.083106.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %227 ]
-  %162 = load ptr, ptr %156, align 8
+  %162 = load ptr, ptr %155, align 8
   %163 = getelementptr i8, ptr %162, i64 %indvars.iv.i
   %164 = load i8, ptr %163, align 1
   %165 = trunc i8 %164 to i1
   br i1 %165, label %227, label %166
 
 166:                                              ; preds = %160
-  %167 = load ptr, ptr %157, align 8
+  %167 = load ptr, ptr %156, align 8
   %168 = getelementptr i8, ptr %167, i64 %indvars.iv.i
   %169 = load i8, ptr %168, align 1
   %170 = trunc i8 %169 to i1
   br i1 %170, label %227, label %171
 
 171:                                              ; preds = %166
-  %172 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %155, i64 0, i64 %indvars.iv.i, i32 3
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %172 = getelementptr i8, ptr %157, i64 %.idx.i
   %173 = load i16, ptr %172, align 4
   %174 = icmp eq i16 %173, -1
   br i1 %174, label %175, label %227
@@ -957,7 +958,7 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %205, ptr align 8 %206, i64 %209, i1 false)
   %210 = getelementptr inbounds i8, ptr %199, i64 32
   %211 = load ptr, ptr %210, align 8
-  %212 = load ptr, ptr %156, align 8
+  %212 = load ptr, ptr %155, align 8
   %213 = load i32, ptr %152, align 8
   %214 = sext i32 %213 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %211, ptr align 1 %212, i64 %214, i1 false)
@@ -973,7 +974,7 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr i64, ptr %218, i64 %indvars.iv.i
   store i64 %216, ptr %219, align 8
-  %220 = load ptr, ptr %157, align 8
+  %220 = load ptr, ptr %156, align 8
   %221 = getelementptr i8, ptr %220, i64 %indvars.iv.i
   %222 = load i8, ptr %221, align 1
   %223 = getelementptr inbounds i8, ptr %.2.i, i64 32

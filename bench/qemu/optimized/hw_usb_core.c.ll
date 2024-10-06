@@ -1960,15 +1960,18 @@ usb_ep_reset.exit:                                ; preds = %for.body.i
   store ptr null, ptr %queue, align 8
   %tql_prev = getelementptr inbounds i8, ptr %dev, i64 4424
   store ptr %queue, ptr %tql_prev, align 8
+  %1 = getelementptr i8, ptr %dev, i64 4456
+  %2 = getelementptr i8, ptr %dev, i64 5056
   br label %do.body5
 
 do.body5:                                         ; preds = %usb_ep_reset.exit, %do.body5
   %indvars.iv = phi i64 [ 0, %usb_ep_reset.exit ], [ %indvars.iv.next, %do.body5 ]
-  %queue6 = getelementptr [15 x %struct.USBEndpoint], ptr %ep_in.i, i64 0, i64 %indvars.iv, i32 9
+  %3 = mul nuw nsw i64 %indvars.iv, 40
+  %queue6 = getelementptr i8, ptr %1, i64 %3
   store ptr null, ptr %queue6, align 8
   %tql_prev15 = getelementptr inbounds i8, ptr %queue6, i64 8
   store ptr %queue6, ptr %tql_prev15, align 8
-  %queue20 = getelementptr [15 x %struct.USBEndpoint], ptr %ep_out.i, i64 0, i64 %indvars.iv, i32 9
+  %queue20 = getelementptr i8, ptr %2, i64 %3
   store ptr null, ptr %queue20, align 8
   %tql_prev29 = getelementptr inbounds i8, ptr %queue20, i64 8
   store ptr %queue20, ptr %tql_prev29, align 8

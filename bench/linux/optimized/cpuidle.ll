@@ -135,12 +135,12 @@ define dso_local i32 @cpuidle_play_dead() local_unnamed_addr #3 align 16 {
 5:                                                ; preds = %0
   %6 = getelementptr inbounds i8, ptr %3, i64 1064
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = zext i32 %7 to i64
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr i8, ptr %3, i64 112
   br label %10
 
 10:                                               ; preds = %15, %5
-  %11 = phi i64 [ %12, %15 ], [ %9, %5 ]
+  %11 = phi i64 [ %12, %15 ], [ %8, %5 ]
   %12 = add nsw i64 %11, -1
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, -1
@@ -148,7 +148,8 @@ define dso_local i32 @cpuidle_play_dead() local_unnamed_addr #3 align 16 {
 
 15:                                               ; preds = %10
   %16 = and i64 %12, 2147483647
-  %17 = getelementptr [10 x %struct.cpuidle_state], ptr %8, i64 0, i64 %16, i32 9
+  %.idx = mul nuw nsw i64 %16, 104
+  %17 = getelementptr i8, ptr %9, i64 %.idx
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %10, label %20, !llvm.loop !7
@@ -217,22 +218,23 @@ define dso_local i32 @cpuidle_find_deepest_state(ptr nocapture noundef readonly 
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %10 = zext nneg i32 %5 to i64
+  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = zext nneg i32 %5 to i64
+  %10 = getelementptr i8, ptr %0, i64 72
   br label %11
 
 11:                                               ; preds = %27, %7
   %12 = phi i64 [ 1, %7 ], [ %30, %27 ]
   %13 = phi i32 [ 0, %7 ], [ %29, %27 ]
   %14 = phi i64 [ 0, %7 ], [ %28, %27 ]
-  %15 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %9, i64 0, i64 %12
+  %15 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %8, i64 0, i64 %12
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %11
-  %19 = getelementptr [10 x %struct.cpuidle_state], ptr %8, i64 0, i64 %12, i32 2
+  %.idx = mul nuw nsw i64 %12, 104
+  %19 = getelementptr i8, ptr %10, i64 %.idx
   %20 = load i64, ptr %19, align 8
   %21 = icmp ule i64 %20, %14
   %22 = icmp ugt i64 %20, %2
@@ -246,7 +248,7 @@ define dso_local i32 @cpuidle_find_deepest_state(ptr nocapture noundef readonly 
   %28 = phi i64 [ %14, %11 ], [ %25, %18 ]
   %29 = phi i32 [ %13, %11 ], [ %26, %18 ]
   %30 = add nuw nsw i64 %12, 1
-  %31 = icmp eq i64 %30, %10
+  %31 = icmp eq i64 %30, %9
   br i1 %31, label %.loopexit, label %11, !llvm.loop !17
 
 .loopexit:                                        ; preds = %27, %3
@@ -466,7 +468,7 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
 
 22:                                               ; preds = %17
   tail call void @default_idle_call() #19
-  br label %130
+  br label %131
 
 23:                                               ; preds = %17
   %24 = zext nneg i32 %20 to i64
@@ -567,7 +569,7 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
 67:                                               ; preds = %66, %62
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !18
   %68 = icmp sgt i32 %48, -1
-  br i1 %68, label %69, label %123
+  br i1 %68, label %69, label %124
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %48 to i64
@@ -637,38 +639,41 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
 
 113:                                              ; preds = %108
   %114 = sub i64 %74, %73
-  %115 = getelementptr [10 x %struct.cpuidle_state], ptr %5, i64 0, i64 %109, i32 3
-  %116 = load i64, ptr %115, align 8
-  %117 = icmp slt i64 %114, %116
-  br i1 %117, label %.loopexit, label %118
+  %.idx6 = mul nsw i64 %109, 104
+  %115 = getelementptr i8, ptr %5, i64 %.idx6
+  %116 = getelementptr i8, ptr %115, i64 56
+  %117 = load i64, ptr %116, align 8
+  %118 = icmp slt i64 %114, %117
+  br i1 %118, label %.loopexit, label %119
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %77, i64 32
-  %120 = load i64, ptr %119, align 8
-  %121 = add i64 %120, 1
-  store i64 %121, ptr %119, align 8
-  %122 = load i32, ptr %38, align 4
-  call fastcc void @trace_cpu_idle_miss(i32 noundef %122, i32 noundef %48, i1 noundef zeroext true)
+119:                                              ; preds = %113
+  %120 = getelementptr inbounds i8, ptr %77, i64 32
+  %121 = load i64, ptr %120, align 8
+  %122 = add i64 %121, 1
+  store i64 %122, ptr %120, align 8
+  %123 = load i32, ptr %38, align 4
+  call fastcc void @trace_cpu_idle_miss(i32 noundef %123, i32 noundef %48, i1 noundef zeroext true)
   br label %.loopexit
 
-123:                                              ; preds = %67
-  %124 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 48
+124:                                              ; preds = %67
+  %125 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 0, ptr %125, align 8
   %126 = sext i32 %29 to i64
-  %127 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %125, i64 0, i64 %126, i32 5
-  %128 = load i64, ptr %127, align 8
-  %129 = add i64 %128, 1
-  store i64 %129, ptr %127, align 8
+  %.idx = shl nsw i64 %126, 6
+  %127 = getelementptr i8, ptr %0, i64 88
+  %128 = getelementptr i8, ptr %127, i64 %.idx
+  %129 = load i64, ptr %128, align 8
+  %130 = add i64 %129, 1
+  store i64 %130, ptr %128, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %104, %.preheader, %123, %118, %113, %99, %94
+.loopexit:                                        ; preds = %104, %.preheader, %124, %119, %113, %99, %94
   call void asm sideeffect "840: nop\0A\09.pushsection .discard.instr_end\0A\09.long 840b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 840) #19, !srcloc !42
-  br label %130
+  br label %131
 
-130:                                              ; preds = %.loopexit, %22
-  %131 = phi i32 [ -16, %22 ], [ %48, %.loopexit ]
-  ret i32 %131
+131:                                              ; preds = %.loopexit, %22
+  %132 = phi i32 [ -16, %22 ], [ %48, %.loopexit ]
+  ret i32 %132
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
@@ -846,8 +851,8 @@ define dso_local range(i64 1, 0) i64 @cpuidle_poll_time(ptr nocapture noundef re
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = zext nneg i32 %8 to i64
+  %12 = zext nneg i32 %8 to i64
+  %13 = getelementptr i8, ptr %0, i64 80
   br label %14
 
 14:                                               ; preds = %24, %10
@@ -858,7 +863,8 @@ define dso_local range(i64 1, 0) i64 @cpuidle_poll_time(ptr nocapture noundef re
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
-  %20 = getelementptr [10 x %struct.cpuidle_state], ptr %12, i64 0, i64 %15, i32 3
+  %.idx = mul nuw nsw i64 %15, 104
+  %20 = getelementptr i8, ptr %13, i64 %.idx
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %21, 10000
   br i1 %22, label %24, label %.thread
@@ -869,7 +875,7 @@ define dso_local range(i64 1, 0) i64 @cpuidle_poll_time(ptr nocapture noundef re
 
 24:                                               ; preds = %19, %14
   %25 = add nuw nsw i64 %15, 1
-  %26 = icmp eq i64 %25, %13
+  %26 = icmp eq i64 %25, %12
   br i1 %26, label %.loopexit, label %14, !llvm.loop !53
 
 .loopexit:                                        ; preds = %24, %.thread, %6
@@ -1108,7 +1114,7 @@ define dso_local void @cpuidle_disable_device(ptr noundef %0) #3 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cpuidle_register_device(ptr noundef %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %111, label %3
+  br i1 %2, label %110, label %3
 
 3:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @cpuidle_lock) #19
@@ -1134,177 +1140,178 @@ define dso_local i32 @cpuidle_register_device(ptr noundef %0) #3 align 16 {
   %16 = getelementptr inbounds i8, ptr %11, i64 1064
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %.loopexit
+  br i1 %18, label %.preheader, label %.loopexit
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
-  br label %21
+.preheader:                                       ; preds = %15
+  %19 = getelementptr i8, ptr %11, i64 88
+  br label %20
 
-21:                                               ; preds = %39, %19
-  %22 = phi i64 [ 0, %19 ], [ %40, %39 ]
-  %23 = getelementptr [10 x %struct.cpuidle_state], ptr %20, i64 0, i64 %22, i32 4
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 8
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %31, label %27
+20:                                               ; preds = %.preheader, %38
+  %21 = phi i64 [ %39, %38 ], [ 0, %.preheader ]
+  %.idx = mul nuw nsw i64 %21, 104
+  %22 = getelementptr i8, ptr %19, i64 %.idx
+  %23 = load i32, ptr %22, align 8
+  %24 = and i32 %23, 8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %30, label %26
 
-27:                                               ; preds = %21
-  %28 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %8, i64 0, i64 %22
-  %29 = load i64, ptr %28, align 8
-  %30 = or i64 %29, 2
-  store i64 %30, ptr %28, align 8
-  %.pre = load i32, ptr %23, align 8
-  br label %31
+26:                                               ; preds = %20
+  %27 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %8, i64 0, i64 %21
+  %28 = load i64, ptr %27, align 8
+  %29 = or i64 %28, 2
+  store i64 %29, ptr %27, align 8
+  %.pre = load i32, ptr %22, align 8
+  br label %30
 
-31:                                               ; preds = %27, %21
-  %32 = phi i32 [ %.pre, %27 ], [ %24, %21 ]
-  %33 = and i32 %32, 16
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %39, label %35
+30:                                               ; preds = %26, %20
+  %31 = phi i32 [ %.pre, %26 ], [ %23, %20 ]
+  %32 = and i32 %31, 16
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %38, label %34
 
-35:                                               ; preds = %31
-  %36 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %8, i64 0, i64 %22
-  %37 = load i64, ptr %36, align 8
-  %38 = or i64 %37, 1
-  store i64 %38, ptr %36, align 8
-  br label %39
+34:                                               ; preds = %30
+  %35 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %8, i64 0, i64 %21
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, 1
+  store i64 %37, ptr %35, align 8
+  br label %38
 
-39:                                               ; preds = %35, %31
-  %40 = add nuw nsw i64 %22, 1
-  %41 = load i32, ptr %16, align 8
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %40, %42
-  br i1 %43, label %21, label %.loopexit, !llvm.loop !56
+38:                                               ; preds = %34, %30
+  %39 = add nuw nsw i64 %21, 1
+  %40 = load i32, ptr %16, align 8
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %39, %41
+  br i1 %42, label %20, label %.loopexit, !llvm.loop !56
 
-.loopexit:                                        ; preds = %39, %15
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %46
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, ptrtoint (ptr @cpuidle_devices to i64)
-  %50 = inttoptr i64 %49 to ptr
-  store ptr %0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 784
-  %52 = load ptr, ptr @cpuidle_detected_devices, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %51, ptr %53, align 8
-  store ptr %52, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 792
-  store ptr @cpuidle_detected_devices, ptr %54, align 8
-  store volatile ptr %51, ptr @cpuidle_detected_devices, align 8
-  %55 = load i8, ptr %0, align 8
-  %56 = or i8 %55, 1
-  store i8 %56, ptr %0, align 8
-  %57 = tail call i32 @cpuidle_add_sysfs(ptr noundef nonnull %0) #19
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %95
+.loopexit:                                        ; preds = %38, %15
+  %43 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %45
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, ptrtoint (ptr @cpuidle_devices to i64)
+  %49 = inttoptr i64 %48 to ptr
+  store ptr %0, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 784
+  %51 = load ptr, ptr @cpuidle_detected_devices, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %50, ptr %52, align 8
+  store ptr %51, ptr %50, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 792
+  store ptr @cpuidle_detected_devices, ptr %53, align 8
+  store volatile ptr %50, ptr @cpuidle_detected_devices, align 8
+  %54 = load i8, ptr %0, align 8
+  %55 = or i8 %54, 1
+  store i8 %55, ptr %0, align 8
+  %56 = tail call i32 @cpuidle_add_sysfs(ptr noundef nonnull %0) #19
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %94
 
-59:                                               ; preds = %.loopexit
-  %60 = load i8, ptr %0, align 8
-  %61 = and i8 %60, 2
-  %62 = icmp eq i8 %61, 0
-  br i1 %62, label %63, label %cpuidle_enable_device.exitthread-pre-split
+58:                                               ; preds = %.loopexit
+  %59 = load i8, ptr %0, align 8
+  %60 = and i8 %59, 2
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %62, label %cpuidle_enable_device.exitthread-pre-split
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr @cpuidle_curr_governor, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %94, label %66
+62:                                               ; preds = %58
+  %63 = load ptr, ptr @cpuidle_curr_governor, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %93, label %65
 
-66:                                               ; preds = %63
-  %67 = tail call ptr @cpuidle_get_cpu_driver(ptr noundef nonnull %0) #19
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %94, label %69
+65:                                               ; preds = %62
+  %66 = tail call ptr @cpuidle_get_cpu_driver(ptr noundef nonnull %0) #19
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %93, label %68
 
-69:                                               ; preds = %66
-  %70 = load i8, ptr %0, align 8
-  %71 = and i8 %70, 1
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %94, label %73
+68:                                               ; preds = %65
+  %69 = load i8, ptr %0, align 8
+  %70 = and i8 %69, 1
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %93, label %72
 
-73:                                               ; preds = %69
-  %74 = tail call i32 @cpuidle_add_device_sysfs(ptr noundef nonnull %0) #19
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %94
+72:                                               ; preds = %68
+  %73 = tail call i32 @cpuidle_add_device_sysfs(ptr noundef nonnull %0) #19
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %93
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr @cpuidle_curr_governor, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %84, label %81
+75:                                               ; preds = %72
+  %76 = load ptr, ptr @cpuidle_curr_governor, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 40
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %83, label %80
 
-81:                                               ; preds = %76
-  %82 = tail call i32 %79(ptr noundef nonnull %67, ptr noundef nonnull %0) #19
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %89
+80:                                               ; preds = %75
+  %81 = tail call i32 %78(ptr noundef nonnull %66, ptr noundef nonnull %0) #19
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %88
 
-84:                                               ; preds = %81, %76
+83:                                               ; preds = %80, %75
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !55
-  %85 = load i8, ptr %0, align 8
-  %86 = or i8 %85, 2
-  store i8 %86, ptr %0, align 8
-  %87 = load i32, ptr @enabled_devices, align 4
-  %88 = add i32 %87, 1
-  store i32 %88, ptr @enabled_devices, align 4
+  %84 = load i8, ptr %0, align 8
+  %85 = or i8 %84, 2
+  store i8 %85, ptr %0, align 8
+  %86 = load i32, ptr @enabled_devices, align 4
+  %87 = add i32 %86, 1
+  store i32 %87, ptr @enabled_devices, align 4
   br label %cpuidle_enable_device.exit
 
-89:                                               ; preds = %81
+88:                                               ; preds = %80
   tail call void @cpuidle_remove_device_sysfs(ptr noundef nonnull %0) #19
-  br label %94
+  br label %93
 
-cpuidle_enable_device.exitthread-pre-split:       ; preds = %59
+cpuidle_enable_device.exitthread-pre-split:       ; preds = %58
   %.pr = load i32, ptr @enabled_devices, align 4
   br label %cpuidle_enable_device.exit
 
-cpuidle_enable_device.exit:                       ; preds = %cpuidle_enable_device.exitthread-pre-split, %84
-  %90 = phi i32 [ %.pr, %cpuidle_enable_device.exitthread-pre-split ], [ %88, %84 ]
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %.thread, label %92
+cpuidle_enable_device.exit:                       ; preds = %cpuidle_enable_device.exitthread-pre-split, %83
+  %89 = phi i32 [ %.pr, %cpuidle_enable_device.exitthread-pre-split ], [ %87, %83 ]
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %.thread, label %91
 
-92:                                               ; preds = %cpuidle_enable_device.exit
+91:                                               ; preds = %cpuidle_enable_device.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !54
   store i1 true, ptr @initialized, align 4
   br label %.thread
 
-.thread:                                          ; preds = %7, %95, %92, %cpuidle_enable_device.exit, %3
-  %93 = phi i32 [ -16, %3 ], [ %96, %95 ], [ 0, %cpuidle_enable_device.exit ], [ 0, %92 ], [ -22, %7 ]
+.thread:                                          ; preds = %7, %94, %91, %cpuidle_enable_device.exit, %3
+  %92 = phi i32 [ -16, %3 ], [ %95, %94 ], [ 0, %cpuidle_enable_device.exit ], [ 0, %91 ], [ -22, %7 ]
   tail call void @mutex_unlock(ptr noundef nonnull @cpuidle_lock) #19
-  br label %111
+  br label %110
 
-94:                                               ; preds = %89, %63, %66, %69, %73
-  %.ph = phi i32 [ %74, %73 ], [ -22, %69 ], [ -5, %66 ], [ -5, %63 ], [ %82, %89 ]
+93:                                               ; preds = %88, %62, %65, %68, %72
+  %.ph = phi i32 [ %73, %72 ], [ -22, %68 ], [ -5, %65 ], [ -5, %62 ], [ %81, %88 ]
   tail call void @cpuidle_remove_sysfs(ptr noundef nonnull %0) #19
-  br label %95
+  br label %94
 
-95:                                               ; preds = %94, %.loopexit
-  %96 = phi i32 [ %57, %.loopexit ], [ %.ph, %94 ]
-  %97 = tail call ptr @cpuidle_get_cpu_driver(ptr noundef %0) #19
-  %98 = load ptr, ptr %54, align 8
-  %99 = load ptr, ptr %51, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
-  store ptr %98, ptr %100, align 8
-  store volatile ptr %99, ptr %98, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %51, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %54, align 8
-  %101 = load i32, ptr %44, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %102
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, ptrtoint (ptr @cpuidle_devices to i64)
-  %106 = inttoptr i64 %105 to ptr
-  store ptr null, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %97, i64 8
-  %108 = load ptr, ptr %107, align 8
-  tail call void @module_put(ptr noundef %108) #19
-  %109 = load i8, ptr %0, align 8
-  %110 = and i8 %109, -2
-  store i8 %110, ptr %0, align 8
+94:                                               ; preds = %93, %.loopexit
+  %95 = phi i32 [ %56, %.loopexit ], [ %.ph, %93 ]
+  %96 = tail call ptr @cpuidle_get_cpu_driver(ptr noundef %0) #19
+  %97 = load ptr, ptr %53, align 8
+  %98 = load ptr, ptr %50, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  store ptr %97, ptr %99, align 8
+  store volatile ptr %98, ptr %97, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %50, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %53, align 8
+  %100 = load i32, ptr %43, align 4
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %101
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, ptrtoint (ptr @cpuidle_devices to i64)
+  %105 = inttoptr i64 %104 to ptr
+  store ptr null, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %96, i64 8
+  %107 = load ptr, ptr %106, align 8
+  tail call void @module_put(ptr noundef %107) #19
+  %108 = load i8, ptr %0, align 8
+  %109 = and i8 %108, -2
+  store i8 %109, ptr %0, align 8
   br label %.thread
 
-111:                                              ; preds = %.thread, %1
-  %112 = phi i32 [ %93, %.thread ], [ -22, %1 ]
-  ret i32 %112
+110:                                              ; preds = %.thread, %1
+  %111 = phi i32 [ %92, %.thread ], [ -22, %1 ]
+  ret i32 %111
 }
 
 ; Function Attrs: null_pointer_is_valid

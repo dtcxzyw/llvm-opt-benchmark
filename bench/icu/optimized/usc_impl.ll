@@ -192,34 +192,35 @@ for.body.lr.ph:                                   ; preds = %lor.lhs.false
   %pushCount = getelementptr inbounds i8, ptr %scriptRun, i64 288
   %parenStack = getelementptr inbounds i8, ptr %scriptRun, i64 28
   %parenSP = getelementptr inbounds i8, ptr %scriptRun, i64 284
+  %2 = getelementptr i8, ptr %scriptRun, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %2 = phi i32 [ %1, %for.body.lr.ph ], [ %29, %for.inc ]
-  %3 = phi i32 [ %0, %for.body.lr.ph ], [ %add84, %for.inc ]
-  %4 = load ptr, ptr %textArray, align 8
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %5 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %5 to i32
-  %6 = and i16 %5, -1024
-  %or.cond = icmp eq i16 %6, -10240
-  %sub = add nsw i32 %2, -1
-  %cmp14 = icmp slt i32 %3, %sub
+  %3 = phi i32 [ %1, %for.body.lr.ph ], [ %30, %for.inc ]
+  %4 = phi i32 [ %0, %for.body.lr.ph ], [ %add84, %for.inc ]
+  %5 = load ptr, ptr %textArray, align 8
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
+  %6 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %6 to i32
+  %7 = and i16 %6, -1024
+  %or.cond = icmp eq i16 %7, -10240
+  %sub = add nsw i32 %3, -1
+  %cmp14 = icmp slt i32 %4, %sub
   %or.cond56 = select i1 %or.cond, i1 %cmp14, i1 false
   br i1 %or.cond56, label %if.then15, label %if.end35
 
 if.then15:                                        ; preds = %for.body
-  %add = add nsw i32 %3, 1
+  %add = add nsw i32 %4, 1
   %idxprom18 = sext i32 %add to i64
-  %arrayidx19 = getelementptr inbounds i16, ptr %4, i64 %idxprom18
-  %7 = load i16, ptr %arrayidx19, align 2
-  %8 = and i16 %7, -1024
-  %or.cond1 = icmp eq i16 %8, -9216
+  %arrayidx19 = getelementptr inbounds i16, ptr %5, i64 %idxprom18
+  %8 = load i16, ptr %arrayidx19, align 2
+  %9 = and i16 %8, -1024
+  %or.cond1 = icmp eq i16 %9, -9216
   br i1 %or.cond1, label %if.then25, label %if.end35
 
 if.then25:                                        ; preds = %if.then15
-  %conv20 = zext i16 %7 to i32
+  %conv20 = zext i16 %8 to i32
   %sub27 = shl nuw nsw i32 %conv, 10
   %add29 = add nsw i32 %sub27, -56613888
   %add31 = add nuw nsw i32 %add29, %conv20
@@ -240,8 +241,8 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %add.i = add nsw i32 %shr.i, %pairIndex.114.i
   %idxprom2.i = sext i32 %add.i to i64
   %arrayidx3.i = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom2.i
-  %9 = load i32, ptr %arrayidx3.i, align 4
-  %cmp4.not.i = icmp slt i32 %ch.0, %9
+  %10 = load i32, ptr %arrayidx3.i, align 4
+  %cmp4.not.i = icmp slt i32 %ch.0, %10
   %spec.select12.i = select i1 %cmp4.not.i, i32 %pairIndex.114.i, i32 %add.i
   %cmp1.i = icmp ugt i32 %probe.013.i, 3
   br i1 %cmp1.i, label %while.body.i, label %_ZL12getPairIndexi.exit, !llvm.loop !4
@@ -249,8 +250,8 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
 _ZL12getPairIndexi.exit:                          ; preds = %while.body.i
   %idxprom8.i = sext i32 %spec.select12.i to i64
   %arrayidx9.i = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom8.i
-  %10 = load i32, ptr %arrayidx9.i, align 4
-  %cmp10.not.i = icmp eq i32 %10, %ch.0
+  %11 = load i32, ptr %arrayidx9.i, align 4
+  %cmp10.not.i = icmp eq i32 %11, %ch.0
   %spec.store.select.i = select i1 %cmp10.not.i, i32 %spec.select12.i, i32 -1
   %cmp37 = icmp slt i32 %spec.store.select.i, 0
   br i1 %cmp37, label %if.end58, label %if.then38
@@ -258,83 +259,86 @@ _ZL12getPairIndexi.exit:                          ; preds = %while.body.i
 if.then38:                                        ; preds = %_ZL12getPairIndexi.exit
   %and = and i32 %spec.store.select.i, 1
   %cmp39 = icmp eq i32 %and, 0
-  %11 = load i32, ptr %pushCount, align 8
+  %12 = load i32, ptr %pushCount, align 8
   br i1 %cmp39, label %if.then40, label %if.else
 
 if.then40:                                        ; preds = %if.then38
-  %12 = load i32, ptr %scriptCode, align 8
-  %cmp.i58 = icmp slt i32 %11, 32
-  %add.i59 = add nsw i32 %11, 1
+  %13 = load i32, ptr %scriptCode, align 8
+  %cmp.i58 = icmp slt i32 %12, 32
+  %add.i59 = add nsw i32 %12, 1
   %spec.select.i60 = select i1 %cmp.i58, i32 %add.i59, i32 32
   store i32 %spec.select.i60, ptr %pushCount, align 8
-  %13 = load i32, ptr %fixupCount, align 4
-  %cmp3.i = icmp slt i32 %13, 32
-  %add6.i = add nsw i32 %13, 1
+  %14 = load i32, ptr %fixupCount, align 4
+  %cmp3.i = icmp slt i32 %14, 32
+  %add6.i = add nsw i32 %14, 1
   %cond9.i = select i1 %cmp3.i, i32 %add6.i, i32 32
   store i32 %cond9.i, ptr %fixupCount, align 4
-  %14 = load i32, ptr %parenSP, align 4
-  %add11.i = add nsw i32 %14, 1
+  %15 = load i32, ptr %parenSP, align 4
+  %add11.i = add nsw i32 %15, 1
   %rem.i = srem i32 %add11.i, 32
   store i32 %rem.i, ptr %parenSP, align 4
   %idxprom.i = sext i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom.i
   store i32 %spec.store.select.i, ptr %arrayidx.i, align 4
-  %scriptCode19.i = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom.i, i32 1
-  store i32 %12, ptr %scriptCode19.i, align 4
+  %scriptCode19.idx.i = shl nsw i64 %idxprom.i, 3
+  %scriptCode19.offs.i = or disjoint i64 %scriptCode19.idx.i, 4
+  %scriptCode19.i = getelementptr inbounds i8, ptr %parenStack, i64 %scriptCode19.offs.i
+  store i32 %13, ptr %scriptCode19.i, align 4
   br label %if.end58
 
 if.else:                                          ; preds = %if.then38
   %and42 = and i32 %spec.store.select.i, 2147483646
-  %cmp4394 = icmp slt i32 %11, 1
-  br i1 %cmp4394, label %if.end58, label %land.rhs.lr.ph
+  %cmp4393 = icmp slt i32 %12, 1
+  br i1 %cmp4393, label %if.end58, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.else
   %parenSP.promoted = load i32, ptr %parenSP, align 4
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZL3popP10UScriptRun.exit
-  %15 = phi i32 [ %parenSP.promoted, %land.rhs.lr.ph ], [ %spec.store.select.i67, %_ZL3popP10UScriptRun.exit ]
-  %sub6.i9395 = phi i32 [ %11, %land.rhs.lr.ph ], [ %sub6.i, %_ZL3popP10UScriptRun.exit ]
-  %idxprom44 = sext i32 %15 to i64
+  %16 = phi i32 [ %parenSP.promoted, %land.rhs.lr.ph ], [ %spec.store.select.i67, %_ZL3popP10UScriptRun.exit ]
+  %sub6.i9294 = phi i32 [ %12, %land.rhs.lr.ph ], [ %sub6.i, %_ZL3popP10UScriptRun.exit ]
+  %idxprom44 = sext i32 %16 to i64
   %arrayidx45 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom44
-  %16 = load i32, ptr %arrayidx45, align 4
-  %cmp47.not = icmp eq i32 %16, %and42
+  %17 = load i32, ptr %arrayidx45, align 4
+  %cmp47.not = icmp eq i32 %17, %and42
   br i1 %cmp47.not, label %if.then50, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %17 = load i32, ptr %fixupCount, align 4
-  %cmp1.i64 = icmp sgt i32 %17, 0
+  %18 = load i32, ptr %fixupCount, align 4
+  %cmp1.i64 = icmp sgt i32 %18, 0
   br i1 %cmp1.i64, label %if.then2.i, label %_ZL3popP10UScriptRun.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %sub.i = add nsw i32 %17, -1
+  %sub.i = add nsw i32 %18, -1
   store i32 %sub.i, ptr %fixupCount, align 4
   br label %_ZL3popP10UScriptRun.exit
 
 _ZL3popP10UScriptRun.exit:                        ; preds = %if.end.i, %if.then2.i
-  %sub6.i = add nsw i32 %sub6.i9395, -1
+  %sub6.i = add nsw i32 %sub6.i9294, -1
   store i32 %sub6.i, ptr %pushCount, align 8
-  %sub7.i = add nsw i32 %15, 31
+  %sub7.i = add nsw i32 %16, 31
   %rem.i66 = srem i32 %sub7.i, 32
-  %cmp10.i = icmp eq i32 %sub6.i9395, 1
+  %cmp10.i = icmp eq i32 %sub6.i9294, 1
   %spec.store.select.i67 = select i1 %cmp10.i, i32 -1, i32 %rem.i66
   store i32 %spec.store.select.i67, ptr %parenSP, align 4
-  %cmp43 = icmp slt i32 %sub6.i9395, 2
+  %cmp43 = icmp slt i32 %sub6.i9294, 2
   br i1 %cmp43, label %if.end58, label %land.rhs, !llvm.loop !6
 
 if.then50:                                        ; preds = %land.rhs
-  %scriptCode55 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom44, i32 1
-  %18 = load i32, ptr %scriptCode55, align 4
+  %scriptCode55.idx = shl nsw i64 %idxprom44, 3
+  %scriptCode55 = getelementptr i8, ptr %2, i64 %scriptCode55.idx
+  %19 = load i32, ptr %scriptCode55, align 4
   br label %if.end58
 
 if.end58:                                         ; preds = %_ZL3popP10UScriptRun.exit, %if.else, %if.then40, %if.then50, %_ZL12getPairIndexi.exit
-  %sc.0 = phi i32 [ %call, %if.then40 ], [ %18, %if.then50 ], [ %call, %_ZL12getPairIndexi.exit ], [ %call, %if.else ], [ %call, %_ZL3popP10UScriptRun.exit ]
-  %19 = load i32, ptr %scriptCode, align 8
-  %cmp.i68 = icmp slt i32 %19, 2
+  %sc.0 = phi i32 [ %call, %if.then40 ], [ %19, %if.then50 ], [ %call, %_ZL12getPairIndexi.exit ], [ %call, %if.else ], [ %call, %_ZL3popP10UScriptRun.exit ]
+  %20 = load i32, ptr %scriptCode, align 8
+  %cmp.i68 = icmp slt i32 %20, 2
   %cmp1.i69 = icmp slt i32 %sc.0, 2
-  %cmp2.i = icmp eq i32 %19, %sc.0
-  %20 = or i1 %cmp1.i69, %cmp2.i
-  %narrow.i = or i1 %cmp.i68, %20
+  %cmp2.i = icmp eq i32 %20, %sc.0
+  %21 = or i1 %cmp1.i69, %cmp2.i
+  %narrow.i = or i1 %cmp.i68, %21
   br i1 %narrow.i, label %if.then61, label %if.else76
 
 if.then61:                                        ; preds = %if.end58
@@ -344,64 +348,65 @@ if.then61:                                        ; preds = %if.end58
 
 if.then66:                                        ; preds = %if.then61
   store i32 %sc.0, ptr %scriptCode, align 8
-  %21 = load i32, ptr %fixupCount, align 4
-  %dec5.i = add nsw i32 %21, -1
-  %cmp6.i = icmp sgt i32 %21, 0
+  %22 = load i32, ptr %fixupCount, align 4
+  %dec5.i = add nsw i32 %22, -1
+  %cmp6.i = icmp sgt i32 %22, 0
   br i1 %cmp6.i, label %while.body.lr.ph.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then66
-  %22 = load i32, ptr %parenSP, align 4
-  %reass.sub = sub i32 %22, %21
+  %23 = load i32, ptr %parenSP, align 4
+  %reass.sub = sub i32 %23, %22
   %sub.i73 = add i32 %reass.sub, 32
   %rem.i74 = srem i32 %sub.i73, 32
-  br label %while.body.i76
+  br label %while.body.i75
 
-while.body.i76:                                   ; preds = %while.body.i76, %while.body.lr.ph.i
-  %dec8.i = phi i32 [ %dec5.i, %while.body.lr.ph.i ], [ %dec.i, %while.body.i76 ]
-  %fixupSP.07.i = phi i32 [ %rem.i74, %while.body.lr.ph.i ], [ %rem3.i, %while.body.i76 ]
+while.body.i75:                                   ; preds = %while.body.i75, %while.body.lr.ph.i
+  %dec8.i = phi i32 [ %dec5.i, %while.body.lr.ph.i ], [ %dec.i, %while.body.i75 ]
+  %fixupSP.07.i = phi i32 [ %rem.i74, %while.body.lr.ph.i ], [ %rem3.i, %while.body.i75 ]
   %add2.i = add nsw i32 %fixupSP.07.i, 1
   %rem3.i = srem i32 %add2.i, 32
-  %idxprom.i77 = sext i32 %rem3.i to i64
-  %scriptCode4.i = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom.i77, i32 1
+  %idxprom.i76 = sext i32 %rem3.i to i64
+  %scriptCode4.idx.i = shl nsw i64 %idxprom.i76, 3
+  %scriptCode4.i = getelementptr i8, ptr %2, i64 %scriptCode4.idx.i
   store i32 %sc.0, ptr %scriptCode4.i, align 4
   %dec.i = add nsw i32 %dec8.i, -1
   %cmp.not.i = icmp eq i32 %dec8.i, 0
-  br i1 %cmp.not.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %while.body.i76, !llvm.loop !7
+  br i1 %cmp.not.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %while.body.i75, !llvm.loop !7
 
-_ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %while.body.i76, %if.then66
-  %dec.lcssa.i = phi i32 [ %dec5.i, %if.then66 ], [ -1, %while.body.i76 ]
+_ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %while.body.i75, %if.then66
+  %dec.lcssa.i = phi i32 [ %dec5.i, %if.then66 ], [ -1, %while.body.i75 ]
   store i32 %dec.lcssa.i, ptr %fixupCount, align 4
   br label %if.end69
 
 if.end69:                                         ; preds = %_ZL5fixupP10UScriptRun11UScriptCode.exit, %if.then61
-  %23 = and i32 %spec.store.select.i, -2147483647
-  %or.cond57.not = icmp eq i32 %23, 1
+  %24 = and i32 %spec.store.select.i, -2147483647
+  %or.cond57.not = icmp eq i32 %24, 1
   br i1 %or.cond57.not, label %if.then74, label %for.inc
 
 if.then74:                                        ; preds = %if.end69
-  %24 = load i32, ptr %pushCount, align 8
-  %cmp.i79 = icmp slt i32 %24, 1
-  br i1 %cmp.i79, label %for.inc, label %if.end.i80
+  %25 = load i32, ptr %pushCount, align 8
+  %cmp.i78 = icmp slt i32 %25, 1
+  br i1 %cmp.i78, label %for.inc, label %if.end.i79
 
-if.end.i80:                                       ; preds = %if.then74
-  %25 = load i32, ptr %fixupCount, align 4
-  %cmp1.i82 = icmp sgt i32 %25, 0
-  br i1 %cmp1.i82, label %if.then2.i90, label %if.end4.i83
+if.end.i79:                                       ; preds = %if.then74
+  %26 = load i32, ptr %fixupCount, align 4
+  %cmp1.i81 = icmp sgt i32 %26, 0
+  br i1 %cmp1.i81, label %if.then2.i89, label %if.end4.i82
 
-if.then2.i90:                                     ; preds = %if.end.i80
-  %sub.i91 = add nsw i32 %25, -1
-  store i32 %sub.i91, ptr %fixupCount, align 4
-  br label %if.end4.i83
+if.then2.i89:                                     ; preds = %if.end.i79
+  %sub.i90 = add nsw i32 %26, -1
+  store i32 %sub.i90, ptr %fixupCount, align 4
+  br label %if.end4.i82
 
-if.end4.i83:                                      ; preds = %if.then2.i90, %if.end.i80
-  %sub6.i84 = add nsw i32 %24, -1
-  store i32 %sub6.i84, ptr %pushCount, align 8
-  %26 = load i32, ptr %parenSP, align 4
-  %sub7.i86 = add nsw i32 %26, 31
-  %rem.i87 = srem i32 %sub7.i86, 32
-  %cmp10.i88 = icmp eq i32 %24, 1
-  %spec.store.select.i89 = select i1 %cmp10.i88, i32 -1, i32 %rem.i87
-  store i32 %spec.store.select.i89, ptr %parenSP, align 4
+if.end4.i82:                                      ; preds = %if.then2.i89, %if.end.i79
+  %sub6.i83 = add nsw i32 %25, -1
+  store i32 %sub6.i83, ptr %pushCount, align 8
+  %27 = load i32, ptr %parenSP, align 4
+  %sub7.i85 = add nsw i32 %27, 31
+  %rem.i86 = srem i32 %sub7.i85, 32
+  %cmp10.i87 = icmp eq i32 %25, 1
+  %spec.store.select.i88 = select i1 %cmp10.i87, i32 -1, i32 %rem.i86
+  store i32 %spec.store.select.i88, ptr %parenSP, align 4
   br label %for.inc
 
 if.else76:                                        ; preds = %if.end58
@@ -409,17 +414,17 @@ if.else76:                                        ; preds = %if.end58
   br i1 %cmp77, label %if.then78, label %for.end
 
 if.then78:                                        ; preds = %if.else76
-  %27 = load i32, ptr %scriptLimit, align 4
-  %sub80 = add nsw i32 %27, -1
+  %28 = load i32, ptr %scriptLimit, align 4
+  %sub80 = add nsw i32 %28, -1
   store i32 %sub80, ptr %scriptLimit, align 4
   br label %for.end
 
-for.inc:                                          ; preds = %if.end4.i83, %if.then74, %if.end69
-  %28 = load i32, ptr %scriptLimit, align 4
-  %add84 = add nsw i32 %28, 1
+for.inc:                                          ; preds = %if.end4.i82, %if.then74, %if.end69
+  %29 = load i32, ptr %scriptLimit, align 4
+  %add84 = add nsw i32 %29, 1
   store i32 %add84, ptr %scriptLimit, align 4
-  %29 = load i32, ptr %scriptRun, align 8
-  %cmp5 = icmp slt i32 %add84, %29
+  %30 = load i32, ptr %scriptRun, align 8
+  %cmp5 = icmp slt i32 %add84, %30
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.else76, %if.then78
@@ -427,8 +432,8 @@ for.end:                                          ; preds = %for.inc, %if.else76
   br i1 %cmp85.not, label %if.end88, label %if.then86
 
 if.then86:                                        ; preds = %for.end
-  %30 = load i32, ptr %scriptStart, align 8
-  store i32 %30, ptr %pRunStart, align 4
+  %31 = load i32, ptr %scriptStart, align 8
+  store i32 %31, ptr %pRunStart, align 4
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then86, %for.end
@@ -436,8 +441,8 @@ if.end88:                                         ; preds = %if.then86, %for.end
   br i1 %cmp89.not, label %if.end92, label %if.then90
 
 if.then90:                                        ; preds = %if.end88
-  %31 = load i32, ptr %scriptLimit, align 4
-  store i32 %31, ptr %pRunLimit, align 4
+  %32 = load i32, ptr %scriptLimit, align 4
+  store i32 %32, ptr %pRunLimit, align 4
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then90, %if.end88
@@ -445,8 +450,8 @@ if.end92:                                         ; preds = %if.then90, %if.end8
   br i1 %cmp93.not, label %return, label %if.then94
 
 if.then94:                                        ; preds = %if.end92
-  %32 = load i32, ptr %scriptCode, align 8
-  store i32 %32, ptr %pRunScript, align 4
+  %33 = load i32, ptr %scriptCode, align 8
+  store i32 %33, ptr %pRunScript, align 4
   br label %return
 
 return:                                           ; preds = %if.end92, %if.then94, %entry, %lor.lhs.false

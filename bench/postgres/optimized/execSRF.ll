@@ -391,7 +391,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 
 .lr.ph:                                           ; preds = %.preheader
   %wide.trip.count = zext nneg i16 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %30, i64 32
+  %74 = getelementptr i8, ptr %30, i64 40
   br label %76
 
 75:                                               ; preds = %76
@@ -401,7 +401,8 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 
 76:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %77 = getelementptr [0 x %struct.NullableDatum], ptr %74, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %77 = getelementptr i8, ptr %74, i64 %.idx
   %78 = load i8, ptr %77, align 8
   %79 = trunc i8 %78 to i1
   br i1 %79, label %.loopexit, label %75
@@ -1005,7 +1006,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %57, %.
 
 .lr.ph:                                           ; preds = %.preheader
   %wide.trip.count = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %54, i64 32
+  %85 = getelementptr i8, ptr %54, i64 40
   br label %87
 
 86:                                               ; preds = %87
@@ -1015,7 +1016,8 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %57, %.
 
 87:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %88 = getelementptr [0 x %struct.NullableDatum], ptr %85, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %88 = getelementptr i8, ptr %85, i64 %.idx
   %89 = load i8, ptr %88, align 8
   %90 = trunc i8 %89 to i1
   br i1 %90, label %.thread105, label %86

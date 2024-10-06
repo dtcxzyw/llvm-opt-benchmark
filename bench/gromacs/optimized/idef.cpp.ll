@@ -2010,26 +2010,28 @@ define void @_Z9done_idefP6t_idef(ptr nocapture noundef %0) local_unnamed_addr #
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.49, i32 noundef 520, ptr noundef %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %11
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 56
+  br label %10
 
-11:                                               ; preds = %1, %11
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds [94 x %struct.t_ilist], ptr %10, i64 0, i64 %indvars.iv, i32 1
-  %13 = load ptr, ptr %12, align 8
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.49, i32 noundef 523, ptr noundef %13)
+10:                                               ; preds = %1, %10
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
+  %11 = mul nuw nsw i64 %indvars.iv, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %11
+  %12 = load ptr, ptr %gep, align 8
+  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.49, i32 noundef 523, ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 94
-  br i1 %exitcond.not, label %14, label %11, !llvm.loop !21
+  br i1 %exitcond.not, label %13, label %10, !llvm.loop !21
 
-14:                                               ; preds = %11
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %15
 
-15:                                               ; preds = %15, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds [94 x %struct.t_ilist], ptr %10, i64 0, i64 %indvars.iv.i
+15:                                               ; preds = %15, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %15 ]
+  %16 = getelementptr inbounds [94 x %struct.t_ilist], ptr %14, i64 0, i64 %indvars.iv.i
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16

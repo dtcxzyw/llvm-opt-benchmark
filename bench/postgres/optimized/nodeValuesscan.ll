@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -270,8 +268,9 @@ define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %.lr.ph66
-  %67 = getelementptr inbounds i8, ptr %58, i64 24
-  %68 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %67, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %67 = getelementptr i8, ptr %58, i64 96
+  %68 = getelementptr i8, ptr %67, i64 %.idx
   %69 = load i16, ptr %68, align 4
   %.not58 = icmp eq i16 %69, -1
   br i1 %.not58, label %70, label %72

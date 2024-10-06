@@ -2461,12 +2461,13 @@ if.end5.i:                                        ; preds = %if.end.i36
   %22 = load i64, ptr %counter.i, align 8
   %inc.i = add i64 %22, 1
   store i64 %inc.i, ptr %counter.i, align 8
-  %desc.i = getelementptr inbounds i8, ptr %21, i64 16
   %idxprom.i37 = zext i16 %14 to i64
-  %counter7.i = getelementptr [0 x %struct.VuDescStateSplit], ptr %desc.i, i64 0, i64 %idxprom.i37, i32 3
+  %counter7.idx.i = shl nuw nsw i64 %idxprom.i37, 4
+  %23 = getelementptr i8, ptr %21, i64 24
+  %counter7.i = getelementptr i8, ptr %23, i64 %counter7.idx.i
   store i64 %22, ptr %counter7.i, align 8
-  %23 = load ptr, ptr %inflight.i, align 8
-  %desc9.i = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load ptr, ptr %inflight.i, align 8
+  %desc9.i = getelementptr inbounds i8, ptr %24, i64 16
   %arrayidx11.i = getelementptr [0 x %struct.VuDescStateSplit], ptr %desc9.i, i64 0, i64 %idxprom.i37
   store i8 1, ptr %arrayidx11.i, align 8
   br label %return
@@ -4219,7 +4220,7 @@ for.cond71.preheader.i:                           ; preds = %if.then62.i
   br i1 %cmp756.not.i, label %for.end105.i, label %for.body77.i
 
 for.body77.i:                                     ; preds = %for.cond71.preheader.i, %for.inc103.i
-  %39 = phi ptr [ %48, %for.inc103.i ], [ %29, %for.cond71.preheader.i ]
+  %39 = phi ptr [ %49, %for.inc103.i ], [ %29, %for.cond71.preheader.i ]
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %for.inc103.i ], [ 0, %for.cond71.preheader.i ]
   %desc79.i = getelementptr inbounds i8, ptr %39, i64 16
   %arrayidx81.i = getelementptr [0 x %struct.VuDescStateSplit], ptr %desc79.i, i64 0, i64 %indvars.iv9.i
@@ -4235,27 +4236,28 @@ if.then84.i:                                      ; preds = %for.body77.i
   %arrayidx89.i = getelementptr %struct.VuVirtqInflightDesc, ptr %41, i64 %idxprom88.i
   store i16 %conv85.i, ptr %arrayidx89.i, align 8
   %43 = load ptr, ptr %inflight.i, align 8
-  %desc91.i = getelementptr inbounds i8, ptr %43, i64 16
-  %counter94.i = getelementptr [0 x %struct.VuDescStateSplit], ptr %desc91.i, i64 0, i64 %indvars.iv9.i, i32 3
-  %44 = load i64, ptr %counter94.i, align 8
-  %45 = load ptr, ptr %resubmit_list.i, align 8
-  %46 = load i16, ptr %resubmit_num.i, align 8
-  %idxprom97.i = zext i16 %46 to i64
-  %counter99.i = getelementptr %struct.VuVirtqInflightDesc, ptr %45, i64 %idxprom97.i, i32 1
-  store i64 %44, ptr %counter99.i, align 8
+  %counter94.idx.i = shl nuw nsw i64 %indvars.iv9.i, 4
+  %44 = getelementptr i8, ptr %43, i64 24
+  %counter94.i = getelementptr i8, ptr %44, i64 %counter94.idx.i
+  %45 = load i64, ptr %counter94.i, align 8
+  %46 = load ptr, ptr %resubmit_list.i, align 8
   %47 = load i16, ptr %resubmit_num.i, align 8
-  %inc101.i = add i16 %47, 1
+  %idxprom97.i = zext i16 %47 to i64
+  %counter99.i = getelementptr %struct.VuVirtqInflightDesc, ptr %46, i64 %idxprom97.i, i32 1
+  store i64 %45, ptr %counter99.i, align 8
+  %48 = load i16, ptr %resubmit_num.i, align 8
+  %inc101.i = add i16 %48, 1
   store i16 %inc101.i, ptr %resubmit_num.i, align 8
   %.pre13.i = load ptr, ptr %inflight.i, align 8
   br label %for.inc103.i
 
 for.inc103.i:                                     ; preds = %if.then84.i, %for.body77.i
-  %48 = phi ptr [ %39, %for.body77.i ], [ %.pre13.i, %if.then84.i ]
+  %49 = phi ptr [ %39, %for.body77.i ], [ %.pre13.i, %if.then84.i ]
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
-  %desc_num73.i = getelementptr inbounds i8, ptr %48, i64 10
-  %49 = load i16, ptr %desc_num73.i, align 2
-  %50 = zext i16 %49 to i64
-  %cmp75.i = icmp ult i64 %indvars.iv.next10.i, %50
+  %desc_num73.i = getelementptr inbounds i8, ptr %49, i64 10
+  %50 = load i16, ptr %desc_num73.i, align 2
+  %51 = zext i16 %50 to i64
+  %cmp75.i = icmp ult i64 %indvars.iv.next10.i, %51
   br i1 %cmp75.i, label %for.body77.i, label %for.end105.loopexit.i
 
 for.end105.loopexit.i:                            ; preds = %for.inc103.i
@@ -4264,28 +4266,28 @@ for.end105.loopexit.i:                            ; preds = %for.inc103.i
 
 for.end105.i:                                     ; preds = %for.end105.loopexit.i, %for.cond71.preheader.i
   %.pre15.i = phi ptr [ %.pre15.pre.i, %for.end105.loopexit.i ], [ %call65.i, %for.cond71.preheader.i ]
-  %51 = load i16, ptr %resubmit_num.i, align 8
-  %cmp108.i = icmp ugt i16 %51, 1
+  %52 = load i16, ptr %resubmit_num.i, align 8
+  %cmp108.i = icmp ugt i16 %52, 1
   br i1 %cmp108.i, label %if.then110.i, label %if.end114.i
 
 if.then110.i:                                     ; preds = %for.end105.i
-  %conv113.i = zext i16 %51 to i64
+  %conv113.i = zext i16 %52 to i64
   tail call void @qsort(ptr noundef %.pre15.i, i64 noundef %conv113.i, i64 noundef 16, ptr noundef nonnull @inflight_desc_compare) #21
   %.pre14.i = load ptr, ptr %resubmit_list.i, align 8
   br label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.then110.i, %for.end105.i
-  %52 = phi ptr [ %.pre14.i, %if.then110.i ], [ %.pre15.i, %for.end105.i ]
-  %counter117.i = getelementptr inbounds i8, ptr %52, i64 8
-  %53 = load i64, ptr %counter117.i, align 8
-  %add118.i = add i64 %53, 1
+  %53 = phi ptr [ %.pre14.i, %if.then110.i ], [ %.pre15.i, %for.end105.i ]
+  %counter117.i = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = load i64, ptr %counter117.i, align 8
+  %add118.i = add i64 %54, 1
   store i64 %add118.i, ptr %counter.i, align 8
   br label %vu_check_queue_inflights.exit
 
 vu_check_queue_inflights.exit:                    ; preds = %for.end.i, %if.end114.i
   %kick_fd.i = getelementptr inbounds i8, ptr %arrayidx57, i64 108
-  %54 = load i32, ptr %kick_fd.i, align 4
-  %call121.i = tail call i32 @eventfd_write(i32 noundef %54, i64 noundef 1) #21
+  %55 = load i32, ptr %kick_fd.i, align 4
+  %call121.i = tail call i32 @eventfd_write(i32 noundef %55, i64 noundef 1) #21
   %tobool122.not.i.not = icmp eq i32 %call121.i, 0
   br i1 %tobool122.not.i.not, label %return, label %if.then60
 

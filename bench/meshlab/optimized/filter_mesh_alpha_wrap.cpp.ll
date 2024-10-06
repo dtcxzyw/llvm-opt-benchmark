@@ -40229,7 +40229,7 @@ _ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit: ; preds = %_Z
   %.pn83.pn = phi { ptr, i32 } [ %614, %613 ], [ %612, %611 ]
   call void @_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %267) #23
   call void @_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %268) #23
-  br label %1772
+  br label %1773
 
 616:                                              ; preds = %_ZN4CGAL13Alpha_wraps_38internal3putERKNS1_19Vector_property_mapINS_10Triangle_3INS_5EpickEEEEERKmRKS5_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %270, i8 0, i64 80, i1 false)
@@ -40755,7 +40755,7 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   br label %842
 
 842:                                              ; preds = %.lr.ph, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150
-  %843 = phi ptr [ %794, %.lr.ph ], [ %1754, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150 ]
+  %843 = phi ptr [ %794, %.lr.ph ], [ %1755, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %272, ptr noundef nonnull align 16 dereferenceable(192) %843, i64 192, i1 false)
   %844 = load ptr, ptr %796, align 8
   %845 = getelementptr inbounds i8, ptr %844, i64 -192
@@ -40789,28 +40789,30 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   %.475 = zext i1 %856 to i32
   %858 = fcmp oge double %., %857
   %859 = select i1 %858, i32 %.475, i32 2
-  %860 = zext nneg i32 %859 to i64
-  %gep = getelementptr inbounds [3 x %"struct.std::pair.1248"], ptr %invariant.gep, i64 0, i64 %860, i32 1
-  %861 = load double, ptr %gep, align 8
-  %862 = load double, ptr %0, align 8
-  %863 = fmul double %862, 9.000000e+00
-  %864 = fcmp ogt double %861, %863
-  br i1 %864, label %865, label %1413
+  %860 = shl nuw nsw i32 %859, 6
+  %861 = or disjoint i32 %860, 48
+  %gep.offs = zext nneg i32 %861 to i64
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.offs
+  %862 = load double, ptr %gep, align 8
+  %863 = load double, ptr %0, align 8
+  %864 = fmul double %863, 9.000000e+00
+  %865 = fcmp ogt double %862, %864
+  br i1 %865, label %866, label %1414
 
-865:                                              ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE3popEv.exit
-  switch i32 %859, label %1231 [
-    i32 0, label %866
-    i32 1, label %1049
+866:                                              ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE3popEv.exit
+  switch i32 %859, label %1232 [
+    i32 0, label %867
+    i32 1, label %1050
   ]
 
-866:                                              ; preds = %865
+867:                                              ; preds = %866
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %212), !noalias !777
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %213), !noalias !777
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i), !noalias !782
   invoke void @_ZN4CGAL10midpointC3INS_11Interval_ntILb1EEEEEvRKT_S5_S5_S5_S5_S5_RS3_S6_S6_(ptr noundef nonnull align 16 dereferenceable(16) %799, ptr noundef nonnull align 16 dereferenceable(16) %817, ptr noundef nonnull align 16 dereferenceable(16) %819, ptr noundef nonnull align 16 dereferenceable(16) %800, ptr noundef nonnull align 16 dereferenceable(16) %811, ptr noundef nonnull align 16 dereferenceable(16) %813, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %212, ptr noundef nonnull align 16 dereferenceable(16) %213)
-          to label %867 unwind label %.loopexit
+          to label %868 unwind label %.loopexit
 
-867:                                              ; preds = %866
+868:                                              ; preds = %867
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %212, i64 16, i1 false), !noalias !785
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %213, i64 16, i1 false), !noalias !785
   %.sroa.0379.0.copyload = load <2 x double>, ptr %.sroa.0.i.i.i.i.i.i.i.i, align 16
@@ -40822,346 +40824,346 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %211)
   call void @llvm.experimental.noalias.scope.decl(metadata !788)
   call void @llvm.experimental.noalias.scope.decl(metadata !791)
-  %868 = load <2 x double>, ptr %799, align 16, !noalias !794
-  %869 = shufflevector <2 x double> %868, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %869 = load <2 x double>, ptr %799, align 16, !noalias !794
+  %870 = shufflevector <2 x double> %869, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %210), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %210), !noalias !794
-  %870 = load i32, ptr %210, align 4, !noalias !794
-  %871 = and i32 %870, 24576
+  %871 = load i32, ptr %210, align 4, !noalias !794
+  %872 = and i32 %871, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %210), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %208), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %209), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %208), !noalias !794
-  %872 = load i32, ptr %208, align 4, !noalias !794
-  %873 = and i32 %872, -24577
-  %874 = or disjoint i32 %873, 16384
-  store i32 %874, ptr %209, align 4, !noalias !794
+  %873 = load i32, ptr %208, align 4, !noalias !794
+  %874 = and i32 %873, -24577
+  %875 = or disjoint i32 %874, 16384
+  store i32 %875, ptr %209, align 4, !noalias !794
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %209), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %208), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %209), !noalias !794
-  %875 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0379.0.copyload) #23, !noalias !794, !srcloc !218
-  %876 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %869) #46, !srcloc !219
-  %877 = fadd <2 x double> %875, %876
-  %878 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %877) #23, !noalias !794, !srcloc !218
+  %876 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0379.0.copyload) #23, !noalias !794, !srcloc !218
+  %877 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %870) #46, !srcloc !219
+  %878 = fadd <2 x double> %876, %877
+  %879 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %878) #23, !noalias !794, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %206), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %207), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %206), !noalias !794
-  %879 = load i32, ptr %206, align 4, !noalias !794
-  %880 = and i32 %879, -24577
-  %881 = or disjoint i32 %880, %871
-  store i32 %881, ptr %207, align 4, !noalias !794
+  %880 = load i32, ptr %206, align 4, !noalias !794
+  %881 = and i32 %880, -24577
+  %882 = or disjoint i32 %881, %872
+  store i32 %882, ptr %207, align 4, !noalias !794
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %207), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %206), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %207), !noalias !794
-  %882 = load <2 x double>, ptr %817, align 16, !noalias !794
-  %883 = shufflevector <2 x double> %882, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %883 = load <2 x double>, ptr %817, align 16, !noalias !794
+  %884 = shufflevector <2 x double> %883, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %205), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %205), !noalias !794
-  %884 = load i32, ptr %205, align 4, !noalias !794
-  %885 = and i32 %884, 24576
+  %885 = load i32, ptr %205, align 4, !noalias !794
+  %886 = and i32 %885, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %205), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %203), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %204), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %203), !noalias !794
-  %886 = load i32, ptr %203, align 4, !noalias !794
-  %887 = and i32 %886, -24577
-  %888 = or disjoint i32 %887, 16384
-  store i32 %888, ptr %204, align 4, !noalias !794
+  %887 = load i32, ptr %203, align 4, !noalias !794
+  %888 = and i32 %887, -24577
+  %889 = or disjoint i32 %888, 16384
+  store i32 %889, ptr %204, align 4, !noalias !794
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %204), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %203), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %204), !noalias !794
-  %889 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7385.0.copyload) #23, !noalias !794, !srcloc !218
-  %890 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %883) #46, !srcloc !219
-  %891 = fadd <2 x double> %889, %890
-  %892 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %891) #23, !noalias !794, !srcloc !218
+  %890 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7385.0.copyload) #23, !noalias !794, !srcloc !218
+  %891 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %884) #46, !srcloc !219
+  %892 = fadd <2 x double> %890, %891
+  %893 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %892) #23, !noalias !794, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %201), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %202), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %201), !noalias !794
-  %893 = load i32, ptr %201, align 4, !noalias !794
-  %894 = and i32 %893, -24577
-  %895 = or disjoint i32 %894, %885
-  store i32 %895, ptr %202, align 4, !noalias !794
+  %894 = load i32, ptr %201, align 4, !noalias !794
+  %895 = and i32 %894, -24577
+  %896 = or disjoint i32 %895, %886
+  store i32 %896, ptr %202, align 4, !noalias !794
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %202), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %201), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %202), !noalias !794
-  %896 = load <2 x double>, ptr %819, align 16, !noalias !794
-  %897 = shufflevector <2 x double> %896, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %897 = load <2 x double>, ptr %819, align 16, !noalias !794
+  %898 = shufflevector <2 x double> %897, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %200), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %200), !noalias !794
-  %898 = load i32, ptr %200, align 4, !noalias !794
-  %899 = and i32 %898, 24576
+  %899 = load i32, ptr %200, align 4, !noalias !794
+  %900 = and i32 %899, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %200), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %198), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %199), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %198), !noalias !794
-  %900 = load i32, ptr %198, align 4, !noalias !794
-  %901 = and i32 %900, -24577
-  %902 = or disjoint i32 %901, 16384
-  store i32 %902, ptr %199, align 4, !noalias !794
+  %901 = load i32, ptr %198, align 4, !noalias !794
+  %902 = and i32 %901, -24577
+  %903 = or disjoint i32 %902, 16384
+  store i32 %903, ptr %199, align 4, !noalias !794
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %199), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %198), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %199), !noalias !794
-  %903 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11392.0.copyload) #23, !noalias !794, !srcloc !218
-  %904 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %897) #46, !srcloc !219
-  %905 = fadd <2 x double> %903, %904
-  %906 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %905) #23, !noalias !794, !srcloc !218
+  %904 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11392.0.copyload) #23, !noalias !794, !srcloc !218
+  %905 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %898) #46, !srcloc !219
+  %906 = fadd <2 x double> %904, %905
+  %907 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %906) #23, !noalias !794, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %196), !noalias !794
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %197), !noalias !794
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %196), !noalias !794
-  %907 = load i32, ptr %196, align 4, !noalias !794
-  %908 = and i32 %907, -24577
-  %909 = or disjoint i32 %908, %899
-  store i32 %909, ptr %197, align 4, !noalias !794
+  %908 = load i32, ptr %196, align 4, !noalias !794
+  %909 = and i32 %908, -24577
+  %910 = or disjoint i32 %909, %900
+  store i32 %910, ptr %197, align 4, !noalias !794
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %197), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %196), !noalias !794
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %197), !noalias !794
-  store <2 x double> %878, ptr %211, align 16, !alias.scope !797
-  store <2 x double> %892, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i129, align 16, !alias.scope !797
-  store <2 x double> %906, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i130, align 16, !alias.scope !797
+  store <2 x double> %879, ptr %211, align 16, !alias.scope !797
+  store <2 x double> %893, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i129, align 16, !alias.scope !797
+  store <2 x double> %907, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i130, align 16, !alias.scope !797
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %195)
-  %910 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %195, ptr noundef nonnull align 16 dereferenceable(48) %211, ptr noundef nonnull align 16 dereferenceable(48) %211)
-          to label %911 unwind label %.loopexit
+  %911 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %195, ptr noundef nonnull align 16 dereferenceable(48) %211, ptr noundef nonnull align 16 dereferenceable(48) %211)
+          to label %912 unwind label %.loopexit
 
-911:                                              ; preds = %867
+912:                                              ; preds = %868
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %195)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %211)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0377, ptr noundef nonnull align 16 dereferenceable(48) %272, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %194)
   call void @llvm.experimental.noalias.scope.decl(metadata !798)
   call void @llvm.experimental.noalias.scope.decl(metadata !801)
-  %912 = shufflevector <2 x double> %.sroa.0379.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %913 = shufflevector <2 x double> %.sroa.0379.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %193), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %193), !noalias !804
-  %913 = load i32, ptr %193, align 4, !noalias !804
-  %914 = and i32 %913, 24576
+  %914 = load i32, ptr %193, align 4, !noalias !804
+  %915 = and i32 %914, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %193), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %191), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %192), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %191), !noalias !804
-  %915 = load i32, ptr %191, align 4, !noalias !804
-  %916 = and i32 %915, -24577
-  %917 = or disjoint i32 %916, 16384
-  store i32 %917, ptr %192, align 4, !noalias !804
+  %916 = load i32, ptr %191, align 4, !noalias !804
+  %917 = and i32 %916, -24577
+  %918 = or disjoint i32 %917, 16384
+  store i32 %918, ptr %192, align 4, !noalias !804
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %192), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %191), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %192), !noalias !804
-  %918 = load <2 x double>, ptr %272, align 16, !noalias !804
-  %919 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %918) #23, !noalias !804, !srcloc !218
-  %920 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %912) #46, !srcloc !219
-  %921 = fadd <2 x double> %919, %920
-  %922 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %921) #23, !noalias !804, !srcloc !218
+  %919 = load <2 x double>, ptr %272, align 16, !noalias !804
+  %920 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %919) #23, !noalias !804, !srcloc !218
+  %921 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %913) #46, !srcloc !219
+  %922 = fadd <2 x double> %920, %921
+  %923 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %922) #23, !noalias !804, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %189), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %190), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %189), !noalias !804
-  %923 = load i32, ptr %189, align 4, !noalias !804
-  %924 = and i32 %923, -24577
-  %925 = or disjoint i32 %924, %914
-  store i32 %925, ptr %190, align 4, !noalias !804
+  %924 = load i32, ptr %189, align 4, !noalias !804
+  %925 = and i32 %924, -24577
+  %926 = or disjoint i32 %925, %915
+  store i32 %926, ptr %190, align 4, !noalias !804
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %190), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %189), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %190), !noalias !804
-  %926 = shufflevector <2 x double> %.sroa.7385.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %927 = shufflevector <2 x double> %.sroa.7385.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %188), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %188), !noalias !804
-  %927 = load i32, ptr %188, align 4, !noalias !804
-  %928 = and i32 %927, 24576
+  %928 = load i32, ptr %188, align 4, !noalias !804
+  %929 = and i32 %928, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %188), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %186), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %187), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %186), !noalias !804
-  %929 = load i32, ptr %186, align 4, !noalias !804
-  %930 = and i32 %929, -24577
-  %931 = or disjoint i32 %930, 16384
-  store i32 %931, ptr %187, align 4, !noalias !804
+  %930 = load i32, ptr %186, align 4, !noalias !804
+  %931 = and i32 %930, -24577
+  %932 = or disjoint i32 %931, 16384
+  store i32 %932, ptr %187, align 4, !noalias !804
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %187), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %186), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %187), !noalias !804
-  %932 = load <2 x double>, ptr %816, align 16, !noalias !804
-  %933 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %932) #23, !noalias !804, !srcloc !218
-  %934 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %926) #46, !srcloc !219
-  %935 = fadd <2 x double> %933, %934
-  %936 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %935) #23, !noalias !804, !srcloc !218
+  %933 = load <2 x double>, ptr %816, align 16, !noalias !804
+  %934 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %933) #23, !noalias !804, !srcloc !218
+  %935 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %927) #46, !srcloc !219
+  %936 = fadd <2 x double> %934, %935
+  %937 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %936) #23, !noalias !804, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %184), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %185), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %184), !noalias !804
-  %937 = load i32, ptr %184, align 4, !noalias !804
-  %938 = and i32 %937, -24577
-  %939 = or disjoint i32 %938, %928
-  store i32 %939, ptr %185, align 4, !noalias !804
+  %938 = load i32, ptr %184, align 4, !noalias !804
+  %939 = and i32 %938, -24577
+  %940 = or disjoint i32 %939, %929
+  store i32 %940, ptr %185, align 4, !noalias !804
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %185), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %184), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %185), !noalias !804
-  %940 = shufflevector <2 x double> %.sroa.11392.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %941 = shufflevector <2 x double> %.sroa.11392.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %183), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %183), !noalias !804
-  %941 = load i32, ptr %183, align 4, !noalias !804
-  %942 = and i32 %941, 24576
+  %942 = load i32, ptr %183, align 4, !noalias !804
+  %943 = and i32 %942, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %183), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %181), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %182), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %181), !noalias !804
-  %943 = load i32, ptr %181, align 4, !noalias !804
-  %944 = and i32 %943, -24577
-  %945 = or disjoint i32 %944, 16384
-  store i32 %945, ptr %182, align 4, !noalias !804
+  %944 = load i32, ptr %181, align 4, !noalias !804
+  %945 = and i32 %944, -24577
+  %946 = or disjoint i32 %945, 16384
+  store i32 %946, ptr %182, align 4, !noalias !804
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %182), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %181), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %182), !noalias !804
-  %946 = load <2 x double>, ptr %818, align 16, !noalias !804
-  %947 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %946) #23, !noalias !804, !srcloc !218
-  %948 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %940) #46, !srcloc !219
-  %949 = fadd <2 x double> %947, %948
-  %950 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %949) #23, !noalias !804, !srcloc !218
+  %947 = load <2 x double>, ptr %818, align 16, !noalias !804
+  %948 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %947) #23, !noalias !804, !srcloc !218
+  %949 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %941) #46, !srcloc !219
+  %950 = fadd <2 x double> %948, %949
+  %951 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %950) #23, !noalias !804, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %179), !noalias !804
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %180), !noalias !804
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %179), !noalias !804
-  %951 = load i32, ptr %179, align 4, !noalias !804
-  %952 = and i32 %951, -24577
-  %953 = or disjoint i32 %952, %942
-  store i32 %953, ptr %180, align 4, !noalias !804
+  %952 = load i32, ptr %179, align 4, !noalias !804
+  %953 = and i32 %952, -24577
+  %954 = or disjoint i32 %953, %943
+  store i32 %954, ptr %180, align 4, !noalias !804
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %180), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %179), !noalias !804
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %180), !noalias !804
-  store <2 x double> %922, ptr %194, align 16, !alias.scope !807
-  store <2 x double> %936, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i133, align 16, !alias.scope !807
-  store <2 x double> %950, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i134, align 16, !alias.scope !807
+  store <2 x double> %923, ptr %194, align 16, !alias.scope !807
+  store <2 x double> %937, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i133, align 16, !alias.scope !807
+  store <2 x double> %951, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i134, align 16, !alias.scope !807
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %178)
-  %954 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %178, ptr noundef nonnull align 16 dereferenceable(48) %194, ptr noundef nonnull align 16 dereferenceable(48) %194)
-          to label %955 unwind label %.loopexit
+  %955 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %178, ptr noundef nonnull align 16 dereferenceable(48) %194, ptr noundef nonnull align 16 dereferenceable(48) %194)
+          to label %956 unwind label %.loopexit
 
-955:                                              ; preds = %911
+956:                                              ; preds = %912
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %178)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %194)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %834, ptr noundef nonnull align 16 dereferenceable(48) %799, i64 48, i1 false)
   %.sroa.4406.48.copyload = load <2 x double>, ptr %829, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %273, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0377, i64 48, i1 false)
-  store <2 x double> %910, ptr %.sroa.2378.0..sroa_idx, align 16
-  store <2 x double> %954, ptr %.sroa.2375.0..sroa_idx, align 16
+  store <2 x double> %911, ptr %.sroa.2378.0..sroa_idx, align 16
+  store <2 x double> %955, ptr %.sroa.2375.0..sroa_idx, align 16
   store <2 x double> %.sroa.0379.0.copyload, ptr %835, align 16
   store <2 x double> %.sroa.7385.0.copyload, ptr %.sroa.2404.0..sroa_idx, align 16
   store <2 x double> %.sroa.11392.0.copyload, ptr %.sroa.3405.0..sroa_idx, align 16
   store <2 x double> %.sroa.4406.48.copyload, ptr %.sroa.4406.0..sroa_idx, align 16
-  %956 = load ptr, ptr %784, align 8
-  %957 = load ptr, ptr %786, align 8
-  %958 = getelementptr inbounds i8, ptr %957, i64 -192
-  %.not.i.i.i137 = icmp eq ptr %956, %958
-  br i1 %.not.i.i.i137, label %961, label %959
+  %957 = load ptr, ptr %784, align 8
+  %958 = load ptr, ptr %786, align 8
+  %959 = getelementptr inbounds i8, ptr %958, i64 -192
+  %.not.i.i.i137 = icmp eq ptr %957, %959
+  br i1 %.not.i.i.i137, label %962, label %960
 
-959:                                              ; preds = %955
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %956, ptr noundef nonnull align 16 dereferenceable(192) %273, i64 192, i1 false)
-  %960 = getelementptr inbounds i8, ptr %956, i64 192
-  store ptr %960, ptr %784, align 8
+960:                                              ; preds = %956
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %957, ptr noundef nonnull align 16 dereferenceable(192) %273, i64 192, i1 false)
+  %961 = getelementptr inbounds i8, ptr %957, i64 192
+  store ptr %961, ptr %784, align 8
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139
 
-961:                                              ; preds = %955
+962:                                              ; preds = %956
   invoke void @_ZNSt5dequeISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_push_back_auxIJSA_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %270, ptr noundef nonnull align 16 dereferenceable(192) %273)
           to label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139 unwind label %.loopexit
 
-_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139: ; preds = %959, %961
+_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139: ; preds = %960, %962
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %177)
   call void @llvm.experimental.noalias.scope.decl(metadata !808)
   call void @llvm.experimental.noalias.scope.decl(metadata !811)
-  %962 = load <2 x double>, ptr %272, align 16, !noalias !814
-  %963 = shufflevector <2 x double> %962, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %963 = load <2 x double>, ptr %272, align 16, !noalias !814
+  %964 = shufflevector <2 x double> %963, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %176), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %176), !noalias !814
-  %964 = load i32, ptr %176, align 4, !noalias !814
-  %965 = and i32 %964, 24576
+  %965 = load i32, ptr %176, align 4, !noalias !814
+  %966 = and i32 %965, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %176), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %174), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %175), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %174), !noalias !814
-  %966 = load i32, ptr %174, align 4, !noalias !814
-  %967 = and i32 %966, -24577
-  %968 = or disjoint i32 %967, 16384
-  store i32 %968, ptr %175, align 4, !noalias !814
+  %967 = load i32, ptr %174, align 4, !noalias !814
+  %968 = and i32 %967, -24577
+  %969 = or disjoint i32 %968, 16384
+  store i32 %969, ptr %175, align 4, !noalias !814
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %175), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %174), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %175), !noalias !814
-  %969 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0379.0.copyload) #23, !noalias !814, !srcloc !218
-  %970 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %963) #46, !srcloc !219
-  %971 = fadd <2 x double> %969, %970
-  %972 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %971) #23, !noalias !814, !srcloc !218
+  %970 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0379.0.copyload) #23, !noalias !814, !srcloc !218
+  %971 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %964) #46, !srcloc !219
+  %972 = fadd <2 x double> %970, %971
+  %973 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %972) #23, !noalias !814, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %172), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %173), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %172), !noalias !814
-  %973 = load i32, ptr %172, align 4, !noalias !814
-  %974 = and i32 %973, -24577
-  %975 = or disjoint i32 %974, %965
-  store i32 %975, ptr %173, align 4, !noalias !814
+  %974 = load i32, ptr %172, align 4, !noalias !814
+  %975 = and i32 %974, -24577
+  %976 = or disjoint i32 %975, %966
+  store i32 %976, ptr %173, align 4, !noalias !814
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %173), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %172), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %173), !noalias !814
-  %976 = load <2 x double>, ptr %816, align 16, !noalias !814
-  %977 = shufflevector <2 x double> %976, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %977 = load <2 x double>, ptr %816, align 16, !noalias !814
+  %978 = shufflevector <2 x double> %977, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %171), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %171), !noalias !814
-  %978 = load i32, ptr %171, align 4, !noalias !814
-  %979 = and i32 %978, 24576
+  %979 = load i32, ptr %171, align 4, !noalias !814
+  %980 = and i32 %979, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %171), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %169), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %170), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %169), !noalias !814
-  %980 = load i32, ptr %169, align 4, !noalias !814
-  %981 = and i32 %980, -24577
-  %982 = or disjoint i32 %981, 16384
-  store i32 %982, ptr %170, align 4, !noalias !814
+  %981 = load i32, ptr %169, align 4, !noalias !814
+  %982 = and i32 %981, -24577
+  %983 = or disjoint i32 %982, 16384
+  store i32 %983, ptr %170, align 4, !noalias !814
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %170), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %169), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %170), !noalias !814
-  %983 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7385.0.copyload) #23, !noalias !814, !srcloc !218
-  %984 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %977) #46, !srcloc !219
-  %985 = fadd <2 x double> %983, %984
-  %986 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %985) #23, !noalias !814, !srcloc !218
+  %984 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7385.0.copyload) #23, !noalias !814, !srcloc !218
+  %985 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %978) #46, !srcloc !219
+  %986 = fadd <2 x double> %984, %985
+  %987 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %986) #23, !noalias !814, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %167), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %168), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %167), !noalias !814
-  %987 = load i32, ptr %167, align 4, !noalias !814
-  %988 = and i32 %987, -24577
-  %989 = or disjoint i32 %988, %979
-  store i32 %989, ptr %168, align 4, !noalias !814
+  %988 = load i32, ptr %167, align 4, !noalias !814
+  %989 = and i32 %988, -24577
+  %990 = or disjoint i32 %989, %980
+  store i32 %990, ptr %168, align 4, !noalias !814
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %168), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %167), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %168), !noalias !814
-  %990 = load <2 x double>, ptr %818, align 16, !noalias !814
-  %991 = shufflevector <2 x double> %990, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %991 = load <2 x double>, ptr %818, align 16, !noalias !814
+  %992 = shufflevector <2 x double> %991, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %166), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %166), !noalias !814
-  %992 = load i32, ptr %166, align 4, !noalias !814
-  %993 = and i32 %992, 24576
+  %993 = load i32, ptr %166, align 4, !noalias !814
+  %994 = and i32 %993, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %166), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %164), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %165), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %164), !noalias !814
-  %994 = load i32, ptr %164, align 4, !noalias !814
-  %995 = and i32 %994, -24577
-  %996 = or disjoint i32 %995, 16384
-  store i32 %996, ptr %165, align 4, !noalias !814
+  %995 = load i32, ptr %164, align 4, !noalias !814
+  %996 = and i32 %995, -24577
+  %997 = or disjoint i32 %996, 16384
+  store i32 %997, ptr %165, align 4, !noalias !814
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %165), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %164), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %165), !noalias !814
-  %997 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11392.0.copyload) #23, !noalias !814, !srcloc !218
-  %998 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %991) #46, !srcloc !219
-  %999 = fadd <2 x double> %997, %998
-  %1000 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %999) #23, !noalias !814, !srcloc !218
+  %998 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11392.0.copyload) #23, !noalias !814, !srcloc !218
+  %999 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %992) #46, !srcloc !219
+  %1000 = fadd <2 x double> %998, %999
+  %1001 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1000) #23, !noalias !814, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %162), !noalias !814
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %163), !noalias !814
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %162), !noalias !814
-  %1001 = load i32, ptr %162, align 4, !noalias !814
-  %1002 = and i32 %1001, -24577
-  %1003 = or disjoint i32 %1002, %993
-  store i32 %1003, ptr %163, align 4, !noalias !814
+  %1002 = load i32, ptr %162, align 4, !noalias !814
+  %1003 = and i32 %1002, -24577
+  %1004 = or disjoint i32 %1003, %994
+  store i32 %1004, ptr %163, align 4, !noalias !814
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %163), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %162), !noalias !814
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %163), !noalias !814
-  store <2 x double> %972, ptr %177, align 16, !alias.scope !817
-  store <2 x double> %986, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i140, align 16, !alias.scope !817
-  store <2 x double> %1000, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i141, align 16, !alias.scope !817
+  store <2 x double> %973, ptr %177, align 16, !alias.scope !817
+  store <2 x double> %987, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i140, align 16, !alias.scope !817
+  store <2 x double> %1001, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i141, align 16, !alias.scope !817
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %161)
-  %1004 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %161, ptr noundef nonnull align 16 dereferenceable(48) %177, ptr noundef nonnull align 16 dereferenceable(48) %177)
-          to label %1005 unwind label %.loopexit
+  %1005 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %161, ptr noundef nonnull align 16 dereferenceable(48) %177, ptr noundef nonnull align 16 dereferenceable(48) %177)
+          to label %1006 unwind label %.loopexit
 
-1005:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139
+1006:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %161)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %177)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0371, ptr noundef nonnull align 16 dereferenceable(48) %800, i64 48, i1 false)
@@ -41170,143 +41172,143 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   call void @llvm.experimental.noalias.scope.decl(metadata !821)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %159), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %159), !noalias !824
-  %1006 = load i32, ptr %159, align 4, !noalias !824
-  %1007 = and i32 %1006, 24576
+  %1007 = load i32, ptr %159, align 4, !noalias !824
+  %1008 = and i32 %1007, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %159), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %157), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %158), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %157), !noalias !824
-  %1008 = load i32, ptr %157, align 4, !noalias !824
-  %1009 = and i32 %1008, -24577
-  %1010 = or disjoint i32 %1009, 16384
-  store i32 %1010, ptr %158, align 4, !noalias !824
+  %1009 = load i32, ptr %157, align 4, !noalias !824
+  %1010 = and i32 %1009, -24577
+  %1011 = or disjoint i32 %1010, 16384
+  store i32 %1011, ptr %158, align 4, !noalias !824
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %158), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %157), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %158), !noalias !824
-  %1011 = load <2 x double>, ptr %800, align 16, !noalias !824
-  %1012 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1011) #23, !noalias !824, !srcloc !218
-  %1013 = fadd <2 x double> %920, %1012
-  %1014 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1013) #23, !noalias !824, !srcloc !218
+  %1012 = load <2 x double>, ptr %800, align 16, !noalias !824
+  %1013 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1012) #23, !noalias !824, !srcloc !218
+  %1014 = fadd <2 x double> %921, %1013
+  %1015 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1014) #23, !noalias !824, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %155), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %156), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %155), !noalias !824
-  %1015 = load i32, ptr %155, align 4, !noalias !824
-  %1016 = and i32 %1015, -24577
-  %1017 = or disjoint i32 %1016, %1007
-  store i32 %1017, ptr %156, align 4, !noalias !824
+  %1016 = load i32, ptr %155, align 4, !noalias !824
+  %1017 = and i32 %1016, -24577
+  %1018 = or disjoint i32 %1017, %1008
+  store i32 %1018, ptr %156, align 4, !noalias !824
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %156), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %155), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %156), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %154), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %154), !noalias !824
-  %1018 = load i32, ptr %154, align 4, !noalias !824
-  %1019 = and i32 %1018, 24576
+  %1019 = load i32, ptr %154, align 4, !noalias !824
+  %1020 = and i32 %1019, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %154), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %152), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %153), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %152), !noalias !824
-  %1020 = load i32, ptr %152, align 4, !noalias !824
-  %1021 = and i32 %1020, -24577
-  %1022 = or disjoint i32 %1021, 16384
-  store i32 %1022, ptr %153, align 4, !noalias !824
+  %1021 = load i32, ptr %152, align 4, !noalias !824
+  %1022 = and i32 %1021, -24577
+  %1023 = or disjoint i32 %1022, 16384
+  store i32 %1023, ptr %153, align 4, !noalias !824
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %153), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %152), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %153), !noalias !824
-  %1023 = load <2 x double>, ptr %811, align 16, !noalias !824
-  %1024 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1023) #23, !noalias !824, !srcloc !218
-  %1025 = fadd <2 x double> %934, %1024
-  %1026 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1025) #23, !noalias !824, !srcloc !218
+  %1024 = load <2 x double>, ptr %811, align 16, !noalias !824
+  %1025 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1024) #23, !noalias !824, !srcloc !218
+  %1026 = fadd <2 x double> %935, %1025
+  %1027 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1026) #23, !noalias !824, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %150), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %151), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %150), !noalias !824
-  %1027 = load i32, ptr %150, align 4, !noalias !824
-  %1028 = and i32 %1027, -24577
-  %1029 = or disjoint i32 %1028, %1019
-  store i32 %1029, ptr %151, align 4, !noalias !824
+  %1028 = load i32, ptr %150, align 4, !noalias !824
+  %1029 = and i32 %1028, -24577
+  %1030 = or disjoint i32 %1029, %1020
+  store i32 %1030, ptr %151, align 4, !noalias !824
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %151), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %150), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %151), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %149), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %149), !noalias !824
-  %1030 = load i32, ptr %149, align 4, !noalias !824
-  %1031 = and i32 %1030, 24576
+  %1031 = load i32, ptr %149, align 4, !noalias !824
+  %1032 = and i32 %1031, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %149), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %147), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %148), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %147), !noalias !824
-  %1032 = load i32, ptr %147, align 4, !noalias !824
-  %1033 = and i32 %1032, -24577
-  %1034 = or disjoint i32 %1033, 16384
-  store i32 %1034, ptr %148, align 4, !noalias !824
+  %1033 = load i32, ptr %147, align 4, !noalias !824
+  %1034 = and i32 %1033, -24577
+  %1035 = or disjoint i32 %1034, 16384
+  store i32 %1035, ptr %148, align 4, !noalias !824
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %148), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %147), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %148), !noalias !824
-  %1035 = load <2 x double>, ptr %813, align 16, !noalias !824
-  %1036 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1035) #23, !noalias !824, !srcloc !218
-  %1037 = fadd <2 x double> %948, %1036
-  %1038 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1037) #23, !noalias !824, !srcloc !218
+  %1036 = load <2 x double>, ptr %813, align 16, !noalias !824
+  %1037 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1036) #23, !noalias !824, !srcloc !218
+  %1038 = fadd <2 x double> %949, %1037
+  %1039 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1038) #23, !noalias !824, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %145), !noalias !824
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %146), !noalias !824
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %145), !noalias !824
-  %1039 = load i32, ptr %145, align 4, !noalias !824
-  %1040 = and i32 %1039, -24577
-  %1041 = or disjoint i32 %1040, %1031
-  store i32 %1041, ptr %146, align 4, !noalias !824
+  %1040 = load i32, ptr %145, align 4, !noalias !824
+  %1041 = and i32 %1040, -24577
+  %1042 = or disjoint i32 %1041, %1032
+  store i32 %1042, ptr %146, align 4, !noalias !824
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %146), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %145), !noalias !824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %146), !noalias !824
-  store <2 x double> %1014, ptr %160, align 16, !alias.scope !827
-  store <2 x double> %1026, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i144, align 16, !alias.scope !827
-  store <2 x double> %1038, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i145, align 16, !alias.scope !827
+  store <2 x double> %1015, ptr %160, align 16, !alias.scope !827
+  store <2 x double> %1027, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i144, align 16, !alias.scope !827
+  store <2 x double> %1039, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i145, align 16, !alias.scope !827
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %144)
-  %1042 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %144, ptr noundef nonnull align 16 dereferenceable(48) %160, ptr noundef nonnull align 16 dereferenceable(48) %160)
-          to label %1043 unwind label %.loopexit
+  %1043 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %144, ptr noundef nonnull align 16 dereferenceable(48) %160, ptr noundef nonnull align 16 dereferenceable(48) %160)
+          to label %1044 unwind label %.loopexit
 
-1043:                                             ; preds = %1005
+1044:                                             ; preds = %1006
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %144)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %160)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %836, ptr noundef nonnull align 16 dereferenceable(48) %272, i64 48, i1 false)
   %.sroa.4402.48.copyload = load <2 x double>, ptr %803, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %274, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0371, i64 48, i1 false)
-  store <2 x double> %1004, ptr %.sroa.2372.0..sroa_idx, align 16
-  store <2 x double> %1042, ptr %.sroa.2369.0..sroa_idx, align 16
+  store <2 x double> %1005, ptr %.sroa.2372.0..sroa_idx, align 16
+  store <2 x double> %1043, ptr %.sroa.2369.0..sroa_idx, align 16
   store <2 x double> %.sroa.0379.0.copyload, ptr %837, align 16
   store <2 x double> %.sroa.7385.0.copyload, ptr %.sroa.2400.0..sroa_idx, align 16
   store <2 x double> %.sroa.11392.0.copyload, ptr %.sroa.3401.0..sroa_idx, align 16
   store <2 x double> %.sroa.4402.48.copyload, ptr %.sroa.4402.0..sroa_idx, align 16
-  %1044 = load ptr, ptr %784, align 8
-  %1045 = load ptr, ptr %786, align 8
-  %1046 = getelementptr inbounds i8, ptr %1045, i64 -192
-  %.not.i.i.i148 = icmp eq ptr %1044, %1046
-  br i1 %.not.i.i.i148, label %.invoke, label %1047
+  %1045 = load ptr, ptr %784, align 8
+  %1046 = load ptr, ptr %786, align 8
+  %1047 = getelementptr inbounds i8, ptr %1046, i64 -192
+  %.not.i.i.i148 = icmp eq ptr %1045, %1047
+  br i1 %.not.i.i.i148, label %.invoke, label %1048
 
-1047:                                             ; preds = %1043
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1044, ptr noundef nonnull align 16 dereferenceable(192) %274, i64 192, i1 false)
+1048:                                             ; preds = %1044
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1045, ptr noundef nonnull align 16 dereferenceable(192) %274, i64 192, i1 false)
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split
 
-.invoke:                                          ; preds = %1043, %1408, %1226
-  %1048 = phi ptr [ %276, %1226 ], [ %278, %1408 ], [ %274, %1043 ]
-  invoke void @_ZNSt5dequeISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_push_back_auxIJSA_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %270, ptr noundef nonnull align 16 dereferenceable(192) %1048)
+.invoke:                                          ; preds = %1044, %1409, %1227
+  %1049 = phi ptr [ %276, %1227 ], [ %278, %1409 ], [ %274, %1044 ]
+  invoke void @_ZNSt5dequeISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_push_back_auxIJSA_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %270, ptr noundef nonnull align 16 dereferenceable(192) %1049)
           to label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150 unwind label %.loopexit
 
-.loopexit:                                        ; preds = %.invoke, %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274, %866, %867, %911, %961, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139, %1005, %1049, %1050, %1094, %1144, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166, %1188, %1231, %1232, %1276, %1326, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193, %1370, %1432, %1466, %1530, %1537
+.loopexit:                                        ; preds = %.invoke, %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274, %867, %868, %912, %962, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit139, %1006, %1050, %1051, %1095, %1145, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166, %1189, %1232, %1233, %1277, %1327, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193, %1371, %1433, %1467, %1531, %1538
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %1771
+  br label %1772
 
 .loopexit.split-lp:                               ; preds = %616, %699, %740, %791
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %1771
+  br label %1772
 
-1049:                                             ; preds = %865
+1050:                                             ; preds = %866
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142), !noalias !828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %143), !noalias !828
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i151), !noalias !833
   invoke void @_ZN4CGAL10midpointC3INS_11Interval_ntILb1EEEEEvRKT_S5_S5_S5_S5_S5_RS3_S6_S6_(ptr noundef nonnull align 16 dereferenceable(16) %800, ptr noundef nonnull align 16 dereferenceable(16) %811, ptr noundef nonnull align 16 dereferenceable(16) %813, ptr noundef nonnull align 16 dereferenceable(16) %272, ptr noundef nonnull align 16 dereferenceable(16) %816, ptr noundef nonnull align 16 dereferenceable(16) %818, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i151, ptr noundef nonnull align 16 dereferenceable(16) %142, ptr noundef nonnull align 16 dereferenceable(16) %143)
-          to label %1050 unwind label %.loopexit
+          to label %1051 unwind label %.loopexit
 
-1050:                                             ; preds = %1049
+1051:                                             ; preds = %1050
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i.i.i.i.i.i152, ptr noundef nonnull align 16 dereferenceable(16) %142, i64 16, i1 false), !noalias !836
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i.i.i.i.i.i.i153, ptr noundef nonnull align 16 dereferenceable(16) %143, i64 16, i1 false), !noalias !836
   %.sroa.0339.0.copyload = load <2 x double>, ptr %.sroa.0.i.i.i.i.i.i.i.i151, align 16
@@ -41318,346 +41320,346 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %141)
   call void @llvm.experimental.noalias.scope.decl(metadata !839)
   call void @llvm.experimental.noalias.scope.decl(metadata !842)
-  %1051 = load <2 x double>, ptr %799, align 16, !noalias !845
-  %1052 = shufflevector <2 x double> %1051, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1052 = load <2 x double>, ptr %799, align 16, !noalias !845
+  %1053 = shufflevector <2 x double> %1052, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %140), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %140), !noalias !845
-  %1053 = load i32, ptr %140, align 4, !noalias !845
-  %1054 = and i32 %1053, 24576
+  %1054 = load i32, ptr %140, align 4, !noalias !845
+  %1055 = and i32 %1054, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %140), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %138), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %139), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %138), !noalias !845
-  %1055 = load i32, ptr %138, align 4, !noalias !845
-  %1056 = and i32 %1055, -24577
-  %1057 = or disjoint i32 %1056, 16384
-  store i32 %1057, ptr %139, align 4, !noalias !845
+  %1056 = load i32, ptr %138, align 4, !noalias !845
+  %1057 = and i32 %1056, -24577
+  %1058 = or disjoint i32 %1057, 16384
+  store i32 %1058, ptr %139, align 4, !noalias !845
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %139), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %138), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %139), !noalias !845
-  %1058 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0339.0.copyload) #23, !noalias !845, !srcloc !218
-  %1059 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1052) #46, !srcloc !219
-  %1060 = fadd <2 x double> %1058, %1059
-  %1061 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1060) #23, !noalias !845, !srcloc !218
+  %1059 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0339.0.copyload) #23, !noalias !845, !srcloc !218
+  %1060 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1053) #46, !srcloc !219
+  %1061 = fadd <2 x double> %1059, %1060
+  %1062 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1061) #23, !noalias !845, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %136), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %137), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %136), !noalias !845
-  %1062 = load i32, ptr %136, align 4, !noalias !845
-  %1063 = and i32 %1062, -24577
-  %1064 = or disjoint i32 %1063, %1054
-  store i32 %1064, ptr %137, align 4, !noalias !845
+  %1063 = load i32, ptr %136, align 4, !noalias !845
+  %1064 = and i32 %1063, -24577
+  %1065 = or disjoint i32 %1064, %1055
+  store i32 %1065, ptr %137, align 4, !noalias !845
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %137), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %136), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %137), !noalias !845
-  %1065 = load <2 x double>, ptr %817, align 16, !noalias !845
-  %1066 = shufflevector <2 x double> %1065, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1066 = load <2 x double>, ptr %817, align 16, !noalias !845
+  %1067 = shufflevector <2 x double> %1066, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %135), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %135), !noalias !845
-  %1067 = load i32, ptr %135, align 4, !noalias !845
-  %1068 = and i32 %1067, 24576
+  %1068 = load i32, ptr %135, align 4, !noalias !845
+  %1069 = and i32 %1068, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %135), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %133), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %134), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %133), !noalias !845
-  %1069 = load i32, ptr %133, align 4, !noalias !845
-  %1070 = and i32 %1069, -24577
-  %1071 = or disjoint i32 %1070, 16384
-  store i32 %1071, ptr %134, align 4, !noalias !845
+  %1070 = load i32, ptr %133, align 4, !noalias !845
+  %1071 = and i32 %1070, -24577
+  %1072 = or disjoint i32 %1071, 16384
+  store i32 %1072, ptr %134, align 4, !noalias !845
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %134), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %133), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %134), !noalias !845
-  %1072 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7345.0.copyload) #23, !noalias !845, !srcloc !218
-  %1073 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1066) #46, !srcloc !219
-  %1074 = fadd <2 x double> %1072, %1073
-  %1075 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1074) #23, !noalias !845, !srcloc !218
+  %1073 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7345.0.copyload) #23, !noalias !845, !srcloc !218
+  %1074 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1067) #46, !srcloc !219
+  %1075 = fadd <2 x double> %1073, %1074
+  %1076 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1075) #23, !noalias !845, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %131), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %132), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %131), !noalias !845
-  %1076 = load i32, ptr %131, align 4, !noalias !845
-  %1077 = and i32 %1076, -24577
-  %1078 = or disjoint i32 %1077, %1068
-  store i32 %1078, ptr %132, align 4, !noalias !845
+  %1077 = load i32, ptr %131, align 4, !noalias !845
+  %1078 = and i32 %1077, -24577
+  %1079 = or disjoint i32 %1078, %1069
+  store i32 %1079, ptr %132, align 4, !noalias !845
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %132), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %131), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %132), !noalias !845
-  %1079 = load <2 x double>, ptr %819, align 16, !noalias !845
-  %1080 = shufflevector <2 x double> %1079, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1080 = load <2 x double>, ptr %819, align 16, !noalias !845
+  %1081 = shufflevector <2 x double> %1080, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %130), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %130), !noalias !845
-  %1081 = load i32, ptr %130, align 4, !noalias !845
-  %1082 = and i32 %1081, 24576
+  %1082 = load i32, ptr %130, align 4, !noalias !845
+  %1083 = and i32 %1082, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %130), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %128), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %129), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %128), !noalias !845
-  %1083 = load i32, ptr %128, align 4, !noalias !845
-  %1084 = and i32 %1083, -24577
-  %1085 = or disjoint i32 %1084, 16384
-  store i32 %1085, ptr %129, align 4, !noalias !845
+  %1084 = load i32, ptr %128, align 4, !noalias !845
+  %1085 = and i32 %1084, -24577
+  %1086 = or disjoint i32 %1085, 16384
+  store i32 %1086, ptr %129, align 4, !noalias !845
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %129), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %128), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %129), !noalias !845
-  %1086 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11352.0.copyload) #23, !noalias !845, !srcloc !218
-  %1087 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1080) #46, !srcloc !219
-  %1088 = fadd <2 x double> %1086, %1087
-  %1089 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1088) #23, !noalias !845, !srcloc !218
+  %1087 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11352.0.copyload) #23, !noalias !845, !srcloc !218
+  %1088 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1081) #46, !srcloc !219
+  %1089 = fadd <2 x double> %1087, %1088
+  %1090 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1089) #23, !noalias !845, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %126), !noalias !845
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %127), !noalias !845
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %126), !noalias !845
-  %1090 = load i32, ptr %126, align 4, !noalias !845
-  %1091 = and i32 %1090, -24577
-  %1092 = or disjoint i32 %1091, %1082
-  store i32 %1092, ptr %127, align 4, !noalias !845
+  %1091 = load i32, ptr %126, align 4, !noalias !845
+  %1092 = and i32 %1091, -24577
+  %1093 = or disjoint i32 %1092, %1083
+  store i32 %1093, ptr %127, align 4, !noalias !845
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %127), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %126), !noalias !845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %127), !noalias !845
-  store <2 x double> %1061, ptr %141, align 16, !alias.scope !848
-  store <2 x double> %1075, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i156, align 16, !alias.scope !848
-  store <2 x double> %1089, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i157, align 16, !alias.scope !848
+  store <2 x double> %1062, ptr %141, align 16, !alias.scope !848
+  store <2 x double> %1076, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i156, align 16, !alias.scope !848
+  store <2 x double> %1090, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i157, align 16, !alias.scope !848
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %125)
-  %1093 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %125, ptr noundef nonnull align 16 dereferenceable(48) %141, ptr noundef nonnull align 16 dereferenceable(48) %141)
-          to label %1094 unwind label %.loopexit
+  %1094 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %125, ptr noundef nonnull align 16 dereferenceable(48) %141, ptr noundef nonnull align 16 dereferenceable(48) %141)
+          to label %1095 unwind label %.loopexit
 
-1094:                                             ; preds = %1050
+1095:                                             ; preds = %1051
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %125)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0337, ptr noundef nonnull align 16 dereferenceable(48) %272, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %124)
   call void @llvm.experimental.noalias.scope.decl(metadata !849)
   call void @llvm.experimental.noalias.scope.decl(metadata !852)
-  %1095 = shufflevector <2 x double> %.sroa.0339.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1096 = shufflevector <2 x double> %.sroa.0339.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %123), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %123), !noalias !855
-  %1096 = load i32, ptr %123, align 4, !noalias !855
-  %1097 = and i32 %1096, 24576
+  %1097 = load i32, ptr %123, align 4, !noalias !855
+  %1098 = and i32 %1097, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %123), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %121), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %122), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %121), !noalias !855
-  %1098 = load i32, ptr %121, align 4, !noalias !855
-  %1099 = and i32 %1098, -24577
-  %1100 = or disjoint i32 %1099, 16384
-  store i32 %1100, ptr %122, align 4, !noalias !855
+  %1099 = load i32, ptr %121, align 4, !noalias !855
+  %1100 = and i32 %1099, -24577
+  %1101 = or disjoint i32 %1100, 16384
+  store i32 %1101, ptr %122, align 4, !noalias !855
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %122), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %121), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %122), !noalias !855
-  %1101 = load <2 x double>, ptr %272, align 16, !noalias !855
-  %1102 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1101) #23, !noalias !855, !srcloc !218
-  %1103 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1095) #46, !srcloc !219
-  %1104 = fadd <2 x double> %1102, %1103
-  %1105 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1104) #23, !noalias !855, !srcloc !218
+  %1102 = load <2 x double>, ptr %272, align 16, !noalias !855
+  %1103 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1102) #23, !noalias !855, !srcloc !218
+  %1104 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1096) #46, !srcloc !219
+  %1105 = fadd <2 x double> %1103, %1104
+  %1106 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1105) #23, !noalias !855, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %119), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %120), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %119), !noalias !855
-  %1106 = load i32, ptr %119, align 4, !noalias !855
-  %1107 = and i32 %1106, -24577
-  %1108 = or disjoint i32 %1107, %1097
-  store i32 %1108, ptr %120, align 4, !noalias !855
+  %1107 = load i32, ptr %119, align 4, !noalias !855
+  %1108 = and i32 %1107, -24577
+  %1109 = or disjoint i32 %1108, %1098
+  store i32 %1109, ptr %120, align 4, !noalias !855
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %120), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %119), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %120), !noalias !855
-  %1109 = shufflevector <2 x double> %.sroa.7345.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1110 = shufflevector <2 x double> %.sroa.7345.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %118), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %118), !noalias !855
-  %1110 = load i32, ptr %118, align 4, !noalias !855
-  %1111 = and i32 %1110, 24576
+  %1111 = load i32, ptr %118, align 4, !noalias !855
+  %1112 = and i32 %1111, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %118), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %116), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %117), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %116), !noalias !855
-  %1112 = load i32, ptr %116, align 4, !noalias !855
-  %1113 = and i32 %1112, -24577
-  %1114 = or disjoint i32 %1113, 16384
-  store i32 %1114, ptr %117, align 4, !noalias !855
+  %1113 = load i32, ptr %116, align 4, !noalias !855
+  %1114 = and i32 %1113, -24577
+  %1115 = or disjoint i32 %1114, 16384
+  store i32 %1115, ptr %117, align 4, !noalias !855
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %117), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %116), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %117), !noalias !855
-  %1115 = load <2 x double>, ptr %816, align 16, !noalias !855
-  %1116 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1115) #23, !noalias !855, !srcloc !218
-  %1117 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1109) #46, !srcloc !219
-  %1118 = fadd <2 x double> %1116, %1117
-  %1119 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1118) #23, !noalias !855, !srcloc !218
+  %1116 = load <2 x double>, ptr %816, align 16, !noalias !855
+  %1117 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1116) #23, !noalias !855, !srcloc !218
+  %1118 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1110) #46, !srcloc !219
+  %1119 = fadd <2 x double> %1117, %1118
+  %1120 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1119) #23, !noalias !855, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %114), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %115), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %114), !noalias !855
-  %1120 = load i32, ptr %114, align 4, !noalias !855
-  %1121 = and i32 %1120, -24577
-  %1122 = or disjoint i32 %1121, %1111
-  store i32 %1122, ptr %115, align 4, !noalias !855
+  %1121 = load i32, ptr %114, align 4, !noalias !855
+  %1122 = and i32 %1121, -24577
+  %1123 = or disjoint i32 %1122, %1112
+  store i32 %1123, ptr %115, align 4, !noalias !855
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %115), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %114), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %115), !noalias !855
-  %1123 = shufflevector <2 x double> %.sroa.11352.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1124 = shufflevector <2 x double> %.sroa.11352.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %113), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %113), !noalias !855
-  %1124 = load i32, ptr %113, align 4, !noalias !855
-  %1125 = and i32 %1124, 24576
+  %1125 = load i32, ptr %113, align 4, !noalias !855
+  %1126 = and i32 %1125, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %113), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %111), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %112), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %111), !noalias !855
-  %1126 = load i32, ptr %111, align 4, !noalias !855
-  %1127 = and i32 %1126, -24577
-  %1128 = or disjoint i32 %1127, 16384
-  store i32 %1128, ptr %112, align 4, !noalias !855
+  %1127 = load i32, ptr %111, align 4, !noalias !855
+  %1128 = and i32 %1127, -24577
+  %1129 = or disjoint i32 %1128, 16384
+  store i32 %1129, ptr %112, align 4, !noalias !855
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %112), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %111), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %112), !noalias !855
-  %1129 = load <2 x double>, ptr %818, align 16, !noalias !855
-  %1130 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1129) #23, !noalias !855, !srcloc !218
-  %1131 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1123) #46, !srcloc !219
-  %1132 = fadd <2 x double> %1130, %1131
-  %1133 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1132) #23, !noalias !855, !srcloc !218
+  %1130 = load <2 x double>, ptr %818, align 16, !noalias !855
+  %1131 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1130) #23, !noalias !855, !srcloc !218
+  %1132 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1124) #46, !srcloc !219
+  %1133 = fadd <2 x double> %1131, %1132
+  %1134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1133) #23, !noalias !855, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %109), !noalias !855
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %110), !noalias !855
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %109), !noalias !855
-  %1134 = load i32, ptr %109, align 4, !noalias !855
-  %1135 = and i32 %1134, -24577
-  %1136 = or disjoint i32 %1135, %1125
-  store i32 %1136, ptr %110, align 4, !noalias !855
+  %1135 = load i32, ptr %109, align 4, !noalias !855
+  %1136 = and i32 %1135, -24577
+  %1137 = or disjoint i32 %1136, %1126
+  store i32 %1137, ptr %110, align 4, !noalias !855
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %110), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %109), !noalias !855
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %110), !noalias !855
-  store <2 x double> %1105, ptr %124, align 16, !alias.scope !858
-  store <2 x double> %1119, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i160, align 16, !alias.scope !858
-  store <2 x double> %1133, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i161, align 16, !alias.scope !858
+  store <2 x double> %1106, ptr %124, align 16, !alias.scope !858
+  store <2 x double> %1120, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i160, align 16, !alias.scope !858
+  store <2 x double> %1134, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i161, align 16, !alias.scope !858
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %108)
-  %1137 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %108, ptr noundef nonnull align 16 dereferenceable(48) %124, ptr noundef nonnull align 16 dereferenceable(48) %124)
-          to label %1138 unwind label %.loopexit
+  %1138 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %108, ptr noundef nonnull align 16 dereferenceable(48) %124, ptr noundef nonnull align 16 dereferenceable(48) %124)
+          to label %1139 unwind label %.loopexit
 
-1138:                                             ; preds = %1094
+1139:                                             ; preds = %1095
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %108)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %124)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %830, ptr noundef nonnull align 16 dereferenceable(48) %799, i64 48, i1 false)
   %.sroa.4366.48.copyload = load <2 x double>, ptr %829, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %275, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0337, i64 48, i1 false)
-  store <2 x double> %1093, ptr %.sroa.2338.0..sroa_idx, align 16
-  store <2 x double> %1137, ptr %.sroa.2335.0..sroa_idx, align 16
+  store <2 x double> %1094, ptr %.sroa.2338.0..sroa_idx, align 16
+  store <2 x double> %1138, ptr %.sroa.2335.0..sroa_idx, align 16
   store <2 x double> %.sroa.0339.0.copyload, ptr %831, align 16
   store <2 x double> %.sroa.7345.0.copyload, ptr %.sroa.2364.0..sroa_idx, align 16
   store <2 x double> %.sroa.11352.0.copyload, ptr %.sroa.3365.0..sroa_idx, align 16
   store <2 x double> %.sroa.4366.48.copyload, ptr %.sroa.4366.0..sroa_idx, align 16
-  %1139 = load ptr, ptr %784, align 8
-  %1140 = load ptr, ptr %786, align 8
-  %1141 = getelementptr inbounds i8, ptr %1140, i64 -192
-  %.not.i.i.i164 = icmp eq ptr %1139, %1141
-  br i1 %.not.i.i.i164, label %1144, label %1142
+  %1140 = load ptr, ptr %784, align 8
+  %1141 = load ptr, ptr %786, align 8
+  %1142 = getelementptr inbounds i8, ptr %1141, i64 -192
+  %.not.i.i.i164 = icmp eq ptr %1140, %1142
+  br i1 %.not.i.i.i164, label %1145, label %1143
 
-1142:                                             ; preds = %1138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1139, ptr noundef nonnull align 16 dereferenceable(192) %275, i64 192, i1 false)
-  %1143 = getelementptr inbounds i8, ptr %1139, i64 192
-  store ptr %1143, ptr %784, align 8
+1143:                                             ; preds = %1139
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1140, ptr noundef nonnull align 16 dereferenceable(192) %275, i64 192, i1 false)
+  %1144 = getelementptr inbounds i8, ptr %1140, i64 192
+  store ptr %1144, ptr %784, align 8
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166
 
-1144:                                             ; preds = %1138
+1145:                                             ; preds = %1139
   invoke void @_ZNSt5dequeISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_push_back_auxIJSA_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %270, ptr noundef nonnull align 16 dereferenceable(192) %275)
           to label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166 unwind label %.loopexit
 
-_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166: ; preds = %1142, %1144
+_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166: ; preds = %1143, %1145
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %107)
   call void @llvm.experimental.noalias.scope.decl(metadata !859)
   call void @llvm.experimental.noalias.scope.decl(metadata !862)
-  %1145 = load <2 x double>, ptr %800, align 16, !noalias !865
-  %1146 = shufflevector <2 x double> %1145, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1146 = load <2 x double>, ptr %800, align 16, !noalias !865
+  %1147 = shufflevector <2 x double> %1146, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %106), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %106), !noalias !865
-  %1147 = load i32, ptr %106, align 4, !noalias !865
-  %1148 = and i32 %1147, 24576
+  %1148 = load i32, ptr %106, align 4, !noalias !865
+  %1149 = and i32 %1148, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %106), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %104), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %105), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %104), !noalias !865
-  %1149 = load i32, ptr %104, align 4, !noalias !865
-  %1150 = and i32 %1149, -24577
-  %1151 = or disjoint i32 %1150, 16384
-  store i32 %1151, ptr %105, align 4, !noalias !865
+  %1150 = load i32, ptr %104, align 4, !noalias !865
+  %1151 = and i32 %1150, -24577
+  %1152 = or disjoint i32 %1151, 16384
+  store i32 %1152, ptr %105, align 4, !noalias !865
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %105), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %104), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %105), !noalias !865
-  %1152 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0339.0.copyload) #23, !noalias !865, !srcloc !218
-  %1153 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1146) #46, !srcloc !219
-  %1154 = fadd <2 x double> %1152, %1153
-  %1155 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1154) #23, !noalias !865, !srcloc !218
+  %1153 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0339.0.copyload) #23, !noalias !865, !srcloc !218
+  %1154 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1147) #46, !srcloc !219
+  %1155 = fadd <2 x double> %1153, %1154
+  %1156 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1155) #23, !noalias !865, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %102), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %103), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %102), !noalias !865
-  %1156 = load i32, ptr %102, align 4, !noalias !865
-  %1157 = and i32 %1156, -24577
-  %1158 = or disjoint i32 %1157, %1148
-  store i32 %1158, ptr %103, align 4, !noalias !865
+  %1157 = load i32, ptr %102, align 4, !noalias !865
+  %1158 = and i32 %1157, -24577
+  %1159 = or disjoint i32 %1158, %1149
+  store i32 %1159, ptr %103, align 4, !noalias !865
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %103), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %102), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %103), !noalias !865
-  %1159 = load <2 x double>, ptr %811, align 16, !noalias !865
-  %1160 = shufflevector <2 x double> %1159, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1160 = load <2 x double>, ptr %811, align 16, !noalias !865
+  %1161 = shufflevector <2 x double> %1160, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %101), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %101), !noalias !865
-  %1161 = load i32, ptr %101, align 4, !noalias !865
-  %1162 = and i32 %1161, 24576
+  %1162 = load i32, ptr %101, align 4, !noalias !865
+  %1163 = and i32 %1162, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %101), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %99), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %100), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %99), !noalias !865
-  %1163 = load i32, ptr %99, align 4, !noalias !865
-  %1164 = and i32 %1163, -24577
-  %1165 = or disjoint i32 %1164, 16384
-  store i32 %1165, ptr %100, align 4, !noalias !865
+  %1164 = load i32, ptr %99, align 4, !noalias !865
+  %1165 = and i32 %1164, -24577
+  %1166 = or disjoint i32 %1165, 16384
+  store i32 %1166, ptr %100, align 4, !noalias !865
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %100), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %99), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100), !noalias !865
-  %1166 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7345.0.copyload) #23, !noalias !865, !srcloc !218
-  %1167 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1160) #46, !srcloc !219
-  %1168 = fadd <2 x double> %1166, %1167
-  %1169 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1168) #23, !noalias !865, !srcloc !218
+  %1167 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7345.0.copyload) #23, !noalias !865, !srcloc !218
+  %1168 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1161) #46, !srcloc !219
+  %1169 = fadd <2 x double> %1167, %1168
+  %1170 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1169) #23, !noalias !865, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %97), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %98), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %97), !noalias !865
-  %1170 = load i32, ptr %97, align 4, !noalias !865
-  %1171 = and i32 %1170, -24577
-  %1172 = or disjoint i32 %1171, %1162
-  store i32 %1172, ptr %98, align 4, !noalias !865
+  %1171 = load i32, ptr %97, align 4, !noalias !865
+  %1172 = and i32 %1171, -24577
+  %1173 = or disjoint i32 %1172, %1163
+  store i32 %1173, ptr %98, align 4, !noalias !865
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %98), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %97), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %98), !noalias !865
-  %1173 = load <2 x double>, ptr %813, align 16, !noalias !865
-  %1174 = shufflevector <2 x double> %1173, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1174 = load <2 x double>, ptr %813, align 16, !noalias !865
+  %1175 = shufflevector <2 x double> %1174, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %96), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %96), !noalias !865
-  %1175 = load i32, ptr %96, align 4, !noalias !865
-  %1176 = and i32 %1175, 24576
+  %1176 = load i32, ptr %96, align 4, !noalias !865
+  %1177 = and i32 %1176, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %96), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %94), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %95), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %94), !noalias !865
-  %1177 = load i32, ptr %94, align 4, !noalias !865
-  %1178 = and i32 %1177, -24577
-  %1179 = or disjoint i32 %1178, 16384
-  store i32 %1179, ptr %95, align 4, !noalias !865
+  %1178 = load i32, ptr %94, align 4, !noalias !865
+  %1179 = and i32 %1178, -24577
+  %1180 = or disjoint i32 %1179, 16384
+  store i32 %1180, ptr %95, align 4, !noalias !865
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %95), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %95), !noalias !865
-  %1180 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11352.0.copyload) #23, !noalias !865, !srcloc !218
-  %1181 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1174) #46, !srcloc !219
-  %1182 = fadd <2 x double> %1180, %1181
-  %1183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1182) #23, !noalias !865, !srcloc !218
+  %1181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11352.0.copyload) #23, !noalias !865, !srcloc !218
+  %1182 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1175) #46, !srcloc !219
+  %1183 = fadd <2 x double> %1181, %1182
+  %1184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1183) #23, !noalias !865, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %92), !noalias !865
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %93), !noalias !865
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %92), !noalias !865
-  %1184 = load i32, ptr %92, align 4, !noalias !865
-  %1185 = and i32 %1184, -24577
-  %1186 = or disjoint i32 %1185, %1176
-  store i32 %1186, ptr %93, align 4, !noalias !865
+  %1185 = load i32, ptr %92, align 4, !noalias !865
+  %1186 = and i32 %1185, -24577
+  %1187 = or disjoint i32 %1186, %1177
+  store i32 %1187, ptr %93, align 4, !noalias !865
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %93), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92), !noalias !865
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93), !noalias !865
-  store <2 x double> %1155, ptr %107, align 16, !alias.scope !868
-  store <2 x double> %1169, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i167, align 16, !alias.scope !868
-  store <2 x double> %1183, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i168, align 16, !alias.scope !868
+  store <2 x double> %1156, ptr %107, align 16, !alias.scope !868
+  store <2 x double> %1170, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i167, align 16, !alias.scope !868
+  store <2 x double> %1184, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i168, align 16, !alias.scope !868
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %91)
-  %1187 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 16 dereferenceable(48) %107, ptr noundef nonnull align 16 dereferenceable(48) %107)
-          to label %1188 unwind label %.loopexit
+  %1188 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 16 dereferenceable(48) %107, ptr noundef nonnull align 16 dereferenceable(48) %107)
+          to label %1189 unwind label %.loopexit
 
-1188:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166
+1189:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit166
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %107)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0331, ptr noundef nonnull align 16 dereferenceable(48) %799, i64 48, i1 false)
@@ -41666,128 +41668,128 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   call void @llvm.experimental.noalias.scope.decl(metadata !872)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %89), !noalias !875
-  %1189 = load i32, ptr %89, align 4, !noalias !875
-  %1190 = and i32 %1189, 24576
+  %1190 = load i32, ptr %89, align 4, !noalias !875
+  %1191 = and i32 %1190, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %87), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %88), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %87), !noalias !875
-  %1191 = load i32, ptr %87, align 4, !noalias !875
-  %1192 = and i32 %1191, -24577
-  %1193 = or disjoint i32 %1192, 16384
-  store i32 %1193, ptr %88, align 4, !noalias !875
+  %1192 = load i32, ptr %87, align 4, !noalias !875
+  %1193 = and i32 %1192, -24577
+  %1194 = or disjoint i32 %1193, 16384
+  store i32 %1194, ptr %88, align 4, !noalias !875
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %88), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88), !noalias !875
-  %1194 = load <2 x double>, ptr %799, align 16, !noalias !875
-  %1195 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1194) #23, !noalias !875, !srcloc !218
-  %1196 = fadd <2 x double> %1103, %1195
-  %1197 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1196) #23, !noalias !875, !srcloc !218
+  %1195 = load <2 x double>, ptr %799, align 16, !noalias !875
+  %1196 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1195) #23, !noalias !875, !srcloc !218
+  %1197 = fadd <2 x double> %1104, %1196
+  %1198 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1197) #23, !noalias !875, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %85), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %86), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %85), !noalias !875
-  %1198 = load i32, ptr %85, align 4, !noalias !875
-  %1199 = and i32 %1198, -24577
-  %1200 = or disjoint i32 %1199, %1190
-  store i32 %1200, ptr %86, align 4, !noalias !875
+  %1199 = load i32, ptr %85, align 4, !noalias !875
+  %1200 = and i32 %1199, -24577
+  %1201 = or disjoint i32 %1200, %1191
+  store i32 %1201, ptr %86, align 4, !noalias !875
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %86), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %85), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %86), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %84), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %84), !noalias !875
-  %1201 = load i32, ptr %84, align 4, !noalias !875
-  %1202 = and i32 %1201, 24576
+  %1202 = load i32, ptr %84, align 4, !noalias !875
+  %1203 = and i32 %1202, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %82), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %83), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %82), !noalias !875
-  %1203 = load i32, ptr %82, align 4, !noalias !875
-  %1204 = and i32 %1203, -24577
-  %1205 = or disjoint i32 %1204, 16384
-  store i32 %1205, ptr %83, align 4, !noalias !875
+  %1204 = load i32, ptr %82, align 4, !noalias !875
+  %1205 = and i32 %1204, -24577
+  %1206 = or disjoint i32 %1205, 16384
+  store i32 %1206, ptr %83, align 4, !noalias !875
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %83), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %82), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %83), !noalias !875
-  %1206 = load <2 x double>, ptr %817, align 16, !noalias !875
-  %1207 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1206) #23, !noalias !875, !srcloc !218
-  %1208 = fadd <2 x double> %1117, %1207
-  %1209 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1208) #23, !noalias !875, !srcloc !218
+  %1207 = load <2 x double>, ptr %817, align 16, !noalias !875
+  %1208 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1207) #23, !noalias !875, !srcloc !218
+  %1209 = fadd <2 x double> %1118, %1208
+  %1210 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1209) #23, !noalias !875, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %80), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %81), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %80), !noalias !875
-  %1210 = load i32, ptr %80, align 4, !noalias !875
-  %1211 = and i32 %1210, -24577
-  %1212 = or disjoint i32 %1211, %1202
-  store i32 %1212, ptr %81, align 4, !noalias !875
+  %1211 = load i32, ptr %80, align 4, !noalias !875
+  %1212 = and i32 %1211, -24577
+  %1213 = or disjoint i32 %1212, %1203
+  store i32 %1213, ptr %81, align 4, !noalias !875
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %81), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %80), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %81), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %79), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %79), !noalias !875
-  %1213 = load i32, ptr %79, align 4, !noalias !875
-  %1214 = and i32 %1213, 24576
+  %1214 = load i32, ptr %79, align 4, !noalias !875
+  %1215 = and i32 %1214, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %79), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %78), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %77), !noalias !875
-  %1215 = load i32, ptr %77, align 4, !noalias !875
-  %1216 = and i32 %1215, -24577
-  %1217 = or disjoint i32 %1216, 16384
-  store i32 %1217, ptr %78, align 4, !noalias !875
+  %1216 = load i32, ptr %77, align 4, !noalias !875
+  %1217 = and i32 %1216, -24577
+  %1218 = or disjoint i32 %1217, 16384
+  store i32 %1218, ptr %78, align 4, !noalias !875
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %78), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %77), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %78), !noalias !875
-  %1218 = load <2 x double>, ptr %819, align 16, !noalias !875
-  %1219 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1218) #23, !noalias !875, !srcloc !218
-  %1220 = fadd <2 x double> %1131, %1219
-  %1221 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1220) #23, !noalias !875, !srcloc !218
+  %1219 = load <2 x double>, ptr %819, align 16, !noalias !875
+  %1220 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1219) #23, !noalias !875, !srcloc !218
+  %1221 = fadd <2 x double> %1132, %1220
+  %1222 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1221) #23, !noalias !875, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %75), !noalias !875
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %76), !noalias !875
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %75), !noalias !875
-  %1222 = load i32, ptr %75, align 4, !noalias !875
-  %1223 = and i32 %1222, -24577
-  %1224 = or disjoint i32 %1223, %1214
-  store i32 %1224, ptr %76, align 4, !noalias !875
+  %1223 = load i32, ptr %75, align 4, !noalias !875
+  %1224 = and i32 %1223, -24577
+  %1225 = or disjoint i32 %1224, %1215
+  store i32 %1225, ptr %76, align 4, !noalias !875
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %76), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %75), !noalias !875
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76), !noalias !875
-  store <2 x double> %1197, ptr %90, align 16, !alias.scope !878
-  store <2 x double> %1209, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i171, align 16, !alias.scope !878
-  store <2 x double> %1221, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i172, align 16, !alias.scope !878
+  store <2 x double> %1198, ptr %90, align 16, !alias.scope !878
+  store <2 x double> %1210, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i171, align 16, !alias.scope !878
+  store <2 x double> %1222, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i172, align 16, !alias.scope !878
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %74)
-  %1225 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 16 dereferenceable(48) %90, ptr noundef nonnull align 16 dereferenceable(48) %90)
-          to label %1226 unwind label %.loopexit
+  %1226 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 16 dereferenceable(48) %90, ptr noundef nonnull align 16 dereferenceable(48) %90)
+          to label %1227 unwind label %.loopexit
 
-1226:                                             ; preds = %1188
+1227:                                             ; preds = %1189
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %74)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %90)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %832, ptr noundef nonnull align 16 dereferenceable(48) %800, i64 48, i1 false)
   %.sroa.4362.48.copyload = load <2 x double>, ptr %801, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %276, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0331, i64 48, i1 false)
-  store <2 x double> %1187, ptr %.sroa.2332.0..sroa_idx, align 16
-  store <2 x double> %1225, ptr %.sroa.2329.0..sroa_idx, align 16
+  store <2 x double> %1188, ptr %.sroa.2332.0..sroa_idx, align 16
+  store <2 x double> %1226, ptr %.sroa.2329.0..sroa_idx, align 16
   store <2 x double> %.sroa.0339.0.copyload, ptr %833, align 16
   store <2 x double> %.sroa.7345.0.copyload, ptr %.sroa.2360.0..sroa_idx, align 16
   store <2 x double> %.sroa.11352.0.copyload, ptr %.sroa.3361.0..sroa_idx, align 16
   store <2 x double> %.sroa.4362.48.copyload, ptr %.sroa.4362.0..sroa_idx, align 16
-  %1227 = load ptr, ptr %784, align 8
-  %1228 = load ptr, ptr %786, align 8
-  %1229 = getelementptr inbounds i8, ptr %1228, i64 -192
-  %.not.i.i.i175 = icmp eq ptr %1227, %1229
-  br i1 %.not.i.i.i175, label %.invoke, label %1230
+  %1228 = load ptr, ptr %784, align 8
+  %1229 = load ptr, ptr %786, align 8
+  %1230 = getelementptr inbounds i8, ptr %1229, i64 -192
+  %.not.i.i.i175 = icmp eq ptr %1228, %1230
+  br i1 %.not.i.i.i175, label %.invoke, label %1231
 
-1230:                                             ; preds = %1226
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1227, ptr noundef nonnull align 16 dereferenceable(192) %276, i64 192, i1 false)
+1231:                                             ; preds = %1227
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1228, ptr noundef nonnull align 16 dereferenceable(192) %276, i64 192, i1 false)
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split
 
-1231:                                             ; preds = %865
+1232:                                             ; preds = %866
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72), !noalias !879
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73), !noalias !879
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i178), !noalias !884
   invoke void @_ZN4CGAL10midpointC3INS_11Interval_ntILb1EEEEEvRKT_S5_S5_S5_S5_S5_RS3_S6_S6_(ptr noundef nonnull align 16 dereferenceable(16) %272, ptr noundef nonnull align 16 dereferenceable(16) %816, ptr noundef nonnull align 16 dereferenceable(16) %818, ptr noundef nonnull align 16 dereferenceable(16) %799, ptr noundef nonnull align 16 dereferenceable(16) %817, ptr noundef nonnull align 16 dereferenceable(16) %819, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i178, ptr noundef nonnull align 16 dereferenceable(16) %72, ptr noundef nonnull align 16 dereferenceable(16) %73)
-          to label %1232 unwind label %.loopexit
+          to label %1233 unwind label %.loopexit
 
-1232:                                             ; preds = %1231
+1233:                                             ; preds = %1232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i.i.i.i.i.i179, ptr noundef nonnull align 16 dereferenceable(16) %72, i64 16, i1 false), !noalias !887
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.32..sroa_idx.i.i.i.i.i.i.i.i180, ptr noundef nonnull align 16 dereferenceable(16) %73, i64 16, i1 false), !noalias !887
   %.sroa.0301.0.copyload = load <2 x double>, ptr %.sroa.0.i.i.i.i.i.i.i.i178, align 16
@@ -41799,346 +41801,346 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %71)
   call void @llvm.experimental.noalias.scope.decl(metadata !890)
   call void @llvm.experimental.noalias.scope.decl(metadata !893)
-  %1233 = load <2 x double>, ptr %272, align 16, !noalias !896
-  %1234 = shufflevector <2 x double> %1233, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1234 = load <2 x double>, ptr %272, align 16, !noalias !896
+  %1235 = shufflevector <2 x double> %1234, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %70), !noalias !896
-  %1235 = load i32, ptr %70, align 4, !noalias !896
-  %1236 = and i32 %1235, 24576
+  %1236 = load i32, ptr %70, align 4, !noalias !896
+  %1237 = and i32 %1236, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %68), !noalias !896
-  %1237 = load i32, ptr %68, align 4, !noalias !896
-  %1238 = and i32 %1237, -24577
-  %1239 = or disjoint i32 %1238, 16384
-  store i32 %1239, ptr %69, align 4, !noalias !896
+  %1238 = load i32, ptr %68, align 4, !noalias !896
+  %1239 = and i32 %1238, -24577
+  %1240 = or disjoint i32 %1239, 16384
+  store i32 %1240, ptr %69, align 4, !noalias !896
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %69), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69), !noalias !896
-  %1240 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0301.0.copyload) #23, !noalias !896, !srcloc !218
-  %1241 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1234) #46, !srcloc !219
-  %1242 = fadd <2 x double> %1240, %1241
-  %1243 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1242) #23, !noalias !896, !srcloc !218
+  %1241 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0301.0.copyload) #23, !noalias !896, !srcloc !218
+  %1242 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1235) #46, !srcloc !219
+  %1243 = fadd <2 x double> %1241, %1242
+  %1244 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1243) #23, !noalias !896, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %66), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %66), !noalias !896
-  %1244 = load i32, ptr %66, align 4, !noalias !896
-  %1245 = and i32 %1244, -24577
-  %1246 = or disjoint i32 %1245, %1236
-  store i32 %1246, ptr %67, align 4, !noalias !896
+  %1245 = load i32, ptr %66, align 4, !noalias !896
+  %1246 = and i32 %1245, -24577
+  %1247 = or disjoint i32 %1246, %1237
+  store i32 %1247, ptr %67, align 4, !noalias !896
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %67), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67), !noalias !896
-  %1247 = load <2 x double>, ptr %816, align 16, !noalias !896
-  %1248 = shufflevector <2 x double> %1247, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1248 = load <2 x double>, ptr %816, align 16, !noalias !896
+  %1249 = shufflevector <2 x double> %1248, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %65), !noalias !896
-  %1249 = load i32, ptr %65, align 4, !noalias !896
-  %1250 = and i32 %1249, 24576
+  %1250 = load i32, ptr %65, align 4, !noalias !896
+  %1251 = and i32 %1250, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %63), !noalias !896
-  %1251 = load i32, ptr %63, align 4, !noalias !896
-  %1252 = and i32 %1251, -24577
-  %1253 = or disjoint i32 %1252, 16384
-  store i32 %1253, ptr %64, align 4, !noalias !896
+  %1252 = load i32, ptr %63, align 4, !noalias !896
+  %1253 = and i32 %1252, -24577
+  %1254 = or disjoint i32 %1253, 16384
+  store i32 %1254, ptr %64, align 4, !noalias !896
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %64), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64), !noalias !896
-  %1254 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7.0.copyload) #23, !noalias !896, !srcloc !218
-  %1255 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1248) #46, !srcloc !219
-  %1256 = fadd <2 x double> %1254, %1255
-  %1257 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1256) #23, !noalias !896, !srcloc !218
+  %1255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7.0.copyload) #23, !noalias !896, !srcloc !218
+  %1256 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1249) #46, !srcloc !219
+  %1257 = fadd <2 x double> %1255, %1256
+  %1258 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1257) #23, !noalias !896, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %61), !noalias !896
-  %1258 = load i32, ptr %61, align 4, !noalias !896
-  %1259 = and i32 %1258, -24577
-  %1260 = or disjoint i32 %1259, %1250
-  store i32 %1260, ptr %62, align 4, !noalias !896
+  %1259 = load i32, ptr %61, align 4, !noalias !896
+  %1260 = and i32 %1259, -24577
+  %1261 = or disjoint i32 %1260, %1251
+  store i32 %1261, ptr %62, align 4, !noalias !896
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %62), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62), !noalias !896
-  %1261 = load <2 x double>, ptr %818, align 16, !noalias !896
-  %1262 = shufflevector <2 x double> %1261, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1262 = load <2 x double>, ptr %818, align 16, !noalias !896
+  %1263 = shufflevector <2 x double> %1262, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %60), !noalias !896
-  %1263 = load i32, ptr %60, align 4, !noalias !896
-  %1264 = and i32 %1263, 24576
+  %1264 = load i32, ptr %60, align 4, !noalias !896
+  %1265 = and i32 %1264, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %58), !noalias !896
-  %1265 = load i32, ptr %58, align 4, !noalias !896
-  %1266 = and i32 %1265, -24577
-  %1267 = or disjoint i32 %1266, 16384
-  store i32 %1267, ptr %59, align 4, !noalias !896
+  %1266 = load i32, ptr %58, align 4, !noalias !896
+  %1267 = and i32 %1266, -24577
+  %1268 = or disjoint i32 %1267, 16384
+  store i32 %1268, ptr %59, align 4, !noalias !896
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %59), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59), !noalias !896
-  %1268 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11.0.copyload) #23, !noalias !896, !srcloc !218
-  %1269 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1262) #46, !srcloc !219
-  %1270 = fadd <2 x double> %1268, %1269
-  %1271 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1270) #23, !noalias !896, !srcloc !218
+  %1269 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11.0.copyload) #23, !noalias !896, !srcloc !218
+  %1270 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1263) #46, !srcloc !219
+  %1271 = fadd <2 x double> %1269, %1270
+  %1272 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1271) #23, !noalias !896, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56), !noalias !896
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57), !noalias !896
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %56), !noalias !896
-  %1272 = load i32, ptr %56, align 4, !noalias !896
-  %1273 = and i32 %1272, -24577
-  %1274 = or disjoint i32 %1273, %1264
-  store i32 %1274, ptr %57, align 4, !noalias !896
+  %1273 = load i32, ptr %56, align 4, !noalias !896
+  %1274 = and i32 %1273, -24577
+  %1275 = or disjoint i32 %1274, %1265
+  store i32 %1275, ptr %57, align 4, !noalias !896
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %57), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56), !noalias !896
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57), !noalias !896
-  store <2 x double> %1243, ptr %71, align 16, !alias.scope !899
-  store <2 x double> %1257, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i183, align 16, !alias.scope !899
-  store <2 x double> %1271, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i184, align 16, !alias.scope !899
+  store <2 x double> %1244, ptr %71, align 16, !alias.scope !899
+  store <2 x double> %1258, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i183, align 16, !alias.scope !899
+  store <2 x double> %1272, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i184, align 16, !alias.scope !899
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55)
-  %1275 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 16 dereferenceable(48) %71, ptr noundef nonnull align 16 dereferenceable(48) %71)
-          to label %1276 unwind label %.loopexit
+  %1276 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 16 dereferenceable(48) %71, ptr noundef nonnull align 16 dereferenceable(48) %71)
+          to label %1277 unwind label %.loopexit
 
-1276:                                             ; preds = %1232
+1277:                                             ; preds = %1233
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %71)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0299, ptr noundef nonnull align 16 dereferenceable(48) %800, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54)
   call void @llvm.experimental.noalias.scope.decl(metadata !900)
   call void @llvm.experimental.noalias.scope.decl(metadata !903)
-  %1277 = shufflevector <2 x double> %.sroa.0301.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1278 = shufflevector <2 x double> %.sroa.0301.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %53), !noalias !906
-  %1278 = load i32, ptr %53, align 4, !noalias !906
-  %1279 = and i32 %1278, 24576
+  %1279 = load i32, ptr %53, align 4, !noalias !906
+  %1280 = and i32 %1279, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %51), !noalias !906
-  %1280 = load i32, ptr %51, align 4, !noalias !906
-  %1281 = and i32 %1280, -24577
-  %1282 = or disjoint i32 %1281, 16384
-  store i32 %1282, ptr %52, align 4, !noalias !906
+  %1281 = load i32, ptr %51, align 4, !noalias !906
+  %1282 = and i32 %1281, -24577
+  %1283 = or disjoint i32 %1282, 16384
+  store i32 %1283, ptr %52, align 4, !noalias !906
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %52), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52), !noalias !906
-  %1283 = load <2 x double>, ptr %800, align 16, !noalias !906
-  %1284 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1283) #23, !noalias !906, !srcloc !218
-  %1285 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1277) #46, !srcloc !219
-  %1286 = fadd <2 x double> %1284, %1285
-  %1287 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1286) #23, !noalias !906, !srcloc !218
+  %1284 = load <2 x double>, ptr %800, align 16, !noalias !906
+  %1285 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1284) #23, !noalias !906, !srcloc !218
+  %1286 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1278) #46, !srcloc !219
+  %1287 = fadd <2 x double> %1285, %1286
+  %1288 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1287) #23, !noalias !906, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %49), !noalias !906
-  %1288 = load i32, ptr %49, align 4, !noalias !906
-  %1289 = and i32 %1288, -24577
-  %1290 = or disjoint i32 %1289, %1279
-  store i32 %1290, ptr %50, align 4, !noalias !906
+  %1289 = load i32, ptr %49, align 4, !noalias !906
+  %1290 = and i32 %1289, -24577
+  %1291 = or disjoint i32 %1290, %1280
+  store i32 %1291, ptr %50, align 4, !noalias !906
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %50), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50), !noalias !906
-  %1291 = shufflevector <2 x double> %.sroa.7.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1292 = shufflevector <2 x double> %.sroa.7.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %48), !noalias !906
-  %1292 = load i32, ptr %48, align 4, !noalias !906
-  %1293 = and i32 %1292, 24576
+  %1293 = load i32, ptr %48, align 4, !noalias !906
+  %1294 = and i32 %1293, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %46), !noalias !906
-  %1294 = load i32, ptr %46, align 4, !noalias !906
-  %1295 = and i32 %1294, -24577
-  %1296 = or disjoint i32 %1295, 16384
-  store i32 %1296, ptr %47, align 4, !noalias !906
+  %1295 = load i32, ptr %46, align 4, !noalias !906
+  %1296 = and i32 %1295, -24577
+  %1297 = or disjoint i32 %1296, 16384
+  store i32 %1297, ptr %47, align 4, !noalias !906
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %47), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47), !noalias !906
-  %1297 = load <2 x double>, ptr %811, align 16, !noalias !906
-  %1298 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1297) #23, !noalias !906, !srcloc !218
-  %1299 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1291) #46, !srcloc !219
-  %1300 = fadd <2 x double> %1298, %1299
-  %1301 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1300) #23, !noalias !906, !srcloc !218
+  %1298 = load <2 x double>, ptr %811, align 16, !noalias !906
+  %1299 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1298) #23, !noalias !906, !srcloc !218
+  %1300 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1292) #46, !srcloc !219
+  %1301 = fadd <2 x double> %1299, %1300
+  %1302 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1301) #23, !noalias !906, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %44), !noalias !906
-  %1302 = load i32, ptr %44, align 4, !noalias !906
-  %1303 = and i32 %1302, -24577
-  %1304 = or disjoint i32 %1303, %1293
-  store i32 %1304, ptr %45, align 4, !noalias !906
+  %1303 = load i32, ptr %44, align 4, !noalias !906
+  %1304 = and i32 %1303, -24577
+  %1305 = or disjoint i32 %1304, %1294
+  store i32 %1305, ptr %45, align 4, !noalias !906
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %45), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45), !noalias !906
-  %1305 = shufflevector <2 x double> %.sroa.11.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1306 = shufflevector <2 x double> %.sroa.11.0.copyload, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %43), !noalias !906
-  %1306 = load i32, ptr %43, align 4, !noalias !906
-  %1307 = and i32 %1306, 24576
+  %1307 = load i32, ptr %43, align 4, !noalias !906
+  %1308 = and i32 %1307, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %41), !noalias !906
-  %1308 = load i32, ptr %41, align 4, !noalias !906
-  %1309 = and i32 %1308, -24577
-  %1310 = or disjoint i32 %1309, 16384
-  store i32 %1310, ptr %42, align 4, !noalias !906
+  %1309 = load i32, ptr %41, align 4, !noalias !906
+  %1310 = and i32 %1309, -24577
+  %1311 = or disjoint i32 %1310, 16384
+  store i32 %1311, ptr %42, align 4, !noalias !906
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %42), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42), !noalias !906
-  %1311 = load <2 x double>, ptr %813, align 16, !noalias !906
-  %1312 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1311) #23, !noalias !906, !srcloc !218
-  %1313 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1305) #46, !srcloc !219
-  %1314 = fadd <2 x double> %1312, %1313
-  %1315 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1314) #23, !noalias !906, !srcloc !218
+  %1312 = load <2 x double>, ptr %813, align 16, !noalias !906
+  %1313 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1312) #23, !noalias !906, !srcloc !218
+  %1314 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1306) #46, !srcloc !219
+  %1315 = fadd <2 x double> %1313, %1314
+  %1316 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1315) #23, !noalias !906, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39), !noalias !906
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40), !noalias !906
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %39), !noalias !906
-  %1316 = load i32, ptr %39, align 4, !noalias !906
-  %1317 = and i32 %1316, -24577
-  %1318 = or disjoint i32 %1317, %1307
-  store i32 %1318, ptr %40, align 4, !noalias !906
+  %1317 = load i32, ptr %39, align 4, !noalias !906
+  %1318 = and i32 %1317, -24577
+  %1319 = or disjoint i32 %1318, %1308
+  store i32 %1319, ptr %40, align 4, !noalias !906
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %40), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39), !noalias !906
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40), !noalias !906
-  store <2 x double> %1287, ptr %54, align 16, !alias.scope !909
-  store <2 x double> %1301, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i187, align 16, !alias.scope !909
-  store <2 x double> %1315, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i188, align 16, !alias.scope !909
+  store <2 x double> %1288, ptr %54, align 16, !alias.scope !909
+  store <2 x double> %1302, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i187, align 16, !alias.scope !909
+  store <2 x double> %1316, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i188, align 16, !alias.scope !909
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38)
-  %1319 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 16 dereferenceable(48) %54, ptr noundef nonnull align 16 dereferenceable(48) %54)
-          to label %1320 unwind label %.loopexit
+  %1320 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 16 dereferenceable(48) %54, ptr noundef nonnull align 16 dereferenceable(48) %54)
+          to label %1321 unwind label %.loopexit
 
-1320:                                             ; preds = %1276
+1321:                                             ; preds = %1277
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %838, ptr noundef nonnull align 16 dereferenceable(48) %272, i64 48, i1 false)
   %.sroa.4326.48.copyload = load <2 x double>, ptr %803, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %277, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0299, i64 48, i1 false)
-  store <2 x double> %1275, ptr %.sroa.2300.0..sroa_idx, align 16
-  store <2 x double> %1319, ptr %.sroa.2297.0..sroa_idx, align 16
+  store <2 x double> %1276, ptr %.sroa.2300.0..sroa_idx, align 16
+  store <2 x double> %1320, ptr %.sroa.2297.0..sroa_idx, align 16
   store <2 x double> %.sroa.0301.0.copyload, ptr %839, align 16
   store <2 x double> %.sroa.7.0.copyload, ptr %.sroa.2324.0..sroa_idx, align 16
   store <2 x double> %.sroa.11.0.copyload, ptr %.sroa.3325.0..sroa_idx, align 16
   store <2 x double> %.sroa.4326.48.copyload, ptr %.sroa.4326.0..sroa_idx, align 16
-  %1321 = load ptr, ptr %784, align 8
-  %1322 = load ptr, ptr %786, align 8
-  %1323 = getelementptr inbounds i8, ptr %1322, i64 -192
-  %.not.i.i.i191 = icmp eq ptr %1321, %1323
-  br i1 %.not.i.i.i191, label %1326, label %1324
+  %1322 = load ptr, ptr %784, align 8
+  %1323 = load ptr, ptr %786, align 8
+  %1324 = getelementptr inbounds i8, ptr %1323, i64 -192
+  %.not.i.i.i191 = icmp eq ptr %1322, %1324
+  br i1 %.not.i.i.i191, label %1327, label %1325
 
-1324:                                             ; preds = %1320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1321, ptr noundef nonnull align 16 dereferenceable(192) %277, i64 192, i1 false)
-  %1325 = getelementptr inbounds i8, ptr %1321, i64 192
-  store ptr %1325, ptr %784, align 8
+1325:                                             ; preds = %1321
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1322, ptr noundef nonnull align 16 dereferenceable(192) %277, i64 192, i1 false)
+  %1326 = getelementptr inbounds i8, ptr %1322, i64 192
+  store ptr %1326, ptr %784, align 8
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193
 
-1326:                                             ; preds = %1320
+1327:                                             ; preds = %1321
   invoke void @_ZNSt5dequeISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_push_back_auxIJSA_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %270, ptr noundef nonnull align 16 dereferenceable(192) %277)
           to label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193 unwind label %.loopexit
 
-_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193: ; preds = %1324, %1326
+_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193: ; preds = %1325, %1327
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37)
   call void @llvm.experimental.noalias.scope.decl(metadata !910)
   call void @llvm.experimental.noalias.scope.decl(metadata !913)
-  %1327 = load <2 x double>, ptr %800, align 16, !noalias !916
-  %1328 = shufflevector <2 x double> %1327, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1328 = load <2 x double>, ptr %800, align 16, !noalias !916
+  %1329 = shufflevector <2 x double> %1328, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %36), !noalias !916
-  %1329 = load i32, ptr %36, align 4, !noalias !916
-  %1330 = and i32 %1329, 24576
+  %1330 = load i32, ptr %36, align 4, !noalias !916
+  %1331 = and i32 %1330, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %34), !noalias !916
-  %1331 = load i32, ptr %34, align 4, !noalias !916
-  %1332 = and i32 %1331, -24577
-  %1333 = or disjoint i32 %1332, 16384
-  store i32 %1333, ptr %35, align 4, !noalias !916
+  %1332 = load i32, ptr %34, align 4, !noalias !916
+  %1333 = and i32 %1332, -24577
+  %1334 = or disjoint i32 %1333, 16384
+  store i32 %1334, ptr %35, align 4, !noalias !916
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %35), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35), !noalias !916
-  %1334 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0301.0.copyload) #23, !noalias !916, !srcloc !218
-  %1335 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1328) #46, !srcloc !219
-  %1336 = fadd <2 x double> %1334, %1335
-  %1337 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1336) #23, !noalias !916, !srcloc !218
+  %1335 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.0301.0.copyload) #23, !noalias !916, !srcloc !218
+  %1336 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1329) #46, !srcloc !219
+  %1337 = fadd <2 x double> %1335, %1336
+  %1338 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1337) #23, !noalias !916, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %32), !noalias !916
-  %1338 = load i32, ptr %32, align 4, !noalias !916
-  %1339 = and i32 %1338, -24577
-  %1340 = or disjoint i32 %1339, %1330
-  store i32 %1340, ptr %33, align 4, !noalias !916
+  %1339 = load i32, ptr %32, align 4, !noalias !916
+  %1340 = and i32 %1339, -24577
+  %1341 = or disjoint i32 %1340, %1331
+  store i32 %1341, ptr %33, align 4, !noalias !916
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %33), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33), !noalias !916
-  %1341 = load <2 x double>, ptr %811, align 16, !noalias !916
-  %1342 = shufflevector <2 x double> %1341, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1342 = load <2 x double>, ptr %811, align 16, !noalias !916
+  %1343 = shufflevector <2 x double> %1342, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %31), !noalias !916
-  %1343 = load i32, ptr %31, align 4, !noalias !916
-  %1344 = and i32 %1343, 24576
+  %1344 = load i32, ptr %31, align 4, !noalias !916
+  %1345 = and i32 %1344, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %29), !noalias !916
-  %1345 = load i32, ptr %29, align 4, !noalias !916
-  %1346 = and i32 %1345, -24577
-  %1347 = or disjoint i32 %1346, 16384
-  store i32 %1347, ptr %30, align 4, !noalias !916
+  %1346 = load i32, ptr %29, align 4, !noalias !916
+  %1347 = and i32 %1346, -24577
+  %1348 = or disjoint i32 %1347, 16384
+  store i32 %1348, ptr %30, align 4, !noalias !916
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %30), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30), !noalias !916
-  %1348 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7.0.copyload) #23, !noalias !916, !srcloc !218
-  %1349 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1342) #46, !srcloc !219
-  %1350 = fadd <2 x double> %1348, %1349
-  %1351 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1350) #23, !noalias !916, !srcloc !218
+  %1349 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.7.0.copyload) #23, !noalias !916, !srcloc !218
+  %1350 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1343) #46, !srcloc !219
+  %1351 = fadd <2 x double> %1349, %1350
+  %1352 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1351) #23, !noalias !916, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %27), !noalias !916
-  %1352 = load i32, ptr %27, align 4, !noalias !916
-  %1353 = and i32 %1352, -24577
-  %1354 = or disjoint i32 %1353, %1344
-  store i32 %1354, ptr %28, align 4, !noalias !916
+  %1353 = load i32, ptr %27, align 4, !noalias !916
+  %1354 = and i32 %1353, -24577
+  %1355 = or disjoint i32 %1354, %1345
+  store i32 %1355, ptr %28, align 4, !noalias !916
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %28), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28), !noalias !916
-  %1355 = load <2 x double>, ptr %813, align 16, !noalias !916
-  %1356 = shufflevector <2 x double> %1355, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1356 = load <2 x double>, ptr %813, align 16, !noalias !916
+  %1357 = shufflevector <2 x double> %1356, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %26), !noalias !916
-  %1357 = load i32, ptr %26, align 4, !noalias !916
-  %1358 = and i32 %1357, 24576
+  %1358 = load i32, ptr %26, align 4, !noalias !916
+  %1359 = and i32 %1358, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %24), !noalias !916
-  %1359 = load i32, ptr %24, align 4, !noalias !916
-  %1360 = and i32 %1359, -24577
-  %1361 = or disjoint i32 %1360, 16384
-  store i32 %1361, ptr %25, align 4, !noalias !916
+  %1360 = load i32, ptr %24, align 4, !noalias !916
+  %1361 = and i32 %1360, -24577
+  %1362 = or disjoint i32 %1361, 16384
+  store i32 %1362, ptr %25, align 4, !noalias !916
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %25), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25), !noalias !916
-  %1362 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11.0.copyload) #23, !noalias !916, !srcloc !218
-  %1363 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1356) #46, !srcloc !219
-  %1364 = fadd <2 x double> %1362, %1363
-  %1365 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1364) #23, !noalias !916, !srcloc !218
+  %1363 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.11.0.copyload) #23, !noalias !916, !srcloc !218
+  %1364 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1357) #46, !srcloc !219
+  %1365 = fadd <2 x double> %1363, %1364
+  %1366 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1365) #23, !noalias !916, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22), !noalias !916
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23), !noalias !916
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %22), !noalias !916
-  %1366 = load i32, ptr %22, align 4, !noalias !916
-  %1367 = and i32 %1366, -24577
-  %1368 = or disjoint i32 %1367, %1358
-  store i32 %1368, ptr %23, align 4, !noalias !916
+  %1367 = load i32, ptr %22, align 4, !noalias !916
+  %1368 = and i32 %1367, -24577
+  %1369 = or disjoint i32 %1368, %1359
+  store i32 %1369, ptr %23, align 4, !noalias !916
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %23), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22), !noalias !916
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23), !noalias !916
-  store <2 x double> %1337, ptr %37, align 16, !alias.scope !919
-  store <2 x double> %1351, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i194, align 16, !alias.scope !919
-  store <2 x double> %1365, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i195, align 16, !alias.scope !919
+  store <2 x double> %1338, ptr %37, align 16, !alias.scope !919
+  store <2 x double> %1352, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i194, align 16, !alias.scope !919
+  store <2 x double> %1366, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i195, align 16, !alias.scope !919
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
-  %1369 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 16 dereferenceable(48) %37, ptr noundef nonnull align 16 dereferenceable(48) %37)
-          to label %1370 unwind label %.loopexit
+  %1370 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 16 dereferenceable(48) %37, ptr noundef nonnull align 16 dereferenceable(48) %37)
+          to label %1371 unwind label %.loopexit
 
-1370:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193
+1371:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit193
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0293, ptr noundef nonnull align 16 dereferenceable(48) %799, i64 48, i1 false)
@@ -42147,862 +42149,862 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   call void @llvm.experimental.noalias.scope.decl(metadata !923)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %19), !noalias !926
-  %1371 = load i32, ptr %19, align 4, !noalias !926
-  %1372 = and i32 %1371, 24576
+  %1372 = load i32, ptr %19, align 4, !noalias !926
+  %1373 = and i32 %1372, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %17), !noalias !926
-  %1373 = load i32, ptr %17, align 4, !noalias !926
-  %1374 = and i32 %1373, -24577
-  %1375 = or disjoint i32 %1374, 16384
-  store i32 %1375, ptr %18, align 4, !noalias !926
+  %1374 = load i32, ptr %17, align 4, !noalias !926
+  %1375 = and i32 %1374, -24577
+  %1376 = or disjoint i32 %1375, 16384
+  store i32 %1376, ptr %18, align 4, !noalias !926
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %18), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18), !noalias !926
-  %1376 = load <2 x double>, ptr %799, align 16, !noalias !926
-  %1377 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1376) #23, !noalias !926, !srcloc !218
-  %1378 = fadd <2 x double> %1285, %1377
-  %1379 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1378) #23, !noalias !926, !srcloc !218
+  %1377 = load <2 x double>, ptr %799, align 16, !noalias !926
+  %1378 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1377) #23, !noalias !926, !srcloc !218
+  %1379 = fadd <2 x double> %1286, %1378
+  %1380 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1379) #23, !noalias !926, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %15), !noalias !926
-  %1380 = load i32, ptr %15, align 4, !noalias !926
-  %1381 = and i32 %1380, -24577
-  %1382 = or disjoint i32 %1381, %1372
-  store i32 %1382, ptr %16, align 4, !noalias !926
+  %1381 = load i32, ptr %15, align 4, !noalias !926
+  %1382 = and i32 %1381, -24577
+  %1383 = or disjoint i32 %1382, %1373
+  store i32 %1383, ptr %16, align 4, !noalias !926
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %16), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %14), !noalias !926
-  %1383 = load i32, ptr %14, align 4, !noalias !926
-  %1384 = and i32 %1383, 24576
+  %1384 = load i32, ptr %14, align 4, !noalias !926
+  %1385 = and i32 %1384, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %12), !noalias !926
-  %1385 = load i32, ptr %12, align 4, !noalias !926
-  %1386 = and i32 %1385, -24577
-  %1387 = or disjoint i32 %1386, 16384
-  store i32 %1387, ptr %13, align 4, !noalias !926
+  %1386 = load i32, ptr %12, align 4, !noalias !926
+  %1387 = and i32 %1386, -24577
+  %1388 = or disjoint i32 %1387, 16384
+  store i32 %1388, ptr %13, align 4, !noalias !926
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %13), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !926
-  %1388 = load <2 x double>, ptr %817, align 16, !noalias !926
-  %1389 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1388) #23, !noalias !926, !srcloc !218
-  %1390 = fadd <2 x double> %1299, %1389
-  %1391 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1390) #23, !noalias !926, !srcloc !218
+  %1389 = load <2 x double>, ptr %817, align 16, !noalias !926
+  %1390 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1389) #23, !noalias !926, !srcloc !218
+  %1391 = fadd <2 x double> %1300, %1390
+  %1392 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1391) #23, !noalias !926, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %10), !noalias !926
-  %1392 = load i32, ptr %10, align 4, !noalias !926
-  %1393 = and i32 %1392, -24577
-  %1394 = or disjoint i32 %1393, %1384
-  store i32 %1394, ptr %11, align 4, !noalias !926
+  %1393 = load i32, ptr %10, align 4, !noalias !926
+  %1394 = and i32 %1393, -24577
+  %1395 = or disjoint i32 %1394, %1385
+  store i32 %1395, ptr %11, align 4, !noalias !926
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %11), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %9), !noalias !926
-  %1395 = load i32, ptr %9, align 4, !noalias !926
-  %1396 = and i32 %1395, 24576
+  %1396 = load i32, ptr %9, align 4, !noalias !926
+  %1397 = and i32 %1396, 24576
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7), !noalias !926
-  %1397 = load i32, ptr %7, align 4, !noalias !926
-  %1398 = and i32 %1397, -24577
-  %1399 = or disjoint i32 %1398, 16384
-  store i32 %1399, ptr %8, align 4, !noalias !926
+  %1398 = load i32, ptr %7, align 4, !noalias !926
+  %1399 = and i32 %1398, -24577
+  %1400 = or disjoint i32 %1399, 16384
+  store i32 %1400, ptr %8, align 4, !noalias !926
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %8), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !926
-  %1400 = load <2 x double>, ptr %819, align 16, !noalias !926
-  %1401 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1400) #23, !noalias !926, !srcloc !218
-  %1402 = fadd <2 x double> %1313, %1401
-  %1403 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1402) #23, !noalias !926, !srcloc !218
+  %1401 = load <2 x double>, ptr %819, align 16, !noalias !926
+  %1402 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1401) #23, !noalias !926, !srcloc !218
+  %1403 = fadd <2 x double> %1314, %1402
+  %1404 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %1403) #23, !noalias !926, !srcloc !218
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !926
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %5), !noalias !926
-  %1404 = load i32, ptr %5, align 4, !noalias !926
-  %1405 = and i32 %1404, -24577
-  %1406 = or disjoint i32 %1405, %1396
-  store i32 %1406, ptr %6, align 4, !noalias !926
+  %1405 = load i32, ptr %5, align 4, !noalias !926
+  %1406 = and i32 %1405, -24577
+  %1407 = or disjoint i32 %1406, %1397
+  store i32 %1407, ptr %6, align 4, !noalias !926
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %6), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !926
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !926
-  store <2 x double> %1379, ptr %20, align 16, !alias.scope !929
-  store <2 x double> %1391, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i198, align 16, !alias.scope !929
-  store <2 x double> %1403, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i199, align 16, !alias.scope !929
+  store <2 x double> %1380, ptr %20, align 16, !alias.scope !929
+  store <2 x double> %1392, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i198, align 16, !alias.scope !929
+  store <2 x double> %1404, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i199, align 16, !alias.scope !929
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %1407 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 16 dereferenceable(48) %20, ptr noundef nonnull align 16 dereferenceable(48) %20)
-          to label %1408 unwind label %.loopexit
+  %1408 = invoke <2 x double> @_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianINS_11Interval_ntILb1EEEEEEclERKNS_8Vector_3IS5_EESA_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 16 dereferenceable(48) %20, ptr noundef nonnull align 16 dereferenceable(48) %20)
+          to label %1409 unwind label %.loopexit
 
-1408:                                             ; preds = %1370
+1409:                                             ; preds = %1371
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %840, ptr noundef nonnull align 16 dereferenceable(48) %800, i64 48, i1 false)
   %.sroa.4322.48.copyload = load <2 x double>, ptr %801, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %278, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0293, i64 48, i1 false)
-  store <2 x double> %1369, ptr %.sroa.2294.0..sroa_idx, align 16
-  store <2 x double> %1407, ptr %.sroa.2291.0..sroa_idx, align 16
+  store <2 x double> %1370, ptr %.sroa.2294.0..sroa_idx, align 16
+  store <2 x double> %1408, ptr %.sroa.2291.0..sroa_idx, align 16
   store <2 x double> %.sroa.0301.0.copyload, ptr %841, align 16
   store <2 x double> %.sroa.7.0.copyload, ptr %.sroa.2320.0..sroa_idx, align 16
   store <2 x double> %.sroa.11.0.copyload, ptr %.sroa.3321.0..sroa_idx, align 16
   store <2 x double> %.sroa.4322.48.copyload, ptr %.sroa.4322.0..sroa_idx, align 16
-  %1409 = load ptr, ptr %784, align 8
-  %1410 = load ptr, ptr %786, align 8
-  %1411 = getelementptr inbounds i8, ptr %1410, i64 -192
-  %.not.i.i.i202 = icmp eq ptr %1409, %1411
-  br i1 %.not.i.i.i202, label %.invoke, label %1412
+  %1410 = load ptr, ptr %784, align 8
+  %1411 = load ptr, ptr %786, align 8
+  %1412 = getelementptr inbounds i8, ptr %1411, i64 -192
+  %.not.i.i.i202 = icmp eq ptr %1410, %1412
+  br i1 %.not.i.i.i202, label %.invoke, label %1413
 
-1412:                                             ; preds = %1408
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1409, ptr noundef nonnull align 16 dereferenceable(192) %278, i64 192, i1 false)
+1413:                                             ; preds = %1409
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %1410, ptr noundef nonnull align 16 dereferenceable(192) %278, i64 192, i1 false)
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split
 
-1413:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE3popEv.exit
-  %1414 = load ptr, ptr %807, align 8
-  %1415 = load ptr, ptr %806, align 8
-  %1416 = ptrtoint ptr %1414 to i64
+1414:                                             ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE3popEv.exit
+  %1415 = load ptr, ptr %807, align 8
+  %1416 = load ptr, ptr %806, align 8
   %1417 = ptrtoint ptr %1415 to i64
-  %1418 = sub i64 %1416, %1417
-  %1419 = ashr exact i64 %1418, 4
-  %1420 = load i64, ptr %808, align 8
-  %1421 = load ptr, ptr %809, align 8
-  %1422 = getelementptr inbounds i8, ptr %1421, i64 8
-  %1423 = load ptr, ptr %1422, align 8
-  %1424 = load ptr, ptr %1421, align 8
-  %1425 = ptrtoint ptr %1423 to i64
+  %1418 = ptrtoint ptr %1416 to i64
+  %1419 = sub i64 %1417, %1418
+  %1420 = ashr exact i64 %1419, 4
+  %1421 = load i64, ptr %808, align 8
+  %1422 = load ptr, ptr %809, align 8
+  %1423 = getelementptr inbounds i8, ptr %1422, i64 8
+  %1424 = load ptr, ptr %1423, align 8
+  %1425 = load ptr, ptr %1422, align 8
   %1426 = ptrtoint ptr %1424 to i64
-  %1427 = sub i64 %1425, %1426
-  %1428 = ashr exact i64 %1427, 3
-  %.not.i207 = icmp ult i64 %1419, %1428
-  br i1 %.not.i207, label %1439, label %1429
+  %1427 = ptrtoint ptr %1425 to i64
+  %1428 = sub i64 %1426, %1427
+  %1429 = ashr exact i64 %1428, 3
+  %.not.i207 = icmp ult i64 %1420, %1429
+  br i1 %.not.i207, label %1440, label %1430
 
-1429:                                             ; preds = %1413
-  %1430 = add nsw i64 %1419, 1
-  %1431 = icmp ugt i64 %1430, %1428
-  br i1 %1431, label %1432, label %1434
+1430:                                             ; preds = %1414
+  %1431 = add nsw i64 %1420, 1
+  %1432 = icmp ugt i64 %1431, %1429
+  br i1 %1432, label %1433, label %1435
 
-1432:                                             ; preds = %1429
-  %1433 = sub nuw nsw i64 %1430, %1428
-  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1421, i64 noundef %1433)
-          to label %1439 unwind label %.loopexit
+1433:                                             ; preds = %1430
+  %1434 = sub nuw nsw i64 %1431, %1429
+  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1422, i64 noundef %1434)
+          to label %1440 unwind label %.loopexit
 
-1434:                                             ; preds = %1429
-  %1435 = icmp ult i64 %1430, %1428
-  br i1 %1435, label %1436, label %1439
+1435:                                             ; preds = %1430
+  %1436 = icmp ult i64 %1431, %1429
+  br i1 %1436, label %1437, label %1440
 
-1436:                                             ; preds = %1434
-  %1437 = getelementptr inbounds i64, ptr %1424, i64 %1430
-  %.not.i.i.i208 = icmp eq ptr %1423, %1437
-  br i1 %.not.i.i.i208, label %1439, label %1438
+1437:                                             ; preds = %1435
+  %1438 = getelementptr inbounds i64, ptr %1425, i64 %1431
+  %.not.i.i.i208 = icmp eq ptr %1424, %1438
+  br i1 %.not.i.i.i208, label %1440, label %1439
 
-1438:                                             ; preds = %1436
-  store ptr %1437, ptr %1422, align 8
-  br label %1439
+1439:                                             ; preds = %1437
+  store ptr %1438, ptr %1423, align 8
+  br label %1440
 
-1439:                                             ; preds = %1432, %1413, %1434, %1436, %1438
-  %1440 = load ptr, ptr %809, align 8
-  %1441 = load ptr, ptr %1440, align 8
-  %1442 = getelementptr inbounds i64, ptr %1441, i64 %1419
-  store i64 %292, ptr %1442, align 8
-  %1443 = load double, ptr %810, align 8, !noalias !930
-  %1444 = load <2 x double>, ptr %800, align 16, !noalias !930
-  %1445 = extractelement <2 x double> %1444, i64 0
-  %1446 = fsub double %1443, %1445
-  %1447 = fmul double %1446, 5.000000e-01
-  %1448 = load double, ptr %812, align 8, !noalias !930
-  %1449 = load <2 x double>, ptr %811, align 16, !noalias !930
-  %1450 = extractelement <2 x double> %1449, i64 0
-  %1451 = fsub double %1448, %1450
-  %1452 = fmul double %1451, 5.000000e-01
-  %1453 = load double, ptr %814, align 8, !noalias !930
-  %1454 = load <2 x double>, ptr %813, align 16, !noalias !930
-  %1455 = extractelement <2 x double> %1454, i64 0
-  %1456 = fsub double %1453, %1455
-  %1457 = fmul double %1456, 5.000000e-01
-  %1458 = load ptr, ptr %815, align 8
-  %1459 = getelementptr inbounds i8, ptr %1458, i64 8
-  %1460 = load ptr, ptr %1459, align 8
-  %1461 = load ptr, ptr %1458, align 8
-  %1462 = ptrtoint ptr %1460 to i64
+1440:                                             ; preds = %1433, %1414, %1435, %1437, %1439
+  %1441 = load ptr, ptr %809, align 8
+  %1442 = load ptr, ptr %1441, align 8
+  %1443 = getelementptr inbounds i64, ptr %1442, i64 %1420
+  store i64 %292, ptr %1443, align 8
+  %1444 = load double, ptr %810, align 8, !noalias !930
+  %1445 = load <2 x double>, ptr %800, align 16, !noalias !930
+  %1446 = extractelement <2 x double> %1445, i64 0
+  %1447 = fsub double %1444, %1446
+  %1448 = fmul double %1447, 5.000000e-01
+  %1449 = load double, ptr %812, align 8, !noalias !930
+  %1450 = load <2 x double>, ptr %811, align 16, !noalias !930
+  %1451 = extractelement <2 x double> %1450, i64 0
+  %1452 = fsub double %1449, %1451
+  %1453 = fmul double %1452, 5.000000e-01
+  %1454 = load double, ptr %814, align 8, !noalias !930
+  %1455 = load <2 x double>, ptr %813, align 16, !noalias !930
+  %1456 = extractelement <2 x double> %1455, i64 0
+  %1457 = fsub double %1454, %1456
+  %1458 = fmul double %1457, 5.000000e-01
+  %1459 = load ptr, ptr %815, align 8
+  %1460 = getelementptr inbounds i8, ptr %1459, i64 8
+  %1461 = load ptr, ptr %1460, align 8
+  %1462 = load ptr, ptr %1459, align 8
   %1463 = ptrtoint ptr %1461 to i64
-  %1464 = sub i64 %1462, %1463
-  %1465 = sdiv exact i64 %1464, 24
-  %.not.i.i212 = icmp ult i64 %1419, %1465
-  br i1 %.not.i.i212, label %1468, label %1466
+  %1464 = ptrtoint ptr %1462 to i64
+  %1465 = sub i64 %1463, %1464
+  %1466 = sdiv exact i64 %1465, 24
+  %.not.i.i212 = icmp ult i64 %1420, %1466
+  br i1 %.not.i.i212, label %1469, label %1467
 
-1466:                                             ; preds = %1439
-  %1467 = add nsw i64 %1419, 1
-  invoke void @_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1458, i64 noundef %1467)
+1467:                                             ; preds = %1440
+  %1468 = add nsw i64 %1420, 1
+  invoke void @_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1459, i64 noundef %1468)
           to label %.noexc216 unwind label %.loopexit
 
-.noexc216:                                        ; preds = %1466
+.noexc216:                                        ; preds = %1467
   %.pre.i.i213 = load ptr, ptr %815, align 8
   %.pre8.i.i215 = load ptr, ptr %.pre.i.i213, align 8
-  br label %1468
+  br label %1469
 
-1468:                                             ; preds = %1439, %.noexc216
-  %1469 = phi ptr [ %.pre8.i.i215, %.noexc216 ], [ %1461, %1439 ]
-  %1470 = getelementptr inbounds %"class.CGAL::Point_3", ptr %1469, i64 %1419
-  store double %1447, ptr %1470, align 8
-  %.sroa.2279.0..sroa_idx = getelementptr inbounds i8, ptr %1470, i64 8
-  store double %1452, ptr %.sroa.2279.0..sroa_idx, align 8
-  %.sroa.3280.0..sroa_idx = getelementptr inbounds i8, ptr %1470, i64 16
-  store double %1457, ptr %.sroa.3280.0..sroa_idx, align 8
-  %1471 = load <2 x double>, ptr %272, align 16, !noalias !933
-  %1472 = extractelement <2 x double> %1471, i64 0
-  %1473 = load <2 x double>, ptr %799, align 16, !noalias !933
-  %1474 = extractelement <2 x double> %1473, i64 0
-  %1475 = load <2 x double>, ptr %800, align 16, !noalias !933
-  %1476 = extractelement <2 x double> %1475, i64 0
-  %1477 = fcmp ogt double %1476, %1474
-  %.v.i = select i1 %1477, double %1476, double %1474
-  %1478 = fcmp ogt double %.v.i, %1472
-  %.v47.i = select i1 %1478, double %.v.i, double %1472
-  %1479 = fneg double %.v47.i
-  %1480 = load <2 x double>, ptr %816, align 16, !noalias !933
-  %1481 = extractelement <2 x double> %1480, i64 0
-  %1482 = load <2 x double>, ptr %817, align 16, !noalias !933
-  %1483 = extractelement <2 x double> %1482, i64 0
-  %1484 = load <2 x double>, ptr %811, align 16, !noalias !933
-  %1485 = extractelement <2 x double> %1484, i64 0
-  %1486 = fcmp ogt double %1485, %1483
-  %.v48.i = select i1 %1486, double %1485, double %1483
-  %1487 = fcmp ogt double %.v48.i, %1481
-  %.v49.i = select i1 %1487, double %.v48.i, double %1481
-  %1488 = fneg double %.v49.i
-  %1489 = load <2 x double>, ptr %818, align 16, !noalias !933
-  %1490 = extractelement <2 x double> %1489, i64 0
-  %1491 = load <2 x double>, ptr %819, align 16, !noalias !933
-  %1492 = extractelement <2 x double> %1491, i64 0
-  %1493 = load <2 x double>, ptr %813, align 16, !noalias !933
-  %1494 = extractelement <2 x double> %1493, i64 0
-  %1495 = fcmp ogt double %1494, %1492
-  %.v50.i = select i1 %1495, double %1494, double %1492
-  %1496 = fcmp ogt double %.v50.i, %1490
-  %.v51.i = select i1 %1496, double %.v50.i, double %1490
-  %1497 = fneg double %.v51.i
-  %1498 = extractelement <2 x double> %1471, i64 1
-  %1499 = extractelement <2 x double> %1473, i64 1
-  %1500 = extractelement <2 x double> %1475, i64 1
-  %1501 = fcmp olt double %1499, %1500
-  %1502 = select i1 %1501, double %1500, double %1499
-  %1503 = fcmp olt double %1498, %1502
-  %1504 = select i1 %1503, double %1502, double %1498
-  %1505 = extractelement <2 x double> %1480, i64 1
-  %1506 = extractelement <2 x double> %1482, i64 1
-  %1507 = extractelement <2 x double> %1484, i64 1
-  %1508 = fcmp olt double %1506, %1507
-  %1509 = select i1 %1508, double %1507, double %1506
-  %1510 = fcmp olt double %1505, %1509
-  %1511 = select i1 %1510, double %1509, double %1505
-  %1512 = extractelement <2 x double> %1489, i64 1
-  %1513 = extractelement <2 x double> %1491, i64 1
-  %1514 = extractelement <2 x double> %1493, i64 1
-  %1515 = fcmp olt double %1513, %1514
-  %1516 = select i1 %1515, double %1514, double %1513
-  %1517 = fcmp olt double %1512, %1516
-  %1518 = select i1 %1517, double %1516, double %1512
-  %1519 = load ptr, ptr %820, align 8
-  %1520 = getelementptr inbounds i8, ptr %1519, i64 8
-  %1521 = load ptr, ptr %1520, align 8
-  %1522 = load ptr, ptr %1519, align 8
-  %1523 = ptrtoint ptr %1521 to i64
+1469:                                             ; preds = %1440, %.noexc216
+  %1470 = phi ptr [ %.pre8.i.i215, %.noexc216 ], [ %1462, %1440 ]
+  %1471 = getelementptr inbounds %"class.CGAL::Point_3", ptr %1470, i64 %1420
+  store double %1448, ptr %1471, align 8
+  %.sroa.2279.0..sroa_idx = getelementptr inbounds i8, ptr %1471, i64 8
+  store double %1453, ptr %.sroa.2279.0..sroa_idx, align 8
+  %.sroa.3280.0..sroa_idx = getelementptr inbounds i8, ptr %1471, i64 16
+  store double %1458, ptr %.sroa.3280.0..sroa_idx, align 8
+  %1472 = load <2 x double>, ptr %272, align 16, !noalias !933
+  %1473 = extractelement <2 x double> %1472, i64 0
+  %1474 = load <2 x double>, ptr %799, align 16, !noalias !933
+  %1475 = extractelement <2 x double> %1474, i64 0
+  %1476 = load <2 x double>, ptr %800, align 16, !noalias !933
+  %1477 = extractelement <2 x double> %1476, i64 0
+  %1478 = fcmp ogt double %1477, %1475
+  %.v.i = select i1 %1478, double %1477, double %1475
+  %1479 = fcmp ogt double %.v.i, %1473
+  %.v47.i = select i1 %1479, double %.v.i, double %1473
+  %1480 = fneg double %.v47.i
+  %1481 = load <2 x double>, ptr %816, align 16, !noalias !933
+  %1482 = extractelement <2 x double> %1481, i64 0
+  %1483 = load <2 x double>, ptr %817, align 16, !noalias !933
+  %1484 = extractelement <2 x double> %1483, i64 0
+  %1485 = load <2 x double>, ptr %811, align 16, !noalias !933
+  %1486 = extractelement <2 x double> %1485, i64 0
+  %1487 = fcmp ogt double %1486, %1484
+  %.v48.i = select i1 %1487, double %1486, double %1484
+  %1488 = fcmp ogt double %.v48.i, %1482
+  %.v49.i = select i1 %1488, double %.v48.i, double %1482
+  %1489 = fneg double %.v49.i
+  %1490 = load <2 x double>, ptr %818, align 16, !noalias !933
+  %1491 = extractelement <2 x double> %1490, i64 0
+  %1492 = load <2 x double>, ptr %819, align 16, !noalias !933
+  %1493 = extractelement <2 x double> %1492, i64 0
+  %1494 = load <2 x double>, ptr %813, align 16, !noalias !933
+  %1495 = extractelement <2 x double> %1494, i64 0
+  %1496 = fcmp ogt double %1495, %1493
+  %.v50.i = select i1 %1496, double %1495, double %1493
+  %1497 = fcmp ogt double %.v50.i, %1491
+  %.v51.i = select i1 %1497, double %.v50.i, double %1491
+  %1498 = fneg double %.v51.i
+  %1499 = extractelement <2 x double> %1472, i64 1
+  %1500 = extractelement <2 x double> %1474, i64 1
+  %1501 = extractelement <2 x double> %1476, i64 1
+  %1502 = fcmp olt double %1500, %1501
+  %1503 = select i1 %1502, double %1501, double %1500
+  %1504 = fcmp olt double %1499, %1503
+  %1505 = select i1 %1504, double %1503, double %1499
+  %1506 = extractelement <2 x double> %1481, i64 1
+  %1507 = extractelement <2 x double> %1483, i64 1
+  %1508 = extractelement <2 x double> %1485, i64 1
+  %1509 = fcmp olt double %1507, %1508
+  %1510 = select i1 %1509, double %1508, double %1507
+  %1511 = fcmp olt double %1506, %1510
+  %1512 = select i1 %1511, double %1510, double %1506
+  %1513 = extractelement <2 x double> %1490, i64 1
+  %1514 = extractelement <2 x double> %1492, i64 1
+  %1515 = extractelement <2 x double> %1494, i64 1
+  %1516 = fcmp olt double %1514, %1515
+  %1517 = select i1 %1516, double %1515, double %1514
+  %1518 = fcmp olt double %1513, %1517
+  %1519 = select i1 %1518, double %1517, double %1513
+  %1520 = load ptr, ptr %820, align 8
+  %1521 = getelementptr inbounds i8, ptr %1520, i64 8
+  %1522 = load ptr, ptr %1521, align 8
+  %1523 = load ptr, ptr %1520, align 8
   %1524 = ptrtoint ptr %1522 to i64
-  %1525 = sub i64 %1523, %1524
-  %1526 = sdiv exact i64 %1525, 48
-  %.not.i.i218 = icmp ult i64 %1419, %1526
-  br i1 %.not.i.i218, label %1537, label %1527
+  %1525 = ptrtoint ptr %1523 to i64
+  %1526 = sub i64 %1524, %1525
+  %1527 = sdiv exact i64 %1526, 48
+  %.not.i.i218 = icmp ult i64 %1420, %1527
+  br i1 %.not.i.i218, label %1538, label %1528
 
-1527:                                             ; preds = %1468
-  %1528 = add nsw i64 %1419, 1
-  %1529 = icmp ugt i64 %1528, %1526
-  br i1 %1529, label %1530, label %1532
+1528:                                             ; preds = %1469
+  %1529 = add nsw i64 %1420, 1
+  %1530 = icmp ugt i64 %1529, %1527
+  br i1 %1530, label %1531, label %1533
 
-1530:                                             ; preds = %1527
-  %1531 = sub nuw nsw i64 %1528, %1526
-  invoke void @_ZNSt6vectorIN4CGAL6Bbox_3ESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1519, i64 noundef %1531)
-          to label %1537 unwind label %.loopexit
+1531:                                             ; preds = %1528
+  %1532 = sub nuw nsw i64 %1529, %1527
+  invoke void @_ZNSt6vectorIN4CGAL6Bbox_3ESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1520, i64 noundef %1532)
+          to label %1538 unwind label %.loopexit
 
-1532:                                             ; preds = %1527
-  %1533 = icmp ult i64 %1528, %1526
-  br i1 %1533, label %1534, label %1537
+1533:                                             ; preds = %1528
+  %1534 = icmp ult i64 %1529, %1527
+  br i1 %1534, label %1535, label %1538
 
-1534:                                             ; preds = %1532
-  %1535 = getelementptr inbounds %"class.CGAL::Bbox_3", ptr %1522, i64 %1528
-  %.not.i.i.i.i219 = icmp eq ptr %1521, %1535
-  br i1 %.not.i.i.i.i219, label %1537, label %1536
+1535:                                             ; preds = %1533
+  %1536 = getelementptr inbounds %"class.CGAL::Bbox_3", ptr %1523, i64 %1529
+  %.not.i.i.i.i219 = icmp eq ptr %1522, %1536
+  br i1 %.not.i.i.i.i219, label %1538, label %1537
 
-1536:                                             ; preds = %1534
-  store ptr %1535, ptr %1520, align 8
-  br label %1537
+1537:                                             ; preds = %1535
+  store ptr %1536, ptr %1521, align 8
+  br label %1538
 
-1537:                                             ; preds = %1536, %1534, %1532, %1468, %1530
-  %1538 = load ptr, ptr %820, align 8
-  %1539 = load ptr, ptr %1538, align 8
-  %1540 = getelementptr inbounds %"class.CGAL::Bbox_3", ptr %1539, i64 %1419
-  store double %1479, ptr %1540, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1540, i64 8
-  store double %1488, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1540, i64 16
-  store double %1497, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1540, i64 24
-  store double %1504, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1540, i64 32
-  store double %1511, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1540, i64 40
-  store double %1518, ptr %.sroa.6.0..sroa_idx, align 8
+1538:                                             ; preds = %1537, %1535, %1533, %1469, %1531
+  %1539 = load ptr, ptr %820, align 8
+  %1540 = load ptr, ptr %1539, align 8
+  %1541 = getelementptr inbounds %"class.CGAL::Bbox_3", ptr %1540, i64 %1420
+  store double %1480, ptr %1541, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1541, i64 8
+  store double %1489, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1541, i64 16
+  store double %1498, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1541, i64 24
+  store double %1505, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1541, i64 32
+  store double %1512, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1541, i64 40
+  store double %1519, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !936)
-  %1541 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
-          to label %1542 unwind label %.loopexit
+  %1542 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
+          to label %1543 unwind label %.loopexit
 
-1542:                                             ; preds = %1537
-  %1543 = getelementptr inbounds i8, ptr %1541, i64 8
-  store i32 1, ptr %1543, align 8, !noalias !936
-  %1544 = getelementptr inbounds i8, ptr %1541, i64 12
-  store i32 1, ptr %1544, align 4, !noalias !936
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1541, align 8, !noalias !936
-  %1545 = getelementptr inbounds i8, ptr %1541, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1545, i8 0, i64 24, i1 false), !noalias !936
-  store ptr %1541, ptr %821, align 8, !alias.scope !936
-  store ptr %1545, ptr %282, align 8, !alias.scope !936
-  store ptr %1545, ptr %822, align 8
-  store ptr %1541, ptr %823, align 8
-  %1546 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i224 = icmp eq i8 %1546, 0
-  br i1 %.not.i.i.i.i.i.i224, label %1548, label %1547
+1543:                                             ; preds = %1538
+  %1544 = getelementptr inbounds i8, ptr %1542, i64 8
+  store i32 1, ptr %1544, align 8, !noalias !936
+  %1545 = getelementptr inbounds i8, ptr %1542, i64 12
+  store i32 1, ptr %1545, align 4, !noalias !936
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1542, align 8, !noalias !936
+  %1546 = getelementptr inbounds i8, ptr %1542, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1546, i8 0, i64 24, i1 false), !noalias !936
+  store ptr %1542, ptr %821, align 8, !alias.scope !936
+  store ptr %1546, ptr %282, align 8, !alias.scope !936
+  store ptr %1546, ptr %822, align 8
+  store ptr %1542, ptr %823, align 8
+  %1547 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i224 = icmp eq i8 %1547, 0
+  br i1 %.not.i.i.i.i.i.i224, label %1549, label %1548
 
-1547:                                             ; preds = %1542
-  store i32 2, ptr %1543, align 4
+1548:                                             ; preds = %1543
+  store i32 2, ptr %1544, align 4
   br label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225
 
-1548:                                             ; preds = %1542
-  %1549 = atomicrmw volatile add ptr %1543, i32 1 acq_rel, align 4
+1549:                                             ; preds = %1543
+  %1550 = atomicrmw volatile add ptr %1544, i32 1 acq_rel, align 4
   br label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225
 
-_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225: ; preds = %1547, %1548
+_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225: ; preds = %1548, %1549
   call void @llvm.experimental.noalias.scope.decl(metadata !939)
-  %1550 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
-          to label %1551 unwind label %1747
+  %1551 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
+          to label %1552 unwind label %1748
 
-1551:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225
-  %1552 = getelementptr inbounds i8, ptr %1550, i64 8
-  store i32 1, ptr %1552, align 8, !noalias !939
-  %1553 = getelementptr inbounds i8, ptr %1550, i64 12
-  store i32 1, ptr %1553, align 4, !noalias !939
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1550, align 8, !noalias !939
-  %1554 = getelementptr inbounds i8, ptr %1550, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1554, i8 0, i64 24, i1 false), !noalias !939
-  store ptr %1550, ptr %824, align 8, !alias.scope !939
-  store ptr %1554, ptr %283, align 8, !alias.scope !939
-  %1555 = load ptr, ptr %822, align 8
-  store ptr %1555, ptr %825, align 8
-  %1556 = load ptr, ptr %823, align 8
-  store ptr %1556, ptr %826, align 8
-  %.not.i.i.i.i.i.i228 = icmp eq ptr %1556, null
-  br i1 %.not.i.i.i.i.i.i228, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread, label %1557
+1552:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225
+  %1553 = getelementptr inbounds i8, ptr %1551, i64 8
+  store i32 1, ptr %1553, align 8, !noalias !939
+  %1554 = getelementptr inbounds i8, ptr %1551, i64 12
+  store i32 1, ptr %1554, align 4, !noalias !939
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1551, align 8, !noalias !939
+  %1555 = getelementptr inbounds i8, ptr %1551, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1555, i8 0, i64 24, i1 false), !noalias !939
+  store ptr %1551, ptr %824, align 8, !alias.scope !939
+  store ptr %1555, ptr %283, align 8, !alias.scope !939
+  %1556 = load ptr, ptr %822, align 8
+  store ptr %1556, ptr %825, align 8
+  %1557 = load ptr, ptr %823, align 8
+  store ptr %1557, ptr %826, align 8
+  %.not.i.i.i.i.i.i228 = icmp eq ptr %1557, null
+  br i1 %.not.i.i.i.i.i.i228, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread, label %1558
 
-1557:                                             ; preds = %1551
-  %1558 = getelementptr inbounds i8, ptr %1556, i64 8
-  %1559 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i229 = icmp eq i8 %1559, 0
-  br i1 %.not.i.i.i.i.i.i.i229, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230, label %1560
+1558:                                             ; preds = %1552
+  %1559 = getelementptr inbounds i8, ptr %1557, i64 8
+  %1560 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i229 = icmp eq i8 %1560, 0
+  br i1 %.not.i.i.i.i.i.i.i229, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230, label %1561
 
-1560:                                             ; preds = %1557
-  %1561 = load i32, ptr %1558, align 4
-  %1562 = add nsw i32 %1561, 1
-  store i32 %1562, ptr %1558, align 4
+1561:                                             ; preds = %1558
+  %1562 = load i32, ptr %1559, align 4
+  %1563 = add nsw i32 %1562, 1
+  store i32 %1563, ptr %1559, align 4
   br label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread
 
-_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread: ; preds = %1560, %1551
-  store ptr %1554, ptr %827, align 8
-  store ptr %1550, ptr %828, align 8
-  br label %1564
+_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread: ; preds = %1561, %1552
+  store ptr %1555, ptr %827, align 8
+  store ptr %1551, ptr %828, align 8
+  br label %1565
 
-_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230: ; preds = %1557
-  %1563 = atomicrmw volatile add ptr %1558, i32 1 acq_rel, align 4
+_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230: ; preds = %1558
+  %1564 = atomicrmw volatile add ptr %1559, i32 1 acq_rel, align 4
   %.pre466 = load ptr, ptr %283, align 8
   %.pre467 = load ptr, ptr %824, align 8
   store ptr %.pre466, ptr %827, align 8
   store ptr %.pre467, ptr %828, align 8
   %.not.i.i.i.i.i231 = icmp eq ptr %.pre467, null
-  br i1 %.not.i.i.i.i.i231, label %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233, label %1564
+  br i1 %.not.i.i.i.i.i231, label %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233, label %1565
 
-1564:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread, %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230
-  %1565 = phi ptr [ %1550, %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread ], [ %.pre467, %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230 ]
-  %1566 = getelementptr inbounds i8, ptr %1565, i64 8
-  %1567 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i1.i232 = icmp eq i8 %1567, 0
-  br i1 %.not.i.i.i.i.i1.i232, label %1571, label %1568
+1565:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread, %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230
+  %1566 = phi ptr [ %1551, %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230.thread ], [ %.pre467, %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230 ]
+  %1567 = getelementptr inbounds i8, ptr %1566, i64 8
+  %1568 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i1.i232 = icmp eq i8 %1568, 0
+  br i1 %.not.i.i.i.i.i1.i232, label %1572, label %1569
 
-1568:                                             ; preds = %1564
-  %1569 = load i32, ptr %1566, align 4
-  %1570 = add nsw i32 %1569, 1
-  store i32 %1570, ptr %1566, align 4
+1569:                                             ; preds = %1565
+  %1570 = load i32, ptr %1567, align 4
+  %1571 = add nsw i32 %1570, 1
+  store i32 %1571, ptr %1567, align 4
   br label %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233
 
-1571:                                             ; preds = %1564
-  %1572 = atomicrmw volatile add ptr %1566, i32 1 acq_rel, align 4
+1572:                                             ; preds = %1565
+  %1573 = atomicrmw volatile add ptr %1567, i32 1 acq_rel, align 4
   br label %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233
 
-_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233: ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230, %1568, %1571
-  %1573 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
-          to label %1574 unwind label %1749
+_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233: ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ERKSB_.exit.i230, %1569, %1572
+  %1574 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
+          to label %1575 unwind label %1750
 
-1574:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233
-  %1575 = getelementptr inbounds i8, ptr %1573, i64 8
-  store i32 1, ptr %1575, align 8, !noalias !942
-  %1576 = getelementptr inbounds i8, ptr %1573, i64 12
-  store i32 1, ptr %1576, align 4, !noalias !942
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1573, align 8, !noalias !942
-  %1577 = getelementptr inbounds i8, ptr %1573, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1577, i8 0, i64 24, i1 false), !noalias !942
-  %1578 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i237 = icmp eq i8 %1578, 0
-  br i1 %.not.i.i.i.i.i.i237, label %1579, label %.thread457
+1575:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233
+  %1576 = getelementptr inbounds i8, ptr %1574, i64 8
+  store i32 1, ptr %1576, align 8, !noalias !942
+  %1577 = getelementptr inbounds i8, ptr %1574, i64 12
+  store i32 1, ptr %1577, align 4, !noalias !942
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1574, align 8, !noalias !942
+  %1578 = getelementptr inbounds i8, ptr %1574, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1578, i8 0, i64 24, i1 false), !noalias !942
+  %1579 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i237 = icmp eq i8 %1579, 0
+  br i1 %.not.i.i.i.i.i.i237, label %1580, label %.thread457
 
-.thread457:                                       ; preds = %1574
-  store i32 2, ptr %1575, align 4
-  br label %1581
+.thread457:                                       ; preds = %1575
+  store i32 2, ptr %1576, align 4
+  br label %1582
 
-1579:                                             ; preds = %1574
-  %1580 = atomicrmw volatile add ptr %1575, i32 1 acq_rel, align 4
-  br label %1581
+1580:                                             ; preds = %1575
+  %1581 = atomicrmw volatile add ptr %1576, i32 1 acq_rel, align 4
+  br label %1582
 
-1581:                                             ; preds = %1579, %.thread457
-  store i64 %1419, ptr %279, align 8
-  store i64 %1420, ptr %.sroa.2.0..sroa_idx.i.i239458, align 8
-  %1582 = load atomic i64, ptr %1575 acquire, align 8
-  %1583 = icmp eq i64 %1582, 4294967297
-  %1584 = trunc i64 %1582 to i32
-  br i1 %1583, label %1585, label %1589
+1582:                                             ; preds = %1580, %.thread457
+  store i64 %1420, ptr %279, align 8
+  store i64 %1421, ptr %.sroa.2.0..sroa_idx.i.i239458, align 8
+  %1583 = load atomic i64, ptr %1576 acquire, align 8
+  %1584 = icmp eq i64 %1583, 4294967297
+  %1585 = trunc i64 %1583 to i32
+  br i1 %1584, label %1586, label %1590
 
-1585:                                             ; preds = %1581
-  store i32 0, ptr %1575, align 8
-  store i32 0, ptr %1576, align 4
-  %1586 = load ptr, ptr %1573, align 8
-  %1587 = getelementptr inbounds i8, ptr %1586, i64 16
-  %1588 = load ptr, ptr %1587, align 8
-  call void %1588(ptr noundef nonnull align 8 dereferenceable(16) %1573) #23
+1586:                                             ; preds = %1582
+  store i32 0, ptr %1576, align 8
+  store i32 0, ptr %1577, align 4
+  %1587 = load ptr, ptr %1574, align 8
+  %1588 = getelementptr inbounds i8, ptr %1587, i64 16
+  %1589 = load ptr, ptr %1588, align 8
+  call void %1589(ptr noundef nonnull align 8 dereferenceable(16) %1574) #23
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245
 
-1589:                                             ; preds = %1581
-  %1590 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i241 = icmp eq i8 %1590, 0
-  br i1 %.not.i.i.i.i.i.i241, label %1593, label %1591
+1590:                                             ; preds = %1582
+  %1591 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i241 = icmp eq i8 %1591, 0
+  br i1 %.not.i.i.i.i.i.i241, label %1594, label %1592
 
-1591:                                             ; preds = %1589
-  %1592 = add nsw i32 %1584, -1
-  store i32 %1592, ptr %1575, align 4
-  br label %1595
+1592:                                             ; preds = %1590
+  %1593 = add nsw i32 %1585, -1
+  store i32 %1593, ptr %1576, align 4
+  br label %1596
 
-1593:                                             ; preds = %1589
-  %1594 = atomicrmw volatile add ptr %1575, i32 -1 acq_rel, align 4
-  br label %1595
+1594:                                             ; preds = %1590
+  %1595 = atomicrmw volatile add ptr %1576, i32 -1 acq_rel, align 4
+  br label %1596
 
-1595:                                             ; preds = %1593, %1591
-  %.0.i.i.i.i.i.i242 = phi i32 [ %1584, %1591 ], [ %1594, %1593 ]
-  %1596 = icmp eq i32 %.0.i.i.i.i.i.i242, 1
-  br i1 %1596, label %1597, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
+1596:                                             ; preds = %1594, %1592
+  %.0.i.i.i.i.i.i242 = phi i32 [ %1585, %1592 ], [ %1595, %1594 ]
+  %1597 = icmp eq i32 %.0.i.i.i.i.i.i242, 1
+  br i1 %1597, label %1598, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
 
-1597:                                             ; preds = %1595
-  %1598 = load ptr, ptr %1573, align 8
-  %1599 = getelementptr inbounds i8, ptr %1598, i64 16
-  %1600 = load ptr, ptr %1599, align 8
-  call void %1600(ptr noundef nonnull align 8 dereferenceable(16) %1573) #23
-  %1601 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i243 = icmp eq i8 %1601, 0
-  br i1 %.not.i.i.i.i.i.i.i.i243, label %1605, label %1602
+1598:                                             ; preds = %1596
+  %1599 = load ptr, ptr %1574, align 8
+  %1600 = getelementptr inbounds i8, ptr %1599, i64 16
+  %1601 = load ptr, ptr %1600, align 8
+  call void %1601(ptr noundef nonnull align 8 dereferenceable(16) %1574) #23
+  %1602 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i243 = icmp eq i8 %1602, 0
+  br i1 %.not.i.i.i.i.i.i.i.i243, label %1606, label %1603
 
-1602:                                             ; preds = %1597
-  %1603 = load i32, ptr %1576, align 4
-  %1604 = add nsw i32 %1603, -1
-  store i32 %1604, ptr %1576, align 4
-  br label %1607
+1603:                                             ; preds = %1598
+  %1604 = load i32, ptr %1577, align 4
+  %1605 = add nsw i32 %1604, -1
+  store i32 %1605, ptr %1577, align 4
+  br label %1608
 
-1605:                                             ; preds = %1597
-  %1606 = atomicrmw volatile add ptr %1576, i32 -1 acq_rel, align 4
-  br label %1607
+1606:                                             ; preds = %1598
+  %1607 = atomicrmw volatile add ptr %1577, i32 -1 acq_rel, align 4
+  br label %1608
 
-1607:                                             ; preds = %1605, %1602
-  %.0.i.i.i.i.i.i.i.i244 = phi i32 [ %1603, %1602 ], [ %1606, %1605 ]
-  %1608 = icmp eq i32 %.0.i.i.i.i.i.i.i.i244, 1
-  br i1 %1608, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
+1608:                                             ; preds = %1606, %1603
+  %.0.i.i.i.i.i.i.i.i244 = phi i32 [ %1604, %1603 ], [ %1607, %1606 ]
+  %1609 = icmp eq i32 %.0.i.i.i.i.i.i.i.i244, 1
+  br i1 %1609, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245: ; preds = %1607, %1585
-  %1609 = load ptr, ptr %1573, align 8
-  %1610 = getelementptr inbounds i8, ptr %1609, i64 24
-  %1611 = load ptr, ptr %1610, align 8
-  call void %1611(ptr noundef nonnull align 8 dereferenceable(16) %1573) #23
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245: ; preds = %1608, %1586
+  %1610 = load ptr, ptr %1574, align 8
+  %1611 = getelementptr inbounds i8, ptr %1610, i64 24
+  %1612 = load ptr, ptr %1611, align 8
+  call void %1612(ptr noundef nonnull align 8 dereferenceable(16) %1574) #23
   br label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
 
-_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245, %1607, %1595
-  %1612 = load atomic i64, ptr %1575 acquire, align 8
-  %1613 = icmp eq i64 %1612, 4294967297
-  %1614 = trunc i64 %1612 to i32
-  br i1 %1613, label %1615, label %1619
+_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i245, %1608, %1596
+  %1613 = load atomic i64, ptr %1576 acquire, align 8
+  %1614 = icmp eq i64 %1613, 4294967297
+  %1615 = trunc i64 %1613 to i32
+  br i1 %1614, label %1616, label %1620
 
-1615:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
-  store i32 0, ptr %1575, align 8
-  store i32 0, ptr %1576, align 4
-  %1616 = load ptr, ptr %1573, align 8
-  %1617 = getelementptr inbounds i8, ptr %1616, i64 16
-  %1618 = load ptr, ptr %1617, align 8
-  call void %1618(ptr noundef nonnull align 8 dereferenceable(16) %1573) #23
+1616:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
+  store i32 0, ptr %1576, align 8
+  store i32 0, ptr %1577, align 4
+  %1617 = load ptr, ptr %1574, align 8
+  %1618 = getelementptr inbounds i8, ptr %1617, i64 16
+  %1619 = load ptr, ptr %1618, align 8
+  call void %1619(ptr noundef nonnull align 8 dereferenceable(16) %1574) #23
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252
 
-1619:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
-  %1620 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i248 = icmp eq i8 %1620, 0
-  br i1 %.not.i.i.i.i.i248, label %1623, label %1621
+1620:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEEEN5boost27read_write_property_map_tagEED2Ev.exit246
+  %1621 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i248 = icmp eq i8 %1621, 0
+  br i1 %.not.i.i.i.i.i248, label %1624, label %1622
 
-1621:                                             ; preds = %1619
-  %1622 = add nsw i32 %1614, -1
-  store i32 %1622, ptr %1575, align 4
-  br label %1625
+1622:                                             ; preds = %1620
+  %1623 = add nsw i32 %1615, -1
+  store i32 %1623, ptr %1576, align 4
+  br label %1626
 
-1623:                                             ; preds = %1619
-  %1624 = atomicrmw volatile add ptr %1575, i32 -1 acq_rel, align 4
-  br label %1625
+1624:                                             ; preds = %1620
+  %1625 = atomicrmw volatile add ptr %1576, i32 -1 acq_rel, align 4
+  br label %1626
 
-1625:                                             ; preds = %1623, %1621
-  %.0.i.i.i.i.i249 = phi i32 [ %1614, %1621 ], [ %1624, %1623 ]
-  %1626 = icmp eq i32 %.0.i.i.i.i.i249, 1
-  br i1 %1626, label %1627, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
+1626:                                             ; preds = %1624, %1622
+  %.0.i.i.i.i.i249 = phi i32 [ %1615, %1622 ], [ %1625, %1624 ]
+  %1627 = icmp eq i32 %.0.i.i.i.i.i249, 1
+  br i1 %1627, label %1628, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
 
-1627:                                             ; preds = %1625
-  %1628 = load ptr, ptr %1573, align 8
-  %1629 = getelementptr inbounds i8, ptr %1628, i64 16
-  %1630 = load ptr, ptr %1629, align 8
-  call void %1630(ptr noundef nonnull align 8 dereferenceable(16) %1573) #23
-  %1631 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i250 = icmp eq i8 %1631, 0
-  br i1 %.not.i.i.i.i.i.i.i250, label %1635, label %1632
+1628:                                             ; preds = %1626
+  %1629 = load ptr, ptr %1574, align 8
+  %1630 = getelementptr inbounds i8, ptr %1629, i64 16
+  %1631 = load ptr, ptr %1630, align 8
+  call void %1631(ptr noundef nonnull align 8 dereferenceable(16) %1574) #23
+  %1632 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i250 = icmp eq i8 %1632, 0
+  br i1 %.not.i.i.i.i.i.i.i250, label %1636, label %1633
 
-1632:                                             ; preds = %1627
-  %1633 = load i32, ptr %1576, align 4
-  %1634 = add nsw i32 %1633, -1
-  store i32 %1634, ptr %1576, align 4
-  br label %1637
+1633:                                             ; preds = %1628
+  %1634 = load i32, ptr %1577, align 4
+  %1635 = add nsw i32 %1634, -1
+  store i32 %1635, ptr %1577, align 4
+  br label %1638
 
-1635:                                             ; preds = %1627
-  %1636 = atomicrmw volatile add ptr %1576, i32 -1 acq_rel, align 4
-  br label %1637
+1636:                                             ; preds = %1628
+  %1637 = atomicrmw volatile add ptr %1577, i32 -1 acq_rel, align 4
+  br label %1638
 
-1637:                                             ; preds = %1635, %1632
-  %.0.i.i.i.i.i.i.i251 = phi i32 [ %1633, %1632 ], [ %1636, %1635 ]
-  %1638 = icmp eq i32 %.0.i.i.i.i.i.i.i251, 1
-  br i1 %1638, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
+1638:                                             ; preds = %1636, %1633
+  %.0.i.i.i.i.i.i.i251 = phi i32 [ %1634, %1633 ], [ %1637, %1636 ]
+  %1639 = icmp eq i32 %.0.i.i.i.i.i.i.i251, 1
+  br i1 %1639, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252: ; preds = %1637, %1615
-  %1639 = load ptr, ptr %1573, align 8
-  %1640 = getelementptr inbounds i8, ptr %1639, i64 24
-  %1641 = load ptr, ptr %1640, align 8
-  call void %1641(ptr noundef nonnull align 8 dereferenceable(16) %1573) #23
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252: ; preds = %1638, %1616
+  %1640 = load ptr, ptr %1574, align 8
+  %1641 = getelementptr inbounds i8, ptr %1640, i64 24
+  %1642 = load ptr, ptr %1641, align 8
+  call void %1642(ptr noundef nonnull align 8 dereferenceable(16) %1574) #23
   br label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
 
-_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253: ; preds = %1625, %1637, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252
+_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253: ; preds = %1626, %1638, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i252
   call void @_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_ED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %280) #23
-  %1642 = load ptr, ptr %824, align 8
-  %.not.i.i.i.i254 = icmp eq ptr %1642, null
-  br i1 %.not.i.i.i.i254, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260, label %1643
+  %1643 = load ptr, ptr %824, align 8
+  %.not.i.i.i.i254 = icmp eq ptr %1643, null
+  br i1 %.not.i.i.i.i254, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260, label %1644
 
-1643:                                             ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
-  %1644 = getelementptr inbounds i8, ptr %1642, i64 8
-  %1645 = load atomic i64, ptr %1644 acquire, align 8
-  %1646 = icmp eq i64 %1645, 4294967297
-  %1647 = trunc i64 %1645 to i32
-  br i1 %1646, label %1648, label %1653
+1644:                                             ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253
+  %1645 = getelementptr inbounds i8, ptr %1643, i64 8
+  %1646 = load atomic i64, ptr %1645 acquire, align 8
+  %1647 = icmp eq i64 %1646, 4294967297
+  %1648 = trunc i64 %1646 to i32
+  br i1 %1647, label %1649, label %1654
 
-1648:                                             ; preds = %1643
-  store i32 0, ptr %1644, align 8
-  %1649 = getelementptr inbounds i8, ptr %1642, i64 12
-  store i32 0, ptr %1649, align 4
-  %1650 = load ptr, ptr %1642, align 8
-  %1651 = getelementptr inbounds i8, ptr %1650, i64 16
-  %1652 = load ptr, ptr %1651, align 8
-  call void %1652(ptr noundef nonnull align 8 dereferenceable(16) %1642) #23
+1649:                                             ; preds = %1644
+  store i32 0, ptr %1645, align 8
+  %1650 = getelementptr inbounds i8, ptr %1643, i64 12
+  store i32 0, ptr %1650, align 4
+  %1651 = load ptr, ptr %1643, align 8
+  %1652 = getelementptr inbounds i8, ptr %1651, i64 16
+  %1653 = load ptr, ptr %1652, align 8
+  call void %1653(ptr noundef nonnull align 8 dereferenceable(16) %1643) #23
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259
 
-1653:                                             ; preds = %1643
-  %1654 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i255 = icmp eq i8 %1654, 0
-  br i1 %.not.i.i.i.i.i255, label %1657, label %1655
+1654:                                             ; preds = %1644
+  %1655 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i255 = icmp eq i8 %1655, 0
+  br i1 %.not.i.i.i.i.i255, label %1658, label %1656
 
-1655:                                             ; preds = %1653
-  %1656 = add nsw i32 %1647, -1
-  store i32 %1656, ptr %1644, align 4
-  br label %1659
+1656:                                             ; preds = %1654
+  %1657 = add nsw i32 %1648, -1
+  store i32 %1657, ptr %1645, align 4
+  br label %1660
 
-1657:                                             ; preds = %1653
-  %1658 = atomicrmw volatile add ptr %1644, i32 -1 acq_rel, align 4
-  br label %1659
+1658:                                             ; preds = %1654
+  %1659 = atomicrmw volatile add ptr %1645, i32 -1 acq_rel, align 4
+  br label %1660
 
-1659:                                             ; preds = %1657, %1655
-  %.0.i.i.i.i.i256 = phi i32 [ %1647, %1655 ], [ %1658, %1657 ]
-  %1660 = icmp eq i32 %.0.i.i.i.i.i256, 1
-  br i1 %1660, label %1661, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
+1660:                                             ; preds = %1658, %1656
+  %.0.i.i.i.i.i256 = phi i32 [ %1648, %1656 ], [ %1659, %1658 ]
+  %1661 = icmp eq i32 %.0.i.i.i.i.i256, 1
+  br i1 %1661, label %1662, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
 
-1661:                                             ; preds = %1659
-  %1662 = load ptr, ptr %1642, align 8
-  %1663 = getelementptr inbounds i8, ptr %1662, i64 16
-  %1664 = load ptr, ptr %1663, align 8
-  call void %1664(ptr noundef nonnull align 8 dereferenceable(16) %1642) #23
-  %1665 = getelementptr inbounds i8, ptr %1642, i64 12
-  %1666 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i257 = icmp eq i8 %1666, 0
-  br i1 %.not.i.i.i.i.i.i.i257, label %1670, label %1667
+1662:                                             ; preds = %1660
+  %1663 = load ptr, ptr %1643, align 8
+  %1664 = getelementptr inbounds i8, ptr %1663, i64 16
+  %1665 = load ptr, ptr %1664, align 8
+  call void %1665(ptr noundef nonnull align 8 dereferenceable(16) %1643) #23
+  %1666 = getelementptr inbounds i8, ptr %1643, i64 12
+  %1667 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i257 = icmp eq i8 %1667, 0
+  br i1 %.not.i.i.i.i.i.i.i257, label %1671, label %1668
 
-1667:                                             ; preds = %1661
-  %1668 = load i32, ptr %1665, align 4
-  %1669 = add nsw i32 %1668, -1
-  store i32 %1669, ptr %1665, align 4
-  br label %1672
+1668:                                             ; preds = %1662
+  %1669 = load i32, ptr %1666, align 4
+  %1670 = add nsw i32 %1669, -1
+  store i32 %1670, ptr %1666, align 4
+  br label %1673
 
-1670:                                             ; preds = %1661
-  %1671 = atomicrmw volatile add ptr %1665, i32 -1 acq_rel, align 4
-  br label %1672
+1671:                                             ; preds = %1662
+  %1672 = atomicrmw volatile add ptr %1666, i32 -1 acq_rel, align 4
+  br label %1673
 
-1672:                                             ; preds = %1670, %1667
-  %.0.i.i.i.i.i.i.i258 = phi i32 [ %1668, %1667 ], [ %1671, %1670 ]
-  %1673 = icmp eq i32 %.0.i.i.i.i.i.i.i258, 1
-  br i1 %1673, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
+1673:                                             ; preds = %1671, %1668
+  %.0.i.i.i.i.i.i.i258 = phi i32 [ %1669, %1668 ], [ %1672, %1671 ]
+  %1674 = icmp eq i32 %.0.i.i.i.i.i.i.i258, 1
+  br i1 %1674, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259: ; preds = %1672, %1648
-  %1674 = load ptr, ptr %1642, align 8
-  %1675 = getelementptr inbounds i8, ptr %1674, i64 24
-  %1676 = load ptr, ptr %1675, align 8
-  call void %1676(ptr noundef nonnull align 8 dereferenceable(16) %1642) #23
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259: ; preds = %1673, %1649
+  %1675 = load ptr, ptr %1643, align 8
+  %1676 = getelementptr inbounds i8, ptr %1675, i64 24
+  %1677 = load ptr, ptr %1676, align 8
+  call void %1677(ptr noundef nonnull align 8 dereferenceable(16) %1643) #23
   br label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
 
-_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260: ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253, %1659, %1672, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259
-  %1677 = load ptr, ptr %823, align 8
-  %.not.i.i.i.i.i261 = icmp eq ptr %1677, null
-  br i1 %.not.i.i.i.i.i261, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267, label %1678
+_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260: ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED2Ev.exit253, %1660, %1673, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i259
+  %1678 = load ptr, ptr %823, align 8
+  %.not.i.i.i.i.i261 = icmp eq ptr %1678, null
+  br i1 %.not.i.i.i.i.i261, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267, label %1679
 
-1678:                                             ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
-  %1679 = getelementptr inbounds i8, ptr %1677, i64 8
-  %1680 = load atomic i64, ptr %1679 acquire, align 8
-  %1681 = icmp eq i64 %1680, 4294967297
-  %1682 = trunc i64 %1680 to i32
-  br i1 %1681, label %1683, label %1688
+1679:                                             ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260
+  %1680 = getelementptr inbounds i8, ptr %1678, i64 8
+  %1681 = load atomic i64, ptr %1680 acquire, align 8
+  %1682 = icmp eq i64 %1681, 4294967297
+  %1683 = trunc i64 %1681 to i32
+  br i1 %1682, label %1684, label %1689
 
-1683:                                             ; preds = %1678
-  store i32 0, ptr %1679, align 8
-  %1684 = getelementptr inbounds i8, ptr %1677, i64 12
-  store i32 0, ptr %1684, align 4
-  %1685 = load ptr, ptr %1677, align 8
-  %1686 = getelementptr inbounds i8, ptr %1685, i64 16
-  %1687 = load ptr, ptr %1686, align 8
-  call void %1687(ptr noundef nonnull align 8 dereferenceable(16) %1677) #23
+1684:                                             ; preds = %1679
+  store i32 0, ptr %1680, align 8
+  %1685 = getelementptr inbounds i8, ptr %1678, i64 12
+  store i32 0, ptr %1685, align 4
+  %1686 = load ptr, ptr %1678, align 8
+  %1687 = getelementptr inbounds i8, ptr %1686, i64 16
+  %1688 = load ptr, ptr %1687, align 8
+  call void %1688(ptr noundef nonnull align 8 dereferenceable(16) %1678) #23
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266
 
-1688:                                             ; preds = %1678
-  %1689 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i262 = icmp eq i8 %1689, 0
-  br i1 %.not.i.i.i.i.i.i262, label %1692, label %1690
+1689:                                             ; preds = %1679
+  %1690 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i262 = icmp eq i8 %1690, 0
+  br i1 %.not.i.i.i.i.i.i262, label %1693, label %1691
 
-1690:                                             ; preds = %1688
-  %1691 = add nsw i32 %1682, -1
-  store i32 %1691, ptr %1679, align 4
-  br label %1694
+1691:                                             ; preds = %1689
+  %1692 = add nsw i32 %1683, -1
+  store i32 %1692, ptr %1680, align 4
+  br label %1695
 
-1692:                                             ; preds = %1688
-  %1693 = atomicrmw volatile add ptr %1679, i32 -1 acq_rel, align 4
-  br label %1694
+1693:                                             ; preds = %1689
+  %1694 = atomicrmw volatile add ptr %1680, i32 -1 acq_rel, align 4
+  br label %1695
 
-1694:                                             ; preds = %1692, %1690
-  %.0.i.i.i.i.i.i263 = phi i32 [ %1682, %1690 ], [ %1693, %1692 ]
-  %1695 = icmp eq i32 %.0.i.i.i.i.i.i263, 1
-  br i1 %1695, label %1696, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
+1695:                                             ; preds = %1693, %1691
+  %.0.i.i.i.i.i.i263 = phi i32 [ %1683, %1691 ], [ %1694, %1693 ]
+  %1696 = icmp eq i32 %.0.i.i.i.i.i.i263, 1
+  br i1 %1696, label %1697, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
 
-1696:                                             ; preds = %1694
-  %1697 = load ptr, ptr %1677, align 8
-  %1698 = getelementptr inbounds i8, ptr %1697, i64 16
-  %1699 = load ptr, ptr %1698, align 8
-  call void %1699(ptr noundef nonnull align 8 dereferenceable(16) %1677) #23
-  %1700 = getelementptr inbounds i8, ptr %1677, i64 12
-  %1701 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i264 = icmp eq i8 %1701, 0
-  br i1 %.not.i.i.i.i.i.i.i.i264, label %1705, label %1702
+1697:                                             ; preds = %1695
+  %1698 = load ptr, ptr %1678, align 8
+  %1699 = getelementptr inbounds i8, ptr %1698, i64 16
+  %1700 = load ptr, ptr %1699, align 8
+  call void %1700(ptr noundef nonnull align 8 dereferenceable(16) %1678) #23
+  %1701 = getelementptr inbounds i8, ptr %1678, i64 12
+  %1702 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i264 = icmp eq i8 %1702, 0
+  br i1 %.not.i.i.i.i.i.i.i.i264, label %1706, label %1703
 
-1702:                                             ; preds = %1696
-  %1703 = load i32, ptr %1700, align 4
-  %1704 = add nsw i32 %1703, -1
-  store i32 %1704, ptr %1700, align 4
-  br label %1707
+1703:                                             ; preds = %1697
+  %1704 = load i32, ptr %1701, align 4
+  %1705 = add nsw i32 %1704, -1
+  store i32 %1705, ptr %1701, align 4
+  br label %1708
 
-1705:                                             ; preds = %1696
-  %1706 = atomicrmw volatile add ptr %1700, i32 -1 acq_rel, align 4
-  br label %1707
+1706:                                             ; preds = %1697
+  %1707 = atomicrmw volatile add ptr %1701, i32 -1 acq_rel, align 4
+  br label %1708
 
-1707:                                             ; preds = %1705, %1702
-  %.0.i.i.i.i.i.i.i.i265 = phi i32 [ %1703, %1702 ], [ %1706, %1705 ]
-  %1708 = icmp eq i32 %.0.i.i.i.i.i.i.i.i265, 1
-  br i1 %1708, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
+1708:                                             ; preds = %1706, %1703
+  %.0.i.i.i.i.i.i.i.i265 = phi i32 [ %1704, %1703 ], [ %1707, %1706 ]
+  %1709 = icmp eq i32 %.0.i.i.i.i.i.i.i.i265, 1
+  br i1 %1709, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266, label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266: ; preds = %1707, %1683
-  %1709 = load ptr, ptr %1677, align 8
-  %1710 = getelementptr inbounds i8, ptr %1709, i64 24
-  %1711 = load ptr, ptr %1710, align 8
-  call void %1711(ptr noundef nonnull align 8 dereferenceable(16) %1677) #23
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266: ; preds = %1708, %1684
+  %1710 = load ptr, ptr %1678, align 8
+  %1711 = getelementptr inbounds i8, ptr %1710, i64 24
+  %1712 = load ptr, ptr %1711, align 8
+  call void %1712(ptr noundef nonnull align 8 dereferenceable(16) %1678) #23
   br label %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
 
-_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267: ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260, %1694, %1707, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266
-  %1712 = load ptr, ptr %821, align 8
-  %.not.i.i.i.i268 = icmp eq ptr %1712, null
-  br i1 %.not.i.i.i.i268, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274, label %1713
+_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267: ; preds = %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev.exit260, %1695, %1708, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i266
+  %1713 = load ptr, ptr %821, align 8
+  %.not.i.i.i.i268 = icmp eq ptr %1713, null
+  br i1 %.not.i.i.i.i268, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274, label %1714
 
-1713:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
-  %1714 = getelementptr inbounds i8, ptr %1712, i64 8
-  %1715 = load atomic i64, ptr %1714 acquire, align 8
-  %1716 = icmp eq i64 %1715, 4294967297
-  %1717 = trunc i64 %1715 to i32
-  br i1 %1716, label %1718, label %1723
+1714:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267
+  %1715 = getelementptr inbounds i8, ptr %1713, i64 8
+  %1716 = load atomic i64, ptr %1715 acquire, align 8
+  %1717 = icmp eq i64 %1716, 4294967297
+  %1718 = trunc i64 %1716 to i32
+  br i1 %1717, label %1719, label %1724
 
-1718:                                             ; preds = %1713
-  store i32 0, ptr %1714, align 8
-  %1719 = getelementptr inbounds i8, ptr %1712, i64 12
-  store i32 0, ptr %1719, align 4
-  %1720 = load ptr, ptr %1712, align 8
-  %1721 = getelementptr inbounds i8, ptr %1720, i64 16
-  %1722 = load ptr, ptr %1721, align 8
-  call void %1722(ptr noundef nonnull align 8 dereferenceable(16) %1712) #23
+1719:                                             ; preds = %1714
+  store i32 0, ptr %1715, align 8
+  %1720 = getelementptr inbounds i8, ptr %1713, i64 12
+  store i32 0, ptr %1720, align 4
+  %1721 = load ptr, ptr %1713, align 8
+  %1722 = getelementptr inbounds i8, ptr %1721, i64 16
+  %1723 = load ptr, ptr %1722, align 8
+  call void %1723(ptr noundef nonnull align 8 dereferenceable(16) %1713) #23
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273
 
-1723:                                             ; preds = %1713
-  %1724 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i269 = icmp eq i8 %1724, 0
-  br i1 %.not.i.i.i.i.i269, label %1727, label %1725
+1724:                                             ; preds = %1714
+  %1725 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i269 = icmp eq i8 %1725, 0
+  br i1 %.not.i.i.i.i.i269, label %1728, label %1726
 
-1725:                                             ; preds = %1723
-  %1726 = add nsw i32 %1717, -1
-  store i32 %1726, ptr %1714, align 4
-  br label %1729
+1726:                                             ; preds = %1724
+  %1727 = add nsw i32 %1718, -1
+  store i32 %1727, ptr %1715, align 4
+  br label %1730
 
-1727:                                             ; preds = %1723
-  %1728 = atomicrmw volatile add ptr %1714, i32 -1 acq_rel, align 4
-  br label %1729
+1728:                                             ; preds = %1724
+  %1729 = atomicrmw volatile add ptr %1715, i32 -1 acq_rel, align 4
+  br label %1730
 
-1729:                                             ; preds = %1727, %1725
-  %.0.i.i.i.i.i270 = phi i32 [ %1717, %1725 ], [ %1728, %1727 ]
-  %1730 = icmp eq i32 %.0.i.i.i.i.i270, 1
-  br i1 %1730, label %1731, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274
+1730:                                             ; preds = %1728, %1726
+  %.0.i.i.i.i.i270 = phi i32 [ %1718, %1726 ], [ %1729, %1728 ]
+  %1731 = icmp eq i32 %.0.i.i.i.i.i270, 1
+  br i1 %1731, label %1732, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274
 
-1731:                                             ; preds = %1729
-  %1732 = load ptr, ptr %1712, align 8
-  %1733 = getelementptr inbounds i8, ptr %1732, i64 16
-  %1734 = load ptr, ptr %1733, align 8
-  call void %1734(ptr noundef nonnull align 8 dereferenceable(16) %1712) #23
-  %1735 = getelementptr inbounds i8, ptr %1712, i64 12
-  %1736 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i271 = icmp eq i8 %1736, 0
-  br i1 %.not.i.i.i.i.i.i.i271, label %1740, label %1737
+1732:                                             ; preds = %1730
+  %1733 = load ptr, ptr %1713, align 8
+  %1734 = getelementptr inbounds i8, ptr %1733, i64 16
+  %1735 = load ptr, ptr %1734, align 8
+  call void %1735(ptr noundef nonnull align 8 dereferenceable(16) %1713) #23
+  %1736 = getelementptr inbounds i8, ptr %1713, i64 12
+  %1737 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i271 = icmp eq i8 %1737, 0
+  br i1 %.not.i.i.i.i.i.i.i271, label %1741, label %1738
 
-1737:                                             ; preds = %1731
-  %1738 = load i32, ptr %1735, align 4
-  %1739 = add nsw i32 %1738, -1
-  store i32 %1739, ptr %1735, align 4
-  br label %1742
+1738:                                             ; preds = %1732
+  %1739 = load i32, ptr %1736, align 4
+  %1740 = add nsw i32 %1739, -1
+  store i32 %1740, ptr %1736, align 4
+  br label %1743
 
-1740:                                             ; preds = %1731
-  %1741 = atomicrmw volatile add ptr %1735, i32 -1 acq_rel, align 4
-  br label %1742
+1741:                                             ; preds = %1732
+  %1742 = atomicrmw volatile add ptr %1736, i32 -1 acq_rel, align 4
+  br label %1743
 
-1742:                                             ; preds = %1740, %1737
-  %.0.i.i.i.i.i.i.i272 = phi i32 [ %1738, %1737 ], [ %1741, %1740 ]
-  %1743 = icmp eq i32 %.0.i.i.i.i.i.i.i272, 1
-  br i1 %1743, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274
+1743:                                             ; preds = %1741, %1738
+  %.0.i.i.i.i.i.i.i272 = phi i32 [ %1739, %1738 ], [ %1742, %1741 ]
+  %1744 = icmp eq i32 %.0.i.i.i.i.i.i.i272, 1
+  br i1 %1744, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273, label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273: ; preds = %1742, %1718
-  %1744 = load ptr, ptr %1712, align 8
-  %1745 = getelementptr inbounds i8, ptr %1744, i64 24
-  %1746 = load ptr, ptr %1745, align 8
-  call void %1746(ptr noundef nonnull align 8 dereferenceable(16) %1712) #23
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273: ; preds = %1743, %1719
+  %1745 = load ptr, ptr %1713, align 8
+  %1746 = getelementptr inbounds i8, ptr %1745, i64 24
+  %1747 = load ptr, ptr %1746, align 8
+  call void %1747(ptr noundef nonnull align 8 dereferenceable(16) %1713) #23
   br label %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274
 
-_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274: ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267, %1729, %1742, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273
+_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274: ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev.exit267, %1730, %1743, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i273
   invoke void @_ZN4CGAL9AABB_treeINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSA_INS_26First_of_pair_property_mapIS9_EENS3_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSD_INS_10Triangle_3IS5_EEEESG_EENSA_ISC_NSD_INS_7Point_3IS5_EEEESG_EENS_11Boolean_tagILb1EEENSQ_ILb0EEEEENSA_ISC_NSD_INS_6Bbox_3EEESG_EEEEE6insertERKST_(ptr noundef nonnull align 8 dereferenceable(187) %2, ptr noundef nonnull align 8 dereferenceable(16) %279)
           to label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150 unwind label %.loopexit
 
-1747:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225
-  %1748 = landingpad { ptr, i32 }
+1748:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEC2ES4_S8_.exit225
+  %1749 = landingpad { ptr, i32 }
           cleanup
-  br label %1751
+  br label %1752
 
-1749:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233
-  %1750 = landingpad { ptr, i32 }
+1750:                                             ; preds = %_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_EC2ESB_SF_.exit233
+  %1751 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENS7_INS_10Triangle_3INS_5EpickEEEEESA_ED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %280) #23
   call void @_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_10Triangle_3INS_5EpickEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %283) #23
-  br label %1751
+  br label %1752
 
-1751:                                             ; preds = %1749, %1747
-  %.pn.pn = phi { ptr, i32 } [ %1750, %1749 ], [ %1748, %1747 ]
+1752:                                             ; preds = %1750, %1748
+  %.pn.pn = phi { ptr, i32 } [ %1751, %1750 ], [ %1749, %1748 ]
   call void @_ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %281) #23
   call void @_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %282) #23
-  br label %1771
+  br label %1772
 
-_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split: ; preds = %1047, %1230, %1412
-  %.sink474 = phi ptr [ %1409, %1412 ], [ %1227, %1230 ], [ %1044, %1047 ]
-  %1752 = getelementptr inbounds i8, ptr %.sink474, i64 192
-  store ptr %1752, ptr %784, align 8
+_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split: ; preds = %1048, %1231, %1413
+  %.sink474 = phi ptr [ %1410, %1413 ], [ %1228, %1231 ], [ %1045, %1048 ]
+  %1753 = getelementptr inbounds i8, ptr %.sink474, i64 192
+  store ptr %1753, ptr %784, align 8
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150
 
 _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150: ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split, %.invoke, %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274
-  %1753 = load ptr, ptr %784, align 8
-  %1754 = load ptr, ptr %793, align 8
-  %1755 = icmp eq ptr %1753, %1754
-  br i1 %1755, label %._crit_edge, label %842, !llvm.loop !945
+  %1754 = load ptr, ptr %784, align 8
+  %1755 = load ptr, ptr %793, align 8
+  %1756 = icmp eq ptr %1754, %1755
+  br i1 %1756, label %._crit_edge, label %842, !llvm.loop !945
 
 ._crit_edge:                                      ; preds = %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit
-  %1756 = getelementptr inbounds i8, ptr %0, i64 128
-  %1757 = load i64, ptr %1756, align 8
-  %1758 = add i64 %1757, 1
-  store i64 %1758, ptr %1756, align 8
-  %1759 = load ptr, ptr %270, align 8
-  %.not.i.i.i275 = icmp eq ptr %1759, null
-  br i1 %.not.i.i.i275, label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEED2Ev.exit, label %1760
+  %1757 = getelementptr inbounds i8, ptr %0, i64 128
+  %1758 = load i64, ptr %1757, align 8
+  %1759 = add i64 %1758, 1
+  store i64 %1759, ptr %1757, align 8
+  %1760 = load ptr, ptr %270, align 8
+  %.not.i.i.i275 = icmp eq ptr %1760, null
+  br i1 %.not.i.i.i275, label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEED2Ev.exit, label %1761
 
-1760:                                             ; preds = %._crit_edge
-  %1761 = getelementptr inbounds i8, ptr %270, i64 72
-  %1762 = getelementptr inbounds i8, ptr %270, i64 40
-  %1763 = load ptr, ptr %1762, align 8
-  %1764 = load ptr, ptr %1761, align 8
-  %1765 = getelementptr inbounds i8, ptr %1764, i64 8
-  %1766 = icmp ult ptr %1763, %1765
-  br i1 %1766, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.i.i.i
+1761:                                             ; preds = %._crit_edge
+  %1762 = getelementptr inbounds i8, ptr %270, i64 72
+  %1763 = getelementptr inbounds i8, ptr %270, i64 40
+  %1764 = load ptr, ptr %1763, align 8
+  %1765 = load ptr, ptr %1762, align 8
+  %1766 = getelementptr inbounds i8, ptr %1765, i64 8
+  %1767 = icmp ult ptr %1764, %1766
+  br i1 %1767, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %1760, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %1768, %.lr.ph.i.i.i.i ], [ %1763, %1760 ]
-  %1767 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %1767) #39
-  %1768 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %1769 = icmp ult ptr %.06.i.i.i.i, %1764
-  br i1 %1769, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i, !llvm.loop !946
+.lr.ph.i.i.i.i:                                   ; preds = %1761, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %1769, %.lr.ph.i.i.i.i ], [ %1764, %1761 ]
+  %1768 = load ptr, ptr %.06.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %1768) #39
+  %1769 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %1770 = icmp ult ptr %.06.i.i.i.i, %1765
+  br i1 %1770, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i, !llvm.loop !946
 
 _ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %270, align 8
   br label %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.i.i.i
 
-_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i, %1760
-  %1770 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i ], [ %1759, %1760 ]
-  call void @_ZdlPv(ptr noundef %1770) #39
+_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i, %1761
+  %1771 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.loopexit.i.i.i ], [ %1760, %1761 ]
+  call void @_ZdlPv(ptr noundef %1771) #39
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEED2Ev.exit
 
 _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEED2Ev.exit: ; preds = %_ZNSt11_Deque_baseISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESaISA_EE16_M_destroy_nodesEPPSA_SE_.exit.i.i.i, %._crit_edge, %_ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit
   ret void
 
-1771:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1751
-  %.pn81 = phi { ptr, i32 } [ %.pn.pn, %1751 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+1772:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1752
+  %.pn81 = phi { ptr, i32 } [ %.pn.pn, %1752 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %270) #23
-  br label %1772
+  br label %1773
 
-1772:                                             ; preds = %1771, %615
-  %.pn83.pn.pn = phi { ptr, i32 } [ %.pn83.pn, %615 ], [ %.pn81, %1771 ]
+1773:                                             ; preds = %1772, %615
+  %.pn83.pn.pn = phi { ptr, i32 } [ %.pn83.pn, %615 ], [ %.pn81, %1772 ]
   resume { ptr, i32 } %.pn83.pn.pn
 }
 

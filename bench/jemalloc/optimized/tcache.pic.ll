@@ -2562,26 +2562,28 @@ entry:
 if.then:                                          ; preds = %entry
   %arena = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %arena, align 8
-  %bins.i = getelementptr inbounds i8, ptr %tsd, i64 872
+  %3 = getelementptr i8, ptr %tsd, i64 894
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.cache_bin_info_s, ptr %tcache_bin_info, i64 %indvars.iv.i
-  %3 = getelementptr [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %indvars.iv.i, i32 5
-  %arrayidx3.val.i = load i16, ptr %3, align 2
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
+  %4 = getelementptr i8, ptr %3, i64 %.idx.i
+  %arrayidx3.val.i = load i16, ptr %4, align 2
   call void @cache_bin_info_init(ptr noundef nonnull %arrayidx.i, i16 noundef zeroext %arrayidx3.val.i) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
   br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %for.body.i, !llvm.loop !11
 
 tcache_bin_settings_backup.exit:                  ; preds = %for.body.i
-  %4 = load i8, ptr %tsd, align 1
-  %tobool.i.i = trunc i8 %4 to i1
+  %5 = load i8, ptr %tsd, align 1
+  %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %do.end7.i, label %if.end
 
 do.end7.i:                                        ; preds = %tcache_bin_settings_backup.exit
   call fastcc void @tcache_destroy(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, i1 noundef zeroext true)
+  %bins.i = getelementptr inbounds i8, ptr %tsd, i64 872
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1752) %bins.i, i8 0, i64 1752, i1 false)
   br label %if.end
 
@@ -2594,8 +2596,8 @@ if.then.i.i:                                      ; preds = %if.end
   %sub.i.i = add nuw nsw i64 %tcache_max, 7
   %shr.i.i = lshr i64 %sub.i.i, 3
   %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i
-  %5 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i6.i = zext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i6.i = zext i8 %6 to i32
   br label %tcache_max_set.exit
 
 if.end.i.i:                                       ; preds = %if.end
@@ -2605,17 +2607,17 @@ if.end.i.i:                                       ; preds = %if.end
 if.end12.i.i:                                     ; preds = %if.end.i.i
   %shl.i.i = shl nuw i64 %tcache_max, 1
   %sub13.i.i = add i64 %shl.i.i, -1
-  %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true)
-  %7 = trunc nuw nsw i64 %6 to i32
-  %sub28.i.i = sub nuw nsw i64 60, %6
+  %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true)
+  %8 = trunc nuw nsw i64 %7 to i32
+  %sub28.i.i = sub nuw nsw i64 60, %7
   %shl31.i.i = shl nsw i64 -1, %sub28.i.i
   %sub32.i.i = add nsw i64 %tcache_max, -1
   %and.i.i = and i64 %shl31.i.i, %sub32.i.i
   %shr.i5.i = lshr i64 %and.i.i, %sub28.i.i
-  %8 = trunc i64 %shr.i5.i to i32
-  %conv35.i.i = and i32 %8, 3
-  %9 = shl nuw nsw i32 %7, 2
-  %reass.sub = sub nsw i32 %conv35.i.i, %9
+  %9 = trunc i64 %shr.i5.i to i32
+  %conv35.i.i = and i32 %9, 3
+  %10 = shl nuw nsw i32 %8, 2
+  %reass.sub = sub nsw i32 %conv35.i.i, %10
   %add36.i.i = add nsw i32 %reass.sub, 229
   br label %tcache_max_set.exit
 
@@ -2783,14 +2785,15 @@ return:                                           ; preds = %do.cond, %do.body
 define hidden noundef zeroext i1 @tcache_bins_ncached_max_write(ptr noundef %tsd, ptr noundef %settings, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tcache_bin_info = alloca [73 x %struct.cache_bin_info_s], align 16
-  %bins.i = getelementptr inbounds i8, ptr %tsd, i64 872
+  %0 = getelementptr i8, ptr %tsd, i64 894
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.cache_bin_info_s, ptr %tcache_bin_info, i64 %indvars.iv.i
-  %0 = getelementptr [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %indvars.iv.i, i32 5
-  %arrayidx3.val.i = load i16, ptr %0, align 2
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
+  %1 = getelementptr i8, ptr %0, i64 %.idx.i
+  %arrayidx3.val.i = load i16, ptr %1, align 2
   call void @cache_bin_info_init(ptr noundef nonnull %arrayidx.i, i16 noundef zeroext %arrayidx3.val.i) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
@@ -2802,20 +2805,21 @@ tcache_bin_settings_backup.exit:                  ; preds = %for.body.i
   br i1 %call6, label %return, label %if.end
 
 if.end:                                           ; preds = %tcache_bin_settings_backup.exit
-  %1 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, align 8
-  %arena = getelementptr inbounds i8, ptr %1, i64 40
-  %2 = load ptr, ptr %arena, align 8
-  %3 = load i8, ptr %tsd, align 1
-  %tobool.i.i = trunc i8 %3 to i1
+  %2 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, align 8
+  %arena = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = load ptr, ptr %arena, align 8
+  %4 = load i8, ptr %tsd, align 1
+  %tobool.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i, label %do.end7.i, label %tcache_cleanup.exit
 
 do.end7.i:                                        ; preds = %if.end
   call fastcc void @tcache_destroy(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, i1 noundef zeroext true)
+  %bins.i = getelementptr inbounds i8, ptr %tsd, i64 872
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1752) %bins.i, i8 0, i64 1752, i1 false)
   br label %tcache_cleanup.exit
 
 tcache_cleanup.exit:                              ; preds = %if.end, %do.end7.i
-  call fastcc void @tsd_tcache_data_init(ptr noundef nonnull %tsd, ptr noundef %2, ptr noundef nonnull %tcache_bin_info)
+  call fastcc void @tsd_tcache_data_init(ptr noundef nonnull %tsd, ptr noundef %3, ptr noundef nonnull %tcache_bin_info)
   br label %return
 
 return:                                           ; preds = %tcache_bin_settings_backup.exit, %tcache_cleanup.exit

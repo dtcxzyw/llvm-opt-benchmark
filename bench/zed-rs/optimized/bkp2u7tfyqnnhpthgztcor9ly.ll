@@ -11598,8 +11598,9 @@ define hidden void @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17h292687
           to label %99 unwind label %34
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %61, i64 32
-  %78 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {}, {} } }, { { ptr, [1 x i64] }, { ptr, [1 x i64] }, i64 } }], ptr %77, i64 0, i64 %66, i32 1
+  %.idx = mul nuw nsw i64 %66, 56
+  %77 = getelementptr i8, ptr %61, i64 48
+  %78 = getelementptr i8, ptr %77, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !2802)
   %79 = getelementptr inbounds i8, ptr %78, i64 32
   %80 = load i64, ptr %79, align 8, !alias.scope !2802, !noalias !2805, !noundef !4

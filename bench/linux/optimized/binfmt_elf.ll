@@ -1928,57 +1928,57 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 643:                                              ; preds = %.loopexit, %641
   %644 = phi ptr [ %.pr54, %641 ], [ %645, %.loopexit ]
   %645 = load ptr, ptr %644, align 8
-  %646 = getelementptr inbounds i8, ptr %644, i64 352
-  %647 = getelementptr inbounds i8, ptr %644, i64 368
-  %648 = load ptr, ptr %647, align 8
-  %649 = icmp ne ptr %648, null
-  %650 = getelementptr inbounds i8, ptr %644, i64 16
-  %651 = icmp ne ptr %648, %650
-  %652 = select i1 %649, i1 %651, i1 false
-  br i1 %652, label %653, label %654, !prof !14
+  %646 = getelementptr inbounds i8, ptr %644, i64 368
+  %647 = load ptr, ptr %646, align 8
+  %648 = icmp ne ptr %647, null
+  %649 = getelementptr inbounds i8, ptr %644, i64 16
+  %650 = icmp ne ptr %647, %649
+  %651 = select i1 %648, i1 %650, i1 false
+  br i1 %651, label %652, label %653, !prof !14
 
-653:                                              ; preds = %643
+652:                                              ; preds = %643
   call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #15, !srcloc !39
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1929, i32 2305, i64 12) #15, !srcloc !40
   call void asm sideeffect "461: nop\0A\09.pushsection .discard.instr_end\0A\09.long 461b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 461) #15, !srcloc !41
-  br label %654
+  br label %653
 
-654:                                              ; preds = %653, %643
-  %655 = load i32, ptr %642, align 8
-  %656 = icmp ugt i32 %655, 1
-  br i1 %656, label %.preheader, label %.loopexit
+653:                                              ; preds = %652, %643
+  %654 = load i32, ptr %642, align 8
+  %655 = icmp ugt i32 %654, 1
+  br i1 %655, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %654, %.preheader
-  %657 = phi i64 [ %660, %.preheader ], [ 1, %654 ]
-  %658 = getelementptr [0 x %struct.memelfnote], ptr %646, i64 0, i64 %657, i32 3
-  %659 = load ptr, ptr %658, align 8
-  call void @kfree(ptr noundef %659) #15
-  %660 = add nuw nsw i64 %657, 1
-  %661 = load i32, ptr %642, align 8
-  %662 = zext i32 %661 to i64
-  %663 = icmp ult i64 %660, %662
-  br i1 %663, label %.preheader, label %.loopexit, !llvm.loop !42
+.preheader:                                       ; preds = %653, %.preheader
+  %656 = phi i64 [ %659, %.preheader ], [ 1, %653 ]
+  %.idx = mul nuw nsw i64 %656, 24
+  %657 = getelementptr i8, ptr %646, i64 %.idx
+  %658 = load ptr, ptr %657, align 8
+  call void @kfree(ptr noundef %658) #15
+  %659 = add nuw nsw i64 %656, 1
+  %660 = load i32, ptr %642, align 8
+  %661 = zext i32 %660 to i64
+  %662 = icmp ult i64 %659, %661
+  br i1 %662, label %.preheader, label %.loopexit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.preheader, %654
+.loopexit:                                        ; preds = %.preheader, %653
   call void @kfree(ptr noundef nonnull %644) #15
-  %664 = icmp eq ptr %645, null
-  br i1 %664, label %.thread55, label %643, !llvm.loop !43
+  %663 = icmp eq ptr %645, null
+  br i1 %663, label %.thread55, label %643, !llvm.loop !43
 
 .thread55:                                        ; preds = %.loopexit, %51, %.thread46
-  %665 = phi i32 [ %.ph53, %.thread46 ], [ 0, %51 ], [ %.ph53, %.loopexit ]
-  %666 = phi ptr [ %.ph52, %.thread46 ], [ null, %51 ], [ %.ph52, %.loopexit ]
-  %667 = phi ptr [ %.ph51, %.thread46 ], [ null, %51 ], [ %.ph51, %.loopexit ]
-  %668 = getelementptr inbounds i8, ptr %5, i64 24
-  %669 = load ptr, ptr %668, align 8
-  call void @kfree(ptr noundef %669) #15
-  %670 = getelementptr inbounds i8, ptr %5, i64 96
-  %671 = load ptr, ptr %670, align 8
-  call void @kvfree(ptr noundef %671) #15
+  %664 = phi i32 [ %.ph53, %.thread46 ], [ 0, %51 ], [ %.ph53, %.loopexit ]
+  %665 = phi ptr [ %.ph52, %.thread46 ], [ null, %51 ], [ %.ph52, %.loopexit ]
+  %666 = phi ptr [ %.ph51, %.thread46 ], [ null, %51 ], [ %.ph51, %.loopexit ]
+  %667 = getelementptr inbounds i8, ptr %5, i64 24
+  %668 = load ptr, ptr %667, align 8
+  call void @kfree(ptr noundef %668) #15
+  %669 = getelementptr inbounds i8, ptr %5, i64 96
+  %670 = load ptr, ptr %669, align 8
+  call void @kvfree(ptr noundef %670) #15
+  call void @kfree(ptr noundef %665) #15
   call void @kfree(ptr noundef %666) #15
-  call void @kfree(ptr noundef %667) #15
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
-  ret i32 %665
+  ret i32 %664
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

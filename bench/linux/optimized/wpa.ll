@@ -3,9 +3,6 @@ source_filename = "bench/linux/original/wpa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tkip_ctx_rx = type { %struct.tkip_ctx, i32, i16 }
-%struct.tkip_ctx = type { [5 x i16], i32, i32 }
-
 @.str = private unnamed_addr constant [42 x i8] c"mmic: not enough head/tail (%d/%d,%d/%d)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"net/mac80211/wpa.c\00", align 1
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
@@ -293,13 +290,13 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
 
 ._crit_edge:                                      ; preds = %63
   %.pre = load ptr, ptr %5, align 8
-  %.pre4 = load i32, ptr %55, align 8
-  %.pre5 = load ptr, ptr %30, align 8
+  %.pre5 = load i32, ptr %55, align 8
+  %.pre6 = load ptr, ptr %30, align 8
   br label %66
 
 66:                                               ; preds = %._crit_edge, %59
-  %67 = phi ptr [ %.pre5, %._crit_edge ], [ %31, %59 ]
-  %68 = phi i32 [ %.pre4, %._crit_edge ], [ %56, %59 ]
+  %67 = phi ptr [ %.pre6, %._crit_edge ], [ %31, %59 ]
+  %68 = phi i32 [ %.pre5, %._crit_edge ], [ %56, %59 ]
   %69 = phi ptr [ %.pre, %._crit_edge ], [ %6, %59 ]
   %70 = zext i32 %54 to i64
   %71 = getelementptr i8, ptr %69, i64 %70
@@ -311,43 +308,45 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
   %75 = getelementptr i8, ptr %71, i64 %73
   %76 = call i64 @__crypto_memneq(ptr noundef nonnull %2, ptr noundef %75, i64 noundef 8) #10
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %._crit_edge6
+  br i1 %77, label %78, label %._crit_edge7
 
-._crit_edge6:                                     ; preds = %66
-  %.pre7 = load ptr, ptr %30, align 8
+._crit_edge7:                                     ; preds = %66
+  %.pre8 = load ptr, ptr %30, align 8
   br label %98
 
 78:                                               ; preds = %66
   %79 = load i32, ptr %55, align 8
   %80 = add i32 %79, -8
   call void @skb_trim(ptr noundef %4, i32 noundef %80) #10
-  %.pre8 = load ptr, ptr %30, align 8
+  %.pre9 = load ptr, ptr %30, align 8
   br label %81
 
 81:                                               ; preds = %78, %25
-  %82 = phi ptr [ %.pre8, %78 ], [ %23, %25 ]
+  %82 = phi ptr [ %.pre9, %78 ], [ %23, %25 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 80
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 56
-  %86 = getelementptr inbounds i8, ptr %82, i64 72
-  %87 = getelementptr inbounds i8, ptr %0, i64 72
-  %88 = load i32, ptr %87, align 8
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr [16 x %struct.tkip_ctx_rx], ptr %86, i64 0, i64 %89, i32 1
+  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %87 = load i32, ptr %86, align 8
+  %88 = sext i32 %87 to i64
+  %.idx = mul nsw i64 %88, 28
+  %89 = getelementptr i8, ptr %82, i64 92
+  %90 = getelementptr i8, ptr %89, i64 %.idx
   store i32 %84, ptr %90, align 4
   %91 = getelementptr inbounds i8, ptr %0, i64 84
   %92 = load i16, ptr %91, align 4
   %93 = load ptr, ptr %85, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 72
-  %95 = load i32, ptr %87, align 8
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr [16 x %struct.tkip_ctx_rx], ptr %94, i64 0, i64 %96, i32 2
+  %94 = load i32, ptr %86, align 8
+  %95 = sext i32 %94 to i64
+  %.idx4 = mul nsw i64 %95, 28
+  %96 = getelementptr i8, ptr %93, i64 96
+  %97 = getelementptr i8, ptr %96, i64 %.idx4
   store i16 %92, ptr %97, align 4
   br label %124
 
-98:                                               ; preds = %._crit_edge6, %50
-  %99 = phi ptr [ %31, %50 ], [ %.pre7, %._crit_edge6 ]
-  %100 = phi ptr [ %6, %50 ], [ %69, %._crit_edge6 ]
+98:                                               ; preds = %._crit_edge7, %50
+  %99 = phi ptr [ %31, %50 ], [ %.pre8, %._crit_edge7 ]
+  %100 = phi ptr [ %6, %50 ], [ %69, %._crit_edge7 ]
   %101 = getelementptr inbounds i8, ptr %99, i64 520
   %102 = load i32, ptr %101, align 8
   %103 = add i32 %102, 1

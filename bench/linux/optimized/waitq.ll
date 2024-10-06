@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.path = type { ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.upid = type { i32, ptr }
 %union.anon.26 = type { %union.autofs_v5_packet_union }
 %union.autofs_v5_packet_union = type { %struct.autofs_v5_packet }
 %struct.autofs_v5_packet = type { %struct.autofs_packet_hdr, i32, i32, i64, i32, i32, i32, i32, i32, [256 x i8] }
@@ -138,11 +137,12 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %16, i64 96
-  %20 = getelementptr inbounds i8, ptr %16, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr [0 x %struct.upid], ptr %19, i64 0, i64 %22, i32 1
+  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  %.idx = shl nuw nsw i64 %21, 4
+  %22 = getelementptr i8, ptr %16, i64 104
+  %23 = getelementptr i8, ptr %22, i64 %.idx
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -154,11 +154,12 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %28, i64 96
-  %32 = getelementptr inbounds i8, ptr %28, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr [0 x %struct.upid], ptr %31, i64 0, i64 %34, i32 1
+  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = zext i32 %32 to i64
+  %.idx30 = shl nuw nsw i64 %33, 4
+  %34 = getelementptr i8, ptr %28, i64 104
+  %35 = getelementptr i8, ptr %34, i64 %.idx30
   %36 = load ptr, ptr %35, align 8
   br label %37
 
@@ -254,13 +255,13 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   %91 = load i32, ptr %8, align 8
   %92 = and i32 %91, 1
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %.thread37
+  br i1 %93, label %94, label %.thread38
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds i8, ptr %0, i64 144
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.loopexit53, label %98
+  br i1 %97, label %.loopexit54, label %98
 
 98:                                               ; preds = %94
   %99 = zext i32 %81 to i64
@@ -288,22 +289,22 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
 113:                                              ; preds = %109
   %114 = tail call i32 @bcmp(ptr nonnull %111, ptr %82, i64 %99)
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread31, label %116
+  br i1 %115, label %.thread32, label %116
 
 116:                                              ; preds = %113, %109, %105, %100
   %117 = getelementptr inbounds i8, ptr %101, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %.loopexit53, label %100, !llvm.loop !9
+  br i1 %119, label %.loopexit54, label %100, !llvm.loop !9
 
-.loopexit53:                                      ; preds = %116, %94
+.loopexit54:                                      ; preds = %116, %94
   %120 = getelementptr inbounds i8, ptr %90, i64 128
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread41, label %123
+  br i1 %122, label %.thread42, label %123
 
-123:                                              ; preds = %.loopexit53
-  switch i32 %2, label %.thread41 [
+123:                                              ; preds = %.loopexit54
+  switch i32 %2, label %.thread42 [
     i32 0, label %124
     i32 1, label %162
   ]
@@ -314,20 +315,20 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   %127 = load i32, ptr %125, align 8
   %128 = and i32 %127, 1
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %.thread37, label %.lr.ph
+  br i1 %129, label %.thread38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %124, %.loopexit
   tail call void @mutex_unlock(ptr noundef %85) #12
   %130 = tail call i64 @schedule_timeout_interruptible(i64 noundef 100) #12
   %131 = tail call i32 @mutex_lock_interruptible(ptr noundef %85) #12
   %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %.loopexit51
+  br i1 %132, label %133, label %.loopexit52
 
 133:                                              ; preds = %.lr.ph
   %134 = load i32, ptr %8, align 8
   %135 = and i32 %134, 1
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %.thread37
+  br i1 %136, label %137, label %.thread38
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %95, align 8
@@ -356,7 +357,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
 152:                                              ; preds = %148
   %153 = tail call i32 @bcmp(ptr nonnull %150, ptr %82, i64 %126)
   %154 = icmp eq i32 %153, 0
-  br i1 %154, label %.thread31, label %155
+  br i1 %154, label %.thread32, label %155
 
 155:                                              ; preds = %152, %148, %144, %.preheader
   %156 = getelementptr inbounds i8, ptr %140, i64 24
@@ -368,7 +369,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   %159 = load i32, ptr %125, align 8
   %160 = and i32 %159, 1
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.thread37, label %.lr.ph, !llvm.loop !10
+  br i1 %161, label %.thread38, label %.lr.ph, !llvm.loop !10
 
 162:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
@@ -414,30 +415,30 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
 
 188:                                              ; preds = %179, %187
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  br i1 %185, label %.thread41, label %.thread37
+  br i1 %185, label %.thread42, label %.thread38
 
-.thread37:                                        ; preds = %133, %.loopexit, %124, %89, %188
+.thread38:                                        ; preds = %133, %.loopexit, %124, %89, %188
   %189 = phi i32 [ 0, %188 ], [ -2, %89 ], [ 0, %124 ], [ -2, %133 ], [ 0, %.loopexit ]
   call void @mutex_unlock(ptr noundef %85) #12
-  br label %.loopexit51
+  br label %.loopexit52
 
-.loopexit51:                                      ; preds = %.lr.ph, %.thread37
-  %190 = phi i32 [ %189, %.thread37 ], [ -4, %.lr.ph ]
+.loopexit52:                                      ; preds = %.lr.ph, %.thread38
+  %190 = phi i32 [ %189, %.thread38 ], [ -4, %.lr.ph ]
   call void @kfree(ptr noundef nonnull %58) #12
   br label %309
 
-.thread41:                                        ; preds = %.loopexit53, %123, %188
+.thread42:                                        ; preds = %.loopexit54, %123, %188
   %191 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %192 = call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %191, i32 noundef 3264, i64 noundef 96) #14
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %195
 
-194:                                              ; preds = %.thread41
+194:                                              ; preds = %.thread42
   call void @kfree(ptr noundef nonnull %58) #12
   call void @mutex_unlock(ptr noundef %85) #12
   br label %309
 
-195:                                              ; preds = %.thread41
+195:                                              ; preds = %.thread42
   %196 = load i32, ptr @autofs_next_wait_queue, align 4
   %197 = getelementptr inbounds i8, ptr %192, i64 32
   store i32 %196, ptr %197, align 8
@@ -528,9 +529,9 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   call fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef nonnull %192, i32 noundef %255)
   br label %259
 
-.thread31:                                        ; preds = %113, %152
-  %.ph35 = phi ptr [ %140, %152 ], [ %101, %113 ]
-  %256 = getelementptr inbounds i8, ptr %.ph35, i64 92
+.thread32:                                        ; preds = %113, %152
+  %.ph36 = phi ptr [ %140, %152 ], [ %101, %113 ]
+  %256 = getelementptr inbounds i8, ptr %.ph36, i64 92
   %257 = load i32, ptr %256, align 4
   %258 = add i32 %257, 1
   store i32 %258, ptr %256, align 4
@@ -538,8 +539,8 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   tail call void @kfree(ptr noundef nonnull %58) #12
   br label %259
 
-259:                                              ; preds = %.thread31, %254
-  %260 = phi ptr [ %192, %254 ], [ %.ph35, %.thread31 ]
+259:                                              ; preds = %.thread32, %254
+  %260 = phi ptr [ %192, %254 ], [ %.ph36, %.thread32 ]
   %261 = call i32 @__SCT__might_resched() #12
   %262 = getelementptr inbounds i8, ptr %260, i64 48
   %263 = load ptr, ptr %262, align 8
@@ -553,54 +554,54 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   %266 = call i64 @prepare_to_wait_event(ptr noundef nonnull %260, ptr noundef nonnull %5, i32 noundef 258) #12
   %267 = load ptr, ptr %262, align 8
   %268 = icmp eq ptr %267, null
-  br i1 %268, label %._crit_edge, label %.lr.ph59
+  br i1 %268, label %._crit_edge, label %.lr.ph60
 
-.lr.ph59:                                         ; preds = %265, %271
+.lr.ph60:                                         ; preds = %265, %271
   %269 = phi i64 [ %272, %271 ], [ %266, %265 ]
   %270 = icmp eq i64 %269, 0
-  br i1 %270, label %271, label %.thread46
+  br i1 %270, label %271, label %.thread47
 
-271:                                              ; preds = %.lr.ph59
+271:                                              ; preds = %.lr.ph60
   call void @schedule() #12
   %272 = call i64 @prepare_to_wait_event(ptr noundef nonnull %260, ptr noundef nonnull %5, i32 noundef 258) #12
   %273 = load ptr, ptr %262, align 8
   %274 = icmp eq ptr %273, null
-  br i1 %274, label %._crit_edge, label %.lr.ph59
+  br i1 %274, label %._crit_edge, label %.lr.ph60
 
 ._crit_edge:                                      ; preds = %271, %265
   call void @finish_wait(ptr noundef nonnull %260, ptr noundef nonnull %5) #12
-  br label %.thread46
+  br label %.thread47
 
-.thread46:                                        ; preds = %.lr.ph59, %._crit_edge
+.thread47:                                        ; preds = %.lr.ph60, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
   br label %275
 
-275:                                              ; preds = %.thread46, %259
+275:                                              ; preds = %.thread47, %259
   %276 = getelementptr inbounds i8, ptr %260, i64 88
   %277 = load i32, ptr %276, align 8
   %278 = icmp eq i32 %277, 0
-  br i1 %278, label %279, label %.thread49
+  br i1 %278, label %279, label %.thread50
 
 279:                                              ; preds = %275
   %280 = getelementptr inbounds i8, ptr %7, i64 128
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %283, label %.thread48
+  br i1 %282, label %283, label %.thread49
 
 283:                                              ; preds = %279
   %284 = load ptr, ptr %61, align 8
   %285 = getelementptr inbounds i8, ptr %7, i64 32
   %286 = call ptr @d_lookup(ptr noundef %284, ptr noundef %285) #12
   %287 = icmp eq ptr %286, null
-  br i1 %287, label %.thread49, label %288
+  br i1 %287, label %.thread50, label %288
 
 288:                                              ; preds = %283
   %289 = getelementptr inbounds i8, ptr %286, i64 128
   %290 = load ptr, ptr %289, align 8
   %291 = icmp eq ptr %290, null
-  br i1 %291, label %.thread50, label %.thread48
+  br i1 %291, label %.thread51, label %.thread49
 
-.thread48:                                        ; preds = %279, %288
+.thread49:                                        ; preds = %279, %288
   %292 = phi ptr [ %286, %288 ], [ null, %279 ]
   %293 = phi ptr [ %290, %288 ], [ %281, %279 ]
   %294 = getelementptr inbounds i8, ptr %0, i64 136
@@ -615,14 +616,14 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   store i32 %300, ptr %298, align 8
   call void @_raw_spin_unlock(ptr noundef %294) #12
   %301 = icmp eq ptr %292, null
-  br i1 %301, label %.thread49, label %.thread50
+  br i1 %301, label %.thread50, label %.thread51
 
-.thread50:                                        ; preds = %288, %.thread48
-  %302 = phi ptr [ %292, %.thread48 ], [ %286, %288 ]
+.thread51:                                        ; preds = %288, %.thread49
+  %302 = phi ptr [ %292, %.thread49 ], [ %286, %288 ]
   call void @dput(ptr noundef nonnull %302) #12
-  br label %.thread49
+  br label %.thread50
 
-.thread49:                                        ; preds = %283, %.thread50, %.thread48, %275
+.thread50:                                        ; preds = %283, %.thread51, %.thread49, %275
   call void @mutex_lock(ptr noundef %85) #12
   %303 = getelementptr inbounds i8, ptr %260, i64 92
   %304 = load i32, ptr %303, align 4
@@ -631,16 +632,16 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr nocapture noundef readonly
   %306 = icmp eq i32 %305, 0
   br i1 %306, label %307, label %308
 
-307:                                              ; preds = %.thread49
+307:                                              ; preds = %.thread50
   call void @kfree(ptr noundef nonnull %260) #12
   br label %308
 
-308:                                              ; preds = %307, %.thread49
+308:                                              ; preds = %307, %.thread50
   call void @mutex_unlock(ptr noundef %85) #12
   br label %309
 
-309:                                              ; preds = %.thread, %308, %194, %.loopexit51, %88, %56, %50, %47, %47, %37, %3
-  %310 = phi i32 [ -4, %88 ], [ %190, %.loopexit51 ], [ %277, %308 ], [ -12, %194 ], [ -2, %3 ], [ -2, %37 ], [ -2, %47 ], [ -2, %50 ], [ -12, %56 ], [ -2, %47 ], [ -2, %.thread ]
+309:                                              ; preds = %.thread, %308, %194, %.loopexit52, %88, %56, %50, %47, %47, %37, %3
+  %310 = phi i32 [ -4, %88 ], [ %190, %.loopexit52 ], [ %277, %308 ], [ -12, %194 ], [ -2, %3 ], [ -2, %37 ], [ -2, %47 ], [ -2, %50 ], [ -12, %56 ], [ -2, %47 ], [ -2, %.thread ]
   ret i32 %310
 }
 

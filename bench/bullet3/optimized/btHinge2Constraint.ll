@@ -115,7 +115,7 @@ invoke.cont5.i:                                   ; preds = %init.i
   br label %_ZN11btTransform11getIdentityEv.exit
 
 common.resume:                                    ; preds = %lpad, %lpad.i11, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %5, %lpad.i11 ], [ %108, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %5, %lpad.i11 ], [ %109, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -483,37 +483,39 @@ invoke.cont72:                                    ; preds = %_Z16btNormalizeAngl
   store float 0x3FE921FB60000000, ptr %arrayidx5.i144, align 4
   %arrayidx7.i145 = getelementptr inbounds i8, ptr %ref.tmp73, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i145, align 4
-  br label %for.body.i147
+  %107 = getelementptr inbounds i8, ptr %this, i64 996
+  br label %for.body.i146
 
-for.body.i147:                                    ; preds = %_Z16btNormalizeAnglef.exit.i154, %invoke.cont72
-  %indvars.iv.i148 = phi i64 [ 0, %invoke.cont72 ], [ %indvars.iv.next.i156, %_Z16btNormalizeAnglef.exit.i154 ]
-  %arrayidx.i149 = getelementptr inbounds float, ptr %ref.tmp73, i64 %indvars.iv.i148
-  %107 = load float, ptr %arrayidx.i149, align 4
-  %call.i.i.i150 = tail call noundef float @fmodf(float noundef %107, float noundef 0x401921FB60000000) #13
-  %cmp.i.i151 = fcmp olt float %call.i.i.i150, 0xC00921FB60000000
-  br i1 %cmp.i.i151, label %if.then.i.i160, label %if.else.i.i152
+for.body.i146:                                    ; preds = %_Z16btNormalizeAnglef.exit.i153, %invoke.cont72
+  %indvars.iv.i147 = phi i64 [ 0, %invoke.cont72 ], [ %indvars.iv.next.i155, %_Z16btNormalizeAnglef.exit.i153 ]
+  %arrayidx.i148 = getelementptr inbounds float, ptr %ref.tmp73, i64 %indvars.iv.i147
+  %108 = load float, ptr %arrayidx.i148, align 4
+  %call.i.i.i149 = tail call noundef float @fmodf(float noundef %108, float noundef 0x401921FB60000000) #13
+  %cmp.i.i150 = fcmp olt float %call.i.i.i149, 0xC00921FB60000000
+  br i1 %cmp.i.i150, label %if.then.i.i159, label %if.else.i.i151
 
-if.then.i.i160:                                   ; preds = %for.body.i147
-  %add.i.i161 = fadd float %call.i.i.i150, 0x401921FB60000000
-  br label %_Z16btNormalizeAnglef.exit.i154
+if.then.i.i159:                                   ; preds = %for.body.i146
+  %add.i.i160 = fadd float %call.i.i.i149, 0x401921FB60000000
+  br label %_Z16btNormalizeAnglef.exit.i153
 
-if.else.i.i152:                                   ; preds = %for.body.i147
-  %cmp1.i.i153 = fcmp ogt float %call.i.i.i150, 0x400921FB60000000
-  br i1 %cmp1.i.i153, label %if.then2.i.i158, label %_Z16btNormalizeAnglef.exit.i154
+if.else.i.i151:                                   ; preds = %for.body.i146
+  %cmp1.i.i152 = fcmp ogt float %call.i.i.i149, 0x400921FB60000000
+  br i1 %cmp1.i.i152, label %if.then2.i.i157, label %_Z16btNormalizeAnglef.exit.i153
 
-if.then2.i.i158:                                  ; preds = %if.else.i.i152
-  %sub.i.i159 = fadd float %call.i.i.i150, 0xC01921FB60000000
-  br label %_Z16btNormalizeAnglef.exit.i154
+if.then2.i.i157:                                  ; preds = %if.else.i.i151
+  %sub.i.i158 = fadd float %call.i.i.i149, 0xC01921FB60000000
+  br label %_Z16btNormalizeAnglef.exit.i153
 
-_Z16btNormalizeAnglef.exit.i154:                  ; preds = %if.then2.i.i158, %if.else.i.i152, %if.then.i.i160
-  %retval.0.i.i155 = phi float [ %add.i.i161, %if.then.i.i160 ], [ %sub.i.i159, %if.then2.i.i158 ], [ %call.i.i.i150, %if.else.i.i152 ]
-  %m_hiLimit.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i148, i32 1
-  store float %retval.0.i.i155, ptr %m_hiLimit.i, align 4
-  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i148, 1
-  %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, 3
-  br i1 %exitcond.not.i157, label %invoke.cont78, label %for.body.i147, !llvm.loop !20
+_Z16btNormalizeAnglef.exit.i153:                  ; preds = %if.then2.i.i157, %if.else.i.i151, %if.then.i.i159
+  %retval.0.i.i154 = phi float [ %add.i.i160, %if.then.i.i159 ], [ %sub.i.i158, %if.then2.i.i157 ], [ %call.i.i.i149, %if.else.i.i151 ]
+  %m_hiLimit.idx.i = mul nuw nsw i64 %indvars.iv.i147, 88
+  %m_hiLimit.i = getelementptr i8, ptr %107, i64 %m_hiLimit.idx.i
+  store float %retval.0.i.i154, ptr %m_hiLimit.i, align 4
+  %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i147, 1
+  %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, 3
+  br i1 %exitcond.not.i156, label %invoke.cont78, label %for.body.i146, !llvm.loop !20
 
-invoke.cont78:                                    ; preds = %_Z16btNormalizeAnglef.exit.i154
+invoke.cont78:                                    ; preds = %_Z16btNormalizeAnglef.exit.i153
   invoke void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr noundef nonnull align 8 dereferenceable(1484) %this, i32 noundef 2, i1 noundef zeroext true)
           to label %invoke.cont79 unwind label %lpad
 
@@ -533,7 +535,7 @@ invoke.cont82:                                    ; preds = %invoke.cont81
   ret void
 
 lpad:                                             ; preds = %invoke.cont81, %invoke.cont80, %invoke.cont79, %invoke.cont78
-  %108 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   br label %common.resume
@@ -682,45 +684,45 @@ for.body.i2.i:                                    ; preds = %for.body.i2.i, %_ZN
 _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %for.body.i2.i
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 136
   %m_rbBFrame = getelementptr inbounds i8, ptr %dataBuffer, i64 128
-  br label %for.body.i.i122
+  br label %for.body.i.i123
 
-for.body.i.i122:                                  ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
-  %indvars.iv.i.i123 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i133, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132 ]
-  %arrayidx.i.i124 = getelementptr inbounds [3 x %class.btVector3], ptr %m_frameInB, i64 0, i64 %indvars.iv.i.i123
-  %arrayidx4.i.i125 = getelementptr inbounds [3 x %struct.btVector3FloatData], ptr %m_rbBFrame, i64 0, i64 %indvars.iv.i.i123
-  br label %for.body.i.i.i126
+for.body.i.i123:                                  ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i133, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
+  %indvars.iv.i.i124 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i134, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i133 ]
+  %arrayidx.i.i125 = getelementptr inbounds [3 x %class.btVector3], ptr %m_frameInB, i64 0, i64 %indvars.iv.i.i124
+  %arrayidx4.i.i126 = getelementptr inbounds [3 x %struct.btVector3FloatData], ptr %m_rbBFrame, i64 0, i64 %indvars.iv.i.i124
+  br label %for.body.i.i.i127
 
-for.body.i.i.i126:                                ; preds = %for.body.i.i.i126, %for.body.i.i122
-  %indvars.iv.i.i.i127 = phi i64 [ 0, %for.body.i.i122 ], [ %indvars.iv.next.i.i.i130, %for.body.i.i.i126 ]
-  %arrayidx.i.i.i128 = getelementptr inbounds [4 x float], ptr %arrayidx.i.i124, i64 0, i64 %indvars.iv.i.i.i127
-  %2 = load float, ptr %arrayidx.i.i.i128, align 4
-  %arrayidx4.i.i.i129 = getelementptr inbounds [4 x float], ptr %arrayidx4.i.i125, i64 0, i64 %indvars.iv.i.i.i127
-  store float %2, ptr %arrayidx4.i.i.i129, align 4
-  %indvars.iv.next.i.i.i130 = add nuw nsw i64 %indvars.iv.i.i.i127, 1
-  %exitcond.not.i.i.i131 = icmp eq i64 %indvars.iv.next.i.i.i130, 4
-  br i1 %exitcond.not.i.i.i131, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132, label %for.body.i.i.i126, !llvm.loop !21
+for.body.i.i.i127:                                ; preds = %for.body.i.i.i127, %for.body.i.i123
+  %indvars.iv.i.i.i128 = phi i64 [ 0, %for.body.i.i123 ], [ %indvars.iv.next.i.i.i131, %for.body.i.i.i127 ]
+  %arrayidx.i.i.i129 = getelementptr inbounds [4 x float], ptr %arrayidx.i.i125, i64 0, i64 %indvars.iv.i.i.i128
+  %2 = load float, ptr %arrayidx.i.i.i129, align 4
+  %arrayidx4.i.i.i130 = getelementptr inbounds [4 x float], ptr %arrayidx4.i.i126, i64 0, i64 %indvars.iv.i.i.i128
+  store float %2, ptr %arrayidx4.i.i.i130, align 4
+  %indvars.iv.next.i.i.i131 = add nuw nsw i64 %indvars.iv.i.i.i128, 1
+  %exitcond.not.i.i.i132 = icmp eq i64 %indvars.iv.next.i.i.i131, 4
+  br i1 %exitcond.not.i.i.i132, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i133, label %for.body.i.i.i127, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132: ; preds = %for.body.i.i.i126
-  %indvars.iv.next.i.i133 = add nuw nsw i64 %indvars.iv.i.i123, 1
-  %exitcond.not.i.i134 = icmp eq i64 %indvars.iv.next.i.i133, 3
-  br i1 %exitcond.not.i.i134, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135, label %for.body.i.i122, !llvm.loop !22
+_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i133: ; preds = %for.body.i.i.i127
+  %indvars.iv.next.i.i134 = add nuw nsw i64 %indvars.iv.i.i124, 1
+  %exitcond.not.i.i135 = icmp eq i64 %indvars.iv.next.i.i134, 3
+  br i1 %exitcond.not.i.i135, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i136, label %for.body.i.i123, !llvm.loop !22
 
-_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132
-  %m_origin.i136 = getelementptr inbounds i8, ptr %this, i64 184
-  %m_origin3.i137 = getelementptr inbounds i8, ptr %dataBuffer, i64 176
-  br label %for.body.i2.i138
+_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i136: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i133
+  %m_origin.i137 = getelementptr inbounds i8, ptr %this, i64 184
+  %m_origin3.i138 = getelementptr inbounds i8, ptr %dataBuffer, i64 176
+  br label %for.body.i2.i139
 
-for.body.i2.i138:                                 ; preds = %for.body.i2.i138, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135
-  %indvars.iv.i3.i139 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135 ], [ %indvars.iv.next.i6.i142, %for.body.i2.i138 ]
-  %arrayidx.i4.i140 = getelementptr inbounds [4 x float], ptr %m_origin.i136, i64 0, i64 %indvars.iv.i3.i139
-  %3 = load float, ptr %arrayidx.i4.i140, align 4
-  %arrayidx4.i5.i141 = getelementptr inbounds [4 x float], ptr %m_origin3.i137, i64 0, i64 %indvars.iv.i3.i139
-  store float %3, ptr %arrayidx4.i5.i141, align 4
-  %indvars.iv.next.i6.i142 = add nuw nsw i64 %indvars.iv.i3.i139, 1
-  %exitcond.not.i7.i143 = icmp eq i64 %indvars.iv.next.i6.i142, 4
-  br i1 %exitcond.not.i7.i143, label %for.cond.preheader, label %for.body.i2.i138, !llvm.loop !21
+for.body.i2.i139:                                 ; preds = %for.body.i2.i139, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i136
+  %indvars.iv.i3.i140 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i136 ], [ %indvars.iv.next.i6.i143, %for.body.i2.i139 ]
+  %arrayidx.i4.i141 = getelementptr inbounds [4 x float], ptr %m_origin.i137, i64 0, i64 %indvars.iv.i3.i140
+  %3 = load float, ptr %arrayidx.i4.i141, align 4
+  %arrayidx4.i5.i142 = getelementptr inbounds [4 x float], ptr %m_origin3.i138, i64 0, i64 %indvars.iv.i3.i140
+  store float %3, ptr %arrayidx4.i5.i142, align 4
+  %indvars.iv.next.i6.i143 = add nuw nsw i64 %indvars.iv.i3.i140, 1
+  %exitcond.not.i7.i144 = icmp eq i64 %indvars.iv.next.i6.i143, 4
+  br i1 %exitcond.not.i7.i144, label %for.cond.preheader, label %for.body.i2.i139, !llvm.loop !21
 
-for.cond.preheader:                               ; preds = %for.body.i2.i138
+for.cond.preheader:                               ; preds = %for.body.i2.i139
   %m_angularLimits = getelementptr inbounds i8, ptr %this, i64 992
   %m_angularLowerLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 440
   %m_angularUpperLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 424
@@ -823,54 +825,60 @@ for.end:                                          ; preds = %for.body
   %arrayidx114 = getelementptr inbounds i8, ptr %dataBuffer, i64 628
   store float 0.000000e+00, ptr %arrayidx114, align 4
   %m_angularSpringDampingLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 648
+  %invariant.gep = getelementptr inbounds i8, ptr %this, i64 1020
   %m_angularEnableMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 632
+  %17 = getelementptr inbounds i8, ptr %this, i64 1032
   %m_angularServoMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 636
+  %18 = getelementptr inbounds i8, ptr %this, i64 1040
   %m_angularEnableSpring = getelementptr inbounds i8, ptr %dataBuffer, i64 640
+  %19 = getelementptr inbounds i8, ptr %this, i64 1048
   %m_angularSpringStiffnessLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 644
+  %20 = getelementptr inbounds i8, ptr %this, i64 1056
   br label %cond.end172
 
 cond.end172:                                      ; preds = %for.end, %cond.end172
-  %indvars.iv259277 = phi i64 [ 0, %for.end ], [ %indvars.iv.next260, %cond.end172 ]
-  %m_enableMotor = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 7
-  %17 = load i8, ptr %m_enableMotor, align 4
-  %18 = and i8 %17, 1
-  %arrayidx124 = getelementptr inbounds [4 x i8], ptr %m_angularEnableMotor, i64 0, i64 %indvars.iv259277
-  store i8 %18, ptr %arrayidx124, align 1
-  %m_servoMotor = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 10
-  %19 = load i8, ptr %m_servoMotor, align 8
-  %20 = and i8 %19, 1
-  %arrayidx137 = getelementptr inbounds [4 x i8], ptr %m_angularServoMotor, i64 0, i64 %indvars.iv259277
-  store i8 %20, ptr %arrayidx137, align 1
-  %m_enableSpring = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 12
-  %21 = load i8, ptr %m_enableSpring, align 8
-  %22 = and i8 %21, 1
-  %arrayidx150 = getelementptr inbounds [4 x i8], ptr %m_angularEnableSpring, i64 0, i64 %indvars.iv259277
-  store i8 %22, ptr %arrayidx150, align 1
-  %m_springStiffnessLimited = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 14
-  %23 = load i8, ptr %m_springStiffnessLimited, align 8
-  %24 = and i8 %23, 1
-  %arrayidx163 = getelementptr inbounds [4 x i8], ptr %m_angularSpringStiffnessLimited, i64 0, i64 %indvars.iv259277
-  store i8 %24, ptr %arrayidx163, align 1
-  %m_springDampingLimited = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 16
-  %25 = load i8, ptr %m_springDampingLimited, align 8
-  %26 = and i8 %25, 1
-  %arrayidx176 = getelementptr inbounds [4 x i8], ptr %m_angularSpringDampingLimited, i64 0, i64 %indvars.iv259277
-  store i8 %26, ptr %arrayidx176, align 1
-  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259277, 1
-  %cmp118.not = icmp eq i64 %indvars.iv.next260, 3
+  %indvars.iv260279 = phi i64 [ 0, %for.end ], [ %indvars.iv.next261, %cond.end172 ]
+  %21 = mul nuw nsw i64 %indvars.iv260279, 88
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %21
+  %22 = load i8, ptr %gep, align 4
+  %23 = and i8 %22, 1
+  %arrayidx124 = getelementptr inbounds [4 x i8], ptr %m_angularEnableMotor, i64 0, i64 %indvars.iv260279
+  store i8 %23, ptr %arrayidx124, align 1
+  %m_servoMotor = getelementptr i8, ptr %17, i64 %21
+  %24 = load i8, ptr %m_servoMotor, align 8
+  %25 = and i8 %24, 1
+  %arrayidx137 = getelementptr inbounds [4 x i8], ptr %m_angularServoMotor, i64 0, i64 %indvars.iv260279
+  store i8 %25, ptr %arrayidx137, align 1
+  %m_enableSpring = getelementptr i8, ptr %18, i64 %21
+  %26 = load i8, ptr %m_enableSpring, align 8
+  %27 = and i8 %26, 1
+  %arrayidx150 = getelementptr inbounds [4 x i8], ptr %m_angularEnableSpring, i64 0, i64 %indvars.iv260279
+  store i8 %27, ptr %arrayidx150, align 1
+  %m_springStiffnessLimited = getelementptr i8, ptr %19, i64 %21
+  %28 = load i8, ptr %m_springStiffnessLimited, align 8
+  %29 = and i8 %28, 1
+  %arrayidx163 = getelementptr inbounds [4 x i8], ptr %m_angularSpringStiffnessLimited, i64 0, i64 %indvars.iv260279
+  store i8 %29, ptr %arrayidx163, align 1
+  %m_springDampingLimited = getelementptr i8, ptr %20, i64 %21
+  %30 = load i8, ptr %m_springDampingLimited, align 8
+  %31 = and i8 %30, 1
+  %arrayidx176 = getelementptr inbounds [4 x i8], ptr %m_angularSpringDampingLimited, i64 0, i64 %indvars.iv260279
+  store i8 %31, ptr %arrayidx176, align 1
+  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260279, 1
+  %cmp118.not = icmp eq i64 %indvars.iv.next261, 3
   br i1 %cmp118.not, label %for.end179, label %cond.end172
 
 for.end179:                                       ; preds = %cond.end172
-  %arrayidx124232 = getelementptr inbounds i8, ptr %dataBuffer, i64 635
-  store i8 0, ptr %arrayidx124232, align 1
+  %arrayidx124233 = getelementptr inbounds i8, ptr %dataBuffer, i64 635
+  store i8 0, ptr %arrayidx124233, align 1
   %arrayidx137.c = getelementptr inbounds i8, ptr %dataBuffer, i64 639
   store i8 0, ptr %arrayidx137.c, align 1
-  %arrayidx150238 = getelementptr inbounds i8, ptr %dataBuffer, i64 643
-  store i8 0, ptr %arrayidx150238, align 1
+  %arrayidx150239 = getelementptr inbounds i8, ptr %dataBuffer, i64 643
+  store i8 0, ptr %arrayidx150239, align 1
   %arrayidx163.c = getelementptr inbounds i8, ptr %dataBuffer, i64 647
   store i8 0, ptr %arrayidx163.c, align 1
-  %arrayidx176269 = getelementptr inbounds i8, ptr %dataBuffer, i64 651
-  store i8 0, ptr %arrayidx176269, align 1
+  %arrayidx176271 = getelementptr inbounds i8, ptr %dataBuffer, i64 651
+  store i8 0, ptr %arrayidx176271, align 1
   %m_linearLimits = getelementptr inbounds i8, ptr %this, i64 704
   %m_linearLowerLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 208
   br label %for.body.i
@@ -878,9 +886,9 @@ for.end179:                                       ; preds = %cond.end172
 for.body.i:                                       ; preds = %for.body.i, %for.end179
   %indvars.iv.i = phi i64 [ 0, %for.end179 ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [4 x float], ptr %m_linearLimits, i64 0, i64 %indvars.iv.i
-  %27 = load float, ptr %arrayidx.i, align 4
+  %32 = load float, ptr %arrayidx.i, align 4
   %arrayidx4.i = getelementptr inbounds [4 x float], ptr %m_linearLowerLimit, i64 0, i64 %indvars.iv.i
-  store float %27, ptr %arrayidx4.i, align 4
+  store float %32, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !21
@@ -888,184 +896,184 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
 _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %for.body.i
   %m_upperLimit = getelementptr inbounds i8, ptr %this, i64 720
   %m_linearUpperLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 192
-  br label %for.body.i145
+  br label %for.body.i146
 
-for.body.i145:                                    ; preds = %for.body.i145, %_ZNK9btVector39serializeER18btVector3FloatData.exit
-  %indvars.iv.i146 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit ], [ %indvars.iv.next.i149, %for.body.i145 ]
-  %arrayidx.i147 = getelementptr inbounds [4 x float], ptr %m_upperLimit, i64 0, i64 %indvars.iv.i146
-  %28 = load float, ptr %arrayidx.i147, align 4
-  %arrayidx4.i148 = getelementptr inbounds [4 x float], ptr %m_linearUpperLimit, i64 0, i64 %indvars.iv.i146
-  store float %28, ptr %arrayidx4.i148, align 4
-  %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i146, 1
-  %exitcond.not.i150 = icmp eq i64 %indvars.iv.next.i149, 4
-  br i1 %exitcond.not.i150, label %_ZNK9btVector39serializeER18btVector3FloatData.exit151, label %for.body.i145, !llvm.loop !21
+for.body.i146:                                    ; preds = %for.body.i146, %_ZNK9btVector39serializeER18btVector3FloatData.exit
+  %indvars.iv.i147 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit ], [ %indvars.iv.next.i150, %for.body.i146 ]
+  %arrayidx.i148 = getelementptr inbounds [4 x float], ptr %m_upperLimit, i64 0, i64 %indvars.iv.i147
+  %33 = load float, ptr %arrayidx.i148, align 4
+  %arrayidx4.i149 = getelementptr inbounds [4 x float], ptr %m_linearUpperLimit, i64 0, i64 %indvars.iv.i147
+  store float %33, ptr %arrayidx4.i149, align 4
+  %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i147, 1
+  %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, 4
+  br i1 %exitcond.not.i151, label %_ZNK9btVector39serializeER18btVector3FloatData.exit152, label %for.body.i146, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit151: ; preds = %for.body.i145
+_ZNK9btVector39serializeER18btVector3FloatData.exit152: ; preds = %for.body.i146
   %m_bounce182 = getelementptr inbounds i8, ptr %this, i64 736
   %m_linearBounce = getelementptr inbounds i8, ptr %dataBuffer, i64 224
-  br label %for.body.i152
+  br label %for.body.i153
 
-for.body.i152:                                    ; preds = %for.body.i152, %_ZNK9btVector39serializeER18btVector3FloatData.exit151
-  %indvars.iv.i153 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit151 ], [ %indvars.iv.next.i156, %for.body.i152 ]
-  %arrayidx.i154 = getelementptr inbounds [4 x float], ptr %m_bounce182, i64 0, i64 %indvars.iv.i153
-  %29 = load float, ptr %arrayidx.i154, align 4
-  %arrayidx4.i155 = getelementptr inbounds [4 x float], ptr %m_linearBounce, i64 0, i64 %indvars.iv.i153
-  store float %29, ptr %arrayidx4.i155, align 4
-  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i153, 1
-  %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, 4
-  br i1 %exitcond.not.i157, label %_ZNK9btVector39serializeER18btVector3FloatData.exit158, label %for.body.i152, !llvm.loop !21
+for.body.i153:                                    ; preds = %for.body.i153, %_ZNK9btVector39serializeER18btVector3FloatData.exit152
+  %indvars.iv.i154 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit152 ], [ %indvars.iv.next.i157, %for.body.i153 ]
+  %arrayidx.i155 = getelementptr inbounds [4 x float], ptr %m_bounce182, i64 0, i64 %indvars.iv.i154
+  %34 = load float, ptr %arrayidx.i155, align 4
+  %arrayidx4.i156 = getelementptr inbounds [4 x float], ptr %m_linearBounce, i64 0, i64 %indvars.iv.i154
+  store float %34, ptr %arrayidx4.i156, align 4
+  %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i154, 1
+  %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, 4
+  br i1 %exitcond.not.i158, label %_ZNK9btVector39serializeER18btVector3FloatData.exit159, label %for.body.i153, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit158: ; preds = %for.body.i152
+_ZNK9btVector39serializeER18btVector3FloatData.exit159: ; preds = %for.body.i153
   %m_stopERP184 = getelementptr inbounds i8, ptr %this, i64 752
   %m_linearStopERP = getelementptr inbounds i8, ptr %dataBuffer, i64 240
-  br label %for.body.i159
+  br label %for.body.i160
 
-for.body.i159:                                    ; preds = %for.body.i159, %_ZNK9btVector39serializeER18btVector3FloatData.exit158
-  %indvars.iv.i160 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit158 ], [ %indvars.iv.next.i163, %for.body.i159 ]
-  %arrayidx.i161 = getelementptr inbounds [4 x float], ptr %m_stopERP184, i64 0, i64 %indvars.iv.i160
-  %30 = load float, ptr %arrayidx.i161, align 4
-  %arrayidx4.i162 = getelementptr inbounds [4 x float], ptr %m_linearStopERP, i64 0, i64 %indvars.iv.i160
-  store float %30, ptr %arrayidx4.i162, align 4
-  %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i160, 1
-  %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, 4
-  br i1 %exitcond.not.i164, label %_ZNK9btVector39serializeER18btVector3FloatData.exit165, label %for.body.i159, !llvm.loop !21
+for.body.i160:                                    ; preds = %for.body.i160, %_ZNK9btVector39serializeER18btVector3FloatData.exit159
+  %indvars.iv.i161 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit159 ], [ %indvars.iv.next.i164, %for.body.i160 ]
+  %arrayidx.i162 = getelementptr inbounds [4 x float], ptr %m_stopERP184, i64 0, i64 %indvars.iv.i161
+  %35 = load float, ptr %arrayidx.i162, align 4
+  %arrayidx4.i163 = getelementptr inbounds [4 x float], ptr %m_linearStopERP, i64 0, i64 %indvars.iv.i161
+  store float %35, ptr %arrayidx4.i163, align 4
+  %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i161, 1
+  %exitcond.not.i165 = icmp eq i64 %indvars.iv.next.i164, 4
+  br i1 %exitcond.not.i165, label %_ZNK9btVector39serializeER18btVector3FloatData.exit166, label %for.body.i160, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit165: ; preds = %for.body.i159
+_ZNK9btVector39serializeER18btVector3FloatData.exit166: ; preds = %for.body.i160
   %m_stopCFM186 = getelementptr inbounds i8, ptr %this, i64 768
   %m_linearStopCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 256
-  br label %for.body.i166
+  br label %for.body.i167
 
-for.body.i166:                                    ; preds = %for.body.i166, %_ZNK9btVector39serializeER18btVector3FloatData.exit165
-  %indvars.iv.i167 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit165 ], [ %indvars.iv.next.i170, %for.body.i166 ]
-  %arrayidx.i168 = getelementptr inbounds [4 x float], ptr %m_stopCFM186, i64 0, i64 %indvars.iv.i167
-  %31 = load float, ptr %arrayidx.i168, align 4
-  %arrayidx4.i169 = getelementptr inbounds [4 x float], ptr %m_linearStopCFM, i64 0, i64 %indvars.iv.i167
-  store float %31, ptr %arrayidx4.i169, align 4
-  %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i167, 1
-  %exitcond.not.i171 = icmp eq i64 %indvars.iv.next.i170, 4
-  br i1 %exitcond.not.i171, label %_ZNK9btVector39serializeER18btVector3FloatData.exit172, label %for.body.i166, !llvm.loop !21
+for.body.i167:                                    ; preds = %for.body.i167, %_ZNK9btVector39serializeER18btVector3FloatData.exit166
+  %indvars.iv.i168 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit166 ], [ %indvars.iv.next.i171, %for.body.i167 ]
+  %arrayidx.i169 = getelementptr inbounds [4 x float], ptr %m_stopCFM186, i64 0, i64 %indvars.iv.i168
+  %36 = load float, ptr %arrayidx.i169, align 4
+  %arrayidx4.i170 = getelementptr inbounds [4 x float], ptr %m_linearStopCFM, i64 0, i64 %indvars.iv.i168
+  store float %36, ptr %arrayidx4.i170, align 4
+  %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i168, 1
+  %exitcond.not.i172 = icmp eq i64 %indvars.iv.next.i171, 4
+  br i1 %exitcond.not.i172, label %_ZNK9btVector39serializeER18btVector3FloatData.exit173, label %for.body.i167, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit172: ; preds = %for.body.i166
+_ZNK9btVector39serializeER18btVector3FloatData.exit173: ; preds = %for.body.i167
   %m_motorERP188 = getelementptr inbounds i8, ptr %this, i64 784
   %m_linearMotorERP = getelementptr inbounds i8, ptr %dataBuffer, i64 272
-  br label %for.body.i173
+  br label %for.body.i174
 
-for.body.i173:                                    ; preds = %for.body.i173, %_ZNK9btVector39serializeER18btVector3FloatData.exit172
-  %indvars.iv.i174 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit172 ], [ %indvars.iv.next.i177, %for.body.i173 ]
-  %arrayidx.i175 = getelementptr inbounds [4 x float], ptr %m_motorERP188, i64 0, i64 %indvars.iv.i174
-  %32 = load float, ptr %arrayidx.i175, align 4
-  %arrayidx4.i176 = getelementptr inbounds [4 x float], ptr %m_linearMotorERP, i64 0, i64 %indvars.iv.i174
-  store float %32, ptr %arrayidx4.i176, align 4
-  %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i174, 1
-  %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, 4
-  br i1 %exitcond.not.i178, label %_ZNK9btVector39serializeER18btVector3FloatData.exit179, label %for.body.i173, !llvm.loop !21
+for.body.i174:                                    ; preds = %for.body.i174, %_ZNK9btVector39serializeER18btVector3FloatData.exit173
+  %indvars.iv.i175 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit173 ], [ %indvars.iv.next.i178, %for.body.i174 ]
+  %arrayidx.i176 = getelementptr inbounds [4 x float], ptr %m_motorERP188, i64 0, i64 %indvars.iv.i175
+  %37 = load float, ptr %arrayidx.i176, align 4
+  %arrayidx4.i177 = getelementptr inbounds [4 x float], ptr %m_linearMotorERP, i64 0, i64 %indvars.iv.i175
+  store float %37, ptr %arrayidx4.i177, align 4
+  %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i175, 1
+  %exitcond.not.i179 = icmp eq i64 %indvars.iv.next.i178, 4
+  br i1 %exitcond.not.i179, label %_ZNK9btVector39serializeER18btVector3FloatData.exit180, label %for.body.i174, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit179: ; preds = %for.body.i173
+_ZNK9btVector39serializeER18btVector3FloatData.exit180: ; preds = %for.body.i174
   %m_motorCFM190 = getelementptr inbounds i8, ptr %this, i64 800
   %m_linearMotorCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 288
-  br label %for.body.i180
+  br label %for.body.i181
 
-for.body.i180:                                    ; preds = %for.body.i180, %_ZNK9btVector39serializeER18btVector3FloatData.exit179
-  %indvars.iv.i181 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit179 ], [ %indvars.iv.next.i184, %for.body.i180 ]
-  %arrayidx.i182 = getelementptr inbounds [4 x float], ptr %m_motorCFM190, i64 0, i64 %indvars.iv.i181
-  %33 = load float, ptr %arrayidx.i182, align 4
-  %arrayidx4.i183 = getelementptr inbounds [4 x float], ptr %m_linearMotorCFM, i64 0, i64 %indvars.iv.i181
-  store float %33, ptr %arrayidx4.i183, align 4
-  %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i181, 1
-  %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, 4
-  br i1 %exitcond.not.i185, label %_ZNK9btVector39serializeER18btVector3FloatData.exit186, label %for.body.i180, !llvm.loop !21
+for.body.i181:                                    ; preds = %for.body.i181, %_ZNK9btVector39serializeER18btVector3FloatData.exit180
+  %indvars.iv.i182 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit180 ], [ %indvars.iv.next.i185, %for.body.i181 ]
+  %arrayidx.i183 = getelementptr inbounds [4 x float], ptr %m_motorCFM190, i64 0, i64 %indvars.iv.i182
+  %38 = load float, ptr %arrayidx.i183, align 4
+  %arrayidx4.i184 = getelementptr inbounds [4 x float], ptr %m_linearMotorCFM, i64 0, i64 %indvars.iv.i182
+  store float %38, ptr %arrayidx4.i184, align 4
+  %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i182, 1
+  %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, 4
+  br i1 %exitcond.not.i186, label %_ZNK9btVector39serializeER18btVector3FloatData.exit187, label %for.body.i181, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit186: ; preds = %for.body.i180
+_ZNK9btVector39serializeER18btVector3FloatData.exit187: ; preds = %for.body.i181
   %m_targetVelocity192 = getelementptr inbounds i8, ptr %this, i64 900
   %m_linearTargetVelocity = getelementptr inbounds i8, ptr %dataBuffer, i64 304
-  br label %for.body.i187
+  br label %for.body.i188
 
-for.body.i187:                                    ; preds = %for.body.i187, %_ZNK9btVector39serializeER18btVector3FloatData.exit186
-  %indvars.iv.i188 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit186 ], [ %indvars.iv.next.i191, %for.body.i187 ]
-  %arrayidx.i189 = getelementptr inbounds [4 x float], ptr %m_targetVelocity192, i64 0, i64 %indvars.iv.i188
-  %34 = load float, ptr %arrayidx.i189, align 4
-  %arrayidx4.i190 = getelementptr inbounds [4 x float], ptr %m_linearTargetVelocity, i64 0, i64 %indvars.iv.i188
-  store float %34, ptr %arrayidx4.i190, align 4
-  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i188, 1
-  %exitcond.not.i192 = icmp eq i64 %indvars.iv.next.i191, 4
-  br i1 %exitcond.not.i192, label %_ZNK9btVector39serializeER18btVector3FloatData.exit193, label %for.body.i187, !llvm.loop !21
+for.body.i188:                                    ; preds = %for.body.i188, %_ZNK9btVector39serializeER18btVector3FloatData.exit187
+  %indvars.iv.i189 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit187 ], [ %indvars.iv.next.i192, %for.body.i188 ]
+  %arrayidx.i190 = getelementptr inbounds [4 x float], ptr %m_targetVelocity192, i64 0, i64 %indvars.iv.i189
+  %39 = load float, ptr %arrayidx.i190, align 4
+  %arrayidx4.i191 = getelementptr inbounds [4 x float], ptr %m_linearTargetVelocity, i64 0, i64 %indvars.iv.i189
+  store float %39, ptr %arrayidx4.i191, align 4
+  %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i189, 1
+  %exitcond.not.i193 = icmp eq i64 %indvars.iv.next.i192, 4
+  br i1 %exitcond.not.i193, label %_ZNK9btVector39serializeER18btVector3FloatData.exit194, label %for.body.i188, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit193: ; preds = %for.body.i187
+_ZNK9btVector39serializeER18btVector3FloatData.exit194: ; preds = %for.body.i188
   %m_maxMotorForce194 = getelementptr inbounds i8, ptr %this, i64 916
   %m_linearMaxMotorForce = getelementptr inbounds i8, ptr %dataBuffer, i64 320
-  br label %for.body.i194
+  br label %for.body.i195
 
-for.body.i194:                                    ; preds = %for.body.i194, %_ZNK9btVector39serializeER18btVector3FloatData.exit193
-  %indvars.iv.i195 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit193 ], [ %indvars.iv.next.i198, %for.body.i194 ]
-  %arrayidx.i196 = getelementptr inbounds [4 x float], ptr %m_maxMotorForce194, i64 0, i64 %indvars.iv.i195
-  %35 = load float, ptr %arrayidx.i196, align 4
-  %arrayidx4.i197 = getelementptr inbounds [4 x float], ptr %m_linearMaxMotorForce, i64 0, i64 %indvars.iv.i195
-  store float %35, ptr %arrayidx4.i197, align 4
-  %indvars.iv.next.i198 = add nuw nsw i64 %indvars.iv.i195, 1
-  %exitcond.not.i199 = icmp eq i64 %indvars.iv.next.i198, 4
-  br i1 %exitcond.not.i199, label %_ZNK9btVector39serializeER18btVector3FloatData.exit200, label %for.body.i194, !llvm.loop !21
+for.body.i195:                                    ; preds = %for.body.i195, %_ZNK9btVector39serializeER18btVector3FloatData.exit194
+  %indvars.iv.i196 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit194 ], [ %indvars.iv.next.i199, %for.body.i195 ]
+  %arrayidx.i197 = getelementptr inbounds [4 x float], ptr %m_maxMotorForce194, i64 0, i64 %indvars.iv.i196
+  %40 = load float, ptr %arrayidx.i197, align 4
+  %arrayidx4.i198 = getelementptr inbounds [4 x float], ptr %m_linearMaxMotorForce, i64 0, i64 %indvars.iv.i196
+  store float %40, ptr %arrayidx4.i198, align 4
+  %indvars.iv.next.i199 = add nuw nsw i64 %indvars.iv.i196, 1
+  %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, 4
+  br i1 %exitcond.not.i200, label %_ZNK9btVector39serializeER18btVector3FloatData.exit201, label %for.body.i195, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit200: ; preds = %for.body.i194
+_ZNK9btVector39serializeER18btVector3FloatData.exit201: ; preds = %for.body.i195
   %m_servoTarget196 = getelementptr inbounds i8, ptr %this, i64 828
   %m_linearServoTarget = getelementptr inbounds i8, ptr %dataBuffer, i64 336
-  br label %for.body.i201
+  br label %for.body.i202
 
-for.body.i201:                                    ; preds = %for.body.i201, %_ZNK9btVector39serializeER18btVector3FloatData.exit200
-  %indvars.iv.i202 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit200 ], [ %indvars.iv.next.i205, %for.body.i201 ]
-  %arrayidx.i203 = getelementptr inbounds [4 x float], ptr %m_servoTarget196, i64 0, i64 %indvars.iv.i202
-  %36 = load float, ptr %arrayidx.i203, align 4
-  %arrayidx4.i204 = getelementptr inbounds [4 x float], ptr %m_linearServoTarget, i64 0, i64 %indvars.iv.i202
-  store float %36, ptr %arrayidx4.i204, align 4
-  %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i202, 1
-  %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, 4
-  br i1 %exitcond.not.i206, label %_ZNK9btVector39serializeER18btVector3FloatData.exit207, label %for.body.i201, !llvm.loop !21
+for.body.i202:                                    ; preds = %for.body.i202, %_ZNK9btVector39serializeER18btVector3FloatData.exit201
+  %indvars.iv.i203 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit201 ], [ %indvars.iv.next.i206, %for.body.i202 ]
+  %arrayidx.i204 = getelementptr inbounds [4 x float], ptr %m_servoTarget196, i64 0, i64 %indvars.iv.i203
+  %41 = load float, ptr %arrayidx.i204, align 4
+  %arrayidx4.i205 = getelementptr inbounds [4 x float], ptr %m_linearServoTarget, i64 0, i64 %indvars.iv.i203
+  store float %41, ptr %arrayidx4.i205, align 4
+  %indvars.iv.next.i206 = add nuw nsw i64 %indvars.iv.i203, 1
+  %exitcond.not.i207 = icmp eq i64 %indvars.iv.next.i206, 4
+  br i1 %exitcond.not.i207, label %_ZNK9btVector39serializeER18btVector3FloatData.exit208, label %for.body.i202, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit207: ; preds = %for.body.i201
+_ZNK9btVector39serializeER18btVector3FloatData.exit208: ; preds = %for.body.i202
   %m_springStiffness198 = getelementptr inbounds i8, ptr %this, i64 844
   %m_linearSpringStiffness = getelementptr inbounds i8, ptr %dataBuffer, i64 352
-  br label %for.body.i208
+  br label %for.body.i209
 
-for.body.i208:                                    ; preds = %for.body.i208, %_ZNK9btVector39serializeER18btVector3FloatData.exit207
-  %indvars.iv.i209 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit207 ], [ %indvars.iv.next.i212, %for.body.i208 ]
-  %arrayidx.i210 = getelementptr inbounds [4 x float], ptr %m_springStiffness198, i64 0, i64 %indvars.iv.i209
-  %37 = load float, ptr %arrayidx.i210, align 4
-  %arrayidx4.i211 = getelementptr inbounds [4 x float], ptr %m_linearSpringStiffness, i64 0, i64 %indvars.iv.i209
-  store float %37, ptr %arrayidx4.i211, align 4
-  %indvars.iv.next.i212 = add nuw nsw i64 %indvars.iv.i209, 1
-  %exitcond.not.i213 = icmp eq i64 %indvars.iv.next.i212, 4
-  br i1 %exitcond.not.i213, label %_ZNK9btVector39serializeER18btVector3FloatData.exit214, label %for.body.i208, !llvm.loop !21
+for.body.i209:                                    ; preds = %for.body.i209, %_ZNK9btVector39serializeER18btVector3FloatData.exit208
+  %indvars.iv.i210 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit208 ], [ %indvars.iv.next.i213, %for.body.i209 ]
+  %arrayidx.i211 = getelementptr inbounds [4 x float], ptr %m_springStiffness198, i64 0, i64 %indvars.iv.i210
+  %42 = load float, ptr %arrayidx.i211, align 4
+  %arrayidx4.i212 = getelementptr inbounds [4 x float], ptr %m_linearSpringStiffness, i64 0, i64 %indvars.iv.i210
+  store float %42, ptr %arrayidx4.i212, align 4
+  %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i210, 1
+  %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, 4
+  br i1 %exitcond.not.i214, label %_ZNK9btVector39serializeER18btVector3FloatData.exit215, label %for.body.i209, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit214: ; preds = %for.body.i208
+_ZNK9btVector39serializeER18btVector3FloatData.exit215: ; preds = %for.body.i209
   %m_springDamping200 = getelementptr inbounds i8, ptr %this, i64 864
   %m_linearSpringDamping = getelementptr inbounds i8, ptr %dataBuffer, i64 368
-  br label %for.body.i215
+  br label %for.body.i216
 
-for.body.i215:                                    ; preds = %for.body.i215, %_ZNK9btVector39serializeER18btVector3FloatData.exit214
-  %indvars.iv.i216 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit214 ], [ %indvars.iv.next.i219, %for.body.i215 ]
-  %arrayidx.i217 = getelementptr inbounds [4 x float], ptr %m_springDamping200, i64 0, i64 %indvars.iv.i216
-  %38 = load float, ptr %arrayidx.i217, align 4
-  %arrayidx4.i218 = getelementptr inbounds [4 x float], ptr %m_linearSpringDamping, i64 0, i64 %indvars.iv.i216
-  store float %38, ptr %arrayidx4.i218, align 4
-  %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i216, 1
-  %exitcond.not.i220 = icmp eq i64 %indvars.iv.next.i219, 4
-  br i1 %exitcond.not.i220, label %_ZNK9btVector39serializeER18btVector3FloatData.exit221, label %for.body.i215, !llvm.loop !21
+for.body.i216:                                    ; preds = %for.body.i216, %_ZNK9btVector39serializeER18btVector3FloatData.exit215
+  %indvars.iv.i217 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit215 ], [ %indvars.iv.next.i220, %for.body.i216 ]
+  %arrayidx.i218 = getelementptr inbounds [4 x float], ptr %m_springDamping200, i64 0, i64 %indvars.iv.i217
+  %43 = load float, ptr %arrayidx.i218, align 4
+  %arrayidx4.i219 = getelementptr inbounds [4 x float], ptr %m_linearSpringDamping, i64 0, i64 %indvars.iv.i217
+  store float %43, ptr %arrayidx4.i219, align 4
+  %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i217, 1
+  %exitcond.not.i221 = icmp eq i64 %indvars.iv.next.i220, 4
+  br i1 %exitcond.not.i221, label %_ZNK9btVector39serializeER18btVector3FloatData.exit222, label %for.body.i216, !llvm.loop !21
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit221: ; preds = %for.body.i215
+_ZNK9btVector39serializeER18btVector3FloatData.exit222: ; preds = %for.body.i216
   %m_equilibriumPoint202 = getelementptr inbounds i8, ptr %this, i64 884
   %m_linearEquilibriumPoint = getelementptr inbounds i8, ptr %dataBuffer, i64 384
-  br label %for.body.i222
+  br label %for.body.i223
 
-for.body.i222:                                    ; preds = %for.body.i222, %_ZNK9btVector39serializeER18btVector3FloatData.exit221
-  %indvars.iv.i223 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit221 ], [ %indvars.iv.next.i226, %for.body.i222 ]
-  %arrayidx.i224 = getelementptr inbounds [4 x float], ptr %m_equilibriumPoint202, i64 0, i64 %indvars.iv.i223
-  %39 = load float, ptr %arrayidx.i224, align 4
-  %arrayidx4.i225 = getelementptr inbounds [4 x float], ptr %m_linearEquilibriumPoint, i64 0, i64 %indvars.iv.i223
-  store float %39, ptr %arrayidx4.i225, align 4
-  %indvars.iv.next.i226 = add nuw nsw i64 %indvars.iv.i223, 1
-  %exitcond.not.i227 = icmp eq i64 %indvars.iv.next.i226, 4
-  br i1 %exitcond.not.i227, label %for.cond203.preheader, label %for.body.i222, !llvm.loop !21
+for.body.i223:                                    ; preds = %for.body.i223, %_ZNK9btVector39serializeER18btVector3FloatData.exit222
+  %indvars.iv.i224 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit222 ], [ %indvars.iv.next.i227, %for.body.i223 ]
+  %arrayidx.i225 = getelementptr inbounds [4 x float], ptr %m_equilibriumPoint202, i64 0, i64 %indvars.iv.i224
+  %44 = load float, ptr %arrayidx.i225, align 4
+  %arrayidx4.i226 = getelementptr inbounds [4 x float], ptr %m_linearEquilibriumPoint, i64 0, i64 %indvars.iv.i224
+  store float %44, ptr %arrayidx4.i226, align 4
+  %indvars.iv.next.i227 = add nuw nsw i64 %indvars.iv.i224, 1
+  %exitcond.not.i228 = icmp eq i64 %indvars.iv.next.i227, 4
+  br i1 %exitcond.not.i228, label %for.cond203.preheader, label %for.body.i223, !llvm.loop !21
 
-for.cond203.preheader:                            ; preds = %for.body.i222
+for.cond203.preheader:                            ; preds = %for.body.i223
   %m_linearSpringDampingLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 416
   %m_enableMotor209 = getelementptr inbounds i8, ptr %this, i64 816
   %m_linearEnableMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 400
@@ -1079,51 +1087,51 @@ for.cond203.preheader:                            ; preds = %for.body.i222
   br label %cond.end271
 
 cond.end271:                                      ; preds = %for.cond203.preheader, %cond.end271
-  %indvars.iv263278 = phi i64 [ 0, %for.cond203.preheader ], [ %indvars.iv.next264, %cond.end271 ]
-  %arrayidx211 = getelementptr inbounds [3 x i8], ptr %m_enableMotor209, i64 0, i64 %indvars.iv263278
-  %40 = load i8, ptr %arrayidx211, align 1
-  %41 = and i8 %40, 1
-  %arrayidx219 = getelementptr inbounds [4 x i8], ptr %m_linearEnableMotor, i64 0, i64 %indvars.iv263278
-  store i8 %41, ptr %arrayidx219, align 1
-  %arrayidx225 = getelementptr inbounds [3 x i8], ptr %m_servoMotor223, i64 0, i64 %indvars.iv263278
-  %42 = load i8, ptr %arrayidx225, align 1
-  %43 = and i8 %42, 1
-  %arrayidx233 = getelementptr inbounds [4 x i8], ptr %m_linearServoMotor, i64 0, i64 %indvars.iv263278
-  store i8 %43, ptr %arrayidx233, align 1
-  %arrayidx239 = getelementptr inbounds [3 x i8], ptr %m_enableSpring237, i64 0, i64 %indvars.iv263278
-  %44 = load i8, ptr %arrayidx239, align 1
-  %45 = and i8 %44, 1
-  %arrayidx247 = getelementptr inbounds [4 x i8], ptr %m_linearEnableSpring, i64 0, i64 %indvars.iv263278
-  store i8 %45, ptr %arrayidx247, align 1
-  %arrayidx253 = getelementptr inbounds [3 x i8], ptr %m_springStiffnessLimited251, i64 0, i64 %indvars.iv263278
-  %46 = load i8, ptr %arrayidx253, align 1
-  %47 = and i8 %46, 1
-  %arrayidx261 = getelementptr inbounds [4 x i8], ptr %m_linearSpringStiffnessLimited, i64 0, i64 %indvars.iv263278
-  store i8 %47, ptr %arrayidx261, align 1
-  %arrayidx267 = getelementptr inbounds [3 x i8], ptr %m_springDampingLimited265, i64 0, i64 %indvars.iv263278
-  %48 = load i8, ptr %arrayidx267, align 1
-  %49 = and i8 %48, 1
-  %arrayidx275 = getelementptr inbounds [4 x i8], ptr %m_linearSpringDampingLimited, i64 0, i64 %indvars.iv263278
-  store i8 %49, ptr %arrayidx275, align 1
-  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263278, 1
-  %cmp206.not = icmp eq i64 %indvars.iv.next264, 3
+  %indvars.iv265280 = phi i64 [ 0, %for.cond203.preheader ], [ %indvars.iv.next266, %cond.end271 ]
+  %arrayidx211 = getelementptr inbounds [3 x i8], ptr %m_enableMotor209, i64 0, i64 %indvars.iv265280
+  %45 = load i8, ptr %arrayidx211, align 1
+  %46 = and i8 %45, 1
+  %arrayidx219 = getelementptr inbounds [4 x i8], ptr %m_linearEnableMotor, i64 0, i64 %indvars.iv265280
+  store i8 %46, ptr %arrayidx219, align 1
+  %arrayidx225 = getelementptr inbounds [3 x i8], ptr %m_servoMotor223, i64 0, i64 %indvars.iv265280
+  %47 = load i8, ptr %arrayidx225, align 1
+  %48 = and i8 %47, 1
+  %arrayidx233 = getelementptr inbounds [4 x i8], ptr %m_linearServoMotor, i64 0, i64 %indvars.iv265280
+  store i8 %48, ptr %arrayidx233, align 1
+  %arrayidx239 = getelementptr inbounds [3 x i8], ptr %m_enableSpring237, i64 0, i64 %indvars.iv265280
+  %49 = load i8, ptr %arrayidx239, align 1
+  %50 = and i8 %49, 1
+  %arrayidx247 = getelementptr inbounds [4 x i8], ptr %m_linearEnableSpring, i64 0, i64 %indvars.iv265280
+  store i8 %50, ptr %arrayidx247, align 1
+  %arrayidx253 = getelementptr inbounds [3 x i8], ptr %m_springStiffnessLimited251, i64 0, i64 %indvars.iv265280
+  %51 = load i8, ptr %arrayidx253, align 1
+  %52 = and i8 %51, 1
+  %arrayidx261 = getelementptr inbounds [4 x i8], ptr %m_linearSpringStiffnessLimited, i64 0, i64 %indvars.iv265280
+  store i8 %52, ptr %arrayidx261, align 1
+  %arrayidx267 = getelementptr inbounds [3 x i8], ptr %m_springDampingLimited265, i64 0, i64 %indvars.iv265280
+  %53 = load i8, ptr %arrayidx267, align 1
+  %54 = and i8 %53, 1
+  %arrayidx275 = getelementptr inbounds [4 x i8], ptr %m_linearSpringDampingLimited, i64 0, i64 %indvars.iv265280
+  store i8 %54, ptr %arrayidx275, align 1
+  %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265280, 1
+  %cmp206.not = icmp eq i64 %indvars.iv.next266, 3
   br i1 %cmp206.not, label %for.end278, label %cond.end271
 
 for.end278:                                       ; preds = %cond.end271
-  %arrayidx219244 = getelementptr inbounds i8, ptr %dataBuffer, i64 403
-  store i8 0, ptr %arrayidx219244, align 1
+  %arrayidx219245 = getelementptr inbounds i8, ptr %dataBuffer, i64 403
+  store i8 0, ptr %arrayidx219245, align 1
   %arrayidx233.c = getelementptr inbounds i8, ptr %dataBuffer, i64 407
   store i8 0, ptr %arrayidx233.c, align 1
-  %arrayidx247250 = getelementptr inbounds i8, ptr %dataBuffer, i64 411
-  store i8 0, ptr %arrayidx247250, align 1
+  %arrayidx247251 = getelementptr inbounds i8, ptr %dataBuffer, i64 411
+  store i8 0, ptr %arrayidx247251, align 1
   %arrayidx261.c = getelementptr inbounds i8, ptr %dataBuffer, i64 415
   store i8 0, ptr %arrayidx261.c, align 1
-  %arrayidx275274 = getelementptr inbounds i8, ptr %dataBuffer, i64 419
-  store i8 0, ptr %arrayidx275274, align 1
+  %arrayidx275276 = getelementptr inbounds i8, ptr %dataBuffer, i64 419
+  store i8 0, ptr %arrayidx275276, align 1
   %m_rotateOrder = getelementptr inbounds i8, ptr %this, i64 1256
-  %50 = load i32, ptr %m_rotateOrder, align 8
+  %55 = load i32, ptr %m_rotateOrder, align 8
   %m_rotateOrder279 = getelementptr inbounds i8, ptr %dataBuffer, i64 652
-  store i32 %50, ptr %m_rotateOrder279, align 4
+  store i32 %55, ptr %m_rotateOrder279, align 4
   %m_padding1 = getelementptr inbounds i8, ptr %dataBuffer, i64 420
   store i32 0, ptr %m_padding1, align 4
   ret ptr @.str

@@ -1845,7 +1845,9 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
 
 for.body.i61:                                     ; preds = %for.inc.i64, %cond.end.i
   %indvars.iv.i62 = phi i64 [ 0, %cond.end.i ], [ %indvars.iv.next.i65, %for.inc.i64 ]
-  %p.i = getelementptr inbounds %struct._HufDec, ptr %add.ptr40, i64 %indvars.iv.i62, i32 2
+  %p.i.idx = shl nsw i64 %indvars.iv.i62, 4
+  %p.i.offs = or disjoint i64 %p.i.idx, 8
+  %p.i = getelementptr inbounds i8, ptr %add.ptr40, i64 %p.i.offs
   %70 = load ptr, ptr %p.i, align 8
   %tobool2.not.i = icmp eq ptr %70, null
   br i1 %tobool2.not.i, label %for.inc.i64, label %if.then.i63

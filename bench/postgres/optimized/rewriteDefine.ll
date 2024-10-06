@@ -658,16 +658,16 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %9, label %.lr.ph154, label %._crit_edge
 
-.lr.ph154:                                        ; preds = %.lr.ph.split.split, %112
-  %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph.split.split ]
-  %.05798152 = phi i32 [ %.1, %112 ], [ 0, %.lr.ph.split.split ]
+.lr.ph154:                                        ; preds = %.lr.ph.split.split, %113
+  %indvars.iv = phi i64 [ %indvars.iv.next, %113 ], [ 0, %.lr.ph.split.split ]
+  %.05798152 = phi i32 [ %.1, %113 ], [ 0, %.lr.ph.split.split ]
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 42
   %53 = load i8, ptr %52, align 2
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %112, label %55
+  br i1 %54, label %113, label %55
 
 55:                                               ; preds = %.lr.ph154
   %56 = add i32 %.05798152, 1
@@ -708,7 +708,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   %75 = getelementptr inbounds i8, ptr %64, i64 68
   %76 = load i32, ptr %75, align 4
   %.not67 = icmp eq i32 %76, %74
-  br i1 %.not67, label %93, label %.split109
+  br i1 %.not67, label %94, label %.split109
 
 .split104.us:                                     ; preds = %27
   %77 = getelementptr inbounds i8, ptr %12, i64 24
@@ -730,84 +730,86 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   %.us-phi111 = phi i32 [ %74, %.split109 ], [ %34, %31 ]
   %.us-phi112 = phi ptr [ %83, %.split109 ], [ %23, %31 ]
   %.us-phi113 = phi i32 [ %56, %.split109 ], [ %17, %31 ]
-  %85 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %84, i32 2
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 @errcode(i32 noundef 117833860) #5
+  %.idx = mul nsw i64 %84, 104
+  %85 = getelementptr i8, ptr %7, i64 %.idx
+  %86 = getelementptr i8, ptr %85, i64 68
+  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %87)
+  %88 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.31..str.32 = select i1 %2, ptr @.str.31, ptr @.str.32
   %.str.33..str.34 = select i1 %2, ptr @.str.33, ptr @.str.34
-  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.31..str.32, i32 noundef %.us-phi113, ptr noundef nonnull %.us-phi112) #5
-  %89 = tail call ptr @format_type_be(i32 noundef %.us-phi111) #5
-  %90 = load i32, ptr %85, align 4
-  %91 = tail call ptr @format_type_be(i32 noundef %90) #5
-  %92 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34, ptr noundef %89, ptr noundef %91) #5
+  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.31..str.32, i32 noundef %.us-phi113, ptr noundef nonnull %.us-phi112) #5
+  %90 = tail call ptr @format_type_be(i32 noundef %.us-phi111) #5
+  %91 = load i32, ptr %86, align 4
+  %92 = tail call ptr @format_type_be(i32 noundef %91) #5
+  %93 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34, ptr noundef %90, ptr noundef %92) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 595, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
-93:                                               ; preds = %71
-  %94 = load ptr, ptr %72, align 8
-  %95 = tail call i32 @exprTypmod(ptr noundef %94) #5
-  %96 = getelementptr inbounds i8, ptr %64, i64 80
-  %97 = load i32, ptr %96, align 4
-  %.not68 = icmp eq i32 %97, %95
-  br i1 %.not68, label %112, label %98
+94:                                               ; preds = %71
+  %95 = load ptr, ptr %72, align 8
+  %96 = tail call i32 @exprTypmod(ptr noundef %95) #5
+  %97 = getelementptr inbounds i8, ptr %64, i64 80
+  %98 = load i32, ptr %97, align 4
+  %.not68 = icmp eq i32 %98, %96
+  br i1 %.not68, label %113, label %99
 
-98:                                               ; preds = %93
-  %99 = icmp ne i32 %97, -1
-  %100 = icmp ne i32 %95, -1
-  %or.cond = and i1 %100, %99
-  br i1 %or.cond, label %.split115, label %112
+99:                                               ; preds = %94
+  %100 = icmp ne i32 %98, -1
+  %101 = icmp ne i32 %96, -1
+  %or.cond = and i1 %101, %100
+  br i1 %or.cond, label %.split115, label %113
 
-.split115:                                        ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %64, i64 4
+.split115:                                        ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %64, i64 4
   br label %.split115.us
 
 .split115.us:                                     ; preds = %42, %.split115
   %.us-phi116 = phi ptr [ %64, %.split115 ], [ %22, %42 ]
-  %.us-phi118 = phi i32 [ %95, %.split115 ], [ %39, %42 ]
+  %.us-phi118 = phi i32 [ %96, %.split115 ], [ %39, %42 ]
   %.us-phi119 = phi i32 [ %74, %.split115 ], [ %34, %42 ]
-  %.us-phi120 = phi ptr [ %101, %.split115 ], [ %23, %42 ]
+  %.us-phi120 = phi ptr [ %102, %.split115 ], [ %23, %42 ]
   %.us-phi121 = phi i32 [ %56, %.split115 ], [ %17, %42 ]
-  %102 = getelementptr inbounds i8, ptr %.us-phi116, i64 68
-  %103 = getelementptr inbounds i8, ptr %.us-phi116, i64 80
-  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %104)
-  %105 = tail call i32 @errcode(i32 noundef 117833860) #5
+  %103 = getelementptr inbounds i8, ptr %.us-phi116, i64 68
+  %104 = getelementptr inbounds i8, ptr %.us-phi116, i64 80
+  %105 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %105)
+  %106 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.35..str.36 = select i1 %2, ptr @.str.35, ptr @.str.36
   %.str.33..str.34260 = select i1 %2, ptr @.str.33, ptr @.str.34
-  %106 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.35..str.36, i32 noundef %.us-phi121, ptr noundef nonnull %.us-phi120) #5
-  %107 = tail call ptr @format_type_with_typemod(i32 noundef %.us-phi119, i32 noundef %.us-phi118) #5
-  %108 = load i32, ptr %102, align 4
+  %107 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.35..str.36, i32 noundef %.us-phi121, ptr noundef nonnull %.us-phi120) #5
+  %108 = tail call ptr @format_type_with_typemod(i32 noundef %.us-phi119, i32 noundef %.us-phi118) #5
   %109 = load i32, ptr %103, align 4
-  %110 = tail call ptr @format_type_with_typemod(i32 noundef %108, i32 noundef %109) #5
-  %111 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34260, ptr noundef %107, ptr noundef %110) #5
+  %110 = load i32, ptr %104, align 4
+  %111 = tail call ptr @format_type_with_typemod(i32 noundef %109, i32 noundef %110) #5
+  %112 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34260, ptr noundef %108, ptr noundef %111) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 621, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
-112:                                              ; preds = %93, %98, %.lr.ph154
-  %.1 = phi i32 [ %.05798152, %.lr.ph154 ], [ %56, %98 ], [ %56, %93 ]
+113:                                              ; preds = %94, %99, %.lr.ph154
+  %.1 = phi i32 [ %.05798152, %.lr.ph154 ], [ %56, %99 ], [ %56, %94 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %113 = load i32, ptr %5, align 4
-  %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph154, label %._crit_edge
+  %114 = load i32, ptr %5, align 4
+  %115 = sext i32 %114 to i64
+  %116 = icmp slt i64 %indvars.iv.next, %115
+  br i1 %116, label %.lr.ph154, label %._crit_edge
 
-._crit_edge:                                      ; preds = %112, %45, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
-  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ %.1.us, %45 ], [ %.1, %112 ]
-  %116 = load i32, ptr %1, align 8
-  %.not65 = icmp eq i32 %.057.lcssa, %116
-  br i1 %.not65, label %121, label %117
+._crit_edge:                                      ; preds = %113, %45, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
+  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ %.1.us, %45 ], [ %.1, %113 ]
+  %117 = load i32, ptr %1, align 8
+  %.not65 = icmp eq i32 %.057.lcssa, %117
+  br i1 %.not65, label %122, label %118
 
-117:                                              ; preds = %._crit_edge
-  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 @errcode(i32 noundef 117833860) #5
+118:                                              ; preds = %._crit_edge
+  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %119)
+  %120 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.37..str.38 = select i1 %2, ptr @.str.37, ptr @.str.38
-  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.37..str.38) #5
+  %121 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.37..str.38) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 629, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
-121:                                              ; preds = %._crit_edge
+122:                                              ; preds = %._crit_edge
   ret void
 }
 

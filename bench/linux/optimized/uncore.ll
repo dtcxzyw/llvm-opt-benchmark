@@ -561,11 +561,12 @@ define dso_local void @uncore_put_constraint(ptr noundef %0, ptr nocapture nound
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 488
-  %11 = getelementptr inbounds i8, ptr %1, i64 424
-  %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr [0 x %struct.intel_uncore_extra_reg], ptr %10, i64 0, i64 %13, i32 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 424
+  %11 = load i32, ptr %10, align 8
+  %12 = sext i32 %11 to i64
+  %.idx = mul nsw i64 %12, 40
+  %13 = getelementptr i8, ptr %0, i64 520
+  %14 = getelementptr i8, ptr %13, i64 %.idx
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, ptr elementtype(i32) %14) #19, !srcloc !18
   store i32 0, ptr %6, align 4
   br label %15

@@ -2236,7 +2236,9 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOSENS_10ByteStreamE
 
 87:                                               ; preds = %.loopexit.us
   %88 = sext i32 %84 to i64
-  %89 = getelementptr inbounds [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %3, i64 0, i64 %88, i32 1
+  %.idx.us = shl nsw i64 %88, 4
+  %.offs.us = or disjoint i64 %.idx.us, 4
+  %89 = getelementptr inbounds i8, ptr %3, i64 %.offs.us
   store i32 %71, ptr %89, align 4, !tbaa !211
   %90 = add nuw nsw i32 %58, 1
   %91 = icmp eq i32 %90, %.fr31
@@ -2399,7 +2401,9 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOSENS_10ByteStreamE
 
 192:                                              ; preds = %.loopexit
   %193 = sext i32 %139 to i64
-  %194 = getelementptr inbounds [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %3, i64 0, i64 %193, i32 1
+  %.idx = shl nsw i64 %193, 4
+  %.offs = or disjoint i64 %.idx, 4
+  %194 = getelementptr inbounds i8, ptr %3, i64 %.offs
   store i32 %121, ptr %194, align 4, !tbaa !211
   %195 = add nuw nsw i32 %108, 1
   %196 = icmp eq i32 %195, %.fr31

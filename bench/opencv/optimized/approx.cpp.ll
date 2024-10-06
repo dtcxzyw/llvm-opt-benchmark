@@ -335,7 +335,9 @@ _ZN2cv10AutoBufferI9_CvPtInfoLm50EEC2Em.exit:     ; preds = %4, %31
   %118 = sext i8 %117 to i32
   %119 = add nsw i32 %113, %118
   store i32 %119, ptr %89, align 4
-  %120 = getelementptr inbounds [8 x [2 x i8]], ptr %91, i64 0, i64 %115, i64 1
+  %.idx = shl nsw i64 %115, 1
+  %.offs = or disjoint i64 %.idx, 1
+  %120 = getelementptr inbounds i8, ptr %91, i64 %.offs
   %121 = load i8, ptr %120, align 1
   %122 = sext i8 %121 to i32
   %123 = add nsw i32 %112, %122

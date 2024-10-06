@@ -1243,14 +1243,14 @@ trace_ide_ctrl_write.exit:                        ; preds = %entry, %land.lhs.tr
   br i1 %or.cond, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %trace_ide_ctrl_write.exit
-  %status = getelementptr i8, ptr %opaque, i64 801
-  %8 = load i8, ptr %status, align 1
+  %invariant.gep = getelementptr i8, ptr %opaque, i64 801
+  %8 = load i8, ptr %invariant.gep, align 1
   %9 = or i8 %8, -128
-  store i8 %9, ptr %status, align 1
-  %status.c = getelementptr i8, ptr %opaque, i64 1785
-  %10 = load i8, ptr %status.c, align 1
+  store i8 %9, ptr %invariant.gep, align 1
+  %gep.c = getelementptr i8, ptr %opaque, i64 1785
+  %10 = load i8, ptr %gep.c, align 1
   %11 = or i8 %10, -128
-  store i8 %11, ptr %status.c, align 1
+  store i8 %11, ptr %gep.c, align 1
   %call = tail call ptr @qemu_get_aio_context() #17
   tail call void @replay_bh_schedule_oneshot_event(ptr noundef %call, ptr noundef nonnull @ide_bus_perform_srst, ptr noundef nonnull %opaque) #17
   br label %if.end

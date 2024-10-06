@@ -678,14 +678,15 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %.038 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
   %.03637 = phi i64 [ 16, %.lr.ph ], [ %12, %5 ]
   %6 = sext i32 %.038 to i64
-  %7 = getelementptr [0 x %struct.MVNDistinctItem], ptr %4, i64 0, i64 %6, i32 1
+  %.idx = mul nsw i64 %6, 24
+  %7 = getelementptr i8, ptr %4, i64 %.idx
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 1

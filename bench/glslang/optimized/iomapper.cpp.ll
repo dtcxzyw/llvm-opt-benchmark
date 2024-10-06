@@ -4901,7 +4901,7 @@ define noundef zeroext i1 @_ZN7glslang9TIoMapper8addStageE11EShLanguageRNS_13TIn
 
 .lr.ph:                                           ; preds = %36
   %40 = getelementptr inbounds i8, ptr %2, i64 892
-  %41 = getelementptr inbounds i8, ptr %2, i64 920
+  %41 = getelementptr inbounds i8, ptr %2, i64 960
   br label %42
 
 42:                                               ; preds = %45, %.lr.ph
@@ -4912,7 +4912,8 @@ define noundef zeroext i1 @_ZN7glslang9TIoMapper8addStageE11EShLanguageRNS_13TIn
   br i1 %.not109, label %45, label %._crit_edge.thread
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds [6 x %"class.std::map"], ptr %41, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 1, i32 1
+  %.idx.i = mul nuw nsw i64 %indvars.iv, 48
+  %46 = getelementptr i8, ptr %41, i64 %.idx.i
   %47 = load i64, ptr %46, align 8
   %48 = icmp ne i64 %47, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7062,7 +7063,7 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_
 
 .lr.ph:                                           ; preds = %26
   %36 = getelementptr inbounds i8, ptr %2, i64 892
-  %37 = getelementptr inbounds i8, ptr %2, i64 920
+  %37 = getelementptr inbounds i8, ptr %2, i64 960
   br label %38
 
 38:                                               ; preds = %41, %.lr.ph
@@ -7073,7 +7074,8 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_
   br i1 %.not112, label %41, label %._crit_edge.thread
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds [6 x %"class.std::map"], ptr %37, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 1, i32 1
+  %.idx.i = mul nuw nsw i64 %indvars.iv, 48
+  %42 = getelementptr i8, ptr %37, i64 %.idx.i
   %43 = load i64, ptr %42, align 8
   %44 = icmp ne i64 %43, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

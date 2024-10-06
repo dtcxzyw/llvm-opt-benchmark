@@ -1493,8 +1493,9 @@ define dso_local i32 @intel_fb_xy_to_linear(i32 noundef %0, i32 noundef %1, ptr 
   %11 = getelementptr [4 x i8], ptr %9, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 296
-  %15 = getelementptr [4 x %struct.i915_color_plane_view], ptr %14, i64 0, i64 %10, i32 3
+  %.idx = mul nsw i64 %10, 20
+  %14 = getelementptr i8, ptr %2, i64 308
+  %15 = getelementptr i8, ptr %14, i64 %.idx
   %16 = load i32, ptr %15, align 4
   %17 = mul i32 %16, %1
   %18 = mul i32 %0, %13

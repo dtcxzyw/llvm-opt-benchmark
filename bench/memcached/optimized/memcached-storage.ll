@@ -1057,7 +1057,9 @@ if.then35:                                        ; preds = %if.else32
   %iovec_data = getelementptr inbounds i8, ptr %0, i64 128
   %22 = load i32, ptr %iovec_data, align 8
   %idxprom38 = zext i32 %22 to i64
-  %iov_len40 = getelementptr inbounds [4 x %struct.iovec], ptr %iov37, i64 0, i64 %idxprom38, i32 1
+  %iov_len40.idx = shl nuw nsw i64 %idxprom38, 4
+  %iov_len40.offs = or disjoint i64 %iov_len40.idx, 8
+  %iov_len40 = getelementptr inbounds i8, ptr %iov37, i64 %iov_len40.offs
   %23 = load i64, ptr %iov_len40, align 8
   %conv41 = zext i8 %21 to i64
   %add = add i64 %23, %conv41
@@ -1075,12 +1077,16 @@ if.then35:                                        ; preds = %if.else32
   store i32 %call57, ptr %bodylen, align 8
   %26 = load i32, ptr %iovec_data, align 8
   %idxprom61 = zext i32 %26 to i64
-  %iov_len63 = getelementptr inbounds [4 x %struct.iovec], ptr %iov37, i64 0, i64 %idxprom61, i32 1
+  %iov_len63.idx = shl nuw nsw i64 %idxprom61, 4
+  %iov_len63.offs = or disjoint i64 %iov_len63.idx, 8
+  %iov_len63 = getelementptr inbounds i8, ptr %iov37, i64 %iov_len63.offs
   store i64 0, ptr %iov_len63, align 8
   %27 = load i32, ptr %iovec_data, align 8
   %sub66 = add i32 %27, -1
   %idxprom67 = zext i32 %sub66 to i64
-  %iov_len69 = getelementptr inbounds [4 x %struct.iovec], ptr %iov37, i64 0, i64 %idxprom67, i32 1
+  %iov_len69.idx = shl nuw nsw i64 %idxprom67, 4
+  %iov_len69.offs = or disjoint i64 %iov_len69.idx, 8
+  %iov_len69 = getelementptr inbounds i8, ptr %iov37, i64 %iov_len69.offs
   store i64 0, ptr %iov_len69, align 8
   %chunked_data_iov = getelementptr inbounds i8, ptr %1, i64 117
   store i8 0, ptr %chunked_data_iov, align 1

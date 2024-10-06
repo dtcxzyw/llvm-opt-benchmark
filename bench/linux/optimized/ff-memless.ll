@@ -240,12 +240,13 @@ define internal void @ml_ff_set_gain(ptr nocapture noundef readonly %0, i16 noun
   %7 = zext i16 %1 to i32
   %8 = getelementptr inbounds i8, ptr %6, i64 776
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr i8, ptr %6, i64 16
   br label %10
 
 10:                                               ; preds = %10, %2
   %11 = phi i64 [ 0, %2 ], [ %13, %10 ]
-  %12 = getelementptr [16 x %struct.ml_effect_state], ptr %9, i64 0, i64 %11, i32 1
+  %.idx = mul nuw nsw i64 %11, 48
+  %12 = getelementptr i8, ptr %9, i64 %.idx
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 1) #9, !srcloc !9
   %13 = add nuw nsw i64 %11, 1
   %14 = icmp eq i64 %13, 16

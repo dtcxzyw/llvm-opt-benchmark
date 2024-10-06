@@ -928,7 +928,12 @@ for.body.lr.ph:                                   ; preds = %path_appendnew.exit
   %conv35 = select i1 %tobool.not, i8 68, i8 77
   %conv3571 = select i1 %tobool.not, i8 68, i8 65
   %wide.trip.count95 = zext nneg i32 %nparent to i64
-  br i1 %tobool25.not, label %for.body.us, label %for.body
+  br i1 %tobool25.not, label %for.body.us, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %for.body.lr.ph
+  %invariant.gep = getelementptr inbounds i8, ptr %p.1.i, i64 64
+  %invariant.gep111 = getelementptr inbounds i8, ptr %p.1.i, i64 96
+  br label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %for.body.us ], [ 0, %for.body.lr.ph ]
@@ -947,8 +952,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %exitcond96.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count95
   br i1 %exitcond96.not, label %for.end, label %for.body.us, !llvm.loop !19
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end50
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end50 ], [ 0, %for.body.lr.ph ]
+for.body:                                         ; preds = %for.body.preheader, %if.end50
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end50 ]
   %mode29 = getelementptr inbounds %struct.tree_desc, ptr %tp, i64 %indvars.iv, i32 1, i32 3
   %18 = load i32, ptr %mode29, align 4
   %tobool31.not = icmp sgt i32 %18, -1
@@ -970,14 +975,18 @@ if.else48:                                        ; preds = %for.body
 if.end50:                                         ; preds = %if.else48, %if.then39
   %oid_i.0 = phi ptr [ %entry42, %if.then39 ], [ %call49, %if.else48 ]
   %mode_i.0 = phi i32 [ %19, %if.then39 ], [ 0, %if.else48 ]
-  %mode54 = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i, i64 0, i64 %indvars.iv, i32 1
+  %mode54.idx = mul nuw nsw i64 %indvars.iv, 72
+  %mode54.offs = or disjoint i64 %mode54.idx, 4
+  %mode54 = getelementptr inbounds i8, ptr %parent.i, i64 %mode54.offs
   store i32 %mode_i.0, ptr %mode54, align 4
-  %oid58 = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i, i64 0, i64 %indvars.iv, i32 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid58, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid_i.0, i64 32, i1 false)
+  %oid58.idx = mul nuw nsw i64 %indvars.iv, 72
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %oid58.idx
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gep, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid_i.0, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid_i.0, i64 32
   %20 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i, i64 0, i64 %indvars.iv, i32 2, i32 1
-  store i32 %20, ptr %algo3.i, align 4
+  %algo3.i.idx = mul nuw nsw i64 %indvars.iv, 72
+  %gep112 = getelementptr inbounds i8, ptr %invariant.gep111, i64 %algo3.i.idx
+  store i32 %20, ptr %gep112, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count95
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
@@ -1020,14 +1029,14 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp8185, label %for.body83.lr.ph, label %for.end109
 
 for.body83.lr.ph:                                 ; preds = %do.end.thread, %do.end
-  %parents_oid.0107 = phi ptr [ %call78, %do.end.thread ], [ %23, %do.end ]
+  %parents_oid.0108 = phi ptr [ %call78, %do.end.thread ], [ %23, %do.end ]
   %tobool85.not = icmp eq ptr %tp, null
   %24 = zext nneg i32 %nparent to i64
   br i1 %tobool85.not, label %for.body83.us.preheader, label %for.body83
 
 for.body83.us.preheader:                          ; preds = %for.body83.lr.ph
   %25 = shl nuw nsw i64 %24, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %parents_oid.0107, i8 0, i64 %25, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %parents_oid.0108, i8 0, i64 %25, i1 false)
   br label %for.end109
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
@@ -1038,14 +1047,14 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   %tobool92.not = icmp sgt i32 %.fr, -1
   %entry100 = getelementptr inbounds %struct.tree_desc, ptr %tp, i64 %indvars.iv97, i32 1
   %spec.select = select i1 %tobool92.not, ptr %entry100, ptr null
-  %arrayidx106 = getelementptr inbounds ptr, ptr %parents_oid.0107, i64 %indvars.iv97
+  %arrayidx106 = getelementptr inbounds ptr, ptr %parents_oid.0108, i64 %indvars.iv97
   store ptr %spec.select, ptr %arrayidx106, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %24
   br i1 %exitcond101.not, label %for.end109, label %for.body83, !llvm.loop !20
 
 for.end109:                                       ; preds = %for.body83, %for.body83.us.preheader, %do.end
-  %parents_oid.0108 = phi ptr [ %parents_oid.0107, %for.body83.us.preheader ], [ %23, %do.end ], [ %parents_oid.0107, %for.body83 ]
+  %parents_oid.0109 = phi ptr [ %parents_oid.0108, %for.body83.us.preheader ], [ %23, %do.end ], [ %parents_oid.0108, %for.body83 ]
   %conv110 = sext i32 %pathlen.0 to i64
   tail call void @strbuf_add(ptr noundef %base, ptr noundef %path.0, i64 noundef %conv110) #10
   %27 = load i64, ptr %base, align 8
@@ -1077,11 +1086,11 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %arrayidx3.i = getelementptr inbounds i8, ptr %31, i64 %32
   store i8 0, ptr %arrayidx3.i, align 1
   %add = add nsw i32 %depth, 1
-  %call111 = call fastcc ptr @ll_diff_tree_paths(ptr noundef %p.addr.077, ptr noundef %oid.0, ptr noundef %parents_oid.0108, i32 noundef %nparent, ptr noundef nonnull %base, ptr noundef %opt, i32 noundef %add)
+  %call111 = call fastcc ptr @ll_diff_tree_paths(ptr noundef %p.addr.077, ptr noundef %oid.0, ptr noundef %parents_oid.0109, i32 noundef %nparent, ptr noundef nonnull %base, ptr noundef %opt, i32 noundef %add)
   br i1 %cmp71, label %if.end121, label %if.else118
 
 if.else118:                                       ; preds = %strbuf_addch.exit
-  call void @free(ptr noundef %parents_oid.0108) #10
+  call void @free(ptr noundef %parents_oid.0109) #10
   br label %if.end121
 
 if.end121:                                        ; preds = %strbuf_addch.exit, %if.else118, %if.end68

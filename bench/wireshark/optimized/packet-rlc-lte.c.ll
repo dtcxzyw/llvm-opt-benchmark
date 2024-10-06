@@ -3639,12 +3639,12 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %.off307 = add i16 %109, -7
   %switch308 = icmp ult i16 %.off307, 2
   %.pre = add nuw nsw i32 %., %94
-  %.pre313 = sub nsw i32 %.pre, %99
+  %.pre314 = sub nsw i32 %.pre, %99
   br i1 %switch308, label %._crit_edge, label %110
 
 110:                                              ; preds = %108
   %111 = add nsw i32 %., -1
-  %112 = and i32 %.pre313, %111
+  %112 = and i32 %.pre314, %111
   %113 = icmp ult i32 %112, 10
   br i1 %113, label %._crit_edge, label %136
 
@@ -3654,7 +3654,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %115 = getelementptr inbounds i8, ptr %79, i64 24
   store i32 4, ptr %115, align 4
   %116 = add nuw nsw i32 %., 65535
-  %117 = and i32 %.pre313, %116
+  %117 = and i32 %.pre314, %116
   %118 = trunc i32 %117 to i16
   %119 = getelementptr inbounds i8, ptr %10, i64 2104
   store i16 %118, ptr %119, align 8
@@ -3743,16 +3743,17 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %172 = getelementptr [100 x %struct.rlc_segment], ptr %170, i64 0, i64 %171
   store i32 %165, ptr %172, align 8
   %173 = load ptr, ptr %157, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 8
-  %175 = getelementptr [100 x %struct.rlc_segment], ptr %174, i64 0, i64 %171, i32 1
+  %.idx.i = mul nuw nsw i64 %171, 24
+  %174 = getelementptr i8, ptr %173, i64 12
+  %175 = getelementptr i8, ptr %174, i64 %.idx.i
   store i16 %7, ptr %175, align 4
   %176 = load ptr, ptr %157, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
-  %178 = getelementptr [100 x %struct.rlc_segment], ptr %177, i64 0, i64 %171, i32 2
+  %177 = getelementptr i8, ptr %176, i64 16
+  %178 = getelementptr i8, ptr %177, i64 %.idx.i
   store ptr %168, ptr %178, align 8
   %179 = load ptr, ptr %157, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
-  %181 = getelementptr [100 x %struct.rlc_segment], ptr %180, i64 0, i64 %171, i32 3
+  %180 = getelementptr i8, ptr %179, i64 24
+  %181 = getelementptr i8, ptr %180, i64 %.idx.i
   store i16 %5, ptr %181, align 8
   %182 = load ptr, ptr %157, align 8
   %183 = load i16, ptr %182, align 8
@@ -3955,7 +3956,7 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
 
 303:                                              ; preds = %300
   store ptr null, ptr %298, align 8
-  br label %reassembly_add_segment.exit310
+  br label %reassembly_add_segment.exit311
 
 304:                                              ; preds = %300
   %305 = zext i16 %4 to i32
@@ -3969,37 +3970,38 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
   %313 = getelementptr [100 x %struct.rlc_segment], ptr %311, i64 0, i64 %312
   store i32 %306, ptr %313, align 8
   %314 = load ptr, ptr %298, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 8
-  %316 = getelementptr [100 x %struct.rlc_segment], ptr %315, i64 0, i64 %312, i32 1
+  %.idx.i310 = mul nuw nsw i64 %312, 24
+  %315 = getelementptr i8, ptr %314, i64 12
+  %316 = getelementptr i8, ptr %315, i64 %.idx.i310
   store i16 %7, ptr %316, align 4
   %317 = load ptr, ptr %298, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 8
-  %319 = getelementptr [100 x %struct.rlc_segment], ptr %318, i64 0, i64 %312, i32 2
+  %318 = getelementptr i8, ptr %317, i64 16
+  %319 = getelementptr i8, ptr %318, i64 %.idx.i310
   store ptr %309, ptr %319, align 8
   %320 = load ptr, ptr %298, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 8
-  %322 = getelementptr [100 x %struct.rlc_segment], ptr %321, i64 0, i64 %312, i32 3
+  %321 = getelementptr i8, ptr %320, i64 24
+  %322 = getelementptr i8, ptr %321, i64 %.idx.i310
   store i16 %5, ptr %322, align 8
   %323 = load ptr, ptr %298, align 8
   %324 = load i16, ptr %323, align 8
   %325 = add i16 %324, 1
   store i16 %325, ptr %323, align 8
-  br label %reassembly_add_segment.exit310
+  br label %reassembly_add_segment.exit311
 
-reassembly_add_segment.exit310:                   ; preds = %303, %304
+reassembly_add_segment.exit311:                   ; preds = %303, %304
   %.not291 = icmp eq i32 %8, 0
   %326 = icmp ugt i8 %3, 1
   %or.cond5 = or i1 %326, %295
   %or.cond306 = and i1 %.not291, %or.cond5
   br i1 %or.cond306, label %327, label %328
 
-327:                                              ; preds = %reassembly_add_segment.exit310
+327:                                              ; preds = %reassembly_add_segment.exit311
   %.val309 = load i32, ptr %293, align 4
   call fastcc void @reassembly_record(ptr noundef nonnull %.0262, i32 %.val309, i16 noundef zeroext %7, ptr noundef %2)
   store ptr null, ptr %298, align 8
   br label %328
 
-328:                                              ; preds = %reassembly_add_segment.exit310, %327, %283
+328:                                              ; preds = %reassembly_add_segment.exit311, %327, %283
   br i1 %295, label %343, label %329
 
 329:                                              ; preds = %328
@@ -4167,8 +4169,8 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %409
-  %.sink315 = phi ptr [ %79, %409 ], [ %43, %44 ]
-  %434 = getelementptr inbounds i8, ptr %.sink315, i64 24
+  %.sink316 = phi ptr [ %79, %409 ], [ %43, %44 ]
+  %434 = getelementptr inbounds i8, ptr %.sink316, i64 24
   %435 = load i32, ptr %434, align 4
   br label %436
 
@@ -4243,14 +4245,15 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %7, i64 8
+  %50 = getelementptr i8, ptr %7, i64 24
   %wide.trip.count.i = zext i16 %49 to i64
   br label %51
 
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
   %.02729.i = phi i32 [ 0, %.lr.ph.i ], [ %55, %51 ]
-  %52 = getelementptr [100 x %struct.rlc_segment], ptr %50, i64 0, i64 %indvars.iv.i, i32 3
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
+  %52 = getelementptr i8, ptr %50, i64 %.idx.i
   %53 = load i16, ptr %52, align 8
   %54 = zext i16 %53 to i32
   %55 = add i32 %.02729.i, %54
@@ -4565,77 +4568,78 @@ reassembly_get_reassembled_tvb.exit:              ; preds = %62, %._crit_edge.i
 196:                                              ; preds = %192
   %197 = load i16, ptr %7, align 8
   %.not.i152 = icmp eq i16 %197, 0
-  br i1 %.not.i152, label %._crit_edge.i160, label %.lr.ph.i153
+  br i1 %.not.i152, label %._crit_edge.i161, label %.lr.ph.i153
 
 .lr.ph.i153:                                      ; preds = %196
-  %198 = getelementptr inbounds i8, ptr %7, i64 8
+  %198 = getelementptr i8, ptr %7, i64 24
   %wide.trip.count.i154 = zext i16 %197 to i64
   br label %199
 
 199:                                              ; preds = %199, %.lr.ph.i153
-  %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.i153 ], [ %indvars.iv.next.i157, %199 ]
+  %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.i153 ], [ %indvars.iv.next.i158, %199 ]
   %.02729.i156 = phi i32 [ 0, %.lr.ph.i153 ], [ %203, %199 ]
-  %200 = getelementptr [100 x %struct.rlc_segment], ptr %198, i64 0, i64 %indvars.iv.i155, i32 3
+  %.idx.i157 = mul nuw nsw i64 %indvars.iv.i155, 24
+  %200 = getelementptr i8, ptr %198, i64 %.idx.i157
   %201 = load i16, ptr %200, align 8
   %202 = zext i16 %201 to i32
   %203 = add i32 %.02729.i156, %202
-  %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i155, 1
-  %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, %wide.trip.count.i154
-  br i1 %exitcond.not.i158, label %._crit_edge.loopexit.i159, label %199, !llvm.loop !17
+  %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i155, 1
+  %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i154
+  br i1 %exitcond.not.i159, label %._crit_edge.loopexit.i160, label %199, !llvm.loop !17
 
-._crit_edge.loopexit.i159:                        ; preds = %199
+._crit_edge.loopexit.i160:                        ; preds = %199
   %204 = zext i32 %203 to i64
-  br label %._crit_edge.i160
+  br label %._crit_edge.i161
 
-._crit_edge.i160:                                 ; preds = %._crit_edge.loopexit.i159, %196
-  %.027.lcssa.i161 = phi i64 [ 0, %196 ], [ %204, %._crit_edge.loopexit.i159 ]
+._crit_edge.i161:                                 ; preds = %._crit_edge.loopexit.i160, %196
+  %.027.lcssa.i162 = phi i64 [ 0, %196 ], [ %204, %._crit_edge.loopexit.i160 ]
   %205 = getelementptr inbounds i8, ptr %0, i64 408
   %206 = load ptr, ptr %205, align 8
-  %207 = call noalias ptr @wmem_alloc(ptr noundef %206, i64 noundef %.027.lcssa.i161) #13
+  %207 = call noalias ptr @wmem_alloc(ptr noundef %206, i64 noundef %.027.lcssa.i162) #13
   %208 = load i16, ptr %7, align 8
-  %.not37.i162 = icmp eq i16 %208, 0
-  br i1 %.not37.i162, label %reassembly_get_reassembled_tvb.exit170, label %.lr.ph34.i163
+  %.not37.i163 = icmp eq i16 %208, 0
+  br i1 %.not37.i163, label %reassembly_get_reassembled_tvb.exit171, label %.lr.ph34.i164
 
-.lr.ph34.i163:                                    ; preds = %._crit_edge.i160
+.lr.ph34.i164:                                    ; preds = %._crit_edge.i161
   %209 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count43.i164 = zext i16 %208 to i64
+  %wide.trip.count43.i165 = zext i16 %208 to i64
   br label %210
 
-210:                                              ; preds = %210, %.lr.ph34.i163
-  %indvars.iv40.i165 = phi i64 [ 0, %.lr.ph34.i163 ], [ %indvars.iv.next41.i167, %210 ]
-  %.02831.i166 = phi i32 [ 0, %.lr.ph34.i163 ], [ %220, %210 ]
-  %211 = getelementptr [100 x %struct.rlc_segment], ptr %209, i64 0, i64 %indvars.iv40.i165
+210:                                              ; preds = %210, %.lr.ph34.i164
+  %indvars.iv40.i166 = phi i64 [ 0, %.lr.ph34.i164 ], [ %indvars.iv.next41.i168, %210 ]
+  %.02831.i167 = phi i32 [ 0, %.lr.ph34.i164 ], [ %220, %210 ]
+  %211 = getelementptr [100 x %struct.rlc_segment], ptr %209, i64 0, i64 %indvars.iv40.i166
   %212 = getelementptr inbounds i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %211, i64 16
   %215 = load i16, ptr %214, align 8
   %216 = zext i16 %215 to i32
-  %217 = zext i32 %.02831.i166 to i64
+  %217 = zext i32 %.02831.i167 to i64
   %218 = getelementptr i8, ptr %207, i64 %217
   %219 = zext i16 %215 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %218, ptr align 1 %213, i64 %219, i1 false)
-  %220 = add i32 %.02831.i166, %216
-  %indvars.iv.next41.i167 = add nuw nsw i64 %indvars.iv40.i165, 1
-  %exitcond44.not.i168 = icmp eq i64 %indvars.iv.next41.i167, %wide.trip.count43.i164
-  br i1 %exitcond44.not.i168, label %reassembly_get_reassembled_tvb.exit170, label %210, !llvm.loop !18
+  %220 = add i32 %.02831.i167, %216
+  %indvars.iv.next41.i168 = add nuw nsw i64 %indvars.iv40.i166, 1
+  %exitcond44.not.i169 = icmp eq i64 %indvars.iv.next41.i168, %wide.trip.count43.i165
+  br i1 %exitcond44.not.i169, label %reassembly_get_reassembled_tvb.exit171, label %210, !llvm.loop !18
 
-reassembly_get_reassembled_tvb.exit170:           ; preds = %210, %._crit_edge.i160
-  %.028.lcssa.i169 = phi i32 [ 0, %._crit_edge.i160 ], [ %220, %210 ]
-  %221 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %207, i32 noundef %.028.lcssa.i169, i32 noundef %.028.lcssa.i169) #13
+reassembly_get_reassembled_tvb.exit171:           ; preds = %210, %._crit_edge.i161
+  %.028.lcssa.i170 = phi i32 [ 0, %._crit_edge.i161 ], [ %220, %210 ]
+  %221 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %207, i32 noundef %.028.lcssa.i170, i32 noundef %.028.lcssa.i170) #13
   call void @add_new_data_source(ptr noundef %0, ptr noundef %221, ptr noundef nonnull @.str.352) #13
   store ptr %221, ptr @show_PDU_in_tree.rrc_tvb, align 8
   call fastcc void @reassembly_show_source(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br label %222
 
-222:                                              ; preds = %reassembly_get_reassembled_tvb.exit170, %194
+222:                                              ; preds = %reassembly_get_reassembled_tvb.exit171, %194
   store volatile i32 0, ptr %17, align 4
   call void @except_setup_try(ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @show_PDU_in_tree.catch_spec.350, i64 noundef 1) #13
   %223 = getelementptr inbounds i8, ptr %19, i64 48
   %224 = call i32 @_setjmp(ptr noundef nonnull %223) #14
   %.not138 = icmp eq i32 %224, 0
   %225 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sink213 = select i1 %.not138, ptr null, ptr %225
-  store volatile ptr %.sink213, ptr %16, align 8
+  %.sink215 = select i1 %.not138, ptr null, ptr %225
+  store volatile ptr %.sink215, ptr %16, align 8
   %.0..0..0..0.12 = load volatile i32, ptr %17, align 4
   %226 = and i32 %.0..0..0..0.12, 1
   %.not139 = icmp eq i32 %226, 0
@@ -4703,14 +4707,14 @@ reassembly_get_reassembled_tvb.exit170:           ; preds = %210, %._crit_edge.i
   %249 = load volatile ptr, ptr %248, align 8
   call void @except_free(ptr noundef %249) #13
   %250 = call ptr @except_pop() #13
-  %.not.i171 = icmp eq ptr %29, null
-  br i1 %.not.i171, label %proto_item_set_hidden.exit, label %251
+  %.not.i172 = icmp eq ptr %29, null
+  br i1 %.not.i172, label %proto_item_set_hidden.exit, label %251
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds i8, ptr %29, i64 32
   %253 = load ptr, ptr %252, align 8
-  %.not5.i172 = icmp eq ptr %253, null
-  br i1 %.not5.i172, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
+  %.not5.i173 = icmp eq ptr %253, null
+  br i1 %.not5.i173, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 254:                                              ; preds = %188, %186
   %255 = load i32, ptr @global_rlc_lte_call_ip_for_mtch, align 4
@@ -4734,78 +4738,79 @@ reassembly_get_reassembled_tvb.exit170:           ; preds = %210, %._crit_edge.i
 
 264:                                              ; preds = %260
   %265 = load i16, ptr %7, align 8
-  %.not.i174 = icmp eq i16 %265, 0
-  br i1 %.not.i174, label %._crit_edge.i182, label %.lr.ph.i175
+  %.not.i175 = icmp eq i16 %265, 0
+  br i1 %.not.i175, label %._crit_edge.i184, label %.lr.ph.i176
 
-.lr.ph.i175:                                      ; preds = %264
-  %266 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count.i176 = zext i16 %265 to i64
+.lr.ph.i176:                                      ; preds = %264
+  %266 = getelementptr i8, ptr %7, i64 24
+  %wide.trip.count.i177 = zext i16 %265 to i64
   br label %267
 
-267:                                              ; preds = %267, %.lr.ph.i175
-  %indvars.iv.i177 = phi i64 [ 0, %.lr.ph.i175 ], [ %indvars.iv.next.i179, %267 ]
-  %.02729.i178 = phi i32 [ 0, %.lr.ph.i175 ], [ %271, %267 ]
-  %268 = getelementptr [100 x %struct.rlc_segment], ptr %266, i64 0, i64 %indvars.iv.i177, i32 3
+267:                                              ; preds = %267, %.lr.ph.i176
+  %indvars.iv.i178 = phi i64 [ 0, %.lr.ph.i176 ], [ %indvars.iv.next.i181, %267 ]
+  %.02729.i179 = phi i32 [ 0, %.lr.ph.i176 ], [ %271, %267 ]
+  %.idx.i180 = mul nuw nsw i64 %indvars.iv.i178, 24
+  %268 = getelementptr i8, ptr %266, i64 %.idx.i180
   %269 = load i16, ptr %268, align 8
   %270 = zext i16 %269 to i32
-  %271 = add i32 %.02729.i178, %270
-  %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i177, 1
-  %exitcond.not.i180 = icmp eq i64 %indvars.iv.next.i179, %wide.trip.count.i176
-  br i1 %exitcond.not.i180, label %._crit_edge.loopexit.i181, label %267, !llvm.loop !17
+  %271 = add i32 %.02729.i179, %270
+  %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i178, 1
+  %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, %wide.trip.count.i177
+  br i1 %exitcond.not.i182, label %._crit_edge.loopexit.i183, label %267, !llvm.loop !17
 
-._crit_edge.loopexit.i181:                        ; preds = %267
+._crit_edge.loopexit.i183:                        ; preds = %267
   %272 = zext i32 %271 to i64
-  br label %._crit_edge.i182
+  br label %._crit_edge.i184
 
-._crit_edge.i182:                                 ; preds = %._crit_edge.loopexit.i181, %264
-  %.027.lcssa.i183 = phi i64 [ 0, %264 ], [ %272, %._crit_edge.loopexit.i181 ]
+._crit_edge.i184:                                 ; preds = %._crit_edge.loopexit.i183, %264
+  %.027.lcssa.i185 = phi i64 [ 0, %264 ], [ %272, %._crit_edge.loopexit.i183 ]
   %273 = getelementptr inbounds i8, ptr %0, i64 408
   %274 = load ptr, ptr %273, align 8
-  %275 = call noalias ptr @wmem_alloc(ptr noundef %274, i64 noundef %.027.lcssa.i183) #13
+  %275 = call noalias ptr @wmem_alloc(ptr noundef %274, i64 noundef %.027.lcssa.i185) #13
   %276 = load i16, ptr %7, align 8
-  %.not37.i184 = icmp eq i16 %276, 0
-  br i1 %.not37.i184, label %reassembly_get_reassembled_tvb.exit192, label %.lr.ph34.i185
+  %.not37.i186 = icmp eq i16 %276, 0
+  br i1 %.not37.i186, label %reassembly_get_reassembled_tvb.exit194, label %.lr.ph34.i187
 
-.lr.ph34.i185:                                    ; preds = %._crit_edge.i182
+.lr.ph34.i187:                                    ; preds = %._crit_edge.i184
   %277 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count43.i186 = zext i16 %276 to i64
+  %wide.trip.count43.i188 = zext i16 %276 to i64
   br label %278
 
-278:                                              ; preds = %278, %.lr.ph34.i185
-  %indvars.iv40.i187 = phi i64 [ 0, %.lr.ph34.i185 ], [ %indvars.iv.next41.i189, %278 ]
-  %.02831.i188 = phi i32 [ 0, %.lr.ph34.i185 ], [ %288, %278 ]
-  %279 = getelementptr [100 x %struct.rlc_segment], ptr %277, i64 0, i64 %indvars.iv40.i187
+278:                                              ; preds = %278, %.lr.ph34.i187
+  %indvars.iv40.i189 = phi i64 [ 0, %.lr.ph34.i187 ], [ %indvars.iv.next41.i191, %278 ]
+  %.02831.i190 = phi i32 [ 0, %.lr.ph34.i187 ], [ %288, %278 ]
+  %279 = getelementptr [100 x %struct.rlc_segment], ptr %277, i64 0, i64 %indvars.iv40.i189
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds i8, ptr %279, i64 16
   %283 = load i16, ptr %282, align 8
   %284 = zext i16 %283 to i32
-  %285 = zext i32 %.02831.i188 to i64
+  %285 = zext i32 %.02831.i190 to i64
   %286 = getelementptr i8, ptr %275, i64 %285
   %287 = zext i16 %283 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr align 1 %281, i64 %287, i1 false)
-  %288 = add i32 %.02831.i188, %284
-  %indvars.iv.next41.i189 = add nuw nsw i64 %indvars.iv40.i187, 1
-  %exitcond44.not.i190 = icmp eq i64 %indvars.iv.next41.i189, %wide.trip.count43.i186
-  br i1 %exitcond44.not.i190, label %reassembly_get_reassembled_tvb.exit192, label %278, !llvm.loop !18
+  %288 = add i32 %.02831.i190, %284
+  %indvars.iv.next41.i191 = add nuw nsw i64 %indvars.iv40.i189, 1
+  %exitcond44.not.i192 = icmp eq i64 %indvars.iv.next41.i191, %wide.trip.count43.i188
+  br i1 %exitcond44.not.i192, label %reassembly_get_reassembled_tvb.exit194, label %278, !llvm.loop !18
 
-reassembly_get_reassembled_tvb.exit192:           ; preds = %278, %._crit_edge.i182
-  %.028.lcssa.i191 = phi i32 [ 0, %._crit_edge.i182 ], [ %288, %278 ]
-  %289 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %275, i32 noundef %.028.lcssa.i191, i32 noundef %.028.lcssa.i191) #13
+reassembly_get_reassembled_tvb.exit194:           ; preds = %278, %._crit_edge.i184
+  %.028.lcssa.i193 = phi i32 [ 0, %._crit_edge.i184 ], [ %288, %278 ]
+  %289 = call ptr @tvb_new_child_real_data(ptr noundef %2, ptr noundef %275, i32 noundef %.028.lcssa.i193, i32 noundef %.028.lcssa.i193) #13
   call void @add_new_data_source(ptr noundef %0, ptr noundef %289, ptr noundef nonnull @.str.352) #13
   store ptr %289, ptr @show_PDU_in_tree.ip_tvb, align 8
   call fastcc void @reassembly_show_source(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br label %290
 
-290:                                              ; preds = %reassembly_get_reassembled_tvb.exit192, %262
+290:                                              ; preds = %reassembly_get_reassembled_tvb.exit194, %262
   store volatile i32 0, ptr %21, align 4
   call void @except_setup_try(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull @show_PDU_in_tree.catch_spec.351, i64 noundef 1) #13
   %291 = getelementptr inbounds i8, ptr %23, i64 48
   %292 = call i32 @_setjmp(ptr noundef nonnull %291) #14
   %.not133 = icmp eq i32 %292, 0
   %293 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sink214 = select i1 %.not133, ptr null, ptr %293
-  store volatile ptr %.sink214, ptr %20, align 8
+  %.sink216 = select i1 %.not133, ptr null, ptr %293
+  store volatile ptr %.sink216, ptr %20, align 8
   %.0..0..0..0. = load volatile i32, ptr %21, align 4
   %294 = and i32 %.0..0..0..0., 1
   %.not134 = icmp eq i32 %294, 0
@@ -4873,18 +4878,18 @@ reassembly_get_reassembled_tvb.exit192:           ; preds = %278, %._crit_edge.i
   %317 = load volatile ptr, ptr %316, align 8
   call void @except_free(ptr noundef %317) #13
   %318 = call ptr @except_pop() #13
-  %.not.i193 = icmp eq ptr %29, null
-  br i1 %.not.i193, label %proto_item_set_hidden.exit, label %319
+  %.not.i195 = icmp eq ptr %29, null
+  br i1 %.not.i195, label %proto_item_set_hidden.exit, label %319
 
 319:                                              ; preds = %315
   %320 = getelementptr inbounds i8, ptr %29, i64 32
   %321 = load ptr, ptr %320, align 8
-  %.not5.i194 = icmp eq ptr %321, null
-  br i1 %.not5.i194, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
+  %.not5.i196 = icmp eq ptr %321, null
+  br i1 %.not5.i196, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %319, %251, %183
-  %.sink219 = phi ptr [ %185, %183 ], [ %253, %251 ], [ %321, %319 ]
-  %322 = getelementptr inbounds i8, ptr %.sink219, i64 28
+  %.sink221 = phi ptr [ %185, %183 ], [ %253, %251 ], [ %321, %319 ]
+  %322 = getelementptr inbounds i8, ptr %.sink221, i64 28
   %323 = load i32, ptr %322, align 4
   %324 = or i32 %323, 1
   store i32 %324, ptr %322, align 4
@@ -5878,17 +5883,18 @@ define internal fastcc void @reassembly_add_segment(ptr nocapture noundef %0, i1
   %19 = getelementptr [100 x %struct.rlc_segment], ptr %17, i64 0, i64 %18
   store i32 %2, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = getelementptr [100 x %struct.rlc_segment], ptr %21, i64 0, i64 %18, i32 1
+  %.idx = mul nuw nsw i64 %18, 24
+  %21 = getelementptr i8, ptr %20, i64 12
+  %22 = getelementptr i8, ptr %21, i64 %.idx
   store i16 %1, ptr %22, align 4
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = getelementptr [100 x %struct.rlc_segment], ptr %24, i64 0, i64 %18, i32 2
+  %24 = getelementptr i8, ptr %23, i64 16
+  %25 = getelementptr i8, ptr %24, i64 %.idx
   store ptr %15, ptr %25, align 8
   %26 = trunc nuw i32 %5 to i16
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr [100 x %struct.rlc_segment], ptr %28, i64 0, i64 %18, i32 3
+  %28 = getelementptr i8, ptr %27, i64 24
+  %29 = getelementptr i8, ptr %28, i64 %.idx
   store i16 %26, ptr %29, align 8
   %30 = load ptr, ptr %7, align 8
   %31 = load i16, ptr %30, align 8
@@ -5977,14 +5983,15 @@ proto_item_set_generated.exit:                    ; preds = %4, %9, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_item_set_generated.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %16 to i64
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.05575 = phi i32 [ 0, %.lr.ph ], [ %23, %19 ]
-  %20 = getelementptr [100 x %struct.rlc_segment], ptr %18, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
+  %20 = getelementptr i8, ptr %18, i64 %.idx
   %21 = load i16, ptr %20, align 8
   %22 = zext i16 %21 to i32
   %23 = add i32 %.05575, %22

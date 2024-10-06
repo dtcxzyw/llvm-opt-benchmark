@@ -857,7 +857,9 @@ for.cond5.preheader.i:                            ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont52
   %__i0.09.i = phi i64 [ 0, %invoke.cont52 ], [ %inc.i, %for.body.i ]
-  %fPrefix.i.i = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %affixMatcherWarehouse, i64 0, i64 %__i0.09.i, i32 1
+  %fPrefix.i.i.idx = shl nsw i64 %__i0.09.i, 5
+  %fPrefix.i.i.offs = or disjoint i64 %fPrefix.i.i.idx, 8
+  %fPrefix.i.i = getelementptr inbounds i8, ptr %affixMatcherWarehouse, i64 %fPrefix.i.i.offs
   %fPrefix2.i.i = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %ref.tmp47, i64 0, i64 %__i0.09.i, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i.i, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i.i, i64 20, i1 false)
   %inc.i = add nuw nsw i64 %__i0.09.i, 1
@@ -2221,7 +2223,9 @@ for.cond5.preheader.i:                            ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont88
   %__i0.09.i = phi i64 [ 0, %invoke.cont88 ], [ %inc.i, %for.body.i ]
-  %fPrefix.i.i = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %affixMatcherWarehouse, i64 0, i64 %__i0.09.i, i32 1
+  %fPrefix.i.i.idx = shl nsw i64 %__i0.09.i, 5
+  %fPrefix.i.i.offs = or disjoint i64 %fPrefix.i.i.idx, 8
+  %fPrefix.i.i = getelementptr inbounds i8, ptr %affixMatcherWarehouse, i64 %fPrefix.i.i.offs
   %fPrefix2.i.i = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %ref.tmp83, i64 0, i64 %__i0.09.i, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i.i, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i.i, i64 20, i1 false)
   %inc.i = add nuw nsw i64 %__i0.09.i, 1

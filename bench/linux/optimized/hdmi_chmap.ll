@@ -16,8 +16,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_add
 %struct.channel_map_table = type { i8, i32 }
 %struct.hdac_cea_channel_speaker_allocation = type { i32, [8 x i32], i32, i32 }
 %struct.hdac_chmap_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.snd_kcontrol_volatile = type { ptr, i32 }
-%struct.snd_pcm_str = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c" %s\00", align 1
 @cea_speaker_allocation_names = internal unnamed_addr constant [11 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11], align 16
@@ -848,7 +846,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noun
   %5 = sext i32 %1 to i64
   %6 = call i32 @snd_pcm_add_chmap_ctls(ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %5, ptr noundef nonnull %4) #13
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %30, label %8
+  br i1 %7, label %29, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
@@ -859,38 +857,39 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noun
   %13 = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit, label %16
+  br i1 %15, label %.loopexit, label %.preheader
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %12, i64 144
-  br label %18
+.preheader:                                       ; preds = %8
+  %16 = getelementptr i8, ptr %12, i64 152
+  br label %17
 
-18:                                               ; preds = %18, %16
-  %19 = phi i32 [ 0, %16 ], [ %24, %18 ]
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %17, i64 0, i64 %20, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = or i32 %22, 2
-  store i32 %23, ptr %21, align 8
-  %24 = add nuw i32 %19, 1
-  %25 = icmp ult i32 %24, %14
-  br i1 %25, label %18, label %.loopexit, !llvm.loop !35
+17:                                               ; preds = %.preheader, %17
+  %18 = phi i32 [ %23, %17 ], [ 0, %.preheader ]
+  %19 = sext i32 %18 to i64
+  %.idx = shl nsw i64 %19, 4
+  %20 = getelementptr i8, ptr %16, i64 %.idx
+  %21 = load i32, ptr %20, align 8
+  %22 = or i32 %21, 2
+  store i32 %22, ptr %20, align 8
+  %23 = add nuw i32 %18, 1
+  %24 = icmp ult i32 %23, %14
+  br i1 %24, label %17, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %18, %8
-  %26 = getelementptr inbounds i8, ptr %12, i64 88
-  store ptr @hdmi_chmap_ctl_info, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 96
-  store ptr @hdmi_chmap_ctl_get, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 104
-  store ptr @hdmi_chmap_ctl_put, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 112
-  store ptr @hdmi_chmap_ctl_tlv, ptr %29, align 8
-  br label %30
+.loopexit:                                        ; preds = %17, %8
+  %25 = getelementptr inbounds i8, ptr %12, i64 88
+  store ptr @hdmi_chmap_ctl_info, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %12, i64 96
+  store ptr @hdmi_chmap_ctl_get, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %12, i64 104
+  store ptr @hdmi_chmap_ctl_put, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %12, i64 112
+  store ptr @hdmi_chmap_ctl_tlv, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %.loopexit, %3
-  %31 = phi i32 [ 0, %.loopexit ], [ %6, %3 ]
+29:                                               ; preds = %.loopexit, %3
+  %30 = phi i32 [ 0, %.loopexit ], [ %6, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  ret i32 %31
+  ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -985,11 +984,12 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   %28 = trunc i64 %27 to i32
   %29 = and i32 %22, %28
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 184
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr [2 x %struct.snd_pcm_str], ptr %31, i64 0, i64 %34, i32 4
+  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = sext i32 %32 to i64
+  %.idx = mul nsw i64 %33, 56
+  %34 = getelementptr i8, ptr %30, i64 208
+  %35 = getelementptr i8, ptr %34, i64 %.idx
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %.preheader12

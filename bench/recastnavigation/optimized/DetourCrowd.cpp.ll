@@ -2057,7 +2057,9 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
 
 .lr.ph.i.i:                                       ; preds = %165, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %165 ]
-  %162 = getelementptr inbounds %struct.dtCrowdNeighbour, ptr %108, i64 %indvars.iv.i.i, i32 1
+  %.idx = shl nsw i64 %indvars.iv.i.i, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %162 = getelementptr inbounds i8, ptr %108, i64 %.offs
   %163 = load float, ptr %162, align 4
   %164 = fcmp ugt float %149, %163
   br i1 %164, label %165, label %._crit_edge.loopexit.split.loop.exit.i.i

@@ -1882,21 +1882,21 @@ define dso_local void @_ZN4llvm18TargetLoweringBase11initActionsEv(ptr noundef n
   %25 = getelementptr inbounds i8, ptr %3, i64 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 228450
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5210) %22, i8 0, i64 5210, i1 false)
-  br label %.preheader754
+  br label %.preheader911
 
-.preheader754:                                    ; preds = %1, %41
-  %.sroa.0718.0756 = phi i64 [ 1, %1 ], [ %42, %41 ]
+.preheader911:                                    ; preds = %1, %41
+  %.sroa.0718.0913 = phi i64 [ 1, %1 ], [ %42, %41 ]
   br label %.lr.ph.i
 
-.preheader753:                                    ; preds = %41
+.preheader910:                                    ; preds = %41
   %27 = getelementptr inbounds i8, ptr %4, i64 2
   br label %46
 
-.lr.ph.i:                                         ; preds = %.preheader754, %_ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_NS0_14LegalizeActionE.exit
-  %.sroa.0711.0755 = phi i64 [ 1, %.preheader754 ], [ %40, %_ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_NS0_14LegalizeActionE.exit ]
+.lr.ph.i:                                         ; preds = %.preheader911, %_ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_NS0_14LegalizeActionE.exit
+  %.sroa.0711.0912 = phi i64 [ 1, %.preheader911 ], [ %40, %_ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_NS0_14LegalizeActionE.exit ]
   store i32 2, ptr %3, align 4
   store i32 3, ptr %25, align 4
-  %28 = getelementptr inbounds [233 x [233 x i16]], ptr %26, i64 0, i64 %.sroa.0718.0756, i64 %.sroa.0711.0755
+  %28 = getelementptr inbounds [233 x [233 x i16]], ptr %26, i64 0, i64 %.sroa.0718.0913, i64 %.sroa.0711.0912
   %.promoted.i = load i16, ptr %28, align 2
   br label %29
 
@@ -1919,49 +1919,49 @@ define dso_local void @_ZN4llvm18TargetLoweringBase11initActionsEv(ptr noundef n
 
 _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_NS0_14LegalizeActionE.exit: ; preds = %29
   store i16 %39, ptr %28, align 2
-  %40 = add nuw nsw i64 %.sroa.0711.0755, 1
-  %.not749 = icmp eq i64 %40, 233
-  br i1 %.not749, label %41, label %.lr.ph.i
+  %40 = add nuw nsw i64 %.sroa.0711.0912, 1
+  %.not906 = icmp eq i64 %40, 233
+  br i1 %.not906, label %41, label %.lr.ph.i
 
 41:                                               ; preds = %_ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_NS0_14LegalizeActionE.exit
-  %42 = add nuw nsw i64 %.sroa.0718.0756, 1
+  %42 = add nuw nsw i64 %.sroa.0718.0913, 1
   %.not744 = icmp eq i64 %42, 233
-  br i1 %.not744, label %.preheader753, label %.preheader754
+  br i1 %.not744, label %.preheader910, label %.preheader911
 
-.preheader752:                                    ; preds = %51
+.preheader909:                                    ; preds = %51
   %43 = getelementptr inbounds i8, ptr %5, i64 2
   %44 = getelementptr inbounds i8, ptr %5, i64 4
   %45 = getelementptr inbounds i8, ptr %5, i64 6
   br label %54
 
-46:                                               ; preds = %.preheader753, %51
-  %.sroa.0699.0758 = phi i64 [ 0, %.preheader753 ], [ %52, %51 ]
+46:                                               ; preds = %.preheader910, %51
+  %.sroa.0699.0915 = phi i64 [ 0, %.preheader910 ], [ %52, %51 ]
   store i16 3, ptr %4, align 2
   store i16 4, ptr %27, align 2
   br label %47
 
 47:                                               ; preds = %46, %47
-  %.0.idx757 = phi i64 [ 0, %46 ], [ %.0.add, %47 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %4, i64 %.0.idx757
+  %.0.idx914 = phi i64 [ 0, %46 ], [ %.0.add, %47 ]
+  %.0.ptr = getelementptr inbounds i8, ptr %4, i64 %.0.idx914
   %48 = load i16, ptr %.0.ptr, align 2
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %49, i64 %.sroa.0699.0758
+  %50 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %49, i64 %.sroa.0699.0915
   store i8 2, ptr %50, align 1
-  %.0.add = add nuw nsw i64 %.0.idx757, 2
+  %.0.add = add nuw nsw i64 %.0.idx914, 2
   %.not232 = icmp eq i64 %.0.add, 4
   br i1 %.not232, label %51, label %47
 
 51:                                               ; preds = %47
-  %52 = add nuw nsw i64 %.sroa.0699.0758, 1
+  %52 = add nuw nsw i64 %.sroa.0699.0915, 1
   %.not745 = icmp eq i64 %52, 491
-  br i1 %.not745, label %.preheader752, label %46
+  br i1 %.not745, label %.preheader909, label %46
 
-.preheader751:                                    ; preds = %63
+.preheader908:                                    ; preds = %63
   %53 = getelementptr inbounds i8, ptr %6, i64 2
   br label %66
 
-54:                                               ; preds = %.preheader752, %63
-  %.sroa.0689.0760 = phi i64 [ 1, %.preheader752 ], [ %64, %63 ]
+54:                                               ; preds = %.preheader909, %63
+  %.sroa.0689.0917 = phi i64 [ 1, %.preheader909 ], [ %64, %63 ]
   store i16 3, ptr %5, align 2
   store i16 4, ptr %43, align 2
   store i16 30, ptr %44, align 2
@@ -1969,40 +1969,41 @@ _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_
   br label %55
 
 55:                                               ; preds = %54, %55
-  %.0224.idx759 = phi i64 [ 0, %54 ], [ %.0224.add, %55 ]
-  %.0224.ptr = getelementptr inbounds i8, ptr %5, i64 %.0224.idx759
+  %.0224.idx916 = phi i64 [ 0, %54 ], [ %.0224.add, %55 ]
+  %.0224.ptr = getelementptr inbounds i8, ptr %5, i64 %.0224.idx916
   %56 = load i16, ptr %.0224.ptr, align 2
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds [233 x [233 x i8]], ptr %21, i64 0, i64 %.sroa.0689.0760, i64 %57
+  %58 = getelementptr inbounds [233 x [233 x i8]], ptr %21, i64 0, i64 %.sroa.0689.0917, i64 %57
   store i8 2, ptr %58, align 1
-  %59 = getelementptr inbounds [233 x [233 x i16]], ptr %20, i64 0, i64 %.sroa.0689.0760, i64 %57
+  %59 = getelementptr inbounds [233 x [233 x i16]], ptr %20, i64 0, i64 %.sroa.0689.0917, i64 %57
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 3855
   %62 = or disjoint i16 %61, 8224
   store i16 %62, ptr %59, align 2
-  %.0224.add = add nuw nsw i64 %.0224.idx759, 2
+  %.0224.add = add nuw nsw i64 %.0224.idx916, 2
   %.not231 = icmp eq i64 %.0224.add, 8
   br i1 %.not231, label %63, label %55
 
 63:                                               ; preds = %55
-  %64 = add nuw nsw i64 %.sroa.0689.0760, 1
+  %64 = add nuw nsw i64 %.sroa.0689.0917, 1
   %.not746 = icmp eq i64 %64, 233
-  br i1 %.not746, label %.preheader751, label %54
+  br i1 %.not746, label %.preheader908, label %54
 
-.preheader750:                                    ; preds = %78
+.preheader907:                                    ; preds = %78
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 5806
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 396824
   br label %92
 
-66:                                               ; preds = %.preheader751, %78
-  %indvars.iv = phi i64 [ 1, %.preheader751 ], [ %indvars.iv.next, %78 ]
+66:                                               ; preds = %.preheader908, %78
+  %indvars.iv = phi i64 [ 1, %.preheader908 ], [ %indvars.iv.next, %78 ]
   store i16 3, ptr %6, align 2
   store i16 4, ptr %53, align 2
   %67 = and i64 %indvars.iv, 4294967295
   br label %.lr.ph.i240
 
 .lr.ph.i240:                                      ; preds = %66, %.lr.ph.i240
-  %.0225.idx761 = phi i64 [ 0, %66 ], [ %.0225.add, %.lr.ph.i240 ]
-  %.0225.ptr = getelementptr inbounds i8, ptr %6, i64 %.0225.idx761
+  %.0225.idx918 = phi i64 [ 0, %66 ], [ %.0225.add, %.lr.ph.i240 ]
+  %.0225.ptr = getelementptr inbounds i8, ptr %6, i64 %.0225.idx918
   %68 = load i16, ptr %.0225.ptr, align 2
   %69 = zext i16 %68 to i64
   %70 = getelementptr inbounds [233 x [5 x i16]], ptr %22, i64 0, i64 %69, i64 %67
@@ -2015,16 +2016,17 @@ _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_
   %76 = and i16 %75, 255
   %77 = or disjoint i16 %76, 8704
   store i16 %77, ptr %74, align 2
-  %.0225.add = add nuw nsw i64 %.0225.idx761, 2
+  %.0225.add = add nuw nsw i64 %.0225.idx918, 2
   %.not230 = icmp eq i64 %.0225.add, 4
   br i1 %.not230, label %78, label %.lr.ph.i240
 
 78:                                               ; preds = %.lr.ph.i240
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %.not, label %.preheader750, label %66, !llvm.loop !6
+  br i1 %.not, label %.preheader907, label %66, !llvm.loop !6
 
 .preheader:                                       ; preds = %_ZN4llvm3MVT12getIntegerVTEj.exit
+  %invariant.gep922 = getelementptr inbounds i8, ptr %0, i64 5805
   %79 = getelementptr inbounds i8, ptr %7, i64 4
   %80 = getelementptr inbounds i8, ptr %7, i64 8
   %81 = getelementptr inbounds i8, ptr %7, i64 12
@@ -2033,16 +2035,170 @@ _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_
   %84 = getelementptr inbounds i8, ptr %9, i64 8
   %85 = getelementptr inbounds i8, ptr %9, i64 12
   %86 = getelementptr inbounds i8, ptr %10, i64 4
+  %invariant.gep924 = getelementptr inbounds i8, ptr %0, i64 5684
+  %invariant.gep926 = getelementptr inbounds i8, ptr %0, i64 5685
+  %invariant.gep928 = getelementptr inbounds i8, ptr %0, i64 5686
   %87 = getelementptr inbounds i8, ptr %11, i64 4
   %88 = getelementptr inbounds i8, ptr %12, i64 4
   %89 = getelementptr inbounds i8, ptr %13, i64 4
   %90 = getelementptr inbounds i8, ptr %13, i64 8
   %91 = getelementptr inbounds i8, ptr %13, i64 12
-  br label %108
+  %invariant.gep930 = getelementptr inbounds i8, ptr %0, i64 5569
+  %invariant.gep932 = getelementptr inbounds i8, ptr %0, i64 5570
+  %invariant.gep934 = getelementptr inbounds i8, ptr %0, i64 5571
+  %invariant.gep936 = getelementptr inbounds i8, ptr %0, i64 5572
+  %invariant.gep938 = getelementptr inbounds i8, ptr %0, i64 5573
+  %invariant.gep940 = getelementptr inbounds i8, ptr %0, i64 5613
+  %invariant.gep942 = getelementptr inbounds i8, ptr %0, i64 5610
+  %invariant.gep944 = getelementptr inbounds i8, ptr %0, i64 5611
+  %invariant.gep946 = getelementptr inbounds i8, ptr %0, i64 5608
+  %invariant.gep948 = getelementptr inbounds i8, ptr %0, i64 5609
+  %invariant.gep950 = getelementptr inbounds i8, ptr %0, i64 5612
+  %invariant.gep952 = getelementptr inbounds i8, ptr %0, i64 5614
+  %invariant.gep954 = getelementptr inbounds i8, ptr %0, i64 5615
+  %invariant.gep956 = getelementptr inbounds i8, ptr %0, i64 5583
+  %invariant.gep958 = getelementptr inbounds i8, ptr %0, i64 5582
+  %invariant.gep960 = getelementptr inbounds i8, ptr %0, i64 5584
+  %invariant.gep962 = getelementptr inbounds i8, ptr %0, i64 5597
+  %invariant.gep964 = getelementptr inbounds i8, ptr %0, i64 5580
+  %invariant.gep966 = getelementptr inbounds i8, ptr %0, i64 5586
+  %invariant.gep968 = getelementptr inbounds i8, ptr %0, i64 5588
+  %invariant.gep970 = getelementptr inbounds i8, ptr %0, i64 5589
+  %invariant.gep972 = getelementptr inbounds i8, ptr %0, i64 5598
+  %invariant.gep974 = getelementptr inbounds i8, ptr %0, i64 5574
+  %invariant.gep976 = getelementptr inbounds i8, ptr %0, i64 5590
+  %invariant.gep978 = getelementptr inbounds i8, ptr %0, i64 5591
+  %invariant.gep980 = getelementptr inbounds i8, ptr %0, i64 5592
+  %invariant.gep982 = getelementptr inbounds i8, ptr %0, i64 5604
+  %invariant.gep984 = getelementptr inbounds i8, ptr %0, i64 5605
+  %invariant.gep986 = getelementptr inbounds i8, ptr %0, i64 5602
+  %invariant.gep988 = getelementptr inbounds i8, ptr %0, i64 5603
+  %invariant.gep990 = getelementptr inbounds i8, ptr %0, i64 5595
+  %invariant.gep992 = getelementptr inbounds i8, ptr %0, i64 5596
+  %invariant.gep994 = getelementptr inbounds i8, ptr %0, i64 5606
+  %invariant.gep996 = getelementptr inbounds i8, ptr %0, i64 5607
+  %invariant.gep998 = getelementptr inbounds i8, ptr %0, i64 5594
+  %invariant.gep1000 = getelementptr inbounds i8, ptr %0, i64 5576
+  %invariant.gep1002 = getelementptr inbounds i8, ptr %0, i64 5577
+  %invariant.gep1004 = getelementptr inbounds i8, ptr %0, i64 5578
+  %invariant.gep1006 = getelementptr inbounds i8, ptr %0, i64 5593
+  %invariant.gep1008 = getelementptr inbounds i8, ptr %0, i64 5599
+  %invariant.gep1010 = getelementptr inbounds i8, ptr %0, i64 5600
+  %invariant.gep1012 = getelementptr inbounds i8, ptr %0, i64 5579
+  %invariant.gep1014 = getelementptr inbounds i8, ptr %0, i64 5585
+  %invariant.gep1016 = getelementptr inbounds i8, ptr %0, i64 5575
+  %invariant.gep1018 = getelementptr inbounds i8, ptr %0, i64 5581
+  %invariant.gep1020 = getelementptr inbounds i8, ptr %0, i64 5587
+  %invariant.gep1022 = getelementptr inbounds i8, ptr %0, i64 5601
+  %invariant.gep1024 = getelementptr inbounds i8, ptr %0, i64 5833
+  %invariant.gep1026 = getelementptr inbounds i8, ptr %0, i64 5633
+  %invariant.gep1028 = getelementptr inbounds i8, ptr %0, i64 5638
+  %invariant.gep1030 = getelementptr inbounds i8, ptr %0, i64 5855
+  %invariant.gep1032 = getelementptr inbounds i8, ptr %0, i64 5856
+  %invariant.gep1034 = getelementptr inbounds i8, ptr %0, i64 5857
+  %invariant.gep1036 = getelementptr inbounds i8, ptr %0, i64 5858
+  %invariant.gep1038 = getelementptr inbounds i8, ptr %0, i64 5859
+  %invariant.gep1040 = getelementptr inbounds i8, ptr %0, i64 5860
+  %invariant.gep1042 = getelementptr inbounds i8, ptr %0, i64 5861
+  %invariant.gep1044 = getelementptr inbounds i8, ptr %0, i64 5862
+  %invariant.gep1046 = getelementptr inbounds i8, ptr %0, i64 5863
+  %invariant.gep1048 = getelementptr inbounds i8, ptr %0, i64 5864
+  %invariant.gep1050 = getelementptr inbounds i8, ptr %0, i64 5865
+  %invariant.gep1052 = getelementptr inbounds i8, ptr %0, i64 5866
+  %invariant.gep1054 = getelementptr inbounds i8, ptr %0, i64 5867
+  %invariant.gep1056 = getelementptr inbounds i8, ptr %0, i64 5868
+  %invariant.gep1058 = getelementptr inbounds i8, ptr %0, i64 5869
+  %invariant.gep1060 = getelementptr inbounds i8, ptr %0, i64 5870
+  %invariant.gep1062 = getelementptr inbounds i8, ptr %0, i64 5871
+  %invariant.gep1064 = getelementptr inbounds i8, ptr %0, i64 5872
+  %invariant.gep1066 = getelementptr inbounds i8, ptr %0, i64 5873
+  %invariant.gep1068 = getelementptr inbounds i8, ptr %0, i64 5874
+  %invariant.gep1070 = getelementptr inbounds i8, ptr %0, i64 5875
+  %invariant.gep1072 = getelementptr inbounds i8, ptr %0, i64 5876
+  %invariant.gep1074 = getelementptr inbounds i8, ptr %0, i64 5877
+  %invariant.gep1076 = getelementptr inbounds i8, ptr %0, i64 5878
+  %invariant.gep1078 = getelementptr inbounds i8, ptr %0, i64 5879
+  %invariant.gep1080 = getelementptr inbounds i8, ptr %0, i64 5880
+  %invariant.gep1082 = getelementptr inbounds i8, ptr %0, i64 5881
+  %invariant.gep1084 = getelementptr inbounds i8, ptr %0, i64 5882
+  %invariant.gep1086 = getelementptr inbounds i8, ptr %0, i64 5883
+  %invariant.gep1088 = getelementptr inbounds i8, ptr %0, i64 5884
+  %invariant.gep1090 = getelementptr inbounds i8, ptr %0, i64 5885
+  %invariant.gep1092 = getelementptr inbounds i8, ptr %0, i64 5886
+  %invariant.gep1094 = getelementptr inbounds i8, ptr %0, i64 5887
+  %invariant.gep1096 = getelementptr inbounds i8, ptr %0, i64 5888
+  %invariant.gep1098 = getelementptr inbounds i8, ptr %0, i64 5889
+  %invariant.gep1100 = getelementptr inbounds i8, ptr %0, i64 5890
+  %invariant.gep1102 = getelementptr inbounds i8, ptr %0, i64 5891
+  %invariant.gep1104 = getelementptr inbounds i8, ptr %0, i64 5892
+  %invariant.gep1106 = getelementptr inbounds i8, ptr %0, i64 5893
+  %invariant.gep1108 = getelementptr inbounds i8, ptr %0, i64 5894
+  %invariant.gep1110 = getelementptr inbounds i8, ptr %0, i64 5895
+  %invariant.gep1112 = getelementptr inbounds i8, ptr %0, i64 5896
+  %invariant.gep1114 = getelementptr inbounds i8, ptr %0, i64 5897
+  %invariant.gep1116 = getelementptr inbounds i8, ptr %0, i64 5898
+  %invariant.gep1118 = getelementptr inbounds i8, ptr %0, i64 5899
+  %invariant.gep1120 = getelementptr inbounds i8, ptr %0, i64 5900
+  %invariant.gep1122 = getelementptr inbounds i8, ptr %0, i64 5901
+  %invariant.gep1124 = getelementptr inbounds i8, ptr %0, i64 5902
+  %invariant.gep1126 = getelementptr inbounds i8, ptr %0, i64 5903
+  %invariant.gep1128 = getelementptr inbounds i8, ptr %0, i64 5904
+  %invariant.gep1130 = getelementptr inbounds i8, ptr %0, i64 5905
+  %invariant.gep1132 = getelementptr inbounds i8, ptr %0, i64 5906
+  %invariant.gep1134 = getelementptr inbounds i8, ptr %0, i64 5907
+  %invariant.gep1136 = getelementptr inbounds i8, ptr %0, i64 5908
+  %invariant.gep1138 = getelementptr inbounds i8, ptr %0, i64 5909
+  %invariant.gep1140 = getelementptr inbounds i8, ptr %0, i64 5910
+  %invariant.gep1142 = getelementptr inbounds i8, ptr %0, i64 5911
+  %invariant.gep1144 = getelementptr inbounds i8, ptr %0, i64 5912
+  %invariant.gep1146 = getelementptr inbounds i8, ptr %0, i64 5913
+  %invariant.gep1148 = getelementptr inbounds i8, ptr %0, i64 5914
+  %invariant.gep1150 = getelementptr inbounds i8, ptr %0, i64 5915
+  %invariant.gep1152 = getelementptr inbounds i8, ptr %0, i64 5916
+  %invariant.gep1154 = getelementptr inbounds i8, ptr %0, i64 5917
+  %invariant.gep1156 = getelementptr inbounds i8, ptr %0, i64 5918
+  %invariant.gep1158 = getelementptr inbounds i8, ptr %0, i64 5919
+  %invariant.gep1160 = getelementptr inbounds i8, ptr %0, i64 5920
+  %invariant.gep1162 = getelementptr inbounds i8, ptr %0, i64 5921
+  %invariant.gep1164 = getelementptr inbounds i8, ptr %0, i64 5922
+  %invariant.gep1166 = getelementptr inbounds i8, ptr %0, i64 5923
+  %invariant.gep1168 = getelementptr inbounds i8, ptr %0, i64 5924
+  %invariant.gep1170 = getelementptr inbounds i8, ptr %0, i64 5925
+  %invariant.gep1172 = getelementptr inbounds i8, ptr %0, i64 5926
+  %invariant.gep1174 = getelementptr inbounds i8, ptr %0, i64 5927
+  %invariant.gep1176 = getelementptr inbounds i8, ptr %0, i64 5928
+  %invariant.gep1178 = getelementptr inbounds i8, ptr %0, i64 5929
+  %invariant.gep1180 = getelementptr inbounds i8, ptr %0, i64 5930
+  %invariant.gep1182 = getelementptr inbounds i8, ptr %0, i64 5931
+  %invariant.gep1184 = getelementptr inbounds i8, ptr %0, i64 5932
+  %invariant.gep1186 = getelementptr inbounds i8, ptr %0, i64 5933
+  %invariant.gep1188 = getelementptr inbounds i8, ptr %0, i64 5934
+  %invariant.gep1190 = getelementptr inbounds i8, ptr %0, i64 5935
+  %invariant.gep1192 = getelementptr inbounds i8, ptr %0, i64 5936
+  %invariant.gep1194 = getelementptr inbounds i8, ptr %0, i64 5937
+  %invariant.gep1196 = getelementptr inbounds i8, ptr %0, i64 5938
+  %invariant.gep1198 = getelementptr inbounds i8, ptr %0, i64 5939
+  %invariant.gep1200 = getelementptr inbounds i8, ptr %0, i64 5940
+  %invariant.gep1202 = getelementptr inbounds i8, ptr %0, i64 5941
+  %invariant.gep1204 = getelementptr inbounds i8, ptr %0, i64 5942
+  %invariant.gep1206 = getelementptr inbounds i8, ptr %0, i64 5943
+  %invariant.gep1208 = getelementptr inbounds i8, ptr %0, i64 5944
+  %invariant.gep1210 = getelementptr inbounds i8, ptr %0, i64 5945
+  %invariant.gep1212 = getelementptr inbounds i8, ptr %0, i64 5946
+  %invariant.gep1214 = getelementptr inbounds i8, ptr %0, i64 5947
+  %invariant.gep1216 = getelementptr inbounds i8, ptr %0, i64 5948
+  %invariant.gep1218 = getelementptr inbounds i8, ptr %0, i64 5949
+  %invariant.gep1220 = getelementptr inbounds i8, ptr %0, i64 5950
+  %invariant.gep1222 = getelementptr inbounds i8, ptr %0, i64 5951
+  %invariant.gep1224 = getelementptr inbounds i8, ptr %0, i64 5952
+  %invariant.gep1226 = getelementptr inbounds i8, ptr %0, i64 5754
+  %invariant.gep1228 = getelementptr inbounds i8, ptr %0, i64 5755
+  %invariant.gep1230 = getelementptr inbounds i8, ptr %0, i64 5756
+  br label %107
 
-92:                                               ; preds = %.preheader750, %_ZN4llvm3MVT12getIntegerVTEj.exit
-  %.sroa.0663.0763 = phi i64 [ 10, %.preheader750 ], [ %107, %_ZN4llvm3MVT12getIntegerVTEj.exit ]
-  %93 = add nsw i64 %.sroa.0663.0763, -1
+92:                                               ; preds = %.preheader907, %_ZN4llvm3MVT12getIntegerVTEj.exit
+  %.sroa.0663.0920 = phi i64 [ 10, %.preheader907 ], [ %106, %_ZN4llvm3MVT12getIntegerVTEj.exit ]
+  %93 = add nsw i64 %.sroa.0663.0920, -1
   %94 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %93
   %.sroa.0.0.copyload.i.i = load i64, ptr %94, align 16
   %95 = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -2080,67 +2236,69 @@ _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_
 
 103:                                              ; preds = %102, %101, %100, %99, %98, %97, %96, %92
   %.sroa.0.0.i.ph = phi i16 [ 2, %92 ], [ 3, %96 ], [ 4, %97 ], [ 5, %98 ], [ 6, %99 ], [ 7, %100 ], [ 8, %101 ], [ 9, %102 ]
-  %104 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0663.0763, i64 338
-  store i8 1, ptr %104, align 1
+  %.idx905 = mul nuw nsw i64 %.sroa.0663.0920, 491
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx905
+  store i8 1, ptr %gep, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %.sroa.0663.0763, 32
+  %.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %.sroa.0663.0920, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, 338
-  %105 = trunc nuw i64 %.sroa.0.0.insert.insert.i.i to i48
-  store i48 %105, ptr %2, align 8
-  %106 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 4 dereferenceable(6) %2)
-  store i16 %.sroa.0.0.i.ph, ptr %106, align 2
+  %104 = trunc nuw i64 %.sroa.0.0.insert.insert.i.i to i48
+  store i48 %104, ptr %2, align 8
+  %105 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 4 dereferenceable(6) %2)
+  store i16 %.sroa.0.0.i.ph, ptr %105, align 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %92, %103
-  %107 = add nuw nsw i64 %.sroa.0663.0763, 1
-  %.not747 = icmp eq i64 %107, 17
+  %106 = add nuw nsw i64 %.sroa.0663.0920, 1
+  %.not747 = icmp eq i64 %106, 17
   br i1 %.not747, label %.preheader, label %92
 
-108:                                              ; preds = %.preheader, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332
-  %.sroa.0652.0765 = phi i64 [ 1, %.preheader ], [ %177, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332 ]
+107:                                              ; preds = %.preheader, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332
+  %.sroa.0652.01232 = phi i64 [ 1, %.preheader ], [ %164, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332 ]
   br label %.lr.ph.i252
 
-.lr.ph.i252:                                      ; preds = %108, %.lr.ph.i252
-  %indvars.iv768 = phi i64 [ 1, %108 ], [ %indvars.iv.next769, %.lr.ph.i252 ]
-  %109 = and i64 %indvars.iv768, 4294967295
-  %110 = getelementptr inbounds [233 x [5 x i16]], ptr %22, i64 0, i64 %.sroa.0652.0765, i64 %109
-  %111 = load i16, ptr %110, align 2
-  %112 = and i16 %111, -256
-  %113 = or disjoint i16 %112, 34
-  store i16 %113, ptr %110, align 2
-  %114 = getelementptr inbounds [233 x [5 x i16]], ptr %22, i64 0, i64 %.sroa.0652.0765, i64 %indvars.iv768
-  %115 = load i16, ptr %114, align 2
-  %116 = and i16 %115, 255
-  %117 = or disjoint i16 %116, 8704
-  store i16 %117, ptr %114, align 2
-  %indvars.iv.next769 = add nuw nsw i64 %indvars.iv768, 1
-  %.not229 = icmp eq i64 %indvars.iv.next769, 5
+.lr.ph.i252:                                      ; preds = %107, %.lr.ph.i252
+  %indvars.iv1241 = phi i64 [ 1, %107 ], [ %indvars.iv.next1242, %.lr.ph.i252 ]
+  %108 = and i64 %indvars.iv1241, 4294967295
+  %109 = getelementptr inbounds [233 x [5 x i16]], ptr %22, i64 0, i64 %.sroa.0652.01232, i64 %108
+  %110 = load i16, ptr %109, align 2
+  %111 = and i16 %110, -256
+  %112 = or disjoint i16 %111, 34
+  store i16 %112, ptr %109, align 2
+  %113 = getelementptr inbounds [233 x [5 x i16]], ptr %22, i64 0, i64 %.sroa.0652.01232, i64 %indvars.iv1241
+  %114 = load i16, ptr %113, align 2
+  %115 = and i16 %114, 255
+  %116 = or disjoint i16 %115, 8704
+  store i16 %116, ptr %113, align 2
+  %indvars.iv.next1242 = add nuw nsw i64 %indvars.iv1241, 1
+  %.not229 = icmp eq i64 %indvars.iv.next1242, 5
   br i1 %.not229, label %.lr.ph.i263, label %.lr.ph.i252, !llvm.loop !7
 
 .lr.ph.i263:                                      ; preds = %.lr.ph.i252
-  %118 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 337
-  store i8 2, ptr %118, align 1
-  br label %119
+  %.idx750 = mul nuw nsw i64 %.sroa.0652.01232, 491
+  %gep923 = getelementptr inbounds i8, ptr %invariant.gep922, i64 %.idx750
+  store i8 2, ptr %gep923, align 1
+  br label %117
 
-119:                                              ; preds = %119, %.lr.ph.i263
-  %.011.i264.idx = phi i64 [ 0, %.lr.ph.i263 ], [ %.011.i264.add, %119 ]
+117:                                              ; preds = %117, %.lr.ph.i263
+  %.011.i264.idx = phi i64 [ 0, %.lr.ph.i263 ], [ %.011.i264.add, %117 ]
   %.011.i264.ptr = getelementptr inbounds i8, ptr @constinit, i64 %.011.i264.idx
-  %120 = load i32, ptr %.011.i264.ptr, align 4
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %121
-  store i8 2, ptr %122, align 1
+  %118 = load i32, ptr %.011.i264.ptr, align 4
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %119
+  store i8 2, ptr %120, align 1
   %.011.i264.add = add nuw nsw i64 %.011.i264.idx, 4
   %.not.i265 = icmp eq i64 %.011.i264.add, 140
-  br i1 %.not.i265, label %.lr.ph.i268, label %119
+  br i1 %.not.i265, label %.lr.ph.i268, label %117
 
-.lr.ph.i268:                                      ; preds = %119, %.lr.ph.i268
-  %.011.i269.idx = phi i64 [ %.011.i269.add, %.lr.ph.i268 ], [ 0, %119 ]
+.lr.ph.i268:                                      ; preds = %117, %.lr.ph.i268
+  %.011.i269.idx = phi i64 [ %.011.i269.add, %.lr.ph.i268 ], [ 0, %117 ]
   %.011.i269.ptr = getelementptr inbounds i8, ptr @constinit.22, i64 %.011.i269.idx
-  %123 = load i32, ptr %.011.i269.ptr, align 4
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %124
-  store i8 2, ptr %125, align 1
+  %121 = load i32, ptr %.011.i269.ptr, align 4
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %122
+  store i8 2, ptr %123, align 1
   %.011.i269.add = add nuw nsw i64 %.011.i269.idx, 4
   %.not.i270 = icmp eq i64 %.011.i269.add, 24
   br i1 %.not.i270, label %.lr.ph.i274, label %.lr.ph.i268
@@ -2148,10 +2306,10 @@ _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %92, %103
 .lr.ph.i274:                                      ; preds = %.lr.ph.i268, %.lr.ph.i274
   %.011.i275.idx = phi i64 [ %.011.i275.add, %.lr.ph.i274 ], [ 0, %.lr.ph.i268 ]
   %.011.i275.ptr = getelementptr inbounds i8, ptr @constinit.23, i64 %.011.i275.idx
-  %126 = load i32, ptr %.011.i275.ptr, align 4
-  %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %127
-  store i8 2, ptr %128, align 1
+  %124 = load i32, ptr %.011.i275.ptr, align 4
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %125
+  store i8 2, ptr %126, align 1
   %.011.i275.add = add nuw nsw i64 %.011.i275.idx, 4
   %.not.i276 = icmp eq i64 %.011.i275.add, 20
   br i1 %.not.i276, label %.lr.ph.i280, label %.lr.ph.i274
@@ -2161,326 +2319,621 @@ _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %92, %103
   store i32 70, ptr %79, align 4
   store i32 69, ptr %80, align 4
   store i32 71, ptr %81, align 4
-  br label %129
+  br label %127
 
-129:                                              ; preds = %129, %.lr.ph.i280
-  %.011.i281.idx = phi i64 [ 0, %.lr.ph.i280 ], [ %.011.i281.add, %129 ]
+127:                                              ; preds = %127, %.lr.ph.i280
+  %.011.i281.idx = phi i64 [ 0, %.lr.ph.i280 ], [ %.011.i281.add, %127 ]
   %.011.i281.ptr = getelementptr inbounds i8, ptr %7, i64 %.011.i281.idx
-  %130 = load i32, ptr %.011.i281.ptr, align 4
-  %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %131
-  store i8 2, ptr %132, align 1
+  %128 = load i32, ptr %.011.i281.ptr, align 4
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %129
+  store i8 2, ptr %130, align 1
   %.011.i281.add = add nuw nsw i64 %.011.i281.idx, 4
   %.not.i282 = icmp eq i64 %.011.i281.add, 16
-  br i1 %.not.i282, label %.lr.ph.i286, label %129
+  br i1 %.not.i282, label %.lr.ph.i286, label %127
 
-.lr.ph.i286:                                      ; preds = %129
+.lr.ph.i286:                                      ; preds = %127
   store i32 184, ptr %8, align 4
   store i32 183, ptr %82, align 4
-  br label %133
+  br label %131
 
-133:                                              ; preds = %133, %.lr.ph.i286
-  %.011.i287.idx = phi i64 [ 0, %.lr.ph.i286 ], [ %.011.i287.add, %133 ]
+131:                                              ; preds = %131, %.lr.ph.i286
+  %.011.i287.idx = phi i64 [ 0, %.lr.ph.i286 ], [ %.011.i287.add, %131 ]
   %.011.i287.ptr = getelementptr inbounds i8, ptr %8, i64 %.011.i287.idx
-  %134 = load i32, ptr %.011.i287.ptr, align 4
-  %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %135
-  store i8 2, ptr %136, align 1
+  %132 = load i32, ptr %.011.i287.ptr, align 4
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %133
+  store i8 2, ptr %134, align 1
   %.011.i287.add = add nuw nsw i64 %.011.i287.idx, 4
   %.not.i288 = icmp eq i64 %.011.i287.add, 8
-  br i1 %.not.i288, label %.lr.ph.i292, label %133
+  br i1 %.not.i288, label %.lr.ph.i292, label %131
 
-.lr.ph.i292:                                      ; preds = %133
+.lr.ph.i292:                                      ; preds = %131
   store i32 173, ptr %9, align 4
   store i32 174, ptr %83, align 4
   store i32 175, ptr %84, align 4
   store i32 176, ptr %85, align 4
-  br label %137
+  br label %135
 
-137:                                              ; preds = %137, %.lr.ph.i292
-  %.011.i293.idx = phi i64 [ 0, %.lr.ph.i292 ], [ %.011.i293.add, %137 ]
+135:                                              ; preds = %135, %.lr.ph.i292
+  %.011.i293.idx = phi i64 [ 0, %.lr.ph.i292 ], [ %.011.i293.add, %135 ]
   %.011.i293.ptr = getelementptr inbounds i8, ptr %9, i64 %.011.i293.idx
-  %138 = load i32, ptr %.011.i293.ptr, align 4
-  %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %139
-  store i8 2, ptr %140, align 1
+  %136 = load i32, ptr %.011.i293.ptr, align 4
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %137
+  store i8 2, ptr %138, align 1
   %.011.i293.add = add nuw nsw i64 %.011.i293.idx, 4
   %.not.i294 = icmp eq i64 %.011.i293.add, 16
-  br i1 %.not.i294, label %.lr.ph.i298, label %137
+  br i1 %.not.i294, label %.lr.ph.i298, label %135
 
-.lr.ph.i298:                                      ; preds = %137
+.lr.ph.i298:                                      ; preds = %135
   store i32 177, ptr %10, align 4
   store i32 178, ptr %86, align 4
-  br label %141
+  br label %139
 
-141:                                              ; preds = %141, %.lr.ph.i298
-  %.011.i299.idx = phi i64 [ 0, %.lr.ph.i298 ], [ %.011.i299.add, %141 ]
+139:                                              ; preds = %139, %.lr.ph.i298
+  %.011.i299.idx = phi i64 [ 0, %.lr.ph.i298 ], [ %.011.i299.add, %139 ]
   %.011.i299.ptr = getelementptr inbounds i8, ptr %10, i64 %.011.i299.idx
-  %142 = load i32, ptr %.011.i299.ptr, align 4
-  %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %143
-  store i8 2, ptr %144, align 1
+  %140 = load i32, ptr %.011.i299.ptr, align 4
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %141
+  store i8 2, ptr %142, align 1
   %.011.i299.add = add nuw nsw i64 %.011.i299.idx, 4
   %.not.i300 = icmp eq i64 %.011.i299.add, 8
-  br i1 %.not.i300, label %.lr.ph.i304, label %141
+  br i1 %.not.i300, label %.lr.ph.i304, label %139
 
-.lr.ph.i304:                                      ; preds = %141
-  %145 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 216
-  store i8 2, ptr %145, align 1
-  %146 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 217
-  store i8 2, ptr %146, align 1
-  %147 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 218
-  store i8 2, ptr %147, align 1
+.lr.ph.i304:                                      ; preds = %139
+  %gep925 = getelementptr inbounds i8, ptr %invariant.gep924, i64 %.idx750
+  store i8 2, ptr %gep925, align 1
+  %gep927 = getelementptr inbounds i8, ptr %invariant.gep926, i64 %.idx750
+  store i8 2, ptr %gep927, align 1
+  %gep929 = getelementptr inbounds i8, ptr %invariant.gep928, i64 %.idx750
+  store i8 2, ptr %gep929, align 1
   store i32 203, ptr %11, align 4
   store i32 202, ptr %87, align 4
-  br label %148
+  br label %143
 
-148:                                              ; preds = %148, %.lr.ph.i304
-  %.011.i305.idx = phi i64 [ 0, %.lr.ph.i304 ], [ %.011.i305.add, %148 ]
+143:                                              ; preds = %143, %.lr.ph.i304
+  %.011.i305.idx = phi i64 [ 0, %.lr.ph.i304 ], [ %.011.i305.add, %143 ]
   %.011.i305.ptr = getelementptr inbounds i8, ptr %11, i64 %.011.i305.idx
-  %149 = load i32, ptr %.011.i305.ptr, align 4
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %150
-  store i8 2, ptr %151, align 1
+  %144 = load i32, ptr %.011.i305.ptr, align 4
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %145
+  store i8 2, ptr %146, align 1
   %.011.i305.add = add nuw nsw i64 %.011.i305.idx, 4
   %.not.i306 = icmp eq i64 %.011.i305.add, 8
-  br i1 %.not.i306, label %.lr.ph.i310, label %148
+  br i1 %.not.i306, label %.lr.ph.i310, label %143
 
-.lr.ph.i310:                                      ; preds = %148
+.lr.ph.i310:                                      ; preds = %143
   store i32 200, ptr %12, align 4
   store i32 201, ptr %88, align 4
-  br label %152
+  br label %147
 
-152:                                              ; preds = %152, %.lr.ph.i310
-  %.011.i311.idx = phi i64 [ 0, %.lr.ph.i310 ], [ %.011.i311.add, %152 ]
+147:                                              ; preds = %147, %.lr.ph.i310
+  %.011.i311.idx = phi i64 [ 0, %.lr.ph.i310 ], [ %.011.i311.add, %147 ]
   %.011.i311.ptr = getelementptr inbounds i8, ptr %12, i64 %.011.i311.idx
-  %153 = load i32, ptr %.011.i311.ptr, align 4
-  %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %154
-  store i8 2, ptr %155, align 1
+  %148 = load i32, ptr %.011.i311.ptr, align 4
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %149
+  store i8 2, ptr %150, align 1
   %.011.i311.add = add nuw nsw i64 %.011.i311.idx, 4
   %.not.i312 = icmp eq i64 %.011.i311.add, 8
-  br i1 %.not.i312, label %.lr.ph.i316, label %152
+  br i1 %.not.i312, label %.lr.ph.i316, label %147
 
-.lr.ph.i316:                                      ; preds = %152
+.lr.ph.i316:                                      ; preds = %147
   store i32 270, ptr %13, align 4
   store i32 257, ptr %89, align 4
   store i32 258, ptr %90, align 4
   store i32 259, ptr %91, align 4
-  br label %156
+  br label %151
 
-156:                                              ; preds = %156, %.lr.ph.i316
-  %.011.i317.idx = phi i64 [ 0, %.lr.ph.i316 ], [ %.011.i317.add, %156 ]
+151:                                              ; preds = %151, %.lr.ph.i316
+  %.011.i317.idx = phi i64 [ 0, %.lr.ph.i316 ], [ %.011.i317.add, %151 ]
   %.011.i317.ptr = getelementptr inbounds i8, ptr %13, i64 %.011.i317.idx
-  %157 = load i32, ptr %.011.i317.ptr, align 4
-  %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %158
-  store i8 2, ptr %159, align 1
+  %152 = load i32, ptr %.011.i317.ptr, align 4
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %153
+  store i8 2, ptr %154, align 1
   %.011.i317.add = add nuw nsw i64 %.011.i317.idx, 4
   %.not.i318 = icmp eq i64 %.011.i317.add, 16
-  br i1 %.not.i318, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319, label %156
+  br i1 %.not.i318, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319, label %151
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319: ; preds = %156
-  %160 = trunc i64 %.sroa.0652.0765 to i16
-  %161 = add i16 %160, -17
-  %spec.select.i320 = icmp ult i16 %161, 173
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319: ; preds = %151
+  %155 = trunc i64 %.sroa.0652.01232 to i16
+  %156 = add i16 %155, -17
+  %spec.select.i320 = icmp ult i16 %156, 173
   br i1 %spec.select.i320, label %.lr.ph.i323, label %.lr.ph.i329
 
 .lr.ph.i323:                                      ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319, %.lr.ph.i323
   %.011.i324.idx = phi i64 [ %.011.i324.add, %.lr.ph.i323 ], [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319 ]
   %.011.i324.ptr = getelementptr inbounds i8, ptr @constinit.24, i64 %.011.i324.idx
-  %162 = load i32, ptr %.011.i324.ptr, align 4
-  %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %163
-  store i8 2, ptr %164, align 1
+  %157 = load i32, ptr %.011.i324.ptr, align 4
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %158
+  store i8 2, ptr %159, align 1
   %.011.i324.add = add nuw nsw i64 %.011.i324.idx, 4
   %.not.i325 = icmp eq i64 %.011.i324.add, 68
   br i1 %.not.i325, label %.lr.ph.i329, label %.lr.ph.i323
 
 .lr.ph.i329:                                      ; preds = %.lr.ph.i323, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit319
-  %165 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 101
-  %166 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 365
-  store i8 2, ptr %166, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %165, i8 2, i64 47, i1 false)
-  br label %167
+  %gep931 = getelementptr inbounds i8, ptr %invariant.gep930, i64 %.idx750
+  store i8 2, ptr %gep931, align 1
+  %gep933 = getelementptr inbounds i8, ptr %invariant.gep932, i64 %.idx750
+  store i8 2, ptr %gep933, align 1
+  %gep935 = getelementptr inbounds i8, ptr %invariant.gep934, i64 %.idx750
+  store i8 2, ptr %gep935, align 1
+  %gep937 = getelementptr inbounds i8, ptr %invariant.gep936, i64 %.idx750
+  store i8 2, ptr %gep937, align 1
+  %gep939 = getelementptr inbounds i8, ptr %invariant.gep938, i64 %.idx750
+  store i8 2, ptr %gep939, align 1
+  %gep941 = getelementptr inbounds i8, ptr %invariant.gep940, i64 %.idx750
+  store i8 2, ptr %gep941, align 1
+  %gep943 = getelementptr inbounds i8, ptr %invariant.gep942, i64 %.idx750
+  store i8 2, ptr %gep943, align 1
+  %gep945 = getelementptr inbounds i8, ptr %invariant.gep944, i64 %.idx750
+  store i8 2, ptr %gep945, align 1
+  %gep947 = getelementptr inbounds i8, ptr %invariant.gep946, i64 %.idx750
+  store i8 2, ptr %gep947, align 1
+  %gep949 = getelementptr inbounds i8, ptr %invariant.gep948, i64 %.idx750
+  store i8 2, ptr %gep949, align 1
+  %gep951 = getelementptr inbounds i8, ptr %invariant.gep950, i64 %.idx750
+  store i8 2, ptr %gep951, align 1
+  %gep953 = getelementptr inbounds i8, ptr %invariant.gep952, i64 %.idx750
+  store i8 2, ptr %gep953, align 1
+  %gep955 = getelementptr inbounds i8, ptr %invariant.gep954, i64 %.idx750
+  store i8 2, ptr %gep955, align 1
+  %gep957 = getelementptr inbounds i8, ptr %invariant.gep956, i64 %.idx750
+  store i8 2, ptr %gep957, align 1
+  %gep959 = getelementptr inbounds i8, ptr %invariant.gep958, i64 %.idx750
+  store i8 2, ptr %gep959, align 1
+  %gep961 = getelementptr inbounds i8, ptr %invariant.gep960, i64 %.idx750
+  store i8 2, ptr %gep961, align 1
+  %gep963 = getelementptr inbounds i8, ptr %invariant.gep962, i64 %.idx750
+  store i8 2, ptr %gep963, align 1
+  %gep965 = getelementptr inbounds i8, ptr %invariant.gep964, i64 %.idx750
+  store i8 2, ptr %gep965, align 1
+  %gep967 = getelementptr inbounds i8, ptr %invariant.gep966, i64 %.idx750
+  store i8 2, ptr %gep967, align 1
+  %gep969 = getelementptr inbounds i8, ptr %invariant.gep968, i64 %.idx750
+  store i8 2, ptr %gep969, align 1
+  %gep971 = getelementptr inbounds i8, ptr %invariant.gep970, i64 %.idx750
+  store i8 2, ptr %gep971, align 1
+  %gep973 = getelementptr inbounds i8, ptr %invariant.gep972, i64 %.idx750
+  store i8 2, ptr %gep973, align 1
+  %gep975 = getelementptr inbounds i8, ptr %invariant.gep974, i64 %.idx750
+  store i8 2, ptr %gep975, align 1
+  %gep977 = getelementptr inbounds i8, ptr %invariant.gep976, i64 %.idx750
+  store i8 2, ptr %gep977, align 1
+  %gep979 = getelementptr inbounds i8, ptr %invariant.gep978, i64 %.idx750
+  store i8 2, ptr %gep979, align 1
+  %gep981 = getelementptr inbounds i8, ptr %invariant.gep980, i64 %.idx750
+  store i8 2, ptr %gep981, align 1
+  %gep983 = getelementptr inbounds i8, ptr %invariant.gep982, i64 %.idx750
+  store i8 2, ptr %gep983, align 1
+  %gep985 = getelementptr inbounds i8, ptr %invariant.gep984, i64 %.idx750
+  store i8 2, ptr %gep985, align 1
+  %gep987 = getelementptr inbounds i8, ptr %invariant.gep986, i64 %.idx750
+  store i8 2, ptr %gep987, align 1
+  %gep989 = getelementptr inbounds i8, ptr %invariant.gep988, i64 %.idx750
+  store i8 2, ptr %gep989, align 1
+  %gep991 = getelementptr inbounds i8, ptr %invariant.gep990, i64 %.idx750
+  store i8 2, ptr %gep991, align 1
+  %gep993 = getelementptr inbounds i8, ptr %invariant.gep992, i64 %.idx750
+  store i8 2, ptr %gep993, align 1
+  %gep995 = getelementptr inbounds i8, ptr %invariant.gep994, i64 %.idx750
+  store i8 2, ptr %gep995, align 1
+  %gep997 = getelementptr inbounds i8, ptr %invariant.gep996, i64 %.idx750
+  store i8 2, ptr %gep997, align 1
+  %gep999 = getelementptr inbounds i8, ptr %invariant.gep998, i64 %.idx750
+  store i8 2, ptr %gep999, align 1
+  %gep1001 = getelementptr inbounds i8, ptr %invariant.gep1000, i64 %.idx750
+  store i8 2, ptr %gep1001, align 1
+  %gep1003 = getelementptr inbounds i8, ptr %invariant.gep1002, i64 %.idx750
+  store i8 2, ptr %gep1003, align 1
+  %gep1005 = getelementptr inbounds i8, ptr %invariant.gep1004, i64 %.idx750
+  store i8 2, ptr %gep1005, align 1
+  %gep1007 = getelementptr inbounds i8, ptr %invariant.gep1006, i64 %.idx750
+  store i8 2, ptr %gep1007, align 1
+  %gep1009 = getelementptr inbounds i8, ptr %invariant.gep1008, i64 %.idx750
+  store i8 2, ptr %gep1009, align 1
+  %gep1011 = getelementptr inbounds i8, ptr %invariant.gep1010, i64 %.idx750
+  store i8 2, ptr %gep1011, align 1
+  %gep1013 = getelementptr inbounds i8, ptr %invariant.gep1012, i64 %.idx750
+  store i8 2, ptr %gep1013, align 1
+  %gep1015 = getelementptr inbounds i8, ptr %invariant.gep1014, i64 %.idx750
+  store i8 2, ptr %gep1015, align 1
+  %gep1017 = getelementptr inbounds i8, ptr %invariant.gep1016, i64 %.idx750
+  store i8 2, ptr %gep1017, align 1
+  %gep1019 = getelementptr inbounds i8, ptr %invariant.gep1018, i64 %.idx750
+  store i8 2, ptr %gep1019, align 1
+  %gep1021 = getelementptr inbounds i8, ptr %invariant.gep1020, i64 %.idx750
+  store i8 2, ptr %gep1021, align 1
+  %gep1023 = getelementptr inbounds i8, ptr %invariant.gep1022, i64 %.idx750
+  store i8 2, ptr %gep1023, align 1
+  %gep1025 = getelementptr inbounds i8, ptr %invariant.gep1024, i64 %.idx750
+  store i8 2, ptr %gep1025, align 1
+  br label %160
 
-167:                                              ; preds = %167, %.lr.ph.i329
-  %.011.i330.idx = phi i64 [ 0, %.lr.ph.i329 ], [ %.011.i330.add, %167 ]
+160:                                              ; preds = %160, %.lr.ph.i329
+  %.011.i330.idx = phi i64 [ 0, %.lr.ph.i329 ], [ %.011.i330.add, %160 ]
   %.011.i330.ptr = getelementptr inbounds i8, ptr @constinit.25, i64 %.011.i330.idx
-  %168 = load i32, ptr %.011.i330.ptr, align 4
-  %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 %169
-  store i8 2, ptr %170, align 1
+  %161 = load i32, ptr %.011.i330.ptr, align 4
+  %162 = zext i32 %161 to i64
+  %163 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.01232, i64 %162
+  store i8 2, ptr %163, align 1
   %.011.i330.add = add nuw nsw i64 %.011.i330.idx, 4
   %.not.i331 = icmp eq i64 %.011.i330.add, 68
-  br i1 %.not.i331, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332, label %167
+  br i1 %.not.i331, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332, label %160
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332: ; preds = %167
-  %171 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 165
-  store i8 2, ptr %171, align 1
-  %172 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 170
-  store i8 2, ptr %172, align 1
-  %173 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 387
-  %174 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 286
-  store i8 2, ptr %174, align 1
-  %175 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 287
-  store i8 2, ptr %175, align 1
-  %176 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %.sroa.0652.0765, i64 288
-  store i8 2, ptr %176, align 1
-  %177 = add nuw nsw i64 %.sroa.0652.0765, 1
-  %.not748 = icmp eq i64 %177, 233
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(98) %173, i8 2, i64 98, i1 false)
-  br i1 %.not748, label %.lr.ph.i335, label %108
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332: ; preds = %160
+  %gep1027 = getelementptr inbounds i8, ptr %invariant.gep1026, i64 %.idx750
+  store i8 2, ptr %gep1027, align 1
+  %gep1029 = getelementptr inbounds i8, ptr %invariant.gep1028, i64 %.idx750
+  store i8 2, ptr %gep1029, align 1
+  %gep1031 = getelementptr inbounds i8, ptr %invariant.gep1030, i64 %.idx750
+  store i8 2, ptr %gep1031, align 1
+  %gep1033 = getelementptr inbounds i8, ptr %invariant.gep1032, i64 %.idx750
+  store i8 2, ptr %gep1033, align 1
+  %gep1035 = getelementptr inbounds i8, ptr %invariant.gep1034, i64 %.idx750
+  store i8 2, ptr %gep1035, align 1
+  %gep1037 = getelementptr inbounds i8, ptr %invariant.gep1036, i64 %.idx750
+  store i8 2, ptr %gep1037, align 1
+  %gep1039 = getelementptr inbounds i8, ptr %invariant.gep1038, i64 %.idx750
+  store i8 2, ptr %gep1039, align 1
+  %gep1041 = getelementptr inbounds i8, ptr %invariant.gep1040, i64 %.idx750
+  store i8 2, ptr %gep1041, align 1
+  %gep1043 = getelementptr inbounds i8, ptr %invariant.gep1042, i64 %.idx750
+  store i8 2, ptr %gep1043, align 1
+  %gep1045 = getelementptr inbounds i8, ptr %invariant.gep1044, i64 %.idx750
+  store i8 2, ptr %gep1045, align 1
+  %gep1047 = getelementptr inbounds i8, ptr %invariant.gep1046, i64 %.idx750
+  store i8 2, ptr %gep1047, align 1
+  %gep1049 = getelementptr inbounds i8, ptr %invariant.gep1048, i64 %.idx750
+  store i8 2, ptr %gep1049, align 1
+  %gep1051 = getelementptr inbounds i8, ptr %invariant.gep1050, i64 %.idx750
+  store i8 2, ptr %gep1051, align 1
+  %gep1053 = getelementptr inbounds i8, ptr %invariant.gep1052, i64 %.idx750
+  store i8 2, ptr %gep1053, align 1
+  %gep1055 = getelementptr inbounds i8, ptr %invariant.gep1054, i64 %.idx750
+  store i8 2, ptr %gep1055, align 1
+  %gep1057 = getelementptr inbounds i8, ptr %invariant.gep1056, i64 %.idx750
+  store i8 2, ptr %gep1057, align 1
+  %gep1059 = getelementptr inbounds i8, ptr %invariant.gep1058, i64 %.idx750
+  store i8 2, ptr %gep1059, align 1
+  %gep1061 = getelementptr inbounds i8, ptr %invariant.gep1060, i64 %.idx750
+  store i8 2, ptr %gep1061, align 1
+  %gep1063 = getelementptr inbounds i8, ptr %invariant.gep1062, i64 %.idx750
+  store i8 2, ptr %gep1063, align 1
+  %gep1065 = getelementptr inbounds i8, ptr %invariant.gep1064, i64 %.idx750
+  store i8 2, ptr %gep1065, align 1
+  %gep1067 = getelementptr inbounds i8, ptr %invariant.gep1066, i64 %.idx750
+  store i8 2, ptr %gep1067, align 1
+  %gep1069 = getelementptr inbounds i8, ptr %invariant.gep1068, i64 %.idx750
+  store i8 2, ptr %gep1069, align 1
+  %gep1071 = getelementptr inbounds i8, ptr %invariant.gep1070, i64 %.idx750
+  store i8 2, ptr %gep1071, align 1
+  %gep1073 = getelementptr inbounds i8, ptr %invariant.gep1072, i64 %.idx750
+  store i8 2, ptr %gep1073, align 1
+  %gep1075 = getelementptr inbounds i8, ptr %invariant.gep1074, i64 %.idx750
+  store i8 2, ptr %gep1075, align 1
+  %gep1077 = getelementptr inbounds i8, ptr %invariant.gep1076, i64 %.idx750
+  store i8 2, ptr %gep1077, align 1
+  %gep1079 = getelementptr inbounds i8, ptr %invariant.gep1078, i64 %.idx750
+  store i8 2, ptr %gep1079, align 1
+  %gep1081 = getelementptr inbounds i8, ptr %invariant.gep1080, i64 %.idx750
+  store i8 2, ptr %gep1081, align 1
+  %gep1083 = getelementptr inbounds i8, ptr %invariant.gep1082, i64 %.idx750
+  store i8 2, ptr %gep1083, align 1
+  %gep1085 = getelementptr inbounds i8, ptr %invariant.gep1084, i64 %.idx750
+  store i8 2, ptr %gep1085, align 1
+  %gep1087 = getelementptr inbounds i8, ptr %invariant.gep1086, i64 %.idx750
+  store i8 2, ptr %gep1087, align 1
+  %gep1089 = getelementptr inbounds i8, ptr %invariant.gep1088, i64 %.idx750
+  store i8 2, ptr %gep1089, align 1
+  %gep1091 = getelementptr inbounds i8, ptr %invariant.gep1090, i64 %.idx750
+  store i8 2, ptr %gep1091, align 1
+  %gep1093 = getelementptr inbounds i8, ptr %invariant.gep1092, i64 %.idx750
+  store i8 2, ptr %gep1093, align 1
+  %gep1095 = getelementptr inbounds i8, ptr %invariant.gep1094, i64 %.idx750
+  store i8 2, ptr %gep1095, align 1
+  %gep1097 = getelementptr inbounds i8, ptr %invariant.gep1096, i64 %.idx750
+  store i8 2, ptr %gep1097, align 1
+  %gep1099 = getelementptr inbounds i8, ptr %invariant.gep1098, i64 %.idx750
+  store i8 2, ptr %gep1099, align 1
+  %gep1101 = getelementptr inbounds i8, ptr %invariant.gep1100, i64 %.idx750
+  store i8 2, ptr %gep1101, align 1
+  %gep1103 = getelementptr inbounds i8, ptr %invariant.gep1102, i64 %.idx750
+  store i8 2, ptr %gep1103, align 1
+  %gep1105 = getelementptr inbounds i8, ptr %invariant.gep1104, i64 %.idx750
+  store i8 2, ptr %gep1105, align 1
+  %gep1107 = getelementptr inbounds i8, ptr %invariant.gep1106, i64 %.idx750
+  store i8 2, ptr %gep1107, align 1
+  %gep1109 = getelementptr inbounds i8, ptr %invariant.gep1108, i64 %.idx750
+  store i8 2, ptr %gep1109, align 1
+  %gep1111 = getelementptr inbounds i8, ptr %invariant.gep1110, i64 %.idx750
+  store i8 2, ptr %gep1111, align 1
+  %gep1113 = getelementptr inbounds i8, ptr %invariant.gep1112, i64 %.idx750
+  store i8 2, ptr %gep1113, align 1
+  %gep1115 = getelementptr inbounds i8, ptr %invariant.gep1114, i64 %.idx750
+  store i8 2, ptr %gep1115, align 1
+  %gep1117 = getelementptr inbounds i8, ptr %invariant.gep1116, i64 %.idx750
+  store i8 2, ptr %gep1117, align 1
+  %gep1119 = getelementptr inbounds i8, ptr %invariant.gep1118, i64 %.idx750
+  store i8 2, ptr %gep1119, align 1
+  %gep1121 = getelementptr inbounds i8, ptr %invariant.gep1120, i64 %.idx750
+  store i8 2, ptr %gep1121, align 1
+  %gep1123 = getelementptr inbounds i8, ptr %invariant.gep1122, i64 %.idx750
+  store i8 2, ptr %gep1123, align 1
+  %gep1125 = getelementptr inbounds i8, ptr %invariant.gep1124, i64 %.idx750
+  store i8 2, ptr %gep1125, align 1
+  %gep1127 = getelementptr inbounds i8, ptr %invariant.gep1126, i64 %.idx750
+  store i8 2, ptr %gep1127, align 1
+  %gep1129 = getelementptr inbounds i8, ptr %invariant.gep1128, i64 %.idx750
+  store i8 2, ptr %gep1129, align 1
+  %gep1131 = getelementptr inbounds i8, ptr %invariant.gep1130, i64 %.idx750
+  store i8 2, ptr %gep1131, align 1
+  %gep1133 = getelementptr inbounds i8, ptr %invariant.gep1132, i64 %.idx750
+  store i8 2, ptr %gep1133, align 1
+  %gep1135 = getelementptr inbounds i8, ptr %invariant.gep1134, i64 %.idx750
+  store i8 2, ptr %gep1135, align 1
+  %gep1137 = getelementptr inbounds i8, ptr %invariant.gep1136, i64 %.idx750
+  store i8 2, ptr %gep1137, align 1
+  %gep1139 = getelementptr inbounds i8, ptr %invariant.gep1138, i64 %.idx750
+  store i8 2, ptr %gep1139, align 1
+  %gep1141 = getelementptr inbounds i8, ptr %invariant.gep1140, i64 %.idx750
+  store i8 2, ptr %gep1141, align 1
+  %gep1143 = getelementptr inbounds i8, ptr %invariant.gep1142, i64 %.idx750
+  store i8 2, ptr %gep1143, align 1
+  %gep1145 = getelementptr inbounds i8, ptr %invariant.gep1144, i64 %.idx750
+  store i8 2, ptr %gep1145, align 1
+  %gep1147 = getelementptr inbounds i8, ptr %invariant.gep1146, i64 %.idx750
+  store i8 2, ptr %gep1147, align 1
+  %gep1149 = getelementptr inbounds i8, ptr %invariant.gep1148, i64 %.idx750
+  store i8 2, ptr %gep1149, align 1
+  %gep1151 = getelementptr inbounds i8, ptr %invariant.gep1150, i64 %.idx750
+  store i8 2, ptr %gep1151, align 1
+  %gep1153 = getelementptr inbounds i8, ptr %invariant.gep1152, i64 %.idx750
+  store i8 2, ptr %gep1153, align 1
+  %gep1155 = getelementptr inbounds i8, ptr %invariant.gep1154, i64 %.idx750
+  store i8 2, ptr %gep1155, align 1
+  %gep1157 = getelementptr inbounds i8, ptr %invariant.gep1156, i64 %.idx750
+  store i8 2, ptr %gep1157, align 1
+  %gep1159 = getelementptr inbounds i8, ptr %invariant.gep1158, i64 %.idx750
+  store i8 2, ptr %gep1159, align 1
+  %gep1161 = getelementptr inbounds i8, ptr %invariant.gep1160, i64 %.idx750
+  store i8 2, ptr %gep1161, align 1
+  %gep1163 = getelementptr inbounds i8, ptr %invariant.gep1162, i64 %.idx750
+  store i8 2, ptr %gep1163, align 1
+  %gep1165 = getelementptr inbounds i8, ptr %invariant.gep1164, i64 %.idx750
+  store i8 2, ptr %gep1165, align 1
+  %gep1167 = getelementptr inbounds i8, ptr %invariant.gep1166, i64 %.idx750
+  store i8 2, ptr %gep1167, align 1
+  %gep1169 = getelementptr inbounds i8, ptr %invariant.gep1168, i64 %.idx750
+  store i8 2, ptr %gep1169, align 1
+  %gep1171 = getelementptr inbounds i8, ptr %invariant.gep1170, i64 %.idx750
+  store i8 2, ptr %gep1171, align 1
+  %gep1173 = getelementptr inbounds i8, ptr %invariant.gep1172, i64 %.idx750
+  store i8 2, ptr %gep1173, align 1
+  %gep1175 = getelementptr inbounds i8, ptr %invariant.gep1174, i64 %.idx750
+  store i8 2, ptr %gep1175, align 1
+  %gep1177 = getelementptr inbounds i8, ptr %invariant.gep1176, i64 %.idx750
+  store i8 2, ptr %gep1177, align 1
+  %gep1179 = getelementptr inbounds i8, ptr %invariant.gep1178, i64 %.idx750
+  store i8 2, ptr %gep1179, align 1
+  %gep1181 = getelementptr inbounds i8, ptr %invariant.gep1180, i64 %.idx750
+  store i8 2, ptr %gep1181, align 1
+  %gep1183 = getelementptr inbounds i8, ptr %invariant.gep1182, i64 %.idx750
+  store i8 2, ptr %gep1183, align 1
+  %gep1185 = getelementptr inbounds i8, ptr %invariant.gep1184, i64 %.idx750
+  store i8 2, ptr %gep1185, align 1
+  %gep1187 = getelementptr inbounds i8, ptr %invariant.gep1186, i64 %.idx750
+  store i8 2, ptr %gep1187, align 1
+  %gep1189 = getelementptr inbounds i8, ptr %invariant.gep1188, i64 %.idx750
+  store i8 2, ptr %gep1189, align 1
+  %gep1191 = getelementptr inbounds i8, ptr %invariant.gep1190, i64 %.idx750
+  store i8 2, ptr %gep1191, align 1
+  %gep1193 = getelementptr inbounds i8, ptr %invariant.gep1192, i64 %.idx750
+  store i8 2, ptr %gep1193, align 1
+  %gep1195 = getelementptr inbounds i8, ptr %invariant.gep1194, i64 %.idx750
+  store i8 2, ptr %gep1195, align 1
+  %gep1197 = getelementptr inbounds i8, ptr %invariant.gep1196, i64 %.idx750
+  store i8 2, ptr %gep1197, align 1
+  %gep1199 = getelementptr inbounds i8, ptr %invariant.gep1198, i64 %.idx750
+  store i8 2, ptr %gep1199, align 1
+  %gep1201 = getelementptr inbounds i8, ptr %invariant.gep1200, i64 %.idx750
+  store i8 2, ptr %gep1201, align 1
+  %gep1203 = getelementptr inbounds i8, ptr %invariant.gep1202, i64 %.idx750
+  store i8 2, ptr %gep1203, align 1
+  %gep1205 = getelementptr inbounds i8, ptr %invariant.gep1204, i64 %.idx750
+  store i8 2, ptr %gep1205, align 1
+  %gep1207 = getelementptr inbounds i8, ptr %invariant.gep1206, i64 %.idx750
+  store i8 2, ptr %gep1207, align 1
+  %gep1209 = getelementptr inbounds i8, ptr %invariant.gep1208, i64 %.idx750
+  store i8 2, ptr %gep1209, align 1
+  %gep1211 = getelementptr inbounds i8, ptr %invariant.gep1210, i64 %.idx750
+  store i8 2, ptr %gep1211, align 1
+  %gep1213 = getelementptr inbounds i8, ptr %invariant.gep1212, i64 %.idx750
+  store i8 2, ptr %gep1213, align 1
+  %gep1215 = getelementptr inbounds i8, ptr %invariant.gep1214, i64 %.idx750
+  store i8 2, ptr %gep1215, align 1
+  %gep1217 = getelementptr inbounds i8, ptr %invariant.gep1216, i64 %.idx750
+  store i8 2, ptr %gep1217, align 1
+  %gep1219 = getelementptr inbounds i8, ptr %invariant.gep1218, i64 %.idx750
+  store i8 2, ptr %gep1219, align 1
+  %gep1221 = getelementptr inbounds i8, ptr %invariant.gep1220, i64 %.idx750
+  store i8 2, ptr %gep1221, align 1
+  %gep1223 = getelementptr inbounds i8, ptr %invariant.gep1222, i64 %.idx750
+  store i8 2, ptr %gep1223, align 1
+  %gep1225 = getelementptr inbounds i8, ptr %invariant.gep1224, i64 %.idx750
+  store i8 2, ptr %gep1225, align 1
+  %gep1227 = getelementptr inbounds i8, ptr %invariant.gep1226, i64 %.idx750
+  store i8 2, ptr %gep1227, align 1
+  %gep1229 = getelementptr inbounds i8, ptr %invariant.gep1228, i64 %.idx750
+  store i8 2, ptr %gep1229, align 1
+  %gep1231 = getelementptr inbounds i8, ptr %invariant.gep1230, i64 %.idx750
+  store i8 2, ptr %gep1231, align 1
+  %164 = add nuw nsw i64 %.sroa.0652.01232, 1
+  %.not748 = icmp eq i64 %164, 233
+  br i1 %.not748, label %.lr.ph.i335, label %107
 
 .lr.ph.i335:                                      ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit332
-  %178 = getelementptr inbounds i8, ptr %0, i64 6289
-  store i8 2, ptr %178, align 1
-  %179 = getelementptr inbounds i8, ptr %0, i64 9718
-  store i8 2, ptr %179, align 2
-  %180 = getelementptr inbounds i8, ptr %0, i64 9719
-  store i8 2, ptr %180, align 1
+  %165 = getelementptr inbounds i8, ptr %0, i64 6289
+  store i8 2, ptr %165, align 1
+  %166 = getelementptr inbounds i8, ptr %0, i64 9718
+  store i8 2, ptr %166, align 2
+  %167 = getelementptr inbounds i8, ptr %0, i64 9719
+  store i8 2, ptr %167, align 1
   store i16 10, ptr %14, align 2
-  %181 = getelementptr inbounds i8, ptr %14, i64 2
-  store i16 11, ptr %181, align 2
-  %182 = getelementptr inbounds i8, ptr %14, i64 4
-  store i16 12, ptr %182, align 2
-  %183 = getelementptr inbounds i8, ptr %14, i64 6
-  store i16 13, ptr %183, align 2
-  %184 = getelementptr inbounds i8, ptr %14, i64 8
-  store i16 14, ptr %184, align 2
-  %185 = getelementptr inbounds i8, ptr %14, i64 10
-  store i16 15, ptr %185, align 2
+  %168 = getelementptr inbounds i8, ptr %14, i64 2
+  store i16 11, ptr %168, align 2
+  %169 = getelementptr inbounds i8, ptr %14, i64 4
+  store i16 12, ptr %169, align 2
+  %170 = getelementptr inbounds i8, ptr %14, i64 6
+  store i16 13, ptr %170, align 2
+  %171 = getelementptr inbounds i8, ptr %14, i64 8
+  store i16 14, ptr %171, align 2
+  %172 = getelementptr inbounds i8, ptr %14, i64 10
+  store i16 15, ptr %172, align 2
+  %invariant.gep1250 = getelementptr inbounds i8, ptr %0, i64 5480
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i335, %.lr.ph.i.i
   %.013.i336.idx = phi i64 [ %.013.i336.add, %.lr.ph.i.i ], [ 0, %.lr.ph.i335 ]
   %.013.i336.ptr = getelementptr inbounds i8, ptr %14, i64 %.013.i336.idx
   %.sroa.02.0.copyload.i = load i16, ptr %.013.i336.ptr, align 2
-  %186 = zext i16 %.sroa.02.0.copyload.i to i64
-  %187 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %186, i64 12
-  store i8 2, ptr %187, align 1
+  %173 = zext i16 %.sroa.02.0.copyload.i to i64
+  %.idx1249 = mul nuw nsw i64 %173, 491
+  %gep1251 = getelementptr inbounds i8, ptr %invariant.gep1250, i64 %.idx1249
+  store i8 2, ptr %gep1251, align 1
   %.013.i336.add = add nuw nsw i64 %.013.i336.idx, 2
   %.not.i337 = icmp eq i64 %.013.i336.add, 12
   br i1 %.not.i337, label %.lr.ph.i341, label %.lr.ph.i.i
 
 .lr.ph.i341:                                      ; preds = %.lr.ph.i.i
   store i16 12, ptr %15, align 2
-  %188 = getelementptr inbounds i8, ptr %15, i64 2
-  store i16 13, ptr %188, align 2
-  %189 = getelementptr inbounds i8, ptr %15, i64 4
-  store i16 15, ptr %189, align 2
+  %174 = getelementptr inbounds i8, ptr %15, i64 2
+  store i16 13, ptr %174, align 2
+  %175 = getelementptr inbounds i8, ptr %15, i64 4
+  store i16 15, ptr %175, align 2
   br label %.lr.ph.i.i343
 
 .lr.ph.i.i343:                                    ; preds = %.lr.ph.i341, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348
   %.013.i344.idx = phi i64 [ %.013.i344.add, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348 ], [ 0, %.lr.ph.i341 ]
   %.013.i344.ptr = getelementptr inbounds i8, ptr %15, i64 %.013.i344.idx
   %.sroa.02.0.copyload.i345 = load i16, ptr %.013.i344.ptr, align 2
-  %190 = zext i16 %.sroa.02.0.copyload.i345 to i64
-  br label %191
+  %176 = zext i16 %.sroa.02.0.copyload.i345 to i64
+  br label %177
 
-191:                                              ; preds = %191, %.lr.ph.i.i343
-  %.011.i.i346.idx = phi i64 [ 0, %.lr.ph.i.i343 ], [ %.011.i.i346.add, %191 ]
+177:                                              ; preds = %177, %.lr.ph.i.i343
+  %.011.i.i346.idx = phi i64 [ 0, %.lr.ph.i.i343 ], [ %.011.i.i346.add, %177 ]
   %.011.i.i346.ptr = getelementptr inbounds i8, ptr @constinit.26, i64 %.011.i.i346.idx
-  %192 = load i32, ptr %.011.i.i346.ptr, align 4
-  %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %190, i64 %193
-  store i8 2, ptr %194, align 1
+  %178 = load i32, ptr %.011.i.i346.ptr, align 4
+  %179 = zext i32 %178 to i64
+  %180 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %176, i64 %179
+  store i8 2, ptr %180, align 1
   %.011.i.i346.add = add nuw nsw i64 %.011.i.i346.idx, 4
   %.not.i.i347 = icmp eq i64 %.011.i.i346.add, 80
-  br i1 %.not.i.i347, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348, label %191
+  br i1 %.not.i.i347, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348, label %177
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348: ; preds = %191
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348: ; preds = %177
   %.013.i344.add = add nuw nsw i64 %.013.i344.idx, 2
   %.not.i349 = icmp eq i64 %.013.i344.add, 6
   br i1 %.not.i349, label %.lr.ph.i354, label %.lr.ph.i.i343
 
 .lr.ph.i354:                                      ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i348
   store i32 275, ptr %16, align 4
-  %195 = getelementptr inbounds i8, ptr %16, i64 4
-  store i32 276, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %16, i64 8
-  store i32 273, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 274, ptr %197, align 4
+  %181 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 276, ptr %181, align 4
+  %182 = getelementptr inbounds i8, ptr %16, i64 8
+  store i32 273, ptr %182, align 4
+  %183 = getelementptr inbounds i8, ptr %16, i64 12
+  store i32 274, ptr %183, align 4
   store i16 12, ptr %17, align 2
-  %198 = getelementptr inbounds i8, ptr %17, i64 2
-  store i16 13, ptr %198, align 2
-  %199 = getelementptr inbounds i8, ptr %17, i64 4
-  store i16 15, ptr %199, align 2
+  %184 = getelementptr inbounds i8, ptr %17, i64 2
+  store i16 13, ptr %184, align 2
+  %185 = getelementptr inbounds i8, ptr %17, i64 4
+  store i16 15, ptr %185, align 2
   br label %.lr.ph.i.i356
 
 .lr.ph.i.i356:                                    ; preds = %.lr.ph.i354, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361
   %.013.i357.idx = phi i64 [ %.013.i357.add, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361 ], [ 0, %.lr.ph.i354 ]
   %.013.i357.ptr = getelementptr inbounds i8, ptr %17, i64 %.013.i357.idx
   %.sroa.02.0.copyload.i358 = load i16, ptr %.013.i357.ptr, align 2
-  %200 = zext i16 %.sroa.02.0.copyload.i358 to i64
-  br label %201
+  %186 = zext i16 %.sroa.02.0.copyload.i358 to i64
+  br label %187
 
-201:                                              ; preds = %201, %.lr.ph.i.i356
-  %.011.i.i359.idx = phi i64 [ 0, %.lr.ph.i.i356 ], [ %.011.i.i359.add, %201 ]
+187:                                              ; preds = %187, %.lr.ph.i.i356
+  %.011.i.i359.idx = phi i64 [ 0, %.lr.ph.i.i356 ], [ %.011.i.i359.add, %187 ]
   %.011.i.i359.ptr = getelementptr inbounds i8, ptr %16, i64 %.011.i.i359.idx
-  %202 = load i32, ptr %.011.i.i359.ptr, align 4
-  %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %200, i64 %203
-  store i8 3, ptr %204, align 1
+  %188 = load i32, ptr %.011.i.i359.ptr, align 4
+  %189 = zext i32 %188 to i64
+  %190 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %186, i64 %189
+  store i8 3, ptr %190, align 1
   %.011.i.i359.add = add nuw nsw i64 %.011.i.i359.idx, 4
   %.not.i.i360 = icmp eq i64 %.011.i.i359.add, 16
-  br i1 %.not.i.i360, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361, label %201
+  br i1 %.not.i.i360, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361, label %187
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361: ; preds = %201
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361: ; preds = %187
   %.013.i357.add = add nuw nsw i64 %.013.i357.idx, 2
   %.not.i362 = icmp eq i64 %.013.i357.add, 6
-  br i1 %.not.i362, label %.lr.ph.i366, label %.lr.ph.i.i356
+  br i1 %.not.i362, label %.lr.ph.i366.preheader, label %.lr.ph.i.i356
 
-.lr.ph.i366:                                      ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361, %.lr.ph.i366
-  %.011.i367.idx = phi i64 [ %.011.i367.add, %.lr.ph.i366 ], [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361 ]
+.lr.ph.i366.preheader:                            ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i361
+  %invariant.gep1233 = getelementptr inbounds i8, ptr %0, i64 10869
+  br label %.lr.ph.i366
+
+.lr.ph.i366:                                      ; preds = %.lr.ph.i366.preheader, %.lr.ph.i366
+  %.011.i367.idx = phi i64 [ %.011.i367.add, %.lr.ph.i366 ], [ 0, %.lr.ph.i366.preheader ]
   %.011.i367.ptr = getelementptr inbounds i8, ptr @constinit.27, i64 %.011.i367.idx
-  %205 = load i32, ptr %.011.i367.ptr, align 4
-  %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 11, i64 %206
-  store i8 1, ptr %207, align 1
+  %191 = load i32, ptr %.011.i367.ptr, align 4
+  %192 = zext i32 %191 to i64
+  %gep1234 = getelementptr inbounds i8, ptr %invariant.gep1233, i64 %192
+  store i8 1, ptr %gep1234, align 1
   %.011.i367.add = add nuw nsw i64 %.011.i367.idx, 4
   %.not.i368 = icmp eq i64 %.011.i367.add, 28
   br i1 %.not.i368, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit369, label %.lr.ph.i366
 
 _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit369: ; preds = %.lr.ph.i366
-  %208 = getelementptr inbounds i8, ptr %0, i64 6286
-  store i8 2, ptr %208, align 2
-  %209 = getelementptr inbounds i8, ptr %0, i64 6287
-  store i8 2, ptr %209, align 1
-  %210 = getelementptr inbounds i8, ptr %0, i64 6288
-  store i8 2, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %0, i64 6248
-  store i8 2, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 6249
-  store i8 2, ptr %212, align 1
+  %193 = getelementptr inbounds i8, ptr %0, i64 6286
+  store i8 2, ptr %193, align 2
+  %194 = getelementptr inbounds i8, ptr %0, i64 6287
+  store i8 2, ptr %194, align 1
+  %195 = getelementptr inbounds i8, ptr %0, i64 6288
+  store i8 2, ptr %195, align 8
+  %196 = getelementptr inbounds i8, ptr %0, i64 6248
+  store i8 2, ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %0, i64 6249
+  store i8 2, ptr %197, align 1
   store i16 5, ptr %18, align 2
-  %213 = getelementptr inbounds i8, ptr %18, i64 2
-  store i16 6, ptr %213, align 2
-  %214 = getelementptr inbounds i8, ptr %18, i64 4
-  store i16 7, ptr %214, align 2
-  %215 = getelementptr inbounds i8, ptr %18, i64 6
-  store i16 8, ptr %215, align 2
-  br label %216
+  %198 = getelementptr inbounds i8, ptr %18, i64 2
+  store i16 6, ptr %198, align 2
+  %199 = getelementptr inbounds i8, ptr %18, i64 4
+  store i16 7, ptr %199, align 2
+  %200 = getelementptr inbounds i8, ptr %18, i64 6
+  store i16 8, ptr %200, align 2
+  %invariant.gep1235 = getelementptr inbounds i8, ptr %0, i64 5759
+  %invariant.gep1237 = getelementptr inbounds i8, ptr %0, i64 5760
+  br label %201
 
-216:                                              ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit369, %216
-  %.0226.idx766 = phi i64 [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit369 ], [ %.0226.add, %216 ]
-  %.0226.ptr = getelementptr inbounds i8, ptr %18, i64 %.0226.idx766
-  %217 = load i16, ptr %.0226.ptr, align 2
-  %218 = zext i16 %217 to i64
-  %219 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %218, i64 291
-  store i8 2, ptr %219, align 1
-  %220 = getelementptr inbounds [233 x [491 x i8]], ptr %19, i64 0, i64 %218, i64 292
-  store i8 2, ptr %220, align 1
-  %.0226.add = add nuw nsw i64 %.0226.idx766, 2
+201:                                              ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit369, %201
+  %.0226.idx1239 = phi i64 [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit369 ], [ %.0226.add, %201 ]
+  %.0226.ptr = getelementptr inbounds i8, ptr %18, i64 %.0226.idx1239
+  %202 = load i16, ptr %.0226.ptr, align 2
+  %203 = zext i16 %202 to i64
+  %.idx = mul nuw nsw i64 %203, 491
+  %gep1236 = getelementptr inbounds i8, ptr %invariant.gep1235, i64 %.idx
+  store i8 2, ptr %gep1236, align 1
+  %gep1238 = getelementptr inbounds i8, ptr %invariant.gep1237, i64 %.idx
+  store i8 2, ptr %gep1238, align 1
+  %.0226.add = add nuw nsw i64 %.0226.idx1239, 2
   %.not227 = icmp eq i64 %.0226.add, 8
-  br i1 %.not227, label %221, label %216
+  br i1 %.not227, label %204, label %201
 
-221:                                              ; preds = %216
-  %222 = getelementptr inbounds i8, ptr %0, i64 6252
-  store i8 2, ptr %222, align 4
-  %223 = getelementptr inbounds i8, ptr %0, i64 6449
-  store i8 3, ptr %223, align 1
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds i8, ptr %0, i64 6252
+  store i8 2, ptr %205, align 4
+  %206 = getelementptr inbounds i8, ptr %0, i64 6449
+  store i8 3, ptr %206, align 1
   ret void
 }
 
@@ -7576,9 +8029,10 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit._crit_edge: ; preds = %_ZNK4llvm3EVT2
   br i1 %or.cond, label %_ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit, label %.thread
 
 _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit: ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 5468
-  %41 = zext i16 %37 to i64
-  %42 = getelementptr inbounds [233 x [491 x i8]], ptr %40, i64 0, i64 %41, i64 294
+  %40 = zext i16 %37 to i64
+  %.idx = mul nuw nsw i64 %40, 491
+  %41 = getelementptr inbounds i8, ptr %0, i64 5762
+  %42 = getelementptr i8, ptr %41, i64 %.idx
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 1
   br i1 %44, label %45, label %.critedge
@@ -8385,8 +8839,9 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %3
 
 _ZNK4llvm3EVTeqES0_.exit.thread._crit_edge.i:     ; preds = %3, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.pre-phi.i = phi i64 [ %5, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %3 ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5468
-  %9 = getelementptr inbounds [233 x [491 x i8]], ptr %8, i64 0, i64 %.pre-phi.i, i64 199
+  %.idx = mul nuw nsw i64 %.pre-phi.i, 491
+  %8 = getelementptr inbounds i8, ptr %0, i64 5667
+  %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
@@ -9809,8 +10264,9 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %3
 
 _ZNK4llvm3EVTeqES0_.exit.thread._crit_edge.i:     ; preds = %3, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.pre-phi.i = phi i64 [ %7, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %3 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5468
-  %11 = getelementptr inbounds [233 x [491 x i8]], ptr %10, i64 0, i64 %.pre-phi.i, i64 150
+  %.idx = mul nuw nsw i64 %.pre-phi.i, 491
+  %10 = getelementptr inbounds i8, ptr %0, i64 5618
+  %11 = getelementptr i8, ptr %10, i64 %.idx
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit

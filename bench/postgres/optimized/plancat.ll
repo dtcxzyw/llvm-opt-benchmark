@@ -3370,7 +3370,7 @@ define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef read
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %25, i64 24
+  %34 = getelementptr i8, ptr %25, i64 14
   br label %35
 
 35:                                               ; preds = %.lr.ph, %54
@@ -3381,8 +3381,8 @@ define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef read
   store ptr null, ptr %4, align 8
   %38 = load i16, ptr %37, align 8
   %39 = sext i16 %38 to i64
-  %40 = add nsw i64 %39, -1
-  %41 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %34, i64 0, i64 %40, i32 16
+  %40 = mul nsw i64 %39, 104
+  %41 = getelementptr i8, ptr %34, i64 %40
   %42 = load i8, ptr %41, align 2
   %.not27 = icmp eq i8 %42, 0
   br i1 %.not27, label %54, label %43

@@ -77,7 +77,7 @@ define internal fastcc void @gsc_irq_handler(ptr nocapture noundef readonly %0, 
 
 10:                                               ; preds = %2
   %11 = load i1, ptr @gsc_irq_handler.__print_once.1, align 1
-  br i1 %11, label %43, label %12
+  br i1 %11, label %44, label %12
 
 12:                                               ; preds = %10
   store i1 true, ptr @gsc_irq_handler.__print_once.1, align 1
@@ -94,44 +94,46 @@ define internal fastcc void @gsc_irq_handler(ptr nocapture noundef readonly %0, 
   %19 = getelementptr inbounds i8, ptr %0, i64 4952
   %20 = load i32, ptr %19, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef %20) #5
-  br label %43
+  br label %44
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %0, i64 3000
-  %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr [2 x %struct.intel_gsc_intf], ptr %22, i64 0, i64 %23, i32 2
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %43, label %27
+  %narrow = mul nuw nsw i32 %1, 24
+  %23 = zext nneg i32 %narrow to i64
+  %24 = getelementptr i8, ptr %22, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 16
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %44, label %28
 
-27:                                               ; preds = %21
-  %28 = tail call i32 @generic_handle_irq(i32 noundef %25) #6
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %43, label %30
+28:                                               ; preds = %21
+  %29 = tail call i32 @generic_handle_irq(i32 noundef %26) #6
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %44, label %31
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @___ratelimit(ptr noundef nonnull @gsc_irq_handler._rs, ptr noundef nonnull @__func__.gsc_irq_handler) #6
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %43, label %33
+31:                                               ; preds = %28
+  %32 = tail call i32 @___ratelimit(ptr noundef nonnull @gsc_irq_handler._rs, ptr noundef nonnull @__func__.gsc_irq_handler) #6
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %44, label %34
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %0, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %39, label %36
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %0, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %40, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
-  %38 = load ptr, ptr %37, align 8
-  br label %39
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = load ptr, ptr %38, align 8
+  br label %40
 
-39:                                               ; preds = %36, %33
-  %40 = phi ptr [ %38, %36 ], [ null, %33 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 4952
-  %42 = load i32, ptr %41, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.3, i32 noundef %42, i32 noundef %28) #5
-  br label %43
+40:                                               ; preds = %37, %34
+  %41 = phi ptr [ %39, %37 ], [ null, %34 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 4952
+  %43 = load i32, ptr %42, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %41, ptr noundef nonnull @.str.3, i32 noundef %43, i32 noundef %29) #5
+  br label %44
 
-43:                                               ; preds = %39, %30, %27, %21, %17, %10
+44:                                               ; preds = %40, %31, %28, %21, %17, %10
   ret void
 }
 

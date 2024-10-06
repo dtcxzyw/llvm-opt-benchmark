@@ -12045,7 +12045,9 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %68 = srem i32 %67, 8
   store i32 %68, ptr %54, align 4, !tbaa !420
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [9 x [2 x float]], ptr %59, i64 0, i64 %69, i64 1
+  %.idx = shl nsw i64 %69, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %70 = getelementptr inbounds i8, ptr %59, i64 %.offs
   %71 = load float, ptr %70, align 4, !tbaa !6
   %72 = getelementptr inbounds i8, ptr %1, i64 32
   %73 = load double, ptr %72, align 8, !tbaa !426

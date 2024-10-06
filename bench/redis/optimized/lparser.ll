@@ -4315,7 +4315,9 @@ if.end50.i:                                       ; preds = %if.then48.i, %land.
   %u58.i = getelementptr inbounds i8, ptr %var, i64 8
   %45 = load i32, ptr %u58.i, align 8, !tbaa !32
   %conv60.i = trunc i32 %45 to i8
-  %info65.i = getelementptr inbounds [60 x %struct.upvaldesc], ptr %upvalues53.i, i64 0, i64 %idxprom55.pre-phi.i, i32 1
+  %info65.i.idx = shl nuw nsw i64 %idxprom55.pre-phi.i, 1
+  %info65.i.offs = or disjoint i64 %info65.i.idx, 1
+  %info65.i = getelementptr inbounds i8, ptr %upvalues53.i, i64 %info65.i.offs
   store i8 %conv60.i, ptr %info65.i, align 1, !tbaa !118
   %inc67.i = add i8 %43, 1
   store i8 %inc67.i, ptr %nups.i, align 8, !tbaa !94

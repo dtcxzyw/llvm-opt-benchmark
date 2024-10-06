@@ -700,25 +700,26 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   %43 = getelementptr inbounds i8, ptr %37, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 3324
-  %47 = getelementptr [3 x %struct.mei_fw_version], ptr %46, i64 0, i64 %31, i32 1
+  %.idx = shl i64 %31, 3
+  %46 = getelementptr i8, ptr %45, i64 3325
+  %47 = getelementptr i8, ptr %46, i64 %.idx
   store i8 %44, ptr %47, align 1
   %48 = load i16, ptr %37, align 4
   %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 3324
-  %51 = getelementptr [3 x %struct.mei_fw_version], ptr %50, i64 0, i64 %31, i32 2
+  %50 = getelementptr i8, ptr %49, i64 3326
+  %51 = getelementptr i8, ptr %50, i64 %.idx
   store i16 %48, ptr %51, align 2
   %52 = getelementptr inbounds i8, ptr %37, i64 6
   %53 = load i16, ptr %52, align 2
   %54 = load ptr, ptr %13, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 3324
-  %56 = getelementptr [3 x %struct.mei_fw_version], ptr %55, i64 0, i64 %31, i32 4
+  %55 = getelementptr i8, ptr %54, i64 3330
+  %56 = getelementptr i8, ptr %55, i64 %.idx
   store i16 %53, ptr %56, align 2
   %57 = getelementptr inbounds i8, ptr %37, i64 4
   %58 = load i16, ptr %57, align 8
   %59 = load ptr, ptr %13, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 3324
-  %61 = getelementptr [3 x %struct.mei_fw_version], ptr %60, i64 0, i64 %31, i32 3
+  %60 = getelementptr i8, ptr %59, i64 3328
+  %61 = getelementptr i8, ptr %60, i64 %.idx
   store i16 %58, ptr %61, align 4
   %62 = icmp eq i64 %32, 3
   br i1 %62, label %63, label %30, !llvm.loop !14

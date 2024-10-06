@@ -255,20 +255,21 @@ entry:
   %tmp.i.i = alloca %struct.AHCICommandHeader, align 1
   %cmd.i = alloca %struct.AHCICommandHeader, align 1
   %port2 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %0 = getelementptr i8, ptr %ahci, i64 64
   %ctba.i = getelementptr inbounds i8, ptr %cmd.i, i64 8
-  %0 = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
+  %1 = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc30
   %indvars.iv29 = phi i64 [ 0, %entry ], [ %indvars.iv.next30, %for.inc30 ]
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %indvars.iv29
-  %1 = load i64, ptr %arrayidx, align 8
-  %tobool.not = icmp eq i64 %1, 0
+  %2 = load i64, ptr %arrayidx, align 8
+  %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.end, label %do.body1.i
 
 do.body1.i:                                       ; preds = %for.body
-  %2 = load ptr, ptr %ahci, align 8
-  %tobool2.not.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %ahci, align 8
+  %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %if.else4.i, label %ahci_free.exit
 
 if.else4.i:                                       ; preds = %do.body1.i
@@ -276,19 +277,20 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_free.exit:                                   ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  call void @guest_free(ptr noundef nonnull %alloc.i.i, i64 noundef %1) #16
+  %alloc.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  call void @guest_free(ptr noundef nonnull %alloc.i.i, i64 noundef %2) #16
   store i64 0, ptr %arrayidx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %ahci_free.exit, %for.body
   %clb = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %3 = load i64, ptr %clb, align 8
-  %tobool14.not = icmp eq i64 %3, 0
+  %4 = load i64, ptr %clb, align 8
+  %tobool14.not = icmp eq i64 %4, 0
   br i1 %tobool14.not, label %for.inc30, label %for.cond16.preheader
 
 for.cond16.preheader:                             ; preds = %if.end
-  %clb.i.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %indvars.iv29, i32 1
+  %clb.idx.i.i = mul nuw nsw i64 %indvars.iv29, 344
+  %clb.i.i = getelementptr i8, ptr %0, i64 %clb.idx.i.i
   %ctba3.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %prdtl.i = getelementptr inbounds i8, ptr %arrayidx, i64 272
   br label %for.body20
@@ -296,19 +298,19 @@ for.cond16.preheader:                             ; preds = %if.end
 for.body20:                                       ; preds = %for.cond16.preheader, %ahci_destroy_command.exit
   %indvars.iv = phi i64 [ 0, %for.cond16.preheader ], [ %indvars.iv.next, %ahci_destroy_command.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cmd.i)
-  %4 = load i64, ptr %clb.i.i, align 8
+  %5 = load i64, ptr %clb.i.i, align 8
   %mul.i.i = shl nuw nsw i64 %indvars.iv, 5
-  %add.i.i = add i64 %4, %mul.i.i
-  %5 = load ptr, ptr %ahci, align 8
-  %6 = load ptr, ptr %5, align 8
-  call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %cmd.i, i64 noundef 32) #16
-  %7 = load i64, ptr %ctba.i, align 1
-  %cmp.i = icmp eq i64 %7, 0
+  %add.i.i = add i64 %5, %mul.i.i
+  %6 = load ptr, ptr %ahci, align 8
+  %7 = load ptr, ptr %6, align 8
+  call void @qtest_memread(ptr noundef %7, i64 noundef %add.i.i, ptr noundef nonnull %cmd.i, i64 noundef 32) #16
+  %8 = load i64, ptr %ctba.i, align 1
+  %cmp.i = icmp eq i64 %8, 0
   br i1 %cmp.i, label %ahci_destroy_command.exit, label %do.body1.i.i
 
 do.body1.i.i:                                     ; preds = %for.body20
-  %8 = load ptr, ptr %ahci, align 8
-  %tobool2.not.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %ahci, align 8
+  %tobool2.not.i.i = icmp eq ptr %9, null
   br i1 %tobool2.not.i.i, label %if.else4.i.i, label %ahci_free.exit.i
 
 if.else4.i.i:                                     ; preds = %do.body1.i.i
@@ -316,20 +318,20 @@ if.else4.i.i:                                     ; preds = %do.body1.i.i
   unreachable
 
 ahci_free.exit.i:                                 ; preds = %do.body1.i.i
-  %alloc.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  call void @guest_free(ptr noundef nonnull %alloc.i.i.i, i64 noundef %7) #16
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  call void @guest_free(ptr noundef nonnull %alloc.i.i.i, i64 noundef %8) #16
   br label %ahci_destroy_command.exit
 
 ahci_destroy_command.exit:                        ; preds = %for.body20, %ahci_free.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %cmd.i, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, i8 0, i64 16, i1 false)
-  %9 = load i64, ptr %clb.i.i, align 8
-  %add.i16.i = add i64 %9, %mul.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, i8 0, i64 16, i1 false)
+  %10 = load i64, ptr %clb.i.i, align 8
+  %add.i16.i = add i64 %10, %mul.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %tmp.i.i, i8 0, i64 16, i1 false)
-  %10 = load ptr, ptr %ahci, align 8
-  %11 = load ptr, ptr %10, align 8
-  call void @qtest_memwrite(ptr noundef %11, i64 noundef %add.i16.i, ptr noundef nonnull %tmp.i.i, i64 noundef 32) #16
+  %11 = load ptr, ptr %ahci, align 8
+  %12 = load ptr, ptr %11, align 8
+  call void @qtest_memwrite(ptr noundef %12, i64 noundef %add.i16.i, ptr noundef nonnull %tmp.i.i, i64 noundef 32) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i)
   %arrayidx5.i = getelementptr [32 x i64], ptr %ctba3.i, i64 0, i64 %indvars.iv
   store i64 0, ptr %arrayidx5.i, align 8
@@ -341,8 +343,8 @@ ahci_destroy_command.exit:                        ; preds = %for.body20, %ahci_f
   br i1 %exitcond.not, label %do.body1.i20, label %for.body20, !llvm.loop !5
 
 do.body1.i20:                                     ; preds = %ahci_destroy_command.exit
-  %12 = load ptr, ptr %ahci, align 8
-  %tobool2.not.i21 = icmp eq ptr %12, null
+  %13 = load ptr, ptr %ahci, align 8
+  %tobool2.not.i21 = icmp eq ptr %13, null
   br i1 %tobool2.not.i21, label %if.else4.i23, label %ahci_free.exit25
 
 if.else4.i23:                                     ; preds = %do.body1.i20
@@ -350,9 +352,9 @@ if.else4.i23:                                     ; preds = %do.body1.i20
   unreachable
 
 ahci_free.exit25:                                 ; preds = %do.body1.i20
-  %13 = load i64, ptr %clb, align 8
-  %alloc.i.i22 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @guest_free(ptr noundef nonnull %alloc.i.i22, i64 noundef %13) #16
+  %14 = load i64, ptr %clb, align 8
+  %alloc.i.i22 = getelementptr inbounds i8, ptr %13, i64 8
+  call void @guest_free(ptr noundef nonnull %alloc.i.i22, i64 noundef %14) #16
   store i64 0, ptr %clb, align 8
   br label %for.inc30
 
@@ -370,24 +372,25 @@ define dso_local void @ahci_destroy_command(ptr nocapture noundef %ahci, i8 noun
 entry:
   %tmp.i = alloca %struct.AHCICommandHeader, align 1
   %cmd = alloca %struct.AHCICommandHeader, align 1
-  %port1.i = getelementptr inbounds i8, ptr %ahci, i64 56
   %idxprom.i = zext i8 %port to i64
-  %clb.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %idxprom.i, i32 1
-  %0 = load i64, ptr %clb.i, align 8
+  %clb.idx.i = mul nuw nsw i64 %idxprom.i, 344
+  %0 = getelementptr i8, ptr %ahci, i64 64
+  %clb.i = getelementptr i8, ptr %0, i64 %clb.idx.i
+  %1 = load i64, ptr %clb.i, align 8
   %conv.i = zext i8 %slot to i64
   %mul.i = shl nuw nsw i64 %conv.i, 5
-  %add.i = add i64 %0, %mul.i
-  %1 = load ptr, ptr %ahci, align 8
-  %2 = load ptr, ptr %1, align 8
-  call void @qtest_memread(ptr noundef %2, i64 noundef %add.i, ptr noundef nonnull %cmd, i64 noundef 32) #16
+  %add.i = add i64 %1, %mul.i
+  %2 = load ptr, ptr %ahci, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @qtest_memread(ptr noundef %3, i64 noundef %add.i, ptr noundef nonnull %cmd, i64 noundef 32) #16
   %ctba = getelementptr inbounds i8, ptr %cmd, i64 8
-  %3 = load i64, ptr %ctba, align 1
-  %cmp = icmp eq i64 %3, 0
+  %4 = load i64, ptr %ctba, align 1
+  %cmp = icmp eq i64 %4, 0
   br i1 %cmp, label %tidy, label %do.body1.i
 
 do.body1.i:                                       ; preds = %entry
-  %4 = load ptr, ptr %ahci, align 8
-  %tobool2.not.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %ahci, align 8
+  %tobool2.not.i = icmp eq ptr %5, null
   br i1 %tobool2.not.i, label %if.else4.i, label %ahci_free.exit
 
 if.else4.i:                                       ; preds = %do.body1.i
@@ -395,23 +398,24 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_free.exit:                                   ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  call void @guest_free(ptr noundef nonnull %alloc.i.i, i64 noundef %3) #16
+  %alloc.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  call void @guest_free(ptr noundef nonnull %alloc.i.i, i64 noundef %4) #16
   br label %tidy
 
 tidy:                                             ; preds = %entry, %ahci_free.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %cmd, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %5 = getelementptr inbounds i8, ptr %tmp.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 16, i1 false)
-  %6 = load i64, ptr %clb.i, align 8
-  %add.i16 = add i64 %6, %mul.i
+  %6 = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 16, i1 false)
+  %7 = load i64, ptr %clb.i, align 8
+  %add.i16 = add i64 %7, %mul.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %tmp.i, i8 0, i64 16, i1 false)
-  %7 = load ptr, ptr %ahci, align 8
-  %8 = load ptr, ptr %7, align 8
-  call void @qtest_memwrite(ptr noundef %8, i64 noundef %add.i16, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
+  %8 = load ptr, ptr %ahci, align 8
+  %9 = load ptr, ptr %8, align 8
+  call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i16, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %idxprom.i
+  %port2 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %idxprom.i
   %ctba3 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %arrayidx5 = getelementptr [32 x i64], ptr %ctba3, i64 0, i64 %conv.i
   store i64 0, ptr %arrayidx5, align 8
@@ -1553,35 +1557,36 @@ entry:
   %0 = load i8, ptr %port, align 1
   %slot = getelementptr inbounds i8, ptr %cmd, i64 2
   %1 = load i8, ptr %slot, align 2
-  %port1.i = getelementptr inbounds i8, ptr %ahci, i64 56
   %idxprom.i = zext i8 %0 to i64
-  %clb.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %idxprom.i, i32 1
-  %2 = load i64, ptr %clb.i, align 8
+  %clb.idx.i = mul nuw nsw i64 %idxprom.i, 344
+  %2 = getelementptr i8, ptr %ahci, i64 64
+  %clb.i = getelementptr i8, ptr %2, i64 %clb.idx.i
+  %3 = load i64, ptr %clb.i, align 8
   %conv.i = zext i8 %1 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 5
-  %add.i = add i64 %mul.i, %2
-  %3 = load ptr, ptr %ahci, align 8
-  %4 = load ptr, ptr %3, align 8
-  call void @qtest_memread(ptr noundef %4, i64 noundef %add.i, ptr noundef nonnull %cmdh, i64 noundef 32) #16
+  %add.i = add i64 %mul.i, %3
+  %4 = load ptr, ptr %ahci, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @qtest_memread(ptr noundef %5, i64 noundef %add.i, ptr noundef nonnull %cmdh, i64 noundef 32) #16
   %props = getelementptr inbounds i8, ptr %cmd, i64 32
-  %5 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %5, i64 9
-  %6 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %6 to i1
+  %6 = load ptr, ptr %props, align 8
+  %ncq = getelementptr inbounds i8, ptr %6, i64 9
+  %7 = load i8, ptr %ncq, align 1
+  %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %if.end5, label %do.body
 
 do.body:                                          ; preds = %entry
   %xbytes = getelementptr inbounds i8, ptr %cmd, i64 8
-  %7 = load i64, ptr %xbytes, align 8
+  %8 = load i64, ptr %xbytes, align 8
   %prdbc = getelementptr inbounds i8, ptr %cmdh, i64 4
-  %8 = load i32, ptr %prdbc, align 1
-  %conv = zext i32 %8 to i64
-  %cmp = icmp eq i64 %7, %conv
+  %9 = load i32, ptr %prdbc, align 1
+  %conv = zext i32 %9 to i64
+  %cmp = icmp eq i64 %8, %conv
   br i1 %cmp, label %if.end5, label %if.else
 
 if.else:                                          ; preds = %do.body
-  %conv3 = uitofp i64 %7 to x86_fp80
-  %conv4 = uitofp i32 %8 to x86_fp80
+  %conv3 = uitofp i64 %8 to x86_fp80
+  %conv4 = uitofp i32 %9 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 570, ptr noundef nonnull @__func__.ahci_port_check_cmd_sanity, ptr noundef nonnull @.str.44, x86_fp80 noundef %conv3, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv4, i8 noundef signext 120) #16
   br label %if.end5
 
@@ -1592,16 +1597,17 @@ if.end5:                                          ; preds = %do.body, %if.else, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_get_command_header(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
-  %port1 = getelementptr inbounds i8, ptr %ahci, i64 56
   %idxprom = zext i8 %port to i64
-  %clb = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom, i32 1
-  %0 = load i64, ptr %clb, align 8
+  %clb.idx = mul nuw nsw i64 %idxprom, 344
+  %0 = getelementptr i8, ptr %ahci, i64 64
+  %clb = getelementptr i8, ptr %0, i64 %clb.idx
+  %1 = load i64, ptr %clb, align 8
   %conv = zext i8 %slot to i64
   %mul = shl nuw nsw i64 %conv, 5
-  %add = add i64 %0, %mul
-  %1 = load ptr, ptr %ahci, align 8
-  %2 = load ptr, ptr %1, align 8
-  tail call void @qtest_memread(ptr noundef %2, i64 noundef %add, ptr noundef %cmd, i64 noundef 32) #16
+  %add = add i64 %1, %mul
+  %2 = load ptr, ptr %ahci, align 8
+  %3 = load ptr, ptr %2, align 8
+  tail call void @qtest_memread(ptr noundef %3, i64 noundef %add, ptr noundef %cmd, i64 noundef 32) #16
   ret void
 }
 
@@ -1611,30 +1617,31 @@ entry:
   %tmp = alloca %struct.AHCICommandHeader, align 2
   %0 = getelementptr inbounds i8, ptr %tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %0, i8 0, i64 16, i1 false)
-  %port1 = getelementptr inbounds i8, ptr %ahci, i64 56
   %idxprom = zext i8 %port to i64
-  %clb = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom, i32 1
-  %1 = load i64, ptr %clb, align 8
+  %clb.idx = mul nuw nsw i64 %idxprom, 344
+  %1 = getelementptr i8, ptr %ahci, i64 64
+  %clb = getelementptr i8, ptr %1, i64 %clb.idx
+  %2 = load i64, ptr %clb, align 8
   %conv = zext i8 %slot to i64
   %mul = shl nuw nsw i64 %conv, 5
-  %add = add i64 %1, %mul
-  %2 = load i16, ptr %cmd, align 1
-  store i16 %2, ptr %tmp, align 2
+  %add = add i64 %2, %mul
+  %3 = load i16, ptr %cmd, align 1
+  store i16 %3, ptr %tmp, align 2
   %prdtl = getelementptr inbounds i8, ptr %cmd, i64 2
-  %3 = load i16, ptr %prdtl, align 1
+  %4 = load i16, ptr %prdtl, align 1
   %prdtl4 = getelementptr inbounds i8, ptr %tmp, i64 2
-  store i16 %3, ptr %prdtl4, align 2
+  store i16 %4, ptr %prdtl4, align 2
   %prdbc = getelementptr inbounds i8, ptr %cmd, i64 4
-  %4 = load i32, ptr %prdbc, align 1
+  %5 = load i32, ptr %prdbc, align 1
   %prdbc6 = getelementptr inbounds i8, ptr %tmp, i64 4
-  store i32 %4, ptr %prdbc6, align 2
+  store i32 %5, ptr %prdbc6, align 2
   %ctba = getelementptr inbounds i8, ptr %cmd, i64 8
-  %5 = load i64, ptr %ctba, align 1
+  %6 = load i64, ptr %ctba, align 1
   %ctba8 = getelementptr inbounds i8, ptr %tmp, i64 8
-  store i64 %5, ptr %ctba8, align 2
-  %6 = load ptr, ptr %ahci, align 8
-  %7 = load ptr, ptr %6, align 8
-  call void @qtest_memwrite(ptr noundef %7, i64 noundef %add, ptr noundef nonnull %tmp, i64 noundef 32) #16
+  store i64 %6, ptr %ctba8, align 2
+  %7 = load ptr, ptr %ahci, align 8
+  %8 = load ptr, ptr %7, align 8
+  call void @qtest_memwrite(ptr noundef %8, i64 noundef %add, ptr noundef nonnull %tmp, i64 noundef 32) #16
   ret void
 }
 
@@ -1670,10 +1677,11 @@ entry:
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef %mul.i1.i) #16
-  %port1 = getelementptr inbounds i8, ptr %ahci, i64 56
-  %next = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %conv.i.i, i32 4
-  %4 = load i8, ptr %next, align 8
-  %conv = zext i8 %4 to i32
+  %next.idx = mul nuw nsw i64 %conv.i.i, 344
+  %4 = getelementptr i8, ptr %ahci, i64 392
+  %next = getelementptr i8, ptr %4, i64 %next.idx
+  %5 = load i8, ptr %next, align 8
+  %conv = zext i8 %5 to i32
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1693,9 +1701,9 @@ for.body:                                         ; preds = %entry, %for.cond
 if.end:                                           ; preds = %for.body
   %conv2 = trunc nuw nsw i32 %rem to i8
   tail call void @ahci_destroy_command(ptr noundef nonnull %ahci, i8 noundef zeroext %port, i8 noundef zeroext %conv2)
-  %5 = trunc i32 %add to i8
-  %6 = add i8 %5, 1
-  %conv5 = and i8 %6, 31
+  %6 = trunc i32 %add to i8
+  %7 = add i8 %6, 1
+  %conv5 = and i8 %7, 31
   store i8 %conv5, ptr %next, align 8
   ret i32 %rem
 
@@ -2323,7 +2331,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_commit(ptr nocapture noundef %ahci, ptr nocapture noundef %cmd, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
-  %tmp.i56 = alloca %struct.RegH2DFIS, align 1
+  %tmp.i55 = alloca %struct.RegH2DFIS, align 1
   %tmp.i = alloca %struct.AHCICommandHeader, align 2
   %prd = alloca %struct.PRD, align 8
   %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
@@ -2338,10 +2346,11 @@ entry:
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef %mul.i1.i.i) #16
-  %port1.i = getelementptr inbounds i8, ptr %ahci, i64 56
-  %next.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %conv.i.i.i, i32 4
-  %4 = load i8, ptr %next.i, align 8
-  %conv.i = zext i8 %4 to i32
+  %next.idx.i = mul nuw nsw i64 %conv.i.i.i, 344
+  %4 = getelementptr i8, ptr %ahci, i64 392
+  %next.i = getelementptr i8, ptr %4, i64 %next.idx.i
+  %5 = load i8, ptr %next.i, align 8
+  %conv.i = zext i8 %5 to i32
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -2366,17 +2375,17 @@ for.end.i:                                        ; preds = %for.cond.i
 ahci_pick_cmd.exit:                               ; preds = %for.body.i
   %conv2.i = trunc nuw nsw i32 %rem.i to i8
   tail call void @ahci_destroy_command(ptr noundef nonnull %ahci, i8 noundef zeroext %port, i8 noundef zeroext %conv2.i)
-  %5 = trunc i32 %add.i to i8
-  %6 = add i8 %5, 1
-  %conv5.i = and i8 %6, 31
+  %6 = trunc i32 %add.i to i8
+  %7 = add i8 %6, 1
+  %conv5.i = and i8 %7, 31
   store i8 %conv5.i, ptr %next.i, align 8
   %slot = getelementptr inbounds i8, ptr %cmd, i64 2
   store i8 %conv2.i, ptr %slot, align 2
   %props = getelementptr inbounds i8, ptr %cmd, i64 32
-  %7 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %7, i64 9
-  %8 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %8 to i1
+  %8 = load ptr, ptr %props, align 8
+  %ncq = getelementptr inbounds i8, ptr %8, i64 9
+  %9 = load i8, ptr %ncq, align 1
+  %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %ahci_pick_cmd.exit
@@ -2387,20 +2396,20 @@ if.then:                                          ; preds = %ahci_pick_cmd.exit
 
 if.end:                                           ; preds = %if.then, %ahci_pick_cmd.exit
   %xbytes = getelementptr inbounds i8, ptr %cmd, i64 8
-  %9 = load i64, ptr %xbytes, align 8
-  %conv5 = trunc i64 %9 to i32
+  %10 = load i64, ptr %xbytes, align 8
+  %conv5 = trunc i64 %10 to i32
   %prd_size = getelementptr inbounds i8, ptr %cmd, i64 16
-  %10 = load i32, ptr %prd_size, align 8
-  %cmp.i = icmp ult i32 %10, 4194305
+  %11 = load i32, ptr %prd_size, align 8
+  %cmp.i = icmp ult i32 %11, 4194305
   br i1 %cmp.i, label %do.body4.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %conv2.i48 = uitofp i32 %10 to x86_fp80
+  %conv2.i48 = uitofp i32 %11 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 668, ptr noundef nonnull @__func__.size_to_prdtl, ptr noundef nonnull @.str.46, x86_fp80 noundef %conv2.i48, ptr noundef nonnull @.str.47, x86_fp80 noundef 0xK40158000000000000000, i8 noundef signext 120) #16
   br label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.else.i, %if.end
-  %and.i49 = and i32 %10, 1
+  %and.i49 = and i32 %11, 1
   %cmp8.i = icmp eq i32 %and.i49, 0
   br i1 %cmp8.i, label %do.body1.i, label %if.else11.i
 
@@ -2410,11 +2419,11 @@ if.else11.i:                                      ; preds = %do.body4.i
 
 do.body1.i:                                       ; preds = %if.else11.i, %do.body4.i
   %add.i50 = add i32 %conv5, -1
-  %sub.i = add i32 %add.i50, %10
-  %div.i = udiv i32 %sub.i, %10
+  %sub.i = add i32 %add.i50, %11
+  %div.i = udiv i32 %sub.i, %11
   %conv7.mask = and i32 %div.i, 65535
-  %11 = load ptr, ptr %ahci, align 8
-  %tobool2.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %ahci, align 8
+  %tobool2.not.i = icmp eq ptr %12, null
   br i1 %tobool2.not.i, label %if.else4.i, label %ahci_alloc.exit
 
 if.else4.i:                                       ; preds = %do.body1.i
@@ -2422,11 +2431,11 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_alloc.exit:                                  ; preds = %do.body1.i
-  %12 = shl nuw nsw i32 %conv7.mask, 4
-  %narrow = add nuw nsw i32 %12, 255
-  %13 = and i32 %narrow, 2097024
-  %and10 = zext nneg i32 %13 to i64
-  %alloc.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = shl nuw nsw i32 %conv7.mask, 4
+  %narrow = add nuw nsw i32 %13, 255
+  %14 = and i32 %narrow, 2097024
+  %and10 = zext nneg i32 %14 to i64
+  %alloc.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %call.i.i = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i.i, i64 noundef %and10) #16
   %tobool12.not = icmp eq i64 %call.i.i, 0
   br i1 %tobool12.not, label %if.else, label %do.body15
@@ -2448,72 +2457,73 @@ do.end21:                                         ; preds = %do.body15
   %header = getelementptr inbounds i8, ptr %cmd, i64 40
   %ctba = getelementptr inbounds i8, ptr %cmd, i64 48
   store i64 %call.i.i, ptr %ctba, align 8
-  %14 = load i8, ptr %slot, align 2
+  %15 = load i8, ptr %slot, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %15 = getelementptr inbounds i8, ptr %tmp.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %15, i8 0, i64 16, i1 false)
-  %clb.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %conv.i.i.i, i32 1
-  %16 = load i64, ptr %clb.i, align 8
-  %conv.i54 = zext i8 %14 to i64
-  %mul.i = shl nuw nsw i64 %conv.i54, 5
-  %add.i55 = add i64 %16, %mul.i
-  %17 = load i16, ptr %header, align 1
-  store i16 %17, ptr %tmp.i, align 2
+  %16 = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %16, i8 0, i64 16, i1 false)
+  %17 = getelementptr i8, ptr %ahci, i64 64
+  %clb.i = getelementptr i8, ptr %17, i64 %next.idx.i
+  %18 = load i64, ptr %clb.i, align 8
+  %conv.i53 = zext i8 %15 to i64
+  %mul.i = shl nuw nsw i64 %conv.i53, 5
+  %add.i54 = add i64 %18, %mul.i
+  %19 = load i16, ptr %header, align 1
+  store i16 %19, ptr %tmp.i, align 2
   %prdtl.i = getelementptr inbounds i8, ptr %cmd, i64 42
-  %18 = load i16, ptr %prdtl.i, align 1
+  %20 = load i16, ptr %prdtl.i, align 1
   %prdtl4.i = getelementptr inbounds i8, ptr %tmp.i, i64 2
-  store i16 %18, ptr %prdtl4.i, align 2
+  store i16 %20, ptr %prdtl4.i, align 2
   %prdbc.i = getelementptr inbounds i8, ptr %cmd, i64 44
-  %19 = load i32, ptr %prdbc.i, align 1
+  %21 = load i32, ptr %prdbc.i, align 1
   %prdbc6.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
-  store i32 %19, ptr %prdbc6.i, align 2
+  store i32 %21, ptr %prdbc6.i, align 2
   %ctba8.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
   store i64 %call.i.i, ptr %ctba8.i, align 2
-  %20 = load ptr, ptr %ahci, align 8
-  %21 = load ptr, ptr %20, align 8
-  call void @qtest_memwrite(ptr noundef %21, i64 noundef %add.i55, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
+  %22 = load ptr, ptr %ahci, align 8
+  %23 = load ptr, ptr %22, align 8
+  call void @qtest_memwrite(ptr noundef %23, i64 noundef %add.i54, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i56)
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i55)
   %fis.i = getelementptr inbounds i8, ptr %cmd, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i56, ptr noundef nonnull readonly align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
-  %22 = load i64, ptr %ctba, align 8
-  %23 = load ptr, ptr %ahci, align 8
-  %24 = load ptr, ptr %23, align 8
-  call void @qtest_memwrite(ptr noundef %24, i64 noundef %22, ptr noundef nonnull %tmp.i56, i64 noundef 20) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %tmp.i56)
-  %25 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load i8, ptr %atapi, align 8
-  %tobool25 = trunc i8 %26 to i1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i55, ptr noundef nonnull readonly align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
+  %24 = load i64, ptr %ctba, align 8
+  %25 = load ptr, ptr %ahci, align 8
+  %26 = load ptr, ptr %25, align 8
+  call void @qtest_memwrite(ptr noundef %26, i64 noundef %24, ptr noundef nonnull %tmp.i55, i64 noundef 20) #16
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %tmp.i55)
+  %27 = load ptr, ptr %props, align 8
+  %atapi = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = load i8, ptr %atapi, align 8
+  %tobool25 = trunc i8 %28 to i1
   br i1 %tobool25, label %if.then26, label %do.body29
 
 if.then26:                                        ; preds = %do.end21
-  %27 = load ptr, ptr %ahci, align 8
-  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %ahci, align 8
+  %30 = load ptr, ptr %29, align 8
   %add27 = or disjoint i64 %call.i.i, 64
   %atapi_cmd = getelementptr inbounds i8, ptr %cmd, i64 96
-  %29 = load ptr, ptr %atapi_cmd, align 8
-  call void @qtest_memwrite(ptr noundef %28, i64 noundef %add27, ptr noundef %29, i64 noundef 16) #16
+  %31 = load ptr, ptr %atapi_cmd, align 8
+  call void @qtest_memwrite(ptr noundef %30, i64 noundef %add27, ptr noundef %31, i64 noundef 16) #16
   br label %do.body29
 
 do.body29:                                        ; preds = %do.end21, %if.then26
-  %30 = load i16, ptr %prdtl.i, align 2
-  %31 = trunc i32 %div.i to i16
-  %cmp34 = icmp eq i16 %30, %31
+  %32 = load i16, ptr %prdtl.i, align 2
+  %33 = trunc i32 %div.i to i16
+  %cmp34 = icmp eq i16 %32, %33
   br i1 %cmp34, label %do.end41, label %if.else37
 
 if.else37:                                        ; preds = %do.body29
   %conv38 = uitofp nneg i32 %conv7.mask to x86_fp80
-  %conv39 = uitofp i16 %30 to x86_fp80
+  %conv39 = uitofp i16 %32 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1220, ptr noundef nonnull @__func__.ahci_command_commit, ptr noundef nonnull @.str.69, x86_fp80 noundef %conv38, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv39, i8 noundef signext 120) #16
   br label %do.end41
 
 do.end41:                                         ; preds = %if.else37, %do.body29
-  %cmp4560.not = icmp eq i32 %conv7.mask, 0
-  br i1 %cmp4560.not, label %for.end, label %for.body.lr.ph
+  %cmp4559.not = icmp eq i32 %conv7.mask, 0
+  br i1 %cmp4559.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end41
-  %32 = load i64, ptr %xbytes, align 8
+  %34 = load i64, ptr %xbytes, align 8
   %buffer = getelementptr inbounds i8, ptr %cmd, i64 24
   %res = getelementptr inbounds i8, ptr %prd, i64 8
   %dbc67 = getelementptr inbounds i8, ptr %prd, i64 12
@@ -2522,45 +2532,46 @@ for.body.lr.ph:                                   ; preds = %do.end41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %conv4363 = phi i32 [ 0, %for.body.lr.ph ], [ %39, %for.body ]
-  %remaining.061 = phi i64 [ %32, %for.body.lr.ph ], [ %remaining.1, %for.body ]
-  %33 = load i64, ptr %buffer, align 8
-  %34 = load i32, ptr %prd_size, align 8
-  %mul49 = mul i32 %34, %conv4363
+  %conv4362 = phi i32 [ 0, %for.body.lr.ph ], [ %41, %for.body ]
+  %remaining.060 = phi i64 [ %34, %for.body.lr.ph ], [ %remaining.1, %for.body ]
+  %35 = load i64, ptr %buffer, align 8
+  %36 = load i32, ptr %prd_size, align 8
+  %mul49 = mul i32 %36, %conv4362
   %conv50 = zext i32 %mul49 to i64
-  %add51 = add i64 %33, %conv50
+  %add51 = add i64 %35, %conv50
   store i64 %add51, ptr %prd, align 8
   store i32 0, ptr %res, align 8
-  %conv54 = zext i32 %34 to i64
-  %cmp55 = icmp ugt i64 %remaining.061, %conv54
-  %35 = trunc i64 %remaining.061 to i32
-  %.v = select i1 %cmp55, i32 %34, i32 %35
-  %36 = add i32 %.v, 2147483647
-  %remaining.1 = call i64 @llvm.usub.sat.i64(i64 %remaining.061, i64 %conv54)
-  %or = or i32 %36, -2147483648
+  %conv54 = zext i32 %36 to i64
+  %cmp55 = icmp ugt i64 %remaining.060, %conv54
+  %37 = trunc i64 %remaining.060 to i32
+  %.v = select i1 %cmp55, i32 %36, i32 %37
+  %38 = add i32 %.v, 2147483647
+  %remaining.1 = call i64 @llvm.usub.sat.i64(i64 %remaining.060, i64 %conv54)
+  %or = or i32 %38, -2147483648
   store i32 %or, ptr %dbc67, align 4
-  %37 = load ptr, ptr %ahci, align 8
-  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %ahci, align 8
+  %40 = load ptr, ptr %39, align 8
   %mul75 = shl nuw nsw i64 %indvars.iv, 4
   %add76 = add i64 %add73, %mul75
-  call void @qtest_memwrite(ptr noundef %38, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
+  call void @qtest_memwrite(ptr noundef %40, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp45 = icmp ugt i32 %conv7.mask, %39
+  %41 = trunc nuw i64 %indvars.iv.next to i32
+  %cmp45 = icmp ugt i32 %conv7.mask, %41
   br i1 %cmp45, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %do.end41
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %conv.i.i.i
+  %port77 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port77, i64 0, i64 %conv.i.i.i
   %ctba78 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %40 = load i8, ptr %slot, align 2
-  %idxprom80 = zext i8 %40 to i64
+  %42 = load i8, ptr %slot, align 2
+  %idxprom80 = zext i8 %42 to i64
   %arrayidx81 = getelementptr [32 x i64], ptr %ctba78, i64 0, i64 %idxprom80
   store i64 %call.i.i, ptr %arrayidx81, align 8
   %prdtl85 = getelementptr inbounds i8, ptr %arrayidx, i64 272
-  %41 = load i8, ptr %slot, align 2
-  %idxprom87 = zext i8 %41 to i64
+  %43 = load i8, ptr %slot, align 2
+  %idxprom87 = zext i8 %43 to i64
   %arrayidx88 = getelementptr [32 x i16], ptr %prdtl85, i64 0, i64 %idxprom87
-  store i16 %31, ptr %arrayidx88, align 2
+  store i16 %33, ptr %arrayidx88, align 2
   ret void
 }
 
@@ -2724,43 +2735,44 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cmdh.i)
   %1 = load i8, ptr %port2, align 1
   %2 = load i8, ptr %slot1, align 2
-  %port1.i.i = getelementptr inbounds i8, ptr %ahci, i64 56
   %idxprom.i.i = zext i8 %1 to i64
-  %clb.i.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i.i, i64 0, i64 %idxprom.i.i, i32 1
-  %3 = load i64, ptr %clb.i.i, align 8
+  %clb.idx.i.i = mul nuw nsw i64 %idxprom.i.i, 344
+  %3 = getelementptr i8, ptr %ahci, i64 64
+  %clb.i.i = getelementptr i8, ptr %3, i64 %clb.idx.i.i
+  %4 = load i64, ptr %clb.i.i, align 8
   %conv.i.i = zext i8 %2 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 5
-  %add.i.i = add i64 %mul.i.i, %3
-  %4 = load ptr, ptr %ahci, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @qtest_memread(ptr noundef %5, i64 noundef %add.i.i, ptr noundef nonnull %cmdh.i, i64 noundef 32) #16
+  %add.i.i = add i64 %mul.i.i, %4
+  %5 = load ptr, ptr %ahci, align 8
+  %6 = load ptr, ptr %5, align 8
+  call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %cmdh.i, i64 noundef 32) #16
   %props.i = getelementptr inbounds i8, ptr %cmd, i64 32
-  %6 = load ptr, ptr %props.i, align 8
-  %ncq.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %ncq.i, align 1
-  %tobool.i = trunc i8 %7 to i1
+  %7 = load ptr, ptr %props.i, align 8
+  %ncq.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %ncq.i, align 1
+  %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %ahci_port_check_cmd_sanity.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
   %xbytes.i = getelementptr inbounds i8, ptr %cmd, i64 8
-  %8 = load i64, ptr %xbytes.i, align 8
+  %9 = load i64, ptr %xbytes.i, align 8
   %prdbc.i = getelementptr inbounds i8, ptr %cmdh.i, i64 4
-  %9 = load i32, ptr %prdbc.i, align 1
-  %conv.i = zext i32 %9 to i64
-  %cmp.i = icmp eq i64 %8, %conv.i
+  %10 = load i32, ptr %prdbc.i, align 1
+  %conv.i = zext i32 %10 to i64
+  %cmp.i = icmp eq i64 %9, %conv.i
   br i1 %cmp.i, label %ahci_port_check_cmd_sanity.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i
-  %conv3.i = uitofp i64 %8 to x86_fp80
-  %conv4.i = uitofp i32 %9 to x86_fp80
+  %conv3.i = uitofp i64 %9 to x86_fp80
+  %conv4.i = uitofp i32 %10 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 570, ptr noundef nonnull @__func__.ahci_port_check_cmd_sanity, ptr noundef nonnull @.str.44, x86_fp80 noundef %conv3.i, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv4.i, i8 noundef signext 120) #16
   br label %ahci_port_check_cmd_sanity.exit
 
 ahci_port_check_cmd_sanity.exit:                  ; preds = %entry, %do.body.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cmdh.i)
   %interrupts = getelementptr inbounds i8, ptr %cmd, i64 4
-  %10 = load i32, ptr %interrupts, align 4
-  %and = and i32 %10, 1
+  %11 = load i32, ptr %interrupts, align 4
+  %and = and i32 %11, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2769,10 +2781,10 @@ if.then:                                          ; preds = %ahci_port_check_cmd
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %ahci_port_check_cmd_sanity.exit
-  %11 = load ptr, ptr %props.i, align 8
-  %pio = getelementptr inbounds i8, ptr %11, i64 2
-  %12 = load i8, ptr %pio, align 2
-  %tobool3 = trunc i8 %12 to i1
+  %12 = load ptr, ptr %props.i, align 8
+  %pio = getelementptr inbounds i8, ptr %12, i64 2
+  %13 = load i8, ptr %pio, align 2
+  %tobool3 = trunc i8 %13 to i1
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end

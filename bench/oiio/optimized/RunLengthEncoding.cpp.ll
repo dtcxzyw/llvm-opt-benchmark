@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -109,10 +108,12 @@ entry:
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %entry
   %chan.i = getelementptr inbounds i8, ptr %dpxHeader, i64 780
-  %idxprom.i = zext nneg i32 %element to i64
-  %encoding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 10
-  %0 = load i16, ptr %encoding.i, align 2
-  %cmp3.i = icmp eq i16 %0, 1
+  %narrow.i = mul nuw nsw i32 %element, 72
+  %0 = zext nneg i32 %narrow.i to i64
+  %1 = getelementptr inbounds i8, ptr %chan.i, i64 %0
+  %encoding.i = getelementptr inbounds i8, ptr %1, i64 26
+  %2 = load i16, ptr %encoding.i, align 2
+  %cmp3.i = icmp eq i16 %2, 1
   br i1 %cmp3.i, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, label %return
 
 _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
@@ -120,34 +121,34 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHe
   %call3 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
   %call4 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
   %call5 = tail call noundef i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %dpxHeader, i32 noundef %element)
-  %endOfLinePadding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 12
-  %1 = load i32, ptr %endOfLinePadding.i, align 4
-  %cmp3.i47 = icmp eq i32 %1, -1
-  %..i = select i1 %cmp3.i47, i32 0, i32 %1
+  %endOfLinePadding.i = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = load i32, ptr %endOfLinePadding.i, align 4
+  %cmp3.i47 = icmp eq i32 %3, -1
+  %..i = select i1 %cmp3.i47, i32 0, i32 %3
   %buf = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %buf, align 8
-  %cmp7 = icmp eq ptr %2, null
+  %4 = load ptr, ptr %buf, align 8
+  %cmp7 = icmp eq ptr %4, null
   br i1 %cmp7, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %return
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %bitDepth.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 8
-  %3 = load i8, ptr %bitDepth.i, align 1
+  %bitDepth.i = getelementptr inbounds i8, ptr %1, i64 23
+  %5 = load i8, ptr %bitDepth.i, align 1
   %cmp13.not = icmp eq i32 %..i, 0
   br i1 %cmp13.not, label %if.else, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
-  switch i8 %3, label %return [
+  switch i8 %5, label %return [
     i8 16, label %if.else
     i8 8, label %if.else
   ]
 
 if.else:                                          ; preds = %switch.early.test, %switch.early.test, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
-  %cmp15 = icmp eq i8 %3, 16
-  %4 = and i32 %..i, -3
-  %5 = icmp ne i32 %4, 0
-  %or.cond3 = and i1 %5, %cmp15
-  %6 = add i32 %size, -3
-  %or.cond4 = icmp ult i32 %6, 2
+  %cmp15 = icmp eq i8 %5, 16
+  %6 = and i32 %..i, -3
+  %7 = icmp ne i32 %6, 0
+  %or.cond3 = and i1 %7, %cmp15
+  %8 = add i32 %size, -3
+  %or.cond4 = icmp ult i32 %8, 2
   %or.cond42 = or i1 %or.cond4, %or.cond3
   br i1 %or.cond42, label %return, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
@@ -164,8 +165,8 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %if.else
   %call51 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
   %vtable = load ptr, ptr %fd, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %7 = load ptr, ptr %vfn, align 8
-  %call54 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, i32 noundef %element, i64 noundef 0, ptr noundef nonnull %call51, i64 noundef 40080)
+  %9 = load ptr, ptr %vfn, align 8
+  %call54 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, i32 noundef %element, i64 noundef 0, ptr noundef nonnull %call51, i64 noundef 40080)
   tail call void @_ZdaPv(ptr noundef nonnull %call51) #8
   br label %return
 

@@ -42,12 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.8" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.8" = type { %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.9", i32, i32 }
 %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.9" = type { ptr, [40 x i8] }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.45" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.43" }
-%"struct.std::atomic.43" = type { %"struct.std::__atomic_base.44" }
-%"struct.std::__atomic_base.44" = type { i64 }
-%"struct.std::atomic.45" = type { %"struct.std::__atomic_base.46" }
-%"struct.std::__atomic_base.46" = type { ptr }
 %"struct.std::atomic.47" = type { %"struct.std::__atomic_base.48" }
 %"struct.std::__atomic_base.48" = type { ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.std::shared_ptr" }
@@ -73,6 +67,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.69" = type { ptr, [7416 x i8] }
 %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::TfToken" }
 %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet" }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.45" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.43" }
+%"struct.std::atomic.43" = type { %"struct.std::__atomic_base.44" }
+%"struct.std::__atomic_base.44" = type { i64 }
+%"struct.std::atomic.45" = type { %"struct.std::__atomic_base.46" }
+%"struct.std::__atomic_base.46" = type { ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::Work_AsyncSwapDestroyHelper" = type { %"class.std::shared_ptr" }
 %"class.tbb::detail::d1::small_object_allocator" = type { ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::WorkDispatcher::_InvokerTask" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Work_DetachedTask", ptr }
@@ -2388,29 +2388,31 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndexC2ERKN
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4368
   %.ptr12.i.i.i = getelementptr inbounds i8, ptr %0, i64 4376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i
+  br label %.preheader14.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.preheader13.i.i.i
+.preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %19 = ptrtoint ptr %.ptr12.i.i.i to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   br label %23
 
-.preheader13.i.i.i:                               ; preds = %.preheader13.i.i.i, %3
-  %.014.i.i.i = phi i64 [ %22, %.preheader13.i.i.i ], [ 0, %3 ]
-  %21 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i, i64 0, i64 %.014.i.i.i, i32 1
+.preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %3
+  %.015.i.i.i = phi i64 [ %22, %.preheader14.i.i.i ], [ 0, %3 ]
+  %.idx13.i.i.i = shl nsw i64 %.015.i.i.i, 4
+  %.offs.i.i.i = or disjoint i64 %.idx13.i.i.i, 8
+  %21 = getelementptr inbounds i8, ptr %.ptr12.i.i.i, i64 %.offs.i.i.i
   store atomic i64 0, ptr %21 monotonic, align 8
-  %22 = add nuw nsw i64 %.014.i.i.i, 1
+  %22 = add nuw nsw i64 %.015.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %22, 2
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader13.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader14.i.i.i, !llvm.loop !55
 
 23:                                               ; preds = %23, %.preheader.i.i.i
-  %.01015.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %27, %23 ]
-  %24 = icmp eq i64 %.01015.i.i.i, 0
-  %25 = getelementptr inbounds [64 x %"struct.std::atomic.47"], ptr %20, i64 0, i64 %.01015.i.i.i
+  %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %27, %23 ]
+  %24 = icmp eq i64 %.01016.i.i.i, 0
+  %25 = getelementptr inbounds [64 x %"struct.std::atomic.47"], ptr %20, i64 0, i64 %.01016.i.i.i
   %26 = select i1 %24, i64 %19, i64 0
   store atomic i64 %26, ptr %25 monotonic, align 8
-  %27 = add nuw nsw i64 %.01015.i.i.i, 1
+  %27 = add nuw nsw i64 %.01016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 64
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_16HdSceneIndexPrimENS3_22HdFlatteningSceneIndex16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit, label %23, !llvm.loop !56
 

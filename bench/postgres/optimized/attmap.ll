@@ -70,7 +70,7 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %15, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr i8, ptr %0, i64 119
   %17 = sext i32 %.056.lcssa to i64
   %wide.trip.count109 = sext i32 %14 to i64
   br label %71
@@ -181,7 +181,8 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   %indvars.iv107 = phi i64 [ %17, %.lr.ph92 ], [ %indvars.iv.next108, %71 ]
   %.391 = phi i32 [ %.051.lcssa, %.lr.ph92 ], [ %spec.select65, %71 ]
   %.25490 = phi i1 [ %.052.lcssa, %.lr.ph92 ], [ %spec.select64, %71 ]
-  %72 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv107, i32 17
+  %.idx = mul nsw i64 %indvars.iv107, 104
+  %72 = getelementptr i8, ptr %16, i64 %.idx
   %73 = load i8, ptr %72, align 1
   %74 = trunc i8 %73 to i1
   %spec.select64 = select i1 %74, i1 %.25490, i1 false

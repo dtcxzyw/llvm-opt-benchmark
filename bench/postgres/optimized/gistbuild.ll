@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.GISTBuildState = type { ptr, ptr, ptr, i64, i32, i64, i64, ptr, ptr, ptr, i32, ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ItemIdData = type { i32 }
 %union.ListCell = type { ptr }
 
@@ -765,14 +763,15 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   br i1 %130, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %116
-  %131 = getelementptr inbounds i8, ptr %128, i64 24
+  %131 = getelementptr i8, ptr %128, i64 96
   %wide.trip.count.i = zext nneg i32 %129 to i64
   br label %132
 
 132:                                              ; preds = %132, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %132 ]
   %.041.i = phi i64 [ 8, %.lr.ph.i ], [ %.1.i, %132 ]
-  %133 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %131, i64 0, i64 %indvars.iv.i, i32 3
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %133 = getelementptr i8, ptr %131, i64 %.idx.i
   %134 = load i16, ptr %133, align 8
   %135 = icmp slt i16 %134, 0
   %narrow.i = select i1 %135, i16 4, i16 %134

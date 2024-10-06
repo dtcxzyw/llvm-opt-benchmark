@@ -11,11 +11,11 @@ target triple = "x86_64-pc-linux-gnu"
 %union.iseq_inline_storage_entry = type { %struct.anon.21 }
 %struct.anon.21 = type { ptr, i64 }
 %struct.rb_call_data = type { ptr, ptr }
-%struct.iseq_catch_table_entry = type { i32, ptr, i32, i32, i32, i32 }
 %struct.succ_dict_block = type { i32, i64, [8 x i64] }
 %struct.iseq_insn_info_entry = type { i32, i32, i32 }
 %struct.rb_compile_option_struct = type { i16, i32 }
 %struct.Dl_info = type { ptr, ptr, ptr, ptr }
+%struct.iseq_catch_table_entry = type { i32, ptr, i32, i32, i32, i32 }
 %struct.trace_set_local_events_struct = type { i32, i64, i32, i32 }
 %struct.trace_clear_local_events_struct = type { i64, i32 }
 %struct.pm_parse_result_t = type { %struct.pm_parser, %struct.pm_options_t, %struct.pm_string_t, %struct.pm_scope_node, i8 }
@@ -1191,12 +1191,13 @@ ISEQ_COMPILE_DATA.exit.thread:                    ; preds = %199, %ISEQ_COMPILE_
   br i1 %.not142, label %.loopexit, label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.preheader
-  %223 = getelementptr inbounds i8, ptr %221, i64 4
+  %223 = getelementptr i8, ptr %221, i64 12
   br label %224
 
 224:                                              ; preds = %.lr.ph140, %234
   %indvars.iv148 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next149, %234 ]
-  %225 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %223, i64 0, i64 %indvars.iv148, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv148, 5
+  %225 = getelementptr i8, ptr %223, i64 %.idx
   %226 = load ptr, ptr %225, align 8
   %.not114 = icmp eq ptr %226, null
   br i1 %.not114, label %234, label %227
@@ -1800,7 +1801,7 @@ define hidden noalias nonnull ptr @rb_iseq_insns_info_decode_positions(ptr nocap
   br i1 %20, label %.preheader43.lr.ph.i, label %succ_index_table_invert.exit
 
 .preheader43.lr.ph.i:                             ; preds = %.preheader44.i
-  %21 = getelementptr inbounds i8, ptr %7, i64 48
+  %21 = getelementptr i8, ptr %7, i64 64
   %smax.i = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count74.i = zext nneg i32 %smax.i to i64
   br label %.preheader43.i
@@ -1835,54 +1836,56 @@ define hidden noalias nonnull ptr @rb_iseq_insns_info_decode_positions(ptr nocap
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count.i
   br i1 %exitcond62.not.i, label %.preheader44.i, label %.preheader45.i, !llvm.loop !28
 
-.preheader43.i:                                   ; preds = %49, %.preheader43.lr.ph.i
-  %indvars.iv71.i = phi i64 [ 0, %.preheader43.lr.ph.i ], [ %indvars.iv.next72.i, %49 ]
-  %.357.i = phi ptr [ %.0.lcssa.i, %.preheader43.lr.ph.i ], [ %.6.i, %49 ]
-  %34 = shl i64 %indvars.iv71.i, 9
-  %35 = or disjoint i64 %34, 54
+.preheader43.i:                                   ; preds = %50, %.preheader43.lr.ph.i
+  %indvars.iv71.i = phi i64 [ 0, %.preheader43.lr.ph.i ], [ %indvars.iv.next72.i, %50 ]
+  %.357.i = phi ptr [ %.0.lcssa.i, %.preheader43.lr.ph.i ], [ %.6.i, %50 ]
+  %.idx.i = mul nuw nsw i64 %indvars.iv71.i, 80
+  %34 = getelementptr i8, ptr %21, i64 %.idx.i
+  %35 = shl i64 %indvars.iv71.i, 9
+  %36 = or disjoint i64 %35, 54
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %48, %.preheader43.i
-  %indvars.iv67.i = phi i64 [ 0, %.preheader43.i ], [ %indvars.iv.next68.i, %48 ]
-  %.455.i = phi ptr [ %.357.i, %.preheader43.i ], [ %.6.i, %48 ]
-  %36 = getelementptr [0 x %struct.succ_dict_block], ptr %21, i64 0, i64 %indvars.iv71.i, i32 2, i64 %indvars.iv67.i
-  %37 = shl nuw nsw i64 %indvars.iv67.i, 6
-  %38 = add nuw nsw i64 %35, %37
-  br label %39
+.preheader.i:                                     ; preds = %49, %.preheader43.i
+  %indvars.iv67.i = phi i64 [ 0, %.preheader43.i ], [ %indvars.iv.next68.i, %49 ]
+  %.455.i = phi ptr [ %.357.i, %.preheader43.i ], [ %.6.i, %49 ]
+  %37 = getelementptr [8 x i64], ptr %34, i64 0, i64 %indvars.iv67.i
+  %38 = shl nuw nsw i64 %indvars.iv67.i, 6
+  %39 = add nuw nsw i64 %36, %38
+  br label %40
 
-39:                                               ; preds = %47, %.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next64.i, %47 ]
-  %.553.i = phi ptr [ %.455.i, %.preheader.i ], [ %.6.i, %47 ]
-  %40 = load i64, ptr %36, align 8
-  %41 = shl nuw i64 1, %indvars.iv63.i
-  %42 = and i64 %40, %41
-  %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %47, label %43
+40:                                               ; preds = %48, %.preheader.i
+  %indvars.iv63.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next64.i, %48 ]
+  %.553.i = phi ptr [ %.455.i, %.preheader.i ], [ %.6.i, %48 ]
+  %41 = load i64, ptr %37, align 8
+  %42 = shl nuw i64 1, %indvars.iv63.i
+  %43 = and i64 %41, %42
+  %.not.i = icmp eq i64 %43, 0
+  br i1 %.not.i, label %48, label %44
 
-43:                                               ; preds = %39
-  %44 = add nuw nsw i64 %38, %indvars.iv63.i
-  %45 = getelementptr i8, ptr %.553.i, i64 4
-  %46 = trunc nuw nsw i64 %44 to i32
-  store i32 %46, ptr %.553.i, align 4
-  br label %47
+44:                                               ; preds = %40
+  %45 = add nuw nsw i64 %39, %indvars.iv63.i
+  %46 = getelementptr i8, ptr %.553.i, i64 4
+  %47 = trunc nuw nsw i64 %45 to i32
+  store i32 %47, ptr %.553.i, align 4
+  br label %48
 
-47:                                               ; preds = %43, %39
-  %.6.i = phi ptr [ %45, %43 ], [ %.553.i, %39 ]
+48:                                               ; preds = %44, %40
+  %.6.i = phi ptr [ %46, %44 ], [ %.553.i, %40 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 64
-  br i1 %exitcond66.not.i, label %48, label %39, !llvm.loop !29
-
-48:                                               ; preds = %47
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 8
-  br i1 %exitcond70.not.i, label %49, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond66.not.i, label %49, label %40, !llvm.loop !29
 
 49:                                               ; preds = %48
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 8
+  br i1 %exitcond70.not.i, label %50, label %.preheader.i, !llvm.loop !30
+
+50:                                               ; preds = %49
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
   br i1 %exitcond75.not.i, label %succ_index_table_invert.exit, label %.preheader43.i, !llvm.loop !31
 
-succ_index_table_invert.exit:                     ; preds = %49, %.preheader44.i
+succ_index_table_invert.exit:                     ; preds = %50, %.preheader44.i
   ret ptr %15
 }
 
@@ -9042,8 +9045,9 @@ iseqw_check.exit:                                 ; preds = %8
 .lr.ph.i:                                         ; preds = %.preheader.i, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %.preheader.i ]
   %21 = phi ptr [ %45, %44 ], [ %19, %.preheader.i ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
-  %23 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %22, i64 0, i64 %indvars.iv.i, i32 1
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
+  %22 = getelementptr i8, ptr %21, i64 12
+  %23 = getelementptr i8, ptr %22, i64 %.idx.i
   %24 = load ptr, ptr %23, align 8
   %.not49.i = icmp eq ptr %24, null
   br i1 %.not49.i, label %44, label %25
@@ -10939,8 +10943,9 @@ define internal fastcc void @iseq_iterate_children(ptr noundef %0, ptr nocapture
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %12 = phi ptr [ %23, %22 ], [ %10, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
-  %14 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %13, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
+  %13 = getelementptr i8, ptr %12, i64 12
+  %14 = getelementptr i8, ptr %13, i64 %.idx
   %15 = load ptr, ptr %14, align 8
   %.not49 = icmp eq ptr %15, null
   br i1 %.not49, label %22, label %16

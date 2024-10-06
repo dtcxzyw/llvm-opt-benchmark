@@ -491,9 +491,10 @@ _ZNK19Bytecode_member_ref19resolved_indy_entryEv.exit: ; preds = %15, %16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = sext i32 %.0.i.i to i64
-  %34 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %32, i64 %33, i32 2
+  %32 = sext i32 %.0.i.i to i64
+  %.idx = shl nsw i64 %32, 4
+  %33 = getelementptr i8, ptr %31, i64 18
+  %34 = getelementptr i8, ptr %33, i64 %.idx
   br label %57
 
 35:                                               ; preds = %_ZNK8Bytecode11invoke_codeEv.exit
@@ -528,9 +529,10 @@ _ZNK19Bytecode_member_ref21resolved_method_entryEv.exit: ; preds = %36, %37
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = sext i32 %.0.i.i4 to i64
-  %56 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %54, i64 %55, i32 2
+  %54 = sext i32 %.0.i.i4 to i64
+  %.idx6 = mul nsw i64 %54, 24
+  %55 = getelementptr i8, ptr %53, i64 24
+  %56 = getelementptr i8, ptr %55, i64 %.idx6
   br label %57
 
 57:                                               ; preds = %_ZNK19Bytecode_member_ref21resolved_method_entryEv.exit, %_ZNK19Bytecode_member_ref19resolved_indy_entryEv.exit

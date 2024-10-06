@@ -3464,7 +3464,9 @@ invoke.cont62.invoke:                             ; preds = %if.then61, %if.then
 
 if.end67:                                         ; preds = %if.end57
   %idxprom.i = sext i32 %40 to i64
-  %tag2.i = getelementptr inbounds [6 x %"struct.(anonymous namespace)::plucker"], ptr %pluckers.i, i64 0, i64 %idxprom.i, i32 1
+  %tag2.idx.i = shl nsw i64 %idxprom.i, 4
+  %tag2.offs.i = or disjoint i64 %tag2.idx.i, 8
+  %tag2.i = getelementptr inbounds i8, ptr %pluckers.i, i64 %tag2.offs.i
   store ptr %tag, ptr %tag2.i, align 8
   %42 = load i32, ptr %num_pluckers.i, align 4
   %idxprom5.i = sext i32 %42 to i64

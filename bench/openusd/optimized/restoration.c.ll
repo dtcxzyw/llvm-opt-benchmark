@@ -1779,7 +1779,7 @@ define hidden void @av1_loop_restoration_copy_planes(ptr nocapture noundef reado
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 23608
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr i8, ptr %0, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -1793,7 +1793,8 @@ define hidden void @av1_loop_restoration_copy_planes(ptr nocapture noundef reado
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds [3 x %struct.FilterFrameCtxt], ptr %6, i64 0, i64 %indvars.iv, i32 10
+  %.idx = mul nuw nsw i64 %indvars.iv, 72
+  %14 = getelementptr i8, ptr %6, i64 %.idx
   %.sroa.0.0.copyload = load i32, ptr %14, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1860,39 +1861,41 @@ define hidden void @av1_loop_restoration_filter_frame(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %foreach_rest_unit_in_planes.exit, label %11, !llvm.loop !33
 
 foreach_rest_unit_in_planes.exit:                 ; preds = %22
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  br label %25
+  %23 = getelementptr i8, ptr %3, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  br label %26
 
-25:                                               ; preds = %35, %foreach_rest_unit_in_planes.exit
-  %indvars.iv.i13 = phi i64 [ 0, %foreach_rest_unit_in_planes.exit ], [ %indvars.iv.next.i14, %35 ]
-  %26 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %8, i64 0, i64 %indvars.iv.i13
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %35, label %29
+26:                                               ; preds = %36, %foreach_rest_unit_in_planes.exit
+  %indvars.iv.i13 = phi i64 [ 0, %foreach_rest_unit_in_planes.exit ], [ %indvars.iv.next.i14, %36 ]
+  %27 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %8, i64 0, i64 %indvars.iv.i13
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %36, label %30
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds [3 x %struct.FilterFrameCtxt], ptr %7, i64 0, i64 %indvars.iv.i13, i32 10
-  %.sroa.0.0.copyload.i = load i32, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 4
+30:                                               ; preds = %26
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i13, 72
+  %31 = getelementptr i8, ptr %23, i64 %.idx.i
+  %.sroa.0.0.copyload.i = load i32, ptr %31, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 12
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 12
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %31 = getelementptr inbounds [3 x ptr], ptr @av1_loop_restoration_copy_planes.copy_funs, i64 0, i64 %indvars.iv.i13
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %23, align 8
+  %32 = getelementptr inbounds [3 x ptr], ptr @av1_loop_restoration_copy_planes.copy_funs, i64 0, i64 %indvars.iv.i13
+  %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %24, align 8
-  tail call void %32(ptr noundef %33, ptr noundef %34, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.3.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %.sroa.4.0.copyload.i) #12
-  br label %35
+  %35 = load ptr, ptr %25, align 8
+  tail call void %33(ptr noundef %34, ptr noundef %35, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.3.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %.sroa.4.0.copyload.i) #12
+  br label %36
 
-35:                                               ; preds = %29, %25
+36:                                               ; preds = %30, %26
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i
-  br i1 %exitcond.not.i15, label %av1_loop_restoration_copy_planes.exit, label %25, !llvm.loop !32
+  br i1 %exitcond.not.i15, label %av1_loop_restoration_copy_planes.exit, label %26, !llvm.loop !32
 
-av1_loop_restoration_copy_planes.exit:            ; preds = %35
+av1_loop_restoration_copy_planes.exit:            ; preds = %36
   ret void
 }
 
@@ -2244,7 +2247,7 @@ define hidden void @av1_loop_restoration_save_boundary_lines(ptr nocapture nound
   %6 = load i8, ptr %5, align 4
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 460
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 23608
+  %9 = getelementptr i8, ptr %1, i64 23640
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 25284
   %.not70.i = icmp eq i32 %2, 0
   %.not.i11 = icmp eq i8 %6, 0
@@ -2282,7 +2285,8 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %21, %.split.us
   %32 = lshr i32 %31, 1
   %33 = add nsw i32 %32, %30
   %34 = ashr i32 %33, %29
-  %35 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %9, i64 0, i64 %indvars.iv72, i32 6
+  %.idx.i.us = shl nuw nsw i64 %indvars.iv72, 6
+  %35 = getelementptr i8, ptr %9, i64 %.idx.i.us
   %.not73.i.us = icmp sgt i32 %34, 0
   br i1 %.not73.i.us, label %.lr.ph.i.us, label %save_tile_row_boundary_lines.exit.us
 
@@ -2617,7 +2621,8 @@ av1_whole_frame_rect.exit.i:                      ; preds = %211, %.split
   %222 = lshr i32 %221, 1
   %223 = add nsw i32 %222, %220
   %224 = ashr i32 %223, %219
-  %225 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %9, i64 0, i64 %indvars.iv, i32 6
+  %.idx.i = shl nuw nsw i64 %indvars.iv, 6
+  %225 = getelementptr i8, ptr %9, i64 %.idx.i
   %.not73.i = icmp sgt i32 %224, 0
   br i1 %.not73.i, label %.lr.ph.i, label %save_tile_row_boundary_lines.exit
 

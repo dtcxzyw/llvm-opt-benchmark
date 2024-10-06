@@ -3,9 +3,9 @@ source_filename = "bench/qemu/original/hw_riscv_numa.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchId = type { i64, i64, %struct.CpuInstanceProperties, ptr, ptr }
-%struct.CpuInstanceProperties = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 %struct.NodeInfo = type { i64, ptr, i8, i8, i8, i16, [128 x i8] }
+%struct.CpuInstanceProperties = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
+%struct.CPUArchId = type { i64, i64, %struct.CpuInstanceProperties, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"numa-node-id\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"/distance-map\00", align 1
@@ -62,7 +62,7 @@ for.cond.preheader:                               ; preds = %numa_enabled.exit
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %possible_cpus = getelementptr inbounds i8, ptr %ms, i64 280
   %3 = load ptr, ptr %possible_cpus, align 8
-  %cpus3 = getelementptr inbounds i8, ptr %3, i64 8
+  %invariant.gep = getelementptr i8, ptr %3, i64 32
   %conv = sext i32 %socket_id to i64
   br label %for.body
 
@@ -75,8 +75,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %first_hartid.014 = phi i32 [ %0, %for.body.lr.ph ], [ %first_hartid.1, %for.body ]
   %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %idxprom = sext i32 %i.013 to i64
-  %node_id = getelementptr [0 x %struct.CPUArchId], ptr %cpus3, i64 0, i64 %idxprom, i32 2, i32 1
-  %4 = load i64, ptr %node_id, align 8
+  %props.idx = mul nsw i64 %idxprom, 160
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %props.idx
+  %4 = load i64, ptr %gep, align 8
   %cmp4.not = icmp eq i64 %4, %conv
   %5 = tail call i32 @llvm.smin.i32(i32 %i.013, i32 %first_hartid.014)
   %first_hartid.1 = select i1 %cmp4.not, i32 %5, i32 %first_hartid.014
@@ -117,7 +118,7 @@ for.cond.preheader:                               ; preds = %numa_enabled.exit
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %possible_cpus = getelementptr inbounds i8, ptr %ms, i64 280
   %3 = load ptr, ptr %possible_cpus, align 8
-  %cpus3 = getelementptr inbounds i8, ptr %3, i64 8
+  %invariant.gep = getelementptr i8, ptr %3, i64 32
   %conv = sext i32 %socket_id to i64
   br label %for.body
 
@@ -135,8 +136,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %last_hartid.014 = phi i32 [ -1, %for.body.lr.ph ], [ %last_hartid.1, %for.body ]
   %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %idxprom = sext i32 %i.013 to i64
-  %node_id = getelementptr [0 x %struct.CPUArchId], ptr %cpus3, i64 0, i64 %idxprom, i32 2, i32 1
-  %5 = load i64, ptr %node_id, align 8
+  %props.idx = mul nsw i64 %idxprom, 160
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %props.idx
+  %5 = load i64, ptr %gep, align 8
   %cmp4.not = icmp eq i64 %5, %conv
   %6 = tail call i32 @llvm.smax.i32(i32 %i.013, i32 %last_hartid.014)
   %last_hartid.1 = select i1 %cmp4.not, i32 %6, i32 %last_hartid.014
@@ -186,7 +188,7 @@ for.cond.preheader.i:                             ; preds = %numa_enabled.exit
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %possible_cpus.i = getelementptr inbounds i8, ptr %ms, i64 280
   %4 = load ptr, ptr %possible_cpus.i, align 8
-  %cpus3.i = getelementptr inbounds i8, ptr %4, i64 8
+  %invariant.gep.i = getelementptr i8, ptr %4, i64 32
   %conv.i = sext i32 %socket_id to i64
   br label %for.body.i
 
@@ -194,8 +196,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %first_hartid.014.i = phi i32 [ %3, %for.body.lr.ph.i ], [ %first_hartid.1.i, %for.body.i ]
   %i.013.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %idxprom.i = sext i32 %i.013.i to i64
-  %node_id.i = getelementptr [0 x %struct.CPUArchId], ptr %cpus3.i, i64 0, i64 %idxprom.i, i32 2, i32 1
-  %5 = load i64, ptr %node_id.i, align 8
+  %props.idx.i = mul nsw i64 %idxprom.i, 160
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %props.idx.i
+  %5 = load i64, ptr %gep.i, align 8
   %cmp4.not.i = icmp eq i64 %5, %conv.i
   %6 = tail call i32 @llvm.smin.i32(i32 %i.013.i, i32 %first_hartid.014.i)
   %first_hartid.1.i = select i1 %cmp4.not.i, i32 %6, i32 %first_hartid.014.i
@@ -206,25 +209,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i
   %cmp14.i = icmp uge i32 %first_hartid.1.i, %3
   %cmp = icmp slt i32 %first_hartid.1.i, 0
-  %or.cond70 = or i1 %cmp14.i, %cmp
-  br i1 %or.cond70, label %return, label %for.body.i21
+  %or.cond71 = or i1 %cmp14.i, %cmp
+  br i1 %or.cond71, label %return, label %for.body.i21
 
 for.body.i21:                                     ; preds = %for.end.i, %for.body.i21
   %last_hartid.014.i = phi i32 [ %last_hartid.1.i, %for.body.i21 ], [ -1, %for.end.i ]
-  %i.013.i22 = phi i32 [ %inc.i26, %for.body.i21 ], [ 0, %for.end.i ]
+  %i.013.i22 = phi i32 [ %inc.i27, %for.body.i21 ], [ 0, %for.end.i ]
   %idxprom.i23 = sext i32 %i.013.i22 to i64
-  %node_id.i24 = getelementptr [0 x %struct.CPUArchId], ptr %cpus3.i, i64 0, i64 %idxprom.i23, i32 2, i32 1
-  %7 = load i64, ptr %node_id.i24, align 8
-  %cmp4.not.i25 = icmp eq i64 %7, %conv.i
+  %props.idx.i24 = mul nsw i64 %idxprom.i23, 160
+  %gep.i25 = getelementptr i8, ptr %invariant.gep.i, i64 %props.idx.i24
+  %7 = load i64, ptr %gep.i25, align 8
+  %cmp4.not.i26 = icmp eq i64 %7, %conv.i
   %8 = tail call i32 @llvm.smax.i32(i32 %i.013.i22, i32 %last_hartid.014.i)
-  %last_hartid.1.i = select i1 %cmp4.not.i25, i32 %8, i32 %last_hartid.014.i
-  %inc.i26 = add nuw i32 %i.013.i22, 1
-  %exitcond.not.i27 = icmp eq i32 %inc.i26, %3
-  br i1 %exitcond.not.i27, label %riscv_socket_last_hartid.exit, label %for.body.i21, !llvm.loop !7
+  %last_hartid.1.i = select i1 %cmp4.not.i26, i32 %8, i32 %last_hartid.014.i
+  %inc.i27 = add nuw i32 %i.013.i22, 1
+  %exitcond.not.i28 = icmp eq i32 %inc.i27, %3
+  br i1 %exitcond.not.i28, label %riscv_socket_last_hartid.exit, label %for.body.i21, !llvm.loop !7
 
 riscv_socket_last_hartid.exit:                    ; preds = %for.body.i21
-  %cmp14.i29 = icmp ult i32 %last_hartid.1.i, %3
-  %cond19.i = select i1 %cmp14.i29, i32 %last_hartid.1.i, i32 -1
+  %cmp14.i30 = icmp ult i32 %last_hartid.1.i, %3
+  %cond19.i = select i1 %cmp14.i30, i32 %last_hartid.1.i, i32 -1
   %cmp5 = icmp slt i32 %cond19.i, 0
   %cmp8 = icmp sgt i32 %first_hartid.1.i, %cond19.i
   %or.cond = or i1 %cmp5, %cmp8
@@ -266,7 +270,7 @@ for.cond.preheader.i:                             ; preds = %numa_enabled.exit
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %possible_cpus.i = getelementptr inbounds i8, ptr %ms, i64 280
   %3 = load ptr, ptr %possible_cpus.i, align 8
-  %cpus3.i = getelementptr inbounds i8, ptr %3, i64 8
+  %invariant.gep.i = getelementptr i8, ptr %3, i64 32
   %conv.i = sext i32 %socket_id to i64
   br label %for.body.i
 
@@ -274,8 +278,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %first_hartid.014.i = phi i32 [ %2, %for.body.lr.ph.i ], [ %first_hartid.1.i, %for.body.i ]
   %i.013.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %idxprom.i = sext i32 %i.013.i to i64
-  %node_id.i = getelementptr [0 x %struct.CPUArchId], ptr %cpus3.i, i64 0, i64 %idxprom.i, i32 2, i32 1
-  %4 = load i64, ptr %node_id.i, align 8
+  %props.idx.i = mul nsw i64 %idxprom.i, 160
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %props.idx.i
+  %4 = load i64, ptr %gep.i, align 8
   %cmp4.not.i = icmp eq i64 %4, %conv.i
   %5 = tail call i32 @llvm.smin.i32(i32 %i.013.i, i32 %first_hartid.014.i)
   %first_hartid.1.i = select i1 %cmp4.not.i, i32 %5, i32 %first_hartid.014.i
@@ -291,47 +296,49 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.body.i22:                                     ; preds = %for.end.i, %for.body.i22
   %last_hartid.014.i = phi i32 [ %last_hartid.1.i, %for.body.i22 ], [ -1, %for.end.i ]
-  %i.013.i23 = phi i32 [ %inc.i27, %for.body.i22 ], [ 0, %for.end.i ]
+  %i.013.i23 = phi i32 [ %inc.i28, %for.body.i22 ], [ 0, %for.end.i ]
   %idxprom.i24 = sext i32 %i.013.i23 to i64
-  %node_id.i25 = getelementptr [0 x %struct.CPUArchId], ptr %cpus3.i, i64 0, i64 %idxprom.i24, i32 2, i32 1
-  %6 = load i64, ptr %node_id.i25, align 8
-  %cmp4.not.i26 = icmp eq i64 %6, %conv.i
+  %props.idx.i25 = mul nsw i64 %idxprom.i24, 160
+  %gep.i26 = getelementptr i8, ptr %invariant.gep.i, i64 %props.idx.i25
+  %6 = load i64, ptr %gep.i26, align 8
+  %cmp4.not.i27 = icmp eq i64 %6, %conv.i
   %7 = tail call i32 @llvm.smax.i32(i32 %i.013.i23, i32 %last_hartid.014.i)
-  %last_hartid.1.i = select i1 %cmp4.not.i26, i32 %7, i32 %last_hartid.014.i
-  %inc.i27 = add nuw i32 %i.013.i23, 1
-  %exitcond.not.i28 = icmp eq i32 %inc.i27, %2
-  br i1 %exitcond.not.i28, label %for.end.i29, label %for.body.i22, !llvm.loop !7
+  %last_hartid.1.i = select i1 %cmp4.not.i27, i32 %7, i32 %last_hartid.014.i
+  %inc.i28 = add nuw i32 %i.013.i23, 1
+  %exitcond.not.i29 = icmp eq i32 %inc.i28, %2
+  br i1 %exitcond.not.i29, label %for.end.i30, label %for.body.i22, !llvm.loop !7
 
-for.end.i29:                                      ; preds = %for.body.i22
-  %cmp14.i30 = icmp uge i32 %last_hartid.1.i, %2
+for.end.i30:                                      ; preds = %for.body.i22
+  %cmp14.i31 = icmp uge i32 %last_hartid.1.i, %2
   %cmp6 = icmp slt i32 %last_hartid.1.i, 0
-  %or.cond76 = or i1 %cmp14.i30, %cmp6
-  br i1 %or.cond76, label %return, label %for.cond.preheader
+  %or.cond77 = or i1 %cmp14.i31, %cmp6
+  br i1 %or.cond77, label %return, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %for.end.i29
-  %cmp9.not73 = icmp sgt i32 %first_hartid.1.i, %last_hartid.1.i
-  br i1 %cmp9.not73, label %return, label %for.body.lr.ph
+for.cond.preheader:                               ; preds = %for.end.i30
+  %cmp9.not74 = icmp sgt i32 %first_hartid.1.i, %last_hartid.1.i
+  br i1 %cmp9.not74, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %possible_cpus = getelementptr inbounds i8, ptr %ms, i64 280
   %8 = load ptr, ptr %possible_cpus, align 8
-  %cpus = getelementptr inbounds i8, ptr %8, i64 8
+  %invariant.gep = getelementptr i8, ptr %8, i64 32
   %conv = sext i32 %socket_id to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %i.074 = phi i32 [ %first_hartid.1.i, %for.body.lr.ph ], [ %inc, %for.body ]
-  %idxprom = sext i32 %i.074 to i64
-  %node_id = getelementptr [0 x %struct.CPUArchId], ptr %cpus, i64 0, i64 %idxprom, i32 2, i32 1
-  %9 = load i64, ptr %node_id, align 8
+  %i.075 = phi i32 [ %first_hartid.1.i, %for.body.lr.ph ], [ %inc, %for.body ]
+  %idxprom = sext i32 %i.075 to i64
+  %props.idx = mul nsw i64 %idxprom, 160
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %props.idx
+  %9 = load i64, ptr %gep, align 8
   %cmp10.not = icmp eq i64 %9, %conv
-  %inc = add i32 %i.074, 1
+  %inc = add i32 %i.075, 1
   %cmp9.not = icmp sle i32 %inc, %last_hartid.1.i
-  %or.cond77.not = select i1 %cmp10.not, i1 %cmp9.not, i1 false
-  br i1 %or.cond77.not, label %for.body, label %return, !llvm.loop !8
+  %or.cond78.not = select i1 %cmp10.not, i1 %cmp9.not, i1 false
+  br i1 %or.cond78.not, label %for.body, label %return, !llvm.loop !8
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %for.cond.preheader.i, %for.end.i29, %for.end.i, %if.then
-  %retval.0 = phi i1 [ %tobool.not, %if.then ], [ false, %for.end.i ], [ false, %for.end.i29 ], [ false, %for.cond.preheader.i ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
+return:                                           ; preds = %for.body, %for.cond.preheader, %for.cond.preheader.i, %for.end.i30, %for.end.i, %if.then
+  %retval.0 = phi i1 [ %tobool.not, %if.then ], [ false, %for.end.i ], [ false, %for.end.i30 ], [ false, %for.cond.preheader.i ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -474,33 +481,34 @@ riscv_socket_count.exit32:                        ; preds = %land.lhs.true
   %ms.val.i33 = load ptr, ptr %0, align 8
   %ms.val.i33.fr = freeze ptr %ms.val.i33
   %tobool.not.i.i34 = icmp eq ptr %ms.val.i33.fr, null
-  %nodes = getelementptr inbounds i8, ptr %ms.val.i33.fr, i64 8
+  %3 = getelementptr i8, ptr %ms.val.i33.fr, i64 30
   br i1 %tobool.not.i.i34, label %for.cond9.preheader.us.preheader, label %riscv_socket_count.exit32.split
 
 for.cond9.preheader.us.preheader:                 ; preds = %riscv_socket_count.exit32
   store i32 0, ptr %call6, align 4
   %arrayidx22.us.us = getelementptr i8, ptr %call6, i64 4
   store i32 0, ptr %arrayidx22.us.us, align 4
-  %arrayidx27.us.us = getelementptr i8, ptr %ms.val.i33.fr, i64 30
-  %3 = load i8, ptr %arrayidx27.us.us, align 1
-  %conv28.us.us = zext i8 %3 to i32
-  %4 = shl nuw i32 %conv28.us.us, 24
+  %4 = load i8, ptr %3, align 1
+  %conv28.us.us = zext i8 %4 to i32
+  %5 = shl nuw i32 %conv28.us.us, 24
   %arrayidx32.us.us = getelementptr i8, ptr %call6, i64 8
-  store i32 %4, ptr %arrayidx32.us.us, align 4
+  store i32 %5, ptr %arrayidx32.us.us, align 4
   br label %for.end35
 
 riscv_socket_count.exit32.split:                  ; preds = %riscv_socket_count.exit32
-  %5 = load i32, ptr %ms.val.i33.fr, align 8
-  %spec.select.i3657 = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
+  %6 = load i32, ptr %ms.val.i33.fr, align 8
+  %spec.select.i3657 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %cmp58 = icmp sgt i32 %spec.select.i3657, 0
   br i1 %cmp58, label %for.cond9.preheader, label %for.end35
 
 for.cond9.preheader:                              ; preds = %riscv_socket_count.exit32.split, %for.inc33.split
-  %6 = phi i32 [ %16, %for.inc33.split ], [ %5, %riscv_socket_count.exit32.split ]
+  %7 = phi i32 [ %17, %for.inc33.split ], [ %6, %riscv_socket_count.exit32.split ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc33.split ], [ 0, %riscv_socket_count.exit32.split ]
-  %7 = trunc nuw nsw i64 %indvars.iv63 to i32
-  %8 = tail call i32 @llvm.bswap.i32(i32 %7)
-  %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
+  %8 = trunc nuw nsw i64 %indvars.iv63 to i32
+  %9 = tail call i32 @llvm.bswap.i32(i32 %8)
+  %distance.idx = mul nuw nsw i64 %indvars.iv63, 152
+  %distance = getelementptr i8, ptr %3, i64 %distance.idx
+  %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
   %cmp115254 = icmp sgt i32 %spec.select.i4253, 0
   br i1 %cmp115254, label %numa_enabled.exit.i47, label %for.cond9.preheader.for.inc33.split_crit_edge
 
@@ -509,51 +517,51 @@ for.cond9.preheader.for.inc33.split_crit_edge:    ; preds = %for.cond9.preheader
   br label %for.inc33.split
 
 numa_enabled.exit.i47:                            ; preds = %for.cond9.preheader, %numa_enabled.exit.i47
-  %9 = phi i32 [ %14, %numa_enabled.exit.i47 ], [ %6, %for.cond9.preheader ]
+  %10 = phi i32 [ %15, %numa_enabled.exit.i47 ], [ %7, %for.cond9.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %numa_enabled.exit.i47 ], [ 0, %for.cond9.preheader ]
-  %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %mul15 = mul i32 %spec.select.i48, %7
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %add = add i32 %mul15, %10
+  %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
+  %mul15 = mul i32 %spec.select.i48, %8
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %add = add i32 %mul15, %11
   %mul16 = mul i32 %add, 3
   %idxprom = sext i32 %mul16 to i64
   %arrayidx = getelementptr i32, ptr %call6, i64 %idxprom
-  store i32 %8, ptr %arrayidx, align 4
-  %11 = tail call noundef i32 @llvm.bswap.i32(i32 %10)
+  store i32 %9, ptr %arrayidx, align 4
+  %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
   %add20 = add i32 %mul16, 1
   %idxprom21 = sext i32 %add20 to i64
   %arrayidx22 = getelementptr i32, ptr %call6, i64 %idxprom21
-  store i32 %11, ptr %arrayidx22, align 4
-  %arrayidx27 = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %indvars.iv63, i32 6, i64 %indvars.iv
-  %12 = load i8, ptr %arrayidx27, align 1
-  %conv28 = zext i8 %12 to i32
-  %13 = shl nuw i32 %conv28, 24
+  store i32 %12, ptr %arrayidx22, align 4
+  %arrayidx27 = getelementptr [128 x i8], ptr %distance, i64 0, i64 %indvars.iv
+  %13 = load i8, ptr %arrayidx27, align 1
+  %conv28 = zext i8 %13 to i32
+  %14 = shl nuw i32 %conv28, 24
   %add30 = add i32 %mul16, 2
   %idxprom31 = sext i32 %add30 to i64
   %arrayidx32 = getelementptr i32, ptr %call6, i64 %idxprom31
-  store i32 %13, ptr %arrayidx32, align 4
+  store i32 %14, ptr %arrayidx32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %ms.val.i33.fr, align 8
-  %spec.select.i42 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
-  %15 = sext i32 %spec.select.i42 to i64
-  %cmp1152 = icmp slt i64 %indvars.iv.next, %15
+  %15 = load i32, ptr %ms.val.i33.fr, align 8
+  %spec.select.i42 = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
+  %16 = sext i32 %spec.select.i42 to i64
+  %cmp1152 = icmp slt i64 %indvars.iv.next, %16
   br i1 %cmp1152, label %numa_enabled.exit.i47, label %for.inc33.split, !llvm.loop !10
 
 for.inc33.split:                                  ; preds = %numa_enabled.exit.i47, %for.cond9.preheader.for.inc33.split_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %15, %numa_enabled.exit.i47 ]
-  %16 = phi i32 [ %6, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %14, %numa_enabled.exit.i47 ]
+  %.pre-phi = phi i64 [ %.pre, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %16, %numa_enabled.exit.i47 ]
+  %17 = phi i32 [ %7, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %15, %numa_enabled.exit.i47 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %cmp = icmp slt i64 %indvars.iv.next64, %.pre-phi
   br i1 %cmp, label %for.cond9.preheader, label %for.end35, !llvm.loop !11
 
 for.end35:                                        ; preds = %for.inc33.split, %for.cond9.preheader.us.preheader, %riscv_socket_count.exit32.split
   %fdt = getelementptr inbounds i8, ptr %ms, i64 40
-  %17 = load ptr, ptr %fdt, align 8
-  %call36 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %17, ptr noundef nonnull @.str.1) #10
   %18 = load ptr, ptr %fdt, align 8
-  %call38 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #10
+  %call36 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %18, ptr noundef nonnull @.str.1) #10
   %19 = load ptr, ptr %fdt, align 8
-  %call40 = tail call i32 @qemu_fdt_setprop(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef %call6, i32 noundef %mul3) #10
+  %call38 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #10
+  %20 = load ptr, ptr %fdt, align 8
+  %call40 = tail call i32 @qemu_fdt_setprop(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef %call6, i32 noundef %mul3) #10
   tail call void @g_free(ptr noundef %call6) #10
   br label %if.end
 
@@ -589,9 +597,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cpus = getelementptr inbounds i8, ptr %call1, i64 8
   %idxprom = zext i32 %cpu_index to i64
-  %props = getelementptr [0 x %struct.CPUArchId], ptr %cpus, i64 0, i64 %idxprom, i32 2
+  %props.idx = mul nuw nsw i64 %idxprom, 160
+  %2 = getelementptr i8, ptr %call1, i64 24
+  %props = getelementptr i8, ptr %2, i64 %props.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %props, i64 128, i1 false)
   ret void
 }
@@ -680,32 +689,35 @@ for.body.lr.ph:                                   ; preds = %if.end5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %3 = phi ptr [ %call, %for.body.lr.ph ], [ %8, %for.body ]
+  %3 = phi ptr [ %call, %for.body.lr.ph ], [ %11, %for.body ]
   %4 = load ptr, ptr %cpu_type, align 8
-  %cpus = getelementptr inbounds i8, ptr %3, i64 8
-  %type = getelementptr [0 x %struct.CPUArchId], ptr %cpus, i64 0, i64 %indvars.iv, i32 4
+  %type.idx = mul nuw nsw i64 %indvars.iv, 160
+  %5 = getelementptr i8, ptr %3, i64 160
+  %type = getelementptr i8, ptr %5, i64 %type.idx
   store ptr %4, ptr %type, align 8
-  %5 = load ptr, ptr %possible_cpus, align 8
-  %cpus16 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %possible_cpus, align 8
+  %cpus16 = getelementptr inbounds i8, ptr %6, i64 8
   %arrayidx18 = getelementptr [0 x %struct.CPUArchId], ptr %cpus16, i64 0, i64 %indvars.iv
   store i64 %indvars.iv, ptr %arrayidx18, align 8
-  %6 = load ptr, ptr %possible_cpus, align 8
-  %cpus20 = getelementptr inbounds i8, ptr %6, i64 8
-  %has_core_id = getelementptr [0 x %struct.CPUArchId], ptr %cpus20, i64 0, i64 %indvars.iv, i32 2, i32 12
-  store i8 1, ptr %has_core_id, align 8
   %7 = load ptr, ptr %possible_cpus, align 8
-  %cpus25 = getelementptr inbounds i8, ptr %7, i64 8
-  %core_id = getelementptr [0 x %struct.CPUArchId], ptr %cpus25, i64 0, i64 %indvars.iv, i32 2, i32 13
+  %8 = getelementptr i8, ptr %7, i64 24
+  %props = getelementptr i8, ptr %8, i64 %type.idx
+  %has_core_id = getelementptr inbounds i8, ptr %props, i64 96
+  store i8 1, ptr %has_core_id, align 8
+  %9 = load ptr, ptr %possible_cpus, align 8
+  %10 = getelementptr i8, ptr %9, i64 24
+  %props28 = getelementptr i8, ptr %10, i64 %type.idx
+  %core_id = getelementptr inbounds i8, ptr %props28, i64 104
   store i64 %indvars.iv, ptr %core_id, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load ptr, ptr %possible_cpus, align 8
-  %9 = load i32, ptr %8, align 8
-  %10 = sext i32 %9 to i64
-  %cmp11 = icmp slt i64 %indvars.iv.next, %10
+  %11 = load ptr, ptr %possible_cpus, align 8
+  %12 = load i32, ptr %11, align 8
+  %13 = sext i32 %12 to i64
+  %cmp11 = icmp slt i64 %indvars.iv.next, %13
   br i1 %cmp11, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.body, %if.end5, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ %call, %if.end5 ], [ %8, %for.body ]
+  %retval.0 = phi ptr [ %1, %if.then ], [ %call, %if.end5 ], [ %11, %for.body ]
   ret ptr %retval.0
 }
 

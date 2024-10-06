@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.hm_header_st = type { i8, i64, i16, i64, i64, i32, %struct.dtls1_retransmit_state }
 %struct.dtls1_retransmit_state = type { ptr, ptr }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
 
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/ssl/statem/statem_dtls.c\00", align 1
 @__func__.dtls_construct_change_cipher_spec = private unnamed_addr constant [34 x i8] c"dtls_construct_change_cipher_spec\00", align 1
@@ -495,15 +494,15 @@ entry:
   %arrayidx29.i.i = getelementptr inbounds i8, ptr %wire.i, i64 10
   %arrayidx33.i.i = getelementptr inbounds i8, ptr %wire.i, i64 11
   %frag_len.i.i = getelementptr inbounds i8, ptr %msg_hdr.i, i64 32
-  %tlsrecs.i = getelementptr inbounds i8, ptr %s, i64 3192
   %curr_rec.i = getelementptr inbounds i8, ptr %s, i64 3184
+  %1 = getelementptr i8, ptr %s, i64 3224
   %msg_callback.i = getelementptr inbounds i8, ptr %s, i64 1144
   %version.i = getelementptr inbounds i8, ptr %s, i64 64
   %msg_callback_arg.i = getelementptr inbounds i8, ptr %s, i64 1152
   %init_num110.i = getelementptr inbounds i8, ptr %s, i64 256
   %arrayidx.i66.i = getelementptr inbounds i8, ptr %seq64be.i.i, i64 6
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %seq64be.i.i, i64 7
-  %1 = getelementptr i8, ptr %s, i64 2376
+  %2 = getelementptr i8, ptr %s, i64 2376
   br label %again
 
 again:                                            ; preds = %if.then, %entry
@@ -516,10 +515,10 @@ again:                                            ; preds = %if.then, %entry
 redo.i:                                           ; preds = %if.end109.i, %again
   %chretran.0.i = phi i32 [ 0, %again ], [ %chretran.1.i, %if.end109.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iter.i.i)
-  %2 = load ptr, ptr %d1, align 8
-  %buffered_messages.i.i = getelementptr inbounds i8, ptr %2, i64 280
-  %3 = load ptr, ptr %buffered_messages.i.i, align 8
-  %call.i.i = call ptr @pqueue_iterator(ptr noundef %3) #9
+  %3 = load ptr, ptr %d1, align 8
+  %buffered_messages.i.i = getelementptr inbounds i8, ptr %3, i64 280
+  %4 = load ptr, ptr %buffered_messages.i.i, align 8
+  %call.i.i = call ptr @pqueue_iterator(ptr noundef %4) #9
   store ptr %call.i.i, ptr %iter.i.i, align 8
   %call164.i.i = call ptr @pqueue_next(ptr noundef nonnull %iter.i.i) #9
   %cmp65.i.i = icmp eq ptr %call164.i.i, null
@@ -528,27 +527,27 @@ redo.i:                                           ; preds = %if.end109.i, %again
 if.end.i.i:                                       ; preds = %redo.i, %do.cond.i.i
   %call166.i.i = phi ptr [ %call1.i.i, %do.cond.i.i ], [ %call164.i.i, %redo.i ]
   %data.i.i = getelementptr inbounds i8, ptr %call166.i.i, i64 8
-  %4 = load ptr, ptr %data.i.i, align 8
-  %seq.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %5 = load i16, ptr %seq.i.i, align 8
-  %6 = load ptr, ptr %d1, align 8
-  %handshake_read_seq.i.i = getelementptr inbounds i8, ptr %6, i64 272
-  %7 = load i16, ptr %handshake_read_seq.i.i, align 8
-  %cmp4.i.i = icmp ult i16 %5, %7
+  %5 = load ptr, ptr %data.i.i, align 8
+  %seq.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load i16, ptr %seq.i.i, align 8
+  %7 = load ptr, ptr %d1, align 8
+  %handshake_read_seq.i.i = getelementptr inbounds i8, ptr %7, i64 272
+  %8 = load i16, ptr %handshake_read_seq.i.i, align 8
+  %cmp4.i.i = icmp ult i16 %6, %8
   br i1 %cmp4.i.i, label %if.then6.i.i, label %do.end.i.i
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
-  %8 = load i32, ptr %server.i.i, align 8
-  %tobool.not.i.i = icmp ne i32 %8, 0
-  %cmp10.not.i.i = icmp eq i16 %5, 0
+  %9 = load i32, ptr %server.i.i, align 8
+  %tobool.not.i.i = icmp ne i32 %9, 0
+  %cmp10.not.i.i = icmp eq i16 %6, 0
   %or.cond37.i.i = and i1 %cmp10.not.i.i, %tobool.not.i.i
-  %cmp16.not.i.i = icmp eq i16 %7, 1
+  %cmp16.not.i.i = icmp eq i16 %8, 1
   %or.cond38.i.i = and i1 %cmp16.not.i.i, %or.cond37.i.i
   br i1 %or.cond38.i.i, label %lor.lhs.false18.i.i, label %do.cond.i.i
 
 lor.lhs.false18.i.i:                              ; preds = %if.then6.i.i
-  %9 = load i32, ptr %hand_state.i.i, align 4
-  %cmp19.not.i.i = icmp eq i32 %9, 23
+  %10 = load i32, ptr %hand_state.i.i, align 4
+  %cmp19.not.i.i = icmp eq i32 %10, 23
   br i1 %cmp19.not.i.i, label %if.else.i.i, label %do.cond.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false18.i.i
@@ -558,40 +557,40 @@ if.else.i.i:                                      ; preds = %lor.lhs.false18.i.i
 
 if.then28.i.i:                                    ; preds = %if.else.i.i
   %data29.i.i = getelementptr inbounds i8, ptr %call25.i.i, i64 8
-  %10 = load ptr, ptr %data29.i.i, align 8
-  %seq31.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %11 = load i16, ptr %seq31.i.i, align 8
-  %12 = load ptr, ptr %d1, align 8
-  %handshake_read_seq34.i.i = getelementptr inbounds i8, ptr %12, i64 272
-  %13 = load i16, ptr %handshake_read_seq34.i.i, align 8
-  %cmp36.i.i = icmp eq i16 %11, %13
+  %11 = load ptr, ptr %data29.i.i, align 8
+  %seq31.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i16, ptr %seq31.i.i, align 8
+  %13 = load ptr, ptr %d1, align 8
+  %handshake_read_seq34.i.i = getelementptr inbounds i8, ptr %13, i64 272
+  %14 = load i16, ptr %handshake_read_seq34.i.i, align 8
+  %cmp36.i.i = icmp eq i16 %12, %14
   br i1 %cmp36.i.i, label %dtls1_hm_fragment_free.exit43.i.i, label %do.end.i.i
 
 dtls1_hm_fragment_free.exit43.i.i:                ; preds = %if.then28.i.i
-  %buffered_messages40.i.i = getelementptr inbounds i8, ptr %12, i64 280
-  %14 = load ptr, ptr %buffered_messages40.i.i, align 8
-  %call41.i.i = call ptr @pqueue_pop(ptr noundef %14) #9
-  %fragment.i41.i.i = getelementptr inbounds i8, ptr %4, i64 64
-  %15 = load ptr, ptr %fragment.i41.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 98) #9
-  %reassembly.i42.i.i = getelementptr inbounds i8, ptr %4, i64 72
-  %16 = load ptr, ptr %reassembly.i42.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 99) #9
-  call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 100) #9
+  %buffered_messages40.i.i = getelementptr inbounds i8, ptr %13, i64 280
+  %15 = load ptr, ptr %buffered_messages40.i.i, align 8
+  %call41.i.i = call ptr @pqueue_pop(ptr noundef %15) #9
+  %fragment.i41.i.i = getelementptr inbounds i8, ptr %5, i64 64
+  %16 = load ptr, ptr %fragment.i41.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 98) #9
+  %reassembly.i42.i.i = getelementptr inbounds i8, ptr %5, i64 72
+  %17 = load ptr, ptr %reassembly.i42.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 99) #9
+  call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 100) #9
   call void @pitem_free(ptr noundef nonnull %call166.i.i) #9
   br label %do.end.i.i
 
 do.cond.i.i:                                      ; preds = %lor.lhs.false18.i.i, %if.then6.i.i
-  %buffered_messages23.i.i = getelementptr inbounds i8, ptr %6, i64 280
-  %17 = load ptr, ptr %buffered_messages23.i.i, align 8
-  %call24.i.i = call ptr @pqueue_pop(ptr noundef %17) #9
-  %fragment.i.i.i = getelementptr inbounds i8, ptr %4, i64 64
-  %18 = load ptr, ptr %fragment.i.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 98) #9
-  %reassembly.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
-  %19 = load ptr, ptr %reassembly.i.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 99) #9
-  call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 100) #9
+  %buffered_messages23.i.i = getelementptr inbounds i8, ptr %7, i64 280
+  %18 = load ptr, ptr %buffered_messages23.i.i, align 8
+  %call24.i.i = call ptr @pqueue_pop(ptr noundef %18) #9
+  %fragment.i.i.i = getelementptr inbounds i8, ptr %5, i64 64
+  %19 = load ptr, ptr %fragment.i.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 98) #9
+  %reassembly.i.i.i = getelementptr inbounds i8, ptr %5, i64 72
+  %20 = load ptr, ptr %reassembly.i.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str, i32 noundef 99) #9
+  call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 100) #9
   call void @pitem_free(ptr noundef nonnull %call166.i.i) #9
   %call1.i.i = call ptr @pqueue_next(ptr noundef nonnull %iter.i.i) #9
   %cmp.i.i = icmp eq ptr %call1.i.i, null
@@ -599,78 +598,78 @@ do.cond.i.i:                                      ; preds = %lor.lhs.false18.i.i
 
 do.end.i.i:                                       ; preds = %if.end.i.i, %dtls1_hm_fragment_free.exit43.i.i, %if.then28.i.i, %if.else.i.i
   %tobool63.i.i = phi i1 [ true, %if.else.i.i ], [ true, %if.then28.i.i ], [ false, %dtls1_hm_fragment_free.exit43.i.i ], [ false, %if.end.i.i ]
-  %frag.0.ph.i.i = phi ptr [ %4, %if.else.i.i ], [ %4, %if.then28.i.i ], [ %10, %dtls1_hm_fragment_free.exit43.i.i ], [ %4, %if.end.i.i ]
+  %frag.0.ph.i.i = phi ptr [ %5, %if.else.i.i ], [ %5, %if.then28.i.i ], [ %11, %dtls1_hm_fragment_free.exit43.i.i ], [ %5, %if.end.i.i ]
   %item.0.ph.i.i = phi ptr [ %call166.i.i, %if.else.i.i ], [ %call166.i.i, %if.then28.i.i ], [ %call25.i.i, %dtls1_hm_fragment_free.exit43.i.i ], [ %call166.i.i, %if.end.i.i ]
   %reassembly.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 72
-  %20 = load ptr, ptr %reassembly.i.i, align 8
-  %cmp50.not.i.i = icmp eq ptr %20, null
+  %21 = load ptr, ptr %reassembly.i.i, align 8
+  %cmp50.not.i.i = icmp eq ptr %21, null
   br i1 %cmp50.not.i.i, label %if.end53.i.i, label %if.end4.i
 
 if.end53.i.i:                                     ; preds = %do.end.i.i
-  %21 = load ptr, ptr %d1, align 8
-  %handshake_read_seq55.i.i = getelementptr inbounds i8, ptr %21, i64 272
-  %22 = load i16, ptr %handshake_read_seq55.i.i, align 8
+  %22 = load ptr, ptr %d1, align 8
+  %handshake_read_seq55.i.i = getelementptr inbounds i8, ptr %22, i64 272
+  %23 = load i16, ptr %handshake_read_seq55.i.i, align 8
   %seq58.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 16
-  %23 = load i16, ptr %seq58.i.i, align 8
-  %cmp60.i.i = icmp eq i16 %22, %23
+  %24 = load i16, ptr %seq58.i.i, align 8
+  %cmp60.i.i = icmp eq i16 %23, %24
   %or.cond.i.i = or i1 %tobool63.i.i, %cmp60.i.i
   br i1 %or.cond.i.i, label %if.then64.i.i, label %if.end4.i
 
 if.then64.i.i:                                    ; preds = %if.end53.i.i
   %reassembly.i.i.le = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 72
   %frag_len66.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 32
-  %24 = load i64, ptr %frag_len66.i.i, align 8
-  %buffered_messages68.i.i = getelementptr inbounds i8, ptr %21, i64 280
-  %25 = load ptr, ptr %buffered_messages68.i.i, align 8
-  %call69.i.i = call ptr @pqueue_pop(ptr noundef %25) #9
+  %25 = load i64, ptr %frag_len66.i.i, align 8
+  %buffered_messages68.i.i = getelementptr inbounds i8, ptr %22, i64 280
+  %26 = load ptr, ptr %buffered_messages68.i.i, align 8
+  %call69.i.i = call ptr @pqueue_pop(ptr noundef %26) #9
   %call71.i.i = call fastcc i32 @dtls1_preprocess_fragment(ptr noundef nonnull %s, ptr noundef nonnull %frag.0.ph.i.i)
   %tobool72.not.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %tobool72.not.i.i, label %dtls1_retrieve_buffered_fragment.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then64.i.i
-  %26 = load i64, ptr %frag_len66.i.i, align 8
-  %cmp75.not.i.i = icmp eq i64 %26, 0
+  %27 = load i64, ptr %frag_len66.i.i, align 8
+  %cmp75.not.i.i = icmp eq i64 %27, 0
   br i1 %cmp75.not.i.i, label %if.then84.i.i, label %if.then77.i.i
 
 if.then77.i.i:                                    ; preds = %land.lhs.true.i.i
   %init_buf.i.i = getelementptr inbounds i8, ptr %s, i64 240
-  %27 = load ptr, ptr %init_buf.i.i, align 8
-  %data78.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load ptr, ptr %data78.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %28 = load ptr, ptr %init_buf.i.i, align 8
+  %data78.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load ptr, ptr %data78.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %29, i64 12
   %frag_off.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 24
-  %29 = load i64, ptr %frag_off.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %29
+  %30 = load i64, ptr %frag_off.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %30
   %fragment.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 64
-  %30 = load ptr, ptr %fragment.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr align 1 %30, i64 %26, i1 false)
+  %31 = load ptr, ptr %fragment.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr align 1 %31, i64 %27, i1 false)
   br label %if.then84.i.i
 
 if.then84.i.i:                                    ; preds = %if.then77.i.i, %land.lhs.true.i.i
   %fragment.i46.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 64
-  %31 = load ptr, ptr %fragment.i46.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 98) #9
-  %32 = load ptr, ptr %reassembly.i.i.le, align 8
-  call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 99) #9
+  %32 = load ptr, ptr %fragment.i46.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 98) #9
+  %33 = load ptr, ptr %reassembly.i.i.le, align 8
+  call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 99) #9
   call void @CRYPTO_free(ptr noundef nonnull %frag.0.ph.i.i, ptr noundef nonnull @.str, i32 noundef 100) #9
   call void @pitem_free(ptr noundef nonnull %item.0.ph.i.i) #9
   br i1 %tobool63.i.i, label %if.then86.i.i, label %if.then3.i
 
 if.then86.i.i:                                    ; preds = %if.then84.i.i
-  %33 = load ptr, ptr %d1, align 8
-  %handshake_read_seq88.i.i = getelementptr inbounds i8, ptr %33, i64 272
-  store i16 0, ptr %handshake_read_seq88.i.i, align 8
   %34 = load ptr, ptr %d1, align 8
-  %next_handshake_write_seq.i.i = getelementptr inbounds i8, ptr %34, i64 270
+  %handshake_read_seq88.i.i = getelementptr inbounds i8, ptr %34, i64 272
+  store i16 0, ptr %handshake_read_seq88.i.i, align 8
+  %35 = load ptr, ptr %d1, align 8
+  %next_handshake_write_seq.i.i = getelementptr inbounds i8, ptr %35, i64 270
   store i16 0, ptr %next_handshake_write_seq.i.i, align 2
   br label %if.then3.i
 
 dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %if.then64.i.i
   %fragment.i51.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 64
-  %35 = load ptr, ptr %fragment.i51.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str, i32 noundef 98) #9
-  %36 = load ptr, ptr %reassembly.i.i.le, align 8
-  call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 99) #9
+  %36 = load ptr, ptr %fragment.i51.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 98) #9
+  %37 = load ptr, ptr %reassembly.i.i.le, align 8
+  call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 99) #9
   call void @CRYPTO_free(ptr noundef nonnull %frag.0.ph.i.i, ptr noundef nonnull @.str, i32 noundef 100) #9
   call void @pitem_free(ptr noundef nonnull %item.0.ph.i.i) #9
   store i64 0, ptr %init_num110.i, align 8
@@ -679,15 +678,15 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %if.then64.i.i
 
 if.then3.i:                                       ; preds = %if.then86.i.i, %if.then84.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iter.i.i)
-  store i64 %24, ptr %init_num110.i, align 8
+  store i64 %25, ptr %init_num110.i, align 8
   br label %if.end3
 
 if.end4.i:                                        ; preds = %do.cond.i.i, %if.end53.i.i, %do.end.i.i, %redo.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iter.i.i)
-  %37 = load ptr, ptr %method.i, align 8
-  %ssl_read_bytes.i = getelementptr inbounds i8, ptr %37, i64 128
-  %38 = load ptr, ptr %ssl_read_bytes.i, align 8
-  %call5.i = call i32 %38(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef nonnull %recvd_type.i, ptr noundef nonnull %wire.i, i64 noundef 12, i32 noundef 0, ptr noundef nonnull %readbytes.i) #9
+  %38 = load ptr, ptr %method.i, align 8
+  %ssl_read_bytes.i = getelementptr inbounds i8, ptr %38, i64 128
+  %39 = load ptr, ptr %ssl_read_bytes.i, align 8
+  %call5.i = call i32 %39(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef nonnull %recvd_type.i, ptr noundef nonnull %wire.i, i64 noundef 12, i32 noundef 0, ptr noundef nonnull %readbytes.i) #9
   %cmp6.i = icmp slt i32 %call5.i, 1
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
 
@@ -697,13 +696,13 @@ if.then7.i:                                       ; preds = %if.end4.i
   br label %if.then.thread
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %39 = load i8, ptr %recvd_type.i, align 1
-  %cmp9.i = icmp eq i8 %39, 20
+  %40 = load i8, ptr %recvd_type.i, align 1
+  %cmp9.i = icmp eq i8 %40, 20
   br i1 %cmp9.i, label %if.then11.i, label %if.end25.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %40 = load i8, ptr %wire.i, align 1
-  %cmp13.not.i = icmp eq i8 %40, 1
+  %41 = load i8, ptr %wire.i, align 1
+  %cmp13.not.i = icmp eq i8 %41, 1
   br i1 %cmp13.not.i, label %if.end16.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then11.i
@@ -714,18 +713,18 @@ if.then15.i:                                      ; preds = %if.then11.i
 
 if.end16.i:                                       ; preds = %if.then11.i
   %init_buf.i = getelementptr inbounds i8, ptr %s, i64 240
-  %41 = load ptr, ptr %init_buf.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %data.i, align 8
-  %43 = load i64, ptr %readbytes.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr nonnull align 1 %wire.i, i64 %43, i1 false)
+  %42 = load ptr, ptr %init_buf.i, align 8
+  %data.i = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = load ptr, ptr %data.i, align 8
   %44 = load i64, ptr %readbytes.i, align 8
-  %sub.i = add i64 %44, -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr nonnull align 1 %wire.i, i64 %44, i1 false)
+  %45 = load i64, ptr %readbytes.i, align 8
+  %sub.i = add i64 %45, -1
   store i64 %sub.i, ptr %init_num110.i, align 8
-  %45 = load ptr, ptr %init_buf.i, align 8
-  %data20.i = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %data20.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %46, i64 1
+  %46 = load ptr, ptr %init_buf.i, align 8
+  %data20.i = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load ptr, ptr %data20.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %47, i64 1
   %init_msg.i = getelementptr inbounds i8, ptr %s, i64 248
   store ptr %add.ptr.i, ptr %init_msg.i, align 8
   %message_type.i = getelementptr inbounds i8, ptr %s, i64 688
@@ -735,8 +734,8 @@ if.end16.i:                                       ; preds = %if.then11.i
   br label %if.end3
 
 if.end25.i:                                       ; preds = %if.end8.i
-  %47 = load i64, ptr %readbytes.i, align 8
-  %cmp26.not.i = icmp eq i64 %47, 12
+  %48 = load i64, ptr %readbytes.i, align 8
+  %cmp26.not.i = icmp eq i64 %48, 12
   br i1 %cmp26.not.i, label %if.end29.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end25.i
@@ -747,52 +746,53 @@ if.then28.i:                                      ; preds = %if.end25.i
 
 if.end29.i:                                       ; preds = %if.end25.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %msg_hdr.i, i8 0, i64 64, i1 false)
-  %48 = load i8, ptr %wire.i, align 1
-  store i8 %48, ptr %msg_hdr.i, align 8
-  %49 = load i8, ptr %incdec.ptr.i.i, align 1
-  %conv.i.i = zext i8 %49 to i64
+  %49 = load i8, ptr %wire.i, align 1
+  store i8 %49, ptr %msg_hdr.i, align 8
+  %50 = load i8, ptr %incdec.ptr.i.i, align 1
+  %conv.i.i = zext i8 %50 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i.i, 16
-  %50 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %50 to i64
+  %51 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %51 to i64
   %shl3.i.i = shl nuw nsw i64 %conv2.i.i, 8
   %or.i.i = or disjoint i64 %shl3.i.i, %shl.i.i
-  %51 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %51 to i64
+  %52 = load i8, ptr %arrayidx4.i.i, align 1
+  %conv5.i.i = zext i8 %52 to i64
   %or6.i.i = or disjoint i64 %or.i.i, %conv5.i.i
   store i64 %or6.i.i, ptr %msg_len.i.i, align 8
-  %52 = load i8, ptr %add.ptr.i58.i, align 1
-  %conv8.i.i = zext i8 %52 to i16
+  %53 = load i8, ptr %add.ptr.i58.i, align 1
+  %conv8.i.i = zext i8 %53 to i16
   %shl9.i.i = shl nuw i16 %conv8.i.i, 8
-  %53 = load i8, ptr %arrayidx10.i.i, align 1
-  %conv11.i.i = zext i8 %53 to i16
+  %54 = load i8, ptr %arrayidx10.i.i, align 1
+  %conv11.i.i = zext i8 %54 to i16
   %or12.i.i = or disjoint i16 %shl9.i.i, %conv11.i.i
   store i16 %or12.i.i, ptr %seq.i59.i, align 8
-  %54 = load i8, ptr %add.ptr14.i.i, align 1
-  %conv16.i.i = zext i8 %54 to i64
+  %55 = load i8, ptr %add.ptr14.i.i, align 1
+  %conv16.i.i = zext i8 %55 to i64
   %shl17.i.i = shl nuw nsw i64 %conv16.i.i, 16
-  %55 = load i8, ptr %arrayidx18.i.i, align 1
-  %conv19.i.i = zext i8 %55 to i64
+  %56 = load i8, ptr %arrayidx18.i.i, align 1
+  %conv19.i.i = zext i8 %56 to i64
   %shl20.i.i = shl nuw nsw i64 %conv19.i.i, 8
   %or21.i.i = or disjoint i64 %shl20.i.i, %shl17.i.i
-  %56 = load i8, ptr %arrayidx22.i.i, align 1
-  %conv23.i.i = zext i8 %56 to i64
+  %57 = load i8, ptr %arrayidx22.i.i, align 1
+  %conv23.i.i = zext i8 %57 to i64
   %or24.i.i = or disjoint i64 %or21.i.i, %conv23.i.i
   store i64 %or24.i.i, ptr %frag_off.i60.i, align 8
-  %57 = load i8, ptr %add.ptr25.i.i, align 1
-  %conv27.i.i = zext i8 %57 to i64
+  %58 = load i8, ptr %add.ptr25.i.i, align 1
+  %conv27.i.i = zext i8 %58 to i64
   %shl28.i.i = shl nuw nsw i64 %conv27.i.i, 16
-  %58 = load i8, ptr %arrayidx29.i.i, align 1
-  %conv30.i.i = zext i8 %58 to i64
+  %59 = load i8, ptr %arrayidx29.i.i, align 1
+  %conv30.i.i = zext i8 %59 to i64
   %shl31.i.i = shl nuw nsw i64 %conv30.i.i, 8
   %or32.i.i = or disjoint i64 %shl31.i.i, %shl28.i.i
-  %59 = load i8, ptr %arrayidx33.i.i, align 1
-  %conv34.i.i = zext i8 %59 to i64
+  %60 = load i8, ptr %arrayidx33.i.i, align 1
+  %conv34.i.i = zext i8 %60 to i64
   %or35.i.i = or disjoint i64 %or32.i.i, %conv34.i.i
   store i64 %or35.i.i, ptr %frag_len.i.i, align 8
-  %60 = load i64, ptr %curr_rec.i, align 8
-  %length.i = getelementptr inbounds [32 x %struct.tls_record_st], ptr %tlsrecs.i, i64 0, i64 %60, i32 5
-  %61 = load i64, ptr %length.i, align 8
-  %cmp35.i = icmp ugt i64 %or35.i.i, %61
+  %61 = load i64, ptr %curr_rec.i, align 8
+  %length.idx.i = shl nsw i64 %61, 6
+  %length.i = getelementptr i8, ptr %1, i64 %length.idx.i
+  %62 = load i64, ptr %length.i, align 8
+  %cmp35.i = icmp ugt i64 %or35.i.i, %62
   br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
 
 if.then37.i:                                      ; preds = %if.end29.i
@@ -802,32 +802,32 @@ if.then37.i:                                      ; preds = %if.end29.i
   br label %f_err.i
 
 if.end38.i:                                       ; preds = %if.end29.i
-  %62 = load ptr, ptr %d1, align 8
-  %handshake_read_seq.i = getelementptr inbounds i8, ptr %62, i64 272
-  %63 = load i16, ptr %handshake_read_seq.i, align 8
-  %cmp41.not.i = icmp eq i16 %or12.i.i, %63
+  %63 = load ptr, ptr %d1, align 8
+  %handshake_read_seq.i = getelementptr inbounds i8, ptr %63, i64 272
+  %64 = load i16, ptr %handshake_read_seq.i, align 8
+  %cmp41.not.i = icmp eq i16 %or12.i.i, %64
   br i1 %cmp41.not.i, label %if.end65.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end38.i
-  %64 = load i32, ptr %server.i.i, align 8
-  %tobool.i = icmp eq i32 %64, 0
+  %65 = load i32, ptr %server.i.i, align 8
+  %tobool.i = icmp eq i32 %65, 0
   %cmp46.i = icmp ne i16 %or12.i.i, 0
   %or.cond.i = or i1 %cmp46.i, %tobool.i
   br i1 %or.cond.i, label %if.then62.i, label %lor.lhs.false48.i
 
 lor.lhs.false48.i:                                ; preds = %if.then43.i
-  %cmp52.i = icmp ne i16 %63, 1
-  %cmp57.i = icmp ne i8 %48, 1
+  %cmp52.i = icmp ne i16 %64, 1
+  %cmp57.i = icmp ne i8 %49, 1
   %or.cond1.i = select i1 %cmp52.i, i1 true, i1 %cmp57.i
   br i1 %or.cond1.i, label %if.then62.i, label %lor.lhs.false59.i
 
 lor.lhs.false59.i:                                ; preds = %lor.lhs.false48.i
-  %65 = load i32, ptr %hand_state.i.i, align 4
-  %cmp60.not.i = icmp eq i32 %65, 23
+  %66 = load i32, ptr %hand_state.i.i, align 4
+  %cmp60.not.i = icmp eq i32 %66, 23
   br i1 %cmp60.not.i, label %if.end65.i, label %if.then62.i
 
 if.then62.i:                                      ; preds = %lor.lhs.false59.i, %lor.lhs.false48.i, %if.then43.i
-  %.lcssa189.i = phi i8 [ 1, %lor.lhs.false59.i ], [ %48, %lor.lhs.false48.i ], [ %48, %if.then43.i ]
+  %.lcssa189.i = phi i8 [ 1, %lor.lhs.false59.i ], [ %49, %lor.lhs.false48.i ], [ %49, %if.then43.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %seq64be.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %readbytes.i.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %devnull.i.i)
@@ -837,22 +837,22 @@ if.then62.i:                                      ; preds = %lor.lhs.false59.i, 
 
 if.end.i64.i:                                     ; preds = %if.then62.i
   store i64 0, ptr %seq64be.i.i, align 8
-  store i8 %52, ptr %arrayidx.i66.i, align 2
-  store i8 %53, ptr %arrayidx6.i.i, align 1
-  %buffered_messages.i69.i = getelementptr inbounds i8, ptr %62, i64 280
-  %66 = load ptr, ptr %buffered_messages.i69.i, align 8
-  %call.i70.i = call ptr @pqueue_find(ptr noundef %66, ptr noundef nonnull %seq64be.i.i) #9
-  %67 = load ptr, ptr %d1, align 8
-  %handshake_read_seq.i72.i = getelementptr inbounds i8, ptr %67, i64 272
-  %68 = load i16, ptr %handshake_read_seq.i72.i, align 8
-  %cmp19.not.i73.i = icmp ugt i16 %or12.i.i, %68
+  store i8 %53, ptr %arrayidx.i66.i, align 2
+  store i8 %54, ptr %arrayidx6.i.i, align 1
+  %buffered_messages.i69.i = getelementptr inbounds i8, ptr %63, i64 280
+  %67 = load ptr, ptr %buffered_messages.i69.i, align 8
+  %call.i70.i = call ptr @pqueue_find(ptr noundef %67, ptr noundef nonnull %seq64be.i.i) #9
+  %68 = load ptr, ptr %d1, align 8
+  %handshake_read_seq.i72.i = getelementptr inbounds i8, ptr %68, i64 272
+  %69 = load i16, ptr %handshake_read_seq.i72.i, align 8
+  %cmp19.not.i73.i = icmp ugt i16 %or12.i.i, %69
   br i1 %cmp19.not.i73.i, label %lor.lhs.false.i.i, label %if.then42.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i64.i
   %cmp8.not.i.i = icmp ne ptr %call.i70.i, null
   %cmp11.not.i.i = icmp eq i64 %or35.i.i, %or6.i.i
   %spec.select.i = select i1 %cmp8.not.i.i, i1 %cmp11.not.i.i, i1 false
-  %conv18.i.i = zext i16 %68 to i32
+  %conv18.i.i = zext i16 %69 to i32
   %conv16.i76.i = zext i16 %or12.i.i to i32
   %add26.i.i = add nuw nsw i32 %conv18.i.i, 10
   %cmp27.i.i = icmp ult i32 %add26.i.i, %conv16.i76.i
@@ -860,7 +860,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i64.i
   br i1 %or.cond.i77.i, label %if.then42.i.i, label %lor.lhs.false32.i.i
 
 lor.lhs.false32.i.i:                              ; preds = %lor.lhs.false.i.i
-  %cmp36.i78.i = icmp eq i16 %68, 0
+  %cmp36.i78.i = icmp eq i16 %69, 0
   %cmp40.i.i = icmp eq i8 %.lcssa189.i, 20
   %or.cond97.i = select i1 %cmp36.i78.i, i1 %cmp40.i.i, i1 false
   br i1 %or.cond97.i, label %if.then42.i.i, label %if.else.i79.i
@@ -871,17 +871,17 @@ if.then42.i.i:                                    ; preds = %lor.lhs.false32.i.i
 
 while.body.i.i:                                   ; preds = %if.then42.i.i, %if.end50.i.i
   %frag_len.064.i.i = phi i64 [ %sub.i.i, %if.end50.i.i ], [ %or35.i.i, %if.then42.i.i ]
-  %69 = load ptr, ptr %method.i, align 8
-  %ssl_read_bytes.i.i = getelementptr inbounds i8, ptr %69, i64 128
-  %70 = load ptr, ptr %ssl_read_bytes.i.i, align 8
+  %70 = load ptr, ptr %method.i, align 8
+  %ssl_read_bytes.i.i = getelementptr inbounds i8, ptr %70, i64 128
+  %71 = load ptr, ptr %ssl_read_bytes.i.i, align 8
   %cond.i.i = call i64 @llvm.umin.i64(i64 %frag_len.064.i.i, i64 256)
-  %call46.i.i = call i32 %70(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %devnull.i.i, i64 noundef %cond.i.i, i32 noundef 0, ptr noundef nonnull %readbytes.i.i) #9
+  %call46.i.i = call i32 %71(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %devnull.i.i, i64 noundef %cond.i.i, i32 noundef 0, ptr noundef nonnull %readbytes.i.i) #9
   %cmp47.i.i = icmp slt i32 %call46.i.i, 1
   br i1 %cmp47.i.i, label %dtls1_process_out_of_seq_message.exit.i, label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %while.body.i.i
-  %71 = load i64, ptr %readbytes.i.i, align 8
-  %sub.i.i = sub i64 %frag_len.064.i.i, %71
+  %72 = load i64, ptr %readbytes.i.i, align 8
+  %sub.i.i = sub i64 %frag_len.064.i.i, %72
   %tobool.not.i74.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i74.i, label %dtls1_process_out_of_seq_message.exit.i, label %while.body.i.i, !llvm.loop !7
 
@@ -893,7 +893,7 @@ if.then54.i.i:                                    ; preds = %if.else.i79.i
   br label %dtls1_process_out_of_seq_message.exit.i
 
 if.end56.i.i:                                     ; preds = %if.else.i79.i
-  %s.val.i.i = load i64, ptr %1, align 8
+  %s.val.i.i = load i64, ptr %2, align 8
   %..i.i.i = call range(i64 17740, 0) i64 @llvm.umax.i64(i64 %s.val.i.i, i64 17740)
   %cmp58.i.i = icmp ugt i64 %or6.i.i, %..i.i.i
   br i1 %cmp58.i.i, label %dtls1_process_out_of_seq_message.exit.i, label %if.end61.i.i
@@ -928,13 +928,13 @@ if.then68.i.i:                                    ; preds = %if.then1.i.i.i
   %reassembly14.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   store ptr null, ptr %reassembly14.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %msg_hdr.i, i64 64, i1 false)
-  %72 = load ptr, ptr %method.i, align 8
-  %ssl_read_bytes70.i.i = getelementptr inbounds i8, ptr %72, i64 128
-  %73 = load ptr, ptr %ssl_read_bytes70.i.i, align 8
-  %call71.i81.i = call i32 %73(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %call2.i.i.i, i64 noundef %or6.i.i, i32 noundef 0, ptr noundef nonnull %readbytes.i.i) #9
+  %73 = load ptr, ptr %method.i, align 8
+  %ssl_read_bytes70.i.i = getelementptr inbounds i8, ptr %73, i64 128
+  %74 = load ptr, ptr %ssl_read_bytes70.i.i, align 8
+  %call71.i81.i = call i32 %74(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %call2.i.i.i, i64 noundef %or6.i.i, i32 noundef 0, ptr noundef nonnull %readbytes.i.i) #9
   %cmp72.i.i = icmp sgt i32 %call71.i81.i, 0
-  %74 = load i64, ptr %readbytes.i.i, align 8
-  %cmp75.not.i82.i = icmp eq i64 %74, %or6.i.i
+  %75 = load i64, ptr %readbytes.i.i, align 8
+  %cmp75.not.i82.i = icmp eq i64 %75, %or6.i.i
   %or.cond44.i.i = select i1 %cmp72.i.i, i1 %cmp75.not.i82.i, i1 false
   br i1 %or.cond44.i.i, label %if.end83.i.i, label %if.end.i46.i.i
 
@@ -944,20 +944,20 @@ if.end83.i.i:                                     ; preds = %if.then68.i.i, %if.
   br i1 %cmp86.i.i, label %if.end.i46.i.i, label %if.end89.i.i
 
 if.end89.i.i:                                     ; preds = %if.end83.i.i
-  %75 = load ptr, ptr %d1, align 8
-  %buffered_messages91.i.i = getelementptr inbounds i8, ptr %75, i64 280
-  %76 = load ptr, ptr %buffered_messages91.i.i, align 8
-  %call92.i.i = call ptr @pqueue_insert(ptr noundef %76, ptr noundef nonnull %call85.i.i) #9
+  %76 = load ptr, ptr %d1, align 8
+  %buffered_messages91.i.i = getelementptr inbounds i8, ptr %76, i64 280
+  %77 = load ptr, ptr %buffered_messages91.i.i, align 8
+  %call92.i.i = call ptr @pqueue_insert(ptr noundef %77, ptr noundef nonnull %call85.i.i) #9
   %cmp93.not.i.i = icmp eq ptr %call92.i.i, null
   br i1 %cmp93.not.i.i, label %if.end.i46.i.i, label %dtls1_process_out_of_seq_message.exit.i
 
 if.end.i46.i.i:                                   ; preds = %if.end89.i.i, %if.end83.i.i, %if.then68.i.i
   %fragment.i47.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %77 = load ptr, ptr %fragment.i47.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %77, ptr noundef nonnull @.str, i32 noundef 98) #9
+  %78 = load ptr, ptr %fragment.i47.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %78, ptr noundef nonnull @.str, i32 noundef 98) #9
   %reassembly.i.i83.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
-  %78 = load ptr, ptr %reassembly.i.i83.i, align 8
-  call void @CRYPTO_free(ptr noundef %78, ptr noundef nonnull @.str, i32 noundef 99) #9
+  %79 = load ptr, ptr %reassembly.i.i83.i, align 8
+  call void @CRYPTO_free(ptr noundef %79, ptr noundef nonnull @.str, i32 noundef 99) #9
   call void @CRYPTO_free(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull @.str, i32 noundef 100) #9
   br label %dtls1_process_out_of_seq_message.exit.i
 
@@ -980,40 +980,40 @@ if.then69.i:                                      ; preds = %if.end65.i
   br label %if.then
 
 if.end71.i:                                       ; preds = %if.end65.i
-  %79 = load i32, ptr %server.i.i, align 8
-  %tobool73.not.i = icmp eq i32 %79, 0
+  %80 = load i32, ptr %server.i.i, align 8
+  %tobool73.not.i = icmp eq i32 %80, 0
   br i1 %tobool73.not.i, label %land.lhs.true74.i, label %if.end111.i
 
 land.lhs.true74.i:                                ; preds = %if.end71.i
-  %frag_off76.i = getelementptr inbounds i8, ptr %62, i64 400
-  %80 = load i64, ptr %frag_off76.i, align 8
-  %cmp77.i = icmp eq i64 %80, 0
+  %frag_off76.i = getelementptr inbounds i8, ptr %63, i64 400
+  %81 = load i64, ptr %frag_off76.i, align 8
+  %cmp77.i = icmp eq i64 %81, 0
   br i1 %cmp77.i, label %land.lhs.true79.i, label %if.end111.i
 
 land.lhs.true79.i:                                ; preds = %land.lhs.true74.i
-  %81 = load i32, ptr %hand_state.i.i, align 4
-  %cmp82.i = icmp ne i32 %81, 1
-  %cmp87.i = icmp eq i8 %48, 0
+  %82 = load i32, ptr %hand_state.i.i, align 4
+  %cmp82.i = icmp ne i32 %82, 1
+  %cmp87.i = icmp eq i8 %49, 0
   %or.cond2.i = select i1 %cmp82.i, i1 %cmp87.i, i1 false
   br i1 %or.cond2.i, label %if.then89.i, label %if.end111.i
 
 if.then89.i:                                      ; preds = %land.lhs.true79.i
-  %cmp92.i = icmp eq i8 %49, 0
-  %cmp97.i = icmp eq i8 %50, 0
+  %cmp92.i = icmp eq i8 %50, 0
+  %cmp97.i = icmp eq i8 %51, 0
   %or.cond3.i = select i1 %cmp92.i, i1 %cmp97.i, i1 false
-  %cmp102.i = icmp eq i8 %51, 0
+  %cmp102.i = icmp eq i8 %52, 0
   %or.cond4.i = select i1 %or.cond3.i, i1 %cmp102.i, i1 false
   br i1 %or.cond4.i, label %if.then104.i, label %if.else.i
 
 if.then104.i:                                     ; preds = %if.then89.i
-  %82 = load ptr, ptr %msg_callback.i, align 8
-  %tobool105.not.i = icmp eq ptr %82, null
+  %83 = load ptr, ptr %msg_callback.i, align 8
+  %tobool105.not.i = icmp eq ptr %83, null
   br i1 %tobool105.not.i, label %if.end109.i, label %if.then106.i
 
 if.then106.i:                                     ; preds = %if.then104.i
-  %83 = load i32, ptr %version.i, align 8
-  %84 = load ptr, ptr %msg_callback_arg.i, align 8
-  call void %82(i32 noundef 0, i32 noundef %83, i32 noundef 22, ptr noundef nonnull %wire.i, i64 noundef 12, ptr noundef nonnull %s, ptr noundef %84) #9
+  %84 = load i32, ptr %version.i, align 8
+  %85 = load ptr, ptr %msg_callback_arg.i, align 8
+  call void %83(i32 noundef 0, i32 noundef %84, i32 noundef 22, ptr noundef nonnull %wire.i, i64 noundef 12, ptr noundef nonnull %s, ptr noundef %85) #9
   br label %if.end109.i
 
 if.end109.i:                                      ; preds = %if.then106.i, %if.then104.i
@@ -1037,15 +1037,15 @@ if.end115.i:                                      ; preds = %if.end111.i
 
 if.then118.i:                                     ; preds = %if.end115.i
   %init_buf119.i = getelementptr inbounds i8, ptr %s, i64 240
-  %85 = load ptr, ptr %init_buf119.i, align 8
-  %data120.i = getelementptr inbounds i8, ptr %85, i64 8
-  %86 = load ptr, ptr %data120.i, align 8
-  %add.ptr121.i = getelementptr inbounds i8, ptr %86, i64 12
-  %87 = load ptr, ptr %method.i, align 8
-  %ssl_read_bytes123.i = getelementptr inbounds i8, ptr %87, i64 128
-  %88 = load ptr, ptr %ssl_read_bytes123.i, align 8
+  %86 = load ptr, ptr %init_buf119.i, align 8
+  %data120.i = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = load ptr, ptr %data120.i, align 8
+  %add.ptr121.i = getelementptr inbounds i8, ptr %87, i64 12
+  %88 = load ptr, ptr %method.i, align 8
+  %ssl_read_bytes123.i = getelementptr inbounds i8, ptr %88, i64 128
+  %89 = load ptr, ptr %ssl_read_bytes123.i, align 8
   %arrayidx124.i = getelementptr inbounds i8, ptr %add.ptr121.i, i64 %or24.i.i
-  %call125.i = call i32 %88(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %arrayidx124.i, i64 noundef %or35.i.i, i32 noundef 0, ptr noundef nonnull %readbytes.i) #9
+  %call125.i = call i32 %89(ptr noundef nonnull %s, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %arrayidx124.i, i64 noundef %or35.i.i, i32 noundef 0, ptr noundef nonnull %readbytes.i) #9
   %cmp126.i = icmp slt i32 %call125.i, 1
   br i1 %cmp126.i, label %if.then128.i, label %if.then118.if.end132_crit_edge.i
 
@@ -1063,8 +1063,8 @@ if.else131.i:                                     ; preds = %if.end115.i
   br label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.else131.i, %if.then118.if.end132_crit_edge.i
-  %89 = phi i64 [ %.pre.i, %if.then118.if.end132_crit_edge.i ], [ 0, %if.else131.i ]
-  %cmp133.not.i = icmp eq i64 %89, %or35.i.i
+  %90 = phi i64 [ %.pre.i, %if.then118.if.end132_crit_edge.i ], [ 0, %if.else131.i ]
+  %cmp133.not.i = icmp eq i64 %90, %or35.i.i
   br i1 %cmp133.not.i, label %if.end136.i, label %if.then135.i
 
 if.then135.i:                                     ; preds = %if.end132.i
@@ -1078,11 +1078,11 @@ if.end136.i:                                      ; preds = %if.end132.i
   br i1 %tobool137.not.i, label %if.end142.i, label %if.then138.i
 
 if.then138.i:                                     ; preds = %if.end136.i
-  %90 = load ptr, ptr %d1, align 8
-  %handshake_read_seq140.i = getelementptr inbounds i8, ptr %90, i64 272
-  store i16 0, ptr %handshake_read_seq140.i, align 8
   %91 = load ptr, ptr %d1, align 8
-  %next_handshake_write_seq.i = getelementptr inbounds i8, ptr %91, i64 270
+  %handshake_read_seq140.i = getelementptr inbounds i8, ptr %91, i64 272
+  store i16 0, ptr %handshake_read_seq140.i, align 8
+  %92 = load ptr, ptr %d1, align 8
+  %next_handshake_write_seq.i = getelementptr inbounds i8, ptr %92, i64 270
   store i16 0, ptr %next_handshake_write_seq.i, align 2
   br label %if.end142.i
 
@@ -1107,8 +1107,8 @@ if.then:                                          ; preds = %dtls1_process_out_o
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %recvd_type.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %msg_hdr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %readbytes.i)
-  %92 = add nsw i32 %errtype.0.ph, 3
-  %or.cond = icmp ult i32 %92, 2
+  %93 = add nsw i32 %errtype.0.ph, 3
+  %or.cond = icmp ult i32 %93, 2
   br i1 %or.cond, label %again, label %return
 
 if.end3:                                          ; preds = %if.end142.i, %if.end16.i, %if.then3.i
@@ -1117,74 +1117,74 @@ if.end3:                                          ; preds = %if.end142.i, %if.en
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %msg_hdr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %readbytes.i)
   %message_type = getelementptr inbounds i8, ptr %s, i64 688
-  %93 = load i32, ptr %message_type, align 8
-  store i32 %93, ptr %mt, align 4
+  %94 = load i32, ptr %message_type, align 8
+  store i32 %94, ptr %mt, align 4
   %init_buf = getelementptr inbounds i8, ptr %s, i64 240
-  %94 = load ptr, ptr %init_buf, align 8
-  %data = getelementptr inbounds i8, ptr %94, i64 8
-  %95 = load ptr, ptr %data, align 8
-  %cmp4 = icmp eq i32 %93, 257
+  %95 = load ptr, ptr %init_buf, align 8
+  %data = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = load ptr, ptr %data, align 8
+  %cmp4 = icmp eq i32 %94, 257
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end3
-  %96 = load ptr, ptr %msg_callback.i, align 8
-  %tobool6.not = icmp eq ptr %96, null
+  %97 = load ptr, ptr %msg_callback.i, align 8
+  %tobool6.not = icmp eq ptr %97, null
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  %97 = load i32, ptr %version.i, align 8
-  %98 = load ptr, ptr %msg_callback_arg.i, align 8
-  call void %96(i32 noundef 0, i32 noundef %97, i32 noundef 20, ptr noundef %95, i64 noundef 1, ptr noundef nonnull %s, ptr noundef %98) #9
+  %98 = load i32, ptr %version.i, align 8
+  %99 = load ptr, ptr %msg_callback_arg.i, align 8
+  call void %97(i32 noundef 0, i32 noundef %98, i32 noundef 20, ptr noundef %96, i64 noundef 1, ptr noundef nonnull %s, ptr noundef %99) #9
   br label %return
 
 if.end10:                                         ; preds = %if.end3
   %msg_len11 = getelementptr inbounds i8, ptr %0, i64 384
-  %99 = load i64, ptr %msg_len11, align 8
-  %100 = load i8, ptr %r_msg_hdr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %95, i64 1
-  store i8 %100, ptr %95, align 1
-  %shr = lshr i64 %99, 16
+  %100 = load i64, ptr %msg_len11, align 8
+  %101 = load i8, ptr %r_msg_hdr, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %96, i64 1
+  store i8 %101, ptr %96, align 1
+  %shr = lshr i64 %100, 16
   %conv = trunc i64 %shr to i8
   store i8 %conv, ptr %incdec.ptr, align 1
-  %shr12 = lshr i64 %99, 8
+  %shr12 = lshr i64 %100, 8
   %conv14 = trunc i64 %shr12 to i8
-  %arrayidx15 = getelementptr inbounds i8, ptr %95, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %96, i64 2
   store i8 %conv14, ptr %arrayidx15, align 1
-  %conv17 = trunc i64 %99 to i8
-  %arrayidx18 = getelementptr inbounds i8, ptr %95, i64 3
+  %conv17 = trunc i64 %100 to i8
+  %arrayidx18 = getelementptr inbounds i8, ptr %96, i64 3
   store i8 %conv17, ptr %arrayidx18, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %95, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %96, i64 4
   %seq = getelementptr inbounds i8, ptr %0, i64 392
-  %101 = load i16, ptr %seq, align 8
-  %102 = lshr i16 %101, 8
-  %conv22 = trunc nuw i16 %102 to i8
+  %102 = load i16, ptr %seq, align 8
+  %103 = lshr i16 %102, 8
+  %conv22 = trunc nuw i16 %103 to i8
   store i8 %conv22, ptr %add.ptr, align 1
-  %103 = load i16, ptr %seq, align 8
-  %conv27 = trunc i16 %103 to i8
-  %arrayidx28 = getelementptr inbounds i8, ptr %95, i64 5
+  %104 = load i16, ptr %seq, align 8
+  %conv27 = trunc i16 %104 to i8
+  %arrayidx28 = getelementptr inbounds i8, ptr %96, i64 5
   store i8 %conv27, ptr %arrayidx28, align 1
-  %add.ptr29 = getelementptr inbounds i8, ptr %95, i64 6
+  %add.ptr29 = getelementptr inbounds i8, ptr %96, i64 6
   store i8 0, ptr %add.ptr29, align 1
-  %arrayidx31 = getelementptr inbounds i8, ptr %95, i64 7
+  %arrayidx31 = getelementptr inbounds i8, ptr %96, i64 7
   store i8 0, ptr %arrayidx31, align 1
-  %arrayidx32 = getelementptr inbounds i8, ptr %95, i64 8
+  %arrayidx32 = getelementptr inbounds i8, ptr %96, i64 8
   store i8 0, ptr %arrayidx32, align 1
-  %add.ptr33 = getelementptr inbounds i8, ptr %95, i64 9
+  %add.ptr33 = getelementptr inbounds i8, ptr %96, i64 9
   store i8 %conv, ptr %add.ptr33, align 1
-  %arrayidx41 = getelementptr inbounds i8, ptr %95, i64 10
+  %arrayidx41 = getelementptr inbounds i8, ptr %96, i64 10
   store i8 %conv14, ptr %arrayidx41, align 1
-  %arrayidx44 = getelementptr inbounds i8, ptr %95, i64 11
+  %arrayidx44 = getelementptr inbounds i8, ptr %96, i64 11
   store i8 %conv17, ptr %arrayidx44, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %r_msg_hdr, i8 0, i64 64, i1 false)
-  %104 = load ptr, ptr %d1, align 8
-  %handshake_read_seq = getelementptr inbounds i8, ptr %104, i64 272
-  %105 = load i16, ptr %handshake_read_seq, align 8
-  %inc = add i16 %105, 1
+  %105 = load ptr, ptr %d1, align 8
+  %handshake_read_seq = getelementptr inbounds i8, ptr %105, i64 272
+  %106 = load i16, ptr %handshake_read_seq, align 8
+  %inc = add i16 %106, 1
   store i16 %inc, ptr %handshake_read_seq, align 8
-  %106 = load ptr, ptr %init_buf, align 8
-  %data48 = getelementptr inbounds i8, ptr %106, i64 8
-  %107 = load ptr, ptr %data48, align 8
-  %add.ptr49 = getelementptr inbounds i8, ptr %107, i64 12
+  %107 = load ptr, ptr %init_buf, align 8
+  %data48 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = load ptr, ptr %data48, align 8
+  %add.ptr49 = getelementptr inbounds i8, ptr %108, i64 12
   %init_msg = getelementptr inbounds i8, ptr %s, i64 248
   store ptr %add.ptr49, ptr %init_msg, align 8
   br label %return

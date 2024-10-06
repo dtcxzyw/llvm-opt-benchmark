@@ -2457,8 +2457,9 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   %73 = getelementptr inbounds [4 x %struct.pointf_s], ptr %66, i64 0, i64 %.61
   store double %56, ptr %73, align 8
   %74 = load ptr, ptr %22, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 64
-  %76 = getelementptr inbounds [4 x %struct.pointf_s], ptr %75, i64 0, i64 %.61, i32 1
+  %.idx = shl nuw nsw i64 %.61, 4
+  %75 = getelementptr i8, ptr %74, i64 72
+  %76 = getelementptr i8, ptr %75, i64 %.idx
   store double %55, ptr %76, align 8
   br label %77
 

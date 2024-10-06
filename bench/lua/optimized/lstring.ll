@@ -3,10 +3,6 @@ source_filename = "bench/lua/original/lstring.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%union.UValue = type { %struct.TValue }
-%struct.TValue = type { %union.Value, i8 }
-%union.Value = type { ptr }
-
 @.str = private unnamed_addr constant [18 x i8] c"not enough memory\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -342,7 +338,9 @@ for.cond5.preheader:                              ; preds = %entry, %for.cond5.p
   %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.cond5.preheader ]
   %arrayidx10 = getelementptr inbounds [53 x [2 x ptr]], ptr %strcache, i64 0, i64 %indvars.iv17, i64 0
   store ptr %1, ptr %arrayidx10, align 8
-  %arrayidx10.c = getelementptr inbounds [53 x [2 x ptr]], ptr %strcache, i64 0, i64 %indvars.iv17, i64 1
+  %arrayidx10.c.idx = shl nsw i64 %indvars.iv17, 4
+  %arrayidx10.c.offs = or disjoint i64 %arrayidx10.c.idx, 8
+  %arrayidx10.c = getelementptr inbounds i8, ptr %strcache, i64 %arrayidx10.c.offs
   store ptr %1, ptr %arrayidx10.c, align 8
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next18, 53
@@ -678,13 +676,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1815, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %uv = getelementptr inbounds i8, ptr %call, i64 40
+  %0 = getelementptr i8, ptr %call, i64 48
   %wide.trip.count = zext nneg i32 %nuvalue to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %tt_ = getelementptr inbounds [1 x %union.UValue], ptr %uv, i64 0, i64 %indvars.iv, i32 0, i32 1
+  %tt_.idx = shl nuw nsw i64 %indvars.iv, 4
+  %tt_ = getelementptr i8, ptr %0, i64 %tt_.idx
   store i8 0, ptr %tt_, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

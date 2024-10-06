@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.ListCell = type { ptr }
 %struct.NullableDatum = type { i64, i8 }
 %struct.pct_info = type { i64, i64, double, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [43 x i8] c"percentile value %g is not between 0 and 1\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"orderedsetaggs.c\00", align 1
@@ -2230,57 +2228,61 @@ declare ptr @CreateStandaloneExprContext() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hypothetical_check_argtypes(ptr nocapture noundef readonly %0, i32 noundef range(i32 -16384, 16384) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %12, label %4
+  br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %3
   %5 = add nsw i32 %1, 1
   %6 = load i32, ptr %2, align 8
   %.not13 = icmp eq i32 %5, %6
-  br i1 %.not13, label %7, label %12
+  br i1 %.not13, label %7, label %13
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   %9 = sext i32 %1 to i64
-  %10 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %9, i32 2
-  %11 = load i32, ptr %10, align 4
-  %.not14 = icmp eq i32 %11, 23
-  br i1 %.not14, label %.preheader.preheader, label %12
+  %.idx = mul nsw i64 %9, 104
+  %10 = getelementptr i8, ptr %8, i64 %.idx
+  %11 = getelementptr i8, ptr %10, i64 68
+  %12 = load i32, ptr %11, align 4
+  %.not14 = icmp eq i32 %12, 23
+  br i1 %.not14, label %.preheader, label %13
 
-.preheader.preheader:                             ; preds = %7
+.preheader:                                       ; preds = %7
+  %invariant.gep = getelementptr i8, ptr %2, i64 92
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.preheader
+  br label %16
 
-12:                                               ; preds = %7, %4, %3
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
+13:                                               ; preds = %7, %4, %3
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %14)
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1153, ptr noundef nonnull @__func__.hypothetical_check_argtypes) #10
   unreachable
 
-.preheader:                                       ; preds = %.preheader.preheader, %15
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %15 ]
+16:                                               ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %24, label %15
+  br i1 %exitcond.not, label %25, label %17
 
-15:                                               ; preds = %.preheader
-  %16 = load ptr, ptr %0, align 8
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %18 = tail call i32 @get_fn_expr_argtype(ptr noundef %16, i32 noundef %17) #10
-  %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %indvars.iv, i32 2
-  %20 = load i32, ptr %19, align 4
-  %.not15 = icmp eq i32 %18, %20
-  br i1 %.not15, label %.preheader, label %21, !llvm.loop !19
+  %19 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %20 = tail call i32 @get_fn_expr_argtype(ptr noundef %18, i32 noundef %19) #10
+  %.idx15 = mul nuw nsw i64 %indvars.iv, 104
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx15
+  %21 = load i32, ptr %gep, align 4
+  %.not16 = icmp eq i32 %20, %21
+  br i1 %.not16, label %16, label %22, !llvm.loop !19
 
-21:                                               ; preds = %15
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
+22:                                               ; preds = %17
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %23)
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1161, ptr noundef nonnull @__func__.hypothetical_check_argtypes) #10
   unreachable
 
-24:                                               ; preds = %.preheader
+25:                                               ; preds = %16
   ret void
 }
 

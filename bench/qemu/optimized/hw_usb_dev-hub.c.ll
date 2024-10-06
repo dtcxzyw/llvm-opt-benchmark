@@ -946,16 +946,17 @@ if.end13:                                         ; preds = %if.then, %if.else
   br i1 %cmp1524.not, label %if.else36, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %ports = getelementptr inbounds i8, ptr %dev, i64 5888
+  %4 = getelementptr i8, ptr %dev, i64 5962
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %add18, %for.body ]
   %status.025 = phi i32 [ 0, %for.body.lr.ph ], [ %status.1, %for.body ]
   %idxprom = sext i32 %i.026 to i64
-  %wPortChange = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom, i32 2
-  %4 = load i16, ptr %wPortChange, align 2
-  %tobool.not = icmp eq i16 %4, 0
+  %wPortChange.idx = mul nsw i64 %idxprom, 80
+  %wPortChange = getelementptr i8, ptr %4, i64 %wPortChange.idx
+  %5 = load i16, ptr %wPortChange, align 2
+  %tobool.not = icmp eq i16 %5, 0
   %add18 = add nuw i32 %i.026, 1
   %shl = shl nuw i32 2, %i.026
   %or = select i1 %tobool.not, i32 0, i32 %shl
@@ -969,34 +970,34 @@ for.end:                                          ; preds = %for.body
 
 if.then22:                                        ; preds = %for.end
   %addr = getelementptr inbounds i8, ptr %dev, i64 224
-  %5 = load i8, ptr %addr, align 8
-  %conv24 = zext i8 %5 to i32
+  %6 = load i8, ptr %addr, align 8
+  %conv24 = zext i8 %6 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %6 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %6, 0
-  %7 = load i16, ptr @_TRACE_USB_HUB_STATUS_REPORT_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %7, 0
+  %7 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %7, 0
+  %8 = load i16, ptr @_TRACE_USB_HUB_STATUS_REPORT_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %8, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_usb_hub_status_report.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then22
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %8, 32768
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %9, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_usb_hub_status_report.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %9 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %9 to i1
+  %10 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %10 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %10 = load i64, ptr %_now.i.i, align 8
+  %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv24, i32 noundef %status.1) #8
+  %12 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv24, i32 noundef %status.1) #8
   br label %trace_usb_hub_status_report.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1015,8 +1016,8 @@ for.body28.preheader:                             ; preds = %trace_usb_hub_statu
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
   %indvars.iv = phi i64 [ 0, %for.body28.preheader ], [ %indvars.iv.next, %for.body28 ]
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %12 = shl i32 %indvars.iv.tr, 3
-  %shr = lshr i32 %status.1, %12
+  %13 = shl i32 %indvars.iv.tr, 3
+  %shr = lshr i32 %status.1, %13
   %conv29 = trunc i32 %shr to i8
   %arrayidx31 = getelementptr [4 x i8], ptr %buf, i64 0, i64 %indvars.iv
   store i8 %conv29, ptr %arrayidx31, align 1

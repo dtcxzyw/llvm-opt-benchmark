@@ -12612,8 +12612,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr nocaptu
   %56 = or i32 %55, -2147483648
   %57 = select i1 %4, i32 %56, i32 %55
   store i32 %57, ptr %9, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 2536
-  %59 = getelementptr [256 x %struct.ring_info], ptr %58, i64 0, i64 %8, i32 1
+  %.idx = shl nuw nsw i64 %8, 4
+  %58 = getelementptr i8, ptr %0, i64 2544
+  %59 = getelementptr i8, ptr %58, i64 %.idx
   store i32 %1, ptr %59, align 8
   br label %60
 

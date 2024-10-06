@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
 %struct.RelFileLocator = type { i32, i32, i32 }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 %struct.xl_invalid_page_key = type { %struct.RelFileLocator, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -183,9 +182,10 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %19 = icmp ult i32 %18, 2
   %20 = getelementptr inbounds i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 88
-  %23 = zext i8 %1 to i64
-  %24 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %22, i64 0, i64 %23, i32 5
+  %22 = zext i8 %1 to i64
+  %.idx = shl nuw nsw i64 %22, 6
+  %23 = getelementptr i8, ptr %21, i64 116
+  %24 = getelementptr i8, ptr %23, i64 %.idx
   %25 = load i8, ptr %24, align 4
   %26 = and i8 %25, 64
   %.not = icmp eq i8 %26, 0
@@ -200,8 +200,8 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   unreachable
 
 30:                                               ; preds = %17
-  %brmerge41.demorgan = and i1 %19, %.not
-  br i1 %brmerge41.demorgan, label %31, label %34
+  %brmerge42.demorgan = and i1 %19, %.not
+  br i1 %brmerge42.demorgan, label %31, label %34
 
 31:                                               ; preds = %30
   %32 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
@@ -211,143 +211,144 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   unreachable
 
 34:                                               ; preds = %30
-  %35 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %22, i64 0, i64 %23, i32 7
-  %36 = load i8, ptr %35, align 2
-  %37 = trunc i8 %36 to i1
-  %38 = load i32, ptr %7, align 4
-  %39 = load i32, ptr %8, align 4
-  br i1 %37, label %40, label %78
+  %35 = getelementptr i8, ptr %21, i64 118
+  %36 = getelementptr i8, ptr %35, i64 %.idx
+  %37 = load i8, ptr %36, align 2
+  %38 = trunc i8 %37 to i1
+  %39 = load i32, ptr %7, align 4
+  %40 = load i32, ptr %8, align 4
+  br i1 %38, label %41, label %79
 
-40:                                               ; preds = %34
-  %41 = select i1 %3, i32 2, i32 1
-  %42 = load i32, ptr %9, align 4
+41:                                               ; preds = %34
+  %42 = select i1 %3, i32 2, i32 1
+  %43 = load i32, ptr %9, align 4
   %.sroa.02.0.copyload = load i64, ptr %6, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.23.0.copyload = load i32, ptr %.sroa.23.0..sroa_idx, align 8
-  %43 = call i32 @XLogReadBufferExtended(i64 %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload, i32 noundef %38, i32 noundef %39, i32 noundef %41, i32 noundef %42)
-  store i32 %43, ptr %4, align 4
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %51
+  %44 = call i32 @XLogReadBufferExtended(i64 %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %43)
+  store i32 %44, ptr %4, align 4
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %52
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %47 = xor i32 %43, -1
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr ptr, ptr %46, i64 %48
-  %50 = load ptr, ptr %49, align 8
+46:                                               ; preds = %41
+  %47 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %48 = xor i32 %44, -1
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr ptr, ptr %47, i64 %49
+  %51 = load ptr, ptr %50, align 8
   br label %BufferGetPage.exit
 
-51:                                               ; preds = %40
-  %52 = load ptr, ptr @BufferBlocks, align 8
-  %53 = add nsw i32 %43, -1
-  %54 = sext i32 %53 to i64
-  %55 = shl nsw i64 %54, 13
-  %56 = getelementptr i8, ptr %52, i64 %55
+52:                                               ; preds = %41
+  %53 = load ptr, ptr @BufferBlocks, align 8
+  %54 = add nsw i32 %44, -1
+  %55 = sext i32 %54 to i64
+  %56 = shl nsw i64 %55, 13
+  %57 = getelementptr i8, ptr %53, i64 %56
   br label %BufferGetPage.exit
 
-BufferGetPage.exit:                               ; preds = %45, %51
-  %.0.i.i = phi ptr [ %50, %45 ], [ %56, %51 ]
-  %57 = call zeroext i1 @RestoreBlockImage(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef %.0.i.i) #7
-  br i1 %57, label %64, label %58
+BufferGetPage.exit:                               ; preds = %46, %52
+  %.0.i.i = phi ptr [ %51, %46 ], [ %57, %52 ]
+  %58 = call zeroext i1 @RestoreBlockImage(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef %.0.i.i) #7
+  br i1 %58, label %65, label %59
 
-58:                                               ; preds = %BufferGetPage.exit
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %59)
-  %60 = call i32 @errcode(i32 noundef 2600) #7
-  %61 = getelementptr inbounds i8, ptr %0, i64 1304
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %62) #7
+59:                                               ; preds = %BufferGetPage.exit
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %60)
+  %61 = call i32 @errcode(i32 noundef 2600) #7
+  %62 = getelementptr inbounds i8, ptr %0, i64 1304
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %63) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.XLogReadBufferForRedoExtended) #7
   unreachable
 
-64:                                               ; preds = %BufferGetPage.exit
-  %65 = getelementptr i8, ptr %.0.i.i, i64 14
-  %.val = load i16, ptr %65, align 2
-  %66 = icmp eq i16 %.val, 0
-  br i1 %66, label %72, label %67
+65:                                               ; preds = %BufferGetPage.exit
+  %66 = getelementptr i8, ptr %.0.i.i, i64 14
+  %.val = load i16, ptr %66, align 2
+  %67 = icmp eq i16 %.val, 0
+  br i1 %67, label %73, label %68
 
-67:                                               ; preds = %64
-  %68 = lshr i64 %11, 32
-  %69 = trunc nuw i64 %68 to i32
-  store i32 %69, ptr %.0.i.i, align 4
-  %70 = trunc i64 %11 to i32
-  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  store i32 %70, ptr %71, align 4
-  br label %72
+68:                                               ; preds = %65
+  %69 = lshr i64 %11, 32
+  %70 = trunc nuw i64 %69 to i32
+  store i32 %70, ptr %.0.i.i, align 4
+  %71 = trunc i64 %11 to i32
+  %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  store i32 %71, ptr %72, align 4
+  br label %73
 
-72:                                               ; preds = %67, %64
-  %73 = load i32, ptr %4, align 4
-  call void @MarkBufferDirty(i32 noundef %73) #7
-  %74 = load i32, ptr %7, align 4
-  %75 = icmp eq i32 %74, 3
-  br i1 %75, label %76, label %102
+73:                                               ; preds = %68, %65
+  %74 = load i32, ptr %4, align 4
+  call void @MarkBufferDirty(i32 noundef %74) #7
+  %75 = load i32, ptr %7, align 4
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %77, label %103
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %4, align 4
-  call void @FlushOneBuffer(i32 noundef %77) #7
-  br label %102
+77:                                               ; preds = %73
+  %78 = load i32, ptr %4, align 4
+  call void @FlushOneBuffer(i32 noundef %78) #7
+  br label %103
 
-78:                                               ; preds = %34
-  %79 = load i32, ptr %9, align 4
+79:                                               ; preds = %34
+  %80 = load i32, ptr %9, align 4
   %.sroa.0.0.copyload = load i64, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %80 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %38, i32 noundef %39, i32 noundef %2, i32 noundef %79)
-  store i32 %80, ptr %4, align 4
-  %.not45 = icmp eq i32 %80, 0
-  br i1 %.not45, label %102, label %81
+  %81 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %2, i32 noundef %80)
+  store i32 %81, ptr %4, align 4
+  %.not46 = icmp eq i32 %81, 0
+  br i1 %.not46, label %103, label %82
 
-81:                                               ; preds = %78
-  %82 = add i32 %2, -3
-  %or.cond = icmp ult i32 %82, -2
-  br i1 %or.cond, label %83, label %86
+82:                                               ; preds = %79
+  %83 = add i32 %2, -3
+  %or.cond = icmp ult i32 %83, -2
+  br i1 %or.cond, label %84, label %87
 
-83:                                               ; preds = %81
-  br i1 %3, label %84, label %85
+84:                                               ; preds = %82
+  br i1 %3, label %85, label %86
 
-84:                                               ; preds = %83
-  call void @LockBufferForCleanup(i32 noundef %80) #7
+85:                                               ; preds = %84
+  call void @LockBufferForCleanup(i32 noundef %81) #7
   br label %thread-pre-split
 
-85:                                               ; preds = %83
-  call void @LockBuffer(i32 noundef %80, i32 noundef 2) #7
+86:                                               ; preds = %84
+  call void @LockBuffer(i32 noundef %81, i32 noundef 2) #7
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %85, %84
+thread-pre-split:                                 ; preds = %86, %85
   %.pr = load i32, ptr %4, align 4
-  br label %86
+  br label %87
 
-86:                                               ; preds = %thread-pre-split, %81
-  %87 = phi i32 [ %.pr, %thread-pre-split ], [ %80, %81 ]
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %95
+87:                                               ; preds = %thread-pre-split, %82
+  %88 = phi i32 [ %.pr, %thread-pre-split ], [ %81, %82 ]
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %96
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %91 = xor i32 %87, -1
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr ptr, ptr %90, i64 %92
-  %94 = load ptr, ptr %93, align 8
-  br label %BufferGetPage.exit44
+90:                                               ; preds = %87
+  %91 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %92 = xor i32 %88, -1
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr ptr, ptr %91, i64 %93
+  %95 = load ptr, ptr %94, align 8
+  br label %BufferGetPage.exit45
 
-95:                                               ; preds = %86
-  %96 = load ptr, ptr @BufferBlocks, align 8
-  %97 = add nsw i32 %87, -1
-  %98 = sext i32 %97 to i64
-  %99 = shl nsw i64 %98, 13
-  %100 = getelementptr i8, ptr %96, i64 %99
-  br label %BufferGetPage.exit44
+96:                                               ; preds = %87
+  %97 = load ptr, ptr @BufferBlocks, align 8
+  %98 = add nsw i32 %88, -1
+  %99 = sext i32 %98 to i64
+  %100 = shl nsw i64 %99, 13
+  %101 = getelementptr i8, ptr %97, i64 %100
+  br label %BufferGetPage.exit45
 
-BufferGetPage.exit44:                             ; preds = %89, %95
-  %.0.i.i43 = phi ptr [ %94, %89 ], [ %100, %95 ]
-  %.val42 = load i64, ptr %.0.i.i43, align 4
-  %101 = call i64 @llvm.fshl.i64(i64 %.val42, i64 %.val42, i64 32)
-  %.not39 = icmp ule i64 %11, %101
-  %. = zext i1 %.not39 to i32
-  br label %102
+BufferGetPage.exit45:                             ; preds = %90, %96
+  %.0.i.i44 = phi ptr [ %95, %90 ], [ %101, %96 ]
+  %.val43 = load i64, ptr %.0.i.i44, align 4
+  %102 = call i64 @llvm.fshl.i64(i64 %.val43, i64 %.val43, i64 32)
+  %.not40 = icmp ule i64 %11, %102
+  %. = zext i1 %.not40 to i32
+  br label %103
 
-102:                                              ; preds = %78, %BufferGetPage.exit44, %72, %76
-  %.0 = phi i32 [ 2, %76 ], [ 2, %72 ], [ %., %BufferGetPage.exit44 ], [ 3, %78 ]
+103:                                              ; preds = %79, %BufferGetPage.exit45, %73, %77
+  %.0 = phi i32 [ 2, %77 ], [ 2, %73 ], [ %., %BufferGetPage.exit45 ], [ 3, %79 ]
   ret i32 %.0
 }
 

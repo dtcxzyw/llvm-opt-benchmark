@@ -718,22 +718,22 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   %88 = load i32, ptr %78, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %78, align 4
-  %.pre197 = load ptr, ptr %77, align 8
+  %.pre198 = load ptr, ptr %77, align 8
   br label %90
 
 90:                                               ; preds = %87, %83
-  %91 = phi ptr [ %.pre197, %87 ], [ %78, %83 ]
+  %91 = phi ptr [ %.pre198, %87 ], [ %78, %83 ]
   %92 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %91, ptr %92, align 8
   br label %237
 
 .loopexit190.loopexit:                            ; preds = %73
-  %.phi.trans.insert198 = getelementptr inbounds i8, ptr %1, i64 32
-  %.pre199 = load ptr, ptr %.phi.trans.insert198, align 8
+  %.phi.trans.insert199 = getelementptr inbounds i8, ptr %1, i64 32
+  %.pre200 = load ptr, ptr %.phi.trans.insert199, align 8
   br label %.loopexit190
 
 .loopexit190:                                     ; preds = %.loopexit190.loopexit, %76
-  %93 = phi ptr [ %.pre199, %.loopexit190.loopexit ], [ %78, %76 ]
+  %93 = phi ptr [ %.pre200, %.loopexit190.loopexit ], [ %78, %76 ]
   %.not179 = icmp eq ptr %93, null
   br i1 %.not179, label %.loopexit189, label %.loopexit190.thread
 
@@ -945,16 +945,17 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
 .preheader:                                       ; preds = %205
   %216 = getelementptr inbounds i8, ptr %212, i64 32
   %217 = load i32, ptr %216, align 8
-  %.not195 = icmp eq i32 %217, 0
-  br i1 %.not195, label %.loopexit, label %.lr.ph194
+  %.not196 = icmp eq i32 %217, 0
+  br i1 %.not196, label %.loopexit, label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %.preheader
-  %218 = getelementptr inbounds i8, ptr %0, i64 40
+  %218 = getelementptr i8, ptr %0, i64 52
   br label %219
 
 219:                                              ; preds = %.lr.ph194, %219
   %indvars.iv = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next, %219 ]
-  %220 = getelementptr inbounds [1 x %struct._zval_struct], ptr %218, i64 0, i64 %indvars.iv, i32 2
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %220 = getelementptr i8, ptr %218, i64 %.idx
   %221 = load i32, ptr %220, align 4
   %222 = and i32 %221, -3
   store i32 %222, ptr %220, align 4

@@ -1561,15 +1561,19 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
   br i1 %160, label %.invoke251, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21
 
 _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21: ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %.pre209, i64 216
   %.not.i.i22 = icmp eq i8 %158, 0
-  br i1 %.not.i.i22, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35, label %.lr.ph.i.i23
+  br i1 %.not.i.i22, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35, label %.lr.ph.i.i23.preheader
 
-.lr.ph.i.i23:                                     ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21, %.lr.ph.i.i23
-  %.sroa.01.08.i.i24 = phi i64 [ %163, %.lr.ph.i.i23 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21 ]
-  %162 = phi i64 [ %166, %.lr.ph.i.i23 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21 ]
+.lr.ph.i.i23.preheader:                           ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21
+  %161 = getelementptr i8, ptr %.pre209, i64 224
+  br label %.lr.ph.i.i23
+
+.lr.ph.i.i23:                                     ; preds = %.lr.ph.i.i23.preheader, %.lr.ph.i.i23
+  %.sroa.01.08.i.i24 = phi i64 [ %163, %.lr.ph.i.i23 ], [ 0, %.lr.ph.i.i23.preheader ]
+  %162 = phi i64 [ %166, %.lr.ph.i.i23 ], [ 0, %.lr.ph.i.i23.preheader ]
   %163 = add nuw nsw i64 %.sroa.01.08.i.i24, 1
-  %164 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %161, i64 0, i64 %.sroa.01.08.i.i24, i32 1
+  %.idx = shl nsw i64 %.sroa.01.08.i.i24, 5
+  %164 = getelementptr i8, ptr %161, i64 %.idx
   %165 = load i64, ptr %164, align 8, !alias.scope !257, !noalias !255, !noundef !7
   %166 = add i64 %165, %162
   %exitcond.not.i.i26 = icmp eq i64 %163, %159

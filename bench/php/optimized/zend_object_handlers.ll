@@ -1100,11 +1100,12 @@ define ptr @zend_get_recursion_guard(ptr noundef readonly %0) local_unnamed_addr
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  %10 = load i32, ptr %9, align 8
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct._zval_struct, ptr %8, i64 %11, i32 2
+  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = load i32, ptr %8, align 8
+  %10 = sext i32 %9 to i64
+  %.idx = shl nsw i64 %10, 4
+  %11 = getelementptr i8, ptr %0, i64 52
+  %12 = getelementptr i8, ptr %11, i64 %.idx
   br label %13
 
 13:                                               ; preds = %1, %7

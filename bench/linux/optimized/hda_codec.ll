@@ -7415,9 +7415,10 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_input_mux_put(ptr noundef 
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
-  %18 = zext i32 %13 to i64
-  %19 = getelementptr [36 x %struct.hda_input_mux_item], ptr %17, i64 0, i64 %18, i32 1
+  %17 = zext i32 %13 to i64
+  %.idx = mul nuw nsw i64 %17, 36
+  %18 = getelementptr i8, ptr %1, i64 36
+  %19 = getelementptr i8, ptr %18, i64 %.idx
   %20 = load i32, ptr %19, align 4
   %21 = zext i16 %3 to i32
   %22 = shl i32 %21, 20
@@ -8455,7 +8456,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_imux_item(ptr nounde
 
 14:                                               ; preds = %5
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.25) #26
-  br label %41
+  br label %42
 
 15:                                               ; preds = %15, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %10 ]
@@ -8498,15 +8499,17 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_imux_item(ptr nounde
 36:                                               ; preds = %34, %32
   %37 = load i32, ptr %1, align 4
   %38 = zext i32 %37 to i64
-  %39 = getelementptr [36 x %struct.hda_input_mux_item], ptr %29, i64 0, i64 %38, i32 1
-  store i32 %3, ptr %39, align 4
-  %40 = add i32 %37, 1
-  store i32 %40, ptr %1, align 4
-  br label %41
+  %.idx = mul nuw nsw i64 %38, 36
+  %39 = getelementptr i8, ptr %29, i64 %.idx
+  %40 = getelementptr i8, ptr %39, i64 32
+  store i32 %3, ptr %40, align 4
+  %41 = add i32 %37, 1
+  store i32 %41, ptr %1, align 4
+  br label %42
 
-41:                                               ; preds = %36, %14
-  %42 = phi i32 [ -22, %14 ], [ 0, %36 ]
-  ret i32 %42
+42:                                               ; preds = %36, %14
+  %43 = phi i32 [ -22, %14 ], [ 0, %36 ]
+  ret i32 %43
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

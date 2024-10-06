@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/evrgnini.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.acpi_pnp_device_id = type { i32, ptr }
-
 @acpi_gbl_root_node = external dso_local local_unnamed_addr global ptr, align 8
 @_acpi_module_name = internal constant [9 x i8] c"evrgnini\00", align 1
 @.str = private unnamed_addr constant [58 x i8] c"Could not install PciConfig handler for Root Bridge %4.4s\00", align 1
@@ -309,8 +307,9 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_pci_root_bridge(p
 .preheader:                                       ; preds = %16, %20
   %26 = phi i64 [ %21, %20 ], [ 0, %16 ]
   %27 = phi ptr [ %22, %20 ], [ %17, %16 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr [0 x %struct.acpi_pnp_device_id], ptr %28, i64 0, i64 %26, i32 1
+  %.idx = shl nuw nsw i64 %26, 4
+  %28 = getelementptr i8, ptr %27, i64 16
+  %29 = getelementptr i8, ptr %28, i64 %.idx
   %30 = load ptr, ptr %29, align 8
   %31 = call zeroext i8 @acpi_ut_is_pci_root_bridge(ptr noundef %30) #6
   %32 = icmp eq i8 %31, 0

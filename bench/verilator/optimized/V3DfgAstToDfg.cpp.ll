@@ -11890,7 +11890,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -12229,7 +12231,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -13921,7 +13925,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -14526,7 +14532,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -15393,7 +15401,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -32513,7 +32523,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -32852,7 +32864,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -34513,7 +34527,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -34852,7 +34868,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -35201,7 +35219,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -41568,7 +41588,9 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
 
 109:                                              ; preds = %109, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %109 ]
-  %110 = getelementptr inbounds [3 x %class.DfgEdge], ptr %108, i64 0, i64 %.09.i.i.i.i, i32 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
+  %.offs.i.i.i.i = or disjoint i64 %.idx.i.i.i.i, 24
+  %110 = getelementptr inbounds i8, ptr %108, i64 %.offs.i.i.i.i
   store ptr %103, ptr %110, align 8
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3

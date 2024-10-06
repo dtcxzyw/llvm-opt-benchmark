@@ -168,10 +168,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_angularLimits = getelementptr inbounds i8, ptr %this, i64 892
   %sub = add nsw i32 %index, -3
   %idxprom8 = zext nneg i32 %sub to i64
-  %m_enableMotor10 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits, i64 0, i64 %idxprom8, i32 11
+  %m_enableMotor10.idx = shl nuw nsw i64 %idxprom8, 6
+  %0 = getelementptr inbounds i8, ptr %this, i64 936
+  %m_enableMotor10 = getelementptr i8, ptr %0, i64 %m_enableMotor10.idx
   store i8 %frombool, ptr %m_enableMotor10, align 8
   br label %if.end
 

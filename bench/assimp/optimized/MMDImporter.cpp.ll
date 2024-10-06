@@ -1964,7 +1964,9 @@ for.body:                                         ; preds = %arrayctor.cont, %fo
   %add11 = add i32 %mul, 2
   %arrayidx12 = getelementptr inbounds i8, ptr %call6, i64 8
   store i32 %add11, ptr %arrayidx12, align 4
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %2, i64 %indvars.iv, i32 1
+  %mIndices.idx = shl nuw nsw i64 %indvars.iv, 4
+  %mIndices.offs = or disjoint i64 %mIndices.idx, 8
+  %mIndices = getelementptr inbounds i8, ptr %2, i64 %mIndices.offs
   store ptr %call6, ptr %mIndices, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

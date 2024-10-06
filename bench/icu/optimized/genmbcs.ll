@@ -1930,7 +1930,9 @@ if.then142:                                       ; preds = %if.then136
 
 if.then.i164:                                     ; preds = %if.then142
   %idxprom.i165 = zext nneg i32 %call.i160 to i64
-  %codePoint.i166 = getelementptr inbounds [8192 x %struct._MBCSToUFallback], ptr %toUFallbacks.i158, i64 0, i64 %idxprom.i165, i32 1
+  %codePoint.idx.i = shl nuw nsw i64 %idxprom.i165, 3
+  %codePoint.offs.i = or disjoint i64 %codePoint.idx.i, 4
+  %codePoint.i166 = getelementptr inbounds i8, ptr %toUFallbacks.i158, i64 %codePoint.offs.i
   store i32 %c, ptr %codePoint.i166, align 4
   br label %return
 

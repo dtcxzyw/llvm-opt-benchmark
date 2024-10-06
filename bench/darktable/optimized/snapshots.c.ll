@@ -1470,13 +1470,14 @@ define internal void @_signal_image_changed(ptr nocapture readnone %0, ptr nocap
 define internal void @_signal_image_removed(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr i8, ptr %5, i64 104
   br label %7
 
 7:                                                ; preds = %55, %3
   %8 = phi i32 [ 0, %3 ], [ %56, %55 ]
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds [10 x %struct.dt_lib_snapshot_t], ptr %6, i64 0, i64 %9, i32 10
+  %.idx = mul nuw nsw i64 %9, 136
+  %10 = getelementptr i8, ptr %6, i64 %.idx
   %11 = load i32, ptr %10, align 8, !tbaa !30
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %53
@@ -1830,10 +1831,12 @@ define internal i32 @_lib_button_button_pressed_callback(ptr noundef %0, ptr noc
 
 62:                                               ; preds = %55, %46
   tail call void @gtk_widget_set_focus_on_click(ptr noundef %0, i32 noundef 0) #14
-  %63 = getelementptr inbounds [10 x %struct.dt_lib_snapshot_t], ptr %6, i64 0, i64 %47, i32 4
-  %64 = load ptr, ptr %63, align 8, !tbaa !116
-  %65 = tail call i32 @gtk_widget_has_focus(ptr noundef %64) #14
-  ret i32 %65
+  %.idx = mul nuw nsw i64 %47, 136
+  %63 = getelementptr inbounds i8, ptr %6, i64 %.idx
+  %64 = getelementptr inbounds i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !116
+  %66 = tail call i32 @gtk_widget_has_focus(ptr noundef %65) #14
+  ret i32 %66
 }
 
 declare ptr @gtk_label_new(ptr noundef) local_unnamed_addr #4

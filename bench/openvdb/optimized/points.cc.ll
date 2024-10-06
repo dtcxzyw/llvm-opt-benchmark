@@ -109,15 +109,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__shared_ptr.570" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.575" = type { %"class.std::__shared_ptr.576" }
 %"class.std::__shared_ptr.576" = type { ptr, %"class.std::__shared_count" }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.593" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.591" }
-%"struct.std::atomic.591" = type { %"struct.std::__atomic_base.592" }
-%"struct.std::__atomic_base.592" = type { i64 }
-%"struct.std::atomic.593" = type { %"struct.std::__atomic_base.594" }
-%"struct.std::__atomic_base.594" = type { ptr }
 %"struct.std::atomic.595" = type { %"struct.std::__atomic_base.596" }
 %"struct.std::__atomic_base.596" = type { ptr }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.593" }
 %"struct.std::atomic.602" = type { %"struct.std::__atomic_base.603" }
 %"struct.std::__atomic_base.603" = type { ptr }
 %"class.std::shared_ptr.610" = type { %"class.std::__shared_ptr.611" }
@@ -131,6 +124,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array" = type { [3 x i32] }
 %"class.std::shared_ptr.663" = type { %"class.std::__shared_ptr.664" }
 %"class.std::__shared_ptr.664" = type { ptr, %"class.std::__shared_count" }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.593" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.591" }
+%"struct.std::atomic.591" = type { %"struct.std::__atomic_base.592" }
+%"struct.std::__atomic_base.592" = type { i64 }
+%"struct.std::atomic.593" = type { %"struct.std::__atomic_base.594" }
+%"struct.std::__atomic_base.594" = type { ptr }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.593" }
 %"class.std::shared_ptr.616" = type { %"class.std::__shared_ptr.617" }
 %"class.std::__shared_ptr.617" = type { ptr, %"class.std::__shared_count" }
 %"class.openvdb::v11_0::tree::LeafIteratorBase" = type { %"class.openvdb::v11_0::tree::IterListItem", ptr }
@@ -123086,7 +123086,9 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont ]
-  %node_list.i.i.i.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i.i, i64 0, i64 %i.07.i.i.i.i, i32 1
+  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
+  %node_list.i.i.i.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
@@ -123112,32 +123114,34 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i4.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i6.i
 
-for.cond4.preheader.i.i.i11.i:                    ; preds = %for.body.i.i.i6.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
   %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
-  %my_table11.i.i.i12.i = getelementptr inbounds i8, ptr %call, i64 712
-  br label %for.body6.i.i.i13.i
+  %my_table11.i.i.i14.i = getelementptr inbounds i8, ptr %call, i64 712
+  br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
-  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i9.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
-  %node_list.i.i.i8.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i5.i, i64 0, i64 %i.07.i.i.i7.i, i32 1
-  store atomic i64 0, ptr %node_list.i.i.i8.i monotonic, align 8
-  %inc.i.i.i9.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
-  %cmp.not.i.i.i10.i = icmp eq i64 %inc.i.i.i9.i, 2
-  br i1 %cmp.not.i.i.i10.i, label %for.cond4.preheader.i.i.i11.i, label %for.body.i.i.i6.i, !llvm.loop !664
+  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i11.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
+  %node_list.idx.i.i.i8.i = shl nsw i64 %i.07.i.i.i7.i, 4
+  %node_list.offs.i.i.i9.i = or disjoint i64 %node_list.idx.i.i.i8.i, 8
+  %node_list.i.i.i10.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i5.i, i64 %node_list.offs.i.i.i9.i
+  store atomic i64 0, ptr %node_list.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i6.i, !llvm.loop !664
 
-for.body6.i.i.i13.i:                              ; preds = %for.body6.i.i.i13.i, %for.cond4.preheader.i.i.i11.i
-  %segment_index.08.i.i.i14.i = phi i64 [ 0, %for.cond4.preheader.i.i.i11.i ], [ %inc14.i.i.i17.i, %for.body6.i.i.i13.i ]
-  %cmp7.i.i.i15.i = icmp eq i64 %segment_index.08.i.i.i14.i, 0
-  %arrayidx12.i.i.i16.i = getelementptr inbounds [64 x %"struct.std::atomic.602"], ptr %my_table11.i.i.i12.i, i64 0, i64 %segment_index.08.i.i.i14.i
-  %7 = select i1 %cmp7.i.i.i15.i, i64 %6, i64 0
-  store atomic i64 %7, ptr %arrayidx12.i.i.i16.i monotonic, align 8
-  %inc14.i.i.i17.i = add nuw nsw i64 %segment_index.08.i.i.i14.i, 1
-  %exitcond.not.i.i.i18.i = icmp eq i64 %inc14.i.i.i17.i, 64
-  br i1 %exitcond.not.i.i.i18.i, label %invoke.cont3, label %for.body6.i.i.i13.i, !llvm.loop !665
+for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
+  %cmp7.i.i.i17.i = icmp eq i64 %segment_index.08.i.i.i16.i, 0
+  %arrayidx12.i.i.i18.i = getelementptr inbounds [64 x %"struct.std::atomic.602"], ptr %my_table11.i.i.i14.i, i64 0, i64 %segment_index.08.i.i.i16.i
+  %7 = select i1 %cmp7.i.i.i17.i, i64 %6, i64 0
+  store atomic i64 %7, ptr %arrayidx12.i.i.i18.i monotonic, align 8
+  %inc14.i.i.i19.i = add nuw nsw i64 %segment_index.08.i.i.i16.i, 1
+  %exitcond.not.i.i.i20.i = icmp eq i64 %inc14.i.i.i19.i, 64
+  br i1 %exitcond.not.i.i.i20.i, label %invoke.cont3, label %for.body6.i.i.i15.i, !llvm.loop !665
 
-invoke.cont3:                                     ; preds = %for.body6.i.i.i13.i
-  %my_hash_compare.i.i19.i = getelementptr inbounds i8, ptr %call, i64 1224
-  store i16 0, ptr %my_hash_compare.i.i19.i, align 8
+invoke.cont3:                                     ; preds = %for.body6.i.i.i15.i
+  %my_hash_compare.i.i21.i = getelementptr inbounds i8, ptr %call, i64 1224
+  store i16 0, ptr %my_hash_compare.i.i21.i, align 8
   store ptr %call, ptr %mTree, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %_M_refcount.i.i, align 8
@@ -124179,7 +124183,9 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
-  %node_list.i.i.i.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i.i, i64 0, i64 %i.07.i.i.i.i, i32 1
+  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
+  %node_list.i.i.i.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
@@ -124205,32 +124211,34 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i4.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i6.i
 
-for.cond4.preheader.i.i.i11.i:                    ; preds = %for.body.i.i.i6.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
   %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
-  %my_table11.i.i.i12.i = getelementptr inbounds i8, ptr %call, i64 712
-  br label %for.body6.i.i.i13.i
+  %my_table11.i.i.i14.i = getelementptr inbounds i8, ptr %call, i64 712
+  br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
-  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i9.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
-  %node_list.i.i.i8.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i5.i, i64 0, i64 %i.07.i.i.i7.i, i32 1
-  store atomic i64 0, ptr %node_list.i.i.i8.i monotonic, align 8
-  %inc.i.i.i9.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
-  %cmp.not.i.i.i10.i = icmp eq i64 %inc.i.i.i9.i, 2
-  br i1 %cmp.not.i.i.i10.i, label %for.cond4.preheader.i.i.i11.i, label %for.body.i.i.i6.i, !llvm.loop !664
+  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i11.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
+  %node_list.idx.i.i.i8.i = shl nsw i64 %i.07.i.i.i7.i, 4
+  %node_list.offs.i.i.i9.i = or disjoint i64 %node_list.idx.i.i.i8.i, 8
+  %node_list.i.i.i10.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i5.i, i64 %node_list.offs.i.i.i9.i
+  store atomic i64 0, ptr %node_list.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i6.i, !llvm.loop !664
 
-for.body6.i.i.i13.i:                              ; preds = %for.body6.i.i.i13.i, %for.cond4.preheader.i.i.i11.i
-  %segment_index.08.i.i.i14.i = phi i64 [ 0, %for.cond4.preheader.i.i.i11.i ], [ %inc14.i.i.i17.i, %for.body6.i.i.i13.i ]
-  %cmp7.i.i.i15.i = icmp eq i64 %segment_index.08.i.i.i14.i, 0
-  %arrayidx12.i.i.i16.i = getelementptr inbounds [64 x %"struct.std::atomic.602"], ptr %my_table11.i.i.i12.i, i64 0, i64 %segment_index.08.i.i.i14.i
-  %6 = select i1 %cmp7.i.i.i15.i, i64 %5, i64 0
-  store atomic i64 %6, ptr %arrayidx12.i.i.i16.i monotonic, align 8
-  %inc14.i.i.i17.i = add nuw nsw i64 %segment_index.08.i.i.i14.i, 1
-  %exitcond.not.i.i.i18.i = icmp eq i64 %inc14.i.i.i17.i, 64
-  br i1 %exitcond.not.i.i.i18.i, label %invoke.cont3, label %for.body6.i.i.i13.i, !llvm.loop !665
+for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
+  %cmp7.i.i.i17.i = icmp eq i64 %segment_index.08.i.i.i16.i, 0
+  %arrayidx12.i.i.i18.i = getelementptr inbounds [64 x %"struct.std::atomic.602"], ptr %my_table11.i.i.i14.i, i64 0, i64 %segment_index.08.i.i.i16.i
+  %6 = select i1 %cmp7.i.i.i17.i, i64 %5, i64 0
+  store atomic i64 %6, ptr %arrayidx12.i.i.i18.i monotonic, align 8
+  %inc14.i.i.i19.i = add nuw nsw i64 %segment_index.08.i.i.i16.i, 1
+  %exitcond.not.i.i.i20.i = icmp eq i64 %inc14.i.i.i19.i, 64
+  br i1 %exitcond.not.i.i.i20.i, label %invoke.cont3, label %for.body6.i.i.i15.i, !llvm.loop !665
 
-invoke.cont3:                                     ; preds = %for.body6.i.i.i13.i
-  %my_hash_compare.i.i19.i = getelementptr inbounds i8, ptr %call, i64 1224
-  store i16 0, ptr %my_hash_compare.i.i19.i, align 8
+invoke.cont3:                                     ; preds = %for.body6.i.i.i15.i
+  %my_hash_compare.i.i21.i = getelementptr inbounds i8, ptr %call, i64 1224
+  store i16 0, ptr %my_hash_compare.i.i21.i, align 8
   tail call void @_ZNSt12__shared_ptrIN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEELN9__gnu_cxx12_Lock_policyE2EE5resetISE_EENSt9enable_ifIXsr21__sp_is_constructibleISE_T_EE5valueEvE4typeEPSK_(ptr noundef nonnull align 8 dereferenceable(16) %mTree.i, ptr noundef nonnull %call)
   ret void
 }
@@ -125666,7 +125674,9 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont.i ]
-  %node_list.i.i.i.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i.i, i64 0, i64 %i.07.i.i.i.i, i32 1
+  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
+  %node_list.i.i.i.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
@@ -125692,32 +125702,34 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i12.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
   %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
-  %my_table11.i.i.i13.i = getelementptr inbounds i8, ptr %call, i64 712
-  br label %for.body6.i.i.i14.i
+  %my_table11.i.i.i15.i = getelementptr inbounds i8, ptr %call, i64 712
+  br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i10.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.i.i.i9.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::points::PointDataLeafNode<openvdb::v11_0::PointIndex<unsigned int, 1>, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i6.i, i64 0, i64 %i.07.i.i.i8.i, i32 1
-  store atomic i64 0, ptr %node_list.i.i.i9.i monotonic, align 8
-  %inc.i.i.i10.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i11.i = icmp eq i64 %inc.i.i.i10.i, 2
-  br i1 %cmp.not.i.i.i11.i, label %for.cond4.preheader.i.i.i12.i, label %for.body.i.i.i7.i, !llvm.loop !664
+  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
+  %node_list.i.i.i11.i = getelementptr inbounds i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
+  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
+  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
+  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !664
 
-for.body6.i.i.i14.i:                              ; preds = %for.body6.i.i.i14.i, %for.cond4.preheader.i.i.i12.i
-  %segment_index.08.i.i.i15.i = phi i64 [ 0, %for.cond4.preheader.i.i.i12.i ], [ %inc14.i.i.i18.i, %for.body6.i.i.i14.i ]
-  %cmp7.i.i.i16.i = icmp eq i64 %segment_index.08.i.i.i15.i, 0
-  %arrayidx12.i.i.i17.i = getelementptr inbounds [64 x %"struct.std::atomic.602"], ptr %my_table11.i.i.i13.i, i64 0, i64 %segment_index.08.i.i.i15.i
-  %5 = select i1 %cmp7.i.i.i16.i, i64 %4, i64 0
-  store atomic i64 %5, ptr %arrayidx12.i.i.i17.i monotonic, align 8
-  %inc14.i.i.i18.i = add nuw nsw i64 %segment_index.08.i.i.i15.i, 1
-  %exitcond.not.i.i.i19.i = icmp eq i64 %inc14.i.i.i18.i, 64
-  br i1 %exitcond.not.i.i.i19.i, label %invoke.cont, label %for.body6.i.i.i14.i, !llvm.loop !665
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+  %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
+  %arrayidx12.i.i.i19.i = getelementptr inbounds [64 x %"struct.std::atomic.602"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
+  %5 = select i1 %cmp7.i.i.i18.i, i64 %4, i64 0
+  store atomic i64 %5, ptr %arrayidx12.i.i.i19.i monotonic, align 8
+  %inc14.i.i.i20.i = add nuw nsw i64 %segment_index.08.i.i.i17.i, 1
+  %exitcond.not.i.i.i21.i = icmp eq i64 %inc14.i.i.i20.i, 64
+  br i1 %exitcond.not.i.i.i21.i, label %invoke.cont, label %for.body6.i.i.i16.i, !llvm.loop !665
 
-invoke.cont:                                      ; preds = %for.body6.i.i.i14.i
-  %my_hash_compare.i.i20.i = getelementptr inbounds i8, ptr %call, i64 1224
-  store i16 0, ptr %my_hash_compare.i.i20.i, align 8
+invoke.cont:                                      ; preds = %for.body6.i.i.i16.i
+  %my_hash_compare.i.i22.i = getelementptr inbounds i8, ptr %call, i64 1224
+  store i16 0, ptr %my_hash_compare.i.i22.i, align 8
   store ptr %call, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8

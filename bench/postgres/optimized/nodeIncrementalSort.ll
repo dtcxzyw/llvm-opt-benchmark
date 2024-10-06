@@ -747,10 +747,11 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   br i1 %372, label %373, label %407
 
 373:                                              ; preds = %369
-  %374 = getelementptr inbounds i8, ptr %368, i64 8
-  %375 = load i32, ptr @ParallelWorkerNumber, align 4
-  %376 = sext i32 %375 to i64
-  %377 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %374, i64 0, i64 %376, i32 1
+  %374 = load i32, ptr @ParallelWorkerNumber, align 4
+  %375 = sext i32 %374 to i64
+  %.idx = mul nsw i64 %375, 96
+  %376 = getelementptr i8, ptr %368, i64 56
+  %377 = getelementptr i8, ptr %376, i64 %.idx
   %378 = load ptr, ptr %337, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %379 = load i64, ptr %377, align 8
@@ -1382,10 +1383,11 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   br i1 %136, label %137, label %171
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %132, i64 8
-  %139 = load i32, ptr @ParallelWorkerNumber, align 4
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %138, i64 0, i64 %140, i32 1
+  %138 = load i32, ptr @ParallelWorkerNumber, align 4
+  %139 = sext i32 %138 to i64
+  %.idx = mul nsw i64 %139, 96
+  %140 = getelementptr i8, ptr %132, i64 56
+  %141 = getelementptr i8, ptr %140, i64 %.idx
   %142 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %143 = load i64, ptr %141, align 8

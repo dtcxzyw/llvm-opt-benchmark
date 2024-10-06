@@ -6187,7 +6187,9 @@ define internal fastcc void @nsvg__initPaint(ptr nocapture noundef nonnull write
   %69 = select i1 %66, float 0.000000e+00, float %68
   %70 = add nsw i32 %29, -1
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [1 x %struct.NSVGgradientStop], ptr %50, i64 0, i64 %71, i32 1
+  %.idx = shl nsw i64 %71, 3
+  %.offs = or disjoint i64 %.idx, 4
+  %72 = getelementptr inbounds i8, ptr %50, i64 %.offs
   %73 = load float, ptr %72, align 4
   %74 = fcmp olt float %73, %69
   %75 = fcmp ogt float %73, 1.000000e+00

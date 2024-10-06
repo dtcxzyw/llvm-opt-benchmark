@@ -191,81 +191,83 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 25260
   %45 = load i8, ptr %44, align 4
   %46 = zext nneg i8 %45 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 25280
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %49
+  %47 = getelementptr i8, ptr %0, i64 23640
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 25280
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %50
 
-49:                                               ; preds = %._crit_edge, %80
-  %indvars.iv73 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next74, %80 ]
+50:                                               ; preds = %._crit_edge, %81
+  %indvars.iv73 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next74, %81 ]
   %.not64 = icmp eq i64 %indvars.iv73, 0
-  br i1 %.not64, label %54, label %50
+  br i1 %.not64, label %55, label %51
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %47, align 16
-  %52 = icmp ne i32 %51, 0
-  %53 = zext i1 %52 to i32
-  br label %54
+51:                                               ; preds = %50
+  %52 = load i32, ptr %48, align 16
+  %53 = icmp ne i32 %52, 0
+  %54 = zext i1 %53 to i32
+  br label %55
 
-54:                                               ; preds = %50, %49
-  %55 = phi i32 [ 0, %49 ], [ %53, %50 ]
-  %56 = add nsw i32 %55, %43
-  %57 = ashr i32 %56, %55
-  %58 = add nsw i32 %57, 39
-  %59 = and i32 %58, -32
-  %60 = mul i32 %.059.lcssa, %59
-  %61 = shl i32 %60, %46
-  %62 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %4, i64 0, i64 %indvars.iv73, i32 6
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
-  %64 = load i32, ptr %63, align 4
-  %.not65 = icmp ne i32 %61, %64
-  %.pre = load ptr, ptr %62, align 8
-  %65 = icmp eq ptr %.pre, null
-  %or.cond = select i1 %.not65, i1 true, i1 %65
-  br i1 %or.cond, label %70, label %66
+55:                                               ; preds = %51, %50
+  %56 = phi i32 [ 0, %50 ], [ %54, %51 ]
+  %57 = add nsw i32 %56, %43
+  %58 = ashr i32 %57, %56
+  %59 = add nsw i32 %58, 39
+  %60 = and i32 %59, -32
+  %61 = mul i32 %.059.lcssa, %60
+  %62 = shl i32 %61, %46
+  %.idx = shl nuw nsw i64 %indvars.iv73, 6
+  %63 = getelementptr i8, ptr %47, i64 %.idx
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  %65 = load i32, ptr %64, align 4
+  %.not65 = icmp ne i32 %62, %65
+  %.pre = load ptr, ptr %63, align 8
+  %66 = icmp eq ptr %.pre, null
+  %or.cond = select i1 %.not65, i1 true, i1 %66
+  br i1 %or.cond, label %71, label %67
 
-66:                                               ; preds = %54
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %80
+67:                                               ; preds = %55
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %81
 
-70:                                               ; preds = %66, %54
+71:                                               ; preds = %67, %55
   call void @aom_free(ptr noundef %.pre) #4
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %72 = load ptr, ptr %71, align 8
-  call void @aom_free(ptr noundef %72) #4
-  %73 = sext i32 %61 to i64
-  %74 = call ptr @aom_memalign(i64 noundef 32, i64 noundef %73) #4
-  store ptr %74, ptr %62, align 8
-  %.not66 = icmp eq ptr %74, null
-  br i1 %.not66, label %75, label %76
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %73 = load ptr, ptr %72, align 8
+  call void @aom_free(ptr noundef %73) #4
+  %74 = sext i32 %62 to i64
+  %75 = call ptr @aom_memalign(i64 noundef 32, i64 noundef %74) #4
+  store ptr %75, ptr %63, align 8
+  %.not66 = icmp eq ptr %75, null
+  br i1 %.not66, label %76, label %77
 
-75:                                               ; preds = %70
-  call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %48, i32 noundef 2, ptr noundef nonnull @.str.2) #4
-  br label %76
+76:                                               ; preds = %71
+  call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %49, i32 noundef 2, ptr noundef nonnull @.str.2) #4
+  br label %77
 
-76:                                               ; preds = %75, %70
-  %77 = call ptr @aom_memalign(i64 noundef 32, i64 noundef %73) #4
-  store ptr %77, ptr %71, align 8
-  %.not67 = icmp eq ptr %77, null
-  br i1 %.not67, label %78, label %79
+77:                                               ; preds = %76, %71
+  %78 = call ptr @aom_memalign(i64 noundef 32, i64 noundef %74) #4
+  store ptr %78, ptr %72, align 8
+  %.not67 = icmp eq ptr %78, null
+  br i1 %.not67, label %79, label %80
 
-78:                                               ; preds = %76
-  call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %48, i32 noundef 2, ptr noundef nonnull @.str.3) #4
-  br label %79
-
-79:                                               ; preds = %76, %78
-  store i32 %61, ptr %63, align 4
+79:                                               ; preds = %77
+  call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %49, i32 noundef 2, ptr noundef nonnull @.str.3) #4
   br label %80
 
-80:                                               ; preds = %79, %66
-  %81 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i32 %59, ptr %81, align 8
+80:                                               ; preds = %77, %79
+  store i32 %62, ptr %64, align 4
+  br label %81
+
+81:                                               ; preds = %80, %67
+  %82 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i32 %60, ptr %82, align 8
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond77.not, label %82, label %49, !llvm.loop !8
+  br i1 %exitcond77.not, label %83, label %50, !llvm.loop !8
 
-82:                                               ; preds = %80
+83:                                               ; preds = %81
   ret void
 }
 
@@ -305,20 +307,22 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
 
 10:                                               ; preds = %5, %10
   %indvars.iv19 = phi i64 [ 0, %5 ], [ %indvars.iv.next20, %10 ]
-  %11 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %2, i64 0, i64 %indvars.iv19, i32 6
-  %12 = load ptr, ptr %11, align 8
-  tail call void @aom_free(ptr noundef %12) #4
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %11 = shl nuw nsw i64 %indvars.iv19, 6
+  %12 = or disjoint i64 %11, 32
+  %13 = getelementptr inbounds i8, ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @aom_free(ptr noundef %14) #4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load ptr, ptr %15, align 8
+  tail call void @aom_free(ptr noundef %16) #4
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br i1 %exitcond22.not, label %15, label %10, !llvm.loop !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  br i1 %exitcond22.not, label %17, label %10, !llvm.loop !10
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 23816
-  %17 = tail call i32 @aom_free_frame_buffer(ptr noundef nonnull %16) #4
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 23816
+  %19 = tail call i32 @aom_free_frame_buffer(ptr noundef nonnull %18) #4
   ret void
 }
 

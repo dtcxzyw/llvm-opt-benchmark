@@ -495,30 +495,31 @@ if.end6:                                          ; preds = %land.lhs.true.i
   %arrayidx13 = getelementptr [32 x i64], ptr %mhpmevent_val11, i64 0, i64 %sh_prom.i.i
   %of_bit_mask.0 = select i1 %cmp8, i64 2147483648, i64 -9223372036854775808
   %mhpmevent_val.0 = select i1 %cmp8, ptr %arrayidx, ptr %arrayidx13
-  %pmu_ctrs = getelementptr inbounds i8, ptr %cpu, i64 15920
-  %irq_overflow_left = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs, i64 0, i64 %sh_prom.i.i, i32 5
-  %7 = load i64, ptr %irq_overflow_left, align 8
-  %cmp17.not = icmp eq i64 %7, 0
+  %irq_overflow_left.idx = mul nuw nsw i64 %sh_prom.i.i, 48
+  %7 = getelementptr i8, ptr %cpu, i64 15960
+  %irq_overflow_left = getelementptr i8, ptr %7, i64 %irq_overflow_left.idx
+  %8 = load i64, ptr %irq_overflow_left, align 8
+  %cmp17.not = icmp eq i64 %8, 0
   br i1 %cmp17.not, label %if.then25, label %if.then19
 
 if.then19:                                        ; preds = %if.end6
   %call20 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
-  %8 = load i64, ptr %irq_overflow_left, align 8
-  %add = add i64 %8, %call20
+  %9 = load i64, ptr %irq_overflow_left, align 8
+  %add = add i64 %9, %call20
   %pmu_timer = getelementptr inbounds i8, ptr %cpu, i64 19168
-  %9 = load ptr, ptr %pmu_timer, align 16
-  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add) #6
+  %10 = load ptr, ptr %pmu_timer, align 16
+  tail call void @timer_mod_anticipate_ns(ptr noundef %10, i64 noundef %add) #6
   store i64 0, ptr %irq_overflow_left, align 8
   br label %if.end31
 
 if.then25:                                        ; preds = %if.end6
-  %10 = load i64, ptr %mhpmevent_val.0, align 8
-  %and26 = and i64 %10, %of_bit_mask.0
+  %11 = load i64, ptr %mhpmevent_val.0, align 8
+  %and26 = and i64 %11, %of_bit_mask.0
   %tobool27.not = icmp eq i64 %and26, 0
   br i1 %tobool27.not, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then25
-  %or = or i64 %10, %of_bit_mask.0
+  %or = or i64 %11, %of_bit_mask.0
   store i64 %or, ptr %mhpmevent_val.0, align 8
   %call29 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
   br label %if.end31
@@ -530,7 +531,6 @@ if.end31:                                         ; preds = %land.lhs.true.i, %r
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @riscv_pmu_setup_timer(ptr nocapture noundef %env, i64 noundef %value, i32 noundef %ctr_idx) local_unnamed_addr #0 {
 entry:
-  %pmu_ctrs = getelementptr inbounds i8, ptr %env, i64 5744
   %idxprom = zext i32 %ctr_idx to i64
   %0 = add i32 %ctr_idx, -32
   %or.cond.i = icmp ult i32 %0, -29
@@ -610,15 +610,17 @@ pmu_icount_ticks_to_ns.exit34:                    ; preds = %if.then11, %pmu_ico
 if.then19:                                        ; preds = %pmu_icount_ticks_to_ns.exit34
   %sub20 = add i64 %ret.0.i33, -9223372036854775807
   %add21 = add i64 %sub20, %add17
-  %irq_overflow_left = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs, i64 0, i64 %idxprom, i32 5
+  %irq_overflow_left.idx = mul nuw nsw i64 %idxprom, 48
+  %7 = getelementptr i8, ptr %env, i64 5784
+  %irq_overflow_left = getelementptr i8, ptr %7, i64 %irq_overflow_left.idx
   store i64 %add21, ptr %irq_overflow_left, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %pmu_icount_ticks_to_ns.exit34
   %overflow_at.0 = phi i64 [ 9223372036854775807, %if.then19 ], [ %add17, %pmu_icount_ticks_to_ns.exit34 ]
   %pmu_timer = getelementptr i8, ptr %env, i64 8992
-  %7 = load ptr, ptr %pmu_timer, align 16
-  tail call void @timer_mod_anticipate_ns(ptr noundef %7, i64 noundef %overflow_at.0) #6
+  %8 = load ptr, ptr %pmu_timer, align 16
+  tail call void @timer_mod_anticipate_ns(ptr noundef %8, i64 noundef %overflow_at.0) #6
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end.i19, %entry, %riscv_pmu_ctr_monitor_instructions.exit, %riscv_pmu_counter_valid.exit, %lor.lhs.false, %if.end22

@@ -549,13 +549,13 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr nocapture nounde
   br i1 %.not, label %19, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %11, i64 200
+  %14 = getelementptr i8, ptr %11, i64 160
   br label %15
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = add nsw i64 %indvars.iv, -1
-  %17 = getelementptr [30 x %struct.FmgrInfo], ptr %14, i64 0, i64 %16, i32 1
+  %16 = mul nuw nsw i64 %indvars.iv, 48
+  %17 = getelementptr i8, ptr %14, i64 %16
   store i32 0, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
@@ -585,14 +585,15 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr nocapture nounde
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  %38 = zext i32 %34 to i64
-  %39 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %37, i64 0, i64 %7, i32 2
+  %37 = zext i32 %34 to i64
+  %.idx = mul nsw i64 %7, 104
+  %38 = getelementptr i8, ptr %36, i64 92
+  %39 = getelementptr i8, ptr %38, i64 %.idx
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = zext i32 %2 to i64
   %43 = sext i16 %3 to i64
-  %44 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %38, i64 noundef %41, i64 noundef %42, i64 noundef %43) #4
+  %44 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %37, i64 noundef %41, i64 noundef %42, i64 noundef %43) #4
   %.not35 = icmp eq ptr %44, null
   br i1 %.not35, label %45, label %49
 

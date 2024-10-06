@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.BrinValues = type { i16, i8, i8, ptr, i64, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @InterruptPending = external global i32, align 4
@@ -2015,7 +2013,7 @@ define dso_local noundef ptr @brin_build_desc(ptr noundef %0) local_unnamed_addr
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr i8, ptr %6, i64 92
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -2024,7 +2022,8 @@ define dso_local noundef ptr @brin_build_desc(ptr noundef %0) local_unnamed_addr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = trunc i64 %indvars.iv.next to i16
   %16 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %15, i16 noundef zeroext 1) #10
-  %17 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %indvars.iv, i32 2
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %17 = getelementptr i8, ptr %13, i64 %.idx
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = tail call i64 @FunctionCall1Coll(ptr noundef %16, i32 noundef 0, i64 noundef %19) #10

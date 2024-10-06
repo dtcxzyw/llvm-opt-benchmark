@@ -2122,9 +2122,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @_ZNK9GUIButton14getSpriteColorEN3irr3gui17EGUI_BUTTON_STATEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(7452) %this, i32 noundef %state) unnamed_addr #13 align 2 {
 entry:
-  %ButtonSprites = getelementptr inbounds i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %Color = getelementptr inbounds [7 x %"struct.GUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom, i32 1
+  %Color.idx = mul nuw nsw i64 %idxprom, 12
+  %0 = getelementptr inbounds i8, ptr %this, i64 312
+  %Color = getelementptr i8, ptr %0, i64 %Color.idx
   %retval.sroa.0.0.copyload = load i32, ptr %Color, align 4, !tbaa !62
   ret i32 %retval.sroa.0.0.copyload
 }
@@ -2132,22 +2133,24 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK9GUIButton13getSpriteLoopEN3irr3gui17EGUI_BUTTON_STATEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(7452) %this, i32 noundef %state) unnamed_addr #13 align 2 {
 entry:
-  %ButtonSprites = getelementptr inbounds i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %Loop = getelementptr inbounds [7 x %"struct.GUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom, i32 2
-  %0 = load i8, ptr %Loop, align 4, !tbaa !13, !range !54, !noundef !55
-  %tobool = icmp ne i8 %0, 0
+  %Loop.idx = mul nuw nsw i64 %idxprom, 12
+  %0 = getelementptr inbounds i8, ptr %this, i64 316
+  %Loop = getelementptr i8, ptr %0, i64 %Loop.idx
+  %1 = load i8, ptr %Loop, align 4, !tbaa !13, !range !54, !noundef !55
+  %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK9GUIButton14getSpriteScaleEN3irr3gui17EGUI_BUTTON_STATEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(7452) %this, i32 noundef %state) unnamed_addr #13 align 2 {
 entry:
-  %ButtonSprites = getelementptr inbounds i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %Scale = getelementptr inbounds [7 x %"struct.GUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom, i32 3
-  %0 = load i8, ptr %Scale, align 1, !tbaa !14, !range !54, !noundef !55
-  %tobool = icmp ne i8 %0, 0
+  %Scale.idx = mul nuw nsw i64 %idxprom, 12
+  %0 = getelementptr inbounds i8, ptr %this, i64 317
+  %Scale = getelementptr i8, ptr %0, i64 %Scale.idx
+  %1 = load i8, ptr %Scale, align 1, !tbaa !14, !range !54, !noundef !55
+  %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
 }
 
@@ -4699,12 +4702,13 @@ _ZNK9StyleSpec8getColorENS_8PropertyE.exit:       ; preds = %entry
   %4 = load i32, ptr %retval.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.i)
   call void @_ZN9GUIButton8setColorEN3irr5video6SColorE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 %4)
-  %Styles = getelementptr inbounds i8, ptr %this, i64 616
   %5 = load i8, ptr %state_map.i, align 8, !tbaa !74
   %conv11 = zext i8 %5 to i64
-  %_M_string_length.i.i.i244 = getelementptr inbounds [8 x %class.StyleSpec], ptr %Styles, i64 0, i64 %conv11, i32 2, i32 0, i64 1, i32 1
-  %6 = load i64, ptr %_M_string_length.i.i.i244, align 8, !tbaa !72
-  %cmp.i.i245.not = icmp eq i64 %6, 0
+  %_M_string_length.i.i.i244.idx = mul nuw nsw i64 %conv11, 840
+  %6 = getelementptr inbounds i8, ptr %this, i64 688
+  %_M_string_length.i.i.i244 = getelementptr i8, ptr %6, i64 %_M_string_length.i.i.i244.idx
+  %7 = load i64, ptr %_M_string_length.i.i.i244, align 8, !tbaa !72
+  %cmp.i.i245.not = icmp eq i64 %7, 0
   br i1 %cmp.i.i245.not, label %if.then14, label %if.end86
 
 if.then14:                                        ; preds = %_ZNK9StyleSpec8getColorENS_8PropertyE.exit
@@ -4712,57 +4716,57 @@ if.then14:                                        ; preds = %_ZNK9StyleSpec8getC
 
 if.then15:                                        ; preds = %if.then14
   %BgColor = getelementptr inbounds i8, ptr %this, i64 7448
-  %7 = load i32, ptr %BgColor, align 8, !tbaa !44
-  %shr.i.i = and i32 %7, -16777216
-  %shr.i27.i = lshr i32 %7, 16
+  %8 = load i32, ptr %BgColor, align 8, !tbaa !44
+  %shr.i.i = and i32 %8, -16777216
+  %shr.i27.i = lshr i32 %8, 16
   %and.i.i = and i32 %shr.i27.i, 255
   %conv.i = uitofp nneg i32 %and.i.i to float
   %mul.i = fmul nsz float %conv.i, 0x3FEB333340000000
   %conv2.i = fptoui float %mul.i to i32
-  %8 = call noundef i32 @llvm.umin.i32(i32 %conv2.i, i32 255)
-  %shr.i28.i = lshr i32 %7, 8
+  %9 = call noundef i32 @llvm.umin.i32(i32 %conv2.i, i32 255)
+  %shr.i28.i = lshr i32 %8, 8
   %and.i29.i = and i32 %shr.i28.i, 255
   %conv8.i = uitofp nneg i32 %and.i29.i to float
   %mul9.i = fmul nsz float %conv8.i, 0x3FEB333340000000
   %conv10.i = fptoui float %mul9.i to i32
-  %9 = call noundef i32 @llvm.umin.i32(i32 %conv10.i, i32 255)
-  %and.i30.i = and i32 %7, 255
+  %10 = call noundef i32 @llvm.umin.i32(i32 %conv10.i, i32 255)
+  %and.i30.i = and i32 %8, 255
   %conv16.i = uitofp nneg i32 %and.i30.i to float
   %mul17.i = fmul nsz float %conv16.i, 0x3FEB333340000000
   %conv18.i = fptoui float %mul17.i to i32
-  %10 = call noundef i32 @llvm.umin.i32(i32 %conv18.i, i32 255)
-  %and2.i.i = shl nuw nsw i32 %8, 16
+  %11 = call noundef i32 @llvm.umin.i32(i32 %conv18.i, i32 255)
+  %and2.i.i = shl nuw nsw i32 %9, 16
   %or.i.i = or disjoint i32 %and2.i.i, %shr.i.i
-  %and4.i.i = shl nuw nsw i32 %9, 8
+  %and4.i.i = shl nuw nsw i32 %10, 8
   %or6.i.i = or disjoint i32 %or.i.i, %and4.i.i
-  %or8.i.i = or disjoint i32 %or6.i.i, %10
+  %or8.i.i = or disjoint i32 %or6.i.i, %11
   store i32 %or8.i.i, ptr %BgColor, align 8, !tbaa !62
   %Colors = getelementptr inbounds i8, ptr %this, i64 7372
-  %11 = load <4 x i32>, ptr %Colors, align 4, !tbaa !44
-  %12 = and <4 x i32> %11, <i32 -16777216, i32 -16777216, i32 -16777216, i32 -16777216>
-  %13 = lshr <4 x i32> %11, <i32 16, i32 16, i32 16, i32 16>
-  %14 = and <4 x i32> %13, <i32 255, i32 255, i32 255, i32 255>
-  %15 = uitofp nneg <4 x i32> %14 to <4 x float>
-  %16 = fmul nsz <4 x float> %15, <float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000>
-  %17 = fptoui <4 x float> %16 to <4 x i32>
-  %18 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %17, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
-  %19 = lshr <4 x i32> %11, <i32 8, i32 8, i32 8, i32 8>
-  %20 = and <4 x i32> %19, <i32 255, i32 255, i32 255, i32 255>
-  %21 = uitofp nneg <4 x i32> %20 to <4 x float>
-  %22 = fmul nsz <4 x float> %21, <float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000>
-  %23 = fptoui <4 x float> %22 to <4 x i32>
-  %24 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %23, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
-  %25 = and <4 x i32> %11, <i32 255, i32 255, i32 255, i32 255>
-  %26 = uitofp nneg <4 x i32> %25 to <4 x float>
-  %27 = fmul nsz <4 x float> %26, <float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000>
-  %28 = fptoui <4 x float> %27 to <4 x i32>
-  %29 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %28, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
-  %30 = shl nuw nsw <4 x i32> %18, <i32 16, i32 16, i32 16, i32 16>
-  %31 = or disjoint <4 x i32> %30, %12
-  %32 = shl nuw nsw <4 x i32> %24, <i32 8, i32 8, i32 8, i32 8>
-  %33 = or disjoint <4 x i32> %31, %32
-  %34 = or disjoint <4 x i32> %33, %29
-  store <4 x i32> %34, ptr %Colors, align 4, !tbaa !62
+  %12 = load <4 x i32>, ptr %Colors, align 4, !tbaa !44
+  %13 = and <4 x i32> %12, <i32 -16777216, i32 -16777216, i32 -16777216, i32 -16777216>
+  %14 = lshr <4 x i32> %12, <i32 16, i32 16, i32 16, i32 16>
+  %15 = and <4 x i32> %14, <i32 255, i32 255, i32 255, i32 255>
+  %16 = uitofp nneg <4 x i32> %15 to <4 x float>
+  %17 = fmul nsz <4 x float> %16, <float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000>
+  %18 = fptoui <4 x float> %17 to <4 x i32>
+  %19 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %18, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
+  %20 = lshr <4 x i32> %12, <i32 8, i32 8, i32 8, i32 8>
+  %21 = and <4 x i32> %20, <i32 255, i32 255, i32 255, i32 255>
+  %22 = uitofp nneg <4 x i32> %21 to <4 x float>
+  %23 = fmul nsz <4 x float> %22, <float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000>
+  %24 = fptoui <4 x float> %23 to <4 x i32>
+  %25 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %24, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
+  %26 = and <4 x i32> %12, <i32 255, i32 255, i32 255, i32 255>
+  %27 = uitofp nneg <4 x i32> %26 to <4 x float>
+  %28 = fmul nsz <4 x float> %27, <float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000, float 0x3FEB333340000000>
+  %29 = fptoui <4 x float> %28 to <4 x i32>
+  %30 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %29, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
+  %31 = shl nuw nsw <4 x i32> %19, <i32 16, i32 16, i32 16, i32 16>
+  %32 = or disjoint <4 x i32> %31, %13
+  %33 = shl nuw nsw <4 x i32> %25, <i32 8, i32 8, i32 8, i32 8>
+  %34 = or disjoint <4 x i32> %32, %33
+  %35 = or disjoint <4 x i32> %34, %30
+  store <4 x i32> %35, ptr %Colors, align 4, !tbaa !62
   br label %if.end86
 
 if.else:                                          ; preds = %if.then14
@@ -4770,57 +4774,57 @@ if.else:                                          ; preds = %if.then14
 
 if.then26:                                        ; preds = %if.else
   %BgColor28 = getelementptr inbounds i8, ptr %this, i64 7448
-  %35 = load i32, ptr %BgColor28, align 8, !tbaa !44
-  %shr.i.i266 = and i32 %35, -16777216
-  %shr.i27.i267 = lshr i32 %35, 16
+  %36 = load i32, ptr %BgColor28, align 8, !tbaa !44
+  %shr.i.i266 = and i32 %36, -16777216
+  %shr.i27.i267 = lshr i32 %36, 16
   %and.i.i268 = and i32 %shr.i27.i267, 255
   %conv.i269 = uitofp nneg i32 %and.i.i268 to float
   %mul.i270 = fmul nsz float %conv.i269, 1.250000e+00
   %conv2.i271 = fptoui float %mul.i270 to i32
-  %36 = call noundef i32 @llvm.umin.i32(i32 %conv2.i271, i32 255)
-  %shr.i28.i272 = lshr i32 %35, 8
+  %37 = call noundef i32 @llvm.umin.i32(i32 %conv2.i271, i32 255)
+  %shr.i28.i272 = lshr i32 %36, 8
   %and.i29.i273 = and i32 %shr.i28.i272, 255
   %conv8.i274 = uitofp nneg i32 %and.i29.i273 to float
   %mul9.i275 = fmul nsz float %conv8.i274, 1.250000e+00
   %conv10.i276 = fptoui float %mul9.i275 to i32
-  %37 = call noundef i32 @llvm.umin.i32(i32 %conv10.i276, i32 255)
-  %and.i30.i277 = and i32 %35, 255
+  %38 = call noundef i32 @llvm.umin.i32(i32 %conv10.i276, i32 255)
+  %and.i30.i277 = and i32 %36, 255
   %conv16.i278 = uitofp nneg i32 %and.i30.i277 to float
   %mul17.i279 = fmul nsz float %conv16.i278, 1.250000e+00
   %conv18.i280 = fptoui float %mul17.i279 to i32
-  %38 = call noundef i32 @llvm.umin.i32(i32 %conv18.i280, i32 255)
-  %and2.i.i281 = shl nuw nsw i32 %36, 16
+  %39 = call noundef i32 @llvm.umin.i32(i32 %conv18.i280, i32 255)
+  %and2.i.i281 = shl nuw nsw i32 %37, 16
   %or.i.i282 = or disjoint i32 %and2.i.i281, %shr.i.i266
-  %and4.i.i283 = shl nuw nsw i32 %37, 8
+  %and4.i.i283 = shl nuw nsw i32 %38, 8
   %or6.i.i284 = or disjoint i32 %or.i.i282, %and4.i.i283
-  %or8.i.i285 = or disjoint i32 %or6.i.i284, %38
+  %or8.i.i285 = or disjoint i32 %or6.i.i284, %39
   store i32 %or8.i.i285, ptr %BgColor28, align 8, !tbaa !62
   %Colors38 = getelementptr inbounds i8, ptr %this, i64 7372
-  %39 = load <4 x i32>, ptr %Colors38, align 4, !tbaa !44
-  %40 = and <4 x i32> %39, <i32 -16777216, i32 -16777216, i32 -16777216, i32 -16777216>
-  %41 = lshr <4 x i32> %39, <i32 16, i32 16, i32 16, i32 16>
-  %42 = and <4 x i32> %41, <i32 255, i32 255, i32 255, i32 255>
-  %43 = uitofp nneg <4 x i32> %42 to <4 x float>
-  %44 = fmul nsz <4 x float> %43, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
-  %45 = fptoui <4 x float> %44 to <4 x i32>
-  %46 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %45, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
-  %47 = lshr <4 x i32> %39, <i32 8, i32 8, i32 8, i32 8>
-  %48 = and <4 x i32> %47, <i32 255, i32 255, i32 255, i32 255>
-  %49 = uitofp nneg <4 x i32> %48 to <4 x float>
-  %50 = fmul nsz <4 x float> %49, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
-  %51 = fptoui <4 x float> %50 to <4 x i32>
-  %52 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %51, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
-  %53 = and <4 x i32> %39, <i32 255, i32 255, i32 255, i32 255>
-  %54 = uitofp nneg <4 x i32> %53 to <4 x float>
-  %55 = fmul nsz <4 x float> %54, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
-  %56 = fptoui <4 x float> %55 to <4 x i32>
-  %57 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %56, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
-  %58 = shl nuw nsw <4 x i32> %46, <i32 16, i32 16, i32 16, i32 16>
-  %59 = or disjoint <4 x i32> %58, %40
-  %60 = shl nuw nsw <4 x i32> %52, <i32 8, i32 8, i32 8, i32 8>
-  %61 = or disjoint <4 x i32> %59, %60
-  %62 = or disjoint <4 x i32> %61, %57
-  store <4 x i32> %62, ptr %Colors38, align 4, !tbaa !62
+  %40 = load <4 x i32>, ptr %Colors38, align 4, !tbaa !44
+  %41 = and <4 x i32> %40, <i32 -16777216, i32 -16777216, i32 -16777216, i32 -16777216>
+  %42 = lshr <4 x i32> %40, <i32 16, i32 16, i32 16, i32 16>
+  %43 = and <4 x i32> %42, <i32 255, i32 255, i32 255, i32 255>
+  %44 = uitofp nneg <4 x i32> %43 to <4 x float>
+  %45 = fmul nsz <4 x float> %44, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
+  %46 = fptoui <4 x float> %45 to <4 x i32>
+  %47 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %46, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
+  %48 = lshr <4 x i32> %40, <i32 8, i32 8, i32 8, i32 8>
+  %49 = and <4 x i32> %48, <i32 255, i32 255, i32 255, i32 255>
+  %50 = uitofp nneg <4 x i32> %49 to <4 x float>
+  %51 = fmul nsz <4 x float> %50, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
+  %52 = fptoui <4 x float> %51 to <4 x i32>
+  %53 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %52, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
+  %54 = and <4 x i32> %40, <i32 255, i32 255, i32 255, i32 255>
+  %55 = uitofp nneg <4 x i32> %54 to <4 x float>
+  %56 = fmul nsz <4 x float> %55, <float 1.250000e+00, float 1.250000e+00, float 1.250000e+00, float 1.250000e+00>
+  %57 = fptoui <4 x float> %56 to <4 x i32>
+  %58 = call <4 x i32> @llvm.umin.v4i32(<4 x i32> %57, <4 x i32> <i32 255, i32 255, i32 255, i32 255>)
+  %59 = shl nuw nsw <4 x i32> %47, <i32 16, i32 16, i32 16, i32 16>
+  %60 = or disjoint <4 x i32> %59, %41
+  %61 = shl nuw nsw <4 x i32> %53, <i32 8, i32 8, i32 8, i32 8>
+  %62 = or disjoint <4 x i32> %60, %61
+  %63 = or disjoint <4 x i32> %62, %58
+  store <4 x i32> %63, ptr %Colors38, align 4, !tbaa !62
   br label %if.end86
 
 if.else49:                                        ; preds = %entry
@@ -4828,14 +4832,14 @@ if.else49:                                        ; preds = %entry
   store i32 -1, ptr %BgColor51, align 8, !tbaa !62
   %Environment = getelementptr inbounds i8, ptr %this, i64 296
   %Colors68 = getelementptr inbounds i8, ptr %this, i64 7372
-  %63 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.us = load ptr, ptr %63, align 8, !tbaa !4
+  %64 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.us = load ptr, ptr %64, align 8, !tbaa !4
   %vfn.us.us = getelementptr inbounds i8, ptr %vtable.us.us, i64 96
-  %64 = load ptr, ptr %vfn.us.us, align 8
-  %call57.us.us = tail call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(8) %63)
+  %65 = load ptr, ptr %vfn.us.us, align 8
+  %call57.us.us = tail call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(8) %64)
   %vtable59.us.us = load ptr, ptr %call57.us.us, align 8, !tbaa !4
-  %65 = load ptr, ptr %vtable59.us.us, align 8
-  %call61.us.us = tail call i32 %65(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us, i32 noundef 0)
+  %66 = load ptr, ptr %vtable59.us.us, align 8
+  %call61.us.us = tail call i32 %66(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us, i32 noundef 0)
   br i1 %cmp5.not, label %if.else49.split.us, label %for.body56.preheader
 
 for.body56.preheader:                             ; preds = %if.else49
@@ -4845,121 +4849,121 @@ for.body56.preheader:                             ; preds = %if.else49
   %conv.i309 = uitofp nneg i32 %and.i.i308 to float
   %mul.i310 = fmul nsz float %conv.i309, 0x3FEB333340000000
   %conv2.i311 = fptoui float %mul.i310 to i32
-  %66 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311, i32 255)
+  %67 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311, i32 255)
   %shr.i28.i312 = lshr i32 %call61.us.us, 8
   %and.i29.i313 = and i32 %shr.i28.i312, 255
   %conv8.i314 = uitofp nneg i32 %and.i29.i313 to float
   %mul9.i315 = fmul nsz float %conv8.i314, 0x3FEB333340000000
   %conv10.i316 = fptoui float %mul9.i315 to i32
-  %67 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316, i32 255)
+  %68 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316, i32 255)
   %and.i30.i317 = and i32 %call61.us.us, 255
   %conv16.i318 = uitofp nneg i32 %and.i30.i317 to float
   %mul17.i319 = fmul nsz float %conv16.i318, 0x3FEB333340000000
   %conv18.i320 = fptoui float %mul17.i319 to i32
-  %68 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320, i32 255)
-  %and2.i.i321 = shl nuw nsw i32 %66, 16
+  %69 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320, i32 255)
+  %and2.i.i321 = shl nuw nsw i32 %67, 16
   %or.i.i322 = or disjoint i32 %and2.i.i321, %shr.i.i306
-  %and4.i.i323 = shl nuw nsw i32 %67, 8
+  %and4.i.i323 = shl nuw nsw i32 %68, 8
   %or6.i.i324 = or disjoint i32 %or.i.i322, %and4.i.i323
-  %or8.i.i325 = or disjoint i32 %or6.i.i324, %68
+  %or8.i.i325 = or disjoint i32 %or6.i.i324, %69
   store i32 %or8.i.i325, ptr %Colors68, align 4, !tbaa !62
-  %69 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.1 = load ptr, ptr %69, align 8, !tbaa !4
+  %70 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.1 = load ptr, ptr %70, align 8, !tbaa !4
   %vfn.1 = getelementptr inbounds i8, ptr %vtable.1, i64 96
-  %70 = load ptr, ptr %vfn.1, align 8
-  %call57.1 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(8) %69)
+  %71 = load ptr, ptr %vfn.1, align 8
+  %call57.1 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %70)
   %vtable59.1 = load ptr, ptr %call57.1, align 8, !tbaa !4
-  %71 = load ptr, ptr %vtable59.1, align 8
-  %call61.1 = tail call i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %call57.1, i32 noundef 1)
+  %72 = load ptr, ptr %vtable59.1, align 8
+  %call61.1 = tail call i32 %72(ptr noundef nonnull align 8 dereferenceable(8) %call57.1, i32 noundef 1)
   %shr.i.i306.1 = and i32 %call61.1, -16777216
   %shr.i27.i307.1 = lshr i32 %call61.1, 16
   %and.i.i308.1 = and i32 %shr.i27.i307.1, 255
   %conv.i309.1 = uitofp nneg i32 %and.i.i308.1 to float
   %mul.i310.1 = fmul nsz float %conv.i309.1, 0x3FEB333340000000
   %conv2.i311.1 = fptoui float %mul.i310.1 to i32
-  %72 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311.1, i32 255)
+  %73 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311.1, i32 255)
   %shr.i28.i312.1 = lshr i32 %call61.1, 8
   %and.i29.i313.1 = and i32 %shr.i28.i312.1, 255
   %conv8.i314.1 = uitofp nneg i32 %and.i29.i313.1 to float
   %mul9.i315.1 = fmul nsz float %conv8.i314.1, 0x3FEB333340000000
   %conv10.i316.1 = fptoui float %mul9.i315.1 to i32
-  %73 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316.1, i32 255)
+  %74 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316.1, i32 255)
   %and.i30.i317.1 = and i32 %call61.1, 255
   %conv16.i318.1 = uitofp nneg i32 %and.i30.i317.1 to float
   %mul17.i319.1 = fmul nsz float %conv16.i318.1, 0x3FEB333340000000
   %conv18.i320.1 = fptoui float %mul17.i319.1 to i32
-  %74 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320.1, i32 255)
-  %and2.i.i321.1 = shl nuw nsw i32 %72, 16
+  %75 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320.1, i32 255)
+  %and2.i.i321.1 = shl nuw nsw i32 %73, 16
   %or.i.i322.1 = or disjoint i32 %and2.i.i321.1, %shr.i.i306.1
-  %and4.i.i323.1 = shl nuw nsw i32 %73, 8
+  %and4.i.i323.1 = shl nuw nsw i32 %74, 8
   %or6.i.i324.1 = or disjoint i32 %or.i.i322.1, %and4.i.i323.1
-  %or8.i.i325.1 = or disjoint i32 %or6.i.i324.1, %74
+  %or8.i.i325.1 = or disjoint i32 %or6.i.i324.1, %75
   %arrayidx69.1 = getelementptr inbounds i8, ptr %this, i64 7376
   store i32 %or8.i.i325.1, ptr %arrayidx69.1, align 8, !tbaa !62
-  %75 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.2 = load ptr, ptr %75, align 8, !tbaa !4
+  %76 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.2 = load ptr, ptr %76, align 8, !tbaa !4
   %vfn.2 = getelementptr inbounds i8, ptr %vtable.2, i64 96
-  %76 = load ptr, ptr %vfn.2, align 8
-  %call57.2 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %75)
+  %77 = load ptr, ptr %vfn.2, align 8
+  %call57.2 = tail call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(8) %76)
   %vtable59.2 = load ptr, ptr %call57.2, align 8, !tbaa !4
-  %77 = load ptr, ptr %vtable59.2, align 8
-  %call61.2 = tail call i32 %77(ptr noundef nonnull align 8 dereferenceable(8) %call57.2, i32 noundef 2)
+  %78 = load ptr, ptr %vtable59.2, align 8
+  %call61.2 = tail call i32 %78(ptr noundef nonnull align 8 dereferenceable(8) %call57.2, i32 noundef 2)
   %shr.i.i306.2 = and i32 %call61.2, -16777216
   %shr.i27.i307.2 = lshr i32 %call61.2, 16
   %and.i.i308.2 = and i32 %shr.i27.i307.2, 255
   %conv.i309.2 = uitofp nneg i32 %and.i.i308.2 to float
   %mul.i310.2 = fmul nsz float %conv.i309.2, 0x3FEB333340000000
   %conv2.i311.2 = fptoui float %mul.i310.2 to i32
-  %78 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311.2, i32 255)
+  %79 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311.2, i32 255)
   %shr.i28.i312.2 = lshr i32 %call61.2, 8
   %and.i29.i313.2 = and i32 %shr.i28.i312.2, 255
   %conv8.i314.2 = uitofp nneg i32 %and.i29.i313.2 to float
   %mul9.i315.2 = fmul nsz float %conv8.i314.2, 0x3FEB333340000000
   %conv10.i316.2 = fptoui float %mul9.i315.2 to i32
-  %79 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316.2, i32 255)
+  %80 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316.2, i32 255)
   %and.i30.i317.2 = and i32 %call61.2, 255
   %conv16.i318.2 = uitofp nneg i32 %and.i30.i317.2 to float
   %mul17.i319.2 = fmul nsz float %conv16.i318.2, 0x3FEB333340000000
   %conv18.i320.2 = fptoui float %mul17.i319.2 to i32
-  %80 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320.2, i32 255)
-  %and2.i.i321.2 = shl nuw nsw i32 %78, 16
+  %81 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320.2, i32 255)
+  %and2.i.i321.2 = shl nuw nsw i32 %79, 16
   %or.i.i322.2 = or disjoint i32 %and2.i.i321.2, %shr.i.i306.2
-  %and4.i.i323.2 = shl nuw nsw i32 %79, 8
+  %and4.i.i323.2 = shl nuw nsw i32 %80, 8
   %or6.i.i324.2 = or disjoint i32 %or.i.i322.2, %and4.i.i323.2
-  %or8.i.i325.2 = or disjoint i32 %or6.i.i324.2, %80
+  %or8.i.i325.2 = or disjoint i32 %or6.i.i324.2, %81
   %arrayidx69.2 = getelementptr inbounds i8, ptr %this, i64 7380
   store i32 %or8.i.i325.2, ptr %arrayidx69.2, align 4, !tbaa !62
-  %81 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.3 = load ptr, ptr %81, align 8, !tbaa !4
+  %82 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.3 = load ptr, ptr %82, align 8, !tbaa !4
   %vfn.3 = getelementptr inbounds i8, ptr %vtable.3, i64 96
-  %82 = load ptr, ptr %vfn.3, align 8
-  %call57.3 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(8) %81)
+  %83 = load ptr, ptr %vfn.3, align 8
+  %call57.3 = tail call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(8) %82)
   %vtable59.3 = load ptr, ptr %call57.3, align 8, !tbaa !4
-  %83 = load ptr, ptr %vtable59.3, align 8
-  %call61.3 = tail call i32 %83(ptr noundef nonnull align 8 dereferenceable(8) %call57.3, i32 noundef 3)
+  %84 = load ptr, ptr %vtable59.3, align 8
+  %call61.3 = tail call i32 %84(ptr noundef nonnull align 8 dereferenceable(8) %call57.3, i32 noundef 3)
   %shr.i.i306.3 = and i32 %call61.3, -16777216
   %shr.i27.i307.3 = lshr i32 %call61.3, 16
   %and.i.i308.3 = and i32 %shr.i27.i307.3, 255
   %conv.i309.3 = uitofp nneg i32 %and.i.i308.3 to float
   %mul.i310.3 = fmul nsz float %conv.i309.3, 0x3FEB333340000000
   %conv2.i311.3 = fptoui float %mul.i310.3 to i32
-  %84 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311.3, i32 255)
+  %85 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i311.3, i32 255)
   %shr.i28.i312.3 = lshr i32 %call61.3, 8
   %and.i29.i313.3 = and i32 %shr.i28.i312.3, 255
   %conv8.i314.3 = uitofp nneg i32 %and.i29.i313.3 to float
   %mul9.i315.3 = fmul nsz float %conv8.i314.3, 0x3FEB333340000000
   %conv10.i316.3 = fptoui float %mul9.i315.3 to i32
-  %85 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316.3, i32 255)
+  %86 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i316.3, i32 255)
   %and.i30.i317.3 = and i32 %call61.3, 255
   %conv16.i318.3 = uitofp nneg i32 %and.i30.i317.3 to float
   %mul17.i319.3 = fmul nsz float %conv16.i318.3, 0x3FEB333340000000
   %conv18.i320.3 = fptoui float %mul17.i319.3 to i32
-  %86 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320.3, i32 255)
-  %and2.i.i321.3 = shl nuw nsw i32 %84, 16
+  %87 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i320.3, i32 255)
+  %and2.i.i321.3 = shl nuw nsw i32 %85, 16
   %or.i.i322.3 = or disjoint i32 %and2.i.i321.3, %shr.i.i306.3
-  %and4.i.i323.3 = shl nuw nsw i32 %85, 8
+  %and4.i.i323.3 = shl nuw nsw i32 %86, 8
   %or6.i.i324.3 = or disjoint i32 %or.i.i322.3, %and4.i.i323.3
-  %or8.i.i325.3 = or disjoint i32 %or6.i.i324.3, %86
+  %or8.i.i325.3 = or disjoint i32 %or6.i.i324.3, %87
   %arrayidx69.3 = getelementptr inbounds i8, ptr %this, i64 7384
   store i32 %or8.i.i325.3, ptr %arrayidx69.3, align 8, !tbaa !62
   br label %if.end86
@@ -4974,290 +4978,290 @@ for.body56.us.preheader:                          ; preds = %if.else49.split.us
   %conv.i329.us = uitofp nneg i32 %and.i.i328.us to float
   %mul.i330.us = fmul nsz float %conv.i329.us, 1.250000e+00
   %conv2.i331.us = fptoui float %mul.i330.us to i32
-  %87 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us, i32 255)
+  %88 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us, i32 255)
   %shr.i28.i332.us = lshr i32 %call61.us.us, 8
   %and.i29.i333.us = and i32 %shr.i28.i332.us, 255
   %conv8.i334.us = uitofp nneg i32 %and.i29.i333.us to float
   %mul9.i335.us = fmul nsz float %conv8.i334.us, 1.250000e+00
   %conv10.i336.us = fptoui float %mul9.i335.us to i32
-  %88 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us, i32 255)
+  %89 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us, i32 255)
   %and.i30.i337.us = and i32 %call61.us.us, 255
   %conv16.i338.us = uitofp nneg i32 %and.i30.i337.us to float
   %mul17.i339.us = fmul nsz float %conv16.i338.us, 1.250000e+00
   %conv18.i340.us = fptoui float %mul17.i339.us to i32
-  %89 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us, i32 255)
-  %and2.i.i341.us = shl nuw nsw i32 %87, 16
+  %90 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us, i32 255)
+  %and2.i.i341.us = shl nuw nsw i32 %88, 16
   %or.i.i342.us = or disjoint i32 %and2.i.i341.us, %shr.i.i326.us
-  %and4.i.i343.us = shl nuw nsw i32 %88, 8
+  %and4.i.i343.us = shl nuw nsw i32 %89, 8
   %or6.i.i344.us = or disjoint i32 %or.i.i342.us, %and4.i.i343.us
-  %or8.i.i345.us = or disjoint i32 %or6.i.i344.us, %89
+  %or8.i.i345.us = or disjoint i32 %or6.i.i344.us, %90
   store i32 %or8.i.i345.us, ptr %Colors68, align 4, !tbaa !62
-  %90 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.1 = load ptr, ptr %90, align 8, !tbaa !4
+  %91 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.1 = load ptr, ptr %91, align 8, !tbaa !4
   %vfn.us.1 = getelementptr inbounds i8, ptr %vtable.us.1, i64 96
-  %91 = load ptr, ptr %vfn.us.1, align 8
-  %call57.us.1 = tail call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(8) %90)
+  %92 = load ptr, ptr %vfn.us.1, align 8
+  %call57.us.1 = tail call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(8) %91)
   %vtable59.us.1 = load ptr, ptr %call57.us.1, align 8, !tbaa !4
-  %92 = load ptr, ptr %vtable59.us.1, align 8
-  %call61.us.1 = tail call i32 %92(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.1, i32 noundef 1)
+  %93 = load ptr, ptr %vtable59.us.1, align 8
+  %call61.us.1 = tail call i32 %93(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.1, i32 noundef 1)
   %shr.i.i326.us.1 = and i32 %call61.us.1, -16777216
   %shr.i27.i327.us.1 = lshr i32 %call61.us.1, 16
   %and.i.i328.us.1 = and i32 %shr.i27.i327.us.1, 255
   %conv.i329.us.1 = uitofp nneg i32 %and.i.i328.us.1 to float
   %mul.i330.us.1 = fmul nsz float %conv.i329.us.1, 1.250000e+00
   %conv2.i331.us.1 = fptoui float %mul.i330.us.1 to i32
-  %93 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us.1, i32 255)
+  %94 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us.1, i32 255)
   %shr.i28.i332.us.1 = lshr i32 %call61.us.1, 8
   %and.i29.i333.us.1 = and i32 %shr.i28.i332.us.1, 255
   %conv8.i334.us.1 = uitofp nneg i32 %and.i29.i333.us.1 to float
   %mul9.i335.us.1 = fmul nsz float %conv8.i334.us.1, 1.250000e+00
   %conv10.i336.us.1 = fptoui float %mul9.i335.us.1 to i32
-  %94 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us.1, i32 255)
+  %95 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us.1, i32 255)
   %and.i30.i337.us.1 = and i32 %call61.us.1, 255
   %conv16.i338.us.1 = uitofp nneg i32 %and.i30.i337.us.1 to float
   %mul17.i339.us.1 = fmul nsz float %conv16.i338.us.1, 1.250000e+00
   %conv18.i340.us.1 = fptoui float %mul17.i339.us.1 to i32
-  %95 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us.1, i32 255)
-  %and2.i.i341.us.1 = shl nuw nsw i32 %93, 16
+  %96 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us.1, i32 255)
+  %and2.i.i341.us.1 = shl nuw nsw i32 %94, 16
   %or.i.i342.us.1 = or disjoint i32 %and2.i.i341.us.1, %shr.i.i326.us.1
-  %and4.i.i343.us.1 = shl nuw nsw i32 %94, 8
+  %and4.i.i343.us.1 = shl nuw nsw i32 %95, 8
   %or6.i.i344.us.1 = or disjoint i32 %or.i.i342.us.1, %and4.i.i343.us.1
-  %or8.i.i345.us.1 = or disjoint i32 %or6.i.i344.us.1, %95
+  %or8.i.i345.us.1 = or disjoint i32 %or6.i.i344.us.1, %96
   %arrayidx77.us.1 = getelementptr inbounds i8, ptr %this, i64 7376
   store i32 %or8.i.i345.us.1, ptr %arrayidx77.us.1, align 8, !tbaa !62
-  %96 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.2 = load ptr, ptr %96, align 8, !tbaa !4
+  %97 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.2 = load ptr, ptr %97, align 8, !tbaa !4
   %vfn.us.2 = getelementptr inbounds i8, ptr %vtable.us.2, i64 96
-  %97 = load ptr, ptr %vfn.us.2, align 8
-  %call57.us.2 = tail call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(8) %96)
+  %98 = load ptr, ptr %vfn.us.2, align 8
+  %call57.us.2 = tail call noundef ptr %98(ptr noundef nonnull align 8 dereferenceable(8) %97)
   %vtable59.us.2 = load ptr, ptr %call57.us.2, align 8, !tbaa !4
-  %98 = load ptr, ptr %vtable59.us.2, align 8
-  %call61.us.2 = tail call i32 %98(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.2, i32 noundef 2)
+  %99 = load ptr, ptr %vtable59.us.2, align 8
+  %call61.us.2 = tail call i32 %99(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.2, i32 noundef 2)
   %shr.i.i326.us.2 = and i32 %call61.us.2, -16777216
   %shr.i27.i327.us.2 = lshr i32 %call61.us.2, 16
   %and.i.i328.us.2 = and i32 %shr.i27.i327.us.2, 255
   %conv.i329.us.2 = uitofp nneg i32 %and.i.i328.us.2 to float
   %mul.i330.us.2 = fmul nsz float %conv.i329.us.2, 1.250000e+00
   %conv2.i331.us.2 = fptoui float %mul.i330.us.2 to i32
-  %99 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us.2, i32 255)
+  %100 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us.2, i32 255)
   %shr.i28.i332.us.2 = lshr i32 %call61.us.2, 8
   %and.i29.i333.us.2 = and i32 %shr.i28.i332.us.2, 255
   %conv8.i334.us.2 = uitofp nneg i32 %and.i29.i333.us.2 to float
   %mul9.i335.us.2 = fmul nsz float %conv8.i334.us.2, 1.250000e+00
   %conv10.i336.us.2 = fptoui float %mul9.i335.us.2 to i32
-  %100 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us.2, i32 255)
+  %101 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us.2, i32 255)
   %and.i30.i337.us.2 = and i32 %call61.us.2, 255
   %conv16.i338.us.2 = uitofp nneg i32 %and.i30.i337.us.2 to float
   %mul17.i339.us.2 = fmul nsz float %conv16.i338.us.2, 1.250000e+00
   %conv18.i340.us.2 = fptoui float %mul17.i339.us.2 to i32
-  %101 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us.2, i32 255)
-  %and2.i.i341.us.2 = shl nuw nsw i32 %99, 16
+  %102 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us.2, i32 255)
+  %and2.i.i341.us.2 = shl nuw nsw i32 %100, 16
   %or.i.i342.us.2 = or disjoint i32 %and2.i.i341.us.2, %shr.i.i326.us.2
-  %and4.i.i343.us.2 = shl nuw nsw i32 %100, 8
+  %and4.i.i343.us.2 = shl nuw nsw i32 %101, 8
   %or6.i.i344.us.2 = or disjoint i32 %or.i.i342.us.2, %and4.i.i343.us.2
-  %or8.i.i345.us.2 = or disjoint i32 %or6.i.i344.us.2, %101
+  %or8.i.i345.us.2 = or disjoint i32 %or6.i.i344.us.2, %102
   %arrayidx77.us.2 = getelementptr inbounds i8, ptr %this, i64 7380
   store i32 %or8.i.i345.us.2, ptr %arrayidx77.us.2, align 4, !tbaa !62
-  %102 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.3 = load ptr, ptr %102, align 8, !tbaa !4
+  %103 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.3 = load ptr, ptr %103, align 8, !tbaa !4
   %vfn.us.3 = getelementptr inbounds i8, ptr %vtable.us.3, i64 96
-  %103 = load ptr, ptr %vfn.us.3, align 8
-  %call57.us.3 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %102)
+  %104 = load ptr, ptr %vfn.us.3, align 8
+  %call57.us.3 = tail call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(8) %103)
   %vtable59.us.3 = load ptr, ptr %call57.us.3, align 8, !tbaa !4
-  %104 = load ptr, ptr %vtable59.us.3, align 8
-  %call61.us.3 = tail call i32 %104(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.3, i32 noundef 3)
+  %105 = load ptr, ptr %vtable59.us.3, align 8
+  %call61.us.3 = tail call i32 %105(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.3, i32 noundef 3)
   %shr.i.i326.us.3 = and i32 %call61.us.3, -16777216
   %shr.i27.i327.us.3 = lshr i32 %call61.us.3, 16
   %and.i.i328.us.3 = and i32 %shr.i27.i327.us.3, 255
   %conv.i329.us.3 = uitofp nneg i32 %and.i.i328.us.3 to float
   %mul.i330.us.3 = fmul nsz float %conv.i329.us.3, 1.250000e+00
   %conv2.i331.us.3 = fptoui float %mul.i330.us.3 to i32
-  %105 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us.3, i32 255)
+  %106 = tail call noundef i32 @llvm.umin.i32(i32 %conv2.i331.us.3, i32 255)
   %shr.i28.i332.us.3 = lshr i32 %call61.us.3, 8
   %and.i29.i333.us.3 = and i32 %shr.i28.i332.us.3, 255
   %conv8.i334.us.3 = uitofp nneg i32 %and.i29.i333.us.3 to float
   %mul9.i335.us.3 = fmul nsz float %conv8.i334.us.3, 1.250000e+00
   %conv10.i336.us.3 = fptoui float %mul9.i335.us.3 to i32
-  %106 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us.3, i32 255)
+  %107 = tail call noundef i32 @llvm.umin.i32(i32 %conv10.i336.us.3, i32 255)
   %and.i30.i337.us.3 = and i32 %call61.us.3, 255
   %conv16.i338.us.3 = uitofp nneg i32 %and.i30.i337.us.3 to float
   %mul17.i339.us.3 = fmul nsz float %conv16.i338.us.3, 1.250000e+00
   %conv18.i340.us.3 = fptoui float %mul17.i339.us.3 to i32
-  %107 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us.3, i32 255)
-  %and2.i.i341.us.3 = shl nuw nsw i32 %105, 16
+  %108 = tail call noundef i32 @llvm.umin.i32(i32 %conv18.i340.us.3, i32 255)
+  %and2.i.i341.us.3 = shl nuw nsw i32 %106, 16
   %or.i.i342.us.3 = or disjoint i32 %and2.i.i341.us.3, %shr.i.i326.us.3
-  %and4.i.i343.us.3 = shl nuw nsw i32 %106, 8
+  %and4.i.i343.us.3 = shl nuw nsw i32 %107, 8
   %or6.i.i344.us.3 = or disjoint i32 %or.i.i342.us.3, %and4.i.i343.us.3
-  %or8.i.i345.us.3 = or disjoint i32 %or6.i.i344.us.3, %107
+  %or8.i.i345.us.3 = or disjoint i32 %or6.i.i344.us.3, %108
   %arrayidx77.us.3 = getelementptr inbounds i8, ptr %this, i64 7384
   store i32 %or8.i.i345.us.3, ptr %arrayidx77.us.3, align 8, !tbaa !62
   br label %if.end86
 
 for.body56.us.us.preheader:                       ; preds = %if.else49.split.us
   store i32 %call61.us.us, ptr %Colors68, align 4, !tbaa !62
-  %108 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.us.1 = load ptr, ptr %108, align 8, !tbaa !4
+  %109 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.us.1 = load ptr, ptr %109, align 8, !tbaa !4
   %vfn.us.us.1 = getelementptr inbounds i8, ptr %vtable.us.us.1, i64 96
-  %109 = load ptr, ptr %vfn.us.us.1, align 8
-  %call57.us.us.1 = tail call noundef ptr %109(ptr noundef nonnull align 8 dereferenceable(8) %108)
+  %110 = load ptr, ptr %vfn.us.us.1, align 8
+  %call57.us.us.1 = tail call noundef ptr %110(ptr noundef nonnull align 8 dereferenceable(8) %109)
   %vtable59.us.us.1 = load ptr, ptr %call57.us.us.1, align 8, !tbaa !4
-  %110 = load ptr, ptr %vtable59.us.us.1, align 8
-  %call61.us.us.1 = tail call i32 %110(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us.1, i32 noundef 1)
+  %111 = load ptr, ptr %vtable59.us.us.1, align 8
+  %call61.us.us.1 = tail call i32 %111(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us.1, i32 noundef 1)
   %arrayidx80.us.us.1 = getelementptr inbounds i8, ptr %this, i64 7376
   store i32 %call61.us.us.1, ptr %arrayidx80.us.us.1, align 8, !tbaa !62
-  %111 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.us.2 = load ptr, ptr %111, align 8, !tbaa !4
+  %112 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.us.2 = load ptr, ptr %112, align 8, !tbaa !4
   %vfn.us.us.2 = getelementptr inbounds i8, ptr %vtable.us.us.2, i64 96
-  %112 = load ptr, ptr %vfn.us.us.2, align 8
-  %call57.us.us.2 = tail call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %111)
+  %113 = load ptr, ptr %vfn.us.us.2, align 8
+  %call57.us.us.2 = tail call noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %112)
   %vtable59.us.us.2 = load ptr, ptr %call57.us.us.2, align 8, !tbaa !4
-  %113 = load ptr, ptr %vtable59.us.us.2, align 8
-  %call61.us.us.2 = tail call i32 %113(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us.2, i32 noundef 2)
+  %114 = load ptr, ptr %vtable59.us.us.2, align 8
+  %call61.us.us.2 = tail call i32 %114(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us.2, i32 noundef 2)
   %arrayidx80.us.us.2 = getelementptr inbounds i8, ptr %this, i64 7380
   store i32 %call61.us.us.2, ptr %arrayidx80.us.us.2, align 4, !tbaa !62
-  %114 = load ptr, ptr %Environment, align 8, !tbaa !61
-  %vtable.us.us.3 = load ptr, ptr %114, align 8, !tbaa !4
+  %115 = load ptr, ptr %Environment, align 8, !tbaa !61
+  %vtable.us.us.3 = load ptr, ptr %115, align 8, !tbaa !4
   %vfn.us.us.3 = getelementptr inbounds i8, ptr %vtable.us.us.3, i64 96
-  %115 = load ptr, ptr %vfn.us.us.3, align 8
-  %call57.us.us.3 = tail call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(8) %114)
+  %116 = load ptr, ptr %vfn.us.us.3, align 8
+  %call57.us.us.3 = tail call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(8) %115)
   %vtable59.us.us.3 = load ptr, ptr %call57.us.us.3, align 8, !tbaa !4
-  %116 = load ptr, ptr %vtable59.us.us.3, align 8
-  %call61.us.us.3 = tail call i32 %116(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us.3, i32 noundef 3)
+  %117 = load ptr, ptr %vtable59.us.us.3, align 8
+  %call61.us.us.3 = tail call i32 %117(ptr noundef nonnull align 8 dereferenceable(8) %call57.us.us.3, i32 noundef 3)
   %arrayidx80.us.us.3 = getelementptr inbounds i8, ptr %this, i64 7384
   store i32 %call61.us.us.3, ptr %arrayidx80.us.us.3, align 8, !tbaa !62
   br label %if.end86
 
 if.end86:                                         ; preds = %for.body56.us.us.preheader, %for.body56.us.preheader, %for.body56.preheader, %if.then26, %if.else, %if.then15, %_ZNK9StyleSpec8getColorENS_8PropertyE.exit
   %_M_string_length.i.i.i347 = getelementptr inbounds i8, ptr %style, i64 40
-  %117 = load i64, ptr %_M_string_length.i.i.i347, align 8, !tbaa !72
-  %cmp.i.i348.not = icmp eq i64 %117, 0
+  %118 = load i64, ptr %_M_string_length.i.i.i347, align 8, !tbaa !72
+  %cmp.i.i348.not = icmp eq i64 %118, 0
   br i1 %cmp.i.i348.not, label %if.else95, label %_ZNK9StyleSpec8getColorENS_8PropertyE.exit355
 
 _ZNK9StyleSpec8getColorENS_8PropertyE.exit355:    ; preds = %if.end86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.i349)
   %call3.i353 = call noundef zeroext i1 @_Z16parseColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN3irr5video6SColorEbh(ptr noundef nonnull align 8 dereferenceable(32) %properties.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.i349, i1 noundef zeroext false, i8 noundef zeroext -1)
-  %118 = load i32, ptr %retval.i349, align 4
+  %119 = load i32, ptr %retval.i349, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.i349)
   %vtable93 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 312
-  %119 = load ptr, ptr %vfn94, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 %118)
+  %120 = load ptr, ptr %vfn94, align 8
+  call void %120(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 %119)
   br label %if.end100
 
 if.else95:                                        ; preds = %if.end86
   %vtable98 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn99 = getelementptr inbounds i8, ptr %vtable98, i64 312
-  %120 = load ptr, ptr %vfn99, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 -1)
+  %121 = load ptr, ptr %vfn99, align 8
+  call void %121(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 -1)
   %OverrideColorEnabled = getelementptr inbounds i8, ptr %this, i64 7344
   store i8 0, ptr %OverrideColorEnabled, align 8, !tbaa !43
   br label %if.end100
 
 if.end100:                                        ; preds = %if.else95, %_ZNK9StyleSpec8getColorENS_8PropertyE.exit355
   %_M_string_length.i.i.i358 = getelementptr inbounds i8, ptr %style, i64 168
-  %121 = load i64, ptr %_M_string_length.i.i.i358, align 8, !tbaa !72
-  %cmp.i.i359 = icmp eq i64 %121, 0
+  %122 = load i64, ptr %_M_string_length.i.i.i358, align 8, !tbaa !72
+  %cmp.i.i359 = icmp eq i64 %122, 0
   br i1 %cmp.i.i359, label %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end100
   %arrayidx.i.i.i357 = getelementptr inbounds i8, ptr %style, i64 160
-  %122 = load ptr, ptr %arrayidx.i.i.i357, align 8, !tbaa !122
-  %call4.i = call noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %121, ptr %122)
-  %123 = zext i1 %call4.i to i8
+  %123 = load ptr, ptr %arrayidx.i.i.i357, align 8, !tbaa !122
+  %call4.i = call noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %122, ptr %123)
+  %124 = zext i1 %call4.i to i8
   br label %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit
 
 _ZNK9StyleSpec7getBoolENS_8PropertyEb.exit:       ; preds = %if.end.i, %if.end100
-  %retval.0.i = phi i8 [ %123, %if.end.i ], [ 0, %if.end100 ]
+  %retval.0.i = phi i8 [ %124, %if.end.i ], [ 0, %if.end100 ]
   %NoClip.i = getelementptr inbounds i8, ptr %this, i64 163
   store i8 %retval.0.i, ptr %NoClip.i, align 1, !tbaa !50
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !4
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %124 = load ptr, ptr %vfn.i, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %125 = load ptr, ptr %vfn.i, align 8
+  call void %125(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %_M_string_length.i.i.i362 = getelementptr inbounds i8, ptr %style, i64 200
-  %125 = load i64, ptr %_M_string_length.i.i.i362, align 8, !tbaa !72
-  %cmp.i.i363 = icmp eq i64 %125, 0
+  %126 = load i64, ptr %_M_string_length.i.i.i362, align 8, !tbaa !72
+  %cmp.i.i363 = icmp eq i64 %126, 0
   br i1 %cmp.i.i363, label %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit367, label %if.end.i364
 
 if.end.i364:                                      ; preds = %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit
   %arrayidx.i.i.i361 = getelementptr inbounds i8, ptr %style, i64 192
-  %126 = load ptr, ptr %arrayidx.i.i.i361, align 8, !tbaa !122
-  %call4.i365 = call noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %125, ptr %126)
+  %127 = load ptr, ptr %arrayidx.i.i.i361, align 8, !tbaa !122
+  %call4.i365 = call noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %126, ptr %127)
   br label %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit367
 
 _ZNK9StyleSpec7getBoolENS_8PropertyEb.exit367:    ; preds = %if.end.i364, %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit
   %retval.0.i366 = phi i1 [ %call4.i365, %if.end.i364 ], [ true, %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit ]
   %vtable103 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn104 = getelementptr inbounds i8, ptr %vtable103, i64 488
-  %127 = load ptr, ptr %vfn104, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %retval.0.i366)
+  %128 = load ptr, ptr %vfn104, align 8
+  call void %128(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %retval.0.i366)
   %_M_string_length.i.i.i370 = getelementptr inbounds i8, ptr %style, i64 488
-  %128 = load i64, ptr %_M_string_length.i.i.i370, align 8, !tbaa !72
-  %cmp.i.i371 = icmp eq i64 %128, 0
+  %129 = load i64, ptr %_M_string_length.i.i.i370, align 8, !tbaa !72
+  %cmp.i.i371 = icmp eq i64 %129, 0
   br i1 %cmp.i.i371, label %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit375, label %if.end.i372
 
 if.end.i372:                                      ; preds = %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit367
   %arrayidx.i.i.i369 = getelementptr inbounds i8, ptr %style, i64 480
-  %129 = load ptr, ptr %arrayidx.i.i.i369, align 8, !tbaa !122
-  %call4.i373 = call noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %128, ptr %129)
+  %130 = load ptr, ptr %arrayidx.i.i.i369, align 8, !tbaa !122
+  %call4.i373 = call noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %129, ptr %130)
   br label %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit375
 
 _ZNK9StyleSpec7getBoolENS_8PropertyEb.exit375:    ; preds = %if.end.i372, %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit367
   %retval.0.i374 = phi i1 [ %call4.i373, %if.end.i372 ], [ true, %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit367 ]
   %vtable106 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn107 = getelementptr inbounds i8, ptr %vtable106, i64 464
-  %130 = load ptr, ptr %vfn107, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %retval.0.i374)
+  %131 = load ptr, ptr %vfn107, align 8
+  call void %131(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext %retval.0.i374)
   %call108 = call noundef ptr @_ZNK9StyleSpec7getFontEv(ptr noundef nonnull align 8 dereferenceable(833) %style)
   %vtable109 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn110 = getelementptr inbounds i8, ptr %vtable109, i64 288
-  %131 = load ptr, ptr %vfn110, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef %call108)
+  %132 = load ptr, ptr %vfn110, align 8
+  call void %132(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef %call108)
   %_M_string_length.i.i.i377 = getelementptr inbounds i8, ptr %style, i64 232
-  %132 = load i64, ptr %_M_string_length.i.i.i377, align 8, !tbaa !72
-  %cmp.i.i378.not = icmp eq i64 %132, 0
+  %133 = load i64, ptr %_M_string_length.i.i.i377, align 8, !tbaa !72
+  %cmp.i.i378.not = icmp eq i64 %133, 0
   br i1 %cmp.i.i378.not, label %if.else127, label %_ZNK9StyleSpec10getTextureENS_8PropertyEP20ISimpleTextureSource.exit
 
 _ZNK9StyleSpec10getTextureENS_8PropertyEP20ISimpleTextureSource.exit: ; preds = %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit375
   %arrayidx.i.i.i380 = getelementptr inbounds i8, ptr %style, i64 224
   %TSrc.i = getelementptr inbounds i8, ptr %this, i64 7392
-  %133 = load ptr, ptr %TSrc.i, align 8, !tbaa !49
-  %vtable.i383 = load ptr, ptr %133, align 8, !tbaa !4
+  %134 = load ptr, ptr %TSrc.i, align 8, !tbaa !49
+  %vtable.i383 = load ptr, ptr %134, align 8, !tbaa !4
   %vfn.i384 = getelementptr inbounds i8, ptr %vtable.i383, i64 16
-  %134 = load ptr, ptr %vfn.i384, align 8
-  %call3.i385 = call noundef ptr %134(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i380, ptr noundef null)
+  %135 = load ptr, ptr %vfn.i384, align 8
+  %call3.i385 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i380, ptr noundef null)
   %Environment115 = getelementptr inbounds i8, ptr %this, i64 296
-  %135 = load ptr, ptr %Environment115, align 8, !tbaa !61
-  %vtable116 = load ptr, ptr %135, align 8, !tbaa !4
+  %136 = load ptr, ptr %Environment115, align 8, !tbaa !61
+  %vtable116 = load ptr, ptr %136, align 8, !tbaa !4
   %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 48
-  %136 = load ptr, ptr %vfn117, align 8
-  %call118 = call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(8) %135)
+  %137 = load ptr, ptr %vfn117, align 8
+  %call118 = call noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(8) %136)
   %AbsoluteRect = getelementptr inbounds i8, ptr %this, i64 64
   %LowerRightCorner.i = getelementptr inbounds i8, ptr %this, i64 72
-  %137 = load i32, ptr %LowerRightCorner.i, align 8, !tbaa !99
-  %138 = load i32, ptr %AbsoluteRect, align 8, !tbaa !96
-  %sub.i = sub nsw i32 %137, %138
+  %138 = load i32, ptr %LowerRightCorner.i, align 8, !tbaa !99
+  %139 = load i32, ptr %AbsoluteRect, align 8, !tbaa !96
+  %sub.i = sub nsw i32 %138, %139
   %Y.i = getelementptr inbounds i8, ptr %this, i64 76
-  %139 = load i32, ptr %Y.i, align 4, !tbaa !100
+  %140 = load i32, ptr %Y.i, align 4, !tbaa !100
   %Y2.i = getelementptr inbounds i8, ptr %this, i64 68
-  %140 = load i32, ptr %Y2.i, align 4, !tbaa !97
-  %sub.i387 = sub nsw i32 %139, %140
+  %141 = load i32, ptr %Y2.i, align 4, !tbaa !97
+  %sub.i387 = sub nsw i32 %140, %141
   %call122 = call noundef ptr @_Z21guiScalingImageButtonPN3irr5video12IVideoDriverEPNS0_8ITextureEii(ptr noundef %call118, ptr noundef %call3.i385, i32 noundef %sub.i, i32 noundef %sub.i387)
   %vtable123 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn124 = getelementptr inbounds i8, ptr %vtable123, i64 360
-  %141 = load ptr, ptr %vfn124, align 8
-  call void %141(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef %call122)
+  %142 = load ptr, ptr %vfn124, align 8
+  call void %142(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef %call122)
   %vtable125 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn126 = getelementptr inbounds i8, ptr %vtable125, i64 504
-  %142 = load ptr, ptr %vfn126, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext true)
+  %143 = load ptr, ptr %vfn126, align 8
+  call void %143(ptr noundef nonnull align 8 dereferenceable(7452) %this, i1 noundef zeroext true)
   br label %if.end130
 
 if.else127:                                       ; preds = %_ZNK9StyleSpec7getBoolENS_8PropertyEb.exit375
   %vtable128 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn129 = getelementptr inbounds i8, ptr %vtable128, i64 360
-  %143 = load ptr, ptr %vfn129, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef null)
+  %144 = load ptr, ptr %vfn129, align 8
+  call void %144(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef null)
   br label %if.end130
 
 if.end130:                                        ; preds = %if.else127, %_ZNK9StyleSpec10getTextureENS_8PropertyEP20ISimpleTextureSource.exit
@@ -5266,8 +5270,8 @@ if.end130:                                        ; preds = %if.else127, %_ZNK9S
   %agg.tmp132.sroa.2.0.BgMiddle.sroa_idx = getelementptr inbounds i8, ptr %this, i64 7416
   %agg.tmp132.sroa.2.0.copyload = load i64, ptr %agg.tmp132.sroa.2.0.BgMiddle.sroa_idx, align 8, !tbaa.struct !105
   %_M_string_length.i.i.i390 = getelementptr inbounds i8, ptr %style, i64 296
-  %144 = load i64, ptr %_M_string_length.i.i.i390, align 8, !tbaa !72
-  %cmp.i.i391 = icmp eq i64 %144, 0
+  %145 = load i64, ptr %_M_string_length.i.i.i390, align 8, !tbaa !72
+  %cmp.i.i391 = icmp eq i64 %145, 0
   br i1 %cmp.i.i391, label %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit, label %if.end.i392
 
 if.end.i392:                                      ; preds = %if.end130
@@ -5289,14 +5293,14 @@ _ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit: ; preds = %if.end.
   store i64 %retval.sroa.0.1.i, ptr %BgMiddle, align 8, !tbaa.struct !101
   store i64 %retval.sroa.4.1.i, ptr %agg.tmp132.sroa.2.0.BgMiddle.sroa_idx, align 8, !tbaa.struct !105
   %_M_string_length.i.i.i397 = getelementptr inbounds i8, ptr %style, i64 552
-  %145 = load i64, ptr %_M_string_length.i.i.i397, align 8, !tbaa !72
-  %cmp.i.i398 = icmp eq i64 %145, 0
-  %146 = trunc i64 %retval.sroa.0.1.i to i32
-  %147 = lshr i64 %retval.sroa.0.1.i, 32
-  %148 = trunc nuw i64 %147 to i32
-  %149 = trunc i64 %retval.sroa.4.1.i to i32
-  %150 = lshr i64 %retval.sroa.4.1.i, 32
-  %151 = trunc nuw i64 %150 to i32
+  %146 = load i64, ptr %_M_string_length.i.i.i397, align 8, !tbaa !72
+  %cmp.i.i398 = icmp eq i64 %146, 0
+  %147 = trunc i64 %retval.sroa.0.1.i to i32
+  %148 = lshr i64 %retval.sroa.0.1.i, 32
+  %149 = trunc nuw i64 %148 to i32
+  %150 = trunc i64 %retval.sroa.4.1.i to i32
+  %151 = lshr i64 %retval.sroa.4.1.i, 32
+  %152 = trunc nuw i64 %151 to i32
   br i1 %cmp.i.i398, label %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410, label %if.end.i399
 
 if.end.i399:                                      ; preds = %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit
@@ -5319,30 +5323,30 @@ if.end.i399:                                      ; preds = %_ZNK9StyleSpec7getR
   br label %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410
 
 _ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410: ; preds = %if.end.i399, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit
-  %152 = phi i32 [ %.pre471, %if.end.i399 ], [ %151, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
-  %153 = phi i32 [ %.pre470, %if.end.i399 ], [ %149, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
-  %154 = phi i32 [ %.pre469, %if.end.i399 ], [ %148, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
-  %155 = phi i32 [ %.pre, %if.end.i399 ], [ %146, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
+  %153 = phi i32 [ %.pre471, %if.end.i399 ], [ %152, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
+  %154 = phi i32 [ %.pre470, %if.end.i399 ], [ %150, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
+  %155 = phi i32 [ %.pre469, %if.end.i399 ], [ %149, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
+  %156 = phi i32 [ %.pre, %if.end.i399 ], [ %147, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
   %retval.sroa.0.1.i406 = phi i64 [ %retval.sroa.0.0.i404, %if.end.i399 ], [ 0, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
   %retval.sroa.4.1.i407 = phi i64 [ %retval.sroa.4.0.i405, %if.end.i399 ], [ 0, %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit ]
   %Padding = getelementptr inbounds i8, ptr %this, i64 7424
   %ref.tmp135.sroa.4.0.Padding.sroa_idx = getelementptr inbounds i8, ptr %this, i64 7432
-  %156 = trunc i64 %retval.sroa.0.1.i406 to i32
-  %add.i = add nsw i32 %155, %156
+  %157 = trunc i64 %retval.sroa.0.1.i406 to i32
+  %add.i = add nsw i32 %156, %157
   %Y.i411 = getelementptr inbounds i8, ptr %this, i64 7428
-  %157 = lshr i64 %retval.sroa.0.1.i406, 32
-  %158 = trunc nuw i64 %157 to i32
-  %add4.i = add nsw i32 %154, %158
+  %158 = lshr i64 %retval.sroa.0.1.i406, 32
+  %159 = trunc nuw i64 %158 to i32
+  %add4.i = add nsw i32 %155, %159
   %retval.sroa.2.0.insert.ext.i = zext i32 %add4.i to i64
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
   %retval.sroa.0.0.insert.ext.i = zext i32 %add.i to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
-  %159 = trunc i64 %retval.sroa.4.1.i407 to i32
-  %add.i412 = add nsw i32 %153, %159
+  %160 = trunc i64 %retval.sroa.4.1.i407 to i32
+  %add.i412 = add nsw i32 %154, %160
   %Y.i413 = getelementptr inbounds i8, ptr %this, i64 7436
-  %160 = lshr i64 %retval.sroa.4.1.i407, 32
-  %161 = trunc nuw i64 %160 to i32
-  %add4.i415 = add nsw i32 %152, %161
+  %161 = lshr i64 %retval.sroa.4.1.i407, 32
+  %162 = trunc nuw i64 %161 to i32
+  %add4.i415 = add nsw i32 %153, %162
   %retval.sroa.2.0.insert.ext.i416 = zext i32 %add4.i415 to i64
   %retval.sroa.2.0.insert.shift.i417 = shl nuw i64 %retval.sroa.2.0.insert.ext.i416, 32
   %retval.sroa.0.0.insert.ext.i418 = zext i32 %add.i412 to i64
@@ -5350,34 +5354,34 @@ _ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410: ; preds = %if.e
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %Padding, align 8, !tbaa.struct !101
   store i64 %retval.sroa.0.0.insert.insert.i419, ptr %ref.tmp135.sroa.4.0.Padding.sroa_idx, align 8, !tbaa.struct !105
   %Environment150 = getelementptr inbounds i8, ptr %this, i64 296
-  %162 = load ptr, ptr %Environment150, align 8, !tbaa !61
-  %vtable151 = load ptr, ptr %162, align 8, !tbaa !4
+  %163 = load ptr, ptr %Environment150, align 8, !tbaa !61
+  %vtable151 = load ptr, ptr %163, align 8, !tbaa !4
   %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 96
-  %163 = load ptr, ptr %vfn152, align 8
-  %call153 = call noundef ptr %163(ptr noundef nonnull align 8 dereferenceable(8) %162)
-  %164 = icmp ne ptr %call153, null
-  call void @llvm.assume(i1 %164)
-  %165 = call ptr @__dynamic_cast(ptr nonnull %call153, ptr nonnull @_ZTIN3irr3gui8IGUISkinE, ptr nonnull @_ZTIN3irr3gui7GUISkinE, i64 0) #30
-  %vtable154 = load ptr, ptr %165, align 8, !tbaa !4
+  %164 = load ptr, ptr %vfn152, align 8
+  %call153 = call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(8) %163)
+  %165 = icmp ne ptr %call153, null
+  call void @llvm.assume(i1 %165)
+  %166 = call ptr @__dynamic_cast(ptr nonnull %call153, ptr nonnull @_ZTIN3irr3gui8IGUISkinE, ptr nonnull @_ZTIN3irr3gui7GUISkinE, i64 0) #30
+  %vtable154 = load ptr, ptr %166, align 8, !tbaa !4
   %vfn155 = getelementptr inbounds i8, ptr %vtable154, i64 16
-  %166 = load ptr, ptr %vfn155, align 8
-  %call156 = call noundef i32 %166(ptr noundef nonnull align 8 dereferenceable(616) %165, i32 noundef 17)
-  %vtable157 = load ptr, ptr %165, align 8, !tbaa !4
+  %167 = load ptr, ptr %vfn155, align 8
+  %call156 = call noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(616) %166, i32 noundef 17)
+  %vtable157 = load ptr, ptr %166, align 8, !tbaa !4
   %vfn158 = getelementptr inbounds i8, ptr %vtable157, i64 16
-  %167 = load ptr, ptr %vfn158, align 8
-  %call159 = call noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(616) %165, i32 noundef 18)
+  %168 = load ptr, ptr %vfn158, align 8
+  %call159 = call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(616) %166, i32 noundef 18)
   %vtable162 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn163 = getelementptr inbounds i8, ptr %vtable162, i64 456
-  %168 = load ptr, ptr %vfn163, align 8
-  %call164 = call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(7452) %this)
-  %169 = zext i32 %call156 to i64
-  %170 = zext i32 %call159 to i64
-  %171 = shl nuw i64 %170, 32
-  %172 = or disjoint i64 %171, %169
-  %agg.tmp161.sroa.0.0.insert.insert = select i1 %call164, i64 %172, i64 0
+  %169 = load ptr, ptr %vfn163, align 8
+  %call164 = call noundef zeroext i1 %169(ptr noundef nonnull align 8 dereferenceable(7452) %this)
+  %170 = zext i32 %call156 to i64
+  %171 = zext i32 %call159 to i64
+  %172 = shl nuw i64 %171, 32
+  %173 = or disjoint i64 %172, %170
+  %agg.tmp161.sroa.0.0.insert.insert = select i1 %call164, i64 %173, i64 0
   %_M_string_length.i.i.i425 = getelementptr inbounds i8, ptr %style, i64 520
-  %173 = load i64, ptr %_M_string_length.i.i.i425, align 8, !tbaa !72
-  %cmp.i.i426 = icmp eq i64 %173, 0
+  %174 = load i64, ptr %_M_string_length.i.i.i425, align 8, !tbaa !72
+  %cmp.i.i426 = icmp eq i64 %174, 0
   br i1 %cmp.i.i426, label %if.then.i, label %if.end.i427
 
 if.then.i:                                        ; preds = %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410
@@ -5401,10 +5405,10 @@ if.then4.i:                                       ; preds = %if.end.i427
 
 if.end5.i:                                        ; preds = %if.end.i427
   %Y.i.i = getelementptr inbounds i8, ptr %vec.i, i64 4
-  %174 = load float, ptr %vec.i, align 8, !tbaa !128
-  %conv6.i = fptosi float %174 to i32
-  %175 = load float, ptr %Y.i.i, align 4, !tbaa !129
-  %conv7.i = fptosi float %175 to i32
+  %175 = load float, ptr %vec.i, align 8, !tbaa !128
+  %conv6.i = fptosi float %175 to i32
+  %176 = load float, ptr %Y.i.i, align 4, !tbaa !129
+  %conv7.i = fptosi float %176 to i32
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end5.i, %if.then4.i
@@ -5422,30 +5426,30 @@ _ZNK9StyleSpec11getVector2iENS_8PropertyEN3irr4core8vector2dIiEE.exit: ; preds =
   %retval.sroa.0.0.insert.insert.i434 = or disjoint i64 %retval.sroa.4.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i433
   %ContentOffset = getelementptr inbounds i8, ptr %this, i64 7440
   store i64 %retval.sroa.0.0.insert.insert.i434, ptr %ContentOffset, align 8, !tbaa.struct !105
-  %176 = load i32, ptr %Padding, align 8, !tbaa !130
-  %add = add nsw i32 %176, %retval.sroa.0.1.i432
-  %177 = load i32, ptr %Y.i411, align 4, !tbaa !131
-  %add174 = add nsw i32 %177, %retval.sroa.4.1.i431
+  %177 = load i32, ptr %Padding, align 8, !tbaa !130
+  %add = add nsw i32 %177, %retval.sroa.0.1.i432
+  %178 = load i32, ptr %Y.i411, align 4, !tbaa !131
+  %add174 = add nsw i32 %178, %retval.sroa.4.1.i431
   %AbsoluteRect175 = getelementptr inbounds i8, ptr %this, i64 64
   %LowerRightCorner.i435 = getelementptr inbounds i8, ptr %this, i64 72
-  %178 = load i32, ptr %LowerRightCorner.i435, align 8, !tbaa !99
-  %179 = load i32, ptr %AbsoluteRect175, align 8, !tbaa !96
-  %180 = load i32, ptr %ref.tmp135.sroa.4.0.Padding.sroa_idx, align 8, !tbaa !132
-  %sub.i436 = add i32 %178, %retval.sroa.0.1.i432
-  %add180 = sub i32 %sub.i436, %179
-  %add183 = add i32 %add180, %180
+  %179 = load i32, ptr %LowerRightCorner.i435, align 8, !tbaa !99
+  %180 = load i32, ptr %AbsoluteRect175, align 8, !tbaa !96
+  %181 = load i32, ptr %ref.tmp135.sroa.4.0.Padding.sroa_idx, align 8, !tbaa !132
+  %sub.i436 = add i32 %179, %retval.sroa.0.1.i432
+  %add180 = sub i32 %sub.i436, %180
+  %add183 = add i32 %add180, %181
   %Y.i437 = getelementptr inbounds i8, ptr %this, i64 76
-  %181 = load i32, ptr %Y.i437, align 4, !tbaa !100
+  %182 = load i32, ptr %Y.i437, align 4, !tbaa !100
   %Y2.i438 = getelementptr inbounds i8, ptr %this, i64 68
-  %182 = load i32, ptr %Y2.i438, align 4, !tbaa !97
-  %183 = load i32, ptr %Y.i413, align 4, !tbaa !133
-  %sub.i439 = add i32 %181, %retval.sroa.4.1.i431
-  %add189 = sub i32 %sub.i439, %182
-  %add192 = add i32 %add189, %183
+  %183 = load i32, ptr %Y2.i438, align 4, !tbaa !97
+  %184 = load i32, ptr %Y.i413, align 4, !tbaa !133
+  %sub.i439 = add i32 %182, %retval.sroa.4.1.i431
+  %add189 = sub i32 %sub.i439, %183
+  %add192 = add i32 %add189, %184
   %vtable193 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn194 = getelementptr inbounds i8, ptr %vtable193, i64 224
-  %184 = load ptr, ptr %vfn194, align 8
-  %call195 = call noundef nonnull align 8 dereferenceable(24) ptr %184(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %185 = load ptr, ptr %vfn194, align 8
+  %call195 = call noundef nonnull align 8 dereferenceable(24) ptr %185(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %__begin1.sroa.0.0461 = load ptr, ptr %call195, align 8, !tbaa !108
   %cmp.i.not462 = icmp eq ptr %__begin1.sroa.0.0461, %call195
   br i1 %cmp.i.not462, label %for.cond.cleanup202, label %for.body203.lr.ph
@@ -5463,16 +5467,16 @@ for.cond.cleanup202:                              ; preds = %_ZN3irr3gui11IGUIEl
 for.body203:                                      ; preds = %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit, %for.body203.lr.ph
   %__begin1.sroa.0.0463 = phi ptr [ %__begin1.sroa.0.0461, %for.body203.lr.ph ], [ %__begin1.sroa.0.0, %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0463, i64 16
-  %185 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !60
-  %Parent.i = getelementptr inbounds i8, ptr %185, i64 32
-  %186 = load ptr, ptr %Parent.i, align 8, !tbaa !56
-  %tobool.not.i = icmp eq ptr %186, null
+  %186 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !60
+  %Parent.i = getelementptr inbounds i8, ptr %186, i64 32
+  %187 = load ptr, ptr %Parent.i, align 8, !tbaa !56
+  %tobool.not.i = icmp eq ptr %187, null
   br i1 %tobool.not.i, label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit, label %if.then.i442
 
 if.then.i442:                                     ; preds = %for.body203
-  %AbsoluteRect.i.i = getelementptr inbounds i8, ptr %186, i64 64
+  %AbsoluteRect.i.i = getelementptr inbounds i8, ptr %187, i64 64
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %AbsoluteRect.i.i, align 8, !tbaa.struct !101
-  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i = getelementptr inbounds i8, ptr %186, i64 72
+  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i = getelementptr inbounds i8, ptr %187, i64 72
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !105
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
@@ -5483,66 +5487,66 @@ if.then.i442:                                     ; preds = %for.body203
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i443 = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
   %conv9.i = sitofp i32 %sub.i4.i.i to float
-  %AlignLeft.i = getelementptr inbounds i8, ptr %185, i64 280
-  %187 = load i32, ptr %AlignLeft.i, align 8, !tbaa !134
-  %cmp.i444 = icmp eq i32 %187, 3
+  %AlignLeft.i = getelementptr inbounds i8, ptr %186, i64 280
+  %188 = load i32, ptr %AlignLeft.i, align 8, !tbaa !134
+  %cmp.i444 = icmp eq i32 %188, 3
   br i1 %cmp.i444, label %if.then10.i, label %if.end.i445
 
 if.then10.i:                                      ; preds = %if.then.i442
   %div.i = fdiv nsz float %conv11.i, %conv.i443
-  %ScaleRect.i = getelementptr inbounds i8, ptr %185, i64 128
+  %ScaleRect.i = getelementptr inbounds i8, ptr %186, i64 128
   store float %div.i, ptr %ScaleRect.i, align 8, !tbaa !135
   br label %if.end.i445
 
 if.end.i445:                                      ; preds = %if.then10.i, %if.then.i442
-  %AlignRight.i = getelementptr inbounds i8, ptr %185, i64 284
-  %188 = load i32, ptr %AlignRight.i, align 4, !tbaa !136
-  %cmp15.i = icmp eq i32 %188, 3
+  %AlignRight.i = getelementptr inbounds i8, ptr %186, i64 284
+  %189 = load i32, ptr %AlignRight.i, align 4, !tbaa !136
+  %cmp15.i = icmp eq i32 %189, 3
   br i1 %cmp15.i, label %if.then16.i, label %if.end24.i
 
 if.then16.i:                                      ; preds = %if.end.i445
   %div20.i = fdiv nsz float %conv18.i450, %conv.i443
-  %LowerRightCorner22.i = getelementptr inbounds i8, ptr %185, i64 136
+  %LowerRightCorner22.i = getelementptr inbounds i8, ptr %186, i64 136
   store float %div20.i, ptr %LowerRightCorner22.i, align 8, !tbaa !137
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then16.i, %if.end.i445
-  %AlignTop.i = getelementptr inbounds i8, ptr %185, i64 288
-  %189 = load i32, ptr %AlignTop.i, align 8, !tbaa !138
-  %cmp25.i = icmp eq i32 %189, 3
+  %AlignTop.i = getelementptr inbounds i8, ptr %186, i64 288
+  %190 = load i32, ptr %AlignTop.i, align 8, !tbaa !138
+  %cmp25.i = icmp eq i32 %190, 3
   br i1 %cmp25.i, label %if.then26.i, label %if.end34.i
 
 if.then26.i:                                      ; preds = %if.end24.i
   %div30.i = fdiv nsz float %conv28.i, %conv9.i
-  %Y33.i = getelementptr inbounds i8, ptr %185, i64 132
+  %Y33.i = getelementptr inbounds i8, ptr %186, i64 132
   store float %div30.i, ptr %Y33.i, align 4, !tbaa !139
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then26.i, %if.end24.i
-  %AlignBottom.i = getelementptr inbounds i8, ptr %185, i64 292
-  %190 = load i32, ptr %AlignBottom.i, align 4, !tbaa !140
-  %cmp35.i = icmp eq i32 %190, 3
+  %AlignBottom.i = getelementptr inbounds i8, ptr %186, i64 292
+  %191 = load i32, ptr %AlignBottom.i, align 4, !tbaa !140
+  %cmp35.i = icmp eq i32 %191, 3
   br i1 %cmp35.i, label %if.then36.i, label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit
 
 if.then36.i:                                      ; preds = %if.end34.i
   %div41.i = fdiv nsz float %conv39.i, %conv9.i
-  %Y44.i = getelementptr inbounds i8, ptr %185, i64 140
+  %Y44.i = getelementptr inbounds i8, ptr %186, i64 140
   store float %div41.i, ptr %Y44.i, align 4, !tbaa !141
   br label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit
 
 _ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit: ; preds = %if.then36.i, %if.end34.i, %for.body203
-  %DesiredRect.i = getelementptr inbounds i8, ptr %185, i64 96
+  %DesiredRect.i = getelementptr inbounds i8, ptr %186, i64 96
   store i32 %add, ptr %DesiredRect.i, align 8, !tbaa !62
-  %childBounds.sroa.5.0.DesiredRect.i.sroa_idx = getelementptr inbounds i8, ptr %185, i64 100
+  %childBounds.sroa.5.0.DesiredRect.i.sroa_idx = getelementptr inbounds i8, ptr %186, i64 100
   store i32 %add174, ptr %childBounds.sroa.5.0.DesiredRect.i.sroa_idx, align 4, !tbaa !62
-  %childBounds.sroa.7.0.DesiredRect.i.sroa_idx = getelementptr inbounds i8, ptr %185, i64 104
+  %childBounds.sroa.7.0.DesiredRect.i.sroa_idx = getelementptr inbounds i8, ptr %186, i64 104
   store i32 %add183, ptr %childBounds.sroa.7.0.DesiredRect.i.sroa_idx, align 8, !tbaa !62
-  %childBounds.sroa.9.0.DesiredRect.i.sroa_idx = getelementptr inbounds i8, ptr %185, i64 108
+  %childBounds.sroa.9.0.DesiredRect.i.sroa_idx = getelementptr inbounds i8, ptr %186, i64 108
   store i32 %add192, ptr %childBounds.sroa.9.0.DesiredRect.i.sroa_idx, align 4, !tbaa !62
-  %vtable.i446 = load ptr, ptr %185, align 8, !tbaa !4
+  %vtable.i446 = load ptr, ptr %186, align 8, !tbaa !4
   %vfn.i447 = getelementptr inbounds i8, ptr %vtable.i446, i64 24
-  %191 = load ptr, ptr %vfn.i447, align 8
-  call void %191(ptr noundef nonnull align 8 dereferenceable(308) %185)
+  %192 = load ptr, ptr %vfn.i447, align 8
+  call void %192(ptr noundef nonnull align 8 dereferenceable(308) %186)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0463, align 8, !tbaa !108
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %call195
   br i1 %cmp.i.not, label %for.cond.cleanup202, label %for.body203

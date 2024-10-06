@@ -11,13 +11,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_nat_exp_f
 %struct.nf_nat_range2 = type { i32, %union.nf_inet_addr, %union.nf_inet_addr, %union.nf_conntrack_man_proto, %union.nf_conntrack_man_proto, %union.nf_conntrack_man_proto }
 %union.nf_inet_addr = type { [4 x i32] }
 %union.nf_conntrack_man_proto = type { i16 }
-%struct.nf_conntrack_tuple_hash = type { %struct.hlist_nulls_node, %struct.nf_conntrack_tuple }
-%struct.hlist_nulls_node = type { ptr, ptr }
-%struct.nf_conntrack_tuple = type { %struct.nf_conntrack_man, %struct.anon.33 }
-%struct.nf_conntrack_man = type { %union.nf_inet_addr, %union.nf_conntrack_man_proto, i16 }
-%struct.anon.33 = type { %union.nf_inet_addr, %union.anon.34, i8, %struct.anon.41, i8 }
-%union.anon.34 = type { i16 }
-%struct.anon.41 = type {}
 
 @__UNIQUE_ID___addressable___nf_nat_mangle_tcp_packet1002 = internal global ptr @__nf_nat_mangle_tcp_packet, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_nf_nat_mangle_udp_packet1003 = internal global ptr @nf_nat_mangle_udp_packet, section ".discard.addressable", align 8
@@ -375,27 +368,27 @@ define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr nocapture nounde
   %16 = getelementptr inbounds i8, ptr %1, i64 188
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
-  %19 = zext i1 %18 to i64
-  %20 = getelementptr [2 x %struct.nf_conntrack_tuple_hash], ptr %15, i64 0, i64 %19, i32 1, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 4 dereferenceable(16) %20, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %20, i64 16, i1 false)
-  %21 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
+  %.offs1 = select i1 %18, i64 92, i64 36
+  %19 = getelementptr i8, ptr %15, i64 %.offs1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
+  %20 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
   store i32 3, ptr %3, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 36
-  %23 = getelementptr inbounds i8, ptr %3, i64 38
-  %24 = getelementptr inbounds i8, ptr %1, i64 184
-  %25 = load i16, ptr %24, align 8
-  store i16 %25, ptr %23, align 2
-  store i16 %25, ptr %22, align 4
-  %26 = load ptr, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = load i32, ptr %16, align 4
-  %29 = icmp eq i32 %28, 0
-  %30 = zext i1 %29 to i64
-  %31 = getelementptr [2 x %struct.nf_conntrack_tuple_hash], ptr %27, i64 0, i64 %30, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %31, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %31, i64 16, i1 false)
-  %32 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1) #5
+  %21 = getelementptr inbounds i8, ptr %3, i64 36
+  %22 = getelementptr inbounds i8, ptr %3, i64 38
+  %23 = getelementptr inbounds i8, ptr %1, i64 184
+  %24 = load i16, ptr %23, align 8
+  store i16 %24, ptr %22, align 2
+  store i16 %24, ptr %21, align 4
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load i32, ptr %16, align 4
+  %28 = icmp eq i32 %27, 0
+  %.offs = select i1 %28, i64 72, i64 16
+  %29 = getelementptr i8, ptr %26, i64 %.offs
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
+  %30 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #5
   ret void
 }

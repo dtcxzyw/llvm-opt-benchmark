@@ -107568,8 +107568,9 @@ common.resume:                                    ; preds = %46, %28
   ret void
 
 39:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h305012a33eb6c0feE.exit"
-  %40 = getelementptr inbounds i8, ptr %11, i64 32
-  %41 = getelementptr inbounds [2 x { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }], ptr %40, i64 0, i64 %36, i32 1
+  %.idx = mul nuw nsw i64 %36, 88
+  %40 = getelementptr i8, ptr %11, i64 56
+  %41 = getelementptr i8, ptr %40, i64 %.idx
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !4
   %44 = icmp ult i64 %8, %43
@@ -107756,8 +107757,9 @@ common.resume:                                    ; preds = %45, %27
   ret void
 
 38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h305012a33eb6c0feE.exit"
-  %39 = getelementptr inbounds i8, ptr %10, i64 32
-  %40 = getelementptr inbounds [2 x { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }], ptr %39, i64 0, i64 %35, i32 1
+  %.idx = mul nuw nsw i64 %35, 88
+  %39 = getelementptr i8, ptr %10, i64 56
+  %40 = getelementptr i8, ptr %39, i64 %.idx
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = icmp ult i64 %8, %42

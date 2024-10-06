@@ -680,8 +680,9 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %.not107114, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 120
-  %70 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %69, i64 0, i64 %6, i32 2
+  %69 = getelementptr i8, ptr %1, i64 128
+  %.idx = mul nsw i64 %6, 12
+  %70 = getelementptr i8, ptr %69, i64 %.idx
   %71 = load float, ptr %70, align 4
   %72 = getelementptr inbounds i8, ptr %0, i64 156
   %73 = getelementptr inbounds i8, ptr %1, i64 24

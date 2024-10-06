@@ -1607,9 +1607,10 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   unreachable
 
 307:                                              ; preds = %301
-  %308 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i.i.i, i64 16
-  %309 = zext nneg i32 %.sroa.33.0.i.i.i.i to i64
-  %310 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %308, i64 %309, i32 0, i32 1
+  %308 = zext nneg i32 %.sroa.33.0.i.i.i.i to i64
+  %.idx.i = mul nuw nsw i64 %308, 56
+  %309 = getelementptr i8, ptr %.sroa.02.0.i.i.i.i, i64 48
+  %310 = getelementptr i8, ptr %309, i64 %.idx.i
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %313 = load ptr, ptr %312, align 8

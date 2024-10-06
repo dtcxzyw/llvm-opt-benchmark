@@ -63,7 +63,7 @@ define dso_local void @CreateSharedInvalidationState() local_unnamed_addr #0 {
   store ptr %12, ptr @shmInvalBuffer, align 8
   %13 = load i8, ptr %1, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %36, label %15
+  br i1 %14, label %45, label %15
 
 15:                                               ; preds = %0
   store i32 0, ptr %12, align 8
@@ -82,36 +82,50 @@ define dso_local void @CreateSharedInvalidationState() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %15
   %23 = getelementptr inbounds i8, ptr %18, i64 65568
-  br label %24
+  %24 = getelementptr i8, ptr %18, i64 65572
+  %25 = getelementptr i8, ptr %18, i64 65576
+  %26 = getelementptr i8, ptr %18, i64 65577
+  %27 = getelementptr i8, ptr %18, i64 65578
+  %28 = getelementptr i8, ptr %18, i64 65580
+  br label %29
 
-24:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr [0 x %struct.ProcState], ptr %23, i64 0, i64 %indvars.iv
-  %26 = getelementptr [0 x %struct.ProcState], ptr %23, i64 0, i64 %indvars.iv, i32 6
-  store i32 0, ptr %26, align 4
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = getelementptr [0 x %struct.ProcState], ptr %23, i64 0, i64 %indvars.iv
+  store i32 0, ptr %30, align 8
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %31 = getelementptr i8, ptr %24, i64 %.idx
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr i8, ptr %25, i64 %.idx
+  store i8 0, ptr %32, align 8
+  %33 = getelementptr i8, ptr %26, i64 %.idx
+  store i8 0, ptr %33, align 1
+  %34 = getelementptr i8, ptr %27, i64 %.idx
+  store i8 0, ptr %34, align 2
+  %35 = getelementptr i8, ptr %28, i64 %.idx
+  store i32 0, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %25, i8 0, i64 11, i1 false)
-  %27 = load i32, ptr @MaxBackends, align 4
-  %28 = add i32 %27, 6
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %24, label %._crit_edge.loopexit, !llvm.loop !6
+  %36 = load i32, ptr @MaxBackends, align 4
+  %37 = add i32 %36, 6
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %29, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge.loopexit:                             ; preds = %24
-  %31 = and i64 %indvars.iv.next, 4294967295
+._crit_edge.loopexit:                             ; preds = %29
+  %40 = and i64 %indvars.iv.next, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %15
-  %.0.lcssa = phi i64 [ 0, %15 ], [ %31, %._crit_edge.loopexit ]
-  %32 = getelementptr inbounds i8, ptr %18, i64 65552
-  store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %18, i64 65568
-  %34 = getelementptr [0 x %struct.ProcState], ptr %33, i64 0, i64 %.0.lcssa
-  %35 = getelementptr inbounds i8, ptr %18, i64 65560
-  store ptr %34, ptr %35, align 8
-  br label %36
+  %.0.lcssa = phi i64 [ 0, %15 ], [ %40, %._crit_edge.loopexit ]
+  %41 = getelementptr inbounds i8, ptr %18, i64 65552
+  store i32 0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %18, i64 65568
+  %43 = getelementptr [0 x %struct.ProcState], ptr %42, i64 0, i64 %.0.lcssa
+  %44 = getelementptr inbounds i8, ptr %18, i64 65560
+  store ptr %43, ptr %44, align 8
+  br label %45
 
-36:                                               ; preds = %0, %._crit_edge
+45:                                               ; preds = %0, %._crit_edge
   ret void
 }
 
@@ -302,8 +316,8 @@ define dso_local void @SIInsertDataEntries(ptr nocapture noundef readonly %0, i3
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = getelementptr inbounds i8, ptr %3, i64 12
   %9 = getelementptr inbounds i8, ptr %3, i64 65552
-  %10 = getelementptr inbounds i8, ptr %3, i64 65568
-  %11 = getelementptr inbounds i8, ptr %3, i64 65560
+  %10 = getelementptr inbounds i8, ptr %3, i64 65560
+  %11 = getelementptr i8, ptr %3, i64 65578
   br label %12
 
 12:                                               ; preds = %.lr.ph42, %._crit_edge
@@ -370,11 +384,12 @@ define dso_local void @SIInsertDataEntries(ptr nocapture noundef readonly %0, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %42 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %10, align 8
   %43 = getelementptr i32, ptr %42, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr [0 x %struct.ProcState], ptr %10, i64 0, i64 %45, i32 4
+  %.idx = shl nsw i64 %45, 4
+  %46 = getelementptr i8, ptr %11, i64 %.idx
   store i8 1, ptr %46, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = icmp ult i64 %indvars.iv.next, %41
@@ -496,9 +511,9 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   store i32 %53, ptr %3, align 8
   %54 = add i32 %13, -1073741824
   store i32 %54, ptr %12, align 4
-  %55 = getelementptr inbounds i8, ptr %3, i64 65568
-  %56 = getelementptr inbounds i8, ptr %3, i64 65560
-  %.pre = load ptr, ptr %56, align 8
+  %55 = getelementptr inbounds i8, ptr %3, i64 65560
+  %56 = getelementptr i8, ptr %3, i64 65572
+  %.pre = load ptr, ptr %55, align 8
   %57 = zext nneg i32 %17 to i64
   br label %58
 
@@ -507,7 +522,8 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %59 = getelementptr i32, ptr %.pre, i64 %indvars.iv70
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr [0 x %struct.ProcState], ptr %55, i64 0, i64 %61, i32 1
+  %.idx = shl nsw i64 %61, 4
+  %62 = getelementptr i8, ptr %56, i64 %.idx
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, -1073741824
   store i32 %64, ptr %62, align 4

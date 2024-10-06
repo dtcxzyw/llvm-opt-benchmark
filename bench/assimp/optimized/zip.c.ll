@@ -16514,10 +16514,10 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(144) %m_huff_code_sizes.i, i8 8, i64 144, i1 false)
   %scevgep.i = getelementptr i8, ptr %d, i64 36826
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %scevgep.i, i8 9, i64 112, i1 false)
-  %scevgep90.i = getelementptr i8, ptr %d, i64 36938
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep90.i, i8 7, i64 24, i1 false)
-  %scevgep91.i = getelementptr i8, ptr %d, i64 36962
-  store i64 578721382704613384, ptr %scevgep91.i, align 1
+  %scevgep94.i = getelementptr i8, ptr %d, i64 36938
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %scevgep94.i, i8 7, i64 24, i1 false)
+  %scevgep95.i = getelementptr i8, ptr %d, i64 36962
+  store i64 578721382704613384, ptr %scevgep95.i, align 1
   %arrayidx24.i = getelementptr inbounds i8, ptr %d, i64 36970
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %arrayidx24.i, i8 5, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %num_codes.i.i)
@@ -16610,8 +16610,8 @@ tdefl_optimize_huffman_table.exit.i:              ; preds = %for.inc115.i.i
 
 for.body.i27.i:                                   ; preds = %for.body.i27.i, %tdefl_optimize_huffman_table.exit.i
   %indvars.iv.i28.i = phi i64 [ 0, %tdefl_optimize_huffman_table.exit.i ], [ %indvars.iv.next.i33.i, %for.body.i27.i ]
-  %arrayidx2.i29.i = getelementptr inbounds [3 x [288 x i8]], ptr %m_huff_code_sizes.i, i64 0, i64 1, i64 %indvars.iv.i28.i
-  %6 = load i8, ptr %arrayidx2.i29.i, align 1
+  %gep.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 %indvars.iv.i28.i
+  %6 = load i8, ptr %gep.i, align 1
   %idxprom3.i30.i = zext i8 %6 to i64
   %arrayidx4.i31.i = getelementptr inbounds [33 x i32], ptr %num_codes.i24.i, i64 0, i64 %idxprom3.i30.i
   %7 = load i32, ptr %arrayidx4.i31.i, align 4
@@ -16638,12 +16638,16 @@ for.body76.i37.i:                                 ; preds = %for.body76.i37.i, %
   store i32 %shl.i42.i, ptr %arrayidx80.i43.i, align 4
   %indvars.iv.next120.i44.i = add nuw nsw i64 %indvars.iv119.i38.i, 1
   %exitcond124.not.i45.i = icmp eq i64 %indvars.iv.next120.i44.i, 16
-  br i1 %exitcond124.not.i45.i, label %for.body87.i49.i, label %for.body76.i37.i
+  br i1 %exitcond124.not.i45.i, label %for.body87.i49.preheader.i, label %for.body76.i37.i
 
-for.body87.i49.i:                                 ; preds = %for.body76.i37.i, %for.inc115.i71.i
-  %indvars.iv125.i50.i = phi i64 [ %indvars.iv.next126.i72.i, %for.inc115.i71.i ], [ 0, %for.body76.i37.i ]
-  %arrayidx92.i51.i = getelementptr inbounds [3 x [288 x i8]], ptr %m_huff_code_sizes.i, i64 0, i64 1, i64 %indvars.iv125.i50.i
-  %10 = load i8, ptr %arrayidx92.i51.i, align 1
+for.body87.i49.preheader.i:                       ; preds = %for.body76.i37.i
+  %invariant.gep91.i = getelementptr inbounds i8, ptr %d, i64 35530
+  br label %for.body87.i49.i
+
+for.body87.i49.i:                                 ; preds = %for.inc115.i71.i, %for.body87.i49.preheader.i
+  %indvars.iv125.i50.i = phi i64 [ %indvars.iv.next126.i72.i, %for.inc115.i71.i ], [ 0, %for.body87.i49.preheader.i ]
+  %gep90.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 %indvars.iv125.i50.i
+  %10 = load i8, ptr %gep90.i, align 1
   %cmp94.i52.i = icmp eq i8 %10, 0
   br i1 %cmp94.i52.i, label %for.inc115.i71.i, label %if.end97.i53.i
 
@@ -16670,8 +16674,9 @@ for.body104.i58.i:                                ; preds = %for.body104.i58.i, 
 
 for.end108.i68.i:                                 ; preds = %for.body104.i58.i
   %conv109.i69.i = trunc i32 %or.i64.i to i16
-  %arrayidx114.i70.i = getelementptr inbounds [3 x [288 x i16]], ptr %m_huff_codes110.i.i, i64 0, i64 1, i64 %indvars.iv125.i50.i
-  store i16 %conv109.i69.i, ptr %arrayidx114.i70.i, align 2
+  %arrayidx114.i70.idx.i = shl nuw nsw i64 %indvars.iv125.i50.i, 1
+  %gep92.i = getelementptr inbounds i8, ptr %invariant.gep91.i, i64 %arrayidx114.i70.idx.i
+  store i16 %conv109.i69.i, ptr %gep92.i, align 2
   br label %for.inc115.i71.i
 
 for.inc115.i71.i:                                 ; preds = %for.end108.i68.i, %for.body87.i49.i
@@ -16691,8 +16696,8 @@ tdefl_optimize_huffman_table.exit74.i:            ; preds = %for.inc115.i71.i
   store i32 %or.i, ptr %m_bit_buffer.i, align 8
   %add.i = add i32 %12, 2
   store i32 %add.i, ptr %m_bits_in.i, align 4
-  %cmp2789.i = icmp ugt i32 %add.i, 7
-  br i1 %cmp2789.i, label %while.body.lr.ph.i, label %if.end
+  %cmp2793.i = icmp ugt i32 %add.i, 7
+  br i1 %cmp2793.i, label %while.body.lr.ph.i, label %if.end
 
 while.body.lr.ph.i:                               ; preds = %tdefl_optimize_huffman_table.exit74.i
   %m_pOutput_buf.i = getelementptr inbounds i8, ptr %d, i64 64
@@ -16713,11 +16718,11 @@ if.then.i:                                        ; preds = %while.body.i
   store ptr %incdec.ptr31.i, ptr %m_pOutput_buf.i, align 8
   store i8 %conv.i, ptr %16, align 1
   %.pre.i = load i32, ptr %m_bit_buffer.i, align 8
-  %.pre92.i = load i32, ptr %m_bits_in.i, align 4
+  %.pre96.i = load i32, ptr %m_bits_in.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %18 = phi i32 [ %.pre92.i, %if.then.i ], [ %14, %while.body.i ]
+  %18 = phi i32 [ %.pre96.i, %if.then.i ], [ %14, %while.body.i ]
   %19 = phi i32 [ %.pre.i, %if.then.i ], [ %15, %while.body.i ]
   %shr.i = lshr i32 %19, 8
   store i32 %shr.i, ptr %m_bit_buffer.i, align 8

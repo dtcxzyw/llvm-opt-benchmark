@@ -172,10 +172,14 @@ define void @getConjugateMatrix2(ptr dead_on_unwind noalias nocapture writable w
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv16, i64 1
   store double %14, ptr %15, align 8
-  %16 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv16, i64 1
+  %.idx = shl nuw nsw i64 %indvars.iv16, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 %.offs
   %17 = load double, ptr %16, align 8
   %18 = fneg double %17
-  %19 = getelementptr inbounds [2 x [2 x double]], ptr %4, i64 0, i64 %indvars.iv16, i64 1
+  %.idx19 = shl nuw nsw i64 %indvars.iv16, 4
+  %.offs20 = or disjoint i64 %.idx19, 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 %.offs20
   store double %18, ptr %19, align 8
   br i1 %5, label %.preheader, label %20
 

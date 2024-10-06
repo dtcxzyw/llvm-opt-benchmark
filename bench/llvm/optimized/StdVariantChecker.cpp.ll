@@ -49,9 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.43 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.43 = type { i64, [8 x i8] }
-%"class.clang::TemplateArgument" = type { %union.anon.550 }
-%union.anon.550 = type { %"struct.clang::TemplateArgument::DA" }
-%"struct.clang::TemplateArgument::DA" = type { i32, ptr, ptr }
 %"struct.llvm::detail::DenseMapPair.729" = type { %"struct.std::pair.730" }
 %"struct.std::pair.730" = type { i32, ptr }
 %"class.llvm::FoldingSetNodeID" = type { %"class.llvm::SmallVector.732" }
@@ -1778,9 +1775,10 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %124, %130
   br i1 %.not.i.i38.not, label %_ZL32getNthTemplateTypeArgFromVariantPKN5clang4TypeEj.exit, label %134
 
 134:                                              ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
-  %135 = getelementptr inbounds i8, ptr %133, i64 48
-  %136 = and i64 %.0.i, 4294967295
-  %137 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %135, i64 %136, i32 0, i32 0, i32 1
+  %135 = and i64 %.0.i, 4294967295
+  %.idx.i = mul nuw nsw i64 %135, 24
+  %136 = getelementptr i8, ptr %133, i64 56
+  %137 = getelementptr i8, ptr %136, i64 %.idx.i
   %138 = load i64, ptr %137, align 8
   br label %_ZL32getNthTemplateTypeArgFromVariantPKN5clang4TypeEj.exit
 
@@ -2201,7 +2199,7 @@ define linkonce_odr hidden void @_ZNK17StdVariantChecker24handleDefaultConstruct
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14, label %27
 
 27:                                               ; preds = %10
-  %28 = getelementptr inbounds i8, ptr %26, i64 56
+  %28 = getelementptr i8, ptr %26, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8

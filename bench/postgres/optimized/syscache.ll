@@ -709,10 +709,10 @@ SysCacheGetAttr.exit:                             ; preds = %12, %15
   %26 = load ptr, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = sext i16 %2 to i64
-  %31 = add nsw i64 %30, -1
-  %32 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %29, i64 0, i64 %31, i32 1
+  %29 = sext i16 %2 to i64
+  %30 = mul nsw i64 %29, 104
+  %31 = getelementptr i8, ptr %28, i64 -76
+  %32 = getelementptr i8, ptr %31, i64 %30
   %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %25, ptr noundef %32) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 524, ptr noundef nonnull @__func__.SysCacheGetAttrNotNull) #8
   unreachable

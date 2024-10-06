@@ -2687,7 +2687,9 @@ define noundef range(i8 0, 4) i8 @_ZN3git6status9GitStatus3get17hf353843cd49339f
   ret i8 %.sroa.0.0
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }], ptr %9, i64 0, i64 %11, i32 1
+  %.idx = shl nsw i64 %11, 5
+  %.offs = or disjoint i64 %.idx, 24
+  %27 = getelementptr inbounds i8, ptr %9, i64 %.offs
   %28 = load i8, ptr %27, align 8, !range !140, !noundef !4
   br label %25
 }

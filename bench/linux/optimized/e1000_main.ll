@@ -65,7 +65,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.85 = type { ptr }
 %struct.ethtool_eeprom = type { i32, i32, i32, i32, [0 x i8] }
 %struct.vlan_hdr = type { i16, i16 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.e1000_context_desc = type { %union.anon.58, %union.anon.60, i32, %union.anon.62 }
 %union.anon.58 = type { i32 }
 %union.anon.60 = type { i32 }
@@ -76,6 +75,7 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.70 = type { %struct.list_head }
 %union.anon.72 = type { i64 }
 %union.anon.76 = type { %struct.atomic_t }
+%struct.bio_vec = type { ptr, i32, i32 }
 
 @e1000_driver_name = dso_local global [6 x i8] c"e1000\00", align 1
 @__param_str_copybreak = internal constant [16 x i8] c"e1000.copybreak\00", align 16
@@ -6242,20 +6242,21 @@ thread-pre-split.thread:                          ; preds = %110, %114, %155, %1
   br i1 %195, label %.loopexit65, label %196
 
 196:                                              ; preds = %186
-  %197 = getelementptr inbounds i8, ptr %191, i64 48
-  %198 = zext i8 %193 to i64
+  %197 = zext i8 %193 to i64
+  %198 = getelementptr i8, ptr %191, i64 56
   br label %199
 
 199:                                              ; preds = %199, %196
   %200 = phi i64 [ 0, %196 ], [ %207, %199 ]
   %201 = phi i32 [ %187, %196 ], [ %206, %199 ]
-  %202 = getelementptr [17 x %struct.bio_vec], ptr %197, i64 0, i64 %200, i32 1
+  %.idx = shl i64 %200, 4
+  %202 = getelementptr i8, ptr %198, i64 %.idx
   %203 = load i32, ptr %202, align 8
   %204 = add i32 %203, %170
   %205 = lshr i32 %204, %165
   %206 = add i32 %205, %201
   %207 = add nuw nsw i64 %200, 1
-  %208 = icmp eq i64 %207, %198
+  %208 = icmp eq i64 %207, %197
   br i1 %208, label %.loopexit65, label %199, !llvm.loop !68
 
 .loopexit65:                                      ; preds = %199, %186

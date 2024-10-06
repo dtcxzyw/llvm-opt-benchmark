@@ -1515,25 +1515,28 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nocapt
   %51 = getelementptr [0 x %struct.param_attribute], ptr %48, i64 0, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 48
-  %54 = load i32, ptr %52, align 8
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr [0 x %struct.param_attribute], ptr %53, i64 0, i64 %55, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = zext i32 %53 to i64
+  %.idx = shl nuw nsw i64 %54, 6
+  %55 = getelementptr i8, ptr %52, i64 104
+  %56 = getelementptr i8, ptr %55, i64 %.idx
   store ptr %1, ptr %56, align 8
   %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 48
-  %59 = load i32, ptr %57, align 8
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr [0 x %struct.param_attribute], ptr %58, i64 0, i64 %60, i32 0, i32 1
+  %58 = load i32, ptr %57, align 8
+  %59 = zext i32 %58 to i64
+  %.idx4 = shl nuw nsw i64 %59, 6
+  %60 = getelementptr i8, ptr %57, i64 64
+  %61 = getelementptr i8, ptr %60, i64 %.idx4
   store ptr @param_attr_show, ptr %61, align 8
   %62 = load i16, ptr %4, align 8
   %63 = and i16 %62, 146
   %64 = icmp eq i16 %63, 0
   %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 48
-  %67 = load i32, ptr %65, align 8
-  %68 = zext i32 %67 to i64
-  %69 = getelementptr [0 x %struct.param_attribute], ptr %66, i64 0, i64 %68, i32 0, i32 2
+  %66 = load i32, ptr %65, align 8
+  %67 = zext i32 %66 to i64
+  %.idx5 = shl nuw nsw i64 %67, 6
+  %68 = getelementptr i8, ptr %65, i64 72
+  %69 = getelementptr i8, ptr %68, i64 %.idx5
   %70 = select i1 %64, ptr null, ptr @param_attr_store
   store ptr %70, ptr %69, align 8
   %71 = load ptr, ptr %9, align 8
@@ -1544,10 +1547,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nocapt
   store ptr %2, ptr %75, align 8
   %76 = load i16, ptr %4, align 8
   %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 48
-  %79 = load i32, ptr %77, align 8
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr [0 x %struct.param_attribute], ptr %78, i64 0, i64 %80, i32 0, i32 0, i32 1
+  %78 = load i32, ptr %77, align 8
+  %79 = zext i32 %78 to i64
+  %.idx6 = shl nuw nsw i64 %79, 6
+  %80 = getelementptr i8, ptr %77, i64 56
+  %81 = getelementptr i8, ptr %80, i64 %.idx6
   store i16 %76, ptr %81, align 8
   %82 = load ptr, ptr %9, align 8
   %83 = load i32, ptr %82, align 8

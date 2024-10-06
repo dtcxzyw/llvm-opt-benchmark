@@ -1534,48 +1534,58 @@ sw.bb.i:                                          ; preds = %sw.bb
 
 sw.bb2.i:                                         ; preds = %sw.bb, %sw.bb, %sw.bb
   %bm_regs.i = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr.i = lshr i64 %addr, 4
-  %idxprom.i = and i64 %shr.i, 268435455
-  %civ.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i, i64 0, i64 %idxprom.i, i32 1
-  %1 = load i8, ptr %civ.i, align 4
-  %conv.i = zext i8 %1 to i32
+  %shr.i = lshr i32 %conv2, 4
+  %narrow21.i = mul nuw nsw i32 %shr.i, 24
+  %1 = or disjoint i32 %narrow21.i, 4
+  %civ.offs.i = zext nneg i32 %1 to i64
+  %civ.i = getelementptr i8, ptr %bm_regs.i, i64 %civ.offs.i
+  %2 = load i8, ptr %civ.i, align 4
+  %conv.i = zext i8 %2 to i32
   br label %nabm_readb.exit
 
 sw.bb3.i:                                         ; preds = %sw.bb, %sw.bb, %sw.bb
   %bm_regs4.i = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr5.i = lshr i64 %addr, 4
-  %idxprom7.i = and i64 %shr5.i, 268435455
-  %lvi.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs4.i, i64 0, i64 %idxprom7.i, i32 2
-  %2 = load i8, ptr %lvi.i, align 1
-  %conv9.i = zext i8 %2 to i32
+  %shr5.i = lshr i32 %conv2, 4
+  %narrow20.i = mul nuw nsw i32 %shr5.i, 24
+  %3 = or disjoint i32 %narrow20.i, 5
+  %lvi.offs.i = zext nneg i32 %3 to i64
+  %lvi.i = getelementptr i8, ptr %bm_regs4.i, i64 %lvi.offs.i
+  %4 = load i8, ptr %lvi.i, align 1
+  %conv9.i = zext i8 %4 to i32
   br label %nabm_readb.exit
 
 sw.bb10.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
   %bm_regs11.i = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr12.i = lshr i64 %addr, 4
-  %idxprom14.i = and i64 %shr12.i, 268435455
-  %piv.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs11.i, i64 0, i64 %idxprom14.i, i32 5
-  %3 = load i8, ptr %piv.i, align 2
-  %conv16.i = zext i8 %3 to i32
+  %shr12.i = lshr i32 %conv2, 4
+  %narrow18.i = mul nuw nsw i32 %shr12.i, 24
+  %5 = zext nneg i32 %narrow18.i to i64
+  %6 = getelementptr i8, ptr %bm_regs11.i, i64 %5
+  %piv.i = getelementptr i8, ptr %6, i64 10
+  %7 = load i8, ptr %piv.i, align 2
+  %conv16.i = zext i8 %7 to i32
   br label %nabm_readb.exit
 
 sw.bb17.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
   %bm_regs18.i = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr19.i = lshr i64 %addr, 4
-  %idxprom21.i = and i64 %shr19.i, 268435455
-  %cr.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs18.i, i64 0, i64 %idxprom21.i, i32 6
-  %4 = load i8, ptr %cr.i, align 1
-  %conv23.i = zext i8 %4 to i32
+  %shr19.i = lshr i32 %conv2, 4
+  %narrow16.i = mul nuw nsw i32 %shr19.i, 24
+  %8 = zext nneg i32 %narrow16.i to i64
+  %9 = getelementptr i8, ptr %bm_regs18.i, i64 %8
+  %cr.i = getelementptr i8, ptr %9, i64 11
+  %10 = load i8, ptr %cr.i, align 1
+  %conv23.i = zext i8 %10 to i32
   br label %nabm_readb.exit
 
 sw.bb24.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
   %bm_regs25.i = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr26.i = lshr i64 %addr, 4
-  %idxprom28.i = and i64 %shr26.i, 268435455
-  %sr.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs25.i, i64 0, i64 %idxprom28.i, i32 3
-  %5 = load i16, ptr %sr.i, align 2
-  %6 = and i16 %5, 255
-  %and31.i = zext nneg i16 %6 to i32
+  %shr26.i = lshr i32 %conv2, 4
+  %narrow.i = mul nuw nsw i32 %shr26.i, 24
+  %11 = or disjoint i32 %narrow.i, 6
+  %sr.offs.i = zext nneg i32 %11 to i64
+  %sr.i = getelementptr i8, ptr %bm_regs25.i, i64 %sr.offs.i
+  %12 = load i16, ptr %sr.i, align 2
+  %13 = and i16 %12, 255
+  %and31.i = zext nneg i16 %13 to i32
   br label %nabm_readb.exit
 
 nabm_readb.exit:                                  ; preds = %sw.bb, %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %sw.bb10.i, %sw.bb17.i, %sw.bb24.i
@@ -1586,46 +1596,50 @@ nabm_readb.exit:                                  ; preds = %sw.bb, %sw.bb.i, %s
 sw.bb4:                                           ; preds = %if.end
   %conv5 = trunc i64 %addr to i32
   switch i32 %conv5, label %return [
-    i32 6, label %sw.bb.i8
-    i32 22, label %sw.bb.i8
-    i32 38, label %sw.bb.i8
+    i32 6, label %sw.bb.i9
+    i32 22, label %sw.bb.i9
+    i32 38, label %sw.bb.i9
     i32 8, label %sw.bb1.i
     i32 24, label %sw.bb1.i
     i32 40, label %sw.bb1.i
   ]
 
-sw.bb.i8:                                         ; preds = %sw.bb4, %sw.bb4, %sw.bb4
-  %bm_regs.i9 = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr.i10 = lshr i64 %addr, 4
-  %idxprom.i11 = and i64 %shr.i10, 268435455
-  %sr.i12 = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i9, i64 0, i64 %idxprom.i11, i32 3
-  %7 = load i16, ptr %sr.i12, align 2
-  %conv.i13 = zext i16 %7 to i64
+sw.bb.i9:                                         ; preds = %sw.bb4, %sw.bb4, %sw.bb4
+  %bm_regs.i10 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %shr.i11 = lshr i32 %conv5, 4
+  %narrow6.i = mul nuw nsw i32 %shr.i11, 24
+  %14 = or disjoint i32 %narrow6.i, 6
+  %sr.offs.i12 = zext nneg i32 %14 to i64
+  %sr.i13 = getelementptr i8, ptr %bm_regs.i10, i64 %sr.offs.i12
+  %15 = load i16, ptr %sr.i13, align 2
+  %conv.i14 = zext i16 %15 to i64
   br label %return
 
 sw.bb1.i:                                         ; preds = %sw.bb4, %sw.bb4, %sw.bb4
   %bm_regs2.i = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr3.i = lshr i64 %addr, 4
-  %idxprom5.i = and i64 %shr3.i, 268435455
-  %picb.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs2.i, i64 0, i64 %idxprom5.i, i32 4
-  %8 = load i16, ptr %picb.i, align 4
-  %conv7.i = zext i16 %8 to i64
+  %shr3.i = lshr i32 %conv5, 4
+  %narrow.i7 = mul nuw nsw i32 %shr3.i, 24
+  %16 = zext nneg i32 %narrow.i7 to i64
+  %17 = getelementptr i8, ptr %bm_regs2.i, i64 %16
+  %picb.i = getelementptr i8, ptr %17, i64 8
+  %18 = load i16, ptr %picb.i, align 4
+  %conv7.i = zext i16 %18 to i64
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
   %conv9 = trunc i64 %addr to i32
-  %9 = tail call i32 @llvm.fshl.i32(i32 %conv9, i32 %conv9, i32 30)
-  switch i32 %9, label %nabm_readl.exit [
+  %19 = tail call i32 @llvm.fshl.i32(i32 %conv9, i32 %conv9, i32 30)
+  switch i32 %19, label %nabm_readl.exit [
     i32 0, label %sw.bb.i25
     i32 4, label %sw.bb.i25
     i32 8, label %sw.bb.i25
-    i32 1, label %sw.bb1.i19
-    i32 5, label %sw.bb1.i19
-    i32 9, label %sw.bb1.i19
+    i32 1, label %sw.bb1.i20
+    i32 5, label %sw.bb1.i20
+    i32 9, label %sw.bb1.i20
     i32 2, label %sw.bb11.i
     i32 6, label %sw.bb11.i
     i32 10, label %sw.bb11.i
-    i32 11, label %sw.bb24.i15
+    i32 11, label %sw.bb24.i16
     i32 12, label %sw.bb25.i
   ]
 
@@ -1634,15 +1648,16 @@ sw.bb.i25:                                        ; preds = %sw.bb8, %sw.bb8, %s
   %shr.i27 = lshr i64 %addr, 4
   %and.i = and i64 %shr.i27, 3
   %arrayidx.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i26, i64 0, i64 %and.i
-  %10 = load i32, ptr %arrayidx.i, align 4
+  %20 = load i32, ptr %arrayidx.i, align 4
   br label %nabm_readl.exit
 
-sw.bb1.i19:                                       ; preds = %sw.bb8, %sw.bb8, %sw.bb8
-  %bm_regs2.i20 = getelementptr inbounds i8, ptr %opaque, i64 2656
-  %shr3.i21 = lshr i64 %addr, 4
-  %and4.i = and i64 %shr3.i21, 3
-  %civ.i23 = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs2.i20, i64 0, i64 %and4.i, i32 1
-  %11 = load i32, ptr %civ.i23, align 4
+sw.bb1.i20:                                       ; preds = %sw.bb8, %sw.bb8, %sw.bb8
+  %shr3.i22 = lshr i64 %addr, 4
+  %and4.i = and i64 %shr3.i22, 3
+  %civ.i23.idx = mul nuw nsw i64 %and4.i, 24
+  %21 = getelementptr i8, ptr %opaque, i64 2660
+  %civ.i23 = getelementptr i8, ptr %21, i64 %civ.i23.idx
+  %22 = load i32, ptr %civ.i23, align 4
   br label %nabm_readl.exit
 
 sw.bb11.i:                                        ; preds = %sw.bb8, %sw.bb8, %sw.bb8
@@ -1650,39 +1665,39 @@ sw.bb11.i:                                        ; preds = %sw.bb8, %sw.bb8, %s
   %shr13.i = lshr i64 %addr, 4
   %and14.i = and i64 %shr13.i, 3
   %arrayidx16.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs12.i, i64 0, i64 %and14.i
-  %picb.i16 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 8
-  %12 = load i16, ptr %picb.i16, align 4
-  %conv17.i = zext i16 %12 to i32
-  %piv.i17 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 10
-  %13 = load i8, ptr %piv.i17, align 2
-  %conv18.i = zext i8 %13 to i32
+  %picb.i17 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 8
+  %23 = load i16, ptr %picb.i17, align 4
+  %conv17.i = zext i16 %23 to i32
+  %piv.i18 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 10
+  %24 = load i8, ptr %piv.i18, align 2
+  %conv18.i = zext i8 %24 to i32
   %shl19.i = shl nuw nsw i32 %conv18.i, 16
   %or20.i = or disjoint i32 %shl19.i, %conv17.i
-  %cr.i18 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 11
-  %14 = load i8, ptr %cr.i18, align 1
-  %conv21.i = zext i8 %14 to i32
+  %cr.i19 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 11
+  %25 = load i8, ptr %cr.i19, align 1
+  %conv21.i = zext i8 %25 to i32
   %shl22.i = shl nuw i32 %conv21.i, 24
   %or23.i = or disjoint i32 %or20.i, %shl22.i
   br label %nabm_readl.exit
 
-sw.bb24.i15:                                      ; preds = %sw.bb8
+sw.bb24.i16:                                      ; preds = %sw.bb8
   %glob_cnt.i = getelementptr inbounds i8, ptr %opaque, i64 2640
-  %15 = load i32, ptr %glob_cnt.i, align 16
+  %26 = load i32, ptr %glob_cnt.i, align 16
   br label %nabm_readl.exit
 
 sw.bb25.i:                                        ; preds = %sw.bb8
   %glob_sta.i = getelementptr inbounds i8, ptr %opaque, i64 2644
-  %16 = load i32, ptr %glob_sta.i, align 4
-  %or26.i = or i32 %16, 256
+  %27 = load i32, ptr %glob_sta.i, align 4
+  %or26.i = or i32 %27, 256
   br label %nabm_readl.exit
 
-nabm_readl.exit:                                  ; preds = %sw.bb8, %sw.bb.i25, %sw.bb1.i19, %sw.bb11.i, %sw.bb24.i15, %sw.bb25.i
-  %val.0.i14 = phi i32 [ -1, %sw.bb8 ], [ %or26.i, %sw.bb25.i ], [ %15, %sw.bb24.i15 ], [ %or23.i, %sw.bb11.i ], [ %11, %sw.bb1.i19 ], [ %10, %sw.bb.i25 ]
-  %conv11 = zext i32 %val.0.i14 to i64
+nabm_readl.exit:                                  ; preds = %sw.bb8, %sw.bb.i25, %sw.bb1.i20, %sw.bb11.i, %sw.bb24.i16, %sw.bb25.i
+  %val.0.i15 = phi i32 [ -1, %sw.bb8 ], [ %or26.i, %sw.bb25.i ], [ %26, %sw.bb24.i16 ], [ %or23.i, %sw.bb11.i ], [ %22, %sw.bb1.i20 ], [ %20, %sw.bb.i25 ]
+  %conv11 = zext i32 %val.0.i15 to i64
   br label %return
 
-return:                                           ; preds = %sw.bb1.i, %sw.bb.i8, %sw.bb4, %if.end, %entry, %nabm_readl.exit, %nabm_readb.exit
-  %retval.0 = phi i64 [ %conv11, %nabm_readl.exit ], [ %conv3, %nabm_readb.exit ], [ -1, %entry ], [ -1, %if.end ], [ 4294967295, %sw.bb4 ], [ %conv7.i, %sw.bb1.i ], [ %conv.i13, %sw.bb.i8 ]
+return:                                           ; preds = %sw.bb1.i, %sw.bb.i9, %sw.bb4, %if.end, %entry, %nabm_readl.exit, %nabm_readb.exit
+  %retval.0 = phi i64 [ %conv11, %nabm_readl.exit ], [ %conv3, %nabm_readb.exit ], [ -1, %entry ], [ -1, %if.end ], [ 4294967295, %sw.bb4 ], [ %conv7.i, %sw.bb1.i ], [ %conv.i14, %sw.bb.i9 ]
   ret i64 %retval.0
 }
 

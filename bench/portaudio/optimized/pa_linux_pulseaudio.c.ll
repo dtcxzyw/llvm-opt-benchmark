@@ -297,71 +297,77 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr nocapture nound
   store i32 2, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %16, i32 2
-  store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %22 = load ptr, ptr %21, align 8
-  %23 = shl i64 %11, 32
-  %sext = add i64 %23, 4294967296
-  %24 = ashr exact i64 %sext, 32
-  %25 = tail call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %22, i64 noundef %24) #13
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 74008
-  %27 = load i32, ptr %14, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [1024 x ptr], ptr %26, i64 0, i64 %28
-  store ptr %25, ptr %29, align 8
-  %30 = load ptr, ptr %21, align 8
-  %31 = shl i64 %12, 32
-  %sext50 = add i64 %31, 4294967296
-  %32 = ashr exact i64 %sext50, 32
-  %33 = tail call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %30, i64 noundef %32) #13
-  %34 = load i32, ptr %14, align 8
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [1024 x ptr], ptr %26, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  %39 = icmp ne ptr %33, null
-  %or.cond = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond, label %41, label %40
-
-40:                                               ; preds = %10
-  tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.8) #13
-  br label %60
+  %.idx = mul nsw i64 %16, 72
+  %20 = getelementptr i8, ptr %13, i64 %.idx
+  %21 = getelementptr i8, ptr %20, i64 16
+  store i32 %19, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %23 = load ptr, ptr %22, align 8
+  %24 = shl i64 %11, 32
+  %sext = add i64 %24, 4294967296
+  %25 = ashr exact i64 %sext, 32
+  %26 = tail call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %23, i64 noundef %25) #13
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 74008
+  %28 = load i32, ptr %14, align 8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [1024 x ptr], ptr %27, i64 0, i64 %29
+  store ptr %26, ptr %30, align 8
+  %31 = load ptr, ptr %22, align 8
+  %32 = shl i64 %12, 32
+  %sext50 = add i64 %32, 4294967296
+  %33 = ashr exact i64 %sext50, 32
+  %34 = tail call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %31, i64 noundef %33) #13
+  %35 = load i32, ptr %14, align 8
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds [1024 x ptr], ptr %27, i64 0, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  %40 = icmp ne ptr %34, null
+  %or.cond = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond, label %42, label %41
 
 41:                                               ; preds = %10
-  %42 = icmp sgt i32 %34, 1023
-  br i1 %42, label %60, label %43
+  tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.8) #13
+  br label %63
 
-43:                                               ; preds = %41
-  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %24, ptr noundef nonnull @.str.2, ptr noundef %2) #13
-  %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %32, ptr noundef nonnull @.str.2, ptr noundef %1) #13
-  %46 = load i32, ptr %14, align 8
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %47, i32 1
-  store ptr %33, ptr %48, align 8
-  %49 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %47, i32 3
-  store i32 %3, ptr %49, align 4
-  %50 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %47, i32 4
-  store i32 %4, ptr %50, align 8
-  %51 = load i32, ptr %14, align 8
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %52, i32 5
-  store double %5, ptr %53, align 8
-  %54 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %52, i32 6
-  store double %7, ptr %54, align 8
-  %55 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %52, i32 7
-  store double %6, ptr %55, align 8
-  %56 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %52, i32 8
-  store double %8, ptr %56, align 8
-  %57 = sitofp i64 %9 to double
-  %58 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %52, i32 9
-  store double %57, ptr %58, align 8
-  %59 = add nsw i32 %51, 1
-  store i32 %59, ptr %14, align 8
-  br label %60
+42:                                               ; preds = %10
+  %43 = icmp sgt i32 %35, 1023
+  br i1 %43, label %63, label %44
 
-60:                                               ; preds = %41, %43, %40
-  %.0 = phi i32 [ 0, %43 ], [ -9992, %40 ], [ -9985, %41 ]
+44:                                               ; preds = %42
+  %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef %25, ptr noundef nonnull @.str.2, ptr noundef %2) #13
+  %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %33, ptr noundef nonnull @.str.2, ptr noundef %1) #13
+  %47 = load i32, ptr %14, align 8
+  %48 = sext i32 %47 to i64
+  %.idx51 = mul nsw i64 %48, 72
+  %49 = getelementptr i8, ptr %13, i64 %.idx51
+  %50 = getelementptr i8, ptr %49, i64 8
+  store ptr %34, ptr %50, align 8
+  %51 = getelementptr i8, ptr %49, i64 20
+  store i32 %3, ptr %51, align 4
+  %52 = getelementptr i8, ptr %49, i64 24
+  store i32 %4, ptr %52, align 8
+  %53 = load i32, ptr %14, align 8
+  %54 = sext i32 %53 to i64
+  %.idx54 = mul nsw i64 %54, 72
+  %55 = getelementptr i8, ptr %13, i64 %.idx54
+  %56 = getelementptr i8, ptr %55, i64 32
+  store double %5, ptr %56, align 8
+  %57 = getelementptr i8, ptr %55, i64 40
+  store double %7, ptr %57, align 8
+  %58 = getelementptr i8, ptr %55, i64 48
+  store double %6, ptr %58, align 8
+  %59 = getelementptr i8, ptr %55, i64 56
+  store double %8, ptr %59, align 8
+  %60 = sitofp i64 %9 to double
+  %61 = getelementptr i8, ptr %55, i64 64
+  store double %60, ptr %61, align 8
+  %62 = add nsw i32 %53, 1
+  store i32 %62, ptr %14, align 8
+  br label %63
+
+63:                                               ; preds = %42, %44, %41
+  %.0 = phi i32 [ 0, %44 ], [ -9992, %41 ], [ -9985, %42 ]
   ret i32 %.0
 }
 

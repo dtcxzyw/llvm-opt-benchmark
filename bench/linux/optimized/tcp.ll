@@ -2857,10 +2857,11 @@ define dso_local i32 @tcp_sendmsg_locked(ptr noundef %0, ptr noundef %1, i64 nou
   %495 = load i32, ptr %314, align 4
   %496 = zext i32 %495 to i64
   %497 = getelementptr i8, ptr %494, i64 %496
-  %498 = getelementptr inbounds i8, ptr %497, i64 48
-  %499 = add nsw i32 %320, -1
-  %500 = sext i32 %499 to i64
-  %501 = getelementptr [17 x %struct.bio_vec], ptr %498, i64 0, i64 %500, i32 1
+  %498 = add nsw i32 %320, -1
+  %499 = sext i32 %498 to i64
+  %.idx = shl nsw i64 %499, 4
+  %500 = getelementptr i8, ptr %497, i64 56
+  %501 = getelementptr i8, ptr %500, i64 %.idx
   %502 = load i32, ptr %501, align 8
   %503 = add i32 %502, %420
   store i32 %503, ptr %501, align 8

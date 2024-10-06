@@ -5713,11 +5713,12 @@ list_length.exit67:                               ; preds = %49, %52
   br i1 %.not62, label %120, label %86
 
 86:                                               ; preds = %.split
-  %87 = getelementptr inbounds i8, ptr %85, i64 24
-  %88 = xor i32 %.0537380, -1
-  %89 = add i32 %88, %72
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %87, i64 0, i64 %90, i32 17
+  %87 = xor i32 %.0537380, -1
+  %88 = add i32 %87, %72
+  %89 = sext i32 %88 to i64
+  %.idx = mul nsw i64 %89, 104
+  %90 = getelementptr i8, ptr %85, i64 119
+  %91 = getelementptr i8, ptr %90, i64 %.idx
   %92 = load i8, ptr %91, align 1
   %93 = trunc i8 %92 to i1
   br label %120
@@ -5953,10 +5954,11 @@ define dso_local ptr @attnumAttName(ptr nocapture noundef readonly %0, i32 nound
   unreachable
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
-  %18 = add nsw i32 %1, -1
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %17, i64 0, i64 %19, i32 1
+  %17 = add nsw i32 %1, -1
+  %18 = zext nneg i32 %17 to i64
+  %.idx = mul nuw nsw i64 %18, 104
+  %19 = getelementptr i8, ptr %10, i64 28
+  %20 = getelementptr i8, ptr %19, i64 %.idx
   br label %21
 
 21:                                               ; preds = %16, %4
@@ -5990,10 +5992,11 @@ define dso_local i32 @attnumTypeId(ptr nocapture noundef readonly %0, i32 nounde
   unreachable
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
-  %18 = add nsw i32 %1, -1
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %17, i64 0, i64 %19, i32 2
+  %17 = add nsw i32 %1, -1
+  %18 = zext nneg i32 %17 to i64
+  %.idx = mul nuw nsw i64 %18, 104
+  %19 = getelementptr i8, ptr %10, i64 92
+  %20 = getelementptr i8, ptr %19, i64 %.idx
   br label %21
 
 21:                                               ; preds = %16, %4
@@ -6022,10 +6025,11 @@ define dso_local i32 @attnumCollationId(ptr nocapture noundef readonly %0, i32 n
   unreachable
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = add nsw i32 %1, -1
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %15, i32 20
+  %13 = add nsw i32 %1, -1
+  %14 = zext nneg i32 %13 to i64
+  %.idx = mul nuw nsw i64 %14, 104
+  %15 = getelementptr i8, ptr %6, i64 124
+  %16 = getelementptr i8, ptr %15, i64 %.idx
   %17 = load i32, ptr %16, align 4
   br label %18
 

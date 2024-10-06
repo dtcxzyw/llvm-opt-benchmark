@@ -9719,7 +9719,9 @@ define internal fastcc double @dist_ppoly_internal(ptr nocapture noundef readonl
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   store double %17, ptr %18, align 8
-  %19 = getelementptr [0 x %struct.Point], ptr %6, i64 0, i64 %15, i32 1
+  %.idx = shl nsw i64 %15, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %19 = getelementptr i8, ptr %6, i64 %.offs
   %20 = load double, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 24
   store double %20, ptr %21, align 8
@@ -16845,7 +16847,9 @@ define dso_local noundef i64 @path_add(ptr nocapture noundef %0) local_unnamed_a
   %71 = load i32, ptr %18, align 4
   %72 = add i32 %71, %65
   %73 = sext i32 %72 to i64
-  %74 = getelementptr [0 x %struct.Point], ptr %50, i64 0, i64 %73, i32 1
+  %.idx = shl nsw i64 %73, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %74 = getelementptr i8, ptr %50, i64 %.offs
   store double %70, ptr %74, align 8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %75 = load i32, ptr %20, align 4

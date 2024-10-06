@@ -3,8 +3,6 @@ source_filename = "bench/luau/original/lfunc.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
-%union.Value = type { ptr }
 %struct.LocVar = type { ptr, i32, i32, i8 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68,13 +66,14 @@ define hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP5TableP5Proto(ptr no
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %29 = getelementptr inbounds i8, ptr %10, i64 32
+  %29 = getelementptr i8, ptr %10, i64 44
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %29, i64 0, i64 %indvars.iv, i32 2
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %31 = getelementptr i8, ptr %29, i64 %.idx
   store i32 0, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

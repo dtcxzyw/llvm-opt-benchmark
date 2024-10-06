@@ -2011,8 +2011,9 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
   %184 = getelementptr inbounds i8, ptr %4, i64 2816
   %185 = getelementptr [6 x i32], ptr %184, i64 0, i64 %31
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %4, i64 2768
-  %188 = getelementptr [3 x %struct.xfrm_policy_hash], ptr %187, i64 0, i64 %31, i32 1
+  %.idx = shl nsw i64 %31, 4
+  %187 = getelementptr i8, ptr %4, i64 2776
+  %188 = getelementptr i8, ptr %187, i64 %.idx
   %189 = load i32, ptr %188, align 8
   %190 = add i32 %189, -1048575
   %191 = icmp ult i32 %190, -1048576
@@ -12463,7 +12464,9 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #1 align 16 {
   %8 = phi i32 [ 0, %1 ], [ %13, %366 ]
   %9 = getelementptr [6 x i32], ptr %2, i64 0, i64 %7
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr [3 x %struct.xfrm_policy_hash], ptr %3, i64 0, i64 %7, i32 1
+  %.idx = shl i64 %7, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %11 = getelementptr i8, ptr %3, i64 %.offs
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %10, %8
   %14 = add i32 %12, -1048575

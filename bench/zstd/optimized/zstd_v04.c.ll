@@ -6252,7 +6252,9 @@ if.then17:                                        ; preds = %for.body
   %conv18 = trunc i64 %indvars.iv to i8
   %dec = add i32 %highThreshold.047, -1
   %idxprom19 = zext i32 %highThreshold.047 to i64
-  %symbol = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr, i64 %idxprom19, i32 1
+  %symbol.idx = shl nuw nsw i64 %idxprom19, 2
+  %symbol.offs = or disjoint i64 %symbol.idx, 2
+  %symbol = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol.offs
   store i8 %conv18, ptr %symbol, align 2
   br label %for.inc
 
@@ -6288,7 +6290,9 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   %position.153 = phi i32 [ %position.055, %for.body46.lr.ph ], [ %position.2, %for.inc56 ]
   %i.052 = phi i32 [ 0, %for.body46.lr.ph ], [ %inc57, %for.inc56 ]
   %idxprom48 = zext i32 %position.153 to i64
-  %symbol50 = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr, i64 %idxprom48, i32 1
+  %symbol50.idx = shl nuw nsw i64 %idxprom48, 2
+  %symbol50.offs = or disjoint i64 %symbol50.idx, 2
+  %symbol50 = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol50.offs
   store i8 %conv47, ptr %symbol50, align 2
   br label %while.cond
 

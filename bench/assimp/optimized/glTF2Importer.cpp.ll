@@ -19595,19 +19595,25 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %conv46.us = fpext float %mul45.us to double
   %arrayidx49.us = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv78
   store double %conv46.us, ptr %arrayidx49.us, align 8
-  %mNumValuesAndWeights.us = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv78, i32 3
+  %mNumValuesAndWeights.us.idx = shl nuw nsw i64 %indvars.iv78, 5
+  %mNumValuesAndWeights.us.offs = or disjoint i64 %mNumValuesAndWeights.us.idx, 24
+  %mNumValuesAndWeights.us = getelementptr inbounds i8, ptr %32, i64 %mNumValuesAndWeights.us.offs
   store i32 %cond.fr, ptr %mNumValuesAndWeights.us, align 8
   %call55.us = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %33) #38
           to label %invoke.cont54.us unwind label %lpad.loopexit.split.us
 
 invoke.cont54.us:                                 ; preds = %for.body.us
-  %mValues.us = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv78, i32 1
+  %mValues.us.idx = shl nuw nsw i64 %indvars.iv78, 5
+  %mValues.us.offs = or disjoint i64 %mValues.us.idx, 8
+  %mValues.us = getelementptr inbounds i8, ptr %32, i64 %mValues.us.offs
   store ptr %call55.us, ptr %mValues.us, align 8
   %call61.us = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %34) #38
           to label %invoke.cont60.us unwind label %lpad.loopexit.split.us
 
 invoke.cont60.us:                                 ; preds = %invoke.cont54.us
-  %mWeights.us = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv78, i32 2
+  %mWeights.us.idx = shl nuw nsw i64 %indvars.iv78, 5
+  %mWeights.us.offs = or disjoint i64 %mWeights.us.idx, 16
+  %mWeights.us = getelementptr inbounds i8, ptr %32, i64 %mWeights.us.offs
   store ptr %call61.us, ptr %mWeights.us, align 8
   br label %for.body67.us
 
@@ -19651,19 +19657,25 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv46 = fpext float %mul45 to double
   %arrayidx49 = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv81
   store double %conv46, ptr %arrayidx49, align 8
-  %mNumValuesAndWeights = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv81, i32 3
+  %mNumValuesAndWeights.idx = shl nuw nsw i64 %indvars.iv81, 5
+  %mNumValuesAndWeights.offs = or disjoint i64 %mNumValuesAndWeights.idx, 24
+  %mNumValuesAndWeights = getelementptr inbounds i8, ptr %32, i64 %mNumValuesAndWeights.offs
   store i32 0, ptr %mNumValuesAndWeights, align 8
   %call55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %33) #38
           to label %invoke.cont54 unwind label %lpad.loopexit.split
 
 invoke.cont54:                                    ; preds = %for.body
-  %mValues = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv81, i32 1
+  %mValues.idx = shl nuw nsw i64 %indvars.iv81, 5
+  %mValues.offs = or disjoint i64 %mValues.idx, 8
+  %mValues = getelementptr inbounds i8, ptr %32, i64 %mValues.offs
   store ptr %call55, ptr %mValues, align 8
   %call61 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %34) #38
           to label %invoke.cont60 unwind label %lpad.loopexit.split
 
 invoke.cont60:                                    ; preds = %invoke.cont54
-  %mWeights = getelementptr inbounds %struct.aiMeshMorphKey, ptr %32, i64 %indvars.iv81, i32 2
+  %mWeights.idx = shl nuw nsw i64 %indvars.iv81, 5
+  %mWeights.offs = or disjoint i64 %mWeights.idx, 16
+  %mWeights = getelementptr inbounds i8, ptr %32, i64 %mWeights.offs
   store ptr %call61, ptr %mWeights, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %cmp44 = icmp ult i64 %indvars.iv.next82, %37

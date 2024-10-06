@@ -2701,8 +2701,9 @@ _ZN4gpui3app10entity_map9EntityMap4read17h04e8b50b8cbfb1faE.exit129.i: ; preds =
           to label %530 unwind label %421, !noalias !489
 
 514:                                              ; preds = %510
-  %515 = getelementptr inbounds i8, ptr %499, i64 136
-  %516 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %515, i64 0, i64 %504, i32 4
+  %.idx.i = mul nuw nsw i64 %504, 600
+  %515 = getelementptr i8, ptr %499, i64 640
+  %516 = getelementptr i8, ptr %515, i64 %.idx.i
   %517 = getelementptr inbounds i8, ptr %516, i64 32
   %518 = load i64, ptr %517, align 8, !alias.scope !730, !noalias !733, !noundef !19
   %519 = icmp ugt i64 %518, 4

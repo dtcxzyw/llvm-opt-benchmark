@@ -4351,11 +4351,15 @@ if.then3:                                         ; preds = %if.end
   %nativeDataFormats = getelementptr inbounds i8, ptr %pDeviceInfo, i64 520
   %arrayidx = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats, i64 0, i64 %conv
   store i32 %format, ptr %arrayidx, align 8
-  %channels10 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats, i64 0, i64 %conv, i32 1
+  %channels10.idx = shl nuw nsw i64 %conv, 4
+  %channels10.offs = or disjoint i64 %channels10.idx, 4
+  %channels10 = getelementptr inbounds i8, ptr %nativeDataFormats, i64 %channels10.offs
   store i32 %channels, ptr %channels10, align 4
-  %sampleRate15 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats, i64 0, i64 %conv, i32 2
+  %sampleRate15.offs = or disjoint i64 %channels10.idx, 8
+  %sampleRate15 = getelementptr inbounds i8, ptr %nativeDataFormats, i64 %sampleRate15.offs
   store i32 %sampleRate, ptr %sampleRate15, align 8
-  %flags20 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats, i64 0, i64 %conv, i32 3
+  %flags20.offs = or disjoint i64 %channels10.idx, 12
+  %flags20 = getelementptr inbounds i8, ptr %nativeDataFormats, i64 %flags20.offs
   store i32 %flags, ptr %flags20, align 4
   %add = add nuw nsw i32 %0, 1
   store i32 %add, ptr %nativeDataFormatCount, align 4
@@ -85371,40 +85375,42 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %switch, label %return, label %ma_engine_listener_is_enabled.exit.lr.ph
 
 ma_engine_listener_is_enabled.exit.lr.ph:         ; preds = %lor.lhs.false
-  %listeners.i = getelementptr inbounds i8, ptr %pEngine, i64 760
+  %1 = getelementptr i8, ptr %pEngine, i64 856
+  %listeners = getelementptr inbounds i8, ptr %pEngine, i64 760
   br label %ma_engine_listener_is_enabled.exit
 
 ma_engine_listener_is_enabled.exit:               ; preds = %ma_engine_listener_is_enabled.exit.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %iListenerClosest.016 = phi i32 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %iListenerClosest.1, %for.inc ]
   %closestLen2.015 = phi float [ 0x47EFFFFFE0000000, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %closestLen2.1, %for.inc ]
-  %isEnabled.i.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i, i64 0, i64 %indvars.iv, i32 4
-  %1 = load i32, ptr %isEnabled.i.i, align 8
-  %tobool.not = icmp eq i32 %1, 0
+  %isEnabled.i.idx.i = mul nuw nsw i64 %indvars.iv, 112
+  %isEnabled.i.i = getelementptr i8, ptr %1, i64 %isEnabled.i.idx.i
+  %2 = load i32, ptr %isEnabled.i.i, align 8
+  %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %ma_engine_listener_is_enabled.exit
-  %arrayidx = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv
   %position.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %lock.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 60
-  %2 = atomicrmw volatile xchg ptr %lock.i.i, i32 1 acquire, align 4
-  %cmp1.i4.i.i.i = icmp eq i32 %2, 0
+  %3 = atomicrmw volatile xchg ptr %lock.i.i, i32 1 acquire, align 4
+  %cmp1.i4.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp1.i4.i.i.i, label %ma_spatializer_listener_get_position.exit, label %while.cond.i.preheader.i.i.i
 
 for.cond.i.loopexit.i.i.i:                        ; preds = %if.then6.i.i.i.i, %while.cond.i.preheader.i.i.i
-  %3 = atomicrmw volatile xchg ptr %lock.i.i, i32 1 acquire, align 4
-  %cmp1.i.i.i.i = icmp eq i32 %3, 0
+  %4 = atomicrmw volatile xchg ptr %lock.i.i, i32 1 acquire, align 4
+  %cmp1.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp1.i.i.i.i, label %ma_spatializer_listener_get_position.exit, label %while.cond.i.preheader.i.i.i
 
 while.cond.i.preheader.i.i.i:                     ; preds = %if.then4, %for.cond.i.loopexit.i.i.i
-  %4 = load atomic volatile i32, ptr %lock.i.i monotonic, align 4
-  %cmp5.i3.i.i.i = icmp eq i32 %4, 1
+  %5 = load atomic volatile i32, ptr %lock.i.i monotonic, align 4
+  %cmp5.i3.i.i.i = icmp eq i32 %5, 1
   br i1 %cmp5.i3.i.i.i, label %if.then6.i.i.i.i, label %for.cond.i.loopexit.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %while.cond.i.preheader.i.i.i, %if.then6.i.i.i.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #64, !srcloc !17
-  %5 = load atomic volatile i32, ptr %lock.i.i monotonic, align 4
-  %cmp5.i.i.i.i = icmp eq i32 %5, 1
+  %6 = load atomic volatile i32, ptr %lock.i.i monotonic, align 4
+  %cmp5.i.i.i.i = icmp eq i32 %6, 1
   br i1 %cmp5.i.i.i.i, label %if.then6.i.i.i.i, label %for.cond.i.loopexit.i.i.i, !llvm.loop !18
 
 ma_spatializer_listener_get_position.exit:        ; preds = %for.cond.i.loopexit.i.i.i, %if.then4
@@ -85418,22 +85424,22 @@ ma_spatializer_listener_get_position.exit:        ; preds = %for.cond.i.loopexit
   %sub4.i = fsub float %a.sroa.0.4.vec.extract.i, %absolutePosY
   %sub6.i = fsub float %retval.sroa.2.0.copyload.i.i, %absolutePosZ
   %mul4.i.i = fmul float %sub4.i, %sub4.i
-  %6 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i.i)
-  %7 = tail call float @llvm.fmuladd.f32(float %sub6.i, float %sub6.i, float %6)
-  %cmp13 = fcmp ogt float %closestLen2.015, %7
+  %7 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i.i)
+  %8 = tail call float @llvm.fmuladd.f32(float %sub6.i, float %sub6.i, float %7)
+  %cmp13 = fcmp ogt float %closestLen2.015, %8
   br i1 %cmp13, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %ma_spatializer_listener_get_position.exit
-  %8 = trunc nuw i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %ma_engine_listener_is_enabled.exit, %if.then14, %ma_spatializer_listener_get_position.exit
-  %closestLen2.1 = phi float [ %7, %if.then14 ], [ %closestLen2.015, %ma_spatializer_listener_get_position.exit ], [ %closestLen2.015, %ma_engine_listener_is_enabled.exit ]
-  %iListenerClosest.1 = phi i32 [ %8, %if.then14 ], [ %iListenerClosest.016, %ma_spatializer_listener_get_position.exit ], [ %iListenerClosest.016, %ma_engine_listener_is_enabled.exit ]
+  %closestLen2.1 = phi float [ %8, %if.then14 ], [ %closestLen2.015, %ma_spatializer_listener_get_position.exit ], [ %closestLen2.015, %ma_engine_listener_is_enabled.exit ]
+  %iListenerClosest.1 = phi i32 [ %9, %if.then14 ], [ %iListenerClosest.016, %ma_spatializer_listener_get_position.exit ], [ %iListenerClosest.016, %ma_engine_listener_is_enabled.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = load i32, ptr %listenerCount, align 4
-  %10 = zext i32 %9 to i64
-  %cmp3 = icmp ult i64 %indvars.iv.next, %10
+  %10 = load i32, ptr %listenerCount, align 4
+  %11 = zext i32 %10 to i64
+  %cmp3 = icmp ult i64 %indvars.iv.next, %11
   br i1 %cmp3, label %ma_engine_listener_is_enabled.exit, label %return, !llvm.loop !769
 
 return:                                           ; preds = %for.inc, %lor.lhs.false, %entry
@@ -85454,14 +85460,15 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %listeners = getelementptr inbounds i8, ptr %pEngine, i64 760
   %idxprom = zext i32 %listenerIndex to i64
-  %isEnabled.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %idxprom, i32 4
-  %1 = load i32, ptr %isEnabled.i, align 8
+  %isEnabled.i.idx = mul nuw nsw i64 %idxprom, 112
+  %1 = getelementptr i8, ptr %pEngine, i64 856
+  %isEnabled.i = getelementptr i8, ptr %1, i64 %isEnabled.i.idx
+  %2 = load i32, ptr %isEnabled.i, align 8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ %1, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %2, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -85942,9 +85949,10 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %listeners = getelementptr inbounds i8, ptr %pEngine, i64 760
   %idxprom = zext i32 %listenerIndex to i64
-  %isEnabled1.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %idxprom, i32 4
+  %isEnabled1.i.idx = mul nuw nsw i64 %idxprom, 112
+  %1 = getelementptr i8, ptr %pEngine, i64 856
+  %isEnabled1.i = getelementptr i8, ptr %1, i64 %isEnabled1.i.idx
   store i32 %isEnabled, ptr %isEnabled1.i, align 8
   br label %return
 
@@ -87959,40 +87967,42 @@ lor.lhs.false.i:                                  ; preds = %ma_sound_get_engine
   br i1 %switch.i, label %return, label %ma_engine_listener_is_enabled.exit.lr.ph.i
 
 ma_engine_listener_is_enabled.exit.lr.ph.i:       ; preds = %lor.lhs.false.i
-  %listeners.i.i = getelementptr inbounds i8, ptr %5, i64 760
+  %7 = getelementptr i8, ptr %5, i64 856
+  %listeners.i = getelementptr inbounds i8, ptr %5, i64 760
   br label %ma_engine_listener_is_enabled.exit.i
 
 ma_engine_listener_is_enabled.exit.i:             ; preds = %for.inc.i, %ma_engine_listener_is_enabled.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %iListenerClosest.016.i = phi i32 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %iListenerClosest.1.i, %for.inc.i ]
   %closestLen2.015.i = phi float [ 0x47EFFFFFE0000000, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %closestLen2.1.i, %for.inc.i ]
-  %isEnabled.i.i.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i.i, i64 0, i64 %indvars.iv.i, i32 4
-  %7 = load i32, ptr %isEnabled.i.i.i, align 8
-  %tobool.not.i = icmp eq i32 %7, 0
+  %isEnabled.i.idx.i.i = mul nuw nsw i64 %indvars.iv.i, 112
+  %isEnabled.i.i.i = getelementptr i8, ptr %7, i64 %isEnabled.i.idx.i.i
+  %8 = load i32, ptr %isEnabled.i.i.i, align 8
+  %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %ma_engine_listener_is_enabled.exit.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i, i64 0, i64 %indvars.iv.i
   %position.i.i11 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %lock.i.i.i12 = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
-  %8 = atomicrmw volatile xchg ptr %lock.i.i.i12, i32 1 acquire, align 4
-  %cmp1.i4.i.i.i.i13 = icmp eq i32 %8, 0
+  %9 = atomicrmw volatile xchg ptr %lock.i.i.i12, i32 1 acquire, align 4
+  %cmp1.i4.i.i.i.i13 = icmp eq i32 %9, 0
   br i1 %cmp1.i4.i.i.i.i13, label %ma_spatializer_listener_get_position.exit.i, label %while.cond.i.preheader.i.i.i.i14
 
 for.cond.i.loopexit.i.i.i.i16:                    ; preds = %if.then6.i.i.i.i.i22, %while.cond.i.preheader.i.i.i.i14
-  %9 = atomicrmw volatile xchg ptr %lock.i.i.i12, i32 1 acquire, align 4
-  %cmp1.i.i.i.i.i17 = icmp eq i32 %9, 0
+  %10 = atomicrmw volatile xchg ptr %lock.i.i.i12, i32 1 acquire, align 4
+  %cmp1.i.i.i.i.i17 = icmp eq i32 %10, 0
   br i1 %cmp1.i.i.i.i.i17, label %ma_spatializer_listener_get_position.exit.i, label %while.cond.i.preheader.i.i.i.i14
 
 while.cond.i.preheader.i.i.i.i14:                 ; preds = %if.then4.i, %for.cond.i.loopexit.i.i.i.i16
-  %10 = load atomic volatile i32, ptr %lock.i.i.i12 monotonic, align 4
-  %cmp5.i3.i.i.i.i15 = icmp eq i32 %10, 1
+  %11 = load atomic volatile i32, ptr %lock.i.i.i12 monotonic, align 4
+  %cmp5.i3.i.i.i.i15 = icmp eq i32 %11, 1
   br i1 %cmp5.i3.i.i.i.i15, label %if.then6.i.i.i.i.i22, label %for.cond.i.loopexit.i.i.i.i16
 
 if.then6.i.i.i.i.i22:                             ; preds = %while.cond.i.preheader.i.i.i.i14, %if.then6.i.i.i.i.i22
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #64, !srcloc !17
-  %11 = load atomic volatile i32, ptr %lock.i.i.i12 monotonic, align 4
-  %cmp5.i.i.i.i.i23 = icmp eq i32 %11, 1
+  %12 = load atomic volatile i32, ptr %lock.i.i.i12 monotonic, align 4
+  %cmp5.i.i.i.i.i23 = icmp eq i32 %12, 1
   br i1 %cmp5.i.i.i.i.i23, label %if.then6.i.i.i.i.i22, label %for.cond.i.loopexit.i.i.i.i16, !llvm.loop !18
 
 ma_spatializer_listener_get_position.exit.i:      ; preds = %for.cond.i.loopexit.i.i.i.i16, %if.then4.i
@@ -88000,28 +88010,28 @@ ma_spatializer_listener_get_position.exit.i:      ; preds = %for.cond.i.loopexit
   %retval.sroa.2.0.v1.sroa_idx.i.i.i19 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %retval.sroa.2.0.copyload.i.i.i20 = load float, ptr %retval.sroa.2.0.v1.sroa_idx.i.i.i19, align 4
   store atomic volatile i32 0, ptr %lock.i.i.i12 release, align 4
-  %12 = fsub <2 x float> %retval.sroa.0.0.copyload.i.i.i18, %retval.sroa.0.0.copyload.i.i.i
-  %sub.i.i = extractelement <2 x float> %12, i64 0
   %13 = fsub <2 x float> %retval.sroa.0.0.copyload.i.i.i18, %retval.sroa.0.0.copyload.i.i.i
+  %sub.i.i = extractelement <2 x float> %13, i64 0
+  %14 = fsub <2 x float> %retval.sroa.0.0.copyload.i.i.i18, %retval.sroa.0.0.copyload.i.i.i
   %sub6.i.i = fsub float %retval.sroa.2.0.copyload.i.i.i20, %retval.sroa.2.0.copyload.i.i.i
-  %14 = fmul <2 x float> %13, %13
-  %mul4.i.i.i = extractelement <2 x float> %14, i64 1
-  %15 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul4.i.i.i)
-  %16 = tail call float @llvm.fmuladd.f32(float %sub6.i.i, float %sub6.i.i, float %15)
-  %cmp13.i = fcmp ogt float %closestLen2.015.i, %16
+  %15 = fmul <2 x float> %14, %14
+  %mul4.i.i.i = extractelement <2 x float> %15, i64 1
+  %16 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul4.i.i.i)
+  %17 = tail call float @llvm.fmuladd.f32(float %sub6.i.i, float %sub6.i.i, float %16)
+  %cmp13.i = fcmp ogt float %closestLen2.015.i, %17
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %ma_spatializer_listener_get_position.exit.i
-  %17 = trunc nuw i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then14.i, %ma_spatializer_listener_get_position.exit.i, %ma_engine_listener_is_enabled.exit.i
-  %closestLen2.1.i = phi float [ %16, %if.then14.i ], [ %closestLen2.015.i, %ma_spatializer_listener_get_position.exit.i ], [ %closestLen2.015.i, %ma_engine_listener_is_enabled.exit.i ]
-  %iListenerClosest.1.i = phi i32 [ %17, %if.then14.i ], [ %iListenerClosest.016.i, %ma_spatializer_listener_get_position.exit.i ], [ %iListenerClosest.016.i, %ma_engine_listener_is_enabled.exit.i ]
+  %closestLen2.1.i = phi float [ %17, %if.then14.i ], [ %closestLen2.015.i, %ma_spatializer_listener_get_position.exit.i ], [ %closestLen2.015.i, %ma_engine_listener_is_enabled.exit.i ]
+  %iListenerClosest.1.i = phi i32 [ %18, %if.then14.i ], [ %iListenerClosest.016.i, %ma_spatializer_listener_get_position.exit.i ], [ %iListenerClosest.016.i, %ma_engine_listener_is_enabled.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = load i32, ptr %listenerCount.i, align 4
-  %19 = zext i32 %18 to i64
-  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %19
+  %19 = load i32, ptr %listenerCount.i, align 4
+  %20 = zext i32 %19 to i64
+  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %20
   br i1 %cmp3.i, label %ma_engine_listener_is_enabled.exit.i, label %return, !llvm.loop !769
 
 return:                                           ; preds = %for.inc.i, %lor.lhs.false.i, %ma_sound_get_engine.exit, %ma_sound_get_pinned_listener_index.exit, %entry
@@ -118934,11 +118944,15 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %idxprom.i = zext i32 %9 to i64
   %arrayidx.i31 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i
   store i32 %format, ptr %arrayidx.i31, align 8
-  %channels10.i = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i, i32 1
+  %channels10.idx.i = shl nuw nsw i64 %idxprom.i, 4
+  %channels10.offs.i = or disjoint i64 %channels10.idx.i, 4
+  %channels10.i = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %channels10.offs.i
   store i32 %channels, ptr %channels10.i, align 4
-  %sampleRate15.i = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i, i32 2
+  %sampleRate15.offs.i = or disjoint i64 %channels10.idx.i, 8
+  %sampleRate15.i = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %sampleRate15.offs.i
   store i32 %4, ptr %sampleRate15.i, align 8
-  %flags20.i = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i, i32 3
+  %flags20.offs.i = or disjoint i64 %channels10.idx.i, 12
+  %flags20.i = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %flags20.offs.i
   store i32 0, ptr %flags20.i, align 4
   %add.i32 = add i32 %9, 1
   store i32 %add.i32, ptr %nativeDataFormatCount.i, align 4
@@ -118954,13 +118968,13 @@ for.end:                                          ; preds = %for.inc
   br label %for.body.i50
 
 for.cond.i46:                                     ; preds = %for.body.i50
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond72 = icmp eq i64 %indvars.iv.next70, 14
-  br i1 %exitcond72, label %if.then34, label %for.body.i50, !llvm.loop !910
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond80 = icmp eq i64 %indvars.iv.next78, 14
+  br i1 %exitcond80, label %if.then34, label %for.body.i50, !llvm.loop !910
 
 for.body.i50:                                     ; preds = %for.end, %for.cond.i46
-  %indvars.iv69 = phi i64 [ 0, %for.end ], [ %indvars.iv.next70, %for.cond.i46 ]
-  %arrayidx.i52 = getelementptr inbounds [14 x i32], ptr @g_maStandardSampleRatePriorities, i64 0, i64 %indvars.iv69
+  %indvars.iv77 = phi i64 [ 0, %for.end ], [ %indvars.iv.next78, %for.cond.i46 ]
+  %arrayidx.i52 = getelementptr inbounds [14 x i32], ptr @g_maStandardSampleRatePriorities, i64 0, i64 %indvars.iv77
   %11 = load i32, ptr %arrayidx.i52, align 4
   %cmp2.i53 = icmp eq i32 %11, %10
   br i1 %cmp2.i53, label %if.end35, label %for.cond.i46
@@ -118981,14 +118995,18 @@ if.then.i40:                                      ; preds = %land.lhs.true.i36
   %idxprom.i42 = zext i32 %14 to i64
   %arrayidx.i43 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i42
   store i32 %format, ptr %arrayidx.i43, align 8
-  %channels10.i44 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i42, i32 1
-  store i32 %channels, ptr %channels10.i44, align 4
-  %sampleRate15.i45 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i42, i32 2
-  store i32 %10, ptr %sampleRate15.i45, align 8
-  %flags20.i46 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i42, i32 3
-  store i32 0, ptr %flags20.i46, align 4
-  %add.i47 = add i32 %14, 1
-  store i32 %add.i47, ptr %nativeDataFormatCount.i, align 4
+  %channels10.idx.i44 = shl nuw nsw i64 %idxprom.i42, 4
+  %channels10.offs.i45 = or disjoint i64 %channels10.idx.i44, 4
+  %channels10.i46 = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %channels10.offs.i45
+  store i32 %channels, ptr %channels10.i46, align 4
+  %sampleRate15.offs.i47 = or disjoint i64 %channels10.idx.i44, 8
+  %sampleRate15.i48 = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %sampleRate15.offs.i47
+  store i32 %10, ptr %sampleRate15.i48, align 8
+  %flags20.offs.i49 = or disjoint i64 %channels10.idx.i44, 12
+  %flags20.i50 = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %flags20.offs.i49
+  store i32 0, ptr %flags20.i50, align 4
+  %add.i51 = add i32 %14, 1
+  store i32 %add.i51, ptr %nativeDataFormatCount.i, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %for.body.i50, %if.then.i40, %land.lhs.true.i36, %if.then34
@@ -118996,13 +119014,13 @@ if.end35:                                         ; preds = %for.body.i50, %if.t
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond76 = icmp eq i64 %indvars.iv.next74, 14
-  br i1 %exitcond76, label %land.lhs.true38, label %for.body.i, !llvm.loop !910
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond84 = icmp eq i64 %indvars.iv.next82, 14
+  br i1 %exitcond84, label %land.lhs.true38, label %for.body.i, !llvm.loop !910
 
 for.body.i:                                       ; preds = %if.end35, %for.cond.i
-  %indvars.iv73 = phi i64 [ 0, %if.end35 ], [ %indvars.iv.next74, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [14 x i32], ptr @g_maStandardSampleRatePriorities, i64 0, i64 %indvars.iv73
+  %indvars.iv81 = phi i64 [ 0, %if.end35 ], [ %indvars.iv.next82, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds [14 x i32], ptr @g_maStandardSampleRatePriorities, i64 0, i64 %indvars.iv81
   %16 = load i32, ptr %arrayidx.i, align 4
   %cmp2.i = icmp eq i32 %16, %15
   br i1 %cmp2.i, label %if.end42, label %for.cond.i
@@ -119014,31 +119032,35 @@ land.lhs.true38:                                  ; preds = %for.cond.i
 
 if.then41:                                        ; preds = %land.lhs.true38
   %18 = load i32, ptr %nativeDataFormatCount.i, align 4
-  %cmp.i50 = icmp ult i32 %18, 64
-  br i1 %cmp.i50, label %land.lhs.true.i52, label %if.end42
+  %cmp.i54 = icmp ult i32 %18, 64
+  br i1 %cmp.i54, label %land.lhs.true.i56, label %if.end42
 
-land.lhs.true.i52:                                ; preds = %if.then41
+land.lhs.true.i56:                                ; preds = %if.then41
   %19 = load ptr, ptr %snd_pcm_hw_params_test_rate.i, align 8
-  %call.i54 = call i32 %19(ptr noundef %pPCM, ptr noundef nonnull %pHWParams, i32 noundef %15, i32 noundef 0) #64
-  %cmp2.i55 = icmp eq i32 %call.i54, 0
-  br i1 %cmp2.i55, label %if.then.i56, label %if.end42
+  %call.i58 = call i32 %19(ptr noundef %pPCM, ptr noundef nonnull %pHWParams, i32 noundef %15, i32 noundef 0) #64
+  %cmp2.i59 = icmp eq i32 %call.i58, 0
+  br i1 %cmp2.i59, label %if.then.i60, label %if.end42
 
-if.then.i56:                                      ; preds = %land.lhs.true.i52
+if.then.i60:                                      ; preds = %land.lhs.true.i56
   %20 = load i32, ptr %nativeDataFormatCount.i, align 4
-  %idxprom.i58 = zext i32 %20 to i64
-  %arrayidx.i59 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i58
-  store i32 %format, ptr %arrayidx.i59, align 8
-  %channels10.i60 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i58, i32 1
-  store i32 %channels, ptr %channels10.i60, align 4
-  %sampleRate15.i61 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i58, i32 2
-  store i32 %15, ptr %sampleRate15.i61, align 8
-  %flags20.i62 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i58, i32 3
-  store i32 0, ptr %flags20.i62, align 4
-  %add.i63 = add i32 %20, 1
-  store i32 %add.i63, ptr %nativeDataFormatCount.i, align 4
+  %idxprom.i62 = zext i32 %20 to i64
+  %arrayidx.i63 = getelementptr inbounds [64 x %struct.anon.18], ptr %nativeDataFormats.i, i64 0, i64 %idxprom.i62
+  store i32 %format, ptr %arrayidx.i63, align 8
+  %channels10.idx.i64 = shl nuw nsw i64 %idxprom.i62, 4
+  %channels10.offs.i65 = or disjoint i64 %channels10.idx.i64, 4
+  %channels10.i66 = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %channels10.offs.i65
+  store i32 %channels, ptr %channels10.i66, align 4
+  %sampleRate15.offs.i67 = or disjoint i64 %channels10.idx.i64, 8
+  %sampleRate15.i68 = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %sampleRate15.offs.i67
+  store i32 %15, ptr %sampleRate15.i68, align 8
+  %flags20.offs.i69 = or disjoint i64 %channels10.idx.i64, 12
+  %flags20.i70 = getelementptr inbounds i8, ptr %nativeDataFormats.i, i64 %flags20.offs.i69
+  store i32 0, ptr %flags20.i70, align 4
+  %add.i71 = add i32 %20, 1
+  store i32 %add.i71, ptr %nativeDataFormatCount.i, align 4
   br label %if.end42
 
-if.end42:                                         ; preds = %for.body.i, %if.then.i56, %land.lhs.true.i52, %if.then41, %land.lhs.true38
+if.end42:                                         ; preds = %for.body.i, %if.then.i60, %land.lhs.true.i56, %if.then41, %land.lhs.true38
   ret void
 }
 
@@ -130186,40 +130208,42 @@ ma_spatializer_get_position.exit:                 ; preds = %for.cond.i.loopexit
   br i1 %switch.i, label %if.end103, label %ma_engine_listener_is_enabled.exit.lr.ph.i
 
 ma_engine_listener_is_enabled.exit.lr.ph.i:       ; preds = %ma_spatializer_get_position.exit
-  %listeners.i.i = getelementptr inbounds i8, ptr %38, i64 760
+  %40 = getelementptr i8, ptr %38, i64 856
+  %listeners.i = getelementptr inbounds i8, ptr %38, i64 760
   br label %ma_engine_listener_is_enabled.exit.i
 
 ma_engine_listener_is_enabled.exit.i:             ; preds = %for.inc.i, %ma_engine_listener_is_enabled.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %iListenerClosest.016.i = phi i32 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %iListenerClosest.1.i, %for.inc.i ]
   %closestLen2.015.i = phi float [ 0x47EFFFFFE0000000, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %closestLen2.1.i, %for.inc.i ]
-  %isEnabled.i.i.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i.i, i64 0, i64 %indvars.iv.i, i32 4
-  %40 = load i32, ptr %isEnabled.i.i.i, align 8
-  %tobool.not.i113 = icmp eq i32 %40, 0
+  %isEnabled.i.idx.i.i = mul nuw nsw i64 %indvars.iv.i, 112
+  %isEnabled.i.i.i = getelementptr i8, ptr %40, i64 %isEnabled.i.idx.i.i
+  %41 = load i32, ptr %isEnabled.i.i.i, align 8
+  %tobool.not.i113 = icmp eq i32 %41, 0
   br i1 %tobool.not.i113, label %for.inc.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %ma_engine_listener_is_enabled.exit.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners.i, i64 0, i64 %indvars.iv.i
   %position.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %lock.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
-  %41 = atomicrmw volatile xchg ptr %lock.i.i.i, i32 1 acquire, align 4
-  %cmp1.i4.i.i.i.i = icmp eq i32 %41, 0
+  %42 = atomicrmw volatile xchg ptr %lock.i.i.i, i32 1 acquire, align 4
+  %cmp1.i4.i.i.i.i = icmp eq i32 %42, 0
   br i1 %cmp1.i4.i.i.i.i, label %ma_spatializer_listener_get_position.exit.i, label %while.cond.i.preheader.i.i.i.i
 
 for.cond.i.loopexit.i.i.i.i:                      ; preds = %if.then6.i.i.i.i.i, %while.cond.i.preheader.i.i.i.i
-  %42 = atomicrmw volatile xchg ptr %lock.i.i.i, i32 1 acquire, align 4
-  %cmp1.i.i.i.i.i = icmp eq i32 %42, 0
+  %43 = atomicrmw volatile xchg ptr %lock.i.i.i, i32 1 acquire, align 4
+  %cmp1.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %cmp1.i.i.i.i.i, label %ma_spatializer_listener_get_position.exit.i, label %while.cond.i.preheader.i.i.i.i
 
 while.cond.i.preheader.i.i.i.i:                   ; preds = %if.then4.i, %for.cond.i.loopexit.i.i.i.i
-  %43 = load atomic volatile i32, ptr %lock.i.i.i monotonic, align 4
-  %cmp5.i3.i.i.i.i = icmp eq i32 %43, 1
+  %44 = load atomic volatile i32, ptr %lock.i.i.i monotonic, align 4
+  %cmp5.i3.i.i.i.i = icmp eq i32 %44, 1
   br i1 %cmp5.i3.i.i.i.i, label %if.then6.i.i.i.i.i, label %for.cond.i.loopexit.i.i.i.i
 
 if.then6.i.i.i.i.i:                               ; preds = %while.cond.i.preheader.i.i.i.i, %if.then6.i.i.i.i.i
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #64, !srcloc !17
-  %44 = load atomic volatile i32, ptr %lock.i.i.i monotonic, align 4
-  %cmp5.i.i.i.i.i = icmp eq i32 %44, 1
+  %45 = load atomic volatile i32, ptr %lock.i.i.i monotonic, align 4
+  %cmp5.i.i.i.i.i = icmp eq i32 %45, 1
   br i1 %cmp5.i.i.i.i.i, label %if.then6.i.i.i.i.i, label %for.cond.i.loopexit.i.i.i.i, !llvm.loop !18
 
 ma_spatializer_listener_get_position.exit.i:      ; preds = %for.cond.i.loopexit.i.i.i.i, %if.then4.i
@@ -130227,28 +130251,28 @@ ma_spatializer_listener_get_position.exit.i:      ; preds = %for.cond.i.loopexit
   %retval.sroa.2.0.v1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %retval.sroa.2.0.copyload.i.i.i = load float, ptr %retval.sroa.2.0.v1.sroa_idx.i.i.i, align 4
   store atomic volatile i32 0, ptr %lock.i.i.i release, align 4
-  %45 = fsub <2 x float> %retval.sroa.0.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i.i
-  %sub.i.i = extractelement <2 x float> %45, i64 0
   %46 = fsub <2 x float> %retval.sroa.0.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i.i
+  %sub.i.i = extractelement <2 x float> %46, i64 0
+  %47 = fsub <2 x float> %retval.sroa.0.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i.i
   %sub6.i.i = fsub float %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i.i
-  %47 = fmul <2 x float> %46, %46
-  %mul4.i.i.i = extractelement <2 x float> %47, i64 1
-  %48 = call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul4.i.i.i)
-  %49 = call float @llvm.fmuladd.f32(float %sub6.i.i, float %sub6.i.i, float %48)
-  %cmp13.i = fcmp ogt float %closestLen2.015.i, %49
+  %48 = fmul <2 x float> %47, %47
+  %mul4.i.i.i = extractelement <2 x float> %48, i64 1
+  %49 = call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul4.i.i.i)
+  %50 = call float @llvm.fmuladd.f32(float %sub6.i.i, float %sub6.i.i, float %49)
+  %cmp13.i = fcmp ogt float %closestLen2.015.i, %50
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %ma_spatializer_listener_get_position.exit.i
-  %50 = trunc nuw i64 %indvars.iv.i to i32
+  %51 = trunc nuw i64 %indvars.iv.i to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then14.i, %ma_spatializer_listener_get_position.exit.i, %ma_engine_listener_is_enabled.exit.i
-  %closestLen2.1.i = phi float [ %49, %if.then14.i ], [ %closestLen2.015.i, %ma_spatializer_listener_get_position.exit.i ], [ %closestLen2.015.i, %ma_engine_listener_is_enabled.exit.i ]
-  %iListenerClosest.1.i = phi i32 [ %50, %if.then14.i ], [ %iListenerClosest.016.i, %ma_spatializer_listener_get_position.exit.i ], [ %iListenerClosest.016.i, %ma_engine_listener_is_enabled.exit.i ]
+  %closestLen2.1.i = phi float [ %50, %if.then14.i ], [ %closestLen2.015.i, %ma_spatializer_listener_get_position.exit.i ], [ %closestLen2.015.i, %ma_engine_listener_is_enabled.exit.i ]
+  %iListenerClosest.1.i = phi i32 [ %51, %if.then14.i ], [ %iListenerClosest.016.i, %ma_spatializer_listener_get_position.exit.i ], [ %iListenerClosest.016.i, %ma_engine_listener_is_enabled.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = load i32, ptr %listenerCount.i112, align 4
-  %52 = zext i32 %51 to i64
-  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %52
+  %52 = load i32, ptr %listenerCount.i112, align 4
+  %53 = zext i32 %52 to i64
+  %cmp3.i = icmp ult i64 %indvars.iv.next.i, %53
   br i1 %cmp3.i, label %ma_engine_listener_is_enabled.exit.i, label %if.end103.loopexit, !llvm.loop !769
 
 if.end103.loopexit:                               ; preds = %for.inc.i
@@ -130256,9 +130280,9 @@ if.end103.loopexit:                               ; preds = %for.inc.i
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end103.loopexit, %ma_spatializer_get_position.exit, %ma_engine_get_listener_count.exit
-  %53 = phi ptr [ %32, %ma_engine_get_listener_count.exit ], [ %38, %ma_spatializer_get_position.exit ], [ %.pre, %if.end103.loopexit ]
+  %54 = phi ptr [ %32, %ma_engine_get_listener_count.exit ], [ %38, %ma_spatializer_get_position.exit ], [ %.pre, %if.end103.loopexit ]
   %iListener.0 = phi i32 [ %31, %ma_engine_get_listener_count.exit ], [ 0, %ma_spatializer_get_position.exit ], [ %iListenerClosest.1.i, %if.end103.loopexit ]
-  %listeners = getelementptr inbounds i8, ptr %53, i64 760
+  %listeners = getelementptr inbounds i8, ptr %54, i64 760
   %idxprom = zext i32 %iListener.0 to i64
   %arrayidx106 = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %idxprom
   %conv107 = zext i32 %framesJustProcessedOut.0139148163 to i64
@@ -130266,8 +130290,8 @@ if.end103:                                        ; preds = %if.end103.loopexit,
   br label %if.end129
 
 seqcst.i.i:                                       ; preds = %if.end82
-  %54 = load atomic volatile i32, ptr %volume.i seq_cst, align 4
-  %55 = bitcast i32 %54 to float
+  %55 = load atomic volatile i32, ptr %volume.i seq_cst, align 4
+  %56 = bitcast i32 %55 to float
   br i1 %cmp39, label %if.then113, label %if.else121
 
 if.then113:                                       ; preds = %seqcst.i.i
@@ -130301,7 +130325,7 @@ if.else117:                                       ; preds = %if.then113
   br i1 %or.cond.i, label %if.end129, label %if.end.i126
 
 if.end.i126:                                      ; preds = %if.else117
-  %cmp2.i = fcmp oeq float %55, 1.000000e+00
+  %cmp2.i = fcmp oeq float %56, 1.000000e+00
   br i1 %cmp2.i, label %if.then3.i, label %for.cond10.preheader.i
 
 for.cond10.preheader.i:                           ; preds = %if.end.i126
@@ -130317,9 +130341,9 @@ if.then3.i:                                       ; preds = %if.end.i126
 for.body.i:                                       ; preds = %if.then3.i, %for.body.i
   %iSample.020.i = phi i64 [ %add.i, %for.body.i ], [ 0, %if.then3.i ]
   %arrayidx.i128 = getelementptr inbounds float, ptr %30, i64 %iSample.020.i
-  %56 = load float, ptr %arrayidx.i128, align 4
+  %57 = load float, ptr %arrayidx.i128, align 4
   %arrayidx7.i = getelementptr inbounds float, ptr %add.ptr.i108, i64 %iSample.020.i
-  store float %56, ptr %arrayidx7.i, align 4
+  store float %57, ptr %arrayidx7.i, align 4
   %add.i = add nuw nsw i64 %iSample.020.i, 1
   %exitcond23.not.i = icmp eq i64 %add.i, %conv119
   br i1 %exitcond23.not.i, label %if.end129, label %for.body.i, !llvm.loop !62
@@ -130327,8 +130351,8 @@ for.body.i:                                       ; preds = %if.then3.i, %for.bo
 for.body12.i:                                     ; preds = %for.cond10.preheader.i, %for.body12.i
   %iSample.118.i = phi i64 [ %add16.i, %for.body12.i ], [ 0, %for.cond10.preheader.i ]
   %arrayidx13.i = getelementptr inbounds float, ptr %30, i64 %iSample.118.i
-  %57 = load float, ptr %arrayidx13.i, align 4
-  %mul.i127 = fmul float %57, %55
+  %58 = load float, ptr %arrayidx13.i, align 4
+  %mul.i127 = fmul float %58, %56
   %arrayidx14.i = getelementptr inbounds float, ptr %add.ptr.i108, i64 %iSample.118.i
   store float %mul.i127, ptr %arrayidx14.i, align 4
   %add16.i = add nuw nsw i64 %iSample.118.i, 1
@@ -130337,15 +130361,15 @@ for.body12.i:                                     ; preds = %for.cond10.preheade
 
 if.else121:                                       ; preds = %seqcst.i.i
   %conv122 = zext i32 %framesJustProcessedOut.0139148163 to i64
-  %58 = load i32, ptr %monoExpansionMode, align 8
-  call fastcc void @ma_channel_map_apply_f32(ptr noundef %add.ptr.i108, ptr noundef null, i32 noundef %3, ptr noundef %30, ptr noundef null, i32 noundef %2, i64 noundef %conv122, i32 noundef 1, i32 noundef %58)
+  %59 = load i32, ptr %monoExpansionMode, align 8
+  call fastcc void @ma_channel_map_apply_f32(ptr noundef %add.ptr.i108, ptr noundef null, i32 noundef %3, ptr noundef %30, ptr noundef null, i32 noundef %2, i64 noundef %conv122, i32 noundef 1, i32 noundef %59)
   br i1 %cmp27.not, label %if.then124, label %if.end129
 
 if.then124:                                       ; preds = %if.else121
   %mul125 = mul i32 %framesJustProcessedOut.0139148163, %3
   %conv126 = zext i32 %mul125 to i64
   %cmp1.i.i129 = icmp eq ptr %27, null
-  %cmp2.i.i = fcmp oeq float %55, 1.000000e+00
+  %cmp2.i.i = fcmp oeq float %56, 1.000000e+00
   %or.cond.i130 = or i1 %cmp1.i.i129, %cmp2.i.i
   %cmp1117.not.i.i = icmp eq i32 %mul125, 0
   %or.cond2.i = or i1 %cmp1117.not.i.i, %or.cond.i130
@@ -130354,8 +130378,8 @@ if.then124:                                       ; preds = %if.else121
 for.body12.i.i:                                   ; preds = %if.then124, %for.body12.i.i
   %iSample.118.i.i = phi i64 [ %add16.i.i, %for.body12.i.i ], [ 0, %if.then124 ]
   %arrayidx13.i.i = getelementptr inbounds float, ptr %add.ptr.i108, i64 %iSample.118.i.i
-  %59 = load float, ptr %arrayidx13.i.i, align 4
-  %mul.i.i131 = fmul float %59, %55
+  %60 = load float, ptr %arrayidx13.i.i, align 4
+  %mul.i.i131 = fmul float %60, %56
   store float %mul.i.i131, ptr %arrayidx13.i.i, align 4
   %add16.i.i = add nuw nsw i64 %iSample.118.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %add16.i.i, %conv126

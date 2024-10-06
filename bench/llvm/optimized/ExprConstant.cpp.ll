@@ -151240,7 +151240,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116IntExprEvaluator17
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
   %.sroa.0100.0117 = phi i64 [ 0, %21 ], [ %.sroa.0100.2, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
   %.sroa.096.0116 = phi i64 [ %.sroa.0.0.copyload.i, %21 ], [ %.sroa.096.2, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
-  %.sroa.1.0..sroa_idx = getelementptr inbounds %"class.clang::OffsetOfNode", ptr %24, i64 %indvars.iv, i32 1
+  %.sroa.1.0..sroa_idx.idx = shl nuw nsw i64 %indvars.iv, 4
+  %.sroa.1.0..sroa_idx.offs = or disjoint i64 %.sroa.1.0..sroa_idx.idx, 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 %.sroa.1.0..sroa_idx.offs
   %.sroa.1.0.copyload = load i64, ptr %.sroa.1.0..sroa_idx, align 8
   %33 = trunc i64 %.sroa.1.0.copyload to i32
   %34 = and i32 %33, 3

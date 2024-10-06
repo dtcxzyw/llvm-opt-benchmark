@@ -592,7 +592,9 @@ if.else:                                          ; preds = %for.end
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %this, align 8
   %idxprom18 = zext nneg i32 %0 to i64
-  %second21 = getelementptr inbounds [2 x %"class.base::ManualConstructor"], ptr %1, i64 0, i64 %idxprom18, i32 0, i32 0, i64 8
+  %second21.idx = shl nuw nsw i64 %idxprom18, 4
+  %second21.offs = or disjoint i64 %second21.idx, 8
+  %second21 = getelementptr inbounds i8, ptr %1, i64 %second21.offs
   br label %return
 
 if.else22:                                        ; preds = %entry
@@ -4675,7 +4677,9 @@ if.else:                                          ; preds = %for.end
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %this, align 8
   %idxprom18 = zext nneg i32 %0 to i64
-  %second21 = getelementptr inbounds [10 x %"class.base::ManualConstructor"], ptr %1, i64 0, i64 %idxprom18, i32 0, i32 0, i64 8
+  %second21.idx = shl nuw nsw i64 %idxprom18, 4
+  %second21.offs = or disjoint i64 %second21.idx, 8
+  %second21 = getelementptr inbounds i8, ptr %1, i64 %second21.offs
   br label %return
 
 if.else22:                                        ; preds = %entry

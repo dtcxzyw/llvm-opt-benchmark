@@ -578,12 +578,13 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %265 = phi i32 [ -19, %107 ], [ %262, %261 ], [ -19, %96 ], [ -12, %129 ]
   %266 = getelementptr inbounds i8, ptr %11, i64 56
   call void @acpi_handle_list_free(ptr noundef %266) #12
-  %267 = getelementptr inbounds i8, ptr %11, i64 96
+  %267 = getelementptr i8, ptr %11, i64 104
   br label %268
 
 268:                                              ; preds = %268, %264
   %269 = phi i64 [ 0, %264 ], [ %271, %268 ]
-  %270 = getelementptr [10 x %struct.acpi_thermal_active], ptr %267, i64 0, i64 %269, i32 0, i32 1
+  %.idx = mul nuw nsw i64 %269, 24
+  %270 = getelementptr i8, ptr %267, i64 %.idx
   call void @acpi_handle_list_free(ptr noundef %270) #12
   %271 = add nuw nsw i64 %269, 1
   %272 = icmp eq i64 %271, 10
@@ -630,12 +631,13 @@ define internal void @acpi_thermal_remove(ptr noundef %0) #2 align 16 {
   tail call void @kfree(ptr noundef %18) #12
   %19 = getelementptr inbounds i8, ptr %5, i64 56
   tail call void @acpi_handle_list_free(ptr noundef %19) #12
-  %20 = getelementptr inbounds i8, ptr %5, i64 96
+  %20 = getelementptr i8, ptr %5, i64 104
   br label %21
 
 21:                                               ; preds = %21, %7
   %22 = phi i64 [ 0, %7 ], [ %24, %21 ]
-  %23 = getelementptr [10 x %struct.acpi_thermal_active], ptr %20, i64 0, i64 %22, i32 0, i32 1
+  %.idx = mul nuw nsw i64 %22, 24
+  %23 = getelementptr i8, ptr %20, i64 %.idx
   tail call void @acpi_handle_list_free(ptr noundef %23) #12
   %24 = add nuw nsw i64 %22, 1
   %25 = icmp eq i64 %24, 10

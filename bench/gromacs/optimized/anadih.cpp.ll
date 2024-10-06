@@ -864,7 +864,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds i8, ptr %.sroa.0.0214.us221, i64 192
   store i32 %133, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %.sroa.0.0214.us221, i64 256
+  %135 = getelementptr i8, ptr %.sroa.0.0214.us221, i64 288
   br label %140
 
 136:                                              ; preds = %140
@@ -883,7 +883,8 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds float, ptr %142, i64 %131
   %144 = load float, ptr %143, align 4
-  %145 = getelementptr inbounds [9 x [4 x float]], ptr %135, i64 0, i64 2, i64 %indvars.iv274
+  %.idx = shl nsw i64 %indvars.iv274, 2
+  %145 = getelementptr i8, ptr %135, i64 %.idx
   store float %144, ptr %145, align 4
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, 4

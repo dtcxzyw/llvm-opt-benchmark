@@ -3231,6 +3231,7 @@ arrayctor.cont:                                   ; preds = %new.ctorloop, %invo
 
 for.body569.lr.ph:                                ; preds = %arrayctor.cont
   %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
+  %invariant.gep = getelementptr i8, ptr %call562, i64 16
   br label %for.body569
 
 for.body569:                                      ; preds = %for.body569.lr.ph, %for.inc611
@@ -3286,8 +3287,9 @@ if.then598:                                       ; preds = %if.end592
   store i32 %inc599, ptr %mNumMeshes, align 8
   %.pre1947 = load i32, ptr %mat582, align 8
   %idxprom603.phi.trans.insert = zext i32 %.pre1947 to i64
-  %_M_finish.i1254.phi.trans.insert = getelementptr inbounds %"class.std::vector.29", ptr %.ptr, i64 %idxprom603.phi.trans.insert, i32 0, i32 0, i32 0, i32 1
-  %.pre1948 = load ptr, ptr %_M_finish.i1254.phi.trans.insert, align 8
+  %_M_finish.i1254.phi.trans.insert.idx = mul nuw nsw i64 %idxprom603.phi.trans.insert, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %_M_finish.i1254.phi.trans.insert.idx
+  %.pre1948 = load ptr, ptr %gep, align 8
   br label %if.end600
 
 if.end600:                                        ; preds = %if.then598, %if.end592

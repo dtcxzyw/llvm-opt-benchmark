@@ -11,12 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
 %"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.17" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.15" }
-%"struct.std::atomic.15" = type { %"struct.std::__atomic_base.16" }
-%"struct.std::__atomic_base.16" = type { i64 }
-%"struct.std::atomic.17" = type { %"struct.std::__atomic_base.18" }
-%"struct.std::__atomic_base.18" = type { ptr }
 %"struct.std::atomic.19" = type { %"struct.std::__atomic_base.20" }
 %"struct.std::__atomic_base.20" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.6" }
@@ -41,6 +35,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.tbb::detail::d1::rw_scoped_lock.base" = type <{ ptr, i8 }>
 %"class.std::shared_ptr.50" = type { %"class.std::__shared_ptr.51" }
 %"class.std::__shared_ptr.51" = type { ptr, %"class.std::__shared_count" }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.17" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.15" }
+%"struct.std::atomic.15" = type { %"struct.std::__atomic_base.16" }
+%"struct.std::__atomic_base.16" = type { i64 }
+%"struct.std::atomic.17" = type { %"struct.std::__atomic_base.18" }
+%"struct.std::__atomic_base.18" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::HdPrimvarSchema" = type { %"class.pxrInternal_v0_24__pxrReserved__::HdSchema" }
 %"class.pxrInternal_v0_24__pxrReserved__::HdSchema" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr.39" = type { %"class.std::__shared_ptr.40" }
@@ -280,28 +280,30 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %.ptr12.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 40, i1 false), !noalias !9
-  br label %.preheader13.i.i.i.i.i
+  br label %.preheader14.i.i.i.i.i
 
-.preheader.i.i.i.i.i:                             ; preds = %.preheader13.i.i.i.i.i
+.preheader.i.i.i.i.i:                             ; preds = %.preheader14.i.i.i.i.i
   %48 = ptrtoint ptr %.ptr12.i.i.i.i.i to i64
   %49 = getelementptr inbounds nuw i8, ptr %25, i64 96
   br label %52
 
-.preheader13.i.i.i.i.i:                           ; preds = %.preheader13.i.i.i.i.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i
-  %.014.i.i.i.i.i = phi i64 [ %51, %.preheader13.i.i.i.i.i ], [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i ]
-  %50 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdDataSourceBase>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i.i.i, i64 0, i64 %.014.i.i.i.i.i, i32 1
+.preheader14.i.i.i.i.i:                           ; preds = %.preheader14.i.i.i.i.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i
+  %.015.i.i.i.i.i = phi i64 [ %51, %.preheader14.i.i.i.i.i ], [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i ]
+  %.idx13.i.i.i.i.i = shl nsw i64 %.015.i.i.i.i.i, 4
+  %.offs.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i, 8
+  %50 = getelementptr inbounds i8, ptr %.ptr12.i.i.i.i.i, i64 %.offs.i.i.i.i.i
   store atomic i64 0, ptr %50 monotonic, align 8, !noalias !9
-  %51 = add nuw nsw i64 %.014.i.i.i.i.i, 1
+  %51 = add nuw nsw i64 %.015.i.i.i.i.i, 1
   %.not.i.i.i6.i.i = icmp eq i64 %51, 2
-  br i1 %.not.i.i.i6.i.i, label %.preheader.i.i.i.i.i, label %.preheader13.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i6.i.i, label %.preheader.i.i.i.i.i, label %.preheader14.i.i.i.i.i, !llvm.loop !12
 
 52:                                               ; preds = %52, %.preheader.i.i.i.i.i
-  %.01015.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %56, %52 ]
-  %53 = icmp eq i64 %.01015.i.i.i.i.i, 0
-  %54 = getelementptr inbounds [64 x %"struct.std::atomic.19"], ptr %49, i64 0, i64 %.01015.i.i.i.i.i
+  %.01016.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %56, %52 ]
+  %53 = icmp eq i64 %.01016.i.i.i.i.i, 0
+  %54 = getelementptr inbounds [64 x %"struct.std::atomic.19"], ptr %49, i64 0, i64 %.01016.i.i.i.i.i
   %55 = select i1 %53, i64 %48, i64 0
   store atomic i64 %55, ptr %54 monotonic, align 8, !noalias !9
-  %56 = add nuw nsw i64 %.01015.i.i.i.i.i, 1
+  %56 = add nuw nsw i64 %.01016.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %56, 64
   br i1 %exitcond.not.i.i.i.i.i, label %57, label %52, !llvm.loop !14
 

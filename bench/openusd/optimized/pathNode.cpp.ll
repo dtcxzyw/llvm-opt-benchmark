@@ -7245,7 +7245,9 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 
 .preheader1.i.i.i.i.i.i:                          ; preds = %.preheader1.i.i.i.i.i.i, %3
   %.02.i.i.i.i.i.i = phi i64 [ %10, %.preheader1.i.i.i.i.i.i ], [ 0, %3 ]
-  %9 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::Sdf_PathNode *const, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_PropToTokenTable>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i.i.i.i, i64 0, i64 %.02.i.i.i.i.i.i, i32 1
+  %.idx13.i.i.i.i.i.i = shl nsw i64 %.02.i.i.i.i.i.i, 4
+  %.offs.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i, 8
+  %9 = getelementptr inbounds i8, ptr %.ptr12.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i
   store atomic i64 0, ptr %9 monotonic, align 8
   %10 = add nuw nsw i64 %.02.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %10, 2

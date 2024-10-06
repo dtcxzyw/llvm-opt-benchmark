@@ -5993,7 +5993,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass7binPackENS0_8RegGrou
   %7 = alloca %"class.asmjit::_abi_1_10::RALiveSpans", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 336
   %9 = zext i8 %1 to i64
-  %10 = getelementptr inbounds [4 x %"class.asmjit::_abi_1_10::ZoneVector.4"], ptr %8, i64 0, i64 %9, i32 0, i32 1
+  %.idx = shl nuw nsw i64 %9, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 %.offs
   %11 = load i32, ptr %10, align 8, !tbaa !3
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %1277, label %13

@@ -4433,7 +4433,9 @@ if.end285:                                        ; preds = %call1.i1582.noexc, 
 
 for.body300:                                      ; preds = %for.cond297.preheader, %while.end308
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.end308 ], [ 0, %for.cond297.preheader ]
-  %colors = getelementptr inbounds %struct.TempRow, ptr %.ptr, i64 %indvars.iv, i32 5
+  %colors.idx = shl nsw i64 %indvars.iv, 6
+  %colors.offs = or disjoint i64 %colors.idx, 40
+  %colors = getelementptr inbounds i8, ptr %.ptr, i64 %colors.offs
   %_M_finish.i.i1272 = getelementptr inbounds i8, ptr %colors, i64 8
   %_M_finish.i.i1272.promoted = load ptr, ptr %_M_finish.i.i1272, align 8, !tbaa !98
   %101 = load ptr, ptr %colors, align 8, !tbaa !98
@@ -4988,7 +4990,9 @@ invoke.cont537:                                   ; preds = %for.body530
   br i1 %call538, label %if.then539, label %if.end549
 
 if.then539:                                       ; preds = %invoke.cont537
-  %colors542 = getelementptr inbounds %struct.TempRow, ptr %.ptr, i64 %indvars.iv1883, i32 5
+  %colors542.idx = shl nsw i64 %indvars.iv1883, 6
+  %colors542.offs = or disjoint i64 %colors542.idx, 40
+  %colors542 = getelementptr inbounds i8, ptr %.ptr, i64 %colors542.offs
   %_M_finish.i1368 = getelementptr inbounds i8, ptr %colors542, i64 8
   %152 = load ptr, ptr %_M_finish.i1368, align 8, !tbaa !98
   %153 = ptrtoint ptr %152 to i64
@@ -5408,7 +5412,9 @@ for.body664:                                      ; preds = %invoke.cont704, %fo
   %indvars.iv1904 = phi i64 [ 0, %for.body664.lr.ph ], [ %indvars.iv.next1905, %invoke.cont704 ]
   %190 = load ptr, ptr %m_rows, align 8, !tbaa !101
   %add.ptr.i1459 = getelementptr inbounds %"struct.GUITable::Row", ptr %190, i64 %indvars.iv1904
-  %cells671 = getelementptr inbounds %struct.TempRow, ptr %.ptr, i64 %indvars.iv1904, i32 4
+  %cells671.idx = shl nsw i64 %indvars.iv1904, 6
+  %cells671.offs = or disjoint i64 %cells671.idx, 16
+  %cells671 = getelementptr inbounds i8, ptr %.ptr, i64 %cells671.offs
   %_M_finish.i1460 = getelementptr inbounds i8, ptr %cells671, i64 8
   %191 = load ptr, ptr %_M_finish.i1460, align 8, !tbaa !222
   %192 = load ptr, ptr %cells671, align 8, !tbaa !229
@@ -5434,7 +5440,8 @@ arrayctor.cont689:                                ; preds = %for.body664
   %conv698 = sext i32 %197 to i64
   %mul699 = mul nsw i64 %conv698, 36
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call679, ptr nonnull align 4 %192, i64 %mul699, i1 false)
-  %indent702 = getelementptr inbounds %struct.TempRow, ptr %.ptr, i64 %indvars.iv1904, i32 1
+  %indent702.offs = or disjoint i64 %cells671.idx, 4
+  %indent702 = getelementptr inbounds i8, ptr %.ptr, i64 %indent702.offs
   %198 = load i32, ptr %indent702, align 4, !tbaa !250
   %indent703 = getelementptr inbounds i8, ptr %add.ptr.i1459, i64 12
   store i32 %198, ptr %indent703, align 4, !tbaa !142

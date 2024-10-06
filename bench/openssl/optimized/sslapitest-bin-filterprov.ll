@@ -136,7 +136,9 @@ for.inc:                                          ; preds = %if.end21, %land.lhs
 for.end:                                          ; preds = %if.end39
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
   %idxprom = sext i32 %7 to i64
-  %arrayidx47 = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds (i8, ptr @ourglobals, i64 16), i64 0, i64 %idxprom, i32 1, i64 %indvars.iv
+  %alg.idx = mul nsw i64 %idxprom, 200
+  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
+  %arrayidx47 = getelementptr inbounds [6 x %struct.ossl_algorithm_st], ptr %gep, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(32) %algs.037, i64 32, i1 false)
   %.pr = load ptr, ptr %algs.037, align 8
   %cmp49 = icmp eq ptr %.pr, null
@@ -291,8 +293,9 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %alg = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds (i8, ptr @ourglobals, i64 16), i64 0, i64 %indvars.iv, i32 1
-  %cmp3 = icmp eq ptr %alg, %algs
+  %alg.idx = mul nuw nsw i64 %indvars.iv, 200
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
+  %cmp3 = icmp eq ptr %gep, %algs
   br i1 %cmp3, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end

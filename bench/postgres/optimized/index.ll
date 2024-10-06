@@ -2419,8 +2419,9 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.06778 = phi ptr [ null, %.lr.ph ], [ %73, %69 ]
   %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
-  %72 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %71, i64 0, i64 %indvars.iv, i32 1
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %71 = getelementptr i8, ptr %70, i64 28
+  %72 = getelementptr i8, ptr %71, i64 %.idx
   %73 = call ptr @lappend(ptr noundef %.06778, ptr noundef %72) #11
   %74 = getelementptr [32 x i16], ptr %67, i64 0, i64 %indvars.iv
   %75 = load i16, ptr %74, align 2

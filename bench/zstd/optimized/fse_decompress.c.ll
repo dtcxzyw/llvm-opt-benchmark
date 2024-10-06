@@ -60,7 +60,9 @@ if.then26:                                        ; preds = %for.body
   %conv27 = trunc i64 %indvars.iv to i8
   %dec = add i32 %highThreshold.082, -1
   %idxprom28 = zext i32 %highThreshold.082 to i64
-  %symbol = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr, i64 %idxprom28, i32 1
+  %symbol.idx = shl nuw nsw i64 %idxprom28, 2
+  %symbol.offs = or disjoint i64 %symbol.idx, 2
+  %symbol = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol.offs
   store i8 %conv27, ptr %symbol, align 2
   br label %for.inc
 
@@ -140,14 +142,18 @@ for.cond88.preheader:                             ; preds = %for.cond83.preheade
   %and = and i64 %position.0100, %conv51
   %arrayidx95 = getelementptr inbounds i8, ptr %add.ptr2, i64 %s82.0101
   %4 = load i8, ptr %arrayidx95, align 1
-  %symbol97 = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr, i64 %and, i32 1
+  %symbol97.idx = shl nuw nsw i64 %and, 2
+  %symbol97.offs = or disjoint i64 %symbol97.idx, 2
+  %symbol97 = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol97.offs
   store i8 %4, ptr %symbol97, align 2
   %add93.c = add nuw nsw i64 %position.0100, %conv55
   %and.c = and i64 %add93.c, %conv51
   %add94.c = or disjoint i64 %s82.0101, 1
   %arrayidx95.c = getelementptr inbounds i8, ptr %add.ptr2, i64 %add94.c
   %5 = load i8, ptr %arrayidx95.c, align 1
-  %symbol97.c = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr, i64 %and.c, i32 1
+  %symbol97.idx.c = shl nuw nsw i64 %and.c, 2
+  %symbol97.offs.c = or disjoint i64 %symbol97.idx.c, 2
+  %symbol97.c = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol97.offs.c
   store i8 %5, ptr %symbol97.c, align 2
   %add102 = add nuw nsw i64 %position.0100, %mul101
   %and103 = and i64 %add102, %conv51
@@ -179,7 +185,9 @@ for.body128:                                      ; preds = %for.body128.lr.ph, 
   %i121.087 = phi i32 [ 0, %for.body128.lr.ph ], [ %inc140, %for.inc139 ]
   %position116.186 = phi i32 [ %position116.091, %for.body128.lr.ph ], [ %position116.2, %for.inc139 ]
   %idxprom130 = zext i32 %position116.186 to i64
-  %symbol132 = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr, i64 %idxprom130, i32 1
+  %symbol132.idx = shl nuw nsw i64 %idxprom130, 2
+  %symbol132.offs = or disjoint i64 %symbol132.idx, 2
+  %symbol132 = getelementptr inbounds i8, ptr %add.ptr, i64 %symbol132.offs
   store i8 %conv129, ptr %symbol132, align 2
   br label %while.cond
 

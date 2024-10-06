@@ -79,9 +79,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip6_flush_pe
 %union.anon.105 = type { %struct.in6_addr }
 %struct.xfrm_offload = type { %struct.anon.104, i32, i32, i8, i8 }
 %struct.anon.104 = type { i32, i32 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.ip6_frag_state = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i8 }
 %struct.ip6_fraglist_iter = type { ptr, ptr, i32, i32, i32, i8 }
+%struct.bio_vec = type { ptr, i32, i32 }
 %struct.inet6_cork = type { ptr, i8, i8 }
 
 @__UNIQUE_ID___addressable_ip6_output1017 = internal global ptr @ip6_output, section ".discard.addressable", align 8
@@ -2040,15 +2040,16 @@ define dso_local noundef range(i32 -12, 1) i32 @ip6_fraglist_init(ptr nocapture 
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %41
-  %70 = getelementptr inbounds i8, ptr %65, i64 48
-  %71 = zext i8 %67 to i64
+  %70 = zext i8 %67 to i64
+  %71 = getelementptr i8, ptr %65, i64 56
   br label %72
 
 72:                                               ; preds = %72, %69
-  %73 = phi i64 [ %71, %69 ], [ %75, %72 ]
+  %73 = phi i64 [ %70, %69 ], [ %75, %72 ]
   %74 = phi i32 [ 0, %69 ], [ %78, %72 ]
   %75 = add nsw i64 %73, -1
-  %76 = getelementptr [17 x %struct.bio_vec], ptr %70, i64 0, i64 %75, i32 1
+  %.idx = shl i64 %75, 4
+  %76 = getelementptr i8, ptr %71, i64 %.idx
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, %74
   %79 = icmp ugt i64 %73, 1
@@ -2810,15 +2811,16 @@ define dso_local i32 @ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %176, label %.loopexit42, label %177
 
 177:                                              ; preds = %169
-  %178 = getelementptr inbounds i8, ptr %165, i64 48
-  %179 = zext i8 %175 to i64
+  %178 = zext i8 %175 to i64
+  %179 = getelementptr i8, ptr %165, i64 56
   br label %180
 
 180:                                              ; preds = %180, %177
-  %181 = phi i64 [ %179, %177 ], [ %183, %180 ]
+  %181 = phi i64 [ %178, %177 ], [ %183, %180 ]
   %182 = phi i32 [ 0, %177 ], [ %186, %180 ]
   %183 = add nsw i64 %181, -1
-  %184 = getelementptr [17 x %struct.bio_vec], ptr %178, i64 0, i64 %183, i32 1
+  %.idx = shl i64 %183, 4
+  %184 = getelementptr i8, ptr %179, i64 %.idx
   %185 = load i32, ptr %184, align 8
   %186 = add i32 %185, %182
   %187 = icmp ugt i64 %181, 1
@@ -4852,10 +4854,11 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %461 = load i32, ptr %285, align 4
   %462 = zext i32 %461 to i64
   %463 = getelementptr i8, ptr %460, i64 %462
-  %464 = getelementptr inbounds i8, ptr %463, i64 48
-  %465 = add nsw i32 %442, -1
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr [17 x %struct.bio_vec], ptr %464, i64 0, i64 %466, i32 1
+  %464 = add nsw i32 %442, -1
+  %465 = sext i32 %464 to i64
+  %.idx.us = shl nsw i64 %465, 4
+  %466 = getelementptr i8, ptr %463, i64 56
+  %467 = getelementptr i8, ptr %466, i64 %.idx.us
   %468 = load i32, ptr %467, align 8
   %469 = add i32 %468, %445
   store i32 %469, ptr %467, align 8

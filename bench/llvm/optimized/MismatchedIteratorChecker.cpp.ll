@@ -13,9 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::PointerIntPair.144" = type { %"struct.llvm::detail::PunnedPointer.145" }
 %"struct.llvm::detail::PunnedPointer.145" = type { [8 x i8] }
 %"class.clang::ento::SVal" = type <{ ptr, i8, [7 x i8] }>
-%"class.clang::TemplateArgument" = type { %union.anon.197 }
-%union.anon.197 = type { %"struct.clang::TemplateArgument::DA" }
-%"struct.clang::TemplateArgument::DA" = type { i32, ptr, ptr }
 %"class.std::unique_ptr.265" = type { %"struct.std::__uniq_ptr_data.266" }
 %"struct.std::__uniq_ptr_data.266" = type { %"class.std::__uniq_ptr_impl.267" }
 %"class.std::__uniq_ptr_impl.267" = type { %"class.std::tuple.268" }
@@ -1135,7 +1132,7 @@ _ZN4llvmneENS_9StringRefES0_.exit232.thread258.i: ; preds = %_ZN4llvmneENS_9Stri
 
 .lr.ph273.i:                                      ; preds = %270
   %277 = getelementptr inbounds i8, ptr %272, i64 16
-  %278 = getelementptr inbounds i8, ptr %273, i64 8
+  %278 = getelementptr i8, ptr %273, i64 16
   %279 = getelementptr inbounds nuw i8, ptr %21, i64 120
   br label %280
 
@@ -1156,7 +1153,8 @@ _ZN4llvmneENS_9StringRefES0_.exit232.thread258.i: ; preds = %_ZN4llvmneENS_9Stri
   br i1 %288, label %.loopexit.i, label %289
 
 289:                                              ; preds = %287
-  %290 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %278, i64 %.0272.i, i32 0, i32 0, i32 1
+  %.idx.i = mul nuw nsw i64 %.0272.i, 24
+  %290 = getelementptr i8, ptr %278, i64 %.idx.i
   %291 = load i64, ptr %290, align 8
   store i64 %291, ptr %17, align 8
   %292 = call noundef zeroext i1 @_ZN5clang4ento8iterator14isIteratorTypeERKNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(8) %17) #17

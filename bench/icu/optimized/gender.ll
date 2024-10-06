@@ -569,9 +569,11 @@ cleanup.action6:                                  ; preds = %arraydestroy.body, 
 
 for.body:                                         ; preds = %new.cont, %for.body
   %indvars.iv = phi i64 [ 0, %new.cont ], [ %indvars.iv.next, %for.body ]
-  %_style = getelementptr inbounds %"class.icu_75::GenderInfo", ptr %.ptr, i64 %indvars.iv, i32 1
-  %2 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %2, ptr %_style, align 8
+  %2 = shl nuw nsw i64 %indvars.iv, 4
+  %3 = or disjoint i64 %2, 8
+  %_style = getelementptr inbounds i8, ptr %.ptr, i64 %3
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %4, ptr %_style, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -579,34 +581,34 @@ for.body:                                         ; preds = %new.cont, %for.body
 for.end:                                          ; preds = %for.body
   %call11 = tail call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef null, ptr noundef nonnull %status)
   store ptr %call11, ptr @_ZL16gGenderInfoCache, align 8
-  %3 = load i32, ptr %status, align 4
-  %cmp.i7 = icmp slt i32 %3, 1
+  %5 = load i32, ptr %status, align 4
+  %cmp.i7 = icmp slt i32 %5, 1
   br i1 %cmp.i7, label %if.end22, label %if.then14
 
 if.then14:                                        ; preds = %for.end
-  %4 = load ptr, ptr @_ZL5gObjs, align 8
-  %isnull = icmp eq ptr %4, null
+  %6 = load ptr, ptr @_ZL5gObjs, align 8
+  %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %return, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then14
-  %5 = getelementptr inbounds i8, ptr %4, i64 -8
-  %6 = load i64, ptr %5, align 8
-  %arraydestroy.isempty15 = icmp eq i64 %6, 0
+  %7 = getelementptr inbounds i8, ptr %6, i64 -8
+  %8 = load i64, ptr %7, align 8
+  %arraydestroy.isempty15 = icmp eq i64 %8, 0
   br i1 %arraydestroy.isempty15, label %arraydestroy.done20, label %arraydestroy.body16.preheader
 
 arraydestroy.body16.preheader:                    ; preds = %delete.notnull
-  %delete.end = getelementptr inbounds %"class.icu_75::GenderInfo", ptr %4, i64 %6
+  %delete.end = getelementptr inbounds %"class.icu_75::GenderInfo", ptr %6, i64 %8
   br label %arraydestroy.body16
 
 arraydestroy.body16:                              ; preds = %arraydestroy.body16.preheader, %arraydestroy.body16
   %arraydestroy.elementPast17 = phi ptr [ %arraydestroy.element18, %arraydestroy.body16 ], [ %delete.end, %arraydestroy.body16.preheader ]
   %arraydestroy.element18 = getelementptr inbounds i8, ptr %arraydestroy.elementPast17, i64 -16
   tail call void @_ZN6icu_7510GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %arraydestroy.element18) #14
-  %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %4
+  %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %6
   br i1 %arraydestroy.done19, label %arraydestroy.done20, label %arraydestroy.body16
 
 arraydestroy.done20:                              ; preds = %arraydestroy.body16, %delete.notnull
-  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %5) #14
+  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %7) #14
   br label %return
 
 if.end22:                                         ; preds = %for.end

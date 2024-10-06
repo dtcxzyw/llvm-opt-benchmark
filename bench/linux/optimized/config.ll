@@ -271,7 +271,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 
 11:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str.1) #11
-  br label %891
+  br label %890
 
 12:                                               ; preds = %.thread, %9
   %13 = phi i32 [ 8, %.thread ], [ %7, %9 ]
@@ -281,7 +281,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   %17 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
-  br i1 %18, label %891, label %19
+  br i1 %18, label %890, label %19
 
 19:                                               ; preds = %12
   %20 = shl nuw nsw i32 %13, 3
@@ -290,13 +290,13 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   %23 = getelementptr inbounds i8, ptr %0, i64 1200
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %891, label %25
+  br i1 %24, label %890, label %25
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(9) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 9) #13
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %891, label %29
+  br i1 %28, label %890, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %27, i64 2
@@ -306,7 +306,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   br label %34
 
 34:                                               ; preds = %.loopexit131, %29
-  %35 = phi i64 [ 0, %29 ], [ %884, %.loopexit131 ]
+  %35 = phi i64 [ 0, %29 ], [ %883, %.loopexit131 ]
   %36 = trunc i64 %35 to i8
   %37 = tail call i32 @usb_get_descriptor(ptr noundef %0, i8 noundef zeroext 2, i8 noundef zeroext %36, ptr noundef nonnull %27, i32 noundef 9) #10
   %38 = icmp slt i32 %37, 0
@@ -339,7 +339,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   %51 = zext i16 %49 to i64
   %52 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %51, i32 noundef 3264) #12
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %886, label %54
+  br i1 %53, label %885, label %54
 
 54:                                               ; preds = %47
   %55 = load i32, ptr %31, align 4
@@ -1693,7 +1693,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
   br i1 %846, label %293, label %.loopexit133, !llvm.loop !28
 
 847:                                              ; preds = %.loopexit116, %290
-  %848 = phi i64 [ 0, %290 ], [ %880, %.loopexit116 ]
+  %848 = phi i64 [ 0, %290 ], [ %879, %.loopexit116 ]
   %849 = getelementptr [32 x ptr], ptr %291, i64 0, i64 %848
   %850 = load ptr, ptr %849, align 8
   %851 = load i32, ptr %850, align 8
@@ -1701,85 +1701,85 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
   br i1 %852, label %.loopexit116, label %853
 
 853:                                              ; preds = %847
-  %854 = getelementptr inbounds i8, ptr %850, i64 8
-  %855 = getelementptr [32 x i8], ptr %2, i64 0, i64 %848
-  %856 = getelementptr i8, ptr %850, i64 11
-  br label %857
+  %854 = getelementptr [32 x i8], ptr %2, i64 0, i64 %848
+  %855 = getelementptr i8, ptr %850, i64 11
+  br label %856
 
-857:                                              ; preds = %876, %853
-  %858 = phi i32 [ %851, %853 ], [ %877, %876 ]
-  %859 = phi i32 [ 0, %853 ], [ %878, %876 ]
-  %860 = load i8, ptr %856, align 1
-  %861 = zext i8 %860 to i32
-  %862 = icmp eq i32 %859, %861
-  br i1 %862, label %876, label %.preheader
+856:                                              ; preds = %875, %853
+  %857 = phi i32 [ %851, %853 ], [ %876, %875 ]
+  %858 = phi i32 [ 0, %853 ], [ %877, %875 ]
+  %859 = load i8, ptr %855, align 1
+  %860 = zext i8 %859 to i32
+  %861 = icmp eq i32 %858, %860
+  br i1 %861, label %875, label %.preheader
 
-.preheader:                                       ; preds = %857, %866
-  %863 = phi i32 [ %864, %866 ], [ 0, %857 ]
-  %864 = add nuw i32 %863, 1
-  %865 = icmp eq i32 %864, %858
-  br i1 %865, label %.loopexit109, label %866, !llvm.loop !29
+.preheader:                                       ; preds = %856, %865
+  %862 = phi i32 [ %863, %865 ], [ 0, %856 ]
+  %863 = add nuw i32 %862, 1
+  %864 = icmp eq i32 %863, %857
+  br i1 %864, label %.loopexit109, label %865, !llvm.loop !29
 
-866:                                              ; preds = %.preheader
-  %867 = sext i32 %864 to i64
-  %868 = getelementptr [0 x %struct.usb_host_interface], ptr %854, i64 0, i64 %867, i32 0, i32 3
-  %869 = load i8, ptr %868, align 1
-  %870 = zext i8 %869 to i32
-  %871 = icmp eq i32 %859, %870
-  br i1 %871, label %872, label %.preheader, !llvm.loop !29
+865:                                              ; preds = %.preheader
+  %866 = sext i32 %863 to i64
+  %.idx = mul nsw i64 %866, 40
+  %867 = getelementptr i8, ptr %855, i64 %.idx
+  %868 = load i8, ptr %867, align 1
+  %869 = zext i8 %868 to i32
+  %870 = icmp eq i32 %858, %869
+  br i1 %870, label %871, label %.preheader, !llvm.loop !29
 
-872:                                              ; preds = %866
-  %873 = icmp ult i32 %864, %858
-  br i1 %873, label %876, label %.loopexit109
+871:                                              ; preds = %865
+  %872 = icmp ult i32 %863, %857
+  br i1 %872, label %875, label %.loopexit109
 
-.loopexit109:                                     ; preds = %.preheader, %872
-  %874 = load i8, ptr %855, align 1
-  %875 = zext i8 %874 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.26, i32 noundef %90, i32 noundef %875, i32 noundef %859) #11
+.loopexit109:                                     ; preds = %.preheader, %871
+  %873 = load i8, ptr %854, align 1
+  %874 = zext i8 %873 to i32
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.26, i32 noundef %90, i32 noundef %874, i32 noundef %858) #11
   %.pre319 = load i32, ptr %850, align 8
-  br label %876
+  br label %875
 
-876:                                              ; preds = %.loopexit109, %872, %857
-  %877 = phi i32 [ %.pre319, %.loopexit109 ], [ %858, %872 ], [ %858, %857 ]
-  %878 = add nuw i32 %859, 1
-  %879 = icmp ult i32 %878, %877
-  br i1 %879, label %857, label %.loopexit116, !llvm.loop !30
+875:                                              ; preds = %.loopexit109, %871, %856
+  %876 = phi i32 [ %.pre319, %.loopexit109 ], [ %857, %871 ], [ %857, %856 ]
+  %877 = add nuw i32 %858, 1
+  %878 = icmp ult i32 %877, %876
+  br i1 %878, label %856, label %.loopexit116, !llvm.loop !30
 
-.loopexit116:                                     ; preds = %876, %847
-  %880 = add nuw nsw i64 %848, 1
-  %881 = icmp eq i64 %880, %292
-  br i1 %881, label %.loopexit131, label %847, !llvm.loop !31
+.loopexit116:                                     ; preds = %875, %847
+  %879 = add nuw nsw i64 %848, 1
+  %880 = icmp eq i64 %879, %292
+  br i1 %880, label %.loopexit131, label %847, !llvm.loop !31
 
 .thread98:                                        ; preds = %248, %378, %839, %799, %split
   %.ph100 = phi i32 [ -22, %split ], [ %801, %799 ], [ -12, %378 ], [ %840, %839 ], [ -12, %248 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
-  %882 = trunc i64 %35 to i32
-  %883 = add nuw nsw i32 %882, 1
+  %881 = trunc i64 %35 to i32
+  %882 = add nuw nsw i32 %881, 1
   br label %.loopexit140
 
 .loopexit131:                                     ; preds = %.loopexit116, %.loopexit133
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
-  %884 = add nuw nsw i64 %35, 1
-  %885 = icmp eq i64 %884, %33
-  br i1 %885, label %.loopexit140, label %34, !llvm.loop !32
+  %883 = add nuw nsw i64 %35, 1
+  %884 = icmp eq i64 %883, %33
+  br i1 %884, label %.loopexit140, label %34, !llvm.loop !32
 
-886:                                              ; preds = %47
-  %887 = trunc i64 %35 to i32
+885:                                              ; preds = %47
+  %886 = trunc i64 %35 to i32
   br label %.loopexit140
 
-.loopexit140:                                     ; preds = %.loopexit131, %886, %.thread98, %62, %45, %42, %39
-  %888 = phi i32 [ %40, %39 ], [ %40, %42 ], [ %46, %45 ], [ %63, %62 ], [ %883, %.thread98 ], [ %887, %886 ], [ %13, %.loopexit131 ]
-  %889 = phi i32 [ %37, %39 ], [ -32, %42 ], [ -22, %45 ], [ %60, %62 ], [ %.ph100, %.thread98 ], [ -12, %886 ], [ 0, %.loopexit131 ]
+.loopexit140:                                     ; preds = %.loopexit131, %885, %.thread98, %62, %45, %42, %39
+  %887 = phi i32 [ %40, %39 ], [ %40, %42 ], [ %46, %45 ], [ %63, %62 ], [ %882, %.thread98 ], [ %886, %885 ], [ %13, %.loopexit131 ]
+  %888 = phi i32 [ %37, %39 ], [ -32, %42 ], [ -22, %45 ], [ %60, %62 ], [ %.ph100, %.thread98 ], [ -12, %885 ], [ 0, %.loopexit131 ]
   tail call void @kfree(ptr noundef nonnull %27) #10
-  %890 = trunc i32 %888 to i8
-  store i8 %890, ptr %5, align 1
-  br label %891
+  %889 = trunc i32 %887 to i8
+  store i8 %889, ptr %5, align 1
+  br label %890
 
-891:                                              ; preds = %.loopexit140, %25, %19, %12, %11
-  %892 = phi i32 [ -22, %11 ], [ %889, %.loopexit140 ], [ -12, %12 ], [ -12, %19 ], [ -12, %25 ]
-  ret i32 %892
+890:                                              ; preds = %.loopexit140, %25, %19, %12, %11
+  %891 = phi i32 [ -22, %11 ], [ %888, %.loopexit140 ], [ -12, %12 ], [ -12, %19 ], [ -12, %25 ]
+  ret i32 %891
 }
 
 ; Function Attrs: cold null_pointer_is_valid

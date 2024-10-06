@@ -24,12 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::__cxx11::basic_string<char>, std::pair<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArAsset>, pxrInternal_v0_24__pxrReserved__::UsdZipFile>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.16" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.14" }
-%"struct.std::atomic.14" = type { %"struct.std::__atomic_base.15" }
-%"struct.std::__atomic_base.15" = type { i64 }
-%"struct.std::atomic.16" = type { %"struct.std::__atomic_base.17" }
-%"struct.std::__atomic_base.17" = type { ptr }
 %"struct.std::atomic.18" = type { %"struct.std::__atomic_base.19" }
 %"struct.std::__atomic_base.19" = type { ptr }
 %"struct.std::pair" = type { %"class.std::shared_ptr.8", %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile" }
@@ -85,6 +79,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::thread::id" = type { i64 }
 %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot" = type { %"struct.std::atomic.71", ptr }
 %"struct.std::atomic.71" = type { %"class.std::thread::id" }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::__cxx11::basic_string<char>, std::pair<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArAsset>, pxrInternal_v0_24__pxrReserved__::UsdZipFile>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.16" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.14" }
+%"struct.std::atomic.14" = type { %"struct.std::__atomic_base.15" }
+%"struct.std::__atomic_base.15" = type { i64 }
+%"struct.std::atomic.16" = type { %"struct.std::__atomic_base.17" }
+%"struct.std::__atomic_base.17" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
 %"class.tbb::detail::d2::concurrent_hash_map<std::__cxx11::basic_string<char>, std::pair<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArAsset>, pxrInternal_v0_24__pxrReserved__::UsdZipFile>>::bucket_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr }
@@ -670,28 +670,30 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingISt10shared_ptrINS_21Usd
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %.ptr12.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %83, i8 0, i64 40, i1 false), !noalias !7
-  br label %.preheader13.i.i.i.i.i.i.i.i.i.i.i
+  br label %.preheader14.i.i.i.i.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader13.i.i.i.i.i.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i
   %84 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i to i64
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 72
   br label %88
 
-.preheader13.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.preheader13.i.i.i.i.i.i.i.i.i.i.i, %77
-  %.014.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %87, %.preheader13.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %77 ]
-  %86 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::__cxx11::basic_string<char>, std::pair<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArAsset>, pxrInternal_v0_24__pxrReserved__::UsdZipFile>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %.014.i.i.i.i.i.i.i.i.i.i.i, i32 1
+.preheader14.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i, %77
+  %.015.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %87, %.preheader14.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %77 ]
+  %.idx13.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %.015.i.i.i.i.i.i.i.i.i.i.i, 4
+  %.offs.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i.i.i.i.i.i, 8
+  %86 = getelementptr inbounds i8, ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i.i.i.i.i.i
   store atomic i64 0, ptr %86 monotonic, align 8, !noalias !7
-  %87 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i.i.i.i, 1
+  %87 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %87, 2
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i, label %.preheader13.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i, label %.preheader14.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !10
 
 88:                                               ; preds = %88, %.preheader.i.i.i.i.i.i.i.i.i.i.i
-  %.01015.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %92, %88 ]
-  %89 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i.i.i.i, 0
-  %90 = getelementptr inbounds [64 x %"struct.std::atomic.18"], ptr %85, i64 0, i64 %.01015.i.i.i.i.i.i.i.i.i.i.i
+  %.01016.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %92, %88 ]
+  %89 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i.i.i.i, 0
+  %90 = getelementptr inbounds [64 x %"struct.std::atomic.18"], ptr %85, i64 0, i64 %.01016.i.i.i.i.i.i.i.i.i.i.i
   %91 = select i1 %89, i64 %84, i64 0
   store atomic i64 %91, ptr %90 monotonic, align 8, !noalias !7
-  %92 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i.i.i.i, 1
+  %92 = add nuw nsw i64 %.01016.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %92, 64
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache6_CacheEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit, label %88, !llvm.loop !11
 

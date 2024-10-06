@@ -2040,13 +2040,14 @@ define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 68
   %34 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %33) #13
-  %35 = getelementptr inbounds i8, ptr %6, i64 32
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr i8, ptr %6, i64 48
   br label %37
 
 37:                                               ; preds = %.thread, %32
   %38 = phi i64 [ 30, %32 ], [ %61, %.thread ]
-  %39 = getelementptr [31 x %struct.xhci_virt_ep], ptr %35, i64 0, i64 %38, i32 2
+  %.idx = mul nuw nsw i64 %38, 144
+  %39 = getelementptr i8, ptr %36, i64 %.idx
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
@@ -2058,7 +2059,7 @@ define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %36, align 8
+  %47 = load ptr, ptr %35, align 8
   %48 = trunc i64 %38 to i32
   %49 = tail call ptr @xhci_get_ep_ctx(ptr noundef %0, ptr noundef %47, i32 noundef %48) #13
   %50 = load i32, ptr %49, align 8

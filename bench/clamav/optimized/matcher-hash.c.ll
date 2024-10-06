@@ -473,9 +473,10 @@ define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly %0, i32 nounde
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
-  %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds [3 x %struct.cli_sz_hash], ptr %4, i64 0, i64 %5, i32 2
+  %4 = zext i32 %1 to i64
+  %.idx = mul nuw nsw i64 %4, 24
+  %5 = getelementptr i8, ptr %0, i64 176
+  %6 = getelementptr i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 8
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
@@ -492,16 +493,18 @@ define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly %0, i32 noundef
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
-  %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds [3 x %struct.cli_sz_hash], ptr %4, i64 0, i64 %5, i32 2
+  %4 = zext i32 %1 to i64
+  %.idx = mul nuw nsw i64 %4, 24
+  %5 = getelementptr i8, ptr %0, i64 176
+  %6 = getelementptr i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 8
   %.not4 = icmp eq i32 %7, 0
   br i1 %.not4, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds [3 x %struct.cli_htu32], ptr %9, i64 0, i64 %5, i32 1
+  %.idx5 = shl nuw nsw i64 %4, 5
+  %9 = getelementptr i8, ptr %0, i64 72
+  %10 = getelementptr i8, ptr %9, i64 %.idx5
   %11 = load i64, ptr %10, align 8
   %12 = icmp ne i64 %11, 0
   %13 = zext i1 %12 to i32

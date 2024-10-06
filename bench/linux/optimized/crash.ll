@@ -314,7 +314,9 @@ define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr nocapture no
   store i64 %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr [0 x %struct.range], ptr %4, i64 0, i64 %7, i32 1
+  %.idx = shl nuw nsw i64 %7, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %11 = getelementptr i8, ptr %4, i64 %.offs
   store i64 %10, ptr %11, align 8
   %12 = add i32 %6, 1
   store i32 %12, ptr %5, align 4

@@ -3741,7 +3741,9 @@ for.body13:                                       ; preds = %for.body13.preheade
   %k.0199 = phi i32 [ %21, %for.body13.preheader ], [ %k.2, %for.inc52 ]
   %all_units.0198 = phi i8 [ 1, %for.body13.preheader ], [ %all_units.1, %for.inc52 ]
   %j.0197 = phi i32 [ 0, %for.body13.preheader ], [ %j.1, %for.inc52 ]
-  %second15 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i.ptr.ptr, i64 0, i64 %indvars.iv, i32 1
+  %second15.idx = shl nuw nsw i64 %indvars.iv, 3
+  %second15.offs = or disjoint i64 %second15.idx, 4
+  %second15 = getelementptr inbounds i8, ptr %m_wlits.i.ptr.ptr, i64 %second15.offs
   %24 = load i32, ptr %second15, align 8
   %25 = load ptr, ptr %m_weights, align 8
   %idxprom.i65 = zext i32 %24 to i64
@@ -20099,23 +20101,25 @@ for.body16:                                       ; preds = %for.cond10.preheade
   %and.i = and i32 %shr.i, 32767
   %38 = load i32, ptr %m_num_watch.i, align 4
   %rem = urem i32 %and.i, %38
-  %idxprom.i24 = zext nneg i32 %rem to i64
-  %second22 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i.ptr.ptr, i64 0, i64 %idxprom.i24, i32 1
+  %39 = shl nuw nsw i32 %rem, 3
+  %40 = or disjoint i32 %39, 4
+  %second22.offs = zext nneg i32 %40 to i64
+  %second22 = getelementptr inbounds i8, ptr %m_wlits.i.ptr.ptr, i64 %second22.offs
   %agg.tmp20.sroa.0.0.copyload = load i32, ptr %second22, align 8
   tail call void @_ZN2pb6solver8subsumesERNS_3pbcEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr noundef nonnull align 8 dereferenceable(76) %p1, i32 %agg.tmp20.sroa.0.0.copyload)
   %inc = add nuw nsw i32 %i.044, 1
-  %39 = load i32, ptr %m_num_watch.i, align 4
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %39, i32 10)
+  %41 = load i32, ptr %m_num_watch.i, align 4
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %41, i32 10)
   %cmp15 = icmp ult i32 %inc, %.sroa.speculated
   br i1 %cmp15, label %for.body16, label %for.end25, !llvm.loop !169
 
 for.end25:                                        ; preds = %for.body16, %for.cond10.preheader
-  %40 = load i32, ptr %m_size.i, align 8
-  %idx.ext.i29 = zext i32 %40 to i64
+  %42 = load i32, ptr %m_size.i, align 8
+  %idx.ext.i29 = zext i32 %42 to i64
   %add.ptr.i30.idx = shl nuw nsw i64 %idx.ext.i29, 3
-  %41 = getelementptr inbounds i8, ptr %p1, i64 %add.ptr.i30.idx
-  %add.ptr.i30.ptr = getelementptr inbounds i8, ptr %41, i64 76
-  %cmp32.not45 = icmp eq i32 %40, 0
+  %43 = getelementptr inbounds i8, ptr %p1, i64 %add.ptr.i30.idx
+  %add.ptr.i30.ptr = getelementptr inbounds i8, ptr %43, i64 76
+  %cmp32.not45 = icmp eq i32 %42, 0
   br i1 %cmp32.not45, label %for.end41, label %for.body33.lr.ph
 
 for.body33.lr.ph:                                 ; preds = %for.end25
@@ -20124,10 +20128,10 @@ for.body33.lr.ph:                                 ; preds = %for.end25
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.body33
   %__begin127.046 = phi ptr [ %m_wlits.i.ptr.ptr, %for.body33.lr.ph ], [ %incdec.ptr40, %for.body33 ]
-  %42 = load i64, ptr %__begin127.046, align 4
-  %l34.sroa.1.0.extract.shift = lshr i64 %42, 32
-  %43 = load ptr, ptr %m_weights35, align 8
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %43, i64 %l34.sroa.1.0.extract.shift
+  %44 = load i64, ptr %__begin127.046, align 4
+  %l34.sroa.1.0.extract.shift = lshr i64 %44, 32
+  %45 = load ptr, ptr %m_weights35, align 8
+  %arrayidx.i32 = getelementptr inbounds i32, ptr %45, i64 %l34.sroa.1.0.extract.shift
   store i32 0, ptr %arrayidx.i32, align 4
   %incdec.ptr40 = getelementptr inbounds i8, ptr %__begin127.046, i64 8
   %cmp32.not = icmp eq ptr %incdec.ptr40, %add.ptr.i30.ptr

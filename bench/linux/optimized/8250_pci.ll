@@ -3908,7 +3908,9 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocaptu
   %15 = phi i32 [ -1, %11 ], [ %28, %13 ]
   %16 = phi i32 [ 0, %11 ], [ %27, %13 ]
   %17 = phi i32 [ 0, %11 ], [ %32, %13 ]
-  %18 = getelementptr [11 x %struct.resource], ptr %12, i64 0, i64 %14, i32 3
+  %.idx = shl i64 %14, 6
+  %.offs = or disjoint i64 %.idx, 24
+  %18 = getelementptr i8, ptr %12, i64 %.offs
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 256
   %21 = icmp eq i64 %20, 0

@@ -82,7 +82,7 @@ define void @_Z7cvMatNDRKN2cv3MatE(ptr dead_on_unwind noalias writable sret(%str
 .lr.ph:                                           ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds i8, ptr %0, i64 36
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %17
 
@@ -91,7 +91,8 @@ define void @_Z7cvMatNDRKN2cv3MatE(ptr dead_on_unwind noalias writable sret(%str
   %18 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds [32 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv, i32 1
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %21 = getelementptr i8, ptr %16, i64 %.idx
   store i32 %20, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -5468,122 +5468,124 @@ define internal fastcc void @initialize_hash_entry(ptr noundef %0, ptr nocapture
   %.030.idx.i.i.i = select i1 %31, i64 0, i64 88
   %.030.i.i.i = getelementptr i8, ptr %33, i64 %.030.idx.i.i.i
   %34 = getelementptr inbounds i8, ptr %.030.i.i.i, i64 56
-  %.mask.i.i = and i8 %28, 1
-  %35 = zext nneg i8 %.mask.i.i to i64
-  %36 = getelementptr [2 x [2 x ptr]], ptr %34, i64 0, i64 %35, i64 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %hashagg_recompile_expressions.exit.i.i
+  %.mask.i.i = shl i8 %28, 4
+  %35 = and i8 %.mask.i.i, 16
+  %36 = or disjoint i8 %35, 8
+  %.offs.i.i = zext nneg i8 %36 to i64
+  %37 = getelementptr i8, ptr %34, i64 %.offs.i.i
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %hashagg_recompile_expressions.exit.i.i
 
-39:                                               ; preds = %25
-  %40 = trunc i8 %28 to i1
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 193
-  %44 = load i8, ptr %43, align 1
-  %45 = and i8 %44, 1
-  %46 = icmp eq i32 %30, 3
-  %not..i.i.i = xor i1 %40, true
-  %spec.select31.i.i.i = and i1 %46, %not..i.i.i
-  br i1 %40, label %47, label %48
+40:                                               ; preds = %25
+  %41 = trunc i8 %28 to i1
+  %42 = getelementptr inbounds i8, ptr %0, i64 168
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 193
+  %45 = load i8, ptr %44, align 1
+  %46 = and i8 %45, 1
+  %47 = icmp eq i32 %30, 3
+  %not..i.i.i = xor i1 %41, true
+  %spec.select31.i.i.i = and i1 %47, %not..i.i.i
+  br i1 %41, label %48, label %49
 
-47:                                               ; preds = %39
-  store ptr @TTSOpsMinimalTuple, ptr %41, align 8
-  store i8 1, ptr %43, align 1
-  br label %48
+48:                                               ; preds = %40
+  store ptr @TTSOpsMinimalTuple, ptr %42, align 8
+  store i8 1, ptr %44, align 1
+  br label %49
 
-48:                                               ; preds = %47, %39
-  %49 = tail call ptr @ExecBuildAggTrans(ptr noundef nonnull %0, ptr noundef nonnull %.030.i.i.i, i1 noundef zeroext %spec.select31.i.i.i, i1 noundef zeroext true, i1 noundef zeroext true) #12
-  store ptr %49, ptr %36, align 8
-  store ptr %42, ptr %41, align 8
-  store i8 %45, ptr %43, align 1
-  %.pre.i.i.i = load ptr, ptr %36, align 8
+49:                                               ; preds = %48, %40
+  %50 = tail call ptr @ExecBuildAggTrans(ptr noundef nonnull %0, ptr noundef nonnull %.030.i.i.i, i1 noundef zeroext %spec.select31.i.i.i, i1 noundef zeroext true, i1 noundef zeroext true) #12
+  store ptr %50, ptr %37, align 8
+  store ptr %43, ptr %42, align 8
+  store i8 %46, ptr %44, align 1
+  %.pre.i.i.i = load ptr, ptr %37, align 8
   br label %hashagg_recompile_expressions.exit.i.i
 
-hashagg_recompile_expressions.exit.i.i:           ; preds = %48, %25
-  %50 = phi ptr [ %.pre.i.i.i, %48 ], [ %37, %25 ]
-  %51 = getelementptr inbounds i8, ptr %.030.i.i.i, i64 48
-  store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 488
-  %53 = load i8, ptr %52, align 8
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %hash_agg_check_limits.exit, label %55
+hashagg_recompile_expressions.exit.i.i:           ; preds = %49, %25
+  %51 = phi ptr [ %.pre.i.i.i, %49 ], [ %38, %25 ]
+  %52 = getelementptr inbounds i8, ptr %.030.i.i.i, i64 48
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 488
+  %54 = load i8, ptr %53, align 8
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %hash_agg_check_limits.exit, label %56
 
-55:                                               ; preds = %hashagg_recompile_expressions.exit.i.i
-  store i8 1, ptr %52, align 8
-  %56 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext true, ptr noundef null, i32 noundef -1) #12
-  %57 = getelementptr inbounds i8, ptr %0, i64 448
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 436
-  %59 = load i32, ptr %58, align 4
-  %60 = sext i32 %59 to i64
-  %61 = mul nsw i64 %60, 40
-  %62 = tail call ptr @palloc(i64 noundef %61) #12
-  %63 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr %62, ptr %63, align 8
-  %64 = load i32, ptr %58, align 4
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph.i.i, label %hash_agg_check_limits.exit
+56:                                               ; preds = %hashagg_recompile_expressions.exit.i.i
+  store i8 1, ptr %53, align 8
+  %57 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext true, ptr noundef null, i32 noundef -1) #12
+  %58 = getelementptr inbounds i8, ptr %0, i64 448
+  store ptr %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 436
+  %60 = load i32, ptr %59, align 4
+  %61 = sext i32 %60 to i64
+  %62 = mul nsw i64 %61, 40
+  %63 = tail call ptr @palloc(i64 noundef %62) #12
+  %64 = getelementptr inbounds i8, ptr %0, i64 456
+  store ptr %63, ptr %64, align 8
+  %65 = load i32, ptr %59, align 4
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph.i.i, label %hash_agg_check_limits.exit
 
-.lr.ph.i.i:                                       ; preds = %55
-  %66 = getelementptr inbounds i8, ptr %0, i64 560
-  %67 = getelementptr inbounds i8, ptr %0, i64 520
-  br label %68
+.lr.ph.i.i:                                       ; preds = %56
+  %67 = getelementptr inbounds i8, ptr %0, i64 560
+  %68 = getelementptr inbounds i8, ptr %0, i64 520
+  br label %69
 
-68:                                               ; preds = %68, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %68 ]
-  %69 = load ptr, ptr %66, align 8
-  %70 = load ptr, ptr %63, align 8
-  %71 = getelementptr %struct.HashAggSpill, ptr %70, i64 %indvars.iv.i.i
-  %72 = load ptr, ptr %57, align 8
-  %73 = getelementptr %struct.AggStatePerHashData, ptr %69, i64 %indvars.iv.i.i, i32 10
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 144
-  %76 = load i64, ptr %75, align 8
-  %77 = sitofp i64 %76 to double
-  %78 = load double, ptr %67, align 8
-  tail call fastcc void @hashagg_spill_init(ptr noundef %71, ptr noundef %72, i32 noundef 0, double noundef %77, double noundef %78)
+69:                                               ; preds = %69, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %69 ]
+  %70 = load ptr, ptr %67, align 8
+  %71 = load ptr, ptr %64, align 8
+  %72 = getelementptr %struct.HashAggSpill, ptr %71, i64 %indvars.iv.i.i
+  %73 = load ptr, ptr %58, align 8
+  %74 = getelementptr %struct.AggStatePerHashData, ptr %70, i64 %indvars.iv.i.i, i32 10
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 144
+  %77 = load i64, ptr %76, align 8
+  %78 = sitofp i64 %77 to double
+  %79 = load double, ptr %68, align 8
+  tail call fastcc void @hashagg_spill_init(ptr noundef %72, ptr noundef %73, i32 noundef 0, double noundef %78, double noundef %79)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %79 = load i32, ptr %58, align 4
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next.i.i, %80
-  br i1 %81, label %68, label %hash_agg_check_limits.exit, !llvm.loop !42
+  %80 = load i32, ptr %59, align 4
+  %81 = sext i32 %80 to i64
+  %82 = icmp slt i64 %indvars.iv.next.i.i, %81
+  br i1 %82, label %69, label %hash_agg_check_limits.exit, !llvm.loop !42
 
-hash_agg_check_limits.exit:                       ; preds = %68, %3, %21, %hashagg_recompile_expressions.exit.i.i, %55
-  %82 = getelementptr inbounds i8, ptr %0, i64 236
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.loopexit, label %85
+hash_agg_check_limits.exit:                       ; preds = %69, %3, %21, %hashagg_recompile_expressions.exit.i.i, %56
+  %83 = getelementptr inbounds i8, ptr %0, i64 236
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %.loopexit, label %86
 
-85:                                               ; preds = %hash_agg_check_limits.exit
-  %86 = getelementptr inbounds i8, ptr %1, i64 48
-  %87 = load ptr, ptr %86, align 8
-  %88 = sext i32 %83 to i64
-  %89 = shl nsw i64 %88, 4
-  %90 = tail call ptr @MemoryContextAlloc(ptr noundef %87, i64 noundef %89) #12
-  %91 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %90, ptr %91, align 8
-  %92 = load i32, ptr %82, align 4
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph, label %.loopexit
+86:                                               ; preds = %hash_agg_check_limits.exit
+  %87 = getelementptr inbounds i8, ptr %1, i64 48
+  %88 = load ptr, ptr %87, align 8
+  %89 = sext i32 %84 to i64
+  %90 = shl nsw i64 %89, 4
+  %91 = tail call ptr @MemoryContextAlloc(ptr noundef %88, i64 noundef %90) #12
+  %92 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %91, ptr %92, align 8
+  %93 = load i32, ptr %83, align 4
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %85
-  %94 = getelementptr inbounds i8, ptr %0, i64 272
-  br label %95
+.lr.ph:                                           ; preds = %86
+  %95 = getelementptr inbounds i8, ptr %0, i64 272
+  br label %96
 
-95:                                               ; preds = %.lr.ph, %95
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = load ptr, ptr %94, align 8
-  %97 = getelementptr %struct.AggStatePerTransData, ptr %96, i64 %indvars.iv
-  %98 = getelementptr %struct.AggStatePerGroupData, ptr %90, i64 %indvars.iv
-  tail call fastcc void @initialize_aggregate(ptr noundef nonnull %0, ptr noundef %97, ptr noundef %98)
+96:                                               ; preds = %.lr.ph, %96
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
+  %97 = load ptr, ptr %95, align 8
+  %98 = getelementptr %struct.AggStatePerTransData, ptr %97, i64 %indvars.iv
+  %99 = getelementptr %struct.AggStatePerGroupData, ptr %91, i64 %indvars.iv
+  tail call fastcc void @initialize_aggregate(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %99)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load i32, ptr %82, align 4
-  %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next, %100
-  br i1 %101, label %95, label %.loopexit, !llvm.loop !43
+  %100 = load i32, ptr %83, align 4
+  %101 = sext i32 %100 to i64
+  %102 = icmp slt i64 %indvars.iv.next, %101
+  br i1 %102, label %96, label %.loopexit, !llvm.loop !43
 
-.loopexit:                                        ; preds = %95, %85, %hash_agg_check_limits.exit
+.loopexit:                                        ; preds = %96, %86, %hash_agg_check_limits.exit
   ret void
 }
 
@@ -6450,7 +6452,7 @@ slot_getsomeattrs.exit.i:                         ; preds = %210, %205
   br i1 %.not44.i, label %._crit_edge.i66, label %.lr.ph.i64
 
 .lr.ph.i64:                                       ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %223, i64 32
+  %228 = getelementptr i8, ptr %223, i64 40
   br label %231
 
 229:                                              ; preds = %231
@@ -6461,7 +6463,8 @@ slot_getsomeattrs.exit.i:                         ; preds = %210, %205
 231:                                              ; preds = %229, %.lr.ph.i64
   %.045.i = phi i32 [ 1, %.lr.ph.i64 ], [ %230, %229 ]
   %232 = sext i32 %.045.i to i64
-  %233 = getelementptr [0 x %struct.NullableDatum], ptr %228, i64 0, i64 %232, i32 1
+  %.idx.i = shl nsw i64 %232, 4
+  %233 = getelementptr i8, ptr %228, i64 %.idx.i
   %234 = load i8, ptr %233, align 8
   %235 = trunc i8 %234 to i1
   br i1 %235, label %advance_transition_function.exit, label %229
@@ -7032,7 +7035,7 @@ define internal fastcc void @advance_transition_function(ptr noundef %0, ptr nou
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr i8, ptr %5, i64 40
   br label %15
 
 13:                                               ; preds = %15
@@ -7043,7 +7046,8 @@ define internal fastcc void @advance_transition_function(ptr noundef %0, ptr nou
 15:                                               ; preds = %.lr.ph, %13
   %.045 = phi i32 [ 1, %.lr.ph ], [ %14, %13 ]
   %16 = sext i32 %.045 to i64
-  %17 = getelementptr [0 x %struct.NullableDatum], ptr %12, i64 0, i64 %16, i32 1
+  %.idx = shl nsw i64 %16, 4
+  %17 = getelementptr i8, ptr %12, i64 %.idx
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %.loopexit, label %13

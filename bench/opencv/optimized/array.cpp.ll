@@ -2362,80 +2362,81 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 96
   %16 = icmp sgt i32 %14, 0
-  br i1 %16, label %.preheader.lr.ph, label %._crit_edge42
+  br i1 %16, label %.preheader.lr.ph, label %._crit_edge43
 
 .preheader.lr.ph:                                 ; preds = %12
   %17 = load i32, ptr %0, align 8
-  %.fr59 = freeze i32 %17
-  %18 = icmp sgt i32 %.fr59, 0
+  %.fr61 = freeze i32 %17
+  %18 = icmp sgt i32 %.fr61, 0
   %19 = getelementptr inbounds i8, ptr %0, i64 224
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %18, label %.preheader.us.us.preheader, label %.preheader.lr.ph.split.split
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %21 = zext nneg i32 %14 to i64
-  %wide.trip.count84 = zext nneg i32 %.fr59 to i64
+  %wide.trip.count86 = zext nneg i32 %.fr61 to i64
   br label %.preheader.us.us
 
-.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge40.us.us
-  %indvars.iv91 = phi i64 [ %21, %.preheader.us.us.preheader ], [ %indvars.iv.next92, %._crit_edge40.us.us ]
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge41.us.us
+  %indvars.iv93 = phi i64 [ %21, %.preheader.us.us.preheader ], [ %indvars.iv.next94, %._crit_edge41.us.us ]
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
+  %.idx35.us.us = shl nuw nsw i64 %indvars.iv.next94, 3
   br label %39
 
-.lr.ph39.us.us:                                   ; preds = %._crit_edge.us.us
+.lr.ph40.us.us:                                   ; preds = %._crit_edge.us.us
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = getelementptr inbounds [32 x %struct.anon.4], ptr %23, i64 0, i64 %indvars.iv.next92
+  %24 = getelementptr inbounds [32 x %struct.anon.4], ptr %23, i64 0, i64 %indvars.iv.next94
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   br label %27
 
-27:                                               ; preds = %27, %.lr.ph39.us.us
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %27 ], [ 0, %.lr.ph39.us.us ]
-  %28 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv86
+27:                                               ; preds = %27, %.lr.ph40.us.us
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %27 ], [ 0, %.lr.ph40.us.us ]
+  %28 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv88
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = getelementptr inbounds [32 x %struct.anon.4], ptr %30, i64 0, i64 %indvars.iv.next92, i32 1
+  %30 = getelementptr i8, ptr %29, i64 36
+  %31 = getelementptr i8, ptr %30, i64 %.idx35.us.us
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv86
+  %34 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv88
   %35 = load ptr, ptr %34, align 8
   %36 = mul nsw i64 %26, %33
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
   store ptr %38, ptr %34, align 8
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count84
-  br i1 %exitcond90.not, label %._crit_edge40.us.us, label %27, !llvm.loop !13
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count86
+  br i1 %exitcond92.not, label %._crit_edge41.us.us, label %27, !llvm.loop !13
 
 39:                                               ; preds = %.preheader.us.us, %39
-  %indvars.iv81 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next82, %39 ]
-  %40 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv81
+  %indvars.iv83 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next84, %39 ]
+  %40 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv83
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
-  %43 = getelementptr inbounds [32 x %struct.anon.4], ptr %42, i64 0, i64 %indvars.iv.next92, i32 1
+  %42 = getelementptr i8, ptr %41, i64 36
+  %43 = getelementptr i8, ptr %42, i64 %.idx35.us.us
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv81
+  %45 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv83
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %44 to i64
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
   store ptr %48, ptr %45, align 8
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge.us.us, label %39, !llvm.loop !14
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
+  br i1 %exitcond87.not, label %._crit_edge.us.us, label %39, !llvm.loop !14
 
 ._crit_edge.us.us:                                ; preds = %39
-  %49 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %indvars.iv.next92
+  %49 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %indvars.iv.next94
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, -1
   store i32 %51, ptr %49, align 4
   %52 = icmp sgt i32 %50, 1
-  br i1 %52, label %._crit_edge42, label %.lr.ph39.us.us
+  br i1 %52, label %._crit_edge43, label %.lr.ph40.us.us
 
-._crit_edge40.us.us:                              ; preds = %27
+._crit_edge41.us.us:                              ; preds = %27
   store i32 %25, ptr %49, align 4
-  %53 = icmp sgt i64 %indvars.iv91, 1
-  br i1 %53, label %.preheader.us.us, label %._crit_edge42, !llvm.loop !15
+  %53 = icmp sgt i64 %indvars.iv93, 1
+  br i1 %53, label %.preheader.us.us, label %._crit_edge43, !llvm.loop !15
 
 .preheader.lr.ph.split.split:                     ; preds = %.preheader.lr.ph
   %54 = add nsw i32 %14, -1
@@ -2445,7 +2446,7 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
   %58 = add nsw i32 %57, -1
   store i32 %58, ptr %56, align 4
   %59 = icmp sgt i32 %57, 1
-  br i1 %59, label %._crit_edge42, label %.lr.ph
+  br i1 %59, label %._crit_edge43, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2454,7 +2455,7 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %60, align 4
   %63 = icmp sgt i32 %61, 1
-  br i1 %63, label %._crit_edge42, label %.lr.ph, !llvm.loop !15
+  br i1 %63, label %._crit_edge43, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader.lr.ph.split.split, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %55, %.preheader.lr.ph.split.split ]
@@ -2465,11 +2466,11 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
   %68 = load i32, ptr %67, align 8
   store i32 %68, ptr %64, align 4
   %69 = icmp sgt i64 %indvars.iv, 0
-  br i1 %69, label %.preheader, label %._crit_edge42, !llvm.loop !15
+  br i1 %69, label %.preheader, label %._crit_edge43, !llvm.loop !15
 
-._crit_edge42:                                    ; preds = %.lr.ph, %.preheader, %._crit_edge40.us.us, %._crit_edge.us.us, %.preheader.lr.ph.split.split, %12
-  %.lcssa35 = phi i32 [ 0, %12 ], [ 1, %.preheader.lr.ph.split.split ], [ 1, %._crit_edge.us.us ], [ 0, %._crit_edge40.us.us ], [ 1, %.preheader ], [ 0, %.lr.ph ]
-  ret i32 %.lcssa35
+._crit_edge43:                                    ; preds = %.lr.ph, %.preheader, %._crit_edge41.us.us, %._crit_edge.us.us, %.preheader.lr.ph.split.split, %12
+  %.lcssa36 = phi i32 [ 0, %12 ], [ 1, %.preheader.lr.ph.split.split ], [ 1, %._crit_edge.us.us ], [ 0, %._crit_edge41.us.us ], [ 1, %.preheader ], [ 0, %.lr.ph ]
+  ret i32 %.lcssa36
 }
 
 ; Function Attrs: mustprogress uwtable

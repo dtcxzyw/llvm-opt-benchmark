@@ -5633,8 +5633,9 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71,
   %63 = or i8 %61, %62
   %64 = icmp ne i8 %63, 0
   %65 = load ptr, ptr %48, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
-  %67 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %66, i64 0, i64 %indvars.iv, i32 5
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %66 = getelementptr i8, ptr %65, i64 100
+  %67 = getelementptr i8, ptr %66, i64 %.idx
   store i32 -1, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8763,10 +8764,11 @@ define dso_local noundef i32 @errtablecol(ptr nocapture noundef readonly %0, i32
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = add nsw i32 %1, -1
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %11, i32 1
+  %9 = add nsw i32 %1, -1
+  %10 = zext nneg i32 %9 to i64
+  %.idx = mul nuw nsw i64 %10, 104
+  %11 = getelementptr i8, ptr %4, i64 28
+  %12 = getelementptr i8, ptr %11, i64 %.idx
   br label %18
 
 13:                                               ; preds = %6, %2

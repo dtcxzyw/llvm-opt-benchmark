@@ -91,9 +91,10 @@ define dso_local void @i915_pmu_gt_parked(ptr noundef %0) local_unnamed_addr #0 
 
 22:                                               ; preds = %19, %6
   %23 = phi i64 [ %21, %19 ], [ %12, %6 ]
-  %24 = getelementptr inbounds i8, ptr %8, i64 9856
-  %25 = zext i32 %10 to i64
-  %26 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %24, i64 0, i64 %25, i64 2
+  %24 = zext i32 %10 to i64
+  %.idx = shl nuw nsw i64 %24, 5
+  %25 = getelementptr i8, ptr %8, i64 9872
+  %26 = getelementptr i8, ptr %25, i64 %.idx
   store i64 %23, ptr %26, align 8
   %27 = tail call i64 @ktime_get_raw() #12
   %28 = getelementptr inbounds i8, ptr %8, i64 9920
@@ -387,8 +388,11 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds i8, ptr %30, i64 3592
-  %41 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %24, i64 0, i64 %28, i64 2
-  %42 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %24, i64 0, i64 %28, i64 3
+  %.idx = shl nuw nsw i64 %28, 5
+  %.offs = or disjoint i64 %.idx, 16
+  %41 = getelementptr i8, ptr %24, i64 %.offs
+  %.offs24 = or disjoint i64 %.idx, 24
+  %42 = getelementptr i8, ptr %24, i64 %.offs24
   %43 = getelementptr [2 x i64], ptr %25, i64 0, i64 %28
   %44 = load ptr, ptr %30, align 8
   %45 = tail call i64 @intel_rc6_residency_ns(ptr noundef %40, i32 noundef 1) #12
@@ -442,7 +446,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 255
   %79 = icmp eq i32 %78, 16
-  br i1 %79, label %.thread60, label %80
+  br i1 %79, label %.thread62, label %80
 
 80:                                               ; preds = %75, %71, %62
   %81 = getelementptr inbounds i8, ptr %64, i64 80
@@ -462,7 +466,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %90 = icmp eq ptr %88, null
   br i1 %90, label %.thread, label %92
 
-.thread60:                                        ; preds = %75
+.thread62:                                        ; preds = %75
   %91 = getelementptr inbounds i8, ptr %0, i64 9720
   store ptr @.str.4, ptr %91, align 8
   br label %95
@@ -473,21 +477,21 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %94 = icmp eq ptr %.pre, null
   br i1 %94, label %.thread, label %95
 
-95:                                               ; preds = %.thread60, %92
+95:                                               ; preds = %.thread62, %92
   %96 = getelementptr inbounds i8, ptr %0, i64 9720
   store ptr @.str.5, ptr %5, align 8
   %97 = getelementptr i8, ptr %0, i64 7168
   %98 = getelementptr i8, ptr %0, i64 7184
   br label %99
 
-99:                                               ; preds = %.loopexit42, %95
-  %100 = phi i1 [ true, %95 ], [ false, %.loopexit42 ]
-  %101 = phi i64 [ 0, %95 ], [ 1, %.loopexit42 ]
-  %102 = phi i32 [ 0, %95 ], [ %157, %.loopexit42 ]
+99:                                               ; preds = %.loopexit44, %95
+  %100 = phi i1 [ true, %95 ], [ false, %.loopexit44 ]
+  %101 = phi i64 [ 0, %95 ], [ 1, %.loopexit44 ]
+  %102 = phi i32 [ 0, %95 ], [ %157, %.loopexit44 ]
   %103 = getelementptr [2 x ptr], ptr %23, i64 0, i64 %101
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.loopexit42, label %106
+  br i1 %105, label %.loopexit44, label %106
 
 106:                                              ; preds = %99
   %107 = load ptr, ptr %23, align 8
@@ -498,7 +502,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %112 = zext i1 %111 to i64
   %113 = icmp ugt i64 %101, %112
   %114 = getelementptr inbounds i8, ptr %107, i64 3688
-  br i1 %113, label %.loopexit42, label %.split
+  br i1 %113, label %.loopexit44, label %.split
 
 .split:                                           ; preds = %106
   br i1 %100, label %.split.split.us, label %.split.split
@@ -541,7 +545,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %133 = add i32 %132, %116
   %134 = add nuw nsw i64 %115, 1
   %135 = icmp eq i64 %134, 5
-  br i1 %135, label %.loopexit42, label %.split.split.us, !llvm.loop !15
+  br i1 %135, label %.loopexit44, label %.split.split.us, !llvm.loop !15
 
 .split.split:                                     ; preds = %.split, %152
   %136 = phi i64 [ %155, %152 ], [ 0, %.split ]
@@ -580,29 +584,29 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %154 = add i32 %153, %137
   %155 = add nuw nsw i64 %136, 1
   %156 = icmp eq i64 %155, 5
-  br i1 %156, label %.loopexit42, label %.split.split, !llvm.loop !15
+  br i1 %156, label %.loopexit44, label %.split.split, !llvm.loop !15
 
-.loopexit42:                                      ; preds = %152, %131, %106, %99
+.loopexit44:                                      ; preds = %152, %131, %106, %99
   %157 = phi i32 [ %102, %99 ], [ %102, %106 ], [ %133, %131 ], [ %154, %152 ]
   br i1 %100, label %99, label %158, !llvm.loop !16
 
-158:                                              ; preds = %.loopexit42
+158:                                              ; preds = %.loopexit44
   %159 = getelementptr i8, ptr %0, i64 7896
   %160 = tail call ptr @rb_first(ptr noundef %159) #12
   %161 = icmp eq ptr %160, null
   %162 = getelementptr i8, ptr %160, i64 -112
   %163 = icmp eq ptr %162, null
   %164 = or i1 %161, %163
-  br i1 %164, label %.loopexit41, label %.preheader40
+  br i1 %164, label %.loopexit43, label %.preheader42
 
-.preheader40:                                     ; preds = %158, %183
+.preheader42:                                     ; preds = %158, %183
   %165 = phi i32 [ %180, %183 ], [ %157, %158 ]
   %166 = phi ptr [ %187, %183 ], [ %162, %158 ]
   br label %167
 
-167:                                              ; preds = %178, %.preheader40
-  %168 = phi i64 [ 0, %.preheader40 ], [ %181, %178 ]
-  %169 = phi i32 [ %165, %.preheader40 ], [ %180, %178 ]
+167:                                              ; preds = %178, %.preheader42
+  %168 = phi i64 [ 0, %.preheader42 ], [ %181, %178 ]
+  %169 = phi i32 [ %165, %.preheader42 ], [ %180, %178 ]
   %170 = getelementptr [3 x %struct.anon.78], ptr @create_event_attributes.engine_events, i64 0, i64 %168
   %171 = load i32, ptr %170, align 16
   switch i32 %171, label %178 [
@@ -635,21 +639,21 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %187 = getelementptr i8, ptr %185, i64 -112
   %188 = icmp eq ptr %187, null
   %189 = or i1 %186, %188
-  br i1 %189, label %.loopexit41, label %.preheader40, !llvm.loop !18
+  br i1 %189, label %.loopexit43, label %.preheader42, !llvm.loop !18
 
-.loopexit41:                                      ; preds = %183, %158
+.loopexit43:                                      ; preds = %183, %158
   %190 = phi i32 [ %157, %158 ], [ %180, %183 ]
   %191 = zext i32 %190 to i64
   %192 = mul nuw nsw i64 %191, 40
   %193 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %192, i32 noundef 3520) #15
   %194 = icmp eq ptr %193, null
-  br i1 %194, label %.thread32, label %195
+  br i1 %194, label %.thread34, label %195
 
-195:                                              ; preds = %.loopexit41
+195:                                              ; preds = %.loopexit43
   %196 = mul nuw nsw i64 %191, 48
   %197 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %196, i32 noundef 3520) #15
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %.thread32, label %199
+  br i1 %198, label %.thread34, label %199
 
 199:                                              ; preds = %195
   %200 = shl i32 %190, 1
@@ -658,20 +662,20 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %203 = shl nuw nsw i64 %202, 3
   %204 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %203, i32 noundef 3520) #15
   %205 = icmp eq ptr %204, null
-  br i1 %205, label %.thread32, label %.preheader39
+  br i1 %205, label %.thread34, label %.preheader41
 
-.preheader39:                                     ; preds = %199, %.loopexit38
-  %206 = phi i1 [ false, %.loopexit38 ], [ true, %199 ]
-  %207 = phi i64 [ 1, %.loopexit38 ], [ 0, %199 ]
-  %208 = phi ptr [ %294, %.loopexit38 ], [ %197, %199 ]
-  %209 = phi ptr [ %293, %.loopexit38 ], [ %193, %199 ]
-  %210 = phi ptr [ %292, %.loopexit38 ], [ %204, %199 ]
+.preheader41:                                     ; preds = %199, %.loopexit40
+  %206 = phi i1 [ false, %.loopexit40 ], [ true, %199 ]
+  %207 = phi i64 [ 1, %.loopexit40 ], [ 0, %199 ]
+  %208 = phi ptr [ %294, %.loopexit40 ], [ %197, %199 ]
+  %209 = phi ptr [ %293, %.loopexit40 ], [ %193, %199 ]
+  %210 = phi ptr [ %292, %.loopexit40 ], [ %204, %199 ]
   %211 = getelementptr [2 x ptr], ptr %23, i64 0, i64 %207
   %212 = load ptr, ptr %211, align 8
   %213 = icmp eq ptr %212, null
-  br i1 %213, label %.loopexit38, label %214
+  br i1 %213, label %.loopexit40, label %214
 
-214:                                              ; preds = %.preheader39
+214:                                              ; preds = %.preheader41
   %215 = shl nuw nsw i64 %207, 60
   %216 = trunc nuw nsw i64 %207 to i32
   %invariant.op = or disjoint i64 %215, 1048576
@@ -679,8 +683,8 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 
 217:                                              ; preds = %289, %214
   %218 = phi i64 [ 0, %214 ], [ %290, %289 ]
-  %219 = phi ptr [ %208, %214 ], [ %.ph25, %289 ]
-  %220 = phi ptr [ %209, %214 ], [ %.ph23, %289 ]
+  %219 = phi ptr [ %208, %214 ], [ %.ph27, %289 ]
+  %220 = phi ptr [ %209, %214 ], [ %.ph25, %289 ]
   %221 = phi ptr [ %210, %214 ], [ %.ph, %289 ]
   %222 = getelementptr [5 x %struct.anon.77], ptr @create_event_attributes.events, i64 0, i64 %218
   %223 = load i32, ptr %222, align 16
@@ -746,7 +750,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 258:                                              ; preds = %256, %254
   %259 = phi ptr [ %255, %254 ], [ %257, %256 ]
   %260 = icmp eq ptr %259, null
-  br i1 %260, label %.loopexit34, label %261
+  br i1 %260, label %.loopexit36, label %261
 
 261:                                              ; preds = %258
   %262 = getelementptr i8, ptr %221, i64 8
@@ -785,7 +789,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 280:                                              ; preds = %278, %276
   %281 = phi ptr [ %277, %276 ], [ %279, %278 ]
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %.loopexit34, label %283
+  br i1 %282, label %.loopexit36, label %283
 
 283:                                              ; preds = %280
   %284 = getelementptr i8, ptr %221, i64 16
@@ -802,41 +806,41 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 
 289:                                              ; preds = %283, %261, %217, %232, %233, %237, %240, %241
   %.ph = phi ptr [ %221, %241 ], [ %221, %240 ], [ %221, %237 ], [ %221, %233 ], [ %221, %232 ], [ %221, %217 ], [ %262, %261 ], [ %284, %283 ]
-  %.ph23 = phi ptr [ %220, %241 ], [ %220, %240 ], [ %220, %237 ], [ %220, %233 ], [ %220, %232 ], [ %220, %217 ], [ %266, %261 ], [ %266, %283 ]
-  %.ph25 = phi ptr [ %219, %241 ], [ %219, %240 ], [ %219, %237 ], [ %219, %233 ], [ %219, %232 ], [ %219, %217 ], [ %219, %261 ], [ %288, %283 ]
+  %.ph25 = phi ptr [ %220, %241 ], [ %220, %240 ], [ %220, %237 ], [ %220, %233 ], [ %220, %232 ], [ %220, %217 ], [ %266, %261 ], [ %266, %283 ]
+  %.ph27 = phi ptr [ %219, %241 ], [ %219, %240 ], [ %219, %237 ], [ %219, %233 ], [ %219, %232 ], [ %219, %217 ], [ %219, %261 ], [ %288, %283 ]
   %290 = add nuw nsw i64 %218, 1
   %291 = icmp eq i64 %290, 5
-  br i1 %291, label %.loopexit38, label %217, !llvm.loop !19
+  br i1 %291, label %.loopexit40, label %217, !llvm.loop !19
 
-.loopexit38:                                      ; preds = %289, %.preheader39
-  %292 = phi ptr [ %210, %.preheader39 ], [ %.ph, %289 ]
-  %293 = phi ptr [ %209, %.preheader39 ], [ %.ph23, %289 ]
-  %294 = phi ptr [ %208, %.preheader39 ], [ %.ph25, %289 ]
-  br i1 %206, label %.preheader39, label %295, !llvm.loop !20
+.loopexit40:                                      ; preds = %289, %.preheader41
+  %292 = phi ptr [ %210, %.preheader41 ], [ %.ph, %289 ]
+  %293 = phi ptr [ %209, %.preheader41 ], [ %.ph25, %289 ]
+  %294 = phi ptr [ %208, %.preheader41 ], [ %.ph27, %289 ]
+  br i1 %206, label %.preheader41, label %295, !llvm.loop !20
 
-295:                                              ; preds = %.loopexit38
+295:                                              ; preds = %.loopexit40
   %296 = tail call ptr @rb_first(ptr noundef %159) #12
   %297 = icmp eq ptr %296, null
   %298 = getelementptr i8, ptr %296, i64 -112
   %299 = icmp eq ptr %298, null
   %300 = or i1 %297, %299
-  br i1 %300, label %.loopexit36, label %.preheader35
+  br i1 %300, label %.loopexit38, label %.preheader37
 
-.preheader35:                                     ; preds = %295, %351
-  %301 = phi ptr [ %.ph30, %351 ], [ %294, %295 ]
-  %302 = phi ptr [ %.ph28, %351 ], [ %293, %295 ]
-  %303 = phi ptr [ %.ph27, %351 ], [ %292, %295 ]
+.preheader37:                                     ; preds = %295, %351
+  %301 = phi ptr [ %.ph32, %351 ], [ %294, %295 ]
+  %302 = phi ptr [ %.ph30, %351 ], [ %293, %295 ]
+  %303 = phi ptr [ %.ph29, %351 ], [ %292, %295 ]
   %304 = phi ptr [ %355, %351 ], [ %298, %295 ]
   %305 = getelementptr inbounds i8, ptr %304, i64 24
   %306 = getelementptr inbounds i8, ptr %304, i64 58
   %307 = getelementptr inbounds i8, ptr %304, i64 60
   br label %308
 
-308:                                              ; preds = %348, %.preheader35
-  %309 = phi i64 [ 0, %.preheader35 ], [ %349, %348 ]
-  %310 = phi ptr [ %301, %.preheader35 ], [ %.ph30, %348 ]
-  %311 = phi ptr [ %302, %.preheader35 ], [ %.ph28, %348 ]
-  %312 = phi ptr [ %303, %.preheader35 ], [ %.ph27, %348 ]
+308:                                              ; preds = %348, %.preheader37
+  %309 = phi i64 [ 0, %.preheader37 ], [ %349, %348 ]
+  %310 = phi ptr [ %301, %.preheader37 ], [ %.ph32, %348 ]
+  %311 = phi ptr [ %302, %.preheader37 ], [ %.ph30, %348 ]
+  %312 = phi ptr [ %303, %.preheader37 ], [ %.ph29, %348 ]
   %313 = getelementptr [3 x %struct.anon.78], ptr @create_event_attributes.engine_events, i64 0, i64 %309
   %314 = load i32, ptr %313, align 16
   switch i32 %314, label %348 [
@@ -857,7 +861,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %322 = load ptr, ptr %321, align 8
   %323 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.26, ptr noundef %305, ptr noundef %322) #12
   %324 = icmp eq ptr %323, null
-  br i1 %324, label %.loopexit34, label %325
+  br i1 %324, label %.loopexit36, label %325
 
 325:                                              ; preds = %320
   store ptr %311, ptr %312, align 8
@@ -879,7 +883,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   store i64 %334, ptr %337, align 8
   %338 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.27, ptr noundef %305, ptr noundef %322) #12
   %339 = icmp eq ptr %338, null
-  br i1 %339, label %.loopexit34, label %340
+  br i1 %339, label %.loopexit36, label %340
 
 340:                                              ; preds = %325
   %341 = getelementptr i8, ptr %311, i64 40
@@ -897,9 +901,9 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br label %348
 
 348:                                              ; preds = %340, %308, %315
-  %.ph27 = phi ptr [ %312, %315 ], [ %312, %308 ], [ %343, %340 ]
-  %.ph28 = phi ptr [ %311, %315 ], [ %311, %308 ], [ %341, %340 ]
-  %.ph30 = phi ptr [ %310, %315 ], [ %310, %308 ], [ %347, %340 ]
+  %.ph29 = phi ptr [ %312, %315 ], [ %312, %308 ], [ %343, %340 ]
+  %.ph30 = phi ptr [ %311, %315 ], [ %311, %308 ], [ %341, %340 ]
+  %.ph32 = phi ptr [ %310, %315 ], [ %310, %308 ], [ %347, %340 ]
   %349 = add nuw nsw i64 %309, 1
   %350 = icmp eq i64 %349, 3
   br i1 %350, label %351, label %308, !llvm.loop !21
@@ -911,26 +915,26 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %355 = getelementptr i8, ptr %353, i64 -112
   %356 = icmp eq ptr %355, null
   %357 = or i1 %354, %356
-  br i1 %357, label %.loopexit36, label %.preheader35, !llvm.loop !22
+  br i1 %357, label %.loopexit38, label %.preheader37, !llvm.loop !22
 
-.loopexit34:                                      ; preds = %258, %280, %320, %325
+.loopexit36:                                      ; preds = %258, %280, %320, %325
   %358 = load ptr, ptr %204, align 8
   %359 = icmp eq ptr %358, null
-  br i1 %359, label %.thread32, label %.preheader33
+  br i1 %359, label %.thread34, label %.preheader35
 
-.preheader33:                                     ; preds = %.loopexit34, %.preheader33
-  %360 = phi ptr [ %364, %.preheader33 ], [ %358, %.loopexit34 ]
-  %361 = phi ptr [ %363, %.preheader33 ], [ %204, %.loopexit34 ]
+.preheader35:                                     ; preds = %.loopexit36, %.preheader35
+  %360 = phi ptr [ %364, %.preheader35 ], [ %358, %.loopexit36 ]
+  %361 = phi ptr [ %363, %.preheader35 ], [ %204, %.loopexit36 ]
   %362 = load ptr, ptr %360, align 8
   tail call void @kfree(ptr noundef %362) #12
   %363 = getelementptr i8, ptr %361, i64 8
   %364 = load ptr, ptr %363, align 8
   %365 = icmp eq ptr %364, null
-  br i1 %365, label %.thread32, label %.preheader33, !llvm.loop !23
+  br i1 %365, label %.thread34, label %.preheader35, !llvm.loop !23
 
-.thread32:                                        ; preds = %.preheader33, %.loopexit41, %195, %199, %.loopexit34
-  %366 = phi ptr [ null, %199 ], [ null, %195 ], [ null, %.loopexit41 ], [ %204, %.loopexit34 ], [ %204, %.preheader33 ]
-  %367 = phi ptr [ %197, %199 ], [ null, %195 ], [ null, %.loopexit41 ], [ %197, %.loopexit34 ], [ %197, %.preheader33 ]
+.thread34:                                        ; preds = %.preheader35, %.loopexit43, %195, %199, %.loopexit36
+  %366 = phi ptr [ null, %199 ], [ null, %195 ], [ null, %.loopexit43 ], [ %204, %.loopexit36 ], [ %204, %.preheader35 ]
+  %367 = phi ptr [ %197, %199 ], [ null, %195 ], [ null, %.loopexit43 ], [ %197, %.loopexit36 ], [ %197, %.preheader35 ]
   tail call void @kfree(ptr noundef %366) #12
   tail call void @kfree(ptr noundef %193) #12
   tail call void @kfree(ptr noundef %367) #12
@@ -938,7 +942,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   store ptr null, ptr %368, align 8
   br label %412
 
-.loopexit36:                                      ; preds = %351, %295
+.loopexit38:                                      ; preds = %351, %295
   %369 = getelementptr inbounds i8, ptr %0, i64 9984
   store ptr %193, ptr %369, align 8
   %370 = getelementptr inbounds i8, ptr %0, i64 9992
@@ -952,7 +956,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %375 = icmp eq ptr %372, null
   br i1 %375, label %398, label %376
 
-376:                                              ; preds = %.loopexit36
+376:                                              ; preds = %.loopexit38
   %377 = getelementptr inbounds i8, ptr %0, i64 9424
   store ptr null, ptr %377, align 8
   %378 = getelementptr inbounds i8, ptr %0, i64 9500
@@ -995,7 +999,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   call void @kfree(ptr noundef %397) #12
   br label %398
 
-398:                                              ; preds = %396, %.loopexit36
+398:                                              ; preds = %396, %.loopexit38
   %399 = getelementptr inbounds i8, ptr %0, i64 9528
   store ptr null, ptr %399, align 8
   %400 = load ptr, ptr %371, align 8
@@ -1014,11 +1018,11 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %408, label %.loopexit.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %.pre59 = load ptr, ptr %371, align 8
+  %.pre61 = load ptr, ptr %371, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %398
-  %409 = phi ptr [ %.pre59, %.loopexit.loopexit ], [ %400, %398 ]
+  %409 = phi ptr [ %.pre61, %.loopexit.loopexit ], [ %400, %398 ]
   call void @kfree(ptr noundef %409) #12
   %410 = load ptr, ptr %369, align 8
   call void @kfree(ptr noundef %410) #12
@@ -1028,7 +1032,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %369, i8 0, i64 16, i1 false)
   br label %412
 
-412:                                              ; preds = %.thread32, %.loopexit
+412:                                              ; preds = %.thread34, %.loopexit
   %413 = load ptr, ptr %63, align 8
   %414 = getelementptr i8, ptr %413, i64 -168
   %415 = load ptr, ptr %414, align 8
@@ -1512,8 +1516,9 @@ define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 alig
   %265 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef %206) #12
   %266 = zext i32 %265 to i64
   %267 = mul nuw nsw i64 %266, %15
-  %268 = getelementptr inbounds i8, ptr %203, i64 9856
-  %269 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %268, i64 0, i64 %208, i64 1
+  %.idx = shl nuw nsw i64 %208, 5
+  %268 = getelementptr i8, ptr %203, i64 9864
+  %269 = getelementptr i8, ptr %268, i64 %.idx
   %270 = load i64, ptr %269, align 8
   %271 = add i64 %267, %270
   store i64 %271, ptr %269, align 8
@@ -2419,10 +2424,10 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 653, i32 2313, i64 12) #12, !srcloc !50
   tail call void asm sideeffect "548: nop\0A\09.pushsection .discard.instr_end\0A\09.long 548b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 548) #12, !srcloc !51
   tail call void asm sideeffect "549: nop\0A\09.pushsection .discard.instr_end\0A\09.long 549b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 549) #12, !srcloc !52
-  br label %133
+  br label %132
 
 24:                                               ; preds = %3
-  br i1 %10, label %25, label %133
+  br i1 %10, label %25, label %132
 
 25:                                               ; preds = %24
   %26 = and i64 %.224.val, 15
@@ -2441,23 +2446,23 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   store i64 0, ptr %1, align 8, !annotation !53
   %34 = call i64 @intel_engine_get_busy_time(ptr noundef nonnull %9, ptr noundef nonnull %1) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
-  br label %133
+  br label %132
 
 35:                                               ; preds = %28, %25
   %36 = getelementptr inbounds i8, ptr %9, i64 560
   %37 = getelementptr [3 x %struct.i915_pmu_sample], ptr %36, i64 0, i64 %26
   %38 = load i64, ptr %37, align 8
-  br label %133
+  br label %132
 
 39:                                               ; preds = %0
   %40 = lshr i64 %.224.val, 60
   %41 = and i64 %.224.val, 1152921504606846975
-  switch i64 %41, label %133 [
+  switch i64 %41, label %132 [
     i64 1048576, label %42
     i64 1048577, label %47
     i64 1048578, label %52
     i64 1048579, label %55
-    i64 1048580, label %129
+    i64 1048580, label %128
   ]
 
 42:                                               ; preds = %39
@@ -2465,19 +2470,20 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   %44 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %43, i64 0, i64 %40, i64 0
   %45 = load i64, ptr %44, align 8
   %46 = udiv i64 %45, 1000000
-  br label %133
+  br label %132
 
 47:                                               ; preds = %39
-  %48 = getelementptr i8, ptr %.152.val, i64 448
-  %49 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %48, i64 0, i64 %40, i64 1
+  %.idx11 = shl nuw nsw i64 %40, 5
+  %48 = getelementptr i8, ptr %.152.val, i64 456
+  %49 = getelementptr i8, ptr %48, i64 %.idx11
   %50 = load i64, ptr %49, align 8
   %51 = udiv i64 %50, 1000000
-  br label %133
+  br label %132
 
 52:                                               ; preds = %39
   %53 = getelementptr i8, ptr %.152.val, i64 528
   %54 = load volatile i64, ptr %53, align 8
-  br label %133
+  br label %132
 
 55:                                               ; preds = %39
   %56 = getelementptr i8, ptr %.152.val, i64 -104
@@ -2552,8 +2558,9 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   %100 = getelementptr inbounds i8, ptr %59, i64 9728
   %101 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %100) #12
   %102 = zext i32 %61 to i64
-  %103 = getelementptr inbounds i8, ptr %59, i64 9856
-  %104 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %103, i64 0, i64 %102, i64 2
+  %.idx = shl nuw nsw i64 %102, 5
+  %103 = getelementptr i8, ptr %59, i64 9872
+  %104 = getelementptr i8, ptr %103, i64 %.idx
   store i64 %88, ptr %104, align 8
   br label %117
 
@@ -2566,41 +2573,42 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   %110 = load i64, ptr %109, align 8
   %111 = tail call i64 @ktime_get_raw() #12
   %112 = sub i64 %111, %110
-  %113 = getelementptr inbounds i8, ptr %59, i64 9856
-  %114 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %113, i64 0, i64 %107, i64 2
+  %.idx9 = shl nuw nsw i64 %107, 5
+  %113 = getelementptr i8, ptr %59, i64 9872
+  %114 = getelementptr i8, ptr %113, i64 %.idx9
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %112, %115
   br label %117
 
 117:                                              ; preds = %._crit_edge, %.loopexit
-  %118 = phi i64 [ %102, %.loopexit ], [ %107, %._crit_edge ]
-  %119 = phi i64 [ %101, %.loopexit ], [ %106, %._crit_edge ]
-  %120 = phi ptr [ %100, %.loopexit ], [ %105, %._crit_edge ]
-  %121 = phi i64 [ %88, %.loopexit ], [ %116, %._crit_edge ]
-  %122 = getelementptr inbounds i8, ptr %59, i64 9856
-  %123 = getelementptr [2 x [4 x %struct.i915_pmu_sample]], ptr %122, i64 0, i64 %118, i64 3
-  %124 = load i64, ptr %123, align 8
-  %125 = icmp ult i64 %121, %124
-  br i1 %125, label %127, label %126
+  %.idx10.pre-phi = phi i64 [ %.idx9, %._crit_edge ], [ %.idx, %.loopexit ]
+  %118 = phi i64 [ %106, %._crit_edge ], [ %101, %.loopexit ]
+  %119 = phi ptr [ %105, %._crit_edge ], [ %100, %.loopexit ]
+  %120 = phi i64 [ %116, %._crit_edge ], [ %88, %.loopexit ]
+  %121 = getelementptr i8, ptr %59, i64 9880
+  %122 = getelementptr i8, ptr %121, i64 %.idx10.pre-phi
+  %123 = load i64, ptr %122, align 8
+  %124 = icmp ult i64 %120, %123
+  br i1 %124, label %126, label %125
 
-126:                                              ; preds = %117
-  store i64 %121, ptr %123, align 8
-  br label %127
+125:                                              ; preds = %117
+  store i64 %120, ptr %122, align 8
+  br label %126
 
-127:                                              ; preds = %126, %117
-  %128 = phi i64 [ %121, %126 ], [ %124, %117 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %120, i64 noundef %119) #12
-  br label %133
+126:                                              ; preds = %125, %117
+  %127 = phi i64 [ %120, %125 ], [ %123, %117 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %119, i64 noundef %118) #12
+  br label %132
 
-129:                                              ; preds = %39
-  %130 = getelementptr i8, ptr %.152.val, i64 -104
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call i64 @intel_gt_get_awake_time(ptr noundef %131) #12
-  br label %133
+128:                                              ; preds = %39
+  %129 = getelementptr i8, ptr %.152.val, i64 -104
+  %130 = load ptr, ptr %129, align 8
+  %131 = tail call i64 @intel_gt_get_awake_time(ptr noundef %130) #12
+  br label %132
 
-133:                                              ; preds = %.thread, %129, %127, %52, %47, %42, %39, %35, %33, %24
-  %134 = phi i64 [ 0, %24 ], [ %34, %33 ], [ %38, %35 ], [ 0, %39 ], [ %132, %129 ], [ %128, %127 ], [ %54, %52 ], [ %51, %47 ], [ %46, %42 ], [ 0, %.thread ]
-  ret i64 %134
+132:                                              ; preds = %.thread, %128, %126, %52, %47, %42, %39, %35, %33, %24
+  %133 = phi i64 [ 0, %24 ], [ %34, %33 ], [ %38, %35 ], [ 0, %39 ], [ %131, %128 ], [ %127, %126 ], [ %54, %52 ], [ %51, %47 ], [ %46, %42 ], [ 0, %.thread ]
+  ret i64 %133
 }
 
 ; Function Attrs: null_pointer_is_valid

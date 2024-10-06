@@ -380,13 +380,14 @@ _ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit:   ; preds = %40, %43, %60, %.sin
   br i1 %.not16.i.i13, label %94, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 24
-  %89 = getelementptr inbounds i8, ptr %1, i64 12
-  %90 = load i32, ptr %89, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %89, align 4
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds [3 x [21 x ptr]], ptr %88, i64 0, i64 1, i64 %92
+  %88 = getelementptr inbounds i8, ptr %1, i64 12
+  %89 = load i32, ptr %88, align 4
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %88, align 4
+  %91 = sext i32 %89 to i64
+  %.idx.i = shl nsw i64 %91, 3
+  %92 = getelementptr inbounds i8, ptr %1, i64 192
+  %93 = getelementptr i8, ptr %92, i64 %.idx.i
   store ptr %84, ptr %93, align 8
   br label %94
 
@@ -399,13 +400,14 @@ _ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit:   ; preds = %40, %43, %60, %.sin
 
 .sink.split.i.i10:                                ; preds = %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, %94
   %.sink.i.i11 = phi ptr [ %95, %94 ], [ %71, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %71, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ]
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
-  %99 = getelementptr inbounds i8, ptr %1, i64 12
-  %100 = load i32, ptr %99, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %99, align 4
-  %102 = sext i32 %100 to i64
-  %103 = getelementptr inbounds [3 x [21 x ptr]], ptr %98, i64 0, i64 1, i64 %102
+  %98 = getelementptr inbounds i8, ptr %1, i64 12
+  %99 = load i32, ptr %98, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 4
+  %101 = sext i32 %99 to i64
+  %.idx2.i = shl nsw i64 %101, 3
+  %102 = getelementptr inbounds i8, ptr %1, i64 192
+  %103 = getelementptr i8, ptr %102, i64 %.idx2.i
   store ptr %.sink.i.i11, ptr %103, align 8
   br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit
 

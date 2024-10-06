@@ -24,12 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__atomic_base.159" = type { i8 }
 %"struct.pxrInternal_v0_24__pxrReserved__::TfDebug::_Node" = type { %"struct.std::atomic.160" }
 %"struct.std::atomic.160" = type { i32 }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.38" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.36" }
-%"struct.std::atomic.36" = type { %"struct.std::__atomic_base.37" }
-%"struct.std::__atomic_base.37" = type { i64 }
-%"struct.std::atomic.38" = type { %"struct.std::__atomic_base.39" }
-%"struct.std::__atomic_base.39" = type { ptr }
 %"struct.std::atomic.40" = type { %"struct.std::__atomic_base.41" }
 %"struct.std::__atomic_base.41" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TraceKey" = type { ptr }
@@ -68,6 +62,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.tbb::detail::d2::concurrent_hash_map<pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>, pxrInternal_v0_24__pxrReserved__::HdChangeTracker::_PathHashCompare>::const_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr, i64 }
 %"class.tbb::detail::d1::rw_scoped_lock.base" = type <{ ptr, i8 }>
 %struct._Guard = type { ptr }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.38" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.36" }
+%"struct.std::atomic.36" = type { %"struct.std::__atomic_base.37" }
+%"struct.std::__atomic_base.37" = type { i64 }
+%"struct.std::atomic.38" = type { %"struct.std::__atomic_base.39" }
+%"struct.std::__atomic_base.39" = type { ptr }
 %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::SdfPath, std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, unsigned int>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, unsigned int>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.tbb::detail::d2::concurrent_hash_map<pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>, pxrInternal_v0_24__pxrReserved__::HdChangeTracker::_PathHashCompare>::bucket_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr }
 %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::TfToken, std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, int>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, int>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::TfToken>, pxrInternal_v0_24__pxrReserved__::TfToken::HashFunctor, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
@@ -414,28 +414,30 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerC2Ev(ptr noun
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.ptr12.i.i.i = getelementptr inbounds i8, ptr %0, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i
+  br label %.preheader14.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.preheader13.i.i.i
+.preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
   %46 = ptrtoint ptr %.ptr12.i.i.i to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 456
   br label %50
 
-.preheader13.i.i.i:                               ; preds = %.preheader13.i.i.i, %1
-  %.014.i.i.i = phi i64 [ %49, %.preheader13.i.i.i ], [ 0, %1 ]
-  %48 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i, i64 0, i64 %.014.i.i.i, i32 1
+.preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %1
+  %.015.i.i.i = phi i64 [ %49, %.preheader14.i.i.i ], [ 0, %1 ]
+  %.idx13.i.i.i = shl nsw i64 %.015.i.i.i, 4
+  %.offs.i.i.i = or disjoint i64 %.idx13.i.i.i, 8
+  %48 = getelementptr inbounds i8, ptr %.ptr12.i.i.i, i64 %.offs.i.i.i
   store atomic i64 0, ptr %48 monotonic, align 8
-  %49 = add nuw nsw i64 %.014.i.i.i, 1
+  %49 = add nuw nsw i64 %.015.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %49, 2
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader13.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader14.i.i.i, !llvm.loop !4
 
 50:                                               ; preds = %50, %.preheader.i.i.i
-  %.01015.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %54, %50 ]
-  %51 = icmp eq i64 %.01015.i.i.i, 0
-  %52 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %47, i64 0, i64 %.01015.i.i.i
+  %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %54, %50 ]
+  %51 = icmp eq i64 %.01016.i.i.i, 0
+  %52 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %47, i64 0, i64 %.01016.i.i.i
   %53 = select i1 %51, i64 %46, i64 0
   store atomic i64 %53, ptr %52 monotonic, align 8
-  %54 = add nuw nsw i64 %.01015.i.i.i, 1
+  %54 = add nuw nsw i64 %.01016.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, 64
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit, label %50, !llvm.loop !6
 
@@ -445,125 +447,133 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPa
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %.ptr12.i.i.i10 = getelementptr inbounds i8, ptr %0, i64 1000
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %56, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i11
+  br label %.preheader14.i.i.i11
 
-.preheader.i.i.i14:                               ; preds = %.preheader13.i.i.i11
+.preheader.i.i.i16:                               ; preds = %.preheader14.i.i.i11
   %57 = ptrtoint ptr %.ptr12.i.i.i10 to i64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br label %61
 
-.preheader13.i.i.i11:                             ; preds = %.preheader13.i.i.i11, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit
-  %.014.i.i.i12 = phi i64 [ %60, %.preheader13.i.i.i11 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit ]
-  %59 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i10, i64 0, i64 %.014.i.i.i12, i32 1
+.preheader14.i.i.i11:                             ; preds = %.preheader14.i.i.i11, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit
+  %.015.i.i.i12 = phi i64 [ %60, %.preheader14.i.i.i11 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit ]
+  %.idx13.i.i.i13 = shl nsw i64 %.015.i.i.i12, 4
+  %.offs.i.i.i14 = or disjoint i64 %.idx13.i.i.i13, 8
+  %59 = getelementptr inbounds i8, ptr %.ptr12.i.i.i10, i64 %.offs.i.i.i14
   store atomic i64 0, ptr %59 monotonic, align 8
-  %60 = add nuw nsw i64 %.014.i.i.i12, 1
-  %.not.i.i.i13 = icmp eq i64 %60, 2
-  br i1 %.not.i.i.i13, label %.preheader.i.i.i14, label %.preheader13.i.i.i11, !llvm.loop !4
+  %60 = add nuw nsw i64 %.015.i.i.i12, 1
+  %.not.i.i.i15 = icmp eq i64 %60, 2
+  br i1 %.not.i.i.i15, label %.preheader.i.i.i16, label %.preheader14.i.i.i11, !llvm.loop !4
 
-61:                                               ; preds = %61, %.preheader.i.i.i14
-  %.01015.i.i.i15 = phi i64 [ 0, %.preheader.i.i.i14 ], [ %65, %61 ]
-  %62 = icmp eq i64 %.01015.i.i.i15, 0
-  %63 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %58, i64 0, i64 %.01015.i.i.i15
+61:                                               ; preds = %61, %.preheader.i.i.i16
+  %.01016.i.i.i17 = phi i64 [ 0, %.preheader.i.i.i16 ], [ %65, %61 ]
+  %62 = icmp eq i64 %.01016.i.i.i17, 0
+  %63 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %58, i64 0, i64 %.01016.i.i.i17
   %64 = select i1 %62, i64 %57, i64 0
   store atomic i64 %64, ptr %63 monotonic, align 8
-  %65 = add nuw nsw i64 %.01015.i.i.i15, 1
-  %exitcond.not.i.i.i16 = icmp eq i64 %65, 64
-  br i1 %exitcond.not.i.i.i16, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit17, label %61, !llvm.loop !6
+  %65 = add nuw nsw i64 %.01016.i.i.i17, 1
+  %exitcond.not.i.i.i18 = icmp eq i64 %65, 64
+  br i1 %exitcond.not.i.i.i18, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit19, label %61, !llvm.loop !6
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit17: ; preds = %61
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit19: ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   store i64 1, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %.ptr12.i.i.i18 = getelementptr inbounds i8, ptr %0, i64 1576
+  %.ptr12.i.i.i20 = getelementptr inbounds i8, ptr %0, i64 1576
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i19
+  br label %.preheader14.i.i.i21
 
-.preheader.i.i.i22:                               ; preds = %.preheader13.i.i.i19
-  %68 = ptrtoint ptr %.ptr12.i.i.i18 to i64
+.preheader.i.i.i26:                               ; preds = %.preheader14.i.i.i21
+  %68 = ptrtoint ptr %.ptr12.i.i.i20 to i64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   br label %72
 
-.preheader13.i.i.i19:                             ; preds = %.preheader13.i.i.i19, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit17
-  %.014.i.i.i20 = phi i64 [ %71, %.preheader13.i.i.i19 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit17 ]
-  %70 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i18, i64 0, i64 %.014.i.i.i20, i32 1
+.preheader14.i.i.i21:                             ; preds = %.preheader14.i.i.i21, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit19
+  %.015.i.i.i22 = phi i64 [ %71, %.preheader14.i.i.i21 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit19 ]
+  %.idx13.i.i.i23 = shl nsw i64 %.015.i.i.i22, 4
+  %.offs.i.i.i24 = or disjoint i64 %.idx13.i.i.i23, 8
+  %70 = getelementptr inbounds i8, ptr %.ptr12.i.i.i20, i64 %.offs.i.i.i24
   store atomic i64 0, ptr %70 monotonic, align 8
-  %71 = add nuw nsw i64 %.014.i.i.i20, 1
-  %.not.i.i.i21 = icmp eq i64 %71, 2
-  br i1 %.not.i.i.i21, label %.preheader.i.i.i22, label %.preheader13.i.i.i19, !llvm.loop !4
+  %71 = add nuw nsw i64 %.015.i.i.i22, 1
+  %.not.i.i.i25 = icmp eq i64 %71, 2
+  br i1 %.not.i.i.i25, label %.preheader.i.i.i26, label %.preheader14.i.i.i21, !llvm.loop !4
 
-72:                                               ; preds = %72, %.preheader.i.i.i22
-  %.01015.i.i.i23 = phi i64 [ 0, %.preheader.i.i.i22 ], [ %76, %72 ]
-  %73 = icmp eq i64 %.01015.i.i.i23, 0
-  %74 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %69, i64 0, i64 %.01015.i.i.i23
+72:                                               ; preds = %72, %.preheader.i.i.i26
+  %.01016.i.i.i27 = phi i64 [ 0, %.preheader.i.i.i26 ], [ %76, %72 ]
+  %73 = icmp eq i64 %.01016.i.i.i27, 0
+  %74 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %69, i64 0, i64 %.01016.i.i.i27
   %75 = select i1 %73, i64 %68, i64 0
   store atomic i64 %75, ptr %74 monotonic, align 8
-  %76 = add nuw nsw i64 %.01015.i.i.i23, 1
-  %exitcond.not.i.i.i24 = icmp eq i64 %76, 64
-  br i1 %exitcond.not.i.i.i24, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit25, label %72, !llvm.loop !6
+  %76 = add nuw nsw i64 %.01016.i.i.i27, 1
+  %exitcond.not.i.i.i28 = icmp eq i64 %76, 64
+  br i1 %exitcond.not.i.i.i28, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit29, label %72, !llvm.loop !6
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit25: ; preds = %72
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit29: ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2136
   store i64 1, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %.ptr12.i.i.i26 = getelementptr inbounds i8, ptr %0, i64 2152
+  %.ptr12.i.i.i30 = getelementptr inbounds i8, ptr %0, i64 2152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %78, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i27
+  br label %.preheader14.i.i.i31
 
-.preheader.i.i.i30:                               ; preds = %.preheader13.i.i.i27
-  %79 = ptrtoint ptr %.ptr12.i.i.i26 to i64
+.preheader.i.i.i36:                               ; preds = %.preheader14.i.i.i31
+  %79 = ptrtoint ptr %.ptr12.i.i.i30 to i64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   br label %83
 
-.preheader13.i.i.i27:                             ; preds = %.preheader13.i.i.i27, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit25
-  %.014.i.i.i28 = phi i64 [ %82, %.preheader13.i.i.i27 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit25 ]
-  %81 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i26, i64 0, i64 %.014.i.i.i28, i32 1
+.preheader14.i.i.i31:                             ; preds = %.preheader14.i.i.i31, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit29
+  %.015.i.i.i32 = phi i64 [ %82, %.preheader14.i.i.i31 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit29 ]
+  %.idx13.i.i.i33 = shl nsw i64 %.015.i.i.i32, 4
+  %.offs.i.i.i34 = or disjoint i64 %.idx13.i.i.i33, 8
+  %81 = getelementptr inbounds i8, ptr %.ptr12.i.i.i30, i64 %.offs.i.i.i34
   store atomic i64 0, ptr %81 monotonic, align 8
-  %82 = add nuw nsw i64 %.014.i.i.i28, 1
-  %.not.i.i.i29 = icmp eq i64 %82, 2
-  br i1 %.not.i.i.i29, label %.preheader.i.i.i30, label %.preheader13.i.i.i27, !llvm.loop !4
+  %82 = add nuw nsw i64 %.015.i.i.i32, 1
+  %.not.i.i.i35 = icmp eq i64 %82, 2
+  br i1 %.not.i.i.i35, label %.preheader.i.i.i36, label %.preheader14.i.i.i31, !llvm.loop !4
 
-83:                                               ; preds = %83, %.preheader.i.i.i30
-  %.01015.i.i.i31 = phi i64 [ 0, %.preheader.i.i.i30 ], [ %87, %83 ]
-  %84 = icmp eq i64 %.01015.i.i.i31, 0
-  %85 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %80, i64 0, i64 %.01015.i.i.i31
+83:                                               ; preds = %83, %.preheader.i.i.i36
+  %.01016.i.i.i37 = phi i64 [ 0, %.preheader.i.i.i36 ], [ %87, %83 ]
+  %84 = icmp eq i64 %.01016.i.i.i37, 0
+  %85 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %80, i64 0, i64 %.01016.i.i.i37
   %86 = select i1 %84, i64 %79, i64 0
   store atomic i64 %86, ptr %85 monotonic, align 8
-  %87 = add nuw nsw i64 %.01015.i.i.i31, 1
-  %exitcond.not.i.i.i32 = icmp eq i64 %87, 64
-  br i1 %exitcond.not.i.i.i32, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit33, label %83, !llvm.loop !6
+  %87 = add nuw nsw i64 %.01016.i.i.i37, 1
+  %exitcond.not.i.i.i38 = icmp eq i64 %87, 64
+  br i1 %exitcond.not.i.i.i38, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit39, label %83, !llvm.loop !6
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit33: ; preds = %83
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit39: ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   store i64 1, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 2720
-  %.ptr12.i.i.i34 = getelementptr inbounds i8, ptr %0, i64 2728
+  %.ptr12.i.i.i40 = getelementptr inbounds i8, ptr %0, i64 2728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %89, i8 0, i64 40, i1 false)
-  br label %.preheader13.i.i.i35
+  br label %.preheader14.i.i.i41
 
-.preheader.i.i.i38:                               ; preds = %.preheader13.i.i.i35
-  %90 = ptrtoint ptr %.ptr12.i.i.i34 to i64
+.preheader.i.i.i46:                               ; preds = %.preheader14.i.i.i41
+  %90 = ptrtoint ptr %.ptr12.i.i.i40 to i64
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 2760
   br label %94
 
-.preheader13.i.i.i35:                             ; preds = %.preheader13.i.i.i35, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit33
-  %.014.i.i.i36 = phi i64 [ %93, %.preheader13.i.i.i35 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit33 ]
-  %92 = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::set<pxrInternal_v0_24__pxrReserved__::SdfPath>>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %.ptr12.i.i.i34, i64 0, i64 %.014.i.i.i36, i32 1
+.preheader14.i.i.i41:                             ; preds = %.preheader14.i.i.i41, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit39
+  %.015.i.i.i42 = phi i64 [ %93, %.preheader14.i.i.i41 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit39 ]
+  %.idx13.i.i.i43 = shl nsw i64 %.015.i.i.i42, 4
+  %.offs.i.i.i44 = or disjoint i64 %.idx13.i.i.i43, 8
+  %92 = getelementptr inbounds i8, ptr %.ptr12.i.i.i40, i64 %.offs.i.i.i44
   store atomic i64 0, ptr %92 monotonic, align 8
-  %93 = add nuw nsw i64 %.014.i.i.i36, 1
-  %.not.i.i.i37 = icmp eq i64 %93, 2
-  br i1 %.not.i.i.i37, label %.preheader.i.i.i38, label %.preheader13.i.i.i35, !llvm.loop !4
+  %93 = add nuw nsw i64 %.015.i.i.i42, 1
+  %.not.i.i.i45 = icmp eq i64 %93, 2
+  br i1 %.not.i.i.i45, label %.preheader.i.i.i46, label %.preheader14.i.i.i41, !llvm.loop !4
 
-94:                                               ; preds = %94, %.preheader.i.i.i38
-  %.01015.i.i.i39 = phi i64 [ 0, %.preheader.i.i.i38 ], [ %98, %94 ]
-  %95 = icmp eq i64 %.01015.i.i.i39, 0
-  %96 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %91, i64 0, i64 %.01015.i.i.i39
+94:                                               ; preds = %94, %.preheader.i.i.i46
+  %.01016.i.i.i47 = phi i64 [ 0, %.preheader.i.i.i46 ], [ %98, %94 ]
+  %95 = icmp eq i64 %.01016.i.i.i47, 0
+  %96 = getelementptr inbounds [64 x %"struct.std::atomic.40"], ptr %91, i64 0, i64 %.01016.i.i.i47
   %97 = select i1 %95, i64 %90, i64 0
   store atomic i64 %97, ptr %96 monotonic, align 8
-  %98 = add nuw nsw i64 %.01015.i.i.i39, 1
-  %exitcond.not.i.i.i40 = icmp eq i64 %98, 64
-  br i1 %exitcond.not.i.i.i40, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit41, label %94, !llvm.loop !6
+  %98 = add nuw nsw i64 %.01016.i.i.i47, 1
+  %exitcond.not.i.i.i48 = icmp eq i64 %98, 64
+  br i1 %exitcond.not.i.i.i48, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit49, label %94, !llvm.loop !6
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit41: ; preds = %94
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit49: ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   store i32 1, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 3284

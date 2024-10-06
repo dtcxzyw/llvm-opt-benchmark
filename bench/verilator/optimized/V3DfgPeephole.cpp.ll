@@ -16489,7 +16489,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3
@@ -17224,7 +17226,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3
@@ -19928,7 +19932,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3
@@ -21860,7 +21866,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3
@@ -22357,7 +22365,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3
@@ -22927,7 +22937,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3
@@ -23245,7 +23257,9 @@ define linkonce_odr dso_local noundef ptr @_ZN18V3DfgCacheInternal11getOrCreateI
 
 23:                                               ; preds = %23, %.noexc
   %.09.i.i.i = phi i64 [ 0, %.noexc ], [ %25, %23 ]
-  %24 = getelementptr inbounds [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i, i32 3
+  %.idx.i.i.i = shl nuw nsw i64 %.09.i.i.i, 5
+  %.offs.i.i.i = or disjoint i64 %.idx.i.i.i, 24
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.offs.i.i.i
   store ptr %21, ptr %24, align 8
   %25 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 3

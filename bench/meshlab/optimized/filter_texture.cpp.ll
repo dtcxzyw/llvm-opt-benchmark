@@ -36893,11 +36893,11 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
 
 .preheader:                                       ; preds = %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataI6CFaceOEEvRKT_.exit
   %116 = getelementptr inbounds i8, ptr %0, i64 40
-  %117 = getelementptr inbounds i8, ptr %29, i64 124
+  %117 = getelementptr i8, ptr %29, i64 132
   br label %118
 
 118:                                              ; preds = %.preheader, %143
-  %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %143 ]
+  %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next33, %143 ]
   %119 = load ptr, ptr %1, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 192
   %121 = load ptr, ptr %119, align 8
@@ -36906,7 +36906,7 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
   %124 = sdiv exact i64 %123, 48
   %125 = load ptr, ptr %120, align 8
   %126 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %125, i64 %124
-  %127 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %126, i64 0, i64 %indvars.iv31, i32 1
+  %127 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %126, i64 0, i64 %indvars.iv32, i32 1
   %128 = load i16, ptr %127, align 4
   %129 = sext i16 %128 to i64
   %130 = load ptr, ptr %116, align 8
@@ -36928,11 +36928,12 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
 
 143:                                              ; preds = %118, %139
   %.sink = phi i16 [ %142, %139 ], [ %128, %118 ]
-  %144 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %117, i64 0, i64 %indvars.iv31, i32 1
+  %.idx28 = mul nuw nsw i64 %indvars.iv32, 12
+  %144 = getelementptr i8, ptr %117, i64 %.idx28
   store i16 %.sink, ptr %144, align 2
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 3
-  br i1 %exitcond34.not, label %.loopexit, label %118, !llvm.loop !326
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next33, 3
+  br i1 %exitcond35.not, label %.loopexit, label %118, !llvm.loop !326
 
 .loopexit:                                        ; preds = %143, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataI6CFaceOEEvRKT_.exit
   %145 = getelementptr inbounds i8, ptr %0, i64 48
@@ -53401,152 +53402,155 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
   br i1 %71, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataINS9_8VoroFaceEEEvRKT_.exit
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 132
   %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %invariant.gep34 = getelementptr inbounds i8, ptr %29, i64 132
   br label %73
 
-73:                                               ; preds = %.preheader, %90
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %90 ]
-  %74 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %50, i64 0, i64 %indvars.iv34, i32 1
-  %75 = load i16, ptr %74, align 4
-  %76 = sext i16 %75 to i64
-  %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %77, align 8
+73:                                               ; preds = %.preheader, %89
+  %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %89 ]
+  %.idx = mul nuw nsw i64 %indvars.iv40, 12
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
+  %74 = load i16, ptr %gep, align 4
+  %75 = sext i16 %74 to i64
+  %76 = load ptr, ptr %72, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %76, align 8
+  %80 = ptrtoint ptr %78 to i64
   %81 = ptrtoint ptr %79 to i64
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %81, %82
-  %84 = ashr exact i64 %83, 2
-  %85 = icmp ugt i64 %84, %76
-  br i1 %85, label %86, label %90
+  %82 = sub i64 %80, %81
+  %83 = ashr exact i64 %82, 2
+  %84 = icmp ugt i64 %83, %75
+  br i1 %84, label %85, label %89
 
-86:                                               ; preds = %73
-  %87 = getelementptr inbounds i32, ptr %80, i64 %76
-  %88 = load i32, ptr %87, align 4
-  %89 = trunc i32 %88 to i16
-  br label %90
+85:                                               ; preds = %73
+  %86 = getelementptr inbounds i32, ptr %79, i64 %75
+  %87 = load i32, ptr %86, align 4
+  %88 = trunc i32 %87 to i16
+  br label %89
 
-90:                                               ; preds = %73, %86
-  %.sink = phi i16 [ %89, %86 ], [ %75, %73 ]
-  %91 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %51, i64 0, i64 %indvars.iv34, i32 1
-  store i16 %.sink, ptr %91, align 2
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond37.not, label %.loopexit, label %73, !llvm.loop !544
+89:                                               ; preds = %73, %85
+  %.sink = phi i16 [ %88, %85 ], [ %74, %73 ]
+  %gep37 = getelementptr inbounds i8, ptr %invariant.gep34, i64 %.idx
+  store i16 %.sink, ptr %gep37, align 2
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
+  br i1 %exitcond43.not, label %.loopexit, label %73, !llvm.loop !544
 
-.loopexit:                                        ; preds = %90, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataINS9_8VoroFaceEEEvRKT_.exit
-  %92 = getelementptr inbounds i8, ptr %0, i64 48
-  %93 = load ptr, ptr %92, align 8
-  %94 = load i8, ptr %93, align 1
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E13ImportFaceAdjERS5_RKS5_RNS4_8VoroFaceERKSA_RNS6_5RemapE.exit
+.loopexit:                                        ; preds = %89, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataINS9_8VoroFaceEEEvRKT_.exit
+  %90 = getelementptr inbounds i8, ptr %0, i64 48
+  %91 = load ptr, ptr %90, align 8
+  %92 = load i8, ptr %91, align 1
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %94, label %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E13ImportFaceAdjERS5_RKS5_RNS4_8VoroFaceERKSA_RNS6_5RemapE.exit
 
-96:                                               ; preds = %.loopexit
-  %97 = load ptr, ptr %11, align 8
-  %98 = load ptr, ptr %17, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 72
-  %100 = load ptr, ptr %14, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 24
-  %102 = getelementptr inbounds i8, ptr %98, i64 72
-  %103 = load ptr, ptr %102, align 8
-  %104 = ptrtoint ptr %103 to i64
-  %105 = sub i64 %21, %104
-  %106 = load ptr, ptr %101, align 8
-  %107 = sdiv exact i64 %105, 20
-  %108 = getelementptr inbounds i8, ptr %106, i64 %107
-  %109 = load i64, ptr %108, align 8
-  %110 = load ptr, ptr %99, align 8
-  %111 = getelementptr inbounds %"class.vcg::tri::VoronoiAtlas<CMeshO>::VoroFace", ptr %110, i64 %109
-  %112 = getelementptr inbounds i8, ptr %1, i64 32
-  %113 = getelementptr inbounds i8, ptr %111, i64 32
-  %114 = getelementptr inbounds i8, ptr %1, i64 56
-  %115 = getelementptr inbounds i8, ptr %111, i64 56
-  br label %120
+94:                                               ; preds = %.loopexit
+  %95 = load ptr, ptr %11, align 8
+  %96 = load ptr, ptr %17, align 8
+  %97 = getelementptr inbounds i8, ptr %95, i64 72
+  %98 = load ptr, ptr %14, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %100 = getelementptr inbounds i8, ptr %96, i64 72
+  %101 = load ptr, ptr %100, align 8
+  %102 = ptrtoint ptr %101 to i64
+  %103 = sub i64 %21, %102
+  %104 = load ptr, ptr %99, align 8
+  %105 = sdiv exact i64 %103, 20
+  %106 = getelementptr inbounds i8, ptr %104, i64 %105
+  %107 = load i64, ptr %106, align 8
+  %108 = load ptr, ptr %97, align 8
+  %109 = getelementptr inbounds %"class.vcg::tri::VoronoiAtlas<CMeshO>::VoroFace", ptr %108, i64 %107
+  %110 = getelementptr inbounds i8, ptr %1, i64 32
+  %111 = getelementptr inbounds i8, ptr %109, i64 32
+  %112 = getelementptr inbounds i8, ptr %1, i64 56
+  %113 = getelementptr inbounds i8, ptr %109, i64 56
+  br label %118
 
-.preheader.i:                                     ; preds = %138
-  %116 = getelementptr inbounds i8, ptr %1, i64 64
-  %117 = getelementptr inbounds i8, ptr %1, i64 88
-  %118 = getelementptr inbounds i8, ptr %111, i64 64
-  %119 = getelementptr inbounds i8, ptr %111, i64 88
-  br label %139
+.preheader.i:                                     ; preds = %136
+  %114 = getelementptr inbounds i8, ptr %1, i64 64
+  %115 = getelementptr inbounds i8, ptr %1, i64 88
+  %116 = getelementptr inbounds i8, ptr %109, i64 64
+  %117 = getelementptr inbounds i8, ptr %109, i64 88
+  br label %137
 
-120:                                              ; preds = %138, %96
-  %indvars.iv.i28 = phi i64 [ 0, %96 ], [ %indvars.iv.next.i29, %138 ]
-  %121 = getelementptr inbounds [3 x ptr], ptr %112, i64 0, i64 %indvars.iv.i28
-  %122 = load ptr, ptr %121, align 8
-  %123 = load ptr, ptr %102, align 8
-  %124 = ptrtoint ptr %122 to i64
-  %125 = ptrtoint ptr %123 to i64
-  %126 = sub i64 %124, %125
-  %127 = load ptr, ptr %101, align 8
-  %128 = sdiv exact i64 %126, 20
-  %129 = getelementptr inbounds i8, ptr %127, i64 %128
-  %130 = load i64, ptr %129, align 8
-  %.not.i = icmp eq i64 %130, -1
-  br i1 %.not.i, label %138, label %131
+118:                                              ; preds = %136, %94
+  %indvars.iv.i28 = phi i64 [ 0, %94 ], [ %indvars.iv.next.i29, %136 ]
+  %119 = getelementptr inbounds [3 x ptr], ptr %110, i64 0, i64 %indvars.iv.i28
+  %120 = load ptr, ptr %119, align 8
+  %121 = load ptr, ptr %100, align 8
+  %122 = ptrtoint ptr %120 to i64
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = load ptr, ptr %99, align 8
+  %126 = sdiv exact i64 %124, 20
+  %127 = getelementptr inbounds i8, ptr %125, i64 %126
+  %128 = load i64, ptr %127, align 8
+  %.not.i = icmp eq i64 %128, -1
+  br i1 %.not.i, label %136, label %129
 
-131:                                              ; preds = %120
-  %132 = load ptr, ptr %99, align 8
-  %133 = getelementptr inbounds %"class.vcg::tri::VoronoiAtlas<CMeshO>::VoroFace", ptr %132, i64 %130
-  %134 = getelementptr inbounds [3 x ptr], ptr %113, i64 0, i64 %indvars.iv.i28
-  store ptr %133, ptr %134, align 8
-  %135 = getelementptr inbounds [3 x i8], ptr %114, i64 0, i64 %indvars.iv.i28
-  %136 = load i8, ptr %135, align 1
-  %137 = getelementptr inbounds [3 x i8], ptr %115, i64 0, i64 %indvars.iv.i28
-  store i8 %136, ptr %137, align 1
-  br label %138
+129:                                              ; preds = %118
+  %130 = load ptr, ptr %97, align 8
+  %131 = getelementptr inbounds %"class.vcg::tri::VoronoiAtlas<CMeshO>::VoroFace", ptr %130, i64 %128
+  %132 = getelementptr inbounds [3 x ptr], ptr %111, i64 0, i64 %indvars.iv.i28
+  store ptr %131, ptr %132, align 8
+  %133 = getelementptr inbounds [3 x i8], ptr %112, i64 0, i64 %indvars.iv.i28
+  %134 = load i8, ptr %133, align 1
+  %135 = getelementptr inbounds [3 x i8], ptr %113, i64 0, i64 %indvars.iv.i28
+  store i8 %134, ptr %135, align 1
+  br label %136
 
-138:                                              ; preds = %131, %120
+136:                                              ; preds = %129, %118
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, 3
-  br i1 %exitcond.not.i30, label %.preheader.i, label %120, !llvm.loop !545
+  br i1 %exitcond.not.i30, label %.preheader.i, label %118, !llvm.loop !545
 
-139:                                              ; preds = %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i, %.preheader.i
+137:                                              ; preds = %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i, %.preheader.i
   %indvars.iv71.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next72.i, %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i ]
-  %140 = getelementptr inbounds [3 x ptr], ptr %116, i64 0, i64 %indvars.iv71.i
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds [3 x i8], ptr %117, i64 0, i64 %indvars.iv71.i
-  %143 = load i8, ptr %142, align 1
-  %144 = icmp eq ptr %141, null
-  br i1 %144, label %.thread.i, label %145
+  %138 = getelementptr inbounds [3 x ptr], ptr %114, i64 0, i64 %indvars.iv71.i
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds [3 x i8], ptr %115, i64 0, i64 %indvars.iv71.i
+  %141 = load i8, ptr %140, align 1
+  %142 = icmp eq ptr %139, null
+  br i1 %142, label %.thread.i, label %143
 
-145:                                              ; preds = %139
-  %146 = load ptr, ptr %102, align 8
-  %147 = ptrtoint ptr %141 to i64
-  %148 = ptrtoint ptr %146 to i64
-  %149 = sub i64 %147, %148
-  %150 = load ptr, ptr %101, align 8
-  %151 = sdiv exact i64 %149, 20
-  %152 = getelementptr inbounds i8, ptr %150, i64 %151
-  %153 = load i64, ptr %152, align 8
-  %154 = icmp eq i64 %153, -1
-  br i1 %154, label %.thread.i, label %159
+143:                                              ; preds = %137
+  %144 = load ptr, ptr %100, align 8
+  %145 = ptrtoint ptr %139 to i64
+  %146 = ptrtoint ptr %144 to i64
+  %147 = sub i64 %145, %146
+  %148 = load ptr, ptr %99, align 8
+  %149 = sdiv exact i64 %147, 20
+  %150 = getelementptr inbounds i8, ptr %148, i64 %149
+  %151 = load i64, ptr %150, align 8
+  %152 = icmp eq i64 %151, -1
+  br i1 %152, label %.thread.i, label %157
 
-.thread.i:                                        ; preds = %145, %139
-  %155 = getelementptr inbounds [3 x i8], ptr %119, i64 0, i64 %indvars.iv71.i
-  %156 = load i8, ptr %155, align 1
-  %.not.i.i = icmp eq i8 %156, -1
-  br i1 %.not.i.i, label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i, label %157
+.thread.i:                                        ; preds = %143, %137
+  %153 = getelementptr inbounds [3 x i8], ptr %117, i64 0, i64 %indvars.iv71.i
+  %154 = load i8, ptr %153, align 1
+  %.not.i.i = icmp eq i8 %154, -1
+  br i1 %.not.i.i, label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i, label %155
 
-157:                                              ; preds = %.thread.i
-  %158 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv71.i
-  store ptr null, ptr %158, align 8
-  store i8 -1, ptr %155, align 1
+155:                                              ; preds = %.thread.i
+  %156 = getelementptr inbounds [3 x ptr], ptr %116, i64 0, i64 %indvars.iv71.i
+  store ptr null, ptr %156, align 8
+  store i8 -1, ptr %153, align 1
   br label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i
 
-159:                                              ; preds = %145
-  %160 = load ptr, ptr %99, align 8
-  %161 = getelementptr inbounds %"class.vcg::tri::VoronoiAtlas<CMeshO>::VoroFace", ptr %160, i64 %153
-  %162 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv71.i
-  store ptr %161, ptr %162, align 8
-  %163 = getelementptr inbounds [3 x i8], ptr %119, i64 0, i64 %indvars.iv71.i
-  store i8 %143, ptr %163, align 1
+157:                                              ; preds = %143
+  %158 = load ptr, ptr %97, align 8
+  %159 = getelementptr inbounds %"class.vcg::tri::VoronoiAtlas<CMeshO>::VoroFace", ptr %158, i64 %151
+  %160 = getelementptr inbounds [3 x ptr], ptr %116, i64 0, i64 %indvars.iv71.i
+  store ptr %159, ptr %160, align 8
+  %161 = getelementptr inbounds [3 x i8], ptr %117, i64 0, i64 %indvars.iv71.i
+  store i8 %141, ptr %161, align 1
   br label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i
 
-_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i: ; preds = %159, %157, %.thread.i
+_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i: ; preds = %157, %155, %.thread.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, 3
-  br i1 %exitcond74.not.i, label %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E13ImportFaceAdjERS5_RKS5_RNS4_8VoroFaceERKSA_RNS6_5RemapE.exit, label %139, !llvm.loop !546
+  br i1 %exitcond74.not.i, label %_ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E13ImportFaceAdjERS5_RKS5_RNS4_8VoroFaceERKSA_RNS6_5RemapE.exit, label %137, !llvm.loop !546
 
 _ZN3vcg3tri6AppendINS0_12VoronoiAtlasI6CMeshOE8VoroMeshES5_E13ImportFaceAdjERS5_RKS5_RNS4_8VoroFaceERKSA_RNS6_5RemapE.exit: ; preds = %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEEE7VFClearEi.exit.i, %.loopexit, %6
   ret void
@@ -75574,14 +75578,15 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8Vor
   br i1 %54, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 124
+  %55 = getelementptr inbounds i8, ptr %1, i64 132
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   %57 = ptrtoint ptr %29 to i64
   br label %58
 
 58:                                               ; preds = %.preheader, %75
   %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %75 ]
-  %59 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %55, i64 0, i64 %indvars.iv31, i32 1
+  %.idx = mul nuw nsw i64 %indvars.iv31, 12
+  %59 = getelementptr i8, ptr %55, i64 %.idx
   %60 = load i16, ptr %59, align 4
   %61 = sext i16 %60 to i64
   %62 = load ptr, ptr %56, align 8

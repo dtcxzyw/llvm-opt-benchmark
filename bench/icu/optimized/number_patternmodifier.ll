@@ -2315,12 +2315,14 @@ _ZN6icu_756number4impl21AdoptingModifierStoreD2Ev.exit: ; preds = %arraydestroy.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6icu_756number4impl21AdoptingModifierStore11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull align 8 dereferenceable(328) %this, i32 noundef %signum, i32 noundef %plural) unnamed_addr #1 comdat align 2 {
 entry:
-  %mods = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom = zext i32 %plural to i64
+  %mods.i.idx = mul nuw nsw i64 %idxprom, 40
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %mods.i = getelementptr i8, ptr %0, i64 %mods.i.idx
   %idxprom.i = zext i32 %signum to i64
-  %arrayidx.i = getelementptr inbounds [8 x %"class.icu_75::number::impl::AdoptingSignumModifierStore"], ptr %mods, i64 0, i64 %idxprom, i32 1, i64 %idxprom.i
-  %0 = load ptr, ptr %arrayidx.i, align 8
-  %cmp = icmp eq ptr %0, null
+  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %mods.i, i64 0, i64 %idxprom.i
+  %1 = load ptr, ptr %arrayidx.i, align 8
+  %cmp = icmp eq ptr %1, null
   %cmp2 = icmp ne i32 %plural, 5
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %if.then, label %if.end
@@ -2328,11 +2330,11 @@ entry:
 if.then:                                          ; preds = %entry
   %mods.i4 = getelementptr inbounds i8, ptr %this, i64 216
   %arrayidx.i6 = getelementptr inbounds [4 x ptr], ptr %mods.i4, i64 0, i64 %idxprom.i
-  %1 = load ptr, ptr %arrayidx.i6, align 8
+  %2 = load ptr, ptr %arrayidx.i6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %modifier.0 = phi ptr [ %1, %if.then ], [ %0, %entry ]
+  %modifier.0 = phi ptr [ %2, %if.then ], [ %1, %entry ]
   ret ptr %modifier.0
 }
 

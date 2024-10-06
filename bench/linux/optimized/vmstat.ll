@@ -1909,21 +1909,22 @@ define dso_local range(i64 0, -9223372036854775808) i64 @node_page_state(ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local i32 @extfrag_for_order(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
-  %4 = sext i32 %1 to i64
-  %5 = zext i32 %1 to i64
+  %3 = sext i32 %1 to i64
+  %4 = zext i32 %1 to i64
+  %5 = getelementptr i8, ptr %0, i64 256
   br label %6
 
 6:                                                ; preds = %6, %2
   %7 = phi i64 [ 0, %2 ], [ %18, %6 ]
   %8 = phi i64 [ 0, %2 ], [ %19, %6 ]
   %9 = phi i64 [ 0, %2 ], [ %13, %6 ]
-  %10 = getelementptr [11 x %struct.free_area], ptr %3, i64 0, i64 %8, i32 1
+  %.idx = mul nuw nsw i64 %8, 72
+  %10 = getelementptr i8, ptr %5, i64 %.idx
   %11 = load i64, ptr %10, align 8
   %12 = shl i64 %11, %8
   %13 = add i64 %12, %9
-  %14 = icmp ult i64 %8, %5
-  %15 = sub nsw i64 %8, %4
+  %14 = icmp ult i64 %8, %4
+  %15 = sub nsw i64 %8, %3
   %16 = shl i64 %11, %15
   %17 = select i1 %14, i64 0, i64 %16
   %18 = add i64 %17, %7
@@ -1936,7 +1937,7 @@ define dso_local i32 @extfrag_for_order(ptr nocapture noundef readonly %0, i32 n
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %21
-  %24 = shl i64 %18, %5
+  %24 = shl i64 %18, %4
   %25 = sub i64 %13, %24
   %26 = mul i64 %25, 100
   %27 = and i64 %13, 4294967295
@@ -1951,9 +1952,9 @@ define dso_local i32 @extfrag_for_order(ptr nocapture noundef readonly %0, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @fragmentation_index(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
-  %4 = sext i32 %1 to i64
-  %5 = zext i32 %1 to i64
+  %3 = sext i32 %1 to i64
+  %4 = zext i32 %1 to i64
+  %5 = getelementptr i8, ptr %0, i64 256
   br label %6
 
 6:                                                ; preds = %6, %2
@@ -1961,13 +1962,14 @@ define dso_local i32 @fragmentation_index(ptr nocapture noundef readonly %0, i32
   %8 = phi i64 [ 0, %2 ], [ %21, %6 ]
   %9 = phi i64 [ 0, %2 ], [ %13, %6 ]
   %10 = phi i64 [ 0, %2 ], [ %15, %6 ]
-  %11 = getelementptr [11 x %struct.free_area], ptr %3, i64 0, i64 %8, i32 1
+  %.idx = mul nuw nsw i64 %8, 72
+  %11 = getelementptr i8, ptr %5, i64 %.idx
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   %14 = shl i64 %12, %8
   %15 = add i64 %14, %10
-  %16 = icmp ult i64 %8, %5
-  %17 = sub nsw i64 %8, %4
+  %16 = icmp ult i64 %8, %4
+  %17 = sub nsw i64 %8, %3
   %18 = shl i64 %12, %17
   %19 = select i1 %16, i64 0, i64 %18
   %20 = add i64 %19, %7
@@ -1995,7 +1997,7 @@ define dso_local i32 @fragmentation_index(ptr nocapture noundef readonly %0, i32
 
 30:                                               ; preds = %28
   %31 = mul i64 %15, 1000
-  %32 = lshr i64 %31, %5
+  %32 = lshr i64 %31, %4
   %33 = add i64 %32, 1000
   %34 = and i64 %13, 4294967295
   %35 = udiv i64 %33, %34
@@ -2817,12 +2819,13 @@ define internal noundef i32 @frag_show(ptr noundef %0, ptr noundef %1) #0 align 
   %14 = getelementptr inbounds i8, ptr %6, i64 160
   %15 = load ptr, ptr %14, align 32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.152, i32 noundef %13, ptr noundef %15) #17
-  %16 = getelementptr inbounds i8, ptr %6, i64 192
+  %16 = getelementptr i8, ptr %6, i64 256
   br label %17
 
 17:                                               ; preds = %17, %10
   %18 = phi i64 [ 0, %10 ], [ %21, %17 ]
-  %19 = getelementptr [11 x %struct.free_area], ptr %16, i64 0, i64 %18, i32 1
+  %.idx = mul nuw nsw i64 %18, 72
+  %19 = getelementptr i8, ptr %16, i64 %.idx
   %20 = load i64, ptr %19, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.153, i64 noundef %20) #17
   %21 = add nuw nsw i64 %18, 1
@@ -3649,7 +3652,7 @@ define internal noundef i32 @unusable_show(ptr noundef %0, ptr noundef %1) #0 al
   %20 = getelementptr inbounds i8, ptr %12, i64 160
   %21 = load ptr, ptr %20, align 32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.152, i32 noundef %19, ptr noundef %21) #17
-  %22 = getelementptr inbounds i8, ptr %12, i64 192
+  %22 = getelementptr i8, ptr %12, i64 256
   br label %23
 
 23:                                               ; preds = %49, %16
@@ -3660,7 +3663,8 @@ define internal noundef i32 @unusable_show(ptr noundef %0, ptr noundef %1) #0 al
   %26 = phi i64 [ 0, %23 ], [ %37, %25 ]
   %27 = phi i64 [ 0, %23 ], [ %38, %25 ]
   %28 = phi i64 [ 0, %23 ], [ %32, %25 ]
-  %29 = getelementptr [11 x %struct.free_area], ptr %22, i64 0, i64 %27, i32 1
+  %.idx = mul nuw nsw i64 %27, 72
+  %29 = getelementptr i8, ptr %22, i64 %.idx
   %30 = load i64, ptr %29, align 8
   %31 = shl i64 %30, %27
   %32 = add i64 %31, %28
@@ -3754,7 +3758,7 @@ define internal noundef i32 @extfrag_show(ptr noundef %0, ptr noundef %1) #0 ali
   %14 = getelementptr inbounds i8, ptr %6, i64 160
   %15 = load ptr, ptr %14, align 32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.152, i32 noundef %13, ptr noundef %15) #17
-  %16 = getelementptr inbounds i8, ptr %6, i64 192
+  %16 = getelementptr i8, ptr %6, i64 256
   br label %17
 
 17:                                               ; preds = %48, %10
@@ -3766,7 +3770,8 @@ define internal noundef i32 @extfrag_show(ptr noundef %0, ptr noundef %1) #0 ali
   %21 = phi i64 [ 0, %17 ], [ %34, %19 ]
   %22 = phi i64 [ 0, %17 ], [ %26, %19 ]
   %23 = phi i64 [ 0, %17 ], [ %28, %19 ]
-  %24 = getelementptr [11 x %struct.free_area], ptr %16, i64 0, i64 %21, i32 1
+  %.idx = mul nuw nsw i64 %21, 72
+  %24 = getelementptr i8, ptr %16, i64 %.idx
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %27 = shl i64 %25, %21

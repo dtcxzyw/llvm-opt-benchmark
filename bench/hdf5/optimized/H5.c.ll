@@ -548,7 +548,9 @@ switch.early.test:                                ; preds = %6
 
 49:                                               ; preds = %.preheader, %49
   %.14876 = phi i64 [ 0, %.preheader ], [ %51, %49 ]
-  %50 = getelementptr inbounds [20 x %struct.anon], ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 0, i64 %.14876, i32 1
+  %.idx = shl nuw nsw i64 %.14876, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %50 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 %.offs
   store ptr %48, ptr %50, align 8
   %51 = add nuw nsw i64 %.14876, 1
   %exitcond87.not = icmp eq i64 %51, 20

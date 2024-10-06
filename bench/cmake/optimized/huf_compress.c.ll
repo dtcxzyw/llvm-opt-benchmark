@@ -543,7 +543,9 @@ HUF_sort.exit:                                    ; preds = %64
 ._crit_edge.thread.i:                             ; preds = %72
   store i32 -2147483648, ptr %.0.i, align 4
   %.pre.i29 = sext i32 %75 to i64
-  %83 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %.pre.i29, i32 3
+  %.idx51 = shl nsw i64 %.pre.i29, 3
+  %.offs52 = or disjoint i64 %.idx51, 7
+  %83 = getelementptr inbounds i8, ptr %14, i64 %.offs52
   store i8 0, ptr %83, align 1
   br label %.preheader.i26
 
@@ -610,12 +612,14 @@ HUF_sort.exit:                                    ; preds = %64
   %117 = getelementptr inbounds i8, ptr %108, i64 4
   store i16 %115, ptr %117, align 4
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next111.i, %85
-  br i1 %exitcond65.not, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !20
+  %exitcond93.not = icmp eq i64 %indvars.iv.next111.i, %85
+  br i1 %exitcond93.not, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !20
 
 ._crit_edge97.i:                                  ; preds = %.lr.ph96.i
   %118 = sext i32 %75 to i64
-  %119 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %118, i32 3
+  %.idx = shl nsw i64 %118, 3
+  %.offs = or disjoint i64 %.idx, 7
+  %119 = getelementptr inbounds i8, ptr %14, i64 %.offs
   store i8 0, ptr %119, align 1
   %120 = zext i32 %indvars.iv113.i to i64
   br label %.lr.ph100.i
@@ -634,7 +638,9 @@ HUF_sort.exit:                                    ; preds = %64
   %122 = getelementptr inbounds i8, ptr %121, i64 4
   %123 = load i16, ptr %122, align 4
   %124 = zext i16 %123 to i64
-  %125 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %124, i32 3
+  %.idx49 = shl nuw nsw i64 %124, 3
+  %.offs50 = or disjoint i64 %.idx49, 7
+  %125 = getelementptr inbounds i8, ptr %14, i64 %.offs50
   %126 = load i8, ptr %125, align 1
   %127 = add i8 %126, 1
   %128 = getelementptr inbounds i8, ptr %121, i64 7
@@ -649,7 +655,9 @@ HUF_sort.exit:                                    ; preds = %64
   %131 = getelementptr inbounds i8, ptr %130, i64 4
   %132 = load i16, ptr %131, align 4
   %133 = zext i16 %132 to i64
-  %134 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %133, i32 3
+  %.idx53 = shl nuw nsw i64 %133, 3
+  %.offs54 = or disjoint i64 %.idx53, 7
+  %134 = getelementptr inbounds i8, ptr %14, i64 %.offs54
   %135 = load i8, ptr %134, align 1
   %136 = add i8 %135, 1
   %137 = getelementptr inbounds i8, ptr %130, i64 7
@@ -660,8 +668,10 @@ HUF_sort.exit:                                    ; preds = %64
 
 HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preheader.i26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
-  %138 = and i64 %indvars.iv.i24, 4294967295
-  %139 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %138, i32 3
+  %138 = shl i64 %indvars.iv.i24, 3
+  %.idx55 = and i64 %138, 34359738360
+  %.offs56 = or disjoint i64 %.idx55, 7
+  %139 = getelementptr inbounds i8, ptr %14, i64 %.offs56
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
   %.not.i30 = icmp ult i32 %spec.store.select, %141
@@ -672,7 +682,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %144 = shl nuw i32 1, %143
   %sext = shl i64 %indvars.iv.i24, 32
   %145 = ashr exact i64 %sext, 32
-  %146 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %145, i32 3
+  %.idx57 = ashr exact i64 %sext, 29
+  %.offs58 = or disjoint i64 %.idx57, 7
+  %146 = getelementptr inbounds i8, ptr %14, i64 %.offs58
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = icmp ult i32 %spec.store.select, %148
@@ -705,7 +717,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %157 = add i32 %156, %.neg104.i
   store i8 %150, ptr %154, align 1
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, -1
-  %158 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv.next.i38, i32 3
+  %.idx59 = shl nsw i64 %indvars.iv.next.i38, 3
+  %.offs60 = or disjoint i64 %.idx59, 7
+  %158 = getelementptr inbounds i8, ptr %14, i64 %.offs60
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = icmp ult i32 %spec.store.select, %160
@@ -714,7 +728,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 162:                                              ; preds = %162, %.preheader108.i
   %indvars.iv151.i = phi i32 [ %indvars.iv.next152.i, %162 ], [ %.084.lcssa.i, %.preheader108.i ]
   %indvars.iv148.i = phi i64 [ %indvars.iv.next149.i, %162 ], [ %.pre-phi.i, %.preheader108.i ]
-  %163 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv148.i, i32 3
+  %.idx61 = shl nsw i64 %indvars.iv148.i, 3
+  %.offs62 = or disjoint i64 %.idx61, 7
+  %163 = getelementptr inbounds i8, ptr %14, i64 %.offs62
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %166 = icmp eq i32 %spec.store.select, %165
@@ -739,7 +755,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 .lr.ph115.i:                                      ; preds = %180, %.lr.ph115.preheader.i
   %indvars.iv153.i = phi i64 [ %170, %.lr.ph115.preheader.i ], [ %indvars.iv.next154.i, %180 ]
   %.087114.i = phi i32 [ %spec.store.select, %.lr.ph115.preheader.i ], [ %.188.i, %180 ]
-  %172 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv153.i, i32 3
+  %.idx63 = shl nsw i64 %indvars.iv153.i, 3
+  %.offs64 = or disjoint i64 %.idx63, 7
+  %172 = getelementptr inbounds i8, ptr %14, i64 %.offs64
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %.not103.i = icmp ugt i32 %.087114.i, %174
@@ -845,7 +863,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %215 = getelementptr inbounds [14 x i32], ptr %9, i64 0, i64 %214
   %216 = load i32, ptr %215, align 4
   %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %217, i32 3
+  %.idx65 = shl nuw nsw i64 %217, 3
+  %.offs66 = or disjoint i64 %.idx65, 7
+  %218 = getelementptr inbounds i8, ptr %14, i64 %.offs66
   %219 = load i8, ptr %218, align 1
   %220 = add i8 %219, 1
   store i8 %220, ptr %218, align 1
@@ -861,7 +881,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 226:                                              ; preds = %.critedge.i
   %227 = add i32 %216, -1
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %228, i32 3
+  %.idx67 = shl nuw nsw i64 %228, 3
+  %.offs68 = or disjoint i64 %.idx67, 7
+  %229 = getelementptr inbounds i8, ptr %14, i64 %.offs68
   %230 = load i8, ptr %229, align 1
   %231 = zext i8 %230 to i32
   %232 = sub nsw i32 %spec.store.select, %.190.lcssa.i
@@ -888,7 +910,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 
 239:                                              ; preds = %239, %.preheader.i32
   %indvars.iv164.i = phi i64 [ %indvars.iv.next165.i, %239 ], [ %238, %.preheader.i32 ]
-  %240 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv164.i, i32 3
+  %.idx71 = shl nsw i64 %indvars.iv164.i, 3
+  %.offs72 = or disjoint i64 %.idx71, 7
+  %240 = getelementptr inbounds i8, ptr %14, i64 %.offs72
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = icmp eq i32 %spec.store.select, %242
@@ -899,7 +923,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %244 = trunc nsw i64 %indvars.iv164.i to i32
   %245 = add nsw i32 %244, 1
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %246, i32 3
+  %.idx73 = shl nsw i64 %246, 3
+  %.offs74 = or disjoint i64 %.idx73, 7
+  %247 = getelementptr inbounds i8, ptr %14, i64 %.offs74
   %248 = load i8, ptr %247, align 1
   %249 = add i8 %248, -1
   store i8 %249, ptr %247, align 1
@@ -916,7 +942,9 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 253:                                              ; preds = %235
   %254 = add i32 %236, 1
   %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %255, i32 3
+  %.idx69 = shl nuw nsw i64 %255, 3
+  %.offs70 = or disjoint i64 %.idx69, 7
+  %256 = getelementptr inbounds i8, ptr %14, i64 %.offs70
   %257 = load i8, ptr %256, align 1
   %258 = add i8 %257, -1
   store i8 %258, ptr %256, align 1
@@ -953,7 +981,9 @@ HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %253, %HU
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42, %.lr.ph.preheader.i40
   %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.preheader.i40 ], [ %indvars.iv.next.i44, %.lr.ph.i42 ]
-  %265 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv.i43, i32 3
+  %.idx75 = shl nsw i64 %indvars.iv.i43, 3
+  %.offs76 = or disjoint i64 %.idx75, 7
+  %265 = getelementptr inbounds i8, ptr %14, i64 %.offs76
   %266 = load i8, ptr %265, align 1
   %267 = zext i8 %266 to i64
   %268 = getelementptr inbounds [13 x i16], ptr %7, i64 0, i64 %267

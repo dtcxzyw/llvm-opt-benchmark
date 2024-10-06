@@ -113,47 +113,49 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %invariant.gep4 = getelementptr inbounds i8, ptr %0, i64 24
   br i1 %4, label %.preheader, label %.preheader1
 
-.preheader:                                       ; preds = %1, %11
-  %indvars.iv7 = phi i64 [ %indvars.iv.next8, %11 ], [ 0, %1 ]
-  %6 = getelementptr inbounds [64 x %struct.Branch], ptr %5, i64 0, i64 %indvars.iv7, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %.not19 = icmp eq ptr %7, null
-  br i1 %.not19, label %11, label %8
+.preheader:                                       ; preds = %1, %10
+  %indvars.iv10 = phi i64 [ %indvars.iv.next11, %10 ], [ 0, %1 ]
+  %5 = mul nuw nsw i64 %indvars.iv10, 24
+  %gep5 = getelementptr inbounds i8, ptr %invariant.gep4, i64 %5
+  %6 = load ptr, ptr %gep5, align 8
+  %.not22 = icmp eq ptr %6, null
+  br i1 %.not22, label %10, label %7
 
-8:                                                ; preds = %.preheader
-  tail call fastcc void @RTreeClose2(ptr noundef nonnull %7)
-  %9 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %9) #7
-  %10 = trunc nuw nsw i64 %indvars.iv7 to i32
-  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %10) #7
-  br label %11
+7:                                                ; preds = %.preheader
+  tail call fastcc void @RTreeClose2(ptr noundef nonnull %6)
+  %8 = load ptr, ptr %gep5, align 8
+  tail call void @free(ptr noundef %8) #7
+  %9 = trunc nuw nsw i64 %indvars.iv10 to i32
+  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %9) #7
+  br label %10
 
-11:                                               ; preds = %8, %.preheader
-  %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
-  %exitcond10.not = icmp eq i64 %indvars.iv.next8, 64
-  br i1 %exitcond10.not, label %.loopexit, label %.preheader
+10:                                               ; preds = %7, %.preheader
+  %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
+  %exitcond14.not = icmp eq i64 %indvars.iv.next11, 64
+  br i1 %exitcond14.not, label %.loopexit, label %.preheader
 
-.preheader1:                                      ; preds = %1, %16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
-  %12 = getelementptr inbounds [64 x %struct.Branch], ptr %5, i64 0, i64 %indvars.iv, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %16, label %14
+.preheader1:                                      ; preds = %1, %15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %1 ]
+  %11 = mul nuw nsw i64 %indvars.iv, 24
+  %gep = getelementptr inbounds i8, ptr %invariant.gep4, i64 %11
+  %12 = load ptr, ptr %gep, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %15, label %13
 
-14:                                               ; preds = %.preheader1
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %15) #7
-  br label %16
+13:                                               ; preds = %.preheader1
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %14) #7
+  br label %15
 
-16:                                               ; preds = %.preheader1, %14
+15:                                               ; preds = %.preheader1, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %.preheader1
 
-.loopexit:                                        ; preds = %16, %11
+.loopexit:                                        ; preds = %15, %10
   ret void
 }
 

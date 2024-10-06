@@ -24,7 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mei_me_dev_i
 %struct.mei_fw_status = type { i32, [6 x i32] }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.mei_dma_dscr = type { ptr, i64, i64 }
 
 @__UNIQUE_ID___addressable_mei_me_irq_quick_handler405 = internal global ptr @mei_me_irq_quick_handler, section ".discard.addressable", align 8
 @.str = private unnamed_addr constant [41 x i8] c"FW not ready: resetting: dev_state = %d\0A\00", align 1
@@ -1935,14 +1934,15 @@ define dso_local noundef ptr @mei_me_dev_init(ptr noundef %0, ptr noundef %1, i1
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 48
-  %8 = getelementptr inbounds i8, ptr %4, i64 3248
+  %8 = getelementptr i8, ptr %4, i64 3264
   br label %9
 
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %14, %9 ]
   %11 = getelementptr [3 x i64], ptr %7, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr [3 x %struct.mei_dma_dscr], ptr %8, i64 0, i64 %10, i32 2
+  %.idx = mul nuw nsw i64 %10, 24
+  %13 = getelementptr i8, ptr %8, i64 %.idx
   store i64 %12, ptr %13, align 8
   %14 = add nuw nsw i64 %10, 1
   %15 = icmp eq i64 %14, 3

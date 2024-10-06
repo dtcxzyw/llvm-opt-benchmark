@@ -206,7 +206,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %tobool.not5.i, label %quicklistBookmarksClear.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.end
-  %bookmarks.i = getelementptr inbounds i8, ptr %quicklist, i64 40
+  %7 = getelementptr i8, ptr %quicklist, i64 48
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -218,12 +218,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %bf.clear7.i = and i64 %bf.load6.i, -64424509441
   %bf.set.i = or disjoint i64 %bf.shl.i, %bf.clear7.i
   store i64 %bf.set.i, ptr %bookmark_count.i, align 8
-  %name.i = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks.i, i64 0, i64 %bf.value.i, i32 1
-  %7 = load ptr, ptr %name.i, align 8
-  tail call void @zfree(ptr noundef %7) #23
+  %name.idx.i = shl nuw nsw i64 %bf.value.i, 4
+  %name.i = getelementptr i8, ptr %7, i64 %name.idx.i
+  %8 = load ptr, ptr %name.i, align 8
+  tail call void @zfree(ptr noundef %8) #23
   %bf.load.i = load i64, ptr %bookmark_count.i, align 8
-  %8 = and i64 %bf.load.i, 64424509440
-  %tobool.not.i = icmp eq i64 %8, 0
+  %9 = and i64 %bf.load.i, 64424509440
+  %tobool.not.i = icmp eq i64 %9, 0
   br i1 %tobool.not.i, label %quicklistBookmarksClear.exit, label %while.body.i, !llvm.loop !7
 
 quicklistBookmarksClear.exit:                     ; preds = %while.body.i, %while.end
@@ -243,7 +244,7 @@ entry:
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %bookmarks = getelementptr inbounds i8, ptr %ql, i64 40
+  %1 = getelementptr i8, ptr %ql, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -255,12 +256,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.clear7 = and i64 %bf.load6, -64424509441
   %bf.set = or disjoint i64 %bf.shl, %bf.clear7
   store i64 %bf.set, ptr %bookmark_count, align 8
-  %name = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks, i64 0, i64 %bf.value, i32 1
-  %1 = load ptr, ptr %name, align 8
-  tail call void @zfree(ptr noundef %1) #23
+  %name.idx = shl nuw nsw i64 %bf.value, 4
+  %name = getelementptr i8, ptr %1, i64 %name.idx
+  %2 = load ptr, ptr %name, align 8
+  tail call void @zfree(ptr noundef %2) #23
   %bf.load = load i64, ptr %bookmark_count, align 8
-  %2 = and i64 %bf.load, 64424509440
-  %tobool.not = icmp eq i64 %2, 0
+  %3 = and i64 %bf.load, 64424509440
+  %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
@@ -4537,9 +4539,10 @@ if.end3:                                          ; preds = %for.cond.i, %if.end
   store ptr %node, ptr %arrayidx, align 8
   %call17 = tail call noalias ptr @zstrdup(ptr noundef %name) #23
   %bf.load20 = load i64, ptr %bookmark_count11, align 8
-  %bf.lshr21 = lshr i64 %bf.load20, 32
-  %bf.cast23 = and i64 %bf.lshr21, 15
-  %name26 = getelementptr inbounds [0 x %struct.quicklistBookmark], ptr %bookmarks, i64 0, i64 %bf.cast23, i32 1
+  %4 = lshr i64 %bf.load20, 28
+  %name26.idx = and i64 %4, 240
+  %name26.offs = or disjoint i64 %name26.idx, 8
+  %name26 = getelementptr inbounds i8, ptr %bookmarks, i64 %name26.offs
   store ptr %call17, ptr %name26, align 8
   %bf.value = add i64 %bf.load20, 4294967296
   %bf.shl = and i64 %bf.value, 64424509440

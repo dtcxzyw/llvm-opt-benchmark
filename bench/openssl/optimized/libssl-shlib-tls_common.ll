@@ -2344,14 +2344,15 @@ if.then:                                          ; preds = %tls_release_write_b
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tls_release_write_buffer.exit
-  %rrec = getelementptr inbounds i8, ptr %rl, i64 1744
+  %11 = getelementptr i8, ptr %rl, i64 1792
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %i.05.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.body.i ]
-  %comp.i = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %i.05.i, i32 7
-  %11 = load ptr, ptr %comp.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 37) #12
+  %comp.i.idx = mul nuw nsw i64 %i.05.i, 72
+  %comp.i = getelementptr i8, ptr %11, i64 %comp.i.idx
+  %12 = load ptr, ptr %comp.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 37) #12
   store ptr null, ptr %comp.i, align 8
   %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 32
@@ -3119,6 +3120,7 @@ if.end92:                                         ; preds = %for.end.if.end92_cr
   br i1 %cmp98, label %if.then100, label %for.cond107.preheader
 
 for.cond107.preheader:                            ; preds = %if.end92
+  %invariant.gep = getelementptr i8, ptr %rl, i64 128
   %32 = load i64, ptr %prefix, align 8
   %cmp109107.not = icmp eq i64 %32, %add103
   br i1 %cmp109107.not, label %err, label %for.body111
@@ -3154,8 +3156,9 @@ for.body111:                                      ; preds = %for.cond107.prehead
 if.end127:                                        ; preds = %for.body111
   %length128 = getelementptr inbounds i8, ptr %arrayidx113, i64 8
   %37 = load i64, ptr %length128, align 8
-  %left = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %j.1108, i32 4
-  store i64 %37, ptr %left, align 8
+  %left.idx = mul nsw i64 %j.1108, 48
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %left.idx
+  store i64 %37, ptr %gep, align 8
   %inc132 = add nuw i64 %j.1108, 1
   %38 = load i64, ptr %prefix, align 8
   %add108 = add i64 %38, %numtempl
@@ -3196,10 +3199,11 @@ entry:
   br i1 %cmp.not, label %lor.rhs, label %if.end
 
 lor.rhs:                                          ; preds = %entry
-  %wbuf = getelementptr inbounds i8, ptr %rl, i64 96
-  %left = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %0, i32 4
-  %2 = load i64, ptr %left, align 8
-  %cmp2 = icmp eq i64 %2, 0
+  %left.idx = mul nsw i64 %0, 48
+  %2 = getelementptr i8, ptr %rl, i64 128
+  %left = getelementptr i8, ptr %2, i64 %left.idx
+  %3 = load i64, ptr %left, align 8
+  %cmp2 = icmp eq i64 %3, 0
   br i1 %cmp2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.rhs
@@ -3210,10 +3214,10 @@ if.then:                                          ; preds = %lor.rhs
 
 if.end:                                           ; preds = %entry, %lor.rhs
   %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
-  %3 = load ptr, ptr %funcs, align 8
-  %write_records = getelementptr inbounds i8, ptr %3, i64 72
-  %4 = load ptr, ptr %write_records, align 8
-  %call = tail call i32 %4(ptr noundef nonnull %rl, ptr noundef %templates, i64 noundef %numtempl) #12
+  %4 = load ptr, ptr %funcs, align 8
+  %write_records = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = load ptr, ptr %write_records, align 8
+  %call = tail call i32 %5(ptr noundef nonnull %rl, ptr noundef %templates, i64 noundef %numtempl) #12
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %return, label %if.end7
 

@@ -748,12 +748,13 @@ define hidden void @VP8LClear(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 280
+  %17 = getelementptr i8, ptr %0, i64 296
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds [4 x %struct.VP8LTransform], ptr %17, i64 0, i64 %indvars.iv, i32 4
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
+  %19 = getelementptr i8, ptr %17, i64 %.idx
   %20 = load ptr, ptr %19, align 8
   tail call void @WebPSafeFree(ptr noundef %20) #7
   store ptr null, ptr %19, align 8

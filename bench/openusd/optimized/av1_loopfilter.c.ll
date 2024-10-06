@@ -221,7 +221,7 @@ define hidden void @av1_loop_filter_init(ptr nocapture noundef %0) local_unnamed
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 %20, i64 16, i1 false)
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 64
-  br i1 %exitcond28.not.i, label %update_sharpness.exit.preheader, label %.split.us.i, !llvm.loop !4
+  br i1 %exitcond28.not.i, label %update_sharpness.exit, label %.split.us.i, !llvm.loop !4
 
 .split.i:                                         ; preds = %1, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %1 ]
@@ -239,22 +239,24 @@ define hidden void @av1_loop_filter_init(ptr nocapture noundef %0) local_unnamed
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 %29, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %update_sharpness.exit.preheader, label %.split.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %update_sharpness.exit, label %.split.i, !llvm.loop !4
 
-update_sharpness.exit.preheader:                  ; preds = %.split.i, %.split.us.i
-  br label %update_sharpness.exit
+update_sharpness.exit:                            ; preds = %.split.i, %.split.us.i
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 19760
+  br label %30
 
-update_sharpness.exit:                            ; preds = %update_sharpness.exit.preheader, %update_sharpness.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %update_sharpness.exit ], [ 0, %update_sharpness.exit.preheader ]
-  %30 = getelementptr inbounds [64 x %struct.loop_filter_thresh], ptr %2, i64 0, i64 %indvars.iv, i32 2
-  %31 = lshr i64 %indvars.iv, 4
-  %32 = trunc i64 %31 to i8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %30, i8 %32, i64 16, i1 false)
+30:                                               ; preds = %update_sharpness.exit, %30
+  %indvars.iv = phi i64 [ 0, %update_sharpness.exit ], [ %indvars.iv.next, %30 ]
+  %31 = mul nuw nsw i64 %indvars.iv, 48
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %31
+  %32 = lshr i64 %indvars.iv, 4
+  %33 = trunc i64 %32 to i8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %gep, i8 %33, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %33, label %update_sharpness.exit, !llvm.loop !6
+  br i1 %exitcond.not, label %34, label %30, !llvm.loop !6
 
-33:                                               ; preds = %update_sharpness.exit
+34:                                               ; preds = %30
   ret void
 }
 

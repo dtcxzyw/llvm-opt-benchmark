@@ -154,22 +154,23 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  %36 = getelementptr i8, ptr %8, i64 118
   %.not49 = icmp eq ptr %.044, null
   %37 = getelementptr inbounds i8, ptr %0, i64 48
-  %wide.trip.count86 = zext nneg i32 %9 to i64
+  %wide.trip.count87 = zext nneg i32 %9 to i64
   br i1 %.not49, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %17, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us._crit_edge
-  %indvars.iv83 = phi i64 [ %41, %.lr.ph.split.us.split.us._crit_edge ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv84 = phi i64 [ %41, %.lr.ph.split.us.split.us._crit_edge ], [ 0, %.lr.ph.split.us ]
   %.052.us.us = phi i32 [ %.1.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ 0, %.lr.ph.split.us ]
-  %38 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %36, i64 0, i64 %indvars.iv83, i32 16
+  %.idx.us.us = mul nuw nsw i64 %indvars.iv84, 104
+  %38 = getelementptr i8, ptr %36, i64 %.idx.us.us
   %39 = load i8, ptr %38, align 2
   %40 = icmp eq i8 %39, 115
-  %41 = add nuw nsw i64 %indvars.iv83, 1
+  %41 = add nuw nsw i64 %indvars.iv84, 1
   br i1 %40, label %42, label %.lr.ph.split.us.split.us._crit_edge
 
 42:                                               ; preds = %.lr.ph.split.us.split.us
@@ -180,11 +181,11 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
 
 46:                                               ; preds = %42
   %47 = tail call ptr @ExecPrepareExpr(ptr noundef nonnull %44, ptr noundef %1) #8
-  %48 = getelementptr ptr, ptr %34, i64 %indvars.iv83
+  %48 = getelementptr ptr, ptr %34, i64 %indvars.iv84
   store ptr %47, ptr %48, align 8
   %49 = add i32 %.052.us.us, 1
   %50 = load ptr, ptr %37, align 8
-  %51 = trunc i64 %indvars.iv83 to i32
+  %51 = trunc i64 %indvars.iv84 to i32
   %52 = add i32 %51, 8
   %53 = tail call ptr @bms_add_member(ptr noundef %50, i32 noundef %52) #8
   store ptr %53, ptr %37, align 8
@@ -192,16 +193,17 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph.split.us.split.us._crit_edge:              ; preds = %.lr.ph.split.us.split.us, %46
   %.1.us.us = phi i32 [ %49, %46 ], [ %.052.us.us, %.lr.ph.split.us.split.us ]
-  %exitcond87.not = icmp eq i64 %41, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !5
+  %exitcond88.not = icmp eq i64 %41, %wide.trip.count87
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !5
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split._crit_edge
-  %indvars.iv78 = phi i64 [ %57, %.lr.ph.split.us.split._crit_edge ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv79 = phi i64 [ %57, %.lr.ph.split.us.split._crit_edge ], [ 0, %.lr.ph.split.us ]
   %.052.us = phi i32 [ %.1.us, %.lr.ph.split.us.split._crit_edge ], [ 0, %.lr.ph.split.us ]
-  %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %36, i64 0, i64 %indvars.iv78, i32 16
+  %.idx.us = mul nuw nsw i64 %indvars.iv79, 104
+  %54 = getelementptr i8, ptr %36, i64 %.idx.us
   %55 = load i8, ptr %54, align 2
   %56 = icmp eq i8 %55, 115
-  %57 = add nuw nsw i64 %indvars.iv78, 1
+  %57 = add nuw nsw i64 %indvars.iv79, 1
   br i1 %56, label %58, label %.lr.ph.split.us.split._crit_edge
 
 58:                                               ; preds = %.lr.ph.split.us.split
@@ -212,26 +214,27 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
 
 62:                                               ; preds = %58
   %63 = tail call ptr @ExecPrepareExpr(ptr noundef nonnull %60, ptr noundef %1) #8
-  %64 = getelementptr ptr, ptr %34, i64 %indvars.iv78
+  %64 = getelementptr ptr, ptr %34, i64 %indvars.iv79
   store ptr %63, ptr %64, align 8
   %65 = add i32 %.052.us, 1
   br label %.lr.ph.split.us.split._crit_edge
 
 .lr.ph.split.us.split._crit_edge:                 ; preds = %.lr.ph.split.us.split, %62
   %.1.us = phi i32 [ %65, %62 ], [ %.052.us, %.lr.ph.split.us.split ]
-  %exitcond82.not = icmp eq i64 %57, %wide.trip.count86
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !5
+  %exitcond83.not = icmp eq i64 %57, %wide.trip.count87
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %17, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us._crit_edge
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.split.us._crit_edge ], [ 0, %.lr.ph.split ]
-  %.052.us54 = phi i32 [ %.1.us56, %.lr.ph.split.split.us._crit_edge ], [ 0, %.lr.ph.split ]
-  %66 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %36, i64 0, i64 %indvars.iv73, i32 16
+  %indvars.iv74 = phi i64 [ %69, %.lr.ph.split.split.us._crit_edge ], [ 0, %.lr.ph.split ]
+  %.052.us54 = phi i32 [ %.1.us57, %.lr.ph.split.split.us._crit_edge ], [ 0, %.lr.ph.split ]
+  %.idx.us56 = mul nuw nsw i64 %indvars.iv74, 104
+  %66 = getelementptr i8, ptr %36, i64 %.idx.us56
   %67 = load i8, ptr %66, align 2
   %68 = icmp eq i8 %67, 115
-  %69 = add nuw nsw i64 %indvars.iv73, 1
+  %69 = add nuw nsw i64 %indvars.iv74, 1
   br i1 %68, label %70, label %.lr.ph.split.split.us._crit_edge
 
 70:                                               ; preds = %.lr.ph.split.split.us
@@ -249,25 +252,26 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
 
 77:                                               ; preds = %74
   %78 = call ptr @ExecPrepareExpr(ptr noundef nonnull %72, ptr noundef %1) #8
-  %79 = getelementptr ptr, ptr %34, i64 %indvars.iv73
+  %79 = getelementptr ptr, ptr %34, i64 %indvars.iv74
   store ptr %78, ptr %79, align 8
   %80 = add i32 %.052.us54, 1
   %81 = load ptr, ptr %37, align 8
-  %82 = trunc i64 %indvars.iv73 to i32
+  %82 = trunc i64 %indvars.iv74 to i32
   %83 = add i32 %82, 8
   %84 = call ptr @bms_add_member(ptr noundef %81, i32 noundef %83) #8
   store ptr %84, ptr %37, align 8
   br label %.lr.ph.split.split.us._crit_edge
 
 .lr.ph.split.split.us._crit_edge:                 ; preds = %.lr.ph.split.split.us, %77, %74
-  %.1.us56 = phi i32 [ %80, %77 ], [ %.052.us54, %74 ], [ %.052.us54, %.lr.ph.split.split.us ]
-  %exitcond77.not = icmp eq i64 %69, %wide.trip.count86
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !5
+  %.1.us57 = phi i32 [ %80, %77 ], [ %.052.us54, %74 ], [ %.052.us54, %.lr.ph.split.split.us ]
+  %exitcond78.not = icmp eq i64 %69, %wide.trip.count87
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !5
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split._crit_edge
   %indvars.iv = phi i64 [ %88, %.lr.ph.split.split._crit_edge ], [ 0, %.lr.ph.split ]
   %.052 = phi i32 [ %.1, %.lr.ph.split.split._crit_edge ], [ 0, %.lr.ph.split ]
-  %85 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %36, i64 0, i64 %indvars.iv, i32 16
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %85 = getelementptr i8, ptr %36, i64 %.idx
   %86 = load i8, ptr %85, align 2
   %87 = icmp eq i8 %86, 115
   %88 = add nuw nsw i64 %indvars.iv, 1
@@ -306,11 +310,11 @@ define dso_local void @ExecInitStoredGenerated(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph.split.split._crit_edge:                    ; preds = %.lr.ph.split.split, %101, %98
   %.1 = phi i32 [ %104, %101 ], [ %.052, %98 ], [ %.052, %.lr.ph.split.split ]
-  %exitcond.not = icmp eq i64 %88, %wide.trip.count86
+  %exitcond.not = icmp eq i64 %88, %wide.trip.count87
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split._crit_edge, %.lr.ph.split.split.us._crit_edge, %.lr.ph.split.us.split._crit_edge, %.lr.ph.split.us.split.us._crit_edge, %28
-  %.0.lcssa = phi i32 [ 0, %28 ], [ %.1.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ %.1.us, %.lr.ph.split.us.split._crit_edge ], [ %.1.us56, %.lr.ph.split.split.us._crit_edge ], [ %.1, %.lr.ph.split.split._crit_edge ]
+  %.0.lcssa = phi i32 [ 0, %28 ], [ %.1.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ %.1.us, %.lr.ph.split.us.split._crit_edge ], [ %.1.us57, %.lr.ph.split.split.us._crit_edge ], [ %.1, %.lr.ph.split.split._crit_edge ]
   br i1 %17, label %105, label %108
 
 105:                                              ; preds = %._crit_edge

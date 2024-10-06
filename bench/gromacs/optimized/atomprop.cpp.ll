@@ -485,10 +485,10 @@ define noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112
   store i8 1, ptr %20, align 8
   br label %23
 
-21:                                               ; preds = %.noexc22, %.noexc, %53, %38, %36, %30, %27, %5
+21:                                               ; preds = %.noexc23, %.noexc, %53, %38, %36, %30, %27, %5
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %80
 
 23:                                               ; preds = %19, %18
   %24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0) #20
@@ -517,7 +517,7 @@ define noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  br label %79
+  br label %80
 
 36:                                               ; preds = %23
   %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -556,21 +556,21 @@ define noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = invoke noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54)
-          to label %.noexc22 unwind label %21
+          to label %.noexc23 unwind label %21
 
-.noexc22:                                         ; preds = %.noexc
+.noexc23:                                         ; preds = %.noexc
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %52, ptr noundef nonnull @.str.21, ptr noundef %58) #20
   %60 = call i64 @fwrite(ptr nonnull @.str.22, i64 63, i64 1, ptr nonnull %52)
   %61 = call i64 @fwrite(ptr nonnull @.str.23, i64 39, i64 1, ptr nonnull %52)
   invoke void @_Z11please_citeP8_IO_FILEPKc(ptr noundef nonnull %52, ptr noundef nonnull @.str.24)
-          to label %.noexc22._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge unwind label %21
+          to label %.noexc23._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge unwind label %21
 
-.noexc22._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge: ; preds = %.noexc22
+.noexc23._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge: ; preds = %.noexc23
   %.pre = load ptr, ptr %0, align 8
   br label %_ZL15printvdwWarningP8_IO_FILE.exit
 
-_ZL15printvdwWarningP8_IO_FILE.exit:              ; preds = %.noexc22._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge, %51
-  %62 = phi ptr [ %.pre, %.noexc22._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge ], [ %47, %51 ]
+_ZL15printvdwWarningP8_IO_FILE.exit:              ; preds = %.noexc23._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge, %51
+  %62 = phi ptr [ %.pre, %.noexc23._ZL15printvdwWarningP8_IO_FILE.exit_crit_edge ], [ %47, %51 ]
   %63 = getelementptr inbounds i8, ptr %62, i64 1
   store i8 1, ptr %63, align 1
   br label %64
@@ -578,31 +578,33 @@ _ZL15printvdwWarningP8_IO_FILE.exit:              ; preds = %.noexc22._ZL15print
 64:                                               ; preds = %_ZL15printvdwWarningP8_IO_FILE.exit, %46, %44
   %65 = icmp sgt i32 %43, -1
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
-  br i1 %65, label %68, label %74
+  %.idx22 = mul nsw i64 %12, 72
+  br i1 %65, label %67, label %74
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds [5 x %struct.AtomProperty], ptr %67, i64 0, i64 %12, i32 3
+67:                                               ; preds = %64
+  %68 = getelementptr i8, ptr %66, i64 56
+  %69 = getelementptr i8, ptr %68, i64 %.idx22
   %70 = zext nneg i32 %43 to i64
   %71 = load ptr, ptr %69, align 8
   %72 = getelementptr inbounds %struct.BaseEntry, ptr %71, i64 %70, i32 3
   %73 = load float, ptr %72, align 4
-  br label %78
+  br label %79
 
 74:                                               ; preds = %64
-  %75 = getelementptr inbounds [5 x %struct.AtomProperty], ptr %67, i64 0, i64 %12, i32 2
-  %76 = load double, ptr %75, align 8
-  %77 = fptrunc double %76 to float
-  br label %78
+  %75 = getelementptr i8, ptr %66, i64 48
+  %76 = getelementptr i8, ptr %75, i64 %.idx22
+  %77 = load double, ptr %76, align 8
+  %78 = fptrunc double %77 to float
+  br label %79
 
-78:                                               ; preds = %74, %68
-  %storemerge = phi float [ %77, %74 ], [ %73, %68 ]
+79:                                               ; preds = %74, %67
+  %storemerge = phi float [ %78, %74 ], [ %73, %67 ]
   store float %storemerge, ptr %4, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   ret i1 %65
 
-79:                                               ; preds = %34, %21
+80:                                               ; preds = %34, %21
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %35, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20

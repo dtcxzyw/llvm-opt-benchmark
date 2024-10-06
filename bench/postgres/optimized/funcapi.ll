@@ -328,7 +328,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @build_function_result_tupdesc_t(ptr noundef nonnull %9)
   %.not88 = icmp eq ptr %22, null
-  br i1 %.not88, label %211, label %23
+  br i1 %.not88, label %212, label %23
 
 23:                                               ; preds = %13
   %.not93 = icmp eq ptr %3, null
@@ -348,7 +348,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %29, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %22, i64 24
+  %30 = getelementptr i8, ptr %22, i64 92
   %wide.trip.count.i = zext nneg i32 %26 to i64
   br label %31
 
@@ -363,7 +363,8 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %.0138177.i = phi i1 [ false, %.lr.ph.i ], [ %.1139.i, %42 ]
   %.0140176.i = phi i1 [ false, %.lr.ph.i ], [ %.1141.i, %42 ]
   %.0142175.i = phi i1 [ false, %.lr.ph.i ], [ %.1143.i, %42 ]
-  %32 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %30, i64 0, i64 %indvars.iv.i, i32 2
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %32 = getelementptr i8, ptr %30, i64 %.idx.i
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %42 [
     i32 2283, label %34
@@ -710,117 +711,118 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
 158:                                              ; preds = %157, %155, %152
   %.1126.i = phi i32 [ %.0125.i, %155 ], [ 0, %152 ], [ %spec.select.i, %157 ]
   %.1124.i = phi i32 [ %.0123.i, %155 ], [ 0, %152 ], [ %spec.select173.i, %157 ]
-  %159 = load i32, ptr %138, align 4
-  %160 = load i32, ptr %133, align 4
-  %161 = load i32, ptr %46, align 4
-  %162 = load i32, ptr %121, align 4
-  %163 = load i32, ptr %116, align 4
-  %164 = load i32, ptr %45, align 4
-  br label %165
+  %159 = getelementptr inbounds i8, ptr %22, i64 24
+  %160 = load i32, ptr %138, align 4
+  %161 = load i32, ptr %133, align 4
+  %162 = load i32, ptr %46, align 4
+  %163 = load i32, ptr %121, align 4
+  %164 = load i32, ptr %116, align 4
+  %165 = load i32, ptr %45, align 4
+  br label %166
 
-165:                                              ; preds = %201, %158
-  %indvars.iv229.i = phi i64 [ 0, %158 ], [ %indvars.iv.next230.i, %201 ]
-  %166 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %30, i64 0, i64 %indvars.iv229.i
-  %167 = getelementptr inbounds i8, ptr %166, i64 68
-  %168 = load i32, ptr %167, align 4
-  switch i32 %168, label %201 [
-    i32 2283, label %169
-    i32 2776, label %169
-    i32 3500, label %169
-    i32 2277, label %173
-    i32 3831, label %177
-    i32 4537, label %181
-    i32 5077, label %185
-    i32 5079, label %185
-    i32 5078, label %189
-    i32 5080, label %193
-    i32 4538, label %197
+166:                                              ; preds = %202, %158
+  %indvars.iv229.i = phi i64 [ 0, %158 ], [ %indvars.iv.next230.i, %202 ]
+  %167 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %159, i64 0, i64 %indvars.iv229.i
+  %168 = getelementptr inbounds i8, ptr %167, i64 68
+  %169 = load i32, ptr %168, align 4
+  switch i32 %169, label %202 [
+    i32 2283, label %170
+    i32 2776, label %170
+    i32 3500, label %170
+    i32 2277, label %174
+    i32 3831, label %178
+    i32 4537, label %182
+    i32 5077, label %186
+    i32 5079, label %186
+    i32 5078, label %190
+    i32 5080, label %194
+    i32 4538, label %198
   ]
 
-169:                                              ; preds = %165, %165, %165
-  %170 = trunc i64 %indvars.iv229.i to i16
-  %171 = add i16 %170, 1
-  %172 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %171, ptr noundef nonnull %172, i32 noundef %143, i32 noundef -1, i32 noundef 0) #9
-  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %171, i32 noundef %.1126.i) #9
-  br label %201
+170:                                              ; preds = %166, %166, %166
+  %171 = trunc i64 %indvars.iv229.i to i16
+  %172 = add i16 %171, 1
+  %173 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %172, ptr noundef nonnull %173, i32 noundef %143, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %172, i32 noundef %.1126.i) #9
+  br label %202
 
-173:                                              ; preds = %165
-  %174 = trunc i64 %indvars.iv229.i to i16
-  %175 = add i16 %174, 1
-  %176 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %175, ptr noundef nonnull %176, i32 noundef %164, i32 noundef -1, i32 noundef 0) #9
-  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %175, i32 noundef %.1126.i) #9
-  br label %201
+174:                                              ; preds = %166
+  %175 = trunc i64 %indvars.iv229.i to i16
+  %176 = add i16 %175, 1
+  %177 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %176, ptr noundef nonnull %177, i32 noundef %165, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %176, i32 noundef %.1126.i) #9
+  br label %202
 
-177:                                              ; preds = %165
-  %178 = trunc i64 %indvars.iv229.i to i16
-  %179 = add i16 %178, 1
-  %180 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %179, ptr noundef nonnull %180, i32 noundef %163, i32 noundef -1, i32 noundef 0) #9
-  br label %201
+178:                                              ; preds = %166
+  %179 = trunc i64 %indvars.iv229.i to i16
+  %180 = add i16 %179, 1
+  %181 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %180, ptr noundef nonnull %181, i32 noundef %164, i32 noundef -1, i32 noundef 0) #9
+  br label %202
 
-181:                                              ; preds = %165
-  %182 = trunc i64 %indvars.iv229.i to i16
-  %183 = add i16 %182, 1
-  %184 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %183, ptr noundef nonnull %184, i32 noundef %162, i32 noundef -1, i32 noundef 0) #9
-  br label %201
+182:                                              ; preds = %166
+  %183 = trunc i64 %indvars.iv229.i to i16
+  %184 = add i16 %183, 1
+  %185 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %184, ptr noundef nonnull %185, i32 noundef %163, i32 noundef -1, i32 noundef 0) #9
+  br label %202
 
-185:                                              ; preds = %165, %165
-  %186 = trunc i64 %indvars.iv229.i to i16
-  %187 = add i16 %186, 1
-  %188 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %187, ptr noundef nonnull %188, i32 noundef %148, i32 noundef -1, i32 noundef 0) #9
-  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %187, i32 noundef %.1124.i) #9
-  br label %201
+186:                                              ; preds = %166, %166
+  %187 = trunc i64 %indvars.iv229.i to i16
+  %188 = add i16 %187, 1
+  %189 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %188, ptr noundef nonnull %189, i32 noundef %148, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %188, i32 noundef %.1124.i) #9
+  br label %202
 
-189:                                              ; preds = %165
-  %190 = trunc i64 %indvars.iv229.i to i16
-  %191 = add i16 %190, 1
-  %192 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %191, ptr noundef nonnull %192, i32 noundef %161, i32 noundef -1, i32 noundef 0) #9
-  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %191, i32 noundef %.1124.i) #9
-  br label %201
+190:                                              ; preds = %166
+  %191 = trunc i64 %indvars.iv229.i to i16
+  %192 = add i16 %191, 1
+  %193 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %192, ptr noundef nonnull %193, i32 noundef %162, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %192, i32 noundef %.1124.i) #9
+  br label %202
 
-193:                                              ; preds = %165
-  %194 = trunc i64 %indvars.iv229.i to i16
-  %195 = add i16 %194, 1
-  %196 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %195, ptr noundef nonnull %196, i32 noundef %160, i32 noundef -1, i32 noundef 0) #9
-  br label %201
+194:                                              ; preds = %166
+  %195 = trunc i64 %indvars.iv229.i to i16
+  %196 = add i16 %195, 1
+  %197 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %196, ptr noundef nonnull %197, i32 noundef %161, i32 noundef -1, i32 noundef 0) #9
+  br label %202
 
-197:                                              ; preds = %165
-  %198 = trunc i64 %indvars.iv229.i to i16
-  %199 = add i16 %198, 1
-  %200 = getelementptr inbounds i8, ptr %166, i64 4
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %199, ptr noundef nonnull %200, i32 noundef %159, i32 noundef -1, i32 noundef 0) #9
-  br label %201
+198:                                              ; preds = %166
+  %199 = trunc i64 %indvars.iv229.i to i16
+  %200 = add i16 %199, 1
+  %201 = getelementptr inbounds i8, ptr %167, i64 4
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %200, ptr noundef nonnull %201, i32 noundef %160, i32 noundef -1, i32 noundef 0) #9
+  br label %202
 
-201:                                              ; preds = %197, %193, %189, %185, %181, %177, %173, %169, %165
+202:                                              ; preds = %198, %194, %190, %186, %182, %178, %174, %170, %166
   %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 1
   %exitcond233.not.i = icmp eq i64 %indvars.iv.next230.i, %wide.trip.count.i
-  br i1 %exitcond233.not.i, label %.loopexit, label %165, !llvm.loop !8
+  br i1 %exitcond233.not.i, label %.loopexit, label %166, !llvm.loop !8
 
-.loopexit:                                        ; preds = %201, %._crit_edge.i, %25
+.loopexit:                                        ; preds = %202, %._crit_edge.i, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %202 = getelementptr inbounds i8, ptr %22, i64 4
-  %203 = load i32, ptr %202, align 4
-  %204 = icmp eq i32 %203, 2249
-  br i1 %204, label %205, label %210
+  %203 = getelementptr inbounds i8, ptr %22, i64 4
+  %204 = load i32, ptr %203, align 4
+  %205 = icmp eq i32 %204, 2249
+  br i1 %205, label %206, label %211
 
-205:                                              ; preds = %.loopexit
-  %206 = getelementptr inbounds i8, ptr %22, i64 8
-  %207 = load i32, ptr %206, align 8
-  %208 = icmp slt i32 %207, 0
-  br i1 %208, label %209, label %210
+206:                                              ; preds = %.loopexit
+  %207 = getelementptr inbounds i8, ptr %22, i64 8
+  %208 = load i32, ptr %207, align 8
+  %209 = icmp slt i32 %208, 0
+  br i1 %209, label %210, label %211
 
-209:                                              ; preds = %205
+210:                                              ; preds = %206
   tail call void @assign_record_type_typmod(ptr noundef nonnull %22) #9
-  br label %210
+  br label %211
 
-210:                                              ; preds = %209, %205, %.loopexit
+211:                                              ; preds = %210, %206, %.loopexit
   %.not95 = icmp eq ptr %4, null
   br i1 %.not95, label %get_type_func_class.exit.thread, label %.sink.split
 
@@ -830,123 +832,123 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %.not94 = icmp eq ptr %4, null
   br i1 %.not94, label %get_type_func_class.exit.thread, label %.sink.split
 
-.sink.split:                                      ; preds = %.loopexit108, %210
-  %.sink = phi ptr [ %22, %210 ], [ null, %.loopexit108 ]
-  %.076.ph = phi i32 [ 1, %210 ], [ 3, %.loopexit108 ]
+.sink.split:                                      ; preds = %.loopexit108, %211
+  %.sink = phi ptr [ %22, %211 ], [ null, %.loopexit108 ]
+  %.076.ph = phi i32 [ 1, %211 ], [ 3, %.loopexit108 ]
   store ptr %.sink, ptr %4, align 8
   br label %get_type_func_class.exit.thread
 
-211:                                              ; preds = %13
-  switch i32 %21, label %221 [
-    i32 5080, label %212
-    i32 5079, label %212
-    i32 5078, label %212
-    i32 5077, label %212
-    i32 4538, label %212
-    i32 4537, label %212
-    i32 3831, label %212
-    i32 3500, label %212
-    i32 2776, label %212
-    i32 2283, label %212
-    i32 2277, label %212
+212:                                              ; preds = %13
+  switch i32 %21, label %222 [
+    i32 5080, label %213
+    i32 5079, label %213
+    i32 5078, label %213
+    i32 5077, label %213
+    i32 4538, label %213
+    i32 4537, label %213
+    i32 3831, label %213
+    i32 3500, label %213
+    i32 2776, label %213
+    i32 2283, label %213
+    i32 2277, label %213
   ]
 
-212:                                              ; preds = %211, %211, %211, %211, %211, %211, %211, %211, %211, %211, %211
-  %213 = tail call i32 @exprType(ptr noundef %1) #9
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %215, label %221
+213:                                              ; preds = %212, %212, %212, %212, %212, %212, %212, %212, %212, %212, %212
+  %214 = tail call i32 @exprType(ptr noundef %1) #9
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %216, label %222
 
-215:                                              ; preds = %212
-  %216 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %216)
-  %217 = tail call i32 @errcode(i32 noundef 67141764) #9
-  %218 = getelementptr inbounds i8, ptr %19, i64 4
-  %219 = tail call ptr @format_type_be(i32 noundef %21) #9
-  %220 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %218, ptr noundef %219) #9
+216:                                              ; preds = %213
+  %217 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %217)
+  %218 = tail call i32 @errcode(i32 noundef 67141764) #9
+  %219 = getelementptr inbounds i8, ptr %19, i64 4
+  %220 = tail call ptr @format_type_be(i32 noundef %21) #9
+  %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %219, ptr noundef %220) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 491, ptr noundef nonnull @__func__.internal_get_result_type) #9
   unreachable
 
-221:                                              ; preds = %212, %211
-  %.077 = phi i32 [ %21, %211 ], [ %213, %212 ]
+222:                                              ; preds = %213, %212
+  %.077 = phi i32 [ %21, %212 ], [ %214, %213 ]
   %.not89 = icmp eq ptr %3, null
-  br i1 %.not89, label %223, label %222
+  br i1 %.not89, label %224, label %223
 
-222:                                              ; preds = %221
+223:                                              ; preds = %222
   store i32 %.077, ptr %3, align 4
-  br label %223
+  br label %224
 
-223:                                              ; preds = %222, %221
+224:                                              ; preds = %223, %222
   %.not90 = icmp eq ptr %4, null
-  br i1 %.not90, label %225, label %224
+  br i1 %.not90, label %226, label %225
 
-224:                                              ; preds = %223
+225:                                              ; preds = %224
   store ptr null, ptr %4, align 8
-  br label %225
+  br label %226
 
-225:                                              ; preds = %224, %223
-  %226 = tail call signext i8 @get_typtype(i32 noundef %.077) #9
-  switch i8 %226, label %232 [
+226:                                              ; preds = %225, %224
+  %227 = tail call signext i8 @get_typtype(i32 noundef %.077) #9
+  switch i8 %227, label %233 [
     i8 99, label %select.unfold
     i8 98, label %get_type_func_class.exit.thread
     i8 101, label %get_type_func_class.exit.thread
     i8 114, label %get_type_func_class.exit.thread
     i8 109, label %get_type_func_class.exit.thread
-    i8 100, label %227
-    i8 112, label %231
+    i8 100, label %228
+    i8 112, label %232
   ]
 
-227:                                              ; preds = %225
-  %228 = tail call i32 @getBaseType(i32 noundef %.077) #9
-  %229 = tail call signext i8 @get_typtype(i32 noundef %228) #9
-  %230 = icmp eq i8 %229, 99
-  br i1 %230, label %select.unfold, label %get_type_func_class.exit.thread
+228:                                              ; preds = %226
+  %229 = tail call i32 @getBaseType(i32 noundef %.077) #9
+  %230 = tail call signext i8 @get_typtype(i32 noundef %229) #9
+  %231 = icmp eq i8 %230, 99
+  br i1 %231, label %select.unfold, label %get_type_func_class.exit.thread
 
-231:                                              ; preds = %225
+232:                                              ; preds = %226
   switch i32 %.077, label %get_type_func_class.exit.thread [
     i32 2249, label %get_type_func_class.exit
     i32 2278, label %.fold.split.i
     i32 2275, label %.fold.split.i
   ]
 
-232:                                              ; preds = %225
+233:                                              ; preds = %226
   br label %get_type_func_class.exit.thread
 
-.fold.split.i:                                    ; preds = %231, %231
+.fold.split.i:                                    ; preds = %232, %232
   br label %get_type_func_class.exit.thread
 
-select.unfold:                                    ; preds = %227, %225
-  %.097.ph = phi i32 [ %.077, %225 ], [ %228, %227 ]
-  %.0.i96.ph102 = phi i32 [ 1, %225 ], [ 2, %227 ]
-  br i1 %.not90, label %get_type_func_class.exit.thread, label %233
+select.unfold:                                    ; preds = %228, %226
+  %.097.ph = phi i32 [ %.077, %226 ], [ %229, %228 ]
+  %.0.i96.ph102 = phi i32 [ 1, %226 ], [ 2, %228 ]
+  br i1 %.not90, label %get_type_func_class.exit.thread, label %234
 
-233:                                              ; preds = %select.unfold
-  %234 = tail call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.097.ph, i32 noundef -1) #9
-  store ptr %234, ptr %4, align 8
+234:                                              ; preds = %select.unfold
+  %235 = tail call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.097.ph, i32 noundef -1) #9
+  store ptr %235, ptr %4, align 8
   br label %get_type_func_class.exit.thread
 
-get_type_func_class.exit:                         ; preds = %231
+get_type_func_class.exit:                         ; preds = %232
   %.not91 = icmp eq ptr %2, null
-  br i1 %.not91, label %get_type_func_class.exit.thread, label %235
+  br i1 %.not91, label %get_type_func_class.exit.thread, label %236
 
-235:                                              ; preds = %get_type_func_class.exit
-  %236 = load i32, ptr %2, align 4
-  %237 = icmp eq i32 %236, 367
-  br i1 %237, label %238, label %get_type_func_class.exit.thread
+236:                                              ; preds = %get_type_func_class.exit
+  %237 = load i32, ptr %2, align 4
+  %238 = icmp eq i32 %237, 367
+  br i1 %238, label %239, label %get_type_func_class.exit.thread
 
-238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %2, i64 16
-  %240 = load ptr, ptr %239, align 8
-  %.not92 = icmp eq ptr %240, null
+239:                                              ; preds = %236
+  %240 = getelementptr inbounds i8, ptr %2, i64 16
+  %241 = load ptr, ptr %240, align 8
+  %.not92 = icmp eq ptr %241, null
   %brmerge = or i1 %.not90, %.not92
   %.mux = select i1 %.not92, i32 3, i32 1
-  br i1 %brmerge, label %get_type_func_class.exit.thread, label %241
+  br i1 %brmerge, label %get_type_func_class.exit.thread, label %242
 
-241:                                              ; preds = %238
-  store ptr %240, ptr %4, align 8
+242:                                              ; preds = %239
+  store ptr %241, ptr %4, align 8
   br label %get_type_func_class.exit.thread
 
-get_type_func_class.exit.thread:                  ; preds = %233, %select.unfold, %241, %235, %get_type_func_class.exit, %238, %232, %227, %.fold.split.i, %225, %225, %225, %225, %231, %210, %.loopexit108, %.sink.split
-  %.0 = phi i32 [ 1, %210 ], [ 3, %.loopexit108 ], [ %.076.ph, %.sink.split ], [ 1, %241 ], [ %.mux, %238 ], [ 3, %235 ], [ 3, %get_type_func_class.exit ], [ %.0.i96.ph102, %233 ], [ %.0.i96.ph102, %select.unfold ], [ 0, %.fold.split.i ], [ 0, %227 ], [ 4, %232 ], [ 0, %225 ], [ 0, %225 ], [ 0, %225 ], [ 0, %225 ], [ 4, %231 ]
+get_type_func_class.exit.thread:                  ; preds = %234, %select.unfold, %242, %236, %get_type_func_class.exit, %239, %233, %228, %.fold.split.i, %226, %226, %226, %226, %232, %211, %.loopexit108, %.sink.split
+  %.0 = phi i32 [ 1, %211 ], [ 3, %.loopexit108 ], [ %.076.ph, %.sink.split ], [ 1, %242 ], [ %.mux, %239 ], [ 3, %236 ], [ 3, %get_type_func_class.exit ], [ %.0.i96.ph102, %234 ], [ %.0.i96.ph102, %select.unfold ], [ 0, %.fold.split.i ], [ 0, %228 ], [ 4, %233 ], [ 0, %226 ], [ 0, %226 ], [ 0, %226 ], [ 0, %226 ], [ 4, %232 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %9) #9
   ret i32 %.0
 }
@@ -2790,7 +2792,7 @@ list_length.exit:                                 ; preds = %9
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr i8, ptr %10, i64 28
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %21
 
@@ -2813,7 +2815,8 @@ list_length.exit:                                 ; preds = %9
   br i1 %.not33, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv, i32 1
+  %.idx = mul nuw nsw i64 %indvars.iv, 104
+  %27 = getelementptr i8, ptr %16, i64 %.idx
   tail call void @namestrcpy(ptr noundef %27, ptr noundef nonnull %25) #9
   br label %28
 

@@ -960,33 +960,34 @@ for.body:                                         ; preds = %if.then65, %for.bod
 
 for.end:                                          ; preds = %for.body
   call void @pci_default_write_config(ptr noundef nonnull %pdev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) #23
-  %bars = getelementptr inbounds i8, ptr %call.i, i64 2888
+  %36 = getelementptr i8, ptr %call.i, i64 2912
   br label %for.body74
 
 for.body74:                                       ; preds = %for.end, %for.inc99
   %indvars.iv96 = phi i64 [ 0, %for.end ], [ %indvars.iv.next97, %for.inc99 ]
   %arrayidx76 = getelementptr [6 x i64], ptr %old_addr, i64 0, i64 %indvars.iv96
-  %36 = load i64, ptr %arrayidx76, align 8
+  %37 = load i64, ptr %arrayidx76, align 8
   %arrayidx79 = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %indvars.iv96
-  %37 = load i64, ptr %arrayidx79, align 8
-  %cmp81.not = icmp eq i64 %36, %37
+  %38 = load i64, ptr %arrayidx79, align 8
+  %cmp81.not = icmp eq i64 %37, %38
   br i1 %cmp81.not, label %for.inc99, label %land.lhs.true83
 
 land.lhs.true83:                                  ; preds = %for.body74
-  %size = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %indvars.iv96, i32 0, i32 3
-  %38 = load i64, ptr %size, align 8
-  %cmp86.not = icmp eq i64 %38, 0
+  %size.idx = mul nuw nsw i64 %indvars.iv96, 88
+  %size = getelementptr i8, ptr %36, i64 %size.idx
+  %39 = load i64, ptr %size, align 8
+  %cmp86.not = icmp eq i64 %39, 0
   br i1 %cmp86.not, label %for.inc99, label %land.lhs.true88
 
 land.lhs.true88:                                  ; preds = %land.lhs.true83
   %call.i90 = tail call i32 @getpagesize() #24
   %conv.i = sext i32 %call.i90 to i64
-  %cmp95 = icmp ult i64 %38, %conv.i
+  %cmp95 = icmp ult i64 %39, %conv.i
   br i1 %cmp95, label %if.then97, label %for.inc99
 
 if.then97:                                        ; preds = %land.lhs.true88
-  %39 = trunc nuw nsw i64 %indvars.iv96 to i32
-  call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %pdev, i32 noundef %39)
+  %40 = trunc nuw nsw i64 %indvars.iv96 to i32
+  call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %pdev, i32 noundef %40)
   br label %for.inc99
 
 for.inc99:                                        ; preds = %for.body74, %land.lhs.true83, %land.lhs.true88, %if.then97
@@ -4214,24 +4215,28 @@ if.then.i:                                        ; preds = %if.end7
   %bars.i = getelementptr inbounds i8, ptr %call.i, i64 2888
   %9 = load i8, ptr %8, align 8
   %idxprom.i = zext i8 %9 to i64
-  %mr.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %idxprom.i, i32 1
-  %10 = load ptr, ptr %mr.i, align 8
+  %mr.idx.i = mul nuw nsw i64 %idxprom.i, 88
+  %10 = getelementptr i8, ptr %bars.i, i64 %mr.idx.i
+  %mr.i = getelementptr i8, ptr %10, i64 56
+  %11 = load ptr, ptr %mr.i, align 8
   %pba_bar.i = getelementptr inbounds i8, ptr %8, i64 1
-  %11 = load i8, ptr %pba_bar.i, align 1
-  %idxprom5.i = zext i8 %11 to i64
-  %mr7.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %idxprom5.i, i32 1
-  %12 = load ptr, ptr %mr7.i, align 8
-  call void @msix_uninit(ptr noundef nonnull %call.i, ptr noundef %10, ptr noundef %12) #23
-  %13 = load ptr, ptr %msix.i, align 8
-  %pending.i = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load ptr, ptr %pending.i, align 8
-  call void @g_free(ptr noundef %14) #23
+  %12 = load i8, ptr %pba_bar.i, align 1
+  %idxprom5.i = zext i8 %12 to i64
+  %mr7.idx.i = mul nuw nsw i64 %idxprom5.i, 88
+  %13 = getelementptr i8, ptr %bars.i, i64 %mr7.idx.i
+  %mr7.i = getelementptr i8, ptr %13, i64 56
+  %14 = load ptr, ptr %mr7.i, align 8
+  call void @msix_uninit(ptr noundef nonnull %call.i, ptr noundef %11, ptr noundef %14) #23
+  %15 = load ptr, ptr %msix.i, align 8
+  %pending.i = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load ptr, ptr %pending.i, align 8
+  call void @g_free(ptr noundef %16) #23
   br label %vfio_teardown_msi.exit
 
 vfio_teardown_msi.exit:                           ; preds = %if.end7, %if.then.i
   %clear_parent_atomics_on_exit.i = getelementptr inbounds i8, ptr %call.i, i64 3561
-  %15 = load i8, ptr %clear_parent_atomics_on_exit.i, align 1
-  %tobool.i24 = trunc i8 %15 to i1
+  %17 = load i8, ptr %clear_parent_atomics_on_exit.i, align 1
+  %tobool.i24 = trunc i8 %17 to i1
   br i1 %tobool.i24, label %if.then.i26, label %vfio_pci_disable_rp_atomics.exit
 
 if.then.i26:                                      ; preds = %vfio_teardown_msi.exit
@@ -4239,13 +4244,13 @@ if.then.i26:                                      ; preds = %vfio_teardown_msi.e
   %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
   %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.214, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %parent_dev.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2232
-  %16 = load ptr, ptr %parent_dev.i, align 8
-  %config.i = getelementptr inbounds i8, ptr %16, i64 168
-  %17 = load ptr, ptr %config.i, align 8
-  %exp.i = getelementptr inbounds i8, ptr %16, i64 2168
-  %18 = load i8, ptr %exp.i, align 8
-  %idx.ext.i = zext i8 %18 to i64
-  %add.ptr.i = getelementptr i8, ptr %17, i64 %idx.ext.i
+  %18 = load ptr, ptr %parent_dev.i, align 8
+  %config.i = getelementptr inbounds i8, ptr %18, i64 168
+  %19 = load ptr, ptr %config.i, align 8
+  %exp.i = getelementptr inbounds i8, ptr %18, i64 2168
+  %20 = load i8, ptr %exp.i, align 8
+  %idx.ext.i = zext i8 %20 to i64
+  %add.ptr.i = getelementptr i8, ptr %19, i64 %idx.ext.i
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 36
   %config.val.i.i = load i32, ptr %add.ptr1.i, align 1
   %and.i.i = and i32 %config.val.i.i, -897
@@ -4259,20 +4264,20 @@ vfio_pci_disable_rp_atomics.exit:                 ; preds = %vfio_teardown_msi.e
 for.body.i:                                       ; preds = %for.inc.i, %vfio_pci_disable_rp_atomics.exit
   %indvars.iv.i = phi i64 [ 0, %vfio_pci_disable_rp_atomics.exit ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i27, i64 0, i64 %indvars.iv.i
-  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @vfio_bar_quirk_exit(ptr noundef nonnull %call.i, i32 noundef %19) #23
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
+  call void @vfio_bar_quirk_exit(ptr noundef nonnull %call.i, i32 noundef %21) #23
   call void @vfio_region_exit(ptr noundef %arrayidx.i) #23
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %20 = load i64, ptr %size.i, align 8
-  %tobool.not.i28 = icmp eq i64 %20, 0
+  %22 = load i64, ptr %size.i, align 8
+  %tobool.not.i28 = icmp eq i64 %22, 0
   br i1 %tobool.not.i28, label %for.inc.i, label %if.then.i29
 
 if.then.i29:                                      ; preds = %for.body.i
   %mr.i30 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
-  %21 = load ptr, ptr %mr.i30, align 8
+  %23 = load ptr, ptr %mr.i30, align 8
   %mem.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %22 = load ptr, ptr %mem.i, align 8
-  call void @memory_region_del_subregion(ptr noundef %21, ptr noundef %22) #23
+  %24 = load ptr, ptr %mem.i, align 8
+  call void @memory_region_del_subregion(ptr noundef %23, ptr noundef %24) #23
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i29, %for.body.i
@@ -4282,8 +4287,8 @@ for.inc.i:                                        ; preds = %if.then.i29, %for.b
 
 for.end.i:                                        ; preds = %for.inc.i
   %vga.i = getelementptr inbounds i8, ptr %call.i, i64 3416
-  %23 = load ptr, ptr %vga.i, align 8
-  %tobool3.not.i = icmp eq ptr %23, null
+  %25 = load ptr, ptr %vga.i, align 8
+  %tobool3.not.i = icmp eq ptr %25, null
   br i1 %tobool3.not.i, label %vfio_bars_exit.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %for.end.i
@@ -5465,39 +5470,40 @@ if.end47:                                         ; preds = %if.end27
   store i8 %frombool, ptr %noresize, align 8
   %17 = load i32, ptr %pba_offset, align 8
   %conv52 = zext i32 %17 to i64
-  %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
   %18 = load i8, ptr %pba_bar, align 1
   %idxprom = zext i8 %18 to i64
-  %size = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom, i32 0, i32 3
-  %19 = load i64, ptr %size, align 8
-  %cmp54.not = icmp ugt i64 %19, %conv52
+  %size.idx = mul nuw nsw i64 %idxprom, 88
+  %19 = getelementptr i8, ptr %vdev, i64 2912
+  %size = getelementptr i8, ptr %19, i64 %size.idx
+  %20 = load i64, ptr %size, align 8
+  %cmp54.not = icmp ugt i64 %20, %conv52
   br i1 %cmp54.not, label %if.end74, label %if.then56
 
 if.then56:                                        ; preds = %if.end47
   %vendor_id = getelementptr inbounds i8, ptr %vdev, i64 3496
-  %20 = load i32, ptr %vendor_id, align 8
-  switch i32 %20, label %if.else67 [
+  %21 = load i32, ptr %vendor_id, align 8
+  switch i32 %21, label %if.else67 [
     i32 5157, label %land.lhs.true
     i32 7458, label %vfio_pci_is.exit
   ]
 
 land.lhs.true:                                    ; preds = %if.then56
   %device_id = getelementptr inbounds i8, ptr %vdev, i64 3500
-  %21 = load i32, ptr %device_id, align 4
-  %and59 = and i32 %21, 65280
+  %22 = load i32, ptr %device_id, align 4
+  %and59 = and i32 %22, 65280
   %cmp60 = icmp eq i32 %and59, 22528
   br i1 %cmp60, label %if.end74.sink.split, label %if.else67
 
 vfio_pci_is.exit:                                 ; preds = %if.then56
   %device_id.i = getelementptr inbounds i8, ptr %vdev, i64 3500
-  %22 = load i32, ptr %device_id.i, align 4
-  %cmp3.i = icmp eq i32 %22, 13957
+  %23 = load i32, ptr %device_id.i, align 4
+  %cmp3.i = icmp eq i32 %23, 13957
   br i1 %cmp3.i, label %if.end74.sink.split, label %if.else67
 
 if.else67:                                        ; preds = %if.then56, %land.lhs.true, %vfio_pci_is.exit
   %msix_relo = getelementptr inbounds i8, ptr %vdev, i64 3536
-  %23 = load i32, ptr %msix_relo, align 16
-  %cmp68 = icmp eq i32 %23, 0
+  %24 = load i32, ptr %msix_relo, align 16
+  %cmp68 = icmp eq i32 %24, 0
   br i1 %cmp68, label %if.then70, label %if.end74
 
 if.then70:                                        ; preds = %if.else67
@@ -5512,102 +5518,103 @@ if.end74.sink.split:                              ; preds = %vfio_pci_is.exit, %
 
 if.end74:                                         ; preds = %if.end74.sink.split, %if.else67, %if.end47
   %name = getelementptr inbounds i8, ptr %vdev, i64 2680
-  %24 = load ptr, ptr %name, align 8
+  %25 = load ptr, ptr %name, align 8
   %conv76 = zext i8 %call to i32
-  %25 = load i8, ptr %call31, align 8
-  %conv78 = zext i8 %25 to i32
-  %26 = load i32, ptr %table_offset, align 4
-  %27 = load i16, ptr %entries, align 2
-  %conv81 = zext i16 %27 to i32
+  %26 = load i8, ptr %call31, align 8
+  %conv78 = zext i8 %26 to i32
+  %27 = load i32, ptr %table_offset, align 4
+  %28 = load i16, ptr %entries, align 2
+  %conv81 = zext i16 %28 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %28 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %28, 0
-  %29 = load i16, ptr @_TRACE_VFIO_MSIX_EARLY_SETUP_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %29, 0
+  %29 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %29, 0
+  %30 = load i16, ptr @_TRACE_VFIO_MSIX_EARLY_SETUP_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %30, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_vfio_msix_early_setup.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end74
-  %30 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %30, 32768
+  %31 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %31, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_vfio_msix_early_setup.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %31 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %31 to i1
+  %32 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %32 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = call i32 @qemu_get_thread_id() #23
-  %32 = load i64, ptr %_now.i.i, align 8
+  %33 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %33 = load i64, ptr %tv_usec.i.i, align 8
+  %34 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext nneg i8 %frombool to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %call10.i.i, i64 noundef %32, i64 noundef %33, ptr noundef %24, i32 noundef %conv76, i32 noundef %conv78, i32 noundef %26, i32 noundef %conv81, i32 noundef %conv12.i.i) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %call10.i.i, i64 noundef %33, i64 noundef %34, ptr noundef %25, i32 noundef %conv76, i32 noundef %conv78, i32 noundef %27, i32 noundef %conv81, i32 noundef %conv12.i.i) #23
   br label %trace_vfio_msix_early_setup.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext nneg i8 %frombool to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, ptr noundef %24, i32 noundef %conv76, i32 noundef %conv78, i32 noundef %26, i32 noundef %conv81, i32 noundef %conv14.i.i) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, ptr noundef %25, i32 noundef %conv76, i32 noundef %conv78, i32 noundef %27, i32 noundef %conv81, i32 noundef %conv14.i.i) #23
   br label %trace_vfio_msix_early_setup.exit
 
 trace_vfio_msix_early_setup.exit:                 ; preds = %if.end74, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %msix84 = getelementptr inbounds i8, ptr %vdev, i64 2872
   store ptr %call31, ptr %msix84, align 8
-  %34 = load i8, ptr %call31, align 8
-  %idxprom.i = zext i8 %34 to i64
-  %arrayidx.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom.i
+  %bars.i = getelementptr inbounds i8, ptr %vdev, i64 2888
+  %35 = load i8, ptr %call31, align 8
+  %idxprom.i = zext i8 %35 to i64
+  %arrayidx.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %idxprom.i
   %vbasedev.i = getelementptr inbounds i8, ptr %vdev, i64 2608
   %nr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %35 = load i8, ptr %nr.i, align 8
-  %conv.i = zext i8 %35 to i32
+  %36 = load i8, ptr %nr.i, align 8
+  %conv.i = zext i8 %36 to i32
   %call.i = call zeroext i1 @vfio_has_region_cap(ptr noundef nonnull %vbasedev.i, i32 noundef %conv.i, i16 noundef zeroext 3) #23
   br i1 %call.i, label %vfio_pci_fixup_msix_region.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %trace_vfio_msix_early_setup.exit
   %nr_mmaps.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
-  %36 = load i32, ptr %nr_mmaps.i, align 4
-  %cmp.not.i = icmp eq i32 %36, 1
+  %37 = load i32, ptr %nr_mmaps.i, align 4
+  %cmp.not.i = icmp eq i32 %37, 1
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %vfio_pci_fixup_msix_region.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %mmaps.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
-  %37 = load ptr, ptr %mmaps.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %37, i64 280
-  %38 = load i64, ptr %offset.i, align 8
-  %tobool.not.i = icmp eq i64 %38, 0
+  %38 = load ptr, ptr %mmaps.i, align 8
+  %offset.i = getelementptr inbounds i8, ptr %38, i64 280
+  %39 = load i64, ptr %offset.i, align 8
+  %tobool.not.i = icmp eq i64 %39, 0
   br i1 %tobool.not.i, label %lor.lhs.false4.i, label %vfio_pci_fixup_msix_region.exit
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %39 = load i64, ptr %size.i, align 8
-  %size7.i = getelementptr inbounds i8, ptr %37, i64 288
-  %40 = load i64, ptr %size7.i, align 16
-  %cmp8.not.i = icmp eq i64 %39, %40
+  %40 = load i64, ptr %size.i, align 8
+  %size7.i = getelementptr inbounds i8, ptr %38, i64 288
+  %41 = load i64, ptr %size7.i, align 16
+  %cmp8.not.i = icmp eq i64 %40, %41
   br i1 %cmp8.not.i, label %if.end11.i, label %vfio_pci_fixup_msix_region.exit
 
 if.end11.i:                                       ; preds = %lor.lhs.false4.i
-  %41 = load ptr, ptr %msix84, align 8
-  %table_offset.i = getelementptr inbounds i8, ptr %41, i64 4
-  %42 = load i32, ptr %table_offset.i, align 4
-  %conv13.i = zext i32 %42 to i64
+  %42 = load ptr, ptr %msix84, align 8
+  %table_offset.i = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = load i32, ptr %table_offset.i, align 4
+  %conv13.i = zext i32 %43 to i64
   %call.i.i.i = tail call i32 @getpagesize() #24
   %conv.i.i.i = sext i32 %call.i.i.i to i64
   %sub.i.i = sub nsw i64 0, %conv.i.i.i
   %and.i = and i64 %sub.i.i, %conv13.i
-  %entries.i = getelementptr inbounds i8, ptr %41, i64 2
-  %43 = load i16, ptr %entries.i, align 2
-  %conv19.i = zext i16 %43 to i64
+  %entries.i = getelementptr inbounds i8, ptr %42, i64 2
+  %44 = load i16, ptr %entries.i, align 2
+  %conv19.i = zext i16 %44 to i64
   %mul.i = shl nuw nsw i64 %conv19.i, 4
   %add.i = add nsw i64 %conv13.i, -1
   %add22.i = add nsw i64 %add.i, %conv.i.i.i
   %sub.i = add nsw i64 %add22.i, %mul.i
   %and25.i = and i64 %sub.i, %sub.i.i
   %tobool26.not.i = icmp eq i64 %and.i, 0
-  %cmp29.not.i = icmp ult i64 %and25.i, %39
+  %cmp29.not.i = icmp ult i64 %and25.i, %40
   br i1 %tobool26.not.i, label %if.then27.i, label %if.else63.i
 
 if.then27.i:                                      ; preds = %if.end11.i
@@ -5615,33 +5622,33 @@ if.then27.i:                                      ; preds = %if.end11.i
 
 if.then31.i:                                      ; preds = %if.then27.i
   store i32 0, ptr %nr_mmaps.i, align 4
-  call void @g_free(ptr noundef nonnull %37) #23
+  call void @g_free(ptr noundef nonnull %38) #23
   store ptr null, ptr %mmaps.i, align 8
-  %44 = load ptr, ptr %name, align 8
-  %45 = load ptr, ptr %msix84, align 8
-  %46 = load i8, ptr %45, align 8
-  %conv38.i = zext i8 %46 to i32
-  call fastcc void @trace_vfio_msix_fixup(ptr noundef %44, i32 noundef %conv38.i, i64 noundef 0, i64 noundef 0)
+  %45 = load ptr, ptr %name, align 8
+  %46 = load ptr, ptr %msix84, align 8
+  %47 = load i8, ptr %46, align 8
+  %conv38.i = zext i8 %47 to i32
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %45, i32 noundef %conv38.i, i64 noundef 0, i64 noundef 0)
   br label %vfio_pci_fixup_msix_region.exit
 
 if.else.i:                                        ; preds = %if.then27.i
   store i64 %and25.i, ptr %offset.i, align 8
-  %47 = load i64, ptr %size.i, align 8
-  %sub43.i = sub i64 %47, %and25.i
-  %48 = load ptr, ptr %mmaps.i, align 8
-  %size46.i = getelementptr inbounds i8, ptr %48, i64 288
+  %48 = load i64, ptr %size.i, align 8
+  %sub43.i = sub i64 %48, %and25.i
+  %49 = load ptr, ptr %mmaps.i, align 8
+  %size46.i = getelementptr inbounds i8, ptr %49, i64 288
   store i64 %sub43.i, ptr %size46.i, align 16
-  %49 = load ptr, ptr %name, align 8
-  %50 = load ptr, ptr %msix84, align 8
-  %51 = load i8, ptr %50, align 8
-  %conv51.i = zext i8 %51 to i32
-  %52 = load ptr, ptr %mmaps.i, align 8
-  %offset54.i = getelementptr inbounds i8, ptr %52, i64 280
-  %53 = load i64, ptr %offset54.i, align 8
-  %size60.i = getelementptr inbounds i8, ptr %52, i64 288
-  %54 = load i64, ptr %size60.i, align 16
-  %add61.i = add i64 %54, %53
-  call fastcc void @trace_vfio_msix_fixup(ptr noundef %49, i32 noundef %conv51.i, i64 noundef %53, i64 noundef %add61.i)
+  %50 = load ptr, ptr %name, align 8
+  %51 = load ptr, ptr %msix84, align 8
+  %52 = load i8, ptr %51, align 8
+  %conv51.i = zext i8 %52 to i32
+  %53 = load ptr, ptr %mmaps.i, align 8
+  %offset54.i = getelementptr inbounds i8, ptr %53, i64 280
+  %54 = load i64, ptr %offset54.i, align 8
+  %size60.i = getelementptr inbounds i8, ptr %53, i64 288
+  %55 = load i64, ptr %size60.i, align 16
+  %add61.i = add i64 %55, %54
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %50, i32 noundef %conv51.i, i64 noundef %54, i64 noundef %add61.i)
   br label %vfio_pci_fixup_msix_region.exit
 
 if.else63.i:                                      ; preds = %if.end11.i
@@ -5649,75 +5656,75 @@ if.else63.i:                                      ; preds = %if.end11.i
 
 if.then67.i:                                      ; preds = %if.else63.i
   store i64 %and.i, ptr %size7.i, align 16
-  %55 = load ptr, ptr %name, align 8
-  %56 = load ptr, ptr %msix84, align 8
-  %57 = load i8, ptr %56, align 8
-  %conv75.i = zext i8 %57 to i32
-  %58 = load ptr, ptr %mmaps.i, align 8
-  %offset78.i = getelementptr inbounds i8, ptr %58, i64 280
-  %59 = load i64, ptr %offset78.i, align 8
-  %size84.i = getelementptr inbounds i8, ptr %58, i64 288
-  %60 = load i64, ptr %size84.i, align 16
-  %add85.i = add i64 %60, %59
-  call fastcc void @trace_vfio_msix_fixup(ptr noundef %55, i32 noundef %conv75.i, i64 noundef %59, i64 noundef %add85.i)
+  %56 = load ptr, ptr %name, align 8
+  %57 = load ptr, ptr %msix84, align 8
+  %58 = load i8, ptr %57, align 8
+  %conv75.i = zext i8 %58 to i32
+  %59 = load ptr, ptr %mmaps.i, align 8
+  %offset78.i = getelementptr inbounds i8, ptr %59, i64 280
+  %60 = load i64, ptr %offset78.i, align 8
+  %size84.i = getelementptr inbounds i8, ptr %59, i64 288
+  %61 = load i64, ptr %size84.i, align 16
+  %add85.i = add i64 %61, %60
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %56, i32 noundef %conv75.i, i64 noundef %60, i64 noundef %add85.i)
   br label %vfio_pci_fixup_msix_region.exit
 
 if.else86.i:                                      ; preds = %if.else63.i
   store i32 2, ptr %nr_mmaps.i, align 4
-  %call89.i = call ptr @g_realloc_n(ptr noundef nonnull %37, i64 noundef 2, i64 noundef 304) #23
+  %call89.i = call ptr @g_realloc_n(ptr noundef nonnull %38, i64 noundef 2, i64 noundef 304) #23
   store ptr %call89.i, ptr %mmaps.i, align 8
   %arrayidx92.i = getelementptr i8, ptr %call89.i, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %arrayidx92.i, ptr noundef nonnull align 16 dereferenceable(304) %call89.i, i64 304, i1 false)
-  %61 = load ptr, ptr %mmaps.i, align 8
-  %size97.i = getelementptr inbounds i8, ptr %61, i64 288
+  %62 = load ptr, ptr %mmaps.i, align 8
+  %size97.i = getelementptr inbounds i8, ptr %62, i64 288
   store i64 %and.i, ptr %size97.i, align 16
-  %62 = load ptr, ptr %name, align 8
-  %63 = load ptr, ptr %msix84, align 8
-  %64 = load i8, ptr %63, align 8
-  %conv102.i = zext i8 %64 to i32
-  %65 = load ptr, ptr %mmaps.i, align 8
-  %offset105.i = getelementptr inbounds i8, ptr %65, i64 280
-  %66 = load i64, ptr %offset105.i, align 8
-  %size111.i = getelementptr inbounds i8, ptr %65, i64 288
-  %67 = load i64, ptr %size111.i, align 16
-  %add112.i = add i64 %67, %66
-  call fastcc void @trace_vfio_msix_fixup(ptr noundef %62, i32 noundef %conv102.i, i64 noundef %66, i64 noundef %add112.i)
-  %68 = load ptr, ptr %mmaps.i, align 8
-  %offset115.i = getelementptr i8, ptr %68, i64 584
+  %63 = load ptr, ptr %name, align 8
+  %64 = load ptr, ptr %msix84, align 8
+  %65 = load i8, ptr %64, align 8
+  %conv102.i = zext i8 %65 to i32
+  %66 = load ptr, ptr %mmaps.i, align 8
+  %offset105.i = getelementptr inbounds i8, ptr %66, i64 280
+  %67 = load i64, ptr %offset105.i, align 8
+  %size111.i = getelementptr inbounds i8, ptr %66, i64 288
+  %68 = load i64, ptr %size111.i, align 16
+  %add112.i = add i64 %68, %67
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %63, i32 noundef %conv102.i, i64 noundef %67, i64 noundef %add112.i)
+  %69 = load ptr, ptr %mmaps.i, align 8
+  %offset115.i = getelementptr i8, ptr %69, i64 584
   store i64 %and25.i, ptr %offset115.i, align 8
-  %69 = load i64, ptr %size.i, align 8
-  %sub117.i = sub i64 %69, %and25.i
-  %70 = load ptr, ptr %mmaps.i, align 8
-  %size120.i = getelementptr i8, ptr %70, i64 592
+  %70 = load i64, ptr %size.i, align 8
+  %sub117.i = sub i64 %70, %and25.i
+  %71 = load ptr, ptr %mmaps.i, align 8
+  %size120.i = getelementptr i8, ptr %71, i64 592
   store i64 %sub117.i, ptr %size120.i, align 16
-  %71 = load ptr, ptr %name, align 8
-  %72 = load ptr, ptr %msix84, align 8
-  %73 = load i8, ptr %72, align 8
-  %conv125.i = zext i8 %73 to i32
-  %74 = load ptr, ptr %mmaps.i, align 8
-  %offset128.i = getelementptr i8, ptr %74, i64 584
-  %75 = load i64, ptr %offset128.i, align 8
-  %size134.i = getelementptr i8, ptr %74, i64 592
-  %76 = load i64, ptr %size134.i, align 16
-  %add135.i = add i64 %76, %75
-  call fastcc void @trace_vfio_msix_fixup(ptr noundef %71, i32 noundef %conv125.i, i64 noundef %75, i64 noundef %add135.i)
+  %72 = load ptr, ptr %name, align 8
+  %73 = load ptr, ptr %msix84, align 8
+  %74 = load i8, ptr %73, align 8
+  %conv125.i = zext i8 %74 to i32
+  %75 = load ptr, ptr %mmaps.i, align 8
+  %offset128.i = getelementptr i8, ptr %75, i64 584
+  %76 = load i64, ptr %offset128.i, align 8
+  %size134.i = getelementptr i8, ptr %75, i64 592
+  %77 = load i64, ptr %size134.i, align 16
+  %add135.i = add i64 %77, %76
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %72, i32 noundef %conv125.i, i64 noundef %76, i64 noundef %add135.i)
   br label %vfio_pci_fixup_msix_region.exit
 
 vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_early_setup.exit, %if.end.i, %lor.lhs.false.i, %lor.lhs.false4.i, %if.then31.i, %if.else.i, %if.then67.i, %if.else86.i
-  %77 = load ptr, ptr %msix84, align 8
-  %tobool.not.i44 = icmp eq ptr %77, null
+  %78 = load ptr, ptr %msix84, align 8
+  %tobool.not.i44 = icmp eq ptr %78, null
   br i1 %tobool.not.i44, label %return, label %lor.lhs.false.i45
 
 lor.lhs.false.i45:                                ; preds = %vfio_pci_fixup_msix_region.exit
   %msix_relo.i = getelementptr inbounds i8, ptr %vdev, i64 3536
-  %78 = load i32, ptr %msix_relo.i, align 16
-  %cmp.i = icmp eq i32 %78, 0
+  %79 = load i32, ptr %msix_relo.i, align 16
+  %cmp.i = icmp eq i32 %79, 0
   br i1 %cmp.i, label %return, label %if.end.i46
 
 if.end.i46:                                       ; preds = %lor.lhs.false.i45
-  %entries.i47 = getelementptr inbounds i8, ptr %77, i64 2
-  %79 = load i16, ptr %entries.i47, align 2
-  %conv.i48 = zext i16 %79 to i32
+  %entries.i47 = getelementptr inbounds i8, ptr %78, i64 2
+  %80 = load i16, ptr %entries.i47, align 2
+  %conv.i48 = zext i16 %80 to i32
   %mul.i49 = shl nuw nsw i32 %conv.i48, 4
   %sub.i50 = add nuw nsw i32 %conv.i48, 63
   %div64.i = lshr i32 %sub.i50, 3
@@ -5731,32 +5738,32 @@ if.end.i46:                                       ; preds = %lor.lhs.false.i45
   %sub12.i = sub nsw i64 0, %conv.i.i
   %and.i51 = and i64 %sub10.i, %sub12.i
   %sub.i.i52 = add nsw i64 %and.i51, -1
-  %80 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i52, i1 false)
-  %tobool.not.i.i = icmp eq i64 %80, 0
-  %sub2.i.i = add nuw nsw i64 %80, 4294967295
+  %81 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i52, i1 false)
+  %tobool.not.i.i = icmp eq i64 %81, 0
+  %sub2.i.i = add nuw nsw i64 %81, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
   %tobool1.not.i.i = icmp eq i64 %and.i51, 0
   %conv.i69.i = zext i1 %tobool1.not.i.i to i64
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i69.i, i64 %shr.i.i
-  %cmp15.i = icmp eq i32 %78, 1
+  %cmp15.i = icmp eq i32 %79, 1
   br i1 %cmp15.i, label %if.then20.i, label %if.else.i53
 
 if.then20.i:                                      ; preds = %if.end.i46
   %vendor_id.i59 = getelementptr inbounds i8, ptr %vdev, i64 3496
-  %81 = load i32, ptr %vendor_id.i59, align 8
+  %82 = load i32, ptr %vendor_id.i59, align 8
   %device_id.i60 = getelementptr inbounds i8, ptr %vdev, i64 3500
-  %82 = load i32, ptr %device_id.i60, align 4
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.12, i32 noundef 1474, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.197, i32 noundef %81, i32 noundef %82) #23
+  %83 = load i32, ptr %device_id.i60, align 4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.12, i32 noundef 1474, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.197, i32 noundef %82, i32 noundef %83) #23
   br label %return
 
 if.else.i53:                                      ; preds = %if.end.i46
-  %sub23.i = add i32 %78, -2
+  %sub23.i = add i32 %79, -2
   %idxprom.i55 = sext i32 %sub23.i to i64
-  %arrayidx.i56 = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom.i55
+  %arrayidx.i56 = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %idxprom.i55
   %ioport.i = getelementptr inbounds i8, ptr %arrayidx.i56, i64 73
-  %83 = load i8, ptr %ioport.i, align 1
-  %tobool25.i = trunc i8 %83 to i1
+  %84 = load i8, ptr %ioport.i, align 1
+  %tobool25.i = trunc i8 %84 to i1
   br i1 %tobool25.i, label %if.then26.i, label %if.end27.i
 
 if.then26.i:                                      ; preds = %if.else.i53
@@ -5765,18 +5772,20 @@ if.then26.i:                                      ; preds = %if.else.i53
 
 if.end27.i:                                       ; preds = %if.else.i53
   %size.i57 = getelementptr inbounds i8, ptr %arrayidx.i56, i64 64
-  %84 = load i64, ptr %size.i57, align 8
-  %tobool31.i = icmp eq i64 %84, 0
+  %85 = load i64, ptr %size.i57, align 8
+  %tobool31.i = icmp eq i64 %85, 0
   %cmp32.i = icmp sgt i32 %sub23.i, 0
   %or.cond.i = and i1 %cmp32.i, %tobool31.i
   br i1 %or.cond.i, label %land.lhs.true34.i, label %if.end43.i
 
 land.lhs.true34.i:                                ; preds = %if.end27.i
-  %sub36.i = add i32 %78, -3
+  %sub36.i = add i32 %79, -3
   %idxprom37.i = zext nneg i32 %sub36.i to i64
-  %mem64.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom37.i, i32 5
-  %85 = load i8, ptr %mem64.i, align 2
-  %tobool39.i = trunc i8 %85 to i1
+  %mem64.idx.i = mul nuw nsw i64 %idxprom37.i, 88
+  %86 = getelementptr i8, ptr %bars.i, i64 %mem64.idx.i
+  %mem64.i = getelementptr i8, ptr %86, i64 74
+  %87 = load i8, ptr %mem64.i, align 2
+  %tobool39.i = trunc i8 %87 to i1
   br i1 %tobool39.i, label %if.then41.i, label %if.then63.i
 
 if.then41.i:                                      ; preds = %land.lhs.true34.i
@@ -5784,13 +5793,13 @@ if.then41.i:                                      ; preds = %land.lhs.true34.i
   br label %return
 
 if.end43.i:                                       ; preds = %if.end27.i
-  %cmp48.i = icmp ugt i64 %84, 1073741824
+  %cmp48.i = icmp ugt i64 %85, 1073741824
   br i1 %cmp48.i, label %land.lhs.true50.i, label %if.end57.i
 
 land.lhs.true50.i:                                ; preds = %if.end43.i
   %mem6454.i = getelementptr inbounds i8, ptr %arrayidx.i56, i64 74
-  %86 = load i8, ptr %mem6454.i, align 2
-  %tobool55.i = trunc i8 %86 to i1
+  %88 = load i8, ptr %mem6454.i, align 2
+  %tobool55.i = trunc i8 %88 to i1
   br i1 %tobool55.i, label %if.else93.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %land.lhs.true50.i
@@ -5805,11 +5814,13 @@ if.then63.i:                                      ; preds = %if.end57.i, %land.l
   br i1 %cmp64.i, label %land.lhs.true66.i, label %if.end81.i
 
 land.lhs.true66.i:                                ; preds = %if.then63.i
-  %add68.i = add nsw i32 %78, -1
+  %add68.i = add nsw i32 %79, -1
   %idxprom69.i = sext i32 %add68.i to i64
-  %size71.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom69.i, i32 2
-  %87 = load i64, ptr %size71.i, align 8
-  %tobool72.not.i = icmp eq i64 %87, 0
+  %size71.idx.i = mul nsw i64 %idxprom69.i, 88
+  %89 = getelementptr i8, ptr %bars.i, i64 %size71.idx.i
+  %size71.i = getelementptr i8, ptr %89, i64 64
+  %90 = load i64, ptr %size71.i, align 8
+  %tobool72.not.i = icmp eq i64 %90, 0
   br i1 %tobool72.not.i, label %if.then73.i, label %if.end81.i
 
 if.then73.i:                                      ; preds = %land.lhs.true66.i
@@ -5821,14 +5832,14 @@ if.then73.i:                                      ; preds = %land.lhs.true66.i
 
 if.end81.i:                                       ; preds = %if.then73.i, %land.lhs.true66.i, %if.then63.i
   %type85.i = getelementptr inbounds i8, ptr %arrayidx.i56, i64 72
-  %88 = load i8, ptr %type85.i, align 8
-  %89 = or i8 %88, 8
-  store i8 %89, ptr %type85.i, align 8
+  %91 = load i8, ptr %type85.i, align 8
+  %92 = or i8 %91, 8
+  store i8 %92, ptr %type85.i, align 8
   store i64 %retval.0.i.i, ptr %size.i57, align 8
   br label %if.end114.i
 
 if.else93.i:                                      ; preds = %if.end57.i, %land.lhs.true50.i
-  %mul98.i = shl i64 %84, 1
+  %mul98.i = shl i64 %85, 1
   %mul99.i = shl i64 %retval.0.i.i, 1
   %cond.i = call i64 @llvm.umax.i64(i64 %mul98.i, i64 %mul99.i)
   store i64 %cond.i, ptr %size.i57, align 8
@@ -5838,62 +5849,62 @@ if.else93.i:                                      ; preds = %if.end57.i, %land.l
 
 if.end114.i:                                      ; preds = %if.else93.i, %if.end81.i
   %conv111.sink.i = phi i32 [ %conv111.i, %if.else93.i ], [ 0, %if.end81.i ]
-  %90 = load ptr, ptr %msix84, align 8
-  %table_offset113.i = getelementptr inbounds i8, ptr %90, i64 4
+  %93 = load ptr, ptr %msix84, align 8
+  %table_offset113.i = getelementptr inbounds i8, ptr %93, i64 4
   store i32 %conv111.sink.i, ptr %table_offset113.i, align 4
   %conv115.i = trunc i32 %sub23.i to i8
-  %91 = load ptr, ptr %msix84, align 8
-  store i8 %conv115.i, ptr %91, align 8
-  %92 = load ptr, ptr %msix84, align 8
-  %pba_bar.i = getelementptr inbounds i8, ptr %92, i64 1
+  %94 = load ptr, ptr %msix84, align 8
+  store i8 %conv115.i, ptr %94, align 8
+  %95 = load ptr, ptr %msix84, align 8
+  %pba_bar.i = getelementptr inbounds i8, ptr %95, i64 1
   store i8 %conv115.i, ptr %pba_bar.i, align 1
-  %93 = load ptr, ptr %msix84, align 8
-  %table_offset120.i = getelementptr inbounds i8, ptr %93, i64 4
-  %94 = load i32, ptr %table_offset120.i, align 4
-  %entries122.i = getelementptr inbounds i8, ptr %93, i64 2
-  %95 = load i16, ptr %entries122.i, align 2
-  %conv123.i = zext i16 %95 to i32
+  %96 = load ptr, ptr %msix84, align 8
+  %table_offset120.i = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = load i32, ptr %table_offset120.i, align 4
+  %entries122.i = getelementptr inbounds i8, ptr %96, i64 2
+  %98 = load i16, ptr %entries122.i, align 2
+  %conv123.i = zext i16 %98 to i32
   %mul124.i = shl nuw nsw i32 %conv123.i, 4
-  %add125.i = add i32 %mul124.i, %94
-  %pba_offset.i = getelementptr inbounds i8, ptr %93, i64 8
+  %add125.i = add i32 %mul124.i, %97
+  %pba_offset.i = getelementptr inbounds i8, ptr %96, i64 8
   store i32 %add125.i, ptr %pba_offset.i, align 8
-  %96 = load ptr, ptr %name, align 8
-  %97 = load ptr, ptr %msix84, align 8
-  %98 = load i8, ptr %97, align 8
-  %conv129.i = zext i8 %98 to i32
-  %table_offset131.i = getelementptr inbounds i8, ptr %97, i64 4
-  %99 = load i32, ptr %table_offset131.i, align 4
-  %conv132.i = zext i32 %99 to i64
+  %99 = load ptr, ptr %name, align 8
+  %100 = load ptr, ptr %msix84, align 8
+  %101 = load i8, ptr %100, align 8
+  %conv129.i = zext i8 %101 to i32
+  %table_offset131.i = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = load i32, ptr %table_offset131.i, align 4
+  %conv132.i = zext i32 %102 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %100 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %100, 0
-  %101 = load i16, ptr @_TRACE_VFIO_MSIX_RELO_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %101, 0
+  %103 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %103, 0
+  %104 = load i16, ptr @_TRACE_VFIO_MSIX_RELO_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %104, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_vfio_msix_relo.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end114.i
-  %102 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %102, 32768
+  %105 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %105, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_vfio_msix_relo.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %103 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %103 to i1
+  %106 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %106 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #23
   %call10.i.i.i = call i32 @qemu_get_thread_id() #23
-  %104 = load i64, ptr %_now.i.i.i, align 8
+  %107 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %105 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %104, i64 noundef %105, ptr noundef %96, i32 noundef %conv129.i, i64 noundef %conv132.i) #23
+  %108 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %107, i64 noundef %108, ptr noundef %99, i32 noundef %conv129.i, i64 noundef %conv132.i) #23
   br label %trace_vfio_msix_relo.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, ptr noundef %96, i32 noundef %conv129.i, i64 noundef %conv132.i) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, ptr noundef %99, i32 noundef %conv129.i, i64 noundef %conv132.i) #23
   br label %trace_vfio_msix_relo.exit.i
 
 trace_vfio_msix_relo.exit.i:                      ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end114.i
@@ -6427,18 +6438,22 @@ if.then:                                          ; preds = %entry
   %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
   %1 = load i8, ptr %0, align 8
   %idxprom = zext i8 %1 to i64
-  %mr = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom, i32 1
-  %2 = load ptr, ptr %mr, align 8
+  %mr.idx = mul nuw nsw i64 %idxprom, 88
+  %2 = getelementptr i8, ptr %bars, i64 %mr.idx
+  %mr = getelementptr i8, ptr %2, i64 56
+  %3 = load ptr, ptr %mr, align 8
   %pba_bar = getelementptr inbounds i8, ptr %0, i64 1
-  %3 = load i8, ptr %pba_bar, align 1
-  %idxprom5 = zext i8 %3 to i64
-  %mr7 = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom5, i32 1
-  %4 = load ptr, ptr %mr7, align 8
-  tail call void @msix_uninit(ptr noundef nonnull %vdev, ptr noundef %2, ptr noundef %4) #23
-  %5 = load ptr, ptr %msix, align 8
-  %pending = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load ptr, ptr %pending, align 8
-  tail call void @g_free(ptr noundef %6) #23
+  %4 = load i8, ptr %pba_bar, align 1
+  %idxprom5 = zext i8 %4 to i64
+  %mr7.idx = mul nuw nsw i64 %idxprom5, 88
+  %5 = getelementptr i8, ptr %bars, i64 %mr7.idx
+  %mr7 = getelementptr i8, ptr %5, i64 56
+  %6 = load ptr, ptr %mr7, align 8
+  tail call void @msix_uninit(ptr noundef nonnull %vdev, ptr noundef %3, ptr noundef %6) #23
+  %7 = load ptr, ptr %msix, align 8
+  %pending = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = load ptr, ptr %pending, align 8
+  tail call void @g_free(ptr noundef %8) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -6628,33 +6643,34 @@ if.end:                                           ; preds = %for.end
   %add.ptr4.val = load i16, ptr %add.ptr4, align 1
   %conv = zext i16 %add.ptr4.val to i32
   tail call void @vfio_pci_write_config(ptr noundef %add.ptr, i32 noundef 4, i32 noundef %conv, i32 noundef 2)
-  %bars = getelementptr i8, ptr %vbasedev, i64 280
+  %2 = getelementptr i8, ptr %vbasedev, i64 304
   br label %for.body9
 
 for.body9:                                        ; preds = %if.end, %for.inc33
   %indvars.iv27 = phi i64 [ 0, %if.end ], [ %indvars.iv.next28, %for.inc33 ]
   %arrayidx11 = getelementptr [6 x i64], ptr %old_addr, i64 0, i64 %indvars.iv27
-  %2 = load i64, ptr %arrayidx11, align 8
+  %3 = load i64, ptr %arrayidx11, align 8
   %arrayidx14 = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %indvars.iv27
-  %3 = load i64, ptr %arrayidx14, align 8
-  %cmp16.not = icmp eq i64 %2, %3
+  %4 = load i64, ptr %arrayidx14, align 8
+  %cmp16.not = icmp eq i64 %3, %4
   br i1 %cmp16.not, label %for.inc33, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body9
-  %size = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %indvars.iv27, i32 0, i32 3
-  %4 = load i64, ptr %size, align 8
-  %cmp20.not = icmp eq i64 %4, 0
+  %size.idx = mul nuw nsw i64 %indvars.iv27, 88
+  %size = getelementptr i8, ptr %2, i64 %size.idx
+  %5 = load i64, ptr %size, align 8
+  %cmp20.not = icmp eq i64 %5, 0
   br i1 %cmp20.not, label %for.inc33, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %land.lhs.true
   %call.i = tail call i32 @getpagesize() #24
   %conv.i = sext i32 %call.i to i64
-  %cmp29 = icmp ult i64 %4, %conv.i
+  %cmp29 = icmp ult i64 %5, %conv.i
   br i1 %cmp29, label %if.then31, label %for.inc33
 
 if.then31:                                        ; preds = %land.lhs.true22
-  %5 = trunc nuw nsw i64 %indvars.iv27 to i32
-  tail call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %add.ptr, i32 noundef %5)
+  %6 = trunc nuw nsw i64 %indvars.iv27 to i32
+  tail call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %add.ptr, i32 noundef %6)
   br label %for.inc33
 
 for.inc33:                                        ; preds = %for.body9, %land.lhs.true, %land.lhs.true22, %if.then31
@@ -7746,32 +7762,36 @@ sw.bb34:                                          ; preds = %vfio_std_cap_max_si
   %bars.i = getelementptr inbounds i8, ptr %vdev, i64 2888
   %89 = load i8, ptr %87, align 8
   %idxprom.i = zext i8 %89 to i64
-  %mr.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %idxprom.i, i32 1
-  %90 = load ptr, ptr %mr.i, align 8
+  %mr.idx.i = mul nuw nsw i64 %idxprom.i, 88
+  %90 = getelementptr i8, ptr %bars.i, i64 %mr.idx.i
+  %mr.i = getelementptr i8, ptr %90, i64 56
+  %91 = load ptr, ptr %mr.i, align 8
   %table_offset.i = getelementptr inbounds i8, ptr %87, i64 4
-  %91 = load i32, ptr %table_offset.i, align 4
+  %92 = load i32, ptr %table_offset.i, align 4
   %pba_bar.i = getelementptr inbounds i8, ptr %87, i64 1
-  %92 = load i8, ptr %pba_bar.i, align 1
-  %idxprom10.i = zext i8 %92 to i64
-  %mr12.i = getelementptr [6 x %struct.VFIOBAR], ptr %bars.i, i64 0, i64 %idxprom10.i, i32 1
-  %93 = load ptr, ptr %mr12.i, align 8
+  %93 = load i8, ptr %pba_bar.i, align 1
+  %idxprom10.i = zext i8 %93 to i64
+  %mr12.idx.i = mul nuw nsw i64 %idxprom10.i, 88
+  %94 = getelementptr i8, ptr %bars.i, i64 %mr12.idx.i
+  %mr12.i = getelementptr i8, ptr %94, i64 56
+  %95 = load ptr, ptr %mr12.i, align 8
   %pba_offset.i = getelementptr inbounds i8, ptr %87, i64 8
-  %94 = load i32, ptr %pba_offset.i, align 8
-  %call17.i = call i32 @msix_init(ptr noundef nonnull %vdev, i16 noundef zeroext %88, ptr noundef %90, i8 noundef zeroext %89, i32 noundef %91, ptr noundef %93, i8 noundef zeroext %92, i32 noundef %94, i8 noundef zeroext %pos, ptr noundef nonnull %err.i109) #23
+  %96 = load i32, ptr %pba_offset.i, align 8
+  %call17.i = call i32 @msix_init(ptr noundef nonnull %vdev, i16 noundef zeroext %88, ptr noundef %91, i8 noundef zeroext %89, i32 noundef %92, ptr noundef %95, i8 noundef zeroext %93, i32 noundef %96, i8 noundef zeroext %pos, ptr noundef nonnull %err.i109) #23
   %cmp.i113 = icmp slt i32 %call17.i, 0
   br i1 %cmp.i113, label %if.then.i115, label %if.end22.i
 
 if.then.i115:                                     ; preds = %sw.bb34
   %cmp19.i = icmp eq i32 %call17.i, -95
-  %95 = load ptr, ptr %err.i109, align 8
+  %97 = load ptr, ptr %err.i109, align 8
   br i1 %cmp19.i, label %if.then21.i, label %if.end.i116
 
 if.then21.i:                                      ; preds = %if.then.i115
-  call void @warn_report_err(ptr noundef %95) #23
+  call void @warn_report_err(ptr noundef %97) #23
   br label %vfio_msix_setup.exit
 
 if.end.i116:                                      ; preds = %if.then.i115
-  call void @error_propagate(ptr noundef %errp, ptr noundef %95) #23
+  call void @error_propagate(ptr noundef %errp, ptr noundef %97) #23
   br label %vfio_msix_setup.exit
 
 if.end22.i:                                       ; preds = %sw.bb34
@@ -7792,47 +7812,47 @@ vfio_msix_setup.exit:                             ; preds = %if.then21.i, %if.en
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %vfio_std_cap_max_size.exit77
-  %96 = load ptr, ptr %config, align 8
-  %add.ptr.i120 = getelementptr i8, ptr %96, i64 %idxprom
+  %98 = load ptr, ptr %config, align 8
+  %add.ptr.i120 = getelementptr i8, ptr %98, i64 %idxprom
   %add.ptr1.i121 = getelementptr i8, ptr %add.ptr.i120, i64 4
   %add.ptr1.val.i122 = load i16, ptr %add.ptr1.i121, align 1
-  %97 = and i16 %add.ptr1.val.i122, 8
-  %tobool.not.i123 = icmp eq i16 %97, 0
+  %99 = and i16 %add.ptr1.val.i122, 8
+  %tobool.not.i123 = icmp eq i16 %99, 0
   br i1 %tobool.not.i123, label %if.then.i125, label %vfio_check_pm_reset.exit
 
 if.then.i125:                                     ; preds = %sw.bb37
   %name.i126 = getelementptr inbounds i8, ptr %vdev, i64 2680
-  %98 = load ptr, ptr %name.i126, align 8
+  %100 = load ptr, ptr %name.i126, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i117)
-  %99 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i127 = icmp ne i32 %99, 0
-  %100 = load i16, ptr @_TRACE_VFIO_CHECK_PM_RESET_DSTATE, align 2
-  %tobool4.i.i.i128 = icmp ne i16 %100, 0
+  %101 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i127 = icmp ne i32 %101, 0
+  %102 = load i16, ptr @_TRACE_VFIO_CHECK_PM_RESET_DSTATE, align 2
+  %tobool4.i.i.i128 = icmp ne i16 %102, 0
   %or.cond.i.i.i129 = select i1 %tobool.i.i.i127, i1 %tobool4.i.i.i128, i1 false
   br i1 %or.cond.i.i.i129, label %land.lhs.true5.i.i.i130, label %trace_vfio_check_pm_reset.exit.i
 
 land.lhs.true5.i.i.i130:                          ; preds = %if.then.i125
-  %101 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i131 = and i32 %101, 32768
+  %103 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i131 = and i32 %103, 32768
   %cmp.i.not.i.i.i132 = icmp eq i32 %and.i.i.i.i131, 0
   br i1 %cmp.i.not.i.i.i132, label %trace_vfio_check_pm_reset.exit.i, label %if.then.i.i.i133
 
 if.then.i.i.i133:                                 ; preds = %land.lhs.true5.i.i.i130
-  %102 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i134 = trunc i8 %102 to i1
+  %104 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i134 = trunc i8 %104 to i1
   br i1 %tobool7.i.i.i134, label %if.then8.i.i.i136, label %if.else.i.i.i135
 
 if.then8.i.i.i136:                                ; preds = %if.then.i.i.i133
   %call9.i.i.i137 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i117, ptr noundef null) #23
   %call10.i.i.i138 = tail call i32 @qemu_get_thread_id() #23
-  %103 = load i64, ptr %_now.i.i.i117, align 8
+  %105 = load i64, ptr %_now.i.i.i117, align 8
   %tv_usec.i.i.i139 = getelementptr inbounds i8, ptr %_now.i.i.i117, i64 8
-  %104 = load i64, ptr %tv_usec.i.i.i139, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, i32 noundef %call10.i.i.i138, i64 noundef %103, i64 noundef %104, ptr noundef %98) #23
+  %106 = load i64, ptr %tv_usec.i.i.i139, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, i32 noundef %call10.i.i.i138, i64 noundef %105, i64 noundef %106, ptr noundef %100) #23
   br label %trace_vfio_check_pm_reset.exit.i
 
 if.else.i.i.i135:                                 ; preds = %if.then.i.i.i133
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.217, ptr noundef %98) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.217, ptr noundef %100) #23
   br label %trace_vfio_check_pm_reset.exit.i
 
 trace_vfio_check_pm_reset.exit.i:                 ; preds = %if.else.i.i.i135, %if.then8.i.i.i136, %land.lhs.true5.i.i.i130, %if.then.i125
@@ -7848,47 +7868,47 @@ vfio_check_pm_reset.exit:                         ; preds = %sw.bb37, %trace_vfi
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %vfio_std_cap_max_size.exit77
-  %105 = load ptr, ptr %config, align 8
-  %add.ptr.i143 = getelementptr i8, ptr %105, i64 %idxprom
+  %107 = load ptr, ptr %config, align 8
+  %add.ptr.i143 = getelementptr i8, ptr %107, i64 %idxprom
   %add.ptr1.i144 = getelementptr i8, ptr %add.ptr.i143, i64 3
   %add.ptr1.val.i145 = load i8, ptr %add.ptr1.i144, align 1
-  %106 = and i8 %add.ptr1.val.i145, 3
-  %or.cond.not.i = icmp eq i8 %106, 3
+  %108 = and i8 %add.ptr1.val.i145, 3
+  %or.cond.not.i = icmp eq i8 %108, 3
   br i1 %or.cond.not.i, label %if.then.i147, label %vfio_check_af_flr.exit
 
 if.then.i147:                                     ; preds = %sw.bb39
   %name.i148 = getelementptr inbounds i8, ptr %vdev, i64 2680
-  %107 = load ptr, ptr %name.i148, align 8
+  %109 = load ptr, ptr %name.i148, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i140)
-  %108 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i149 = icmp ne i32 %108, 0
-  %109 = load i16, ptr @_TRACE_VFIO_CHECK_AF_FLR_DSTATE, align 2
-  %tobool4.i.i.i150 = icmp ne i16 %109, 0
+  %110 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i149 = icmp ne i32 %110, 0
+  %111 = load i16, ptr @_TRACE_VFIO_CHECK_AF_FLR_DSTATE, align 2
+  %tobool4.i.i.i150 = icmp ne i16 %111, 0
   %or.cond.i.i.i151 = select i1 %tobool.i.i.i149, i1 %tobool4.i.i.i150, i1 false
   br i1 %or.cond.i.i.i151, label %land.lhs.true5.i.i.i153, label %trace_vfio_check_af_flr.exit.i
 
 land.lhs.true5.i.i.i153:                          ; preds = %if.then.i147
-  %110 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i154 = and i32 %110, 32768
+  %112 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i154 = and i32 %112, 32768
   %cmp.i.not.i.i.i155 = icmp eq i32 %and.i.i.i.i154, 0
   br i1 %cmp.i.not.i.i.i155, label %trace_vfio_check_af_flr.exit.i, label %if.then.i.i.i156
 
 if.then.i.i.i156:                                 ; preds = %land.lhs.true5.i.i.i153
-  %111 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i157 = trunc i8 %111 to i1
+  %113 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i157 = trunc i8 %113 to i1
   br i1 %tobool7.i.i.i157, label %if.then8.i.i.i159, label %if.else.i.i.i158
 
 if.then8.i.i.i159:                                ; preds = %if.then.i.i.i156
   %call9.i.i.i160 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i140, ptr noundef null) #23
   %call10.i.i.i161 = tail call i32 @qemu_get_thread_id() #23
-  %112 = load i64, ptr %_now.i.i.i140, align 8
+  %114 = load i64, ptr %_now.i.i.i140, align 8
   %tv_usec.i.i.i162 = getelementptr inbounds i8, ptr %_now.i.i.i140, i64 8
-  %113 = load i64, ptr %tv_usec.i.i.i162, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i32 noundef %call10.i.i.i161, i64 noundef %112, i64 noundef %113, ptr noundef %107) #23
+  %115 = load i64, ptr %tv_usec.i.i.i162, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i32 noundef %call10.i.i.i161, i64 noundef %114, i64 noundef %115, ptr noundef %109) #23
   br label %trace_vfio_check_af_flr.exit.i
 
 if.else.i.i.i158:                                 ; preds = %if.then.i.i.i156
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, ptr noundef %107) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, ptr noundef %109) #23
   br label %trace_vfio_check_af_flr.exit.i
 
 trace_vfio_check_af_flr.exit.i:                   ; preds = %if.else.i.i.i158, %if.then8.i.i.i159, %land.lhs.true5.i.i.i153, %if.then.i147

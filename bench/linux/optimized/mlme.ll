@@ -1596,14 +1596,15 @@ define dso_local void @ieee80211_mgd_set_link_qos_params(ptr noundef %0) local_u
   %3 = getelementptr inbounds i8, ptr %2, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 664
-  %6 = getelementptr inbounds i8, ptr %2, i64 2384
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr i8, ptr %2, i64 2408
   br label %8
 
 8:                                                ; preds = %29, %1
   %9 = phi i64 [ 0, %1 ], [ %30, %29 ]
   %indvars1 = trunc i64 %9 to i32
-  %10 = getelementptr [4 x %struct.ieee80211_sta_tx_tspec], ptr %6, i64 0, i64 %9, i32 6
+  %.idx = shl i64 %9, 5
+  %10 = getelementptr i8, ptr %7, i64 %.idx
   %11 = load i8, ptr %10, align 8, !range !25, !noundef !26
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %29
@@ -1624,7 +1625,7 @@ define dso_local void @ieee80211_mgd_set_link_qos_params(ptr noundef %0) local_u
   br i1 %22, label %27, label %24
 
 24:                                               ; preds = %18
-  %25 = load i32, ptr %7, align 8
+  %25 = load i32, ptr %6, align 8
   %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %23, i32 noundef %25, i32 noundef %indvars1) #19
   br label %29
 
@@ -3906,13 +3907,14 @@ define dso_local void @ieee80211_sta_rx_queued_mgmt(ptr noundef %0, ptr noundef 
 
 560:                                              ; preds = %546
   store i32 0, ptr %386, align 8
-  %561 = getelementptr inbounds i8, ptr %558, i64 664
+  %561 = getelementptr i8, ptr %558, i64 672
   br label %562
 
 562:                                              ; preds = %573, %560
   %563 = phi i64 [ 0, %560 ], [ %575, %573 ]
   %564 = phi i32 [ 0, %560 ], [ %574, %573 ]
-  %565 = getelementptr [4 x %struct.ieee80211_tx_queue_params], ptr %561, i64 0, i64 %563, i32 5
+  %.idx = mul nuw nsw i64 %563, 14
+  %565 = getelementptr i8, ptr %561, i64 %.idx
   %566 = load i8, ptr %565, align 2, !range !25, !noundef !26
   %567 = icmp eq i8 %566, 0
   br i1 %567, label %573, label %568
@@ -8668,7 +8670,9 @@ define dso_local i32 @ieee80211_mgd_assoc(ptr noundef %0, ptr nocapture noundef 
 12:                                               ; preds = %12, %2
   %13 = phi i64 [ 0, %2 ], [ %18, %12 ]
   %14 = phi i64 [ %10, %2 ], [ %17, %12 ]
-  %15 = getelementptr [15 x %struct.cfg80211_assoc_link], ptr %11, i64 0, i64 %13, i32 2
+  %.idx = shl i64 %13, 5
+  %.offs = or disjoint i64 %.idx, 16
+  %15 = getelementptr i8, ptr %11, i64 %.offs
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = add nuw nsw i64 %13, 1
@@ -8776,7 +8780,7 @@ define dso_local i32 @ieee80211_mgd_assoc(ptr noundef %0, ptr nocapture noundef 
 90:                                               ; preds = %86
   %91 = load i8, ptr %71, align 1
   %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %ieee80211_mgd_csa_present.exit.thread21
+  br i1 %92, label %93, label %ieee80211_mgd_csa_present.exit.thread23
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %71, i64 2
@@ -8787,7 +8791,7 @@ define dso_local i32 @ieee80211_mgd_assoc(ptr noundef %0, ptr nocapture noundef 
 ieee80211_mgd_csa_present.exit:                   ; preds = %.thread.i, %86, %93
   %97 = phi i1 [ false, %86 ], [ false, %.thread.i ], [ %96, %93 ]
   %98 = select i1 %84, i1 true, i1 %97
-  br i1 %98, label %ieee80211_mgd_csa_present.exit.thread21, label %ieee80211_mgd_csa_present.exit.thread
+  br i1 %98, label %ieee80211_mgd_csa_present.exit.thread23, label %ieee80211_mgd_csa_present.exit.thread
 
 ieee80211_mgd_csa_present.exit.thread:            ; preds = %31, %ieee80211_mgd_csa_present.exit
   %99 = getelementptr inbounds i8, ptr %37, i64 24
@@ -8800,11 +8804,11 @@ ieee80211_mgd_csa_present.exit.thread:            ; preds = %31, %ieee80211_mgd_
   tail call void @__rcu_read_unlock() #18
   br i1 %105, label %106, label %109
 
-ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_csa_present.exit
+ieee80211_mgd_csa_present.exit.thread23:          ; preds = %90, %ieee80211_mgd_csa_present.exit
   tail call void @__rcu_read_unlock() #18
   br label %106
 
-106:                                              ; preds = %ieee80211_mgd_csa_present.exit.thread21, %ieee80211_mgd_csa_present.exit.thread
+106:                                              ; preds = %ieee80211_mgd_csa_present.exit.thread23, %ieee80211_mgd_csa_present.exit.thread
   %107 = getelementptr inbounds i8, ptr %0, i64 1280
   %108 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56, ptr noundef %107) #19
   tail call void @kfree(ptr noundef nonnull %29) #18
@@ -8844,7 +8848,7 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   %126 = getelementptr inbounds i8, ptr %1, i64 768
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %.loopexit23.thread, label %129
+  br i1 %128, label %.loopexit25.thread, label %129
 
 129:                                              ; preds = %117
   %130 = getelementptr inbounds i8, ptr %0, i64 3904
@@ -8887,9 +8891,9 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
 153:                                              ; preds = %149, %141, %131
   %154 = add nuw nsw i64 %132, 1
   %155 = icmp eq i64 %154, 15
-  br i1 %155, label %.loopexit23, label %131, !llvm.loop !186
+  br i1 %155, label %.loopexit25, label %131, !llvm.loop !186
 
-.loopexit23.thread:                               ; preds = %117
+.loopexit25.thread:                               ; preds = %117
   %156 = getelementptr inbounds i8, ptr %29, i64 8
   %157 = getelementptr inbounds i8, ptr %0, i64 5062
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %156, ptr noundef align 2 dereferenceable(6) %157, i64 6, i1 false)
@@ -8902,7 +8906,7 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   %163 = getelementptr inbounds i8, ptr %29, i64 840
   br label %171
 
-.loopexit23:                                      ; preds = %153
+.loopexit25:                                      ; preds = %153
   %.pre = load ptr, ptr %126, align 8
   %164 = load ptr, ptr %37, align 8
   %165 = load i32, ptr %164, align 8
@@ -8914,15 +8918,15 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   %170 = icmp eq ptr %.pre, null
   br i1 %170, label %171, label %175
 
-171:                                              ; preds = %.loopexit23.thread, %.loopexit23
-  %172 = phi ptr [ %163, %.loopexit23.thread ], [ %169, %.loopexit23 ]
+171:                                              ; preds = %.loopexit25.thread, %.loopexit25
+  %172 = phi ptr [ %163, %.loopexit25.thread ], [ %169, %.loopexit25 ]
   %173 = load ptr, ptr %1, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 72
   br label %175
 
-175:                                              ; preds = %171, %.loopexit23
-  %176 = phi ptr [ %172, %171 ], [ %169, %.loopexit23 ]
-  %177 = phi ptr [ %174, %171 ], [ %.pre, %.loopexit23 ]
+175:                                              ; preds = %171, %.loopexit25
+  %176 = phi ptr [ %172, %171 ], [ %169, %.loopexit25 ]
+  %177 = phi ptr [ %174, %171 ], [ %.pre, %.loopexit25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %176, ptr noundef align 1 dereferenceable(6) %177, i64 6, i1 false)
   %178 = getelementptr inbounds i8, ptr %0, i64 2117
   %179 = load i8, ptr %178, align 1
@@ -9036,11 +9040,11 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   %247 = or i32 %243, 101
   %248 = load ptr, ptr %239, align 8
   call void (ptr, ptr, ...) @netdev_info(ptr noundef %248, ptr noundef nonnull @.str.58) #19
-  %.pre32 = load i32, ptr %234, align 8
+  %.pre34 = load i32, ptr %234, align 8
   br label %249
 
 249:                                              ; preds = %246, %240
-  %250 = phi i32 [ %.pre32, %246 ], [ %241, %240 ]
+  %250 = phi i32 [ %.pre34, %246 ], [ %241, %240 ]
   %251 = phi i32 [ %247, %246 ], [ %243, %240 ]
   %252 = add nuw nsw i64 %242, 1
   %253 = sext i32 %250 to i64
@@ -9196,11 +9200,11 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   %347 = getelementptr inbounds i8, ptr %29, i64 48
   store i32 %278, ptr %347, align 8
   store ptr %37, ptr %29, align 8
-  %.pre33 = zext nneg i8 %21 to i64
+  %.pre35 = zext nneg i8 %21 to i64
   br label %348
 
 348:                                              ; preds = %346, %340
-  %.pre-phi = phi i64 [ %.pre33, %346 ], [ %341, %340 ]
+  %.pre-phi = phi i64 [ %.pre35, %346 ], [ %341, %340 ]
   %349 = getelementptr inbounds i8, ptr %0, i64 3904
   %350 = getelementptr [15 x ptr], ptr %349, i64 0, i64 %.pre-phi
   %351 = load ptr, ptr %350, align 8
@@ -9358,7 +9362,9 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   br i1 %446, label %449, label %447
 
 447:                                              ; preds = %443
-  %448 = getelementptr [15 x %struct.cfg80211_assoc_link], ptr %11, i64 0, i64 %435, i32 4
+  %.idx21 = shl i64 %435, 5
+  %.offs22 = or disjoint i64 %.idx21, 28
+  %448 = getelementptr i8, ptr %11, i64 %.offs22
   store i32 %445, ptr %448, align 4
   br label %503
 
@@ -13058,8 +13064,8 @@ default.unreachable24:                            ; preds = %78
   %178 = load ptr, ptr %1, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 1256
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %178, i64 2384
-  %182 = getelementptr inbounds i8, ptr %1, i64 8
+  %181 = getelementptr inbounds i8, ptr %1, i64 8
+  %182 = getelementptr i8, ptr %178, i64 2408
   br label %203
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %200
@@ -13096,7 +13102,8 @@ default.unreachable24:                            ; preds = %78
 203:                                              ; preds = %225, %176
   %204 = phi i64 [ 0, %176 ], [ %226, %225 ]
   %205 = trunc i64 %204 to i32
-  %206 = getelementptr [4 x %struct.ieee80211_sta_tx_tspec], ptr %181, i64 0, i64 %204, i32 6
+  %.idx = shl i64 %204, 5
+  %206 = getelementptr i8, ptr %182, i64 %.idx
   %207 = load i8, ptr %206, align 8, !range !25, !noundef !26
   %208 = icmp eq i8 %207, 0
   br i1 %208, label %209, label %225
@@ -13117,7 +13124,7 @@ default.unreachable24:                            ; preds = %78
   br i1 %218, label %223, label %220
 
 220:                                              ; preds = %214
-  %221 = load i32, ptr %182, align 8
+  %221 = load i32, ptr %181, align 8
   %222 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %219, i32 noundef %221, i32 noundef %205) #19
   br label %225
 

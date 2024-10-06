@@ -2850,7 +2850,9 @@ define range(i32 -1, 1) i32 @H5E_printf_stack(ptr noundef %0, ptr noundef %1, i3
   %12 = load i64, ptr @H5E_ERR_CLS_g, align 8
   %13 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %9
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %9, i32 1
+  %.idx.i = shl nuw nsw i64 %9, 6
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %14 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @H5E_stack_g, i64 8), i64 %.offs.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %.not.i.i = icmp eq ptr %1, null
   %spec.store.select.i.i = select i1 %.not.i.i, ptr @.str.215, ptr %1
@@ -3931,11 +3933,11 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %7 = icmp eq i32 %6, 1
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not72 = icmp eq ptr %9, null
+  %.not73 = icmp eq ptr %9, null
   br i1 %7, label %10, label %81
 
 10:                                               ; preds = %4
-  br i1 %.not72, label %.loopexit.thread, label %11
+  br i1 %.not73, label %.loopexit.thread, label %11
 
 11:                                               ; preds = %10
   %12 = icmp eq i32 %spec.store.select, 0
@@ -3945,10 +3947,10 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
 
 .preheader:                                       ; preds = %11
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph89, label %.loopexit.thread
+  br i1 %15, label %.lr.ph92, label %.loopexit.thread
 
-.lr.ph89:                                         ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+.lr.ph92:                                         ; preds = %.preheader
+  %16 = getelementptr i8, ptr %0, i64 16
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   %18 = getelementptr inbounds i8, ptr %5, i64 24
   %19 = getelementptr inbounds i8, ptr %5, i64 16
@@ -3956,9 +3958,10 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %21 = getelementptr inbounds i8, ptr %5, i64 40
   br label %22
 
-22:                                               ; preds = %.lr.ph89, %22
-  %indvars.iv103 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next104, %22 ]
-  %23 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %16, i64 0, i64 %indvars.iv103, i32 1
+22:                                               ; preds = %.lr.ph92, %22
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next107, %22 ]
+  %.idx75 = shl nuw nsw i64 %indvars.iv106, 6
+  %23 = getelementptr i8, ptr %16, i64 %.idx75
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %5, align 8
@@ -3978,36 +3981,37 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %21, align 8
   %36 = load ptr, ptr %8, align 8
-  %37 = trunc nuw nsw i64 %indvars.iv103 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv106 to i32
   %38 = call i32 %36(i32 noundef %37, ptr noundef nonnull %5, ptr noundef %3) #16
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %39 = load i64, ptr %0, align 8
-  %sext106 = shl i64 %39, 32
-  %40 = ashr exact i64 %sext106, 32
-  %41 = icmp slt i64 %indvars.iv.next104, %40
+  %sext109 = shl i64 %39, 32
+  %40 = ashr exact i64 %sext109, 32
+  %41 = icmp slt i64 %indvars.iv.next107, %40
   %42 = icmp eq i32 %38, 0
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %22, label %.loopexit
 
 44:                                               ; preds = %11
-  %.16983 = add i32 %14, -1
-  %45 = icmp sgt i32 %.16983, -1
-  br i1 %45, label %.lr.ph86, label %.loopexit.thread
+  %.16986 = add i32 %14, -1
+  %45 = icmp sgt i32 %.16986, -1
+  br i1 %45, label %.lr.ph89, label %.loopexit.thread
 
-.lr.ph86:                                         ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+.lr.ph89:                                         ; preds = %44
+  %46 = getelementptr i8, ptr %0, i64 16
   %47 = getelementptr inbounds i8, ptr %5, i64 8
   %48 = getelementptr inbounds i8, ptr %5, i64 24
   %49 = getelementptr inbounds i8, ptr %5, i64 16
   %50 = getelementptr inbounds i8, ptr %5, i64 32
   %51 = getelementptr inbounds i8, ptr %5, i64 40
-  %52 = zext nneg i32 %.16983 to i64
+  %52 = zext nneg i32 %.16986 to i64
   br label %53
 
-53:                                               ; preds = %.lr.ph86, %53
-  %indvars.iv100 = phi i64 [ %52, %.lr.ph86 ], [ %indvars.iv.next101, %53 ]
-  %.169.in84 = phi i32 [ %14, %.lr.ph86 ], [ %75, %53 ]
-  %54 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %46, i64 0, i64 %indvars.iv100, i32 1
+53:                                               ; preds = %.lr.ph89, %53
+  %indvars.iv103 = phi i64 [ %52, %.lr.ph89 ], [ %indvars.iv.next104, %53 ]
+  %.169.in87 = phi i32 [ %14, %.lr.ph89 ], [ %75, %53 ]
+  %.idx74 = shl nuw nsw i64 %indvars.iv103, 6
+  %54 = getelementptr i8, ptr %46, i64 %.idx74
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %5, align 8
@@ -4029,13 +4033,13 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %67 = load ptr, ptr %8, align 8
   %68 = load i64, ptr %0, align 8
   %69 = trunc i64 %68 to i32
-  %70 = sub i32 %69, %.169.in84
+  %70 = sub i32 %69, %.169.in87
   %71 = call i32 %67(i32 noundef %70, ptr noundef nonnull %5, ptr noundef %3) #16
-  %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
-  %72 = icmp ne i64 %indvars.iv100, 0
+  %indvars.iv.next104 = add nsw i64 %indvars.iv103, -1
+  %72 = icmp ne i64 %indvars.iv103, 0
   %73 = icmp eq i32 %71, 0
   %74 = select i1 %72, i1 %73, i1 false
-  %75 = trunc nuw nsw i64 %indvars.iv100 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv103 to i32
   br i1 %74, label %53, label %.loopexit
 
 .loopexit:                                        ; preds = %53, %22
@@ -4050,76 +4054,78 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   br label %.loopexit.thread
 
 81:                                               ; preds = %4
-  br i1 %.not72, label %.loopexit.thread, label %82
+  br i1 %.not73, label %.loopexit.thread, label %82
 
 82:                                               ; preds = %81
   %83 = icmp eq i32 %spec.store.select, 0
   %84 = load i64, ptr %0, align 8
   %85 = trunc i64 %84 to i32
-  br i1 %83, label %.preheader74, label %98
+  br i1 %83, label %.preheader77, label %98
 
-.preheader74:                                     ; preds = %82
+.preheader77:                                     ; preds = %82
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph81, label %.loopexit.thread
+  br i1 %86, label %.lr.ph84, label %.loopexit.thread
 
-.lr.ph81:                                         ; preds = %.preheader74
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+.lr.ph84:                                         ; preds = %.preheader77
+  %87 = getelementptr i8, ptr %0, i64 16
   br label %88
 
-88:                                               ; preds = %.lr.ph81, %88
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next98, %88 ]
+88:                                               ; preds = %.lr.ph84, %88
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next101, %88 ]
   %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %87, i64 0, i64 %indvars.iv97, i32 1
-  %91 = trunc nuw nsw i64 %indvars.iv97 to i32
-  %92 = tail call i32 %89(i32 noundef %91, ptr noundef nonnull %90, ptr noundef %3) #16
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %.idx72 = shl nuw nsw i64 %indvars.iv100, 6
+  %90 = getelementptr i8, ptr %87, i64 %.idx72
+  %91 = trunc nuw nsw i64 %indvars.iv100 to i32
+  %92 = tail call i32 %89(i32 noundef %91, ptr noundef %90, ptr noundef %3) #16
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %93 = load i64, ptr %0, align 8
   %sext = shl i64 %93, 32
   %94 = ashr exact i64 %sext, 32
-  %95 = icmp slt i64 %indvars.iv.next98, %94
+  %95 = icmp slt i64 %indvars.iv.next101, %94
   %96 = icmp eq i32 %92, 0
   %97 = select i1 %95, i1 %96, i1 false
-  br i1 %97, label %88, label %.loopexit75
+  br i1 %97, label %88, label %.loopexit78
 
 98:                                               ; preds = %82
-  %.37177 = add i32 %85, -1
-  %99 = icmp sgt i32 %.37177, -1
+  %.37180 = add i32 %85, -1
+  %99 = icmp sgt i32 %.37180, -1
   br i1 %99, label %.lr.ph, label %.loopexit.thread
 
 .lr.ph:                                           ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  %101 = zext nneg i32 %.37177 to i64
+  %100 = getelementptr i8, ptr %0, i64 16
+  %101 = zext nneg i32 %.37180 to i64
   br label %102
 
 102:                                              ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ %101, %.lr.ph ], [ %indvars.iv.next, %102 ]
-  %.371.in78 = phi i32 [ %85, %.lr.ph ], [ %112, %102 ]
+  %.371.in81 = phi i32 [ %85, %.lr.ph ], [ %112, %102 ]
   %103 = load ptr, ptr %8, align 8
   %104 = load i64, ptr %0, align 8
   %105 = trunc i64 %104 to i32
-  %106 = sub i32 %105, %.371.in78
-  %107 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %100, i64 0, i64 %indvars.iv, i32 1
-  %108 = tail call i32 %103(i32 noundef %106, ptr noundef nonnull %107, ptr noundef %3) #16
+  %106 = sub i32 %105, %.371.in81
+  %.idx = shl nuw nsw i64 %indvars.iv, 6
+  %107 = getelementptr i8, ptr %100, i64 %.idx
+  %108 = tail call i32 %103(i32 noundef %106, ptr noundef %107, ptr noundef %3) #16
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %109 = icmp ne i64 %indvars.iv, 0
   %110 = icmp eq i32 %108, 0
   %111 = select i1 %109, i1 %110, i1 false
   %112 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %111, label %102, label %.loopexit75
+  br i1 %111, label %102, label %.loopexit78
 
-.loopexit75:                                      ; preds = %102, %88
+.loopexit78:                                      ; preds = %102, %88
   %.5 = phi i32 [ %92, %88 ], [ %108, %102 ]
   %113 = icmp slt i32 %.5, 0
   br i1 %113, label %114, label %.loopexit.thread
 
-114:                                              ; preds = %.loopexit75
+114:                                              ; preds = %.loopexit78
   %115 = load i64, ptr @H5E_ERROR_g, align 8
   %116 = load i64, ptr @H5E_CANTLIST_g, align 8
   %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5E__walk, i32 noundef 1304, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.12)
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %98, %.preheader74, %44, %.preheader, %81, %114, %.loopexit75, %10, %77, %.loopexit
-  %.3 = phi i32 [ %.1, %77 ], [ %.1, %.loopexit ], [ 0, %10 ], [ %.5, %114 ], [ %.5, %.loopexit75 ], [ 0, %81 ], [ 0, %.preheader ], [ 0, %44 ], [ 0, %.preheader74 ], [ 0, %98 ]
+.loopexit.thread:                                 ; preds = %98, %.preheader77, %44, %.preheader, %81, %114, %.loopexit78, %10, %77, %.loopexit
+  %.3 = phi i32 [ %.1, %77 ], [ %.1, %.loopexit ], [ 0, %10 ], [ %.5, %114 ], [ %.5, %.loopexit78 ], [ 0, %81 ], [ 0, %.preheader ], [ 0, %44 ], [ 0, %.preheader77 ], [ 0, %98 ]
   ret i32 %.3
 }
 
@@ -4295,7 +4301,9 @@ define range(i32 -1, 1) i32 @H5E__push_stack(ptr noundef %0, i1 noundef zeroext 
   %17 = getelementptr inbounds i8, ptr %spec.store.select, i64 8
   %18 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %17, i64 0, i64 %13
   store i8 %16, ptr %18, align 8
-  %19 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %17, i64 0, i64 %13, i32 1
+  %.idx = shl nuw nsw i64 %13, 6
+  %.offs = or disjoint i64 %.idx, 8
+  %19 = getelementptr inbounds i8, ptr %17, i64 %.offs
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %.not.i = icmp eq ptr %3, null
   %spec.store.select.i = select i1 %.not.i, ptr @.str.215, ptr %3

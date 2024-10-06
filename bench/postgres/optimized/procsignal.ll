@@ -358,8 +358,9 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr @ProcSignal, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr [0 x %struct.ProcSignalSlot], ptr %7, i64 0, i64 %indvars.iv, i32 3
+  %.idx = mul nuw nsw i64 %indvars.iv, 88
+  %7 = getelementptr i8, ptr %6, i64 80
+  %8 = getelementptr i8, ptr %7, i64 %.idx
   %9 = atomicrmw or ptr %8, i32 %2 seq_cst, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr @MaxBackends, align 4

@@ -35,7 +35,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.lock_class_key = type {}
 %struct.nodemask_t = type { [1 x i64] }
 %struct.cpumask = type { [1 x i64] }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 %struct.drv_dev_and_id = type { ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_pci_add_dynid475 = internal global ptr @pci_add_dynid, section ".discard.addressable", align 8
@@ -326,28 +325,29 @@ define dso_local ptr @pci_dev_driver(ptr nocapture noundef readonly %0) #3 align
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %.loopexit
+  br i1 %4, label %.preheader, label %.loopexit
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 920
-  br label %10
+.preheader:                                       ; preds = %1
+  %5 = getelementptr i8, ptr %0, i64 944
+  br label %9
 
-7:                                                ; preds = %10
-  %8 = add nuw nsw i64 %11, 1
-  %9 = icmp eq i64 %8, 7
-  br i1 %9, label %.loopexit, label %10, !llvm.loop !9
+6:                                                ; preds = %9
+  %7 = add nuw nsw i64 %10, 1
+  %8 = icmp eq i64 %7, 7
+  br i1 %8, label %.loopexit, label %9, !llvm.loop !9
 
-10:                                               ; preds = %7, %5
-  %11 = phi i64 [ 0, %5 ], [ %8, %7 ]
-  %12 = getelementptr [11 x %struct.resource], ptr %6, i64 0, i64 %11, i32 3
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, 2147483648
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %7, label %.loopexit
+9:                                                ; preds = %.preheader, %6
+  %10 = phi i64 [ %7, %6 ], [ 0, %.preheader ]
+  %.idx = shl i64 %10, 6
+  %11 = getelementptr i8, ptr %5, i64 %.idx
+  %12 = load i64, ptr %11, align 8
+  %13 = and i64 %12, 2147483648
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %6, label %.loopexit
 
-.loopexit:                                        ; preds = %10, %7, %1
-  %16 = phi ptr [ %3, %1 ], [ null, %7 ], [ @pci_compat_driver, %10 ]
-  ret ptr %16
+.loopexit:                                        ; preds = %9, %6, %1
+  %15 = phi ptr [ %3, %1 ], [ null, %6 ], [ @pci_compat_driver, %9 ]
+  ret ptr %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

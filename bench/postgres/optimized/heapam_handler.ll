@@ -7,11 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64, i64, i64 }
 %struct.pairingheap_node = type { ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ItemIdData = type { i32 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 
 @heapam_methods = internal constant %struct.TableAmRoutine { i32 423, ptr @heapam_slot_callbacks, ptr @heap_beginscan, ptr @heap_endscan, ptr @heap_rescan, ptr @heap_getnextslot, ptr @heap_set_tidrange, ptr @heap_getnextslot_tidrange, ptr @table_block_parallelscan_estimate, ptr @table_block_parallelscan_initialize, ptr @table_block_parallelscan_reinitialize, ptr @heapam_index_fetch_begin, ptr @heapam_index_fetch_reset, ptr @heapam_index_fetch_end, ptr @heapam_index_fetch_tuple, ptr @heapam_fetch_row_version, ptr @heapam_tuple_tid_valid, ptr @heap_get_latest_tid, ptr @heapam_tuple_satisfies_snapshot, ptr @heap_index_delete_tuples, ptr @heapam_tuple_insert, ptr @heapam_tuple_insert_speculative, ptr @heapam_tuple_complete_speculative, ptr @heap_multi_insert, ptr @heapam_tuple_delete, ptr @heapam_tuple_update, ptr @heapam_tuple_lock, ptr null, ptr @heapam_relation_set_new_filelocator, ptr @heapam_relation_nontransactional_truncate, ptr @heapam_relation_copy_data, ptr @heapam_relation_copy_for_cluster, ptr @heap_vacuum_rel, ptr @heapam_scan_analyze_next_block, ptr @heapam_scan_analyze_next_tuple, ptr @heapam_index_build_range_scan, ptr @heapam_index_validate_scan, ptr @table_block_relation_size, ptr @heapam_relation_needs_toast_table, ptr @heapam_relation_toast_am, ptr @heap_fetch_toast_slice, ptr @heapam_estimate_rel_size, ptr @heapam_scan_bitmap_next_block, ptr @heapam_scan_bitmap_next_tuple, ptr @heapam_scan_sample_next_block, ptr @heapam_scan_sample_next_tuple }, align 8
@@ -848,7 +848,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   br label %46
 
 37:                                               ; preds = %.thread, %30
-  %.0104133 = phi ptr [ %29, %.thread ], [ null, %30 ]
+  %.0104134 = phi ptr [ %29, %.thread ], [ null, %30 ]
   tail call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 1) #11
   %38 = getelementptr inbounds i8, ptr %0, i64 312
   %39 = load ptr, ptr %38, align 8
@@ -862,7 +862,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   br label %46
 
 46:                                               ; preds = %37, %31
-  %.0104132 = phi ptr [ %.0104133, %37 ], [ null, %31 ]
+  %.0104133 = phi ptr [ %.0104134, %37 ], [ null, %31 ]
   %.0101 = phi ptr [ %42, %37 ], [ null, %31 ]
   %.0 = phi ptr [ null, %37 ], [ %36, %31 ]
   %47 = call ptr @table_slot_create(ptr noundef nonnull %0, ptr noundef null) #11
@@ -874,7 +874,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   %52 = getelementptr inbounds i8, ptr %.0101, i64 60
   %53 = getelementptr inbounds i8, ptr %47, i64 104
   %54 = getelementptr inbounds i8, ptr %0, i64 56
-  %.not119 = icmp eq ptr %.0104132, null
+  %.not119 = icmp eq ptr %.0104133, null
   %55 = getelementptr inbounds i8, ptr %14, i64 8
   br label %.backedge
 
@@ -933,9 +933,9 @@ table_scan_getnextslot.exit:                      ; preds = %67
   %81 = getelementptr inbounds i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8
   %83 = call zeroext i1 %82(ptr noundef nonnull %.0101, i32 noundef 1, ptr noundef nonnull %47) #11
-  br i1 %83, label %86, label %.thread135
+  br i1 %83, label %86, label %.thread136
 
-.thread135:                                       ; preds = %table_scan_getnextslot.exit
+.thread136:                                       ; preds = %table_scan_getnextslot.exit
   %84 = load i32, ptr %51, align 8
   %85 = zext i32 %84 to i64
   call void @pgstat_progress_update_param(i32 noundef 6, i64 noundef %85) #11
@@ -1085,7 +1085,7 @@ table_scan_getnextslot.exit:                      ; preds = %67
   br i1 %.not119, label %164, label %161
 
 161:                                              ; preds = %.critedge
-  call void @tuplesort_putheaptuple(ptr noundef nonnull %.0104132, ptr noundef %98) #11
+  call void @tuplesort_putheaptuple(ptr noundef nonnull %.0104133, ptr noundef %98) #11
   %162 = load double, ptr %7, align 8
   %163 = fptosi double %162 to i64
   call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %163) #11
@@ -1104,13 +1104,14 @@ table_scan_getnextslot.exit:                      ; preds = %67
   br i1 %166, label %.lr.ph.i, label %reform_and_rewrite_tuple.exit
 
 .lr.ph.i:                                         ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %.val121, i64 24
+  %167 = getelementptr i8, ptr %.val121, i64 119
   br label %168
 
 168:                                              ; preds = %175, %.lr.ph.i
   %169 = phi i32 [ %165, %.lr.ph.i ], [ %176, %175 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %175 ]
-  %170 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %167, i64 0, i64 %indvars.iv.i, i32 17
+  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 104
+  %170 = getelementptr i8, ptr %167, i64 %.idx.i
   %171 = load i8, ptr %170, align 1
   %172 = trunc i8 %171 to i1
   br i1 %172, label %173, label %175
@@ -1144,7 +1145,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %175, %164
   %.not112 = icmp eq ptr %.0101, null
   br i1 %.not112, label %189, label %183
 
-183:                                              ; preds = %.thread135, %182
+183:                                              ; preds = %.thread136, %182
   %184 = load ptr, ptr %.0101, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 312
   %186 = load ptr, ptr %185, align 8
@@ -1166,12 +1167,12 @@ reform_and_rewrite_tuple.exit:                    ; preds = %175, %164
 
 192:                                              ; preds = %191
   call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 3) #11
-  call void @tuplesort_performsort(ptr noundef nonnull %.0104132) #11
+  call void @tuplesort_performsort(ptr noundef nonnull %.0104133) #11
   call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 4) #11
   br label %193
 
-193:                                              ; preds = %reform_and_rewrite_tuple.exit128, %192
-  %.099 = phi double [ 0.000000e+00, %192 ], [ %200, %reform_and_rewrite_tuple.exit128 ]
+193:                                              ; preds = %reform_and_rewrite_tuple.exit129, %192
+  %.099 = phi double [ 0.000000e+00, %192 ], [ %200, %reform_and_rewrite_tuple.exit129 ]
   %194 = load volatile i32, ptr @InterruptPending, align 4
   %.not115 = icmp eq i32 %194, 0
   br i1 %.not115, label %196, label %195
@@ -1181,7 +1182,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %175, %164
   br label %196
 
 196:                                              ; preds = %193, %195
-  %197 = call ptr @tuplesort_getheaptuple(ptr noundef nonnull %.0104132, i1 noundef zeroext true) #11
+  %197 = call ptr @tuplesort_getheaptuple(ptr noundef nonnull %.0104133, i1 noundef zeroext true) #11
   %198 = icmp eq ptr %197, null
   br i1 %198, label %217, label %199
 
@@ -1192,16 +1193,17 @@ reform_and_rewrite_tuple.exit:                    ; preds = %175, %164
   call void @heap_deform_tuple(ptr noundef nonnull %197, ptr noundef %.val122, ptr noundef %23, ptr noundef %24) #11
   %201 = load i32, ptr %.val123, align 8
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %.lr.ph.i124, label %reform_and_rewrite_tuple.exit128
+  br i1 %202, label %.lr.ph.i124, label %reform_and_rewrite_tuple.exit129
 
 .lr.ph.i124:                                      ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %.val123, i64 24
+  %203 = getelementptr i8, ptr %.val123, i64 119
   br label %204
 
 204:                                              ; preds = %211, %.lr.ph.i124
   %205 = phi i32 [ %201, %.lr.ph.i124 ], [ %212, %211 ]
-  %indvars.iv.i125 = phi i64 [ 0, %.lr.ph.i124 ], [ %indvars.iv.next.i126, %211 ]
-  %206 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %203, i64 0, i64 %indvars.iv.i125, i32 17
+  %indvars.iv.i125 = phi i64 [ 0, %.lr.ph.i124 ], [ %indvars.iv.next.i127, %211 ]
+  %.idx.i126 = mul nuw nsw i64 %indvars.iv.i125, 104
+  %206 = getelementptr i8, ptr %203, i64 %.idx.i126
   %207 = load i8, ptr %206, align 1
   %208 = trunc i8 %207 to i1
   br i1 %208, label %209, label %211
@@ -1209,17 +1211,17 @@ reform_and_rewrite_tuple.exit:                    ; preds = %175, %164
 209:                                              ; preds = %204
   %210 = getelementptr i8, ptr %24, i64 %indvars.iv.i125
   store i8 1, ptr %210, align 1
-  %.pre.i127 = load i32, ptr %.val123, align 8
+  %.pre.i128 = load i32, ptr %.val123, align 8
   br label %211
 
 211:                                              ; preds = %209, %204
-  %212 = phi i32 [ %205, %204 ], [ %.pre.i127, %209 ]
-  %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125, 1
+  %212 = phi i32 [ %205, %204 ], [ %.pre.i128, %209 ]
+  %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i125, 1
   %213 = sext i32 %212 to i64
-  %214 = icmp slt i64 %indvars.iv.next.i126, %213
-  br i1 %214, label %204, label %reform_and_rewrite_tuple.exit128, !llvm.loop !7
+  %214 = icmp slt i64 %indvars.iv.next.i127, %213
+  br i1 %214, label %204, label %reform_and_rewrite_tuple.exit129, !llvm.loop !7
 
-reform_and_rewrite_tuple.exit128:                 ; preds = %211, %199
+reform_and_rewrite_tuple.exit129:                 ; preds = %211, %199
   %215 = call ptr @heap_form_tuple(ptr noundef nonnull %.val123, ptr noundef %23, ptr noundef %24) #11
   call void @rewrite_heap_tuple(ptr noundef %27, ptr noundef nonnull %197, ptr noundef %215) #11
   call void @heap_freetuple(ptr noundef %215) #11
@@ -1228,7 +1230,7 @@ reform_and_rewrite_tuple.exit128:                 ; preds = %211, %199
   br label %193
 
 217:                                              ; preds = %196
-  call void @tuplesort_end(ptr noundef nonnull %.0104132) #11
+  call void @tuplesort_end(ptr noundef nonnull %.0104133) #11
   br label %218
 
 218:                                              ; preds = %217, %191

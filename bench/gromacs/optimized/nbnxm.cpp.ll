@@ -114,39 +114,39 @@ define void @_ZN18nonbonded_verlet_t14putAtomsOnGridEPA3_KfiRKN3gmx11BasicVector
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  %33 = getelementptr inbounds i8, ptr %16, i64 224
-  %34 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
-  %35 = extractvalue { i32, i32 } %34, 0
-  %36 = extractvalue { i32, i32 } %34, 1
+  %33 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
+  %34 = extractvalue { i32, i32 } %33, 0
+  %35 = extractvalue { i32, i32 } %33, 1
+  %36 = zext i32 %34 to i64
   %37 = zext i32 %35 to i64
-  %38 = zext i32 %36 to i64
-  %39 = shl nuw i64 %38, 32
-  %40 = or disjoint i64 %39, %37
-  %41 = getelementptr inbounds i8, ptr %16, i64 240
-  store i64 %40, ptr %41, align 8
+  %38 = shl nuw i64 %37, 32
+  %39 = or disjoint i64 %38, %36
+  %40 = getelementptr inbounds i8, ptr %16, i64 240
+  store i64 %39, ptr %40, align 8
   store ptr %17, ptr %13, align 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %23, ptr %42, align 8
+  %41 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %23, ptr %41, align 8
   store ptr %24, ptr %14, align 8
-  %43 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %30, ptr %43, align 8
+  %42 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %30, ptr %42, align 8
   tail call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %16, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i64 %6, float noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %14, i32 noundef %10, ptr noundef %11, ptr noundef %32)
+  %43 = getelementptr inbounds i8, ptr %16, i64 224
   %44 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
   %45 = extractvalue { i32, i32 } %44, 0
   %46 = extractvalue { i32, i32 } %44, 1
   %47 = zext i32 %45 to i64
   %48 = zext i32 %46 to i64
   %49 = shl nuw i64 %48, 32
-  %50 = load i64, ptr %41, align 8
+  %50 = load i64, ptr %40, align 8
   %51 = getelementptr inbounds i8, ptr %16, i64 232
   %52 = load i64, ptr %51, align 8
   %53 = sub i64 %47, %50
   %54 = add i64 %53, %52
   %55 = add i64 %54, %49
   store i64 %55, ptr %51, align 8
-  %56 = load i32, ptr %33, align 8
+  %56 = load i32, ptr %43, align 8
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %33, align 8
+  store i32 %57, ptr %43, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   ret void
@@ -232,38 +232,38 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %.preheader
   %39 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %40 = getelementptr inbounds i8, ptr %38, i64 224
-  %41 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
-  %42 = extractvalue { i32, i32 } %41, 0
-  %43 = extractvalue { i32, i32 } %41, 1
+  %40 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
+  %41 = extractvalue { i32, i32 } %40, 0
+  %42 = extractvalue { i32, i32 } %40, 1
+  %43 = zext i32 %41 to i64
   %44 = zext i32 %42 to i64
-  %45 = zext i32 %43 to i64
-  %46 = shl nuw i64 %45, 32
-  %47 = or disjoint i64 %46, %44
-  %48 = getelementptr inbounds i8, ptr %38, i64 240
-  store i64 %47, ptr %48, align 8
+  %45 = shl nuw i64 %44, 32
+  %46 = or disjoint i64 %45, %43
+  %47 = getelementptr inbounds i8, ptr %38, i64 240
+  store i64 %46, ptr %47, align 8
   store ptr %2, ptr %7, align 8
   store ptr %21, ptr %28, align 8
   store ptr %4, ptr %8, align 8
   store ptr %25, ptr %29, align 8
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %38, ptr noundef null, i32 noundef %49, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, i64 %.sroa.021.0.insert.insert, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %8, i32 noundef 0, ptr noundef null, ptr noundef %39)
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %38, ptr noundef null, i32 noundef %48, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, i64 %.sroa.021.0.insert.insert, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %8, i32 noundef 0, ptr noundef null, ptr noundef %39)
+  %49 = getelementptr inbounds i8, ptr %38, i64 224
   %50 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
   %51 = extractvalue { i32, i32 } %50, 0
   %52 = extractvalue { i32, i32 } %50, 1
   %53 = zext i32 %51 to i64
   %54 = zext i32 %52 to i64
   %55 = shl nuw i64 %54, 32
-  %56 = load i64, ptr %48, align 8
+  %56 = load i64, ptr %47, align 8
   %57 = getelementptr inbounds i8, ptr %38, i64 232
   %58 = load i64, ptr %57, align 8
   %59 = sub i64 %53, %56
   %60 = add i64 %59, %58
   %61 = add i64 %60, %55
   store i64 %61, ptr %57, align 8
-  %62 = load i32, ptr %40, align 8
+  %62 = load i32, ptr %49, align 8
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %40, align 8
+  store i32 %63, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %64 = load i32, ptr %1, align 8

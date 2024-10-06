@@ -533,9 +533,12 @@ define void @var_push_dtor(ptr noundef readonly %0, ptr nocapture noundef readon
   %.029.i = phi ptr [ %16, %25 ], [ %11, %12 ]
   %30 = getelementptr inbounds i8, ptr %.029.i, i64 16
   %31 = add nsw i64 %29, 1
-  %32 = getelementptr inbounds [255 x %struct._zval_struct], ptr %30, i64 0, i64 %29, i32 1
+  %.idx.i = shl nsw i64 %29, 4
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %32 = getelementptr inbounds i8, ptr %30, i64 %.offs.i
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds [255 x %struct._zval_struct], ptr %30, i64 0, i64 %29, i32 2
+  %.offs38.i = or disjoint i64 %.idx.i, 12
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.offs38.i
   store i32 0, ptr %33, align 4
   store i64 %31, ptr %.029.i, align 8
   %34 = getelementptr inbounds [255 x %struct._zval_struct], ptr %30, i64 0, i64 %29
@@ -611,9 +614,12 @@ define ptr @var_tmp_var(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.029 = phi ptr [ %12, %21 ], [ %7, %8 ]
   %26 = getelementptr inbounds i8, ptr %.029, i64 16
   %27 = add nsw i64 %25, 1
-  %28 = getelementptr inbounds [255 x %struct._zval_struct], ptr %26, i64 0, i64 %25, i32 1
+  %.idx = shl nsw i64 %25, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %28 = getelementptr inbounds i8, ptr %26, i64 %.offs
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds [255 x %struct._zval_struct], ptr %26, i64 0, i64 %25, i32 2
+  %.offs38 = or disjoint i64 %.idx, 12
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.offs38
   store i32 0, ptr %29, align 4
   store i64 %27, ptr %.029, align 8
   %30 = getelementptr inbounds i8, ptr %.029, i64 16
@@ -3483,42 +3489,42 @@ define internal fastcc range(i32 0, 2) i32 @object_common(ptr nocapture noundef 
   %26 = getelementptr inbounds i8, ptr %22, i64 40
   %27 = load i64, ptr %26, align 8
   %.not357 = icmp slt i64 %27, %24
-  %or.cond466 = select i1 %25, i1 true, i1 %.not357
-  br i1 %or.cond466, label %._crit_edge447, label %28
+  %or.cond480 = select i1 %25, i1 true, i1 %.not357
+  br i1 %or.cond480, label %._crit_edge461, label %28
 
 28:                                               ; preds = %18
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16, i64 noundef %24) #13
-  br label %.critedge375
+  br label %.critedge377
 
-._crit_edge447:                                   ; preds = %18
+._crit_edge461:                                   ; preds = %18
   %29 = getelementptr inbounds i8, ptr %22, i64 40
   %30 = add nsw i64 %27, 1
   store i64 %30, ptr %29, align 8
-  %.not429 = icmp eq i64 %4, 0
-  br i1 %.not429, label %._crit_edge424, label %.lr.ph423
+  %.not443 = icmp eq i64 %4, 0
+  br i1 %.not443, label %._crit_edge438, label %.lr.ph437
 
-.lr.ph423:                                        ; preds = %._crit_edge447
+.lr.ph437:                                        ; preds = %._crit_edge461
   %31 = getelementptr inbounds i8, ptr %13, i64 8
   %32 = getelementptr inbounds i8, ptr %13, i64 9
   store i32 0, ptr %31, align 8
   %33 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  %.not358481 = icmp eq i32 %33, 0
-  br i1 %.not358481, label %._crit_edge483, label %.lr.ph482
+  %.not358495 = icmp eq i32 %33, 0
+  br i1 %.not358495, label %._crit_edge497, label %.lr.ph496
 
-._crit_edge483:                                   ; preds = %159, %.lr.ph423
+._crit_edge497:                                   ; preds = %159, %.lr.ph437
   call void @zval_ptr_dtor(ptr noundef nonnull %13) #13
   br label %.loopexit
 
-.lr.ph482:                                        ; preds = %.lr.ph423, %159
-  %.in484 = phi i64 [ %34, %159 ], [ %4, %.lr.ph423 ]
-  %34 = add nsw i64 %.in484, -1
+.lr.ph496:                                        ; preds = %.lr.ph437, %159
+  %.in498 = phi i64 [ %34, %159 ], [ %4, %.lr.ph437 ]
+  %34 = add nsw i64 %.in498, -1
   %35 = load i8, ptr %31, align 8
   switch i8 %35, label %149 [
     i8 4, label %36
     i8 6, label %77
   ]
 
-36:                                               ; preds = %.lr.ph482
+36:                                               ; preds = %.lr.ph496
   %37 = load i64, ptr %13, align 8
   store i64 %37, ptr %14, align 8
   br label %38
@@ -3584,9 +3590,12 @@ define internal fastcc range(i32 0, 2) i32 @object_common(ptr nocapture noundef 
   %.029.i.i = phi ptr [ %55, %64 ], [ %50, %51 ]
   %69 = getelementptr inbounds i8, ptr %.029.i.i, i64 16
   %70 = add nsw i64 %68, 1
-  %71 = getelementptr inbounds [255 x %struct._zval_struct], ptr %69, i64 0, i64 %68, i32 1
+  %.idx.i.i = shl nsw i64 %68, 4
+  %.offs.i.i = or disjoint i64 %.idx.i.i, 8
+  %71 = getelementptr inbounds i8, ptr %69, i64 %.offs.i.i
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds [255 x %struct._zval_struct], ptr %69, i64 0, i64 %68, i32 2
+  %.offs38.i.i = or disjoint i64 %.idx.i.i, 12
+  %72 = getelementptr inbounds i8, ptr %69, i64 %.offs38.i.i
   store i32 0, ptr %72, align 4
   store i64 %70, ptr %.029.i.i, align 8
   %73 = getelementptr inbounds [255 x %struct._zval_struct], ptr %69, i64 0, i64 %68
@@ -3601,7 +3610,7 @@ var_push_dtor_value.exit:                         ; preds = %43, %45, %67
   store i32 1, ptr %41, align 8
   br label %150
 
-77:                                               ; preds = %.lr.ph482
+77:                                               ; preds = %.lr.ph496
   %78 = load ptr, ptr %13, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 24
   %80 = getelementptr inbounds i8, ptr %78, i64 16
@@ -3630,7 +3639,7 @@ var_push_dtor_value.exit:                         ; preds = %43, %45, %67
   br i1 %92, label %93, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %91
-  %.pre450 = load ptr, ptr %13, align 8
+  %.pre464 = load ptr, ptr %13, align 8
   br label %.critedge
 
 93:                                               ; preds = %91
@@ -3654,7 +3663,7 @@ var_push_dtor_value.exit:                         ; preds = %43, %45, %67
   br label %38
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %77, %86, %87
-  %102 = phi ptr [ %.pre450, %..critedge_crit_edge ], [ %78, %77 ], [ %78, %86 ], [ %78, %87 ]
+  %102 = phi ptr [ %.pre464, %..critedge_crit_edge ], [ %78, %77 ], [ %78, %86 ], [ %78, %87 ]
   %103 = call ptr @zend_hash_lookup(ptr noundef %20, ptr noundef %102) #13
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8
@@ -3663,19 +3672,19 @@ var_push_dtor_value.exit:                         ; preds = %43, %45, %67
 
 106:                                              ; preds = %.critedge
   %107 = and i32 %105, 65280
-  %.not.i378 = icmp eq i32 %107, 0
-  br i1 %.not.i378, label %var_push_dtor_value.exit383, label %108
+  %.not.i380 = icmp eq i32 %107, 0
+  br i1 %.not.i380, label %var_push_dtor_value.exit388, label %108
 
 108:                                              ; preds = %106
   %109 = load ptr, ptr %3, align 8
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %var_push_dtor_value.exit383, label %111
+  br i1 %110, label %var_push_dtor_value.exit388, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds i8, ptr %109, i64 16
   %113 = load ptr, ptr %112, align 8
-  %.not34.i.i379 = icmp eq ptr %113, null
-  br i1 %.not34.i.i379, label %117, label %114
+  %.not34.i.i381 = icmp eq ptr %113, null
+  br i1 %.not34.i.i381, label %117, label %114
 
 114:                                              ; preds = %111
   %115 = load i64, ptr %113, align 8
@@ -3688,8 +3697,8 @@ var_push_dtor_value.exit:                         ; preds = %43, %45, %67
   %119 = load ptr, ptr %3, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
-  %.not35.i.i381 = icmp eq ptr %121, null
-  br i1 %.not35.i.i381, label %122, label %123
+  %.not35.i.i386 = icmp eq ptr %121, null
+  br i1 %.not35.i.i386, label %122, label %123
 
 122:                                              ; preds = %117
   store ptr %118, ptr %120, align 8
@@ -3706,32 +3715,35 @@ var_push_dtor_value.exit:                         ; preds = %43, %45, %67
   %128 = load ptr, ptr %3, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 16
   store ptr %118, ptr %129, align 8
-  %.pre.i.i382 = load i64, ptr %118, align 8
+  %.pre.i.i387 = load i64, ptr %118, align 8
   br label %130
 
 130:                                              ; preds = %127, %114
-  %131 = phi i64 [ %.pre.i.i382, %127 ], [ %115, %114 ]
-  %.029.i.i380 = phi ptr [ %118, %127 ], [ %113, %114 ]
-  %132 = getelementptr inbounds i8, ptr %.029.i.i380, i64 16
+  %131 = phi i64 [ %.pre.i.i387, %127 ], [ %115, %114 ]
+  %.029.i.i382 = phi ptr [ %118, %127 ], [ %113, %114 ]
+  %132 = getelementptr inbounds i8, ptr %.029.i.i382, i64 16
   %133 = add nsw i64 %131, 1
-  %134 = getelementptr inbounds [255 x %struct._zval_struct], ptr %132, i64 0, i64 %131, i32 1
+  %.idx.i.i383 = shl nsw i64 %131, 4
+  %.offs.i.i384 = or disjoint i64 %.idx.i.i383, 8
+  %134 = getelementptr inbounds i8, ptr %132, i64 %.offs.i.i384
   store i32 0, ptr %134, align 8
-  %135 = getelementptr inbounds [255 x %struct._zval_struct], ptr %132, i64 0, i64 %131, i32 2
+  %.offs38.i.i385 = or disjoint i64 %.idx.i.i383, 12
+  %135 = getelementptr inbounds i8, ptr %132, i64 %.offs38.i.i385
   store i32 0, ptr %135, align 4
-  store i64 %133, ptr %.029.i.i380, align 8
+  store i64 %133, ptr %.029.i.i382, align 8
   %136 = getelementptr inbounds [255 x %struct._zval_struct], ptr %132, i64 0, i64 %131
   %137 = load ptr, ptr %103, align 8
   %138 = load i32, ptr %104, align 8
   store ptr %137, ptr %136, align 8
   %139 = getelementptr inbounds i8, ptr %136, i64 8
   store i32 %138, ptr %139, align 8
-  br label %var_push_dtor_value.exit383
+  br label %var_push_dtor_value.exit388
 
-var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
+var_push_dtor_value.exit388:                      ; preds = %106, %108, %130
   store i32 1, ptr %104, align 8
   br label %140
 
-140:                                              ; preds = %var_push_dtor_value.exit383, %.critedge
+140:                                              ; preds = %var_push_dtor_value.exit388, %.critedge
   %141 = load i8, ptr %32, align 1
   %.not361 = icmp eq i8 %141, 0
   br i1 %.not361, label %150, label %142
@@ -3751,7 +3763,7 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   call void @_efree(ptr noundef %148) #13
   br label %150
 
-149:                                              ; preds = %.lr.ph482
+149:                                              ; preds = %.lr.ph496
   call void @zval_ptr_dtor(ptr noundef nonnull %13) #13
   br label %.loopexit
 
@@ -3763,7 +3775,7 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
 
 152:                                              ; preds = %150
   %.not367 = icmp eq i64 %34, 0
-  br i1 %.not367, label %._crit_edge424, label %153
+  br i1 %.not367, label %._crit_edge438, label %153
 
 153:                                              ; preds = %152
   %154 = load ptr, ptr %1, align 8
@@ -3783,9 +3795,9 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   store i32 0, ptr %31, align 8
   %160 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   %.not358 = icmp eq i32 %160, 0
-  br i1 %.not358, label %._crit_edge483, label %.lr.ph482
+  br i1 %.not358, label %._crit_edge497, label %.lr.ph496
 
-._crit_edge424:                                   ; preds = %152, %._crit_edge447
+._crit_edge438:                                   ; preds = %152, %._crit_edge461
   %161 = load ptr, ptr %3, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 40
   %163 = load i64, ptr %162, align 8
@@ -3796,27 +3808,27 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   %167 = icmp eq i8 %166, 10
   br i1 %167, label %183, label %186
 
-.loopexit:                                        ; preds = %150, %._crit_edge483, %149, %157
+.loopexit:                                        ; preds = %150, %._crit_edge497, %149, %157
   %168 = load ptr, ptr %3, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 40
   %170 = load i64, ptr %169, align 8
   %171 = add nsw i64 %170, -1
   store i64 %171, ptr %169, align 8
-  br label %.critedge375
+  br label %.critedge377
 
-.critedge375:                                     ; preds = %.loopexit, %28
+.critedge377:                                     ; preds = %.loopexit, %28
   %172 = getelementptr inbounds i8, ptr %0, i64 8
   %173 = load i8, ptr %172, align 8
   %174 = icmp eq i8 %173, 10
   br i1 %174, label %175, label %178
 
-175:                                              ; preds = %.critedge375
+175:                                              ; preds = %.critedge377
   %176 = load ptr, ptr %0, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   br label %178
 
-178:                                              ; preds = %175, %.critedge375
-  %.0304 = phi ptr [ %177, %175 ], [ %0, %.critedge375 ]
+178:                                              ; preds = %175, %.critedge377
+  %.0304 = phi ptr [ %177, %175 ], [ %0, %.critedge377 ]
   %179 = load ptr, ptr %.0304, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 4
   %181 = load i32, ptr %180, align 4
@@ -3825,13 +3837,13 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   call void @zval_ptr_dtor(ptr noundef nonnull %15) #13
   br label %finish_nested_data.exit
 
-183:                                              ; preds = %._crit_edge424
+183:                                              ; preds = %._crit_edge438
   %184 = load ptr, ptr %0, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 8
   br label %186
 
-186:                                              ; preds = %183, %._crit_edge424
-  %.1305 = phi ptr [ %185, %183 ], [ %0, %._crit_edge424 ]
+186:                                              ; preds = %183, %._crit_edge438
+  %.1305 = phi ptr [ %185, %183 ], [ %0, %._crit_edge438 ]
   %187 = load ptr, ptr %3, align 8
   %188 = icmp eq ptr %187, null
   br i1 %188, label %218, label %189
@@ -3845,7 +3857,7 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
 192:                                              ; preds = %189
   %193 = load i64, ptr %191, align 8
   %194 = icmp sgt i64 %193, 253
-  br i1 %194, label %195, label %.lr.ph426
+  br i1 %194, label %195, label %.lr.ph440
 
 195:                                              ; preds = %192, %189
   %196 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #12
@@ -3871,24 +3883,27 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   %206 = load ptr, ptr %3, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 16
   store ptr %196, ptr %207, align 8
-  %.pre451 = load i64, ptr %196, align 8
-  br label %.lr.ph426
+  %.pre465 = load i64, ptr %196, align 8
+  br label %.lr.ph440
 
-.lr.ph426:                                        ; preds = %192, %205
-  %208 = phi i64 [ %.pre451, %205 ], [ %193, %192 ]
+.lr.ph440:                                        ; preds = %192, %205
+  %208 = phi i64 [ %.pre465, %205 ], [ %193, %192 ]
   %.0302 = phi ptr [ %196, %205 ], [ %191, %192 ]
   %209 = getelementptr inbounds i8, ptr %.0302, i64 16
   br label %210
 
-210:                                              ; preds = %.lr.ph426, %210
-  %211 = phi i64 [ %208, %.lr.ph426 ], [ %214, %210 ]
-  %212 = getelementptr inbounds [255 x %struct._zval_struct], ptr %209, i64 0, i64 %211, i32 1
+210:                                              ; preds = %.lr.ph440, %210
+  %211 = phi i64 [ %208, %.lr.ph440 ], [ %214, %210 ]
+  %.idx = shl nsw i64 %211, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %212 = getelementptr inbounds i8, ptr %209, i64 %.offs
   store i32 0, ptr %212, align 8
-  %213 = getelementptr inbounds [255 x %struct._zval_struct], ptr %209, i64 0, i64 %211, i32 2
+  %.offs374 = or disjoint i64 %.idx, 12
+  %213 = getelementptr inbounds i8, ptr %209, i64 %.offs374
   store i32 0, ptr %213, align 4
   %214 = add nsw i64 %211, 1
-  %.not431 = icmp sgt i64 %211, %208
-  br i1 %.not431, label %215, label %210
+  %.not445 = icmp sgt i64 %211, %208
+  br i1 %.not445, label %215, label %210
 
 215:                                              ; preds = %210
   store i64 %214, ptr %.0302, align 8
@@ -3905,8 +3920,8 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   %222 = getelementptr inbounds i8, ptr %.0301, i64 8
   store i32 %221, ptr %222, align 8
   %223 = and i32 %221, 65280
-  %.not373 = icmp eq i32 %223, 0
-  br i1 %.not373, label %227, label %224
+  %.not375 = icmp eq i32 %223, 0
+  br i1 %.not375, label %227, label %224
 
 224:                                              ; preds = %218
   %225 = load i32, ptr %219, align 4
@@ -3922,8 +3937,8 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   %230 = getelementptr inbounds i8, ptr %.0301, i64 24
   store i32 775, ptr %230, align 8
   %231 = load ptr, ptr %1, align 8
-  %.not.i384 = icmp ult ptr %231, %2
-  br i1 %.not.i384, label %232, label %finish_nested_data.exit
+  %.not.i389 = icmp ult ptr %231, %2
+  br i1 %.not.i389, label %232, label %finish_nested_data.exit
 
 232:                                              ; preds = %227
   %233 = load i8, ptr %231, align 1
@@ -3984,21 +3999,21 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   %272 = getelementptr inbounds i8, ptr %268, i64 40
   %273 = load i64, ptr %272, align 8
   %.not330 = icmp slt i64 %273, %270
-  %or.cond467 = select i1 %271, i1 true, i1 %.not330
-  br i1 %or.cond467, label %._crit_edge442, label %274
+  %or.cond481 = select i1 %271, i1 true, i1 %.not330
+  br i1 %or.cond481, label %._crit_edge456, label %274
 
 274:                                              ; preds = %260
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16, i64 noundef %270) #13
-  br label %.critedge377
+  br label %.critedge379
 
-._crit_edge442:                                   ; preds = %260
+._crit_edge456:                                   ; preds = %260
   %275 = getelementptr inbounds i8, ptr %268, i64 40
   %276 = add nsw i64 %273, 1
   store i64 %276, ptr %275, align 8
-  %.not428 = icmp eq i64 %4, 0
-  br i1 %.not428, label %._crit_edge, label %.lr.ph
+  %.not442 = icmp eq i64 %4, 0
+  br i1 %.not442, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %._crit_edge442
+.lr.ph:                                           ; preds = %._crit_edge456
   %277 = getelementptr inbounds i8, ptr %12, i64 8
   %278 = getelementptr inbounds i8, ptr %267, i64 16
   %279 = getelementptr inbounds i8, ptr %267, i64 40
@@ -4007,14 +4022,14 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   %282 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %277, align 8
   %283 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  %.not331478 = icmp eq i32 %283, 0
-  br i1 %.not331478, label %._crit_edge480, label %.lr.ph479
+  %.not331492 = icmp eq i32 %283, 0
+  br i1 %.not331492, label %._crit_edge494, label %.lr.ph493
 
-._crit_edge480:                                   ; preds = %545, %.lr.ph
+._crit_edge494:                                   ; preds = %545, %.lr.ph
   call void @zval_ptr_dtor(ptr noundef nonnull %12) #13
-  br label %.loopexit412
+  br label %.loopexit426
 
-.lr.ph479:                                        ; preds = %.lr.ph, %545
+.lr.ph493:                                        ; preds = %.lr.ph, %545
   %.in = phi i64 [ %284, %545 ], [ %4, %.lr.ph ]
   %284 = add nsw i64 %.in, -1
   %285 = load i8, ptr %277, align 8
@@ -4023,7 +4038,7 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
     i8 4, label %499
   ]
 
-286:                                              ; preds = %.lr.ph479, %499
+286:                                              ; preds = %.lr.ph493, %499
   %287 = load ptr, ptr %12, align 8
   %288 = call ptr @zend_hash_find(ptr noundef %255, ptr noundef %287) #13
   %.not332 = icmp eq ptr %288, null
@@ -4053,8 +4068,8 @@ var_push_dtor_value.exit383:                      ; preds = %106, %108, %130
   call void @llvm.assume(i1 %305)
   %306 = getelementptr inbounds ptr, ptr %297, i64 %300
   %307 = load ptr, ptr %306, align 8
-  %.not.i385 = icmp eq ptr %307, null
-  br i1 %.not.i385, label %zend_get_typed_property_info_for_slot.exit.thread, label %308
+  %.not.i390 = icmp eq ptr %307, null
+  br i1 %.not.i390, label %zend_get_typed_property_info_for_slot.exit.thread, label %308
 
 308:                                              ; preds = %293
   %309 = getelementptr inbounds i8, ptr %307, i64 48
@@ -4087,23 +4102,23 @@ zend_get_typed_property_info_for_slot.exit:       ; preds = %308
   br label %zend_get_typed_property_info_for_slot.exit.thread
 
 zend_get_typed_property_info_for_slot.exit.thread: ; preds = %308, %293, %318, %322
-  %.0.i386411 = phi ptr [ %307, %318 ], [ %307, %322 ], [ null, %293 ], [ null, %308 ]
+  %.0.i391425 = phi ptr [ %307, %318 ], [ %307, %322 ], [ null, %293 ], [ null, %308 ]
   %324 = getelementptr inbounds i8, ptr %294, i64 8
   %325 = getelementptr inbounds i8, ptr %294, i64 9
   %326 = load i8, ptr %325, align 1
   %.not345 = icmp eq i8 %326, 0
-  br i1 %.not345, label %var_push_dtor_value.exit392, label %327
+  br i1 %.not345, label %var_push_dtor_value.exit400, label %327
 
 327:                                              ; preds = %zend_get_typed_property_info_for_slot.exit.thread
   %328 = load ptr, ptr %3, align 8
   %329 = icmp eq ptr %328, null
-  br i1 %329, label %var_push_dtor_value.exit392, label %330
+  br i1 %329, label %var_push_dtor_value.exit400, label %330
 
 330:                                              ; preds = %327
   %331 = getelementptr inbounds i8, ptr %328, i64 16
   %332 = load ptr, ptr %331, align 8
-  %.not34.i.i388 = icmp eq ptr %332, null
-  br i1 %.not34.i.i388, label %336, label %333
+  %.not34.i.i393 = icmp eq ptr %332, null
+  br i1 %.not34.i.i393, label %336, label %333
 
 333:                                              ; preds = %330
   %334 = load i64, ptr %332, align 8
@@ -4116,8 +4131,8 @@ zend_get_typed_property_info_for_slot.exit.thread: ; preds = %308, %293, %318, %
   %338 = load ptr, ptr %3, align 8
   %339 = getelementptr inbounds i8, ptr %338, i64 8
   %340 = load ptr, ptr %339, align 8
-  %.not35.i.i390 = icmp eq ptr %340, null
-  br i1 %.not35.i.i390, label %341, label %342
+  %.not35.i.i398 = icmp eq ptr %340, null
+  br i1 %.not35.i.i398, label %341, label %342
 
 341:                                              ; preds = %336
   store ptr %337, ptr %339, align 8
@@ -4134,28 +4149,31 @@ zend_get_typed_property_info_for_slot.exit.thread: ; preds = %308, %293, %318, %
   %347 = load ptr, ptr %3, align 8
   %348 = getelementptr inbounds i8, ptr %347, i64 16
   store ptr %337, ptr %348, align 8
-  %.pre.i.i391 = load i64, ptr %337, align 8
+  %.pre.i.i399 = load i64, ptr %337, align 8
   br label %349
 
 349:                                              ; preds = %346, %333
-  %350 = phi i64 [ %.pre.i.i391, %346 ], [ %334, %333 ]
-  %.029.i.i389 = phi ptr [ %337, %346 ], [ %332, %333 ]
-  %351 = getelementptr inbounds i8, ptr %.029.i.i389, i64 16
+  %350 = phi i64 [ %.pre.i.i399, %346 ], [ %334, %333 ]
+  %.029.i.i394 = phi ptr [ %337, %346 ], [ %332, %333 ]
+  %351 = getelementptr inbounds i8, ptr %.029.i.i394, i64 16
   %352 = add nsw i64 %350, 1
-  %353 = getelementptr inbounds [255 x %struct._zval_struct], ptr %351, i64 0, i64 %350, i32 1
+  %.idx.i.i395 = shl nsw i64 %350, 4
+  %.offs.i.i396 = or disjoint i64 %.idx.i.i395, 8
+  %353 = getelementptr inbounds i8, ptr %351, i64 %.offs.i.i396
   store i32 0, ptr %353, align 8
-  %354 = getelementptr inbounds [255 x %struct._zval_struct], ptr %351, i64 0, i64 %350, i32 2
+  %.offs38.i.i397 = or disjoint i64 %.idx.i.i395, 12
+  %354 = getelementptr inbounds i8, ptr %351, i64 %.offs38.i.i397
   store i32 0, ptr %354, align 4
-  store i64 %352, ptr %.029.i.i389, align 8
+  store i64 %352, ptr %.029.i.i394, align 8
   %355 = getelementptr inbounds [255 x %struct._zval_struct], ptr %351, i64 0, i64 %350
   %356 = load ptr, ptr %294, align 8
   %357 = load i32, ptr %324, align 8
   store ptr %356, ptr %355, align 8
   %358 = getelementptr inbounds i8, ptr %355, i64 8
   store i32 %357, ptr %358, align 8
-  br label %var_push_dtor_value.exit392
+  br label %var_push_dtor_value.exit400
 
-var_push_dtor_value.exit392:                      ; preds = %349, %327, %zend_get_typed_property_info_for_slot.exit.thread
+var_push_dtor_value.exit400:                      ; preds = %349, %327, %zend_get_typed_property_info_for_slot.exit.thread
   store i32 1, ptr %324, align 8
   br label %488
 
@@ -4167,24 +4185,24 @@ var_push_dtor_value.exit392:                      ; preds = %349, %327, %zend_ge
 
 363:                                              ; preds = %359
   %.not341 = icmp eq i32 %361, 0
-  br i1 %.not341, label %364, label %.loopexit412
+  br i1 %.not341, label %364, label %.loopexit426
 
 364:                                              ; preds = %363
   %365 = getelementptr inbounds i8, ptr %288, i64 9
   %366 = load i8, ptr %365, align 1
-  %.not.i393 = icmp eq i8 %366, 0
-  br i1 %.not.i393, label %var_push_dtor_value.exit398, label %367
+  %.not.i401 = icmp eq i8 %366, 0
+  br i1 %.not.i401, label %var_push_dtor_value.exit409, label %367
 
 367:                                              ; preds = %364
   %368 = load ptr, ptr %3, align 8
   %369 = icmp eq ptr %368, null
-  br i1 %369, label %var_push_dtor_value.exit398, label %370
+  br i1 %369, label %var_push_dtor_value.exit409, label %370
 
 370:                                              ; preds = %367
   %371 = getelementptr inbounds i8, ptr %368, i64 16
   %372 = load ptr, ptr %371, align 8
-  %.not34.i.i394 = icmp eq ptr %372, null
-  br i1 %.not34.i.i394, label %376, label %373
+  %.not34.i.i402 = icmp eq ptr %372, null
+  br i1 %.not34.i.i402, label %376, label %373
 
 373:                                              ; preds = %370
   %374 = load i64, ptr %372, align 8
@@ -4197,8 +4215,8 @@ var_push_dtor_value.exit392:                      ; preds = %349, %327, %zend_ge
   %378 = load ptr, ptr %3, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 8
   %380 = load ptr, ptr %379, align 8
-  %.not35.i.i396 = icmp eq ptr %380, null
-  br i1 %.not35.i.i396, label %381, label %382
+  %.not35.i.i407 = icmp eq ptr %380, null
+  br i1 %.not35.i.i407, label %381, label %382
 
 381:                                              ; preds = %376
   store ptr %377, ptr %379, align 8
@@ -4215,28 +4233,31 @@ var_push_dtor_value.exit392:                      ; preds = %349, %327, %zend_ge
   %387 = load ptr, ptr %3, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 16
   store ptr %377, ptr %388, align 8
-  %.pre.i.i397 = load i64, ptr %377, align 8
+  %.pre.i.i408 = load i64, ptr %377, align 8
   br label %389
 
 389:                                              ; preds = %386, %373
-  %390 = phi i64 [ %.pre.i.i397, %386 ], [ %374, %373 ]
-  %.029.i.i395 = phi ptr [ %377, %386 ], [ %372, %373 ]
-  %391 = getelementptr inbounds i8, ptr %.029.i.i395, i64 16
+  %390 = phi i64 [ %.pre.i.i408, %386 ], [ %374, %373 ]
+  %.029.i.i403 = phi ptr [ %377, %386 ], [ %372, %373 ]
+  %391 = getelementptr inbounds i8, ptr %.029.i.i403, i64 16
   %392 = add nsw i64 %390, 1
-  %393 = getelementptr inbounds [255 x %struct._zval_struct], ptr %391, i64 0, i64 %390, i32 1
+  %.idx.i.i404 = shl nsw i64 %390, 4
+  %.offs.i.i405 = or disjoint i64 %.idx.i.i404, 8
+  %393 = getelementptr inbounds i8, ptr %391, i64 %.offs.i.i405
   store i32 0, ptr %393, align 8
-  %394 = getelementptr inbounds [255 x %struct._zval_struct], ptr %391, i64 0, i64 %390, i32 2
+  %.offs38.i.i406 = or disjoint i64 %.idx.i.i404, 12
+  %394 = getelementptr inbounds i8, ptr %391, i64 %.offs38.i.i406
   store i32 0, ptr %394, align 4
-  store i64 %392, ptr %.029.i.i395, align 8
+  store i64 %392, ptr %.029.i.i403, align 8
   %395 = getelementptr inbounds [255 x %struct._zval_struct], ptr %391, i64 0, i64 %390
   %396 = load ptr, ptr %288, align 8
   %397 = load i32, ptr %290, align 8
   store ptr %396, ptr %395, align 8
   %398 = getelementptr inbounds i8, ptr %395, i64 8
   store i32 %397, ptr %398, align 8
-  br label %var_push_dtor_value.exit398
+  br label %var_push_dtor_value.exit409
 
-var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
+var_push_dtor_value.exit409:                      ; preds = %364, %367, %389
   store i32 1, ptr %290, align 8
   br label %488
 
@@ -4264,7 +4285,7 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef nonnull %410, ptr noundef %413) #13
   %414 = load i8, ptr %281, align 1
   %.not339 = icmp eq i8 %414, 0
-  br i1 %.not339, label %.loopexit412, label %415
+  br i1 %.not339, label %.loopexit426, label %415
 
 415:                                              ; preds = %407
   %416 = load ptr, ptr %12, align 8
@@ -4274,12 +4295,12 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
   %419 = add i32 %417, -1
   store i32 %419, ptr %416, align 4
   %.not340 = icmp eq i32 %419, 0
-  br i1 %.not340, label %420, label %.loopexit412
+  br i1 %.not340, label %420, label %.loopexit426
 
 420:                                              ; preds = %415
   %421 = load ptr, ptr %12, align 8
   call void @_efree(ptr noundef %421) #13
-  br label %.loopexit412
+  br label %.loopexit426
 
 422:                                              ; preds = %402
   %423 = and i32 %405, 32768
@@ -4301,7 +4322,7 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
 432:                                              ; preds = %424
   %433 = load i8, ptr %281, align 1
   %.not337 = icmp eq i8 %433, 0
-  br i1 %.not337, label %.loopexit412, label %434
+  br i1 %.not337, label %.loopexit426, label %434
 
 434:                                              ; preds = %432
   %435 = load ptr, ptr %12, align 8
@@ -4311,12 +4332,12 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
   %438 = add i32 %436, -1
   store i32 %438, ptr %435, align 4
   %.not338 = icmp eq i32 %438, 0
-  br i1 %.not338, label %439, label %.loopexit412
+  br i1 %.not338, label %439, label %.loopexit426
 
 439:                                              ; preds = %434
   %440 = load ptr, ptr %12, align 8
   call void @_efree(ptr noundef %440) #13
-  br label %.loopexit412
+  br label %.loopexit426
 
 441:                                              ; preds = %424, %422
   %442 = load ptr, ptr %12, align 8
@@ -4325,7 +4346,7 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
 
 444:                                              ; preds = %399
   %445 = icmp slt i32 %401, 0
-  br i1 %445, label %.loopexit412, label %446
+  br i1 %445, label %.loopexit426, label %446
 
 446:                                              ; preds = %444, %359
   %447 = load ptr, ptr %12, align 8
@@ -4342,19 +4363,19 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
 
 454:                                              ; preds = %452
   %455 = and i32 %453, 65280
-  %.not.i399 = icmp eq i32 %455, 0
-  br i1 %.not.i399, label %var_push_dtor_value.exit404, label %456
+  %.not.i410 = icmp eq i32 %455, 0
+  br i1 %.not.i410, label %var_push_dtor_value.exit418, label %456
 
 456:                                              ; preds = %454
   %457 = load ptr, ptr %3, align 8
   %458 = icmp eq ptr %457, null
-  br i1 %458, label %var_push_dtor_value.exit404, label %459
+  br i1 %458, label %var_push_dtor_value.exit418, label %459
 
 459:                                              ; preds = %456
   %460 = getelementptr inbounds i8, ptr %457, i64 16
   %461 = load ptr, ptr %460, align 8
-  %.not34.i.i400 = icmp eq ptr %461, null
-  br i1 %.not34.i.i400, label %465, label %462
+  %.not34.i.i411 = icmp eq ptr %461, null
+  br i1 %.not34.i.i411, label %465, label %462
 
 462:                                              ; preds = %459
   %463 = load i64, ptr %461, align 8
@@ -4367,8 +4388,8 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
   %467 = load ptr, ptr %3, align 8
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
-  %.not35.i.i402 = icmp eq ptr %469, null
-  br i1 %.not35.i.i402, label %470, label %471
+  %.not35.i.i416 = icmp eq ptr %469, null
+  br i1 %.not35.i.i416, label %470, label %471
 
 470:                                              ; preds = %465
   store ptr %466, ptr %468, align 8
@@ -4385,34 +4406,37 @@ var_push_dtor_value.exit398:                      ; preds = %364, %367, %389
   %476 = load ptr, ptr %3, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 16
   store ptr %466, ptr %477, align 8
-  %.pre.i.i403 = load i64, ptr %466, align 8
+  %.pre.i.i417 = load i64, ptr %466, align 8
   br label %478
 
 478:                                              ; preds = %475, %462
-  %479 = phi i64 [ %.pre.i.i403, %475 ], [ %463, %462 ]
-  %.029.i.i401 = phi ptr [ %466, %475 ], [ %461, %462 ]
-  %480 = getelementptr inbounds i8, ptr %.029.i.i401, i64 16
+  %479 = phi i64 [ %.pre.i.i417, %475 ], [ %463, %462 ]
+  %.029.i.i412 = phi ptr [ %466, %475 ], [ %461, %462 ]
+  %480 = getelementptr inbounds i8, ptr %.029.i.i412, i64 16
   %481 = add nsw i64 %479, 1
-  %482 = getelementptr inbounds [255 x %struct._zval_struct], ptr %480, i64 0, i64 %479, i32 1
+  %.idx.i.i413 = shl nsw i64 %479, 4
+  %.offs.i.i414 = or disjoint i64 %.idx.i.i413, 8
+  %482 = getelementptr inbounds i8, ptr %480, i64 %.offs.i.i414
   store i32 0, ptr %482, align 8
-  %483 = getelementptr inbounds [255 x %struct._zval_struct], ptr %480, i64 0, i64 %479, i32 2
+  %.offs38.i.i415 = or disjoint i64 %.idx.i.i413, 12
+  %483 = getelementptr inbounds i8, ptr %480, i64 %.offs38.i.i415
   store i32 0, ptr %483, align 4
-  store i64 %481, ptr %.029.i.i401, align 8
+  store i64 %481, ptr %.029.i.i412, align 8
   %484 = getelementptr inbounds [255 x %struct._zval_struct], ptr %480, i64 0, i64 %479
   %485 = load ptr, ptr %448, align 8
   %486 = load i32, ptr %449, align 8
   store ptr %485, ptr %484, align 8
   %487 = getelementptr inbounds i8, ptr %484, i64 8
   store i32 %486, ptr %487, align 8
-  br label %var_push_dtor_value.exit404
+  br label %var_push_dtor_value.exit418
 
-var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
+var_push_dtor_value.exit418:                      ; preds = %454, %456, %478
   store i32 1, ptr %449, align 8
   br label %488
 
-488:                                              ; preds = %441, %var_push_dtor_value.exit404, %452, %var_push_dtor_value.exit392, %var_push_dtor_value.exit398
-  %.0297 = phi ptr [ %.0.i386411, %var_push_dtor_value.exit392 ], [ null, %var_push_dtor_value.exit404 ], [ null, %452 ], [ null, %var_push_dtor_value.exit398 ], [ null, %441 ]
-  %.1 = phi ptr [ %294, %var_push_dtor_value.exit392 ], [ %448, %var_push_dtor_value.exit404 ], [ %448, %452 ], [ %288, %var_push_dtor_value.exit398 ], [ %443, %441 ]
+488:                                              ; preds = %441, %var_push_dtor_value.exit418, %452, %var_push_dtor_value.exit400, %var_push_dtor_value.exit409
+  %.0297 = phi ptr [ %.0.i391425, %var_push_dtor_value.exit400 ], [ null, %var_push_dtor_value.exit418 ], [ null, %452 ], [ null, %var_push_dtor_value.exit409 ], [ null, %441 ]
+  %.1 = phi ptr [ %294, %var_push_dtor_value.exit400 ], [ %448, %var_push_dtor_value.exit418 ], [ %448, %452 ], [ %288, %var_push_dtor_value.exit409 ], [ %443, %441 ]
   %489 = load i8, ptr %281, align 1
   %.not346 = icmp eq i8 %489, 0
   br i1 %.not346, label %497, label %490
@@ -4438,28 +4462,28 @@ var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
   %.not349 = icmp eq ptr %.0297, null
   br i1 %.not348, label %501, label %509
 
-499:                                              ; preds = %.lr.ph479
+499:                                              ; preds = %.lr.ph493
   call void @_convert_to_string(ptr noundef nonnull %12) #13
   br label %286
 
-500:                                              ; preds = %.lr.ph479
+500:                                              ; preds = %.lr.ph493
   call void @zval_ptr_dtor(ptr noundef nonnull %12) #13
-  br label %.loopexit412
+  br label %.loopexit426
 
 501:                                              ; preds = %497
-  br i1 %.not349, label %.loopexit412, label %502
+  br i1 %.not349, label %.loopexit426, label %502
 
 502:                                              ; preds = %501
   %503 = getelementptr inbounds i8, ptr %.1, i64 8
   %504 = load i8, ptr %503, align 8
   %505 = icmp eq i8 %504, 10
-  br i1 %505, label %506, label %.loopexit412
+  br i1 %505, label %506, label %.loopexit426
 
 506:                                              ; preds = %502
   %507 = load ptr, ptr %.1, align 8
   %508 = getelementptr inbounds i8, ptr %507, i64 24
   call void @zend_ref_add_type_source(ptr noundef nonnull %508, ptr noundef nonnull %.0297) #13
-  br label %.loopexit412
+  br label %.loopexit426
 
 509:                                              ; preds = %497
   br i1 %.not349, label %538, label %510
@@ -4472,7 +4496,7 @@ var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
   call void @zval_ptr_dtor(ptr noundef %.1) #13
   %513 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 0, ptr %513, align 8
-  br label %.loopexit412
+  br label %.loopexit426
 
 514:                                              ; preds = %510
   %515 = getelementptr inbounds i8, ptr %.1, i64 8
@@ -4502,13 +4526,13 @@ var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
   %530 = getelementptr inbounds i8, ptr %529, i64 32
   %531 = load ptr, ptr %530, align 8
   call void @_zend_hash_init(ptr noundef %531, i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #13
-  %.pre444 = load ptr, ptr %3, align 8
-  %.phi.trans.insert445 = getelementptr inbounds i8, ptr %.pre444, i64 32
-  %.pre446 = load ptr, ptr %.phi.trans.insert445, align 8
+  %.pre458 = load ptr, ptr %3, align 8
+  %.phi.trans.insert459 = getelementptr inbounds i8, ptr %.pre458, i64 32
+  %.pre460 = load ptr, ptr %.phi.trans.insert459, align 8
   br label %532
 
 532:                                              ; preds = %525, %521
-  %533 = phi ptr [ %.pre446, %525 ], [ %524, %521 ]
+  %533 = phi ptr [ %.pre460, %525 ], [ %524, %521 ]
   %534 = ptrtoint ptr %.1 to i64
   store ptr %.0297, ptr %7, align 8
   store i32 13, ptr %282, align 8
@@ -4534,15 +4558,15 @@ var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
 543:                                              ; preds = %539
   %544 = getelementptr inbounds i8, ptr %540, i64 -1
   store ptr %544, ptr %1, align 8
-  br label %.loopexit412
+  br label %.loopexit426
 
 545:                                              ; preds = %539, %539
   store i32 0, ptr %277, align 8
   %546 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %12, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   %.not331 = icmp eq i32 %546, 0
-  br i1 %.not331, label %._crit_edge480, label %.lr.ph479
+  br i1 %.not331, label %._crit_edge494, label %.lr.ph493
 
-._crit_edge:                                      ; preds = %538, %._crit_edge442
+._crit_edge:                                      ; preds = %538, %._crit_edge456
   %547 = load ptr, ptr %3, align 8
   %548 = getelementptr inbounds i8, ptr %547, i64 40
   %549 = load i64, ptr %548, align 8
@@ -4553,18 +4577,18 @@ var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
   %553 = icmp eq i8 %552, 10
   br i1 %553, label %570, label %573
 
-.loopexit412:                                     ; preds = %444, %363, %._crit_edge480, %500, %512, %543, %420, %415, %407, %439, %434, %432, %506, %502, %501
+.loopexit426:                                     ; preds = %444, %363, %._crit_edge494, %500, %512, %543, %420, %415, %407, %439, %434, %432, %506, %502, %501
   %554 = load ptr, ptr %3, align 8
   %555 = getelementptr inbounds i8, ptr %554, i64 40
   %556 = load i64, ptr %555, align 8
   %557 = add nsw i64 %556, -1
   store i64 %557, ptr %555, align 8
-  br label %.critedge377
+  br label %.critedge379
 
-.critedge377:                                     ; preds = %.loopexit412, %274
+.critedge379:                                     ; preds = %.loopexit426, %274
   br i1 %250, label %558, label %finish_nested_data.exit
 
-558:                                              ; preds = %.critedge377
+558:                                              ; preds = %.critedge379
   %559 = getelementptr inbounds i8, ptr %0, i64 8
   %560 = load i8, ptr %559, align 8
   %561 = icmp eq i8 %560, 10
@@ -4618,21 +4642,21 @@ var_push_dtor_value.exit404:                      ; preds = %454, %456, %478
 
 586:                                              ; preds = %584, %573
   %587 = load ptr, ptr %1, align 8
-  %.not.i405 = icmp ult ptr %587, %2
-  br i1 %.not.i405, label %588, label %finish_nested_data.exit
+  %.not.i419 = icmp ult ptr %587, %2
+  br i1 %.not.i419, label %588, label %finish_nested_data.exit
 
 588:                                              ; preds = %586
   %589 = load i8, ptr %587, align 1
-  %.not5.i407 = icmp eq i8 %589, 125
-  br i1 %.not5.i407, label %590, label %finish_nested_data.exit
+  %.not5.i421 = icmp eq i8 %589, 125
+  br i1 %.not5.i421, label %590, label %finish_nested_data.exit
 
 590:                                              ; preds = %588
   %591 = getelementptr inbounds i8, ptr %587, i64 1
   store ptr %591, ptr %1, align 8
   br label %finish_nested_data.exit
 
-finish_nested_data.exit:                          ; preds = %590, %588, %586, %234, %232, %227, %.critedge377, %565, %248, %16, %178
-  %.0303 = phi i32 [ 0, %178 ], [ 0, %16 ], [ 0, %248 ], [ 0, %565 ], [ 0, %.critedge377 ], [ 1, %234 ], [ 0, %232 ], [ 0, %227 ], [ 1, %590 ], [ 0, %588 ], [ 0, %586 ]
+finish_nested_data.exit:                          ; preds = %590, %588, %586, %234, %232, %227, %.critedge379, %565, %248, %16, %178
+  %.0303 = phi i32 [ 0, %178 ], [ 0, %16 ], [ 0, %248 ], [ 0, %565 ], [ 0, %.critedge379 ], [ 1, %234 ], [ 0, %232 ], [ 0, %227 ], [ 1, %590 ], [ 0, %588 ], [ 0, %586 ]
   ret i32 %.0303
 }
 
@@ -4833,9 +4857,12 @@ define internal fastcc void @var_push_dtor_value(ptr nocapture noundef nonnull r
   %.029.i = phi ptr [ %16, %25 ], [ %11, %12 ]
   %30 = getelementptr inbounds i8, ptr %.029.i, i64 16
   %31 = add nsw i64 %29, 1
-  %32 = getelementptr inbounds [255 x %struct._zval_struct], ptr %30, i64 0, i64 %29, i32 1
+  %.idx.i = shl nsw i64 %29, 4
+  %.offs.i = or disjoint i64 %.idx.i, 8
+  %32 = getelementptr inbounds i8, ptr %30, i64 %.offs.i
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds [255 x %struct._zval_struct], ptr %30, i64 0, i64 %29, i32 2
+  %.offs38.i = or disjoint i64 %.idx.i, 12
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.offs38.i
   store i32 0, ptr %33, align 4
   store i64 %31, ptr %.029.i, align 8
   %34 = getelementptr inbounds [255 x %struct._zval_struct], ptr %30, i64 0, i64 %29

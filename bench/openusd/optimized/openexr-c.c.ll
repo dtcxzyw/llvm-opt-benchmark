@@ -52476,7 +52476,9 @@ hufUnpackEncTable.exit:                           ; preds = %282, %300, %getBits
 
 364:                                              ; preds = %368, %362
   %indvars.iv.i77 = phi i64 [ 0, %362 ], [ %indvars.iv.next.i78, %368 ]
-  %365 = getelementptr inbounds %struct._HufDec, ptr %275, i64 %indvars.iv.i77, i32 2
+  %.idx = shl nsw i64 %indvars.iv.i77, 4
+  %.offs = or disjoint i64 %.idx, 8
+  %365 = getelementptr inbounds i8, ptr %275, i64 %.offs
   %366 = load ptr, ptr %365, align 8
   %.not12.i = icmp eq ptr %366, null
   br i1 %.not12.i, label %368, label %367

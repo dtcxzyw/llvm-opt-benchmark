@@ -1761,12 +1761,14 @@ if.end.i.i12:                                     ; preds = %if.then10
   %cast.i.i = trunc nuw nsw i64 %15 to i32
   %sub.i13 = xor i32 %cast.i.i, 63
   %16 = tail call i32 @llvm.umin.i32(i32 %sub.i13, i32 19)
-  %17 = zext nneg i32 %16 to i64
+  %narrow = mul nuw nsw i32 %16, 40
+  %narrow39 = add nuw nsw i32 %narrow, 16
+  %17 = zext nneg i32 %narrow39 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit: ; preds = %if.then10, %if.end.i.i12
-  %retval.0.i = phi i64 [ %17, %if.end.i.i12 ], [ 0, %if.then10 ]
-  %freeClocks = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i, i32 2
+  %retval.0.i = phi i64 [ %17, %if.end.i.i12 ], [ 16, %if.then10 ]
+  %freeClocks = getelementptr inbounds i8, ptr %stats_, i64 %retval.0.i
   %18 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
   br label %if.end18
 
@@ -3273,28 +3275,30 @@ _ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.i.i: ; preds = %if.end.i.i.i, %if
   %sub.i.i = sub nsw i32 63, %cast.i.i.i
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i, i32 19)
   %4 = sext i32 %.sroa.speculated.i.i to i64
+  %5 = mul nsw i64 %4, 40
+  %6 = add nsw i64 %5, 16
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ %4, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.i.i ], [ 0, %if.then.i ]
-  %freeClocks.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i.i, i32 2
-  %5 = tail call noundef i64 @llvm.x86.rdtsc()
+  %retval.0.i.i = phi i64 [ %6, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.i.i ], [ 16, %if.then.i ]
+  %freeClocks.i = getelementptr inbounds i8, ptr %stats_, i64 %retval.0.i.i
+  %7 = tail call noundef i64 @llvm.x86.rdtsc()
   invoke void @_ZN8facebook5velox6memory13MmapAllocator18freeContiguousImplERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation)
           to label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i unwind label %_ZN8facebook5velox10ClockTimerD2Ev.exit16.i
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
-  %6 = tail call noundef i64 @llvm.x86.rdtsc()
-  %sub.i5.i = sub i64 %6, %5
-  %7 = atomicrmw add ptr %freeClocks.i, i64 %sub.i5.i seq_cst, align 8
+  %8 = tail call noundef i64 @llvm.x86.rdtsc()
+  %sub.i5.i = sub i64 %8, %7
+  %9 = atomicrmw add ptr %freeClocks.i, i64 %sub.i5.i seq_cst, align 8
   br label %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_13MmapAllocator14freeContiguousERNS1_20ContiguousAllocationEE3$_0EEvlT_.exit"
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit16.i:      ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = tail call noundef i64 @llvm.x86.rdtsc()
-  %sub.i9.i = sub i64 %9, %5
-  %10 = atomicrmw add ptr %freeClocks.i, i64 %sub.i9.i seq_cst, align 8
-  resume { ptr, i32 } %8
+  %11 = tail call noundef i64 @llvm.x86.rdtsc()
+  %sub.i9.i = sub i64 %11, %7
+  %12 = atomicrmw add ptr %freeClocks.i, i64 %sub.i9.i seq_cst, align 8
+  resume { ptr, i32 } %10
 
 if.else.i:                                        ; preds = %entry
   tail call void @_ZN8facebook5velox6memory13MmapAllocator18freeContiguousImplERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation)

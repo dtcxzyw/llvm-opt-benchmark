@@ -3457,7 +3457,9 @@ while.cond.i:                                     ; preds = %if.else.i.i, %while
 land.rhs.i:                                       ; preds = %while.cond.i
   %sub9.i = add nsw i32 %58, -2
   %idxprom10.i = zext nneg i32 %sub9.i to i64
-  %power12.i = getelementptr %struct.s_slice, ptr %pending.i, i64 %idxprom10.i, i32 2
+  %power12.idx.i = shl nuw nsw i64 %idxprom10.i, 5
+  %power12.offs.i = or disjoint i64 %power12.idx.i, 24
+  %power12.i = getelementptr i8, ptr %pending.i, i64 %power12.offs.i
   %59 = load i32, ptr %power12.i, align 8
   %cmp13.i169 = icmp sgt i32 %59, %inc.i.i
   br i1 %cmp13.i169, label %while.body.i170, label %while.end.i
@@ -3470,7 +3472,9 @@ while.body.i170:                                  ; preds = %land.rhs.i
 while.end.i:                                      ; preds = %land.rhs.i, %while.cond.i
   %sub21.i = add i32 %58, -1
   %idxprom22.i = sext i32 %sub21.i to i64
-  %power24.i = getelementptr %struct.s_slice, ptr %pending.i, i64 %idxprom22.i, i32 2
+  %power24.idx.i = shl nsw i64 %idxprom22.i, 5
+  %power24.offs.i = or disjoint i64 %power24.idx.i, 24
+  %power24.i = getelementptr i8, ptr %pending.i, i64 %power24.offs.i
   store i32 %inc.i.i, ptr %power24.i, align 8
   %.pre = load i32, ptr %n.i, align 8
   br label %if.end198
@@ -3482,7 +3486,9 @@ if.end198:                                        ; preds = %while.end.i, %if.en
   store ptr %lo.sroa.0.1, ptr %arrayidx200, align 8
   %lo.sroa.18.0.arrayidx200.sroa_idx = getelementptr inbounds i8, ptr %arrayidx200, i64 8
   store ptr %lo.coerce1.fr.i, ptr %lo.sroa.18.0.arrayidx200.sroa_idx, align 8
-  %len = getelementptr [64 x %struct.s_slice], ptr %pending.i, i64 0, i64 %idxprom, i32 1
+  %len.idx = shl nsw i64 %idxprom, 5
+  %len.offs = or disjoint i64 %len.idx, 16
+  %len = getelementptr i8, ptr %pending.i, i64 %len.offs
   store i64 %n.0, ptr %len, align 8
   %inc206 = add i32 %60, 1
   store i32 %inc206, ptr %n.i, align 8

@@ -45919,8 +45919,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126DerefFuncDeleteExp
 35:                                               ; preds = %33
   %36 = load i64, ptr %31, align 16
   %37 = lshr i64 %36, 48
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
-  %39 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %38, i64 %37, i32 0, i32 0, i32 1
+  %.idx = mul nuw nsw i64 %37, 24
+  %38 = getelementptr i8, ptr %34, i64 16
+  %39 = getelementptr i8, ptr %38, i64 %.idx
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, -16
   %42 = inttoptr i64 %41 to ptr

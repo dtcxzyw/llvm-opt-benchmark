@@ -2200,12 +2200,12 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
   store ptr %storemerge, ptr %3, align 8
   %187 = tail call i32 @bms_num_members(ptr noundef %storemerge) #8
   %188 = icmp slt i32 %187, %1
-  br i1 %188, label %189, label %267
+  br i1 %188, label %189, label %266
 
 189:                                              ; preds = %186
   %190 = load i8, ptr %33, align 1
   %191 = trunc i8 %190 to i1
-  br i1 %191, label %192, label %267
+  br i1 %191, label %192, label %266
 
 192:                                              ; preds = %189
   %193 = load ptr, ptr %3, align 8
@@ -2243,7 +2243,7 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
   br i1 %210, label %.lr.ph68.i, label %PartitionPruneFixSubPlanMap.exit
 
 211:                                              ; preds = %._crit_edge.i17, %.lr.ph66.i
-  %212 = phi i32 [ %199, %.lr.ph66.i ], [ %254, %._crit_edge.i17 ]
+  %212 = phi i32 [ %199, %.lr.ph66.i ], [ %253, %._crit_edge.i17 ]
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph66.i ], [ %indvars.iv.next75.i, %._crit_edge.i17 ]
   %213 = getelementptr [0 x ptr], ptr %201, i64 0, i64 %indvars.iv74.i
   %214 = load ptr, ptr %213, align 8
@@ -2254,10 +2254,11 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
 
 .lr.ph64.i:                                       ; preds = %211
   %217 = getelementptr inbounds i8, ptr %214, i64 8
+  %invariant.gep.i = getelementptr i8, ptr %214, i64 32
   %218 = zext nneg i32 %.05362.i to i64
   br label %220
 
-.loopexit.i:                                      ; preds = %253, %220
+.loopexit.i:                                      ; preds = %252, %220
   %indvars.iv.next72.i = add nsw i64 %indvars.iv71.i, -1
   %219 = icmp sgt i64 %indvars.iv71.i, 0
   br i1 %219, label %220, label %._crit_edge.loopexit.i, !llvm.loop !16
@@ -2279,8 +2280,8 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
   %wide.trip.count.i18 = zext nneg i32 %222 to i64
   br label %228
 
-228:                                              ; preds = %253, %.lr.ph61.i
-  %indvars.iv.i19 = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next.i20, %253 ]
+228:                                              ; preds = %252, %.lr.ph61.i
+  %indvars.iv.i19 = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next.i20, %252 ]
   %229 = load ptr, ptr %226, align 8
   %230 = getelementptr i32, ptr %229, i64 %indvars.iv.i19
   %231 = load i32, ptr %230, align 4
@@ -2295,30 +2296,31 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
   store i32 %237, ptr %230, align 4
   %238 = load i32, ptr %235, align 4
   %239 = icmp sgt i32 %238, 0
-  br i1 %239, label %.sink.split.i, label %253
+  br i1 %239, label %.sink.split.i, label %252
 
 240:                                              ; preds = %228
   %241 = load ptr, ptr %227, align 8
   %242 = getelementptr i32, ptr %241, i64 %indvars.iv.i19
   %243 = load i32, ptr %242, align 4
   %244 = icmp sgt i32 %243, -1
-  br i1 %244, label %245, label %253
+  br i1 %244, label %245, label %252
 
 245:                                              ; preds = %240
   %246 = zext nneg i32 %243 to i64
-  %247 = getelementptr [0 x %struct.PartitionedRelPruningData], ptr %217, i64 0, i64 %246, i32 3
-  %248 = load ptr, ptr %247, align 8
-  %249 = icmp eq ptr %248, null
-  br i1 %249, label %253, label %.sink.split.i
+  %.idx.i = mul nuw nsw i64 %246, 208
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
+  %247 = load ptr, ptr %gep.i, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %252, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %245, %233
-  %250 = load ptr, ptr %223, align 8
-  %251 = trunc nuw nsw i64 %indvars.iv.i19 to i32
-  %252 = tail call ptr @bms_add_member(ptr noundef %250, i32 noundef %251) #8
-  store ptr %252, ptr %223, align 8
-  br label %253
+  %249 = load ptr, ptr %223, align 8
+  %250 = trunc nuw nsw i64 %indvars.iv.i19 to i32
+  %251 = tail call ptr @bms_add_member(ptr noundef %249, i32 noundef %250) #8
+  store ptr %251, ptr %223, align 8
+  br label %252
 
-253:                                              ; preds = %.sink.split.i, %245, %240, %233
+252:                                              ; preds = %.sink.split.i, %245, %240, %233
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i18
   br i1 %exitcond.not.i21, label %.loopexit.i, label %228, !llvm.loop !17
@@ -2328,34 +2330,34 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
   br label %._crit_edge.i17
 
 ._crit_edge.i17:                                  ; preds = %._crit_edge.loopexit.i, %211
-  %254 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %212, %211 ]
+  %253 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %212, %211 ]
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %255 = sext i32 %254 to i64
-  %256 = icmp slt i64 %indvars.iv.next75.i, %255
-  br i1 %256, label %211, label %.preheader.i16, !llvm.loop !18
+  %254 = sext i32 %253 to i64
+  %255 = icmp slt i64 %indvars.iv.next75.i, %254
+  br i1 %255, label %211, label %.preheader.i16, !llvm.loop !18
 
 .lr.ph68.i:                                       ; preds = %.preheader.i16, %.lr.ph68.i
-  %257 = phi i32 [ %264, %.lr.ph68.i ], [ %209, %.preheader.i16 ]
-  %.067.i = phi ptr [ %262, %.lr.ph68.i ], [ null, %.preheader.i16 ]
-  %258 = zext nneg i32 %257 to i64
-  %259 = getelementptr i32, ptr %196, i64 %258
-  %260 = load i32, ptr %259, align 4
-  %261 = add i32 %260, -1
-  %262 = tail call ptr @bms_add_member(ptr noundef %.067.i, i32 noundef %261) #8
-  %263 = load ptr, ptr %31, align 8
-  %264 = tail call i32 @bms_next_member(ptr noundef %263, i32 noundef %257) #8
-  %265 = icmp sgt i32 %264, -1
-  br i1 %265, label %.lr.ph68.i, label %PartitionPruneFixSubPlanMap.exit, !llvm.loop !19
+  %256 = phi i32 [ %263, %.lr.ph68.i ], [ %209, %.preheader.i16 ]
+  %.067.i = phi ptr [ %261, %.lr.ph68.i ], [ null, %.preheader.i16 ]
+  %257 = zext nneg i32 %256 to i64
+  %258 = getelementptr i32, ptr %196, i64 %257
+  %259 = load i32, ptr %258, align 4
+  %260 = add i32 %259, -1
+  %261 = tail call ptr @bms_add_member(ptr noundef %.067.i, i32 noundef %260) #8
+  %262 = load ptr, ptr %31, align 8
+  %263 = tail call i32 @bms_next_member(ptr noundef %262, i32 noundef %256) #8
+  %264 = icmp sgt i32 %263, -1
+  br i1 %264, label %.lr.ph68.i, label %PartitionPruneFixSubPlanMap.exit, !llvm.loop !19
 
 PartitionPruneFixSubPlanMap.exit:                 ; preds = %.lr.ph68.i, %.preheader.i16
-  %.0.lcssa.i = phi ptr [ null, %.preheader.i16 ], [ %262, %.lr.ph68.i ]
-  %266 = load ptr, ptr %31, align 8
-  tail call void @bms_free(ptr noundef %266) #8
+  %.0.lcssa.i = phi ptr [ null, %.preheader.i16 ], [ %261, %.lr.ph68.i ]
+  %265 = load ptr, ptr %31, align 8
+  tail call void @bms_free(ptr noundef %265) #8
   store ptr %.0.lcssa.i, ptr %31, align 8
   tail call void @pfree(ptr noundef %196) #8
-  br label %267
+  br label %266
 
-267:                                              ; preds = %189, %PartitionPruneFixSubPlanMap.exit, %186
+266:                                              ; preds = %189, %PartitionPruneFixSubPlanMap.exit, %186
   ret ptr %27
 }
 

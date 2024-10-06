@@ -3650,7 +3650,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
 40:                                               ; preds = %40, %.thread
   %41 = phi i64 [ 0, %.thread ], [ %51, %40 ]
   %42 = phi i32 [ 0, %.thread ], [ %50, %40 ]
-  %43 = getelementptr [11 x %struct.resource], ptr %39, i64 0, i64 %41, i32 3
+  %.idx = shl i64 %41, 6
+  %.offs = or disjoint i64 %.idx, 24
+  %43 = getelementptr i8, ptr %39, i64 %.offs
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, %1
   %46 = icmp eq i64 %45, 0
@@ -3665,7 +3667,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
 .preheader:                                       ; preds = %40, %.preheader
   %53 = phi i64 [ %63, %.preheader ], [ 7, %40 ]
   %54 = phi i32 [ %62, %.preheader ], [ %50, %40 ]
-  %55 = getelementptr [11 x %struct.resource], ptr %39, i64 0, i64 %53, i32 3
+  %.idx3 = shl i64 %53, 6
+  %.offs4 = or disjoint i64 %.idx3, 24
+  %55 = getelementptr i8, ptr %39, i64 %.offs4
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, %1
   %58 = icmp eq i64 %57, 0
@@ -10778,13 +10782,14 @@ define dso_local void @pcie_print_link_status(ptr noundef %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local i32 @pci_select_bars(ptr nocapture noundef readonly %0, i64 noundef %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr i8, ptr %0, i64 944
   br label %4
 
 4:                                                ; preds = %4, %2
   %5 = phi i64 [ 0, %2 ], [ %15, %4 ]
   %6 = phi i32 [ 0, %2 ], [ %14, %4 ]
-  %7 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %5, i32 3
+  %.idx = shl i64 %5, 6
+  %7 = getelementptr i8, ptr %3, i64 %.idx
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, %1
   %10 = icmp eq i64 %9, 0
