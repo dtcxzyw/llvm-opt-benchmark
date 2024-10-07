@@ -26647,7 +26647,7 @@ openusd/common.cpp.ll 56576334
 openusd/composeSite.cpp.ll 6153990191
 openusd/computeCmds.cpp.ll 35215462
 openusd/computeCmdsDesc.cpp.ll 35130450
-openusd/computePipeline.cpp.ll 60114927
+openusd/computePipeline.cpp.ll 60054801
 openusd/conditionalAbortDiagnosticDelegate.cpp.ll 556319468
 openusd/cone.cpp.ll 1169957060
 openusd/coneAdapter.cpp.ll 1925378383
@@ -28834,7 +28834,7 @@ postgres/pgfnames_srv.ll 54802999
 postgres/pgoutput.ll 556595182
 postgres/pgstat.ll 552126996
 postgres/pgstat_archiver.ll 58452511
-postgres/pgstat_bgwriter.ll 60016434
+postgres/pgstat_bgwriter.ll 59956344
 postgres/pgstat_checkpointer.ll 66775570
 postgres/pgstat_database.ll 87818837
 postgres/pgstat_io.ll 152265829
