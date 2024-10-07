@@ -70,8 +70,6 @@ $__clang_call_terminate = comdat any
 
 $_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv10xobjdetect14WBDetectorImplEEET_ = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN2cv10xobjdetect14WBDetectorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv10xobjdetect14WBDetectorImplELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -2700,25 +2698,67 @@ _ZNSt6vectorIfSaIfEED2Ev.exit38:                  ; preds = %215, %217
 declare void @_ZN2cv10xobjdetect9WaldBoost6detectENS_3PtrINS0_18CvFeatureEvaluatorEEERKNS_3MatERKSt6vectorIfSaIfEERS8_INS_5Rect_IiEESaISE_EERS8_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv10xobjdetect10WBDetector6createEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.38") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv10xobjdetect10WBDetector6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.38") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv10xobjdetect14WBDetectorImplE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZN2cv10xobjdetect9WaldBoostC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-          to label %_ZN2cv10xobjdetect14WBDetectorImplC2Ev.exit unwind label %5
+          to label %_ZN2cv10xobjdetect14WBDetectorImplC2Ev.exit unwind label %19
 
 _ZN2cv10xobjdetect14WBDetectorImplC2Ev.exit:      ; preds = %1
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv10xobjdetect14WBDetectorImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %2)
+  store ptr null, ptr %4, align 8
+  %5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv10xobjdetect14WBDetectorImplEEET_.exit unwind label %6
+
+6:                                                ; preds = %_ZN2cv10xobjdetect14WBDetectorImplC2Ev.exit
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #16
+  tail call void @_ZN2cv10xobjdetect9WaldBoostD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  invoke void @__cxa_rethrow() #18
+          to label %15 unwind label %10
+
+10:                                               ; preds = %6
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %12
+
+common.resume:                                    ; preds = %10, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %11, %10 ]
+  resume { ptr, i32 } %common.resume.op
+
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #20
+  unreachable
+
+15:                                               ; preds = %6
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv10xobjdetect14WBDetectorImplEEET_.exit: ; preds = %_ZN2cv10xobjdetect14WBDetectorImplC2Ev.exit
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 1, ptr %17, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10xobjdetect14WBDetectorImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %2, ptr %18, align 8
+  store ptr %5, ptr %4, align 8
   ret void
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #17
-  resume { ptr, i32 } %6
+  br label %common.resume
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -2864,61 +2904,6 @@ declare void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 
 ; Function Attrs: nounwind
 declare void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv10xobjdetect14WBDetectorImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10xobjdetect14WBDetectorImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #16
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %15, label %13
-
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @_ZN2cv10xobjdetect9WaldBoostD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #17
-  br label %15
-
-15:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #18
-          to label %22 unwind label %16
-
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %18 unwind label %19
-
-18:                                               ; preds = %16
-  resume { ptr, i32 } %17
-
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
-          catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #20
-  unreachable
-
-22:                                               ; preds = %15
-  unreachable
-}
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
