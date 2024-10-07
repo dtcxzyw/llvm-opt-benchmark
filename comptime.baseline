@@ -22273,7 +22273,7 @@ openjdk/edgeStore.ll 363140291
 openjdk/edgeUtils.ll 380571049
 openjdk/elfFile.ll 811308777
 openjdk/elfFuncDescTable.ll 49385049
-openjdk/elfStringTable.ll 51191156
+openjdk/elfStringTable.ll 51139807
 openjdk/elfSymbolTable.ll 91399428
 openjdk/endian.ll 68126291
 openjdk/epsilonArguments.ll 59915024
