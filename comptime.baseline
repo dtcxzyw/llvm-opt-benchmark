@@ -3025,7 +3025,7 @@ cmake/cmCoreTryCompile.cxx.ll 4107990053
 cmake/cmCreateTestSourceList.cxx.ll 365637206
 cmake/cmCryptoHash.cxx.ll 219733549
 cmake/cmCurl.cxx.ll 150751298
-cmake/cmCursesBoolWidget.cxx.ll 71381639
+cmake/cmCursesBoolWidget.cxx.ll 71453099
 cmake/cmCursesCacheEntryComposite.cxx.ll 486706289
 cmake/cmCursesColor.cxx.ll 223133326
 cmake/cmCursesDummyWidget.cxx.ll 38050538
@@ -11307,7 +11307,7 @@ libquic/v3_pci.c.ll 113808182
 libquic/v3_purp.c.ll 328549698
 libquic/v3_sxnet.c.ll 98026962
 libquic/v3_utl.c.ll 563348542
-libquic/v3name_test.c.ll 168256874
+libquic/v3name_test.c.ll 168425257
 libquic/values.cc.ll 1353676417
 libquic/vlog.cc.ll 213390830
 libquic/weak_ptr.cc.ll 87156270
