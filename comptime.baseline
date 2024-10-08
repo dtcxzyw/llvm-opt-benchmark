@@ -29638,7 +29638,7 @@ pybind11/test_buffers.cpp.ll 10940852276
 pybind11/test_builtin_casters.cpp.ll 12387932933
 pybind11/test_call_policies.cpp.ll 7644680293
 pybind11/test_callbacks.cpp.ll 11946765786
-pybind11/test_chrono.cpp.ll 7170053217
+pybind11/test_chrono.cpp.ll 7177224072
 pybind11/test_class.cpp.ll 17548044301
 pybind11/test_const_name.cpp.ll 4526972179
 pybind11/test_constants_and_functions.cpp.ll 9268554266
