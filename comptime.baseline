@@ -19799,7 +19799,7 @@ openblas/dpbtrf.c.ll 193110393
 openblas/dporfs.c.ll 138183827
 openblas/dpprfs.c.ll 136484668
 openblas/drot_k.c.ll 105534333
-openblas/drotm.c.ll 67311599
+openblas/drotm.c.ll 67378918
 openblas/dsbgst.c.ll 1538967077
 openblas/dsbmv_thread_L.c.ll 85212284
 openblas/dsbmv_thread_U.c.ll 85513541
