@@ -21,7 +21,7 @@ if len(sys.argv) > 3:
         with open('/proc/sys/kernel/perf_event_paranoid', 'r') as f:
             if int(f.read().strip()) != -1:
                 print("Please enable userland `perf`")
-                exit(1)                
+                exit(1)
     else:
         bench_filter = sys.argv[3].split(',')
 
