@@ -3,7 +3,7 @@
 import sys
 import os
 import subprocess
-from multiprocessing import Pool
+from multiprocessing import Pool, current_process
 import tqdm
 import json
 
@@ -32,7 +32,8 @@ def run_opt(task):
         tmp_output = output_file + '.bench_tmp.ll'
         cmd += ['-o', tmp_output]
         if comptime is not None:
-            cmd = ['perf', 'stat', '-e', 'instructions:u', '--no-big-num'] + cmd + ['--stats', '--stats-json']
+            worker_idx = int(current_process().name.split("-")[1]) - 1
+            cmd = ['taskset', '-c', str(worker_idx), 'perf', 'stat', '-e', 'instructions:u', '--no-big-num'] + cmd + ['--stats', '--stats-json']
         ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0,env={})
         if ret.returncode != 0:
             print(ret.stderr.decode())
