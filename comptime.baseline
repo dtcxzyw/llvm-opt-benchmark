@@ -21948,7 +21948,7 @@ openjdk/VM_md.ll 35454845
 openjdk/VirtualMachineImpl.ll 73871886
 openjdk/VirtualThread.ll 34443186
 openjdk/X11Color.ll 476696298
-openjdk/X11FontScaler.ll 84856385
+openjdk/X11FontScaler.ll 84771524
 openjdk/X11FontScaler_md.ll 183682460
 openjdk/X11PMBlitLoops.ll 165536981
 openjdk/X11Renderer.ll 302460894
