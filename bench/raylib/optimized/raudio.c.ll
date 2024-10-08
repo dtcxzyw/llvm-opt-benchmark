@@ -12228,7 +12228,7 @@ ma_copy_pcm_frames.exit.i.i:                      ; preds = %ma_copy_pcm_frames.
 
 ma_device__on_data_inner.exit130.i.i:             ; preds = %.preheader.i123.i.i, %656, %.lr.ph36.preheader.i.i129.i.i, %653, %642
   %665 = load ptr, ptr %58, align 8
-  call void %665(ptr noundef %0, ptr noundef %643, ptr noundef %644, i32 noundef %639) #67
+  call void %665(ptr noundef nonnull %0, ptr noundef %643, ptr noundef %644, i32 noundef %639) #67
   %666 = load i32, ptr %68, align 8
   store i32 %666, ptr %64, align 4
   store i32 0, ptr %61, align 4
@@ -36195,23 +36195,104 @@ define hidden range(i32 -3, 1) i32 @ma_linear_resampler_set_rate(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %0, float noundef %1) local_unnamed_addr #4 {
-  %3 = icmp ne ptr %0, null
-  %4 = fcmp ugt float %1, 0.000000e+00
-  %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %11
+  %3 = alloca %struct.ma_lpf_config, align 8
+  %4 = icmp ne ptr %0, null
+  %5 = fcmp ugt float %1, 0.000000e+00
+  %or.cond = and i1 %4, %5
+  br i1 %or.cond, label %6, label %55
 
-5:                                                ; preds = %2
-  %6 = fmul float %1, 1.000000e+06
-  %7 = fptoui float %6 to i32
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9
+6:                                                ; preds = %2
+  %7 = fmul float %1, 1.000000e+06
+  %8 = fptoui float %7 to i32
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %55, label %10
 
-9:                                                ; preds = %5
-  %10 = tail call fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %7, i32 noundef 1000000, i32 noundef 1)
-  br label %11
+10:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4
+  br label %13
 
-11:                                               ; preds = %5, %2, %9
-  %.0 = phi i32 [ %10, %9 ], [ -2, %2 ], [ -2, %5 ]
+13:                                               ; preds = %13, %10
+  %.065.i = phi i32 [ %8, %10 ], [ %.05264.i, %13 ]
+  %.05264.i = phi i32 [ 1000000, %10 ], [ %14, %13 ]
+  %14 = urem i32 %.065.i, %.05264.i
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %13
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = udiv i32 %8, %.05264.i
+  store i32 %18, ptr %17, align 8
+  %19 = udiv i32 1000000, %.05264.i
+  store i32 %19, ptr %11, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ugt i32 %21, 8
+  br i1 %22, label %ma_linear_resampler_set_rate_internal.exit, label %23
+
+23:                                               ; preds = %16
+  %..i = tail call i32 @llvm.umax.i32(i32 %18, i32 %19)
+  %24 = tail call i32 @llvm.umin.i32(i32 %18, i32 %19)
+  %25 = uitofp nneg i32 %24 to double
+  %26 = fmul double %25, 5.000000e-01
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = load double, ptr %27, align 8
+  %29 = fmul double %26, %28
+  %30 = load i32, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 4
+  store i32 %30, ptr %3, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %32, ptr %.sroa.2.0..sroa_idx.i, align 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %..i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %.sroa.563.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  store double %29, ptr %.sroa.563.0..sroa_idx.i, align 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %21, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = call fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %33, i32 noundef 0)
+  %.not62.i = icmp eq i32 %34, 0
+  br i1 %.not62.i, label %35, label %ma_linear_resampler_set_rate_internal.exit
+
+35:                                               ; preds = %23
+  %36 = load i32, ptr %17, align 8
+  %37 = load i32, ptr %11, align 4
+  %38 = udiv i32 %36, %37
+  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %38, ptr %39, align 8
+  %40 = urem i32 %36, %37
+  %41 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %40, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = load i32, ptr %42, align 4
+  %44 = udiv i32 %43, %12
+  %45 = urem i32 %43, %12
+  %46 = mul i32 %44, %37
+  %47 = mul i32 %45, %37
+  %48 = udiv i32 %47, %12
+  %49 = add i32 %48, %46
+  %50 = udiv i32 %49, %37
+  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = load i32, ptr %51, align 8
+  %53 = add i32 %52, %50
+  store i32 %53, ptr %51, align 8
+  %54 = urem i32 %49, %37
+  store i32 %54, ptr %42, align 4
+  br label %ma_linear_resampler_set_rate_internal.exit
+
+ma_linear_resampler_set_rate_internal.exit:       ; preds = %16, %23, %35
+  %.053.i = phi i32 [ 0, %35 ], [ -2, %16 ], [ %34, %23 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  br label %55
+
+55:                                               ; preds = %6, %2, %ma_linear_resampler_set_rate_internal.exit
+  %.0 = phi i32 [ %.053.i, %ma_linear_resampler_set_rate_internal.exit ], [ -2, %2 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -51067,7 +51148,7 @@ ma_decoder__preinit.exit:                         ; preds = %35, %31
 
 52:                                               ; preds = %48
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %7, align 8
-  %53 = call i32 %50(ptr noundef %.sroa.15103.0.copyload, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %24, ptr noundef nonnull %8) #67
+  %53 = call i32 %50(ptr noundef %.sroa.15103.0.copyload, ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, ptr noundef nonnull %7, ptr noundef nonnull %24, ptr noundef nonnull %8) #67
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %56, label %ma_decoder_init_from_memory__internal.exit.thread.i
 
@@ -51223,7 +51304,7 @@ ma_decoder_init_custom_from_memory__internal.exit: ; preds = %54, %42
   store ptr %.sroa.15103.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %97 = call fastcc i32 @ma_decoder__postinit(ptr noundef readonly %9, ptr noundef nonnull %3)
+  %97 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull readonly %9, ptr noundef nonnull %3)
   %.not44 = icmp eq i32 %97, 0
   br i1 %.not44, label %98, label %ma_decoder__preinit.exit.thread
 
@@ -56395,7 +56476,7 @@ drwav_guid_equal.exit834.thread:                  ; preds = %.preheader1306, %dr
   %.0607 = phi i64 [ 24, %676 ], [ 18, %678 ]
   %680 = load ptr, ptr %0, align 8
   %681 = load ptr, ptr %33, align 8
-  %682 = call i64 %680(ptr noundef %681, ptr noundef nonnull %27, i64 noundef %.0607) #67
+  %682 = call i64 %680(ptr noundef %681, ptr noundef nonnull %27, i64 noundef range(i64 0, -602) %.0607) #67
   %683 = add i64 %360, %682
   store i64 %683, ptr %8, align 8
   %.not706 = icmp eq i64 %682, %.0607
@@ -58168,7 +58249,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_file(ptr noundef %0, ptr noundef r
   br i1 %4, label %drwav_init_file_ex.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.170)
+  %6 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.170)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %drwav_init_file_ex.exit, label %drwav_fopen.exit.i
 
@@ -58241,7 +58322,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_ex(ptr noundef %0, ptr nounde
   br i1 %7, label %drwav_init_file__internal_FILE.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.170)
+  %9 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.170)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %drwav_init_file__internal_FILE.exit, label %drwav_fopen.exit
 
@@ -58563,7 +58644,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata(ptr noundef %0,
   br i1 %5, label %drwav_init_file__internal_FILE.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.170)
+  %7 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.170)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %drwav_init_file__internal_FILE.exit, label %drwav_fopen.exit
 
@@ -58709,7 +58790,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_write(ptr noundef %0, ptr nou
   br i1 %5, label %drwav_init_file_write__internal.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.173)
+  %7 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.173)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %drwav_init_file_write__internal.exit, label %drwav_fopen.exit.i
 
@@ -58728,7 +58809,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential(ptr noundef 
   br i1 %6, label %drwav_init_file_write__internal.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.173)
+  %8 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.173)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %drwav_init_file_write__internal.exit, label %drwav_fopen.exit.i
 
@@ -58755,7 +58836,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames(p
   br i1 %12, label %drwav_init_file_write_sequential.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.173)
+  %14 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.173)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %drwav_init_file_write_sequential.exit, label %drwav_fopen.exit.i.i
 
@@ -61483,7 +61564,7 @@ define hidden i64 @drwav_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %20, label %.split.i, label %._crit_edge.i
 
 .split.i:                                         ; preds = %17
-  %21 = tail call i64 @drwav_read_pcm_frames(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
+  %21 = tail call i64 @drwav_read_pcm_frames(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, ptr noundef nonnull %2)
   br label %drwav_read_pcm_frames_s16__pcm.exit
 
 ._crit_edge.i:                                    ; preds = %17
@@ -62588,7 +62669,7 @@ drwav_read_pcm_frames_f32__msadpcm_ima.exit:      ; preds = %122, %drwav_s16_to_
   br i1 %145, label %146, label %._crit_edge.i
 
 146:                                              ; preds = %142
-  %147 = tail call i64 @drwav_read_pcm_frames(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
+  %147 = tail call i64 @drwav_read_pcm_frames(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, ptr noundef nonnull %2)
   br label %drwav_read_pcm_frames_f32__ieee.exit
 
 ._crit_edge.i:                                    ; preds = %142
@@ -63232,7 +63313,7 @@ define hidden i64 @drwav_read_pcm_frames_s32(ptr noundef %0, i64 noundef %1, ptr
   br i1 %21, label %22, label %._crit_edge.i
 
 22:                                               ; preds = %18
-  %23 = tail call i64 @drwav_read_pcm_frames(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
+  %23 = tail call i64 @drwav_read_pcm_frames(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, ptr noundef nonnull %2)
   br label %drwav_read_pcm_frames_s32__pcm.exit
 
 ._crit_edge.i:                                    ; preds = %18
@@ -64692,7 +64773,7 @@ define hidden ptr @drwav_open_file_and_read_pcm_frames_s16(ptr noundef readonly 
   br i1 %13, label %drwav_init_file.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly @.str.170)
+  %15 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.170)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %drwav_init_file.exit.thread, label %drwav_fopen.exit.i.i
 
@@ -64790,7 +64871,7 @@ define hidden ptr @drwav_open_file_and_read_pcm_frames_f32(ptr noundef readonly 
   br i1 %13, label %drwav_init_file.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly @.str.170)
+  %15 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.170)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %drwav_init_file.exit.thread, label %drwav_fopen.exit.i.i
 
@@ -64888,7 +64969,7 @@ define hidden ptr @drwav_open_file_and_read_pcm_frames_s32(ptr noundef readonly 
   br i1 %13, label %drwav_init_file.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly @.str.170)
+  %15 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.170)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %drwav_init_file.exit.thread, label %drwav_fopen.exit.i.i
 
@@ -68757,7 +68838,7 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
   %916 = tail call i32 @llvm.abs.i32(i32 %915, i1 true)
   %917 = mul nsw i32 %916, %913
   %918 = sub nsw i32 %914, %917
-  %.043.i.i.i = tail call i32 @llvm.smin.i32(i32 %910, i32 %33)
+  %.043.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 0, 65536) %910, i32 range(i32 -1073741824, 1073741824) %33)
   %919 = icmp slt i32 %.0452.i.i, %.043.i.i.i
   br i1 %919, label %920, label %draw_line.exit.i.i
 
@@ -70070,7 +70151,7 @@ crc32_init.exit:                                  ; preds = %214
   br label %setup_temp_free.exit
 
 370:                                              ; preds = %360
-  tail call void @free(ptr noundef %.0936) #67
+  tail call void @free(ptr noundef nonnull %.0936) #67
   br label %setup_temp_free.exit
 
 setup_temp_free.exit:                             ; preds = %364, %370
@@ -70674,7 +70755,7 @@ setup_temp_free.exit1093:                         ; preds = %628, %635
   br label %setup_temp_free.exit1095
 
 658:                                              ; preds = %.loopexit1129
-  tail call void @free(ptr noundef %515) #67
+  tail call void @free(ptr noundef nonnull %515) #67
   br label %setup_temp_free.exit1095
 
 setup_temp_free.exit1095:                         ; preds = %658, %651, %481
@@ -72868,7 +72949,7 @@ seek_to_sample_coarse.exit.thread:                ; preds = %77, %._crit_edge206
   br label %412
 
 412:                                              ; preds = %.lr.ph, %flush_packet.exit
-  %413 = call fastcc i32 @vorbis_decode_initial(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  %413 = call fastcc i32 @vorbis_decode_initial(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i32 = icmp eq i32 %413, 0
   br i1 %.not.i32, label %505, label %414
 
@@ -76299,7 +76380,7 @@ stb_vorbis_open_filename.exit:                    ; preds = %4
   br i1 %29, label %._crit_edge, label %.lr.ph
 
 30:                                               ; preds = %22
-  call fastcc void @vorbis_deinit(ptr noundef %14)
+  call fastcc void @vorbis_deinit(ptr noundef nonnull %14)
   %31 = getelementptr i8, ptr %14, i64 128
   %.val.i = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
@@ -76333,7 +76414,7 @@ stb_vorbis_open_filename.exit:                    ; preds = %4
 
 45:                                               ; preds = %39
   call void @free(ptr noundef %.04058) #67
-  call fastcc void @vorbis_deinit(ptr noundef %14)
+  call fastcc void @vorbis_deinit(ptr noundef nonnull %14)
   %46 = getelementptr i8, ptr %14, i64 128
   %.val.i48 = load ptr, ptr %46, align 8
   %.not.i.i49 = icmp eq ptr %.val.i48, null
@@ -76354,7 +76435,7 @@ stb_vorbis_open_filename.exit:                    ; preds = %4
   %.040.lcssa = phi ptr [ %25, %.preheader ], [ %.1, %47 ]
   %.038.lcssa = phi i32 [ 0, %.preheader ], [ %33, %47 ]
   store ptr %.040.lcssa, ptr %3, align 8
-  call fastcc void @vorbis_deinit(ptr noundef %14)
+  call fastcc void @vorbis_deinit(ptr noundef nonnull %14)
   %54 = getelementptr i8, ptr %14, i64 128
   %.val.i51 = load ptr, ptr %54, align 8
   %.not.i.i52 = icmp eq ptr %.val.i51, null
@@ -76413,7 +76494,7 @@ define hidden i32 @stb_vorbis_decode_memory(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 23:                                               ; preds = %15
-  call fastcc void @vorbis_deinit(ptr noundef %7)
+  call fastcc void @vorbis_deinit(ptr noundef nonnull %7)
   %24 = getelementptr i8, ptr %7, i64 128
   %.val.i = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
@@ -76447,7 +76528,7 @@ define hidden i32 @stb_vorbis_decode_memory(ptr noundef %0, i32 noundef %1, ptr 
 
 38:                                               ; preds = %32
   call void @free(ptr noundef %.04158) #67
-  call fastcc void @vorbis_deinit(ptr noundef %7)
+  call fastcc void @vorbis_deinit(ptr noundef nonnull %7)
   %39 = getelementptr i8, ptr %7, i64 128
   %.val.i49 = load ptr, ptr %39, align 8
   %.not.i.i50 = icmp eq ptr %.val.i49, null
@@ -76468,7 +76549,7 @@ define hidden i32 @stb_vorbis_decode_memory(ptr noundef %0, i32 noundef %1, ptr 
   %.041.lcssa = phi ptr [ %18, %.preheader ], [ %.1, %40 ]
   %.039.lcssa = phi i32 [ 0, %.preheader ], [ %26, %40 ]
   store ptr %.041.lcssa, ptr %4, align 8
-  call fastcc void @vorbis_deinit(ptr noundef %7)
+  call fastcc void @vorbis_deinit(ptr noundef nonnull %7)
   %47 = getelementptr i8, ptr %7, i64 128
   %.val.i52 = load ptr, ptr %47, align 8
   %.not.i.i53 = icmp eq ptr %.val.i52, null
@@ -78307,7 +78388,7 @@ drmp3_L3_read_side_info.exit.thread:              ; preds = %drmp3_bs_get_bits.e
 840:                                              ; preds = %833
   %841 = getelementptr inbounds i8, ptr %0, i64 6144
   %842 = load i32, ptr %841, align 4
-  %..i = tail call i32 @llvm.smin.i32(i32 %842, i32 %.094.i)
+  %..i = tail call i32 @llvm.smin.i32(i32 %842, i32 range(i32 0, -2147483648) %.094.i)
   %843 = sub nsw i32 %842, %.094.i
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %843, i32 0)
   %844 = zext nneg i32 %narrow.i to i64
@@ -79871,7 +79952,7 @@ drmp3_L3_antialias.exit.i:                        ; preds = %1651
 
 1657:                                             ; preds = %drmp3_L3_antialias.exit.i
   %1658 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv195.i
-  call fastcc void @drmp3_L3_imdct36(ptr noundef %1630, ptr noundef %1654, ptr noundef nonnull @drmp3_L3_imdct_gr.g_mdct_window, i32 noundef %1589)
+  call fastcc void @drmp3_L3_imdct36(ptr noundef nonnull %1630, ptr noundef %1654, ptr noundef nonnull @drmp3_L3_imdct_gr.g_mdct_window, i32 noundef range(i32 0, 5) %1589)
   %1659 = mul nuw nsw i32 %1589, 18
   %1660 = zext nneg i32 %1659 to i64
   %1661 = getelementptr inbounds float, ptr %1658, i64 %1660
@@ -81296,7 +81377,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %231 = getelementptr inbounds i8, ptr %202, i64 496
   %232 = getelementptr inbounds i8, ptr %202, i64 500
   tail call fastcc void @drmp3d_synth_pair(ptr noundef %230, i32 noundef %3, ptr noundef %232)
-  tail call fastcc void @drmp3d_synth_pair(ptr noundef %201, i32 noundef %3, ptr noundef %228)
+  tail call fastcc void @drmp3d_synth_pair(ptr noundef nonnull %201, i32 noundef %3, ptr noundef %228)
   %233 = getelementptr inbounds i16, ptr %201, i64 %196
   tail call fastcc void @drmp3d_synth_pair(ptr noundef %233, i32 noundef %3, ptr noundef %231)
   %invariant.gep.i = getelementptr inbounds i8, ptr %202, i64 4096
@@ -81724,7 +81805,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %8
 17:                                               ; preds = %14, %.thread.i
   %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %14 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 6752
-  %19 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %18)
+  %19 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %29
 
@@ -81825,7 +81906,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %9
 21:                                               ; preds = %18, %.thread.i
   %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %18 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 6752
-  %23 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %22)
+  %23 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %22)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
 
@@ -82013,7 +82094,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 6752
-  %20 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %19)
+  %20 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %drmp3_init.exit
 
@@ -82231,7 +82312,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %48
 57:                                               ; preds = %54, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %54 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 6752
-  %59 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %58)
+  %59 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %58)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %drmp3_init.exit
 
@@ -82385,7 +82466,7 @@ define hidden i64 @drmp3_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr
   br i1 %48, label %drmp3_read_pcm_frames_raw.exit, label %49
 
 49:                                               ; preds = %.preheader.split.i
-  %50 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %12)
+  %50 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %12)
   %.not35.i = icmp eq i32 %50, 0
   br i1 %.not35.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.i
 
@@ -82471,7 +82552,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %28, label %drmp3_read_pcm_frames_raw.exit, label %29
 
 29:                                               ; preds = %.preheader.split.us.i
-  %30 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %9)
+  %30 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not35.us.i = icmp eq i32 %30, 0
   br i1 %.not35.us.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.us.i
 
@@ -82514,7 +82595,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %59, label %drmp3_read_pcm_frames_raw.exit, label %60
 
 60:                                               ; preds = %.preheader.split.i
-  %61 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %9)
+  %61 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not35.i = icmp eq i32 %61, 0
   br i1 %.not35.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.i
 
@@ -82621,7 +82702,7 @@ drmp3_find_closest_seek_point.exit.thread29.i:    ; preds = %drmp3_find_closest_
   %44 = trunc nuw nsw i64 %.sroa.0.038.i to i32
   %45 = getelementptr inbounds i8, ptr %0, i64 6696
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %6(ptr noundef %46, i32 noundef %44, i32 noundef 0) #67
+  %47 = tail call i32 %6(ptr noundef %46, i32 noundef range(i32 0, -2147483648) %44, i32 noundef 0) #67
   %.not.i.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i.i, label %drmp3_seek_to_start_of_stream.exit, label %48
 
@@ -82649,7 +82730,7 @@ drmp3_find_closest_seek_point.exit.thread29.i:    ; preds = %drmp3_find_closest_
   %57 = trunc nuw nsw i64 %.lcssa47.i to i32
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %51, align 8
-  %60 = tail call i32 %58(ptr noundef %59, i32 noundef %57, i32 noundef 1) #67
+  %60 = tail call i32 %58(ptr noundef %59, i32 noundef range(i32 0, -2147483648) %57, i32 noundef 1) #67
   %.not.i21.i.i = icmp eq i32 %60, 0
   br i1 %.not.i21.i.i, label %drmp3_seek_to_start_of_stream.exit, label %.thread.i.i
 
@@ -82711,7 +82792,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   %indvars.iv = phi i32 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph54.i ]
   %84 = icmp eq i32 %80, %indvars.iv
   %spec.select.i = select i1 %84, ptr %81, ptr null
-  %85 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef %spec.select.i)
+  %85 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef %spec.select.i)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %drmp3_seek_to_start_of_stream.exit, label %82
 
@@ -82753,7 +82834,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   br i1 %106, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %107
 
 107:                                              ; preds = %.preheader.split.us.i.i.i.i
-  %108 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %92)
+  %108 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %92)
   %.not35.us.i.i.i.i = icmp eq i32 %108, 0
   br i1 %.not35.us.i.i.i.i, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %.preheader.split.us.i.i.i.i
 
@@ -82834,7 +82915,7 @@ drmp3_seek_to_start_of_stream.exit.i:             ; preds = %115
   br i1 %148, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i21, label %149
 
 149:                                              ; preds = %.preheader.split.us.i.i.i.i17
-  %150 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %132)
+  %150 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %132)
   %.not35.us.i.i.i.i20 = icmp eq i32 %150, 0
   br i1 %.not35.us.i.i.i.i20, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i21, label %.preheader.split.us.i.i.i.i17
 
@@ -83618,7 +83699,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %7, ptr noundef nonnull %19)
+  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
@@ -83868,7 +83949,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %7, ptr noundef nonnull %19)
+  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
@@ -83971,7 +84052,7 @@ define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %
   br i1 %48, label %drmp3_read_pcm_frames_s16.exit, label %49
 
 49:                                               ; preds = %.preheader.split.i.i
-  %50 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef nonnull %7)
+  %50 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %7)
   %.not35.i.i = icmp eq i32 %50, 0
   br i1 %.not35.i.i, label %drmp3_read_pcm_frames_s16.exit, label %.preheader.split.i.i
 
@@ -84175,7 +84256,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 20:                                               ; preds = %17, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
   %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %6, ptr noundef nonnull %21)
+  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -84272,7 +84353,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 20:                                               ; preds = %17, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
   %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %6, ptr noundef nonnull %21)
+  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -84666,7 +84747,7 @@ qoa_lms_predict.exit.us.us:                       ; preds = %110
   %.neg10.i.us.us = add nsw i32 %122, %123
   %125 = add nsw i32 %.neg10.i.us.us, %.lobit.neg9.neg.i.us.us
   %126 = add nsw i32 %125, %.neg.i.us.us
-  %..i135.us.us = tail call i32 @llvm.smin.i32(i32 %126, i32 8)
+  %..i135.us.us = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483628, 65555) %126, i32 8)
   %.0.i.us.us = tail call i32 @llvm.smax.i32(i32 %..i135.us.us, i32 -8)
   %127 = add nsw i32 %.0.i.us.us, 8
   %128 = zext nneg i32 %127 to i64
@@ -85147,7 +85228,7 @@ define hidden i32 @qoa_decode_frame(ptr nocapture noundef readonly %0, i32 nound
   %.080115.us = phi i32 [ 0, %.preheader.lr.ph ], [ %56, %._crit_edge112.us ]
   %.1114.us = phi i32 [ %52, %.preheader.lr.ph ], [ %90, %._crit_edge112.us ]
   %56 = add nuw nsw i32 %.080115.us, 20
-  %..i.us = tail call i32 @llvm.smin.i32(i32 %56, i32 %19)
+  %..i.us = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483628, 65555) %56, i32 %19)
   %57 = mul nuw nsw i32 %..i.us, %6
   %58 = zext i32 %57 to i64
   br label %.lr.ph108.us
@@ -92329,7 +92410,7 @@ memcopy.exit283:                                  ; preds = %25
   %330 = mul nsw i64 %329, 348
   %331 = getelementptr inbounds i8, ptr %3, i64 952
   %332 = load ptr, ptr %331, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %332, i8 0, i64 %330, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %332, i8 0, i64 range(i64 -747324309504, 747324309157) %330, i1 false)
   br label %memclear.exit
 
 memclear.exit:                                    ; preds = %324, %.lr.ph.preheader.i
@@ -95212,7 +95293,7 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
   %68 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %67, ptr %68, align 8
   %69 = tail call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef nonnull %55, i32 noundef %58, ptr noundef %67, i32 noundef %64)
-  tail call fastcc void @vorbis_deinit(ptr noundef %55)
+  tail call fastcc void @vorbis_deinit(ptr noundef nonnull %55)
   %70 = getelementptr i8, ptr %55, i64 128
   %.val.i = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
@@ -95266,7 +95347,7 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
   %.sroa.5.0..sroa_idx31.i.i.i = getelementptr inbounds i8, ptr %5, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i.i, align 8
   %90 = getelementptr inbounds i8, ptr %5, i64 6752
-  %91 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %5, ptr noundef nonnull %90)
+  %91 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %5, ptr noundef nonnull %90)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %drmp3_open_memory_and_read_pcm_frames_f32.exit
 
@@ -96793,7 +96874,7 @@ define void @LoadMusicStream(ptr dead_on_unwind noalias nocapture writable sret(
   br i1 %10, label %drwav_init_file.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.170)
+  %12 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.170)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %drwav_init_file.exit.thread, label %drwav_fopen.exit.i.i
 
@@ -97018,7 +97099,7 @@ drmp3_fopen.exit.i:                               ; preds = %101
   %.sroa.5.0..sroa_idx31.i.i.i = getelementptr inbounds i8, ptr %99, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i.i, align 8
   %110 = getelementptr inbounds i8, ptr %99, i64 6752
-  %111 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %99, ptr noundef nonnull %110)
+  %111 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %99, ptr noundef nonnull %110)
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %125
 
@@ -97755,7 +97836,7 @@ LoadAudioStream.exit81:                           ; preds = %87, %91
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %103, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
   %117 = getelementptr inbounds i8, ptr %103, i64 6752
-  %118 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef %103, ptr noundef nonnull %117)
+  %118 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %103, ptr noundef nonnull %117)
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %130
 
@@ -98262,7 +98343,7 @@ define void @UnloadMusicStream(ptr nocapture noundef readonly byval(%struct.Musi
   br label %stb_vorbis_close.exit
 
 9:                                                ; preds = %4
-  tail call fastcc void @vorbis_deinit(ptr noundef %3)
+  tail call fastcc void @vorbis_deinit(ptr noundef nonnull %3)
   %10 = getelementptr i8, ptr %3, i64 128
   %.val.i = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
@@ -111543,7 +111624,7 @@ drwav__chunk_matches.exit:                        ; preds = %16
   %163 = zext i32 %162 to i64
   %164 = load ptr, ptr %0, align 8
   %165 = load ptr, ptr %76, align 8
-  %166 = call i64 %164(ptr noundef %165, ptr noundef %159, i64 noundef %163) #67
+  %166 = call i64 %164(ptr noundef %165, ptr noundef %159, i64 noundef range(i64 0, -602) %163) #67
   %167 = add i64 %166, %.2.i
   br label %drwav__read_smpl_to_metadata_obj.exit
 
@@ -112680,7 +112761,7 @@ drwav_buffer_reader_read.exit:                    ; preds = %drwav_buffer_reader
   store ptr %87, ptr %90, align 8
   %91 = load ptr, ptr %0, align 8
   %92 = load ptr, ptr %6, align 8
-  %93 = call i64 %91(ptr noundef %92, ptr noundef %87, i64 noundef %85) #67
+  %93 = call i64 %91(ptr noundef %92, ptr noundef %87, i64 noundef range(i64 0, -602) %85) #67
   %94 = add i64 %93, 602
   %95 = load ptr, ptr %90, align 8
   %96 = load i8, ptr %95, align 1
@@ -112746,7 +112827,7 @@ define internal fastcc i64 @drwav__read_list_label_or_note_to_metadata_obj(ptr n
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %7, align 8
-  %26 = call i64 %24(ptr noundef %25, ptr noundef %21, i64 noundef %19) #67
+  %26 = call i64 %24(ptr noundef %25, ptr noundef %21, i64 noundef range(i64 0, -602) %19) #67
   %27 = add i64 %26, 4
   br label %31
 
@@ -112831,7 +112912,7 @@ define internal fastcc i64 @drwav__read_list_labelled_cue_region_to_metadata_obj
   store ptr %47, ptr %49, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %6, align 8
-  %52 = call i64 %50(ptr noundef %51, ptr noundef %47, i64 noundef %45) #67
+  %52 = call i64 %50(ptr noundef %51, ptr noundef %47, i64 noundef range(i64 0, -602) %45) #67
   %53 = add i64 %52, 20
   br label %57
 
@@ -112889,7 +112970,7 @@ define internal fastcc i64 @drwav__metadata_process_info_text_chunk(ptr nocaptur
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i64 %28(ptr noundef %30, ptr noundef %25, i64 noundef %1) #67
+  %31 = tail call i64 %28(ptr noundef %30, ptr noundef %25, i64 noundef range(i64 0, -602) %1) #67
   %32 = icmp eq i64 %31, %1
   br i1 %32, label %33, label %41
 
@@ -113031,7 +113112,7 @@ drwav_fourcc_equal.exit39.thread:                 ; preds = %18, %drwav_fourcc_e
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i64 %69(ptr noundef %71, ptr noundef %64, i64 noundef %68) #67
+  %72 = tail call i64 %69(ptr noundef %71, ptr noundef %64, i64 noundef range(i64 0, -602) %68) #67
   %73 = load i32, ptr %62, align 8
   %74 = zext i32 %73 to i64
   %75 = icmp eq i64 %72, %74

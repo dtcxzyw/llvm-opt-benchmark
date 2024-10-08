@@ -11625,7 +11625,7 @@ define void @cvClearGraph(ptr noundef %0) local_unnamed_addr #0 personality ptr 
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %12
+  br i1 %.not, label %4, label %cvClearSeq.exit
 
 4:                                                ; preds = %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
@@ -11655,19 +11655,21 @@ define void @cvClearGraph(ptr noundef %0) local_unnamed_addr #0 personality ptr 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   resume { ptr, i32 } %.pn
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8
-  tail call void @cvClearSeq(ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 104
-  store i32 0, ptr %16, align 8
-  tail call void @cvClearSeq(ptr noundef nonnull %0)
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 0, ptr %18, align 8
+cvClearSeq.exit:                                  ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = load ptr, ptr %12, align 8
+  tail call void @cvClearSeq(ptr noundef %13)
+  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 104
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = load i32, ptr %16, align 8
+  tail call void @cvSeqPopMulti(ptr noundef nonnull %0, ptr noundef null, i32 noundef %17, i32 noundef 0)
+  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 0, ptr %19, align 8
   ret void
 }
 
