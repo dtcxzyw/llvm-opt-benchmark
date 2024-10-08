@@ -13571,7 +13571,7 @@ linux/virtio_ring.ll 674704382
 linux/virtio_scsi.ll 234873923
 linux/vlv_dsi.ll 570973203
 linux/vlv_dsi_pll.ll 196933255
-linux/vlv_sideband.ll 76604070
+linux/vlv_sideband.ll 76527465
 linux/vlv_suspend.ll 126234905
 linux/vma.ll 106022778
 linux/vmalloc.ll 1617340794
