@@ -2,6 +2,10 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
+echo "PRE_COMMIT_MODE=2" >> $GITHUB_ENV
+scripts/update_optimized.sh
+echo "COMPTIME_ACCURATE=$?" >> $GITHUB_ENV
+
 export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
 
 # Please rebase manually

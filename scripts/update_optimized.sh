@@ -1,32 +1,49 @@
 #!/bin/bash
+llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
+if [ $PRE_COMMIT_MODE -eq 2 ]
+then
+  baseline_rev=$(cat comptime.${GH_RUNNER}.rev)
+  if [ "${baseline_rev}" == "${llvm_commit}" ]
+  then
+    exit 0
+  fi
+  scripts/build_llvm.sh
+  scripts/gen_optimized.py bench llvm/llvm-build/bin/opt comptime comptime.log
+  ret=$?
+  scripts/comptime_align.py comptime.${GH_RUNNER}.baseline comptime.log
+  echo -n "${llvm_commit}" > comptime.${GH_RUNNER}.rev
+  git add comptime.${GH_RUNNER}.baseline comptime.${GH_RUNNER}.rev
+  git commit -m "llvm: Update comptime baseline on ${GH_RUNNER}:${llvm_commit}"
+  if [ $? -eq 0 ] || [ $ret -ne 0 ]
+  then
+    scripts/try_push.sh
+    exit $?
+  fi
+  git reset --hard origin/HEAD
+  exit 1
+fi
 
-mkdir -p llvm/llvm-build
-cd llvm/llvm-build
-cmake ../llvm-project/llvm -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -G Ninja \
-    -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_OPTIMIZED_TABLEGEN=ON \
-    -DLLVM_ENABLE_WARNINGS=OFF -DLLVM_APPEND_VC_REV=OFF -DLLVM_TARGETS_TO_BUILD="X86;" \
-    -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
-    -DLLVM_FORCE_ENABLE_STATS=ON
-cmake --build . -j -t opt
-cd ../..
-
+scripts/build_llvm.sh
 scripts/gen_optimized.py bench llvm/llvm-build/bin/opt comptime comptime.log
 ret=$?
-scripts/comptime_diff.py comptime.baseline comptime.log >> ctdiff.log
+scripts/comptime_diff.py comptime.${GH_RUNNER}.baseline comptime.log >> ctdiff.log
 ctret=$?
 scripts/stats_diff.py stats.baseline comptime.log.stats >> stdiff.log
 if [ $PRE_COMMIT_MODE -eq 0 ]
 then
-  scripts/comptime_align.py comptime.baseline comptime.log
+  scripts/comptime_align.py comptime.${GH_RUNNER}.baseline comptime.log
+  echo -n "${llvm_commit}" > comptime.${GH_RUNNER}.rev
   cp comptime.log.stats stats.baseline
-  llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
   git add .
   git commit -m "llvm: Update baseline to $llvm_commit"
   if [ $? -eq 0 ] || [ $ret -ne 0 ]
   then
-    git pull --rebase
-    git submodule update
-    git push -f
+    scripts/try_push.sh
+    if [ $? -ne 0 ]
+    then
+      # We might lose something, but better than nothing?
+      git push -f
+    fi
     git show --name-only | grep -E "bench|stats.baseline"
     if [ $? -eq 0 ] || [ $ret -ne 0 ] || [ $ctret -ne 0 ]
     then
@@ -46,8 +63,14 @@ else
   git commit -m "pre-commit: Update"
   git push -f
   echo "runner: $GH_RUNNER" > scripts/pr-comment.md
-  echo "baseline runner: cseadmin-PowerEdge-R830" >> scripts/pr-comment.md
+  echo "baseline runner: $GH_RUNNER" >> scripts/pr-comment.md
   echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" >> scripts/pr-comment.md
+  if [ ${COMPTIME_ACCURATE} -eq 0 ]
+  then
+    echo "Accurate Compile Time Diff: Yes" >> scripts/pr-comment.md
+  else
+    echo "Accurate Compile Time Diff: No" >> scripts/pr-comment.md
+  fi
   echo "patch: $COMMIT_URL" >> scripts/pr-comment.md
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md
   echo "commit: $(git rev-parse HEAD)" >> scripts/pr-comment.md
