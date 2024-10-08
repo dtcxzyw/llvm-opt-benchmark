@@ -198,7 +198,7 @@ define void @densmatr_mixDephasing(ptr nocapture noundef readonly byval(%struct.
   store i64 %19, ptr %7, align 8
   %20 = or i64 %19, %14
   store i64 %20, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull align 8 %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -677,7 +677,7 @@ define void @densmatr_mixDepolarisingDistributed(ptr noundef byval(%struct.Qureg
   store i64 %26, ptr %7, align 8
   %27 = or i64 %26, %21
   store i64 %27, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull align 8 %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -853,7 +853,7 @@ define void @densmatr_mixDampingDistributed(ptr noundef byval(%struct.Qureg) ali
   store i64 %28, ptr %7, align 8
   %29 = or i64 %28, %23
   store i64 %29, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull align 8 %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -2022,7 +2022,7 @@ define internal void @alternateNormZeroingSomeAmpBlocks.omp_outlined(ptr noalias
   store double %32, ptr %11, align 8
   store i64 %31, ptr %12, align 8
   store i64 %29, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @normaliseSomeAmps.omp_outlined, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, ptr nonnull %11)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @normaliseSomeAmps.omp_outlined, ptr nonnull %12, ptr nonnull %13, ptr nonnull align 8 %14, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -2035,7 +2035,7 @@ define internal void @alternateNormZeroingSomeAmpBlocks.omp_outlined(ptr noalias
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
   store i64 %34, ptr %8, align 8
   store i64 %33, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull align 8 %10)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -2097,7 +2097,7 @@ define internal void @alternateNormZeroingSomeAmpBlocks.omp_outlined.1(ptr noali
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
   store i64 %31, ptr %12, align 8
   store i64 %29, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %12, ptr nonnull %13, ptr nonnull align 8 %14)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -2112,7 +2112,7 @@ define internal void @alternateNormZeroingSomeAmpBlocks.omp_outlined.1(ptr noali
   store double %32, ptr %8, align 8
   store i64 %34, ptr %9, align 8
   store i64 %33, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @normaliseSomeAmps.omp_outlined, ptr nonnull %9, ptr nonnull %10, ptr nonnull %11, ptr nonnull %8)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @normaliseSomeAmps.omp_outlined, ptr nonnull %9, ptr nonnull %10, ptr nonnull align 8 %11, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -2196,7 +2196,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store i64 0, ptr %33, align 8
   store i64 %44, ptr %34, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %33, ptr nonnull %34, ptr nonnull %35)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %33, ptr nonnull %34, ptr nonnull align 8 %35)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
@@ -2217,7 +2217,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %32, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store i64 0, ptr %30, align 8
   store i64 %44, ptr %31, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %30, ptr nonnull %31, ptr nonnull %32)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %30, ptr nonnull %31, ptr nonnull align 8 %32)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
@@ -2232,7 +2232,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   store double %3, ptr %26, align 8
   store i64 0, ptr %27, align 8
   store i64 %44, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @normaliseSomeAmps.omp_outlined, ptr nonnull %27, ptr nonnull %28, ptr nonnull %29, ptr nonnull %26)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @normaliseSomeAmps.omp_outlined, ptr nonnull %27, ptr nonnull %28, ptr nonnull align 8 %29, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
@@ -2253,7 +2253,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   %63 = sdiv i64 %44, %62
   store i64 %63, ptr %24, align 8
   %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i = select i1 %.not64, ptr @alternateNormZeroingSomeAmpBlocks.omp_outlined, ptr @alternateNormZeroingSomeAmpBlocks.omp_outlined.1
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i, ptr nonnull %24, ptr nonnull %22, ptr nonnull %23, ptr nonnull %25, ptr nonnull %21)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i, ptr nonnull %24, ptr nonnull %22, ptr nonnull %23, ptr nonnull align 8 %25, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
@@ -2301,7 +2301,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   store i64 %74, ptr %17, align 8
   store i64 %37, ptr %18, align 8
   store i64 %71, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i61, ptr nonnull %19, ptr nonnull %17, ptr nonnull %18, ptr nonnull %20, ptr nonnull %16)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i61, ptr nonnull %19, ptr nonnull %17, ptr nonnull %18, ptr nonnull align 8 %20, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -2314,7 +2314,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store i64 %75, ptr %13, align 8
   store i64 %42, ptr %14, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %13, ptr nonnull %14, ptr nonnull align 8 %15)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -2332,7 +2332,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store i64 %79, ptr %10, align 8
   store i64 %42, ptr %11, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @zeroSomeAmps.omp_outlined, ptr nonnull %10, ptr nonnull %11, ptr nonnull align 8 %12)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -2348,7 +2348,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   store i64 %37, ptr %7, align 8
   %81 = sdiv i64 %42, %69
   store i64 %81, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i63, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %9, ptr nonnull %5)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i63, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull align 8 %9, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
