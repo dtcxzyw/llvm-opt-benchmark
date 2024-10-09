@@ -3986,7 +3986,7 @@ coreutils-rs/3z39203exqv32wuh.ll 587409809
 coreutils-rs/3zd2hcgynlgf0fb6.ll 674990232
 coreutils-rs/3zdzo6v6fdj2nn9z.ll 912910900
 coreutils-rs/3zze2fjdofzkfuub.ll 248988007
-coreutils-rs/40iis989nbtqljmy.ll 80186171
+coreutils-rs/40iis989nbtqljmy.ll 80266358
 coreutils-rs/41036g19gzrox2gs.ll 147911790
 coreutils-rs/41adhm3dvhvh5rlb.ll 124776984
 coreutils-rs/41kb8bho3z5ma4kx.ll 175661472
@@ -23967,7 +23967,7 @@ openmpi/libmpi_c_profile_la-exscan.ll 109728351
 openmpi/libmpi_c_profile_la-exscan_init.ll 91227434
 openmpi/libmpi_c_profile_la-fetch_and_op.ll 82611950
 openmpi/libmpi_c_profile_la-file_call_errhandler.ll 60855736
-openmpi/libmpi_c_profile_la-file_close.ll 65561671
+openmpi/libmpi_c_profile_la-file_close.ll 65627339
 openmpi/libmpi_c_profile_la-file_delete.ll 73836248
 openmpi/libmpi_c_profile_la-file_f2c.ll 46566165
 openmpi/libmpi_c_profile_la-file_get_amode.ll 68637524
