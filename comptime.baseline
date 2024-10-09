@@ -25408,7 +25408,7 @@ openssl/libcrypto-lib-cmp_genm.ll 140396732
 openssl/libcrypto-lib-cmp_hdr.ll 128457515
 openssl/libcrypto-lib-cmp_msg.ll 344257361
 openssl/libcrypto-lib-cmp_protect.ll 99030987
-openssl/libcrypto-lib-cmp_server.ll 164768460
+openssl/libcrypto-lib-cmp_server.ll 164603638
 openssl/libcrypto-lib-cmp_status.ll 128457998
 openssl/libcrypto-lib-cmp_util.ll 109227669
 openssl/libcrypto-lib-cmp_vfy.ll 219094554
