@@ -2732,7 +2732,7 @@ clamav/strlcat.c.ll 45768009
 clamav/strlcpy.c.ll 41471919
 clamav/swf.c.ll 356143492
 clamav/system.c.ll 71617346
-clamav/system.cpp.ll 35382767
+clamav/system.cpp.ll 35347335
 clamav/szddd.c.ll 75573692
 clamav/table.c.ll 79389136
 clamav/tcpserver.c.ll 73162015
@@ -10227,7 +10227,7 @@ icu/tstdtmod.ll 195794750
 icu/tzfmt.ll 1434983214
 icu/tzgnames.ll 511501062
 icu/tznames.ll 202871133
-icu/tznames_impl.ll 1060227053
+icu/tznames_impl.ll 1059166771
 icu/tzrule.ll 322621460
 icu/tztrans.ll 83136713
 icu/uarrsort.ll 228428688
@@ -24416,7 +24416,7 @@ openmpi/opal_init.ll 62647362
 openmpi/opal_init_core.ll 89739318
 openmpi/opal_installdirs_env.ll 59378083
 openmpi/opal_interval_tree.ll 628459824
-openmpi/opal_lifo.ll 40231616
+openmpi/opal_lifo.ll 40191340
 openmpi/opal_list.ll 68813535
 openmpi/opal_object.ll 82973296
 openmpi/opal_params_core.ll 97957107
@@ -25234,7 +25234,7 @@ openssl/ca_internals_test-bin-ctype.ll 43817808
 openssl/cipher_overhead_test-bin-cipher_overhead_test.ll 50094697
 openssl/cipherlist_test-bin-cipherlist_test.ll 82704301
 openssl/client-test-bin-client.ll 49998183
-openssl/client-test-bin-fuzz_rand.ll 56734722
+openssl/client-test-bin-fuzz_rand.ll 56677952
 openssl/clienthellotest-bin-clienthellotest.ll 153681177
 openssl/cmactest-bin-cmactest.ll 158280642
 openssl/cmp-test-bin-fuzz_rand.ll 56733542
@@ -26427,7 +26427,7 @@ openssl/rpktest-bin-ssltestlib.ll 448817915
 openssl/rsa_mp_test-bin-rsa_mp_test.ll 91529837
 openssl/rsa_test-bin-rsa_test.ll 126649474
 openssl/safe_math_test-bin-safe_math_test.ll 280665656
-openssl/server-test-bin-fuzz_rand.ll 56734173
+openssl/server-test-bin-fuzz_rand.ll 56677378
 openssl/servername_test-bin-servername_test.ll 154404632
 openssl/servername_test-bin-ssltestlib.ll 448669393
 openssl/sha_test-bin-sha_test.ll 60917461
@@ -31520,7 +31520,7 @@ recastnavigation/imguiRenderGL.cpp.ll 2749704472
 recastnavigation/main.cpp.ll 592366085
 redis/acl.ll 1223868832
 redis/ae.ll 232134421
-redis/alloc.ll 36074177
+redis/alloc.ll 36038063
 redis/anet.ll 211863943
 redis/aof.ll 992144743
 redis/arena.ll 1430370154
@@ -37043,7 +37043,7 @@ wireshark/packet-lmp.c.ll 442156908
 wireshark/packet-lnet.c.ll 164073368
 wireshark/packet-locamation-im.c.ll 243001552
 wireshark/packet-log3gpp.c.ll 153291311
-wireshark/packet-logcat-text.c.ll 114291221
+wireshark/packet-logcat-text.c.ll 114176896
 wireshark/packet-lorawan.c.ll 342286217
 wireshark/packet-lpp.c.ll 3483509585
 wireshark/packet-lsd.c.ll 72654018
