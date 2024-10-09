@@ -2397,7 +2397,7 @@ ceres/block_random_access_sparse_matrix.cc.ll 977822211
 ceres/block_sparse_matrix.cc.ll 6999793584
 ceres/block_structure.cc.ll 176099560
 ceres/c_api.cc.ll 422367736
-ceres/callbacks.cc.ll 83277672
+ceres/callbacks.cc.ll 83194244
 ceres/canonical_views_clustering.cc.ll 1010963814
 ceres/cgnr_solver.cc.ll 3758486541
 ceres/compressed_col_sparse_matrix_utils.cc.ll 262349689
@@ -9157,7 +9157,7 @@ hdf5/H5LD.c.ll 209516159
 hdf5/H5LT.c.ll 588833918
 hdf5/H5LTanalyze.c.ll 341580440
 hdf5/H5LTparse.c.ll 192363590
-hdf5/H5Ldeprec.c.ll 164233582
+hdf5/H5Ldeprec.c.ll 164069315
 hdf5/H5Lexternal.c.ll 84272233
 hdf5/H5Lint.c.ll 330884039
 hdf5/H5M.c.ll 40942637
@@ -13366,7 +13366,7 @@ linux/svc_xprt.ll 412418956
 linux/svcauth.ll 81844093
 linux/svcauth_gss.ll 642749765
 linux/svcauth_unix.ll 278724059
-linux/svclock.ll 282751100
+linux/svclock.ll 282468315
 linux/svcproc.ll 137092980
 linux/svcshare.ll 61504370
 linux/svcsock.ll 394098866
@@ -33027,7 +33027,7 @@ slurm/common_topo.ll 212805940
 slurm/config_functions.ll 119193714
 slurm/config_info.ll 834304515
 slurm/conmgr.ll 1104008870
-slurm/connection_functions.ll 35336076
+slurm/connection_functions.ll 35300580
 slurm/cons_helpers.ll 102792534
 slurm/container.ll 406961836
 slurm/controller.ll 1244562755
@@ -33973,7 +33973,7 @@ spike/processor.ll 28437113501
 spike/radd16.ll 628188229
 spike/radd32.ll 487662480
 spike/radd64.ll 537425647
-spike/radd8.ll 636040775
+spike/radd8.ll 635404703
 spike/raddw.ll 463761021
 spike/rcras16.ll 728756469
 spike/rcras32.ll 501282219
