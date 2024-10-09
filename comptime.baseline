@@ -9164,7 +9164,7 @@ hdf5/H5M.c.ll 40901683
 hdf5/H5MF.c.ll 776462447
 hdf5/H5MFaggr.c.ll 172704643
 hdf5/H5MFdbg.c.ll 58099248
-hdf5/H5MFsection.c.ll 109592337
+hdf5/H5MFsection.c.ll 109701980
 hdf5/H5MM.c.ll 45918346
 hdf5/H5O.c.ll 503120333
 hdf5/H5Oainfo.c.ll 93272427
@@ -20545,7 +20545,7 @@ opencv/function.pb.cc.ll 2435783819
 opencv/fundam.cpp.ll 1881151686
 opencv/fundamental_solver.cpp.ll 1783902857
 opencv/fuzzy_F0_math.cpp.ll 928754338
-opencv/fuzzy_F1_math.cpp.ll 640109301
+opencv/fuzzy_F1_math.cpp.ll 640749501
 opencv/fuzzy_filtering.cpp.ll 85874368
 opencv/fuzzy_image.cpp.ll 232552415
 opencv/fuzzy_inpainting.cpp.ll 123994011
@@ -24088,7 +24088,7 @@ openmpi/libmpi_c_profile_la-iprobe.ll 76729157
 openmpi/libmpi_c_profile_la-irecv.ll 93357360
 openmpi/libmpi_c_profile_la-ireduce.ll 106652385
 openmpi/libmpi_c_profile_la-ireduce_scatter.ll 109702654
-openmpi/libmpi_c_profile_la-ireduce_scatter_block.ll 94906200
+openmpi/libmpi_c_profile_la-ireduce_scatter_block.ll 95001152
 openmpi/libmpi_c_profile_la-irsend.ll 92187484
 openmpi/libmpi_c_profile_la-iscan.ll 93414282
 openmpi/libmpi_c_profile_la-iscatter.ll 105044835
