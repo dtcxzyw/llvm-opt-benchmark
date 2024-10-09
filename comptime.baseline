@@ -7171,7 +7171,7 @@ git/object-file.ll 1138838469
 git/object-name.ll 945539074
 git/object.ll 268426411
 git/oid-array.ll 94208915
-git/oidmap.ll 56851236
+git/oidmap.ll 56794256
 git/oidset.ll 229987827
 git/oidtree.ll 56921808
 git/pack-bitmap-write.ll 699991305
@@ -9300,7 +9300,7 @@ hdf5/H5VLnative_token.c.ll 43412352
 hdf5/H5VLpassthru.c.ll 306667724
 hdf5/H5VLtest.c.ll 34085279
 hdf5/H5VM.c.ll 502242016
-hdf5/H5WB.c.ll 51260469
+hdf5/H5WB.c.ll 51209088
 hdf5/H5Z.c.ll 457173833
 hdf5/H5Zdeflate.c.ll 56720115
 hdf5/H5Zfletcher32.c.ll 54686636
@@ -10015,7 +10015,7 @@ icu/filterednormalizer2.ll 236378029
 icu/filterrb.ll 495596147
 icu/flagparser.ll 120784308
 icu/fmtable.ll 408051226
-icu/fmtable_cnv.ll 39810081
+icu/fmtable_cnv.ll 39770263
 icu/format.ll 92373155
 icu/formatted_string_builder.ll 318460903
 icu/formattedval_iterimpl.ll 224895195
@@ -18949,7 +18949,7 @@ nuttx/lib_ultoa_invert.c.ll 43055294
 nuttx/lib_ungetwc.c.ll 43340581
 nuttx/lib_uuid_create.c.ll 55158248
 nuttx/lib_wcschr.c.ll 37590745
-nuttx/lib_wcscmp.c.ll 36594833
+nuttx/lib_wcscmp.c.ll 36558163
 nuttx/lib_wcscpy.c.ll 34723096
 nuttx/lib_wcslcat.c.ll 46864660
 nuttx/lib_wcslcpy.c.ll 43423573
@@ -25789,7 +25789,7 @@ openssl/libcrypto-shlib-cmp_genm.ll 140396532
 openssl/libcrypto-shlib-cmp_hdr.ll 128466996
 openssl/libcrypto-shlib-cmp_msg.ll 344153048
 openssl/libcrypto-shlib-cmp_protect.ll 99030539
-openssl/libcrypto-shlib-cmp_server.ll 164769385
+openssl/libcrypto-shlib-cmp_server.ll 164604581
 openssl/libcrypto-shlib-cmp_status.ll 128457614
 openssl/libcrypto-shlib-cmp_util.ll 109228431
 openssl/libcrypto-shlib-cmp_vfy.ll 219186204
@@ -35792,7 +35792,7 @@ wasmtime-rs/1bjpfzbo8brf3ixm.ll 90978620
 wasmtime-rs/1bmc0pjvdnh09g73.ll 3518724813
 wasmtime-rs/1bz8ofzmdclmzhoz.ll 10251408070
 wasmtime-rs/1cda9wfsketmhpd8.ll 51901251
-wasmtime-rs/1ceg4kzfgmy987r1.ll 42447218
+wasmtime-rs/1ceg4kzfgmy987r1.ll 42404681
 wasmtime-rs/1d7m6di32gj3j7pj.ll 294988260
 wasmtime-rs/1diuaeh8guxl7hpm.ll 609135945
 wasmtime-rs/1e75qbimt8rfvrit.ll 79514348
