@@ -26085,9 +26085,9 @@ default.unreachable:                              ; preds = %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.822)
   %47 = load i8, ptr %22, align 8, !range !4065, !noundef !4
   switch i8 %47, label %default.unreachable [
-    i8 0, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
+    i8 0, label %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i"
     i8 1, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
-    i8 2, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread
+    i8 2, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
     i8 3, label %48
     i8 4, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
     i8 5, label %48
@@ -26103,13 +26103,7 @@ default.unreachable:                              ; preds = %46
 49:                                               ; preds = %46
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
-_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35: ; preds = %46
-  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
-
 50:                                               ; preds = %46
-  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
-
-_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38: ; preds = %46
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
 51:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3c611ba050066d26E.exit"
@@ -26123,9 +26117,6 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38: ; 
   %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.311.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.311, i64 32, i1 false)
   br label %65
-
-_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread: ; preds = %46
-  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %46, %46, %48
   %.0.i17 = phi i8 [ 4, %48 ], [ 2, %46 ], [ 2, %46 ]
@@ -26143,15 +26134,22 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
 53:                                               ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
-"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i": ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
+_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35: ; preds = %46
+  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
+
+_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38: ; preds = %46
+  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
+
+"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i": ; preds = %46, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
+  %.0.i1734 = phi i8 [ %.0.i17, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 1, %46 ]
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
 54:                                               ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
-_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %49, %50, %46, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, %53, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i", %54
-  %.0.i1731 = phi i8 [ %.0.i17, %54 ], [ %.0.i17, %53 ], [ %.0.i17, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 8, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ 16, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ %.0.i17, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 1, %46 ], [ 6, %49 ], [ 12, %50 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread ]
-  %.0.i.i18 = phi i8 [ 2, %54 ], [ 4, %53 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ 1, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 1, %46 ], [ 3, %49 ], [ 3, %50 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread ]
+_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %46, %49, %50, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, %53, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i", %54
+  %.0.i1731 = phi i8 [ %.0.i17, %54 ], [ %.0.i1734, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 16, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ 8, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ %.0.i17, %53 ], [ %.0.i17, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 6, %49 ], [ 12, %50 ], [ 3, %46 ]
+  %.0.i.i18 = phi i8 [ 2, %54 ], [ 1, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ 4, %53 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 3, %49 ], [ 3, %50 ], [ 3, %46 ]
   %55 = udiv i8 %.0.i1731, %.0.i.i18
   switch i8 %55, label %.invoke [
     i8 1, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h85136a553483e9daE.exit
@@ -26317,9 +26315,9 @@ default.unreachable:                              ; preds = %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.822)
   %47 = load i8, ptr %22, align 8, !range !4065, !noundef !4
   switch i8 %47, label %default.unreachable [
-    i8 0, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
+    i8 0, label %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i"
     i8 1, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
-    i8 2, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread
+    i8 2, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
     i8 3, label %48
     i8 4, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
     i8 5, label %48
@@ -26335,13 +26333,7 @@ default.unreachable:                              ; preds = %46
 49:                                               ; preds = %46
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
-_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35: ; preds = %46
-  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
-
 50:                                               ; preds = %46
-  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
-
-_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38: ; preds = %46
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
 51:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3c611ba050066d26E.exit"
@@ -26355,9 +26347,6 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38: ; 
   %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.311.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.311, i64 32, i1 false)
   br label %65
-
-_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread: ; preds = %46
-  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %46, %46, %48
   %.0.i17 = phi i8 [ 4, %48 ], [ 2, %46 ], [ 2, %46 ]
@@ -26375,15 +26364,22 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
 53:                                               ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
-"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i": ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
+_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35: ; preds = %46
+  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
+
+_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38: ; preds = %46
+  br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
+
+"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i": ; preds = %46, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
+  %.0.i1734 = phi i8 [ %.0.i17, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 1, %46 ]
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
 54:                                               ; preds = %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit
   br label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
 
-_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %49, %50, %46, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, %53, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i", %54
-  %.0.i1731 = phi i8 [ %.0.i17, %54 ], [ %.0.i17, %53 ], [ %.0.i17, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 8, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ 16, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ %.0.i17, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 1, %46 ], [ 6, %49 ], [ 12, %50 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread ]
-  %.0.i.i18 = phi i8 [ 2, %54 ], [ 4, %53 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ 1, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 1, %46 ], [ 3, %49 ], [ 3, %50 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread ]
+_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %46, %49, %50, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, %53, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i", %54
+  %.0.i1731 = phi i8 [ %.0.i17, %54 ], [ %.0.i1734, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 16, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ 8, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ %.0.i17, %53 ], [ %.0.i17, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 6, %49 ], [ 12, %50 ], [ 3, %46 ]
+  %.0.i.i18 = phi i8 [ 2, %54 ], [ 1, %"_ZN102_$LT$image..color..ExtendedColorType$u20$as$u20$core..convert..From$LT$image..color..ColorType$GT$$GT$4from17h48c483a11b2d5c57E.exit.thread6.i" ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread38 ], [ 4, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.thread35 ], [ 4, %53 ], [ 3, %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit ], [ 3, %49 ], [ 3, %50 ], [ 3, %46 ]
   %55 = udiv i8 %.0.i1731, %.0.i.i18
   switch i8 %55, label %.invoke [
     i8 1, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5af0a51e5559baefE.exit

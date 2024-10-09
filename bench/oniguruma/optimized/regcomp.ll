@@ -17928,7 +17928,7 @@ add_op.exit.thread:                               ; preds = %547, %541, %539, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @mostly_just_anychar(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #16 {
+define internal fastcc range(i32 0, 3) i32 @mostly_just_anychar(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #16 {
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %32, %2
@@ -17939,7 +17939,7 @@ tailrecurse.outer:                                ; preds = %32, %2
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
   %.tr = phi ptr [ %.tr.ph, %tailrecurse.outer ], [ %.tr.be, %tailrecurse.backedge ]
   %3 = load i32, ptr %.tr, align 8
-  switch i32 %3, label %.loopexit.loopexit140 [
+  switch i32 %3, label %.loopexit.loopexit138 [
     i32 7, label %.preheader
     i32 8, label %.preheader62
     i32 4, label %21
@@ -18052,14 +18052,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 46:                                               ; preds = %43
   %47 = tail call fastcc i32 @mostly_just_anychar(ptr noundef nonnull %45, i32 noundef %.tr61.ph)
   %48 = icmp eq i32 %47, 1
-  br i1 %48, label %.loopexit, label %49
+  br i1 %48, label %.loopexit.loopexit138, label %49
 
 49:                                               ; preds = %46, %43
   %.140 = phi i32 [ %47, %46 ], [ 0, %43 ]
   %50 = getelementptr inbounds i8, ptr %.tr, i64 40
   %51 = load ptr, ptr %50, align 8
   %.not53 = icmp eq ptr %51, null
-  br i1 %.not53, label %.loopexit, label %tailrecurse.backedge
+  br i1 %.not53, label %.loopexit.loopexit138, label %tailrecurse.backedge
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds i8, ptr %.tr, i64 16
@@ -18092,11 +18092,12 @@ tailrecurse.backedge:                             ; preds = %52, %49
 .loopexit65:                                      ; preds = %tailrecurse, %59
   br label %.loopexit
 
-.loopexit.loopexit140:                            ; preds = %tailrecurse
+.loopexit.loopexit138:                            ; preds = %46, %49, %tailrecurse
+  %.039.ph139 = phi i32 [ %.140, %49 ], [ 1, %46 ], [ 0, %tailrecurse ]
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %49, %46, %18, %.preheader62, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit140, %59, %55, %11, %38, %35, %.loopexit65
-  %.039 = phi i32 [ 0, %.loopexit65 ], [ 0, %35 ], [ 2, %38 ], [ %spec.store.select, %11 ], [ %., %55 ], [ 2, %59 ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ %16, %18 ], [ 1, %.preheader62 ], [ 1, %46 ], [ %.140, %49 ], [ 0, %.loopexit.loopexit140 ], [ 2, %21 ]
+.loopexit:                                        ; preds = %21, %18, %.preheader62, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit138, %59, %55, %11, %38, %35, %.loopexit65
+  %.039 = phi i32 [ 0, %.loopexit65 ], [ 0, %35 ], [ 2, %38 ], [ %spec.store.select, %11 ], [ %., %55 ], [ 2, %59 ], [ %.039.ph139, %.loopexit.loopexit138 ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ %16, %18 ], [ 1, %.preheader62 ], [ 2, %21 ]
   ret i32 %.039
 }
 

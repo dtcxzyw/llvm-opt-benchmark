@@ -133,54 +133,11 @@ mac_init.exit:                                    ; preds = %12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   store i64 %3, ptr %6, align 8
   switch i32 %32, label %33 [
-    i32 33554435, label %.thread84.i
+    i32 33554435, label %.thread84.thread.i
     i32 33554436, label %.fold.split81.i
     i32 33554437, label %.fold.split81.i
-    i32 33554440, label %.fold.split.i
-    i32 33554441, label %.fold.split66.i
-    i32 33554442, label %.thread.i
-    i32 33554443, label %.fold.split68.i
-    i32 33554444, label %.fold.split69.i
-    i32 33554445, label %.fold.split70.i
-    i32 33554448, label %.thread91.i
-    i32 33554449, label %.thread91.i
-    i32 33554450, label %.thread87.thread.i
-  ]
-
-33:                                               ; preds = %30
-  %34 = icmp eq i32 %32, 33554451
-  %35 = select i1 %34, i64 64, i64 0
-  br label %.fold.split81.i
-
-.fold.split.i:                                    ; preds = %30
-  br label %.thread87.thread.i
-
-.fold.split66.i:                                  ; preds = %30
-  br label %.thread87.thread.i
-
-.fold.split68.i:                                  ; preds = %30
-  br label %.thread87.thread.i
-
-.fold.split69.i:                                  ; preds = %30
-  br label %.thread87.thread.i
-
-.fold.split70.i:                                  ; preds = %30
-  br label %.thread87.thread.i
-
-.thread.i:                                        ; preds = %30
-  br label %.thread87.thread.i
-
-.thread84.i:                                      ; preds = %30
-  br label %.thread87.thread.i
-
-.fold.split81.i:                                  ; preds = %33, %30, %30
-  %36 = phi i64 [ %35, %33 ], [ 20, %30 ], [ 20, %30 ]
-  switch i32 %32, label %.thread87.i [
-    i32 33554441, label %.thread87.thread.i
-    i32 33554440, label %.thread87.thread.i
-    i32 33554437, label %.thread87.thread.i
-    i32 33554436, label %.thread87.thread.i
-    i32 33554435, label %.thread87.thread.i
+    i32 33554440, label %.thread84.thread.i
+    i32 33554441, label %.thread84.thread.i
     i32 33554442, label %.fold.split80.i
     i32 33554443, label %.fold.split80.i
     i32 33554444, label %.fold.split80.i
@@ -190,30 +147,52 @@ mac_init.exit:                                    ; preds = %12
     i32 33554450, label %.fold.split79.i
   ]
 
-.fold.split79.i:                                  ; preds = %.fold.split81.i
-  br label %.thread87.thread.i
+33:                                               ; preds = %30
+  %34 = icmp eq i32 %32, 33554451
+  %35 = select i1 %34, i64 64, i64 0
+  br label %.fold.split81.i
 
-.fold.split80.i:                                  ; preds = %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i
-  br label %.thread87.thread.i
+.fold.split81.i:                                  ; preds = %33, %30, %30
+  %36 = phi i64 [ %35, %33 ], [ 20, %30 ], [ 20, %30 ]
+  switch i32 %32, label %.thread84.i [
+    i32 33554441, label %.thread84.thread.i
+    i32 33554440, label %.thread84.thread.i
+    i32 33554437, label %.thread84.thread.i
+    i32 33554436, label %.thread84.thread.i
+    i32 33554435, label %.thread84.thread.i
+    i32 33554442, label %.fold.split80.i
+    i32 33554443, label %.fold.split80.i
+    i32 33554444, label %.fold.split80.i
+    i32 33554445, label %.fold.split80.i
+    i32 33554448, label %.thread91.i
+    i32 33554449, label %.thread91.i
+    i32 33554450, label %.fold.split79.i
+  ]
+
+.fold.split79.i:                                  ; preds = %.fold.split81.i, %30
+  br label %.thread84.thread.i
+
+.fold.split80.i:                                  ; preds = %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %30, %30, %30, %30
+  br label %.thread84.thread.i
 
 .thread91.i:                                      ; preds = %.fold.split81.i, %.fold.split81.i, %30, %30
   store i32 %32, ptr %31, align 8
   br label %psa_hmac_setup_internal.exit
 
-.thread87.thread.i:                               ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.thread84.i, %.thread.i, %.fold.split70.i, %.fold.split69.i, %.fold.split68.i, %.fold.split66.i, %.fold.split.i, %30
-  %.ph102.i = phi i64 [ 64, %.thread84.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split66.i ], [ 128, %.thread.i ], [ 128, %.fold.split68.i ], [ 128, %.fold.split69.i ], [ 128, %.fold.split70.i ], [ 104, %30 ], [ 128, %.fold.split80.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ]
+.thread84.thread.i:                               ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %30, %30, %30
+  %.ph102.i = phi i64 [ 64, %30 ], [ 128, %.fold.split80.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split81.i ], [ 64, %30 ], [ 64, %30 ]
   store i32 %32, ptr %31, align 8
   br label %40
 
-.thread87.i:                                      ; preds = %.fold.split81.i
+.thread84.i:                                      ; preds = %.fold.split81.i
   %37 = icmp eq i32 %32, 33554451
   %38 = select i1 %37, i64 72, i64 0
   store i32 %32, ptr %31, align 8
   %39 = icmp ult i64 %38, %36
   br i1 %39, label %psa_hmac_setup_internal.exit, label %40
 
-40:                                               ; preds = %.thread87.i, %.thread87.thread.i
-  %41 = phi i64 [ %.ph102.i, %.thread87.thread.i ], [ %38, %.thread87.i ]
+40:                                               ; preds = %.thread84.i, %.thread84.thread.i
+  %41 = phi i64 [ %.ph102.i, %.thread84.thread.i ], [ %38, %.thread84.i ]
   %42 = icmp ugt i64 %3, %41
   br i1 %42, label %43, label %45
 
@@ -224,9 +203,9 @@ mac_init.exit:                                    ; preds = %12
 
 45:                                               ; preds = %40
   %.not.i21 = icmp eq i64 %3, 0
-  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread106.i
+  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread105.i
 
-.thread106.i:                                     ; preds = %45
+.thread105.i:                                     ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
   br label %.lr.ph.preheader.i
 
@@ -235,8 +214,8 @@ mac_init.exit:                                    ; preds = %12
   %.not98.i = icmp eq i64 %.pre.i, 0
   br i1 %.not98.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %46, %.thread106.i
-  %47 = phi i64 [ %3, %.thread106.i ], [ %.pre.i, %46 ]
+.lr.ph.preheader.i:                               ; preds = %46, %.thread105.i
+  %47 = phi i64 [ %3, %.thread105.i ], [ %.pre.i, %46 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -291,8 +270,8 @@ mac_init.exit:                                    ; preds = %12
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 128) #5
   br label %psa_hmac_setup_internal.exit
 
-psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread87.i, %69
-  %.054.i = phi i32 [ %.0.i23, %69 ], [ -134, %.thread87.i ], [ -134, %.thread91.i ]
+psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread84.i, %69
+  %.054.i = phi i32 [ %.0.i23, %69 ], [ -134, %.thread84.i ], [ -134, %.thread91.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br label %cmac_setup.exit

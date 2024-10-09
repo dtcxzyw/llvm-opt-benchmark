@@ -3389,7 +3389,7 @@ return.loopexit:                                  ; preds = %for.body, %for.body
   br label %return
 
 return:                                           ; preds = %if.end19, %if.end31, %for.inc, %for.body, %return.loopexit, %entry, %if.then12, %trace_pci_nvme_err_invalid_sgl_excess_length.exit
-  %retval.0 = phi i16 [ 16399, %trace_pci_nvme_err_invalid_sgl_excess_length.exit ], [ 0, %if.then12 ], [ 0, %entry ], [ 16401, %for.body ], [ 16399, %if.end19 ], [ %call32, %if.end31 ], [ 0, %for.inc ], [ 16398, %return.loopexit ]
+  %retval.0 = phi i16 [ 16399, %trace_pci_nvme_err_invalid_sgl_excess_length.exit ], [ 0, %if.then12 ], [ 0, %entry ], [ 16398, %return.loopexit ], [ 16401, %for.body ], [ 16399, %if.end19 ], [ %call32, %if.end31 ], [ 0, %for.inc ]
   ret i16 %retval.0
 }
 

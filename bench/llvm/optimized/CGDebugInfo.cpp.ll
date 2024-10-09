@@ -8473,7 +8473,7 @@ _ZL22getTypeAlignIfRequiredPKN5clang4TypeERKNS_10ASTContextE.exit96: ; preds = %
   br label %504
 
 504:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit882, %.loopexit724, %.loopexit562, %.loopexit395, %.loopexit, %503, %502, %501, %500
-  %.055 = phi i32 [ 2, %500 ], [ 0, %.loopexit ], [ 4, %501 ], [ 13, %502 ], [ 14, %503 ], [ 8, %.loopexit395 ], [ 6, %.loopexit562 ], [ 16, %.loopexit724 ], [ 7, %.loopexit882 ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ]
+  %.055 = phi i32 [ 13, %502 ], [ 4, %501 ], [ 2, %500 ], [ 14, %503 ], [ 0, %.loopexit ], [ 8, %.loopexit395 ], [ 6, %.loopexit562 ], [ 16, %.loopexit724 ], [ 7, %.loopexit882 ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ]
   %505 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %506 = load ptr, ptr %505, align 8
   %507 = load i64, ptr %506, align 8

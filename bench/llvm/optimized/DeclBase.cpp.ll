@@ -11304,7 +11304,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK5clang11DeclCon
   br label %.fold.split
 
 .fold.split:                                      ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.thread, %_ZNK5clang11DeclContext9getParentEv.exit, %31, %_ZNK5clang13CXXRecordDecl22isNeverDependentLambdaEv.exit, %_ZNK5clang13CXXRecordDecl17isDependentLambdaEv.exit, %9, %tailrecurse, %.fold.split.loopexit30
-  %.0 = phi i1 [ true, %tailrecurse ], [ false, %_ZNK5clang11DeclContext9getParentEv.exit.thread ], [ false, %_ZNK5clang11DeclContext9getParentEv.exit ], [ true, %31 ], [ false, %_ZNK5clang13CXXRecordDecl22isNeverDependentLambdaEv.exit ], [ true, %_ZNK5clang13CXXRecordDecl17isDependentLambdaEv.exit ], [ true, %9 ], [ false, %.fold.split.loopexit30 ]
+  %.0 = phi i1 [ false, %.fold.split.loopexit30 ], [ true, %tailrecurse ], [ false, %_ZNK5clang11DeclContext9getParentEv.exit.thread ], [ false, %_ZNK5clang11DeclContext9getParentEv.exit ], [ true, %31 ], [ false, %_ZNK5clang13CXXRecordDecl22isNeverDependentLambdaEv.exit ], [ true, %_ZNK5clang13CXXRecordDecl17isDependentLambdaEv.exit ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -11568,7 +11568,7 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit:    ; preds = %13, %12, %9, %8
 _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit: ; preds = %.lr.ph
   %19 = add nsw i16 %18, -31
   %spec.select.i10 = icmp ult i16 %19, 6
-  br i1 %spec.select.i10, label %.critedge, label %20
+  br i1 %spec.select.i10, label %.critedge.loopexit, label %20
 
 20:                                               ; preds = %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit
   %21 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %.014)
@@ -11587,13 +11587,14 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit: ; preds = %.lr.ph
 _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %20, %27
   %.0.i.i.i = phi ptr [ %28, %27 ], [ %26, %20 ]
   %.not = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !6
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %.lr.ph
+.critedge.loopexit:                               ; preds = %.lr.ph, %.lr.ph, %_ZNK5clang11DeclContext9getParentEv.exit, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit
+  %.07.ph = phi ptr [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %_ZNK5clang11DeclContext9getParentEv.exit ], [ %.014, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit ]
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit, %_ZNK5clang11DeclContext9getParentEv.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge.loopexit, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit
-  %.07 = phi ptr [ null, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit ], [ %.014, %.lr.ph ], [ %.014, %.lr.ph ], [ %.014, %.lr.ph ], [ %.014, %.lr.ph ], [ %.014, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit ], [ null, %_ZNK5clang11DeclContext9getParentEv.exit ], [ null, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge.loopexit, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit
+  %.07 = phi ptr [ null, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit ], [ %.07.ph, %.critedge.loopexit ], [ %.014, %.lr.ph ], [ %.014, %.lr.ph ], [ %.014, %.lr.ph ], [ %.014, %.lr.ph ]
   ret ptr %.07
 }
 

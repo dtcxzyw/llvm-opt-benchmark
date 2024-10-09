@@ -16936,8 +16936,8 @@ new_label_body.exit249:                           ; preds = %ISEQ_COMPILE_DATA.e
 .loopexit.loopexit436:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %93, %96, %89, %166, %71, %tailrecurse, %.loopexit.loopexit436, %104, %.preheader, %.loopexit.loopexit392, %.loopexit.loopexit350, %.loopexit.loopexit308, %12, %.loopexit261, %598
-  %.0 = phi i32 [ 13, %598 ], [ 11, %12 ], [ 1, %.loopexit261 ], [ 10, %.loopexit.loopexit308 ], [ 11, %.loopexit.loopexit350 ], [ 14, %.preheader ], [ 14, %104 ], [ 12, %.loopexit.loopexit392 ], [ 3, %tailrecurse ], [ 11, %71 ], [ 14, %166 ], [ 14, %93 ], [ 14, %96 ], [ 1, %89 ], [ 14, %.loopexit.loopexit436 ]
+.loopexit:                                        ; preds = %166, %71, %93, %96, %89, %tailrecurse, %.loopexit.loopexit436, %104, %.preheader, %.loopexit.loopexit392, %.loopexit.loopexit350, %.loopexit.loopexit308, %12, %.loopexit261, %598
+  %.0 = phi i32 [ 13, %598 ], [ 11, %12 ], [ 1, %.loopexit261 ], [ 10, %.loopexit.loopexit308 ], [ 11, %.loopexit.loopexit350 ], [ 14, %.preheader ], [ 14, %104 ], [ 14, %.loopexit.loopexit436 ], [ 3, %tailrecurse ], [ 1, %89 ], [ 14, %96 ], [ 14, %93 ], [ 12, %.loopexit.loopexit392 ], [ 11, %71 ], [ 14, %166 ]
   %601 = load i64, ptr %5, align 8
   %602 = lshr i64 %601, 15
   %603 = trunc i64 %602 to i32

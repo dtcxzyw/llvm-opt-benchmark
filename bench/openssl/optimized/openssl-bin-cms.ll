@@ -1631,7 +1631,7 @@ if.end579:                                        ; preds = %if.then574, %if.end
 if.then581:                                       ; preds = %if.end579
   %call582 = call ptr @load_cert_pass(ptr noundef %signerfile.3, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.283) #2
   %cmp583 = icmp eq ptr %call582, null
-  br i1 %cmp583, label %if.then584, label %if.end604
+  br i1 %cmp583, label %if.then584, label %if.then598
 
 if.then584:                                       ; preds = %if.then581
   %43 = load ptr, ptr @bio_err, align 8
@@ -1645,12 +1645,13 @@ if.end586:                                        ; preds = %if.end579
     i32 1283, label %if.then598
   ]
 
-if.then598:                                       ; preds = %if.end586
+if.then598:                                       ; preds = %if.then581, %if.end586
+  %signer.1438 = phi ptr [ null, %if.end586 ], [ %call582, %if.then581 ]
   br label %if.end604
 
-if.end604:                                        ; preds = %if.then581, %if.end586, %if.end586, %if.then598
-  %signerfile.3.sink = phi ptr [ %recipfile.0.lcssa1527166417481844, %if.end586 ], [ %recipfile.0.lcssa1527166417481844, %if.end586 ], [ %signerfile.3, %if.then581 ], [ %signerfile.3, %if.then598 ]
-  %signer.1439 = phi ptr [ null, %if.end586 ], [ null, %if.end586 ], [ %call582, %if.then581 ], [ null, %if.then598 ]
+if.end604:                                        ; preds = %if.end586, %if.end586, %if.then598
+  %signerfile.3.sink = phi ptr [ %signerfile.3, %if.then598 ], [ %recipfile.0.lcssa1527166417481844, %if.end586 ], [ %recipfile.0.lcssa1527166417481844, %if.end586 ]
+  %signer.1439 = phi ptr [ %signer.1438, %if.then598 ], [ null, %if.end586 ], [ null, %if.end586 ]
   %cmp599 = icmp eq ptr %keyfile.5, null
   %spec.select425 = select i1 %cmp599, ptr %signerfile.3.sink, ptr %keyfile.5
   %cmp605.not = icmp eq ptr %spec.select425, null

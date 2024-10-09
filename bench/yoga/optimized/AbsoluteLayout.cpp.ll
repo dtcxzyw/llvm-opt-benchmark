@@ -664,9 +664,9 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i: ; preds = %if
 _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i: ; preds = %if.then52.i
   %measuredDimensions_.i114197.i = getelementptr inbounds i8, ptr %parent, i64 500
   %22 = load float, ptr %measuredDimensions_.i114197.i, align 4
-  %measuredDimensions_.i123217.i = getelementptr inbounds i8, ptr %child, i64 500
-  %23 = load float, ptr %measuredDimensions_.i123217.i, align 4
-  %sub59220.i = fsub float %22, %23
+  %measuredDimensions_.i123214.i = getelementptr inbounds i8, ptr %child, i64 500
+  %23 = load float, ptr %measuredDimensions_.i123214.i, align 4
+  %sub59217.i = fsub float %22, %23
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i
 
 sw.epilog.i112.i:                                 ; preds = %if.then52.i
@@ -684,7 +684,7 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i: ; preds = %if.then52
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i
-  %div210.in.i = phi float [ %sub59207.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i ], [ %sub59220.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i ], [ %sub59.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i ]
+  %div210.in.i = phi float [ %sub59207.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i ], [ %sub59217.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i ], [ %sub59.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i ]
   %retval.0.i127.i = phi i8 [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i ], [ %spec.select.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i ]
   %div210.i = fmul float %div210.in.i, 5.000000e-01
   tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %div210.i, i8 noundef zeroext %retval.0.i127.i)
@@ -701,23 +701,23 @@ if.then65.i:                                      ; preds = %if.else61.i
     i8 0, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i
     i8 1, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i
     i8 2, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i
-    i8 3, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread230.i
+    i8 3, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i
   ]
 
 _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i: ; preds = %if.then65.i
-  %measuredDimensions_.i138224.i = getelementptr inbounds i8, ptr %parent, i64 500
-  %26 = load float, ptr %measuredDimensions_.i138224.i, align 4
-  %measuredDimensions_.i147240.i = getelementptr inbounds i8, ptr %child, i64 500
-  %27 = load float, ptr %measuredDimensions_.i147240.i, align 4
-  %sub72243.i = fsub float %26, %27
+  %measuredDimensions_.i138221.i = getelementptr inbounds i8, ptr %parent, i64 500
+  %26 = load float, ptr %measuredDimensions_.i138221.i, align 4
+  %measuredDimensions_.i147236.i = getelementptr inbounds i8, ptr %child, i64 500
+  %27 = load float, ptr %measuredDimensions_.i147236.i, align 4
+  %sub72239.i = fsub float %26, %27
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread230.i: ; preds = %if.then65.i
-  %measuredDimensions_.i138232.i = getelementptr inbounds i8, ptr %parent, i64 500
-  %28 = load float, ptr %measuredDimensions_.i138232.i, align 4
-  %measuredDimensions_.i147252.i = getelementptr inbounds i8, ptr %child, i64 500
-  %29 = load float, ptr %measuredDimensions_.i147252.i, align 4
-  %sub72255.i = fsub float %28, %29
+_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i: ; preds = %if.then65.i
+  %measuredDimensions_.i138229.i = getelementptr inbounds i8, ptr %parent, i64 500
+  %28 = load float, ptr %measuredDimensions_.i138229.i, align 4
+  %measuredDimensions_.i147245.i = getelementptr inbounds i8, ptr %child, i64 500
+  %29 = load float, ptr %measuredDimensions_.i147245.i, align 4
+  %sub72248.i = fsub float %28, %29
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
 
 sw.epilog.i136.i:                                 ; preds = %if.then65.i
@@ -730,14 +730,14 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i: ; preds = %if.then65
   %arrayidx.i.i.i149.i = getelementptr inbounds i8, ptr %child, i64 504
   %31 = load float, ptr %arrayidx.i.i.i149.i, align 4
   %sub72.i = fsub float %30, %31
-  %switch263.i = icmp eq i8 %axis, 0
-  %spec.select264.i = select i1 %switch263.i, i8 1, i8 3
+  %switch256.i = icmp eq i8 %axis, 0
+  %spec.select257.i = select i1 %switch256.i, i8 1, i8 3
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
 
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread230.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i
-  %sub72245.i = phi float [ %sub72243.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i ], [ %sub72255.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread230.i ], [ %sub72.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i ]
-  %retval.0.i151.i = phi i8 [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread230.i ], [ %spec.select264.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i ]
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub72245.i, i8 noundef zeroext %retval.0.i151.i)
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i
+  %sub72241.i = phi float [ %sub72239.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i ], [ %sub72248.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i ], [ %sub72.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i ]
+  %retval.0.i151.i = phi i8 [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i ], [ %spec.select257.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i ]
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub72241.i, i8 noundef zeroext %retval.0.i151.i)
   br label %cond.end
 
 if.else74.i:                                      ; preds = %if.else61.i

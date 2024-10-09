@@ -1671,10 +1671,10 @@ string_to_datum.exit:                             ; preds = %2
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1776, ptr noundef nonnull @__func__.string_to_const) #11
   unreachable
 
-11:                                               ; preds = %string_to_datum.exit.thread, %string_to_datum.exit, %string_to_datum.exit, %string_to_datum.exit
-  %.0.i11 = phi i64 [ %7, %string_to_datum.exit ], [ %7, %string_to_datum.exit ], [ %7, %string_to_datum.exit ], [ %5, %string_to_datum.exit.thread ]
-  %.08 = phi i32 [ 100, %string_to_datum.exit ], [ 100, %string_to_datum.exit ], [ 100, %string_to_datum.exit ], [ 950, %string_to_datum.exit.thread ]
-  %.0 = phi i32 [ -1, %string_to_datum.exit ], [ -1, %string_to_datum.exit ], [ -1, %string_to_datum.exit ], [ 64, %string_to_datum.exit.thread ]
+11:                                               ; preds = %string_to_datum.exit, %string_to_datum.exit, %string_to_datum.exit, %string_to_datum.exit.thread
+  %.0.i11 = phi i64 [ %5, %string_to_datum.exit.thread ], [ %7, %string_to_datum.exit ], [ %7, %string_to_datum.exit ], [ %7, %string_to_datum.exit ]
+  %.08 = phi i32 [ 950, %string_to_datum.exit.thread ], [ 100, %string_to_datum.exit ], [ 100, %string_to_datum.exit ], [ 100, %string_to_datum.exit ]
+  %.0 = phi i32 [ 64, %string_to_datum.exit.thread ], [ -1, %string_to_datum.exit ], [ -1, %string_to_datum.exit ], [ -1, %string_to_datum.exit ]
   %12 = tail call ptr @makeConst(i32 noundef %1, i32 noundef -1, i32 noundef %.08, i32 noundef %.0, i64 noundef %.0.i11, i1 noundef zeroext false, i1 noundef zeroext false) #11
   ret ptr %12
 }

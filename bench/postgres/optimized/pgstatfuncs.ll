@@ -2987,7 +2987,7 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %37, label %default.unreachable [
     i32 0, label %pgstat_get_io_op_index.exit.thread
-    i32 1, label %pgstat_get_io_op_index.exit.i
+    i32 1, label %pgstat_get_io_op_index.exit.thread58
     i32 2, label %pgstat_get_io_time_index.exit
     i32 3, label %38
     i32 4, label %40
@@ -2995,6 +2995,9 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
     i32 6, label %pgstat_get_io_op_index.exit
     i32 7, label %41
   ]
+
+pgstat_get_io_op_index.exit.thread58:             ; preds = %36
+  br label %pgstat_get_io_time_index.exit
 
 38:                                               ; preds = %36
   br label %pgstat_get_io_time_index.exit
@@ -3017,15 +3020,12 @@ pgstat_get_io_op_index.exit:                      ; preds = %36
 41:                                               ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
-pgstat_get_io_op_index.exit.i:                    ; preds = %36
-  br label %pgstat_get_io_time_index.exit
-
-pgstat_get_io_time_index.exit:                    ; preds = %39, %38, %36, %pgstat_get_io_op_index.exit.thread, %40, %pgstat_get_io_op_index.exit, %41, %pgstat_get_io_op_index.exit.i
-  %.0.i53.sroa.phi = phi ptr [ %.0.i53.sroa.gep, %41 ], [ %.0.i53.sroa.gep82, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep83, %40 ], [ %.0.i53.sroa.gep84, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep85, %36 ], [ %.0.i53.sroa.gep86, %38 ], [ %.0.i53.sroa.gep87, %39 ], [ %.0.i53.sroa.gep88, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i53.sroa.phi105 = phi ptr [ %.0.i53.sroa.gep106, %41 ], [ %.0.i53.sroa.gep107, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep108, %40 ], [ %.0.i53.sroa.gep109, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep110, %36 ], [ %.0.i53.sroa.gep111, %38 ], [ %.0.i53.sroa.gep112, %39 ], [ %.0.i53.sroa.gep113, %pgstat_get_io_op_index.exit.thread ]
-  %42 = phi i1 [ false, %41 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %40 ], [ false, %pgstat_get_io_op_index.exit.i ], [ false, %36 ], [ true, %38 ], [ true, %39 ], [ true, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i51.sroa.phi = phi ptr [ %.0.i51.sroa.gep, %41 ], [ %.0.i51.sroa.gep98, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep99, %40 ], [ %.0.i51.sroa.gep100, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep101, %36 ], [ %.0.i51.sroa.gep102, %38 ], [ %.0.i51.sroa.gep102, %39 ], [ %.0.i51.sroa.gep102, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i51.sroa.phi114 = phi ptr [ %.0.i51.sroa.gep115, %41 ], [ %.0.i51.sroa.gep116, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep117, %40 ], [ %.0.i51.sroa.gep118, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep119, %36 ], [ %.0.i51.sroa.gep120, %38 ], [ %.0.i51.sroa.gep120, %39 ], [ %.0.i51.sroa.gep120, %pgstat_get_io_op_index.exit.thread ]
+pgstat_get_io_time_index.exit:                    ; preds = %39, %38, %40, %pgstat_get_io_op_index.exit, %41, %pgstat_get_io_op_index.exit.thread58, %36, %pgstat_get_io_op_index.exit.thread
+  %.0.i53.sroa.phi = phi ptr [ %.0.i53.sroa.gep, %41 ], [ %.0.i53.sroa.gep82, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep83, %40 ], [ %.0.i53.sroa.gep84, %pgstat_get_io_op_index.exit.thread58 ], [ %.0.i53.sroa.gep85, %36 ], [ %.0.i53.sroa.gep86, %38 ], [ %.0.i53.sroa.gep87, %39 ], [ %.0.i53.sroa.gep88, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i53.sroa.phi105 = phi ptr [ %.0.i53.sroa.gep106, %41 ], [ %.0.i53.sroa.gep107, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep108, %40 ], [ %.0.i53.sroa.gep109, %pgstat_get_io_op_index.exit.thread58 ], [ %.0.i53.sroa.gep110, %36 ], [ %.0.i53.sroa.gep111, %38 ], [ %.0.i53.sroa.gep112, %39 ], [ %.0.i53.sroa.gep113, %pgstat_get_io_op_index.exit.thread ]
+  %42 = phi i1 [ false, %41 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %40 ], [ false, %pgstat_get_io_op_index.exit.thread58 ], [ false, %36 ], [ true, %38 ], [ true, %39 ], [ true, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i51.sroa.phi = phi ptr [ %.0.i51.sroa.gep, %41 ], [ %.0.i51.sroa.gep98, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep99, %40 ], [ %.0.i51.sroa.gep100, %pgstat_get_io_op_index.exit.thread58 ], [ %.0.i51.sroa.gep101, %36 ], [ %.0.i51.sroa.gep102, %38 ], [ %.0.i51.sroa.gep102, %39 ], [ %.0.i51.sroa.gep102, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i51.sroa.phi114 = phi ptr [ %.0.i51.sroa.gep115, %41 ], [ %.0.i51.sroa.gep116, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep117, %40 ], [ %.0.i51.sroa.gep118, %pgstat_get_io_op_index.exit.thread58 ], [ %.0.i51.sroa.gep119, %36 ], [ %.0.i51.sroa.gep120, %38 ], [ %.0.i51.sroa.gep120, %39 ], [ %.0.i51.sroa.gep120, %pgstat_get_io_op_index.exit.thread ]
   %43 = call zeroext i1 @pgstat_tracks_io_op(i32 noundef %16, i32 noundef %25, i32 noundef %28, i32 noundef %37) #9
   br i1 %43, label %44, label %47
 

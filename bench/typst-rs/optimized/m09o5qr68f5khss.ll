@@ -78648,7 +78648,7 @@ _ZN5typst6layout6inline9linebreak14linebreak_link17he81800f6b52ee163E.exit._crit
 283:                                              ; preds = %.thread200, %278
   %.sroa.4.1.i.ph203 = phi i32 [ %257, %.thread200 ], [ %282, %278 ]
   %284 = icmp eq i64 %.sroa.3.0, %15
-  br i1 %284, label %.loopexit261, label %285
+  br i1 %284, label %.loopexit261.loopexit, label %285
 
 285:                                              ; preds = %283
   %286 = load i8, ptr %58, align 8, !range !731, !alias.scope !20602, !noundef !4
@@ -78733,13 +78733,15 @@ _ZN5typst6layout6inline9linebreak14linebreak_link17he81800f6b52ee163E.exit._crit
     i8 29, label %.loopexit261
   ]
 
-.loopexit261.loopexit:                            ; preds = %322
+.loopexit261.loopexit:                            ; preds = %283, %322
+  %.sroa.3.0328.ph = phi i64 [ %15, %283 ], [ %.sroa.3.0, %322 ]
+  %.081.ph = phi i8 [ 1, %283 ], [ 0, %322 ]
   br label %.loopexit261
 
-.loopexit261:                                     ; preds = %283, %322, %322, %322, %322, %.loopexit261.loopexit
-  %324 = phi i1 [ false, %322 ], [ false, %322 ], [ false, %322 ], [ false, %322 ], [ %284, %283 ], [ %284, %.loopexit261.loopexit ]
-  %.sroa.3.0328 = phi i64 [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %15, %283 ], [ %.sroa.3.0, %.loopexit261.loopexit ]
-  %.081 = phi i8 [ 1, %322 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ], [ 1, %283 ], [ 0, %.loopexit261.loopexit ]
+.loopexit261:                                     ; preds = %322, %322, %322, %322, %.loopexit261.loopexit
+  %324 = phi i1 [ %284, %.loopexit261.loopexit ], [ false, %322 ], [ false, %322 ], [ false, %322 ], [ false, %322 ]
+  %.sroa.3.0328 = phi i64 [ %.sroa.3.0328.ph, %.loopexit261.loopexit ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ]
+  %.081 = phi i8 [ %.081.ph, %.loopexit261.loopexit ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ]
   br i1 %20, label %326, label %325
 
 325:                                              ; preds = %.thread211, %361, %347, %"_ZN4core3ptr38drop_in_place$LT$hypher..Syllables$GT$17h2f87daffda8c350cE.exit", %.loopexit261
@@ -79710,7 +79712,7 @@ _ZN5typst6layout6inline9linebreak14linebreak_link17hfbf82a66d0850e2eE.exit._crit
 283:                                              ; preds = %.thread200, %278
   %.sroa.4.1.i.ph203 = phi i32 [ %257, %.thread200 ], [ %282, %278 ]
   %284 = icmp eq i64 %.sroa.3.0, %15
-  br i1 %284, label %.loopexit261, label %285
+  br i1 %284, label %.loopexit261.loopexit, label %285
 
 285:                                              ; preds = %283
   %286 = load i8, ptr %58, align 8, !range !731, !alias.scope !20750, !noundef !4
@@ -79795,13 +79797,15 @@ _ZN5typst6layout6inline9linebreak14linebreak_link17hfbf82a66d0850e2eE.exit._crit
     i8 29, label %.loopexit261
   ]
 
-.loopexit261.loopexit:                            ; preds = %322
+.loopexit261.loopexit:                            ; preds = %283, %322
+  %.sroa.3.0328.ph = phi i64 [ %15, %283 ], [ %.sroa.3.0, %322 ]
+  %.081.ph = phi i8 [ 1, %283 ], [ 0, %322 ]
   br label %.loopexit261
 
-.loopexit261:                                     ; preds = %283, %322, %322, %322, %322, %.loopexit261.loopexit
-  %324 = phi i1 [ false, %322 ], [ false, %322 ], [ false, %322 ], [ false, %322 ], [ %284, %283 ], [ %284, %.loopexit261.loopexit ]
-  %.sroa.3.0328 = phi i64 [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %15, %283 ], [ %.sroa.3.0, %.loopexit261.loopexit ]
-  %.081 = phi i8 [ 1, %322 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ], [ 1, %283 ], [ 0, %.loopexit261.loopexit ]
+.loopexit261:                                     ; preds = %322, %322, %322, %322, %.loopexit261.loopexit
+  %324 = phi i1 [ %284, %.loopexit261.loopexit ], [ false, %322 ], [ false, %322 ], [ false, %322 ], [ false, %322 ]
+  %.sroa.3.0328 = phi i64 [ %.sroa.3.0328.ph, %.loopexit261.loopexit ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ], [ %.sroa.3.0, %322 ]
+  %.081 = phi i8 [ %.081.ph, %.loopexit261.loopexit ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ]
   br i1 %20, label %326, label %325
 
 325:                                              ; preds = %.thread211, %361, %347, %"_ZN4core3ptr38drop_in_place$LT$hypher..Syllables$GT$17h2f87daffda8c350cE.exit", %.loopexit261

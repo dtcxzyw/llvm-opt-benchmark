@@ -2796,12 +2796,12 @@ define dso_local void @BZ2_bzWrite(ptr noundef writeonly %0, ptr noundef %1, ptr
   store ptr %36, ptr %37, align 8
   %40 = load ptr, ptr %38, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %select.unfold, label %42
+  br i1 %41, label %select.unfold.loopexit, label %42
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %43, %33
-  br i1 %.not.i, label %.preheader.i, label %select.unfold
+  br i1 %.not.i, label %.preheader.i, label %select.unfold.loopexit
 
 .preheader.i:                                     ; preds = %42
   %44 = getelementptr inbounds i8, ptr %40, i64 8
@@ -2816,13 +2816,14 @@ define dso_local void @BZ2_bzWrite(ptr noundef writeonly %0, ptr noundef %1, ptr
 .split68.us.i:                                    ; preds = %.preheader.i
   %45 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %40)
   %.not48.i = icmp eq i8 %45, 0
-  br i1 %.not48.i, label %select.unfold, label %BZ2_bzCompress.exit
+  br i1 %.not48.i, label %select.unfold.loopexit, label %BZ2_bzCompress.exit
 
-select.unfold.loopexit:                           ; preds = %.preheader.i
+select.unfold.loopexit:                           ; preds = %.preheader.i, %42, %39, %.split68.us.i
+  %.0.i.ph.ph = phi i32 [ -2, %.split68.us.i ], [ -2, %39 ], [ -2, %42 ], [ 0, %.preheader.i ]
   br label %select.unfold
 
-select.unfold:                                    ; preds = %.split68.us.i, %39, %42, %.preheader.i, %.preheader.i, %.preheader.i, %select.unfold.loopexit
-  %.0.i.ph = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -2, %.split68.us.i ], [ -2, %39 ], [ -2, %42 ], [ 0, %select.unfold.loopexit ]
+select.unfold:                                    ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %select.unfold.loopexit
+  %.0.i.ph = phi i32 [ %.0.i.ph.ph, %select.unfold.loopexit ], [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -1, %.preheader.i ]
   br i1 %.not, label %47, label %46
 
 46:                                               ; preds = %select.unfold

@@ -16627,7 +16627,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   br label %.loopexit114
 
 .loopexit114:                                     ; preds = %123, %164, %210, %225, %28, %.loopexit114.loopexit, %.loopexit113
-  %.0 = phi i64 [ 0, %.loopexit113 ], [ -13, %28 ], [ -14, %123 ], [ %167, %164 ], [ %211, %210 ], [ %226, %225 ], [ -14, %.loopexit114.loopexit ]
+  %.0 = phi i64 [ 0, %.loopexit113 ], [ -14, %.loopexit114.loopexit ], [ -13, %28 ], [ -14, %123 ], [ %167, %164 ], [ %211, %210 ], [ %226, %225 ]
   ret i64 %.0
 }
 

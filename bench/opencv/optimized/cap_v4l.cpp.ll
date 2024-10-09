@@ -2634,9 +2634,10 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L17v4l2_create_frameEv(ptr noundef no
   br label %.loopexit
 
 61:                                               ; preds = %54, %54, %54, %54
-  br label %.loopexit
+  br label %62
 
-62:                                               ; preds = %54
+62:                                               ; preds = %61, %54
+  %.123 = phi i32 [ 8, %54 ], [ 16, %61 ]
   br label %.loopexit
 
 63:                                               ; preds = %54
@@ -2690,11 +2691,11 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L17v4l2_create_frameEv(ptr noundef no
   %88 = load i32, ptr %87, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %.preheader, %83, %61, %57, %58, %62, %54, %54, %54, %54, %67, %50
-  %.022 = phi i32 [ 8, %50 ], [ 8, %67 ], [ 8, %58 ], [ 8, %57 ], [ 8, %54 ], [ 8, %54 ], [ 8, %54 ], [ 8, %54 ], [ 16, %61 ], [ 8, %62 ], [ 8, %83 ], [ 8, %.preheader ], [ 8, %76 ]
-  %.020 = phi i32 [ 3, %50 ], [ 1, %67 ], [ 1, %58 ], [ 2, %57 ], [ 3, %54 ], [ 3, %54 ], [ 3, %54 ], [ 3, %54 ], [ 1, %61 ], [ 1, %62 ], [ 1, %83 ], [ 1, %.preheader ], [ 1, %76 ]
-  %.sroa.015.1 = phi i32 [ %13, %50 ], [ %.sroa.015.0.extract.trunc16, %67 ], [ %13, %58 ], [ %13, %57 ], [ %13, %54 ], [ %13, %54 ], [ %13, %54 ], [ %13, %54 ], [ %13, %61 ], [ %13, %62 ], [ %88, %83 ], [ 0, %.preheader ], [ %82, %76 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %50 ], [ 1, %67 ], [ %60, %58 ], [ %.sroa.5.0, %57 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %61 ], [ %.sroa.5.0, %62 ], [ 1, %83 ], [ 1, %.preheader ], [ 1, %76 ]
+.loopexit:                                        ; preds = %76, %.preheader, %83, %57, %58, %62, %54, %54, %54, %54, %67, %50
+  %.022 = phi i32 [ 8, %50 ], [ 8, %67 ], [ %.123, %62 ], [ 8, %58 ], [ 8, %57 ], [ 8, %54 ], [ 8, %54 ], [ 8, %54 ], [ 8, %54 ], [ 8, %83 ], [ 8, %.preheader ], [ 8, %76 ]
+  %.020 = phi i32 [ 3, %50 ], [ 1, %67 ], [ 1, %62 ], [ 1, %58 ], [ 2, %57 ], [ 3, %54 ], [ 3, %54 ], [ 3, %54 ], [ 3, %54 ], [ 1, %83 ], [ 1, %.preheader ], [ 1, %76 ]
+  %.sroa.015.1 = phi i32 [ %13, %50 ], [ %.sroa.015.0.extract.trunc16, %67 ], [ %13, %62 ], [ %13, %58 ], [ %13, %57 ], [ %13, %54 ], [ %13, %54 ], [ %13, %54 ], [ %13, %54 ], [ %88, %83 ], [ 0, %.preheader ], [ %82, %76 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %50 ], [ 1, %67 ], [ %.sroa.5.0, %62 ], [ %60, %58 ], [ %.sroa.5.0, %57 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %54 ], [ 1, %83 ], [ 1, %.preheader ], [ 1, %76 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 56
   %.sroa.5.0.insert.ext = zext nneg i32 %.sroa.5.1 to i64
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 32

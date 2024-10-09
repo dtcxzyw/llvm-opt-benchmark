@@ -5354,21 +5354,23 @@ define internal fastcc noundef ptr @_ZL19simplifyX86immShiftRKN4llvm13IntrinsicI
   br label %52
 
 48:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
-  br label %52
+  br label %49
 
-49:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
+49:                                               ; preds = %48, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  %.1102 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %48 ]
   br label %52
 
 50:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
+  br label %51
+
+51:                                               ; preds = %50, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  %.2103 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %50 ]
   br label %52
 
-51:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
-  br label %52
-
-52:                                               ; preds = %50, %48, %2, %2, %2, %2, %2, %2, %2, %2, %2, %47, %51, %49
-  %.3104 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %47 ], [ true, %48 ], [ false, %49 ], [ true, %50 ], [ false, %51 ]
-  %.0100 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %47 ], [ false, %48 ], [ false, %49 ], [ true, %50 ], [ true, %51 ]
-  %.099 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %47 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %51 ]
+52:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %47, %51, %49
+  %.3104 = phi i1 [ %.2103, %51 ], [ %.1102, %49 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %47 ]
+  %.0100 = phi i1 [ true, %51 ], [ false, %49 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %47 ]
+  %.099 = phi i1 [ true, %51 ], [ true, %49 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %47 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 134217727

@@ -85983,7 +85983,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %28, %31
   br label %.fold.split
 
 .fold.split:                                      ; preds = %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang8QualType13getObjCGCAttrEv.exit, %_ZNK5clang8QualType13getObjCGCAttrEv.exit.thread, %.fold.split.loopexit23, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %_ZNK5clang8QualType13getObjCGCAttrEv.exit.thread ], [ 0, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ %19, %_ZNK5clang8QualType13getObjCGCAttrEv.exit ], [ 2, %.fold.split.loopexit23 ]
+  %.0 = phi i32 [ 0, %2 ], [ 2, %.fold.split.loopexit23 ], [ 0, %_ZNK5clang8QualType13getObjCGCAttrEv.exit.thread ], [ 0, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ %19, %_ZNK5clang8QualType13getObjCGCAttrEv.exit ]
   ret i32 %.0
 }
 

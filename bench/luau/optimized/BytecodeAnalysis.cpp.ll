@@ -1203,7 +1203,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge883
-  %.sroa.0840.0885 = phi ptr [ %133, %.preheader.lr.ph ], [ %1491, %._crit_edge883 ]
+  %.sroa.0840.0885 = phi ptr [ %133, %.preheader.lr.ph ], [ %1490, %._crit_edge883 ]
   %147 = load ptr, ptr %136, align 8
   %148 = load ptr, ptr %8, align 8
   %.not905 = icmp eq ptr %147, %148
@@ -1256,7 +1256,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
 
 .lr.ph882:                                        ; preds = %._crit_edge871, %_ZN4Luau11getOpLengthE10LuauOpcode.exit
   %.0592880 = phi i32 [ %.1926, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ 15, %._crit_edge871 ]
-  %.0593878 = phi i32 [ %1489, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ %165, %._crit_edge871 ]
+  %.0593878 = phi i32 [ %1488, %_ZN4Luau11getOpLengthE10LuauOpcode.exit ], [ %165, %._crit_edge871 ]
   %168 = load ptr, ptr %139, align 8
   %169 = sext i32 %.0593878 to i64
   %170 = getelementptr inbounds i32, ptr %168, i64 %169
@@ -1359,7 +1359,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %196 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %195
   store i8 0, ptr %196, align 1
   store i8 0, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 197:                                              ; preds = %._crit_edge876
   %198 = load i32, ptr %170, align 4
@@ -1532,7 +1532,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit: ; preds = %277
   %286 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %285
   store i8 15, ptr %286, align 1
   store i8 15, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 switch.lookup:                                    ; preds = %277
   %287 = zext nneg i32 %.sroa.1.0.copyload.i to i64
@@ -1728,7 +1728,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i678: ; preds = %
   store i8 %382, ptr %385, align 1
   store i8 %382, ptr %190, align 1
   %.not.i680 = icmp eq i8 %382, 15
-  br i1 %.not.i680, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %386
+  br i1 %.not.i680, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread, label %386
 
 386:                                              ; preds = %374
   %.val.i681 = load ptr, ptr %9, align 8
@@ -1814,7 +1814,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i690: ; preds = %
   %432 = load i8, ptr %431, align 1
   %433 = getelementptr inbounds i8, ptr %190, i64 2
   store i8 %432, ptr %433, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 434:                                              ; preds = %._crit_edge876
   %435 = load i32, ptr %170, align 4
@@ -1831,7 +1831,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i690: ; preds = %
   %445 = load i8, ptr %444, align 1
   %446 = getelementptr inbounds i8, ptr %190, i64 2
   store i8 %445, ptr %446, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 447:                                              ; preds = %._crit_edge876
   %448 = load i32, ptr %170, align 4
@@ -2635,7 +2635,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit727: ; preds = %796, %swi
 833:                                              ; preds = %.sink.split968, %825, %.thread850
   %834 = phi i8 [ 15, %825 ], [ 15, %.thread850 ], [ %.sink970, %.sink.split968 ]
   store i8 %834, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 835:                                              ; preds = %._crit_edge876
   %836 = load i32, ptr %170, align 4
@@ -2721,7 +2721,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit732: ; preds = %835, %swi
 871:                                              ; preds = %.sink.split971, %855, %853, %863, %857
   %872 = phi i8 [ 15, %855 ], [ 15, %853 ], [ 15, %863 ], [ 15, %857 ], [ %.sink973, %.sink.split971 ]
   store i8 %872, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 873:                                              ; preds = %._crit_edge876
   %874 = load i32, ptr %170, align 4
@@ -2738,7 +2738,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit732: ; preds = %835, %swi
   %884 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %883
   store i8 1, ptr %884, align 1
   store i8 1, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 885:                                              ; preds = %._crit_edge876
   %886 = load i32, ptr %170, align 4
@@ -2786,7 +2786,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit732: ; preds = %835, %swi
 908:                                              ; preds = %.sink.split974, %902, %898
   %909 = phi i8 [ 15, %902 ], [ 15, %898 ], [ %.sink976, %.sink.split974 ]
   store i8 %909, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 910:                                              ; preds = %._crit_edge876
   %911 = load i32, ptr %170, align 4
@@ -2803,7 +2803,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit732: ; preds = %835, %swi
   %921 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %920
   store i8 2, ptr %921, align 1
   store i8 2, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 922:                                              ; preds = %._crit_edge876, %._crit_edge876
   %923 = load i32, ptr %170, align 4
@@ -2850,7 +2850,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit732: ; preds = %835, %swi
   %956 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %955
   store i8 %954, ptr %956, align 1
   %.not.i734 = icmp eq i8 %954, 15
-  br i1 %.not.i734, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %957
+  br i1 %.not.i734, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread, label %957
 
 957:                                              ; preds = %928
   %.val.i735 = load ptr, ptr %9, align 8
@@ -3480,7 +3480,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i816: ; preds = %
   %1311 = zext nneg i32 %1310 to i64
   %1312 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1311
   store i8 2, ptr %1312, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 1313:                                             ; preds = %._crit_edge876
   %1314 = load i32, ptr %170, align 4
@@ -3490,7 +3490,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i816: ; preds = %
   %1318 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1317
   store i8 3, ptr %1318, align 1
   store i8 3, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 1319:                                             ; preds = %._crit_edge876, %._crit_edge876
   %1320 = load i32, ptr %170, align 4
@@ -3618,7 +3618,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit821: ; preds = %1325, %sw
 1396:                                             ; preds = %._crit_edge876
   %1397 = load i8, ptr @_ZN5FFlag31LuauCodegenAnalyzeHostVectorOpsE, align 8
   %1398 = trunc i8 %1397 to i1
-  br i1 %1398, label %1399, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br i1 %1398, label %1399, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 1399:                                             ; preds = %1396
   %1400 = load i32, ptr %170, align 4
@@ -3638,7 +3638,7 @@ _ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit821: ; preds = %1325, %sw
 1407:                                             ; preds = %1402, %1399
   %1408 = load i8, ptr %190, align 1
   %.not.i822 = icmp eq i8 %1408, 15
-  br i1 %.not.i822, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1409
+  br i1 %.not.i822, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread, label %1409
 
 1409:                                             ; preds = %1407
   %.val.i823 = load ptr, ptr %9, align 8
@@ -3741,7 +3741,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i832: ; preds = %
   %1467 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1466
   store i8 %1465, ptr %1467, align 1
   store i8 %1465, ptr %190, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 1468:                                             ; preds = %._crit_edge876
   %1469 = load i32, ptr %170, align 4
@@ -3752,7 +3752,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i832: ; preds = %
   %1474 = load i8, ptr %1473, align 1
   %.val639 = load ptr, ptr %140, align 8
   %.not.i834 = icmp eq i8 %1474, 15
-  br i1 %.not.i834, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit, label %1475
+  br i1 %.not.i834, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread, label %1475
 
 1475:                                             ; preds = %1468
   %.val640 = load ptr, ptr %141, align 8
@@ -3763,21 +3763,21 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i832: ; preds = %
   %1480 = ptrtoint ptr %.val639 to i64
   %1481 = sub i64 %1479, %1480
   %1482 = icmp ugt i64 %1481, %1478
-  br i1 %1482, label %1483, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br i1 %1482, label %1483, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 1483:                                             ; preds = %1475
   %1484 = getelementptr inbounds i8, ptr %.val639, i64 %1478
   %1485 = load i8, ptr %1484, align 1
   %1486 = icmp eq i8 %1485, 15
-  br i1 %1486, label %1487, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br i1 %1486, label %1487, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 1487:                                             ; preds = %1483
   store i8 %1474, ptr %1484, align 1
-  br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
+  br label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
 
 _ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit: ; preds = %1445, %1441, %.loopexit.i826, %1434, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i832, %1300, %1296, %.loopexit.i810, %1289, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i816, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit805, %1178, %1174, %.loopexit.i774, %1167, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i780, %1109, %1105, %.loopexit.i762, %1098, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i768, %1047, %1043, %.loopexit.i750, %1036, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i756, %992, %991, %987, %.loopexit.i738, %980, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i744, %420, %416, %.loopexit.i684, %409, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i690, %373, %369, %.loopexit.i672, %362, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i678, %324, %320, %.loopexit.i656, %313, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i662, %276, %272, %.loopexit.i644, %265, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i650, %236, %232, %.loopexit.i, %225, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i, %._crit_edge876, %1319, %922, %794, %757, %711, %673, %636, %586, %541
   %.1 = phi i32 [ %.0592880, %._crit_edge876 ], [ %.0592880, %1319 ], [ %.0592880, %922 ], [ %.0592880, %794 ], [ %.0592880, %757 ], [ %.0592880, %711 ], [ %.0592880, %673 ], [ %.0592880, %636 ], [ %.0592880, %586 ], [ %.0592880, %541 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i ], [ %.0592880, %225 ], [ %.0592880, %.loopexit.i ], [ %.0592880, %232 ], [ %.0592880, %236 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i650 ], [ %.0592880, %265 ], [ %.0592880, %.loopexit.i644 ], [ %.0592880, %272 ], [ %.0592880, %276 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i662 ], [ %.0592880, %313 ], [ %.0592880, %.loopexit.i656 ], [ %.0592880, %320 ], [ %.0592880, %324 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i678 ], [ %.0592880, %362 ], [ %.0592880, %.loopexit.i672 ], [ %.0592880, %369 ], [ %.0592880, %373 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i690 ], [ %.0592880, %409 ], [ %.0592880, %.loopexit.i684 ], [ %.0592880, %416 ], [ %.0592880, %420 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i744 ], [ %.0592880, %980 ], [ %.0592880, %.loopexit.i738 ], [ %.0592880, %987 ], [ %.0592880, %991 ], [ %.0592880, %992 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i756 ], [ %.0592880, %1036 ], [ %.0592880, %.loopexit.i750 ], [ %.0592880, %1043 ], [ %.0592880, %1047 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i768 ], [ %.0592880, %1098 ], [ %.0592880, %.loopexit.i762 ], [ %.0592880, %1105 ], [ %.0592880, %1109 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i780 ], [ %.0592880, %1167 ], [ %.0592880, %.loopexit.i774 ], [ %.0592880, %1174 ], [ %.0592880, %1178 ], [ %.0592880, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit805 ], [ %.0592880, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i816 ], [ %.0592880, %1289 ], [ %.0592880, %.loopexit.i810 ], [ %.0592880, %1296 ], [ %.0592880, %1300 ], [ 15, %_ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i832 ], [ 15, %1434 ], [ 15, %.loopexit.i826 ], [ 15, %1441 ], [ 15, %1445 ]
-  switch i8 %trunc, label %1488 [
+  switch i8 %trunc, label %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread [
     i8 7, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
     i8 8, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
     i8 12, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
@@ -3803,20 +3803,21 @@ _ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit: ; preds = %14
     i8 80, label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
   ]
 
-1488:                                             ; preds = %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
+_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread: ; preds = %191, %421, %434, %833, %871, %873, %908, %910, %1301, %1313, %1464, %1396, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit, %374, %928, %1407, %1468, %1475, %1483, %1487, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit
+  %.1927 = phi i32 [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.0592880, %1487 ], [ %.0592880, %1483 ], [ %.0592880, %1475 ], [ %.0592880, %1468 ], [ 15, %1407 ], [ %.0592880, %928 ], [ %.0592880, %374 ], [ %.0592880, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ %.0592880, %191 ], [ %.0592880, %421 ], [ %.0592880, %434 ], [ %.0592880, %833 ], [ %.0592880, %871 ], [ %.0592880, %873 ], [ %.0592880, %908 ], [ %.0592880, %910 ], [ %.0592880, %1301 ], [ %.0592880, %1313 ], [ %.0592880, %1396 ], [ %.0592880, %1464 ]
   br label %_ZN4Luau11getOpLengthE10LuauOpcode.exit
 
-_ZN4Luau11getOpLengthE10LuauOpcode.exit:          ; preds = %.thread922, %532, %1378, %1382, %1384, %1361, %1371, %1369, %1367, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit667, %1048, %1110, %191, %421, %434, %833, %871, %873, %908, %910, %1301, %1313, %1464, %1396, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit, %374, %928, %1407, %1468, %1475, %1483, %1487, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %1488
-  %.1926 = phi i32 [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %1488 ], [ %.0592880, %1487 ], [ %.0592880, %1483 ], [ %.0592880, %1475 ], [ %.0592880, %1468 ], [ 15, %1407 ], [ %.0592880, %928 ], [ %.0592880, %374 ], [ %.0592880, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ %.0592880, %191 ], [ %.0592880, %421 ], [ %.0592880, %434 ], [ %.0592880, %833 ], [ %.0592880, %871 ], [ %.0592880, %873 ], [ %.0592880, %908 ], [ %.0592880, %910 ], [ %.0592880, %1301 ], [ %.0592880, %1313 ], [ %.0592880, %1396 ], [ %.0592880, %1464 ], [ %.0592880, %1110 ], [ %.0592880, %1048 ], [ %.0592880, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit667 ], [ %.0592880, %.thread922 ], [ %.0592880, %532 ], [ %.0592880, %1378 ], [ %.0592880, %1382 ], [ %1395, %1384 ], [ %.0592880, %1367 ], [ %.0592880, %1369 ], [ %1377, %1371 ], [ %1366, %1361 ]
-  %.0.i835 = phi i32 [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 1, %1488 ], [ 1, %1487 ], [ 1, %1483 ], [ 1, %1475 ], [ 1, %1468 ], [ 1, %1407 ], [ 1, %928 ], [ 1, %374 ], [ 1, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit ], [ 1, %191 ], [ 1, %421 ], [ 1, %434 ], [ 1, %833 ], [ 1, %871 ], [ 1, %873 ], [ 1, %908 ], [ 1, %910 ], [ 1, %1301 ], [ 1, %1313 ], [ 1, %1396 ], [ 1, %1464 ], [ 2, %1110 ], [ 2, %1048 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit667 ], [ 2, %.thread922 ], [ 2, %532 ], [ 2, %1378 ], [ 2, %1382 ], [ 2, %1384 ], [ 2, %1367 ], [ 2, %1369 ], [ 2, %1371 ], [ 2, %1361 ]
-  %1489 = add nsw i32 %.0.i835, %.0593878
-  %1490 = load i32, ptr %166, align 4
-  %.not = icmp sgt i32 %1489, %1490
+_ZN4Luau11getOpLengthE10LuauOpcode.exit:          ; preds = %.thread922, %532, %1378, %1382, %1384, %1361, %1371, %1369, %1367, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit667, %1048, %1110, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread
+  %.1926 = phi i32 [ %.1927, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ %.0592880, %1110 ], [ %.0592880, %1048 ], [ %.0592880, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit667 ], [ %.0592880, %.thread922 ], [ %.0592880, %532 ], [ %.0592880, %1378 ], [ %.0592880, %1382 ], [ %1395, %1384 ], [ %.0592880, %1367 ], [ %.0592880, %1369 ], [ %1377, %1371 ], [ %1366, %1361 ]
+  %.0.i835 = phi i32 [ 1, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit.thread ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %_ZN4Luau7CodeGenL13refineRegTypeERNS0_16BytecodeTypeInfoEhih.exit ], [ 2, %1110 ], [ 2, %1048 ], [ 2, %_ZN4Luau7CodeGenL22getBytecodeConstantTagEP5Protoj.exit667 ], [ 2, %.thread922 ], [ 2, %532 ], [ 2, %1378 ], [ 2, %1382 ], [ 2, %1384 ], [ 2, %1367 ], [ 2, %1369 ], [ 2, %1371 ], [ 2, %1361 ]
+  %1488 = add nsw i32 %.0.i835, %.0593878
+  %1489 = load i32, ptr %166, align 4
+  %.not = icmp sgt i32 %1488, %1489
   br i1 %.not, label %._crit_edge883, label %.lr.ph882, !llvm.loop !33
 
 ._crit_edge883:                                   ; preds = %_ZN4Luau11getOpLengthE10LuauOpcode.exit, %._crit_edge871
-  %1491 = getelementptr inbounds i8, ptr %.sroa.0840.0885, i64 8
-  %.not851 = icmp eq ptr %1491, %135
+  %1490 = getelementptr inbounds i8, ptr %.sroa.0840.0885, i64 8
+  %.not851 = icmp eq ptr %1490, %135
   br i1 %.not851, label %._crit_edge886, label %.preheader
 
 ._crit_edge886:                                   ; preds = %._crit_edge883, %_ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit

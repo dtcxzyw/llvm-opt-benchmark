@@ -1706,7 +1706,7 @@ return.loopexit:                                  ; preds = %while.body, %while.
   br label %return
 
 return:                                           ; preds = %if.end14, %sw.bb10, %sw.bb5, %sw.bb, %while.body, %return.loopexit, %sw.bb1
-  %retval.0 = phi i32 [ %call2, %sw.bb1 ], [ 0, %while.body ], [ 1, %if.end14 ], [ 0, %sw.bb10 ], [ 1, %sw.bb5 ], [ 0, %sw.bb ], [ 1, %return.loopexit ]
+  %retval.0 = phi i32 [ %call2, %sw.bb1 ], [ 1, %return.loopexit ], [ 0, %while.body ], [ 1, %if.end14 ], [ 0, %sw.bb10 ], [ 1, %sw.bb5 ], [ 0, %sw.bb ]
   ret i32 %retval.0
 }
 
@@ -5271,7 +5271,7 @@ return.loopexit:                                  ; preds = %while.body, %while.
   br label %return
 
 return:                                           ; preds = %sw.bb11, %sw.bb6, %sw.bb1, %sw.bb, %while.body, %return.loopexit
-  %retval.0 = phi i32 [ 0, %while.body ], [ 0, %sw.bb11 ], [ 1, %sw.bb6 ], [ 0, %sw.bb1 ], [ 0, %sw.bb ], [ 1, %return.loopexit ]
+  %retval.0 = phi i32 [ 1, %return.loopexit ], [ 0, %while.body ], [ 0, %sw.bb11 ], [ 1, %sw.bb6 ], [ 0, %sw.bb1 ], [ 0, %sw.bb ]
   ret i32 %retval.0
 }
 
@@ -5294,26 +5294,27 @@ while.body:                                       ; preds = %while.body.backedge
 sw.bb1:                                           ; preds = %while.body
   %call = tail call fastcc i32 @frame_sync_(ptr noundef nonnull %decoder)
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %while.body.backedge
+  br i1 %tobool.not, label %return.loopexit, label %while.body.backedge
 
 sw.bb2:                                           ; preds = %while.body
   %call3 = call fastcc i32 @read_frame_(ptr noundef nonnull %decoder, ptr noundef %got_a_frame, i32 noundef 0)
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return, label %if.end6
+  br i1 %tobool4.not, label %return.loopexit, label %if.end6
 
 if.end6:                                          ; preds = %sw.bb2
   %2 = load i32, ptr %got_a_frame, align 4
   %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %while.body.backedge, label %return
+  br i1 %tobool7.not, label %while.body.backedge, label %return.loopexit
 
 while.body.backedge:                              ; preds = %if.end6, %sw.bb1
   br label %while.body
 
-return.loopexit:                                  ; preds = %while.body
+return.loopexit:                                  ; preds = %sw.bb1, %sw.bb2, %if.end6, %while.body
+  %retval.0.ph = phi i32 [ 0, %while.body ], [ 1, %if.end6 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ]
   br label %return
 
-return:                                           ; preds = %if.end6, %sw.bb2, %sw.bb1, %while.body, %while.body, %return.loopexit
-  %retval.0 = phi i32 [ 1, %while.body ], [ 1, %while.body ], [ 1, %if.end6 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %return.loopexit ]
+return:                                           ; preds = %while.body, %while.body, %return.loopexit
+  %retval.0 = phi i32 [ %retval.0.ph, %return.loopexit ], [ 1, %while.body ], [ 1, %while.body ]
   ret i32 %retval.0
 }
 

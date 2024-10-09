@@ -6587,7 +6587,7 @@ afm_stream_read_string.exit.thread:               ; preds = %16
 24:                                               ; preds = %27, %20
   %25 = phi ptr [ %28, %27 ], [ %21, %20 ]
   %26 = icmp ult ptr %25, %23
-  br i1 %26, label %27, label %afm_stream_read_string.exit.thread42
+  br i1 %26, label %27, label %afm_stream_read_string.exit.thread42.loopexit
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %25, i64 1
@@ -6599,12 +6599,13 @@ afm_stream_read_string.exit.thread:               ; preds = %16
     i8 26, label %afm_stream_read_string.exit.thread42.loopexit
   ]
 
-afm_stream_read_string.exit.thread42.loopexit:    ; preds = %27
+afm_stream_read_string.exit.thread42.loopexit:    ; preds = %27, %24
+  %.ph = phi ptr [ %28, %27 ], [ %25, %24 ]
   br label %afm_stream_read_string.exit.thread42
 
-afm_stream_read_string.exit.thread42:             ; preds = %24, %27, %27, %afm_stream_read_string.exit.thread42.loopexit
-  %30 = phi ptr [ %28, %27 ], [ %28, %27 ], [ %25, %24 ], [ %28, %afm_stream_read_string.exit.thread42.loopexit ]
-  %storemerge.i = phi i32 [ 2, %27 ], [ 2, %27 ], [ 3, %24 ], [ 3, %afm_stream_read_string.exit.thread42.loopexit ]
+afm_stream_read_string.exit.thread42:             ; preds = %27, %27, %afm_stream_read_string.exit.thread42.loopexit
+  %30 = phi ptr [ %.ph, %afm_stream_read_string.exit.thread42.loopexit ], [ %28, %27 ], [ %28, %27 ]
+  %storemerge.i = phi i32 [ 3, %afm_stream_read_string.exit.thread42.loopexit ], [ 2, %27 ], [ 2, %27 ]
   store i32 %storemerge.i, ptr %8, align 8
   store ptr %22, ptr %4, align 8
   br label %32

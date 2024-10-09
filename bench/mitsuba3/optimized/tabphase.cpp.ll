@@ -3307,7 +3307,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
     i8 117, label %.loopexit229
     i8 100, label %.loopexit229
     i8 105, label %.loopexit229
-    i8 111, label %.loopexit259
+    i8 111, label %.loopexit260
     i8 88, label %232
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -3451,11 +3451,11 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
 .loopexit229:                                     ; preds = %229, %229, %229
   br label %.loopexit
 
-.loopexit259:                                     ; preds = %229
+.loopexit260:                                     ; preds = %229
   br label %.loopexit
 
-.loopexit:                                        ; preds = %229, %229, %.loopexit259, %.loopexit229, %232
-  %.sink222 = phi i32 [ 8, %232 ], [ 2, %.loopexit229 ], [ 64, %.loopexit259 ], [ 8, %229 ], [ 8, %229 ]
+.loopexit:                                        ; preds = %232, %229, %229, %.loopexit260, %.loopexit229
+  %.sink222 = phi i32 [ 2, %.loopexit229 ], [ 64, %.loopexit260 ], [ 8, %229 ], [ 8, %229 ], [ 8, %232 ]
   %319 = load ptr, ptr %0, align 8
   %320 = getelementptr i8, ptr %319, i64 -24
   %321 = load i64, ptr %320, align 8

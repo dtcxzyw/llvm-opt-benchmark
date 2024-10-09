@@ -9806,7 +9806,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
 
 185:                                              ; preds = %181
   %exitcond.not.i = icmp eq i32 %.09715.i, 4
-  br i1 %exitcond.not.i, label %.thread.i, label %186
+  br i1 %exitcond.not.i, label %.thread.i.loopexit, label %186
 
 186:                                              ; preds = %185
   %187 = tail call zeroext i16 @FT_Stream_GetUShort(ptr noundef %4) #27
@@ -9818,11 +9818,12 @@ tt_sbit_decoder_init.exit:                        ; preds = %95
   %192 = icmp ugt i32 %188, %191
   br i1 %192, label %tt_face_load_sbix_image.exit, label %142
 
-.thread.i.loopexit:                               ; preds = %181
+.thread.i.loopexit:                               ; preds = %181, %185
+  %.2.ph.i.ph = phi i32 [ 7, %181 ], [ 3, %185 ]
   br label %.thread.i
 
-.thread.i:                                        ; preds = %185, %181, %181, %181, %.thread.i.loopexit
-  %.2.ph.i = phi i32 [ 2, %181 ], [ 2, %181 ], [ 2, %181 ], [ 3, %185 ], [ 7, %.thread.i.loopexit ]
+.thread.i:                                        ; preds = %181, %181, %181, %.thread.i.loopexit
+  %.2.ph.i = phi i32 [ %.2.ph.i.ph, %.thread.i.loopexit ], [ 2, %181 ], [ 2, %181 ], [ 2, %181 ]
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #27
   br label %tt_face_load_sbix_image.exit
 

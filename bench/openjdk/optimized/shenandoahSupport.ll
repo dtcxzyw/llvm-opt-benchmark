@@ -22017,27 +22017,27 @@ _ZN16Unique_Node_List6memberEP4Node.exit:         ; preds = %12
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, %18
   %.not56 = icmp eq i32 %23, 0
-  br i1 %.not56, label %_ZN9VectorSet8test_setEj.exit.i, label %.loopexit
+  br i1 %.not56, label %_ZN9VectorSet8test_setEj.exit.i, label %.loopexit.loopexit100
 
 24:                                               ; preds = %12
   tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %15) #11
   %.pre = load ptr, ptr %7, align 8
-  %.pre88 = zext nneg i32 %15 to i64
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %.pre88
-  %.pre89 = load i32, ptr %.phi.trans.insert, align 4
-  %.pre90 = and i32 %14, 31
-  %.pre92 = shl nuw i32 1, %.pre90
+  %.pre87 = zext nneg i32 %15 to i64
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %.pre87
+  %.pre88 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre89 = and i32 %14, 31
+  %.pre91 = shl nuw i32 1, %.pre89
   br label %_ZN9VectorSet8test_setEj.exit.i
 
 _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %_ZN16Unique_Node_List6memberEP4Node.exit, %24
-  %.pre-phi93 = phi i32 [ %18, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre92, %24 ]
-  %25 = phi i32 [ %22, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre89, %24 ]
-  %.pre-phi = phi i64 [ %20, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre88, %24 ]
+  %.pre-phi92 = phi i32 [ %18, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre91, %24 ]
+  %25 = phi i32 [ %22, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre88, %24 ]
+  %.pre-phi = phi i64 [ %20, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre87, %24 ]
   %26 = phi ptr [ %19, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ %.pre, %24 ]
   %27 = getelementptr inbounds i32, ptr %26, i64 %.pre-phi
-  %28 = or i32 %25, %.pre-phi93
+  %28 = or i32 %25, %.pre-phi92
   store i32 %28, ptr %27, align 4
-  %29 = and i32 %25, %.pre-phi93
+  %29 = and i32 %25, %.pre-phi92
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %30, label %_ZN16Unique_Node_List4pushEP4Node.exit
 
@@ -22065,7 +22065,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 7
   %or.cond = icmp eq i32 %40, 7
-  br i1 %or.cond, label %.loopexit, label %41
+  br i1 %or.cond, label %.loopexit.loopexit100, label %41
 
 41:                                               ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit
   %42 = load ptr, ptr %11, align 8
@@ -22077,7 +22077,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %50 = icmp eq ptr %48, %49
-  br i1 %50, label %.loopexit, label %51
+  br i1 %50, label %.loopexit.loopexit100, label %51
 
 51:                                               ; preds = %41
   %52 = getelementptr inbounds i8, ptr %48, i64 16
@@ -22112,7 +22112,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %54, %57, %60
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(20) %64) #11
   %70 = tail call noundef zeroext i1 @_ZN4Type6equalsEPKS_S1_(ptr noundef %65, ptr noundef %69) #11
-  br i1 %70, label %.loopexit, label %71
+  br i1 %70, label %.loopexit.loopexit100, label %71
 
 71:                                               ; preds = %_ZNK4Type8make_ptrEv.exit
   %72 = load i32, ptr %52, align 8
@@ -22140,13 +22140,13 @@ _ZNK4Type11make_oopptrEv.exit48:                  ; preds = %_ZNK4Type11make_oop
   %80 = getelementptr inbounds i8, ptr %.sink.i46, i64 48
   %81 = load ptr, ptr %80, align 8
   %.not43 = icmp eq ptr %81, null
-  br i1 %.not43, label %82, label %.loopexit
+  br i1 %.not43, label %82, label %.loopexit.loopexit100
 
 82:                                               ; preds = %_ZNK4Type11make_oopptrEv.exit.thread, %_ZNK4Type11make_oopptrEv.exit48, %_ZNK4Type11make_oopptrEv.exit
   %83 = load ptr, ptr %.tr6068, align 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(52) %.tr6068) #11
-  switch i32 %85, label %.loopexit.loopexit102 [
+  switch i32 %85, label %.loopexit.loopexit100 [
     i32 153, label %.loopexit
     i32 309, label %120
     i32 74, label %111
@@ -22196,7 +22196,7 @@ tailrecurse.backedge:                             ; preds = %99, %104, %107, %11
   %.tr60.be.in = phi ptr [ %102, %99 ], [ %106, %104 ], [ %110, %107 ], [ %119, %117 ], [ %123, %120 ]
   %.tr60.be = load ptr, ptr %.tr60.be.in, align 8
   %103 = icmp eq ptr %.tr60.be, null
-  br i1 %103, label %.loopexit, label %12
+  br i1 %103, label %.loopexit.loopexit100, label %12
 
 104:                                              ; preds = %82
   %105 = getelementptr inbounds i8, ptr %.tr6068, i64 8
@@ -22215,7 +22215,7 @@ tailrecurse.backedge:                             ; preds = %99, %104, %107, %11
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = tail call noundef zeroext i1 @_ZN34ShenandoahLoadReferenceBarrierNode18needs_barrier_implEP8PhaseGVNP4NodeR16Unique_Node_List(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef %115, ptr noundef nonnull align 8 dereferenceable(68) %3)
-  br i1 %116, label %.loopexit, label %117
+  br i1 %116, label %.loopexit.loopexit100, label %117
 
 117:                                              ; preds = %111
   %118 = load ptr, ptr %112, align 8
@@ -22228,11 +22228,12 @@ tailrecurse.backedge:                             ; preds = %99, %104, %107, %11
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   br label %tailrecurse.backedge
 
-.loopexit.loopexit102:                            ; preds = %82
+.loopexit.loopexit100:                            ; preds = %82, %111, %_ZNK4Type11make_oopptrEv.exit48, %_ZNK4Type8make_ptrEv.exit, %41, %_ZN16Unique_Node_List4pushEP4Node.exit, %_ZN16Unique_Node_List6memberEP4Node.exit, %tailrecurse.backedge
+  %.040.ph101 = phi i1 [ true, %82 ], [ true, %111 ], [ false, %_ZNK4Type11make_oopptrEv.exit48 ], [ false, %_ZNK4Type8make_ptrEv.exit ], [ false, %41 ], [ false, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ false, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ false, %tailrecurse.backedge ]
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %_ZN16Unique_Node_List6memberEP4Node.exit, %_ZN16Unique_Node_List4pushEP4Node.exit, %41, %_ZNK4Type8make_ptrEv.exit, %_ZNK4Type11make_oopptrEv.exit48, %111, %94, %90, %82, %82, %82, %.loopexit.loopexit102, %4, %.preheader
-  %.040 = phi i1 [ false, %.preheader ], [ false, %4 ], [ false, %82 ], [ false, %82 ], [ false, %82 ], [ %98, %90 ], [ %98, %94 ], [ false, %tailrecurse.backedge ], [ false, %_ZN16Unique_Node_List6memberEP4Node.exit ], [ false, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ false, %41 ], [ false, %_ZNK4Type8make_ptrEv.exit ], [ false, %_ZNK4Type11make_oopptrEv.exit48 ], [ true, %111 ], [ true, %.loopexit.loopexit102 ]
+.loopexit:                                        ; preds = %94, %90, %82, %82, %82, %.loopexit.loopexit100, %4, %.preheader
+  %.040 = phi i1 [ false, %.preheader ], [ false, %4 ], [ %.040.ph101, %.loopexit.loopexit100 ], [ false, %82 ], [ false, %82 ], [ false, %82 ], [ %98, %90 ], [ %98, %94 ]
   ret i1 %.040
 }
 

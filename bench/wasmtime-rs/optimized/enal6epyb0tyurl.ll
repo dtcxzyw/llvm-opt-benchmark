@@ -17580,7 +17580,7 @@ define internal fastcc void @_ZN5gimli4read4unit15skip_attributes17he3699ba3cfc7
   br label %36
 
 36:                                               ; preds = %31, %31, %31, %31, %31, %.loopexit714, %.loopexit645, %.loopexit576, %.loopexit502, %.loopexit380, %34, %33, %32, %35
-  %.sroa.13.0.i.ph.shrunk = phi i32 [ %spec.select.i.v, %35 ], [ 16, %33 ], [ %2, %.loopexit380 ], [ 8, %32 ], [ %.sroa.4.0.extract.shift.i.le, %34 ], [ 0, %.loopexit502 ], [ 1, %.loopexit576 ], [ 2, %.loopexit645 ], [ 3, %.loopexit714 ], [ 4, %31 ], [ 4, %31 ], [ 4, %31 ], [ 4, %31 ], [ 4, %31 ]
+  %.sroa.13.0.i.ph.shrunk = phi i32 [ %spec.select.i.v, %35 ], [ 8, %32 ], [ 16, %33 ], [ %.sroa.4.0.extract.shift.i.le, %34 ], [ %2, %.loopexit380 ], [ 0, %.loopexit502 ], [ 1, %.loopexit576 ], [ 2, %.loopexit645 ], [ 3, %.loopexit714 ], [ 4, %31 ], [ 4, %31 ], [ 4, %31 ], [ 4, %31 ], [ 4, %31 ]
   %37 = and i32 %.sroa.13.0.i.ph.shrunk, 255
   %38 = zext nneg i32 %37 to i64
   %39 = add i64 %.1, %38

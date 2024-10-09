@@ -23855,13 +23855,13 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i._ZL22isF
 
 _ZL22isForbiddenTypeAllowedRN5clang4SemaEPNS_4DeclERKNS_4sema17DelayedDiagnosticERNS_15UnavailableAttr14ImplicitReasonE.exit.i: ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i._ZL22isForbiddenTypeAllowedRN5clang4SemaEPNS_4DeclERKNS_4sema17DelayedDiagnosticERNS_15UnavailableAttr14ImplicitReasonE.exit_crit_edge.i, %.thread7.i.i, %.thread7.i.i
   %53 = phi ptr [ %.val.i, %.thread7.i.i ], [ %.val.i, %.thread7.i.i ], [ %.pre.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i._ZL22isForbiddenTypeAllowedRN5clang4SemaEPNS_4DeclERKNS_4sema17DelayedDiagnosticERNS_15UnavailableAttr14ImplicitReasonE.exit_crit_edge.i ]
-  %.0.i = phi i32 [ 2, %.thread7.i.i ], [ 2, %.thread7.i.i ], [ 1, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i._ZL22isForbiddenTypeAllowedRN5clang4SemaEPNS_4DeclERKNS_4sema17DelayedDiagnosticERNS_15UnavailableAttr14ImplicitReasonE.exit_crit_edge.i ]
+  %.sink.i.i = phi i32 [ 2, %.thread7.i.i ], [ 2, %.thread7.i.i ], [ 1, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i._ZL22isForbiddenTypeAllowedRN5clang4SemaEPNS_4DeclERKNS_4sema17DelayedDiagnosticERNS_15UnavailableAttr14ImplicitReasonE.exit_crit_edge.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.01732, i64 4
   %.sroa.02.0.copyload.i = load i32, ptr %54, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.02.0.copyload.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.2.0.insert.ext.i
-  %55 = call noundef ptr @_ZN5clang15UnavailableAttr14CreateImplicitERNS_10ASTContextEN4llvm9StringRefENS0_14ImplicitReasonENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23096) %53, ptr nonnull @.str.3, i64 0, i32 noundef %.0.i, i64 %.sroa.0.0.insert.insert.i, i32 noundef 0) #22
+  %55 = call noundef ptr @_ZN5clang15UnavailableAttr14CreateImplicitERNS_10ASTContextEN4llvm9StringRefENS0_14ImplicitReasonENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23096) %53, ptr nonnull @.str.3, i64 0, i32 noundef %.sink.i.i, i64 %.sroa.0.0.insert.insert.i, i32 noundef 0) #22
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %55) #22
   br label %_ZL26handleDelayedForbiddenTypeRN5clang4SemaERNS_4sema17DelayedDiagnosticEPNS_4DeclE.exit
 

@@ -673,9 +673,9 @@ gv_isspace.exit22.i.i.i:                          ; preds = %gv_isspace.exit22.i
   br label %104
 
 numFields.exit.i.i:                               ; preds = %98, %104, %104
-  %.131.ph.i.i.i = phi i32 [ %103, %104 ], [ %103, %104 ], [ %.011.i.i.i, %98 ]
-  %108 = icmp sgt i32 %.131.ph.i.i.i, 3
-  %109 = urem i32 %.131.ph.i.i.i, 3
+  %.132.i.i.i = phi i32 [ %103, %104 ], [ %103, %104 ], [ %.011.i.i.i, %98 ]
+  %108 = icmp sgt i32 %.132.i.i.i, 3
+  %109 = urem i32 %.132.i.i.i, 3
   %.not.i.i = icmp eq i32 %109, 1
   %or.cond.i.i = and i1 %108, %.not.i.i
   br i1 %or.cond.i.i, label %127, label %110
@@ -707,7 +707,7 @@ numFields.exit.i.i:                               ; preds = %98, %104, %104
   br label %237
 
 127:                                              ; preds = %numFields.exit.i.i
-  %128 = zext nneg i32 %.131.ph.i.i.i to i64
+  %128 = zext nneg i32 %.132.i.i.i to i64
   %129 = shl nuw nsw i64 %128, 4
   %130 = call ptr @gmalloc(i64 noundef %129) #20
   br label %131
@@ -715,7 +715,7 @@ numFields.exit.i.i:                               ; preds = %98, %104, %104
 131:                                              ; preds = %152, %127
   %.079116.i.i = phi ptr [ %130, %127 ], [ %159, %152 ]
   %.3115.i.i = phi ptr [ %.2.i.i, %127 ], [ %155, %152 ]
-  %.082114.i.i = phi i32 [ %.131.ph.i.i.i, %127 ], [ %160, %152 ]
+  %.082114.i.i = phi i32 [ %.132.i.i.i, %127 ], [ %160, %152 ]
   %132 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.3115.i.i, ptr noundef nonnull @.str.28, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #20
   %133 = icmp slt i32 %132, 2
   br i1 %133, label %134, label %152

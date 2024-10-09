@@ -41342,7 +41342,7 @@ default.unreachable361:                           ; preds = %171, %144, %.crited
 .thread188:                                       ; preds = %.thread185
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
-  br label %1045
+  br label %1042
 
 .thread182:                                       ; preds = %.critedge
   %167 = load i64, ptr %81, align 8, !noundef !15
@@ -41352,7 +41352,7 @@ default.unreachable361:                           ; preds = %171, %144, %.crited
 .thread189:                                       ; preds = %.thread182
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
-  br label %1045
+  br label %1044
 
 169:                                              ; preds = %162
   %170 = icmp eq i8 %137, 3
@@ -41363,19 +41363,19 @@ default.unreachable361:                           ; preds = %171, %144, %.crited
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
   switch i8 %137, label %default.unreachable361 [
-    i8 0, label %1045
+    i8 0, label %1047
     i8 1, label %1041
-    i8 2, label %1045
+    i8 2, label %1047
     i8 3, label %1042
-    i8 4, label %1043
+    i8 4, label %1044
     i8 5, label %1041
     i8 6, label %1041
-    i8 7, label %1045
+    i8 7, label %1047
     i8 8, label %1041
-    i8 9, label %1044
+    i8 9, label %1046
     i8 10, label %1041
-    i8 11, label %1045
-    i8 12, label %1045
+    i8 11, label %1047
+    i8 12, label %1047
   ]
 
 .thread187:                                       ; preds = %.thread185
@@ -43513,7 +43513,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i.i: ; 
   store i64 23, ptr %.sroa.537.0..sroa_idx, align 8
   br label %1013
 
-1018:                                             ; preds = %1045, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit132", %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit108", %143, %118, %114
+1018:                                             ; preds = %1047, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit132", %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit108", %143, %118, %114
   ret void
 
 "_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit": ; preds = %274, %.loopexit.split-lp
@@ -43576,28 +43576,30 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i.i: ; 
   br label %1039
 
 1041:                                             ; preds = %171, %171, %171, %171, %171
-  br label %1045
+  br label %1047
 
-1042:                                             ; preds = %171
-  br label %1045
+1042:                                             ; preds = %.thread188, %171
+  %1043 = phi i64 [ 0, %.thread188 ], [ %163, %171 ]
+  br label %1047
 
-1043:                                             ; preds = %171
-  br label %1045
+1044:                                             ; preds = %.thread189, %171
+  %1045 = phi i64 [ %167, %.thread189 ], [ %163, %171 ]
+  br label %1047
 
-1044:                                             ; preds = %171
-  br label %1045
+1046:                                             ; preds = %171
+  br label %1047
 
-1045:                                             ; preds = %.thread189, %.thread188, %171, %171, %171, %171, %171, %1044, %1043, %1042, %1041
-  %.sink = phi i64 [ 0, %1044 ], [ 4, %1041 ], [ 3, %171 ], [ 3, %171 ], [ 3, %171 ], [ 3, %171 ], [ 3, %171 ], [ 1, %.thread188 ], [ 1, %1042 ], [ 2, %.thread189 ], [ 2, %1043 ]
-  %1046 = phi i64 [ %163, %1044 ], [ %163, %1041 ], [ %163, %171 ], [ %163, %171 ], [ %163, %171 ], [ %163, %171 ], [ %163, %171 ], [ 0, %.thread188 ], [ %163, %1042 ], [ %167, %.thread189 ], [ %163, %1043 ]
+1047:                                             ; preds = %171, %171, %171, %171, %171, %1046, %1044, %1042, %1041
+  %.sink = phi i64 [ 0, %1046 ], [ 2, %1044 ], [ 1, %1042 ], [ 4, %1041 ], [ 3, %171 ], [ 3, %171 ], [ 3, %171 ], [ 3, %171 ], [ 3, %171 ]
+  %1048 = phi i64 [ %163, %1046 ], [ %1045, %1044 ], [ %1043, %1042 ], [ %163, %1041 ], [ %163, %171 ], [ %163, %171 ], [ %163, %171 ], [ %163, %171 ], [ %163, %171 ]
   store i64 %.sink, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
-  store i64 %1046, ptr %70, align 8
+  store i64 %1048, ptr %70, align 8
   store ptr %71, ptr %72, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hc09929a693372d93E", ptr %.sroa.471.0..sroa_idx, align 8
-  %1047 = getelementptr inbounds i8, ptr %72, i64 16
-  store ptr %70, ptr %1047, align 8
+  %1049 = getelementptr inbounds i8, ptr %72, i64 16
+  store ptr %70, ptr %1049, align 8
   %.sroa.475.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hc09929a693372d93E", ptr %.sroa.475.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !7801
@@ -52486,7 +52488,7 @@ switch.lookup:                                    ; preds = %110
   %123 = getelementptr inbounds i8, ptr %6, i64 16
   br label %142
 
-._crit_edge:                                      ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit", %114, %.thread259
+._crit_edge:                                      ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit", %.thread259, %114
   %124 = phi ptr [ %109, %.thread259 ], [ %111, %114 ], [ %111, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h1ba25982cd8a7074E.exit" ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   %125 = getelementptr inbounds i8, ptr %1, i64 29133

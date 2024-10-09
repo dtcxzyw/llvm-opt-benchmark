@@ -1899,7 +1899,7 @@ set_nottype_bits.exit:                            ; preds = %.loopexit429, %.loo
   br label %.loopexit433
 
 .loopexit433:                                     ; preds = %.outer._crit_edge, %38, %530, %.loopexit439, %184, %141, %.loopexit, %32, %32, %32, %32, %.loopexit433.loopexit757, %.loopexit433.loopexit669, %5
-  %.0 = phi i32 [ 4, %5 ], [ 3, %.loopexit433.loopexit669 ], [ 0, %.loopexit433.loopexit757 ], [ 2, %32 ], [ 2, %32 ], [ 2, %32 ], [ 2, %32 ], [ 3, %.loopexit ], [ %142, %141 ], [ %186, %184 ], [ 0, %.loopexit439 ], [ 0, %530 ], [ %.2282579, %.outer._crit_edge ], [ 0, %38 ]
+  %.0 = phi i32 [ 4, %5 ], [ 3, %.loopexit433.loopexit669 ], [ 0, %.loopexit433.loopexit757 ], [ 2, %32 ], [ 2, %32 ], [ 2, %32 ], [ 2, %32 ], [ 3, %.loopexit ], [ %142, %141 ], [ %186, %184 ], [ 0, %.loopexit439 ], [ 0, %530 ], [ 0, %38 ], [ %.2282579, %.outer._crit_edge ]
   ret i32 %.0
 }
 
@@ -1973,20 +1973,20 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
     i8 -114, label %72
     i8 -118, label %72
     i8 -113, label %72
-    i8 -92, label %.loopexit450.loopexit525
-    i8 -91, label %.loopexit450.loopexit525
+    i8 -92, label %.loopexit450.loopexit524
+    i8 -91, label %.loopexit450.loopexit524
     i8 120, label %100
     i8 121, label %100
     i8 122, label %100
     i8 123, label %100
     i8 124, label %100
     i8 0, label %100
-    i8 127, label %.preheader524
-    i8 -128, label %.preheader524
-    i8 -127, label %.preheader524
-    i8 -126, label %.preheader524
-    i8 -125, label %.preheader524
-    i8 -124, label %.preheader524
+    i8 127, label %.preheader523
+    i8 -128, label %.preheader523
+    i8 -127, label %.preheader523
+    i8 -126, label %.preheader523
+    i8 -125, label %.preheader523
+    i8 -124, label %.preheader523
     i8 125, label %.loopexit448
     i8 126, label %.loopexit448
     i8 -111, label %.loopexit448
@@ -2121,7 +2121,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
     i8 -97, label %531
   ]
 
-.preheader524:                                    ; preds = %31, %31, %31, %31, %31, %31
+.preheader523:                                    ; preds = %31, %31, %31, %31, %31, %31
   br label %119
 
 34:                                               ; preds = %31, %31
@@ -2157,10 +2157,10 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 55:                                               ; preds = %31, %31, %31, %31, %31, %51, %47, %34
   %56 = call fastcc i32 @find_minlength(ptr noundef %0, ptr noundef nonnull %spec.select428, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.loopexit450, label %.preheader514
+  br i1 %57, label %.loopexit450, label %.preheader513
 
-.preheader514:                                    ; preds = %55, %.preheader514
-  %.6 = phi ptr [ %66, %.preheader514 ], [ %spec.select428, %55 ]
+.preheader513:                                    ; preds = %55, %.preheader513
+  %.6 = phi ptr [ %66, %.preheader513 ], [ %spec.select428, %55 ]
   %58 = getelementptr inbounds i8, ptr %.6, i64 1
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
@@ -2172,9 +2172,9 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %66 = getelementptr inbounds i8, ptr %.6, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 120
-  br i1 %68, label %.preheader514, label %69
+  br i1 %68, label %.preheader513, label %69
 
-69:                                               ; preds = %.preheader514
+69:                                               ; preds = %.preheader513
   %70 = add nsw i32 %56, %spec.select
   %71 = getelementptr inbounds i8, ptr %66, i64 3
   br label %.backedge
@@ -2255,8 +2255,8 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %118 = getelementptr inbounds i8, ptr %spec.select428, i64 3
   br label %.backedge
 
-119:                                              ; preds = %.preheader524, %119
-  %.8 = phi ptr [ %128, %119 ], [ %spec.select428, %.preheader524 ]
+119:                                              ; preds = %.preheader523, %119
+  %.8 = phi ptr [ %128, %119 ], [ %spec.select428, %.preheader523 ]
   %120 = getelementptr inbounds i8, ptr %.8, i64 1
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i64
@@ -2971,11 +2971,11 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %536 = getelementptr inbounds i8, ptr %spec.select428, i64 %535
   br label %.backedge
 
-.loopexit450.loopexit525:                         ; preds = %31, %31
+.loopexit450.loopexit524:                         ; preds = %31, %31
   br label %.loopexit450
 
-.loopexit450:                                     ; preds = %.critedge438, %.critedge435, %391, %235, %105, %81, %55, %.critedge, %328, %31, %.loopexit450.loopexit525, %14, %7
-  %.0341 = phi i32 [ 0, %7 ], [ -1, %14 ], [ -3, %31 ], [ %350, %.critedge ], [ -2, %328 ], [ %497, %.critedge438 ], [ %417, %.critedge435 ], [ -2, %391 ], [ -1, %235 ], [ %.2356, %105 ], [ %82, %81 ], [ %56, %55 ], [ -1, %.loopexit450.loopexit525 ]
+.loopexit450:                                     ; preds = %.critedge, %328, %.critedge438, %.critedge435, %391, %235, %105, %81, %55, %31, %.loopexit450.loopexit524, %14, %7
+  %.0341 = phi i32 [ 0, %7 ], [ -1, %14 ], [ -1, %.loopexit450.loopexit524 ], [ -3, %31 ], [ %497, %.critedge438 ], [ %417, %.critedge435 ], [ -2, %391 ], [ -1, %235 ], [ %.2356, %105 ], [ %82, %81 ], [ %56, %55 ], [ %350, %.critedge ], [ -2, %328 ]
   ret i32 %.0341
 }
 

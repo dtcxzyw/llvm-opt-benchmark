@@ -6358,7 +6358,7 @@ thread-pre-split:                                 ; preds = %7, %23
     i32 7, label %_ZNK3nix5Value4typeEb.exit
     i32 8, label %_ZNK3nix5Value4typeEb.exit
     i32 9, label %_ZNK3nix5Value4typeEb.exit
-    i32 16, label %_ZNK3nix5Value4typeEb.exit55
+    i32 16, label %.thread109
     i32 15, label %_ZNK3nix5Value4typeEb.exit61
     i32 11, label %_ZNK3nix5Value4typeEb.exit61
     i32 10, label %_ZNK3nix5Value4typeEb.exit61
@@ -6467,11 +6467,15 @@ _ZN3nix8Bindings4findENS_6SymbolE.exit.thread:    ; preds = %_ZSt11lower_boundIP
   %or.cond137.not = select i1 %68, i1 %.not50, i1 false
   br i1 %or.cond137.not, label %.lr.ph121, label %_ZNK3nix5Value4typeEb.exit55
 
-_ZNK3nix5Value4typeEb.exit61:                     ; preds = %32, %32, %32, %32, %32, %32, %32, %32
+.thread109:                                       ; preds = %32
+  br label %_ZNK3nix5Value4typeEb.exit61
+
+_ZNK3nix5Value4typeEb.exit61:                     ; preds = %32, %32, %32, %32, %32, %32, %32, %32, %.thread109
+  %70 = phi i1 [ true, %.thread109 ], [ false, %32 ], [ false, %32 ], [ false, %32 ], [ false, %32 ], [ false, %32 ], [ false, %32 ], [ false, %32 ], [ false, %32 ]
   br label %_ZNK3nix5Value4typeEb.exit55
 
-_ZNK3nix5Value4typeEb.exit55:                     ; preds = %.lr.ph, %.lr.ph121, %64, %_ZNK3nix5Value9listItemsEv.exit, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread, %32, %32, %32, %32, %_ZNK3nix5Value4typeEb.exit61
-  %.049 = phi i1 [ true, %32 ], [ true, %32 ], [ true, %32 ], [ %not..not, %64 ], [ false, %_ZNK3nix5Value4typeEb.exit61 ], [ true, %32 ], [ true, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread ], [ true, %_ZNK3nix5Value9listItemsEv.exit ], [ %68, %.lr.ph121 ], [ %45, %.lr.ph ]
+_ZNK3nix5Value4typeEb.exit55:                     ; preds = %.lr.ph, %.lr.ph121, %64, %_ZNK3nix5Value9listItemsEv.exit, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread, %32, %32, %32, %_ZNK3nix5Value4typeEb.exit61
+  %.049 = phi i1 [ %70, %_ZNK3nix5Value4typeEb.exit61 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ %not..not, %64 ], [ true, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread ], [ true, %_ZNK3nix5Value9listItemsEv.exit ], [ %68, %.lr.ph121 ], [ %45, %.lr.ph ]
   ret i1 %.049
 }
 

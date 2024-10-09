@@ -5499,14 +5499,14 @@ switch.early.test:                                ; preds = %_ZN6google8protobuf
     i8 10, label %_ZN6google8protobuf13ascii_isspaceEc.exit315.us
     i8 9, label %_ZN6google8protobuf13ascii_isspaceEc.exit315.us
     i8 13, label %_ZN6google8protobuf13ascii_isspaceEc.exit315.us
-    i8 0, label %.fold.split.loopexit1220
+    i8 0, label %.fold.split.loopexit1226
     i8 61, label %.fold.split
     i8 46, label %.fold.split
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit315.us:  ; preds = %227, %227, %227, %227, %227, %227
   %228 = icmp ugt i32 %.14541.us, 1
-  br i1 %228, label %212, label %.fold.split, !llvm.loop !43
+  br i1 %228, label %212, label %.fold.split.loopexit1226, !llvm.loop !43
 
 229:                                              ; preds = %switch.early.test
   %230 = trunc nuw i32 %.2241 to i8
@@ -5550,14 +5550,14 @@ _ZN6google8protobuf13ascii_isspaceEc.exit314.thread: ; preds = %229, %229, %229,
     i8 10, label %_ZN6google8protobuf13ascii_isspaceEc.exit315
     i8 9, label %_ZN6google8protobuf13ascii_isspaceEc.exit315
     i8 13, label %_ZN6google8protobuf13ascii_isspaceEc.exit315
-    i8 0, label %.fold.split.loopexit1249
+    i8 0, label %.fold.split.loopexit1255
     i8 61, label %.fold.split
     i8 46, label %.fold.split
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit315:     ; preds = %242, %242, %242, %242, %242, %242
   %243 = icmp ugt i32 %.14541, 1
-  br i1 %243, label %234, label %.fold.split, !llvm.loop !43
+  br i1 %243, label %234, label %.fold.split.loopexit1255, !llvm.loop !43
 
 244:                                              ; preds = %234
   %245 = zext nneg i8 %240 to i32
@@ -5602,18 +5602,20 @@ _ZN6google8protobuf13ascii_isspaceEc.exit315:     ; preds = %242, %242, %242, %2
   %.4252.ph559 = phi i32 [ %.5253, %.outer ], [ %.4252.ph559.ph, %.lr.ph542.preheader ]
   br label %234
 
-.fold.split.loopexit1220:                         ; preds = %227
+.fold.split.loopexit1226:                         ; preds = %227, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us
+  %.13.ph = phi i32 [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us ], [ %213, %227 ]
   br label %.fold.split
 
-.fold.split.loopexit1249:                         ; preds = %242
+.fold.split.loopexit1255:                         ; preds = %242, %_ZN6google8protobuf13ascii_isspaceEc.exit315
+  %.13.ph1256 = phi i32 [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit315 ], [ %235, %242 ]
   br label %.fold.split
 
-.fold.split:                                      ; preds = %.outer, %_ZN6google8protobuf13ascii_isspaceEc.exit315, %.outer.us, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us, %242, %242, %227, %227, %.fold.split.loopexit1249, %.fold.split.loopexit1220, %.preheader, %231
-  %.3251 = phi i32 [ %.1249, %231 ], [ %.1249, %.preheader ], [ %.4252.ph559.us, %227 ], [ %.4252.ph559.us, %227 ], [ %.4252.ph559, %242 ], [ %.4252.ph559, %242 ], [ %.4252.ph559.us, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us ], [ %.4252.ph559.us, %.fold.split.loopexit1220 ], [ %.5253.us, %.outer.us ], [ %.4252.ph559, %_ZN6google8protobuf13ascii_isspaceEc.exit315 ], [ %.4252.ph559, %.fold.split.loopexit1249 ], [ %.5253, %.outer ]
-  %.1245 = phi i32 [ %.0244, %231 ], [ %.0244, %.preheader ], [ %.2246.ph560.us, %227 ], [ %.2246.ph560.us, %227 ], [ %.2246.ph560, %242 ], [ %.2246.ph560, %242 ], [ %.2246.ph560.us, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us ], [ %.2246.ph560.us, %.fold.split.loopexit1220 ], [ %.3247.us, %.outer.us ], [ %.2246.ph560, %_ZN6google8protobuf13ascii_isspaceEc.exit315 ], [ %.2246.ph560, %.fold.split.loopexit1249 ], [ %.3247, %.outer ]
-  %.7236 = phi i32 [ %.3232, %231 ], [ %.3232, %.preheader ], [ %.8237.ph561.us, %227 ], [ %.8237.ph561.us, %227 ], [ %.8237.ph561, %242 ], [ %.8237.ph561, %242 ], [ %.8237.ph561.us, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us ], [ %.8237.ph561.us, %.fold.split.loopexit1220 ], [ %.9238.us, %.outer.us ], [ %.8237.ph561, %_ZN6google8protobuf13ascii_isspaceEc.exit315 ], [ %.8237.ph561, %.fold.split.loopexit1249 ], [ %.9238, %.outer ]
-  %.13226 = phi ptr [ %233, %231 ], [ %.6219, %.preheader ], [ %.14227540.us, %227 ], [ %.14227540.us, %227 ], [ %.14227540, %242 ], [ %.14227540, %242 ], [ %214, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us ], [ %214, %.fold.split.loopexit1220 ], [ %214, %.outer.us ], [ %236, %_ZN6google8protobuf13ascii_isspaceEc.exit315 ], [ %236, %.fold.split.loopexit1249 ], [ %236, %.outer ]
-  %.13 = phi i32 [ %232, %231 ], [ %.6, %.preheader ], [ %.14541.us, %227 ], [ %.14541.us, %227 ], [ %.14541, %242 ], [ %.14541, %242 ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit315.us ], [ %213, %.fold.split.loopexit1220 ], [ %213, %.outer.us ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit315 ], [ %235, %.fold.split.loopexit1249 ], [ %235, %.outer ]
+.fold.split:                                      ; preds = %.outer, %.outer.us, %242, %242, %227, %227, %.fold.split.loopexit1255, %.fold.split.loopexit1226, %.preheader, %231
+  %.3251 = phi i32 [ %.1249, %231 ], [ %.1249, %.preheader ], [ %.4252.ph559.us, %.fold.split.loopexit1226 ], [ %.4252.ph559, %.fold.split.loopexit1255 ], [ %.4252.ph559.us, %227 ], [ %.4252.ph559.us, %227 ], [ %.4252.ph559, %242 ], [ %.4252.ph559, %242 ], [ %.5253.us, %.outer.us ], [ %.5253, %.outer ]
+  %.1245 = phi i32 [ %.0244, %231 ], [ %.0244, %.preheader ], [ %.2246.ph560.us, %.fold.split.loopexit1226 ], [ %.2246.ph560, %.fold.split.loopexit1255 ], [ %.2246.ph560.us, %227 ], [ %.2246.ph560.us, %227 ], [ %.2246.ph560, %242 ], [ %.2246.ph560, %242 ], [ %.3247.us, %.outer.us ], [ %.3247, %.outer ]
+  %.7236 = phi i32 [ %.3232, %231 ], [ %.3232, %.preheader ], [ %.8237.ph561.us, %.fold.split.loopexit1226 ], [ %.8237.ph561, %.fold.split.loopexit1255 ], [ %.8237.ph561.us, %227 ], [ %.8237.ph561.us, %227 ], [ %.8237.ph561, %242 ], [ %.8237.ph561, %242 ], [ %.9238.us, %.outer.us ], [ %.9238, %.outer ]
+  %.13226 = phi ptr [ %233, %231 ], [ %.6219, %.preheader ], [ %214, %.fold.split.loopexit1226 ], [ %236, %.fold.split.loopexit1255 ], [ %.14227540.us, %227 ], [ %.14227540.us, %227 ], [ %.14227540, %242 ], [ %.14227540, %242 ], [ %214, %.outer.us ], [ %236, %.outer ]
+  %.13 = phi i32 [ %232, %231 ], [ %.6, %.preheader ], [ %.13.ph, %.fold.split.loopexit1226 ], [ %.13.ph1256, %.fold.split.loopexit1255 ], [ %.14541.us, %227 ], [ %.14541.us, %227 ], [ %.14541, %242 ], [ %.14541, %242 ], [ %213, %.outer.us ], [ %235, %.outer ]
   switch i32 %.1245, label %default.unreachable [
     i32 0, label %._crit_edge
     i32 1, label %_ZN6google8protobuf13ascii_isspaceEc.exit314

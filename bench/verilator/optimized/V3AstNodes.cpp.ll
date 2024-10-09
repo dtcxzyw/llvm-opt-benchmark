@@ -84624,20 +84624,20 @@ _ZNK14VBasicDTypeKwd10isUnsignedEv.exit:          ; preds = %16, %switch.lookup,
     i8 23, label %35
     i8 5, label %35
     i8 6, label %35
-    i8 22, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread145
+    i8 22, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163
     i8 8, label %35
-    i8 9, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
+    i8 9, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
     i8 10, label %35
     i8 11, label %35
-    i8 12, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread100
-    i8 14, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread105
-    i8 15, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread110
-    i8 16, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread115
-    i8 17, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread120
-    i8 18, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread125
-    i8 19, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread130
-    i8 20, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135
-    i8 21, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread140
+    i8 12, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+    i8 14, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131
+    i8 15, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135
+    i8 16, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139
+    i8 17, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143
+    i8 18, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147
+    i8 19, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151
+    i8 20, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155
+    i8 21, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159
   ]
 
 35:                                               ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34
@@ -84659,338 +84659,299 @@ _ZNK14VBasicDTypeKwd10isUnsignedEv.exit:          ; preds = %16, %switch.lookup,
   %.sroa.0.0.copyload.i29 = phi i8 [ %.sroa.0.0.copyload.i29.pr, %35 ], [ %.sroa.0.0.copyload.i25, %34 ]
   switch i8 %.sroa.0.0.copyload.i29, label %41 [
     i8 1, label %_ZNK14VBasicDTypeKwd5widthEv.exit31
-    i8 2, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-    i8 3, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread153
+    i8 2, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
+    i8 3, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread99
     i8 4, label %_ZNK14VBasicDTypeKwd5widthEv.exit31
-    i8 5, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread157
-    i8 6, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread161
+    i8 5, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread103
+    i8 6, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread107
     i8 7, label %_ZNK14VBasicDTypeKwd5widthEv.exit31
-    i8 8, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread165
-    i8 9, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
-    i8 10, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread169
-    i8 11, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread173
-    i8 12, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread100
-    i8 14, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread105
-    i8 15, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread110
-    i8 16, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread115
-    i8 17, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread120
-    i8 18, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread125
-    i8 19, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread130
-    i8 20, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135
-    i8 21, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread140
-    i8 22, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread145
-    i8 23, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread177
-    i8 24, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread181
+    i8 8, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+    i8 9, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+    i8 10, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread119
+    i8 11, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+    i8 12, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+    i8 14, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131
+    i8 15, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135
+    i8 16, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139
+    i8 17, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143
+    i8 18, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147
+    i8 19, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151
+    i8 20, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155
+    i8 21, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159
+    i8 22, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163
+    i8 23, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread167
+    i8 24, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread171
   ]
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread153:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread157:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread161:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread165:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread169:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread173:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread177:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread181:    ; preds = %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
 
 41:                                               ; preds = %.critedge
   br label %_ZNK14VBasicDTypeKwd5widthEv.exit31
 
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread:       ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread100:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread105:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread110:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread115:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread120:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread125:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread130:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread140:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit31.thread145:    ; preds = %34, %.critedge
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
 _ZNK14VBasicDTypeKwd5widthEv.exit31:              ; preds = %.critedge, %.critedge, %.critedge, %41
   %.0.i30 = phi i32 [ 0, %41 ], [ 1, %.critedge ], [ 1, %.critedge ], [ 1, %.critedge ]
-  switch i8 %.sroa.0.0.copyload.i29, label %57 [
+  switch i8 %.sroa.0.0.copyload.i29, label %42 [
     i8 1, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-    i8 2, label %42
-    i8 3, label %43
+    i8 2, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
+    i8 3, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread99
     i8 4, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-    i8 5, label %44
-    i8 6, label %45
+    i8 5, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread103
+    i8 6, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread107
     i8 7, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-    i8 24, label %56
-    i8 23, label %55
-    i8 22, label %54
-    i8 21, label %53
-    i8 20, label %52
-    i8 14, label %46
-    i8 15, label %47
-    i8 16, label %48
-    i8 17, label %49
-    i8 18, label %50
-    i8 19, label %51
+    i8 24, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread171
+    i8 23, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread167
+    i8 22, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163
+    i8 21, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159
+    i8 20, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155
+    i8 14, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131
+    i8 15, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135
+    i8 16, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139
+    i8 17, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143
+    i8 18, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147
+    i8 19, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151
   ]
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread:       ; preds = %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i3097 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 8, %.critedge ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread99:     ; preds = %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30102 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 64, %.critedge ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread103:    ; preds = %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30106 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 32, %.critedge ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread107:    ; preds = %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30110 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 32, %.critedge ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread119:    ; preds = %.critedge
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131:    ; preds = %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30134 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135:    ; preds = %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30138 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139:    ; preds = %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30142 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143:    ; preds = %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30146 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147:    ; preds = %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30150 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151:    ; preds = %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31
+  %.0.i30154 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155:    ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31, %34, %.critedge
+  %.0.i30158 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159:    ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31, %34, %.critedge
+  %.0.i30162 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163:    ; preds = %34, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %.critedge
+  %.0.i30166 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 0, %.critedge ], [ 0, %34 ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread167:    ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31, %.critedge
+  %.0.i30170 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 32, %.critedge ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
+
+_ZNK14VBasicDTypeKwd5widthEv.exit31.thread171:    ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31, %.critedge
+  %.0.i30174 = phi i32 [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 64, %.critedge ]
+  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
 
 42:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
   br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
 
-43:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-44:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-45:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-46:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-47:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-48:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-49:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-50:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-51:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-52:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-53:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-54:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-55:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-56:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-57:                                               ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31
-  br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
-
-_ZNK14VBasicDTypeKwd5widthEv.exit34:              ; preds = %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread181, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread177, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread145, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread140, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread130, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread125, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread120, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread115, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread110, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread105, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread100, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread173, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread169, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread165, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread161, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread157, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread153, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57
-  %.0.i3098 = phi i32 [ %.0.i30, %57 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %42 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread153 ], [ %.0.i30, %43 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread157 ], [ %.0.i30, %44 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread161 ], [ %.0.i30, %45 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread165 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread169 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread173 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread100 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread105 ], [ %.0.i30, %46 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread110 ], [ %.0.i30, %47 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread115 ], [ %.0.i30, %48 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread120 ], [ %.0.i30, %49 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread125 ], [ %.0.i30, %50 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread130 ], [ %.0.i30, %51 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135 ], [ %.0.i30, %52 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread140 ], [ %.0.i30, %53 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread145 ], [ %.0.i30, %54 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread177 ], [ %.0.i30, %55 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread181 ], [ %.0.i30, %56 ], [ 8, %.critedge ]
-  %.0.i33 = phi i32 [ 0, %57 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 8, %42 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread153 ], [ 64, %43 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread157 ], [ 32, %44 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread161 ], [ 32, %45 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread165 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread169 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread173 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread100 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread105 ], [ 0, %46 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread110 ], [ 0, %47 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread115 ], [ 0, %48 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread120 ], [ 0, %49 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread125 ], [ 0, %50 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread130 ], [ 0, %51 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135 ], [ 0, %52 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread140 ], [ 0, %53 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread145 ], [ 0, %54 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread177 ], [ 32, %55 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread181 ], [ 64, %56 ], [ 8, %.critedge ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 %.0.i3098, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 156
-  store i32 %.0.i33, ptr %59, align 4
+_ZNK14VBasicDTypeKwd5widthEv.exit34:              ; preds = %.critedge, %34, %.critedge, %.critedge, %34, %.critedge, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread99, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread103, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread107, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread119, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread167, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread171, %42
+  %.0.i3098 = phi i32 [ %.0.i30, %42 ], [ %.0.i30174, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread171 ], [ %.0.i30170, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread167 ], [ %.0.i30166, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163 ], [ %.0.i30162, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159 ], [ %.0.i30158, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155 ], [ %.0.i30154, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151 ], [ %.0.i30150, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147 ], [ %.0.i30146, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143 ], [ %.0.i30142, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139 ], [ %.0.i30138, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135 ], [ %.0.i30134, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131 ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread119 ], [ %.0.i30110, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread107 ], [ %.0.i30106, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread103 ], [ %.0.i30102, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread99 ], [ %.0.i3097, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 64, %.critedge ], [ 64, %34 ], [ 64, %.critedge ], [ 64, %.critedge ], [ 64, %34 ], [ 64, %.critedge ]
+  %.0.i33 = phi i32 [ 0, %42 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread171 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread167 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread163 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread159 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread155 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread151 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread147 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread143 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread139 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread135 ], [ 0, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread131 ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread119 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread107 ], [ 32, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread103 ], [ 64, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread99 ], [ 8, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 64, %.critedge ], [ 64, %34 ], [ 64, %.critedge ], [ 64, %.critedge ], [ 64, %34 ], [ 64, %.critedge ]
+  %43 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 %.0.i3098, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 156
+  store i32 %.0.i33, ptr %44, align 4
   br label %_ZN13AstBasicDType6rangepEP8AstRange.exit
 
 .critedge22:                                      ; preds = %_ZNK14VBasicDTypeKwd10isUnsignedEv.exit
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %.not.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i, label %_ZNK8AstRange9leftConstEv.exit.i.i, label %62
+  %45 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %_ZNK8AstRange9leftConstEv.exit.i.i, label %47
 
-62:                                               ; preds = %.critedge22
-  %63 = getelementptr inbounds i8, ptr %61, i64 64
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %63, align 8
-  %64 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i, 95
-  br i1 %64, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i, label %_ZNK8AstRange9leftConstEv.exit.i.i
+47:                                               ; preds = %.critedge22
+  %48 = getelementptr inbounds i8, ptr %46, i64 64
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %48, align 8
+  %49 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i, 95
+  br i1 %49, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i, label %_ZNK8AstRange9leftConstEv.exit.i.i
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i: ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %61, i64 152
-  %66 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %65)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i: ; preds = %47
+  %50 = getelementptr inbounds i8, ptr %46, i64 152
+  %51 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %50)
   br label %_ZNK8AstRange9leftConstEv.exit.i.i
 
-_ZNK8AstRange9leftConstEv.exit.i.i:               ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i, %62, %.critedge22
-  %67 = phi i32 [ %66, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i ], [ 0, %.critedge22 ], [ 0, %62 ]
-  %68 = getelementptr inbounds i8, ptr %5, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %.not.i.i4.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i4.i.i, label %_ZNK8AstRange7hiConstEv.exit.i, label %70
+_ZNK8AstRange9leftConstEv.exit.i.i:               ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i, %47, %.critedge22
+  %52 = phi i32 [ %51, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i ], [ 0, %.critedge22 ], [ 0, %47 ]
+  %53 = getelementptr inbounds i8, ptr %5, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %.not.i.i4.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i4.i.i, label %_ZNK8AstRange7hiConstEv.exit.i, label %55
 
-70:                                               ; preds = %_ZNK8AstRange9leftConstEv.exit.i.i
-  %71 = getelementptr inbounds i8, ptr %69, i64 64
-  %.sroa.0.0.copyload.i.i.i.i5.i.i = load i16, ptr %71, align 8
-  %72 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i.i, 95
-  br i1 %72, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i, label %_ZNK8AstRange7hiConstEv.exit.i
+55:                                               ; preds = %_ZNK8AstRange9leftConstEv.exit.i.i
+  %56 = getelementptr inbounds i8, ptr %54, i64 64
+  %.sroa.0.0.copyload.i.i.i.i5.i.i = load i16, ptr %56, align 8
+  %57 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i.i, 95
+  br i1 %57, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i, label %_ZNK8AstRange7hiConstEv.exit.i
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i: ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %69, i64 152
-  %74 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %73)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i: ; preds = %55
+  %58 = getelementptr inbounds i8, ptr %54, i64 152
+  %59 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %58)
   br label %_ZNK8AstRange7hiConstEv.exit.i
 
-_ZNK8AstRange7hiConstEv.exit.i:                   ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i, %70, %_ZNK8AstRange9leftConstEv.exit.i.i
-  %75 = phi i32 [ %74, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i.i ], [ 0, %70 ]
-  %76 = load ptr, ptr %60, align 8
-  %.not.i.i.i1.i = icmp eq ptr %76, null
-  br i1 %.not.i.i.i1.i, label %_ZNK8AstRange9leftConstEv.exit.i3.i, label %77
+_ZNK8AstRange7hiConstEv.exit.i:                   ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i, %55, %_ZNK8AstRange9leftConstEv.exit.i.i
+  %60 = phi i32 [ %59, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i.i ], [ 0, %55 ]
+  %61 = load ptr, ptr %45, align 8
+  %.not.i.i.i1.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i1.i, label %_ZNK8AstRange9leftConstEv.exit.i3.i, label %62
 
-77:                                               ; preds = %_ZNK8AstRange7hiConstEv.exit.i
-  %78 = getelementptr inbounds i8, ptr %76, i64 64
-  %.sroa.0.0.copyload.i.i.i.i.i2.i = load i16, ptr %78, align 8
-  %79 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i2.i, 95
-  br i1 %79, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i, label %_ZNK8AstRange9leftConstEv.exit.i3.i
+62:                                               ; preds = %_ZNK8AstRange7hiConstEv.exit.i
+  %63 = getelementptr inbounds i8, ptr %61, i64 64
+  %.sroa.0.0.copyload.i.i.i.i.i2.i = load i16, ptr %63, align 8
+  %64 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i2.i, 95
+  br i1 %64, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i, label %_ZNK8AstRange9leftConstEv.exit.i3.i
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i: ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %76, i64 152
-  %81 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %80)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i: ; preds = %62
+  %65 = getelementptr inbounds i8, ptr %61, i64 152
+  %66 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %65)
   br label %_ZNK8AstRange9leftConstEv.exit.i3.i
 
-_ZNK8AstRange9leftConstEv.exit.i3.i:              ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i, %77, %_ZNK8AstRange7hiConstEv.exit.i
-  %82 = phi i32 [ %81, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i ], [ 0, %_ZNK8AstRange7hiConstEv.exit.i ], [ 0, %77 ]
-  %83 = load ptr, ptr %68, align 8
-  %.not.i.i4.i4.i = icmp eq ptr %83, null
-  br i1 %.not.i.i4.i4.i, label %_ZNK8AstRange13elementsConstEv.exit, label %84
+_ZNK8AstRange9leftConstEv.exit.i3.i:              ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i, %62, %_ZNK8AstRange7hiConstEv.exit.i
+  %67 = phi i32 [ %66, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i ], [ 0, %_ZNK8AstRange7hiConstEv.exit.i ], [ 0, %62 ]
+  %68 = load ptr, ptr %53, align 8
+  %.not.i.i4.i4.i = icmp eq ptr %68, null
+  br i1 %.not.i.i4.i4.i, label %_ZNK8AstRange13elementsConstEv.exit, label %69
 
-84:                                               ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i
-  %85 = getelementptr inbounds i8, ptr %83, i64 64
-  %.sroa.0.0.copyload.i.i.i.i5.i5.i = load i16, ptr %85, align 8
-  %86 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i5.i, 95
-  br i1 %86, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i, label %_ZNK8AstRange13elementsConstEv.exit
+69:                                               ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i
+  %70 = getelementptr inbounds i8, ptr %68, i64 64
+  %.sroa.0.0.copyload.i.i.i.i5.i5.i = load i16, ptr %70, align 8
+  %71 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i5.i, 95
+  br i1 %71, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i, label %_ZNK8AstRange13elementsConstEv.exit
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i: ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %83, i64 152
-  %88 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %87)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i: ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %68, i64 152
+  %73 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %72)
   br label %_ZNK8AstRange13elementsConstEv.exit
 
-_ZNK8AstRange13elementsConstEv.exit:              ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i, %84, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i
-  %89 = phi i32 [ %88, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i3.i ], [ 0, %84 ]
-  %90 = tail call noundef i32 @llvm.smax.i32(i32 %67, i32 %75)
-  %91 = tail call noundef i32 @llvm.smin.i32(i32 %82, i32 %89)
-  %92 = add i32 %90, 1
-  %93 = sub i32 %92, %91
-  %94 = load ptr, ptr %60, align 8
-  %.not.i.i.i.i35 = icmp eq ptr %94, null
-  br i1 %.not.i.i.i.i35, label %_ZNK8AstRange9leftConstEv.exit.i.i37, label %95
+_ZNK8AstRange13elementsConstEv.exit:              ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i, %69, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i
+  %74 = phi i32 [ %73, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i3.i ], [ 0, %69 ]
+  %75 = tail call noundef i32 @llvm.smax.i32(i32 %52, i32 %60)
+  %76 = tail call noundef i32 @llvm.smin.i32(i32 %67, i32 %74)
+  %77 = add i32 %75, 1
+  %78 = sub i32 %77, %76
+  %79 = load ptr, ptr %45, align 8
+  %.not.i.i.i.i35 = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i35, label %_ZNK8AstRange9leftConstEv.exit.i.i37, label %80
 
-95:                                               ; preds = %_ZNK8AstRange13elementsConstEv.exit
-  %96 = getelementptr inbounds i8, ptr %94, i64 64
-  %.sroa.0.0.copyload.i.i.i.i.i.i36 = load i16, ptr %96, align 8
-  %97 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i36, 95
-  br i1 %97, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49, label %_ZNK8AstRange9leftConstEv.exit.i.i37
+80:                                               ; preds = %_ZNK8AstRange13elementsConstEv.exit
+  %81 = getelementptr inbounds i8, ptr %79, i64 64
+  %.sroa.0.0.copyload.i.i.i.i.i.i36 = load i16, ptr %81, align 8
+  %82 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i36, 95
+  br i1 %82, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49, label %_ZNK8AstRange9leftConstEv.exit.i.i37
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49: ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %94, i64 152
-  %99 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %98)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49: ; preds = %80
+  %83 = getelementptr inbounds i8, ptr %79, i64 152
+  %84 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %83)
   br label %_ZNK8AstRange9leftConstEv.exit.i.i37
 
-_ZNK8AstRange9leftConstEv.exit.i.i37:             ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49, %95, %_ZNK8AstRange13elementsConstEv.exit
-  %100 = phi i32 [ %99, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49 ], [ 0, %_ZNK8AstRange13elementsConstEv.exit ], [ 0, %95 ]
-  %101 = load ptr, ptr %68, align 8
-  %.not.i.i4.i.i38 = icmp eq ptr %101, null
-  br i1 %.not.i.i4.i.i38, label %_ZNK8AstRange7hiConstEv.exit.i40, label %102
+_ZNK8AstRange9leftConstEv.exit.i.i37:             ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49, %80, %_ZNK8AstRange13elementsConstEv.exit
+  %85 = phi i32 [ %84, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i49 ], [ 0, %_ZNK8AstRange13elementsConstEv.exit ], [ 0, %80 ]
+  %86 = load ptr, ptr %53, align 8
+  %.not.i.i4.i.i38 = icmp eq ptr %86, null
+  br i1 %.not.i.i4.i.i38, label %_ZNK8AstRange7hiConstEv.exit.i40, label %87
 
-102:                                              ; preds = %_ZNK8AstRange9leftConstEv.exit.i.i37
-  %103 = getelementptr inbounds i8, ptr %101, i64 64
-  %.sroa.0.0.copyload.i.i.i.i5.i.i39 = load i16, ptr %103, align 8
-  %104 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i.i39, 95
-  br i1 %104, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48, label %_ZNK8AstRange7hiConstEv.exit.i40
+87:                                               ; preds = %_ZNK8AstRange9leftConstEv.exit.i.i37
+  %88 = getelementptr inbounds i8, ptr %86, i64 64
+  %.sroa.0.0.copyload.i.i.i.i5.i.i39 = load i16, ptr %88, align 8
+  %89 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i.i39, 95
+  br i1 %89, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48, label %_ZNK8AstRange7hiConstEv.exit.i40
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48: ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %101, i64 152
-  %106 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %105)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48: ; preds = %87
+  %90 = getelementptr inbounds i8, ptr %86, i64 152
+  %91 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %90)
   br label %_ZNK8AstRange7hiConstEv.exit.i40
 
-_ZNK8AstRange7hiConstEv.exit.i40:                 ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48, %102, %_ZNK8AstRange9leftConstEv.exit.i.i37
-  %107 = phi i32 [ %106, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48 ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i.i37 ], [ 0, %102 ]
-  %108 = load ptr, ptr %60, align 8
-  %.not.i.i.i1.i41 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i1.i41, label %_ZNK8AstRange9leftConstEv.exit.i3.i43, label %109
+_ZNK8AstRange7hiConstEv.exit.i40:                 ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48, %87, %_ZNK8AstRange9leftConstEv.exit.i.i37
+  %92 = phi i32 [ %91, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i48 ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i.i37 ], [ 0, %87 ]
+  %93 = load ptr, ptr %45, align 8
+  %.not.i.i.i1.i41 = icmp eq ptr %93, null
+  br i1 %.not.i.i.i1.i41, label %_ZNK8AstRange9leftConstEv.exit.i3.i43, label %94
 
-109:                                              ; preds = %_ZNK8AstRange7hiConstEv.exit.i40
-  %110 = getelementptr inbounds i8, ptr %108, i64 64
-  %.sroa.0.0.copyload.i.i.i.i.i2.i42 = load i16, ptr %110, align 8
-  %111 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i2.i42, 95
-  br i1 %111, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47, label %_ZNK8AstRange9leftConstEv.exit.i3.i43
+94:                                               ; preds = %_ZNK8AstRange7hiConstEv.exit.i40
+  %95 = getelementptr inbounds i8, ptr %93, i64 64
+  %.sroa.0.0.copyload.i.i.i.i.i2.i42 = load i16, ptr %95, align 8
+  %96 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i2.i42, 95
+  br i1 %96, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47, label %_ZNK8AstRange9leftConstEv.exit.i3.i43
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47: ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %108, i64 152
-  %113 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %112)
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47: ; preds = %94
+  %97 = getelementptr inbounds i8, ptr %93, i64 152
+  %98 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %97)
   br label %_ZNK8AstRange9leftConstEv.exit.i3.i43
 
-_ZNK8AstRange9leftConstEv.exit.i3.i43:            ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47, %109, %_ZNK8AstRange7hiConstEv.exit.i40
-  %114 = phi i32 [ %113, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47 ], [ 0, %_ZNK8AstRange7hiConstEv.exit.i40 ], [ 0, %109 ]
-  %115 = load ptr, ptr %68, align 8
-  %.not.i.i4.i4.i44 = icmp eq ptr %115, null
-  br i1 %.not.i.i4.i4.i44, label %121, label %116
+_ZNK8AstRange9leftConstEv.exit.i3.i43:            ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47, %94, %_ZNK8AstRange7hiConstEv.exit.i40
+  %99 = phi i32 [ %98, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i7.i47 ], [ 0, %_ZNK8AstRange7hiConstEv.exit.i40 ], [ 0, %94 ]
+  %100 = load ptr, ptr %53, align 8
+  %.not.i.i4.i4.i44 = icmp eq ptr %100, null
+  br i1 %.not.i.i4.i4.i44, label %106, label %101
 
-116:                                              ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i43
-  %117 = getelementptr inbounds i8, ptr %115, i64 64
-  %.sroa.0.0.copyload.i.i.i.i5.i5.i45 = load i16, ptr %117, align 8
-  %118 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i5.i45, 95
-  br i1 %118, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46, label %121
+101:                                              ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i43
+  %102 = getelementptr inbounds i8, ptr %100, i64 64
+  %.sroa.0.0.copyload.i.i.i.i5.i5.i45 = load i16, ptr %102, align 8
+  %103 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i5.i5.i45, 95
+  br i1 %103, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46, label %106
 
-_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46: ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %115, i64 152
-  %120 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %119)
-  br label %121
+_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46: ; preds = %101
+  %104 = getelementptr inbounds i8, ptr %100, i64 152
+  %105 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %104)
+  br label %106
 
-121:                                              ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i43, %116, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46
-  %122 = phi i32 [ %120, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46 ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i3.i43 ], [ 0, %116 ]
-  %123 = tail call noundef i32 @llvm.smax.i32(i32 %100, i32 %107)
-  %124 = tail call noundef i32 @llvm.smin.i32(i32 %114, i32 %122)
-  %125 = add i32 %123, 1
-  %126 = sub i32 %125, %124
-  %127 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 %93, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 156
-  store i32 %126, ptr %128, align 4
+106:                                              ; preds = %_ZNK8AstRange9leftConstEv.exit.i3.i43, %101, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46
+  %107 = phi i32 [ %105, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i46 ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i3.i43 ], [ 0, %101 ]
+  %108 = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 %92)
+  %109 = tail call noundef i32 @llvm.smin.i32(i32 %99, i32 %107)
+  %110 = add i32 %108, 1
+  %111 = sub i32 %110, %109
+  %112 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 %78, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 156
+  store i32 %111, ptr %113, align 4
   tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %5)
   br label %_ZN13AstBasicDType6rangepEP8AstRange.exit
 
-_ZN13AstBasicDType6rangepEP8AstRange.exit:        ; preds = %30, %_ZNK14VBasicDTypeKwd5widthEv.exit34, %121
-  %129 = getelementptr inbounds i8, ptr %0, i64 72
-  %130 = load ptr, ptr %129, align 8
-  %.not.i = icmp eq ptr %130, %0
-  br i1 %.not.i, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %131
+_ZN13AstBasicDType6rangepEP8AstRange.exit:        ; preds = %30, %_ZNK14VBasicDTypeKwd5widthEv.exit34, %106
+  %114 = getelementptr inbounds i8, ptr %0, i64 72
+  %115 = load ptr, ptr %114, align 8
+  %.not.i = icmp eq ptr %115, %0
+  br i1 %.not.i, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %116
 
-131:                                              ; preds = %_ZN13AstBasicDType6rangepEP8AstRange.exit
-  store ptr %0, ptr %129, align 8
-  %132 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  %133 = add i64 %132, 1
-  store i64 %133, ptr @_ZN7AstNode12s_editCntGblE, align 8
+116:                                              ; preds = %_ZN13AstBasicDType6rangepEP8AstRange.exit
+  store ptr %0, ptr %114, align 8
+  %117 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  %118 = add i64 %117, 1
+  store i64 %118, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %_ZN7AstNode6dtypepEP12AstNodeDType.exit
 
-_ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %_ZN13AstBasicDType6rangepEP8AstRange.exit, %131
+_ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %_ZN13AstBasicDType6rangepEP8AstRange.exit, %116
   ret void
 }
 

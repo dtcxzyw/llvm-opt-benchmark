@@ -1695,8 +1695,8 @@ pw_cell_size.exit.thread32.i:                     ; preds = %39
   br label %pw_cell_size.exit28.i
 
 pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.thread32.i, %pw_cell_size.exit.thread.i
-  %42 = phi i32 [ %40, %pw_cell_size.exit.thread.i ], [ %41, %pw_cell_size.exit.thread32.i ]
-  %.0.i27.neg.i = phi i32 [ -49, %pw_cell_size.exit.thread.i ], [ -51, %pw_cell_size.exit.thread32.i ]
+  %42 = phi i32 [ %41, %pw_cell_size.exit.thread32.i ], [ %40, %pw_cell_size.exit.thread.i ]
+  %.0.i27.neg.i = phi i32 [ -51, %pw_cell_size.exit.thread32.i ], [ -49, %pw_cell_size.exit.thread.i ]
   %.neg39.i = mul i32 %.0.i27.neg.i, %42
   %43 = icmp eq i32 %42, 0
   %storemerge.i = sub i32 3, %.fr113

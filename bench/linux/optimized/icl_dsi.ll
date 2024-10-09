@@ -2368,9 +2368,6 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
     i32 3, label %.thread40
   ]
 
-.thread40:                                        ; preds = %1084
-  br label %.thread37
-
 1086:                                             ; preds = %1084
   br label %1093
 
@@ -2386,6 +2383,9 @@ thread-pre-split:                                 ; preds = %779, %777, %775, %7
   %.ph = phi i32 [ 3, %1084 ], [ 3, %1084 ], [ -2, %1086 ]
   %switch = icmp ult i32 %1085, 2
   %spec.select = select i1 %switch, i32 24, i32 -22
+  br label %.thread37
+
+.thread40:                                        ; preds = %1084
   br label %.thread37
 
 .thread37:                                        ; preds = %1093, %1084, %.thread40, %1087

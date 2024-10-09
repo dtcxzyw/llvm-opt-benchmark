@@ -5167,9 +5167,9 @@ define internal fastcc range(i32 0, 2) i32 @re_need_check_advance(ptr nocapture 
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %22
-  %.023 = phi i32 [ %.1, %22 ], [ 1, %2 ]
-  %.02022 = phi i32 [ %23, %22 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %17
+  %.023 = phi i32 [ %.1, %17 ], [ 1, %2 ]
+  %.02022 = phi i32 [ %18, %17 ], [ 0, %2 ]
   %4 = sext i32 %.02022 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -5178,55 +5178,52 @@ define internal fastcc range(i32 0, 2) i32 @re_need_check_advance(ptr nocapture 
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   switch i8 %6, label %._crit_edge [
-    i8 21, label %11
-    i8 22, label %16
-    i8 1, label %21
-    i8 2, label %21
-    i8 3, label %21
-    i8 4, label %21
-    i8 5, label %22
-    i8 6, label %22
-    i8 15, label %22
-    i8 25, label %22
-    i8 16, label %22
-    i8 17, label %22
-    i8 18, label %22
-    i8 27, label %22
-    i8 11, label %22
-    i8 12, label %22
-    i8 13, label %22
-    i8 19, label %22
-    i8 20, label %22
+    i8 21, label %.sink.split
+    i8 22, label %11
+    i8 1, label %16
+    i8 2, label %16
+    i8 3, label %16
+    i8 4, label %16
+    i8 5, label %17
+    i8 6, label %17
+    i8 15, label %17
+    i8 25, label %17
+    i8 16, label %17
+    i8 17, label %17
+    i8 18, label %17
+    i8 27, label %17
+    i8 11, label %17
+    i8 12, label %17
+    i8 13, label %17
+    i8 19, label %17
+    i8 20, label %17
   ]
 
 11:                                               ; preds = %.lr.ph
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.lr.ph, %11
+  %.sink27 = phi i32 [ 3, %11 ], [ 2, %.lr.ph ]
   %12 = getelementptr i8, ptr %5, i64 1
-  %.val = load i16, ptr %12, align 1
-  %13 = zext i16 %.val to i32
-  %14 = shl nuw nsw i32 %13, 2
+  %.val21 = load i16, ptr %12, align 1
+  %13 = zext i16 %.val21 to i32
+  %14 = shl nuw nsw i32 %13, %.sink27
   %15 = add nuw nsw i32 %14, %10
-  br label %22
+  br label %16
 
-16:                                               ; preds = %.lr.ph
-  %17 = getelementptr i8, ptr %5, i64 1
-  %.val21 = load i16, ptr %17, align 1
-  %18 = zext i16 %.val21 to i32
-  %19 = shl nuw nsw i32 %18, 3
-  %20 = add nuw nsw i32 %19, %10
-  br label %22
+16:                                               ; preds = %.sink.split, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %.017 = phi i32 [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %15, %.sink.split ]
+  br label %17
 
-21:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  br label %22
+17:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %16
+  %.118 = phi i32 [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %.017, %16 ]
+  %.1 = phi i32 [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ 0, %16 ]
+  %18 = add i32 %.118, %.02022
+  %19 = icmp slt i32 %18, %1
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
-22:                                               ; preds = %11, %16, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %21
-  %.118 = phi i32 [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %10, %.lr.ph ], [ %20, %16 ], [ %15, %11 ], [ %10, %21 ]
-  %.1 = phi i32 [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ %.023, %.lr.ph ], [ 0, %16 ], [ 0, %11 ], [ 0, %21 ]
-  %23 = add i32 %.118, %.02022
-  %24 = icmp slt i32 %23, %1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !29
-
-._crit_edge:                                      ; preds = %.lr.ph, %22, %2
-  %.019 = phi i32 [ 1, %2 ], [ %.1, %22 ], [ 1, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %17, %2
+  %.019 = phi i32 [ 1, %2 ], [ %.1, %17 ], [ 1, %.lr.ph ]
   ret i32 %.019
 }
 

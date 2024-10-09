@@ -4552,11 +4552,11 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   %39 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %39, align 16
   %.pre = and i64 %.sroa.0.0.copyload.i, -16
-  %.pre93 = inttoptr i64 %.pre to ptr
+  %.pre94 = inttoptr i64 %.pre to ptr
   br label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread
 
 _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %15, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit
-  %.pre-phi94 = phi ptr [ %10, %15 ], [ %.pre93, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ %10, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
+  %.pre-phi95 = phi ptr [ %10, %15 ], [ %.pre94, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ %10, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   %.not78 = phi i1 [ true, %15 ], [ false, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ true, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   %.sroa.061.0 = phi i64 [ %1, %15 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ %1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -4567,7 +4567,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %15, %_Z
   %45 = and i64 %44, -16
   %46 = inttoptr i64 %45 to ptr
   %47 = load ptr, ptr %46, align 16
-  %48 = getelementptr inbounds nuw i8, ptr %.pre-phi94, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.pre-phi95, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, -16
   %51 = inttoptr i64 %50 to ptr
@@ -4576,7 +4576,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %15, %_Z
   br i1 %53, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread, label %54
 
 54:                                               ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread
-  %55 = load ptr, ptr %.pre-phi94, align 8
+  %55 = load ptr, ptr %.pre-phi95, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.0.0.copyload.i.i.i.i24 = load i64, ptr %56, align 8
   %57 = and i64 %.sroa.0.0.copyload.i.i.i.i24, -16
@@ -4595,8 +4595,8 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %15, %_Z
 63:                                               ; preds = %62
   %64 = or i64 %49, %.sroa.061.0
   %65 = and i64 %64, 5
-  %or.cond90.not = icmp eq i64 %65, 1
-  br i1 %or.cond90.not, label %66, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
+  %or.cond91.not = icmp eq i64 %65, 1
+  br i1 %or.cond91.not, label %66, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
 66:                                               ; preds = %63, %62
   %67 = load ptr, ptr %42, align 16
@@ -4640,7 +4640,7 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %66, %_ZNK5clang4Typ
   br i1 %89, label %90, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
 90:                                               ; preds = %81
-  %91 = load ptr, ptr %.pre-phi94, align 8
+  %91 = load ptr, ptr %.pre-phi95, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.0.0.copyload.i.i.i.i37 = load i64, ptr %92, align 8
   %93 = and i64 %.sroa.0.0.copyload.i.i.i.i37, -16
@@ -4658,7 +4658,7 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %66, %_ZNK5clang4Typ
   %101 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %82) #15
   %102 = call i64 @_ZNK5clang10ASTContext23getUnqualifiedArrayTypeENS_8QualTypeERNS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23096) %100, i64 %101, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   %103 = load ptr, ptr %40, align 8
-  %104 = load ptr, ptr %.pre-phi94, align 8
+  %104 = load ptr, ptr %.pre-phi95, align 8
   %105 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %104) #15
   %106 = call i64 @_ZNK5clang10ASTContext23getUnqualifiedArrayTypeENS_8QualTypeERNS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23096) %103, i64 %105, ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   %.sroa.06.0.copyload = load i64, ptr %6, align 8
@@ -4709,8 +4709,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %108
 _ZNK5clang4Type12isObjectTypeEv.exit:             ; preds = %122
   %132 = load i32, ptr %130, align 16
   %133 = and i32 %132, 267911168
-  %.not92 = icmp eq i32 %133, 224395264
-  br i1 %.not92, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
+  %.not93 = icmp eq i32 %133, 224395264
+  br i1 %.not93, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %54, %122, %122, %122, %122, %108, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZNK5clang4Type12isObjectTypeEv.exit
   %.sroa.051.0 = phi i64 [ %102, %_ZNK5clang4Type12isObjectTypeEv.exit ], [ %102, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ %102, %108 ], [ %102, %122 ], [ %102, %122 ], [ %102, %122 ], [ %102, %122 ], [ %2, %54 ]
@@ -6839,7 +6839,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %4 = load i8, ptr %.tr295, align 8
   switch i8 %4, label %356 [
     i8 61, label %5
-    i8 97, label %.loopexit.loopexit587
+    i8 97, label %.loopexit.loopexit589
     i8 83, label %8
     i8 96, label %22
     i8 89, label %24
@@ -6854,12 +6854,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 110, label %82
     i8 116, label %114
     i8 18, label %123
-    i8 33, label %.loopexit.loopexit587
-    i8 32, label %.loopexit.loopexit587
-    i8 28, label %.loopexit.loopexit587
-    i8 42, label %.loopexit.loopexit587
-    i8 38, label %.loopexit.loopexit587
-    i8 39, label %.loopexit.loopexit587
+    i8 33, label %.loopexit.loopexit589
+    i8 32, label %.loopexit.loopexit589
+    i8 28, label %.loopexit.loopexit589
+    i8 42, label %.loopexit.loopexit589
+    i8 38, label %.loopexit.loopexit589
+    i8 39, label %.loopexit.loopexit589
     i8 73, label %133
     i8 -128, label %133
     i8 72, label %133
@@ -6909,61 +6909,61 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 69, label %common.ret
     i8 108, label %common.ret
     i8 17, label %common.ret
-    i8 121, label %.loopexit.loopexit508
-    i8 -127, label %.loopexit.loopexit508
-    i8 117, label %.loopexit.loopexit508
-    i8 93, label %.loopexit.loopexit508
-    i8 71, label %.loopexit.loopexit508
-    i8 80, label %.loopexit.loopexit508
-    i8 36, label %.loopexit.loopexit508
-    i8 31, label %.loopexit.loopexit508
-    i8 30, label %.loopexit.loopexit508
-    i8 41, label %.loopexit.loopexit508
-    i8 27, label %.loopexit.loopexit508
-    i8 23, label %.loopexit.loopexit508
-    i8 9, label %.loopexit.loopexit508
-    i8 8, label %.loopexit.loopexit508
-    i8 59, label %.loopexit.loopexit508
-    i8 5, label %.loopexit.loopexit508
-    i8 25, label %.loopexit.loopexit508
-    i8 24, label %.loopexit.loopexit508
-    i8 6, label %.loopexit.loopexit508
-    i8 127, label %.loopexit.loopexit508
-    i8 122, label %.loopexit.loopexit508
-    i8 120, label %.loopexit.loopexit508
-    i8 7, label %.loopexit.loopexit508
-    i8 115, label %.loopexit.loopexit508
-    i8 105, label %.loopexit.loopexit508
-    i8 104, label %.loopexit.loopexit508
-    i8 102, label %.loopexit.loopexit508
-    i8 100, label %.loopexit.loopexit508
-    i8 98, label %.loopexit.loopexit508
-    i8 94, label %.loopexit.loopexit508
-    i8 78, label %.loopexit.loopexit508
-    i8 65, label %.loopexit.loopexit508
-    i8 62, label %.loopexit.loopexit508
-    i8 58, label %.loopexit.loopexit508
-    i8 55, label %.loopexit.loopexit508
-    i8 54, label %.loopexit.loopexit508
-    i8 52, label %.loopexit.loopexit508
-    i8 63, label %.loopexit.loopexit508
-    i8 126, label %.loopexit.loopexit508
-    i8 45, label %.loopexit.loopexit508
-    i8 37, label %.loopexit.loopexit508
-    i8 29, label %.loopexit.loopexit508
-    i8 40, label %.loopexit.loopexit508
-    i8 26, label %.loopexit.loopexit508
-    i8 19, label %.loopexit.loopexit508
-    i8 13, label %.loopexit.loopexit508
-    i8 22, label %.loopexit.loopexit508
-    i8 10, label %.loopexit.loopexit508
-    i8 12, label %.loopexit.loopexit508
-    i8 66, label %.loopexit.loopexit508
-    i8 75, label %.loopexit.loopexit508
-    i8 16, label %.loopexit.loopexit508
-    i8 56, label %.loopexit.loopexit508
+    i8 121, label %.loopexit.loopexit509
+    i8 -127, label %.loopexit.loopexit509
+    i8 117, label %.loopexit.loopexit509
+    i8 93, label %.loopexit.loopexit509
+    i8 71, label %.loopexit.loopexit509
+    i8 80, label %.loopexit.loopexit509
+    i8 36, label %.loopexit.loopexit509
+    i8 31, label %.loopexit.loopexit509
+    i8 30, label %.loopexit.loopexit509
+    i8 41, label %.loopexit.loopexit509
+    i8 27, label %.loopexit.loopexit509
+    i8 23, label %.loopexit.loopexit509
+    i8 9, label %.loopexit.loopexit509
+    i8 8, label %.loopexit.loopexit509
+    i8 59, label %.loopexit.loopexit509
+    i8 5, label %.loopexit.loopexit509
+    i8 25, label %.loopexit.loopexit509
+    i8 24, label %.loopexit.loopexit509
+    i8 6, label %.loopexit.loopexit509
+    i8 127, label %.loopexit.loopexit509
+    i8 122, label %.loopexit.loopexit509
+    i8 120, label %.loopexit.loopexit509
+    i8 7, label %.loopexit.loopexit509
+    i8 115, label %.loopexit.loopexit509
+    i8 105, label %.loopexit.loopexit509
+    i8 104, label %.loopexit.loopexit509
+    i8 102, label %.loopexit.loopexit509
+    i8 100, label %.loopexit.loopexit509
+    i8 98, label %.loopexit.loopexit509
+    i8 94, label %.loopexit.loopexit509
+    i8 78, label %.loopexit.loopexit509
+    i8 65, label %.loopexit.loopexit509
+    i8 62, label %.loopexit.loopexit509
+    i8 58, label %.loopexit.loopexit509
+    i8 55, label %.loopexit.loopexit509
+    i8 54, label %.loopexit.loopexit509
+    i8 52, label %.loopexit.loopexit509
+    i8 63, label %.loopexit.loopexit509
+    i8 126, label %.loopexit.loopexit509
+    i8 45, label %.loopexit.loopexit509
+    i8 37, label %.loopexit.loopexit509
+    i8 29, label %.loopexit.loopexit509
+    i8 40, label %.loopexit.loopexit509
+    i8 26, label %.loopexit.loopexit509
+    i8 19, label %.loopexit.loopexit509
+    i8 13, label %.loopexit.loopexit509
+    i8 22, label %.loopexit.loopexit509
+    i8 10, label %.loopexit.loopexit509
+    i8 12, label %.loopexit.loopexit509
+    i8 66, label %.loopexit.loopexit509
+    i8 75, label %.loopexit.loopexit509
+    i8 16, label %.loopexit.loopexit509
+    i8 56, label %.loopexit.loopexit509
     i8 -113, label %323
-    i8 15, label %.loopexit.loopexit508
+    i8 15, label %.loopexit.loopexit509
     i8 -116, label %193
     i8 -117, label %193
     i8 -126, label %193
@@ -7077,7 +7077,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 -25, label %195
     i8 -29, label %247
     i8 -19, label %309
-    i8 -112, label %.loopexit.loopexit587
+    i8 -112, label %.loopexit.loopexit589
   ]
 
 5:                                                ; preds = %tailrecurse
@@ -7373,7 +7373,7 @@ tailrecurse.backedge:                             ; preds = %5, %162, %164, %170
   %168 = load i16, ptr %167, align 1
   %169 = and i16 %168, 384
   %or.cond.not = icmp eq i16 %169, 0
-  br i1 %or.cond.not, label %170, label %common.ret
+  br i1 %or.cond.not, label %170, label %.loopexit.loopexit589
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %.tr295, i64 48
@@ -7391,7 +7391,7 @@ tailrecurse.backedge:                             ; preds = %5, %162, %164, %170
   %181 = load i32, ptr %180, align 8
   %182 = and i32 %181, 1073709056
   %183 = icmp eq i32 %182, 1073709056
-  br i1 %183, label %common.ret, label %184
+  br i1 %183, label %.loopexit.loopexit589, label %184
 
 184:                                              ; preds = %179
   %185 = getelementptr inbounds i8, ptr %.tr295, i64 32
@@ -7439,9 +7439,9 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %201, %205
   %.not205384 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
   br i1 %.not205384, label %common.ret, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK5clang8DeclStmt5declsEv.exit, %.thread502
-  %.0176386 = phi i32 [ %.1177, %.thread502 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ]
-  %.0180385 = phi ptr [ %246, %.thread502 ], [ %.0.i.i.i, %_ZNK5clang8DeclStmt5declsEv.exit ]
+.lr.ph:                                           ; preds = %_ZNK5clang8DeclStmt5declsEv.exit, %.thread503
+  %.0176386 = phi i32 [ %.1177, %.thread503 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ]
+  %.0180385 = phi ptr [ %246, %.thread503 ], [ %.0.i.i.i, %_ZNK5clang8DeclStmt5declsEv.exit ]
   %212 = load ptr, ptr %.0180385, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 28
   %214 = load i32, ptr %213, align 4
@@ -7455,12 +7455,12 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %201, %205
 218:                                              ; preds = %.lr.ph
   %219 = tail call fastcc noundef i32 @_ZN5clangL15canVarDeclThrowERNS_4SemaEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %212)
   %220 = tail call noundef i32 @llvm.smax.i32(i32 %.0176386, i32 %219)
-  %.pre500 = load i32, ptr %213, align 4
-  %.pre501 = and i32 %.pre500, 127
+  %.pre501 = load i32, ptr %213, align 4
+  %.pre502 = and i32 %.pre501, 127
   br label %221
 
 221:                                              ; preds = %218, %.lr.ph
-  %.pre-phi = phi i32 [ %.pre501, %218 ], [ %215, %.lr.ph ]
+  %.pre-phi = phi i32 [ %.pre502, %218 ], [ %215, %.lr.ph ]
   %.1177 = phi i32 [ %220, %218 ], [ %.0176386, %.lr.ph ]
   %222 = add nsw i32 %.pre-phi, -64
   %223 = icmp ult i32 %222, -3
@@ -7483,13 +7483,13 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %201, %205
   %233 = load i16, ptr %232, align 1
   %234 = and i16 %233, 8
   %.not283 = icmp eq i16 %234, 0
-  br i1 %.not283, label %.thread502, label %common.ret
+  br i1 %.not283, label %.thread503, label %common.ret
 
 235:                                              ; preds = %221
   %236 = add nsw i32 %.pre-phi, -50
   %237 = icmp ult i32 %236, -27
   %.not208 = or i1 %.not206281, %237
-  br i1 %.not208, label %.thread502, label %238
+  br i1 %.not208, label %.thread503, label %238
 
 238:                                              ; preds = %235
   %239 = getelementptr inbounds nuw i8, ptr %212, i64 48
@@ -7501,9 +7501,9 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %201, %205
   %244 = load i16, ptr %243, align 1
   %245 = and i16 %244, 8
   %.not285 = icmp eq i16 %245, 0
-  br i1 %.not285, label %.thread502, label %common.ret
+  br i1 %.not285, label %.thread503, label %common.ret
 
-.thread502:                                       ; preds = %224, %235, %238
+.thread503:                                       ; preds = %224, %235, %238
   %246 = getelementptr inbounds i8, ptr %.0180385, i64 8
   %.not205 = icmp eq ptr %246, %.0.i.i1.i
   br i1 %.not205, label %common.ret, label %.lr.ph
@@ -7546,11 +7546,11 @@ _ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit: ; preds = %_ZNK5clang6If
 262:                                              ; preds = %_ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit
   %263 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %261)
   %264 = tail call noundef i32 @llvm.smax.i32(i32 %.0178, i32 %263)
-  %.pre499 = load i16, ptr %.tr295, align 8
+  %.pre500 = load i16, ptr %.tr295, align 8
   br label %_ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit.thread
 
 _ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit.thread: ; preds = %_ZNK5clang6IfStmt7getInitEv.exit.thread, %262, %_ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit
-  %265 = phi i16 [ %.pre499, %262 ], [ %255, %_ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit ], [ %255, %_ZNK5clang6IfStmt7getInitEv.exit.thread ]
+  %265 = phi i16 [ %.pre500, %262 ], [ %255, %_ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit ], [ %255, %_ZNK5clang6IfStmt7getInitEv.exit.thread ]
   %.1179 = phi i32 [ %264, %262 ], [ %.0178, %_ZNK5clang6IfStmt28getConditionVariableDeclStmtEv.exit ], [ %.0178, %_ZNK5clang6IfStmt7getInitEv.exit.thread ]
   %266 = getelementptr inbounds i8, ptr %.tr295, i64 16
   %267 = lshr i16 %265, 13
@@ -7704,8 +7704,8 @@ _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %323, %334, %
   %351 = icmp eq ptr %350, null
   br i1 %351, label %common.ret, label %341
 
-common.ret:                                       ; preds = %279, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %166, %179, %.thread502, %238, %224, %343, %127, %.lr.ph400, %.lr.ph408, %19, %22, %.thread, %56, %59, %.thread272, %111, %120, %133, %143, %155, %193, %300, %302, %321, %8, %16, %37, %43, %51, %75, %109, %114, %135, %147, %63, %123, %_ZNK5clang8DeclStmt5declsEv.exit, %.loopexit.loopexit508, %.loopexit.loopexit587, %._crit_edge
-  %.0.sink = phi i32 [ %355, %._crit_edge ], [ %322, %321 ], [ %301, %300 ], [ %308, %302 ], [ %194, %193 ], [ %161, %155 ], [ %144, %143 ], [ %134, %133 ], [ %122, %120 ], [ %113, %111 ], [ %81, %.thread272 ], [ %62, %59 ], [ %58, %56 ], [ %42, %.thread ], [ %23, %22 ], [ %21, %19 ], [ 2, %8 ], [ 2, %16 ], [ 2, %37 ], [ 2, %43 ], [ 2, %51 ], [ 2, %75 ], [ 2, %109 ], [ 2, %114 ], [ 2, %135 ], [ 2, %147 ], [ 0, %63 ], [ 0, %123 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.loopexit.loopexit508 ], [ 2, %.loopexit.loopexit587 ], [ %69, %.lr.ph408 ], [ 2, %.lr.ph400 ], [ %131, %127 ], [ %348, %343 ], [ 2, %224 ], [ 2, %238 ], [ %.1177, %.thread502 ], [ 1, %179 ], [ 1, %166 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %273, %279 ]
+common.ret:                                       ; preds = %279, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.thread503, %238, %224, %343, %127, %.lr.ph400, %.lr.ph408, %19, %22, %.thread, %56, %59, %.thread272, %111, %120, %133, %143, %155, %193, %300, %302, %321, %8, %16, %37, %43, %51, %75, %109, %114, %135, %147, %63, %123, %_ZNK5clang8DeclStmt5declsEv.exit, %.loopexit.loopexit509, %.loopexit.loopexit589, %._crit_edge
+  %.0.sink = phi i32 [ %355, %._crit_edge ], [ %322, %321 ], [ %301, %300 ], [ %308, %302 ], [ %194, %193 ], [ %161, %155 ], [ %144, %143 ], [ %134, %133 ], [ %122, %120 ], [ %113, %111 ], [ %81, %.thread272 ], [ %62, %59 ], [ %58, %56 ], [ %42, %.thread ], [ %23, %22 ], [ %21, %19 ], [ 2, %8 ], [ 2, %16 ], [ 2, %37 ], [ 2, %43 ], [ 2, %51 ], [ 2, %75 ], [ 2, %109 ], [ 2, %114 ], [ 2, %135 ], [ 2, %147 ], [ 0, %63 ], [ 0, %123 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.loopexit.loopexit509 ], [ %.0.ph590, %.loopexit.loopexit589 ], [ %69, %.lr.ph408 ], [ 2, %.lr.ph400 ], [ %131, %127 ], [ %348, %343 ], [ 2, %224 ], [ 2, %238 ], [ %.1177, %.thread503 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %273, %279 ]
   %accumulator.ret.tr296 = tail call noundef i32 @llvm.smax.i32(i32 %.0.sink, i32 %accumulator.tr.ph)
   ret i32 %accumulator.ret.tr296
 
@@ -7720,10 +7720,11 @@ common.ret:                                       ; preds = %279, %tailrecurse, 
 356:                                              ; preds = %tailrecurse
   unreachable
 
-.loopexit.loopexit508:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.loopexit.loopexit509:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %common.ret
 
-.loopexit.loopexit587:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.loopexit.loopexit589:                            ; preds = %166, %179, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %.0.ph590 = phi i32 [ 2, %tailrecurse ], [ 1, %179 ], [ 1, %166 ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ]
   br label %common.ret
 }
 

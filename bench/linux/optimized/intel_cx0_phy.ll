@@ -1667,19 +1667,19 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   br i1 %148, label %._crit_edge44, label %149
 
 149:                                              ; preds = %127
-  switch i32 %.pre43.pre, label %150 [
-    i32 300000, label %._crit_edge44
-    i32 600000, label %._crit_edge44
-    i32 800000, label %._crit_edge44
-    i32 1000000, label %._crit_edge44
-    i32 1200000, label %._crit_edge44
+  switch i32 %.pre43.pre, label %._crit_edge44 [
+    i32 300000, label %150
+    i32 600000, label %150
+    i32 800000, label %150
+    i32 1000000, label %150
+    i32 1200000, label %150
   ]
 
-150:                                              ; preds = %149
-  br label %._crit_edge44
+._crit_edge44:                                    ; preds = %127, %149
+  br label %150
 
-._crit_edge44:                                    ; preds = %127, %150, %149, %149, %149, %149, %149
-  %151 = phi i32 [ 36864, %149 ], [ 36864, %149 ], [ 36864, %149 ], [ 36864, %149 ], [ 36864, %149 ], [ 32768, %150 ], [ 32768, %127 ]
+150:                                              ; preds = %._crit_edge44, %149, %149, %149, %149, %149
+  %151 = phi i32 [ 32768, %._crit_edge44 ], [ 36864, %149 ], [ 36864, %149 ], [ 36864, %149 ], [ 36864, %149 ], [ 36864, %149 ]
   %152 = or disjoint i32 %151, %144
   %153 = getelementptr inbounds i8, ptr %1, i64 1448
   switch i32 %.pre43.pre, label %159 [
@@ -1687,14 +1687,14 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
     i32 2000000, label %154
   ]
 
-154:                                              ; preds = %._crit_edge44, %._crit_edge44
+154:                                              ; preds = %150, %150
   %155 = getelementptr inbounds i8, ptr %1, i64 968
   %156 = load i8, ptr %155, align 8, !range !26, !noundef !27
   %157 = icmp eq i8 %156, 0
   %158 = select i1 %157, i32 0, i32 2
   br label %163
 
-159:                                              ; preds = %._crit_edge44
+159:                                              ; preds = %150
   %160 = getelementptr inbounds i8, ptr %1, i64 968
   %161 = load i8, ptr %160, align 8, !range !26, !noundef !27
   %162 = zext nneg i8 %161 to i32

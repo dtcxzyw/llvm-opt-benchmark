@@ -17158,16 +17158,16 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %37 = load ptr, ptr %36, align 8
   %38 = load i8, ptr %35, align 8
   %39 = icmp eq i8 %38, 2
-  br i1 %39, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %40
+  br i1 %39, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %40
 
 40:                                               ; preds = %33
   %41 = load i8, ptr %37, align 8
   %42 = icmp eq i8 %41, 2
-  br i1 %42, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %43
+  br i1 %42, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %43
 
 43:                                               ; preds = %40
   %.not.i78 = icmp eq i8 %38, %41
-  br i1 %.not.i78, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  br i1 %.not.i78, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
 tailrecurse.backedge:                             ; preds = %43, %124, %147, %249
   %.be = phi i8 [ %38, %43 ], [ %119, %124 ], [ %142, %147 ], [ %244, %249 ]
@@ -17306,16 +17306,16 @@ _ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thr
   %118 = load ptr, ptr %117, align 8
   %119 = load i8, ptr %116, align 8
   %120 = icmp eq i8 %119, 2
-  br i1 %120, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %121
+  br i1 %120, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %121
 
 121:                                              ; preds = %114
   %122 = load i8, ptr %118, align 8
   %123 = icmp eq i8 %122, 2
-  br i1 %123, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %124
+  br i1 %123, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %124
 
 124:                                              ; preds = %121
   %.not.i92 = icmp eq i8 %119, %122
-  br i1 %.not.i92, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  br i1 %.not.i92, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
 125:                                              ; preds = %tailrecurse
   %126 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
@@ -17340,16 +17340,16 @@ _ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thr
   %141 = load ptr, ptr %140, align 8
   %142 = load i8, ptr %139, align 8
   %143 = icmp eq i8 %142, 2
-  br i1 %143, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %144
+  br i1 %143, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %144
 
 144:                                              ; preds = %137
   %145 = load i8, ptr %141, align 8
   %146 = icmp eq i8 %145, 2
-  br i1 %146, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %147
+  br i1 %146, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %147
 
 147:                                              ; preds = %144
   %.not.i95 = icmp eq i8 %142, %145
-  br i1 %.not.i95, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  br i1 %.not.i95, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
 148:                                              ; preds = %tailrecurse
   %149 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
@@ -17508,16 +17508,16 @@ _ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.th
   %243 = load ptr, ptr %242, align 8
   %244 = load i8, ptr %241, align 8
   %245 = icmp eq i8 %244, 2
-  br i1 %245, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %246
+  br i1 %245, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %246
 
 246:                                              ; preds = %239
   %247 = load i8, ptr %243, align 8
   %248 = icmp eq i8 %247, 2
-  br i1 %248, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %249
+  br i1 %248, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %249
 
 249:                                              ; preds = %246
   %.not.i107 = icmp eq i8 %244, %247
-  br i1 %.not.i107, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  br i1 %.not.i107, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
 250:                                              ; preds = %tailrecurse
   %251 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
@@ -17548,11 +17548,12 @@ _ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.th
   %260 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til3Let7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit: ; preds = %tailrecurse
+_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit: ; preds = %tailrecurse, %33, %40, %43, %114, %121, %124, %137, %144, %147, %239, %246, %249
+  %.0.ph = phi i1 [ false, %249 ], [ true, %239 ], [ true, %246 ], [ false, %147 ], [ true, %137 ], [ true, %144 ], [ false, %124 ], [ true, %114 ], [ true, %121 ], [ false, %43 ], [ true, %33 ], [ true, %40 ], [ false, %tailrecurse ]
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %249, %246, %239, %147, %144, %137, %124, %121, %114, %43, %40, %33, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, %192, %175, %158, %107, %88, %71, %54, %255, %253, %250, %223, %215, %207, %199, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100, %131, %125, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82, %27, %25, %17, %15, %259, %257, %237, %235, %233, %231, %229, %213, %95, %31, %29
-  %.0 = phi i1 [ %260, %259 ], [ %258, %257 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %214, %213 ], [ %96, %95 ], [ %32, %31 ], [ %30, %29 ], [ %18, %17 ], [ %16, %15 ], [ %28, %27 ], [ %26, %25 ], [ %60, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82 ], [ %77, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85 ], [ %94, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88 ], [ %113, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91 ], [ %136, %131 ], [ false, %125 ], [ %164, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100 ], [ %181, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %198, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106 ], [ %212, %207 ], [ false, %199 ], [ %228, %223 ], [ false, %215 ], [ %256, %255 ], [ false, %250 ], [ true, %253 ], [ false, %54 ], [ false, %71 ], [ false, %88 ], [ false, %107 ], [ false, %158 ], [ false, %175 ], [ false, %192 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %249 ], [ true, %239 ], [ true, %246 ], [ false, %147 ], [ true, %137 ], [ true, %144 ], [ false, %124 ], [ true, %114 ], [ true, %121 ], [ false, %43 ], [ true, %33 ], [ true, %40 ], [ false, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit ]
+_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, %192, %175, %158, %107, %88, %71, %54, %255, %253, %250, %223, %215, %207, %199, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100, %131, %125, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82, %27, %25, %17, %15, %259, %257, %237, %235, %233, %231, %229, %213, %95, %31, %29
+  %.0 = phi i1 [ %260, %259 ], [ %258, %257 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %214, %213 ], [ %96, %95 ], [ %32, %31 ], [ %30, %29 ], [ %18, %17 ], [ %16, %15 ], [ %28, %27 ], [ %26, %25 ], [ %60, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82 ], [ %77, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85 ], [ %94, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88 ], [ %113, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91 ], [ %136, %131 ], [ false, %125 ], [ %164, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100 ], [ %181, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %198, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106 ], [ %212, %207 ], [ false, %199 ], [ %228, %223 ], [ false, %215 ], [ %256, %255 ], [ false, %250 ], [ true, %253 ], [ false, %54 ], [ false, %71 ], [ false, %88 ], [ false, %107 ], [ false, %158 ], [ false, %175 ], [ false, %192 ], [ %.0.ph, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 

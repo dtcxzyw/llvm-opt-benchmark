@@ -37847,12 +37847,6 @@ _ZNK5clang9ASTReader29getGlobalPreprocessedEntityIDERNS_13serialization10ModuleF
   store i32 %329, ptr %60, align 8
   br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer.backedge
 
-_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer.backedge: ; preds = %327, %334
-  %.sroa.5.0.ph.be = phi i64 [ %335, %334 ], [ %181, %327 ]
-  %.sroa.0128.0.ph.be = phi ptr [ %336, %334 ], [ %.0.i.i.i.i.i, %327 ]
-  %.063.ph.be = phi ptr [ %.063.ph253, %334 ], [ %139, %327 ]
-  br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer, !llvm.loop !473
-
 330:                                              ; preds = %114
   %.not = icmp eq ptr %.063.ph253, null
   br i1 %.not, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer251, label %331, !llvm.loop !473
@@ -37872,6 +37866,12 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer.backedge: ; preds = %327,
   %335 = add i64 %.sroa.5.0.ph, -1
   %336 = getelementptr inbounds i8, ptr %.sroa.0128.0.ph, i64 24
   br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer.backedge
+
+_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer.backedge: ; preds = %334, %327
+  %.sroa.5.0.ph.be = phi i64 [ %181, %327 ], [ %335, %334 ]
+  %.sroa.0128.0.ph.be = phi ptr [ %.0.i.i.i.i.i, %327 ], [ %336, %334 ]
+  %.063.ph.be = phi ptr [ %139, %327 ], [ %.063.ph253, %334 ]
+  br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.outer, !llvm.loop !473
 
 .loopexit219:                                     ; preds = %.loopexit, %_ZN4llvm8ExpectedIjED2Ev.exit, %114, %114, %115, %88, %_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit, %92, %333
   %.3.ph.ph = phi ptr [ %.063.ph253, %333 ], [ %.063.ph253, %92 ], [ %.063.ph253, %_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit ], [ %.063.ph253, %88 ], [ %.063.ph253, %114 ], [ %.063.ph253, %114 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ], [ %.063.ph253, %.loopexit ], [ %.063.ph253, %115 ]

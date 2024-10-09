@@ -5459,7 +5459,7 @@ return.loopexit:                                  ; preds = %while.body, %while.
   br label %return
 
 return:                                           ; preds = %sw.bb166, %sw.bb154, %if.end, %sw.bb70, %while.body, %return.loopexit, %sw.bb180, %if.end185, %if.end192, %sw.bb138, %sw.bb126, %sw.bb119, %sw.bb103, %sw.bb91, %sw.bb85, %sw.bb59, %sw.bb48, %sw.bb41, %sw.bb34, %sw.bb28, %sw.bb23
-  %retval.sroa.0.0 = phi i32 [ %bf.set.i138, %if.end192 ], [ %bf.set.i104, %sw.bb138 ], [ %bf.set.i93, %sw.bb126 ], [ %bf.set.i87, %sw.bb119 ], [ %bf.set.i78, %sw.bb103 ], [ %bf.set.i68, %sw.bb91 ], [ %bf.set.i62, %sw.bb85 ], [ %bf.set.i50, %sw.bb59 ], [ %bf.set.i46, %sw.bb48 ], [ %bf.set.i39, %sw.bb41 ], [ %bf.set.i35, %sw.bb34 ], [ %bf.set.i29, %sw.bb28 ], [ %bf.set.i, %sw.bb23 ], [ 0, %if.end185 ], [ 1, %sw.bb180 ], [ 1, %while.body ], [ 0, %sw.bb166 ], [ 0, %sw.bb154 ], [ 1, %if.end ], [ 0, %sw.bb70 ], [ 257, %return.loopexit ]
+  %retval.sroa.0.0 = phi i32 [ %bf.set.i138, %if.end192 ], [ %bf.set.i104, %sw.bb138 ], [ %bf.set.i93, %sw.bb126 ], [ %bf.set.i87, %sw.bb119 ], [ %bf.set.i78, %sw.bb103 ], [ %bf.set.i68, %sw.bb91 ], [ %bf.set.i62, %sw.bb85 ], [ %bf.set.i50, %sw.bb59 ], [ %bf.set.i46, %sw.bb48 ], [ %bf.set.i39, %sw.bb41 ], [ %bf.set.i35, %sw.bb34 ], [ %bf.set.i29, %sw.bb28 ], [ %bf.set.i, %sw.bb23 ], [ 0, %if.end185 ], [ 1, %sw.bb180 ], [ 257, %return.loopexit ], [ 1, %while.body ], [ 0, %sw.bb166 ], [ 0, %sw.bb154 ], [ 1, %if.end ], [ 0, %sw.bb70 ]
   ret i32 %retval.sroa.0.0
 }
 

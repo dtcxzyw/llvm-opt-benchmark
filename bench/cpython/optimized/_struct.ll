@@ -1953,14 +1953,15 @@ sw.bb1.i.i.i:                                     ; preds = %if.end.i22.i, %if.e
   br label %whichtable.exit.i.i
 
 sw.default.i.i.i:                                 ; preds = %if.end.i22.i
+  br label %sw.bb4.i.i.i
+
+sw.bb4.i.i.i:                                     ; preds = %sw.default.i.i.i, %if.end.i22.i
+  %fmt.0.i.i = phi ptr [ %ob_sval.i.i.i, %sw.default.i.i.i ], [ %incdec.ptr.i.i.i, %if.end.i22.i ]
   br label %whichtable.exit.i.i
 
-sw.bb4.i.i.i:                                     ; preds = %if.end.i22.i
-  br label %whichtable.exit.i.i
-
-whichtable.exit.i.i:                              ; preds = %sw.bb4.i.i.i, %sw.default.i.i.i, %sw.bb1.i.i.i, %if.end.i22.i, %if.end.i22.i
-  %fmt.1.i.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb1.i.i.i ], [ %incdec.ptr.i.i.i, %if.end.i22.i ], [ %incdec.ptr.i.i.i, %if.end.i22.i ], [ %ob_sval.i.i.i, %sw.default.i.i.i ], [ %incdec.ptr.i.i.i, %sw.bb4.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ @bigendian_table, %sw.bb1.i.i.i ], [ @lilendian_table, %if.end.i22.i ], [ @lilendian_table, %if.end.i22.i ], [ @native_table, %sw.default.i.i.i ], [ @native_table, %sw.bb4.i.i.i ]
+whichtable.exit.i.i:                              ; preds = %sw.bb4.i.i.i, %sw.bb1.i.i.i, %if.end.i22.i, %if.end.i22.i
+  %fmt.1.i.i = phi ptr [ %fmt.0.i.i, %sw.bb4.i.i.i ], [ %incdec.ptr.i.i.i, %sw.bb1.i.i.i ], [ %incdec.ptr.i.i.i, %if.end.i22.i ], [ %incdec.ptr.i.i.i, %if.end.i22.i ]
+  %retval.0.i.i.i = phi ptr [ @native_table, %sw.bb4.i.i.i ], [ @bigendian_table, %sw.bb1.i.i.i ], [ @lilendian_table, %if.end.i22.i ], [ @lilendian_table, %if.end.i22.i ]
   br label %while.cond.outer.i.i
 
 while.cond.outer.i.i:                             ; preds = %if.end79.i.i, %whichtable.exit.i.i

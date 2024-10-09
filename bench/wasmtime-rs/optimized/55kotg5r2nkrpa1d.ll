@@ -696,9 +696,9 @@ define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5
   %33 = tail call { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18eb73391f4850caE"(ptr nonnull align 8 %26), !noalias !7
   %34 = extractvalue { ptr, i64 } %33, 1
   %35 = icmp ult i64 %32, %34
-  br i1 %35, label %.lr.ph309.i, label %._crit_edge.i
+  br i1 %35, label %.lr.ph310.i, label %._crit_edge.i
 
-.lr.ph309.i:                                      ; preds = %30
+.lr.ph310.i:                                      ; preds = %30
   %36 = getelementptr inbounds i8, ptr %1, i64 88
   %37 = getelementptr inbounds i8, ptr %1, i64 80
   %38 = getelementptr inbounds i8, ptr %1, i64 160
@@ -712,7 +712,7 @@ define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5
   %43 = icmp eq i64 %40, %42
   br i1 %43, label %534, label %144
 
-44:                                               ; preds = %.backedge.i, %.lr.ph309.i
+44:                                               ; preds = %.backedge.i, %.lr.ph310.i
   %45 = tail call { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18eb73391f4850caE"(ptr nonnull align 8 %26), !noalias !7
   %46 = extractvalue { ptr, i64 } %45, 1
   %47 = load i64, ptr %24, align 8, !noalias !7, !noundef !3
@@ -1139,8 +1139,8 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit.i: ; preds = %144
   %263 = add nsw i8 %167, -48
   %or.cond.i = icmp ult i8 %263, 10
   %264 = icmp eq i8 %167, 45
-  %or.cond217.i = or i1 %264, %or.cond.i
-  br i1 %or.cond217.i, label %.thread.i, label %.thread206.i
+  %or.cond218.i = or i1 %264, %or.cond.i
+  br i1 %or.cond218.i, label %.thread.i, label %.thread206.i
 
 _ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_first_char17h9f7160da5eee5084E.exit.i: ; preds = %171
   %265 = load i64, ptr %31, align 16, !noalias !7, !noundef !3
@@ -1162,7 +1162,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i: ; preds = %_Z
   %275 = tail call { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18eb73391f4850caE"(ptr nonnull align 8 %26), !noalias !7
   %276 = extractvalue { ptr, i64 } %275, 1
   %277 = icmp ult i64 %162, %276
-  br i1 %277, label %.lr.ph316.i, label %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i
+  br i1 %277, label %.lr.ph317.i, label %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i
 
 .thread206.i:                                     ; preds = %262, %171, %171, %171, %171, %171
   store i8 %167, ptr %12, align 1, !noalias !7
@@ -1194,7 +1194,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i: ; preds = %_Z
   br label %535
 
 .thread.i:                                        ; preds = %262, %169
-  %or.cond400.i = phi i1 [ %or.cond.i, %262 ], [ true, %169 ]
+  %or.cond401.i = phi i1 [ %or.cond.i, %262 ], [ true, %169 ]
   %279 = load i64, ptr %31, align 16, !noalias !7, !noundef !3
   %280 = load i64, ptr %146, align 16, !noalias !7, !noundef !3
   %281 = icmp ult i64 %279, %280
@@ -1218,7 +1218,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit184.i: ; preds = %.t
   store i64 %287, ptr %290, align 16, !noalias !7
   %291 = getelementptr inbounds i8, ptr %18, i64 24
   store i64 %288, ptr %291, align 8, !noalias !7
-  br i1 %or.cond400.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i, label %292
+  br i1 %or.cond401.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i, label %292
 
 292:                                              ; preds = %_ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit184.i
   %293 = add i64 %288, 1
@@ -1299,7 +1299,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i: ; pr
 
 .sink.split.i:                                    ; preds = %345, %344, %342, %342
   %.ph.i = phi i1 [ true, %344 ], [ true, %345 ], [ false, %342 ], [ false, %342 ]
-  %.ph472.i = phi i1 [ false, %344 ], [ false, %345 ], [ true, %342 ], [ true, %342 ]
+  %.ph473.i = phi i1 [ false, %344 ], [ false, %345 ], [ true, %342 ], [ true, %342 ]
   %.0133.ph.i = phi i32 [ 8, %344 ], [ 2, %345 ], [ 16, %342 ], [ 16, %342 ]
   tail call fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E(ptr nonnull align 16 %1), !noalias !7
   tail call fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E(ptr nonnull align 16 %1), !noalias !7
@@ -1309,7 +1309,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i: ; pr
 334:                                              ; preds = %342, %339, %.sink.split.i, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i
   %.pre.i = phi i64 [ %329, %342 ], [ %329, %339 ], [ %329, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.pre.i.pre, %.sink.split.i ]
   %335 = phi i1 [ true, %342 ], [ true, %339 ], [ true, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph.i, %.sink.split.i ]
-  %336 = phi i1 [ false, %342 ], [ false, %339 ], [ false, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph472.i, %.sink.split.i ]
+  %336 = phi i1 [ false, %342 ], [ false, %339 ], [ false, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph473.i, %.sink.split.i ]
   %.0133.i = phi i32 [ 10, %342 ], [ 10, %339 ], [ 10, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.0133.ph.i, %.sink.split.i ]
   store i64 0, ptr %17, align 8, !noalias !7
   %337 = getelementptr inbounds i8, ptr %17, i64 8
@@ -1502,7 +1502,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i: ; pr
   %extract.t139 = trunc i128 %419 to i64
   %extract141 = lshr i128 %419, 64
   %extract.t142 = trunc nuw i128 %extract141 to i64
-  br i1 %or.cond400.i, label %.critedge174.i, label %422
+  br i1 %or.cond401.i, label %.critedge174.i, label %422
 
 420:                                              ; preds = %414
   %421 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1692,14 +1692,14 @@ _ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6
   %491 = ptrtoint ptr %489 to i64
   br label %534
 
-.lr.ph316.i:                                      ; preds = %_ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit193.i
+.lr.ph317.i:                                      ; preds = %_ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit193.i
   %492 = tail call { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18eb73391f4850caE"(ptr nonnull align 8 %26), !noalias !7
   %493 = extractvalue { ptr, i64 } %492, 1
   %494 = load i64, ptr %24, align 8, !noalias !7, !noundef !3
   %495 = icmp ult i64 %494, %493
   br i1 %495, label %496, label %500, !prof !4
 
-496:                                              ; preds = %.lr.ph316.i
+496:                                              ; preds = %.lr.ph317.i
   %497 = extractvalue { ptr, i64 } %492, 0
   %498 = getelementptr inbounds [0 x i8], ptr %497, i64 0, i64 %494
   %499 = load i8, ptr %498, align 1, !noundef !3
@@ -1716,7 +1716,7 @@ _ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6
     i8 32, label %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i
   ]
 
-500:                                              ; preds = %.lr.ph316.i
+500:                                              ; preds = %.lr.ph317.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %494, i64 %493, ptr nonnull align 8 @anon.b95dc7aa883b92930dc6d4a070cf2145.30) #11, !noalias !7
   unreachable
 
@@ -1781,7 +1781,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit193.i: ; pr
   %531 = tail call { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18eb73391f4850caE"(ptr nonnull align 8 %26), !noalias !7
   %532 = extractvalue { ptr, i64 } %531, 1
   %533 = icmp ult i64 %518, %532
-  br i1 %533, label %.lr.ph316.i, label %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i
+  br i1 %533, label %.lr.ph317.i, label %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i
 
 534:                                              ; preds = %248, %254, %261, %218, %224, %231, %188, %194, %201, %._crit_edge.i, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i, %.critedge174.i
   %.sroa.12.sroa.9.0.ph = phi i64 [ %155, %248 ], [ %155, %254 ], [ %155, %261 ], [ %155, %218 ], [ %155, %224 ], [ %155, %231 ], [ %155, %188 ], [ %155, %194 ], [ %155, %201 ], [ undef, %._crit_edge.i ], [ %272, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.12.sroa.9.0.extract.trunc49, %.critedge174.i ]

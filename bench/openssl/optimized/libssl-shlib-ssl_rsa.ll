@@ -2114,7 +2114,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp18.i = icmp eq i32 %or.i.i15.i, %ext_type
   br i1 %cmp18.i, label %if.end26, label %for.cond.i
 
-if.then22:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %lor.lhs.false13.i, %lor.lhs.false.i.i, %if.then18
+if.then22:                                        ; preds = %lor.lhs.false.i.i, %lor.lhs.false13.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %if.then18
   store i32 80, ptr %al, align 4
   br label %return
 

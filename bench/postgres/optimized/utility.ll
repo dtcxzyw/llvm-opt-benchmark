@@ -1621,8 +1621,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %209, 
   %193 = load i32, ptr %192, align 4
   switch i32 %193, label %203 [
     i32 1, label %194
-    i32 2, label %switch.lookup554.loopexit
-    i32 3, label %switch.lookup554
+    i32 2, label %switch.lookup554
+    i32 3, label %.loopexit185
     i32 4, label %.loopexit306
     i32 5, label %.loopexit432
     i32 6, label %tailrecurse.backedge
@@ -1660,8 +1660,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %209, 
   %211 = load i32, ptr %210, align 4
   switch i32 %211, label %221 [
     i32 1, label %212
-    i32 2, label %switch.lookup554.loopexit
-    i32 3, label %switch.lookup554
+    i32 2, label %switch.lookup554
+    i32 3, label %.loopexit185
     i32 4, label %.loopexit306
     i32 5, label %.loopexit432
     i32 6, label %tailrecurse.backedge
@@ -1707,7 +1707,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %209, 
 .loopexit:                                        ; preds = %tailrecurse
   br label %switch.lookup554
 
-.loopexit185:                                     ; preds = %tailrecurse
+.loopexit185:                                     ; preds = %tailrecurse, %191, %209
+  %.0.ph186 = phi i32 [ 158, %209 ], [ 158, %191 ], [ 103, %tailrecurse ]
   br label %switch.lookup554
 
 .loopexit306:                                     ; preds = %tailrecurse, %191, %209
@@ -1747,12 +1748,11 @@ switch.lookup558:                                 ; preds = %215
   %switch.load561 = load i32, ptr %switch.gep560, align 4
   br label %switch.lookup554
 
-switch.lookup554.loopexit:                        ; preds = %tailrecurse, %tailrecurse, %191, %209
-  %.0.ph = phi i32 [ 191, %191 ], [ 191, %209 ], [ 179, %tailrecurse ], [ 179, %tailrecurse ]
+switch.lookup554.loopexit:                        ; preds = %tailrecurse, %tailrecurse
   br label %switch.lookup554
 
 switch.lookup554:                                 ; preds = %209, %191, %tailrecurse, %switch.lookup554.loopexit, %146, %215, %switch.lookup558, %197, %switch.lookup555, %141, %switch.lookup551, %35, %switch.lookup548, %4, %switch.lookup, %.loopexit432, %.loopexit306, %.loopexit185, %.loopexit, %229, %227, %223, %221, %212, %205, %203, %194, %187, %131, %134, %126, %108, %91, %74, %8, %138, %94, %95, %96, %97, %98, %99, %100, %101, %102, %77, %78, %79, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %145, %140, %139, %130, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %107, %106, %105, %104, %103, %90, %85, %80, %73, %69, %65, %61, %57, %53, %50, %42, %41, %40, %39, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12
-  %.0 = phi i32 [ 31, %186 ], [ 86, %185 ], [ 152, %184 ], [ 166, %183 ], [ 4, %182 ], [ 140, %181 ], [ 32, %180 ], [ 87, %179 ], [ 24, %178 ], [ 79, %177 ], [ 58, %176 ], [ 22, %175 ], [ 77, %174 ], [ 36, %173 ], [ 37, %172 ], [ 42, %171 ], [ 19, %170 ], [ 21, %169 ], [ 76, %168 ], [ 75, %167 ], [ 60, %166 ], [ 63, %165 ], [ 170, %164 ], [ 48, %163 ], [ 186, %162 ], [ 161, %161 ], [ 168, %160 ], [ 129, %159 ], [ 133, %158 ], [ 25, %157 ], [ 25, %156 ], [ 80, %155 ], [ 72, %154 ], [ 10, %153 ], [ 66, %152 ], [ 96, %151 ], [ 95, %150 ], [ 187, %145 ], [ 33, %140 ], [ 169, %139 ], [ 0, %138 ], [ 153, %130 ], [ 52, %125 ], [ 47, %124 ], [ 160, %123 ], [ 190, %122 ], [ 159, %121 ], [ 165, %120 ], [ 116, %119 ], [ 7, %118 ], [ 64, %117 ], [ 109, %116 ], [ 29, %115 ], [ 84, %114 ], [ 82, %113 ], [ 71, %112 ], [ 99, %107 ], [ 42, %106 ], [ 97, %105 ], [ 97, %104 ], [ 97, %103 ], [ 0, %102 ], [ 58, %101 ], [ 61, %100 ], [ 91, %99 ], [ 94, %98 ], [ 92, %97 ], [ 93, %96 ], [ 97, %95 ], [ 74, %94 ], [ 8, %90 ], [ %89, %85 ], [ %84, %80 ], [ 0, %79 ], [ 26, %78 ], [ 23, %77 ], [ 9, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ], [ 56, %42 ], [ 178, %41 ], [ 53, %40 ], [ 189, %39 ], [ 157, %34 ], [ 69, %33 ], [ 150, %32 ], [ 43, %31 ], [ 98, %30 ], [ 30, %29 ], [ 85, %28 ], [ 12, %27 ], [ 68, %26 ], [ 11, %25 ], [ 11, %24 ], [ 67, %23 ], [ 35, %22 ], [ 142, %21 ], [ 90, %20 ], [ 88, %19 ], [ 83, %18 ], [ 65, %17 ], [ %16, %12 ], [ %., %8 ], [ 14, %74 ], [ 59, %91 ], [ %.48, %108 ], [ %.49, %126 ], [ %.50, %134 ], [ 73, %131 ], [ %.51, %187 ], [ 179, %194 ], [ 0, %203 ], [ 0, %205 ], [ 179, %212 ], [ 0, %221 ], [ 0, %223 ], [ 0, %227 ], [ 0, %229 ], [ %.0.ph307, %.loopexit306 ], [ 163, %.loopexit432 ], [ %switch.load, %switch.lookup ], [ 0, %4 ], [ %switch.load550, %switch.lookup548 ], [ 0, %35 ], [ %switch.load553, %switch.lookup551 ], [ 0, %141 ], [ %switch.load557, %switch.lookup555 ], [ 179, %197 ], [ %switch.load561, %switch.lookup558 ], [ 0, %215 ], [ 158, %.loopexit ], [ %spec.select, %146 ], [ %.0.ph, %switch.lookup554.loopexit ], [ 102, %tailrecurse ], [ 158, %209 ], [ 158, %191 ], [ 103, %.loopexit185 ]
+  %.0 = phi i32 [ 31, %186 ], [ 86, %185 ], [ 152, %184 ], [ 166, %183 ], [ 4, %182 ], [ 140, %181 ], [ 32, %180 ], [ 87, %179 ], [ 24, %178 ], [ 79, %177 ], [ 58, %176 ], [ 22, %175 ], [ 77, %174 ], [ 36, %173 ], [ 37, %172 ], [ 42, %171 ], [ 19, %170 ], [ 21, %169 ], [ 76, %168 ], [ 75, %167 ], [ 60, %166 ], [ 63, %165 ], [ 170, %164 ], [ 48, %163 ], [ 186, %162 ], [ 161, %161 ], [ 168, %160 ], [ 129, %159 ], [ 133, %158 ], [ 25, %157 ], [ 25, %156 ], [ 80, %155 ], [ 72, %154 ], [ 10, %153 ], [ 66, %152 ], [ 96, %151 ], [ 95, %150 ], [ 187, %145 ], [ 33, %140 ], [ 169, %139 ], [ 0, %138 ], [ 153, %130 ], [ 52, %125 ], [ 47, %124 ], [ 160, %123 ], [ 190, %122 ], [ 159, %121 ], [ 165, %120 ], [ 116, %119 ], [ 7, %118 ], [ 64, %117 ], [ 109, %116 ], [ 29, %115 ], [ 84, %114 ], [ 82, %113 ], [ 71, %112 ], [ 99, %107 ], [ 42, %106 ], [ 97, %105 ], [ 97, %104 ], [ 97, %103 ], [ 0, %102 ], [ 58, %101 ], [ 61, %100 ], [ 91, %99 ], [ 94, %98 ], [ 92, %97 ], [ 93, %96 ], [ 97, %95 ], [ 74, %94 ], [ 8, %90 ], [ %89, %85 ], [ %84, %80 ], [ 0, %79 ], [ 26, %78 ], [ 23, %77 ], [ 9, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ], [ 56, %42 ], [ 178, %41 ], [ 53, %40 ], [ 189, %39 ], [ 157, %34 ], [ 69, %33 ], [ 150, %32 ], [ 43, %31 ], [ 98, %30 ], [ 30, %29 ], [ 85, %28 ], [ 12, %27 ], [ 68, %26 ], [ 11, %25 ], [ 11, %24 ], [ 67, %23 ], [ 35, %22 ], [ 142, %21 ], [ 90, %20 ], [ 88, %19 ], [ 83, %18 ], [ 65, %17 ], [ %16, %12 ], [ %., %8 ], [ 14, %74 ], [ 59, %91 ], [ %.48, %108 ], [ %.49, %126 ], [ %.50, %134 ], [ 73, %131 ], [ %.51, %187 ], [ 179, %194 ], [ 0, %203 ], [ 0, %205 ], [ 179, %212 ], [ 0, %221 ], [ 0, %223 ], [ 0, %227 ], [ 0, %229 ], [ %.0.ph186, %.loopexit185 ], [ %.0.ph307, %.loopexit306 ], [ 163, %.loopexit432 ], [ %switch.load, %switch.lookup ], [ 0, %4 ], [ %switch.load550, %switch.lookup548 ], [ 0, %35 ], [ %switch.load553, %switch.lookup551 ], [ 0, %141 ], [ %switch.load557, %switch.lookup555 ], [ 179, %197 ], [ %switch.load561, %switch.lookup558 ], [ 0, %215 ], [ %spec.select, %146 ], [ 179, %switch.lookup554.loopexit ], [ 102, %tailrecurse ], [ 191, %209 ], [ 191, %191 ], [ 158, %.loopexit ]
   ret i32 %.0
 }
 
@@ -3303,7 +3303,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @FetchPreparedStatement(ptr noundef %16, i1 noundef zeroext false) #10
   %.not39 = icmp eq ptr %17, null
-  br i1 %.not39, label %.loopexit.loopexit248, label %18
+  br i1 %.not39, label %.loopexit.loopexit, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %17, i64 64
@@ -3311,7 +3311,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not40 = icmp eq ptr %22, null
-  br i1 %.not40, label %.loopexit.loopexit248, label %23
+  br i1 %.not40, label %.loopexit.loopexit, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %22, i64 8
@@ -3322,13 +3322,13 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.loopexit.loopexit248, label %.lr.ph
+  br i1 %.not, label %.loopexit.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %29 = getelementptr inbounds i8, ptr %27, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph150, label %.loopexit.loopexit248
+  br i1 %31, label %.lr.ph150, label %.loopexit.loopexit
 
 .lr.ph150:                                        ; preds = %.lr.ph, %42
   %32 = phi i32 [ %43, %42 ], [ %30, %.lr.ph ]
@@ -3357,7 +3357,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   br i1 %45, label %.lr.ph150, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42
-  br i1 %.1, label %46, label %.loopexit.loopexit248
+  br i1 %.1, label %46, label %.loopexit.loopexit
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds i8, ptr %.tr, i64 8
@@ -3367,11 +3367,11 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %49 = getelementptr inbounds i8, ptr %.tr, i64 4
   %50 = load i32, ptr %49, align 4
   switch i32 %50, label %53 [
-    i32 1, label %.loopexit.loopexit248
-    i32 2, label %.loopexit.loopexit
-    i32 3, label %.loopexit.loopexit
-    i32 4, label %.loopexit.loopexit
-    i32 5, label %.loopexit.loopexit
+    i32 1, label %.loopexit.loopexit
+    i32 2, label %.loopexit.loopexit248
+    i32 3, label %.loopexit.loopexit248
+    i32 4, label %.loopexit.loopexit248
+    i32 5, label %.loopexit.loopexit248
     i32 6, label %51
   ]
 
@@ -3394,11 +3394,11 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %60 = getelementptr inbounds i8, ptr %.tr, i64 4
   %61 = load i32, ptr %60, align 4
   switch i32 %61, label %64 [
-    i32 1, label %.loopexit.loopexit248
-    i32 2, label %.loopexit.loopexit
-    i32 3, label %.loopexit.loopexit
-    i32 4, label %.loopexit.loopexit
-    i32 5, label %.loopexit.loopexit
+    i32 1, label %.loopexit.loopexit
+    i32 2, label %.loopexit.loopexit248
+    i32 3, label %.loopexit.loopexit248
+    i32 4, label %.loopexit.loopexit248
+    i32 5, label %.loopexit.loopexit248
     i32 6, label %62
   ]
 
@@ -3427,14 +3427,16 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3769, ptr noundef nonnull @__func__.GetCommandLogLevel) #10
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %48, %48, %48, %59, %59, %59, %59
+.loopexit.loopexit:                               ; preds = %25, %.lr.ph, %59, %48, %._crit_edge, %14, %18, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %.0.ph = phi i32 [ 3, %25 ], [ 3, %.lr.ph ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 3, %18 ], [ 3, %14 ], [ 3, %._crit_edge ], [ 3, %48 ], [ 3, %59 ]
   br label %.loopexit
 
-.loopexit.loopexit248:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %25, %.lr.ph, %59, %48, %._crit_edge, %14, %18
+.loopexit.loopexit248:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %48, %48, %48, %59, %59, %59, %59
+  %.0.ph249 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %48 ], [ 2, %48 ], [ 2, %48 ], [ 2, %48 ], [ 2, %59 ], [ 2, %59 ], [ 2, %59 ], [ 2, %59 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit248, %.loopexit.loopexit, %5, %8, %53, %55, %64, %66, %70, %72
-  %.0 = phi i32 [ %., %5 ], [ %.42, %8 ], [ 3, %53 ], [ 3, %55 ], [ 3, %64 ], [ 3, %66 ], [ 3, %70 ], [ 3, %72 ], [ 2, %.loopexit.loopexit ], [ 3, %.loopexit.loopexit248 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
+  %.0 = phi i32 [ %., %5 ], [ %.42, %8 ], [ 3, %53 ], [ 3, %55 ], [ 3, %64 ], [ 3, %66 ], [ 3, %70 ], [ 3, %72 ], [ %.0.ph, %.loopexit.loopexit ], [ %.0.ph249, %.loopexit.loopexit248 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
   ret i32 %.0
 }
 

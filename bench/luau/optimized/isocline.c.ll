@@ -17104,9 +17104,9 @@ tty_read_utf8.exit:                               ; preds = %116, %75
 
 138:                                              ; preds = %136
   switch i32 %122, label %139 [
-    i32 1073741824, label %.sink.split
-    i32 536870912, label %.sink.split
-    i32 268435456, label %.sink.split
+    i32 1073741824, label %.thread53.i
+    i32 536870912, label %.thread53.i
+    i32 268435456, label %.thread53.i
   ]
 
 139:                                              ; preds = %138, %136
@@ -17117,7 +17117,8 @@ tty_read_utf8.exit:                               ; preds = %116, %75
     i32 536870974, label %.sink.split
   ]
 
-.thread53.i:                                      ; preds = %139
+.thread53.i:                                      ; preds = %139, %138, %138, %138
+  %.0.ph52.i = phi i32 [ 268435465, %139 ], [ 10, %138 ], [ 10, %138 ], [ 10, %138 ]
   br label %.sink.split
 
 140:                                              ; preds = %139
@@ -17133,8 +17134,8 @@ tty_read_utf8.exit:                               ; preds = %116, %75
   %spec.select58.i = select i1 %144, i32 %spec.select.i21, i32 %spec.store.select.i
   br label %.sink.split
 
-.sink.split:                                      ; preds = %140, %.thread53.i, %139, %139, %139, %138, %138, %138, %134, %132, %tty_code_pop.exit.thread
-  %.sink22 = phi i32 [ %15, %tty_code_pop.exit.thread ], [ 1073741919, %134 ], [ %133, %132 ], [ 16777224, %139 ], [ 16777224, %139 ], [ 16777224, %139 ], [ %spec.select58.i, %140 ], [ 10, %138 ], [ 10, %138 ], [ 10, %138 ], [ 268435465, %.thread53.i ]
+.sink.split:                                      ; preds = %140, %.thread53.i, %139, %139, %139, %134, %132, %tty_code_pop.exit.thread
+  %.sink22 = phi i32 [ %15, %tty_code_pop.exit.thread ], [ %.0.ph52.i, %.thread53.i ], [ 1073741919, %134 ], [ %133, %132 ], [ 16777224, %139 ], [ 16777224, %139 ], [ 16777224, %139 ], [ %spec.select58.i, %140 ]
   store i32 %.sink22, ptr %2, align 4
   br label %146
 

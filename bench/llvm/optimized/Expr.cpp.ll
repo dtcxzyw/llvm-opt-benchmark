@@ -19323,7 +19323,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 7:                                                ; preds = %tailrecurse
   %8 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #29
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread, label %.critedge
+  br i1 %9, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse, %7
   %10 = load i8, ptr %.tr, align 8
@@ -19361,30 +19361,30 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 53, label %84
     i8 118, label %78
     i8 4, label %74
-    i8 108, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 17, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 6, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 59, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 8, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 23, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 24, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 25, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 109, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 95, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 69, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341
-    i8 71, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 34, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 19, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 52, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 63, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 62, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 55, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 10, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 78, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 27, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 54, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 5, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 127, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
+    i8 108, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 17, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 6, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 59, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 8, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 23, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 24, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 25, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 109, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 95, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 69, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337
+    i8 71, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 34, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 19, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 52, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 63, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 62, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 55, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 10, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 78, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 27, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 54, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 5, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 127, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
     i8 60, label %70
     i8 11, label %63
     i8 72, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
@@ -19406,31 +19406,31 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 91, label %14
     i8 89, label %14
     i8 61, label %11
-    i8 56, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 22, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 15, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 16, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 75, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 66, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 12, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 26, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 94, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 41, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 40, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 37, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 29, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 13, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 105, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 65, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 122, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 7, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 100, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 98, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 104, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 115, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 45, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 126, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
-    i8 58, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373
+    i8 56, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 22, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 15, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 16, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 75, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 66, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 12, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 26, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 94, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 41, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 40, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 37, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 29, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 13, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 105, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 65, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 122, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 7, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 100, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 98, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 104, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 115, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 45, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 126, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
+    i8 58, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369
   ]
 
 11:                                               ; preds = %.critedge
@@ -19501,8 +19501,8 @@ _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit:  ; preds = %.lr.ph.i4.i.i.i.i, 
 _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread: ; preds = %37, %30, %32, %16, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit
   %39 = load i32, ptr %17, align 4
   %40 = and i32 %39, 256
-  %.not.i231 = icmp eq i32 %40, 0
-  br i1 %.not.i231, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %41
+  %.not.i229 = icmp eq i32 %40, 0
+  br i1 %.not.i229, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %41
 
 41:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread
   %42 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %15) #28
@@ -19510,42 +19510,42 @@ _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread: ; preds = %37, %30, %32,
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #28
   %45 = getelementptr inbounds ptr, ptr %43, i64 %44
   %46 = icmp sgt i64 %44, 0
-  br i1 %46, label %.lr.ph.i.i.i.i.i238, label %53
+  br i1 %46, label %.lr.ph.i.i.i.i.i236, label %53
 
-.lr.ph.i.i.i.i.i238:                              ; preds = %41, %51
-  %.sroa.07.1.i.i.i.i239 = phi ptr [ %52, %51 ], [ %43, %41 ]
-  %47 = load ptr, ptr %.sroa.07.1.i.i.i.i239, align 8
+.lr.ph.i.i.i.i.i236:                              ; preds = %41, %51
+  %.sroa.07.1.i.i.i.i237 = phi ptr [ %52, %51 ], [ %43, %41 ]
+  %47 = load ptr, ptr %.sroa.07.1.i.i.i.i237, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i16, ptr %48, align 8
   %50 = icmp eq i16 %49, 315
   br i1 %50, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %51
 
-51:                                               ; preds = %.lr.ph.i.i.i.i.i238
-  %52 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i239, i64 8
-  %.not.i.i.i.i.i240 = icmp eq ptr %52, %45
-  br i1 %.not.i.i.i.i.i240, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i.i.i.i.i238, !llvm.loop !166
+51:                                               ; preds = %.lr.ph.i.i.i.i.i236
+  %52 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i237, i64 8
+  %.not.i.i.i.i.i238 = icmp eq ptr %52, %45
+  br i1 %.not.i.i.i.i.i238, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i.i.i.i.i236, !llvm.loop !166
 
 53:                                               ; preds = %41
-  %.not2.i3.i.i.i.i232 = icmp eq i64 %44, 0
-  br i1 %.not2.i3.i.i.i.i232, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i4.i.i.i.i233
+  %.not2.i3.i.i.i.i230 = icmp eq i64 %44, 0
+  br i1 %.not2.i3.i.i.i.i230, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i4.i.i.i.i231
 
-.lr.ph.i4.i.i.i.i233:                             ; preds = %53, %58
-  %.sroa.0.1.i.i.i.i234 = phi ptr [ %59, %58 ], [ %45, %53 ]
-  %54 = load ptr, ptr %.sroa.0.1.i.i.i.i234, align 8
+.lr.ph.i4.i.i.i.i231:                             ; preds = %53, %58
+  %.sroa.0.1.i.i.i.i232 = phi ptr [ %59, %58 ], [ %45, %53 ]
+  %54 = load ptr, ptr %.sroa.0.1.i.i.i.i232, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load i16, ptr %55, align 8
   %57 = icmp eq i16 %56, 315
   br i1 %57, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %58
 
-58:                                               ; preds = %.lr.ph.i4.i.i.i.i233
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i234, i64 8
-  %.not.i5.i.i.i.i235 = icmp eq ptr %59, %43
-  br i1 %.not.i5.i.i.i.i235, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i4.i.i.i.i233, !llvm.loop !166
+58:                                               ; preds = %.lr.ph.i4.i.i.i.i231
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i232, i64 8
+  %.not.i5.i.i.i.i233 = icmp eq ptr %59, %43
+  br i1 %.not.i5.i.i.i.i233, label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i4.i.i.i.i231, !llvm.loop !166
 
-_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i: ; preds = %58, %.lr.ph.i4.i.i.i.i233, %51, %.lr.ph.i.i.i.i.i238, %53
-  %.sroa.07.0.i.i.i.i236 = phi ptr [ %43, %53 ], [ %45, %51 ], [ %.sroa.07.1.i.i.i.i239, %.lr.ph.i.i.i.i.i238 ], [ %43, %.lr.ph.i4.i.i.i.i233 ], [ %43, %58 ]
-  %.sroa.0.0.i.i.i.i237 = phi ptr [ %43, %53 ], [ %45, %.lr.ph.i.i.i.i.i238 ], [ %45, %51 ], [ %43, %58 ], [ %.sroa.0.1.i.i.i.i234, %.lr.ph.i4.i.i.i.i233 ]
-  %60 = icmp ne ptr %.sroa.07.0.i.i.i.i236, %.sroa.0.0.i.i.i.i237
+_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i: ; preds = %58, %.lr.ph.i4.i.i.i.i231, %51, %.lr.ph.i.i.i.i.i236, %53
+  %.sroa.07.0.i.i.i.i234 = phi ptr [ %43, %53 ], [ %45, %51 ], [ %.sroa.07.1.i.i.i.i237, %.lr.ph.i.i.i.i.i236 ], [ %43, %.lr.ph.i4.i.i.i.i231 ], [ %43, %58 ]
+  %.sroa.0.0.i.i.i.i235 = phi ptr [ %43, %53 ], [ %45, %.lr.ph.i.i.i.i.i236 ], [ %45, %51 ], [ %43, %58 ], [ %.sroa.0.1.i.i.i.i232, %.lr.ph.i4.i.i.i.i231 ]
+  %60 = icmp ne ptr %.sroa.07.0.i.i.i.i234, %.sroa.0.0.i.i.i.i235
   br label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit
 
 _ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread, %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i
@@ -19646,7 +19646,7 @@ _ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZNK5clang4Decl7has
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef ptr @_ZNK5clang9FieldDecl21getInClassInitializerEv(ptr noundef nonnull align 8 dereferenceable(80) %116) #28
   %.not85 = icmp eq ptr %117, null
-  br i1 %.not85, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread, label %tailrecurse.backedge
+  br i1 %.not85, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337, label %tailrecurse.backedge
 
 118:                                              ; preds = %.critedge
   %119 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -19865,14 +19865,15 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   %.not3.i = select i1 %215, i1 true, i1 %217
   br i1 %.not3.i, label %.lr.ph162, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
-_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341: ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337: ; preds = %7, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %114
+  %.0.ph338 = phi i1 [ true, %114 ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ %2, %.critedge ], [ false, %7 ]
   br label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
-_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373: ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369: ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   br label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
-_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread: ; preds = %114, %7, %172, %174, %185, %202, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341, %167, %176, %.critedge4, %139, %188, %160, %153, %151, %148, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %131, %89, %78, %74, %71, %62, %.critedge92, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %63
-  %.0 = phi i1 [ %69, %63 ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.critedge92 ], [ true, %62 ], [ true, %71 ], [ true, %74 ], [ true, %78 ], [ true, %89 ], [ true, %131 ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ false, %148 ], [ true, %151 ], [ true, %153 ], [ true, %160 ], [ true, %188 ], [ true, %139 ], [ false, %.critedge4 ], [ false, %176 ], [ false, %167 ], [ %2, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit341 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ true, %202 ], [ %186, %185 ], [ false, %174 ], [ true, %172 ], [ false, %7 ], [ true, %114 ], [ false, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit373 ]
+_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread: ; preds = %172, %174, %185, %202, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337, %167, %176, %.critedge4, %139, %188, %160, %153, %151, %148, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %131, %89, %78, %74, %71, %62, %.critedge92, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %63
+  %.0 = phi i1 [ %69, %63 ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.critedge92 ], [ true, %62 ], [ true, %71 ], [ true, %74 ], [ true, %78 ], [ true, %89 ], [ true, %131 ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ false, %148 ], [ true, %151 ], [ true, %153 ], [ true, %160 ], [ true, %188 ], [ true, %139 ], [ false, %.critedge4 ], [ false, %176 ], [ false, %167 ], [ %.0.ph338, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit337 ], [ false, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread.loopexit369 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ true, %202 ], [ %186, %185 ], [ false, %174 ], [ true, %172 ]
   ret i1 %.0
 }
 

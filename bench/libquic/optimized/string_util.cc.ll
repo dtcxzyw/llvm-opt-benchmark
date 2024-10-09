@@ -111,7 +111,7 @@ while.body:                                       ; preds = %for.cond, %if.end23
   ]
 
 land.lhs.true:                                    ; preds = %while.body, %while.body
-  br i1 %modifier_l.021, label %if.end23.fold.split, label %return
+  br i1 %modifier_l.021, label %if.end23.fold.split, label %return.loopexit
 
 if.end23.fold.split:                              ; preds = %land.lhs.true, %while.body
   br label %if.end23
@@ -127,11 +127,12 @@ for.inc:                                          ; preds = %if.end23, %for.cond
   %incdec.ptr28 = getelementptr inbounds i8, ptr %position.2, i64 4
   br label %for.cond, !llvm.loop !7
 
-return.loopexit:                                  ; preds = %while.body
+return.loopexit:                                  ; preds = %land.lhs.true, %while.body
+  %retval.0.ph = phi i1 [ false, %land.lhs.true ], [ true, %while.body ]
   br label %return
 
-return:                                           ; preds = %for.cond, %land.lhs.true, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %return.loopexit
-  %retval.0 = phi i1 [ true, %return.loopexit ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %land.lhs.true ], [ true, %for.cond ]
+return:                                           ; preds = %for.cond, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %return.loopexit
+  %retval.0 = phi i1 [ %retval.0.ph, %return.loopexit ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ false, %while.body ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 

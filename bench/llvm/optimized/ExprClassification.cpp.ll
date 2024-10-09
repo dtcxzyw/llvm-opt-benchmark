@@ -378,7 +378,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %13 = load i32, ptr %.tr183, align 8
   %14 = and i32 %13, 4194304
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit
+  br i1 %.not.i, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit
 
 _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.tr183, i64 16
@@ -387,7 +387,7 @@ _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit: ; preds = %12
   %.not180 = icmp eq i32 %17, 0
   %.not = icmp eq ptr %16, null
   %or.cond = or i1 %.not180, %.not
-  br i1 %or.cond, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %tailrecurse.backedge
+  br i1 %or.cond, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, label %tailrecurse.backedge
 
 18:                                               ; preds = %tailrecurse
   %19 = getelementptr inbounds nuw i8, ptr %.tr183, i64 1
@@ -444,7 +444,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %49 = load i16, ptr %48, align 1
   %50 = and i16 %49, 64
   %.not181 = icmp eq i16 %50, 0
-  br i1 %.not181, label %51, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
+  br i1 %.not181, label %51, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit
 
 51:                                               ; preds = %47
   %52 = tail call noundef ptr @_ZNK5clang16PackIndexingExpr15getSelectedExprEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr183)
@@ -476,7 +476,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %69 = load i64, ptr %4, align 8
   %70 = and i64 %69, 4096
   %.not133 = icmp eq i64 %70, 0
-  br i1 %.not133, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %71
+  br i1 %.not133, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, label %71
 
 71:                                               ; preds = %68
   %72 = tail call noundef ptr @_ZNK5clang18ArraySubscriptExpr7getBaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr183)
@@ -496,7 +496,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %84 = zext i8 %83 to i32
   %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %84, -2
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %tailrecurse.backedge, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %tailrecurse.backedge, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit
 
 85:                                               ; preds = %tailrecurse
   %86 = getelementptr inbounds nuw i8, ptr %.tr183, i64 16
@@ -535,7 +535,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %107 = lshr i32 %106, 18
   %108 = and i32 %107, 31
   switch i32 %108, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423 [
-    i32 5, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
+    i32 5, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit
     i32 12, label %109
     i32 10, label %112
     i32 11, label %112
@@ -606,7 +606,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %147 = load i32, ptr %146, align 8
   %148 = and i32 %147, 1073709056
   %149 = icmp eq i32 %148, 1073709056
-  br i1 %149, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %150
+  br i1 %149, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, label %150
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds i8, ptr %.tr183, i64 32
@@ -655,11 +655,11 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
 
 179:                                              ; preds = %tailrecurse
   %180 = tail call noundef zeroext i1 @_ZNK5clang20ExtVectorElementExpr25containsDuplicateElementsEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr183) #8
-  br i1 %180, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %181
+  br i1 %180, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, label %181
 
 181:                                              ; preds = %179
   %182 = tail call noundef zeroext i1 @_ZNK5clang20ExtVectorElementExpr7isArrowEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr183) #8
-  br i1 %182, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %183
+  br i1 %182, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, label %183
 
 183:                                              ; preds = %181
   %184 = getelementptr inbounds nuw i8, ptr %.tr183, i64 16
@@ -850,14 +850,15 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit: ; preds = %254
 290:                                              ; preds = %tailrecurse
   unreachable
 
-_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit, %47, %71, %68, %105, %145, %179, %181, %12
+  %.0.ph = phi i32 [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit ], [ 0, %47 ], [ 0, %71 ], [ 0, %68 ], [ 0, %105 ], [ 11, %145 ], [ 5, %179 ], [ 0, %181 ], [ 0, %12 ]
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423: ; preds = %105, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
-_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread: ; preds = %12, %181, %179, %145, %105, %68, %71, %47, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, %243, %_ZNK5clang12CompoundStmt9body_backEv.exit, %254, %282, %226, %217, %208, %196, %159, %117, %112, %23, %18, %273, %262, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit, %238, %232, %220, %211, %203, %199, %164, %162, %136, %130, %124, %120, %103, %101, %94, %36, %6
-  %.0 = phi i32 [ %11, %6 ], [ %40, %36 ], [ %100, %94 ], [ %102, %101 ], [ %104, %103 ], [ %123, %120 ], [ %129, %124 ], [ %135, %130 ], [ %141, %136 ], [ %163, %162 ], [ %166, %164 ], [ %202, %199 ], [ %207, %203 ], [ %216, %211 ], [ %225, %220 ], [ %237, %232 ], [ %240, %238 ], [ %258, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit ], [ %267, %262 ], [ %274, %273 ], [ %.0.i, %23 ], [ 0, %18 ], [ %116, %112 ], [ %., %117 ], [ 11, %159 ], [ 11, %196 ], [ 11, %208 ], [ 11, %217 ], [ 11, %226 ], [ %.142, %282 ], [ 11, %254 ], [ 11, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ 11, %243 ], [ 11, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 0, %12 ], [ 0, %181 ], [ 5, %179 ], [ 11, %145 ], [ 0, %105 ], [ 0, %68 ], [ 0, %71 ], [ 0, %47 ], [ 0, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit ], [ 0, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit ]
+_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, %243, %_ZNK5clang12CompoundStmt9body_backEv.exit, %254, %282, %226, %217, %208, %196, %159, %117, %112, %23, %18, %273, %262, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit, %238, %232, %220, %211, %203, %199, %164, %162, %136, %130, %124, %120, %103, %101, %94, %36, %6
+  %.0 = phi i32 [ %11, %6 ], [ %40, %36 ], [ %100, %94 ], [ %102, %101 ], [ %104, %103 ], [ %123, %120 ], [ %129, %124 ], [ %135, %130 ], [ %141, %136 ], [ %163, %162 ], [ %166, %164 ], [ %202, %199 ], [ %207, %203 ], [ %216, %211 ], [ %225, %220 ], [ %237, %232 ], [ %240, %238 ], [ %258, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit ], [ %267, %262 ], [ %274, %273 ], [ %.0.i, %23 ], [ 0, %18 ], [ %116, %112 ], [ %., %117 ], [ 11, %159 ], [ 11, %196 ], [ 11, %208 ], [ 11, %217 ], [ 11, %226 ], [ %.142, %282 ], [ 11, %254 ], [ 11, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ 11, %243 ], [ %.0.ph, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit ], [ 11, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
   ret i32 %.0
 }
 

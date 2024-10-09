@@ -55426,36 +55426,37 @@ _ZN7hir_def13DefWithBodyId17as_generic_def_id17h694ef69a7b77c8cdE.exit: ; preds 
   unreachable
 
 24:                                               ; preds = %18
-  br label %34
+  br label %32
 
 25:                                               ; preds = %18
   %26 = and i64 %.sroa.07.0.copyload, 4294967295
-  br label %34
+  br label %32
 
 27:                                               ; preds = %18
-  br label %34
+  br label %32
 
 28:                                               ; preds = %18
-  br label %34
+  br label %32
 
 29:                                               ; preds = %18
-  br label %34
+  br label %32
 
 30:                                               ; preds = %18
-  br label %34
+  br label %32
 
 31:                                               ; preds = %18
-  br label %34
+  br label %32
 
-32:                                               ; preds = %18
+32:                                               ; preds = %31, %30, %29, %28, %27, %25, %24, %18
+  %.sroa.012.0.i = phi i64 [ 9, %31 ], [ 8, %30 ], [ 7, %29 ], [ 6, %28 ], [ 5, %27 ], [ %26, %25 ], [ 10, %24 ], [ 3, %18 ]
   br label %34
 
 33:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$hir_def..InTypeConstLoc$GT$17h990e476d00e090cfE.exit", %_ZN7hir_def13DefWithBodyId17as_generic_def_id17h694ef69a7b77c8cdE.exit, %8
   %.sroa.03.0 = phi i64 [ %.sroa.010.0.insert.insert.i, %"_ZN4core3ptr44drop_in_place$LT$hir_def..InTypeConstLoc$GT$17h990e476d00e090cfE.exit" ], [ %.sroa.03.0.insert.insert.i, %_ZN7hir_def13DefWithBodyId17as_generic_def_id17h694ef69a7b77c8cdE.exit ], [ %.sroa.0.0.insert.insert.i, %8 ]
   ret i64 %.sroa.03.0
 
-34:                                               ; preds = %32, %31, %30, %29, %28, %27, %25, %24, %18, %18
-  %.sroa.010.0.i = phi i64 [ 11, %18 ], [ 11, %18 ], [ 9, %31 ], [ 8, %30 ], [ 7, %29 ], [ 6, %28 ], [ 5, %27 ], [ %26, %25 ], [ 10, %24 ], [ 3, %32 ]
+34:                                               ; preds = %32, %18, %18
+  %.sroa.010.0.i = phi i64 [ %.sroa.012.0.i, %32 ], [ 11, %18 ], [ 11, %18 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10114)
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10117)
@@ -55483,7 +55484,7 @@ _ZN7hir_def13DefWithBodyId17as_generic_def_id17h694ef69a7b77c8cdE.exit: ; preds 
 
 "_ZN4core3ptr44drop_in_place$LT$hir_def..InTypeConstLoc$GT$17h990e476d00e090cfE.exit": ; preds = %34
   %.sroa.4.0.extract.shift.i = and i64 %.sroa.07.0.copyload, -4294967296
-  %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.010.0.i, %.sroa.4.0.extract.shift.i
+  %.sroa.010.0.insert.insert.i = or i64 %.sroa.010.0.i, %.sroa.4.0.extract.shift.i
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4691ec258834362E.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %33

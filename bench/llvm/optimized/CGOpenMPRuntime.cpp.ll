@@ -13662,10 +13662,8 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime19emitForStaticFinishER
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %10 = load ptr, ptr %9, align 8
   %.not22 = icmp eq ptr %10, null
-  %.sink27.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink27.sroa.gep34 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink27.sroa.gep35 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink27.sroa.gep36 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink27.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink27.sroa.gep34 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not22, label %44, label %11
 
 11:                                               ; preds = %4
@@ -13690,7 +13688,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime19emitForStaticFinishER
   %22 = call noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4llvm3omp9DirectiveE(i32 noundef %3) #28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  br i1 %22, label %25, label %36
+  br i1 %22, label %25, label %._crit_edge
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 152
@@ -13699,7 +13697,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime19emitForStaticFinishER
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 34359738368
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %36, label %31
+  br i1 %.not, label %._crit_edge, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 216
@@ -13712,13 +13710,13 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime19emitForStaticFinishER
     i32 26, label %36
   ]
 
-._crit_edge:                                      ; preds = %31
+._crit_edge:                                      ; preds = %17, %31, %25
   br label %36
 
-36:                                               ; preds = %25, %17, %31, %31, %31, %._crit_edge
-  %.sink31 = phi i32 [ 70, %31 ], [ 70, %31 ], [ 70, %31 ], [ 65, %17 ], [ 65, %25 ], [ 65, %._crit_edge ]
-  %.sink27.sroa.phi = phi ptr [ %.sink27.sroa.gep, %31 ], [ %.sink27.sroa.gep, %31 ], [ %.sink27.sroa.gep, %31 ], [ %.sink27.sroa.gep34, %17 ], [ %.sink27.sroa.gep35, %25 ], [ %.sink27.sroa.gep36, %._crit_edge ]
-  %.sink27 = phi ptr [ %7, %31 ], [ %7, %31 ], [ %7, %31 ], [ %8, %17 ], [ %8, %25 ], [ %8, %._crit_edge ]
+36:                                               ; preds = %31, %31, %31, %._crit_edge
+  %.sink31 = phi i32 [ 65, %._crit_edge ], [ 70, %31 ], [ 70, %31 ], [ 70, %31 ]
+  %.sink27.sroa.phi = phi ptr [ %.sink27.sroa.gep, %._crit_edge ], [ %.sink27.sroa.gep34, %31 ], [ %.sink27.sroa.gep34, %31 ], [ %.sink27.sroa.gep34, %31 ]
+  %.sink27 = phi ptr [ %8, %._crit_edge ], [ %7, %31 ], [ %7, %31 ], [ %7, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %39 = load ptr, ptr %38, align 8

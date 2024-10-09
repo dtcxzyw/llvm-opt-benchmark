@@ -9331,8 +9331,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
   unreachable
 
 .thread85.sink.split:                             ; preds = %.thread87, %24
-  %.sink94 = phi i64 [ %3, %24 ], [ %33, %.thread87 ]
-  %35 = trunc nuw i64 %.sink94 to i32
+  %.sink93 = phi i64 [ %3, %24 ], [ %33, %.thread87 ]
+  %35 = trunc nuw i64 %.sink93 to i32
   store i32 %35, ptr %9, align 4
   br label %.thread85
 
@@ -9888,8 +9888,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
   unreachable
 
 .thread85.sink.split:                             ; preds = %.thread87, %20, %.thread86
-  %.sink96 = phi i64 [ %3, %.thread86 ], [ %3, %20 ], [ %30, %.thread87 ]
-  %32 = trunc nuw i64 %.sink96 to i32
+  %.sink95 = phi i64 [ %3, %.thread86 ], [ %3, %20 ], [ %30, %.thread87 ]
+  %32 = trunc nuw i64 %.sink95 to i32
   store i32 %32, ptr %8, align 4
   br label %.thread85
 
@@ -10030,8 +10030,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit:             ; preds = %.split61
   %95 = shl i32 %94, 2
   %96 = zext i32 %95 to i64
   %97 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %96, i64 noundef 1)
-  %switch94 = icmp eq i32 %37, 0
-  %spec.select = select i1 %switch94, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
+  %switch93 = icmp eq i32 %37, 0
+  %spec.select = select i1 %switch93, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit
 
 _ZL7xdrProc11XdrDataType.exit:                    ; preds = %92, %_ZL13sizeOfXdrType11XdrDataType.exit
@@ -10512,8 +10512,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit.i:           ; preds = %.split61.i
   %67 = shl i32 %66, 2
   %68 = zext i32 %67 to i64
   %69 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %68, i64 noundef 1)
-  %switch10.i = icmp eq i32 %28, 0
-  %spec.select.i = select i1 %switch10.i, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
+  %switch9.i = icmp eq i32 %28, 0
+  %spec.select.i = select i1 %switch9.i, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit.i
 
 _ZL7xdrProc11XdrDataType.exit.i:                  ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit.i, %63
@@ -11100,8 +11100,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
   unreachable
 
 .thread85.sink.split:                             ; preds = %.thread87, %20, %.thread86
-  %.sink96 = phi i64 [ %3, %.thread86 ], [ %3, %20 ], [ %30, %.thread87 ]
-  %32 = trunc nuw i64 %.sink96 to i32
+  %.sink95 = phi i64 [ %3, %.thread86 ], [ %3, %20 ], [ %30, %.thread87 ]
+  %32 = trunc nuw i64 %.sink95 to i32
   store i32 %32, ptr %8, align 4
   br label %.thread85
 
@@ -11242,8 +11242,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit:             ; preds = %.split61
   %95 = shl i32 %94, 2
   %96 = zext i32 %95 to i64
   %97 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %96, i64 noundef 1)
-  %switch94 = icmp eq i32 %37, 0
-  %spec.select = select i1 %switch94, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
+  %switch93 = icmp eq i32 %37, 0
+  %spec.select = select i1 %switch93, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit
 
 _ZL7xdrProc11XdrDataType.exit:                    ; preds = %92, %_ZL13sizeOfXdrType11XdrDataType.exit

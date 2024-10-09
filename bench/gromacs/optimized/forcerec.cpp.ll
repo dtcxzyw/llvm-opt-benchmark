@@ -1028,7 +1028,7 @@ define void @_Z29init_interaction_const_tablesP8_IO_FILEP19interaction_const_tff
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  br label %21
 
 _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4, %4, %4
   %12 = icmp eq i32 %.val, 4
@@ -1037,7 +1037,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4
 13:                                               ; preds = %4
   %.val13 = load i32, ptr %1, align 4
   %14 = icmp eq i32 %.val13, 5
-  br i1 %14, label %15, label %106
+  br i1 %14, label %15, label %110
 
 15:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread, %13
   %16 = phi i1 [ %12, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ false, %13 ]
@@ -1055,171 +1055,175 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4
     i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
   ]
 
-21:                                               ; preds = %15
+21:                                               ; preds = %.thread, %15
+  %22 = phi ptr [ %11, %.thread ], [ %20, %15 ]
+  %23 = phi ptr [ %9, %.thread ], [ %18, %15 ]
+  %24 = phi ptr [ %8, %.thread ], [ %17, %15 ]
+  %25 = phi i1 [ true, %.thread ], [ %16, %15 ]
   br label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i: ; preds = %.thread, %21, %15, %15, %15, %15, %15
-  %22 = phi ptr [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %11, %.thread ], [ %20, %21 ]
-  %23 = phi ptr [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %9, %.thread ], [ %18, %21 ]
-  %24 = phi ptr [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %8, %.thread ], [ %17, %21 ]
-  %25 = phi i1 [ %16, %15 ], [ %16, %15 ], [ %16, %15 ], [ %16, %15 ], [ %16, %15 ], [ true, %.thread ], [ %16, %21 ]
-  %26 = phi i1 [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ false, %.thread ], [ false, %21 ]
-  %27 = or i1 %25, %26
-  %28 = icmp ne ptr %23, null
-  %29 = and i1 %28, %27
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i: ; preds = %21, %15, %15, %15, %15, %15
+  %26 = phi ptr [ %20, %15 ], [ %22, %21 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ]
+  %27 = phi ptr [ %18, %15 ], [ %23, %21 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ]
+  %28 = phi ptr [ %17, %15 ], [ %24, %21 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
+  %29 = phi i1 [ %16, %15 ], [ %25, %21 ], [ %16, %15 ], [ %16, %15 ], [ %16, %15 ], [ %16, %15 ]
+  %30 = phi i1 [ true, %15 ], [ false, %21 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ]
+  %31 = or i1 %29, %30
+  %32 = icmp ne ptr %27, null
+  %33 = and i1 %32, %31
   %.val30.i = load i32, ptr %1, align 4
-  %30 = icmp eq i32 %.val30.i, 5
-  %31 = icmp ne ptr %22, null
-  %32 = and i1 %31, %30
-  %33 = tail call noundef float @_Z25ewald_spline3_table_scaleRK19interaction_const_tbb(ptr noundef nonnull align 8 dereferenceable(152) %1, i1 noundef zeroext %29, i1 noundef zeroext %32)
-  %34 = getelementptr inbounds i8, ptr %1, i64 144
-  %35 = load ptr, ptr %34, align 8
-  %.not37.i = icmp ne ptr %35, null
-  %36 = getelementptr inbounds i8, ptr %1, i64 76
-  %37 = load float, ptr %36, align 4
-  %brmerge.i = or i1 %29, %32
+  %34 = icmp eq i32 %.val30.i, 5
+  %35 = icmp ne ptr %26, null
+  %36 = and i1 %35, %34
+  %37 = tail call noundef float @_Z25ewald_spline3_table_scaleRK19interaction_const_tbb(ptr noundef nonnull align 8 dereferenceable(152) %1, i1 noundef zeroext %33, i1 noundef zeroext %36)
+  %38 = getelementptr inbounds i8, ptr %1, i64 144
+  %39 = load ptr, ptr %38, align 8
+  %.not37.i = icmp ne ptr %39, null
+  %40 = getelementptr inbounds i8, ptr %1, i64 76
+  %41 = load float, ptr %40, align 4
+  %brmerge.i = or i1 %33, %36
   %brmerge29.not.i = and i1 %.not37.i, %brmerge.i
-  br i1 %brmerge29.not.i, label %38, label %42
+  br i1 %brmerge29.not.i, label %42, label %46
 
-38:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-  %39 = fadd float %2, %3
-  %40 = fcmp ogt float %39, 0.000000e+00
-  br i1 %40, label %41, label %42
+42:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  %43 = fadd float %2, %3
+  %44 = fcmp ogt float %43, 0.000000e+00
+  br i1 %44, label %45, label %46
 
-41:                                               ; preds = %38
-  br label %42
+45:                                               ; preds = %42
+  br label %46
 
-42:                                               ; preds = %41, %38, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-  %.0.i = phi float [ %39, %41 ], [ %37, %38 ], [ %37, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i ]
-  %43 = fmul float %33, %.0.i
-  %44 = fptosi float %43 to i32
-  %45 = add nsw i32 %44, 2
-  br i1 %29, label %46, label %_ZN21EwaldCorrectionTablesD2Ev.exit.i
+46:                                               ; preds = %45, %42, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  %.0.i = phi float [ %43, %45 ], [ %41, %42 ], [ %41, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i ]
+  %47 = fmul float %37, %.0.i
+  %48 = fptosi float %47 to i32
+  %49 = add nsw i32 %48, 2
+  br i1 %33, label %50, label %_ZN21EwaldCorrectionTablesD2Ev.exit.i
 
-46:                                               ; preds = %42
-  %47 = fpext float %33 to double
-  %48 = getelementptr inbounds i8, ptr %1, i64 84
-  %49 = load float, ptr %48, align 4
-  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %5, i32 noundef %45, double noundef %47, float noundef %49, ptr noundef nonnull @_Z12v_q_ewald_lrdd)
-  %50 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN21EwaldCorrectionTablesaSEOS_(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(80) %5) #27
-  %51 = getelementptr inbounds i8, ptr %5, i64 56
-  %52 = load ptr, ptr %51, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i, label %53
+50:                                               ; preds = %46
+  %51 = fpext float %37 to double
+  %52 = getelementptr inbounds i8, ptr %1, i64 84
+  %53 = load float, ptr %52, align 4
+  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %5, i32 noundef %49, double noundef %51, float noundef %53, ptr noundef nonnull @_Z12v_q_ewald_lrdd)
+  %54 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN21EwaldCorrectionTablesaSEOS_(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(80) %5) #27
+  %55 = getelementptr inbounds i8, ptr %5, i64 56
+  %56 = load ptr, ptr %55, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i, label %57
 
-53:                                               ; preds = %46
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %52)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i unwind label %54
+57:                                               ; preds = %50
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %56)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i unwind label %58
 
-54:                                               ; preds = %53
-  %55 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #28
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #28
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i: ; preds = %53, %46
-  %57 = getelementptr inbounds i8, ptr %5, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %.not.i.i.i1.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i, label %59
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i: ; preds = %57, %50
+  %61 = getelementptr inbounds i8, ptr %5, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %.not.i.i.i1.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i, label %63
 
-59:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %58)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i unwind label %60
+63:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %62)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i unwind label %64
 
-60:                                               ; preds = %59
-  %61 = landingpad { ptr, i32 }
+64:                                               ; preds = %63
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #28
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i: ; preds = %59, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not.i.i.i3.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i3.i.i, label %_ZN21EwaldCorrectionTablesD2Ev.exit.i, label %65
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i: ; preds = %63, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
+  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %.not.i.i.i3.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i3.i.i, label %_ZN21EwaldCorrectionTablesD2Ev.exit.i, label %69
 
-65:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %64)
-          to label %_ZN21EwaldCorrectionTablesD2Ev.exit.i unwind label %66
+69:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %68)
+          to label %_ZN21EwaldCorrectionTablesD2Ev.exit.i unwind label %70
 
-66:                                               ; preds = %65
-  %67 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #28
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #28
   unreachable
 
-_ZN21EwaldCorrectionTablesD2Ev.exit.i:            ; preds = %65, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i, %42
-  br i1 %32, label %69, label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
+_ZN21EwaldCorrectionTablesD2Ev.exit.i:            ; preds = %69, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i, %46
+  br i1 %36, label %73, label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
 
-69:                                               ; preds = %_ZN21EwaldCorrectionTablesD2Ev.exit.i
-  %70 = fpext float %33 to double
-  %71 = getelementptr inbounds i8, ptr %1, i64 88
-  %72 = load float, ptr %71, align 8
-  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %6, i32 noundef %45, double noundef %70, float noundef %72, ptr noundef nonnull @_Z13v_lj_ewald_lrdd)
-  %73 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN21EwaldCorrectionTablesaSEOS_(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %6) #27
-  %74 = getelementptr inbounds i8, ptr %6, i64 56
-  %75 = load ptr, ptr %74, align 8
-  %.not.i.i.i.i31.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i31.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i, label %76
+73:                                               ; preds = %_ZN21EwaldCorrectionTablesD2Ev.exit.i
+  %74 = fpext float %37 to double
+  %75 = getelementptr inbounds i8, ptr %1, i64 88
+  %76 = load float, ptr %75, align 8
+  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %6, i32 noundef %49, double noundef %74, float noundef %76, ptr noundef nonnull @_Z13v_lj_ewald_lrdd)
+  %77 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN21EwaldCorrectionTablesaSEOS_(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull align 8 dereferenceable(80) %6) #27
+  %78 = getelementptr inbounds i8, ptr %6, i64 56
+  %79 = load ptr, ptr %78, align 8
+  %.not.i.i.i.i31.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i31.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i, label %80
 
-76:                                               ; preds = %69
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %75)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i unwind label %77
+80:                                               ; preds = %73
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %79)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i unwind label %81
 
-77:                                               ; preds = %76
-  %78 = landingpad { ptr, i32 }
+81:                                               ; preds = %80
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #28
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #28
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i: ; preds = %76, %69
-  %80 = getelementptr inbounds i8, ptr %6, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %.not.i.i.i1.i33.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i1.i33.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i, label %82
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i: ; preds = %80, %73
+  %84 = getelementptr inbounds i8, ptr %6, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %.not.i.i.i1.i33.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i1.i33.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i, label %86
 
-82:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %81)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i unwind label %83
+86:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %85)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i unwind label %87
 
-83:                                               ; preds = %82
-  %84 = landingpad { ptr, i32 }
+87:                                               ; preds = %86
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #28
+  %89 = extractvalue { ptr, i32 } %88, 0
+  call void @__clang_call_terminate(ptr %89) #28
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i: ; preds = %82, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i
-  %86 = getelementptr inbounds i8, ptr %6, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %.not.i.i.i3.i35.i = icmp eq ptr %87, null
-  br i1 %.not.i.i.i3.i35.i, label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, label %88
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i: ; preds = %86, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i32.i
+  %90 = getelementptr inbounds i8, ptr %6, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %.not.i.i.i3.i35.i = icmp eq ptr %91, null
+  br i1 %.not.i.i.i3.i35.i, label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, label %92
 
-88:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %87)
-          to label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit unwind label %89
+92:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %91)
+          to label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit unwind label %93
 
-89:                                               ; preds = %88
-  %90 = landingpad { ptr, i32 }
+93:                                               ; preds = %92
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #28
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #28
   unreachable
 
-_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit: ; preds = %_ZN21EwaldCorrectionTablesD2Ev.exit.i, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i, %88
+_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit: ; preds = %_ZN21EwaldCorrectionTablesD2Ev.exit.i, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i34.i, %92
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %106, label %92
+  br i1 %.not, label %110, label %96
 
-92:                                               ; preds = %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
+96:                                               ; preds = %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
   %.val12 = load i32, ptr %7, align 4
-  switch i32 %.val12, label %106 [
+  switch i32 %.val12, label %110 [
     i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
     i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
     i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
@@ -1228,23 +1232,23 @@ _ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
     i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
   ]
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread: ; preds = %92, %92, %92, %92, %92, %92
-  %93 = load ptr, ptr %24, align 8
-  %94 = load float, ptr %93, align 8
-  %95 = fdiv float 1.000000e+00, %94
-  %96 = fpext float %95 to double
-  %97 = getelementptr inbounds i8, ptr %93, i64 8
-  %98 = getelementptr inbounds i8, ptr %93, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %97, align 8
-  %101 = ptrtoint ptr %99 to i64
-  %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %104 = ashr exact i64 %103, 2
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, double noundef %96, i64 noundef %104) #27
-  br label %106
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread: ; preds = %96, %96, %96, %96, %96, %96
+  %97 = load ptr, ptr %28, align 8
+  %98 = load float, ptr %97, align 8
+  %99 = fdiv float 1.000000e+00, %98
+  %100 = fpext float %99 to double
+  %101 = getelementptr inbounds i8, ptr %97, i64 8
+  %102 = getelementptr inbounds i8, ptr %97, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %101, align 8
+  %105 = ptrtoint ptr %103 to i64
+  %106 = ptrtoint ptr %104 to i64
+  %107 = sub i64 %105, %106
+  %108 = ashr exact i64 %107, 2
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, double noundef %100, i64 noundef %108) #27
+  br label %110
 
-106:                                              ; preds = %92, %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread, %13
+110:                                              ; preds = %96, %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread, %13
   ret void
 }
 

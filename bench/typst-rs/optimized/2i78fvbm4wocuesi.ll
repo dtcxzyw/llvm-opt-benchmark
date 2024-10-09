@@ -117211,48 +117211,52 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.1697
     i32 133, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
     i32 8232, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
     i32 8233, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 40, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 123, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 91, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
+    i32 40, label %26
+    i32 123, label %26
+    i32 91, label %26
   ]
 
-_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit: ; preds = %.critedge6.i
+26:                                               ; preds = %.critedge6.i, %.critedge6.i, %.critedge6.i
+  br label %_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit
+
+_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit: ; preds = %.critedge6.i, %26
+  %.0.i4 = phi i8 [ 1, %26 ], [ 0, %.critedge6.i ]
   br label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
 
 _ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread.thread: ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.16978709814855407318.exit.i, %3, %3, %3, %3, %3, %3
-  %26 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 1, ptr %26, align 1
-  br label %29
-
-_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread: ; preds = %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit
-  %.0 = phi i8 [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 0, %_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ]
   %27 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 %.0, ptr %27, align 1
-  %28 = add i32 %1, -48
-  %or.cond = icmp ult i32 %28, 10
-  br i1 %or.cond, label %34, label %29
+  store i8 1, ptr %27, align 1
+  br label %30
 
-29:                                               ; preds = %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread.thread, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-  %30 = icmp ugt i32 %1, 127
-  br i1 %30, label %31, label %34
+_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread: ; preds = %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit
+  %.0 = phi i8 [ %.0.i4, %_ZN5typst4text10smartquote18is_opening_bracket17h4973247201f3970fE.llvm.16978709814855407318.exit ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ], [ 1, %.critedge6.i ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 %.0, ptr %28, align 1
+  %29 = add i32 %1, -48
+  %or.cond = icmp ult i32 %29, 10
+  br i1 %or.cond, label %35, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data1n6lookup17h747a753d8c4c1834E(i32 noundef %1)
-  %33 = zext i1 %32 to i8
-  br label %34
+30:                                               ; preds = %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread.thread, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
+  %31 = icmp ugt i32 %1, 127
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %29, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread, %31
-  %.02 = phi i8 [ %33, %31 ], [ 1, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread ], [ 0, %29 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 %.02, ptr %35, align 2
-  br i1 %2, label %38, label %36
+32:                                               ; preds = %30
+  %33 = tail call noundef zeroext i1 @_ZN4core7unicode12unicode_data1n6lookup17h747a753d8c4c1834E(i32 noundef %1)
+  %34 = zext i1 %33 to i8
+  br label %35
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 2, ptr %37, align 8
-  br label %38
+35:                                               ; preds = %30, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread, %32
+  %.02 = phi i8 [ %34, %32 ], [ 1, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread ], [ 0, %30 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 %.02, ptr %36, align 2
+  br i1 %2, label %39, label %37
 
-38:                                               ; preds = %36, %34
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 2, ptr %38, align 8
+  br label %39
+
+39:                                               ; preds = %37, %35
   ret void
 }
 

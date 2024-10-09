@@ -44005,11 +44005,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS
   %.sroa.0.0.copyload.i = load i16, ptr %10, align 4
   %11 = and i16 %.sroa.0.0.copyload.i, 32
   %.not133 = icmp eq i16 %11, 0
-  br i1 %.not133, label %12, label %.critedge
+  br i1 %.not133, label %12, label %.critedge.loopexit261
 
 12:                                               ; preds = %.lr.ph
   %13 = icmp ugt i32 %.tr137168, 5
-  br i1 %13, label %.critedge, label %14
+  br i1 %13, label %.critedge.loopexit261, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %.tr134165, i64 24
@@ -44055,8 +44055,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS
     i32 204, label %45
     i32 232, label %54
     i32 229, label %54
-    i32 219, label %.critedge.loopexit263
-    i32 220, label %.critedge.loopexit263
+    i32 219, label %.critedge.loopexit261
+    i32 220, label %.critedge.loopexit261
     i32 245, label %.critedge
     i32 260, label %.critedge
     i32 261, label %.critedge
@@ -44100,7 +44100,7 @@ _ZN4llvm8dyn_castINS_16ConstantFPSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %14
   br label %.critedge
 
 32:                                               ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14
-  br i1 %.tr136167, label %.critedge, label %33
+  br i1 %.tr136167, label %.critedge.loopexit261, label %33
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %.tr134165, i64 40
@@ -44121,7 +44121,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %39 = load i16, ptr %38, align 8
   %40 = and i16 %39, 4
   %.not = icmp eq i16 %40, 0
-  br i1 %.not, label %.lr.ph, label %.critedge
+  br i1 %.not, label %.lr.ph, label %.critedge.loopexit261
 
 41:                                               ; preds = %14, %14, %14
   %42 = getelementptr inbounds nuw i8, ptr %.tr134165, i64 40
@@ -44139,7 +44139,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %.sroa.249.0.copyload = load i32, ptr %.sroa.249.0..sroa_idx, align 8
   %49 = add nuw nsw i32 %.tr137168, 1
   %50 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr %.sroa.048.0.copyload, i32 %.sroa.249.0.copyload, i1 noundef zeroext %.tr136167, i32 noundef %49)
-  br i1 %50, label %51, label %.critedge
+  br i1 %50, label %51, label %.critedge.loopexit261
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %46, align 8
@@ -44148,7 +44148,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   br label %tailrecurse.backedge
 
 54:                                               ; preds = %14, %14
-  br i1 %.tr136167, label %.critedge, label %55
+  br i1 %.tr136167, label %.critedge.loopexit261, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %.tr134165, i64 40
@@ -44165,7 +44165,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %.sroa.240.0.copyload = load i32, ptr %.sroa.240.0..sroa_idx, align 8
   %62 = add nuw nsw i32 %.tr137168, 1
   %63 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr %.sroa.039.0.copyload, i32 %.sroa.240.0.copyload, i1 noundef zeroext %.tr136167, i32 noundef %62)
-  br i1 %63, label %.critedge, label %64
+  br i1 %63, label %.critedge.loopexit261, label %64
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %60, align 8
@@ -44174,7 +44174,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   br label %tailrecurse.backedge
 
 67:                                               ; preds = %14, %14
-  br i1 %.tr136167, label %.critedge, label %68
+  br i1 %.tr136167, label %.critedge.loopexit261, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %.tr134165, i64 40
@@ -44193,7 +44193,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %74, i64 48
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 8
   %76 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr %.sroa.030.0.copyload, i32 %.sroa.231.0.copyload, i1 noundef zeroext true, i32 noundef %71)
-  br i1 %76, label %.critedge, label %77
+  br i1 %76, label %.critedge.loopexit261, label %77
 
 77:                                               ; preds = %73, %68
   %78 = load ptr, ptr %69, align 8
@@ -44202,7 +44202,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 48
   %.sroa.228.0.copyload = load i32, ptr %.sroa.228.0..sroa_idx, align 8
   %80 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr %.sroa.027.0.copyload, i32 %.sroa.228.0.copyload, i1 noundef zeroext false, i32 noundef %71)
-  br i1 %80, label %81, label %.critedge
+  br i1 %80, label %81, label %.critedge.loopexit261
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %69, align 8
@@ -44217,7 +44217,7 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %.sroa.222.0.copyload = load i32, ptr %.sroa.222.0..sroa_idx, align 8
   %86 = add nuw nsw i32 %.tr137168, 1
   %87 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr %.sroa.021.0.copyload, i32 %.sroa.222.0.copyload, i1 noundef zeroext %.tr136167, i32 noundef %86)
-  br i1 %87, label %88, label %.critedge
+  br i1 %87, label %88, label %.critedge.loopexit261
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %84, align 8
@@ -44254,8 +44254,8 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %104 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG15isKnownNeverNaNENS_7SDValueEbj(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr %.sroa.06.0.copyload, i32 %.sroa.27.0.copyload, i1 noundef zeroext %.tr136167, i32 noundef %102)
   %105 = getelementptr inbounds i8, ptr %.0101193, i64 40
   %.not106 = icmp ne ptr %105, %101
-  %or.cond262.not = select i1 %104, i1 %.not106, i1 false
-  br i1 %or.cond262.not, label %103, label %.critedge
+  %or.cond260.not = select i1 %104, i1 %.not106, i1 false
+  br i1 %or.cond260.not, label %103, label %.critedge
 
 106:                                              ; preds = %14
   %107 = icmp ugt i32 %16, 490
@@ -44273,11 +44273,12 @@ tailrecurse.backedge:                             ; preds = %33, %41, %51, %55, 
   %114 = tail call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(408123) %110, ptr nonnull %.tr134165, i32 %.tr135166, ptr noundef nonnull align 8 dereferenceable(904) %0, i1 noundef zeroext %.tr136167, i32 noundef %.tr137168) #32
   br label %.critedge
 
-.critedge.loopexit263:                            ; preds = %14, %14
+.critedge.loopexit261:                            ; preds = %14, %14, %83, %73, %77, %67, %59, %54, %45, %32, %12, %.lr.ph, %tailrecurse.backedge
+  %.0.ph = phi i1 [ true, %14 ], [ true, %14 ], [ false, %83 ], [ true, %73 ], [ false, %77 ], [ true, %67 ], [ true, %59 ], [ true, %54 ], [ false, %45 ], [ true, %32 ], [ false, %12 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   br label %.critedge
 
-.critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %12, %32, %45, %54, %59, %67, %77, %73, %83, %103, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %.critedge.loopexit263, %5, %95, %106, %29, %_ZN4llvm8dyn_castINS_16ConstantFPSDNodeENS_7SDValueEEEDcRT0_.exit, %108
-  %.0 = phi i1 [ %114, %108 ], [ %28, %_ZN4llvm8dyn_castINS_16ConstantFPSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %31, %29 ], [ false, %106 ], [ true, %95 ], [ true, %5 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %104, %103 ], [ true, %tailrecurse.backedge ], [ true, %.lr.ph ], [ false, %12 ], [ true, %32 ], [ false, %45 ], [ true, %54 ], [ true, %59 ], [ true, %67 ], [ false, %77 ], [ true, %73 ], [ false, %83 ], [ true, %.critedge.loopexit263 ]
+.critedge:                                        ; preds = %103, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %.critedge.loopexit261, %5, %95, %106, %29, %_ZN4llvm8dyn_castINS_16ConstantFPSDNodeENS_7SDValueEEEDcRT0_.exit, %108
+  %.0 = phi i1 [ %114, %108 ], [ %28, %_ZN4llvm8dyn_castINS_16ConstantFPSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %31, %29 ], [ false, %106 ], [ true, %95 ], [ true, %5 ], [ %.0.ph, %.critedge.loopexit261 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %.tr136167, %14 ], [ %104, %103 ]
   ret i1 %.0
 }
 
