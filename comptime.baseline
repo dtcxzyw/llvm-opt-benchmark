@@ -22609,7 +22609,7 @@ openjdk/jfrDcmds.ll 1170813461
 openjdk/jfrDeprecationEventWriter.ll 1340923787
 openjdk/jfrDeprecationManager.ll 389726329
 openjdk/jfrEmergencyDump.ll 1008202202
-openjdk/jfrEvent.ll 45807133
+openjdk/jfrEvent.ll 45761261
 openjdk/jfrEventClassTransformer.ll 4328670514
 openjdk/jfrEventSetting.ll 42294999
 openjdk/jfrEventThrottler.ll 102648533
