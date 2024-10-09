@@ -809,7 +809,7 @@ abc/reoSift.c.ll 189462087
 abc/reoSwap.c.ll 264752091
 abc/reoTransfer.c.ll 82320623
 abc/resCore.c.ll 269856829
-abc/resDivs.c.ll 282438317
+abc/resDivs.c.ll 282155759
 abc/resFilter.c.ll 534367785
 abc/resSat.c.ll 246166927
 abc/resSim.c.ll 627096186
@@ -5747,7 +5747,7 @@ delta-rs/s2xrj2sh770tx8d.ll 35754790571
 delta-rs/tyvgsemgcx0yw30.ll 3393167665
 delta-rs/v2ww4w96jtc8bk1.ll 700697198
 delta-rs/wrhqeq9ewpf5gr8.ll 524014926
-delta-rs/yhu8pdn9ocvwhg1.ll 7495169464
+delta-rs/yhu8pdn9ocvwhg1.ll 7502665804
 delta-rs/znqw5q2v5mkwwil.ll 793796077
 diesel-rs/11am4rvtd1l8ovt5.ll 412141970
 diesel-rs/124a8wycdxz58o0.ll 420568212
@@ -9160,7 +9160,7 @@ hdf5/H5LTparse.c.ll 192363590
 hdf5/H5Ldeprec.c.ll 164069315
 hdf5/H5Lexternal.c.ll 84272233
 hdf5/H5Lint.c.ll 330884039
-hdf5/H5M.c.ll 40942637
+hdf5/H5M.c.ll 40901683
 hdf5/H5MF.c.ll 776462447
 hdf5/H5MFaggr.c.ll 172704643
 hdf5/H5MFdbg.c.ll 58099248
@@ -11436,7 +11436,7 @@ libwebp/enc_msa.c.ll 31696951
 libwebp/enc_neon.c.ll 31697714
 libwebp/enc_sse2.c.ll 802666959
 libwebp/enc_sse41.c.ll 174691782
-libwebp/example_util.c.ll 79090142
+libwebp/example_util.c.ll 79169300
 libwebp/extras.c.ll 263077266
 libwebp/filter_enc.c.ll 118731228
 libwebp/filters.c.ll 159498716
@@ -31916,7 +31916,7 @@ rocksdb/cache_dump_load.cc.ll 649144210
 rocksdb/cache_dump_load_impl.cc.ll 775442245
 rocksdb/cache_entry_roles.cc.ll 249656778
 rocksdb/cache_helpers.cc.ll 79688302
-rocksdb/cache_key.cc.ll 106974092
+rocksdb/cache_key.cc.ll 107081143
 rocksdb/cache_reservation_manager.cc.ll 1349058958
 rocksdb/cache_simulator.cc.ll 1677346760
 rocksdb/cassandra_compaction_filter.cc.ll 1065223657
