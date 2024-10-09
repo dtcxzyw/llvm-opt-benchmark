@@ -12957,7 +12957,7 @@ linux/nf_conntrack_ftp.ll 190531752
 linux/nf_conntrack_helper.ll 189864594
 linux/nf_conntrack_irc.ll 108022149
 linux/nf_conntrack_netlink.ll 730012742
-linux/nf_conntrack_proto_icmp.ll 89818679
+linux/nf_conntrack_proto_icmp.ll 89728856
 linux/nf_conntrack_proto_icmpv6.ll 102384839
 linux/nf_conntrack_proto_tcp.ll 346754471
 linux/nf_conntrack_proto_udp.ll 55786500
@@ -24712,7 +24712,7 @@ openmpi/pstrg_base_select.ll 72602304
 openmpi/pstrg_base_stubs.ll 103771824
 openmpi/pstrg_vfs.ll 38183214
 openmpi/pterm.ll 189746786
-openmpi/ptestall_f.ll 58322690
+openmpi/ptestall_f.ll 58264282
 openmpi/ptestsome_f.ll 60210618
 openmpi/ptl_base_connect.ll 412603344
 openmpi/ptl_base_connection_hdlr.ll 651550988
@@ -27822,7 +27822,7 @@ pcg-cpp/codebook.cpp.ll 139902021
 pcg-cpp/cppref-sample.cpp.ll 412964974
 pcg-cpp/make-partytrick.cpp.ll 322288634
 pcg-cpp/pcg-demo.cpp.ll 416458273
-pcg-cpp/spew.cpp.ll 120127211
+pcg-cpp/spew.cpp.ll 120006993
 pcg-cpp/use-partytrick.cpp.ll 161985359
 php/KeccakHash.ll 46942244
 php/KeccakP-1600-opt64.ll 9541034660
