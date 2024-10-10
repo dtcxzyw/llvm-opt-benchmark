@@ -25329,7 +25329,7 @@ openssl/libcrypto-lib-asn1_dsa.ll 130093966
 openssl/libcrypto-lib-asn1_gen.ll 233370656
 openssl/libcrypto-lib-asn1_lib.ll 204972921
 openssl/libcrypto-lib-asn_mime.ll 450615635
-openssl/libcrypto-lib-asn_moid.ll 64976211
+openssl/libcrypto-lib-asn_moid.ll 65041306
 openssl/libcrypto-lib-asn_mstbl.ll 81018279
 openssl/libcrypto-lib-asymcipher.ll 199207467
 openssl/libcrypto-lib-async.ll 138795418
