@@ -474,7 +474,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %72 = fcmp olt float %32, 1.000000e+00
   %73 = select i1 %72, float %32, float 1.000000e+00
   %74 = fpext float %73 to double
-  %75 = tail call double @log10(double noundef %74) #5
+  %75 = tail call double @llvm.log10.f64(double %74)
   %76 = fptrunc double %75 to float
   %77 = fmul float %76, 5.000000e-01
   %78 = fadd float %77, 1.000000e+00
@@ -488,7 +488,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %82 = fcmp olt float %32, 1.000000e+00
   %83 = select i1 %82, float %32, float 1.000000e+00
   %84 = fpext float %83 to double
-  %85 = tail call double @log10(double noundef %84) #5
+  %85 = tail call double @llvm.log10.f64(double %84)
   %86 = fptrunc double %85 to float
   %87 = fdiv float %86, 2.500000e+00
   %88 = fadd float %87, 1.000000e+00
@@ -611,9 +611,6 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 declare float @expf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @sqrtf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -624,6 +621,9 @@ declare float @llvm.floor.f32(float) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #4
 
 attributes #0 = { nofree nounwind memory(readwrite, argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

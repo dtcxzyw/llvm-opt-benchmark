@@ -1067,7 +1067,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC6verifyEv(ptr nound
 36:                                               ; preds = %34
   %37 = fsub double 1.000000e+00, %23
   %38 = tail call double @log(double noundef %37) #19
-  %39 = tail call double @log(double noundef %32) #19
+  %39 = tail call double @llvm.log.f64(double %32)
   %40 = fdiv double %38, %39
   %41 = tail call double @llvm.ceil.f64(double %40)
   %42 = fptoui double %41 to i32
@@ -3301,7 +3301,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC13nStarOptimizeEv(ptr noun
 50:                                               ; preds = %48
   %51 = fsub double 1.000000e+00, %39
   %52 = tail call double @log(double noundef %51) #19
-  %53 = tail call double @log(double noundef %46) #19
+  %53 = tail call double @llvm.log.f64(double %46)
   %54 = fdiv double %52, %53
   %55 = tail call double @llvm.ceil.f64(double %54)
   %56 = fptoui double %55 to i32
@@ -4204,6 +4204,9 @@ declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

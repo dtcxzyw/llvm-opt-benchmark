@@ -1793,7 +1793,7 @@ _ZL11FindMinimumPKfi.exit440.i:                   ; preds = %_ZL11FindMinimumPKf
   br i1 %614, label %615, label %618
 
 615:                                              ; preds = %_ZL11FindMinimumPKfi.exit440.i
-  %616 = tail call noundef float @logf(float noundef %613) #21
+  %616 = tail call float @llvm.log.f32(float %613)
   %617 = fmul float %616, 5.000000e-01
   br label %618
 
@@ -4375,6 +4375,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18

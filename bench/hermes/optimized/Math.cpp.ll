@@ -541,8 +541,8 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm.exit, %entry
-  %call.i.i.i.i.i = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK403F8000000000000000) #10
-  %call.i8.i.i.i.i = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #10
+  %call.i.i.i.i.i = call x86_fp80 @llvm.log.f80(x86_fp80 0xK403F8000000000000000)
+  %call.i8.i.i.i.i = call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
   %div.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i, %call.i8.i.i.i.i
   %conv5.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i to i64
   %sub8.i.i.i.i = add i64 %conv5.i.i.i.i, 52
@@ -1242,13 +1242,13 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #1
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 declare noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152), i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

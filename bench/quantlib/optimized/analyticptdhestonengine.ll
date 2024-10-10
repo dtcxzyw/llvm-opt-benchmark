@@ -6563,7 +6563,6 @@ invoke.cont814:                                   ; preds = %invoke.cont802, %.n
   %392 = phi ptr [ %391, %invoke.cont802 ], [ %.pre.i795, %.noexc796 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp810) #28
   %call812 = call double @sqrt(double noundef %add795) #28, !tbaa !61
-  %call.i798 = call double @log(double noundef %call3.i225) #28, !tbaa !61
   %call2.i = call double @log(double noundef %87) #28, !tbaa !61
   %call4.i = call double @log(double noundef %div761) #28, !tbaa !61
   %_M_manager.i.i805 = getelementptr inbounds nuw i8, ptr %ref.tmp810, i64 16
@@ -6574,6 +6573,7 @@ invoke.cont814:                                   ; preds = %invoke.cont802, %.n
 
 invoke.cont815:                                   ; preds = %invoke.cont814
   %_M_invoker.i806 = getelementptr inbounds nuw i8, ptr %ref.tmp810, i64 24
+  %call.i798 = call double @llvm.log.f64(double %call3.i225), !tbaa !61
   %sub.i799 = fsub double %call.i798, %call4.i
   store double %call179, ptr %call.i.i2.i808, align 16, !tbaa !68
   %ref.tmp811.sroa.5.0.call.i.i2.i808.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i808, i64 8
@@ -11959,6 +11959,9 @@ declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

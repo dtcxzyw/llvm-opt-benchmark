@@ -67,18 +67,18 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8facebook5velox20generator_spec_utils8coinTossERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdE4dist) #14
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8facebook5velox20generator_spec_utils8coinTossERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdE4dist) #13
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.check
   store double 1.000000e+00, ptr @_ZZN8facebook5velox20generator_spec_utils8coinTossERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdE4dist.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox20generator_spec_utils8coinTossERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdE4dist) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox20generator_spec_utils8coinTossERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdE4dist) #13
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  %call.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #14
-  %call.i8.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #14
+  %call.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
   %div.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i, %call.i8.i.i.i.i
   %conv5.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i to i64
   %sub8.i.i.i.i = add i64 %conv5.i.i.i.i, 52
@@ -106,7 +106,7 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %cmp18.i.i.i.i, label %_ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end.i.i.i.i
-  %call20.i.i.i.i = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #14
+  %call20.i.i.i.i = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #13
   br label %_ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit
 
 _ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
@@ -169,7 +169,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then, %for.body
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook5velox12NullsBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %builder) #14
+  call void @_ZN8facebook5velox12NullsBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %builder) #13
   resume { ptr, i32 } %0
 
 for.inc:                                          ; preds = %invoke.cont, %if.then
@@ -219,7 +219,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.the
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #15
+  call void @__clang_call_terminate(ptr %7) #14
   unreachable
 
 _ZN8facebook5velox12NullsBuilderD2Ev.exit:        ; preds = %for.end.thread, %for.end, %invoke.cont3, %if.then.i.i7, %.noexc.i.i
@@ -321,7 +321,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc.i.i
 lpad.i.i:                                         ; preds = %if.then6.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
+  call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   resume { ptr, i32 } %13
 
 _ZN8facebook5velox13AlignedBuffer8allocateIbEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i.i.i.i
@@ -360,7 +360,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.the
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #15
+  tail call void @__clang_call_terminate(ptr %21) #14
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit: ; preds = %if.then.i.i, %.noexc.i.i
@@ -396,7 +396,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %if.then.
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #15
+  tail call void @__clang_call_terminate(ptr %27) #14
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %_ZN8facebook5velox13AlignedBuffer8allocateIbEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit, %if.then.i, %.noexc.i
@@ -469,7 +469,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %if.then.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #15
+  tail call void @__clang_call_terminate(ptr %6) #14
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %entry, %if.then.i, %.noexc.i
@@ -576,7 +576,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN8facebook5velox1
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
-  call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #14
+  call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
   resume { ptr, i32 } %lpad.phi
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont4, %invoke.cont
@@ -621,7 +621,7 @@ terminate.lpad:                                   ; preds = %.noexc, %if.then.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #15
+  tail call void @__clang_call_terminate(ptr %6) #14
   unreachable
 }
 
@@ -641,7 +641,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -789,8 +789,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -912,9 +912,6 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #11
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(5000) %__urng, ptr noundef nonnull align 4 dereferenceable(8) %__param) local_unnamed_addr #0 comdat align 2 {
 entry:
@@ -992,10 +989,13 @@ if.end20:                                         ; preds = %do.body, %if.else17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare x86_fp80 @llvm.log.f80(x86_fp80) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -1008,12 +1008,11 @@ attributes #7 = { cold nofree noreturn }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -255,7 +255,7 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %52, %
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.06.i = phi double [ %125, %.lr.ph.i ], [ %119, %.lr.ph.preheader.i ]
   %.045.i = phi i32 [ %126, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %125 = call double @log2(double noundef %.06.i) #18
+  %125 = call double @llvm.log2.f64(double %.06.i)
   %126 = add nuw nsw i32 %.045.i, 1
   %127 = fcmp ult double %125, 1.000000e+00
   br i1 %127, label %math_logstar_n.exit, label %.lr.ph.i
@@ -362,7 +362,7 @@ find_new_roots.exit:                              ; preds = %.lr.ph77, %151
 .lr.ph.i53:                                       ; preds = %math_logstar_n.exit, %.lr.ph.i53
   %.06.i54 = phi double [ %168, %.lr.ph.i53 ], [ %119, %math_logstar_n.exit ]
   %.045.i55 = phi i32 [ %169, %.lr.ph.i53 ], [ 0, %math_logstar_n.exit ]
-  %168 = call double @log2(double noundef %.06.i54) #18
+  %168 = call double @llvm.log2.f64(double %.06.i54)
   %169 = add nuw nsw i32 %.045.i55, 1
   %170 = fcmp ult double %168, 1.000000e+00
   br i1 %170, label %math_logstar_n.exit57, label %.lr.ph.i53
@@ -3045,11 +3045,14 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log2.f64(double) #13
+
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3064,8 +3067,8 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #10 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree nounwind }
 attributes #15 = { nounwind allocsize(0,1) }
 attributes #16 = { cold nounwind }
 attributes #17 = { noreturn }

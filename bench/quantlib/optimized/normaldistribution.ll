@@ -2459,11 +2459,11 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %8 = load x86_fp80, ptr %q, align 16, !tbaa !71
   %cmp5 = fcmp ult x86_fp80 %8, 0xK3FFD8000000000000000
-  %call.i64 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %8) #26, !tbaa !16
   br i1 %cmp5, label %if.else17, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %mul9 = fmul x86_fp80 %call.i64, 0xKC0008000000000000000
+  %call.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 %8), !tbaa !16
+  %mul9 = fmul x86_fp80 %call.i, 0xKC0008000000000000000
   %call.i38 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %mul9) #26, !tbaa !16
   %sub = fadd x86_fp80 %8, 0xKBFFD8000000000000000
   %mul.i.i39 = fmul x86_fp80 %sub, %sub
@@ -2501,6 +2501,7 @@ if.then6:                                         ; preds = %if.else
   br label %if.end75
 
 if.else17:                                        ; preds = %if.else
+  %call.i64 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %8) #26, !tbaa !16
   %fneg = fneg x86_fp80 %call.i64
   %call.i65 = tail call noundef x86_fp80 @sqrtl(x86_fp80 noundef %fneg) #26, !tbaa !16
   %cmp20 = fcmp olt x86_fp80 %call.i65, 0xK4000C000000000000000
@@ -4039,6 +4040,9 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #24
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

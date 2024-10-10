@@ -14838,9 +14838,6 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %11
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #19
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #24
 
@@ -15143,7 +15140,7 @@ _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveT
   br i1 %198, label %211, label %199
 
 199:                                              ; preds = %197
-  %200 = tail call double @log(double noundef %191) #32
+  %200 = tail call double @llvm.log.f64(double %191)
   %201 = fdiv double 1.000000e+00, %191
   %202 = fneg double %191
   %203 = tail call double @llvm.fmuladd.f64(double %191, double %200, double %202)
@@ -15158,7 +15155,7 @@ _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveT
 
 211:                                              ; preds = %199, %197, %193
   %212 = phi double [ 0.000000e+00, %193 ], [ %210, %199 ], [ 0x3FE62E42FEFA39EC, %197 ]
-  %213 = tail call double @log(double noundef %170) #32
+  %213 = tail call double @llvm.log.f64(double %170)
   %214 = load double, ptr %158, align 8
   %215 = tail call double @llvm.fmuladd.f64(double %213, double 2.000000e+00, double %214)
   %216 = fadd double %212, %215
@@ -17655,6 +17652,9 @@ __cxx_global_var_init.9.exit:                     ; preds = %147, %149
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27

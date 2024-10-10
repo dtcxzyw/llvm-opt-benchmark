@@ -1157,49 +1157,49 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %62, i64 4992
+  %65 = call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %66 = call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %67 = fdiv x86_fp80 %65, %66
+  %68 = fptoui x86_fp80 %67 to i64
+  %69 = add i64 %68, 23
+  %70 = getelementptr inbounds i8, ptr %62, i64 4992
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %62, i64 1816
-  %66 = getelementptr inbounds i8, ptr %62, i64 4984
-  %67 = getelementptr inbounds i8, ptr %62, i64 3168
-  br label %68
+  %71 = getelementptr inbounds i8, ptr %62, i64 4984
+  %72 = getelementptr inbounds i8, ptr %62, i64 3168
+  br label %73
 
-68:                                               ; preds = %.lr.ph, %158
+73:                                               ; preds = %.lr.ph, %158
   %.03280 = phi i64 [ 0, %.lr.ph ], [ %163, %158 ]
-  %69 = load ptr, ptr %18, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 2
-  %.not.i.i = icmp ult i64 %.03280, %74
-  br i1 %.not.i.i, label %76, label %75
+  %74 = load ptr, ptr %18, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = ptrtoint ptr %74 to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  %79 = ashr exact i64 %78, 2
+  %.not.i.i = icmp ult i64 %.03280, %79
+  br i1 %.not.i.i, label %81, label %80
 
-75:                                               ; preds = %68
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.27, i64 noundef %.03280, i64 noundef %74) #30
+80:                                               ; preds = %73
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.27, i64 noundef %.03280, i64 noundef %79) #30
           to label %.noexc44 unwind label %172
 
-.noexc44:                                         ; preds = %75
+.noexc44:                                         ; preds = %80
   unreachable
 
-76:                                               ; preds = %68
-  %77 = getelementptr inbounds float, ptr %70, i64 %.03280
-  %78 = load float, ptr %77, align 4
-  %79 = fcmp olt float %78, 0x3EB0C6F7A0000000
-  %80 = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #8
-  %81 = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #8
-  %82 = fdiv x86_fp80 %80, %81
-  %83 = fptoui x86_fp80 %82 to i64
-  %84 = add i64 %83, 23
-  %85 = udiv i64 %84, %83
+81:                                               ; preds = %73
+  %82 = getelementptr inbounds float, ptr %75, i64 %.03280
+  %83 = load float, ptr %82, align 4
+  %84 = fcmp olt float %83, 0x3EB0C6F7A0000000
+  %85 = udiv i64 %69, %68
   %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %85, i64 1)
-  %.pre = load i64, ptr %65, align 8
+  %.pre = load i64, ptr %70, align 8
   br label %select.unfold.i.i.i.i
 
-select.unfold.i.i.i.i:                            ; preds = %.noexc46, %76
-  %86 = phi i64 [ %.pre, %76 ], [ %134, %.noexc46 ]
-  %.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %76 ], [ %151, %.noexc46 ]
-  %.01422.i.i.i.i = phi float [ 1.000000e+00, %76 ], [ %150, %.noexc46 ]
-  %.01521.i.i.i.i = phi float [ 0.000000e+00, %76 ], [ %149, %.noexc46 ]
+select.unfold.i.i.i.i:                            ; preds = %.noexc46, %81
+  %86 = phi i64 [ %.pre, %81 ], [ %134, %.noexc46 ]
+  %.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %81 ], [ %151, %.noexc46 ]
+  %.01422.i.i.i.i = phi float [ 1.000000e+00, %81 ], [ %150, %.noexc46 ]
+  %.01521.i.i.i.i = phi float [ 0.000000e+00, %81 ], [ %149, %.noexc46 ]
   %87 = icmp ugt i64 %86, 623
   br i1 %87, label %88, label %.noexc46
 
@@ -1258,25 +1258,25 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc46, %76
   br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !11
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %.preheader.i.i
-  %122 = load i64, ptr %66, align 8
+  %122 = load i64, ptr %71, align 8
   %123 = and i64 %122, -2147483648
   %124 = load i64, ptr %62, align 8
   %125 = and i64 %124, 2147483646
   %126 = or disjoint i64 %125, %123
-  %127 = load i64, ptr %67, align 8
+  %127 = load i64, ptr %72, align 8
   %128 = lshr exact i64 %126, 1
   %129 = xor i64 %128, %127
   %130 = and i64 %124, 1
   %.not.i.i58 = icmp eq i64 %130, 0
   %131 = select i1 %.not.i.i58, i64 0, i64 2567483615
   %132 = xor i64 %129, %131
-  store i64 %132, ptr %66, align 8
+  store i64 %132, ptr %71, align 8
   br label %.noexc46
 
 .noexc46:                                         ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, %select.unfold.i.i.i.i
   %133 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %86, %select.unfold.i.i.i.i ]
   %134 = add nuw nsw i64 %133, 1
-  store i64 %134, ptr %65, align 8
+  store i64 %134, ptr %70, align 8
   %135 = getelementptr inbounds [624 x i64], ptr %62, i64 0, i64 %133
   %136 = load i64, ptr %135, align 8
   %137 = lshr i64 %136, 11
@@ -1298,7 +1298,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %.not.i.i.i.i45, label %152, label %select.unfold.i.i.i.i, !llvm.loop !12
 
 152:                                              ; preds = %.noexc46
-  %153 = select i1 %79, float 0x3EB0C6F7A0000000, float %78
+  %153 = select i1 %84, float 0x3EB0C6F7A0000000, float %83
   %154 = fdiv float %149, %150
   %155 = fcmp ult float %154, 1.000000e+00
   br i1 %155, label %158, label %156
@@ -1322,14 +1322,14 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 2
   %170 = icmp ult i64 %163, %169
-  br i1 %170, label %68, label %._crit_edge, !llvm.loop !13
+  br i1 %170, label %73, label %._crit_edge, !llvm.loop !13
 
 171:                                              ; preds = %48, %46
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %49, %48 ]
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit57
 
-172:                                              ; preds = %75, %._crit_edge, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
+172:                                              ; preds = %80, %._crit_edge, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %173 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorImSaImEED2Ev.exit55
@@ -3106,9 +3106,6 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %67 = xor i64 %66, %65
   ret i64 %67
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #1
@@ -12854,6 +12851,9 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #26

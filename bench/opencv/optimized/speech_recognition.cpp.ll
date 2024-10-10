@@ -4399,128 +4399,122 @@ define linkonce_odr dso_local noundef double @_ZNSt19normal_distributionIdEclISt
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %.preheader
+  br i1 %6, label %13, label %.preheader
 
-7:                                                ; preds = %3
+.preheader:                                       ; preds = %3
+  %7 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401DFFFFFFFC00000000)
+  %8 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %9 = fdiv x86_fp80 %7, %8
+  %10 = fptoui x86_fp80 %9 to i64
+  %11 = add i64 %10, 52
+  %12 = udiv i64 %11, %10
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
+  br label %16
+
+13:                                               ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load double, ptr %8, align 8
-  br label %67
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load double, ptr %14, align 8
+  br label %62
 
-.preheader:                                       ; preds = %3, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
-  %10 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401DFFFFFFFC00000000) #19
-  %11 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #19
-  %12 = fdiv x86_fp80 %10, %11
-  %13 = fptoui x86_fp80 %12 to i64
-  %14 = add i64 %13, 52
-  %15 = udiv i64 %14, %13
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
+16:                                               ; preds = %.preheader, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
   %.promoted.i.i = load i64, ptr %1, align 8
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %select.unfold.i.i, %.preheader
-  %.030.i.i = phi i64 [ %spec.select.i.i, %.preheader ], [ %25, %select.unfold.i.i ]
-  %.01529.i.i = phi double [ 1.000000e+00, %.preheader ], [ %24, %select.unfold.i.i ]
-  %.01628.i.i = phi double [ 0.000000e+00, %.preheader ], [ %21, %select.unfold.i.i ]
-  %16 = phi i64 [ %.promoted.i.i, %.preheader ], [ %18, %select.unfold.i.i ]
-  %17 = mul i64 %16, 16807
-  %18 = urem i64 %17, 2147483647
-  %19 = add nsw i64 %18, -1
-  %20 = uitofp i64 %19 to double
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %.01529.i.i, double %.01628.i.i)
-  %22 = fpext double %.01529.i.i to x86_fp80
-  %23 = fmul x86_fp80 %22, 0xK401DFFFFFFFC00000000
-  %24 = fptrunc x86_fp80 %23 to double
-  %25 = add i64 %.030.i.i, -1
-  %.not.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %26, label %select.unfold.i.i, !llvm.loop !46
+select.unfold.i.i:                                ; preds = %select.unfold.i.i, %16
+  %.030.i.i = phi i64 [ %spec.select.i.i, %16 ], [ %26, %select.unfold.i.i ]
+  %.01529.i.i = phi double [ 1.000000e+00, %16 ], [ %25, %select.unfold.i.i ]
+  %.01628.i.i = phi double [ 0.000000e+00, %16 ], [ %22, %select.unfold.i.i ]
+  %17 = phi i64 [ %.promoted.i.i, %16 ], [ %19, %select.unfold.i.i ]
+  %18 = mul i64 %17, 16807
+  %19 = urem i64 %18, 2147483647
+  %20 = add nsw i64 %19, -1
+  %21 = uitofp i64 %20 to double
+  %22 = tail call double @llvm.fmuladd.f64(double %21, double %.01529.i.i, double %.01628.i.i)
+  %23 = fpext double %.01529.i.i to x86_fp80
+  %24 = fmul x86_fp80 %23, 0xK401DFFFFFFFC00000000
+  %25 = fptrunc x86_fp80 %24 to double
+  %26 = add i64 %.030.i.i, -1
+  %.not.i.i = icmp eq i64 %26, 0
+  br i1 %.not.i.i, label %27, label %select.unfold.i.i, !llvm.loop !46
 
-26:                                               ; preds = %select.unfold.i.i
-  store i64 %18, ptr %1, align 8
-  %27 = fdiv double %21, %24
-  %28 = fcmp ult double %27, 1.000000e+00
-  br i1 %28, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit, label %29
+27:                                               ; preds = %select.unfold.i.i
+  store i64 %19, ptr %1, align 8
+  %28 = fdiv double %22, %25
+  %29 = fcmp ult double %28, 1.000000e+00
+  br i1 %29, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #19
+30:                                               ; preds = %27
+  %31 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #19
+  %.promoted.i.i20.pre = load i64, ptr %1, align 8
   br label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit
 
-_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit: ; preds = %26, %29
-  %.017.i.i = phi double [ %30, %29 ], [ %27, %26 ]
-  %31 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401DFFFFFFFC00000000) #19
-  %32 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #19
-  %33 = fdiv x86_fp80 %31, %32
-  %34 = fptoui x86_fp80 %33 to i64
-  %35 = add i64 %34, 52
-  %36 = udiv i64 %35, %34
-  %spec.select.i.i19 = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  %.promoted.i.i20 = load i64, ptr %1, align 8
+_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit: ; preds = %27, %30
+  %.promoted.i.i20 = phi i64 [ %.promoted.i.i20.pre, %30 ], [ %19, %27 ]
+  %.017.i.i = phi double [ %31, %30 ], [ %28, %27 ]
   br label %select.unfold.i.i21
 
 select.unfold.i.i21:                              ; preds = %select.unfold.i.i21, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit
-  %.030.i.i22 = phi i64 [ %spec.select.i.i19, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %46, %select.unfold.i.i21 ]
-  %.01529.i.i23 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %45, %select.unfold.i.i21 ]
-  %.01628.i.i24 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %42, %select.unfold.i.i21 ]
-  %37 = phi i64 [ %.promoted.i.i20, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %39, %select.unfold.i.i21 ]
-  %38 = mul i64 %37, 16807
-  %39 = urem i64 %38, 2147483647
-  %40 = add nsw i64 %39, -1
-  %41 = uitofp i64 %40 to double
-  %42 = tail call double @llvm.fmuladd.f64(double %41, double %.01529.i.i23, double %.01628.i.i24)
-  %43 = fpext double %.01529.i.i23 to x86_fp80
-  %44 = fmul x86_fp80 %43, 0xK401DFFFFFFFC00000000
-  %45 = fptrunc x86_fp80 %44 to double
-  %46 = add i64 %.030.i.i22, -1
-  %.not.i.i25 = icmp eq i64 %46, 0
-  br i1 %.not.i.i25, label %47, label %select.unfold.i.i21, !llvm.loop !46
+  %.030.i.i22 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %41, %select.unfold.i.i21 ]
+  %.01529.i.i23 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %40, %select.unfold.i.i21 ]
+  %.01628.i.i24 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %37, %select.unfold.i.i21 ]
+  %32 = phi i64 [ %.promoted.i.i20, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %34, %select.unfold.i.i21 ]
+  %33 = mul i64 %32, 16807
+  %34 = urem i64 %33, 2147483647
+  %35 = add nsw i64 %34, -1
+  %36 = uitofp i64 %35 to double
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %.01529.i.i23, double %.01628.i.i24)
+  %38 = fpext double %.01529.i.i23 to x86_fp80
+  %39 = fmul x86_fp80 %38, 0xK401DFFFFFFFC00000000
+  %40 = fptrunc x86_fp80 %39 to double
+  %41 = add i64 %.030.i.i22, -1
+  %.not.i.i25 = icmp eq i64 %41, 0
+  br i1 %.not.i.i25, label %42, label %select.unfold.i.i21, !llvm.loop !46
 
-47:                                               ; preds = %select.unfold.i.i21
-  %48 = tail call double @llvm.fmuladd.f64(double %.017.i.i, double 2.000000e+00, double -1.000000e+00)
-  store i64 %39, ptr %1, align 8
-  %49 = fdiv double %42, %45
-  %50 = fcmp ult double %49, 1.000000e+00
-  br i1 %50, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27, label %51
+42:                                               ; preds = %select.unfold.i.i21
+  %43 = tail call double @llvm.fmuladd.f64(double %.017.i.i, double 2.000000e+00, double -1.000000e+00)
+  store i64 %34, ptr %1, align 8
+  %44 = fdiv double %37, %40
+  %45 = fcmp ult double %44, 1.000000e+00
+  br i1 %45, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27, label %46
 
-51:                                               ; preds = %47
-  %52 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #19
+46:                                               ; preds = %42
+  %47 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #19
   br label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
 
-_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27: ; preds = %47, %51
-  %.017.i.i26 = phi double [ %52, %51 ], [ %49, %47 ]
-  %53 = tail call double @llvm.fmuladd.f64(double %.017.i.i26, double 2.000000e+00, double -1.000000e+00)
-  %54 = fmul double %53, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %48, double %48, double %54)
-  %56 = fcmp ogt double %55, 1.000000e+00
-  %57 = fcmp oeq double %55, 0.000000e+00
-  %58 = or i1 %56, %57
-  br i1 %58, label %.preheader, label %59, !llvm.loop !47
+_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27: ; preds = %42, %46
+  %.017.i.i26 = phi double [ %47, %46 ], [ %44, %42 ]
+  %48 = tail call double @llvm.fmuladd.f64(double %.017.i.i26, double 2.000000e+00, double -1.000000e+00)
+  %49 = fmul double %48, %48
+  %50 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %49)
+  %51 = fcmp ogt double %50, 1.000000e+00
+  %52 = fcmp oeq double %50, 0.000000e+00
+  %53 = or i1 %51, %52
+  br i1 %53, label %16, label %54, !llvm.loop !47
 
-59:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
-  %60 = tail call double @log(double noundef %55) #19
-  %61 = fmul double %60, -2.000000e+00
-  %62 = fdiv double %61, %55
-  %63 = tail call double @sqrt(double noundef %62) #19
-  %64 = fmul double %48, %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %64, ptr %65, align 8
+54:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
+  %55 = tail call double @log(double noundef %50) #19
+  %56 = fmul double %55, -2.000000e+00
+  %57 = fdiv double %56, %50
+  %58 = tail call double @sqrt(double noundef %57) #19
+  %59 = fmul double %43, %58
+  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %59, ptr %60, align 8
   store i8 1, ptr %4, align 8
-  %66 = fmul double %53, %63
-  br label %67
+  %61 = fmul double %48, %58
+  br label %62
 
-67:                                               ; preds = %59, %7
-  %.0 = phi double [ %9, %7 ], [ %66, %59 ]
-  %68 = getelementptr inbounds i8, ptr %2, i64 8
-  %69 = load double, ptr %68, align 8
-  %70 = load double, ptr %2, align 8
-  %71 = tail call double @llvm.fmuladd.f64(double %.0, double %69, double %70)
-  ret double %71
+62:                                               ; preds = %54, %13
+  %.0 = phi double [ %15, %13 ], [ %61, %54 ]
+  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  %64 = load double, ptr %63, align 8
+  %65 = load double, ptr %2, align 8
+  %66 = tail call double @llvm.fmuladd.f64(double %.0, double %64, double %65)
+  ret double %66
 }
 
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN18FilterbankFeatures7hanningEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6729,6 +6723,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

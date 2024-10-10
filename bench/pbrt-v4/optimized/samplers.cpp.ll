@@ -3288,7 +3288,7 @@ if.else:                                          ; preds = %if.end12
   %22 = tail call noundef float @llvm.fma.f32(float %sub.i, float %fneg.i.i, float 1.000000e+00)
   %cmp.i.i.i = fcmp olt float %22, 0x3810000000000000
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i, float 0x3810000000000000, float %22
-  %call.i.i.i = tail call noundef float @logf(float noundef %.sroa.speculated.i.i) #24
+  %call.i.i.i = tail call float @llvm.log.f32(float %.sroa.speculated.i.i)
   %23 = fcmp uno float %call.i.i.i, 0.000000e+00
   br i1 %23, label %land.rhs.i.i, label %land.lhs.true.i.i
 
@@ -7060,9 +7060,6 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
           cleanup
   br label %common.resume
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @logf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fma.f32(float, float, float) #13
@@ -18015,6 +18012,9 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20

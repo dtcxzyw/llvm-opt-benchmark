@@ -496,7 +496,7 @@ _ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE.exit:  ; preds = %52, %_ZNSt6vectorIf
   unreachable
 
 91:                                               ; preds = %._crit_edge
-  %92 = tail call double @log(double noundef %.1) #29
+  %92 = tail call double @llvm.log.f64(double %.1)
   %93 = fptrunc double %92 to float
   %94 = fneg float %93
   %95 = load ptr, ptr %4, align 8
@@ -6928,7 +6928,7 @@ define noundef double @_ZNK3gmx9BiasState17calcConvolvedBiasENS_8ArrayRefIKNS_9D
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not27 = icmp eq ptr %11, %13
-  br i1 %.not27, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %14 = ptrtoint ptr %2 to i64
@@ -6962,17 +6962,12 @@ define noundef double @_ZNK3gmx9BiasState17calcConvolvedBiasENS_8ArrayRefIKNS_9D
   %.not = icmp eq ptr %31, %13
   br i1 %.not, label %._crit_edge, label %19
 
-._crit_edge:                                      ; preds = %30
-  %32 = fcmp ogt double %.1, 0.000000e+00
-  br i1 %32, label %33, label %._crit_edge.thread
-
-33:                                               ; preds = %._crit_edge
-  %34 = tail call double @log(double noundef %.1) #29
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %5, %._crit_edge, %33
-  %35 = phi double [ %34, %33 ], [ 0xC7EFFFFFE0000000, %._crit_edge ], [ 0xC7EFFFFFE0000000, %5 ]
-  ret double %35
+._crit_edge:                                      ; preds = %30, %5
+  %.0.lcssa = phi double [ 0.000000e+00, %5 ], [ %.1, %30 ]
+  %32 = fcmp ogt double %.0.lcssa, 0.000000e+00
+  %33 = tail call double @llvm.log.f64(double %.0.lcssa)
+  %34 = select i1 %32, double %33, double 0xC7EFFFFFE0000000
+  ret double %34
 }
 
 declare noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #3
@@ -7254,7 +7249,7 @@ _ZNKRSt8optionalIiE5valueEv.exit38:               ; preds = %67
   %86 = load double, ptr %85, align 8
   %87 = fcmp olt double %86, 0x10000000000000
   %.sroa.speculated = select i1 %87, double 0x10000000000000, double %86
-  %88 = call double @log(double noundef %.sroa.speculated) #29
+  %88 = call double @llvm.log.f64(double %.sroa.speculated)
   %89 = fsub double %.036, %88
   br i1 %73, label %90, label %96
 
@@ -9115,8 +9110,8 @@ _ZN3gmx9BiasState27setFreeEnergyToConvolvedPmfENS_8ArrayRefIKNS_9DimParamsEEERKN
 350:                                              ; preds = %.lr.ph
   %351 = getelementptr inbounds i8, ptr %.sroa.031.048, i64 8
   %352 = load double, ptr %351, align 8
-  %353 = call double @log(double noundef %348) #29
-  %354 = fadd double %352, %353
+  %353 = call double @llvm.log.f64(double %348)
+  %354 = fadd double %353, %352
   br label %356
 
 355:                                              ; preds = %.lr.ph
@@ -9776,6 +9771,9 @@ declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

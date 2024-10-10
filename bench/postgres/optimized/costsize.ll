@@ -3159,9 +3159,9 @@ define internal fastcc void @cost_tuplesort(ptr nocapture noundef nonnull %0, pt
   %28 = fdiv double %13, %22
   %29 = tail call i32 @tuplesort_merge_order(i64 noundef %15) #17
   %30 = sitofp i32 %29 to double
-  %31 = tail call double @log(double noundef %.0) #17
+  %31 = tail call double @llvm.log.f64(double %.0)
   %32 = fdiv double %31, 0x3FE62E42FEFA39EC
-  %33 = fmul double %24, %32
+  %33 = fmul double %32, %24
   store double %33, ptr %0, align 8
   %34 = fcmp ogt double %28, %30
   br i1 %34, label %35, label %40
@@ -3201,9 +3201,9 @@ define internal fastcc void @cost_tuplesort(ptr nocapture noundef nonnull %0, pt
   br label %61
 
 57:                                               ; preds = %49
-  %58 = tail call double @log(double noundef %.0) #17
+  %58 = tail call double @llvm.log.f64(double %.0)
   %59 = fdiv double %58, 0x3FE62E42FEFA39EC
-  %60 = fmul double %24, %59
+  %60 = fmul double %59, %24
   br label %61
 
 61:                                               ; preds = %53, %57, %40
@@ -3823,7 +3823,7 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
   %24 = fadd double %22, %23
   %25 = load double, ptr @cpu_tuple_cost, align 8
   %26 = fadd double %24, %25
-  br label %119
+  br label %118
 
 27:                                               ; preds = %.loopexit
   %28 = load i8, ptr @enable_hashagg, align 1
@@ -3878,7 +3878,7 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
   %64 = tail call double @llvm.fmuladd.f64(double %63, double %5, double %62)
   %65 = and i32 %2, -2
   %or.cond7 = icmp eq i32 %65, 2
-  br i1 %or.cond7, label %66, label %119
+  br i1 %or.cond7, label %66, label %118
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds i8, ptr %1, i64 608
@@ -3913,69 +3913,68 @@ list_length.exit:                                 ; preds = %66, %69
   %88 = load i32, ptr %15, align 4
   %89 = call i32 @llvm.smax.i32(i32 %88, i32 2)
   store i32 %89, ptr %15, align 4
-  %90 = call double @log(double noundef %87) #17
-  %91 = load i32, ptr %15, align 4
-  %92 = sitofp i32 %91 to double
-  %93 = call double @log(double noundef %92) #17
-  %94 = fdiv double %90, %93
-  %95 = call double @llvm.ceil.f64(double %94)
-  %96 = fptosi double %95 to i32
-  %97 = fptosi double %10 to i32
-  %98 = sext i32 %97 to i64
-  %99 = add nsw i64 %98, 7
-  %100 = and i64 %99, -8
-  %101 = add nsw i64 %100, 24
-  %102 = uitofp i64 %101 to double
-  %103 = fmul double %9, %102
-  %104 = fmul double %103, 0x3F20000000000000
-  %105 = sitofp i32 %96 to double
-  %106 = fmul double %104, %105
-  %107 = fmul double %106, 2.000000e+00
-  %108 = load double, ptr @random_page_cost, align 8
-  %109 = call double @llvm.fmuladd.f64(double %107, double %108, double %.0124)
-  %110 = call double @llvm.fmuladd.f64(double %107, double %108, double %64)
-  %111 = load double, ptr @seq_page_cost, align 8
-  %112 = call double @llvm.fmuladd.f64(double %107, double %111, double %110)
-  %113 = fmul double %9, %105
-  %114 = fmul double %113, 2.000000e+00
-  %115 = load double, ptr @cpu_tuple_cost, align 8
-  %116 = fmul double %115, %114
-  %117 = fadd double %109, %116
-  %118 = fadd double %116, %112
-  br label %119
+  %90 = call double @llvm.log.f64(double %87)
+  %91 = uitofp nneg i32 %89 to double
+  %92 = call double @log(double noundef %91) #17
+  %93 = fdiv double %90, %92
+  %94 = call double @llvm.ceil.f64(double %93)
+  %95 = fptosi double %94 to i32
+  %96 = fptosi double %10 to i32
+  %97 = sext i32 %96 to i64
+  %98 = add nsw i64 %97, 7
+  %99 = and i64 %98, -8
+  %100 = add nsw i64 %99, 24
+  %101 = uitofp i64 %100 to double
+  %102 = fmul double %9, %101
+  %103 = fmul double %102, 0x3F20000000000000
+  %104 = sitofp i32 %95 to double
+  %105 = fmul double %103, %104
+  %106 = fmul double %105, 2.000000e+00
+  %107 = load double, ptr @random_page_cost, align 8
+  %108 = call double @llvm.fmuladd.f64(double %106, double %107, double %.0124)
+  %109 = call double @llvm.fmuladd.f64(double %106, double %107, double %64)
+  %110 = load double, ptr @seq_page_cost, align 8
+  %111 = call double @llvm.fmuladd.f64(double %106, double %110, double %109)
+  %112 = fmul double %9, %104
+  %113 = fmul double %112, 2.000000e+00
+  %114 = load double, ptr @cpu_tuple_cost, align 8
+  %115 = fmul double %114, %113
+  %116 = fadd double %108, %115
+  %117 = fadd double %115, %111
+  br label %118
 
-119:                                              ; preds = %.thread, %60, %list_length.exit
+118:                                              ; preds = %.thread, %60, %list_length.exit
   %.0123200 = phi double [ %5, %list_length.exit ], [ %5, %60 ], [ 1.000000e+00, %.thread ]
-  %.2128 = phi double [ %118, %list_length.exit ], [ %64, %60 ], [ %26, %.thread ]
-  %.3 = phi double [ %117, %list_length.exit ], [ %.0124, %60 ], [ %24, %.thread ]
+  %.2128 = phi double [ %117, %list_length.exit ], [ %64, %60 ], [ %26, %.thread ]
+  %.3 = phi double [ %116, %list_length.exit ], [ %.0124, %60 ], [ %24, %.thread ]
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %clamp_row_est.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %119
+.lr.ph.i:                                         ; preds = %118
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   store ptr %1, ptr %12, align 8
-  %120 = getelementptr inbounds i8, ptr %12, i64 8
-  %121 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
-  %122 = getelementptr inbounds i8, ptr %6, i64 16
-  %123 = load i32, ptr %121, align 4
-  %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph16.i, label %cost_qual_eval.exit
+  %119 = getelementptr inbounds i8, ptr %12, i64 8
+  %120 = getelementptr inbounds i8, ptr %6, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  %121 = getelementptr inbounds i8, ptr %6, i64 16
+  %122 = load i32, ptr %120, align 4
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph16.i, label %cost_qual_eval.exit
 
 .lr.ph16.i:                                       ; preds = %.lr.ph.i, %.lr.ph16.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph16.i ], [ 0, %.lr.ph.i ]
-  %125 = load ptr, ptr %122, align 8
-  %126 = getelementptr %union.ListCell, ptr %125, i64 %indvars.iv.i
-  %127 = load ptr, ptr %126, align 8
-  %128 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %127, ptr noundef nonnull %12)
+  %124 = load ptr, ptr %121, align 8
+  %125 = getelementptr %union.ListCell, ptr %124, i64 %indvars.iv.i
+  %126 = load ptr, ptr %125, align 8
+  %127 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %126, ptr noundef nonnull %12)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %129 = load i32, ptr %121, align 4
-  %130 = sext i32 %129 to i64
-  %131 = icmp slt i64 %indvars.iv.next.i, %130
-  br i1 %131, label %.lr.ph16.i, label %cost_qual_eval.exit.loopexit
+  %128 = load i32, ptr %120, align 4
+  %129 = sext i32 %128 to i64
+  %130 = icmp slt i64 %indvars.iv.next.i, %129
+  br i1 %130, label %.lr.ph16.i, label %cost_qual_eval.exit.loopexit
 
 cost_qual_eval.exit.loopexit:                     ; preds = %.lr.ph16.i
-  %.sroa.0.0.copyload.pre = load double, ptr %120, align 8
+  %.sroa.0.0.copyload.pre = load double, ptr %119, align 8
   %.sroa.2.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 16
   %.sroa.2.0.copyload.pre = load double, ptr %.sroa.2.0..sroa_idx.phi.trans.insert, align 8
   br label %cost_qual_eval.exit
@@ -3984,34 +3983,34 @@ cost_qual_eval.exit:                              ; preds = %cost_qual_eval.exit
   %.sroa.2.0.copyload = phi double [ %.sroa.2.0.copyload.pre, %cost_qual_eval.exit.loopexit ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.0.0.copyload = phi double [ %.sroa.0.0.copyload.pre, %cost_qual_eval.exit.loopexit ], [ 0.000000e+00, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %132 = fadd double %.3, %.sroa.0.0.copyload
-  %133 = call double @llvm.fmuladd.f64(double %.0123200, double %.sroa.2.0.copyload, double %.sroa.0.0.copyload)
-  %134 = fadd double %.2128, %133
-  %135 = call double @clauselist_selectivity(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
-  %136 = fmul double %.0123200, %135
-  %137 = fcmp ogt double %136, 1.000000e+100
-  %138 = fcmp uno double %136, 0.000000e+00
-  %or.cond.i = or i1 %137, %138
-  br i1 %or.cond.i, label %clamp_row_est.exit, label %139
+  %131 = fadd double %.3, %.sroa.0.0.copyload
+  %132 = call double @llvm.fmuladd.f64(double %.0123200, double %.sroa.2.0.copyload, double %.sroa.0.0.copyload)
+  %133 = fadd double %.2128, %132
+  %134 = call double @clauselist_selectivity(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
+  %135 = fmul double %.0123200, %134
+  %136 = fcmp ogt double %135, 1.000000e+100
+  %137 = fcmp uno double %135, 0.000000e+00
+  %or.cond.i = or i1 %136, %137
+  br i1 %or.cond.i, label %clamp_row_est.exit, label %138
 
-139:                                              ; preds = %cost_qual_eval.exit
-  %140 = fcmp ugt double %136, 1.000000e+00
-  br i1 %140, label %141, label %clamp_row_est.exit
+138:                                              ; preds = %cost_qual_eval.exit
+  %139 = fcmp ugt double %135, 1.000000e+00
+  br i1 %139, label %140, label %clamp_row_est.exit
 
-141:                                              ; preds = %139
-  %142 = call double @llvm.rint.f64(double %136)
+140:                                              ; preds = %138
+  %141 = call double @llvm.rint.f64(double %135)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %141, %139, %cost_qual_eval.exit, %119
-  %.3129 = phi double [ %.2128, %119 ], [ %134, %cost_qual_eval.exit ], [ %134, %139 ], [ %134, %141 ]
-  %.4 = phi double [ %.3, %119 ], [ %132, %cost_qual_eval.exit ], [ %132, %139 ], [ %132, %141 ]
-  %.1 = phi double [ %.0123200, %119 ], [ 1.000000e+100, %cost_qual_eval.exit ], [ 1.000000e+00, %139 ], [ %142, %141 ]
-  %143 = getelementptr inbounds i8, ptr %0, i64 40
-  store double %.1, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 48
-  store double %.4, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %.3129, ptr %145, align 8
+clamp_row_est.exit:                               ; preds = %140, %138, %cost_qual_eval.exit, %118
+  %.3129 = phi double [ %.2128, %118 ], [ %133, %cost_qual_eval.exit ], [ %133, %138 ], [ %133, %140 ]
+  %.4 = phi double [ %.3, %118 ], [ %131, %cost_qual_eval.exit ], [ %131, %138 ], [ %131, %140 ]
+  %.1 = phi double [ %.0123200, %118 ], [ 1.000000e+100, %cost_qual_eval.exit ], [ 1.000000e+00, %138 ], [ %141, %140 ]
+  %142 = getelementptr inbounds i8, ptr %0, i64 40
+  store double %.1, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 48
+  store double %.4, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 56
+  store double %.3129, ptr %144, align 8
   ret void
 }
 
@@ -8853,6 +8852,9 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15

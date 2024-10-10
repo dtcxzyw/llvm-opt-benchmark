@@ -10108,6 +10108,13 @@ _ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm3
   store double 0.000000e+00, ptr %mRand.i, align 8
   %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand, i64 5008
   store double 1.000000e+00, ptr %_M_b.i.i.i.i, align 8
+  %call.i.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i, %call.i8.i.i.i.i.i
+  %conv5.i.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i.i to i64
+  %sub8.i.i.i.i.i = add i64 %conv5.i.i.i.i.i, 52
+  %div9.i.i.i.i.i = udiv i64 %sub8.i.i.i.i.i, %conv5.i.i.i.i.i
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i.i.i.i, i64 1)
   %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rand, i64 1816
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %rand, i64 4984
   %arrayidx48.i.i = getelementptr inbounds i8, ptr %rand, i64 3168
@@ -10117,13 +10124,6 @@ for.body:                                         ; preds = %_ZN7openvdb5v11_04m
   %.pre.i.i8 = phi i64 [ %conv.i, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEC2Ej.exit ], [ %.pre.i.i9, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEclEv.exit ]
   %7 = phi i64 [ 624, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEC2Ej.exit ], [ %inc.i, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEclEv.exit ]
   %i.06 = phi i64 [ 0, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEC2Ej.exit ], [ %inc, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEclEv.exit ]
-  %call.i.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #14
-  %call.i8.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #14
-  %div.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i, %call.i8.i.i.i.i.i
-  %conv5.i.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i.i to i64
-  %sub8.i.i.i.i.i = add i64 %conv5.i.i.i.i.i, 52
-  %div9.i.i.i.i.i = udiv i64 %sub8.i.i.i.i.i, %conv5.i.i.i.i.i
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i.i.i.i, i64 1)
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit, %for.body
@@ -11743,11 +11743,8 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #18
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEclERKN3tbb6detail2d113blocked_rangeImEE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr noundef nonnull align 8 dereferenceable(24) %range) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEclERKN3tbb6detail2d113blocked_rangeImEE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr noundef nonnull align 8 dereferenceable(24) %range) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6755 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp.i5774 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -49513,6 +49510,13 @@ _ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm3
   store double 0.000000e+00, ptr %mRand.i, align 8
   %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand, i64 5008
   store double 1.000000e+00, ptr %_M_b.i.i.i.i, align 8
+  %call.i.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i, %call.i8.i.i.i.i.i
+  %conv5.i.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i.i to i64
+  %sub8.i.i.i.i.i = add i64 %conv5.i.i.i.i.i, 52
+  %div9.i.i.i.i.i = udiv i64 %sub8.i.i.i.i.i, %conv5.i.i.i.i.i
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i.i.i.i, i64 1)
   %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rand, i64 1816
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %rand, i64 4984
   %arrayidx48.i.i = getelementptr inbounds i8, ptr %rand, i64 3168
@@ -49522,13 +49526,6 @@ for.body:                                         ; preds = %_ZN7openvdb5v11_04m
   %.pre.i.i8 = phi i64 [ %conv.i, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEC2Ej.exit ], [ %.pre.i.i9, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEclEv.exit ]
   %7 = phi i64 [ 624, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEC2Ej.exit ], [ %inc.i, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEclEv.exit ]
   %i.06 = phi i64 [ 0, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEC2Ej.exit ], [ %inc, %_ZN7openvdb5v11_04math6Rand01IdSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEclEv.exit ]
-  %call.i.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #14
-  %call.i8.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #14
-  %div.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i, %call.i8.i.i.i.i.i
-  %conv5.i.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i.i to i64
-  %sub8.i.i.i.i.i = add i64 %conv5.i.i.i.i.i, 52
-  %div9.i.i.i.i.i = udiv i64 %sub8.i.i.i.i.i, %conv5.i.i.i.i.i
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i.i.i.i, i64 1)
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit, %for.body
@@ -51080,7 +51077,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEclERKN3tbb6detail2d113blocked_rangeImEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(24) %range) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEclERKN3tbb6detail2d113blocked_rangeImEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(24) %range) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6721 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp.i5748 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -90397,7 +90394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #18
+declare double @exp(double noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_05tools12VolumeRenderINS1_20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEEENS1_10BoxSamplerEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -91127,6 +91124,9 @@ declare i32 @llvm.smin.i32(i32, i32) #22
 declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -91156,8 +91156,8 @@ attributes #14 = { nounwind }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

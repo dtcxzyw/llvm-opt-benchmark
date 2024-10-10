@@ -3237,7 +3237,7 @@ ehcleanup73:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end76:                                         ; preds = %do.body30
-  %call79 = tail call double @log(double noundef %25) #29, !tbaa !121
+  %call79 = tail call double @llvm.log.f64(double %25), !tbaa !121
   %pastFixings81 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %48 = load i64, ptr %pastFixings81, align 8, !tbaa !143
   br label %if.end82
@@ -11382,6 +11382,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27

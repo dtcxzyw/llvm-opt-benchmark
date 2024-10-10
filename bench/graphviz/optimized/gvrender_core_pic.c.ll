@@ -187,7 +187,7 @@ define internal void @pic_begin_page(ptr noundef %0) #0 {
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %8
-  %22 = tail call double @log10(double noundef %.048) #7
+  %22 = tail call double @llvm.log10.f64(double %.048)
   %23 = fptosi double %22 to i32
   %24 = sitofp i32 %23 to double
   %25 = fsub double 3.000000e+00, %24
@@ -540,9 +540,6 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -572,6 +569,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @gvputs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

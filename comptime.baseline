@@ -302,7 +302,7 @@ abc/cuddAddApply.c.ll 136555737
 abc/cuddAddIte.c.ll 130463959
 abc/cuddAddWalsh.c.ll 161891248
 abc/cuddAndAbs.c.ll 96995234
-abc/cuddAnneal.c.ll 238452871
+abc/cuddAnneal.c.ll 238742211
 abc/cuddApa.c.ll 286217612
 abc/cuddApprox.c.ll 573440217
 abc/cuddBddAbs.c.ll 171780441
@@ -987,7 +987,7 @@ abseil-cpp/atomic_hook_test_helper.cc.ll 48580016
 abseil-cpp/barrier.cc.ll 46236339
 abseil-cpp/barrier_test.cc.ll 353318558
 abseil-cpp/bernoulli_distribution_test.cc.ll 2102848378
-abseil-cpp/beta_distribution_test.cc.ll 7498925917
+abseil-cpp/beta_distribution_test.cc.ll 7506730803
 abseil-cpp/bind.cc.ll 622144880
 abseil-cpp/bind_front_test.cc.ll 1971971317
 abseil-cpp/bind_test.cc.ll 720706280
@@ -1062,7 +1062,7 @@ abseil-cpp/discrete_distribution.cc.ll 326325728
 abseil-cpp/discrete_distribution_test.cc.ll 8084730367
 abseil-cpp/distribution_test_util.cc.ll 176307678
 abseil-cpp/distribution_test_util_test.cc.ll 400583779
-abseil-cpp/distributions_test.cc.ll 3609876676
+abseil-cpp/distributions_test.cc.ll 3634047879
 abseil-cpp/duration.cc.ll 980356486
 abseil-cpp/duration_test.cc.ll 16453575746
 abseil-cpp/elf_mem_image.cc.ll 170375295
@@ -1098,9 +1098,9 @@ abseil-cpp/format.cc.ll 170041462
 abseil-cpp/format_test.cc.ll 2588879842
 abseil-cpp/function_ref_test.cc.ll 1552298563
 abseil-cpp/futex_waiter.cc.ll 72982812
-abseil-cpp/gaussian_distribution_test.cc.ll 5609836341
+abseil-cpp/gaussian_distribution_test.cc.ll 5395799789
 abseil-cpp/generate_real_test.cc.ll 2659888477
-abseil-cpp/generators_test.cc.ll 10110903219
+abseil-cpp/generators_test.cc.ll 10145894757
 abseil-cpp/globals.cc.ll 245528867
 abseil-cpp/globals_test.cc.ll 1406739901
 abseil-cpp/graphcycles.cc.ll 1126947020
@@ -1179,7 +1179,7 @@ abseil-cpp/path_util_test.cc.ll 495144534
 abseil-cpp/pcg_engine_test.cc.ll 3414634437
 abseil-cpp/per_thread_sem_test.cc.ll 614472602
 abseil-cpp/periodic_sampler_test.cc.ll 3083942168
-abseil-cpp/poisson_distribution_test.cc.ll 8715684021
+abseil-cpp/poisson_distribution_test.cc.ll 9169010665
 abseil-cpp/pool_urbg.cc.ll 209447380
 abseil-cpp/pool_urbg_test.cc.ll 3401952186
 abseil-cpp/pow10_helper_test.cc.ll 199655287
@@ -1565,7 +1565,7 @@ arrow/scalar_cast_nested.cc.ll 6492217084
 arrow/scalar_cast_numeric.cc.ll 40956825602
 arrow/scalar_cast_string.cc.ll 27137844833
 arrow/scalar_cast_temporal.cc.ll 14752866359
-arrow/slow.cc.ll 414244344
+arrow/slow.cc.ll 412765856
 arrow/sparse_tensor.cc.ll 2201776037
 arrow/status.cc.ll 176929264
 arrow/stdio.cc.ll 351348694
@@ -1877,7 +1877,7 @@ brotli/encoder_dict.c.ll 769773213
 brotli/entropy_encode.c.ll 374046539
 brotli/histogram.c.ll 95703796
 brotli/huffman.c.ll 202887482
-brotli/literal_cost.c.ll 166090459
+brotli/literal_cost.c.ll 166274782
 brotli/metablock.c.ll 837624197
 brotli/state.c.ll 68019459
 brotli/static_dict.c.ll 840190204
@@ -2335,7 +2335,7 @@ casadi/qp_to_nlp.cpp.ll 1524397602
 casadi/qp_to_nlp_meta.cpp.ll 55010082
 casadi/qrqp.cpp.ll 2935106822
 casadi/qrqp_meta.cpp.ll 55139066
-casadi/qrsqp.cpp.ll 2254860050
+casadi/qrsqp.cpp.ll 2257964061
 casadi/qrsqp_meta.cpp.ll 167977070
 casadi/rank1.cpp.ll 587789755
 casadi/repmat.cpp.ll 826004259
@@ -2402,7 +2402,7 @@ ceres/canonical_views_clustering.cc.ll 1011724853
 ceres/cgnr_solver.cc.ll 3759855064
 ceres/compressed_col_sparse_matrix_utils.cc.ll 262409759
 ceres/compressed_row_jacobian_writer.cc.ll 1008477671
-ceres/compressed_row_sparse_matrix.cc.ll 3068719065
+ceres/compressed_row_sparse_matrix.cc.ll 3073399332
 ceres/conditioned_cost_function.cc.ll 687244838
 ceres/context.cc.ll 36796996
 ceres/context_impl.cc.ll 162567129
@@ -2425,7 +2425,7 @@ ceres/dynamic_compressed_row_sparse_matrix.cc.ll 545205041
 ceres/dynamic_sparse_normal_cholesky_solver.cc.ll 3887407867
 ceres/eigensparse.cc.ll 5827513616
 ceres/evaluator.cc.ll 3313512585
-ceres/fake_bundle_adjustment_jacobian.cc.ll 518472799
+ceres/fake_bundle_adjustment_jacobian.cc.ll 519829748
 ceres/gradient_checker.cc.ll 4100268165
 ceres/gradient_checking_cost_function.cc.ll 786759475
 ceres/gradient_problem.cc.ll 627359562
@@ -2512,7 +2512,7 @@ ceres/sparse_normal_cholesky_solver.cc.ll 727516984
 ceres/subset_preconditioner.cc.ll 244308255
 ceres/thread_pool.cc.ll 467416952
 ceres/thread_token_provider.cc.ll 231454342
-ceres/triplet_sparse_matrix.cc.ll 1157007983
+ceres/triplet_sparse_matrix.cc.ll 1158236710
 ceres/trust_region_minimizer.cc.ll 3209276204
 ceres/trust_region_preprocessor.cc.ll 1806684080
 ceres/trust_region_step_evaluator.cc.ll 45381050
@@ -4540,7 +4540,7 @@ cpython/long.ll 568656345
 cpython/longobject.ll 3373661434
 cpython/main.ll 359024420
 cpython/marshal.ll 885208724
-cpython/mathmodule.ll 1388369675
+cpython/mathmodule.ll 1419717899
 cpython/md5module.ll 152015691
 cpython/mem.ll 123023843
 cpython/memoryobject.ll 1288699433
@@ -6094,7 +6094,7 @@ draco/sequential_normal_attribute_decoder.cc.ll 1708384002
 draco/sequential_normal_attribute_encoder.cc.ll 3413782935
 draco/sequential_quantization_attribute_decoder.cc.ll 160124524
 draco/sequential_quantization_attribute_encoder.cc.ll 393895275
-draco/shannon_entropy.cc.ll 238186625
+draco/shannon_entropy.cc.ll 238430656
 draco/stdio_file_reader.cc.ll 208129257
 draco/stdio_file_writer.cc.ll 84889124
 draco/stl_decoder.cc.ll 158181350
@@ -6166,7 +6166,7 @@ duckdb/ub_duckdb_func_generic_main.cpp.ll 305280125
 duckdb/ub_duckdb_func_list.cpp.ll 8567845106
 duckdb/ub_duckdb_func_list_nested.cpp.ll 5671457057
 duckdb/ub_duckdb_func_map_nested.cpp.ll 2484735051
-duckdb/ub_duckdb_func_math.cpp.ll 14970178567
+duckdb/ub_duckdb_func_math.cpp.ll 15106726172
 duckdb/ub_duckdb_func_ops.cpp.ll 14159979909
 duckdb/ub_duckdb_func_ops_main.cpp.ll 33743042985
 duckdb/ub_duckdb_func_pragma.cpp.ll 1467530447
@@ -6524,7 +6524,7 @@ flac/encode.c.ll 1669918110
 flac/file.c.ll 53255570
 flac/fixed.c.ll 396307424
 flac/fixed_intrin_avx2.c.ll 257097852
-flac/fixed_intrin_sse2.c.ll 111958718
+flac/fixed_intrin_sse2.c.ll 112103871
 flac/fixed_intrin_sse42.c.ll 150446144
 flac/fixed_intrin_ssse3.c.ll 108643037
 flac/foreign_metadata.c.ll 787586731
@@ -6690,7 +6690,7 @@ folly/FileUtilDetail.cpp.ll 64089851
 folly/FileWriterFactory.cpp.ll 143287798
 folly/Format.cpp.ll 392442554
 folly/FsUtil.cpp.ll 153829802
-folly/FunctionScheduler.cpp.ll 1323463805
+folly/FunctionScheduler.cpp.ll 1335866815
 folly/Future.cpp.ll 1384254737
 folly/GlobalExecutor.cpp.ll 2540336723
 folly/GlobalShutdownSocketSet.cpp.ll 1192673665
@@ -6759,7 +6759,7 @@ folly/Random.cpp.ll 443499791
 folly/RangeCommon.cpp.ll 61932174
 folly/RecordIO.cpp.ll 183110947
 folly/Request.cpp.ll 2165649260
-folly/SSLContext.cpp.ll 912074164
+folly/SSLContext.cpp.ll 920180337
 folly/SSLErrors.cpp.ll 75052646
 folly/SSLOptions.cpp.ll 139415854
 folly/SSLSessionManager.cpp.ll 179640798
@@ -6965,7 +6965,7 @@ g2o/robot_laser.cpp.ll 473810016
 g2o/robust_kernel.cpp.ll 38906475
 g2o/robust_kernel_factory.cpp.ll 440203637
 g2o/robust_kernel_impl.cpp.ll 551485781
-g2o/sampler.cpp.ll 184870704
+g2o/sampler.cpp.ll 185318312
 g2o/sbacam.cpp.ll 2067126148
 g2o/slam2d_linear.cpp.ll 8986402393
 g2o/solver.cpp.ll 68571014
@@ -7522,7 +7522,7 @@ graphviz/gvrender_core_fig.c.ll 209968278
 graphviz/gvrender_core_json.c.ll 683877316
 graphviz/gvrender_core_map.c.ll 103259169
 graphviz/gvrender_core_mp.c.ll 209826240
-graphviz/gvrender_core_pic.c.ll 123998087
+graphviz/gvrender_core_pic.c.ll 124152637
 graphviz/gvrender_core_pov.c.ll 213771993
 graphviz/gvrender_core_svg.c.ll 200227588
 graphviz/gvrender_core_tk.c.ll 124150611
@@ -7639,7 +7639,7 @@ graphviz/textspan.c.ll 81366594
 graphviz/textspan_lut.c.ll 227846475
 graphviz/timing.c.ll 35087447
 graphviz/tlayout.c.ll 379395914
-graphviz/trapezoid.c.ll 574071560
+graphviz/trapezoid.c.ll 573401811
 graphviz/tred.c.ll 167509018
 graphviz/tree_map.c.ll 106985183
 graphviz/triang.c.ll 133023557
@@ -7999,7 +7999,7 @@ gromacs/gmx_densorder.cpp.ll 827336882
 gromacs/gmx_dielectric.cpp.ll 406355359
 gromacs/gmx_dipoles.cpp.ll 1557187768
 gromacs/gmx_disre.cpp.ll 2382352706
-gromacs/gmx_dos.cpp.ll 461193805
+gromacs/gmx_dos.cpp.ll 461676520
 gromacs/gmx_dyecoupl.cpp.ll 420287815
 gromacs/gmx_enemat.cpp.ll 525165336
 gromacs/gmx_energy.cpp.ll 2082170412
@@ -10219,7 +10219,7 @@ icu/tmutamt.ll 49120987
 icu/tmutfmt.ll 511113291
 icu/tolowtrn.ll 47133625
 icu/toolutil.ll 94479581
-icu/toupptrn.ll 47109745
+icu/toupptrn.ll 47156858
 icu/translit.ll 658683755
 icu/transreg.ll 650449406
 icu/tridpars.ll 490072755
@@ -11526,7 +11526,7 @@ libwebp/vp8l_dec.c.ll 1008278974
 libwebp/vp8l_enc.c.ll 1292647054
 libwebp/vwebp_sdl.c.ll 57260062
 libwebp/webp_dec.c.ll 296695008
-libwebp/webp_enc.c.ll 160087343
+libwebp/webp_enc.c.ll 160320293
 libwebp/webp_quality.c.ll 52656012
 libwebp/webp_to_sdl.c.ll 45033465
 libwebp/webpdec.c.ll 108283593
@@ -11890,9 +11890,9 @@ lightgbm/linker_topo.cpp.ll 440954441
 lightgbm/linkers_socket.cpp.ll 1613437191
 lightgbm/main.cpp.ll 55115435
 lightgbm/metadata.cpp.ll 4823577789
-lightgbm/metric.cpp.ll 7152198855
+lightgbm/metric.cpp.ll 7162198784
 lightgbm/network.cpp.ll 1119338267
-lightgbm/objective_function.cpp.ll 8409840855
+lightgbm/objective_function.cpp.ll 8423997953
 lightgbm/openmp_wrapper.cpp.ll 39210862
 lightgbm/parser.cpp.ll 1620187243
 lightgbm/prediction_early_stop.cpp.ll 357288617
@@ -16290,7 +16290,7 @@ luajit/lj_trace.ll 446919308
 luajit/lj_trace_dyn.ll 447344540
 luajit/lj_vmevent.ll 52336412
 luajit/lj_vmevent_dyn.ll 52318830
-luajit/lj_vmmath.ll 47644209
+luajit/lj_vmmath.ll 47702213
 luajit/lj_vmmath_dyn.ll 47635332
 luajit/luajit.ll 270144588
 luajit/minilua.ll 8102331928
@@ -18883,7 +18883,7 @@ nuttx/lib_gmtimer.c.ll 70048865
 nuttx/lib_hexdumpstream.c.ll 72376990
 nuttx/lib_inetaton.c.ll 45505810
 nuttx/lib_itoa.c.ll 47710069
-nuttx/lib_lgamma.c.ll 75685715
+nuttx/lib_lgamma.c.ll 75820907
 nuttx/lib_libflushall.c.ll 52590394
 nuttx/lib_libfread_unlocked.c.ll 79558939
 nuttx/lib_libfwrite.c.ll 54152619
@@ -20853,7 +20853,7 @@ opencv/mask_tmpl.cpp.ll 120938928
 opencv/mat_mask_operations.cpp.ll 232635145
 opencv/mat_operations.cpp.ll 212330118
 opencv/mat_the_basic_image_container.cpp.ll 530981733
-opencv/matchcontours.cpp.ll 95597815
+opencv/matchcontours.cpp.ll 95729733
 opencv/matchers.cpp.ll 3109108469
 opencv/matching.cpp.ll 575402473
 opencv/matchmethod_orb_akaze_brisk.cpp.ll 878859473
@@ -20916,7 +20916,7 @@ opencv/mvn_layer.cpp.ll 367505807
 opencv/nanotrack_tracker.cpp.ll 334950190
 opencv/nary_eltwise_binary_forward_spv.cpp.ll 40604638
 opencv/nary_eltwise_layers.cpp.ll 14601050676
-opencv/nbayes.cpp.ll 869964990
+opencv/nbayes.cpp.ll 868881213
 opencv/net.cpp.ll 765204080
 opencv/net_cann.cpp.ll 33696202
 opencv/net_impl.cpp.ll 9578412237
@@ -21497,7 +21497,7 @@ opencv/ts.cpp.ll 882511915
 opencv/ts_arrtest.cpp.ll 898021661
 opencv/ts_func.cpp.ll 9134160154
 opencv/ts_gtest.cpp.ll 8080812034
-opencv/ts_perf.cpp.ll 3019470045
+opencv/ts_perf.cpp.ll 3016205868
 opencv/ts_tags.cpp.ll 1003640291
 opencv/tsdf.cpp.ll 1820174527
 opencv/tsdf_functions.cpp.ll 934946354
@@ -25141,7 +25141,7 @@ openspiel/policy.cc.ll 4441966457
 openspiel/policy_iteration.cc.ll 2433990646
 openspiel/quoridor.cc.ll 3869618900
 openspiel/quoridor_test.cc.ll 722296927
-openspiel/random.cc.ll 118506901
+openspiel/random.cc.ll 118376667
 openspiel/random_uci_bot.cc.ll 696043877
 openspiel/rbc.cc.ll 3497613391
 openspiel/rbc_test.cc.ll 1499633072
@@ -27819,7 +27819,7 @@ pbrt-v4/transform.cpp.ll 2503937845
 pbrt-v4/vecmath.cpp.ll 474219465
 pbrt-v4/wavefront.cpp.ll 568547397
 pcg-cpp/codebook.cpp.ll 140048530
-pcg-cpp/cppref-sample.cpp.ll 412940520
+pcg-cpp/cppref-sample.cpp.ll 412514240
 pcg-cpp/make-partytrick.cpp.ll 322288068
 pcg-cpp/pcg-demo.cpp.ll 416458273
 pcg-cpp/spew.cpp.ll 120008971
@@ -28958,7 +28958,7 @@ postgres/rowsecurity.ll 207713421
 postgres/rowtypes.ll 695831304
 postgres/ruleutils.ll 3810241424
 postgres/s_lock.ll 63607313
-postgres/sampling.ll 75030136
+postgres/sampling.ll 75137706
 postgres/saslprep.ll 117680976
 postgres/saslprep_shlib.ll 117723507
 postgres/saslprep_srv.ll 115640377
@@ -29201,7 +29201,7 @@ proj/adams.cpp.ll 159522182
 proj/aea.cpp.ll 105250471
 proj/aeqd.cpp.ll 102670781
 proj/affine.cpp.ll 113346846
-proj/airy.cpp.ll 61676894
+proj/airy.cpp.ll 61739394
 proj/aitoff.cpp.ll 90410041
 proj/august.cpp.ll 42134443
 proj/auth.cpp.ll 38334170
@@ -29211,7 +29211,7 @@ proj/bipc.cpp.ll 77593013
 proj/boggs.cpp.ll 46325054
 proj/bonne.cpp.ll 71680583
 proj/c_api.cpp.ll 9925993142
-proj/calcofi.cpp.ll 60762773
+proj/calcofi.cpp.ll 60856103
 proj/cart.cpp.ll 65496412
 proj/cass.cpp.ll 63839654
 proj/ccon.cpp.ll 54550723
@@ -29283,7 +29283,7 @@ proj/inv.cpp.ll 106403741
 proj/io.cpp.ll 25870616307
 proj/isea.cpp.ll 352636136
 proj/krovak.cpp.ll 106390845
-proj/labrd.cpp.ll 80326619
+proj/labrd.cpp.ll 80439131
 proj/laea.cpp.ll 104127770
 proj/lagrng.cpp.ll 57708070
 proj/lask.cpp.ll 40871068
@@ -29291,7 +29291,7 @@ proj/latlong.cpp.ll 69834150
 proj/lcc.cpp.ll 78952584
 proj/lcca.cpp.ll 63961668
 proj/log.cpp.ll 66059873
-proj/loxim.cpp.ll 50967807
+proj/loxim.cpp.ll 51036321
 proj/mbtfpp.cpp.ll 46898047
 proj/mbtfpq.cpp.ll 52680067
 proj/merc.cpp.ll 57205457
@@ -29333,7 +29333,7 @@ proj/putp2.cpp.ll 49896450
 proj/putp3.cpp.ll 51418172
 proj/putp4p.cpp.ll 53876706
 proj/putp5.cpp.ll 53062188
-proj/putp6.cpp.ll 64345667
+proj/putp6.cpp.ll 64434583
 proj/qsc.cpp.ll 120726348
 proj/qsfn.cpp.ll 35759566
 proj/robin.cpp.ll 74871337
@@ -29345,7 +29345,7 @@ proj/sch.cpp.ll 99366555
 proj/sconics.cpp.ll 105508454
 proj/singleoperation.cpp.ll 6903039035
 proj/som.cpp.ll 159321474
-proj/somerc.cpp.ll 64541148
+proj/somerc.cpp.ll 64665636
 proj/sqlite3_utils.cpp.ll 110221619
 proj/static.cpp.ll 953398957
 proj/stere.cpp.ll 120595983
@@ -30616,7 +30616,7 @@ quantlib/cashflows.ll 3039218284
 quantlib/cashflowvectors.ll 68787303
 quantlib/cashrebate.ll 563668799
 quantlib/catbond.ll 1811567671
-quantlib/catrisk.ll 989646802
+quantlib/catrisk.ll 986410097
 quantlib/cdo.ll 1917261505
 quantlib/cdsoption.ll 1980557405
 quantlib/cevrndcalculator.ll 3358481871
@@ -31136,7 +31136,7 @@ quantlib/multistepswaption.ll 507841335
 quantlib/multisteptarn.ll 700008489
 quantlib/newzealand.ll 249597522
 quantlib/ninepointlinearop.ll 1180182243
-quantlib/noarbsabr.ll 2765571374
+quantlib/noarbsabr.ll 2781873419
 quantlib/noarbsabrinterpolatedsmilesection.ll 2965436667
 quantlib/noarbsabrsmilesection.ll 591231173
 quantlib/nonlinearfittingmethods.ll 992754482
@@ -32928,7 +32928,7 @@ sentencepiece/pretokenizer_for_training.cc.ll 281832318
 sentencepiece/repeated_field.cc.ll 1711218886
 sentencepiece/sentencepiece.pb.cc.ll 963640519
 sentencepiece/sentencepiece_model.pb.cc.ll 2722083719
-sentencepiece/sentencepiece_processor.cc.ll 4231532929
+sentencepiece/sentencepiece_processor.cc.ll 4237337568
 sentencepiece/sentencepiece_trainer.cc.ll 2424814849
 sentencepiece/spm_decode_main.cc.ll 877556437
 sentencepiece/spm_encode_main.cc.ll 1634605678
@@ -32945,7 +32945,7 @@ sentencepiece/time.cc.ll 300588025
 sentencepiece/trainer_factory.cc.ll 188936809
 sentencepiece/trainer_interface.cc.ll 4380204996
 sentencepiece/unicode_script.cc.ll 100503053180
-sentencepiece/unigram_model.cc.ll 5387574660
+sentencepiece/unigram_model.cc.ll 5431554946
 sentencepiece/unigram_model_trainer.cc.ll 8072207309
 sentencepiece/util.cc.ll 460244906
 sentencepiece/wire_format_lite.cc.ll 707784439
@@ -34745,7 +34745,7 @@ stockfish/position.ll 1093336744
 stockfish/search.ll 3243877880
 stockfish/tbprobe.ll 4602968659
 stockfish/thread.ll 1076656427
-stockfish/timeman.ll 98136732
+stockfish/timeman.ll 98237711
 stockfish/tt.ll 252937470
 stockfish/tune.ll 337882679
 stockfish/uci.ll 1273152245
@@ -37888,7 +37888,7 @@ xgboost/fit_stump.cc.ll 797486310
 xgboost/gblinear.cc.ll 3446039894
 xgboost/gblinear_model.cc.ll 1239488969
 xgboost/gbm.cc.ll 348124298
-xgboost/gbtree.cc.ll 9018807940
+xgboost/gbtree.cc.ll 9036994752
 xgboost/gbtree_model.cc.ll 2529399481
 xgboost/global_config.cc.ll 837186290
 xgboost/gradient_index.cc.ll 6084951295

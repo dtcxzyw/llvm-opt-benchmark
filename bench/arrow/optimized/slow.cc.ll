@@ -2103,7 +2103,17 @@ entry:
   %_M_saved_available = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_saved_available, align 8
   %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %do.body
+  br i1 %tobool, label %if.then, label %do.body.preheader
+
+do.body.preheader:                                ; preds = %entry
+  %call.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401DFFFFFFFC00000000)
+  %call.i8.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
+  %conv5.i.i = fptoui x86_fp80 %div.i.i to i64
+  %sub8.i.i = add i64 %conv5.i.i, 52
+  %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
+  br label %do.body
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %_M_saved_available, align 8
@@ -2111,14 +2121,7 @@ if.then:                                          ; preds = %entry
   %1 = load double, ptr %_M_saved, align 8
   br label %if.end
 
-do.body:                                          ; preds = %entry, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit39
-  %call.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401DFFFFFFFC00000000) #24
-  %call.i8.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #24
-  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
-  %conv5.i.i = fptoui x86_fp80 %div.i.i to i64
-  %sub8.i.i = add i64 %conv5.i.i, 52
-  %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
+do.body:                                          ; preds = %do.body.preheader, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit39
   %__urng.promoted.i.i = load i64, ptr %__urng, align 8
   br label %for.body.i.i
 
@@ -2147,22 +2150,16 @@ for.end.i.i:                                      ; preds = %for.body.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %call20.i.i = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #24
+  %__urng.promoted.i.i18.pre = load i64, ptr %__urng, align 8
   br label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit
 
 _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit: ; preds = %for.end.i.i, %if.then.i.i
+  %__urng.promoted.i.i18 = phi i64 [ %__urng.promoted.i.i18.pre, %if.then.i.i ], [ %rem.i.i.i.i.i, %for.end.i.i ]
   %__ret.0.i.i = phi double [ %call20.i.i, %if.then.i.i ], [ %div17.i.i, %for.end.i.i ]
-  %call.i.i.i11 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401DFFFFFFFC00000000) #24
-  %call.i8.i.i12 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #24
-  %div.i.i13 = fdiv x86_fp80 %call.i.i.i11, %call.i8.i.i12
-  %conv5.i.i14 = fptoui x86_fp80 %div.i.i13 to i64
-  %sub8.i.i15 = add i64 %conv5.i.i14, 52
-  %div9.i.i16 = udiv i64 %sub8.i.i15, %conv5.i.i14
-  %spec.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %div9.i.i16, i64 1)
-  %__urng.promoted.i.i18 = load i64, ptr %__urng, align 8
   br label %for.body.i.i19
 
 for.body.i.i19:                                   ; preds = %for.body.i.i19, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit
-  %__k.015.i.i20 = phi i64 [ %spec.select.i.i17, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %dec.i.i31, %for.body.i.i19 ]
+  %__k.015.i.i20 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %dec.i.i31, %for.body.i.i19 ]
   %__tmp.014.i.i21 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %conv16.i.i30, %for.body.i.i19 ]
   %__sum.013.i.i22 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %3, %for.body.i.i19 ]
   %rem.i.i.i1112.i.i23 = phi i64 [ %__urng.promoted.i.i18, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %rem.i.i.i.i.i25, %for.body.i.i19 ]
@@ -2232,9 +2229,6 @@ declare double @log(double noundef) local_unnamed_addr #17
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #17
-
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
@@ -2249,6 +2243,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

@@ -1568,6 +1568,13 @@ entry:
   br i1 %tobool, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
+  %call.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
+  %conv5.i.i = fptoui x86_fp80 %div.i.i to i64
+  %sub8.i.i = add i64 %conv5.i.i, 52
+  %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
   %_M_p.i = getelementptr inbounds i8, ptr %__urng, i64 4992
   %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %__urng, i64 1816
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %__urng, i64 4984
@@ -1581,13 +1588,6 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 do.body:                                          ; preds = %do.body.preheader, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit35
-  %call.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #14
-  %call.i8.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #14
-  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
-  %conv5.i.i = fptoui x86_fp80 %div.i.i to i64
-  %sub8.i.i = add i64 %conv5.i.i, 52
-  %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
   %.pre = load i64, ptr %_M_p.i, align 8
   br label %for.body.i.i
 
@@ -1702,23 +1702,17 @@ for.end.i.i:                                      ; preds = %_ZNSt23mersenne_twi
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %call20.i.i = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #14
+  %.pre113.pre = load i64, ptr %_M_p.i, align 8
   br label %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit
 
 _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit: ; preds = %for.end.i.i, %if.then.i.i
+  %.pre113 = phi i64 [ %.pre113.pre, %if.then.i.i ], [ %inc.i, %for.end.i.i ]
   %__ret.0.i.i = phi double [ %call20.i.i, %if.then.i.i ], [ %div17.i.i, %for.end.i.i ]
-  %call.i.i.i11 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #14
-  %call.i8.i.i12 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #14
-  %div.i.i13 = fdiv x86_fp80 %call.i.i.i11, %call.i8.i.i12
-  %conv5.i.i14 = fptoui x86_fp80 %div.i.i13 to i64
-  %sub8.i.i15 = add i64 %conv5.i.i14, 52
-  %div9.i.i16 = udiv i64 %sub8.i.i15, %conv5.i.i14
-  %spec.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %div9.i.i16, i64 1)
-  %.pre113 = load i64, ptr %_M_p.i, align 8
   br label %for.body.i.i18
 
 for.body.i.i18:                                   ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit
   %15 = phi i64 [ %.pre113, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %inc.i39, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
-  %__k.013.i.i19 = phi i64 [ %spec.select.i.i17, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %dec.i.i27, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
+  %__k.013.i.i19 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %dec.i.i27, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
   %__tmp.012.i.i20 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %conv16.i.i26, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
   %__sum.011.i.i21 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %27, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
   %cmp.i38 = icmp ugt i64 %15, 623
@@ -1873,9 +1867,6 @@ declare double @log(double noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #10
-
 ; Function Attrs: nounwind
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 
@@ -1946,6 +1937,9 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3108,10 +3108,10 @@ if.then41:                                        ; preds = %if.else35
   %call.i139 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %add48) #34, !tbaa !14
   %sub = fsub x86_fp80 %call.i139, %a
   %sub50 = fadd x86_fp80 %a, 0xKBFFE8000000000000000
-  %call.i140 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %a) #34, !tbaa !14
+  %call.i140 = tail call x86_fp80 @llvm.log.f80(x86_fp80 %a), !tbaa !14
   %8 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %sub50, x86_fp80 %call.i140, x86_fp80 %sub)
-  %call.i141 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK4000A06C98FFB1382CB3) #34, !tbaa !14
-  %add55 = fadd x86_fp80 %8, %call.i141
+  %call.i141 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK4000A06C98FFB1382CB3), !tbaa !14
+  %add55 = fadd x86_fp80 %call.i141, %8
   %tobool56.not = icmp eq ptr %p_derivative, null
   br i1 %tobool56.not, label %if.end83, label %if.then57
 
@@ -7158,7 +7158,7 @@ if.end:                                           ; preds = %if.then
   %fneg9 = fneg x86_fp80 %mul16.i
   %sresult.0 = select i1 %cmp7, i32 1, i32 -1
   %t.0 = select i1 %cmp7, x86_fp80 %fneg9, x86_fp80 %mul16.i
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK4000C90FDAA22168C235) #34, !tbaa !14
+  %call.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK4000C90FDAA22168C235), !tbaa !14
   %call13 = tail call noundef x86_fp80 @_ZN5boost4math6detail10lgamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_Pi(x86_fp80 noundef %fneg.i, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %l, ptr noundef null)
   %sub14 = fsub x86_fp80 %call.i, %call13
   %call.i16 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %t.0) #34, !tbaa !14
@@ -7185,7 +7185,7 @@ if.end24:                                         ; preds = %if.then20
   br i1 %cmp27, label %if.then28, label %if.else32
 
 if.then28:                                        ; preds = %if.end24
-  %call.i17 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %4) #34, !tbaa !14
+  %call.i17 = tail call x86_fp80 @llvm.log.f80(x86_fp80 %4), !tbaa !14
   %fneg31 = fneg x86_fp80 %call.i17
   br label %if.end37
 
@@ -7531,7 +7531,7 @@ if.else22:                                        ; preds = %if.else7
   br i1 %cmp23, label %if.then24, label %if.end29
 
 if.then24:                                        ; preds = %if.else22
-  %call.i31 = tail call noundef x86_fp80 @logl(x86_fp80 noundef %z) #34, !tbaa !14
+  %call.i31 = tail call x86_fp80 @llvm.log.f80(x86_fp80 %z), !tbaa !14
   %add27 = fsub x86_fp80 0xK00000000000000000000, %call.i31
   %add28 = fadd x86_fp80 %z, 0xK3FFF8000000000000000
   br label %if.end29
@@ -9441,7 +9441,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then4, label %if.end30
 
 if.then4:                                         ; preds = %if.then
-  %call.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef %x) #34, !tbaa !14
+  %call.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 %x), !tbaa !14
   %mul6 = fmul x86_fp80 %y, %call.i
   %cmp7 = fcmp olt x86_fp80 %mul6, 0xK3FFE8000000000000000
   br i1 %cmp7, label %if.then8, label %if.end
@@ -10506,7 +10506,7 @@ if.end21:                                         ; preds = %if.end14
   br i1 %cmp22, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end21
-  %call24 = call double @log(double noundef %x) #34, !tbaa !14
+  %call24 = call double @llvm.log.f64(double %x), !tbaa !14
   %neg = fneg double %x
   %0 = call double @llvm.fmuladd.f64(double %a, double %call24, double %neg)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i) #34
@@ -10524,7 +10524,7 @@ _ZN5boost4math6lgammaIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i.i) #34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i) #34
   %sub = fsub double %0, %call.i.i
-  %call27 = call double @log(double noundef %x) #34, !tbaa !14
+  %call27 = call double @llvm.log.f64(double %x), !tbaa !14
   %sub28 = fsub double %sub, %call27
   %call29 = call double @exp(double noundef %sub28) #34, !tbaa !14
   br label %return
@@ -10917,7 +10917,7 @@ if.end23:                                         ; preds = %if.then19
   br i1 %cmp25, label %if.then26, label %if.else29
 
 if.then26:                                        ; preds = %if.end23
-  %call27 = tail call double @log(double noundef %4) #34, !tbaa !14
+  %call27 = tail call double @llvm.log.f64(double %4), !tbaa !14
   %fneg28 = fneg double %call27
   br label %if.end33
 
@@ -11424,7 +11424,7 @@ if.else22:                                        ; preds = %if.else7
   br i1 %cmp23, label %if.then24, label %if.end29
 
 if.then24:                                        ; preds = %if.else22
-  %call25 = tail call double @log(double noundef %z) #34, !tbaa !14
+  %call25 = tail call double @llvm.log.f64(double %z), !tbaa !14
   %add27 = fsub double 0.000000e+00, %call25
   %add28 = fadd double %z, 1.000000e+00
   br label %if.end29
@@ -12189,7 +12189,7 @@ if.end21:                                         ; preds = %if.end14
   br i1 %cmp22, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end21
-  %call.i = call noundef x86_fp80 @logl(x86_fp80 noundef %x) #34, !tbaa !14
+  %call.i = call x86_fp80 @llvm.log.f80(x86_fp80 %x), !tbaa !14
   %neg = fneg x86_fp80 %x
   %0 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %a, x86_fp80 %call.i, x86_fp80 %neg)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i) #34
@@ -12207,7 +12207,7 @@ _ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i.i) #34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i) #34
   %sub = fsub x86_fp80 %0, %call.i.i
-  %call.i10 = call noundef x86_fp80 @logl(x86_fp80 noundef %x) #34, !tbaa !14
+  %call.i10 = call x86_fp80 @llvm.log.f80(x86_fp80 %x), !tbaa !14
   %sub28 = fsub x86_fp80 %sub, %call.i10
   %call.i11 = call noundef x86_fp80 @expl(x86_fp80 noundef %sub28) #34, !tbaa !14
   br label %return
@@ -14882,13 +14882,13 @@ if.then42:                                        ; preds = %if.else38
 
 if.else59:                                        ; preds = %if.else38
   %cmp60 = fcmp ogt x86_fp80 %mul, 0xK3FFBCCCCCCCCCCCCD000
-  %call.i255 = call noundef x86_fp80 @logl(x86_fp80 noundef %mul) #34, !tbaa !14
-  %fneg64 = fneg x86_fp80 %call.i255
-  %call.i256 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg64) #34, !tbaa !14
   br i1 %cmp60, label %if.then61, label %if.else88
 
 if.then61:                                        ; preds = %if.else59
+  %call.i255 = call x86_fp80 @llvm.log.f80(x86_fp80 %mul), !tbaa !14
+  %fneg64 = fneg x86_fp80 %call.i255
   %sub66 = fsub x86_fp80 0xK3FFF8000000000000000, %a
+  %call.i256 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg64) #34, !tbaa !14
   %neg69 = fneg x86_fp80 %sub66
   %4 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg69, x86_fp80 %call.i256, x86_fp80 %fneg64)
   %call.i257 = call noundef x86_fp80 @logl(x86_fp80 noundef %4) #34, !tbaa !14
@@ -14909,8 +14909,11 @@ if.then61:                                        ; preds = %if.else59
   br label %if.end418
 
 if.else88:                                        ; preds = %if.else59
+  %call.i259 = call noundef x86_fp80 @logl(x86_fp80 noundef %mul) #34, !tbaa !14
+  %fneg91 = fneg x86_fp80 %call.i259
   %sub92 = fadd x86_fp80 %a, 0xKBFFF8000000000000000
-  %mul94 = fmul x86_fp80 %sub92, %call.i256
+  %call.i260 = call noundef x86_fp80 @logl(x86_fp80 noundef %fneg91) #34, !tbaa !14
+  %mul94 = fmul x86_fp80 %sub92, %call.i260
   %mul95 = fmul x86_fp80 %mul94, %mul94
   %mul96 = fmul x86_fp80 %mul94, %mul95
   %mul97 = fmul x86_fp80 %mul95, %mul95
@@ -14961,11 +14964,11 @@ if.else88:                                        ; preds = %if.else59
   %div152 = fdiv x86_fp80 %sub151, 0xK4002C000000000000000
   %add153 = fadd x86_fp80 %div152, %add146
   %mul154 = fmul x86_fp80 %sub92, %add153
-  %mul155 = fmul x86_fp80 %call.i255, %call.i255
-  %mul156 = fmul x86_fp80 %mul155, %fneg64
+  %mul155 = fmul x86_fp80 %call.i259, %call.i259
+  %mul156 = fmul x86_fp80 %mul155, %fneg91
   %mul157 = fmul x86_fp80 %mul155, %mul155
-  %add158 = fsub x86_fp80 %mul94, %call.i255
-  %22 = fdiv x86_fp80 %mul102, %call.i255
+  %add158 = fsub x86_fp80 %mul94, %call.i259
+  %22 = fdiv x86_fp80 %mul102, %call.i259
   %add160 = fsub x86_fp80 %add158, %22
   %div161 = fdiv x86_fp80 %mul111, %mul155
   %add162 = fadd x86_fp80 %add160, %div161
@@ -18984,6 +18987,9 @@ declare i64 @llvm.umin.i64(i64, i64) #32
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.copysign.f80(x86_fp80, x86_fp80) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -18993,6 +18999,9 @@ declare x86_fp80 @llvm.sqrt.f80(x86_fp80) #32
 declare i32 @llvm.umax.i32(i32, i32) #32
 
 declare x86_fp80 @exp2l(x86_fp80) local_unnamed_addr
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #32

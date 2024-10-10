@@ -6061,7 +6061,7 @@ define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOption
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call double @log(double noundef %23) #21
+  %26 = tail call double @llvm.log.f64(double %23)
   %27 = fneg double %26
   %28 = fmul double %.037, %27
   store double %28, ptr %22, align 8
@@ -13617,6 +13617,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

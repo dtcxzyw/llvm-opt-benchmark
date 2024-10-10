@@ -2280,7 +2280,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml25NormalBayesClassifierI
 46:                                               ; preds = %44, %42
   %.pn214 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
-  br label %652
+  br label %650
 
 47:                                               ; preds = %3
   %48 = load ptr, ptr %37, align 8
@@ -2699,63 +2699,63 @@ _ZN2cv3MataSERKNS_7MatExprE.exit271:              ; preds = %236
 243:                                              ; preds = %47
   %244 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %649
 
 245:                                              ; preds = %55
   %246 = landingpad { ptr, i32 }
           cleanup
-  br label %650
+  br label %648
 
 247:                                              ; preds = %60
   %248 = landingpad { ptr, i32 }
           cleanup
-  br label %649
+  br label %647
 
 .loopexit:                                        ; preds = %200, %_ZN2cv3MataSERKNS_7MatExprE.exit, %_ZN2cv3MataSERKNS_7MatExprE.exit263, %_ZN2cv3MataSERKNS_7MatExprE.exit265, %_ZN2cv3MataSERKNS_7MatExprE.exit267, %_ZN2cv3MataSERKNS_7MatExprE.exit269
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %648
+  br label %646
 
 .loopexit.split-lp:                               ; preds = %65, %67, %74, %._crit_edge, %263, %266, %332, %94, %110, %126, %142, %158, %174
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %648
+  br label %646
 
 249:                                              ; preds = %201
   %250 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %10) #19
-  br label %648
+  br label %646
 
 251:                                              ; preds = %208
   %252 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %11) #19
-  br label %648
+  br label %646
 
 253:                                              ; preds = %215
   %254 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %12) #19
-  br label %648
+  br label %646
 
 255:                                              ; preds = %222
   %256 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #19
-  br label %648
+  br label %646
 
 257:                                              ; preds = %229
   %258 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %14) #19
-  br label %648
+  br label %646
 
 259:                                              ; preds = %236
   %260 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %15) #19
-  br label %648
+  br label %646
 
 ._crit_edge:                                      ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit271, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit260
   %261 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2878,12 +2878,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit271:              ; preds = %236
 323:                                              ; preds = %292, %283
   %324 = landingpad { ptr, i32 }
           cleanup
-  br label %648
+  br label %646
 
 325:                                              ; preds = %318, %309
   %326 = landingpad { ptr, i32 }
           cleanup
-  br label %648
+  br label %646
 
 327:                                              ; preds = %.critedge218.thread
   %328 = landingpad { ptr, i32 }
@@ -2899,7 +2899,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit271:              ; preds = %236
 331:                                              ; preds = %329, %327
   %.pn208 = phi { ptr, i32 } [ %330, %329 ], [ %328, %327 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #19
-  br label %648
+  br label %646
 
 332:                                              ; preds = %.critedge218, %266
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %73, i32 noundef %73, i32 noundef 6)
@@ -3143,7 +3143,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %368, %362, %355
 482:                                              ; preds = %458
   %483 = landingpad { ptr, i32 }
           cleanup
-  br label %647
+  br label %645
 
 ._crit_edge315:                                   ; preds = %479, %.preheader302
   %484 = load ptr, ptr %417, align 8
@@ -3391,22 +3391,22 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %.lr.ph325.split, %_
 599:                                              ; preds = %._crit_edge322
   %600 = landingpad { ptr, i32 }
           cleanup
-  br label %647
+  br label %645
 
 601:                                              ; preds = %553, %549
   %602 = landingpad { ptr, i32 }
           cleanup
-  br label %647
+  br label %645
 
 603:                                              ; preds = %554
   %604 = landingpad { ptr, i32 }
           cleanup
-  br label %647
+  br label %645
 
 605:                                              ; preds = %557
   %606 = landingpad { ptr, i32 }
           cleanup
-  br label %647
+  br label %645
 
 ._crit_edge326:                                   ; preds = %_ZN2cv3Mat2atIdEERT_i.exit, %_ZN2cv3Mat2atIdEERT_i.exit.us, %_ZN2cv3Mat2atIdEERT_i.exit.us.us330, %_ZN2cv3Mat2atIdEERT_i.exit.us.us, %.preheader
   %.0182.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %570, %_ZN2cv3Mat2atIdEERT_i.exit.us.us ], [ %580, %_ZN2cv3Mat2atIdEERT_i.exit.us.us330 ], [ %593, %_ZN2cv3Mat2atIdEERT_i.exit.us ], [ %598, %_ZN2cv3Mat2atIdEERT_i.exit ]
@@ -3418,75 +3418,69 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %.lr.ph325.split, %_
   store i32 33619968, ptr %36, align 8
   store ptr %460, ptr %451, align 8
   invoke void @_ZN2cv6divideEdRKNS_11_InputArrayERKNS_12_OutputArrayEi(double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef -1)
-          to label %607 unwind label %645
+          to label %607 unwind label %643
 
 607:                                              ; preds = %._crit_edge326
   %608 = fcmp ogt double %.0182.lcssa, 0.000000e+00
-  br i1 %608, label %609, label %611
+  %609 = call double @llvm.log.f64(double %.0182.lcssa)
+  %610 = select i1 %608, double %609, double -7.000000e+02
+  %611 = load i32, ptr %453, align 8
+  %612 = and i32 %611, 16384
+  %.not.i287 = icmp eq i32 %612, 0
+  br i1 %.not.i287, label %613, label %617
 
-609:                                              ; preds = %607
-  %610 = call double @log(double noundef %.0182.lcssa) #19
-  br label %611
+613:                                              ; preds = %607
+  %614 = load ptr, ptr %454, align 8
+  %615 = load i32, ptr %614, align 4
+  %616 = icmp eq i32 %615, 1
+  br i1 %616, label %617, label %620
 
-611:                                              ; preds = %607, %609
-  %612 = phi double [ %610, %609 ], [ -7.000000e+02, %607 ]
-  %613 = load i32, ptr %453, align 8
-  %614 = and i32 %613, 16384
-  %.not.i287 = icmp eq i32 %614, 0
-  br i1 %.not.i287, label %615, label %619
-
-615:                                              ; preds = %611
-  %616 = load ptr, ptr %454, align 8
-  %617 = load i32, ptr %616, align 4
-  %618 = icmp eq i32 %617, 1
-  br i1 %618, label %619, label %622
-
-619:                                              ; preds = %615, %611
-  %620 = load ptr, ptr %456, align 8
-  %621 = getelementptr inbounds double, ptr %620, i64 %indvars.iv404
+617:                                              ; preds = %613, %607
+  %618 = load ptr, ptr %456, align 8
+  %619 = getelementptr inbounds double, ptr %618, i64 %indvars.iv404
   br label %_ZN2cv3Mat2atIdEERT_i.exit289
 
-622:                                              ; preds = %615
-  %623 = getelementptr inbounds i8, ptr %616, i64 4
-  %624 = load i32, ptr %623, align 4
-  %625 = icmp eq i32 %624, 1
-  br i1 %625, label %626, label %632
+620:                                              ; preds = %613
+  %621 = getelementptr inbounds i8, ptr %614, i64 4
+  %622 = load i32, ptr %621, align 4
+  %623 = icmp eq i32 %622, 1
+  br i1 %623, label %624, label %630
 
-626:                                              ; preds = %622
-  %627 = load ptr, ptr %456, align 8
-  %628 = load ptr, ptr %457, align 8
-  %629 = load i64, ptr %628, align 8
-  %630 = mul i64 %629, %indvars.iv404
-  %631 = getelementptr inbounds i8, ptr %627, i64 %630
+624:                                              ; preds = %620
+  %625 = load ptr, ptr %456, align 8
+  %626 = load ptr, ptr %457, align 8
+  %627 = load i64, ptr %626, align 8
+  %628 = mul i64 %627, %indvars.iv404
+  %629 = getelementptr inbounds i8, ptr %625, i64 %628
   br label %_ZN2cv3Mat2atIdEERT_i.exit289
 
-632:                                              ; preds = %622
-  %633 = load i32, ptr %455, align 4
-  %634 = trunc nuw nsw i64 %indvars.iv404 to i32
-  %635 = sdiv i32 %634, %633
-  %636 = mul nsw i32 %635, %633
-  %.recomposed434 = srem i32 %634, %633
-  %637 = load ptr, ptr %456, align 8
-  %638 = load ptr, ptr %457, align 8
-  %639 = load i64, ptr %638, align 8
-  %640 = sext i32 %635 to i64
-  %641 = mul i64 %639, %640
-  %642 = getelementptr inbounds i8, ptr %637, i64 %641
-  %643 = sext i32 %.recomposed434 to i64
-  %644 = getelementptr inbounds double, ptr %642, i64 %643
+630:                                              ; preds = %620
+  %631 = load i32, ptr %455, align 4
+  %632 = trunc nuw nsw i64 %indvars.iv404 to i32
+  %633 = sdiv i32 %632, %631
+  %634 = mul nsw i32 %633, %631
+  %.recomposed434 = srem i32 %632, %631
+  %635 = load ptr, ptr %456, align 8
+  %636 = load ptr, ptr %457, align 8
+  %637 = load i64, ptr %636, align 8
+  %638 = sext i32 %633 to i64
+  %639 = mul i64 %637, %638
+  %640 = getelementptr inbounds i8, ptr %635, i64 %639
+  %641 = sext i32 %.recomposed434 to i64
+  %642 = getelementptr inbounds double, ptr %640, i64 %641
   br label %_ZN2cv3Mat2atIdEERT_i.exit289
 
-_ZN2cv3Mat2atIdEERT_i.exit289:                    ; preds = %619, %626, %632
-  %.0.i288 = phi ptr [ %621, %619 ], [ %631, %626 ], [ %644, %632 ]
-  store double %612, ptr %.0.i288, align 8
+_ZN2cv3Mat2atIdEERT_i.exit289:                    ; preds = %617, %624, %630
+  %.0.i288 = phi ptr [ %619, %617 ], [ %629, %624 ], [ %642, %630 ]
+  store double %610, ptr %.0.i288, align 8
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
   br i1 %exitcond408.not, label %._crit_edge337, label %458, !llvm.loop !34
 
-645:                                              ; preds = %._crit_edge326
-  %646 = landingpad { ptr, i32 }
+643:                                              ; preds = %._crit_edge326
+  %644 = landingpad { ptr, i32 }
           cleanup
-  br label %647
+  br label %645
 
 ._crit_edge337:                                   ; preds = %_ZN2cv3Mat2atIdEERT_i.exit289, %._crit_edge312
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
@@ -3497,34 +3491,34 @@ _ZN2cv3Mat2atIdEERT_i.exit289:                    ; preds = %619, %626, %632
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   ret i1 true
 
-647:                                              ; preds = %645, %605, %603, %601, %599, %482
-  %.pn201.pn = phi { ptr, i32 } [ %600, %599 ], [ %483, %482 ], [ %602, %601 ], [ %604, %603 ], [ %606, %605 ], [ %646, %645 ]
+645:                                              ; preds = %643, %605, %603, %601, %599, %482
+  %.pn201.pn = phi { ptr, i32 } [ %600, %599 ], [ %483, %482 ], [ %602, %601 ], [ %604, %603 ], [ %606, %605 ], [ %644, %643 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #19
+  br label %646
+
+646:                                              ; preds = %.loopexit, %.loopexit.split-lp, %325, %323, %645, %331, %259, %257, %255, %253, %251, %249
+  %.pn208.pn = phi { ptr, i32 } [ %.pn208, %331 ], [ %.pn201.pn, %645 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %324, %323 ], [ %326, %325 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
+  br label %647
+
+647:                                              ; preds = %646, %247
+  %.pn208.pn.pn = phi { ptr, i32 } [ %.pn208.pn, %646 ], [ %248, %247 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
   br label %648
 
-648:                                              ; preds = %.loopexit, %.loopexit.split-lp, %325, %323, %647, %331, %259, %257, %255, %253, %251, %249
-  %.pn208.pn = phi { ptr, i32 } [ %.pn208, %331 ], [ %.pn201.pn, %647 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %324, %323 ], [ %326, %325 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
+648:                                              ; preds = %647, %245
+  %.pn208.pn.pn.pn = phi { ptr, i32 } [ %.pn208.pn.pn, %647 ], [ %246, %245 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
   br label %649
 
-649:                                              ; preds = %648, %247
-  %.pn208.pn.pn = phi { ptr, i32 } [ %.pn208.pn, %648 ], [ %248, %247 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
+649:                                              ; preds = %648, %243
+  %.pn208.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn208.pn.pn.pn, %648 ], [ %244, %243 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   br label %650
 
-650:                                              ; preds = %649, %245
-  %.pn208.pn.pn.pn = phi { ptr, i32 } [ %.pn208.pn.pn, %649 ], [ %246, %245 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
-  br label %651
-
-651:                                              ; preds = %650, %243
-  %.pn208.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn208.pn.pn.pn, %650 ], [ %244, %243 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  br label %652
-
-652:                                              ; preds = %651, %46
-  %.pn214.pn = phi { ptr, i32 } [ %.pn214, %46 ], [ %.pn208.pn.pn.pn.pn, %651 ]
+650:                                              ; preds = %649, %46
+  %.pn214.pn = phi { ptr, i32 } [ %.pn214, %46 ], [ %.pn208.pn.pn.pn.pn, %649 ]
   resume { ptr, i32 } %.pn214.pn
 }
 
@@ -4150,9 +4144,6 @@ declare void @_ZN2cv9transposeERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr nound
 declare void @_ZN2cv3maxERKNS_11_InputArrayES2_RKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 declare void @_ZN2cv6divideEdRKNS_11_InputArrayERKNS_12_OutputArrayEi(double noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #9
 
 declare noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
@@ -4897,17 +4888,20 @@ define internal void @_GLOBAL__sub_I_nbayes.cpp() #11 section ".text.startup" {
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
@@ -4928,9 +4922,9 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-p
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { builtin nounwind }

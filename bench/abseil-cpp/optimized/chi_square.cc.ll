@@ -252,7 +252,7 @@ if.end36:                                         ; preds = %cond.end
   br i1 %cmp.i, label %if.then44, label %if.end55
 
 if.then44:                                        ; preds = %if.end36
-  %call47 = tail call double @log(double noundef %mul26) #9
+  %call47 = tail call double @llvm.log.f64(double %mul26)
   %cmp4869 = fcmp ugt double %cond42, %mul39
   br i1 %cmp4869, label %return, label %while.body.preheader
 
@@ -338,6 +338,9 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #8

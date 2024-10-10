@@ -7025,7 +7025,7 @@ _ZN2cv3PtrINS_6detail7BlenderEED2Ev.exit:         ; preds = %_ZN2cv3PtrINS_6deta
 
 2397:                                             ; preds = %2392, %2395
   %2398 = phi ptr [ %2396, %2395 ], [ null, %2392 ]
-  %2399 = call noundef float @logf(float noundef %2363) #25
+  %2399 = call float @llvm.log.f32(float %2363)
   %2400 = fpext float %2399 to double
   %2401 = fdiv double %2400, 0x3FE62E42FEFA39EF
   %2402 = call double @llvm.ceil.f64(double %2401)
@@ -29282,6 +29282,9 @@ declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

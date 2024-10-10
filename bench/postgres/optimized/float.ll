@@ -2439,7 +2439,7 @@ define dso_local i64 @dlog1(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 15:                                               ; preds = %9
-  %16 = tail call double @log(double noundef %3) #19
+  %16 = tail call double @llvm.log.f64(double %3)
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp une double %17, 0x7FF0000000000000
   %19 = tail call double @llvm.fabs.f64(double %3)
@@ -2465,9 +2465,6 @@ define dso_local i64 @dlog1(ptr nocapture noundef readonly %0) local_unnamed_add
   %27 = bitcast double %16 to i64
   ret i64 %27
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dlog10(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
@@ -2497,7 +2494,7 @@ define dso_local i64 @dlog10(ptr nocapture noundef readonly %0) local_unnamed_ad
   unreachable
 
 15:                                               ; preds = %9
-  %16 = tail call double @log10(double noundef %3) #19
+  %16 = tail call double @llvm.log10.f64(double %3)
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp une double %17, 0x7FF0000000000000
   %19 = tail call double @llvm.fabs.f64(double %3)
@@ -2523,9 +2520,6 @@ define dso_local i64 @dlog10(ptr nocapture noundef readonly %0) local_unnamed_ad
   %27 = bitcast double %16 to i64
   ret i64 %27
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dacos(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
@@ -6710,6 +6704,12 @@ declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.rint.f32(float) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17

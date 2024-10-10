@@ -1277,7 +1277,7 @@ ehcleanup73:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end76:                                         ; preds = %do.body30
-  %call79 = tail call double @log(double noundef %25) #27, !tbaa !85
+  %call79 = tail call double @llvm.log.f64(double %25), !tbaa !85
   %pastFixings81 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %48 = load i64, ptr %pastFixings81, align 8, !tbaa !87
   br label %if.end82
@@ -2402,7 +2402,7 @@ do.end365:                                        ; preds = %invoke.cont321
   %mul367 = fmul double %runningLog.0, %div
   %conv368 = uitofp i64 %cond to double
   %div369 = fdiv double %mul367, %conv368
-  %call370 = call double @log(double noundef %call322) #27, !tbaa !85
+  %call370 = call double @llvm.log.f64(double %call322), !tbaa !85
   %185 = call double @llvm.fmuladd.f64(double %sub, double %call370, double %div369)
   %mul372 = fmul double %__init.addr.0.lcssa.i, %153
   %div373 = fdiv double %mul372, %conv
@@ -5603,6 +5603,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

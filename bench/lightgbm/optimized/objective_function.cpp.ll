@@ -18520,14 +18520,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK8LightGBM21RegressionPoissonLoss17Is
 define linkonce_odr noundef double @_ZNK8LightGBM21RegressionPoissonLoss14BoostFromScoreEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = tail call noundef double @_ZNK8LightGBM16RegressionL2loss14BoostFromScoreEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef 0)
   %4 = fcmp ogt double %3, 0.000000e+00
-  br i1 %4, label %5, label %_ZN8LightGBM6CommonL7SafeLogIdEET_S2_.exit
-
-5:                                                ; preds = %2
-  %6 = tail call double @log(double noundef %3) #11
-  br label %_ZN8LightGBM6CommonL7SafeLogIdEET_S2_.exit
-
-_ZN8LightGBM6CommonL7SafeLogIdEET_S2_.exit:       ; preds = %2, %5
-  %.0.i = phi double [ %6, %5 ], [ 0xFFF0000000000000, %2 ]
+  %5 = tail call double @llvm.log.f64(double %3)
+  %.0.i = select i1 %4, double %5, double 0xFFF0000000000000
   ret double %.0.i
 }
 
@@ -23753,7 +23747,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM17MulticlassSoftmax14BoostFromS
   %7 = load double, ptr %6, align 8
   %8 = fcmp ogt double %7, 0x3CD203AFA0000000
   %.sroa.speculated = select i1 %8, double %7, double 0x3CD203AFA0000000
-  %9 = tail call double @log(double noundef %.sroa.speculated) #11
+  %9 = tail call double @llvm.log.f64(double %.sroa.speculated)
   ret double %9
 }
 
@@ -35513,6 +35507,9 @@ declare i32 @llvm.smin.i32(i32, i32) #28
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #28

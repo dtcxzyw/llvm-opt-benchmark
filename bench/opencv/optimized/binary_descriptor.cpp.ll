@@ -12458,7 +12458,7 @@ define linkonce_odr hidden noundef double @_ZN2cv15line_descriptor16BinaryDescri
 
 39:                                               ; preds = %33
   %40 = fadd double %37, -5.000000e-01
-  %41 = tail call double @log(double noundef %37) #24
+  %41 = tail call double @llvm.log.f64(double %37)
   %42 = tail call double @llvm.fmuladd.f64(double %40, double %41, double 0x3FED67F1C864BEB7)
   %43 = fsub double %42, %37
   %44 = fmul double %37, 5.000000e-01
@@ -12511,7 +12511,7 @@ _ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector17log_gamma_lanczosEd.e
 
 76:                                               ; preds = %71
   %77 = fadd double %74, -5.000000e-01
-  %78 = tail call double @log(double noundef %74) #24
+  %78 = tail call double @llvm.log.f64(double %74)
   %79 = tail call double @llvm.fmuladd.f64(double %77, double %78, double 0x3FED67F1C864BEB7)
   %80 = fsub double %79, %74
   %81 = fmul double %74, 5.000000e-01
@@ -12566,7 +12566,7 @@ _ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector17log_gamma_lanczosEd.e
 
 115:                                              ; preds = %108
   %116 = fadd double %113, -5.000000e-01
-  %117 = tail call double @log(double noundef %113) #24
+  %117 = tail call double @llvm.log.f64(double %113)
   %118 = tail call double @llvm.fmuladd.f64(double %116, double %117, double 0x3FED67F1C864BEB7)
   %119 = fsub double %118, %113
   %120 = fmul double %113, 5.000000e-01
@@ -14834,6 +14834,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #20

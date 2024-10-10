@@ -12127,7 +12127,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then1
   %0 = tail call double @llvm.fabs.f64(double %dValue)
-  %call = tail call double @log10(double noundef %0) #35
+  %call = tail call double @llvm.log10.f64(double %0)
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
   %cmp5 = icmp sle i32 %nPrecision, %conv
@@ -12554,9 +12554,6 @@ return:                                           ; preds = %while.body171, %lan
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #27
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #28
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #27
 
@@ -12581,7 +12578,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then1
   %0 = tail call double @llvm.fabs.f64(double %dValue)
-  %call = tail call double @log10(double noundef %0) #35
+  %call = tail call double @llvm.log10.f64(double %0)
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
   %cmp5 = icmp sle i32 %nPrecision, %conv
@@ -12992,7 +12989,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then1
   %0 = tail call double @llvm.fabs.f64(double %dValue)
-  %call = tail call double @log10(double noundef %0) #35
+  %call = tail call double @llvm.log10.f64(double %0)
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
   %cmp5 = icmp sle i32 %nPrecision, %conv
@@ -13643,6 +13640,9 @@ declare i32 @llvm.smax.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33

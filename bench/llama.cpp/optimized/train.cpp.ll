@@ -839,6 +839,11 @@ for.cond93.preheader.lr.ph:                       ; preds = %for.cond86.preheade
   %arrayidx122 = getelementptr inbounds i8, ptr %tensor, i64 56
   %arrayidx127 = getelementptr inbounds i8, ptr %tensor, i64 64
   %arrayidx132 = getelementptr inbounds i8, ptr %tensor, i64 72
+  %call.i.i.i.i.i.i101 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i.i102 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i.i103 = fdiv x86_fp80 %call.i.i.i.i.i.i101, %call.i8.i.i.i.i.i102
+  %conv7.i.i.i.i.i104 = fptoui x86_fp80 %div.i.i.i.i.i103 to i64
+  %sub11.i.i.i.i.i105 = add i64 %conv7.i.i.i.i.i104, 23
   %_M_p.i261 = getelementptr inbounds i8, ptr %rnd, i64 4992
   %arrayidx18.phi.trans.insert.i.i296 = getelementptr inbounds i8, ptr %rnd, i64 1816
   %arrayidx41.i.i316 = getelementptr inbounds i8, ptr %rnd, i64 4984
@@ -862,6 +867,11 @@ for.cond45.preheader.lr.ph:                       ; preds = %for.cond38.preheade
   %nb61 = getelementptr inbounds i8, ptr %tensor, i64 48
   %arrayidx67 = getelementptr inbounds i8, ptr %tensor, i64 56
   %arrayidx72 = getelementptr inbounds i8, ptr %tensor, i64 64
+  %call.i.i.i.i.i.i75 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i.i76 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i.i77 = fdiv x86_fp80 %call.i.i.i.i.i.i75, %call.i8.i.i.i.i.i76
+  %conv7.i.i.i.i.i78 = fptoui x86_fp80 %div.i.i.i.i.i77 to i64
+  %sub11.i.i.i.i.i79 = add i64 %conv7.i.i.i.i.i78, 23
   %_M_p.i194 = getelementptr inbounds i8, ptr %rnd, i64 4992
   %arrayidx18.phi.trans.insert.i.i229 = getelementptr inbounds i8, ptr %rnd, i64 1816
   %arrayidx41.i.i249 = getelementptr inbounds i8, ptr %rnd, i64 4984
@@ -883,6 +893,11 @@ for.cond12.preheader.lr.ph:                       ; preds = %for.cond5.preheader
   %data19 = getelementptr inbounds i8, ptr %tensor, i64 280
   %nb21 = getelementptr inbounds i8, ptr %tensor, i64 48
   %arrayidx27 = getelementptr inbounds i8, ptr %tensor, i64 56
+  %call.i.i.i.i.i.i49 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i.i50 = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i.i51 = fdiv x86_fp80 %call.i.i.i.i.i.i49, %call.i8.i.i.i.i.i50
+  %conv7.i.i.i.i.i52 = fptoui x86_fp80 %div.i.i.i.i.i51 to i64
+  %sub11.i.i.i.i.i53 = add i64 %conv7.i.i.i.i.i52, 23
   %_M_p.i127 = getelementptr inbounds i8, ptr %rnd, i64 4992
   %arrayidx18.phi.trans.insert.i.i162 = getelementptr inbounds i8, ptr %rnd, i64 1816
   %arrayidx41.i.i182 = getelementptr inbounds i8, ptr %rnd, i64 4984
@@ -902,6 +917,13 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %data = getelementptr inbounds i8, ptr %tensor, i64 280
   %nb = getelementptr inbounds i8, ptr %tensor, i64 48
+  %call.i.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i, %call.i8.i.i.i.i.i
+  %conv7.i.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i.i to i64
+  %sub11.i.i.i.i.i = add i64 %conv7.i.i.i.i.i, 23
+  %div12.i.i.i.i.i = udiv i64 %sub11.i.i.i.i.i, %conv7.i.i.i.i.i
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i, i64 1)
   %_M_p.i = getelementptr inbounds i8, ptr %rnd, i64 4992
   %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rnd, i64 1816
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %rnd, i64 4984
@@ -915,13 +937,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load ptr, ptr %data, align 8
   %11 = load i64, ptr %nb, align 8
   %mul = mul i64 %11, %indvars.iv413
-  %call.i.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
-  %div.i.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i.i, %call.i8.i.i.i.i.i
-  %conv7.i.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i.i to i64
-  %sub11.i.i.i.i.i = add i64 %conv7.i.i.i.i.i, 23
-  %div12.i.i.i.i.i = udiv i64 %sub11.i.i.i.i.i, %conv7.i.i.i.i.i
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i, i64 1)
   %.pre424 = load i64, ptr %_M_p.i, align 8
   br label %for.body.i.i.i.i.i
 
@@ -1054,22 +1069,20 @@ for.cond12.preheader:                             ; preds = %for.cond12.preheade
   %30 = phi i64 [ %52, %for.inc34 ], [ %7, %for.cond12.preheader.lr.ph ]
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %for.inc34 ], [ 0, %for.cond12.preheader.lr.ph ]
   %cmp16355 = icmp sgt i64 %30, 0
-  br i1 %cmp16355, label %for.body17, label %for.inc34
+  br i1 %cmp16355, label %for.body17.lr.ph, label %for.inc34
 
-for.body17:                                       ; preds = %for.cond12.preheader, %_Z13frand_uniformP27random_uniform_distribution.exit74
-  %indvars.iv407 = phi i64 [ %indvars.iv.next408, %_Z13frand_uniformP27random_uniform_distribution.exit74 ], [ 0, %for.cond12.preheader ]
+for.body17.lr.ph:                                 ; preds = %for.cond12.preheader
+  %div12.i.i.i.i.i54 = udiv i64 %sub11.i.i.i.i.i53, %conv7.i.i.i.i.i52
+  %spec.select.i.i.i.i.i55 = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i54, i64 1)
+  br label %for.body17
+
+for.body17:                                       ; preds = %for.body17.lr.ph, %_Z13frand_uniformP27random_uniform_distribution.exit74
+  %indvars.iv407 = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next408, %_Z13frand_uniformP27random_uniform_distribution.exit74 ]
   %31 = load ptr, ptr %data19, align 8
   %32 = load i64, ptr %nb21, align 8
   %mul23 = mul i64 %32, %indvars.iv407
   %33 = load i64, ptr %arrayidx27, align 8
   %mul28 = mul i64 %33, %indvars.iv410
-  %call.i.i.i.i.i.i49 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i.i.i.i50 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
-  %div.i.i.i.i.i51 = fdiv x86_fp80 %call.i.i.i.i.i.i49, %call.i8.i.i.i.i.i50
-  %conv7.i.i.i.i.i52 = fptoui x86_fp80 %div.i.i.i.i.i51 to i64
-  %sub11.i.i.i.i.i53 = add i64 %conv7.i.i.i.i.i52, 23
-  %div12.i.i.i.i.i54 = udiv i64 %sub11.i.i.i.i.i53, %conv7.i.i.i.i.i52
-  %spec.select.i.i.i.i.i55 = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i54, i64 1)
   %.pre422 = load i64, ptr %_M_p.i127, align 8
   br label %for.body.i.i.i.i.i56
 
@@ -1227,10 +1240,15 @@ for.cond52.preheader:                             ; preds = %for.cond52.preheade
   %59 = phi i64 [ %82, %for.inc79 ], [ %56, %for.cond52.preheader.lr.ph ]
   %indvars.iv398 = phi i64 [ %indvars.iv.next399, %for.inc79 ], [ 0, %for.cond52.preheader.lr.ph ]
   %cmp56346 = icmp sgt i64 %59, 0
-  br i1 %cmp56346, label %for.body57, label %for.inc79
+  br i1 %cmp56346, label %for.body57.lr.ph, label %for.inc79
 
-for.body57:                                       ; preds = %for.cond52.preheader, %_Z13frand_uniformP27random_uniform_distribution.exit100
-  %indvars.iv395 = phi i64 [ %indvars.iv.next396, %_Z13frand_uniformP27random_uniform_distribution.exit100 ], [ 0, %for.cond52.preheader ]
+for.body57.lr.ph:                                 ; preds = %for.cond52.preheader
+  %div12.i.i.i.i.i80 = udiv i64 %sub11.i.i.i.i.i79, %conv7.i.i.i.i.i78
+  %spec.select.i.i.i.i.i81 = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i80, i64 1)
+  br label %for.body57
+
+for.body57:                                       ; preds = %for.body57.lr.ph, %_Z13frand_uniformP27random_uniform_distribution.exit100
+  %indvars.iv395 = phi i64 [ 0, %for.body57.lr.ph ], [ %indvars.iv.next396, %_Z13frand_uniformP27random_uniform_distribution.exit100 ]
   %60 = load ptr, ptr %data59, align 8
   %61 = load i64, ptr %nb61, align 8
   %mul63 = mul i64 %61, %indvars.iv395
@@ -1238,13 +1256,6 @@ for.body57:                                       ; preds = %for.cond52.preheade
   %mul68 = mul i64 %62, %indvars.iv398
   %63 = load i64, ptr %arrayidx72, align 8
   %mul73 = mul i64 %63, %indvars.iv401
-  %call.i.i.i.i.i.i75 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i.i.i.i76 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
-  %div.i.i.i.i.i77 = fdiv x86_fp80 %call.i.i.i.i.i.i75, %call.i8.i.i.i.i.i76
-  %conv7.i.i.i.i.i78 = fptoui x86_fp80 %div.i.i.i.i.i77 to i64
-  %sub11.i.i.i.i.i79 = add i64 %conv7.i.i.i.i.i78, 23
-  %div12.i.i.i.i.i80 = udiv i64 %sub11.i.i.i.i.i79, %conv7.i.i.i.i.i78
-  %spec.select.i.i.i.i.i81 = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i80, i64 1)
   %.pre419 = load i64, ptr %_M_p.i194, align 8
   br label %for.body.i.i.i.i.i82
 
@@ -1428,10 +1439,15 @@ for.cond107.preheader:                            ; preds = %for.cond107.prehead
   %97 = phi i64 [ %121, %for.inc139 ], [ %94, %for.cond107.preheader.lr.ph ]
   %indvars.iv380 = phi i64 [ %indvars.iv.next381, %for.inc139 ], [ 0, %for.cond107.preheader.lr.ph ]
   %cmp111334 = icmp sgt i64 %97, 0
-  br i1 %cmp111334, label %for.body112, label %for.inc139
+  br i1 %cmp111334, label %for.body112.lr.ph, label %for.inc139
 
-for.body112:                                      ; preds = %for.cond107.preheader, %_Z13frand_uniformP27random_uniform_distribution.exit126
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_Z13frand_uniformP27random_uniform_distribution.exit126 ], [ 0, %for.cond107.preheader ]
+for.body112.lr.ph:                                ; preds = %for.cond107.preheader
+  %div12.i.i.i.i.i106 = udiv i64 %sub11.i.i.i.i.i105, %conv7.i.i.i.i.i104
+  %spec.select.i.i.i.i.i107 = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i106, i64 1)
+  br label %for.body112
+
+for.body112:                                      ; preds = %for.body112.lr.ph, %_Z13frand_uniformP27random_uniform_distribution.exit126
+  %indvars.iv = phi i64 [ 0, %for.body112.lr.ph ], [ %indvars.iv.next, %_Z13frand_uniformP27random_uniform_distribution.exit126 ]
   %98 = load ptr, ptr %data114, align 8
   %99 = load i64, ptr %nb116, align 8
   %mul118 = mul i64 %99, %indvars.iv
@@ -1441,13 +1457,6 @@ for.body112:                                      ; preds = %for.cond107.prehead
   %mul128 = mul i64 %101, %indvars.iv383
   %102 = load i64, ptr %arrayidx132, align 8
   %mul133 = mul i64 %102, %indvars.iv386
-  %call.i.i.i.i.i.i101 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i.i.i.i102 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
-  %div.i.i.i.i.i103 = fdiv x86_fp80 %call.i.i.i.i.i.i101, %call.i8.i.i.i.i.i102
-  %conv7.i.i.i.i.i104 = fptoui x86_fp80 %div.i.i.i.i.i103 to i64
-  %sub11.i.i.i.i.i105 = add i64 %conv7.i.i.i.i.i104, 23
-  %div12.i.i.i.i.i106 = udiv i64 %sub11.i.i.i.i.i105, %conv7.i.i.i.i.i104
-  %spec.select.i.i.i.i.i107 = tail call i64 @llvm.umax.i64(i64 %div12.i.i.i.i.i106, i64 1)
   %.pre = load i64, ptr %_M_p.i261, align 8
   br label %for.body.i.i.i.i.i108
 
@@ -1626,8 +1635,8 @@ sw.epilog:                                        ; preds = %for.inc145, %for.in
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z13frand_uniformP27random_uniform_distribution(ptr noundef %rnd) local_unnamed_addr #3 {
 entry:
-  %call.i.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
+  %call.i.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
   %div.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i, %call.i8.i.i.i.i
   %conv7.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i to i64
   %sub11.i.i.i.i = add i64 %conv7.i.i.i.i, 23
@@ -10185,6 +10194,13 @@ entry:
   br i1 %tobool, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
+  %call.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
+  %conv7.i.i = fptoui x86_fp80 %div.i.i to i64
+  %sub11.i.i = add i64 %conv7.i.i, 23
+  %div12.i.i = udiv i64 %sub11.i.i, %conv7.i.i
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div12.i.i, i64 1)
   %_M_p.i = getelementptr inbounds i8, ptr %__urng, i64 4992
   %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %__urng, i64 1816
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %__urng, i64 4984
@@ -10198,13 +10214,6 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 do.body:                                          ; preds = %do.body.preheader, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit33
-  %call.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
-  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
-  %conv7.i.i = fptoui x86_fp80 %div.i.i to i64
-  %sub11.i.i = add i64 %conv7.i.i, 23
-  %div12.i.i = udiv i64 %sub11.i.i, %conv7.i.i
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div12.i.i, i64 1)
   %.pre = load i64, ptr %_M_p.i, align 8
   br label %for.body.i.i
 
@@ -10317,24 +10326,18 @@ for.end.i.i:                                      ; preds = %_ZNSt23mersenne_twi
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %call.i11.i.i = tail call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 0.000000e+00) #36
+  %.pre108.pre = load i64, ptr %_M_p.i, align 8
   br label %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit
 
 _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit: ; preds = %for.end.i.i, %if.then.i.i
+  %.pre108 = phi i64 [ %.pre108.pre, %if.then.i.i ], [ %inc.i, %for.end.i.i ]
   %__ret.0.i.i = phi float [ %call.i11.i.i, %if.then.i.i ], [ %div20.i.i, %for.end.i.i ]
   %mul = fmul float %__ret.0.i.i, 2.000000e+00
-  %call.i.i.i11 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #36
-  %call.i8.i.i12 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #36
-  %div.i.i13 = fdiv x86_fp80 %call.i.i.i11, %call.i8.i.i12
-  %conv7.i.i14 = fptoui x86_fp80 %div.i.i13 to i64
-  %sub11.i.i15 = add i64 %conv7.i.i14, 23
-  %div12.i.i16 = udiv i64 %sub11.i.i15, %conv7.i.i14
-  %spec.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %div12.i.i16, i64 1)
-  %.pre108 = load i64, ptr %_M_p.i, align 8
   br label %for.body.i.i18
 
 for.body.i.i18:                                   ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit102, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit
   %15 = phi i64 [ %.pre108, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit ], [ %inc.i38, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit102 ]
-  %__k.019.i.i19 = phi i64 [ %spec.select.i.i17, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit ], [ %dec.i.i25, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit102 ]
+  %__k.019.i.i19 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit ], [ %dec.i.i25, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit102 ]
   %__tmp.018.i.i20 = phi float [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit ], [ %conv19.i.i24, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit102 ]
   %__sum.017.i.i21 = phi float [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit ], [ %27, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit102 ]
   %cmp.i37 = icmp ugt i64 %15, 623
@@ -10475,9 +10478,6 @@ if.end:                                           ; preds = %do.end, %if.then
   %32 = tail call float @llvm.fmuladd.f32(float %__ret.0, float %30, float %31)
   ret float %32
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #1
@@ -11330,6 +11330,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33

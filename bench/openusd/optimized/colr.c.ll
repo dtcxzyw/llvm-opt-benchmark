@@ -329,7 +329,7 @@ define internal float @avifToLinear709(float noundef %0) #5 {
 9:                                                ; preds = %7
   %10 = fadd float %0, 0x3FB96B8440000000
   %11 = fdiv float %10, 0x3FF196B840000000
-  %12 = tail call float @powf(float noundef %11, float noundef 0x4001C71C80000000) #9
+  %12 = tail call float @powf(float noundef %11, float noundef 0x4001C71C80000000) #10
   br label %13
 
 13:                                               ; preds = %7, %1, %9, %5
@@ -381,7 +381,7 @@ define internal float @avifToGamma709(float noundef %0) #5 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #9
+  %10 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #10
   %11 = tail call float @llvm.fmuladd.f32(float %10, float 0x3FF196B840000000, float 0xBFB96B8440000000)
   br label %12
 
@@ -497,7 +497,7 @@ define internal float @avifToLinear470M(float noundef %0) #5 {
   %3 = fcmp ogt float %0, 1.000000e+00
   %4 = select i1 %3, float 1.000000e+00, float %0
   %5 = select i1 %2, float 0.000000e+00, float %4
-  %6 = tail call float @powf(float noundef %5, float noundef 0x40019999A0000000) #9
+  %6 = tail call float @powf(float noundef %5, float noundef 0x40019999A0000000) #10
   ret float %6
 }
 
@@ -507,7 +507,7 @@ define internal float @avifToGamma470M(float noundef %0) #5 {
   %3 = fcmp ogt float %0, 1.000000e+00
   %4 = select i1 %3, float 1.000000e+00, float %0
   %5 = select i1 %2, float 0.000000e+00, float %4
-  %6 = tail call float @powf(float noundef %5, float noundef 0x3FDD1745C0000000) #9
+  %6 = tail call float @powf(float noundef %5, float noundef 0x3FDD1745C0000000) #10
   ret float %6
 }
 
@@ -517,7 +517,7 @@ define internal float @avifToLinear470BG(float noundef %0) #5 {
   %3 = fcmp ogt float %0, 1.000000e+00
   %4 = select i1 %3, float 1.000000e+00, float %0
   %5 = select i1 %2, float 0.000000e+00, float %4
-  %6 = tail call float @powf(float noundef %5, float noundef 0x4006666660000000) #9
+  %6 = tail call float @powf(float noundef %5, float noundef 0x4006666660000000) #10
   ret float %6
 }
 
@@ -527,7 +527,7 @@ define internal float @avifToGamma470BG(float noundef %0) #5 {
   %3 = fcmp ogt float %0, 1.000000e+00
   %4 = select i1 %3, float 1.000000e+00, float %0
   %5 = select i1 %2, float 0.000000e+00, float %4
-  %6 = tail call float @powf(float noundef %5, float noundef 0x3FD6DB6DC0000000) #9
+  %6 = tail call float @powf(float noundef %5, float noundef 0x3FD6DB6DC0000000) #10
   ret float %6
 }
 
@@ -551,7 +551,7 @@ define internal float @avifToLinearSMPTE240(float noundef %0) #5 {
 9:                                                ; preds = %7
   %10 = fadd float %0, 0x3FBC8FFEE0000000
   %11 = fdiv float %10, 0x3FF1C8FFE0000000
-  %12 = tail call float @powf(float noundef %11, float noundef 0x4001C71C80000000) #9
+  %12 = tail call float @powf(float noundef %11, float noundef 0x4001C71C80000000) #10
   br label %13
 
 13:                                               ; preds = %7, %1, %9, %5
@@ -577,7 +577,7 @@ define internal float @avifToGammaSMPTE240(float noundef %0) #5 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #9
+  %10 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #10
   %11 = tail call float @llvm.fmuladd.f32(float %10, float 0x3FF1C8FFE0000000, float 0xBFBC8FFEE0000000)
   br label %12
 
@@ -605,7 +605,7 @@ define internal float @avifToLinearLog100(float noundef %0) #5 {
   %5 = select i1 %4, float %0, float 1.000000e+00
   %6 = fadd float %5, -1.000000e+00
   %7 = fmul float %6, 2.000000e+00
-  %8 = tail call float @powf(float noundef 1.000000e+01, float noundef %7) #9
+  %8 = tail call float @powf(float noundef 1.000000e+01, float noundef %7) #10
   br label %9
 
 9:                                                ; preds = %1, %3
@@ -613,15 +613,15 @@ define internal float @avifToLinearLog100(float noundef %0) #5 {
   ret float %10
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal float @avifToGammaLog100(float noundef %0) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal float @avifToGammaLog100(float noundef %0) #3 {
   %2 = fcmp ugt float %0, 0x3F847AE140000000
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %1
   %4 = fcmp olt float %0, 1.000000e+00
   %5 = select i1 %4, float %0, float 1.000000e+00
-  %6 = tail call float @log10f(float noundef %5) #9
+  %6 = tail call float @llvm.log10.f32(float %5)
   %7 = fmul float %6, 5.000000e-01
   %8 = fadd float %7, 1.000000e+00
   br label %9
@@ -641,7 +641,7 @@ define internal float @avifToLinearLog100Sqrt10(float noundef %0) #5 {
   %5 = select i1 %4, float %0, float 1.000000e+00
   %6 = fadd float %5, -1.000000e+00
   %7 = fmul float %6, 2.500000e+00
-  %8 = tail call float @powf(float noundef 1.000000e+01, float noundef %7) #9
+  %8 = tail call float @powf(float noundef 1.000000e+01, float noundef %7) #10
   br label %9
 
 9:                                                ; preds = %1, %3
@@ -649,15 +649,15 @@ define internal float @avifToLinearLog100Sqrt10(float noundef %0) #5 {
   ret float %10
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal float @avifToGammaLog100Sqrt10(float noundef %0) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal float @avifToGammaLog100Sqrt10(float noundef %0) #3 {
   %2 = fcmp ugt float %0, 0x3F69E7C6E0000000
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %1
   %4 = fcmp olt float %0, 1.000000e+00
   %5 = select i1 %4, float %0, float 1.000000e+00
-  %6 = tail call float @log10f(float noundef %5) #9
+  %6 = tail call float @llvm.log10.f32(float %5)
   %7 = fdiv float %6, 2.500000e+00
   %8 = fadd float %7, 1.000000e+00
   br label %9
@@ -675,7 +675,7 @@ define internal float @avifToLinearIEC61966(float noundef %0) #5 {
 3:                                                ; preds = %1
   %4 = fsub float 0x3FB96B8440000000, %0
   %5 = fdiv float %4, 0xBFF196B840000000
-  %6 = tail call float @powf(float noundef %5, float noundef 0x4001C71C80000000) #9
+  %6 = tail call float @powf(float noundef %5, float noundef 0x4001C71C80000000) #10
   br label %15
 
 7:                                                ; preds = %1
@@ -689,7 +689,7 @@ define internal float @avifToLinearIEC61966(float noundef %0) #5 {
 11:                                               ; preds = %7
   %12 = fadd float %0, 0x3FB96B8440000000
   %13 = fdiv float %12, 0x3FF196B840000000
-  %14 = tail call float @powf(float noundef %13, float noundef 0x4001C71C80000000) #9
+  %14 = tail call float @powf(float noundef %13, float noundef 0x4001C71C80000000) #10
   br label %15
 
 15:                                               ; preds = %11, %9, %3
@@ -704,7 +704,7 @@ define internal float @avifToGammaIEC61966(float noundef %0) #5 {
 
 3:                                                ; preds = %1
   %4 = fneg float %0
-  %5 = tail call float @powf(float noundef %4, float noundef 0x3FDCCCCCC0000000) #9
+  %5 = tail call float @powf(float noundef %4, float noundef 0x3FDCCCCCC0000000) #10
   %6 = tail call float @llvm.fmuladd.f32(float %5, float 0xBFF196B840000000, float 0x3FB96B8440000000)
   br label %14
 
@@ -717,7 +717,7 @@ define internal float @avifToGammaIEC61966(float noundef %0) #5 {
   br label %14
 
 11:                                               ; preds = %7
-  %12 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #9
+  %12 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #10
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 0x3FF196B840000000, float 0xBFB96B8440000000)
   br label %14
 
@@ -738,7 +738,7 @@ define internal float @avifToLinearBT1361(float noundef %0) #5 {
 5:                                                ; preds = %3
   %6 = fadd float %0, 0xBF996B8440000000
   %7 = fdiv float %6, 0xBFD196B840000000
-  %8 = tail call float @powf(float noundef %7, float noundef 0x4001C71C80000000) #9
+  %8 = tail call float @powf(float noundef %7, float noundef 0x4001C71C80000000) #10
   %9 = fmul float %8, -2.500000e-01
   br label %20
 
@@ -757,7 +757,7 @@ define internal float @avifToLinearBT1361(float noundef %0) #5 {
 16:                                               ; preds = %14
   %17 = fadd float %0, 0x3FB96B8440000000
   %18 = fdiv float %17, 0x3FF196B840000000
-  %19 = tail call float @powf(float noundef %18, float noundef 0x4001C71C80000000) #9
+  %19 = tail call float @powf(float noundef %18, float noundef 0x4001C71C80000000) #10
   br label %20
 
 20:                                               ; preds = %14, %1, %16, %12, %5
@@ -776,7 +776,7 @@ define internal float @avifToGammaBT1361(float noundef %0) #5 {
 
 5:                                                ; preds = %3
   %6 = fmul float %0, -4.000000e+00
-  %7 = tail call float @powf(float noundef %6, float noundef 0x3FDCCCCCC0000000) #9
+  %7 = tail call float @powf(float noundef %6, float noundef 0x3FDCCCCCC0000000) #10
   %8 = tail call float @llvm.fmuladd.f32(float %7, float 0xBFD196B840000000, float 0x3F996B8440000000)
   br label %18
 
@@ -793,7 +793,7 @@ define internal float @avifToGammaBT1361(float noundef %0) #5 {
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #9
+  %16 = tail call float @powf(float noundef %0, float noundef 0x3FDCCCCCC0000000) #10
   %17 = tail call float @llvm.fmuladd.f32(float %16, float 0x3FF196B840000000, float 0xBFB96B8440000000)
   br label %18
 
@@ -822,7 +822,7 @@ define internal float @avifToLinearSRGB(float noundef %0) #5 {
 9:                                                ; preds = %7
   %10 = fadd float %0, 0x3FAC2A5D60000000
   %11 = fdiv float %10, 0x3FF0E152E0000000
-  %12 = tail call float @powf(float noundef %11, float noundef 0x4003333340000000) #9
+  %12 = tail call float @powf(float noundef %11, float noundef 0x4003333340000000) #10
   br label %13
 
 13:                                               ; preds = %7, %1, %9, %5
@@ -848,7 +848,7 @@ define internal float @avifToGammaSRGB(float noundef %0) #5 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call float @powf(float noundef %0, float noundef 0x3FDAAAAAA0000000) #9
+  %10 = tail call float @powf(float noundef %0, float noundef 0x3FDAAAAAA0000000) #10
   %11 = tail call float @llvm.fmuladd.f32(float %10, float 0x3FF0E152E0000000, float 0xBFAC2A5D60000000)
   br label %12
 
@@ -863,7 +863,7 @@ define internal float @avifToLinearPQ(float noundef %0) #5 {
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
-  %4 = tail call float @powf(float noundef %0, float noundef 0x3F89F9B580000000) #9
+  %4 = tail call float @powf(float noundef %0, float noundef 0x3F89F9B580000000) #10
   %5 = fadd float %4, 0xBFEAC00000000000
   %6 = fcmp ogt float %5, 0.000000e+00
   %7 = select i1 %6, float %5, float 0.000000e+00
@@ -871,7 +871,7 @@ define internal float @avifToLinearPQ(float noundef %0) #5 {
   %9 = fcmp ogt float %8, 0x3810000000000000
   %10 = select i1 %9, float %8, float 0x3810000000000000
   %11 = fdiv float %7, %10
-  %12 = tail call float @powf(float noundef %11, float noundef 0x40191C0D60000000) #9
+  %12 = tail call float @powf(float noundef %11, float noundef 0x40191C0D60000000) #10
   %13 = fmul float %12, 1.000000e+04
   %14 = fdiv float %13, 2.030000e+02
   br label %15
@@ -891,12 +891,12 @@ define internal float @avifToGammaPQ(float noundef %0) #5 {
   %5 = fdiv float %4, 1.000000e+04
   %6 = fcmp ogt float %5, 1.000000e+00
   %7 = select i1 %6, float 1.000000e+00, float %5
-  %8 = tail call float @powf(float noundef %7, float noundef 0x3FC4640000000000) #9
+  %8 = tail call float @powf(float noundef %7, float noundef 0x3FC4640000000000) #10
   %9 = tail call float @llvm.fmuladd.f32(float %8, float 0x3FC5000000000000, float 0xBFC5000000000000)
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 1.868750e+01, float 1.000000e+00)
   %11 = fdiv float %9, %10
   %12 = fadd float %11, 1.000000e+00
-  %13 = tail call float @powf(float noundef %12, float noundef 0x4053B60000000000) #9
+  %13 = tail call float @powf(float noundef %12, float noundef 0x4053B60000000000) #10
   br label %14
 
 14:                                               ; preds = %1, %3
@@ -908,7 +908,7 @@ define internal float @avifToGammaPQ(float noundef %0) #5 {
 define internal float @avifToLinearSMPTE428(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   %3 = select i1 %2, float %0, float 0.000000e+00
-  %4 = tail call float @powf(float noundef %3, float noundef 0x4004CCCCC0000000) #9
+  %4 = tail call float @powf(float noundef %3, float noundef 0x4004CCCCC0000000) #10
   %5 = fdiv float %4, 0x3FED546BC0000000
   ret float %5
 }
@@ -918,7 +918,7 @@ define internal float @avifToGammaSMPTE428(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   %3 = select i1 %2, float %0, float 0.000000e+00
   %4 = fmul float %3, 0x3FED546BC0000000
-  %5 = tail call float @powf(float noundef %4, float noundef 0x3FD89D89E0000000) #9
+  %5 = tail call float @powf(float noundef %4, float noundef 0x3FD89D89E0000000) #10
   ret float %5
 }
 
@@ -939,14 +939,14 @@ define internal float @avifToLinearHLG(float noundef %0) #5 {
 8:                                                ; preds = %3
   %9 = fadd float %0, 0xBFE1EAC9E0000000
   %10 = fdiv float %9, 0x3FC6E3FE00000000
-  %11 = tail call float @expf(float noundef %10) #9
+  %11 = tail call float @expf(float noundef %10) #10
   %12 = fadd float %11, 0x3FD2380400000000
   %13 = fdiv float %12, 1.200000e+01
   br label %14
 
 14:                                               ; preds = %8, %5
   %.sink = phi float [ %13, %8 ], [ %7, %5 ]
-  %15 = tail call float @powf(float noundef %.sink, float noundef 0x3FF3333340000000) #9
+  %15 = tail call float @powf(float noundef %.sink, float noundef 0x3FF3333340000000) #10
   %16 = fmul float %15, 1.000000e+03
   %17 = fdiv float %16, 2.030000e+02
   br label %18
@@ -964,7 +964,7 @@ define internal float @avifToGammaHLG(float noundef %0) #5 {
   %5 = fcmp ogt float %3, 1.000000e+00
   %6 = select i1 %5, float 1.000000e+00, float %3
   %7 = select i1 %4, float 0.000000e+00, float %6
-  %8 = tail call float @powf(float noundef %7, float noundef 0x3FEAAAAAA0000000) #9
+  %8 = tail call float @powf(float noundef %7, float noundef 0x3FEAAAAAA0000000) #10
   %9 = fcmp olt float %8, 0.000000e+00
   br i1 %9, label %19, label %10
 
@@ -974,12 +974,12 @@ define internal float @avifToGammaHLG(float noundef %0) #5 {
 
 12:                                               ; preds = %10
   %13 = fmul float %8, 3.000000e+00
-  %14 = tail call float @sqrtf(float noundef %13) #9
+  %14 = tail call float @sqrtf(float noundef %13) #10
   br label %19
 
 15:                                               ; preds = %10
   %16 = tail call float @llvm.fmuladd.f32(float %8, float 1.200000e+01, float 0xBFD2380400000000)
-  %17 = tail call float @logf(float noundef %16) #9
+  %17 = tail call float @logf(float noundef %16) #10
   %18 = tail call float @llvm.fmuladd.f32(float %17, float 0x3FC6E3FE00000000, float 0x3FE1EAC9E0000000)
   br label %19
 
@@ -992,9 +992,6 @@ define internal float @avifToGammaHLG(float noundef %0) #5 {
 declare float @powf(float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @log10f(float noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @expf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -1002,6 +999,9 @@ declare float @sqrtf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @logf(float noundef) local_unnamed_addr #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log10.f32(float) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1012,7 +1012,8 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(write) uwtable 
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

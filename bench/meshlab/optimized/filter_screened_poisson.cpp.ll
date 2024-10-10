@@ -24982,7 +24982,7 @@ define linkonce_odr void @_ZNK6OctreeIfE24_getSampleDepthAndWeightILi2E15PointSu
   %34 = load i32, ptr %9, align 8
   %35 = sub nsw i32 %33, %34
   %36 = sitofp i32 %35 to double
-  %37 = tail call noundef float @logf(float noundef %25) #25
+  %37 = tail call float @llvm.log.f32(float %25)
   %38 = fpext float %37 to double
   %39 = fdiv double %38, 0x3FF62E42FEFA39EF
   %40 = fadd double %39, %36
@@ -69777,7 +69777,7 @@ define linkonce_odr void @_ZNK6OctreeIfE24_getSampleDepthAndWeightILi2E20ConstPo
   %34 = load i32, ptr %9, align 8
   %35 = sub nsw i32 %33, %34
   %36 = sitofp i32 %35 to double
-  %37 = tail call noundef float @logf(float noundef %25) #25
+  %37 = tail call float @llvm.log.f32(float %25)
   %38 = fpext float %37 to double
   %39 = fdiv double %38, 0x3FF62E42FEFA39EF
   %40 = fadd double %39, %36
@@ -82623,6 +82623,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #41
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

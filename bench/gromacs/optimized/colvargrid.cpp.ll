@@ -18111,8 +18111,8 @@ define noundef double @_ZNK18colvar_grid_scalar8integralEv(ptr nocapture noundef
   ret double %23
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZNK18colvar_grid_scalar7entropyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %0) local_unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef double @_ZNK18colvar_grid_scalar7entropyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -18120,67 +18120,61 @@ define noundef double @_ZNK18colvar_grid_scalar7entropyEv(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 392
-  br label %13
+  %5 = load ptr, ptr %4, align 8
+  br label %14
 
-.preheader:                                       ; preds = %23, %1
-  %.014.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %23 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 672
-  %6 = getelementptr inbounds i8, ptr %0, i64 680
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %.not21 = icmp eq ptr %7, %8
+.preheader:                                       ; preds = %22, %1
+  %.014.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %22 ]
+  %6 = getelementptr inbounds i8, ptr %0, i64 672
+  %7 = getelementptr inbounds i8, ptr %0, i64 680
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %6, align 8
+  %.not21 = icmp eq ptr %8, %9
   br i1 %.not21, label %._crit_edge, label %.lr.ph19.preheader
 
 .lr.ph19.preheader:                               ; preds = %.preheader
-  %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
-  %11 = sub i64 %9, %10
-  %12 = ashr exact i64 %11, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = ashr exact i64 %12, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph19
 
-13:                                               ; preds = %.lr.ph, %23
-  %14 = phi i64 [ %3, %.lr.ph ], [ %24, %23 ]
-  %.01316 = phi i64 [ 0, %.lr.ph ], [ %25, %23 ]
-  %.01415 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %23 ]
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %.01316
-  %17 = load double, ptr %16, align 8
-  %18 = fcmp ogt double %17, 0.000000e+00
-  br i1 %18, label %19, label %23
+14:                                               ; preds = %.lr.ph, %22
+  %.01316 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
+  %.01415 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %22 ]
+  %15 = getelementptr inbounds double, ptr %5, i64 %.01316
+  %16 = load double, ptr %15, align 8
+  %17 = fcmp ogt double %16, 0.000000e+00
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %13
-  %20 = fneg double %17
-  %21 = tail call noundef double @log(double noundef %17) #23
-  %22 = tail call double @llvm.fmuladd.f64(double %20, double %21, double %.01415)
-  %.pre = load i64, ptr %2, align 8
-  br label %23
+18:                                               ; preds = %14
+  %19 = fneg double %16
+  %20 = tail call double @llvm.log.f64(double %16)
+  %21 = tail call double @llvm.fmuladd.f64(double %19, double %20, double %.01415)
+  br label %22
 
-23:                                               ; preds = %13, %19
-  %24 = phi i64 [ %.pre, %19 ], [ %14, %13 ]
-  %.1 = phi double [ %22, %19 ], [ %.01415, %13 ]
-  %25 = add nuw i64 %.01316, 1
-  %26 = icmp ult i64 %25, %24
-  br i1 %26, label %13, label %.preheader, !llvm.loop !144
+22:                                               ; preds = %14, %18
+  %.1 = phi double [ %21, %18 ], [ %.01415, %14 ]
+  %23 = add nuw i64 %.01316, 1
+  %exitcond.not = icmp eq i64 %23, %3
+  br i1 %exitcond.not, label %.preheader, label %14, !llvm.loop !144
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %.018 = phi i64 [ %30, %.lr.ph19 ], [ 0, %.lr.ph19.preheader ]
-  %.01217 = phi double [ %29, %.lr.ph19 ], [ 1.000000e+00, %.lr.ph19.preheader ]
-  %27 = getelementptr inbounds double, ptr %8, i64 %.018
-  %28 = load double, ptr %27, align 8
-  %29 = fmul double %.01217, %28
-  %30 = add nuw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %30, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !145
+  %.018 = phi i64 [ %27, %.lr.ph19 ], [ 0, %.lr.ph19.preheader ]
+  %.01217 = phi double [ %26, %.lr.ph19 ], [ 1.000000e+00, %.lr.ph19.preheader ]
+  %24 = getelementptr inbounds double, ptr %9, i64 %.018
+  %25 = load double, ptr %24, align 8
+  %26 = fmul double %.01217, %25
+  %27 = add nuw i64 %.018, 1
+  %exitcond22.not = icmp eq i64 %27, %umax
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph19, %.preheader
-  %.012.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %29, %.lr.ph19 ]
-  %31 = fmul double %.014.lcssa, %.012.lcssa
-  ret double %31
+  %.012.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %26, %.lr.ph19 ]
+  %28 = fmul double %.014.lcssa, %.012.lcssa
+  ret double %28
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN20colvar_grid_gradientC2Ev(ptr noundef nonnull align 8 dereferenceable(720) %0) unnamed_addr #2 align 2 {
@@ -22371,7 +22365,7 @@ define linkonce_odr void @_ZNK11colvar_gridIdE4wrapERSt6vectorIiSaIiEE(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19integrate_potential8get_gradEPdRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19integrate_potential8get_gradEPdRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 712
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 320
@@ -22569,7 +22563,7 @@ _ZNK11colvar_gridIdE5valueERKSt6vectorIiSaIiEERKm.exit: ; preds = %76, %.thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %.loopexit [
@@ -24416,7 +24410,7 @@ define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZN19integrate_potential6l2normERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
+define noundef double @_ZN19integrate_potential6l2normERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -24473,6 +24467,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -24494,8 +24491,8 @@ attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

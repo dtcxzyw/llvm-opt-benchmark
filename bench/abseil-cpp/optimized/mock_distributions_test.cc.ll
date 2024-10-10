@@ -30465,38 +30465,37 @@ if.then7:                                         ; preds = %if.else
   br label %if.end28
 
 if.else17:                                        ; preds = %if.else
-  %call19 = tail call double @log(double noundef %mean) #25
+  %call19 = tail call double @llvm.log.f64(double %mean)
   %lmu_ = getelementptr inbounds i8, ptr %this, i64 16
   store double %call19, ptr %lmu_, align 8
-  %0 = load double, ptr %this, align 8
-  %add21 = fadd double %0, 5.000000e-01
+  %add21 = fadd double %mean, 5.000000e-01
   %mul = fmul double %add21, 0x3FE78B56362CEF37
   %call22 = tail call double @sqrt(double noundef %mul) #25
   %add23 = fadd double %call22, 0x3FDCC3EBD3BC7118
   %s_ = getelementptr inbounds i8, ptr %this, i64 24
   store double %add23, ptr %s_, align 8
-  %1 = load double, ptr %this, align 8
-  %2 = tail call double @llvm.ceil.f64(double %1)
-  %sub = fadd double %2, -1.000000e+00
-  %3 = load double, ptr %lmu_, align 8
+  %0 = load double, ptr %this, align 8
+  %1 = tail call double @llvm.ceil.f64(double %0)
+  %sub = fadd double %1, -1.000000e+00
+  %2 = load double, ptr %lmu_, align 8
   %call.i = tail call double @log(double noundef %sub) #25
   %div.i = fdiv double 1.000000e+00, %sub
   %neg.i = fneg double %sub
-  %4 = tail call double @llvm.fmuladd.f64(double %sub, double %call.i, double %neg.i)
+  %3 = tail call double @llvm.fmuladd.f64(double %sub, double %call.i, double %neg.i)
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
-  %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
-  %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
+  %4 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %3)
+  %5 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %4)
   %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
-  %7 = fneg double %div.i
-  %neg3.i = fmul double %mul.i, %7
-  %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
-  %neg = fneg double %8
-  %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
+  %6 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %6
+  %7 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %5)
+  %neg = fneg double %7
+  %8 = tail call double @llvm.fmuladd.f64(double %2, double %sub, double %neg)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then7, %if.else17, %if.then
   %.sink = phi i64 [ 8, %if.then7 ], [ 32, %if.else17 ], [ 8, %if.then ]
-  %call15.sink = phi double [ %call15, %if.then7 ], [ %9, %if.else17 ], [ %call, %if.then ]
+  %call15.sink = phi double [ %call15, %if.then7 ], [ %8, %if.else17 ], [ %call, %if.then ]
   %emu_16 = getelementptr inbounds i8, ptr %this, i64 %.sink
   store double %call15.sink, ptr %emu_16, align 8
   ret void
@@ -30612,10 +30611,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre67 = load i64, ptr %next_.i.i.i.i.i24, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i.i24, align 8
+  %13 = phi i64 [ %.pre67, %if.end ], [ %inc.i.i.i.i.i47, %for.cond7.backedge ]
   %cmp.i.i.i.i.i25 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i28, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit34
 
@@ -30707,7 +30707,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #25
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -30722,7 +30722,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #25
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -40332,10 +40332,10 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %call11 = tail call double @log(double noundef %8) #25
+  %call11 = tail call double @llvm.log.f64(double %8)
   %18 = load double, ptr %a_, align 8
   %mul = fmul double %call11, %18
-  %call13 = tail call double @log(double noundef %15) #25
+  %call13 = tail call double @llvm.log.f64(double %15)
   %19 = load double, ptr %b_, align 8
   %mul15 = fmul double %call13, %19
   %20 = tail call double @llvm.fabs.f64(double %mul)
@@ -46435,10 +46435,11 @@ entry:
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 296
   %impl_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 304
   %has_crypto_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 312
+  %.pre = load i64, ptr %next_.i.i.i.i.i, align 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit19, %entry
-  %1 = load i64, ptr %next_.i.i.i.i.i, align 8
+  %1 = phi i64 [ %inc.i.i.i.i.i11, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit19 ], [ %.pre, %entry ]
   %cmp.i.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit
 
@@ -46472,43 +46473,42 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %reass.sub = sub nsw i64 %and2.i, %7
   %or3.i = add nsw i64 %reass.sub, 4602678819172646912
   %8 = bitcast i64 %or3.i to double
-  %call3 = tail call double @log(double noundef %8) #25
+  %call3 = tail call double @llvm.log.f64(double %8)
   %mul = fmul double %call3, 0x3FD2972A8AFC6175
-  %9 = load i64, ptr %next_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i10 = icmp ugt i64 %9, 31
+  %cmp.i.i.i.i.i10 = icmp ugt i64 %inc.i.i.i.i.i, 31
   br i1 %cmp.i.i.i.i.i10, label %if.then.i.i.i.i.i13, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit19
 
 if.then.i.i.i.i.i13:                              ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit
   store i64 2, ptr %next_.i.i.i.i.i, align 8
-  %10 = load i8, ptr %has_crypto_.i.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i.i16 = trunc i8 %10 to i1
-  %11 = load ptr, ptr %impl_.i.i.i.i.i, align 8
+  %9 = load i8, ptr %has_crypto_.i.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i.i16 = trunc i8 %9 to i1
+  %10 = load ptr, ptr %impl_.i.i.i.i.i, align 8
   br i1 %tobool.i.i.i.i.i.i16, label %if.then.i.i.i.i.i.i18, label %if.else.i.i.i.i.i.i17
 
 if.then.i.i.i.i.i.i18:                            ; preds = %if.then.i.i.i.i.i13
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %11, ptr noundef nonnull %cond.i.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %10, ptr noundef nonnull %cond.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit19
 
 if.else.i.i.i.i.i.i17:                            ; preds = %if.then.i.i.i.i.i13
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %11, ptr noundef nonnull %cond.i.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %10, ptr noundef nonnull %cond.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit19
 
 _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit19: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit, %if.then.i.i.i.i.i.i18, %if.else.i.i.i.i.i.i17
-  %12 = load i64, ptr %next_.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i11 = add i64 %12, 1
+  %11 = load i64, ptr %next_.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i11 = add i64 %11, 1
   store i64 %inc.i.i.i.i.i11, ptr %next_.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i12 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i, i64 %12
-  %13 = load i64, ptr %arrayidx.i.i.i.i.i12, align 8
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 false)
-  %and.i21 = and i64 %14, 63
-  %shl.i22 = shl i64 %13, %and.i21
+  %arrayidx.i.i.i.i.i12 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i, i64 %11
+  %12 = load i64, ptr %arrayidx.i.i.i.i.i12, align 8
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
+  %and.i21 = and i64 %13, 63
+  %shl.i22 = shl i64 %12, %and.i21
   %shr.i24 = lshr i64 %shl.i22, 11
-  %15 = shl nuw nsw i64 %14, 52
+  %14 = shl nuw nsw i64 %13, 52
   %and2.i27 = and i64 %shr.i24, 4503599627370495
-  %reass.sub29 = sub nsw i64 %and2.i27, %15
+  %reass.sub29 = sub nsw i64 %and2.i27, %14
   %or3.i28 = add nsw i64 %reass.sub29, 4602678819172646912
-  %16 = bitcast i64 %or3.i28 to double
-  %call7 = tail call double @log(double noundef %16) #25
+  %15 = bitcast i64 %or3.i28 to double
+  %call7 = tail call double @llvm.log.f64(double %15)
   %fneg = fneg double %call7
   %add = fsub double %fneg, %call7
   %mul8 = fmul double %mul, %mul
@@ -52128,26 +52128,29 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #24
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #24
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -52171,9 +52174,9 @@ attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nounwind }
 attributes #26 = { builtin nounwind }
 attributes #27 = { builtin allocsize(0) }

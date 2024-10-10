@@ -2304,10 +2304,10 @@ if.then9.i:                                       ; preds = %if.end.i151
   br label %invoke.cont3.i
 
 if.end10.i:                                       ; preds = %if.end.i151
-  %call11.i = call double @log(double noundef %6) #33
+  %call11.i = call double @llvm.log.f64(double %6)
   %13 = load double, ptr %a_.i, align 8
   %mul.i152 = fmul double %call11.i, %13
-  %call13.i = call double @log(double noundef %10) #33
+  %call13.i = call double @llvm.log.f64(double %10)
   %14 = load double, ptr %b_.i, align 8
   %mul15.i153 = fmul double %call13.i, %14
   %15 = call double @llvm.fabs.f64(double %mul.i152)
@@ -3752,10 +3752,10 @@ if.then9.i309:                                    ; preds = %if.end.i285
   br label %invoke.cont79.i
 
 if.end10.i287:                                    ; preds = %if.end.i285
-  %call11.i288 = call double @log(double noundef %122) #33
+  %call11.i288 = call double @llvm.log.f64(double %122)
   %129 = load double, ptr %a_.i162, align 8
   %mul.i289 = fmul double %call11.i288, %129
-  %call13.i290 = call double @log(double noundef %126) #33
+  %call13.i290 = call double @llvm.log.f64(double %126)
   %130 = load double, ptr %b_.i163, align 8
   %mul15.i291 = fmul double %call13.i290, %130
   %131 = call double @llvm.fabs.f64(double %mul.i289)
@@ -16024,10 +16024,10 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %call11 = tail call double @log(double noundef %6) #33
+  %call11 = tail call double @llvm.log.f64(double %6)
   %13 = load double, ptr %a_, align 8
   %mul = fmul double %call11, %13
-  %call13 = tail call double @log(double noundef %10) #33
+  %call13 = tail call double @llvm.log.f64(double %10)
   %14 = load double, ptr %b_, align 8
   %mul15 = fmul double %call13, %14
   %15 = tail call double @llvm.fabs.f64(double %mul)
@@ -24558,10 +24558,10 @@ if.then9.i:                                       ; preds = %if.end.i465
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 if.end10.i:                                       ; preds = %if.end.i465
-  %call11.i = call double @log(double noundef %80) #33
+  %call11.i = call double @llvm.log.f64(double %80)
   %87 = load double, ptr %a_.i, align 8
   %mul.i466 = fmul double %call11.i, %87
-  %call13.i = call double @log(double noundef %84) #33
+  %call13.i = call double @llvm.log.f64(double %84)
   %88 = load double, ptr %b_.i, align 8
   %mul15.i467 = fmul double %call13.i, %88
   %89 = call double @llvm.fabs.f64(double %mul.i466)
@@ -30807,9 +30807,9 @@ if.then9.i:                                       ; preds = %if.end.i391
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit
 
 if.end10.i:                                       ; preds = %if.end.i391
-  %call11.i = call double @log(double noundef %11) #33
+  %call11.i = call double @llvm.log.f64(double %11)
   %mul.i392 = fmul double %d.sroa.4.3, %call11.i
-  %call13.i = call double @log(double noundef %15) #33
+  %call13.i = call double @llvm.log.f64(double %15)
   %mul15.i393 = fmul double %d.sroa.12.3, %call13.i
   %16 = call double @llvm.fabs.f64(double %mul.i392)
   %17 = fcmp one double %16, 0x7FF0000000000000
@@ -31533,9 +31533,9 @@ if.then9.i615:                                    ; preds = %if.end.i591
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit133
 
 if.end10.i593:                                    ; preds = %if.end.i591
-  %call11.i594 = call double @log(double noundef %80) #33
+  %call11.i594 = call double @llvm.log.f64(double %80)
   %mul.i595 = fmul double %d107.sroa.4.3, %call11.i594
-  %call13.i596 = call double @log(double noundef %84) #33
+  %call13.i596 = call double @llvm.log.f64(double %84)
   %mul15.i597 = fmul double %d107.sroa.12.3, %call13.i596
   %85 = call double @llvm.fabs.f64(double %mul.i595)
   %86 = fcmp one double %85, 0x7FF0000000000000
@@ -32023,9 +32023,9 @@ if.then9.i835:                                    ; preds = %if.end.i811
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit191
 
 if.end10.i813:                                    ; preds = %if.end.i811
-  %call11.i814 = call double @log(double noundef %124) #33
+  %call11.i814 = call double @llvm.log.f64(double %124)
   %mul.i815 = fmul double %d162.sroa.4.3, %call11.i814
-  %call13.i816 = call double @log(double noundef %128) #33
+  %call13.i816 = call double @llvm.log.f64(double %128)
   %mul15.i817 = fmul double %d162.sroa.12.3, %call13.i816
   %129 = call double @llvm.fabs.f64(double %mul.i815)
   %130 = fcmp one double %129, 0x7FF0000000000000
@@ -32843,10 +32843,10 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %call11 = tail call double @log(double noundef %3) #33
+  %call11 = tail call double @llvm.log.f64(double %3)
   %10 = load double, ptr %a_, align 8
   %mul = fmul double %call11, %10
-  %call13 = tail call double @log(double noundef %7) #33
+  %call13 = tail call double @llvm.log.f64(double %7)
   %11 = load double, ptr %b_, align 8
   %mul15 = fmul double %call13, %11
   %12 = tail call double @llvm.fabs.f64(double %mul)
@@ -37592,6 +37592,9 @@ declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #32

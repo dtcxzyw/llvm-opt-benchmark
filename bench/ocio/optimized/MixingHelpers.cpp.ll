@@ -217,7 +217,7 @@ if.else.i:                                        ; preds = %cond.true
   br i1 %cmp1.i, label %if.then2.i, label %if.else4.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call.i.i = tail call noundef float @log10f(float noundef %.sroa.speculated) #19
+  %call.i.i = tail call float @llvm.log10.f32(float %.sroa.speculated)
   %4 = tail call float @llvm.fmuladd.f32(float %call.i.i, float 0x3FE19999A0000000, float 0x3FEAAF0400000000)
   br label %cond.end
 
@@ -298,7 +298,7 @@ if.else.i:                                        ; preds = %cond.true
   br i1 %cmp1.i, label %if.then2.i, label %if.else4.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call.i.i = tail call noundef float @log10f(float noundef %.sroa.speculated) #19
+  %call.i.i = tail call float @llvm.log10.f32(float %.sroa.speculated)
   %4 = tail call float @llvm.fmuladd.f32(float %call.i.i, float 0x3FE19999A0000000, float 0x3FEAAF0400000000)
   br label %cond.end
 
@@ -413,7 +413,7 @@ if.else.i:                                        ; preds = %cond.true
   br i1 %cmp1.i, label %if.then2.i, label %if.else4.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call.i.i = tail call noundef float @log10f(float noundef %mixingUnits) #19
+  %call.i.i = tail call float @llvm.log10.f32(float %mixingUnits)
   %2 = tail call float @llvm.fmuladd.f32(float %call.i.i, float 0x3FE19999A0000000, float 0x3FEAAF0400000000)
   br label %cond.end
 
@@ -3965,9 +3965,6 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @log10f(float noundef) local_unnamed_addr #15
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @powf(float noundef, float noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
@@ -4234,6 +4231,9 @@ declare float @sqrtf(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log10.f32(float) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

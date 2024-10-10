@@ -346085,7 +346085,7 @@ sqlite3_value_double.exit:                        ; preds = %16, %20, %25
   br i1 %switch20, label %39, label %sqlite3_result_double.exit
 
 39:                                               ; preds = %37
-  %40 = tail call double @log(double noundef %.0.i.i) #57
+  %40 = tail call double @llvm.log.f64(double %.0.i.i)
   %41 = fcmp ugt double %40, 0.000000e+00
   br i1 %41, label %42, label %sqlite3_result_double.exit
 
@@ -346138,7 +346138,7 @@ sqlite3_value_double.exit25:                      ; preds = %49, %53, %58
   br i1 %67, label %68, label %sqlite3_result_double.exit
 
 68:                                               ; preds = %sqlite3_value_double.exit25
-  %69 = tail call double @log(double noundef %.0.i.i22) #57
+  %69 = tail call double @llvm.log.f64(double %.0.i.i22)
   %70 = fdiv double %69, %40
   br label %84
 
@@ -346155,15 +346155,15 @@ sqlite3_value_double.exit25:                      ; preds = %49, %53, %58
   ]
 
 78:                                               ; preds = %71
-  %79 = tail call double @log10(double noundef %.0.i.i) #57
+  %79 = tail call double @llvm.log10.f64(double %.0.i.i)
   br label %84
 
 80:                                               ; preds = %71
-  %81 = tail call double @log2(double noundef %.0.i.i) #57
+  %81 = tail call double @llvm.log2.f64(double %.0.i.i)
   br label %84
 
 82:                                               ; preds = %71
-  %83 = tail call double @log(double noundef %.0.i.i) #57
+  %83 = tail call double @llvm.log.f64(double %.0.i.i)
   br label %84
 
 84:                                               ; preds = %78, %80, %82, %68
@@ -347357,15 +347357,6 @@ declare double @llvm.ceil.f64(double) #31
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #31
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #46
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #46
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log2(double noundef) local_unnamed_addr #46
 
 ; Function Attrs: nounwind uwtable
 define internal void @renameColumnFunc(ptr nocapture noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
@@ -381496,6 +381487,15 @@ declare i8 @llvm.umin.i8(i8, i8) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #53
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log2.f64(double) #53
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #53
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #55

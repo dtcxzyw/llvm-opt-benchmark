@@ -3624,7 +3624,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl3nfaERKiS2_RKd(ptr
 
 31:                                               ; preds = %25
   %32 = fadd double %29, -5.000000e-01
-  %33 = tail call double @log(double noundef %29) #22
+  %33 = tail call double @llvm.log.f64(double %29)
   %34 = tail call double @llvm.fmuladd.f64(double %32, double %33, double 0x3FED67F1C864BEB7)
   %35 = fsub double %34, %29
   %36 = fmul double %29, 5.000000e-01
@@ -3678,7 +3678,7 @@ _Z17log_gamma_lanczosRKd.exit:                    ; preds = %51
 
 69:                                               ; preds = %63
   %70 = fadd double %67, -5.000000e-01
-  %71 = tail call double @log(double noundef %67) #22
+  %71 = tail call double @llvm.log.f64(double %67)
   %72 = tail call double @llvm.fmuladd.f64(double %70, double %71, double 0x3FED67F1C864BEB7)
   %73 = fsub double %72, %67
   %74 = fmul double %67, 5.000000e-01
@@ -3735,7 +3735,7 @@ _Z17log_gamma_lanczosRKd.exit68:                  ; preds = %89
 
 110:                                              ; preds = %101
   %111 = fadd double %108, -5.000000e-01
-  %112 = tail call double @log(double noundef %108) #22
+  %112 = tail call double @llvm.log.f64(double %108)
   %113 = tail call double @llvm.fmuladd.f64(double %111, double %112, double 0x3FED67F1C864BEB7)
   %114 = fsub double %113, %108
   %115 = fmul double %108, 5.000000e-01
@@ -7040,6 +7040,9 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

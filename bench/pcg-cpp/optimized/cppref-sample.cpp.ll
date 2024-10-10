@@ -835,6 +835,13 @@ entry:
   br i1 %tobool, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
+  %call.i.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK401F8000000000000000)
+  %call.i8.i.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
+  %conv5.i.i = fptoui x86_fp80 %div.i.i to i64
+  %sub8.i.i = add i64 %conv5.i.i, 52
+  %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
   %state_.i.i.i.i = getelementptr inbounds i8, ptr %__urng, i64 8
   br label %do.body
 
@@ -845,13 +852,6 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 do.body:                                          ; preds = %do.body.preheader, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit44
-  %call.i.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #16
-  %call.i8.i.i = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #16
-  %div.i.i = fdiv x86_fp80 %call.i.i.i, %call.i8.i.i
-  %conv5.i.i = fptoui x86_fp80 %div.i.i to i64
-  %sub8.i.i = add i64 %conv5.i.i, 52
-  %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
   %2 = load i64, ptr %__urng, align 8
   %state_.i.i.promoted.i.i = load i64, ptr %state_.i.i.i.i, align 8
   br label %for.body.i.i
@@ -887,23 +887,18 @@ for.end.i.i:                                      ; preds = %for.body.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %call20.i.i = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #16
+  %.pre = load i64, ptr %__urng, align 8
+  %state_.i.i.promoted.i.i19.pre = load i64, ptr %state_.i.i.i.i, align 8
   br label %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit
 
 _ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit: ; preds = %for.end.i.i, %if.then.i.i
+  %state_.i.i.promoted.i.i19 = phi i64 [ %state_.i.i.promoted.i.i19.pre, %if.then.i.i ], [ %add.i.i.i.i.i, %for.end.i.i ]
+  %6 = phi i64 [ %.pre, %if.then.i.i ], [ %2, %for.end.i.i ]
   %__ret.0.i.i = phi double [ %call20.i.i, %if.then.i.i ], [ %div17.i.i, %for.end.i.i ]
-  %call.i.i.i11 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #16
-  %call.i8.i.i12 = tail call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #16
-  %div.i.i13 = fdiv x86_fp80 %call.i.i.i11, %call.i8.i.i12
-  %conv5.i.i14 = fptoui x86_fp80 %div.i.i13 to i64
-  %sub8.i.i15 = add i64 %conv5.i.i14, 52
-  %div9.i.i16 = udiv i64 %sub8.i.i15, %conv5.i.i14
-  %spec.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %div9.i.i16, i64 1)
-  %6 = load i64, ptr %__urng, align 8
-  %state_.i.i.promoted.i.i19 = load i64, ptr %state_.i.i.i.i, align 8
   br label %for.body.i.i20
 
 for.body.i.i20:                                   ; preds = %for.body.i.i20, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit
-  %__k.015.i.i21 = phi i64 [ %spec.select.i.i17, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %dec.i.i36, %for.body.i.i20 ]
+  %__k.015.i.i21 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %dec.i.i36, %for.body.i.i20 ]
   %__tmp.014.i.i22 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %conv16.i.i35, %for.body.i.i20 ]
   %__sum.013.i.i23 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %9, %for.body.i.i20 ]
   %add.i.i.i1112.i.i24 = phi i64 [ %state_.i.i.promoted.i.i19, %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit ], [ %add.i.i.i.i.i26, %for.body.i.i20 ]
@@ -978,9 +973,6 @@ declare double @log(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #4 comdat align 2 {
@@ -1223,6 +1215,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

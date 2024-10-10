@@ -134304,6 +134304,13 @@ invoke.cont27:                                    ; preds = %for.end26.i.i, %if.
   store i64 312, ptr %_M_p.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i)
   store i32 0, ptr %misses, align 4
+  %call.i.i.i.i.i = call x86_fp80 @llvm.log.f80(x86_fp80 0xK403F8000000000000000)
+  %call.i8.i.i.i.i = call x86_fp80 @llvm.log.f80(x86_fp80 0xK40008000000000000000)
+  %div.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i, %call.i8.i.i.i.i
+  %conv5.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i to i64
+  %sub8.i.i.i.i = add i64 %conv5.i.i.i.i, 52
+  %div9.i.i.i.i = udiv i64 %sub8.i.i.i.i, %conv5.i.i.i.i
+  %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %div9.i.i.i.i, i64 1)
   %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %gen, i64 1248
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %gen, i64 2488
   %arrayidx48.i.i = getelementptr inbounds i8, ptr %gen, i64 1240
@@ -134312,13 +134319,6 @@ invoke.cont27:                                    ; preds = %for.end26.i.i, %if.
 for.body:                                         ; preds = %invoke.cont27, %for.inc
   %2 = phi i64 [ 312, %invoke.cont27 ], [ %inc.i, %for.inc ]
   %i.029 = phi i32 [ 0, %invoke.cont27 ], [ %inc, %for.inc ]
-  %call.i.i.i.i.i = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK403F8000000000000000) #24
-  %call.i8.i.i.i.i = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK40008000000000000000) #24
-  %div.i.i.i.i = fdiv x86_fp80 %call.i.i.i.i.i, %call.i8.i.i.i.i
-  %conv5.i.i.i.i = fptoui x86_fp80 %div.i.i.i.i to i64
-  %sub8.i.i.i.i = add i64 %conv5.i.i.i.i, 52
-  %div9.i.i.i.i = udiv i64 %sub8.i.i.i.i, %conv5.i.i.i.i
-  %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %div9.i.i.i.i, i64 1)
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %call11.i.i.i.i.noexc, %for.body
@@ -134887,9 +134887,6 @@ for.body99:                                       ; preds = %for.cond96.preheade
 for.end129:                                       ; preds = %for.body99, %for.cond96.preheader, %entry
   ret void
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #17
 
 declare void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #0
 
@@ -164755,6 +164752,9 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.log.f80(x86_fp80) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23

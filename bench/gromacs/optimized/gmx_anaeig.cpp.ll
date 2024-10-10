@@ -5392,7 +5392,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
   br i1 %74, label %75, label %_ZL12tick_spacingfi.exit
 
 75:                                               ; preds = %64
-  %76 = call noundef float @logf(float noundef %73) #20
+  %76 = call float @llvm.log.f32(float %73)
   %77 = fpext float %76 to double
   %78 = fdiv double %77, 0x40026BB1BBB55516
   %79 = call double @llvm.ceil.f64(double %78)
@@ -5418,7 +5418,7 @@ _ZL12tick_spacingfi.exit:                         ; preds = %.lr.ph.i, %64, %75
   br i1 %90, label %91, label %_ZL12tick_spacingfi.exit185
 
 91:                                               ; preds = %_ZL12tick_spacingfi.exit
-  %92 = call noundef float @logf(float noundef %89) #20
+  %92 = call float @llvm.log.f32(float %89)
   %93 = fpext float %92 to double
   %94 = fdiv double %93, 0x40026BB1BBB55516
   %95 = call double @llvm.ceil.f64(double %94)
@@ -5666,9 +5666,6 @@ declare double @exp(double noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #13
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @logf(float noundef) local_unnamed_addr #12
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #13
 
@@ -5904,6 +5901,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18

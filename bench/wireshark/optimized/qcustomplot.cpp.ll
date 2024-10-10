@@ -35975,7 +35975,7 @@ define void @_ZN16QCPAxisTickerLog10setLogBaseEd(ptr nocapture noundef nonnull w
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store double %1, ptr %7, align 8
-  %8 = tail call noundef double @log(double noundef %1) #48
+  %8 = tail call double @llvm.log.f64(double %1)
   %9 = fdiv double 1.000000e+00, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store double %9, ptr %10, align 8
@@ -246963,6 +246963,9 @@ declare i64 @llvm.umin.i64(i64, i64) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #45
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #45
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -333,8 +333,6 @@ $_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBG
 
 $_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_ = comdat any
 
-$_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b = comdat any
-
 $_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE = comdat any
 
 $_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE = comdat any
@@ -2388,7 +2386,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #18
+  %call.i = tail call double @llvm.log.f64(double %26)
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -2403,7 +2401,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -2628,7 +2626,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #18
+  %call.i = tail call double @llvm.log.f64(double %26)
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -2643,7 +2641,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -2865,7 +2863,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #18
+  %call.i = tail call double @llvm.log.f64(double %26)
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -2880,7 +2878,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3102,7 +3100,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #18
+  %call.i = tail call double @llvm.log.f64(double %26)
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -3117,7 +3115,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3339,7 +3337,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #18
+  %call.i = tail call double @llvm.log.f64(double %26)
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -3354,7 +3352,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3576,7 +3574,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #18
+  %call.i = tail call double @llvm.log.f64(double %26)
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -3591,7 +3589,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3820,7 +3818,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %27) #18
+  %call.i = tail call double @llvm.log.f64(double %27)
   %div.i = fdiv double 1.000000e+00, %27
   %neg.i = fneg double %27
   %29 = tail call double @llvm.fmuladd.f64(double %27, double %call.i, double %neg.i)
@@ -3835,7 +3833,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %33, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #18
+  %call28 = tail call double @llvm.log.f64(double %21)
   %34 = load double, ptr %log_k_, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %34)
   %add30 = fadd double %cond27, %35
@@ -4076,7 +4074,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %27) #18
+  %call.i = tail call double @llvm.log.f64(double %27)
   %div.i = fdiv double 1.000000e+00, %27
   %neg.i = fneg double %27
   %29 = tail call double @llvm.fmuladd.f64(double %27, double %call.i, double %neg.i)
@@ -4091,7 +4089,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %33, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #18
+  %call28 = tail call double @llvm.log.f64(double %21)
   %34 = load double, ptr %log_k_, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %34)
   %add30 = fadd double %cond27, %35
@@ -6222,7 +6220,7 @@ do.body.i:                                        ; preds = %if.end, %do.body.i
   %reass.sub27 = sub nsw i64 %and2.i.i, %9
   %or3.i.i = add nsw i64 %reass.sub27, 4602678819172646912
   %10 = bitcast i64 %or3.i.i to double
-  %call3.i = tail call double @log(double noundef %10) #18
+  %call3.i = tail call double @llvm.log.f64(double %10)
   %mul.i = fmul double %call3.i, 0x3FD2972A8AFC6175
   %call.i.i6.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call.i.i6.i, i1 false)
@@ -6234,7 +6232,7 @@ do.body.i:                                        ; preds = %if.end, %do.body.i
   %reass.sub28 = sub nsw i64 %and2.i14.i, %12
   %or3.i15.i = add nsw i64 %reass.sub28, 4602678819172646912
   %13 = bitcast i64 %or3.i15.i to double
-  %call7.i = tail call double @log(double noundef %13) #18
+  %call7.i = tail call double @llvm.log.f64(double %13)
   %fneg.i = fneg double %call7.i
   %add.i = fsub double %fneg.i, %call7.i
   %mul8.i = fmul double %mul.i, %mul.i
@@ -11331,10 +11329,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre65 = load i64, ptr %next_.i.i.i.i23, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i23, align 8
+  %13 = phi i64 [ %.pre65, %if.end ], [ %inc.i.i.i.i45, %for.cond7.backedge ]
   %cmp.i.i.i.i24 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i27, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit33
 
@@ -11426,7 +11425,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #18
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -11441,7 +11440,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -11557,10 +11556,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre65 = load i64, ptr %next_.i.i.i.i23, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i23, align 8
+  %13 = phi i64 [ %.pre65, %if.end ], [ %inc.i.i.i.i45, %for.cond7.backedge ]
   %cmp.i.i.i.i24 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i27, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit33
 
@@ -11652,7 +11652,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #18
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -11667,7 +11667,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -11783,10 +11783,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre65 = load i64, ptr %next_.i.i.i.i23, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i23, align 8
+  %13 = phi i64 [ %.pre65, %if.end ], [ %inc.i.i.i.i45, %for.cond7.backedge ]
   %cmp.i.i.i.i24 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i27, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit33
 
@@ -11878,7 +11879,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #18
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -11893,7 +11894,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12009,10 +12010,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre65 = load i64, ptr %next_.i.i.i.i23, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i23, align 8
+  %13 = phi i64 [ %.pre65, %if.end ], [ %inc.i.i.i.i45, %for.cond7.backedge ]
   %cmp.i.i.i.i24 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i27, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit33
 
@@ -12104,7 +12106,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #18
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -12119,7 +12121,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12235,10 +12237,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre65 = load i64, ptr %next_.i.i.i.i23, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i23, align 8
+  %13 = phi i64 [ %.pre65, %if.end ], [ %inc.i.i.i.i45, %for.cond7.backedge ]
   %cmp.i.i.i.i24 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i27, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit33
 
@@ -12330,7 +12333,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #18
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -12345,7 +12348,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12461,10 +12464,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre65 = load i64, ptr %next_.i.i.i.i23, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %13 = load i64, ptr %next_.i.i.i.i23, align 8
+  %13 = phi i64 [ %.pre65, %if.end ], [ %inc.i.i.i.i45, %for.cond7.backedge ]
   %cmp.i.i.i.i24 = icmp ugt i64 %13, 31
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i27, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit33
 
@@ -12556,7 +12560,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #18
+  %call.i = tail call double @llvm.log.f64(double %30)
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -12571,7 +12575,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #18
+  %call27 = tail call double @llvm.log.f64(double %20)
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12694,10 +12698,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre85 = load i64, ptr %next_.i.i.i.i20, align 8
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
-  %14 = load i64, ptr %next_.i.i.i.i20, align 8
+  %14 = phi i64 [ %.pre85, %if.end ], [ %inc.i.i.i.i42, %for.cond8.backedge ]
   %cmp.i.i.i.i21 = icmp ugt i64 %14, 31
   br i1 %cmp.i.i.i.i21, label %if.then.i.i.i.i24, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit30
 
@@ -12789,7 +12794,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %31) #18
+  %call.i = tail call double @llvm.log.f64(double %31)
   %div.i = fdiv double 1.000000e+00, %31
   %neg.i = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %31, double %call.i, double %neg.i)
@@ -12804,7 +12809,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %37, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #18
+  %call28 = tail call double @llvm.log.f64(double %21)
   %38 = load double, ptr %log_k_, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %38)
   %add30 = fadd double %cond27, %39
@@ -12936,10 +12941,11 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %.pre80 = load i64, ptr %next_.i.i.i.i29, align 8
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
-  %14 = load i64, ptr %next_.i.i.i.i29, align 8
+  %14 = phi i64 [ %.pre80, %if.end ], [ %inc.i.i.i.i51, %for.cond8.backedge ]
   %cmp.i.i.i.i30 = icmp ugt i64 %14, 31
   br i1 %cmp.i.i.i.i30, label %if.then.i.i.i.i33, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit39
 
@@ -13031,7 +13037,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %31) #18
+  %call.i = tail call double @llvm.log.f64(double %31)
   %div.i = fdiv double 1.000000e+00, %31
   %neg.i = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %31, double %call.i, double %neg.i)
@@ -13046,7 +13052,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %37, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #18
+  %call28 = tail call double @llvm.log.f64(double %21)
   %38 = load double, ptr %log_k_, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %38)
   %add30 = fadd double %cond27, %39
@@ -14677,10 +14683,11 @@ entry:
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
   %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18, %entry
-  %1 = load i64, ptr %next_.i.i.i.i, align 8
+  %1 = phi i64 [ %inc.i.i.i.i10, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18 ], [ %.pre, %entry ]
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit
 
@@ -14714,43 +14721,42 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %reass.sub = sub nsw i64 %and2.i, %7
   %or3.i = add nsw i64 %reass.sub, 4602678819172646912
   %8 = bitcast i64 %or3.i to double
-  %call3 = tail call double @log(double noundef %8) #18
+  %call3 = tail call double @llvm.log.f64(double %8)
   %mul = fmul double %call3, 0x3FD2972A8AFC6175
-  %9 = load i64, ptr %next_.i.i.i.i, align 8
-  %cmp.i.i.i.i9 = icmp ugt i64 %9, 31
+  %cmp.i.i.i.i9 = icmp ugt i64 %inc.i.i.i.i, 31
   br i1 %cmp.i.i.i.i9, label %if.then.i.i.i.i12, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18
 
 if.then.i.i.i.i12:                                ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %10 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i15 = trunc i8 %10 to i1
-  %11 = load ptr, ptr %impl_.i.i.i.i, align 8
+  %9 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i15 = trunc i8 %9 to i1
+  %10 = load ptr, ptr %impl_.i.i.i.i, align 8
   br i1 %tobool.i.i.i.i.i15, label %if.then.i.i.i.i.i17, label %if.else.i.i.i.i.i16
 
 if.then.i.i.i.i.i17:                              ; preds = %if.then.i.i.i.i12
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %11, ptr noundef nonnull %cond.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %10, ptr noundef nonnull %cond.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18
 
 if.else.i.i.i.i.i16:                              ; preds = %if.then.i.i.i.i12
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %11, ptr noundef nonnull %cond.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %10, ptr noundef nonnull %cond.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18
 
 _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit, %if.then.i.i.i.i.i17, %if.else.i.i.i.i.i16
-  %12 = load i64, ptr %next_.i.i.i.i, align 8
-  %inc.i.i.i.i10 = add i64 %12, 1
+  %11 = load i64, ptr %next_.i.i.i.i, align 8
+  %inc.i.i.i.i10 = add i64 %11, 1
   store i64 %inc.i.i.i.i10, ptr %next_.i.i.i.i, align 8
-  %arrayidx.i.i.i.i11 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i, i64 %12
-  %13 = load i64, ptr %arrayidx.i.i.i.i11, align 8
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 false)
-  %and.i20 = and i64 %14, 63
-  %shl.i21 = shl i64 %13, %and.i20
+  %arrayidx.i.i.i.i11 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i, i64 %11
+  %12 = load i64, ptr %arrayidx.i.i.i.i11, align 8
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
+  %and.i20 = and i64 %13, 63
+  %shl.i21 = shl i64 %12, %and.i20
   %shr.i23 = lshr i64 %shl.i21, 11
-  %15 = shl nuw nsw i64 %14, 52
+  %14 = shl nuw nsw i64 %13, 52
   %and2.i26 = and i64 %shr.i23, 4503599627370495
-  %reass.sub28 = sub nsw i64 %and2.i26, %15
+  %reass.sub28 = sub nsw i64 %and2.i26, %14
   %or3.i27 = add nsw i64 %reass.sub28, 4602678819172646912
-  %16 = bitcast i64 %or3.i27 to double
-  %call7 = tail call double @log(double noundef %16) #18
+  %15 = bitcast i64 %or3.i27 to double
+  %call7 = tail call double @llvm.log.f64(double %15)
   %fneg = fneg double %call7
   %add = fsub double %fneg, %call7
   %mul8 = fmul double %mul, %mul
@@ -18962,11 +18968,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre, %if.end ], [ %.narrow.i.i.i.i.i.i54, %for.cond7.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, %for.cond7.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i23 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i25 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i26 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i21 to i128
@@ -19038,7 +19046,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #18
+  %call.i = tail call double @llvm.log.f64(double %17)
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19053,7 +19061,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #18
+  %call27 = tail call double @llvm.log.f64(double %10)
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19153,11 +19161,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre, %if.end ], [ %.narrow.i.i.i.i.i.i54, %for.cond7.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, %for.cond7.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i23 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i25 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i26 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i21 to i128
@@ -19229,7 +19239,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #18
+  %call.i = tail call double @llvm.log.f64(double %17)
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19244,7 +19254,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #18
+  %call27 = tail call double @llvm.log.f64(double %10)
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19344,11 +19354,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre, %if.end ], [ %.narrow.i.i.i.i.i.i54, %for.cond7.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, %for.cond7.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i23 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i25 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i26 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i21 to i128
@@ -19420,7 +19432,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #18
+  %call.i = tail call double @llvm.log.f64(double %17)
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19435,7 +19447,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #18
+  %call27 = tail call double @llvm.log.f64(double %10)
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19535,11 +19547,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre, %if.end ], [ %.narrow.i.i.i.i.i.i54, %for.cond7.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, %for.cond7.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i23 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i25 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i26 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i21 to i128
@@ -19611,7 +19625,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #18
+  %call.i = tail call double @llvm.log.f64(double %17)
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19626,7 +19640,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #18
+  %call27 = tail call double @llvm.log.f64(double %10)
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19726,11 +19740,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre, %if.end ], [ %.narrow.i.i.i.i.i.i54, %for.cond7.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, %for.cond7.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i23 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i25 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i26 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i21 to i128
@@ -19802,7 +19818,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #18
+  %call.i = tail call double @llvm.log.f64(double %17)
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19817,7 +19833,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #18
+  %call27 = tail call double @llvm.log.f64(double %10)
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19917,11 +19933,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i23 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i23.pre, %if.end ], [ %.narrow.i.i.i.i.i.i54, %for.cond7.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i21 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i21.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, %for.cond7.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i23 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i25 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i24, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i26 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i21 to i128
@@ -19993,7 +20011,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #18
+  %call.i = tail call double @llvm.log.f64(double %17)
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -20008,7 +20026,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #18
+  %call27 = tail call double @llvm.log.f64(double %10)
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -20115,11 +20133,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i18.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i20.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i19, align 8
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i18 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i20 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i19, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i20 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i20.pre, %if.end ], [ %.narrow.i.i.i.i.i.i51, %for.cond8.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i18 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i18.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i49, %for.cond8.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i21 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i20 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i22 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i21, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i23 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i18 to i128
@@ -20191,7 +20211,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %18) #18
+  %call.i = tail call double @llvm.log.f64(double %18)
   %div.i = fdiv double 1.000000e+00, %18
   %neg.i = fneg double %18
   %20 = tail call double @llvm.fmuladd.f64(double %18, double %call.i, double %neg.i)
@@ -20206,7 +20226,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %24, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %11) #18
+  %call28 = tail call double @llvm.log.f64(double %11)
   %25 = load double, ptr %log_k_, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %25)
   %add30 = fadd double %cond27, %26
@@ -20322,11 +20342,13 @@ if.end:                                           ; preds = %entry
   %s_ = getelementptr inbounds i8, ptr %p, i64 24
   %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
   %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i27.pre = load i64, ptr %g, align 16
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i29.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i28, align 8
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i27 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i29 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i28, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i29 = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.i29.pre, %if.end ], [ %.narrow.i.i.i.i.i.i60, %for.cond8.backedge ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i27 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.i27.pre, %if.end ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i58, %for.cond8.backedge ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i30 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i29 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i31 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i30, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i32 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i27 to i128
@@ -20398,7 +20420,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %18) #18
+  %call.i = tail call double @llvm.log.f64(double %18)
   %div.i = fdiv double 1.000000e+00, %18
   %neg.i = fneg double %18
   %20 = tail call double @llvm.fmuladd.f64(double %18, double %call.i, double %neg.i)
@@ -20413,7 +20435,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %24, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %11) #18
+  %call28 = tail call double @llvm.log.f64(double %11)
   %25 = load double, ptr %log_k_, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %25)
   %add30 = fadd double %cond27, %26
@@ -21856,128 +21878,113 @@ while.body:                                       ; preds = %if.end10, %entry
 
 if.end:                                           ; preds = %while.body
   %cmp6 = icmp eq i32 %conv, 0
-  br i1 %cmp6, label %if.then7, label %if.end10
+  br i1 %cmp6, label %do.body.i, label %if.end10
 
-if.then7:                                         ; preds = %if.end
+do.body.i:                                        ; preds = %if.end, %do.body.i
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i831.i = phi i64 [ %.narrow.i.i.i.i.i.i17.i, %do.body.i ], [ %.narrow.i.i.i.i.i.i, %if.end ]
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i1530.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15.i, %do.body.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, %if.end ]
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i831.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i1530.i to i128
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i
+  %mul.i.i.i.i.i.i.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
+  %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %9 to i64
+  %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
+  %shr.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i, 58
+  %xor.i.i14.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i
+  %or.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i)
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i, i1 false)
+  %and.i.i = and i64 %10, 63
+  %shl.i.i = shl i64 %or.i.i.i.i.i.i.i.i, %and.i.i
+  %shr.i.i = lshr i64 %shl.i.i, 11
+  %and2.i.i = and i64 %shr.i.i, 4503599627370495
+  %11 = shl nuw nsw i64 %10, 52
+  %reass.sub44 = sub nsw i64 %and2.i.i, %11
+  %or3.i.i = add nsw i64 %reass.sub44, 4602678819172646912
+  %12 = bitcast i64 %or3.i.i to double
+  %call3.i = tail call double @llvm.log.f64(double %12)
+  %mul.i = fmul double %call3.i, 0x3FD2972A8AFC6175
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i9.i = zext i64 %.narrow.i.i.i.i.i.i.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i10.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i9.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i11.i = and i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i12.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i10.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i11.i
+  %mul.i.i.i.i.i.i13.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i12.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14.i = add i128 %mul.i.i.i.i.i.i13.i, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14.i to i64
+  %13 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14.i, 64
+  %.tr.i.i.i.i.i.i16.i = trunc nuw i128 %13 to i64
+  %.narrow.i.i.i.i.i.i17.i = add i64 %.tr.i.i.i.i.i.i16.i, 6364136223846793005
+  %shr.i.i.i.i.i.i18.i = lshr i64 %.narrow.i.i.i.i.i.i17.i, 58
+  %xor.i.i14.i.i.i.i.i19.i = xor i64 %.narrow.i.i.i.i.i.i17.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15.i
+  %or.i.i.i.i.i.i.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i19.i, i64 %xor.i.i14.i.i.i.i.i19.i, i64 %shr.i.i.i.i.i.i18.i)
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i20.i, i1 false)
+  %and.i22.i = and i64 %14, 63
+  %shl.i23.i = shl i64 %or.i.i.i.i.i.i.i20.i, %and.i22.i
+  %shr.i25.i = lshr i64 %shl.i23.i, 11
+  %and2.i28.i = and i64 %shr.i25.i, 4503599627370495
+  %15 = shl nuw nsw i64 %14, 52
+  %reass.sub45 = sub nsw i64 %and2.i28.i, %15
+  %or3.i29.i = add nsw i64 %reass.sub45, 4602678819172646912
+  %16 = bitcast i64 %or3.i29.i to double
+  %call7.i = tail call double @llvm.log.f64(double %16)
+  %fneg.i = fneg double %call7.i
+  %add.i = fsub double %fneg.i, %call7.i
+  %mul8.i = fmul double %mul.i, %mul.i
+  %cmp.i = fcmp olt double %add.i, %mul8.i
+  br i1 %cmp.i, label %do.body.i, label %_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b.exit, !llvm.loop !168
+
+_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b.exit: ; preds = %do.body.i
   %cmp8 = fcmp olt double %5, 0.000000e+00
-  %call9 = tail call noundef double @_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, i1 noundef zeroext %cmp8)
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15.i, ptr %g, align 16
+  store i64 %.narrow.i.i.i.i.i.i17.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
+  %sub.i14 = fadd double %mul.i, 0xC00B8A7C476D2BE8
+  %sub9.i = fsub double 0x400B8A7C476D2BE8, %mul.i
+  %cond.i = select i1 %cmp8, double %sub.i14, double %sub9.i
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i17 = zext i64 %.narrow.i.i.i.i.i.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i18 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i17, 64
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i19 = and i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 18446744073709551615
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i20 = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i18, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i19
-  %mul.i.i.i.i.i.i21 = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i20, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i22 = add i128 %mul.i.i.i.i.i.i21, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i23 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i22 to i64
-  %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i22, 64
-  %.tr.i.i.i.i.i.i24 = trunc nuw i128 %9 to i64
-  %.narrow.i.i.i.i.i.i25 = add i64 %.tr.i.i.i.i.i.i24, 6364136223846793005
-  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i23, ptr %g, align 16
-  store i64 %.narrow.i.i.i.i.i.i25, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %shr.i.i.i.i.i.i26 = lshr i64 %.narrow.i.i.i.i.i.i25, 58
-  %xor.i.i14.i.i.i.i.i27 = xor i64 %.narrow.i.i.i.i.i.i25, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i23
-  %or.i.i.i.i.i.i.i28 = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i27, i64 %xor.i.i14.i.i.i.i.i27, i64 %shr.i.i.i.i.i.i26)
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i28, i1 false)
-  %and.i30 = and i64 %10, 63
-  %shl.i31 = shl i64 %or.i.i.i.i.i.i.i28, %and.i30
-  %shr.i33 = lshr i64 %shl.i31, 11
-  %11 = shl nuw nsw i64 %10, 52
-  %and2.i35 = and i64 %shr.i33, 4503599627370495
-  %reass.sub = sub nsw i64 %and2.i35, %11
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i18 = zext i64 %.narrow.i.i.i.i.i.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i19 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i18, 64
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i20 = and i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i21 = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i19, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i20
+  %mul.i.i.i.i.i.i22 = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i21, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23 = add i128 %mul.i.i.i.i.i.i22, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23 to i64
+  %17 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23, 64
+  %.tr.i.i.i.i.i.i25 = trunc nuw i128 %17 to i64
+  %.narrow.i.i.i.i.i.i26 = add i64 %.tr.i.i.i.i.i.i25, 6364136223846793005
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24, ptr %g, align 16
+  store i64 %.narrow.i.i.i.i.i.i26, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
+  %shr.i.i.i.i.i.i27 = lshr i64 %.narrow.i.i.i.i.i.i26, 58
+  %xor.i.i14.i.i.i.i.i28 = xor i64 %.narrow.i.i.i.i.i.i26, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24
+  %or.i.i.i.i.i.i.i29 = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i28, i64 %xor.i.i14.i.i.i.i.i28, i64 %shr.i.i.i.i.i.i27)
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i29, i1 false)
+  %and.i31 = and i64 %18, 63
+  %shl.i32 = shl i64 %or.i.i.i.i.i.i.i29, %and.i31
+  %shr.i34 = lshr i64 %shl.i32, 11
+  %19 = shl nuw nsw i64 %18, 52
+  %and2.i36 = and i64 %shr.i34, 4503599627370495
+  %reass.sub = sub nsw i64 %and2.i36, %19
   %or3.i = add nsw i64 %reass.sub, 4602678819172646912
-  %12 = bitcast i64 %or3.i to double
+  %20 = bitcast i64 %or3.i to double
   %arrayidx16 = getelementptr inbounds [129 x double], ptr getelementptr inbounds (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %idxprom4
-  %13 = load double, ptr %arrayidx16, align 8
+  %21 = load double, ptr %arrayidx16, align 8
   %arrayidx18 = getelementptr inbounds [129 x double], ptr getelementptr inbounds (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %idxprom
-  %14 = load double, ptr %arrayidx18, align 8
-  %sub = fsub double %14, %13
-  %15 = tail call double @llvm.fmuladd.f64(double %12, double %sub, double %13)
+  %22 = load double, ptr %arrayidx18, align 8
+  %sub = fsub double %22, %21
+  %23 = tail call double @llvm.fmuladd.f64(double %20, double %sub, double %21)
   %mul23 = fmul double %mul, -5.000000e-01
   %mul24 = fmul double %mul, %mul23
   %call25 = tail call double @exp(double noundef %mul24) #18
-  %cmp26 = fcmp olt double %15, %call25
-  br i1 %cmp26, label %return, label %while.body, !llvm.loop !168
+  %cmp26 = fcmp olt double %23, %call25
+  br i1 %cmp26, label %return, label %while.body, !llvm.loop !169
 
-return:                                           ; preds = %if.end10, %while.body, %if.then7
-  %retval.0 = phi double [ %call9, %if.then7 ], [ %mul, %while.body ], [ %mul, %if.end10 ]
+return:                                           ; preds = %if.end10, %while.body, %_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b.exit
+  %retval.0 = phi double [ %cond.i, %_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b.exit ], [ %mul, %while.body ], [ %mul, %if.end10 ]
   ret double %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, i1 noundef zeroext %neg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.body, %entry
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i128
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %mul.i.i.i.i.i.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i to i64
-  %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc nuw i128 %0 to i64
-  %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
-  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
-  store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
-  %xor.i.i14.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
-  %or.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i, i64 %shr.i.i.i.i.i.i)
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 false)
-  %and.i = and i64 %1, 63
-  %shl.i = shl i64 %or.i.i.i.i.i.i.i, %and.i
-  %shr.i = lshr i64 %shl.i, 11
-  %2 = shl nuw nsw i64 %1, 52
-  %and2.i = and i64 %shr.i, 4503599627370495
-  %reass.sub = sub nsw i64 %and2.i, %2
-  %or3.i = add nsw i64 %reass.sub, 4602678819172646912
-  %3 = bitcast i64 %or3.i to double
-  %call3 = tail call double @log(double noundef %3) #18
-  %mul = fmul double %call3, 0x3FD2972A8AFC6175
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i6 = load i64, ptr %g, align 16
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i8 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i9 = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i8 to i128
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i10 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i9, 64
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i11 = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i6 to i128
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i12 = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i10, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i11
-  %mul.i.i.i.i.i.i13 = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i12, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14 = add i128 %mul.i.i.i.i.i.i13, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14 to i64
-  %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14, 64
-  %.tr.i.i.i.i.i.i16 = trunc nuw i128 %4 to i64
-  %.narrow.i.i.i.i.i.i17 = add i64 %.tr.i.i.i.i.i.i16, 6364136223846793005
-  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15, ptr %g, align 16
-  store i64 %.narrow.i.i.i.i.i.i17, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
-  %shr.i.i.i.i.i.i18 = lshr i64 %.narrow.i.i.i.i.i.i17, 58
-  %xor.i.i14.i.i.i.i.i19 = xor i64 %.narrow.i.i.i.i.i.i17, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15
-  %or.i.i.i.i.i.i.i20 = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i19, i64 %xor.i.i14.i.i.i.i.i19, i64 %shr.i.i.i.i.i.i18)
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i20, i1 false)
-  %and.i22 = and i64 %5, 63
-  %shl.i23 = shl i64 %or.i.i.i.i.i.i.i20, %and.i22
-  %shr.i25 = lshr i64 %shl.i23, 11
-  %6 = shl nuw nsw i64 %5, 52
-  %and2.i28 = and i64 %shr.i25, 4503599627370495
-  %reass.sub30 = sub nsw i64 %and2.i28, %6
-  %or3.i29 = add nsw i64 %reass.sub30, 4602678819172646912
-  %7 = bitcast i64 %or3.i29 to double
-  %call7 = tail call double @log(double noundef %7) #18
-  %fneg = fneg double %call7
-  %add = fsub double %fneg, %call7
-  %mul8 = fmul double %mul, %mul
-  %cmp = fcmp olt double %add, %mul8
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !169
-
-do.end:                                           ; preds = %do.body
-  %sub = fadd double %mul, 0xC00B8A7C476D2BE8
-  %sub9 = fsub double 0x400B8A7C476D2BE8, %mul
-  %cond = select i1 %neg, double %sub, double %sub9
-  ret double %cond
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24853,6 +24860,9 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #16

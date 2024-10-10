@@ -1443,7 +1443,7 @@ ehcleanup111:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end114:                                        ; preds = %do.body68
-  %call117 = tail call double @log(double noundef %46) #27, !tbaa !85
+  %call117 = tail call double @llvm.log.f64(double %46), !tbaa !85
   %pastFixings119 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %69 = load i64, ptr %pastFixings119, align 8, !tbaa !87
   %cmp121 = icmp eq i64 %69, 0
@@ -2703,12 +2703,12 @@ for.body438:                                      ; preds = %_ZN8QuantLib12Inter
 
 invoke.cont468:                                   ; preds = %for.body438, %_ZN8QuantLib12InterestRateD2Ev.exit373
   %temp.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ], [ %219, %for.body438 ]
-  %call462 = call double @log(double noundef %call324) #27, !tbaa !85
+  %call462 = call double @llvm.log.f64(double %call324), !tbaa !85
   %mul463 = fmul double %sub671, %call462
   %220 = call double @llvm.fmuladd.f64(double %div670, double %call117, double %mul463)
   %mul464 = fmul double %__init.addr.0.lcssa.i, %212
   %div465 = fdiv double %mul464, %conv669
-  %add466 = fadd double %div465, %220
+  %add466 = fadd double %220, %div465
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %f) #27
   store double 0.000000e+00, ptr %f, align 8, !tbaa !110
   %sigma_.i = getelementptr inbounds nuw i8, ptr %f, i64 8
@@ -2731,13 +2731,12 @@ invoke.cont468:                                   ; preds = %for.body438, %_ZN8Q
   %mul451 = fmul double %div449, %221
   %222 = call double @llvm.fmuladd.f64(double %mul447, double %call307, double %mul451)
   %223 = call double @llvm.fmuladd.f64(double %mul454, double -2.000000e+00, double %222)
-  %call469 = call double @log(double noundef %call324) #27, !tbaa !85
-  %224 = call double @llvm.fmuladd.f64(double %sub432, double %call307, double %call469)
+  %224 = call double @llvm.fmuladd.f64(double %sub432, double %call307, double %call462)
   %sub472 = fsub double %224, %add466
   %div473 = fmul double %mul451, 5.000000e-01
   %sub474 = fsub double %sub472, %div473
   %div475 = fmul double %223, 5.000000e-01
-  %add476 = fadd double %div475, %sub474
+  %add476 = fadd double %sub474, %div475
   %call477 = call double @sqrt(double noundef %223) #27, !tbaa !85
   %div478 = fdiv double %add476, %call477
   %call479 = call double @sqrt(double noundef %223) #27, !tbaa !85
@@ -2772,7 +2771,7 @@ sw.bb:                                            ; preds = %invoke.cont482
           to label %invoke.cont489 unwind label %lpad481
 
 invoke.cont489:                                   ; preds = %sw.bb
-  %add493 = fadd double %div473, %add466
+  %add493 = fadd double %add466, %div473
   %neg495 = fneg double %204
   %228 = call double @llvm.fmuladd.f64(double %neg495, double %call307, double %add493)
   %call496 = call double @exp(double noundef %228) #27, !tbaa !85
@@ -2796,7 +2795,7 @@ sw.bb501:                                         ; preds = %invoke.cont482
           to label %invoke.cont508 unwind label %lpad481
 
 invoke.cont508:                                   ; preds = %sw.bb501
-  %add512 = fadd double %div473, %add466
+  %add512 = fadd double %add466, %div473
   %neg514 = fneg double %204
   %231 = call double @llvm.fmuladd.f64(double %neg514, double %call307, double %add512)
   %call515 = call double @exp(double noundef %231) #27, !tbaa !85
@@ -3212,9 +3211,6 @@ eh.resume:                                        ; preds = %ehcleanup156, %ehcl
 unreachable:                                      ; preds = %invoke.cont542, %invoke.cont347, %invoke.cont184, %invoke.cont140, %invoke.cont95, %invoke.cont48, %invoke.cont13
   unreachable
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(250)) local_unnamed_addr #6
 
@@ -3978,13 +3974,13 @@ unreachable:                                      ; preds = %invoke.cont14
 declare void @_ZNK8QuantLib18YieldTermStructure8zeroRateERKNS_4DateERKNS_10DayCounterENS_11CompoundingENS_9FrequencyEb(ptr dead_on_unwind writable sret(%"class.QuantLib::InterestRate") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #12
+declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #11
+declare double @sqrt(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #11
+declare double @exp(double noundef) local_unnamed_addr #12
 
 declare noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57), double noundef) local_unnamed_addr #6
 
@@ -5563,17 +5559,20 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #24
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5586,8 +5585,8 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn }
 attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind }
@@ -5599,8 +5598,8 @@ attributes #20 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #21 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #27 = { nounwind }
 attributes #28 = { noreturn nounwind }
