@@ -1597,7 +1597,7 @@ arrow/vector_selection_internal.cc.ll 22693329558
 arrow/vector_selection_take_internal.cc.ll 10649428068
 arrow/writer.cc.ll 8354405063
 assimp/3DSConverter.cpp.ll 1417723550
-assimp/3DSExporter.cpp.ll 1498280586
+assimp/3DSExporter.cpp.ll 1499778873
 assimp/3DSLoader.cpp.ll 4439003620
 assimp/ACLoader.cpp.ll 2291320950
 assimp/AMFImporter.cpp.ll 2725415621
