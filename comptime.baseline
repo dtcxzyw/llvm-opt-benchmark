@@ -3344,7 +3344,7 @@ cmake/epoll.c.ll 130829259
 cmake/escape.c.ll 138793191
 cmake/fastcover.c.ll 314387861
 cmake/file.c.ll 130183104
-cmake/filter_buffer_decoder.c.ll 42499610
+cmake/filter_buffer_decoder.c.ll 42542164
 cmake/filter_common.c.ll 113553159
 cmake/filter_encoder.c.ll 80937628
 cmake/filter_fork_posix.c.ll 52440317
@@ -16421,7 +16421,7 @@ luau/Refinement.cpp.ll 193632380
 luau/RegisterCallbacks.cpp.ll 186341209
 luau/Repl.cpp.ll 707597971
 luau/Repl.test.cpp.ll 1442474857
-luau/ReplEntry.cpp.ll 32531120
+luau/ReplEntry.cpp.ll 32563755
 luau/Require.cpp.ll 494625403
 luau/RequireByString.test.cpp.ll 1822181439
 luau/RequireTracer.cpp.ll 805997116
@@ -28946,7 +28946,7 @@ postgres/restrictinfo.ll 145461135
 postgres/rewriteDefine.ll 235084581
 postgres/rewriteHandler.ll 1502840798
 postgres/rewriteSearchCycle.ll 206028747
-postgres/rewriteSupport.ll 45364552
+postgres/rewriteSupport.ll 45410042
 postgres/rewriteheap.ll 245060263
 postgres/ri_triggers.ll 693286134
 postgres/rls.ll 54148953
