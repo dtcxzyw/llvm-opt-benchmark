@@ -27852,7 +27852,7 @@ php/cdf.ll 705032668
 php/cdf_time.ll 104400344
 php/cgi_main.ll 993182178
 php/characterdata.ll 132805446
-php/comment.ll 39277598
+php/comment.ll 39317016
 php/compact_literals.ll 617499134
 php/compact_vars.ll 152139526
 php/compat.ll 185281307
