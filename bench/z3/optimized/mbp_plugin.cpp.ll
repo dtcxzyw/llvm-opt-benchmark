@@ -2657,7 +2657,7 @@ lpad2:                                            ; preds = %_ZN8obj_markI4expr1
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
   br label %ehcleanup
 
-lpad4.loopexit:                                   ; preds = %for.body, %if.then15, %if.else17, %if.then2.i.i.i, %if.then2.i.i.i.i.i23
+lpad4.loopexit:                                   ; preds = %if.then15.invoke, %for.body, %if.then2.i.i.i, %if.then2.i.i.i.i.i23
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
@@ -2677,7 +2677,7 @@ if.else:                                          ; preds = %invoke.cont9
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i25 = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i25, label %land.rhs.i.i.i, label %if.else17
+  br i1 %cmp.i.i.i25, label %land.rhs.i.i.i, label %if.then15.invoke
 
 land.rhs.i.i.i:                                   ; preds = %if.else
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
@@ -2685,7 +2685,7 @@ land.rhs.i.i.i:                                   ; preds = %if.else
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i26 = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i.i.i.i26, label %if.else17, label %_ZNK11ast_manager6is_notEPK4expr.exit.i
+  br i1 %tobool.not.i.i.i.i.i26, label %if.then15.invoke, label %_ZNK11ast_manager6is_notEPK4expr.exit.i
 
 _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %land.rhs.i.i.i
   %32 = load i32, ptr %31, align 8
@@ -2694,26 +2694,27 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %land.rhs.i.i.i
   %33 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %33, 8
   %34 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %34, label %land.lhs.true.i, label %if.else17
+  br i1 %34, label %land.lhs.true.i, label %if.then15.invoke
 
 land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i
   %m_num_args.i.i = getelementptr inbounds i8, ptr %12, i64 24
   %35 = load i32, ptr %m_num_args.i.i, align 8
   %cmp.i = icmp eq i32 %35, 1
-  br i1 %cmp.i, label %if.then15, label %if.else17
+  br i1 %cmp.i, label %if.then15, label %if.then15.invoke
 
 if.then15:                                        ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %12, i64 32
   %36 = load ptr, ptr %m_args.i.i, align 8
-  invoke void @_ZN3mbp14project_plugin13extract_boolsER15model_evaluatorR10ref_vectorI4expr11ast_managerEjPS4_b(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef nonnull align 8 dereferenceable(16) %fmls, i32 noundef %storemerge, ptr noundef %36, i1 noundef zeroext false)
+  br label %if.then15.invoke
+
+if.then15.invoke:                                 ; preds = %land.rhs.i.i.i, %if.else, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.lhs.true.i, %if.then15
+  %37 = phi ptr [ %36, %if.then15 ], [ %12, %land.lhs.true.i ], [ %12, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %12, %if.else ], [ %12, %land.rhs.i.i.i ]
+  %38 = phi i1 [ false, %if.then15 ], [ true, %land.lhs.true.i ], [ true, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ true, %if.else ], [ true, %land.rhs.i.i.i ]
+  invoke void @_ZN3mbp14project_plugin13extract_boolsER15model_evaluatorR10ref_vectorI4expr11ast_managerEjPS4_b(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef nonnull align 8 dereferenceable(16) %fmls, i32 noundef %storemerge, ptr noundef %37, i1 noundef zeroext %38)
           to label %for.inc unwind label %lpad4.loopexit
 
-if.else17:                                        ; preds = %land.lhs.true.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %if.else, %land.rhs.i.i.i
-  invoke void @_ZN3mbp14project_plugin13extract_boolsER15model_evaluatorR10ref_vectorI4expr11ast_managerEjPS4_b(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef nonnull align 8 dereferenceable(16) %fmls, i32 noundef %storemerge, ptr noundef nonnull %12, i1 noundef zeroext true)
-          to label %for.inc unwind label %lpad4.loopexit
-
-for.inc:                                          ; preds = %_ZN3mbp14project_plugin5eraseER10ref_vectorI4expr11ast_managerERj.exit, %if.else17, %if.then15
-  %i.0 = phi i32 [ %dec.i, %_ZN3mbp14project_plugin5eraseER10ref_vectorI4expr11ast_managerERj.exit ], [ %storemerge, %if.then15 ], [ %storemerge, %if.else17 ]
+for.inc:                                          ; preds = %if.then15.invoke, %_ZN3mbp14project_plugin5eraseER10ref_vectorI4expr11ast_managerERj.exit
+  %i.0 = phi i32 [ %dec.i, %_ZN3mbp14project_plugin5eraseER10ref_vectorI4expr11ast_managerERj.exit ], [ %storemerge, %if.then15.invoke ]
   %inc = add i32 %i.0, 1
   br label %for.cond, !llvm.loop !11
 

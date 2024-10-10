@@ -398,24 +398,27 @@ invoke.cont:
 if.then:                                          ; preds = %invoke.cont
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
-  %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(16) %st)
-          to label %if.end7 unwind label %terminate.lpad
+  br label %if.end.i.invoke
 
 if.else:                                          ; preds = %invoke.cont
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i.not = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not, label %if.end7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
   %m_collector = getelementptr inbounds i8, ptr %this, i64 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 32
-  %3 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %m_collector, ptr noundef nonnull align 8 dereferenceable(16) %st)
+  br label %if.end.i.invoke
+
+if.end.i.invoke:                                  ; preds = %if.then, %if.end.i
+  %2 = phi ptr [ %m_collector, %if.end.i ], [ %0, %if.then ]
+  %.in = phi ptr [ %_M_invoker.i, %if.end.i ], [ %vfn, %if.then ]
+  %3 = load ptr, ptr %.in, align 8
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(16) %st)
           to label %if.end7 unwind label %terminate.lpad
 
-if.end7:                                          ; preds = %if.end.i, %if.else, %if.then
+if.end7:                                          ; preds = %if.end.i.invoke, %if.else
   %call9 = invoke noundef i32 @_ZNK10statistics4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %st)
           to label %invoke.cont8 unwind label %terminate.lpad
 
@@ -518,7 +521,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 _ZNSt8functionIFvR10statisticsEED2Ev.exit:        ; preds = %_ZN10statisticsD2Ev.exit, %if.then.i.i
   ret void
 
-terminate.lpad:                                   ; preds = %if.end.i, %invoke.cont26, %if.else25, %invoke.cont22, %invoke.cont20, %invoke.cont19, %if.then18, %if.then15, %if.end11, %if.end7, %if.then
+terminate.lpad:                                   ; preds = %if.end.i.invoke, %invoke.cont26, %if.else25, %invoke.cont22, %invoke.cont20, %invoke.cont19, %if.then18, %if.then15, %if.end11, %if.end7
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0

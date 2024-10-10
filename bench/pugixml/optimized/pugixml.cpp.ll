@@ -21092,7 +21092,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit: ; p
   store ptr null, ptr %_result, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i.i, %if.else, %invoke.cont21, %if.then16, %if.then6
+lpad:                                             ; preds = %invoke.cont21.invoke, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i.i, %if.else, %if.then6
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i17
@@ -21107,46 +21107,51 @@ if.else14:                                        ; preds = %call6.i.i.i.noexc, 
 if.then16:                                        ; preds = %if.else14
   %exception17 = call ptr @__cxa_allocate_exception(i64 8) #44
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception17, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
-          to label %unreachable unwind label %lpad
+  br label %invoke.cont21.invoke
 
 if.end:                                           ; preds = %if.else14
   %exception18 = call ptr @__cxa_allocate_exception(i64 24) #44
   invoke void @_ZN4pugi15xpath_exceptionC1ERKNS_18xpath_parse_resultE(ptr noundef nonnull align 8 dereferenceable(24) %exception18, ptr noundef nonnull align 8 dereferenceable(16) %_result)
-          to label %invoke.cont21 unwind label %lpad20
+          to label %invoke.cont21.invoke unwind label %lpad20
 
-invoke.cont21:                                    ; preds = %if.end
-  invoke void @__cxa_throw(ptr %exception18, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #46
-          to label %unreachable unwind label %lpad
+invoke.cont21.invoke:                             ; preds = %if.end, %if.then16
+  %8 = phi ptr [ %exception17, %if.then16 ], [ %exception18, %if.end ]
+  %9 = phi ptr [ @_ZTISt9bad_alloc, %if.then16 ], [ @_ZTIN4pugi15xpath_exceptionE, %if.end ]
+  %10 = phi ptr [ @_ZNSt9bad_allocD1Ev, %if.then16 ], [ @_ZN4pugi15xpath_exceptionD2Ev, %if.end ]
+  invoke void @__cxa_throw(ptr %8, ptr nonnull %9, ptr nonnull %10) #46
+          to label %invoke.cont21.cont unwind label %lpad
+
+invoke.cont21.cont:                               ; preds = %invoke.cont21.invoke
+  unreachable
 
 lpad20:                                           ; preds = %if.end
-  %8 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception18) #44
   br label %if.then.i17
 
 if.then.i17:                                      ; preds = %lpad, %lpad20
-  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %8, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %11, %lpad20 ]
   %alloc.val.i = load ptr, ptr %alloc.i.i, align 8
-  %9 = load ptr, ptr %alloc.val.i, align 8
-  %tobool.not1.i.i = icmp eq ptr %9, null
+  %12 = load ptr, ptr %alloc.val.i, align 8
+  %tobool.not1.i.i = icmp eq ptr %12, null
   br i1 %tobool.not1.i.i, label %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator7releaseEv.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i17, %.noexc
-  %10 = phi ptr [ %12, %.noexc ], [ %9, %if.then.i17 ]
-  %cur.02.i.i = phi ptr [ %10, %.noexc ], [ %alloc.val.i, %if.then.i17 ]
-  %11 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
-  invoke void %11(ptr noundef nonnull %cur.02.i.i)
+  %13 = phi ptr [ %15, %.noexc ], [ %12, %if.then.i17 ]
+  %cur.02.i.i = phi ptr [ %13, %.noexc ], [ %alloc.val.i, %if.then.i17 ]
+  %14 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
+  invoke void %14(ptr noundef nonnull %cur.02.i.i)
           to label %.noexc unwind label %terminate.lpad.i18.loopexit
 
 .noexc:                                           ; preds = %while.body.i.i
-  %12 = load ptr, ptr %10, align 8
-  %tobool.not.i.i23 = icmp eq ptr %12, null
+  %15 = load ptr, ptr %13, align 8
+  %tobool.not.i.i23 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i23, label %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator7releaseEv.exit.i, label %while.body.i.i, !llvm.loop !171
 
 _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator7releaseEv.exit.i: ; preds = %.noexc, %if.then.i17
-  %13 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
-  invoke void %13(ptr noundef nonnull %call.i)
+  %16 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
+  invoke void %16(ptr noundef nonnull %call.i)
           to label %_ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit20 unwind label %terminate.lpad.i18.loopexit.split-lp
 
 terminate.lpad.i18.loopexit:                      ; preds = %while.body.i.i
@@ -21161,15 +21166,12 @@ terminate.lpad.i18.loopexit.split-lp:             ; preds = %_ZN4pugi4impl12_GLO
 
 terminate.lpad.i18:                               ; preds = %terminate.lpad.i18.loopexit.split-lp, %terminate.lpad.i18.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.i18.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.i18.loopexit.split-lp ]
-  %14 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %14) #43
+  %17 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %17) #43
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit20: ; preds = %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator7releaseEv.exit.i
   resume { ptr, i32 } %.pn
-
-unreachable:                                      ; preds = %invoke.cont21, %if.then16
-  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable

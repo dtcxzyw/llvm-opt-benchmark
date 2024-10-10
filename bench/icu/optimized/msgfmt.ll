@@ -4239,7 +4239,7 @@ lpad.loopexit:                                    ; preds = %if.else.i.i.i179
           cleanup
   br label %common.resume
 
-lpad.loopexit.split-lp:                           ; preds = %invoke.cont169.invoke, %if.else77.invoke, %if.then52, %if.else121, %land.lhs.true128, %if.then134, %if.else143, %if.then147, %if.else151, %invoke.cont152, %if.then159, %if.end164, %invoke.cont166, %if.then176, %if.end181, %invoke.cont185, %if.then199, %invoke.cont202, %if.then62, %_ZN6icu_7517AppendableWrapper6appendERKNS_13UnicodeStringE.exit.i214, %if.end.i, %if.then.i286
+lpad.loopexit.split-lp:                           ; preds = %invoke.cont169.invoke, %if.else77.invoke, %if.then52, %land.lhs.true128, %if.then134, %if.else143, %if.then147, %if.else151, %invoke.cont152, %if.then159, %if.end164, %invoke.cont166, %if.then176, %if.end181, %invoke.cont185, %if.then199, %invoke.cont202, %if.then62, %_ZN6icu_7517AppendableWrapper6appendERKNS_13UnicodeStringE.exit.i214, %if.end.i, %if.then.i286
   %lpad.loopexit.split-lp332 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -4470,9 +4470,9 @@ if.else77:                                        ; preds = %if.then69
   %88 = load ptr, ptr %formatter78, align 8
   br label %if.else77.invoke
 
-if.else77.invoke:                                 ; preds = %if.then147, %if.then138, %delete.end.i295, %if.else.i296, %if.then9.i297, %if.else.i207, %if.else77
-  %89 = phi ptr [ %88, %if.else77 ], [ %87, %if.else.i207 ], [ null, %delete.end.i295 ], [ %.pre.i298, %if.then9.i297 ], [ %call.i288299, %if.else.i296 ], [ %116, %if.then138 ], [ %call149, %if.then147 ]
-  %90 = phi ptr [ %arg.0313347, %if.else77 ], [ %number74, %if.else.i207 ], [ %arg.0313347, %delete.end.i295 ], [ %arg.0313347, %if.then9.i297 ], [ %arg.0313347, %if.else.i296 ], [ %arg.0313347, %if.then138 ], [ %arg.0313347, %if.then147 ]
+if.else77.invoke:                                 ; preds = %if.then147, %if.then138, %delete.end.i295, %if.else.i296, %if.then9.i297, %dynamic_cast.end95, %if.else.i207, %if.else77
+  %89 = phi ptr [ %88, %if.else77 ], [ %87, %if.else.i207 ], [ %call.i238242, %dynamic_cast.end95 ], [ null, %delete.end.i295 ], [ %.pre.i298, %if.then9.i297 ], [ %call.i288299, %if.else.i296 ], [ %116, %if.then138 ], [ %call149, %if.then147 ]
+  %90 = phi ptr [ %arg.0313347, %if.else77 ], [ %number74, %if.else.i207 ], [ %arg.0313347, %dynamic_cast.end95 ], [ %arg.0313347, %delete.end.i295 ], [ %arg.0313347, %if.then9.i297 ], [ %arg.0313347, %if.else.i296 ], [ %arg.0313347, %if.then138 ], [ %arg.0313347, %if.then147 ]
   invoke void @_ZN6icu_7517AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %appendTo, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(112) %90, ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
@@ -4507,7 +4507,7 @@ dynamic_cast.end90:                               ; preds = %dynamic_cast.end
 dynamic_cast.end95:                               ; preds = %dynamic_cast.end90
   %95 = call ptr @__dynamic_cast(ptr nonnull %call.i238242, ptr nonnull @_ZTIN6icu_756FormatE, ptr nonnull @_ZTIN6icu_7512SelectFormatE, i64 0) #20
   %tobool96.not = icmp eq ptr %95, null
-  br i1 %tobool96.not, label %if.else121, label %invoke.cont98
+  br i1 %tobool96.not, label %if.else77.invoke, label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %dynamic_cast.end, %dynamic_cast.end90, %dynamic_cast.end95
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %subMsgString, align 8
@@ -4611,10 +4611,6 @@ ehcleanup:                                        ; preds = %lpad116, %lpad99
   %.pn = phi { ptr, i32 } [ %104, %lpad116 ], [ %103, %lpad99 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %subMsgString) #20
   br label %common.resume
-
-if.else121:                                       ; preds = %dynamic_cast.end95
-  invoke void @_ZN6icu_7517AppendableWrapper15formatAndAppendEPKNS_6FormatERKNS_11FormattableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(12) %appendTo, ptr noundef nonnull %call.i238242, ptr noundef nonnull align 8 dereferenceable(112) %arg.0313347, ptr noundef nonnull align 4 dereferenceable(4) %success)
-          to label %cleanup unwind label %lpad.loopexit.split-lp
 
 if.else124:                                       ; preds = %call.i238.noexc, %dynamic_cast.end.i, %if.else81
   %cmp125 = icmp eq i32 %retval.0.i, 0
@@ -4788,7 +4784,7 @@ cleanup.thread:                                   ; preds = %if.else172, %invoke
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %argName) #20
   br label %for.end
 
-cleanup:                                          ; preds = %invoke.cont169.invoke, %if.else77.invoke, %invoke.cont59, %invoke.cont152, %invoke.cont195, %if.end120, %if.else121, %_ZN6icu_7517AppendableWrapper6appendEPKDsi.exit, %if.then.i208, %call3.i.i222.noexc
+cleanup:                                          ; preds = %invoke.cont169.invoke, %if.else77.invoke, %invoke.cont59, %invoke.cont152, %invoke.cont195, %if.end120, %_ZN6icu_7517AppendableWrapper6appendEPKDsi.exit, %if.then.i208, %call3.i.i222.noexc
   %121 = load ptr, ptr %parts.i, align 8
   %idxprom.i304 = sext i32 %start..i to i64
   %arrayidx.i305 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %121, i64 %idxprom.i304

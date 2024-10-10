@@ -998,7 +998,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
   br label %cleanup
 
-lpad:                                             ; preds = %if.then52.invoke, %if.then86.invoke, %if.end90, %if.then74, %if.else, %if.then47, %if.end41, %if.end27, %if.then24, %if.then17, %if.end8, %entry
+lpad:                                             ; preds = %if.then86.invoke, %if.end90, %if.then74, %if.else, %if.then47, %if.end41, %if.end27, %if.then24, %if.then17, %if.end8, %entry
   %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup94
@@ -1075,7 +1075,7 @@ invoke.cont32:                                    ; preds = %if.end27
   br i1 %cmp34, label %if.then35, label %if.end41
 
 if.then35:                                        ; preds = %invoke.cont32
-  br i1 %log_errors, label %if.then52.invoke, label %cleanup
+  br i1 %log_errors, label %if.then86.invoke, label %cleanup
 
 if.end41:                                         ; preds = %invoke.cont32
   %add.ptr = getelementptr inbounds i8, ptr %call13, i64 1
@@ -1100,19 +1100,12 @@ if.then47:                                        ; preds = %invoke.cont44
 invoke.cont49:                                    ; preds = %if.then47
   store i32 %call50, ptr %sin6_scope_id, align 4
   %cmp51 = icmp eq i32 %call50, 0
-  br i1 %cmp51, label %if.then52.invoke, label %if.end56
-
-if.then52.invoke:                                 ; preds = %invoke.cont49, %if.then35
-  %9 = phi i32 [ 300, %if.then35 ], [ 308, %invoke.cont49 ]
-  %10 = phi ptr [ @.str.22, %if.then35 ], [ @.str.23, %invoke.cont49 ]
-  %11 = phi ptr [ %host_without_scope, %if.then35 ], [ %add.ptr, %invoke.cont49 ]
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %11)
-          to label %cleanup unwind label %lpad
+  br i1 %cmp51, label %if.then86.invoke, label %if.end56
 
 if.end56:                                         ; preds = %invoke.cont44.if.end56_crit_edge, %invoke.cont49
-  %12 = phi i32 [ %.pre, %invoke.cont44.if.end56_crit_edge ], [ %call50, %invoke.cont49 ]
+  %9 = phi i32 [ %.pre, %invoke.cont44.if.end56_crit_edge ], [ %call50, %invoke.cont49 ]
   %sin6_scope_id57 = getelementptr inbounds i8, ptr %addr, i64 24
-  store i32 %12, ptr %sin6_scope_id57, align 4
+  store i32 %9, ptr %sin6_scope_id57, align 4
   br label %if.end70
 
 if.else:                                          ; preds = %invoke.cont12
@@ -1125,7 +1118,7 @@ invoke.cont60:                                    ; preds = %if.else
   br i1 %cmp62, label %if.then63, label %if.end70
 
 if.then63:                                        ; preds = %invoke.cont60
-  br i1 %log_errors, label %if.then86.invoke, label %cleanup
+  br i1 %log_errors, label %if.then86.invoke.sink.split, label %cleanup
 
 if.end70:                                         ; preds = %invoke.cont60, %if.end56
   %call71 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %port) #19
@@ -1142,24 +1135,30 @@ if.end77:                                         ; preds = %if.end70
   %call78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port) #19
   %call79 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call78, ptr noundef nonnull @.str.15, ptr noundef nonnull %port_num) #19
   %cmp80 = icmp ne i32 %call79, 1
-  %13 = load i32, ptr %port_num, align 4
-  %14 = icmp ugt i32 %13, 65535
-  %or.cond1 = select i1 %cmp80, i1 true, i1 %14
+  %10 = load i32, ptr %port_num, align 4
+  %11 = icmp ugt i32 %10, 65535
+  %or.cond1 = select i1 %cmp80, i1 true, i1 %11
   br i1 %or.cond1, label %if.then84, label %if.end90
 
 if.then84:                                        ; preds = %if.end77
-  br i1 %log_errors, label %if.then86.invoke, label %cleanup
+  br i1 %log_errors, label %if.then86.invoke.sink.split, label %cleanup
 
-if.then86.invoke:                                 ; preds = %if.then84, %if.then63
+if.then86.invoke.sink.split:                      ; preds = %if.then84, %if.then63
   %host.sink = phi ptr [ %host, %if.then63 ], [ %port, %if.then84 ]
-  %15 = phi i32 [ 320, %if.then63 ], [ 333, %if.then84 ]
-  %16 = phi ptr [ @.str.22, %if.then63 ], [ @.str.25, %if.then84 ]
+  %.ph = phi i32 [ 320, %if.then63 ], [ 333, %if.then84 ]
+  %.ph26 = phi ptr [ @.str.22, %if.then63 ], [ @.str.25, %if.then84 ]
   %call66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host.sink) #19
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %16, ptr noundef %call66)
+  br label %if.then86.invoke
+
+if.then86.invoke:                                 ; preds = %if.then86.invoke.sink.split, %invoke.cont49, %if.then35
+  %12 = phi i32 [ 300, %if.then35 ], [ 308, %invoke.cont49 ], [ %.ph, %if.then86.invoke.sink.split ]
+  %13 = phi ptr [ @.str.22, %if.then35 ], [ @.str.23, %invoke.cont49 ], [ %.ph26, %if.then86.invoke.sink.split ]
+  %14 = phi ptr [ %host_without_scope, %if.then35 ], [ %add.ptr, %invoke.cont49 ], [ %call66, %if.then86.invoke.sink.split ]
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %12, i32 noundef 2, ptr noundef nonnull %13, ptr noundef %14)
           to label %cleanup unwind label %lpad
 
 if.end90:                                         ; preds = %if.end77
-  %conv = trunc nuw i32 %13 to i16
+  %conv = trunc nuw i32 %10 to i16
   %call92 = invoke noundef zeroext i16 @_Z10grpc_htonst(i16 noundef zeroext %conv)
           to label %invoke.cont91 unwind label %lpad
 
@@ -1168,8 +1167,8 @@ invoke.cont91:                                    ; preds = %if.end90
   store i16 %call92, ptr %sin6_port, align 2
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then52.invoke, %if.then86.invoke, %invoke.cont91, %if.then24, %if.then22, %if.then35, %if.then63, %if.then74, %if.then72, %if.then84, %if.then, %invoke.cont7
-  %retval.0 = phi i1 [ false, %invoke.cont7 ], [ false, %if.then ], [ false, %if.then24 ], [ false, %if.then22 ], [ false, %if.then35 ], [ false, %if.then74 ], [ false, %if.then72 ], [ false, %if.then84 ], [ true, %invoke.cont91 ], [ false, %if.then63 ], [ false, %if.then86.invoke ], [ false, %if.then52.invoke ]
+cleanup:                                          ; preds = %if.then86.invoke, %invoke.cont91, %if.then24, %if.then22, %if.then35, %if.then63, %if.then74, %if.then72, %if.then84, %if.then, %invoke.cont7
+  %retval.0 = phi i1 [ false, %invoke.cont7 ], [ false, %if.then ], [ false, %if.then24 ], [ false, %if.then22 ], [ false, %if.then35 ], [ false, %if.then74 ], [ false, %if.then72 ], [ false, %if.then84 ], [ true, %invoke.cont91 ], [ false, %if.then63 ], [ false, %if.then86.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host) #19
   ret i1 %retval.0

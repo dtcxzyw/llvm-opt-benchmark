@@ -14379,12 +14379,12 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE12emplace_backIJRPNS1_4WireERiEEEvDpOT
           cleanup
   br label %.loopexit.split-lp.i428
 
-.loopexit.split-lp.loopexit.i435:                 ; preds = %6183, %6181, %6177, %6175, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i, %6172, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit256.i, %6169, %._crit_edge717.i
+.loopexit.split-lp.loopexit.i435:                 ; preds = %6183, %.invoke1016.i, %6176, %6174, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i, %6171, %6169, %._crit_edge717.i
   %lpad.loopexit448.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i428
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.i431: ; preds = %5895, %5891, %5889, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i, %5886, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.i, %5883, %5875
+.loopexit.split-lp.loopexit.split-lp.loopexit.i431: ; preds = %5893, %5891, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i, %5888, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.invoke.i, %5883, %5875
   %lpad.loopexit452.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i428
@@ -14658,39 +14658,37 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit243.i430: ; preds = %._crit_e
   %5880 = load i32, ptr %5879, align 4
   %5881 = icmp eq i32 %5880, 1
   %5882 = getelementptr inbounds i8, ptr %5878, i64 72
-  br i1 %5881, label %5883, label %5886
+  br i1 %5881, label %5883, label %5888
 
 5883:                                             ; preds = %5877
   %5884 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %5882)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.invoke.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.i: ; preds = %5883
-  %5885 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef %5884)
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.invoke.i: ; preds = %5893, %5883
+  %5885 = phi ptr [ %4860, %5883 ], [ %5896, %5893 ]
+  %5886 = phi ptr [ %5884, %5883 ], [ @.str.183, %5893 ]
+  %5887 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5885, ptr noundef %5886)
           to label %5897 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
 
-5886:                                             ; preds = %5877
-  %5887 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %5882)
+5888:                                             ; preds = %5877
+  %5889 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %5882)
           to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i: ; preds = %5886
-  %5888 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef %5887)
-          to label %5889 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
-
-5889:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i
-  %5890 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5888, ptr noundef nonnull @.str.182)
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i: ; preds = %5888
+  %5890 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef %5889)
           to label %5891 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
 
-5891:                                             ; preds = %5889
-  %5892 = getelementptr inbounds i8, ptr %.sroa.0312.0709.i, i64 8
-  %5893 = load i32, ptr %5892, align 8
-  %5894 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5890, i32 noundef %5893)
-          to label %5895 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
+5891:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit247.i
+  %5892 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5890, ptr noundef nonnull @.str.182)
+          to label %5893 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
 
-5895:                                             ; preds = %5891
-  %5896 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5894, ptr noundef nonnull @.str.183)
-          to label %5897 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
+5893:                                             ; preds = %5891
+  %5894 = getelementptr inbounds i8, ptr %.sroa.0312.0709.i, i64 8
+  %5895 = load i32, ptr %5894, align 8
+  %5896 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5892, i32 noundef %5895)
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.invoke.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i431
 
-5897:                                             ; preds = %5895, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.i
+5897:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit245.invoke.i
   %5898 = getelementptr inbounds i8, ptr %.sroa.0312.0709.i, i64 16
   %.not422.i = icmp eq ptr %5898, %.sroa.8.2.lcssa.i
   br i1 %.not422.i, label %._crit_edge712.i, label %.lr.ph711.i
@@ -15231,39 +15229,37 @@ _ZN5Yosys10TimingInfo6BitBitD2Ev.exit.i:          ; preds = %6148, %6141, %_ZN5Y
   %6166 = load i32, ptr %6165, align 4
   %6167 = icmp eq i32 %6166, 1
   %6168 = getelementptr inbounds i8, ptr %6164, i64 72
-  br i1 %6167, label %6169, label %6172
+  br i1 %6167, label %6169, label %6171
 
 6169:                                             ; preds = %6163
   %6170 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %6168)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit256.i unwind label %.loopexit.split-lp.loopexit.i435
+          to label %.invoke1016.i unwind label %.loopexit.split-lp.loopexit.i435
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit256.i: ; preds = %6169
-  %6171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef %6170)
-          to label %6183 unwind label %.loopexit.split-lp.loopexit.i435
-
-6172:                                             ; preds = %6163
-  %6173 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %6168)
+6171:                                             ; preds = %6163
+  %6172 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %6168)
           to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i unwind label %.loopexit.split-lp.loopexit.i435
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i: ; preds = %6172
-  %6174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef %6173)
-          to label %6175 unwind label %.loopexit.split-lp.loopexit.i435
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i: ; preds = %6171
+  %6173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef %6172)
+          to label %6174 unwind label %.loopexit.split-lp.loopexit.i435
 
-6175:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i
-  %6176 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6174, ptr noundef nonnull @.str.182)
-          to label %6177 unwind label %.loopexit.split-lp.loopexit.i435
+6174:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit258.i
+  %6175 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6173, ptr noundef nonnull @.str.182)
+          to label %6176 unwind label %.loopexit.split-lp.loopexit.i435
 
-6177:                                             ; preds = %6175
-  %6178 = getelementptr inbounds i8, ptr %.sroa.0308.0719.i, i64 8
-  %6179 = load i32, ptr %6178, align 8
-  %6180 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6176, i32 noundef %6179)
-          to label %6181 unwind label %.loopexit.split-lp.loopexit.i435
+6176:                                             ; preds = %6174
+  %6177 = getelementptr inbounds i8, ptr %.sroa.0308.0719.i, i64 8
+  %6178 = load i32, ptr %6177, align 8
+  %6179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6175, i32 noundef %6178)
+          to label %.invoke1016.i unwind label %.loopexit.split-lp.loopexit.i435
 
-6181:                                             ; preds = %6177
-  %6182 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6180, ptr noundef nonnull @.str.183)
+.invoke1016.i:                                    ; preds = %6176, %6169
+  %6180 = phi ptr [ %4860, %6169 ], [ %6179, %6176 ]
+  %6181 = phi ptr [ %6170, %6169 ], [ @.str.183, %6176 ]
+  %6182 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6180, ptr noundef %6181)
           to label %6183 unwind label %.loopexit.split-lp.loopexit.i435
 
-6183:                                             ; preds = %6181, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit256.i
+6183:                                             ; preds = %.invoke1016.i
   %6184 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %4860, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %6185 unwind label %.loopexit.split-lp.loopexit.i435
 

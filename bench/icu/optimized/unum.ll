@@ -2014,7 +2014,7 @@ if.then1:                                         ; preds = %dynamic_cast.end
     i32 5, label %sw.bb18
   ]
 
-lpad:                                             ; preds = %sw.bb14.invoke, %if.then28, %invoke.cont19, %sw.bb18
+lpad:                                             ; preds = %sw.bb14.invoke, %if.then28.invoke, %sw.bb18
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %val) #10
@@ -2042,36 +2042,32 @@ sw.bb14.invoke:                                   ; preds = %if.then1, %sw.bb2, 
 
 sw.bb18:                                          ; preds = %if.then1
   %call20 = invoke noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %val)
-          to label %invoke.cont19 unwind label %lpad
-
-invoke.cont19:                                    ; preds = %sw.bb18
-  %vtable21 = load ptr, ptr %2, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 248
-  %5 = load ptr, ptr %vfn22, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(368) %2, ptr noundef %call20, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %if.end34 unwind label %lpad
+          to label %if.then28.invoke unwind label %lpad
 
 dynamic_cast.notnull24:                           ; preds = %dynamic_cast.end
-  %6 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7521RuleBasedNumberFormatE, i64 0) #10
+  %5 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7521RuleBasedNumberFormatE, i64 0) #10
   br label %dynamic_cast.end26
 
 dynamic_cast.end26:                               ; preds = %if.end, %dynamic_cast.notnull24
-  %7 = phi ptr [ %6, %dynamic_cast.notnull24 ], [ null, %if.end ]
+  %6 = phi ptr [ %5, %dynamic_cast.notnull24 ], [ null, %if.end ]
   %cmp27 = icmp eq i32 %tag, 6
-  br i1 %cmp27, label %if.then28, label %if.end34.sink.split
+  br i1 %cmp27, label %if.then28.invoke, label %if.end34.sink.split
 
-if.then28:                                        ; preds = %dynamic_cast.end26
-  %vtable29 = load ptr, ptr %7, align 8
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 376
-  %8 = load ptr, ptr %vfn30, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(752) %7, ptr noundef nonnull align 8 dereferenceable(64) %val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+if.then28.invoke:                                 ; preds = %dynamic_cast.end26, %sw.bb18
+  %.sink15 = phi ptr [ %2, %sw.bb18 ], [ %6, %dynamic_cast.end26 ]
+  %.sink14 = phi i64 [ 248, %sw.bb18 ], [ 376, %dynamic_cast.end26 ]
+  %7 = phi ptr [ %call20, %sw.bb18 ], [ %val, %dynamic_cast.end26 ]
+  %vtable21 = load ptr, ptr %.sink15, align 8
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 %.sink14
+  %8 = load ptr, ptr %vfn22, align 8
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(368) %.sink15, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end34 unwind label %lpad
 
 if.end34.sink.split:                              ; preds = %dynamic_cast.end26, %if.then1
   store i32 16, ptr %status, align 4
   br label %if.end34
 
-if.end34:                                         ; preds = %if.end34.sink.split, %sw.bb14.invoke, %if.then28, %invoke.cont19
+if.end34:                                         ; preds = %if.end34.sink.split, %sw.bb14.invoke, %if.then28.invoke
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %val) #10
   br label %return
 

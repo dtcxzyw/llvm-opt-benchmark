@@ -2330,6 +2330,8 @@ entry:
   %cmp.not = icmp eq i8 %source, 1
   %enable_custom_split_merge3.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 144
   %.pre = load i8, ptr %enable_custom_split_merge3.phi.trans.insert, align 8
+  %ref.tmp102.sink97.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
+  %ref.tmp102.sink97.sroa.gep98 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -2541,7 +2543,7 @@ lpad27.loopexit:                                  ; preds = %if.end.i72
           cleanup
   br label %ehcleanup
 
-lpad27.loopexit.split-lp:                         ; preds = %invoke.cont90, %if.else, %invoke.cont98, %if.end35
+lpad27.loopexit.split-lp:                         ; preds = %invoke.cont90.invoke, %if.else, %if.end35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2859,42 +2861,39 @@ invoke.cont90:                                    ; preds = %call18.i.noexc, %if
   store ptr null, ptr %current_chunk.0.lcssa.i, align 8
   %dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0..i = load ptr, ptr %dummy_head.sroa.0.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dummy_head.sroa.0.i)
-  %cache_ = getelementptr inbounds i8, ptr %this, i64 32
-  %66 = load ptr, ptr %cache_, align 8
-  store ptr @.str.3, ptr %ref.tmp93, align 8
-  %size_.i75 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
-  store i64 0, ptr %size_.i75, align 8
-  %vtable = load ptr, ptr %66, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %67 = load ptr, ptr %vfn, align 8
-  invoke void %67(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %66, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0..i, ptr noundef nonnull %retval.0.i, i64 noundef %charge.0, ptr noundef null, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp93, i8 noundef zeroext 0)
+  br label %invoke.cont90.invoke
+
+invoke.cont90.invoke:                             ; preds = %invoke.cont98, %invoke.cont90
+  %ref.tmp102.sink97.sroa.phi = phi ptr [ %ref.tmp102.sink97.sroa.gep, %invoke.cont98 ], [ %ref.tmp102.sink97.sroa.gep98, %invoke.cont90 ]
+  %ref.tmp102.sink97 = phi ptr [ %ref.tmp102, %invoke.cont98 ], [ %ref.tmp93, %invoke.cont90 ]
+  %66 = phi ptr [ %call99, %invoke.cont98 ], [ %dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0..i, %invoke.cont90 ]
+  %67 = phi i64 [ %total_size.0, %invoke.cont98 ], [ %charge.0, %invoke.cont90 ]
+  %cache_100 = getelementptr inbounds i8, ptr %this, i64 32
+  %68 = load ptr, ptr %cache_100, align 8
+  store ptr @.str.3, ptr %ref.tmp102.sink97, align 8
+  store i64 0, ptr %ref.tmp102.sink97.sroa.phi, align 8
+  %vtable104 = load ptr, ptr %68, align 8
+  %vfn105 = getelementptr inbounds i8, ptr %vtable104, i64 24
+  %69 = load ptr, ptr %vfn105, align 8
+  invoke void %69(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %68, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %66, ptr noundef nonnull %retval.0.i, i64 noundef %67, ptr noundef null, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102.sink97, i8 noundef zeroext 0)
           to label %cleanup107 unwind label %lpad27.loopexit.split-lp
 
 if.else:                                          ; preds = %if.end83
-  %68 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull align 1 %header, i64 %sub.ptr.sub, i1 false)
+  %70 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %header, i64 %sub.ptr.sub, i1 false)
   %call99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %invoke.cont98 unwind label %lpad27.loopexit.split-lp
 
 invoke.cont98:                                    ; preds = %if.else
-  %69 = ptrtoint ptr %68 to i64
-  %70 = load i64, ptr %ptr, align 8
-  store i64 %70, ptr %call99, align 8
-  %71 = getelementptr inbounds i8, ptr %call99, i64 8
-  store i64 %69, ptr %71, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = load i64, ptr %ptr, align 8
+  store i64 %72, ptr %call99, align 8
+  %73 = getelementptr inbounds i8, ptr %call99, i64 8
+  store i64 %71, ptr %73, align 8
   store ptr null, ptr %8, align 8
-  %cache_100 = getelementptr inbounds i8, ptr %this, i64 32
-  %72 = load ptr, ptr %cache_100, align 8
-  store ptr @.str.3, ptr %ref.tmp102, align 8
-  %size_.i78 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
-  store i64 0, ptr %size_.i78, align 8
-  %vtable104 = load ptr, ptr %72, align 8
-  %vfn105 = getelementptr inbounds i8, ptr %vtable104, i64 24
-  %73 = load ptr, ptr %vfn105, align 8
-  invoke void %73(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull %call99, ptr noundef nonnull %retval.0.i, i64 noundef %total_size.0, ptr noundef null, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102, i8 noundef zeroext 0)
-          to label %cleanup107 unwind label %lpad27.loopexit.split-lp
+  br label %invoke.cont90.invoke
 
-cleanup107:                                       ; preds = %invoke.cont98, %invoke.cont90, %_ZN7rocksdb18CompressionContextD2Ev.exit
+cleanup107:                                       ; preds = %invoke.cont90.invoke, %_ZN7rocksdb18CompressionContextD2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_val) #23
   br label %cleanup108
 

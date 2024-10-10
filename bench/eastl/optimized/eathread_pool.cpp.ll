@@ -175,7 +175,7 @@ invoke.cont3:                                     ; preds = %if.then.i3.i, %if.e
 invoke.cont5:                                     ; preds = %invoke.cont3
   %tobool.not = icmp eq ptr %pThreadPoolParameters, null
   %brmerge.not = and i1 %tobool.not, %bDefaultParameters
-  br i1 %brmerge.not, label %if.then, label %if.else
+  br i1 %brmerge.not, label %if.then, label %if.else.invoke
 
 if.then:                                          ; preds = %invoke.cont5
   store i32 0, ptr %parameters, align 8
@@ -191,11 +191,7 @@ if.then:                                          ; preds = %invoke.cont5
   store i32 -1, ptr %mnProcessorMask.i, align 8
   %mDefaultThreadParameters.i = getelementptr inbounds i8, ptr %parameters, i64 40
   invoke void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters.i)
-          to label %invoke.cont8 unwind label %lpad7
-
-invoke.cont8:                                     ; preds = %if.then
-  %call = invoke noundef zeroext i1 @_ZN2EA6Thread10ThreadPool4InitEPKNS0_20ThreadPoolParametersE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull %parameters)
-          to label %if.end unwind label %lpad7
+          to label %if.else.invoke unwind label %lpad7
 
 lpad:                                             ; preds = %entry
   %11 = landingpad { ptr, i32 }
@@ -212,17 +208,18 @@ lpad4:                                            ; preds = %invoke.cont3
           cleanup
   br label %ehcleanup
 
-lpad7:                                            ; preds = %if.then, %if.else, %invoke.cont8
+lpad7:                                            ; preds = %if.else.invoke, %if.then
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList) #15
   br label %ehcleanup
 
-if.else:                                          ; preds = %invoke.cont5
-  %call11 = invoke noundef zeroext i1 @_ZN2EA6Thread10ThreadPool4InitEPKNS0_20ThreadPoolParametersE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pThreadPoolParameters)
+if.else.invoke:                                   ; preds = %if.then, %invoke.cont5
+  %15 = phi ptr [ %pThreadPoolParameters, %invoke.cont5 ], [ %parameters, %if.then ]
+  %16 = invoke noundef zeroext i1 @_ZN2EA6Thread10ThreadPool4InitEPKNS0_20ThreadPoolParametersE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %15)
           to label %if.end unwind label %lpad7
 
-if.end:                                           ; preds = %if.else, %invoke.cont8
+if.end:                                           ; preds = %if.else.invoke
   ret void
 
 ehcleanup:                                        ; preds = %lpad7, %lpad4

@@ -475,7 +475,7 @@ entry:
   switch i32 %0, label %nrvo.skipdtor [
     i32 1, label %sw.bb
     i32 0, label %sw.bb
-    i32 2, label %sw.bb2.invoke
+    i32 2, label %sw.bb.invoke
     i32 3, label %sw.bb5
     i32 4, label %sw.bb8
     i32 5, label %sw.bb11
@@ -487,7 +487,11 @@ entry:
 sw.bb:                                            ; preds = %entry, %entry
   %m_unknown = getelementptr inbounds i8, ptr %this, i64 9888
   %1 = load ptr, ptr %m_unknown, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %1)
+  br label %sw.bb.invoke
+
+sw.bb.invoke:                                     ; preds = %entry, %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb8, %sw.bb5, %sw.bb
+  %2 = phi ptr [ %1, %sw.bb ], [ @.str.19, %sw.bb5 ], [ @.str.20, %sw.bb8 ], [ @.str.23, %sw.bb26 ], [ @.str.24, %sw.bb29 ], [ @.str.25, %sw.bb32 ], [ @.str.18, %entry ]
+  %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %2)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %for.body, %invoke.cont18, %invoke.cont20
@@ -495,7 +499,7 @@ lpad.loopexit:                                    ; preds = %for.body, %invoke.c
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp:                           ; preds = %sw.bb2.invoke, %sw.bb, %sw.bb11, %for.end
+lpad.loopexit.split-lp:                           ; preds = %sw.bb.invoke, %sw.bb11, %for.end
   %lpad.loopexit.split-lp5 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -505,16 +509,11 @@ lpad:                                             ; preds = %lpad.loopexit.split
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   resume { ptr, i32 } %lpad.phi
 
-sw.bb2.invoke:                                    ; preds = %entry, %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb8, %sw.bb5
-  %2 = phi ptr [ @.str.19, %sw.bb5 ], [ @.str.20, %sw.bb8 ], [ @.str.23, %sw.bb26 ], [ @.str.24, %sw.bb29 ], [ @.str.25, %sw.bb32 ], [ @.str.18, %entry ]
-  %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %2)
-          to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
-
 sw.bb5:                                           ; preds = %entry
-  br label %sw.bb2.invoke
+  br label %sw.bb.invoke
 
 sw.bb8:                                           ; preds = %entry
-  br label %sw.bb2.invoke
+  br label %sw.bb.invoke
 
 sw.bb11:                                          ; preds = %entry
   %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.21)
@@ -561,15 +560,15 @@ for.end:                                          ; preds = %for.inc, %invoke.co
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
 sw.bb26:                                          ; preds = %entry
-  br label %sw.bb2.invoke
+  br label %sw.bb.invoke
 
 sw.bb29:                                          ; preds = %entry
-  br label %sw.bb2.invoke
+  br label %sw.bb.invoke
 
 sw.bb32:                                          ; preds = %entry
-  br label %sw.bb2.invoke
+  br label %sw.bb.invoke
 
-nrvo.skipdtor:                                    ; preds = %sw.bb2.invoke, %entry, %sw.bb, %for.end
+nrvo.skipdtor:                                    ; preds = %sw.bb.invoke, %entry, %for.end
   ret void
 }
 

@@ -2745,6 +2745,8 @@ while.body45.lr.ph:                               ; preds = %invoke.cont37
   %m_index.i = getelementptr inbounds i8, ptr %ob0, i64 44
   %m_resultOut = getelementptr inbounds i8, ptr %this, i64 32
   %21 = sext i32 %20 to i64
+  %body1Wrap.ob0 = select i1 %swapped, ptr %body1Wrap, ptr %ob0
+  %ob0.body1Wrap = select i1 %swapped, ptr %ob0, ptr %body1Wrap
   br label %while.body45
 
 while.body45:                                     ; preds = %while.body45.lr.ph, %if.end114
@@ -2759,7 +2761,7 @@ if.then49:                                        ; preds = %while.body45
   store i32 %23, ptr %m_triface1, align 8
   br label %if.end51
 
-lpad36.loopexit:                                  ; preds = %if.then58, %if.then95, %if.else97, %if.end51
+lpad36.loopexit:                                  ; preds = %if.end93, %if.then58, %if.end51
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad36
@@ -2828,17 +2830,10 @@ if.else87:                                        ; preds = %if.end66
 
 if.end93:                                         ; preds = %if.else87, %if.then81
   %prevObj.0 = phi ptr [ %32, %if.then81 ], [ %34, %if.else87 ]
-  br i1 %swapped, label %if.then95, label %if.else97
-
-if.then95:                                        ; preds = %if.end93
-  invoke void @_ZN27btGImpactCollisionAlgorithm24shape_vs_shape_collisionEPK24btCollisionObjectWrapperS2_PK16btCollisionShapeS5_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %body1Wrap, ptr noundef nonnull %ob0, ptr nonnull poison, ptr poison)
+  invoke void @_ZN27btGImpactCollisionAlgorithm24shape_vs_shape_collisionEPK24btCollisionObjectWrapperS2_PK16btCollisionShapeS5_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %body1Wrap.ob0, ptr noundef nonnull %ob0.body1Wrap, ptr poison, ptr poison)
           to label %if.end99 unwind label %lpad36.loopexit
 
-if.else97:                                        ; preds = %if.end93
-  invoke void @_ZN27btGImpactCollisionAlgorithm24shape_vs_shape_collisionEPK24btCollisionObjectWrapperS2_PK16btCollisionShapeS5_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %ob0, ptr noundef nonnull %body1Wrap, ptr poison, ptr nonnull poison)
-          to label %if.end99 unwind label %lpad36.loopexit
-
-if.end99:                                         ; preds = %if.else97, %if.then95
+if.end99:                                         ; preds = %if.end93
   %35 = load ptr, ptr %m_resultOut, align 8
   %m_body0Wrap.i87 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %m_body0Wrap.i87, align 8

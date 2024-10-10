@@ -1583,7 +1583,7 @@ terminate.lpad.split.us:                          ; preds = %if.end29.us
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc
   %and.i125 = phi i32 [ %and.i, %for.inc ], [ %and.i121, %if.end.lr.ph ]
-  %9 = phi i32 [ %13, %for.inc ], [ %1, %if.end.lr.ph ]
+  %9 = phi i32 [ %14, %for.inc ], [ %1, %if.end.lr.ph ]
   %begin.0124 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
   %tries.0123 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
   %sub = sub i32 %shl, %and.i125
@@ -1626,26 +1626,19 @@ if.end29:                                         ; preds = %if.end18, %if.else,
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %absTime, align 8
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %converted.i, align 8
   %cmp.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i, 9223372036854775807
-  br i1 %cmp.i.i.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %if.end29
-  %call6.i101 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0, ptr noundef null, ptr noundef null, i32 noundef %shl.i)
+  %.converted.i = select i1 %cmp.i.i.i, ptr null, ptr %converted.i
+  %13 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0, ptr noundef null, ptr noundef %.converted.i, i32 noundef %shl.i)
           to label %invoke.cont34 unwind label %terminate.lpad.split
 
-cond.false.i:                                     ; preds = %if.end29
-  %call.i.i102 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0, ptr noundef null, ptr noundef nonnull %converted.i, i32 noundef %shl.i)
-          to label %invoke.cont34 unwind label %terminate.lpad.split
-
-invoke.cont34:                                    ; preds = %cond.true.i, %cond.false.i
-  %cond.i = phi i32 [ %call6.i101, %cond.true.i ], [ %call.i.i102, %cond.false.i ]
+invoke.cont34:                                    ; preds = %if.end29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %converted.i)
-  %cmp36 = icmp eq i32 %cond.i, 3
+  %cmp36 = icmp eq i32 %13, 3
   br i1 %cmp36, label %return, label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont34, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %if.then16
   %inc = add i32 %tries.0123, 1
-  %13 = load atomic i32, ptr %this acquire, align 4
-  %and.i = and i32 %13, -64
+  %14 = load atomic i32, ptr %this acquire, align 4
+  %and.i = and i32 %14, -64
   %cmp4 = icmp eq i32 %and.i, %shl
   br i1 %cmp4, label %for.end, label %if.end, !llvm.loop !16
 
@@ -1662,20 +1655,20 @@ if.then48:                                        ; preds = %for.end
   br i1 %cmp49, label %if.else60.thread, label %cond.end56
 
 cond.end56:                                       ; preds = %if.then48
-  %14 = call noundef i64 @llvm.x86.rdtsc()
+  %15 = call noundef i64 @llvm.x86.rdtsc()
   %cmp58 = icmp ugt i32 %tries.0.lcssa, 19999
   br i1 %cmp58, label %if.end67, label %if.else60
 
 if.else60:                                        ; preds = %cond.end56
-  %sub55 = sub i64 %14, %begin.0.lcssa
-  %15 = trunc i64 %sub55 to i32
-  %16 = shl i32 %15, 1
-  %.pre = call i32 @llvm.umax.i32(i32 %16, i32 200)
+  %sub55 = sub i64 %15, %begin.0.lcssa
+  %16 = trunc i64 %sub55 to i32
+  %17 = shl i32 %16, 1
+  %.pre = call i32 @llvm.umax.i32(i32 %17, i32 200)
   br label %if.else60.thread
 
 if.else60.thread:                                 ; preds = %for.end.thread, %if.then48, %if.else60
-  %17 = phi i32 [ %.pre, %if.else60 ], [ 200, %if.then48 ], [ 200, %for.end.thread ]
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %17, i32 20000)
+  %18 = phi i32 [ %.pre, %if.else60 ], [ 200, %if.then48 ], [ 200, %for.end.thread ]
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %18, i32 20000)
   br label %if.end67
 
 if.end67:                                         ; preds = %cond.end56, %if.else60.thread
@@ -1690,22 +1683,22 @@ seqcst_fail50.i122:                               ; preds = %if.end67
   %sub71 = sub i32 %target.0, %0
   %div72 = sdiv i32 %sub71, 8
   %add73 = add i32 %div72, %0
-  %18 = cmpxchg weak ptr %spinCutoff, i32 %0, i32 %add73 seq_cst seq_cst, align 4
+  %19 = cmpxchg weak ptr %spinCutoff, i32 %0, i32 %add73 seq_cst seq_cst, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont34, %if.end.us, %for.end.thread, %for.end, %seqcst_fail50.i122, %if.then69
   %retval.0 = phi i32 [ 0, %if.then69 ], [ 0, %seqcst_fail50.i122 ], [ 0, %for.end ], [ 0, %for.end.thread ], [ 1, %if.end.us ], [ 2, %invoke.cont34 ], [ 1, %if.end ]
   ret i32 %retval.0
 
-terminate.lpad.split:                             ; preds = %cond.false.i, %cond.true.i
-  %19 = landingpad { ptr, i32 }
+terminate.lpad.split:                             ; preds = %if.end29
+  %20 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %terminate.lpad.split.us, %terminate.lpad.split
-  %.us-phi127 = phi { ptr, i32 } [ %19, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
-  %20 = extractvalue { ptr, i32 } %.us-phi127, 0
-  call void @__clang_call_terminate(ptr %20) #24
+  %.us-phi127 = phi { ptr, i32 } [ %20, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
+  %21 = extractvalue { ptr, i32 } %.us-phi127, 0
+  call void @__clang_call_terminate(ptr %21) #24
   unreachable
 }
 

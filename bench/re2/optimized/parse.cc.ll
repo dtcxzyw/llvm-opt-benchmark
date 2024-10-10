@@ -6958,7 +6958,7 @@ lpad1.loopexit:                                   ; preds = %if.end317, %if.end3
           cleanup
   br label %ehcleanup
 
-lpad1.loopexit.split-lp.loopexit:                 ; preds = %invoke.cont393.invoke, %if.end405.invoke, %invoke.cont.i248, %if.then269, %invoke.cont.i229, %if.then258, %return.i207, %invoke.cont235, %return.i, %sw.bb90, %invoke.cont.i, %if.then66, %if.then.i43, %sw.default, %if.end398, %invoke.cont388, %invoke.cont384, %if.then373, %sw.bb365, %invoke.cont352, %invoke.cont348, %if.then337, %if.then280, %invoke.cont209, %if.then165, %invoke.cont154, %if.end112, %sw.bb108, %sw.bb102, %sw.bb96, %sw.bb84, %sw.bb78, %if.else, %if.then55
+lpad1.loopexit.split-lp.loopexit:                 ; preds = %invoke.cont393.invoke, %if.end405.invoke, %invoke.cont.i248, %if.then269, %invoke.cont.i229, %if.then258, %return.i207, %invoke.cont235, %return.i, %sw.bb90, %invoke.cont.i, %if.then66, %if.then.i43, %sw.default, %if.end398, %invoke.cont388, %invoke.cont384, %if.then373, %sw.bb365, %invoke.cont352, %invoke.cont348, %if.then337, %if.then280, %invoke.cont209, %if.then165, %invoke.cont154, %sw.bb108, %sw.bb102, %sw.bb96, %sw.bb84, %sw.bb78, %if.else, %if.then55
   %lpad.loopexit406 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -7356,8 +7356,7 @@ invoke.cont109:                                   ; preds = %sw.bb108
 
 if.end112:                                        ; preds = %invoke.cont109
   %37 = load ptr, ptr %re, align 8
-  %call114 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %ps, ptr noundef %37)
-          to label %Break2thread-pre-split unwind label %lpad1.loopexit.split-lp.loopexit
+  br label %invoke.cont393.invoke
 
 sw.bb118:                                         ; preds = %invoke.cont31
   br label %invoke.cont120
@@ -8083,9 +8082,9 @@ invoke.cont388:                                   ; preds = %invoke.cont385
   invoke fastcc void @_ZN3re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef nonnull %call386, ptr noundef nonnull %arrayidx.i.i.i349, i32 noundef %101, i32 noundef %102)
           to label %invoke.cont393.invoke unwind label %lpad1.loopexit.split-lp.loopexit
 
-invoke.cont393.invoke:                            ; preds = %invoke.cont388, %invoke.cont356
-  %103 = phi ptr [ %call340, %invoke.cont356 ], [ %call376, %invoke.cont388 ]
-  %104 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %ps, ptr noundef nonnull %103)
+invoke.cont393.invoke:                            ; preds = %invoke.cont388, %invoke.cont356, %if.end112
+  %103 = phi ptr [ %37, %if.end112 ], [ %call340, %invoke.cont356 ], [ %call376, %invoke.cont388 ]
+  %104 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %ps, ptr noundef %103)
           to label %Break2thread-pre-split unwind label %lpad1.loopexit.split-lp.loopexit
 
 lpad377:                                          ; preds = %invoke.cont375
@@ -8117,9 +8116,9 @@ if.end405.invoke:                                 ; preds = %invoke.cont34, %if.
   %110 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState11PushLiteralEi(ptr noundef nonnull align 8 dereferenceable(48) %ps, i32 noundef %109)
           to label %Break2thread-pre-split unwind label %lpad1.loopexit.split-lp.loopexit
 
-Break2thread-pre-split:                           ; preds = %while.cond293, %invoke.cont393.invoke, %if.end405.invoke, %invoke.cont56, %if.end112, %invoke.cont157, %invoke.cont212
-  %isunary.sroa.4.1.ph = phi i64 [ %sub.ptr.sub208, %invoke.cont212 ], [ %sub.ptr.sub153, %invoke.cont157 ], [ 0, %invoke.cont56 ], [ 0, %if.end112 ], [ 0, %if.end405.invoke ], [ 0, %invoke.cont393.invoke ], [ %83, %while.cond293 ]
-  %isunary.sroa.0.1.ph = phi ptr [ %12, %invoke.cont212 ], [ %12, %invoke.cont157 ], [ null, %invoke.cont56 ], [ null, %if.end112 ], [ null, %if.end405.invoke ], [ null, %invoke.cont393.invoke ], [ null, %while.cond293 ]
+Break2thread-pre-split:                           ; preds = %while.cond293, %invoke.cont393.invoke, %if.end405.invoke, %invoke.cont56, %invoke.cont157, %invoke.cont212
+  %isunary.sroa.4.1.ph = phi i64 [ %sub.ptr.sub208, %invoke.cont212 ], [ %sub.ptr.sub153, %invoke.cont157 ], [ 0, %invoke.cont56 ], [ 0, %if.end405.invoke ], [ 0, %invoke.cont393.invoke ], [ %83, %while.cond293 ]
+  %isunary.sroa.0.1.ph = phi ptr [ %12, %invoke.cont212 ], [ %12, %invoke.cont157 ], [ null, %invoke.cont56 ], [ null, %if.end405.invoke ], [ null, %invoke.cont393.invoke ], [ null, %while.cond293 ]
   %.pr570 = load i64, ptr %s.sroa.3.0.t.sroa_idx, align 8
   br label %Break2
 

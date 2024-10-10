@@ -1550,7 +1550,7 @@ invoke.cont39:                                    ; preds = %if.end38
 
 invoke.cont41:                                    ; preds = %invoke.cont39
   %cmp.i.i = icmp eq ptr %flagstr.sroa.0.6, %flagstr.sroa.24.4
-  br i1 %cmp.i.i, label %if.else, label %for.cond.preheader
+  br i1 %cmp.i.i, label %for.end.invoke, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %invoke.cont41
   %sub.ptr.lhs.cast.i = ptrtoint ptr %flagstr.sroa.24.4 to i64
@@ -1582,7 +1582,7 @@ lpad40.loopexit:                                  ; preds = %for.body, %invoke.c
           cleanup
   br label %lpad40
 
-lpad40.loopexit.split-lp:                         ; preds = %invoke.cont39, %for.end, %if.else, %if.end56, %invoke.cont57, %invoke.cont59, %invoke.cont61, %invoke.cont63, %invoke.cont65
+lpad40.loopexit.split-lp:                         ; preds = %for.end.invoke, %invoke.cont39, %if.end56, %invoke.cont57, %invoke.cont59, %invoke.cont61, %invoke.cont63, %invoke.cont65
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad40
@@ -1595,14 +1595,14 @@ lpad40:                                           ; preds = %lpad40.loopexit.spl
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %add.ptr.i.i = getelementptr inbounds i8, ptr %flagstr.sroa.24.4, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i, align 8
-  %call53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %msg, ptr noundef %9)
+  br label %for.end.invoke
+
+for.end.invoke:                                   ; preds = %invoke.cont41, %for.end
+  %10 = phi ptr [ %9, %for.end ], [ @.str.46, %invoke.cont41 ]
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %msg, ptr noundef %10)
           to label %if.end56 unwind label %lpad40.loopexit.split-lp
 
-if.else:                                          ; preds = %invoke.cont41
-  %call55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %msg, ptr noundef nonnull @.str.46)
-          to label %if.end56 unwind label %lpad40.loopexit.split-lp
-
-if.end56:                                         ; preds = %if.else, %for.end
+if.end56:                                         ; preds = %for.end.invoke
   %call58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %msg, ptr noundef nonnull @.str.47)
           to label %invoke.cont57 unwind label %lpad40.loopexit.split-lp
 

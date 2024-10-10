@@ -272,7 +272,7 @@ if.then7:                                         ; preds = %invoke.cont5
   %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %errDescr, ptr noundef nonnull %call6)
           to label %if.end unwind label %lpad4
 
-lpad:                                             ; preds = %invoke.cont27, %if.else, %invoke.cont22, %if.then21, %entry
+lpad:                                             ; preds = %invoke.cont27.invoke, %if.else, %if.then21, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit18
@@ -328,20 +328,21 @@ if.then21:                                        ; preds = %land.lhs.true
 
 invoke.cont22:                                    ; preds = %if.then21
   %4 = load i64, ptr %outZippedBytes, align 8
-  %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %call1, i64 noundef %4)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %lpad
+  br label %invoke.cont27.invoke
 
 if.else:                                          ; preds = %if.end17, %land.lhs.true
   %sub = sub nsw i64 0, %numBytes
   store i64 %sub, ptr %negBytes, align 8
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %negBytes, i64 noundef 8)
-          to label %invoke.cont27 unwind label %lpad
+          to label %invoke.cont27.invoke unwind label %lpad
 
-invoke.cont27:                                    ; preds = %if.else
-  %call30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %data, i64 noundef %numBytes)
+invoke.cont27.invoke:                             ; preds = %if.else, %invoke.cont22
+  %5 = phi ptr [ %call1, %invoke.cont22 ], [ %data, %if.else ]
+  %6 = phi i64 [ %4, %invoke.cont22 ], [ %numBytes, %if.else ]
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %5, i64 noundef %6)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %lpad
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont27, %invoke.cont22
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont27.invoke
   call void @_ZdaPv(ptr noundef nonnull %call1) #15
   ret void
 

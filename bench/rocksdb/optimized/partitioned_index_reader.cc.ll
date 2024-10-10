@@ -531,7 +531,7 @@ lpad:                                             ; preds = %entry
           cleanup
   br label %ehcleanup93
 
-lpad3:                                            ; preds = %if.then5.i, %if.then2.i, %invoke.cont38, %invoke.cont26, %if.then14, %if.end, %if.then6
+lpad3:                                            ; preds = %if.then5.i.invoke, %invoke.cont38, %invoke.cont26, %if.then14, %if.end, %if.then6
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup91
@@ -790,8 +790,7 @@ if.then.i:                                        ; preds = %if.then.i.i.i, %_ZN
 if.then2.i:                                       ; preds = %if.then.i
   %cache_.i = getelementptr inbounds i8, ptr %index_block, i64 8
   %55 = load ptr, ptr %cache_.i, align 8
-  invoke void @_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %spec.select86, ptr noundef nonnull @_ZN7rocksdb13CachableEntryINS_5BlockEE18ReleaseCacheHandleEPvS3_, ptr noundef %55, ptr noundef nonnull %54)
-          to label %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit unwind label %lpad3
+  br label %if.then5.i.invoke
 
 if.else.i:                                        ; preds = %if.then.i
   %own_value_.i = getelementptr inbounds i8, ptr %index_block, i64 24
@@ -801,62 +800,68 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.else.i
   %57 = load ptr, ptr %index_block, align 8
-  invoke void @_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %spec.select86, ptr noundef nonnull @_ZN7rocksdb13CachableEntryINS_5BlockEE11DeleteValueEPvS3_, ptr noundef %57, ptr noundef null)
+  br label %if.then5.i.invoke
+
+if.then5.i.invoke:                                ; preds = %if.then2.i, %if.then5.i
+  %58 = phi ptr [ @_ZN7rocksdb13CachableEntryINS_5BlockEE11DeleteValueEPvS3_, %if.then5.i ], [ @_ZN7rocksdb13CachableEntryINS_5BlockEE18ReleaseCacheHandleEPvS3_, %if.then2.i ]
+  %59 = phi ptr [ %57, %if.then5.i ], [ %55, %if.then2.i ]
+  %60 = phi ptr [ null, %if.then5.i ], [ %54, %if.then2.i ]
+  invoke void @_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %spec.select86, ptr noundef nonnull %58, ptr noundef %59, ptr noundef %60)
           to label %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit unwind label %lpad3
 
-_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit: ; preds = %if.then5.i, %if.then2.i, %if.end89, %if.else.i
-  %it.085 = phi ptr [ null, %if.end89 ], [ %it.084, %if.else.i ], [ %it.084, %if.then2.i ], [ %it.084, %if.then5.i ]
+_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit: ; preds = %if.then5.i.invoke, %if.end89, %if.else.i
+  %it.085 = phi ptr [ null, %if.end89 ], [ %it.084, %if.else.i ], [ %it.084, %if.then5.i.invoke ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %index_block, i8 0, i64 25, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit, %if.end, %if.then6
   %retval.0 = phi ptr [ %iter, %if.then6 ], [ %call9, %if.end ], [ %it.085, %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit ]
   %state_.i = getelementptr inbounds i8, ptr %s, i64 8
-  %58 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %58, null
+  %61 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %61, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %58) #18
+  call void @_ZdaPv(ptr noundef nonnull %61) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i, align 8
   %cache_handle_.i.i = getelementptr inbounds i8, ptr %index_block, i64 16
-  %59 = load ptr, ptr %cache_handle_.i.i, align 8
-  %cmp.not.i.i74 = icmp eq ptr %59, null
+  %62 = load ptr, ptr %cache_handle_.i.i, align 8
+  %cmp.not.i.i74 = icmp eq ptr %62, null
   br i1 %cmp.not.i.i74, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %cache_.i.i = getelementptr inbounds i8, ptr %index_block, i64 8
-  %60 = load ptr, ptr %cache_.i.i, align 8
-  %vtable.i.i75 = load ptr, ptr %60, align 8
+  %63 = load ptr, ptr %cache_.i.i, align 8
+  %vtable.i.i75 = load ptr, ptr %63, align 8
   %vfn.i.i76 = getelementptr inbounds i8, ptr %vtable.i.i75, i64 56
-  %61 = load ptr, ptr %vfn.i.i76, align 8
-  %call.i.i = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull %59, i1 noundef zeroext false)
+  %64 = load ptr, ptr %vfn.i.i76, align 8
+  %call.i.i = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull %62, i1 noundef zeroext false)
           to label %_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit unwind label %terminate.lpad.i.i
 
 if.else.i.i:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %own_value_.i.i = getelementptr inbounds i8, ptr %index_block, i64 24
-  %62 = load i8, ptr %own_value_.i.i, align 8
-  %tobool.i.i = trunc i8 %62 to i1
+  %65 = load i8, ptr %own_value_.i.i, align 8
+  %tobool.i.i = trunc i8 %65 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %63 = load ptr, ptr %index_block, align 8
-  %isnull.i.i = icmp eq ptr %63, null
+  %66 = load ptr, ptr %index_block, align 8
+  %isnull.i.i = icmp eq ptr %66, null
   br i1 %isnull.i.i, label %_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then3.i.i
-  call void @_ZN7rocksdb5BlockD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %63) #19
-  call void @_ZdlPv(ptr noundef nonnull %63) #18
+  call void @_ZN7rocksdb5BlockD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %66) #19
+  call void @_ZdlPv(ptr noundef nonnull %66) #18
   br label %_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %64 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #20
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #20
   unreachable
 
 _ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit:  ; preds = %if.then.i.i, %if.else.i.i, %if.then3.i.i, %delete.notnull.i.i
@@ -865,12 +870,12 @@ _ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit:  ; preds = %if.then.i.i, %if.el
 ehcleanup91:                                      ; preds = %if.then.i.i.i67, %ehcleanup88, %lpad17, %lpad3
   %.pn19 = phi { ptr, i32 } [ %4, %lpad3 ], [ %18, %lpad17 ], [ %.pn.pn, %ehcleanup88 ], [ %.pn.pn, %if.then.i.i.i67 ]
   %state_.i77 = getelementptr inbounds i8, ptr %s, i64 8
-  %66 = load ptr, ptr %state_.i77, align 8
-  %cmp.not.i.i78 = icmp eq ptr %66, null
+  %69 = load ptr, ptr %state_.i77, align 8
+  %cmp.not.i.i78 = icmp eq ptr %69, null
   br i1 %cmp.not.i.i78, label %_ZN7rocksdb6StatusD2Ev.exit80, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i79
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i79: ; preds = %ehcleanup91
-  call void @_ZdaPv(ptr noundef nonnull %66) #18
+  call void @_ZdaPv(ptr noundef nonnull %69) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit80
 
 _ZN7rocksdb6StatusD2Ev.exit80:                    ; preds = %ehcleanup91, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i79
