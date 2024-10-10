@@ -12766,7 +12766,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !111
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
   %cmp.not9.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not9.i.i.i, label %if.then, label %while.body.i.i.i
+  br i1 %cmp.not9.i.i.i, label %cond.end.invoke, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %while.body.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
@@ -12783,20 +12783,15 @@ while.body.i.i.i:                                 ; preds = %_ZNSt11unique_lockI
 
 _ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.i.i, label %if.then, label %invoke.cont
+  br i1 %cmp.i.i.i, label %cond.end.invoke, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i16, ptr %_M_storage.i.i.i14.i.i, align 2, !tbaa !46
   %cmp.i15.i.i = icmp ugt i16 %2, %peer_id
-  br i1 %cmp.i15.i.i, label %if.then, label %if.end
+  br i1 %cmp.i15.i.i, label %cond.end.invoke, label %if.end
 
-if.then:                                          ; preds = %invoke.cont, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  store ptr null, ptr %agg.result, align 8, !tbaa !207
-  %call.i16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3con10PeerHelperaSEPNS_4PeerE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef null)
-          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit28 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %cond.end, %cond.true, %if.then
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %cond.end.invoke, %cond.true
   %3 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_peers_mutex) #31
@@ -12808,7 +12803,7 @@ if.end:                                           ; preds = %invoke.cont
   %id = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i16, ptr %id, align 8, !tbaa !234
   %cmp.not = icmp eq i16 %5, %peer_id
-  br i1 %cmp.not, label %cond.end, label %cond.true
+  br i1 %cmp.not, label %cond.end.invoke, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   invoke void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.25, i32 noundef 1335, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN3con10Connection11getPeerNoExEt) #30
@@ -12817,12 +12812,13 @@ cond.true:                                        ; preds = %if.end
 invoke.cont9:                                     ; preds = %cond.true
   unreachable
 
-cond.end:                                         ; preds = %if.end
+cond.end.invoke:                                  ; preds = %if.end, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont
+  %6 = phi ptr [ null, %invoke.cont ], [ null, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ null, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %4, %if.end ]
   store ptr null, ptr %agg.result, align 8, !tbaa !207
-  %call.i20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3con10PeerHelperaSEPNS_4PeerE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull %4)
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3con10PeerHelperaSEPNS_4PeerE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %6)
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit28 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit28:          ; preds = %cond.end, %if.then
+_ZNSt11unique_lockISt5mutexED2Ev.exit28:          ; preds = %cond.end.invoke
   %call1.i.i.i.i27 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_peers_mutex) #31
   ret void
 }

@@ -1556,7 +1556,7 @@ _ZN6vectorIbLb0EjE5resetEv.exit:                  ; preds = %invoke.cont16, %if.
   %m_uninterp_cnt.i = getelementptr inbounds i8, ptr %9, i64 68
   %12 = load i32, ptr %m_uninterp_cnt.i, align 4
   %cmp21.not282.not = icmp eq i32 %12, 0
-  br i1 %cmp21.not282.not, label %if.else124, label %invoke.cont23.lr.ph
+  br i1 %cmp21.not282.not, label %if.else124.invoke, label %invoke.cont23.lr.ph
 
 invoke.cont23.lr.ph:                              ; preds = %_ZN6vectorIbLb0EjE5resetEv.exit
   %m_tail.i.i = getelementptr inbounds i8, ptr %9, i64 80
@@ -1619,7 +1619,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %lpad8.body
 
-lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.else124, %invoke.cont119, %_ZNK6vectorIP3appLb1EjE4sizeEv.exit
+lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.else124.invoke, %_ZNK6vectorIP3appLb1EjE4sizeEv.exit
   %lpad.loopexit258 = landingpad { ptr, i32 }
           cleanup
   br label %lpad8.body
@@ -2045,7 +2045,7 @@ for.inc77:                                        ; preds = %for.inc, %for.cond4
 
 if.then81:                                        ; preds = %for.inc77
   %73 = trunc nuw i8 %new_tail.1 to i1
-  br i1 %73, label %if.then83, label %if.else124
+  br i1 %73, label %if.then83, label %if.else124.invoke
 
 if.then83:                                        ; preds = %if.then81
   %m_tail_size.i = getelementptr inbounds i8, ptr %9, i64 56
@@ -2155,19 +2155,15 @@ _ZNK6vectorIP3appLb1EjE4sizeEv.exit:              ; preds = %for.end104, %if.end
   %retval.0.i = phi i32 [ %98, %if.end.i ], [ 0, %for.end104 ]
   %99 = load ptr, ptr %m_new_tail_neg, align 8
   %call120 = invoke noundef ptr @_ZN7datalog12rule_manager2mkEP3appjPKS2_PKbRK6symbolb(ptr noundef nonnull align 8 dereferenceable(1368) %m_rule_manager.i, ptr noundef %96, i32 noundef %retval.0.i, ptr noundef %97, ptr noundef %99, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6symbol4nullE, i1 noundef zeroext false)
-          to label %invoke.cont119 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %if.else124.invoke unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont119:                                   ; preds = %_ZNK6vectorIP3appLb1EjE4sizeEv.exit
-  %100 = load ptr, ptr %res, align 8
-  invoke void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %100, ptr noundef %call120)
-          to label %for.inc130 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-if.else124:                                       ; preds = %_ZN6vectorIbLb0EjE5resetEv.exit, %if.then81
+if.else124.invoke:                                ; preds = %if.then81, %_ZN6vectorIbLb0EjE5resetEv.exit, %_ZNK6vectorIP3appLb1EjE4sizeEv.exit
+  %100 = phi ptr [ %call120, %_ZNK6vectorIP3appLb1EjE4sizeEv.exit ], [ %9, %_ZN6vectorIbLb0EjE5resetEv.exit ], [ %9, %if.then81 ]
   %101 = load ptr, ptr %res, align 8
-  invoke void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %101, ptr noundef nonnull %9)
+  invoke void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %101, ptr noundef %100)
           to label %for.inc130 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.inc130:                                       ; preds = %if.end34.thread, %if.else124, %invoke.cont119
+for.inc130:                                       ; preds = %if.end34.thread, %if.else124.invoke
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0289, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end131.loopexit, label %for.body

@@ -18946,32 +18946,35 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @strerror(i32 noundef %1) #26
-  %call1.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_str, ptr noundef %call.i)
+  br label %if.then.invoke
+
+if.then.invoke:                                   ; preds = %if.else, %if.then
+  %2 = phi ptr [ %call.i, %if.then ], [ %.str.33.str, %if.else ]
+  %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_str, ptr noundef %2)
           to label %try.cont unwind label %lpad
 
-lpad:                                             ; preds = %if.else, %if.then
-  %2 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.then.invoke
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #26
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #26
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad17
 
-try.cont:                                         ; preds = %if.else, %if.then, %lpad
+try.cont:                                         ; preds = %if.then.invoke, %lpad
   ret void
 
 if.else:                                          ; preds = %entry
   %tobool.not = icmp eq ptr %str, null
   %.str.33.str = select i1 %tobool.not, ptr @.str.33, ptr %str
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_str, ptr noundef nonnull %.str.33.str)
-          to label %try.cont unwind label %lpad
+  br label %if.then.invoke
 
 lpad17:                                           ; preds = %lpad
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_str) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #26
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 }
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr

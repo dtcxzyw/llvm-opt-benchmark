@@ -32791,7 +32791,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %while.end.invoke, %if.then35, %if.else4
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %while.end.invoke, %if.else4
   %lpad.loopexit.split-lp120 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -33011,7 +33011,7 @@ land.lhs.true.i.us:                               ; preds = %for.body.i69.us
           to label %call.i.noexc.us unwind label %lpad.loopexit.split.us
 
 call.i.noexc.us:                                  ; preds = %land.lhs.true.i.us
-  br i1 %call.i73.us, label %for.inc.i72.us, label %if.then35
+  br i1 %call.i73.us, label %for.inc.i72.us, label %while.end.invoke
 
 for.inc.i72.us:                                   ; preds = %call.i.noexc.us, %for.body.i69.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -33040,10 +33040,6 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 for.cond.i.preheader:                             ; preds = %while.body
   invoke void @_ZN11realclosure7manager3imp19eval_sign_at_approxEjPKPNS_5valueERK4mpbqRNS_11mpbq_config8intervalE(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef 0, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(20) %b, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp.loopexit.split
-
-if.then35:                                        ; preds = %call.i.noexc.us
-  %call37 = invoke noundef i32 @_ZN11realclosure7manager3imp22expensive_eval_sign_atEjPKPNS_5valueERK4mpbq(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef %n, ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(20) %b)
-          to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %for.cond.i.preheader
   %50 = load i8, ptr %m_lower_inf.i.i, align 8
@@ -33098,12 +33094,12 @@ if.end54:                                         ; preds = %lor.rhs.i.i89, %lan
   %cmp31.not = icmp ugt i32 %inc, %60
   br i1 %cmp31.not, label %while.end.invoke, label %while.body, !llvm.loop !88
 
-while.end.invoke:                                 ; preds = %lor.lhs.false.i, %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i, %if.end54.us, %if.end54, %invoke.cont26
+while.end.invoke:                                 ; preds = %lor.lhs.false.i, %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i, %if.end54.us, %call.i.noexc.us, %if.end54, %invoke.cont26
   %61 = invoke noundef i32 @_ZN11realclosure7manager3imp22expensive_eval_sign_atEjPKPNS_5valueERK4mpbq(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef %n, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(20) %b)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-cleanup:                                          ; preds = %while.end.invoke, %invoke.cont51.thread, %invoke.cont51, %invoke.cont17.thread, %invoke.cont17, %if.then35
-  %retval.1 = phi i32 [ %call37, %if.then35 ], [ 1, %invoke.cont17.thread ], [ -1, %invoke.cont17 ], [ 1, %invoke.cont51.thread ], [ -1, %invoke.cont51 ], [ %61, %while.end.invoke ]
+cleanup:                                          ; preds = %while.end.invoke, %invoke.cont51.thread, %invoke.cont51, %invoke.cont17.thread, %invoke.cont17
+  %retval.1 = phi i32 [ 1, %invoke.cont17.thread ], [ -1, %invoke.cont17 ], [ 1, %invoke.cont51.thread ], [ -1, %invoke.cont51 ], [ %61, %while.end.invoke ]
   %62 = load ptr, ptr %r, align 8
   %m_c.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load ptr, ptr %m_c.i.i.i, align 8

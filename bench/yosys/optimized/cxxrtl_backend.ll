@@ -72907,7 +72907,7 @@ _ZZN12_GLOBAL__N_112CxxrtlWorker22dump_debug_info_methodEPN5Yosys5RTLIL6ModuleEE
   %362 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56) %343, ptr noundef nonnull align 4 dereferenceable(4) %54)
           to label %833 unwind label %868
 
-.loopexit458:                                     ; preds = %.invoke1101, %.invoke1095, %.invoke, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit, %702, %705, %707, %709, %713, %715, %724, %737, %741, %743, %745, %749, %755, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %770, %772, %774, %778, %803, %805, %807, %811, %726, %751, %780, %813
+.loopexit458:                                     ; preds = %.invoke1101, %.invoke1095, %.invoke, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEEppEv.exit, %702, %705, %707, %709, %713, %715, %724, %741, %743, %745, %749, %755, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %770, %772, %774, %778, %803, %805, %807, %811, %726, %751, %780, %813
   %lpad.loopexit460 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit280
@@ -73909,14 +73909,16 @@ _ZN12_GLOBAL__N_112CxxrtlWorker6mangleB5cxx11EPKN5Yosys5RTLIL4WireE.exit265: ; p
 
 735:                                              ; preds = %731
   %736 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %734, ptr noundef nonnull @.str.426)
-          to label %737 unwind label %739
+          to label %.invoke1101 unwind label %739
 
-737:                                              ; preds = %735
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #31
-  invoke fastcc void @_ZN12_GLOBAL__N_112CxxrtlWorker16dump_debug_attrsEPKN5Yosys5RTLIL10AttrObjectE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef %704)
+.invoke1101:                                      ; preds = %735, %821, %788
+  %.sink1104 = phi ptr [ %50, %788 ], [ %53, %821 ], [ %45, %735 ]
+  %737 = phi ptr [ %365, %788 ], [ %365, %821 ], [ %704, %735 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1104) #31
+  invoke fastcc void @_ZN12_GLOBAL__N_112CxxrtlWorker16dump_debug_attrsEPKN5Yosys5RTLIL10AttrObjectE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef %737)
           to label %.invoke1095 unwind label %.loopexit458
 
-.invoke1095:                                      ; preds = %.invoke1101, %737
+.invoke1095:                                      ; preds = %.invoke1101
   %738 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull @.str.377)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit unwind label %.loopexit458
 
@@ -74044,12 +74046,6 @@ _ZN12_GLOBAL__N_112CxxrtlWorker6mangleB5cxx11EPKN5Yosys5RTLIL4WireE.exit274: ; p
 788:                                              ; preds = %784
   %789 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %787, ptr noundef nonnull @.str.426)
           to label %.invoke1101 unwind label %801
-
-.invoke1101:                                      ; preds = %788, %821
-  %.sink1104 = phi ptr [ %53, %821 ], [ %50, %788 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1104) #31
-  invoke fastcc void @_ZN12_GLOBAL__N_112CxxrtlWorker16dump_debug_attrsEPKN5Yosys5RTLIL10AttrObjectE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull %365)
-          to label %.invoke1095 unwind label %.loopexit458
 
 790:                                              ; preds = %753, %_ZN12_GLOBAL__N_112CxxrtlWorker6mangleB5cxx11EPKN5Yosys5RTLIL4WireE.exit267
   %791 = landingpad { ptr, i32 }

@@ -13418,7 +13418,7 @@ _ZNSt10unique_ptrIN3nix6SourceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN
           cleanup
   br label %_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit46
 
-.loopexit.split-lp:                               ; preds = %105, %271, %274, %340, %341, %347, %36, %41, %100, %157, %.loopexit88, %235, %263
+.loopexit.split-lp:                               ; preds = %.invoke, %105, %271, %274, %341, %36, %41, %100, %157, %.loopexit88, %235, %263
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit46
@@ -13931,10 +13931,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
 
 338:                                              ; preds = %300
   %339 = icmp ugt i32 %304, 20
-  br i1 %339, label %340, label %341
+  br i1 %339, label %.invoke, label %341
 
-340:                                              ; preds = %338
-  invoke void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(33) %14, ptr noundef null, ptr noundef nonnull %2, i1 noundef zeroext true)
+.invoke:                                          ; preds = %341, %338
+  %340 = phi ptr [ %2, %338 ], [ null, %341 ]
+  invoke void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(33) %14, ptr noundef null, ptr noundef %340, i1 noundef zeroext true)
           to label %_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit81 unwind label %.loopexit.split-lp
 
 341:                                              ; preds = %338
@@ -13944,13 +13945,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   %345 = load i64, ptr %344, align 8
   %346 = getelementptr inbounds i8, ptr %342, i64 %345
   invoke void @_ZN3nix7copyNARERNS_6SourceERNS_4SinkE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %346)
-          to label %347 unwind label %.loopexit.split-lp
+          to label %.invoke unwind label %.loopexit.split-lp
 
-347:                                              ; preds = %341
-  invoke void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(33) %14, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-          to label %_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit81 unwind label %.loopexit.split-lp
-
-_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit81:       ; preds = %313, %311, %347, %340, %_ZNSt10unique_ptrIN3nix6SourceESt14default_deleteIS1_EED2Ev.exit
+_ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit81:       ; preds = %.invoke, %313, %311, %_ZNSt10unique_ptrIN3nix6SourceESt14default_deleteIS1_EED2Ev.exit
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %14) #31
   ret void
 

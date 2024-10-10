@@ -2951,7 +2951,7 @@ if.then.i:                                        ; preds = %invoke.cont19
   %7 = load i16, ptr %fUnion2.i23, align 8
   %conv2.i615.i = and i16 %7, 1
   %tobool3.i.not = icmp eq i16 %conv2.i615.i, 0
-  br i1 %tobool3.i.not, label %if.else, label %if.then23
+  br i1 %tobool3.i.not, label %if.else.invoke, label %if.then23
 
 if.else.i:                                        ; preds = %invoke.cont19
   %cmp.i.i.i = icmp slt i16 %6, 0
@@ -2971,7 +2971,7 @@ if.else.i:                                        ; preds = %invoke.cont19
   %tobool7.not.i = icmp eq i16 %conv2.i1316.i, 0
   %cmp.i25 = icmp eq i32 %cond.i.i, %cond.i11.i
   %or.cond.i = and i1 %tobool7.not.i, %cmp.i25
-  br i1 %or.cond.i, label %land.rhs.i, label %if.else
+  br i1 %or.cond.i, label %land.rhs.i, label %if.else.invoke
 
 land.rhs.i:                                       ; preds = %if.else.i
   %call8.i26 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64) %tzCanonicalID, ptr noundef nonnull align 8 dereferenceable(64) %regionalGolden, i32 noundef %cond.i.i)
@@ -2979,52 +2979,49 @@ land.rhs.i:                                       ; preds = %if.else.i
 
 invoke.cont21:                                    ; preds = %land.rhs.i
   %tobool9.i.not = icmp eq i8 %call8.i26, 0
-  br i1 %tobool9.i.not, label %if.else, label %if.then23
+  br i1 %tobool9.i.not, label %if.else.invoke, label %if.then23
 
 if.then23:                                        ; preds = %if.then.i, %invoke.cont21
   %fLocaleDisplayNames = getelementptr inbounds i8, ptr %this, i64 400
-  %13 = load ptr, ptr %fLocaleDisplayNames, align 8
-  %vtable25 = load ptr, ptr %13, align 8
-  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 88
-  %14 = load ptr, ptr %vfn26, align 8
-  %call28 = invoke noundef nonnull align 8 dereferenceable(64) ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %countryCode, ptr noundef nonnull align 8 dereferenceable(64) %location)
-          to label %if.end34 unwind label %lpad18
+  br label %if.else.invoke
 
 lpad6:                                            ; preds = %if.then44, %if.else35, %invoke.cont12, %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad18:                                           ; preds = %land.rhs.i, %if.else, %if.then23, %invoke.cont16
-  %16 = landingpad { ptr, i32 }
+lpad18:                                           ; preds = %if.else.invoke, %land.rhs.i, %invoke.cont16
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %regionalGolden) #18
   br label %ehcleanup
 
-if.else:                                          ; preds = %if.else.i, %if.then.i, %invoke.cont21
-  %17 = load ptr, ptr %fTimeZoneNames, align 8
-  %vtable30 = load ptr, ptr %17, align 8
-  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 88
-  %18 = load ptr, ptr %vfn31, align 8
-  %call33 = invoke noundef nonnull align 8 dereferenceable(64) ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(64) %tzCanonicalID, ptr noundef nonnull align 8 dereferenceable(64) %location)
+if.else.invoke:                                   ; preds = %invoke.cont21, %if.then.i, %if.else.i, %if.then23
+  %.sink.in = phi ptr [ %fLocaleDisplayNames, %if.then23 ], [ %fTimeZoneNames, %if.else.i ], [ %fTimeZoneNames, %if.then.i ], [ %fTimeZoneNames, %invoke.cont21 ]
+  %15 = phi ptr [ %countryCode, %if.then23 ], [ %tzCanonicalID, %if.else.i ], [ %tzCanonicalID, %if.then.i ], [ %tzCanonicalID, %invoke.cont21 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %vtable25 = load ptr, ptr %.sink, align 8
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 88
+  %16 = load ptr, ptr %vfn26, align 8
+  %17 = invoke noundef nonnull align 8 dereferenceable(64) ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(64) %location)
           to label %if.end34 unwind label %lpad18
 
-if.end34:                                         ; preds = %if.else, %if.then23
+if.end34:                                         ; preds = %if.else.invoke
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %regionalGolden) #18
   br label %invoke.cont49
 
 if.else35:                                        ; preds = %invoke.cont7
   %fTimeZoneNames36 = getelementptr inbounds i8, ptr %this, i64 232
-  %19 = load ptr, ptr %fTimeZoneNames36, align 8
-  %vtable37 = load ptr, ptr %19, align 8
+  %18 = load ptr, ptr %fTimeZoneNames36, align 8
+  %vtable37 = load ptr, ptr %18, align 8
   %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 88
-  %20 = load ptr, ptr %vfn38, align 8
-  %call40 = invoke noundef nonnull align 8 dereferenceable(64) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(64) %tzCanonicalID, ptr noundef nonnull align 8 dereferenceable(64) %location)
+  %19 = load ptr, ptr %vfn38, align 8
+  %call40 = invoke noundef nonnull align 8 dereferenceable(64) ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(64) %tzCanonicalID, ptr noundef nonnull align 8 dereferenceable(64) %location)
           to label %invoke.cont39 unwind label %lpad6
 
 invoke.cont39:                                    ; preds = %if.else35
-  %21 = load i16, ptr %fUnion2.i, align 8
-  %cmp.i28 = icmp ugt i16 %21, 31
+  %20 = load i16, ptr %fUnion2.i, align 8
+  %cmp.i28 = icmp ugt i16 %20, 31
   br i1 %cmp.i28, label %invoke.cont49, label %if.then44
 
 if.then44:                                        ; preds = %invoke.cont39
@@ -3041,12 +3038,12 @@ invoke.cont49:                                    ; preds = %if.end34, %invoke.c
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
-  %22 = load i32, ptr %status, align 4
-  %cmp.i32 = icmp slt i32 %22, 1
+  %21 = load i32, ptr %status, align 4
+  %cmp.i32 = icmp slt i32 %21, 1
   br i1 %cmp.i32, label %if.end57, label %cleanup
 
 lpad50:                                           ; preds = %if.then86, %if.else82, %if.then80, %if.then67, %if.then63, %if.end57, %invoke.cont49
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %name) #18
   br label %ehcleanup
@@ -3057,8 +3054,8 @@ if.end57:                                         ; preds = %invoke.cont51
           to label %invoke.cont58 unwind label %lpad50
 
 invoke.cont58:                                    ; preds = %if.end57
-  %24 = load i32, ptr %status, align 4
-  %cmp.i33 = icmp sgt i32 %24, 0
+  %23 = load i32, ptr %status, align 4
+  %cmp.i33 = icmp sgt i32 %23, 0
   br i1 %cmp.i33, label %cleanup, label %if.then63
 
 if.then63:                                        ; preds = %invoke.cont58
@@ -3070,21 +3067,21 @@ invoke.cont64:                                    ; preds = %if.then63
   br i1 %cmp66.not, label %cleanup, label %if.then67
 
 if.then67:                                        ; preds = %invoke.cont64
-  %25 = load ptr, ptr %key, align 8
-  store ptr %25, ptr %call65, align 8
-  %26 = load ptr, ptr %mzID3, align 8
+  %24 = load ptr, ptr %key, align 8
+  store ptr %24, ptr %call65, align 8
+  %25 = load ptr, ptr %mzID3, align 8
   %mzID71 = getelementptr inbounds i8, ptr %call65, i64 8
-  store ptr %26, ptr %mzID71, align 8
-  %27 = load i8, ptr %isLong4, align 8
+  store ptr %25, ptr %mzID71, align 8
+  %26 = load i8, ptr %isLong4, align 8
   %isLong73 = getelementptr inbounds i8, ptr %call65, i64 16
-  store i8 %27, ptr %isLong73, align 8
-  %28 = load ptr, ptr %fPartialLocationNamesMap, align 8
-  %call76 = invoke ptr @uhash_put_75(ptr noundef %28, ptr noundef nonnull %call65, ptr noundef %call59, ptr noundef nonnull %status)
+  store i8 %26, ptr %isLong73, align 8
+  %27 = load ptr, ptr %fPartialLocationNamesMap, align 8
+  %call76 = invoke ptr @uhash_put_75(ptr noundef %27, ptr noundef nonnull %call65, ptr noundef %call59, ptr noundef nonnull %status)
           to label %invoke.cont75 unwind label %lpad50
 
 invoke.cont75:                                    ; preds = %if.then67
-  %29 = load i32, ptr %status, align 4
-  %cmp.i35 = icmp slt i32 %29, 1
+  %28 = load i32, ptr %status, align 4
+  %cmp.i35 = icmp slt i32 %28, 1
   br i1 %cmp.i35, label %if.else82, label %if.then80
 
 if.then80:                                        ; preds = %invoke.cont75
@@ -3103,9 +3100,9 @@ if.then86:                                        ; preds = %invoke.cont83
   %tobool87.not = icmp eq i8 %isLong, 0
   %cond = select i1 %tobool87.not, i32 4, i32 2
   store i32 %cond, ptr %call84, align 8
-  %30 = load ptr, ptr %key, align 8
+  %29 = load ptr, ptr %key, align 8
   %tzID89 = getelementptr inbounds i8, ptr %call84, i64 8
-  store ptr %30, ptr %tzID89, align 8
+  store ptr %29, ptr %tzID89, align 8
   %fGNamesTrie = getelementptr inbounds i8, ptr %this, i64 424
   invoke void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fGNamesTrie, ptr noundef %call59, ptr noundef nonnull %call84, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup unwind label %lpad50
@@ -3118,7 +3115,7 @@ cleanup:                                          ; preds = %invoke.cont58, %if.
   br label %return
 
 ehcleanup:                                        ; preds = %lpad50, %lpad18, %lpad6
-  %.pn = phi { ptr, i32 } [ %23, %lpad50 ], [ %15, %lpad6 ], [ %16, %lpad18 ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad50 ], [ %13, %lpad6 ], [ %14, %lpad18 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %usCountryCode) #18
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %location) #18
   resume { ptr, i32 } %.pn

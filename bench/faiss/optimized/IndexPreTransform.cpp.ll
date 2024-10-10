@@ -128,7 +128,7 @@ define void @_ZN5faiss17IndexPreTransform5trainElPKf(ptr nocapture noundef nonnu
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.0)
   br label %37
 
-35:                                               ; preds = %90, %72, %65
+35:                                               ; preds = %.invoke, %90
   %36 = landingpad { ptr, i32 }
           cleanup
   %.not.i = icmp eq ptr %.sroa.0.051, null
@@ -167,7 +167,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
   %49 = icmp ugt i64 %48, %indvars.iv58
-  br i1 %49, label %50, label %68
+  br i1 %49, label %50, label %67
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv58
@@ -196,28 +196,31 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
 
 65:                                               ; preds = %59, %63, %56
   %66 = load ptr, ptr %52, align 8
-  %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(17) %52, i64 noundef %1, ptr noundef %.03453)
-          to label %77 unwind label %35
+  br label %.invoke
 
-68:                                               ; preds = %42
-  %69 = load i8, ptr %30, align 8
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %72
+67:                                               ; preds = %42
+  %68 = load i8, ptr %30, align 8
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %71
 
-71:                                               ; preds = %68
+70:                                               ; preds = %67
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %72
+  br label %71
 
-72:                                               ; preds = %71, %68
-  %73 = load ptr, ptr %4, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(36) %73, i64 noundef %1, ptr noundef %.03453)
+71:                                               ; preds = %70, %67
+  %72 = load ptr, ptr %4, align 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  br label %.invoke
+
+.invoke:                                          ; preds = %65, %71
+  %75 = phi ptr [ %72, %71 ], [ %52, %65 ]
+  %.in = phi ptr [ %74, %71 ], [ %66, %65 ]
+  %76 = load ptr, ptr %.in, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(17) %75, i64 noundef %1, ptr noundef %.03453)
           to label %77 unwind label %35
 
-77:                                               ; preds = %72, %50, %65
+77:                                               ; preds = %.invoke, %50
   %78 = icmp eq i64 %indvars.iv58, %41
   br i1 %78, label %._crit_edge, label %79
 

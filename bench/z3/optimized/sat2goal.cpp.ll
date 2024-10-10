@@ -2750,13 +2750,15 @@ dynamic_cast.notnull:                             ; preds = %invoke.cont47
   store ptr null, ptr %m_nodes.i.i, align 8
   %38 = call ptr @__dynamic_cast(ptr nonnull %call48, ptr nonnull @_ZTIN3sat9extensionE, ptr nonnull @_ZTIN2pb6solverE, i64 0) #19
   %tobool54.not = icmp eq ptr %38, null
-  br i1 %tobool54.not, label %if.else, label %if.then55
+  br i1 %tobool54.not, label %if.else, label %if.then55.invoke
 
-if.then55:                                        ; preds = %dynamic_cast.notnull
-  %vtable56 = load ptr, ptr %38, align 8
-  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 616
-  %39 = load ptr, ptr %vfn57, align 8
-  %call60 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(1049) %38, ptr noundef nonnull align 8 dereferenceable(32) %l2e, ptr noundef nonnull align 8 dereferenceable(16) %fmls)
+if.then55.invoke:                                 ; preds = %dynamic_cast.notnull, %if.else
+  %.sink111 = phi ptr [ %42, %if.else ], [ %38, %dynamic_cast.notnull ]
+  %.sink = phi i64 [ 424, %if.else ], [ 616, %dynamic_cast.notnull ]
+  %vtable64 = load ptr, ptr %.sink111, align 8
+  %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 %.sink
+  %39 = load ptr, ptr %vfn65, align 8
+  %40 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(1049) %.sink111, ptr noundef nonnull align 8 dereferenceable(32) %l2e, ptr noundef nonnull align 8 dereferenceable(16) %fmls)
           to label %invoke.cont69 unwind label %lpad58.loopexit.split-lp
 
 lpad58.loopexit:                                  ; preds = %for.body75
@@ -2764,7 +2766,7 @@ lpad58.loopexit:                                  ; preds = %for.body75
           cleanup
   br label %lpad58
 
-lpad58.loopexit.split-lp:                         ; preds = %if.then55, %if.else
+lpad58.loopexit.split-lp:                         ; preds = %if.then55.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad58
@@ -2772,19 +2774,15 @@ lpad58.loopexit.split-lp:                         ; preds = %if.then55, %if.else
 lpad58:                                           ; preds = %lpad58.loopexit.split-lp, %lpad58.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad58.loopexit ], [ %lpad.loopexit.split-lp, %lpad58.loopexit.split-lp ]
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %fmls) #19
-  %40 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i79 = icmp eq ptr %40, null
+  %41 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i79 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i79, label %ehcleanup81, label %if.then.i.i80
 
 if.else:                                          ; preds = %dynamic_cast.notnull
-  %41 = call ptr @__dynamic_cast(ptr nonnull %call48, ptr nonnull @_ZTIN3sat9extensionE, ptr nonnull @_ZTIN3euf6solverE, i64 0) #19
-  %vtable64 = load ptr, ptr %41, align 8
-  %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 424
-  %42 = load ptr, ptr %vfn65, align 8
-  %call67 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(9136) %41, ptr noundef nonnull align 8 dereferenceable(32) %l2e, ptr noundef nonnull align 8 dereferenceable(16) %fmls)
-          to label %invoke.cont69 unwind label %lpad58.loopexit.split-lp
+  %42 = call ptr @__dynamic_cast(ptr nonnull %call48, ptr nonnull @_ZTIN3sat9extensionE, ptr nonnull @_ZTIN3euf6solverE, i64 0) #19
+  br label %if.then55.invoke
 
-invoke.cont69:                                    ; preds = %if.then55, %if.else
+invoke.cont69:                                    ; preds = %if.then55.invoke
   %43 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i63 = icmp eq ptr %43, null
   br i1 %cmp.i.i.i63, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
@@ -2888,7 +2886,7 @@ terminate.lpad.i.i77:                             ; preds = %if.then.i.i76
   unreachable
 
 if.then.i.i80:                                    ; preds = %lpad58
-  %call.i.i81 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %l2e, ptr noundef nonnull align 8 dereferenceable(16) %l2e, i32 noundef 3)
+  %call.i.i81 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %l2e, ptr noundef nonnull align 8 dereferenceable(16) %l2e, i32 noundef 3)
           to label %ehcleanup81 unwind label %terminate.lpad.i.i82
 
 terminate.lpad.i.i82:                             ; preds = %if.then.i.i80

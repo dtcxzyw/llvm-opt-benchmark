@@ -1569,8 +1569,8 @@ define void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(pt
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %25
 
-25:                                               ; preds = %.lr.ph, %92
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
+25:                                               ; preds = %.lr.ph, %91
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
   %26 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %21, align 8
@@ -1600,7 +1600,7 @@ define void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(pt
 45:                                               ; preds = %47, %34
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %92
 
 47:                                               ; preds = %25
   %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.36)
@@ -1615,76 +1615,76 @@ define void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(pt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
   %52 = load ptr, ptr %21, align 8
   %.not63 = icmp eq ptr %52, null
-  br i1 %.not63, label %61, label %53
+  br i1 %.not63, label %.invoke, label %53
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %24, align 8
   %55 = getelementptr inbounds ptr, ptr %54, i64 %29
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %57)
-          to label %63 unwind label %59
+  br label %.invoke
 
-59:                                               ; preds = %61, %53
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %.invoke
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
-  br label %93
-
-61:                                               ; preds = %51
-  %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.36)
-          to label %63 unwind label %59
-
-63:                                               ; preds = %61, %53
-  %64 = srem i32 %.058, 100000
-  %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
-  %67 = add nsw i32 %27, 1
-  %68 = srem i32 %67, 100000
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %68) #16
-  %70 = getelementptr inbounds [3 x float], ptr %5, i64 %29
-  %71 = load float, ptr %70, align 4
-  %72 = fpext float %71 to double
-  %73 = getelementptr inbounds i8, ptr %70, i64 4
-  %74 = load float, ptr %73, align 4
-  %75 = fpext float %74 to double
-  %76 = getelementptr inbounds i8, ptr %70, i64 8
-  %77 = load float, ptr %76, align 4
-  %78 = fpext float %77 to double
-  br i1 %.not65, label %90, label %79
-
-79:                                               ; preds = %63
-  %80 = getelementptr inbounds [3 x float], ptr %6, i64 %29
-  %81 = load float, ptr %80, align 4
-  %82 = fpext float %81 to double
-  %83 = getelementptr inbounds i8, ptr %80, i64 4
-  %84 = load float, ptr %83, align 4
-  %85 = fpext float %84 to double
-  %86 = getelementptr inbounds i8, ptr %80, i64 8
-  %87 = load float, ptr %86, align 4
-  %88 = fpext float %87 to double
-  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, double noundef %72, double noundef %75, double noundef %78, double noundef %82, double noundef %85, double noundef %88) #16
   br label %92
 
-90:                                               ; preds = %63
-  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %72, double noundef %75, double noundef %78) #16
-  br label %92
+.invoke:                                          ; preds = %51, %53
+  %60 = phi ptr [ %57, %53 ], [ @.str.36, %51 ]
+  %61 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %60)
+          to label %62 unwind label %58
 
-92:                                               ; preds = %90, %79
+62:                                               ; preds = %.invoke
+  %63 = srem i32 %.058, 100000
+  %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
+  %66 = add nsw i32 %27, 1
+  %67 = srem i32 %66, 100000
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %67) #16
+  %69 = getelementptr inbounds [3 x float], ptr %5, i64 %29
+  %70 = load float, ptr %69, align 4
+  %71 = fpext float %70 to double
+  %72 = getelementptr inbounds i8, ptr %69, i64 4
+  %73 = load float, ptr %72, align 4
+  %74 = fpext float %73 to double
+  %75 = getelementptr inbounds i8, ptr %69, i64 8
+  %76 = load float, ptr %75, align 4
+  %77 = fpext float %76 to double
+  br i1 %.not65, label %89, label %78
+
+78:                                               ; preds = %62
+  %79 = getelementptr inbounds [3 x float], ptr %6, i64 %29
+  %80 = load float, ptr %79, align 4
+  %81 = fpext float %80 to double
+  %82 = getelementptr inbounds i8, ptr %79, i64 4
+  %83 = load float, ptr %82, align 4
+  %84 = fpext float %83 to double
+  %85 = getelementptr inbounds i8, ptr %79, i64 8
+  %86 = load float, ptr %85, align 4
+  %87 = fpext float %86 to double
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, double noundef %71, double noundef %74, double noundef %77, double noundef %81, double noundef %84, double noundef %87) #16
+  br label %91
+
+89:                                               ; preds = %62
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %71, double noundef %74, double noundef %77) #16
+  br label %91
+
+91:                                               ; preds = %89, %78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !24
 
-93:                                               ; preds = %59, %45
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %46, %45 ]
+92:                                               ; preds = %58, %45
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %46, %45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   resume { ptr, i32 } %.pn
 
-._crit_edge:                                      ; preds = %92, %18
+._crit_edge:                                      ; preds = %91, %18
   call fastcc void @_ZL15write_hconf_boxP8_IO_FILEPA3_Kf(ptr noundef %0, ptr noundef %7)
-  %94 = call i32 @fflush(ptr noundef %0)
+  %93 = call i32 @fflush(ptr noundef %0)
   ret void
 }
 

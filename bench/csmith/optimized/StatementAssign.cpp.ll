@@ -360,27 +360,27 @@ define dso_local noundef ptr @_ZN15StatementAssign11make_randomER9CGContextPK4Ty
 32:                                               ; preds = %22
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %227
+  br label %224
 
 34:                                               ; preds = %26
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %226
+  br label %223
 
 36:                                               ; preds = %27
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %225
+  br label %222
 
 38:                                               ; preds = %28
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %224
+  br label %221
 
 40:                                               ; preds = %93, %123, %121, %120, %119, %118, %107, %96, %95, %79, %78, %77, %66, %55, %52, %49, %44, %30
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %223
+  br label %220
 
 42:                                               ; preds = %30, %29
   %43 = add i32 %12, -11
@@ -411,7 +411,7 @@ define dso_local noundef ptr @_ZN15StatementAssign11make_randomER9CGContextPK4Ty
           to label %54 unwind label %40
 
 54:                                               ; preds = %52
-  br i1 %53, label %222, label %55
+  br i1 %53, label %219, label %55
 
 55:                                               ; preds = %54
   %56 = invoke noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK12CVQualifiersbb9eTermType(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull %.063, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 5)
@@ -424,14 +424,14 @@ define dso_local noundef ptr @_ZN15StatementAssign11make_randomER9CGContextPK4Ty
 
 59:                                               ; preds = %57
   %60 = icmp eq ptr %56, null
-  br i1 %60, label %222, label %61
+  br i1 %60, label %219, label %61
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %56, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(24) %56) #20
-  br label %222
+  br label %219
 
 65:                                               ; preds = %57
   br i1 %.not, label %66, label %76
@@ -457,7 +457,7 @@ define dso_local noundef ptr @_ZN15StatementAssign11make_randomER9CGContextPK4Ty
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12CVQualifiersD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #20
-  br label %223
+  br label %220
 
 76:                                               ; preds = %72, %65
   %.not81 = icmp eq i32 %12, 0
@@ -513,14 +513,14 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %93
 
 100:                                              ; preds = %98
   %101 = icmp eq ptr %97, null
-  br i1 %101, label %222, label %102
+  br i1 %101, label %219, label %102
 
 102:                                              ; preds = %100
   %103 = load ptr, ptr %97, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   call void %105(ptr noundef nonnull align 8 dereferenceable(24) %97) #20
-  br label %222
+  br label %219
 
 106:                                              ; preds = %98
   br i1 %.not, label %107, label %117
@@ -546,7 +546,7 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %93
   %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12CVQualifiersD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #20
-  br label %223
+  br label %220
 
 117:                                              ; preds = %113, %106
   %.not79 = icmp eq i32 %12, 0
@@ -593,186 +593,181 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %93
   %133 = invoke noundef zeroext i1 @_ZN9CGOptions22match_exact_qualifiersEb(i1 noundef zeroext true)
           to label %136 unwind label %134
 
-134:                                              ; preds = %211, %208, %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit, %193, %188, %175, %164, %163, %151, %147, %144, %139, %136, %132, %128, %124
+134:                                              ; preds = %.invoke, %208, %205, %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit, %190, %185, %172, %161, %160, %148, %139, %136, %132, %128, %124
   %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %11) #20
-  br label %223
+  br label %220
 
 136:                                              ; preds = %132, %131
   %137 = invoke noundef zeroext i1 @_ZN9CGOptions12strict_floatEv()
           to label %138 unwind label %134
 
 138:                                              ; preds = %136
-  br i1 %137, label %139, label %147
+  br i1 %137, label %139, label %.invoke
 
 139:                                              ; preds = %138
   %140 = load ptr, ptr %.071, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = invoke noundef nonnull align 8 dereferenceable(136) ptr %142(ptr noundef nonnull align 8 dereferenceable(24) %.071)
-          to label %144 unwind label %134
+          to label %.invoke unwind label %134
 
-144:                                              ; preds = %139
+.invoke:                                          ; preds = %138, %139
+  %144 = phi ptr [ %143, %139 ], [ %.063, %138 ]
   %145 = icmp ne i32 %12, 0
-  %146 = invoke noundef ptr @_ZN3Lhs11make_randomER9CGContextPK4TypePK12CVQualifiersbb(ptr noundef nonnull align 8 dereferenceable(216) %11, ptr noundef nonnull %143, ptr noundef nonnull %8, i1 noundef zeroext %145, i1 noundef zeroext %spec.select.i)
+  %146 = invoke noundef ptr @_ZN3Lhs11make_randomER9CGContextPK4TypePK12CVQualifiersbb(ptr noundef nonnull align 8 dereferenceable(216) %11, ptr noundef %144, ptr noundef nonnull %8, i1 noundef zeroext %145, i1 noundef zeroext %spec.select.i)
+          to label %147 unwind label %134
+
+147:                                              ; preds = %.invoke
+  br i1 %.not, label %150, label %148
+
+148:                                              ; preds = %147
+  %149 = invoke noundef zeroext i1 @_ZN9CGOptions22match_exact_qualifiersEb(i1 noundef zeroext %130)
           to label %150 unwind label %134
 
-147:                                              ; preds = %138
-  %148 = icmp ne i32 %12, 0
-  %149 = invoke noundef ptr @_ZN3Lhs11make_randomER9CGContextPK4TypePK12CVQualifiersbb(ptr noundef nonnull align 8 dereferenceable(216) %11, ptr noundef %.063, ptr noundef nonnull %8, i1 noundef zeroext %148, i1 noundef zeroext %spec.select.i)
-          to label %150 unwind label %134
+150:                                              ; preds = %148, %147
+  %151 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not83 = icmp eq i32 %151, 0
+  br i1 %.not83, label %160, label %152
 
-150:                                              ; preds = %147, %144
-  %.072 = phi ptr [ %146, %144 ], [ %149, %147 ]
-  br i1 %.not, label %153, label %151
+152:                                              ; preds = %150
+  %153 = icmp eq ptr %.071, null
+  br i1 %153, label %158, label %154
 
-151:                                              ; preds = %150
-  %152 = invoke noundef zeroext i1 @_ZN9CGOptions22match_exact_qualifiersEb(i1 noundef zeroext %130)
-          to label %153 unwind label %134
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %.071, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %157 = load ptr, ptr %156, align 8
+  call void %157(ptr noundef nonnull align 8 dereferenceable(24) %.071) #20
+  br label %158
 
-153:                                              ; preds = %151, %150
-  %154 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not83 = icmp eq i32 %154, 0
-  br i1 %.not83, label %163, label %155
+158:                                              ; preds = %154, %152
+  %159 = icmp eq ptr %146, null
+  br i1 %159, label %218, label %.sink.split
 
-155:                                              ; preds = %153
-  %156 = icmp eq ptr %.071, null
-  br i1 %156, label %161, label %157
-
-157:                                              ; preds = %155
-  %158 = load ptr, ptr %.071, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(24) %.071) #20
-  br label %161
-
-161:                                              ; preds = %157, %155
-  %162 = icmp eq ptr %.072, null
-  br i1 %162, label %221, label %.sink.split
-
-163:                                              ; preds = %153
+160:                                              ; preds = %150
   invoke void @_ZN10Expression18check_and_set_castEPK4Type(ptr noundef nonnull align 8 dereferenceable(24) %.071, ptr noundef %.063)
-          to label %164 unwind label %134
+          to label %161 unwind label %134
+
+161:                                              ; preds = %160
+  %162 = invoke noundef zeroext i1 @_ZN9CGOptions5ccompEv()
+          to label %163 unwind label %134
+
+163:                                              ; preds = %161
+  br i1 %162, label %164, label %172
 
 164:                                              ; preds = %163
-  %165 = invoke noundef zeroext i1 @_ZN9CGOptions5ccompEv()
-          to label %166 unwind label %134
+  %165 = getelementptr inbounds i8, ptr %146, i64 24
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 83
+  %168 = load i8, ptr %167, align 1
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %170, label %172
 
-166:                                              ; preds = %164
-  br i1 %165, label %167, label %175
+170:                                              ; preds = %164
+  %171 = getelementptr inbounds i8, ptr %.071, i64 16
+  store ptr %.063, ptr %171, align 8
+  br label %172
 
-167:                                              ; preds = %166
-  %168 = getelementptr inbounds i8, ptr %.072, i64 24
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 83
-  %171 = load i8, ptr %170, align 1
-  %172 = trunc i8 %171 to i1
-  br i1 %172, label %173, label %175
+172:                                              ; preds = %170, %164, %163
+  %173 = getelementptr inbounds i8, ptr %146, i64 24
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 64
+  %176 = load ptr, ptr %175, align 8
+  %177 = invoke noundef ptr @_ZNK4Type13get_base_typeEv(ptr noundef nonnull align 8 dereferenceable(136) %176)
+          to label %178 unwind label %134
 
-173:                                              ; preds = %167
-  %174 = getelementptr inbounds i8, ptr %.071, i64 16
-  store ptr %.063, ptr %174, align 8
-  br label %175
+178:                                              ; preds = %172
+  %179 = load i32, ptr %177, align 8
+  %180 = icmp eq i32 %179, 0
+  %181 = getelementptr inbounds i8, ptr %177, i64 16
+  %182 = load i32, ptr %181, align 8
+  %183 = icmp eq i32 %182, 10
+  %184 = select i1 %180, i1 %183, i1 false
+  br i1 %184, label %199, label %185
 
-175:                                              ; preds = %173, %167, %166
-  %176 = getelementptr inbounds i8, ptr %.072, i64 24
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 64
-  %179 = load ptr, ptr %178, align 8
-  %180 = invoke noundef ptr @_ZNK4Type13get_base_typeEv(ptr noundef nonnull align 8 dereferenceable(136) %179)
-          to label %181 unwind label %134
+185:                                              ; preds = %178
+  %186 = load ptr, ptr %.071, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 24
+  %188 = load ptr, ptr %187, align 8
+  %189 = invoke noundef nonnull align 8 dereferenceable(136) ptr %188(ptr noundef nonnull align 8 dereferenceable(24) %.071)
+          to label %190 unwind label %134
 
-181:                                              ; preds = %175
-  %182 = load i32, ptr %180, align 8
-  %183 = icmp eq i32 %182, 0
-  %184 = getelementptr inbounds i8, ptr %180, i64 16
-  %185 = load i32, ptr %184, align 8
-  %186 = icmp eq i32 %185, 10
-  %187 = select i1 %183, i1 %186, i1 false
-  br i1 %187, label %202, label %188
+190:                                              ; preds = %185
+  %191 = invoke noundef ptr @_ZNK4Type13get_base_typeEv(ptr noundef nonnull align 8 dereferenceable(136) %189)
+          to label %192 unwind label %134
 
-188:                                              ; preds = %181
-  %189 = load ptr, ptr %.071, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 24
-  %191 = load ptr, ptr %190, align 8
-  %192 = invoke noundef nonnull align 8 dereferenceable(136) ptr %191(ptr noundef nonnull align 8 dereferenceable(24) %.071)
-          to label %193 unwind label %134
+192:                                              ; preds = %190
+  %193 = load i32, ptr %191, align 8
+  %194 = icmp eq i32 %193, 0
+  %195 = getelementptr inbounds i8, ptr %191, i64 16
+  %196 = load i32, ptr %195, align 8
+  %197 = icmp eq i32 %196, 10
+  %198 = select i1 %194, i1 %197, i1 false
+  br i1 %198, label %199, label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
 
-193:                                              ; preds = %188
-  %194 = invoke noundef ptr @_ZNK4Type13get_base_typeEv(ptr noundef nonnull align 8 dereferenceable(136) %192)
-          to label %195 unwind label %134
+199:                                              ; preds = %192, %178
+  %200 = icmp ult i32 %12, 6
+  br i1 %200, label %switch.lookup, label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
 
-195:                                              ; preds = %193
-  %196 = load i32, ptr %194, align 8
-  %197 = icmp eq i32 %196, 0
-  %198 = getelementptr inbounds i8, ptr %194, i64 16
-  %199 = load i32, ptr %198, align 8
-  %200 = icmp eq i32 %199, 10
-  %201 = select i1 %197, i1 %200, i1 false
-  br i1 %201, label %202, label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
-
-202:                                              ; preds = %195, %181
-  %203 = icmp ult i32 %12, 6
-  br i1 %203, label %switch.lookup, label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
-
-switch.lookup:                                    ; preds = %202
-  %204 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN15StatementAssign11make_randomER9CGContextPK4TypePK12CVQualifiers, i64 0, i64 %204
+switch.lookup:                                    ; preds = %199
+  %201 = zext nneg i32 %12 to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN15StatementAssign11make_randomER9CGContextPK4TypePK12CVQualifiers, i64 0, i64 %201
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
 
-_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit: ; preds = %switch.lookup, %202, %195
-  %.073 = phi i32 [ %12, %195 ], [ 0, %202 ], [ %switch.load, %switch.lookup ]
-  %205 = invoke noundef zeroext i1 @_ZN17CompatibleChecker16compatible_checkEPK10ExpressionS2_(ptr noundef nonnull %.071, ptr noundef nonnull %.072)
-          to label %206 unwind label %134
+_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit: ; preds = %switch.lookup, %199, %192
+  %.073 = phi i32 [ %12, %192 ], [ 0, %199 ], [ %switch.load, %switch.lookup ]
+  %202 = invoke noundef zeroext i1 @_ZN17CompatibleChecker16compatible_checkEPK10ExpressionS2_(ptr noundef nonnull %.071, ptr noundef nonnull %146)
+          to label %203 unwind label %134
 
-206:                                              ; preds = %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
-  br i1 %205, label %207, label %208
+203:                                              ; preds = %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
+  br i1 %202, label %204, label %205
 
-207:                                              ; preds = %206
+204:                                              ; preds = %203
   store i32 -5, ptr @_ZN5Error8r_error_E, align 4
   br label %.sink.split.sink.split
 
-208:                                              ; preds = %206
+205:                                              ; preds = %203
   invoke void @_ZN9CGContext19merge_param_contextERKS_b(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %11, i1 noundef zeroext true)
-          to label %209 unwind label %134
+          to label %206 unwind label %134
 
-209:                                              ; preds = %208
-  %210 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not84 = icmp eq i32 %210, 0
-  br i1 %.not84, label %211, label %.sink.split.sink.split
+206:                                              ; preds = %205
+  %207 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not84 = icmp eq i32 %207, 0
+  br i1 %.not84, label %208, label %.sink.split.sink.split
 
-211:                                              ; preds = %209
-  %212 = invoke noundef ptr @_ZN15StatementAssign29make_possible_compound_assignER9CGContextPK4TypeRK3Lhs10eAssignOpsRK10Expression(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %.063, ptr noundef nonnull align 8 dereferenceable(41) %.072, i32 noundef %.073, ptr noundef nonnull align 8 dereferenceable(24) %.071)
-          to label %213 unwind label %134
+208:                                              ; preds = %206
+  %209 = invoke noundef ptr @_ZN15StatementAssign29make_possible_compound_assignER9CGContextPK4TypeRK3Lhs10eAssignOpsRK10Expression(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %.063, ptr noundef nonnull align 8 dereferenceable(41) %146, i32 noundef %.073, ptr noundef nonnull align 8 dereferenceable(24) %.071)
+          to label %210 unwind label %134
 
-213:                                              ; preds = %211
-  %214 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not90 = icmp eq i32 %214, 0
-  br i1 %.not90, label %221, label %.sink.split.sink.split
+210:                                              ; preds = %208
+  %211 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not90 = icmp eq i32 %211, 0
+  br i1 %.not90, label %218, label %.sink.split.sink.split
 
-.sink.split.sink.split:                           ; preds = %213, %209, %207
-  %215 = load ptr, ptr %.071, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 8
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(24) %.071) #20
+.sink.split.sink.split:                           ; preds = %210, %206, %204
+  %212 = load ptr, ptr %.071, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 8
+  %214 = load ptr, ptr %213, align 8
+  call void %214(ptr noundef nonnull align 8 dereferenceable(24) %.071) #20
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %161
-  %218 = load ptr, ptr %.072, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 8
-  %220 = load ptr, ptr %219, align 8
-  call void %220(ptr noundef nonnull align 8 dereferenceable(41) %.072) #20
-  br label %221
+.sink.split:                                      ; preds = %.sink.split.sink.split, %158
+  %215 = load ptr, ptr %146, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %217 = load ptr, ptr %216, align 8
+  call void %217(ptr noundef nonnull align 8 dereferenceable(41) %146) #20
+  br label %218
 
-221:                                              ; preds = %.sink.split, %213, %161
-  %.1 = phi ptr [ null, %161 ], [ %212, %213 ], [ null, %.sink.split ]
+218:                                              ; preds = %.sink.split, %210, %158
+  %.1 = phi ptr [ null, %158 ], [ %209, %210 ], [ null, %.sink.split ]
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %11) #20
-  br label %222
+  br label %219
 
-222:                                              ; preds = %100, %102, %59, %61, %54, %221
-  %.0 = phi ptr [ %.1, %221 ], [ null, %54 ], [ null, %61 ], [ null, %59 ], [ null, %102 ], [ null, %100 ]
+219:                                              ; preds = %100, %102, %59, %61, %54, %218
+  %.0 = phi ptr [ %.1, %218 ], [ null, %54 ], [ null, %61 ], [ null, %59 ], [ null, %102 ], [ null, %100 ]
   call void @_ZN12CVQualifiersD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #20
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #20
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #20
@@ -780,28 +775,28 @@ _ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit: ; preds = %switch
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #20
   ret ptr %.0
 
-223:                                              ; preds = %134, %115, %74, %40
+220:                                              ; preds = %134, %115, %74, %40
   %.pn = phi { ptr, i32 } [ %135, %134 ], [ %41, %40 ], [ %75, %74 ], [ %116, %115 ]
   call void @_ZN12CVQualifiersD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #20
+  br label %221
+
+221:                                              ; preds = %220, %38
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %220 ], [ %39, %38 ]
+  call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #20
+  br label %222
+
+222:                                              ; preds = %221, %36
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %221 ], [ %37, %36 ]
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #20
+  br label %223
+
+223:                                              ; preds = %222, %34
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %222 ], [ %35, %34 ]
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #20
   br label %224
 
-224:                                              ; preds = %223, %38
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %223 ], [ %39, %38 ]
-  call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #20
-  br label %225
-
-225:                                              ; preds = %224, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %224 ], [ %37, %36 ]
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #20
-  br label %226
-
-226:                                              ; preds = %225, %34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %225 ], [ %35, %34 ]
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #20
-  br label %227
-
-227:                                              ; preds = %226, %32
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %226 ], [ %33, %32 ]
+224:                                              ; preds = %223, %32
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %223 ], [ %33, %32 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #20
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }

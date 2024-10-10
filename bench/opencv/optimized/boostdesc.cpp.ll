@@ -706,98 +706,88 @@ define hidden void @_ZN2cv11xfeatures2d14BoostDesc_ImplC2Eibf(ptr noundef nonnul
   %40 = getelementptr inbounds i8, ptr %0, i64 824
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #19
   %41 = load i32, ptr %29, align 4
-  switch i32 %41, label %70 [
+  switch i32 %41, label %62 [
     i32 100, label %42
-    i32 101, label %.invoke10
+    i32 101, label %.invoke
     i32 102, label %45
-    i32 200, label %.invoke
-    i32 300, label %56
-    i32 301, label %57
-    i32 302, label %58
+    i32 200, label %46
+    i32 300, label %47
+    i32 301, label %48
+    i32 302, label %49
   ]
 
 42:                                               ; preds = %5
-  br label %.invoke10
+  br label %.invoke
 
-43:                                               ; preds = %.invoke10, %.invoke
+43:                                               ; preds = %.invoke
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %71
 
 45:                                               ; preds = %5
-  br label %.invoke10
-
-.invoke10:                                        ; preds = %5, %42, %45
-  %46 = phi i32 [ 8, %45 ], [ 24, %42 ], [ 8, %5 ]
-  %47 = phi i32 [ 1, %45 ], [ 2, %42 ], [ 0, %5 ]
-  %48 = phi i32 [ 256, %45 ], [ 256, %42 ], [ 128, %5 ]
-  %49 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_0, %5 ]
-  %50 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_0, %5 ]
-  %51 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_0, %5 ]
-  %52 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_0, %5 ]
-  %53 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_0, %5 ]
-  %54 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_0, %5 ]
-  %55 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_0, %5 ]
-  invoke void @_ZN2cv11xfeatures2d14BoostDesc_Impl10ini_paramsEiiiiiPKjPKiS5_S5_S5_S5_S3_S3_(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %46, i32 noundef 32, i32 noundef %47, i32 noundef 1, i32 noundef %48, ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef null)
-          to label %78 unwind label %43
-
-56:                                               ; preds = %5
   br label %.invoke
 
-57:                                               ; preds = %5
+46:                                               ; preds = %5
   br label %.invoke
 
-58:                                               ; preds = %5
+47:                                               ; preds = %5
   br label %.invoke
 
-.invoke:                                          ; preds = %5, %56, %57, %58
-  %59 = phi i32 [ 8, %58 ], [ 8, %57 ], [ 8, %56 ], [ 24, %5 ]
-  %60 = phi i32 [ 256, %58 ], [ 128, %57 ], [ 64, %56 ], [ 64, %5 ]
-  %61 = phi i32 [ 32, %58 ], [ 32, %57 ], [ 32, %56 ], [ 512, %5 ]
-  %62 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_2, %5 ]
-  %63 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_2, %5 ]
-  %64 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_2, %5 ]
-  %65 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_2, %5 ]
-  %66 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_2, %5 ]
-  %67 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_2, %5 ]
-  %68 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_5, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_4, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_3, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_2, %5 ]
-  %69 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_2, %58 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_1, %57 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_0, %56 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta, %5 ]
-  invoke void @_ZN2cv11xfeatures2d14BoostDesc_Impl10ini_paramsEiiiiiPKjPKiS5_S5_S5_S5_S3_S3_(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %59, i32 noundef 32, i32 noundef 2, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69)
-          to label %78 unwind label %43
+48:                                               ; preds = %5
+  br label %.invoke
 
-70:                                               ; preds = %5
+49:                                               ; preds = %5
+  br label %.invoke
+
+.invoke:                                          ; preds = %5, %42, %45, %46, %47, %48, %49
+  %50 = phi i32 [ 8, %49 ], [ 8, %48 ], [ 8, %47 ], [ 24, %46 ], [ 8, %45 ], [ 24, %42 ], [ 8, %5 ]
+  %51 = phi i32 [ 2, %49 ], [ 2, %48 ], [ 2, %47 ], [ 2, %46 ], [ 1, %45 ], [ 2, %42 ], [ 0, %5 ]
+  %52 = phi i32 [ 256, %49 ], [ 128, %48 ], [ 64, %47 ], [ 64, %46 ], [ 1, %45 ], [ 1, %42 ], [ 1, %5 ]
+  %53 = phi i32 [ 32, %49 ], [ 32, %48 ], [ 32, %47 ], [ 512, %46 ], [ 256, %45 ], [ 256, %42 ], [ 128, %5 ]
+  %54 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_0, %5 ]
+  %55 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_0, %5 ]
+  %56 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_0, %5 ]
+  %57 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_0, %5 ]
+  %58 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_0, %5 ]
+  %59 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_0, %5 ]
+  %60 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_5, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_4, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_3, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_2, %46 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_1, %45 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha, %42 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_0, %5 ]
+  %61 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_2, %49 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_1, %48 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_0, %47 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta, %46 ], [ null, %45 ], [ null, %42 ], [ null, %5 ]
+  invoke void @_ZN2cv11xfeatures2d14BoostDesc_Impl10ini_paramsEiiiiiPKjPKiS5_S5_S5_S5_S3_S3_(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %50, i32 noundef 32, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef %61)
+          to label %70 unwind label %43
+
+62:                                               ; preds = %5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %71 unwind label %73
+          to label %63 unwind label %65
 
-71:                                               ; preds = %70
+63:                                               ; preds = %62
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv11xfeatures2d14BoostDesc_ImplC2Eibf, ptr noundef nonnull @.str.1, i32 noundef 728) #20
-          to label %72 unwind label %75
+          to label %64 unwind label %67
 
-72:                                               ; preds = %71
+64:                                               ; preds = %63
   unreachable
 
-73:                                               ; preds = %70
-  %74 = landingpad { ptr, i32 }
+65:                                               ; preds = %62
+  %66 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %69
 
-75:                                               ; preds = %71
-  %76 = landingpad { ptr, i32 }
+67:                                               ; preds = %63
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
-  br label %77
+  br label %69
 
-77:                                               ; preds = %75, %73
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ]
+69:                                               ; preds = %67, %65
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
-  br label %79
+  br label %71
 
-78:                                               ; preds = %.invoke10, %.invoke
+70:                                               ; preds = %.invoke
   ret void
 
-79:                                               ; preds = %77, %43
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %77 ], [ %44, %43 ]
+71:                                               ; preds = %69, %43
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %69 ], [ %44, %43 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
@@ -1030,98 +1020,88 @@ define hidden void @_ZN2cv11xfeatures2d14BoostDesc_ImplC1Eibf(ptr noundef nonnul
   %19 = getelementptr inbounds i8, ptr %0, i64 824
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #19
   %20 = load i32, ptr %8, align 4
-  switch i32 %20, label %49 [
+  switch i32 %20, label %41 [
     i32 100, label %21
-    i32 101, label %.invoke11
+    i32 101, label %.invoke
     i32 102, label %24
-    i32 200, label %.invoke
-    i32 300, label %35
-    i32 301, label %36
-    i32 302, label %37
+    i32 200, label %25
+    i32 300, label %26
+    i32 301, label %27
+    i32 302, label %28
   ]
 
 21:                                               ; preds = %4
-  br label %.invoke11
+  br label %.invoke
 
-22:                                               ; preds = %.invoke11, %.invoke
+22:                                               ; preds = %.invoke
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %50
 
 24:                                               ; preds = %4
-  br label %.invoke11
-
-.invoke11:                                        ; preds = %4, %21, %24
-  %25 = phi i32 [ 8, %24 ], [ 24, %21 ], [ 8, %4 ]
-  %26 = phi i32 [ 1, %24 ], [ 2, %21 ], [ 0, %4 ]
-  %27 = phi i32 [ 256, %24 ], [ 256, %21 ], [ 128, %4 ]
-  %28 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_0, %4 ]
-  %29 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_0, %4 ]
-  %30 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_0, %4 ]
-  %31 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_0, %4 ]
-  %32 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_0, %4 ]
-  %33 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_0, %4 ]
-  %34 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_0, %4 ]
-  invoke void @_ZN2cv11xfeatures2d14BoostDesc_Impl10ini_paramsEiiiiiPKjPKiS5_S5_S5_S5_S3_S3_(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %25, i32 noundef 32, i32 noundef %26, i32 noundef 1, i32 noundef %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef null)
-          to label %57 unwind label %22
-
-35:                                               ; preds = %4
   br label %.invoke
 
-36:                                               ; preds = %4
+25:                                               ; preds = %4
   br label %.invoke
 
-37:                                               ; preds = %4
+26:                                               ; preds = %4
   br label %.invoke
 
-.invoke:                                          ; preds = %4, %35, %36, %37
-  %38 = phi i32 [ 8, %37 ], [ 8, %36 ], [ 8, %35 ], [ 24, %4 ]
-  %39 = phi i32 [ 256, %37 ], [ 128, %36 ], [ 64, %35 ], [ 64, %4 ]
-  %40 = phi i32 [ 32, %37 ], [ 32, %36 ], [ 32, %35 ], [ 512, %4 ]
-  %41 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_2, %4 ]
-  %42 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_2, %4 ]
-  %43 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_2, %4 ]
-  %44 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_2, %4 ]
-  %45 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_2, %4 ]
-  %46 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_2, %4 ]
-  %47 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_5, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_4, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_3, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_2, %4 ]
-  %48 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_2, %37 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_1, %36 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_0, %35 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta, %4 ]
-  invoke void @_ZN2cv11xfeatures2d14BoostDesc_Impl10ini_paramsEiiiiiPKjPKiS5_S5_S5_S5_S3_S3_(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %38, i32 noundef 32, i32 noundef 2, i32 noundef %39, i32 noundef %40, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48)
-          to label %57 unwind label %22
+27:                                               ; preds = %4
+  br label %.invoke
 
-49:                                               ; preds = %4
+28:                                               ; preds = %4
+  br label %.invoke
+
+.invoke:                                          ; preds = %4, %21, %24, %25, %26, %27, %28
+  %29 = phi i32 [ 8, %28 ], [ 8, %27 ], [ 8, %26 ], [ 24, %25 ], [ 8, %24 ], [ 24, %21 ], [ 8, %4 ]
+  %30 = phi i32 [ 2, %28 ], [ 2, %27 ], [ 2, %26 ], [ 2, %25 ], [ 1, %24 ], [ 2, %21 ], [ 0, %4 ]
+  %31 = phi i32 [ 256, %28 ], [ 128, %27 ], [ 64, %26 ], [ 64, %25 ], [ 1, %24 ], [ 1, %21 ], [ 1, %4 ]
+  %32 = phi i32 [ 32, %28 ], [ 32, %27 ], [ 32, %26 ], [ 512, %25 ], [ 256, %24 ], [ 256, %21 ], [ 128, %4 ]
+  %33 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6thresh_0, %4 ]
+  %34 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE6orient_0, %4 ]
+  %35 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_min_0, %4 ]
+  %36 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5x_max_0, %4 ]
+  %37 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_min_0, %4 ]
+  %38 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5y_max_0, %4 ]
+  %39 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_5, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_4, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_3, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_2, %25 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_1, %24 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha, %21 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE5alpha_0, %4 ]
+  %40 = phi ptr [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_2, %28 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_1, %27 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta_0, %26 ], [ @_ZZN2cv11xfeatures2d14BoostDesc_ImplC1EibfE4beta, %25 ], [ null, %24 ], [ null, %21 ], [ null, %4 ]
+  invoke void @_ZN2cv11xfeatures2d14BoostDesc_Impl10ini_paramsEiiiiiPKjPKiS5_S5_S5_S5_S3_S3_(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %29, i32 noundef 32, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef %40)
+          to label %49 unwind label %22
+
+41:                                               ; preds = %4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %50 unwind label %52
+          to label %42 unwind label %44
 
-50:                                               ; preds = %49
+42:                                               ; preds = %41
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv11xfeatures2d14BoostDesc_ImplC2Eibf, ptr noundef nonnull @.str.1, i32 noundef 728) #20
-          to label %51 unwind label %54
+          to label %43 unwind label %46
 
-51:                                               ; preds = %50
+43:                                               ; preds = %42
   unreachable
 
-52:                                               ; preds = %49
-  %53 = landingpad { ptr, i32 }
+44:                                               ; preds = %41
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %48
 
-54:                                               ; preds = %50
-  %55 = landingpad { ptr, i32 }
+46:                                               ; preds = %42
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  br label %56
+  br label %48
 
-56:                                               ; preds = %54, %52
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
+48:                                               ; preds = %46, %44
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
-  br label %58
+  br label %50
 
-57:                                               ; preds = %.invoke11, %.invoke
+49:                                               ; preds = %.invoke
   ret void
 
-58:                                               ; preds = %56, %22
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %56 ], [ %23, %22 ]
+50:                                               ; preds = %48, %22
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %23, %22 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #19

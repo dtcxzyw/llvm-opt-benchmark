@@ -3135,7 +3135,7 @@ cmake/cmGetFilenameComponentCommand.cxx.ll 174080226
 cmake/cmGetPropertyCommand.cxx.ll 390595479
 cmake/cmGetSourceFilePropertyCommand.cxx.ll 182025488
 cmake/cmGetTargetPropertyCommand.cxx.ll 88266706
-cmake/cmGetTestPropertyCommand.cxx.ll 75212417
+cmake/cmGetTestPropertyCommand.cxx.ll 75319277
 cmake/cmGhsMultiTargetGenerator.cxx.ll 2436453866
 cmake/cmGlobVerificationManager.cxx.ll 762192334
 cmake/cmGlobalCommonGenerator.cxx.ll 990930287
@@ -4661,7 +4661,7 @@ csmith/CoverageTestExtension.cpp.ll 188506188
 csmith/CrestExtension.cpp.ll 94174199
 csmith/DFSOutputMgr.cpp.ll 56913430
 csmith/DFSProgramGenerator.cpp.ll 60293828
-csmith/DFSRndNumGenerator.cpp.ll 456543505
+csmith/DFSRndNumGenerator.cpp.ll 455995026
 csmith/DefaultOutputMgr.cpp.ll 221160424
 csmith/DefaultProgramGenerator.cpp.ll 55546563
 csmith/DefaultRndNumGenerator.cpp.ll 87085306
@@ -6605,7 +6605,7 @@ fmt/args-test.cc.ll 1808362470
 fmt/assert-test.cc.ll 344279276
 fmt/chrono-test.cc.ll 32370085088
 fmt/color-test.cc.ll 2088349981
-fmt/compile-test.cc.ll 11669361662
+fmt/compile-test.cc.ll 11682994828
 fmt/core-test.cc.ll 17076564402
 fmt/enforce-checks-test.cc.ll 10191407864
 fmt/format-impl-test.cc.ll 8618202631
@@ -6670,7 +6670,7 @@ folly/Elf.cpp.ll 310460530
 folly/ElfCache.cpp.ll 557022435
 folly/EnvUtil.cpp.ll 333287673
 folly/EpollBackend.cpp.ll 412296846
-folly/EventBase.cpp.ll 2110599435
+folly/EventBase.cpp.ll 2108484321
 folly/EventBaseBackendBase.cpp.ll 74919917
 folly/EventBaseLocal.cpp.ll 771146325
 folly/EventBaseManager.cpp.ll 201583313
@@ -6779,7 +6779,7 @@ folly/SimpleAsyncIO.cpp.ll 338057735
 folly/SimpleLoopController.cpp.ll 373773525
 folly/SimpleSimdStringUtils.cpp.ll 87925456
 folly/Singleton.cpp.ll 2851171092
-folly/SmartExceptionTracerSingleton.cpp.ll 37678144
+folly/SmartExceptionTracerSingleton.cpp.ll 37715879
 folly/SocketAddress.cpp.ll 418665595
 folly/SocketFastOpen.cpp.ll 50169217
 folly/SocketFds.cpp.ll 114581817
@@ -6801,7 +6801,7 @@ folly/SymbolizePrinter.cpp.ll 307396101
 folly/Symbolizer.cpp.ll 220420978
 folly/TDigest.cpp.ll 586598889
 folly/TcpInfo.cpp.ll 242693376
-folly/TerminateCancellationToken.cpp.ll 1185052462
+folly/TerminateCancellationToken.cpp.ll 1183852334
 folly/TestUtil.cpp.ll 6374754139
 folly/ThreadCachedArena.cpp.ll 456105727
 folly/ThreadId.cpp.ll 53738827
@@ -7511,7 +7511,7 @@ graphviz/gvlayout.c.ll 51818456
 graphviz/gvloadimage.c.ll 101903729
 graphviz/gvloadimage_pango.c.ll 76109629
 graphviz/gvmap.c.ll 223625112
-graphviz/gvpack.cpp.ll 885495822
+graphviz/gvpack.cpp.ll 887111718
 graphviz/gvplugin.c.ll 469922323
 graphviz/gvplugin_vt.c.ll 84354067
 graphviz/gvpr.c.ll 1058422577
@@ -9773,7 +9773,7 @@ hyperscan/hwlm_build.cpp.ll 616832168
 hyperscan/identical.cpp.ll 1558843737
 hyperscan/lbr.c.ll 3498368822
 hyperscan/limex_64.c.ll 2068062606
-hyperscan/limex_compile.cpp.ll 27801760610
+hyperscan/limex_compile.cpp.ll 27832744383
 hyperscan/limex_native.c.ll 1963120174
 hyperscan/limex_simd128.c.ll 2674955987
 hyperscan/limex_simd256.c.ll 4194660571
@@ -16337,7 +16337,7 @@ luau/Config.test.cpp.ll 863412842
 luau/Conformance.test.cpp.ll 5876784819
 luau/Confusables.cpp.ll 115784133
 luau/ConstantFolding.cpp.ll 710441126
-luau/Constraint.cpp.ll 852442137
+luau/Constraint.cpp.ll 851346387
 luau/ConstraintGenerator.cpp.ll 13597708351
 luau/ConstraintGeneratorFixture.cpp.ll 2775322563
 luau/ConstraintSolver.cpp.ll 11126492251
@@ -16364,7 +16364,7 @@ luau/Fixture.cpp.ll 4747550900
 luau/Flags.cpp.ll 174863089
 luau/Frontend.cpp.ll 12837366320
 luau/Frontend.test.cpp.ll 8939947941
-luau/Generalization.cpp.ll 2830676435
+luau/Generalization.cpp.ll 2827221324
 luau/Generalization.test.cpp.ll 2523141194
 luau/GlobalTypes.cpp.ll 1166003237
 luau/InsertionOrderedMap.test.cpp.ll 1481126646
@@ -17029,7 +17029,7 @@ minetest/filecache.cpp.ll 216487069
 minetest/filesys.cpp.ll 1058132343
 minetest/fontengine.cpp.ll 373595870
 minetest/game.cpp.ll 5355971691
-minetest/gameui.cpp.ll 486655660
+minetest/gameui.cpp.ll 487350279
 minetest/gettext.cpp.ll 68715319
 minetest/guiAnimatedImage.cpp.ll 289328901
 minetest/guiBackgroundImage.cpp.ll 318900247
@@ -20788,7 +20788,7 @@ opencv/knearest.cpp.ll 983054755
 opencv/knn_matching.cpp.ll 445023201
 opencv/kuhn_munkres.cpp.ll 498451069
 opencv/l0_smooth.cpp.ll 819192006
-opencv/lapack.cpp.ll 1926733830
+opencv/lapack.cpp.ll 1923830834
 opencv/laplace.cpp.ll 124290894
 opencv/large_kinfu.cpp.ll 4000580081
 opencv/large_kinfu_demo.cpp.ll 835186482
@@ -27360,7 +27360,7 @@ openusd/stagePopulationMask.cpp.ll 952616487
 openusd/stageSceneIndex.cpp.ll 5679681546
 openusd/statementsAPI.cpp.ll 1706015441
 openusd/staticData.cpp.ll 417684882
-openusd/staticInterface.cpp.ll 164721210
+openusd/staticInterface.cpp.ll 165043591
 openusd/staticKeyData.cpp.ll 80235534
 openusd/staticTokens.cpp.ll 423016878
 openusd/statistics.cpp.ll 1378149351
@@ -27652,7 +27652,7 @@ openvdb/AttributeArrayString.cc.ll 2416573398
 openvdb/AttributeGroup.cc.ll 352514393
 openvdb/AttributeSet.cc.ll 3987252462
 openvdb/ChangeBackground.cc.ll 28151189958
-openvdb/Compression.cc.ll 198924911
+openvdb/Compression.cc.ll 199189717
 openvdb/DelayedLoadMetadata.cc.ll 619704396
 openvdb/Diagnostics.cc.ll 53303930370
 openvdb/FastSweeping.cc.ll 79593616121
@@ -29246,7 +29246,7 @@ proj/eqdc.cpp.ll 74300749
 proj/eqearth.cpp.ll 64558726
 proj/factors.cpp.ll 57618287
 proj/factory.cpp.ll 22663333192
-proj/filemanager.cpp.ll 759129846
+proj/filemanager.cpp.ll 758345114
 proj/fouc_s.cpp.ll 56201725
 proj/fwd.cpp.ll 116701027
 proj/gauss.cpp.ll 55437134
@@ -29599,7 +29599,7 @@ proxygen/RendezvousHash.cpp.ll 632105089
 proxygen/RequestHandlerAdaptor.cpp.ll 584089124
 proxygen/RequestWorkerThread.cpp.ll 160871431
 proxygen/RequestWorkerThreadNoExecutor.cpp.ll 247881139
-proxygen/ResourceStats.cpp.ll 961771902
+proxygen/ResourceStats.cpp.ll 962761012
 proxygen/Sampling.cpp.ll 81106443
 proxygen/SecondaryAuthManager.cpp.ll 1088083678
 proxygen/ServerHealthCheckerCallback.cpp.ll 76093573
@@ -38274,7 +38274,7 @@ yosys/shregmap.ll 6730207330
 yosys/sim.ll 27067071032
 yosys/simplec.ll 12917151748
 yosys/simplemap.ll 4323876672
-yosys/simplify.ll 12979645526
+yosys/simplify.ll 13001823158
 yosys/smt2.ll 30527743979
 yosys/smv.ll 18523207819
 yosys/spice.ll 2831628332
@@ -38470,7 +38470,7 @@ z3/ctx_solver_simplify_tactic.cpp.ll 1035161180
 z3/datalog_frontend.cpp.ll 490419726
 z3/datalog_parser.cpp.ll 2465751082
 z3/datatype_decl_plugin.cpp.ll 5503135314
-z3/datatype_factory.cpp.ll 724288279
+z3/datatype_factory.cpp.ll 727372165
 z3/datatype_rewriter.cpp.ll 197138234
 z3/dbg_cmds.cpp.ll 1664794852
 z3/dd_bdd.cpp.ll 4456897785
@@ -38550,7 +38550,7 @@ z3/dl_transforms.cpp.ll 499165541
 z3/dl_util.cpp.ll 1434489734
 z3/doc.cpp.ll 1453848287
 z3/dom_simplifier.cpp.ll 1371164341
-z3/dominator_simplifier.cpp.ll 1385259144
+z3/dominator_simplifier.cpp.ll 1382097196
 z3/drat_frontend.cpp.ll 339211679
 z3/dt2bv_tactic.cpp.ll 1449394957
 z3/dt_solver.cpp.ll 2051210866
@@ -38560,7 +38560,7 @@ z3/elim_bounds.cpp.ll 662603455
 z3/elim_small_bv_tactic.cpp.ll 3779484522
 z3/elim_term_ite.cpp.ll 1741389914
 z3/elim_term_ite_tactic.cpp.ll 2465001771
-z3/elim_uncnstr_tactic.cpp.ll 5539066455
+z3/elim_uncnstr_tactic.cpp.ll 5532255438
 z3/elim_unconstrained.cpp.ll 1901733775
 z3/eliminate_predicates.cpp.ll 3571871306
 z3/emonics.cpp.ll 2602940971
@@ -38824,7 +38824,7 @@ z3/qe_datatype_plugin.cpp.ll 1754510824
 z3/qe_dl_plugin.cpp.ll 769218789
 z3/qe_lite_tactic.cpp.ll 9056261454
 z3/qe_mbi.cpp.ll 3299602462
-z3/qe_mbp.cpp.ll 6036920501
+z3/qe_mbp.cpp.ll 6539168998
 z3/qe_tactic.cpp.ll 839930619
 z3/qfaufbv_tactic.cpp.ll 1271968122
 z3/qfauflia_tactic.cpp.ll 1252494872
@@ -38948,7 +38948,7 @@ z3/smt_justification.cpp.ll 1088704036
 z3/smt_kernel.cpp.ll 389236941
 z3/smt_literal.cpp.ll 121428685
 z3/smt_lookahead.cpp.ll 614728626
-z3/smt_model_checker.cpp.ll 4396219103
+z3/smt_model_checker.cpp.ll 4391091611
 z3/smt_model_finder.cpp.ll 5441881193
 z3/smt_model_generator.cpp.ll 1733501386
 z3/smt_parallel.cpp.ll 1797802053
@@ -38974,7 +38974,7 @@ z3/solver_preprocess.cpp.ll 7323464839
 z3/solver_subsumption_tactic.cpp.ll 941145257
 z3/sortmax.cpp.ll 1362667303
 z3/spacer_antiunify.cpp.ll 4704025760
-z3/spacer_arith_generalizers.cpp.ll 3269938604
+z3/spacer_arith_generalizers.cpp.ll 3259978208
 z3/spacer_arith_kernel.cpp.ll 1819163210
 z3/spacer_cluster.cpp.ll 2014884130
 z3/spacer_cluster_util.cpp.ll 2795700968
@@ -38995,7 +38995,7 @@ z3/spacer_legacy_mbp.cpp.ll 239820510
 z3/spacer_legacy_mev.cpp.ll 3068358083
 z3/spacer_manager.cpp.ll 1078602772
 z3/spacer_matrix.cpp.ll 1078052541
-z3/spacer_mbc.cpp.ll 2827713424
+z3/spacer_mbc.cpp.ll 2823881416
 z3/spacer_mev_array.cpp.ll 839401763
 z3/spacer_pdr.cpp.ll 1729499271
 z3/spacer_proof_utils.cpp.ll 3135266691
@@ -39004,7 +39004,7 @@ z3/spacer_qe_project.cpp.ll 4797928041
 z3/spacer_quant_generalizer.cpp.ll 2665520542
 z3/spacer_sat_answer.cpp.ll 1233119390
 z3/spacer_sem_matcher.cpp.ll 572915430
-z3/spacer_sym_mux.cpp.ll 3459322535
+z3/spacer_sym_mux.cpp.ll 3455241880
 z3/spacer_unsat_core_learner.cpp.ll 244166848
 z3/spacer_unsat_core_plugin.cpp.ll 2318257949
 z3/spacer_util.cpp.ll 7789430473
@@ -39035,7 +39035,7 @@ z3/tactic_cmds.cpp.ll 2629216531
 z3/tactic_manager.cpp.ll 649530610
 z3/tactical.cpp.ll 2756447029
 z3/tbv.cpp.ll 386814262
-z3/th_rewriter.cpp.ll 4521773812
+z3/th_rewriter.cpp.ll 5032517832
 z3/theory_arith.cpp.ll 46760932488
 z3/theory_array.cpp.ll 801170018
 z3/theory_array_bapa.cpp.ll 2144220100

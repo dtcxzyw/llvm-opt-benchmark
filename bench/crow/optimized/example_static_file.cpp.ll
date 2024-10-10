@@ -83871,7 +83871,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail13epoll_reactor8start_opEiiRP
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !156
   tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %24, ptr noundef %4, i1 noundef zeroext %5)
-  br label %184
+  br label %181
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %10, i64 88
@@ -83891,281 +83891,278 @@ define linkonce_odr dso_local void @_ZN4asio6detail13epoll_reactor8start_opEiiRP
   %36 = getelementptr inbounds i8, ptr %34, i64 163
   %37 = load i8, ptr %36, align 1, !tbaa !214, !range !133, !noundef !134
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %44
+  br i1 %38, label %.invoke, label %41
 
-39:                                               ; preds = %97, %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !156
-  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %41, ptr noundef %4, i1 noundef zeroext %5)
-          to label %178 unwind label %42
-
-42:                                               ; preds = %151, %39
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %.invoke
+  %40 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %182
 
-44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %34, i64 112
-  %46 = sext i32 %1 to i64
-  %47 = getelementptr inbounds [3 x %"class.asio::detail::op_queue.106"], ptr %45, i64 0, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !217
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %166
+41:                                               ; preds = %33
+  %42 = getelementptr inbounds i8, ptr %34, i64 112
+  %43 = sext i32 %1 to i64
+  %44 = getelementptr inbounds [3 x %"class.asio::detail::op_queue.106"], ptr %42, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !217
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %163
 
-50:                                               ; preds = %44
-  br i1 %6, label %51, label %134
+47:                                               ; preds = %41
+  br i1 %6, label %48, label %131
 
-51:                                               ; preds = %50
-  %52 = icmp eq i32 %1, 0
-  br i1 %52, label %53, label %57
+48:                                               ; preds = %47
+  %49 = icmp eq i32 %1, 0
+  br i1 %49, label %50, label %54
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %34, i64 144
-  %55 = load ptr, ptr %54, align 8, !tbaa !217
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %138
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %34, i64 144
+  %52 = load ptr, ptr %51, align 8, !tbaa !217
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %135
 
-57:                                               ; preds = %53, %51
-  %58 = getelementptr inbounds i8, ptr %34, i64 160
-  %59 = getelementptr inbounds [3 x i8], ptr %58, i64 0, i64 %46
-  %60 = load i8, ptr %59, align 1, !tbaa !529, !range !133, !noundef !134
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %62, label %92
+54:                                               ; preds = %50, %48
+  %55 = getelementptr inbounds i8, ptr %34, i64 160
+  %56 = getelementptr inbounds [3 x i8], ptr %55, i64 0, i64 %43
+  %57 = load i8, ptr %56, align 1, !tbaa !529, !range !133, !noundef !134
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %89
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %4, i64 48
-  %64 = load ptr, ptr %63, align 8, !tbaa !866
-  %65 = invoke noundef i32 %64(ptr noundef nonnull %4)
-          to label %66 unwind label %77
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %4, i64 48
+  %61 = load ptr, ptr %60, align 8, !tbaa !866
+  %62 = invoke noundef i32 %61(ptr noundef nonnull %4)
+          to label %63 unwind label %74
 
-66:                                               ; preds = %62
-  switch i32 %65, label %80 [
-    i32 0, label %67
-    i32 2, label %69
+63:                                               ; preds = %59
+  switch i32 %62, label %77 [
+    i32 0, label %64
+    i32 2, label %66
   ]
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %3, align 8, !tbaa !27
-  br label %92
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %3, align 8, !tbaa !27
+  br label %89
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %3, align 8, !tbaa !27
-  %71 = getelementptr inbounds i8, ptr %70, i64 108
-  %72 = load i32, ptr %71, align 4, !tbaa !216
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %80, label %74
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %3, align 8, !tbaa !27
+  %68 = getelementptr inbounds i8, ptr %67, i64 108
+  %69 = load i32, ptr %68, align 4, !tbaa !216
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %77, label %71
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %70, i64 160
-  %76 = getelementptr inbounds [3 x i8], ptr %75, i64 0, i64 %46
-  store i8 0, ptr %76, align 1, !tbaa !529
-  br label %80
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds i8, ptr %67, i64 160
+  %73 = getelementptr inbounds [3 x i8], ptr %72, i64 0, i64 %43
+  store i8 0, ptr %73, align 1, !tbaa !529
+  br label %77
 
-77:                                               ; preds = %88, %62
-  %78 = phi i8 [ %89, %88 ], [ %35, %62 ]
-  %79 = landingpad { ptr, i32 }
+74:                                               ; preds = %85, %59
+  %75 = phi i8 [ %86, %85 ], [ %35, %59 ]
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %182
 
-80:                                               ; preds = %74, %69, %66
-  %81 = trunc nuw i8 %35 to i1
-  br i1 %81, label %82, label %88
+77:                                               ; preds = %71, %66, %63
+  %78 = trunc nuw i8 %35 to i1
+  br i1 %78, label %79, label %85
 
-82:                                               ; preds = %80
-  %83 = load i8, ptr %26, align 8, !tbaa !154, !range !133, !noundef !134
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %88
+79:                                               ; preds = %77
+  %80 = load i8, ptr %26, align 8, !tbaa !154, !range !133, !noundef !134
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %85
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %10, i64 48
-  %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %86) #36
-  br label %88
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %10, i64 48
+  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %83) #36
+  br label %85
 
-88:                                               ; preds = %85, %82, %80
-  %89 = phi i8 [ %35, %80 ], [ 0, %85 ], [ 0, %82 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !156
-  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %91, ptr noundef nonnull %4, i1 noundef zeroext %5)
-          to label %178 unwind label %77
+85:                                               ; preds = %82, %79, %77
+  %86 = phi i8 [ %35, %77 ], [ 0, %82 ], [ 0, %79 ]
+  %87 = getelementptr inbounds i8, ptr %0, i64 40
+  %88 = load ptr, ptr %87, align 8, !tbaa !156
+  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %88, ptr noundef nonnull %4, i1 noundef zeroext %5)
+          to label %175 unwind label %74
 
-92:                                               ; preds = %67, %57
-  %93 = phi ptr [ %68, %67 ], [ %34, %57 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 108
-  %95 = load i32, ptr %94, align 4, !tbaa !216
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %100
+89:                                               ; preds = %64, %54
+  %90 = phi ptr [ %65, %64 ], [ %34, %54 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 108
+  %92 = load i32, ptr %91, align 4, !tbaa !216
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %97
 
-97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %4, i64 24
-  %99 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_(ptr noundef nonnull align 8 dereferenceable(16) %98, i32 noundef 95) #36
-  br label %39
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_(ptr noundef nonnull align 8 dereferenceable(16) %95, i32 noundef 95) #36
+  br label %.invoke
 
-100:                                              ; preds = %92
-  %101 = icmp eq i32 %1, 1
-  %102 = and i32 %95, 4
-  %103 = icmp eq i32 %102, 0
-  %104 = and i1 %101, %103
-  br i1 %104, label %105, label %166
+97:                                               ; preds = %89
+  %98 = icmp eq i32 %1, 1
+  %99 = and i32 %92, 4
+  %100 = icmp eq i32 %99, 0
+  %101 = and i1 %98, %100
+  br i1 %101, label %102, label %163
 
-105:                                              ; preds = %100
+102:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #36
-  %106 = or disjoint i32 %95, 4
-  store i32 %106, ptr %8, align 4, !tbaa !181
-  %107 = getelementptr inbounds i8, ptr %8, i64 4
-  store ptr %93, ptr %107, align 4, !tbaa !14
-  %108 = getelementptr inbounds i8, ptr %0, i64 112
-  %109 = load i32, ptr %108, align 8, !tbaa !183
-  %110 = call i32 @epoll_ctl(i32 noundef %109, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %8) #36
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %118
+  %103 = or disjoint i32 %92, 4
+  store i32 %103, ptr %8, align 4, !tbaa !181
+  %104 = getelementptr inbounds i8, ptr %8, i64 4
+  store ptr %90, ptr %104, align 4, !tbaa !14
+  %105 = getelementptr inbounds i8, ptr %0, i64 112
+  %106 = load i32, ptr %105, align 8, !tbaa !183
+  %107 = call i32 @epoll_ctl(i32 noundef %106, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %8) #36
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %115
 
-112:                                              ; preds = %105
-  %113 = load i32, ptr %8, align 4, !tbaa !181
-  %114 = load ptr, ptr %3, align 8, !tbaa !27
-  %115 = getelementptr inbounds i8, ptr %114, i64 108
-  %116 = load i32, ptr %115, align 4, !tbaa !216
-  %117 = or i32 %116, %113
-  store i32 %117, ptr %115, align 4, !tbaa !216
+109:                                              ; preds = %102
+  %110 = load i32, ptr %8, align 4, !tbaa !181
+  %111 = load ptr, ptr %3, align 8, !tbaa !27
+  %112 = getelementptr inbounds i8, ptr %111, i64 108
+  %113 = load i32, ptr %112, align 4, !tbaa !216
+  %114 = or i32 %113, %110
+  store i32 %114, ptr %112, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #36
-  br label %166
+  br label %163
 
-118:                                              ; preds = %105
-  %119 = tail call ptr @__errno_location() #41
-  %120 = load i32, ptr %119, align 4, !tbaa !81
-  %121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4asio5error19get_system_categoryEv()
-          to label %122 unwind label %127
+115:                                              ; preds = %102
+  %116 = tail call ptr @__errno_location() #41
+  %117 = load i32, ptr %116, align 4, !tbaa !81
+  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4asio5error19get_system_categoryEv()
+          to label %119 unwind label %124
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %120, ptr %123, align 8, !tbaa !81
-  %124 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %121, ptr %124, align 8, !tbaa !27
-  %125 = getelementptr inbounds i8, ptr %0, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !156
-  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %126, ptr noundef nonnull %4, i1 noundef zeroext %5)
-          to label %131 unwind label %129
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %117, ptr %120, align 8, !tbaa !81
+  %121 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %118, ptr %121, align 8, !tbaa !27
+  %122 = getelementptr inbounds i8, ptr %0, i64 40
+  %123 = load ptr, ptr %122, align 8, !tbaa !156
+  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %123, ptr noundef nonnull %4, i1 noundef zeroext %5)
+          to label %128 unwind label %126
 
-127:                                              ; preds = %118
-  %128 = landingpad { ptr, i32 }
+124:                                              ; preds = %115
+  %125 = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %129
 
-129:                                              ; preds = %122
-  %130 = landingpad { ptr, i32 }
+126:                                              ; preds = %119
+  %127 = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %129
 
-131:                                              ; preds = %122
+128:                                              ; preds = %119
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #36
-  br label %178
+  br label %175
 
-132:                                              ; preds = %129, %127
-  %133 = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ]
+129:                                              ; preds = %126, %124
+  %130 = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #36
-  br label %185
+  br label %182
 
-134:                                              ; preds = %50
-  %135 = getelementptr inbounds i8, ptr %34, i64 108
-  %136 = load i32, ptr %135, align 4, !tbaa !216
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %142, label %155
+131:                                              ; preds = %47
+  %132 = getelementptr inbounds i8, ptr %34, i64 108
+  %133 = load i32, ptr %132, align 4, !tbaa !216
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %139, label %152
 
-138:                                              ; preds = %53
-  %139 = getelementptr inbounds i8, ptr %34, i64 108
-  %140 = load i32, ptr %139, align 4, !tbaa !216
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %159
+135:                                              ; preds = %50
+  %136 = getelementptr inbounds i8, ptr %34, i64 108
+  %137 = load i32, ptr %136, align 4, !tbaa !216
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %156
 
-142:                                              ; preds = %138, %134
-  %143 = getelementptr inbounds i8, ptr %4, i64 24
-  %144 = load atomic i8, ptr @_ZGVZN4asio15system_categoryEvE8instance acquire, align 8
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %146, label %151, !prof !4
+139:                                              ; preds = %135, %131
+  %140 = getelementptr inbounds i8, ptr %4, i64 24
+  %141 = load atomic i8, ptr @_ZGVZN4asio15system_categoryEvE8instance acquire, align 8
+  %142 = icmp eq i8 %141, 0
+  br i1 %142, label %143, label %148, !prof !4
 
-146:                                              ; preds = %142
-  %147 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4asio15system_categoryEvE8instance) #36
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %151, label %149
+143:                                              ; preds = %139
+  %144 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4asio15system_categoryEvE8instance) #36
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %148, label %146
 
-149:                                              ; preds = %146
-  %150 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3_V214error_categoryD2Ev, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr nonnull @__dso_handle) #36
+146:                                              ; preds = %143
+  %147 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3_V214error_categoryD2Ev, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4asio15system_categoryEvE8instance) #36
-  br label %151
+  br label %148
 
-151:                                              ; preds = %149, %146, %142
-  store i32 95, ptr %143, align 8, !tbaa !81
-  %152 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %152, align 8, !tbaa !27
-  %153 = getelementptr inbounds i8, ptr %0, i64 40
-  %154 = load ptr, ptr %153, align 8, !tbaa !156
-  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %154, ptr noundef nonnull %4, i1 noundef zeroext %5)
-          to label %178 unwind label %42
+148:                                              ; preds = %146, %143, %139
+  store i32 95, ptr %140, align 8, !tbaa !81
+  %149 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %149, align 8, !tbaa !27
+  br label %.invoke
 
-155:                                              ; preds = %134
-  %156 = icmp eq i32 %1, 1
-  br i1 %156, label %157, label %159
+.invoke:                                          ; preds = %33, %94, %148
+  %150 = getelementptr inbounds i8, ptr %0, i64 40
+  %151 = load ptr, ptr %150, align 8, !tbaa !156
+  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %151, ptr noundef %4, i1 noundef zeroext %5)
+          to label %175 unwind label %39
 
-157:                                              ; preds = %155
-  %158 = or i32 %136, 4
-  store i32 %158, ptr %135, align 4, !tbaa !216
-  br label %159
+152:                                              ; preds = %131
+  %153 = icmp eq i32 %1, 1
+  br i1 %153, label %154, label %156
 
-159:                                              ; preds = %157, %155, %138
-  %160 = phi i32 [ %158, %157 ], [ %136, %155 ], [ %140, %138 ]
+154:                                              ; preds = %152
+  %155 = or i32 %133, 4
+  store i32 %155, ptr %132, align 4, !tbaa !216
+  br label %156
+
+156:                                              ; preds = %154, %152, %135
+  %157 = phi i32 [ %155, %154 ], [ %133, %152 ], [ %137, %135 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #36
-  store i32 %160, ptr %9, align 4, !tbaa !181
-  %161 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %34, ptr %161, align 4, !tbaa !14
-  %162 = getelementptr inbounds i8, ptr %0, i64 112
-  %163 = load i32, ptr %162, align 8, !tbaa !183
-  %164 = call i32 @epoll_ctl(i32 noundef %163, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %9) #36
+  store i32 %157, ptr %9, align 4, !tbaa !181
+  %158 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %34, ptr %158, align 4, !tbaa !14
+  %159 = getelementptr inbounds i8, ptr %0, i64 112
+  %160 = load i32, ptr %159, align 8, !tbaa !183
+  %161 = call i32 @epoll_ctl(i32 noundef %160, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %9) #36
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #36
-  %165 = load ptr, ptr %3, align 8, !tbaa !27
-  br label %166
+  %162 = load ptr, ptr %3, align 8, !tbaa !27
+  br label %163
 
-166:                                              ; preds = %159, %112, %100, %44
-  %167 = phi ptr [ %114, %112 ], [ %165, %159 ], [ %93, %100 ], [ %34, %44 ]
-  %168 = getelementptr inbounds i8, ptr %167, i64 112
-  %169 = getelementptr inbounds [3 x %"class.asio::detail::op_queue.106"], ptr %168, i64 0, i64 %46
+163:                                              ; preds = %156, %109, %97, %41
+  %164 = phi ptr [ %111, %109 ], [ %162, %156 ], [ %90, %97 ], [ %34, %41 ]
+  %165 = getelementptr inbounds i8, ptr %164, i64 112
+  %166 = getelementptr inbounds [3 x %"class.asio::detail::op_queue.106"], ptr %165, i64 0, i64 %43
   store ptr null, ptr %4, align 8, !tbaa !147
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !27
-  %172 = icmp eq ptr %171, null
-  %173 = select i1 %172, ptr %169, ptr %171
-  store ptr %4, ptr %173, align 8, !tbaa !27
-  store ptr %4, ptr %170, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 40
-  %175 = load ptr, ptr %174, align 8, !tbaa !156
-  %176 = getelementptr inbounds i8, ptr %175, i64 208
-  %177 = atomicrmw add ptr %176, i64 1 seq_cst, align 8
-  br label %178
+  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %168 = load ptr, ptr %167, align 8, !tbaa !27
+  %169 = icmp eq ptr %168, null
+  %170 = select i1 %169, ptr %166, ptr %168
+  store ptr %4, ptr %170, align 8, !tbaa !27
+  store ptr %4, ptr %167, align 8
+  %171 = getelementptr inbounds i8, ptr %0, i64 40
+  %172 = load ptr, ptr %171, align 8, !tbaa !156
+  %173 = getelementptr inbounds i8, ptr %172, i64 208
+  %174 = atomicrmw add ptr %173, i64 1 seq_cst, align 8
+  br label %175
 
-178:                                              ; preds = %166, %151, %131, %88, %39
-  %179 = phi i8 [ %35, %166 ], [ %35, %131 ], [ %35, %151 ], [ %89, %88 ], [ %35, %39 ]
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %184
+175:                                              ; preds = %.invoke, %163, %128, %85
+  %176 = phi i8 [ %35, %163 ], [ %35, %128 ], [ %86, %85 ], [ %35, %.invoke ]
+  %177 = trunc nuw i8 %176 to i1
+  br i1 %177, label %178, label %181
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %10, i64 48
-  %183 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %182) #36
-  br label %184
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %10, i64 48
+  %180 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %179) #36
+  br label %181
 
-184:                                              ; preds = %181, %178, %21
+181:                                              ; preds = %178, %175, %21
   ret void
 
-185:                                              ; preds = %132, %77, %42
-  %186 = phi i8 [ %35, %42 ], [ %35, %132 ], [ %78, %77 ]
-  %187 = phi { ptr, i32 } [ %43, %42 ], [ %133, %132 ], [ %79, %77 ]
-  %188 = trunc nuw i8 %186 to i1
-  br i1 %188, label %189, label %192
+182:                                              ; preds = %129, %74, %39
+  %183 = phi i8 [ %35, %39 ], [ %35, %129 ], [ %75, %74 ]
+  %184 = phi { ptr, i32 } [ %40, %39 ], [ %130, %129 ], [ %76, %74 ]
+  %185 = trunc nuw i8 %183 to i1
+  br i1 %185, label %186, label %189
 
-189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %10, i64 48
-  %191 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %190) #36
-  br label %192
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds i8, ptr %10, i64 48
+  %188 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %187) #36
+  br label %189
 
-192:                                              ; preds = %189, %185
-  resume { ptr, i32 } %187
+189:                                              ; preds = %186, %182
+  resume { ptr, i32 } %184
 }
 
 ; Function Attrs: mustprogress uwtable

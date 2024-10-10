@@ -1316,7 +1316,7 @@ if.then6:                                         ; preds = %cond.false
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
           to label %if.end8 unwind label %lpad
 
-lpad:                                             ; preds = %if.then26, %if.else, %if.then12, %if.then6
+lpad:                                             ; preds = %if.then26.invoke, %if.else, %if.then6
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1337,50 +1337,53 @@ if.then10:                                        ; preds = %dynamic_cast.end
 
 if.then12:                                        ; preds = %if.then10
   %vfn = getelementptr inbounds i8, ptr %vtable15, i64 248
-  %4 = load ptr, ptr %vfn, align 8
-  %call14 = invoke noundef nonnull align 8 dereferenceable(64) ptr %4(ptr noundef nonnull align 8 dereferenceable(832) %3, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %if.end33 unwind label %lpad
+  br label %if.then26.invoke
 
 if.else:                                          ; preds = %if.then10
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 240
-  %5 = load ptr, ptr %vfn16, align 8
-  %call18 = invoke noundef nonnull align 8 dereferenceable(64) ptr %5(ptr noundef nonnull align 8 dereferenceable(832) %3, ptr noundef nonnull align 8 dereferenceable(64) %res)
+  %4 = load ptr, ptr %vfn16, align 8
+  %call18 = invoke noundef nonnull align 8 dereferenceable(64) ptr %4(ptr noundef nonnull align 8 dereferenceable(832) %3, ptr noundef nonnull align 8 dereferenceable(64) %res)
           to label %if.end33 unwind label %lpad
 
 if.else20.thread:                                 ; preds = %dynamic_cast.end
   br i1 %tobool21.not20, label %dynamic_cast.end24, label %if.else31
 
 dynamic_cast.end24:                               ; preds = %if.else20.thread
-  %6 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %cmp25.not = icmp eq ptr %6, null
+  %5 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
+  %cmp25.not = icmp eq ptr %5, null
   br i1 %cmp25.not, label %if.else31, label %if.then26
 
 if.then26:                                        ; preds = %dynamic_cast.end24
-  %vtable27 = load ptr, ptr %6, align 8
+  %vtable27 = load ptr, ptr %5, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 232
-  %7 = load ptr, ptr %vfn28, align 8
-  %call30 = invoke noundef nonnull align 8 dereferenceable(64) ptr %7(ptr noundef nonnull align 8 dereferenceable(760) %6, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  br label %if.then26.invoke
+
+if.then26.invoke:                                 ; preds = %if.then12, %if.then26
+  %6 = phi ptr [ %5, %if.then26 ], [ %3, %if.then12 ]
+  %.in = phi ptr [ %vfn28, %if.then26 ], [ %vfn, %if.then12 ]
+  %7 = load ptr, ptr %.in, align 8
+  %8 = invoke noundef nonnull align 8 dereferenceable(64) ptr %7(ptr noundef nonnull align 8 dereferenceable(760) %6, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end33 unwind label %lpad
 
 if.else31:                                        ; preds = %if.end8, %if.else20.thread, %dynamic_cast.end24
   store i32 1, ptr %status, align 4
   br label %cleanup
 
-if.end33:                                         ; preds = %if.then26, %if.then12, %if.else
+if.end33:                                         ; preds = %if.then26.invoke, %if.else
   store ptr %result, ptr %agg.tmp, align 8
   %call37 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %if.end33
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !5
+  %9 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #7, !srcloc !5
   br label %cleanup
 
 lpad35:                                           ; preds = %if.end33
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #7, !srcloc !5
+  %11 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #7, !srcloc !5
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont36, %if.else31
@@ -1389,7 +1392,7 @@ cleanup:                                          ; preds = %invoke.cont36, %if.
   br label %return
 
 ehcleanup:                                        ; preds = %lpad35, %lpad
-  %.pn = phi { ptr, i32 } [ %9, %lpad35 ], [ %1, %lpad ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad35 ], [ %1, %lpad ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
   resume { ptr, i32 } %.pn
 

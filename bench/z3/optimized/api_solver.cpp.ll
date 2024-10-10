@@ -8087,7 +8087,7 @@ if.then:                                          ; preds = %entry
   invoke void @_Z23log_Z3_solver_get_proofP11_Z3_contextP10_Z3_solver(ptr noundef %c, ptr noundef %s)
           to label %if.end unwind label %lpad1.thread
 
-lpad1.thread:                                     ; preds = %if.then31, %if.then18, %if.then
+lpad1.thread:                                     ; preds = %if.then31.invoke, %if.then
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -8145,29 +8145,26 @@ if.then12:                                        ; preds = %invoke.cont10
           to label %do.body unwind label %lpad1
 
 do.body:                                          ; preds = %if.then12
-  br i1 %tobool.i, label %if.then18, label %return
-
-if.then18:                                        ; preds = %do.body
-  invoke void @_Z4SetRPv(ptr noundef null)
-          to label %if.then.i16 unwind label %lpad1.thread
+  br i1 %tobool.i, label %if.then31.invoke, label %return
 
 if.end21:                                         ; preds = %invoke.cont10
   invoke void @_ZN3api7context14save_ast_trailEP3ast(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull %call11)
           to label %do.body25 unwind label %lpad1
 
 do.body25:                                        ; preds = %if.end21
-  br i1 %tobool.i, label %if.then31, label %return
+  br i1 %tobool.i, label %if.then31.invoke, label %return
 
-if.then31:                                        ; preds = %do.body25
-  invoke void @_Z4SetRPv(ptr noundef nonnull %call11)
+if.then31.invoke:                                 ; preds = %do.body25, %do.body
+  %9 = phi ptr [ null, %do.body ], [ %call11, %do.body25 ]
+  invoke void @_Z4SetRPv(ptr noundef %9)
           to label %if.then.i16 unwind label %lpad1.thread
 
-if.then.i16:                                      ; preds = %if.then31, %if.then18
+if.then.i16:                                      ; preds = %if.then31.invoke
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %return
 
 lpad36:                                           ; preds = %catch
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -8177,14 +8174,14 @@ return:                                           ; preds = %if.then.i16, %do.bo
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad36, %_ZN10z3_log_ctxD2Ev.exit
-  %lpad.val44.merged = phi { ptr, i32 } [ %9, %lpad36 ], [ %lpad.phi23, %_ZN10z3_log_ctxD2Ev.exit ]
+  %lpad.val44.merged = phi { ptr, i32 } [ %10, %lpad36 ], [ %lpad.phi23, %_ZN10z3_log_ctxD2Ev.exit ]
   resume { ptr, i32 } %lpad.val44.merged
 
 terminate.lpad:                                   ; preds = %lpad36
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 }
 

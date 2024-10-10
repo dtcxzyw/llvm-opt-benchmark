@@ -190,21 +190,21 @@ define void @_ZN6casadi8ImporterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   invoke void @_ZN6casadi16ImporterInternalC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(161) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.invoke unwind label %12
 
-10:                                               ; preds = %.invoke, %29, %_ZN6casadi8ImporterptEv.exit, %28, %25, %23, %17, %7
+10:                                               ; preds = %.invoke, %28, %_ZN6casadi8ImporterptEv.exit, %24, %22, %17, %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %31
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %8) #21
-  br label %32
+  br label %31
 
 14:                                               ; preds = %4
   %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1) #19
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %14
   %18 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #20
@@ -212,45 +212,41 @@ define void @_ZN6casadi8ImporterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 19:                                               ; preds = %17
   invoke void @_ZN6casadi10DllLibraryC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %.invoke unwind label %21
+          to label %.invoke unwind label %20
 
-.invoke:                                          ; preds = %9, %19
-  %20 = phi ptr [ %18, %19 ], [ %8, %9 ]
-  invoke void @_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %20)
-          to label %29 unwind label %10
-
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %18) #21
-  br label %32
+  br label %31
 
-23:                                               ; preds = %14
-  %24 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6casadi15PluginInterfaceINS_16ImporterInternalEE9getPluginERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %25 unwind label %10
+22:                                               ; preds = %14
+  %23 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6casadi15PluginInterfaceINS_16ImporterInternalEE9getPluginERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %24 unwind label %10
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %24, align 8
-  %27 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(32) %1)
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %23, align 8
+  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %.invoke unwind label %10
+
+.invoke:                                          ; preds = %9, %24, %19
+  %27 = phi ptr [ %18, %19 ], [ %26, %24 ], [ %8, %9 ]
+  invoke void @_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %27)
           to label %28 unwind label %10
 
-28:                                               ; preds = %25
-  invoke void @_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %27)
-          to label %29 unwind label %10
-
-29:                                               ; preds = %.invoke, %28
-  %30 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+28:                                               ; preds = %.invoke
+  %29 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN6casadi8ImporterptEv.exit unwind label %10
 
-_ZN6casadi8ImporterptEv.exit:                     ; preds = %29
-  invoke void @_ZN6casadi16ImporterInternal9constructERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(161) %30, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %31 unwind label %10
+_ZN6casadi8ImporterptEv.exit:                     ; preds = %28
+  invoke void @_ZN6casadi16ImporterInternal9constructERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(161) %29, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %30 unwind label %10
 
-31:                                               ; preds = %_ZN6casadi8ImporterptEv.exit
+30:                                               ; preds = %_ZN6casadi8ImporterptEv.exit
   ret void
 
-32:                                               ; preds = %21, %12, %10
-  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %13, %12 ], [ %22, %21 ]
+31:                                               ; preds = %20, %12, %10
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %13, %12 ], [ %21, %20 ]
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   resume { ptr, i32 } %.pn
 }

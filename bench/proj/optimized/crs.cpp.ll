@@ -56803,12 +56803,12 @@ _ZNK5osgeo4proj3crs11VerticalCRS5datumEv.exit:    ; preds = %214, %228, %231
           to label %234 unwind label %.loopexit.split-lp
 
 234:                                              ; preds = %_ZNK5osgeo4proj3crs11VerticalCRS5datumEv.exit
-  br i1 %233, label %235, label %378
+  br i1 %233, label %235, label %379
 
 235:                                              ; preds = %234
   %236 = load ptr, ptr %16, align 8
   %.not167 = icmp eq ptr %236, null
-  br i1 %.not167, label %378, label %237
+  br i1 %.not167, label %379, label %237
 
 237:                                              ; preds = %235
   %238 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj5datum22VerticalReferenceFrame16getWKT1DatumTypeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %236)
@@ -56817,7 +56817,7 @@ _ZNK5osgeo4proj3crs11VerticalCRS5datumEv.exit:    ; preds = %214, %228, %231
 239:                                              ; preds = %237
   %240 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull @.str.77) #39
   %241 = icmp eq i32 %240, 0
-  br i1 %241, label %242, label %378
+  br i1 %241, label %242, label %379
 
 242:                                              ; preds = %239
   %243 = load ptr, ptr %44, align 8
@@ -57023,7 +57023,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj5datum5DatumENS3_6common
           cleanup
   br label %514
 
-.loopexit.split-lp:                               ; preds = %_ZNK5osgeo4proj3crs11VerticalCRS5datumEv.exit, %237, %.critedge, %_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit, %405, %406, %407, %408, %409, %410, %_ZNK5osgeo4proj4util8CodeListeqERKS2_.exit.thread164, %425, %434, %440, %447, %.loopexit, %477, %386, %391
+.loopexit.split-lp:                               ; preds = %.critedge.invoke, %_ZNK5osgeo4proj3crs11VerticalCRS5datumEv.exit, %237, %_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit, %405, %406, %407, %408, %409, %410, %_ZNK5osgeo4proj4util8CodeListeqERKS2_.exit.thread164, %425, %434, %440, %447, %.loopexit, %477, %391
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %514
@@ -57148,36 +57148,39 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %374 = load ptr, ptr %16, align 8
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds i8, ptr %375, i64 32
-  %377 = load ptr, ptr %376, align 8
-  invoke void %377(ptr noundef nonnull align 8 dereferenceable(72) %374, ptr noundef nonnull %1)
+  br label %.critedge.invoke
+
+.critedge.invoke:                                 ; preds = %387, %.critedge
+  %377 = phi ptr [ %374, %.critedge ], [ %388, %387 ]
+  %.in = phi ptr [ %376, %.critedge ], [ %390, %387 ]
+  %378 = load ptr, ptr %.in, align 8
+  invoke void %378(ptr noundef nonnull align 8 dereferenceable(8) %377, ptr noundef nonnull %1)
           to label %_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit unwind label %.loopexit.split-lp
 
-378:                                              ; preds = %239, %235, %234
-  %379 = load ptr, ptr %0, align 8
-  %380 = getelementptr i8, ptr %379, i64 -24
-  %381 = load i64, ptr %380, align 8
-  %382 = getelementptr inbounds i8, ptr %0, i64 %381
-  %383 = getelementptr inbounds i8, ptr %382, i64 64
-  %384 = load ptr, ptr %383, align 8
+379:                                              ; preds = %239, %235, %234
+  %380 = load ptr, ptr %0, align 8
+  %381 = getelementptr i8, ptr %380, i64 -24
+  %382 = load i64, ptr %381, align 8
+  %383 = getelementptr inbounds i8, ptr %0, i64 %382
+  %384 = getelementptr inbounds i8, ptr %383, i64 64
   %385 = load ptr, ptr %384, align 8
-  %.not.i143 = icmp eq ptr %385, null
-  br i1 %.not.i143, label %391, label %386
+  %386 = load ptr, ptr %385, align 8
+  %.not.i143 = icmp eq ptr %386, null
+  br i1 %.not.i143, label %391, label %387
 
-386:                                              ; preds = %378
-  %387 = getelementptr inbounds i8, ptr %385, i64 24
-  %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 16
-  %390 = load ptr, ptr %389, align 8
-  invoke void %390(ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull %1)
-          to label %_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit unwind label %.loopexit.split-lp
+387:                                              ; preds = %379
+  %388 = getelementptr inbounds i8, ptr %386, i64 24
+  %389 = load ptr, ptr %388, align 8
+  %390 = getelementptr inbounds i8, ptr %389, i64 16
+  br label %.critedge.invoke
 
-391:                                              ; preds = %378
-  %392 = getelementptr inbounds i8, ptr %384, i64 16
+391:                                              ; preds = %379
+  %392 = getelementptr inbounds i8, ptr %385, i64 16
   %393 = load ptr, ptr %392, align 8
   invoke void @_ZNK5osgeo4proj5datum13DatumEnsemble12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %393, ptr noundef nonnull %1)
           to label %_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit unwind label %.loopexit.split-lp
 
-_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit: ; preds = %386, %391, %337, %.critedge
+_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToWktEPNS0_2io12WKTFormatterE.exit: ; preds = %.critedge.invoke, %391, %337
   %394 = load ptr, ptr %0, align 8
   %395 = getelementptr i8, ptr %394, i64 -24
   %396 = load i64, ptr %395, align 8

@@ -11682,41 +11682,34 @@ if.end.i23:                                       ; preds = %call.i.noexc
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %deadline, align 8, !tbaa !146
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %converted.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 9223372036854775807
-  br i1 %cmp.i.i.i.i, label %cond.true.i.i, label %cond.false.i.i
-
-cond.true.i.i:                                    ; preds = %if.end.i23
-  %call6.i.i26 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef -1)
+  %.converted.i.i = select i1 %cmp.i.i.i.i, ptr null, ptr %converted.i.i
+  %9 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef 2, ptr noundef null, ptr noundef %.converted.i.i, i32 noundef -1)
           to label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i unwind label %terminate.lpad
 
-cond.false.i.i:                                   ; preds = %if.end.i23
-  %call.i.i.i27 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef 2, ptr noundef null, ptr noundef nonnull %converted.i.i, i32 noundef -1)
-          to label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i unwind label %terminate.lpad
-
-_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i: ; preds = %cond.false.i.i, %cond.true.i.i
-  %cond.i.i = phi i32 [ %call6.i.i26, %cond.true.i.i ], [ %call.i.i.i27, %cond.false.i.i ]
+_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i: ; preds = %if.end.i23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %converted.i.i) #25
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i, %if.then.i
-  %retval.0.i = phi i32 [ %8, %if.then.i ], [ %cond.i.i, %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i ]
+  %retval.0.i = phi i32 [ %8, %if.then.i ], [ %9, %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pre.i) #25
   %cmp15.not.not.not.not = icmp ne i32 %retval.0.i, 3
   br i1 %cmp15.not.not.not.not, label %cleanup, label %return
 
 cleanup:                                          ; preds = %invoke.cont13
-  %9 = load atomic i32, ptr %this acquire, align 4
-  %cmp.i = icmp eq i32 %9, 1
+  %10 = load atomic i32, ptr %this acquire, align 4
+  %cmp.i = icmp eq i32 %10, 1
   br i1 %cmp.i, label %return, label %while.cond8, !llvm.loop !436
 
 return:                                           ; preds = %cleanup.i, %if.end20.i, %while.body, %cleanup, %invoke.cont13, %if.end14.i, %if.end11.i, %if.end.i
   %retval.3 = phi i1 [ false, %if.end11.i ], [ true, %if.end.i ], [ true, %if.end14.i ], [ %cmp15.not.not.not.not, %invoke.cont13 ], [ %cmp15.not.not.not.not, %cleanup ], [ true, %while.body ], [ %cmp.i.i.i.not.i, %if.end20.i ], [ %cmp.i.i.i.not.i, %cleanup.i ]
   ret i1 %retval.3
 
-terminate.lpad:                                   ; preds = %cond.false.i.i, %cond.true.i.i, %while.cond8
-  %10 = landingpad { ptr, i32 }
+terminate.lpad:                                   ; preds = %if.end.i23, %while.cond8
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #36
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #36
   unreachable
 }
 
@@ -26124,7 +26117,7 @@ terminate.lpad.split.us:                          ; preds = %if.end28.us
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc
   %and.i172 = phi i32 [ %and.i, %for.inc ], [ %and.i168, %if.end.lr.ph ]
-  %9 = phi i32 [ %13, %for.inc ], [ %1, %if.end.lr.ph ]
+  %9 = phi i32 [ %14, %for.inc ], [ %1, %if.end.lr.ph ]
   %begin.0171 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
   %tries.0170 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
   %sub = sub i32 %shl, %and.i172
@@ -26167,26 +26160,19 @@ if.end28:                                         ; preds = %seqcst_fail50.i, %i
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %absTime, align 8, !tbaa !146
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %converted.i, align 8
   %cmp.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i, 9223372036854775807
-  br i1 %cmp.i.i.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %if.end28
-  %call6.i125 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0, ptr noundef null, ptr noundef null, i32 noundef %shl.i)
+  %.converted.i = select i1 %cmp.i.i.i, ptr null, ptr %converted.i
+  %13 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0, ptr noundef null, ptr noundef %.converted.i, i32 noundef %shl.i)
           to label %invoke.cont unwind label %terminate.lpad.split
 
-cond.false.i:                                     ; preds = %if.end28
-  %call.i.i126 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0, ptr noundef null, ptr noundef nonnull %converted.i, i32 noundef %shl.i)
-          to label %invoke.cont unwind label %terminate.lpad.split
-
-invoke.cont:                                      ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %call6.i125, %cond.true.i ], [ %call.i.i126, %cond.false.i ]
+invoke.cont:                                      ; preds = %if.end28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %converted.i) #25
-  %cmp34.not = icmp eq i32 %cond.i, 3
+  %cmp34.not = icmp eq i32 %13, 3
   br i1 %cmp34.not, label %cleanup84, label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %seqcst_fail50.i, %cleanup
   %inc = add i32 %tries.0170, 1
-  %13 = load atomic i32, ptr %this acquire, align 4
-  %and.i = and i32 %13, -64
+  %14 = load atomic i32, ptr %this acquire, align 4
+  %and.i = and i32 %14, -64
   %cmp4 = icmp eq i32 %and.i, %shl
   br i1 %cmp4, label %for.end, label %if.end, !llvm.loop !781
 
@@ -26205,20 +26191,20 @@ if.then56:                                        ; preds = %for.end
   br i1 %cmp57, label %if.else67.thread, label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56
-  %14 = call noundef i64 @llvm.x86.rdtsc()
+  %15 = call noundef i64 @llvm.x86.rdtsc()
   %cmp65 = icmp ugt i32 %tries.0.lcssa, 19999
   br i1 %cmp65, label %if.end74, label %if.else67
 
 if.else67:                                        ; preds = %cond.end63
-  %sub62 = sub i64 %14, %begin.0.lcssa
-  %15 = trunc i64 %sub62 to i32
-  %16 = shl i32 %15, 1
-  %.pre = call i32 @llvm.umax.i32(i32 %16, i32 200)
+  %sub62 = sub i64 %15, %begin.0.lcssa
+  %16 = trunc i64 %sub62 to i32
+  %17 = shl i32 %16, 1
+  %.pre = call i32 @llvm.umax.i32(i32 %17, i32 200)
   br label %if.else67.thread
 
 if.else67.thread:                                 ; preds = %if.else67, %if.then56, %for.end.thread
-  %17 = phi i32 [ %.pre, %if.else67 ], [ 200, %if.then56 ], [ 200, %for.end.thread ]
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %17, i32 20000)
+  %18 = phi i32 [ %.pre, %if.else67 ], [ 200, %if.then56 ], [ 200, %for.end.thread ]
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %18, i32 20000)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else67.thread, %cond.end63
@@ -26233,22 +26219,22 @@ seqcst_fail50.i.i:                                ; preds = %if.end74
   %sub78 = sub i32 %target.0, %0
   %div79 = sdiv i32 %sub78, 8
   %add80 = add i32 %div79, %0
-  %18 = cmpxchg weak ptr %spinCutoff, i32 %0, i32 %add80 seq_cst seq_cst, align 4
+  %19 = cmpxchg weak ptr %spinCutoff, i32 %0, i32 %add80 seq_cst seq_cst, align 4
   br label %cleanup84
 
 cleanup84:                                        ; preds = %invoke.cont, %if.end, %if.end.us, %seqcst_fail50.i.i, %if.then76, %for.end.thread, %for.end
   %retval.5 = phi i32 [ 0, %if.then76 ], [ 0, %for.end ], [ 0, %seqcst_fail50.i.i ], [ 0, %for.end.thread ], [ 1, %if.end.us ], [ 1, %if.end ], [ 2, %invoke.cont ]
   ret i32 %retval.5
 
-terminate.lpad.split:                             ; preds = %cond.false.i, %cond.true.i
-  %19 = landingpad { ptr, i32 }
+terminate.lpad.split:                             ; preds = %if.end28
+  %20 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %terminate.lpad.split, %terminate.lpad.split.us
-  %.us-phi174 = phi { ptr, i32 } [ %19, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
-  %20 = extractvalue { ptr, i32 } %.us-phi174, 0
-  call void @__clang_call_terminate(ptr %20) #36
+  %.us-phi174 = phi { ptr, i32 } [ %20, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
+  %21 = extractvalue { ptr, i32 } %.us-phi174, 0
+  call void @__clang_call_terminate(ptr %21) #36
   unreachable
 }
 

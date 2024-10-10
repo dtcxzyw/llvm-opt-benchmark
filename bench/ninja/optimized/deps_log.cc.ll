@@ -1071,7 +1071,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %27 = tail call ptr @__errno_location() #23
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 2
-  br i1 %29, label %217, label %35
+  br i1 %29, label %216, label %35
 
 30:                                               ; preds = %17
   %31 = landingpad { ptr, i32 }
@@ -1088,22 +1088,22 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7DepsLog4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5StatePS5_E16metrics_h_metric) #21
-  br label %219
+  br label %218
 
 .loopexit:                                        ; preds = %80, %137, %117, %185
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %217
 
-.loopexit.split-lp:                               ; preds = %.invoke, %35, %201, %204, %206, %210, %179
+.loopexit.split-lp:                               ; preds = %.invoke149, %.invoke, %35, %205, %209, %179
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %217
 
 35:                                               ; preds = %26
   %36 = call ptr @strerror(i32 noundef %28) #21
   %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %36)
-          to label %217 unwind label %.loopexit.split-lp
+          to label %216 unwind label %.loopexit.split-lp
 
 38:                                               ; preds = %22
   store i32 0, ptr %9, align 4
@@ -1143,7 +1143,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %58 = and i32 %57, 2147483647
   store i32 %58, ptr %10, align 4
   %59 = icmp ugt i32 %58, 524287
-  br i1 %59, label %.critedge106, label %.lr.ph159
+  br i1 %59, label %.critedge106, label %.lr.ph160
 
 .critedge102thread-pre-split:                     ; preds = %40
   %.pr = load i32, ptr %9, align 4
@@ -1166,7 +1166,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %65 = call i32 @fclose(ptr noundef nonnull %25)
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   %67 = call i32 @unlink(ptr noundef %66) #21
-  br label %217
+  br label %216
 
 ._crit_edge133.loopexit:                          ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
   %68 = mul nsw i32 %.181, 3
@@ -1178,29 +1178,29 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   %.lcssa116 = phi i64 [ %47, %.preheader ], [ %196, %._crit_edge133.loopexit ]
   %69 = call i32 @feof(ptr noundef nonnull %25) #21
   %.not96 = icmp eq i32 %69, 0
-  br i1 %.not96, label %.critedge106, label %212
+  br i1 %.not96, label %.critedge106, label %211
 
 70:                                               ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
   %71 = load i32, ptr %10, align 4
   %72 = and i32 %71, 2147483647
   store i32 %72, ptr %10, align 4
   %73 = icmp ugt i32 %72, 524287
-  br i1 %73, label %.critedge106, label %.lr.ph159, !llvm.loop !13
+  br i1 %73, label %.critedge106, label %.lr.ph160, !llvm.loop !13
 
-.lr.ph159:                                        ; preds = %.lr.ph132, %70
+.lr.ph160:                                        ; preds = %.lr.ph132, %70
   %74 = phi i32 [ %72, %70 ], [ %58, %.lr.ph132 ]
-  %.not94158.in = phi i32 [ %71, %70 ], [ %57, %.lr.ph132 ]
-  %.082130157 = phi i32 [ %.183, %70 ], [ 0, %.lr.ph132 ]
-  %.080131156 = phi i32 [ %.181, %70 ], [ 0, %.lr.ph132 ]
+  %.not94159.in = phi i32 [ %71, %70 ], [ %57, %.lr.ph132 ]
+  %.082130158 = phi i32 [ %.183, %70 ], [ 0, %.lr.ph132 ]
+  %.080131157 = phi i32 [ %.181, %70 ], [ 0, %.lr.ph132 ]
   %75 = phi i64 [ %196, %70 ], [ %47, %.lr.ph132 ]
   %76 = zext nneg i32 %74 to i64
   %77 = call i64 @fread(ptr noundef nonnull %8, i64 noundef %76, i64 noundef 1, ptr noundef nonnull %25)
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %.critedge106, label %79
 
-79:                                               ; preds = %.lr.ph159
-  %.not94158 = icmp sgt i32 %.not94158.in, -1
-  br i1 %.not94158, label %137, label %80
+79:                                               ; preds = %.lr.ph160
+  %.not94159 = icmp sgt i32 %.not94159.in, -1
+  br i1 %.not94159, label %137, label %80
 
 80:                                               ; preds = %79
   %81 = load i32, ptr %8, align 16
@@ -1246,10 +1246,10 @@ _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %84
   %104 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %83) #20
-  br label %218
+  br label %217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN7DepsLog4DepsC2Eli.exit
-  %105 = add nsw i32 %.082130157, 1
+  %105 = add nsw i32 %.082130158, 1
   %106 = load ptr, ptr %54, align 8
   %107 = load ptr, ptr %53, align 8
   %108 = ptrtoint ptr %106 to i64
@@ -1316,7 +1316,7 @@ _ZN7DepsLog4DepsD2Ev.exit.i:                      ; preds = %132, %128
   %135 = getelementptr inbounds ptr, ptr %134, i64 %125
   store ptr %83, ptr %135, align 8
   %136 = zext i1 %.not115 to i32
-  %spec.select103 = add nsw i32 %.080131156, %136
+  %spec.select103 = add nsw i32 %.080131157, %136
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
 137:                                              ; preds = %79
@@ -1431,63 +1431,63 @@ _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_i
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %170, %133
-  %.183 = phi i32 [ %105, %133 ], [ %.082130157, %170 ], [ %.082130157, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %.181 = phi i32 [ %spec.select103, %133 ], [ %.080131156, %170 ], [ %.080131156, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.183 = phi i32 [ %105, %133 ], [ %.082130158, %170 ], [ %.082130158, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.181 = phi i32 [ %spec.select103, %133 ], [ %.080131157, %170 ], [ %.080131157, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %196 = call i64 @ftell(ptr noundef nonnull %25)
   %197 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %25)
   %198 = icmp eq i64 %197, 0
   br i1 %198, label %._crit_edge133.loopexit, label %70, !llvm.loop !13
 
-.critedge106:                                     ; preds = %156, %70, %.lr.ph159, %.lr.ph132, %._crit_edge133
-  %199 = phi i64 [ %.lcssa116, %._crit_edge133 ], [ %47, %.lr.ph132 ], [ %75, %.lr.ph159 ], [ %196, %70 ], [ %75, %156 ]
+.critedge106:                                     ; preds = %156, %70, %.lr.ph160, %.lr.ph132, %._crit_edge133
+  %199 = phi i64 [ %.lcssa116, %._crit_edge133 ], [ %47, %.lr.ph132 ], [ %75, %.lr.ph160 ], [ %196, %70 ], [ %75, %156 ]
   %200 = call i32 @ferror(ptr noundef nonnull %25) #21
   %.not97 = icmp eq i32 %200, 0
-  br i1 %.not97, label %204, label %201
+  br i1 %.not97, label %.invoke149, label %201
 
 201:                                              ; preds = %.critedge106
   %202 = call ptr @strerror(i32 noundef %200) #21
-  %203 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %202)
-          to label %206 unwind label %.loopexit.split-lp
+  br label %.invoke149
 
-204:                                              ; preds = %.critedge106
-  %205 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.4)
-          to label %206 unwind label %.loopexit.split-lp
+.invoke149:                                       ; preds = %.critedge106, %201
+  %203 = phi ptr [ %202, %201 ], [ @.str.4, %.critedge106 ]
+  %204 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %203)
+          to label %205 unwind label %.loopexit.split-lp
 
-206:                                              ; preds = %204, %201
-  %207 = call i32 @fclose(ptr noundef nonnull %25)
-  %208 = invoke noundef zeroext i1 @_Z8TruncateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %199, ptr noundef %3)
-          to label %209 unwind label %.loopexit.split-lp
+205:                                              ; preds = %.invoke149
+  %206 = call i32 @fclose(ptr noundef nonnull %25)
+  %207 = invoke noundef zeroext i1 @_Z8TruncateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %199, ptr noundef nonnull %3)
+          to label %208 unwind label %.loopexit.split-lp
 
-209:                                              ; preds = %206
-  br i1 %208, label %210, label %217
+208:                                              ; preds = %205
+  br i1 %207, label %209, label %216
 
-210:                                              ; preds = %209
-  %211 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.5)
-          to label %217 unwind label %.loopexit.split-lp
+209:                                              ; preds = %208
+  %210 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.5)
+          to label %216 unwind label %.loopexit.split-lp
 
-212:                                              ; preds = %._crit_edge133
-  %213 = call i32 @fclose(ptr noundef nonnull %25)
-  %214 = icmp sgt i32 %.082.lcssa, 1000
-  %215 = icmp sgt i32 %.082.lcssa, %.080.lcssa
-  %or.cond108 = select i1 %214, i1 %215, i1 false
-  br i1 %or.cond108, label %216, label %217
+211:                                              ; preds = %._crit_edge133
+  %212 = call i32 @fclose(ptr noundef nonnull %25)
+  %213 = icmp sgt i32 %.082.lcssa, 1000
+  %214 = icmp sgt i32 %.082.lcssa, %.080.lcssa
+  %or.cond108 = select i1 %213, i1 %214, i1 false
+  br i1 %or.cond108, label %215, label %216
 
-216:                                              ; preds = %212
+215:                                              ; preds = %211
   store i8 1, ptr %0, align 8
-  br label %217
+  br label %216
 
-217:                                              ; preds = %212, %216, %210, %209, %35, %26, %64
-  %.0 = phi i32 [ 1, %64 ], [ 2, %26 ], [ 0, %35 ], [ 0, %209 ], [ 1, %210 ], [ 1, %216 ], [ 1, %212 ]
+216:                                              ; preds = %211, %215, %209, %208, %35, %26, %64
+  %.0 = phi i32 [ 1, %64 ], [ 2, %26 ], [ 0, %35 ], [ 0, %208 ], [ 1, %209 ], [ 1, %215 ], [ 1, %211 ]
   call void @_ZN12ScopedMetricD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   ret i32 %.0
 
-218:                                              ; preds = %.loopexit, %.loopexit.split-lp, %103
+217:                                              ; preds = %.loopexit, %.loopexit.split-lp, %103
   %.pn98 = phi { ptr, i32 } [ %104, %103 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN12ScopedMetricD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
-  br label %219
+  br label %218
 
-219:                                              ; preds = %218, %34
-  %.pn98.pn = phi { ptr, i32 } [ %.pn98, %218 ], [ %.pn, %34 ]
+218:                                              ; preds = %217, %34
+  %.pn98.pn = phi { ptr, i32 } [ %.pn98, %217 ], [ %.pn, %34 ]
   resume { ptr, i32 } %.pn98.pn
 }
 

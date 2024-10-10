@@ -3449,7 +3449,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont406.invoke.invoke, %if.then.i1368, %if.then.i1334, %if.then.i1263, %for.end, %land.lhs.true, %land.lhs.true82, %if.then104, %land.lhs.true127, %land.lhs.true134, %invoke.cont143, %if.then162, %if.end, %invoke.cont213, %invoke.cont216, %invoke.cont218, %invoke.cont220, %invoke.cont224, %invoke.cont226, %invoke.cont228, %invoke.cont251, %invoke.cont252, %if.then274, %if.then280, %if.then292, %if.then330, %if.end332, %if.then353, %if.end355, %if.then376, %if.end378, %if.then392, %invoke.cont396, %if.then430, %if.end458, %if.then.i, %if.then2.i.i, %if.then.i.i192, %.noexc193, %if.else.i.i, %if.then2.i.i212, %if.then.i226, %if.then.i.i268, %.noexc269, %if.else.i.i260, %if.then2.i.i289, %if.then.i303, %if.else.i.i.i.i332, %if.else.i.i7.i.i340, %if.then.i360, %_ZNK8rational9is_uint64Ev.exit.i, %land.rhs.i, %if.then137, %if.else.i.i.i.i403, %if.else.i.i7.i.i411, %if.then.i433, %if.else158, %if.else.i.i.i.i453, %if.else.i.i7.i.i461, %if.then.i483, %if.then183, %if.then2.i.i525, %if.then2.i.i561, %if.then.i565, %call2.i.noexc, %invoke.cont245, %lor.lhs.false.i.i, %if.else.i.i.i.i610, %if.else.i.i7.i.i618, %if.then.i640, %if.then286, %invoke.cont301, %if.then323, %if.then346, %if.then369, %if.then451, %lor.lhs.false.i.i794, %if.else.i.i.i.i849, %if.else.i.i7.i.i857, %if.then.i879
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i1368, %if.then.i1334, %if.then.i1263, %invoke.cont406.invoke, %for.end, %land.lhs.true, %land.lhs.true82, %if.then104, %land.lhs.true127, %land.lhs.true134, %invoke.cont143, %if.then162, %if.end, %invoke.cont213, %invoke.cont216, %invoke.cont218, %invoke.cont220, %invoke.cont224, %invoke.cont226, %invoke.cont228, %invoke.cont251, %invoke.cont252, %if.then274, %if.then280, %if.then292, %if.then330, %if.end332, %if.then353, %if.end355, %if.then376, %if.end378, %if.then392, %invoke.cont396, %if.then430, %if.end458, %if.then.i, %if.then2.i.i, %if.then.i.i192, %.noexc193, %if.else.i.i, %if.then2.i.i212, %if.then.i226, %if.then.i.i268, %.noexc269, %if.else.i.i260, %if.then2.i.i289, %if.then.i303, %if.else.i.i.i.i332, %if.else.i.i7.i.i340, %if.then.i360, %_ZNK8rational9is_uint64Ev.exit.i, %land.rhs.i, %if.then137, %if.else.i.i.i.i403, %if.else.i.i7.i.i411, %if.then.i433, %if.else158, %if.else.i.i.i.i453, %if.else.i.i7.i.i461, %if.then.i483, %if.then183, %if.then2.i.i525, %if.then2.i.i561, %if.then.i565, %call2.i.noexc, %invoke.cont245, %lor.lhs.false.i.i, %if.else.i.i.i.i610, %if.else.i.i7.i.i618, %if.then.i640, %if.then286, %invoke.cont301, %if.then323, %if.then346, %if.then369, %if.then451, %lor.lhs.false.i.i794, %if.else.i.i.i.i849, %if.else.i.i7.i.i857, %if.then.i879
   %lpad.loopexit.split-lp1168 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -5409,9 +5409,9 @@ invoke.cont400:                                   ; preds = %invoke.cont396
   store ptr getelementptr inbounds (i8, ptr @_ZTV16push_back_vectorI10ptr_vectorI3appEE, i64 16), ptr %ref.tmp402, align 8
   store ptr %m_band_terms, ptr %m_vector.i726, align 8
   invoke void @_ZN3euf6solver4pushI16push_back_vectorI10ptr_vectorI3appEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9136) %348, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp402)
-          to label %invoke.cont406.invoke.invoke unwind label %lpad405
+          to label %invoke.cont406.invoke unwind label %lpad405
 
-invoke.cont406.invoke.invoke:                     ; preds = %invoke.cont412, %if.then430, %invoke.cont400
+invoke.cont406.invoke:                            ; preds = %if.then430, %invoke.cont400, %invoke.cont412
   invoke void @_ZN5arith6solver15ensure_arg_varsEP3app(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull %3)
           to label %if.end482 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5427,12 +5427,12 @@ invoke.cont412:                                   ; preds = %invoke.cont390
   %352 = or i1 %cmp2.i.i.i.i.i750, %351
   %cmp2.i.i.i.i.i786 = icmp eq i32 %346, 23
   %353 = or i1 %cmp2.i.i.i.i.i786, %352
-  %or.cond1456 = select i1 %cmp.i.i.i.i.i723, i1 %353, i1 false
-  br i1 %or.cond1456, label %invoke.cont406.invoke.invoke, label %if.then430
+  %or.cond1457 = select i1 %cmp.i.i.i.i.i723, i1 %353, i1 false
+  br i1 %or.cond1457, label %invoke.cont406.invoke, label %if.then430
 
 if.then430:                                       ; preds = %land.rhs.i.i.i651, %invoke.cont412, %if.else270
   invoke void @_ZN5arith6solver17found_unsupportedEP4expr(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull %3)
-          to label %invoke.cont406.invoke.invoke unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont406.invoke unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then451:                                       ; preds = %land.rhs.i.i.i494, %invoke.cont240
   %call.i.i820 = invoke noundef nonnull align 8 dereferenceable(800) ptr @_ZNK3euf13th_euf_solver10get_configEv(ptr noundef nonnull align 8 dereferenceable(108) %this)
@@ -5660,8 +5660,8 @@ invoke.cont470:                                   ; preds = %.noexc883, %lor.lhs
   %inc472 = add i32 %index.0, 1
   br label %if.end482
 
-if.end482:                                        ; preds = %_ZN8rationalD2Ev.exit174, %invoke.cont406.invoke.invoke, %if.then2.i.i.i, %if.then.i.i.i1301, %invoke.cont317, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231, %invoke.cont155, %invoke.cont470, %if.then274, %if.then280, %invoke.cont265, %invoke.cont202, %invoke.cont228, %invoke.cont176, %invoke.cont117, %for.end
-  %index.1 = phi i32 [ %index.0, %for.end ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231 ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308 ], [ %inc119, %invoke.cont117 ], [ %inc157, %invoke.cont155 ], [ %inc178, %invoke.cont176 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527 ], [ %index.0, %invoke.cont202 ], [ %index.0, %invoke.cont228 ], [ %inc267, %if.then274 ], [ %inc267, %if.then280 ], [ %inc267, %invoke.cont265 ], [ %inc472, %invoke.cont470 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit ], [ %inc267, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339 ], [ %inc267, %invoke.cont317 ], [ %inc267, %if.then.i.i.i1301 ], [ %inc267, %if.then2.i.i.i ], [ %inc267, %invoke.cont406.invoke.invoke ], [ %index.0, %_ZN8rationalD2Ev.exit174 ]
+if.end482:                                        ; preds = %_ZN8rationalD2Ev.exit174, %if.then2.i.i.i, %if.then.i.i.i1301, %invoke.cont317, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339, %invoke.cont406.invoke, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231, %invoke.cont155, %invoke.cont470, %if.then274, %if.then280, %invoke.cont265, %invoke.cont202, %invoke.cont228, %invoke.cont176, %invoke.cont117, %for.end
+  %index.1 = phi i32 [ %index.0, %for.end ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit231 ], [ %index.0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit308 ], [ %inc119, %invoke.cont117 ], [ %inc157, %invoke.cont155 ], [ %inc178, %invoke.cont176 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit527 ], [ %index.0, %invoke.cont202 ], [ %index.0, %invoke.cont228 ], [ %inc267, %if.then274 ], [ %inc267, %if.then280 ], [ %inc267, %invoke.cont265 ], [ %inc472, %invoke.cont470 ], [ %index.0, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit ], [ %inc267, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit1339 ], [ %inc267, %invoke.cont406.invoke ], [ %inc267, %invoke.cont317 ], [ %inc267, %if.then.i.i.i1301 ], [ %inc267, %if.then2.i.i.i ], [ %index.0, %_ZN8rationalD2Ev.exit174 ]
   br label %while.cond, !llvm.loop !21
 
 while.end:                                        ; preds = %invoke.cont

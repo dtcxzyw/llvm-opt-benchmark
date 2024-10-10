@@ -6853,7 +6853,7 @@ lpad2.loopexit.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont11, %i
           cleanup
   br label %lpad2.body
 
-lpad2.loopexit.split-lp:                          ; preds = %invoke.cont28, %if.then.i51, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i, %.noexc88
+lpad2.loopexit.split-lp:                          ; preds = %invoke.cont28.invoke, %if.then.i51, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad2.body
@@ -7086,6 +7086,9 @@ invoke.cont28:                                    ; preds = %.noexc53, %lor.lhs.
   %33 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %33, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
+  br label %invoke.cont28.invoke
+
+invoke.cont28.invoke:                             ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i, %invoke.cont28
   invoke void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %r)
           to label %cleanup unwind label %lpad2.loopexit.split-lp
 
@@ -7180,11 +7183,7 @@ if.then.i.i86:                                    ; preds = %if.then68
 
 _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i:   ; preds = %if.then.i.i86, %if.then68
   invoke void @_ZN8dl_graphIN3smt24theory_special_relations7int_extEE19traverse_neg_cycle2INS1_8relationEEEvbRT_(ptr noundef nonnull align 8 dereferenceable(368) %m_graph, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(552) %r)
-          to label %.noexc88 unwind label %lpad2.loopexit.split-lp
-
-.noexc88:                                         ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i
-  invoke void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %r)
-          to label %cleanup unwind label %lpad2.loopexit.split-lp
+          to label %invoke.cont28.invoke unwind label %lpad2.loopexit.split-lp
 
 if.end71:                                         ; preds = %invoke.cont66, %invoke.cont35
   %54 = load ptr, ptr %target, align 8
@@ -7415,8 +7414,8 @@ for.inc:                                          ; preds = %invoke.cont80, %inv
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %cleanup, label %for.body
 
-cleanup:                                          ; preds = %for.inc, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit, %.noexc88, %invoke.cont28
-  %retval.0.ph = phi i32 [ 1, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit ], [ -1, %.noexc88 ], [ -1, %invoke.cont28 ], [ 1, %for.inc ]
+cleanup:                                          ; preds = %for.inc, %invoke.cont28.invoke, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit
+  %retval.0.ph = phi i32 [ 1, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit ], [ -1, %invoke.cont28.invoke ], [ 1, %for.inc ]
   %.pr253 = load ptr, ptr %target, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pr253, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8uint_setD2Ev.exit, label %if.then.i.i.i.i

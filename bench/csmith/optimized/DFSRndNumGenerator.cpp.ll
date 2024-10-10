@@ -1807,7 +1807,7 @@ define dso_local noundef i32 @_ZN18DFSRndNumGenerator8rnd_uptoEjPK6FilterPKNSt7_
 define dso_local noundef zeroext i1 @_ZN18DFSRndNumGenerator12rnd_flipcoinEjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  switch i32 %1, label %21 [
+  switch i32 %1, label %.invoke [
     i32 100, label %6
     i32 0, label %15
   ]
@@ -1824,9 +1824,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %6
   store ptr %7, ptr %5, align 8
   store ptr %10, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23.invoke
+  br label %.invoke
 
-11:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23.invoke, %15, %6, %21
+11:                                               ; preds = %.invoke, %15, %6
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr %5, align 8
@@ -1852,29 +1852,25 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit23:         ; preds = %15
   store ptr %16, ptr %5, align 8
   store ptr %19, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23.invoke
+  br label %.invoke
 
-_ZNSt6vectorIiSaIiEE9push_backEOi.exit23.invoke:  ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23
-  %20 = invoke noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 2, ptr noundef %2, ptr poison, ptr noundef nonnull %5)
-          to label %23 unwind label %11
+.invoke:                                          ; preds = %4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23
+  %20 = phi ptr [ %5, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23 ], [ %5, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ null, %4 ]
+  %21 = invoke noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 2, ptr noundef %2, ptr poison, ptr noundef %20)
+          to label %22 unwind label %11
 
-21:                                               ; preds = %4
-  %22 = invoke noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 2, ptr noundef %2, ptr poison, ptr noundef null)
-          to label %23 unwind label %11
+22:                                               ; preds = %.invoke
+  %23 = load ptr, ptr %5, align 8
+  %.not.i.i.i24 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i24, label %_ZNSt6vectorIiSaIiEED2Ev.exit25, label %24
 
-23:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23.invoke, %21
-  %.0 = phi i32 [ %22, %21 ], [ %20, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit23.invoke ]
-  %24 = load ptr, ptr %5, align 8
-  %.not.i.i.i24 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i24, label %_ZNSt6vectorIiSaIiEED2Ev.exit25, label %25
-
-25:                                               ; preds = %23
-  call void @_ZdlPv(ptr noundef nonnull %24) #20
+24:                                               ; preds = %22
+  call void @_ZdlPv(ptr noundef nonnull %23) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit25
 
-_ZNSt6vectorIiSaIiEED2Ev.exit25:                  ; preds = %23, %25
-  %26 = icmp ne i32 %.0, 0
-  ret i1 %26
+_ZNSt6vectorIiSaIiEED2Ev.exit25:                  ; preds = %22, %24
+  %25 = icmp ne i32 %21, 0
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress uwtable

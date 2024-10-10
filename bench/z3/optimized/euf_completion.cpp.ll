@@ -3431,7 +3431,7 @@ lpad:                                             ; preds = %if.then
           cleanup
   br label %eh.resume
 
-lpad2:                                            ; preds = %if.then157.invoke, %if.then2.i.i.i47, %if.then2.i.i.i, %if.else162, %if.else, %if.then112, %if.then87, %if.then39, %if.then31, %if.then12, %if.then5
+lpad2:                                            ; preds = %if.then157.invoke, %if.then2.i.i.i47, %if.then2.i.i.i, %if.else162, %if.else, %if.then112, %if.then87, %if.then39, %if.then12, %if.then5
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup182
@@ -3520,8 +3520,7 @@ land.lhs.true:                                    ; preds = %if.end24
 
 if.then31:                                        ; preds = %land.lhs.true
   %m_rewriter = getelementptr inbounds i8, ptr %this, i64 680
-  invoke void @_ZN11th_rewriter5mk_eqEP4exprS1_(ptr sret(%class.obj_ref.73) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %m_rewriter, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %cleanup unwind label %lpad2
+  br label %if.then157.invoke
 
 if.end33:                                         ; preds = %land.lhs.true
   %bf.load.i.i.i52 = load i32, ptr %m_kind.i.i.i, align 4
@@ -4031,10 +4030,10 @@ if.else153:                                       ; preds = %invoke.cont143
   %m_rewriter158 = getelementptr inbounds i8, ptr %this, i64 680
   br i1 %cmp156, label %if.then157.invoke, label %if.else162
 
-if.then157.invoke:                                ; preds = %if.else153, %if.then63, %if.then77, %if.then148
-  %98 = phi ptr [ %m_rewriter149, %if.then148 ], [ %m_rewriter78, %if.then77 ], [ %m_rewriter64, %if.then63 ], [ %m_rewriter158, %if.else153 ]
-  %99 = phi ptr [ %96, %if.then148 ], [ %23, %if.then77 ], [ %47, %if.then63 ], [ %95, %if.else153 ]
-  %100 = phi ptr [ %call144, %if.then148 ], [ %48, %if.then77 ], [ %23, %if.then63 ], [ %call144, %if.else153 ]
+if.then157.invoke:                                ; preds = %if.else153, %if.then31, %if.then63, %if.then77, %if.then148
+  %98 = phi ptr [ %m_rewriter149, %if.then148 ], [ %m_rewriter78, %if.then77 ], [ %m_rewriter64, %if.then63 ], [ %m_rewriter, %if.then31 ], [ %m_rewriter158, %if.else153 ]
+  %99 = phi ptr [ %96, %if.then148 ], [ %23, %if.then77 ], [ %47, %if.then63 ], [ %6, %if.then31 ], [ %95, %if.else153 ]
+  %100 = phi ptr [ %call144, %if.then148 ], [ %48, %if.then77 ], [ %23, %if.then63 ], [ %7, %if.then31 ], [ %call144, %if.else153 ]
   invoke void @_ZN11th_rewriter5mk_eqEP4exprS1_(ptr sret(%class.obj_ref.73) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef %99, ptr noundef %100)
           to label %cleanup unwind label %lpad2
 
@@ -4074,7 +4073,7 @@ ehcleanup181:                                     ; preds = %lpad176, %lpad168
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp163) #18
   br label %ehcleanup182
 
-cleanup:                                          ; preds = %if.then157.invoke, %_ZN11ast_manager7inc_refEP3ast.exit.i.i202, %if.then137, %if.then2.i.i.i195, %if.then.i.i.i190, %_ZN7obj_refI4expr11ast_managerED2Ev.exit188, %if.then2.i.i.i148, %if.then.i.i.i143, %_ZN7obj_refI4expr11ast_managerED2Ev.exit141, %if.then2.i.i.i85, %if.then.i.i.i80, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %if.then18, %if.then31, %invoke.cont179
+cleanup:                                          ; preds = %if.then157.invoke, %_ZN11ast_manager7inc_refEP3ast.exit.i.i202, %if.then137, %if.then2.i.i.i195, %if.then.i.i.i190, %_ZN7obj_refI4expr11ast_managerED2Ev.exit188, %if.then2.i.i.i148, %if.then.i.i.i143, %_ZN7obj_refI4expr11ast_managerED2Ev.exit141, %if.then2.i.i.i85, %if.then.i.i.i80, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %if.then18, %invoke.cont179
   %106 = load ptr, ptr %y1, align 8
   %tobool.not.i.i206 = icmp eq ptr %106, null
   br i1 %tobool.not.i.i206, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit214, label %if.then.i.i.i207

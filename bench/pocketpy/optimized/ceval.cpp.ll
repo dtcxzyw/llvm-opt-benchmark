@@ -1358,7 +1358,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
           catch ptr @_ZTIN4pkpy19ToBeRaisedExceptionE
   br label %.body
 
-.loopexit.split-lp4959.loopexit.split-lp.loopexit: ; preds = %.invoke5656, %.invoke5655, %.loopexit4963.invoke, %.invoke5654, %.invoke, %232, %241, %252, %264, %282, %288, %307, %320, %330, %340, %350, %361, %371, %380, %654, %663, %670, %682, %683, %689, %700, %701, %712, %764, %817, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, %824, %825, %836, %888, %941, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, %948, %1000, %1053, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, %1060, %1061, %1074, %1099, %1110, %1162, %1215, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, %1222, %1223, %1239, %1255, %1276, %1283, %1300, %1321, %1337, %1358, %1371, %1377, %1390, %1401, %1402, %1415, %1416, %1430, %1448, %1467, %1474, %1493, %1512, %1519, %1531, %1534, %1544, %1550, %1562, %1563, %1569, %1577, %1578, %1588, %1604, %1621, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, %1684, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, %1749, %1764, %1788, %1794, %1811, %1814, %1833, %1841, %1852, %1855, %1884, %1889, %1919, %1942, %1971, %2002, %2037, %2067, %2111, %2133, %2137, %2159, %2166, %2182, %2186, %2208, %2215, %2249, %2257, %2261, %2283, %2297, %2304, %2311, %2345, %2353, %2357, %2379, %2393, %2400, %2407, %2441, %2449, %2453, %2475, %2489, %2496, %2503, %2543, %2551, %2555, %2577, %2584, %2624, %2632, %2636, %2658, %2665, %2690, %2691, %2703, %2727, %2728, %2740, %2741, %2758, %2776, %2801, %2802, %2814, %2838, %2839, %2851, %2885, %2893, %2897, %2919, %2926, %2960, %2968, %2972, %2994, %3001, %3032, %3040, %3044, %3066, %3073, %3104, %3112, %3116, %3138, %3145, %3177, %3185, %3189, %3211, %3218, %3234, %3238, %3260, %3267, %3283, %3297, %3327, %3334, %3352, %3353, %3369, %3370, %3386, %3387, %3404, %3405, %3422, %3423, %3445, %3452, %3453, %3461, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, %3506, %3514, %3790, %3792, %3807, %3813, %3814, %3832, %3836, %3920, %3971, %3972, %3990, %4012, %4013, %4026, %4038, %4051, %4067, %4081, %4099, %4100, %4113, %4114, %4143, %4144, %4174, %4175, %4196, %4205, %4206, %4236, %4250, %4267, %4290, %4306, %4318, %4570, %4571, %4578, %4652, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit, %4683, %4708, %4725, %4732, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread, %4778, %4788, %4798, %4867, %4887, %4907, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4619, %4936, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4622.thread, %4957, %4962, %4972, %4974, %4991, %4992, %4999, %5009, %5028, %5040, %5074, %5096, %5103, %5125, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, %5191, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, %5257, %1257, %.noexc, %1302, %.noexc4207, %1339, %.noexc4211, %1449, %.noexc4215, %1494, %.noexc4218, %1605, %.noexc4222, %1666, %1729, %1761, %1865, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4273, %_ZNK4pkpy8PyObject4attrENS_7StrNameE.exit, %1924, %2141, %2190, %2238, %2265, %2286, %2334, %2361, %2382, %2430, %2457, %2478, %2519, %.noexc4347, %2532, %2559, %2600, %.noexc4356, %2613, %2640, %2759, %2874, %2901, %2949, %2976, %3021, %3048, %3093, %3120, %3166, %3193, %3242, %3301, %.noexc4430, %3313, %3527, %3991, %.noexc4501, %4052, %4083, %.noexc4508, %4122, %4152, %4183, %4214, %4272, %.noexc4522, %4303, %4365, %4671, %4868, %.noexc4610, %4888, %.noexc4613, %4918, %4947, %4984, %.noexc4628, %5025, %5078, %5087, %5107, %5116, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread, %5182, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread, %5248, %4848
+.loopexit.split-lp4959.loopexit.split-lp.loopexit: ; preds = %.invoke5656, %.invoke5655, %.loopexit4963.invoke, %.invoke5654, %.invoke, %232, %241, %252, %264, %282, %288, %307, %320, %330, %340, %350, %361, %371, %380, %654, %663, %670, %682, %683, %689, %700, %701, %712, %764, %817, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, %824, %825, %836, %888, %941, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, %948, %1000, %1053, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, %1060, %1061, %1074, %1099, %1110, %1162, %1215, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, %1222, %1223, %1239, %1255, %1276, %1283, %1300, %1321, %1337, %1358, %1371, %1377, %1390, %1401, %1402, %1415, %1416, %1430, %1448, %1467, %1474, %1493, %1512, %1519, %1531, %1534, %1544, %1550, %1562, %1563, %1569, %1577, %1578, %1588, %1604, %1621, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, %1684, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, %1749, %1764, %1788, %1794, %1811, %1814, %1833, %1841, %1852, %1855, %1884, %1889, %1919, %1942, %1971, %2002, %2037, %2067, %2111, %2133, %2137, %2159, %2166, %2182, %2186, %2208, %2215, %2249, %2257, %2261, %2283, %2297, %2304, %2311, %2345, %2353, %2357, %2379, %2393, %2400, %2407, %2441, %2449, %2453, %2475, %2489, %2496, %2503, %2543, %2551, %2555, %2577, %2584, %2624, %2632, %2636, %2658, %2665, %2690, %2691, %2703, %2727, %2728, %2740, %2741, %2758, %2776, %2801, %2802, %2814, %2838, %2839, %2851, %2885, %2893, %2897, %2919, %2926, %2960, %2968, %2972, %2994, %3001, %3032, %3040, %3044, %3066, %3073, %3104, %3112, %3116, %3138, %3145, %3177, %3185, %3189, %3211, %3218, %3234, %3238, %3260, %3267, %3283, %3297, %3327, %3334, %3352, %3353, %3369, %3370, %3386, %3387, %3404, %3405, %3422, %3423, %3445, %3452, %3453, %3461, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, %3506, %3514, %3790, %3792, %3807, %3813, %3814, %3832, %3836, %3920, %3971, %3972, %3990, %4012, %4013, %4026, %4038, %4051, %4067, %4081, %4099, %4100, %4113, %4114, %4143, %4144, %4174, %4175, %4196, %4205, %4206, %4236, %4250, %4267, %4290, %4306, %4318, %4570, %4571, %4578, %4652, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit, %4683, %4708, %4725, %4732, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread, %4778, %4788, %4798, %4867, %4887, %4907, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4619, %4936, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4622.thread, %4957, %4962, %4972, %4974, %4991, %4992, %4999, %5009, %5028, %5040, %5076, %5098, %5105, %5127, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, %5193, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, %5259, %1257, %.noexc, %1302, %.noexc4207, %1339, %.noexc4211, %1449, %.noexc4215, %1494, %.noexc4218, %1605, %.noexc4222, %1666, %1729, %1761, %1865, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4273, %_ZNK4pkpy8PyObject4attrENS_7StrNameE.exit, %1924, %2141, %2190, %2238, %2265, %2286, %2334, %2361, %2382, %2430, %2457, %2478, %2519, %.noexc4347, %2532, %2559, %2600, %.noexc4356, %2613, %2640, %2759, %2874, %2901, %2949, %2976, %3021, %3048, %3093, %3120, %3166, %3193, %3242, %3301, %.noexc4430, %3313, %3527, %3991, %.noexc4501, %4052, %4083, %.noexc4508, %4122, %4152, %4183, %4214, %4272, %.noexc4522, %4303, %4365, %4671, %4868, %.noexc4610, %4888, %.noexc4613, %4918, %4947, %4984, %.noexc4628, %5025, %5080, %5089, %5109, %5118, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread, %5184, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread, %5250, %4848
   %lpad.loopexit4980 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
@@ -1431,7 +1431,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
 .backedge:                                        ; preds = %.backedge.backedge, %213
   %.sroa.0623.0 = phi i8 [ %.sroa.0623.0.copyload, %213 ], [ %.sroa.0623.0.be, %.backedge.backedge ]
   %.sroa.2932074.0 = phi i16 [ %.sroa.2932074.0.copyload, %213 ], [ %.sroa.2932074.0.be, %.backedge.backedge ]
-  switch i8 %.sroa.0623.0, label %5258 [
+  switch i8 %.sroa.0623.0, label %5260 [
     i8 0, label %226
     i8 1, label %233
     i8 2, label %242
@@ -1548,10 +1548,10 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
     i8 113, label %4992
     i8 114, label %5000
     i8 115, label %5010
-    i8 116, label %5068
-    i8 117, label %5097
-    i8 118, label %5126
-    i8 119, label %5192
+    i8 116, label %5070
+    i8 117, label %5099
+    i8 118, label %5128
+    i8 119, label %5194
   ]
 
 226:                                              ; preds = %.backedge
@@ -2600,18 +2600,18 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4127: ; preds 
   br label %.body
 
 _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split: ; preds = %513, %616
-  %.sink5726 = phi ptr [ %610, %616 ], [ %507, %513 ]
+  %.sink5727 = phi ptr [ %610, %616 ], [ %507, %513 ]
   %.03593.ph.ph = phi ptr [ %574, %616 ], [ %426, %513 ]
-  %640 = getelementptr inbounds i8, ptr %.sink5726, i64 12
+  %640 = getelementptr inbounds i8, ptr %.sink5727, i64 12
   store i32 0, ptr %640, align 4
-  %641 = load ptr, ptr %.sink5726, align 8
+  %641 = load ptr, ptr %.sink5727, align 8
   %642 = getelementptr inbounds i8, ptr %641, i64 16
   %643 = load ptr, ptr %642, align 8
-  call void %643(ptr noundef nonnull align 8 dereferenceable(16) %.sink5726) #23
+  call void %643(ptr noundef nonnull align 8 dereferenceable(16) %.sink5727) #23
   br label %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split
 
 _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split: ; preds = %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split, %636, %533
-  %.sink5660 = phi ptr [ %507, %533 ], [ %610, %636 ], [ %.sink5726, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split ]
+  %.sink5660 = phi ptr [ %507, %533 ], [ %610, %636 ], [ %.sink5727, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split ]
   %.03593.ph = phi ptr [ %426, %533 ], [ %574, %636 ], [ %.03593.ph.ph, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split ]
   %644 = load ptr, ptr %.sink5660, align 8
   %645 = getelementptr inbounds i8, ptr %644, i64 24
@@ -4423,8 +4423,8 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br label %.invoke
 
 .invoke:                                          ; preds = %1392, %1387
-  %.in5727 = phi ptr [ %1388, %1387 ], [ %1394, %1392 ]
-  %1389 = load ptr, ptr %.in5727, align 8
+  %.in5728 = phi ptr [ %1388, %1387 ], [ %1394, %1392 ]
+  %1389 = load ptr, ptr %.in5728, align 8
   invoke void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_(ptr noundef nonnull align 8 dereferenceable(88) %1389, i16 %.sroa.2932074.0, ptr noundef %1375)
           to label %1395 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
@@ -13565,15 +13565,15 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4630: ; preds = %5010
   %5046 = call ptr @__cxa_begin_catch(ptr %.03560) #23
   br label %.backedge4995
 
-.backedge4995:                                    ; preds = %5066, %5267, %5045
-  %.03554.be = phi ptr [ %.2, %5045 ], [ %5268, %5267 ], [ %.2, %5066 ]
+.backedge4995:                                    ; preds = %5068, %5269, %5045
+  %.03554.be = phi ptr [ %.2, %5045 ], [ %5270, %5269 ], [ %.2, %5068 ]
   call void @__cxa_end_catch()
   br label %200, !llvm.loop !47
 
 5047:                                             ; preds = %.body
   %5048 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy18UnhandledExceptionE) #23
   %5049 = icmp eq i32 %.03565, %5048
-  br i1 %5049, label %5050, label %5063
+  br i1 %5049, label %5050, label %5065
 
 5050:                                             ; preds = %5047
   %5051 = call ptr @__cxa_begin_catch(ptr %.03560) #23
@@ -13588,90 +13588,96 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4630: ; preds = %5010
 5056:                                             ; preds = %5050
   %5057 = load i32, ptr %199, align 8
   %5058 = icmp eq i32 %5057, 0
-  br i1 %5058, label %5059, label %5261
+  br i1 %5058, label %5059, label %5263
 
 5059:                                             ; preds = %5056
   %5060 = getelementptr inbounds i8, ptr %5054, i64 24
   %5061 = call ptr @__cxa_allocate_exception(i64 88) #23
   invoke void @_ZN4pkpy9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %5061, ptr noundef nonnull align 8 dereferenceable(88) %5060)
-          to label %5062 unwind label %5259
+          to label %.invoke5721 unwind label %5261
 
-5062:                                             ; preds = %5059
-  invoke void @__cxa_throw(ptr nonnull %5061, ptr nonnull @_ZTIN4pkpy9ExceptionE, ptr nonnull @_ZN4pkpy9ExceptionD2Ev) #24
-          to label %5273 unwind label %.loopexit.split-lp4991
+.invoke5721:                                      ; preds = %5059, %5267
+  %5062 = phi ptr [ %5268, %5267 ], [ %5061, %5059 ]
+  %5063 = phi ptr [ @_ZTIN4pkpy19ToBeRaisedExceptionE, %5267 ], [ @_ZTIN4pkpy9ExceptionE, %5059 ]
+  %5064 = phi ptr [ null, %5267 ], [ @_ZN4pkpy9ExceptionD2Ev, %5059 ]
+  invoke void @__cxa_throw(ptr %5062, ptr nonnull %5063, ptr %5064) #24
+          to label %.cont unwind label %.loopexit.split-lp4991
 
-5063:                                             ; preds = %5047
-  %5064 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy19ToBeRaisedExceptionE) #23
-  %5065 = icmp eq i32 %.03565, %5064
-  br i1 %5065, label %5066, label %.loopexit4989
+.cont:                                            ; preds = %.invoke5721
+  unreachable
 
-5066:                                             ; preds = %5063
-  %5067 = call ptr @__cxa_begin_catch(ptr %.03560) #23
+5065:                                             ; preds = %5047
+  %5066 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy19ToBeRaisedExceptionE) #23
+  %5067 = icmp eq i32 %.03565, %5066
+  br i1 %5067, label %5068, label %.loopexit4989
+
+5068:                                             ; preds = %5065
+  %5069 = call ptr @__cxa_begin_catch(ptr %.03560) #23
   br label %.backedge4995
 
-5068:                                             ; preds = %.backedge
-  %5069 = load ptr, ptr %215, align 8
-  %5070 = zext i16 %.sroa.2932074.0 to i64
-  %5071 = getelementptr inbounds ptr, ptr %5069, i64 %5070
-  %5072 = load ptr, ptr %5071, align 8
-  %5073 = icmp eq ptr %5072, %130
-  br i1 %5073, label %5074, label %5078
+5070:                                             ; preds = %.backedge
+  %5071 = load ptr, ptr %215, align 8
+  %5072 = zext i16 %.sroa.2932074.0 to i64
+  %5073 = getelementptr inbounds ptr, ptr %5071, i64 %5072
+  %5074 = load ptr, ptr %5073, align 8
+  %5075 = icmp eq ptr %5074, %130
+  br i1 %5075, label %5076, label %5080
 
-5074:                                             ; preds = %5068
-  %5075 = load ptr, ptr %129, align 8
-  %5076 = load ptr, ptr %216, align 8
-  %5077 = getelementptr inbounds %"struct.pkpy::StrName", ptr %5076, i64 %5070
-  %.sroa.020.0.copyload = load i16, ptr %5077, align 2
-  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5075, i16 %.sroa.020.0.copyload)
+5076:                                             ; preds = %5070
+  %5077 = load ptr, ptr %129, align 8
+  %5078 = load ptr, ptr %216, align 8
+  %5079 = getelementptr inbounds %"struct.pkpy::StrName", ptr %5078, i64 %5072
+  %.sroa.020.0.copyload = load i16, ptr %5079, align 2
+  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5077, i16 %.sroa.020.0.copyload)
           to label %._crit_edge5425 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-._crit_edge5425:                                  ; preds = %5074
-  %.pre5426 = load ptr, ptr %5071, align 8
-  br label %5078
+._crit_edge5425:                                  ; preds = %5076
+  %.pre5426 = load ptr, ptr %5073, align 8
+  br label %5080
 
-5078:                                             ; preds = %._crit_edge5425, %5068
-  %5079 = phi ptr [ %.pre5426, %._crit_edge5425 ], [ %5072, %5068 ]
-  %5080 = load ptr, ptr %129, align 8
-  %5081 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5080, ptr noundef %5079)
+5080:                                             ; preds = %._crit_edge5425, %5070
+  %5081 = phi ptr [ %.pre5426, %._crit_edge5425 ], [ %5074, %5070 ]
+  %5082 = load ptr, ptr %129, align 8
+  %5083 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5082, ptr noundef %5081)
           to label %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5078
-  %5082 = add nsw i64 %5081, 1
+_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5080
+  %5084 = add nsw i64 %5083, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store i64 %5082, ptr %8, align 8
-  %or.cond.i4635 = icmp ult i64 %5082, 1152921504606846976
-  br i1 %or.cond.i4635, label %5083, label %5087
+  store i64 %5084, ptr %8, align 8
+  %or.cond.i4635 = icmp ult i64 %5084, 1152921504606846976
+  br i1 %or.cond.i4635, label %5085, label %5089
 
-5083:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit
-  %5084 = shl nuw nsw i64 %5082, 2
-  %5085 = or disjoint i64 %5084, 2
-  %5086 = inttoptr i64 %5085 to ptr
-  br label %5090
+5085:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit
+  %5086 = shl nuw nsw i64 %5084, 2
+  %5087 = or disjoint i64 %5086, 2
+  %5088 = inttoptr i64 %5087 to ptr
+  br label %5092
 
-5087:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit
-  %5088 = getelementptr inbounds i8, ptr %5080, i64 16
-  %5089 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5088, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %5090 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
+5089:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit
+  %5090 = getelementptr inbounds i8, ptr %5082, i64 16
+  %5091 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5090, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %5092 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5090:                                             ; preds = %5083, %5087
-  %.0.i4636 = phi ptr [ %5086, %5083 ], [ %5089, %5087 ]
+5092:                                             ; preds = %5085, %5089
+  %.0.i4636 = phi ptr [ %5088, %5085 ], [ %5091, %5089 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %.0.i4636, ptr %5071, align 8
-  %5091 = load i32, ptr %206, align 4
-  %5092 = add nsw i32 %5091, 1
-  store i32 %5092, ptr %206, align 4
-  store i32 %5091, ptr %.3, align 8
-  %5093 = sext i32 %5091 to i64
-  %5094 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5093
-  %.sroa.0623.0.copyload765 = load i8, ptr %5094, align 2
-  %.sroa.2932074.0..sroa_idx2357 = getelementptr inbounds i8, ptr %5094, i64 2
+  store ptr %.0.i4636, ptr %5073, align 8
+  %5093 = load i32, ptr %206, align 4
+  %5094 = add nsw i32 %5093, 1
+  store i32 %5094, ptr %206, align 4
+  store i32 %5093, ptr %.3, align 8
+  %5095 = sext i32 %5093 to i64
+  %5096 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5095
+  %.sroa.0623.0.copyload765 = load i8, ptr %5096, align 2
+  %.sroa.2932074.0..sroa_idx2357 = getelementptr inbounds i8, ptr %5096, i64 2
   %.sroa.2932074.0.copyload2358 = load i16, ptr %.sroa.2932074.0..sroa_idx2357, align 2
-  %5095 = load ptr, ptr %128, align 8
-  %.not3840 = icmp eq ptr %5095, null
-  br i1 %.not3840, label %.backedge.backedge, label %5096
+  %5097 = load ptr, ptr %128, align 8
+  %.not3840 = icmp eq ptr %5097, null
+  br i1 %.not3840, label %.backedge.backedge, label %5098
 
-5096:                                             ; preds = %5090
-  %.sroa.293.0..sroa_idx1486 = getelementptr inbounds i8, ptr %5094, i64 1
+5098:                                             ; preds = %5092
+  %.sroa.293.0..sroa_idx1486 = getelementptr inbounds i8, ptr %5096, i64 1
   %.sroa.293.0.copyload1487 = load i8, ptr %.sroa.293.0..sroa_idx1486, align 1
   %.sroa.2932074.0.insert.ext2373 = zext i16 %.sroa.2932074.0.copyload2358 to i32
   %.sroa.2932074.0.insert.shift2374 = shl nuw i32 %.sroa.2932074.0.insert.ext2373, 16
@@ -13680,72 +13686,72 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5078
   %.sroa.0623.0.insert.ext775 = zext i8 %.sroa.0623.0.copyload765 to i32
   %.sroa.293.0.insert.insert1505 = or disjoint i32 %.sroa.2932074.0.insert.shift2374, %.sroa.0623.0.insert.ext775
   %.sroa.0623.0.insert.insert777 = or disjoint i32 %.sroa.293.0.insert.insert1505, %.sroa.293.0.insert.shift1503
-  invoke void %5095(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert777)
+  invoke void %5097(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert777)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5097:                                             ; preds = %.backedge
-  %5098 = load ptr, ptr %215, align 8
-  %5099 = zext i16 %.sroa.2932074.0 to i64
-  %5100 = getelementptr inbounds ptr, ptr %5098, i64 %5099
-  %5101 = load ptr, ptr %5100, align 8
-  %5102 = icmp eq ptr %5101, %130
-  br i1 %5102, label %5103, label %5107
+5099:                                             ; preds = %.backedge
+  %5100 = load ptr, ptr %215, align 8
+  %5101 = zext i16 %.sroa.2932074.0 to i64
+  %5102 = getelementptr inbounds ptr, ptr %5100, i64 %5101
+  %5103 = load ptr, ptr %5102, align 8
+  %5104 = icmp eq ptr %5103, %130
+  br i1 %5104, label %5105, label %5109
 
-5103:                                             ; preds = %5097
-  %5104 = load ptr, ptr %129, align 8
-  %5105 = load ptr, ptr %216, align 8
-  %5106 = getelementptr inbounds %"struct.pkpy::StrName", ptr %5105, i64 %5099
-  %.sroa.015.0.copyload = load i16, ptr %5106, align 2
-  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5104, i16 %.sroa.015.0.copyload)
+5105:                                             ; preds = %5099
+  %5106 = load ptr, ptr %129, align 8
+  %5107 = load ptr, ptr %216, align 8
+  %5108 = getelementptr inbounds %"struct.pkpy::StrName", ptr %5107, i64 %5101
+  %.sroa.015.0.copyload = load i16, ptr %5108, align 2
+  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5106, i16 %.sroa.015.0.copyload)
           to label %._crit_edge5424 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-._crit_edge5424:                                  ; preds = %5103
-  %.pre = load ptr, ptr %5100, align 8
-  br label %5107
+._crit_edge5424:                                  ; preds = %5105
+  %.pre = load ptr, ptr %5102, align 8
+  br label %5109
 
-5107:                                             ; preds = %._crit_edge5424, %5097
-  %5108 = phi ptr [ %.pre, %._crit_edge5424 ], [ %5101, %5097 ]
-  %5109 = load ptr, ptr %129, align 8
-  %5110 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5109, ptr noundef %5108)
+5109:                                             ; preds = %._crit_edge5424, %5099
+  %5110 = phi ptr [ %.pre, %._crit_edge5424 ], [ %5103, %5099 ]
+  %5111 = load ptr, ptr %129, align 8
+  %5112 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5111, ptr noundef %5110)
           to label %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640: ; preds = %5107
-  %5111 = add nsw i64 %5110, -1
+_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640: ; preds = %5109
+  %5113 = add nsw i64 %5112, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 %5111, ptr %7, align 8
-  %or.cond.i4641 = icmp ult i64 %5111, 1152921504606846976
-  br i1 %or.cond.i4641, label %5112, label %5116
+  store i64 %5113, ptr %7, align 8
+  %or.cond.i4641 = icmp ult i64 %5113, 1152921504606846976
+  br i1 %or.cond.i4641, label %5114, label %5118
 
-5112:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640
-  %5113 = shl nuw nsw i64 %5111, 2
-  %5114 = or disjoint i64 %5113, 2
-  %5115 = inttoptr i64 %5114 to ptr
-  br label %5119
+5114:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640
+  %5115 = shl nuw nsw i64 %5113, 2
+  %5116 = or disjoint i64 %5115, 2
+  %5117 = inttoptr i64 %5116 to ptr
+  br label %5121
 
-5116:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640
-  %5117 = getelementptr inbounds i8, ptr %5109, i64 16
-  %5118 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5117, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %5119 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
+5118:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640
+  %5119 = getelementptr inbounds i8, ptr %5111, i64 16
+  %5120 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5119, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %5121 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5119:                                             ; preds = %5112, %5116
-  %.0.i4642 = phi ptr [ %5115, %5112 ], [ %5118, %5116 ]
+5121:                                             ; preds = %5114, %5118
+  %.0.i4642 = phi ptr [ %5117, %5114 ], [ %5120, %5118 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store ptr %.0.i4642, ptr %5100, align 8
-  %5120 = load i32, ptr %206, align 4
-  %5121 = add nsw i32 %5120, 1
-  store i32 %5121, ptr %206, align 4
-  store i32 %5120, ptr %.3, align 8
-  %5122 = sext i32 %5120 to i64
-  %5123 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5122
-  %.sroa.0623.0.copyload766 = load i8, ptr %5123, align 2
-  %.sroa.2932074.0..sroa_idx2359 = getelementptr inbounds i8, ptr %5123, i64 2
+  store ptr %.0.i4642, ptr %5102, align 8
+  %5122 = load i32, ptr %206, align 4
+  %5123 = add nsw i32 %5122, 1
+  store i32 %5123, ptr %206, align 4
+  store i32 %5122, ptr %.3, align 8
+  %5124 = sext i32 %5122 to i64
+  %5125 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5124
+  %.sroa.0623.0.copyload766 = load i8, ptr %5125, align 2
+  %.sroa.2932074.0..sroa_idx2359 = getelementptr inbounds i8, ptr %5125, i64 2
   %.sroa.2932074.0.copyload2360 = load i16, ptr %.sroa.2932074.0..sroa_idx2359, align 2
-  %5124 = load ptr, ptr %128, align 8
-  %.not3839 = icmp eq ptr %5124, null
-  br i1 %.not3839, label %.backedge.backedge, label %5125
+  %5126 = load ptr, ptr %128, align 8
+  %.not3839 = icmp eq ptr %5126, null
+  br i1 %.not3839, label %.backedge.backedge, label %5127
 
-5125:                                             ; preds = %5119
-  %.sroa.293.0..sroa_idx1488 = getelementptr inbounds i8, ptr %5123, i64 1
+5127:                                             ; preds = %5121
+  %.sroa.293.0..sroa_idx1488 = getelementptr inbounds i8, ptr %5125, i64 1
   %.sroa.293.0.copyload1489 = load i8, ptr %.sroa.293.0..sroa_idx1488, align 1
   %.sroa.2932074.0.insert.ext2369 = zext i16 %.sroa.2932074.0.copyload2360 to i32
   %.sroa.2932074.0.insert.shift2370 = shl nuw i32 %.sroa.2932074.0.insert.ext2369, 16
@@ -13754,138 +13760,138 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4640: ; preds = %5107
   %.sroa.0623.0.insert.ext772 = zext i8 %.sroa.0623.0.copyload766 to i32
   %.sroa.293.0.insert.insert1501 = or disjoint i32 %.sroa.2932074.0.insert.shift2370, %.sroa.0623.0.insert.ext772
   %.sroa.0623.0.insert.insert774 = or disjoint i32 %.sroa.293.0.insert.insert1501, %.sroa.293.0.insert.shift1499
-  invoke void %5124(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert774)
+  invoke void %5126(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert774)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5126:                                             ; preds = %.backedge
-  %5127 = load ptr, ptr %214, align 8
-  %5128 = getelementptr inbounds i8, ptr %5127, i64 16
-  %5129 = load ptr, ptr %5128, align 8
-  %5130 = load i8, ptr %5129, align 1
-  %5131 = trunc i8 %5130 to i1
-  br i1 %5131, label %5132, label %5142
+5128:                                             ; preds = %.backedge
+  %5129 = load ptr, ptr %214, align 8
+  %5130 = getelementptr inbounds i8, ptr %5129, i64 16
+  %5131 = load ptr, ptr %5130, align 8
+  %5132 = load i8, ptr %5131, align 1
+  %5133 = trunc i8 %5132 to i1
+  br i1 %5133, label %5134, label %5144
 
-5132:                                             ; preds = %5126
-  %5133 = getelementptr inbounds i8, ptr %5129, i64 4
-  br label %5135
+5134:                                             ; preds = %5128
+  %5135 = getelementptr inbounds i8, ptr %5131, i64 4
+  br label %5137
 
-5134:                                             ; preds = %5135
+5136:                                             ; preds = %5137
   %indvars.iv.next.i.i4650 = add nuw nsw i64 %indvars.iv.i.i4649, 1
   %exitcond.not.i.i4651 = icmp eq i64 %indvars.iv.next.i.i4650, 8
-  br i1 %exitcond.not.i.i4651, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %5135, !llvm.loop !48
+  br i1 %exitcond.not.i.i4651, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %5137, !llvm.loop !48
 
-5135:                                             ; preds = %5134, %5132
-  %indvars.iv.i.i4649 = phi i64 [ 0, %5132 ], [ %indvars.iv.next.i.i4650, %5134 ]
-  %5136 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %5133, i64 0, i64 %indvars.iv.i.i4649
-  %5137 = load i16, ptr %5136, align 2
-  %5138 = icmp eq i16 %5137, %.sroa.2932074.0
-  br i1 %5138, label %5139, label %5134
+5137:                                             ; preds = %5136, %5134
+  %indvars.iv.i.i4649 = phi i64 [ 0, %5134 ], [ %indvars.iv.next.i.i4650, %5136 ]
+  %5138 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %5135, i64 0, i64 %indvars.iv.i.i4649
+  %5139 = load i16, ptr %5138, align 2
+  %5140 = icmp eq i16 %5139, %.sroa.2932074.0
+  br i1 %5140, label %5141, label %5136
 
-5139:                                             ; preds = %5135
-  %5140 = getelementptr inbounds i8, ptr %5129, i64 24
-  %5141 = getelementptr inbounds [8 x ptr], ptr %5140, i64 0, i64 %indvars.iv.i.i4649
+5141:                                             ; preds = %5137
+  %5142 = getelementptr inbounds i8, ptr %5131, i64 24
+  %5143 = getelementptr inbounds [8 x ptr], ptr %5142, i64 0, i64 %indvars.iv.i.i4649
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread
 
-5142:                                             ; preds = %5126
-  %5143 = getelementptr inbounds i8, ptr %5129, i64 14
-  %5144 = load i16, ptr %5143, align 2
-  %5145 = and i16 %5144, %.sroa.2932074.0
-  %5146 = getelementptr inbounds i8, ptr %5129, i64 16
-  %5147 = load ptr, ptr %5146, align 8
-  %5148 = zext i16 %5145 to i64
-  %5149 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5147, i64 %5148
-  %5150 = load i16, ptr %5149, align 2
-  %5151 = icmp eq i16 %5150, %.sroa.2932074.0
-  br i1 %5151, label %5152, label %5154
+5144:                                             ; preds = %5128
+  %5145 = getelementptr inbounds i8, ptr %5131, i64 14
+  %5146 = load i16, ptr %5145, align 2
+  %5147 = and i16 %5146, %.sroa.2932074.0
+  %5148 = getelementptr inbounds i8, ptr %5131, i64 16
+  %5149 = load ptr, ptr %5148, align 8
+  %5150 = zext i16 %5147 to i64
+  %5151 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5149, i64 %5150
+  %5152 = load i16, ptr %5151, align 2
+  %5153 = icmp eq i16 %5152, %.sroa.2932074.0
+  br i1 %5153, label %5154, label %5156
 
-5152:                                             ; preds = %5142
-  %5153 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5147, i64 %5148, i32 1
+5154:                                             ; preds = %5144
+  %5155 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5149, i64 %5150, i32 1
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread
 
-5154:                                             ; preds = %5142
-  %5155 = add i16 %5145, 1
-  %5156 = and i16 %5155, %5144
-  %5157 = zext i16 %5156 to i64
-  %5158 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5147, i64 %5157
-  %5159 = load i16, ptr %5158, align 2
-  %5160 = icmp eq i16 %5159, %.sroa.2932074.0
-  br i1 %5160, label %5161, label %5163
+5156:                                             ; preds = %5144
+  %5157 = add i16 %5147, 1
+  %5158 = and i16 %5157, %5146
+  %5159 = zext i16 %5158 to i64
+  %5160 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5149, i64 %5159
+  %5161 = load i16, ptr %5160, align 2
+  %5162 = icmp eq i16 %5161, %.sroa.2932074.0
+  br i1 %5162, label %5163, label %5165
 
-5161:                                             ; preds = %5154
-  %5162 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5147, i64 %5157, i32 1
+5163:                                             ; preds = %5156
+  %5164 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5149, i64 %5159, i32 1
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread
 
-5163:                                             ; preds = %5154
-  %5164 = icmp eq i16 %5150, 0
-  br i1 %5164, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %.lr.ph.i.i4645
+5165:                                             ; preds = %5156
+  %5166 = icmp eq i16 %5152, 0
+  br i1 %5166, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %.lr.ph.i.i4645
 
-.lr.ph.i.i4645:                                   ; preds = %5163, %.lr.ph.i.i.i4648
-  %.012.i9.i.i4646 = phi i16 [ %.0.i.i.i4647, %.lr.ph.i.i.i4648 ], [ %5145, %5163 ]
-  %5165 = add i16 %.012.i9.i.i4646, 1
-  %.0.i.i.i4647 = and i16 %5165, %5144
-  %5166 = zext i16 %.0.i.i.i4647 to i64
-  %5167 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5147, i64 %5166
-  %5168 = load i16, ptr %5167, align 2
-  %5169 = icmp eq i16 %5168, 0
-  br i1 %5169, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %.lr.ph.i.i.i4648, !llvm.loop !49
+.lr.ph.i.i4645:                                   ; preds = %5165, %.lr.ph.i.i.i4648
+  %.012.i9.i.i4646 = phi i16 [ %.0.i.i.i4647, %.lr.ph.i.i.i4648 ], [ %5147, %5165 ]
+  %5167 = add i16 %.012.i9.i.i4646, 1
+  %.0.i.i.i4647 = and i16 %5167, %5146
+  %5168 = zext i16 %.0.i.i.i4647 to i64
+  %5169 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5149, i64 %5168
+  %5170 = load i16, ptr %5169, align 2
+  %5171 = icmp eq i16 %5170, 0
+  br i1 %5171, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, label %.lr.ph.i.i.i4648, !llvm.loop !49
 
 .lr.ph.i.i.i4648:                                 ; preds = %.lr.ph.i.i4645
-  %5170 = icmp eq i16 %5168, %.sroa.2932074.0
-  br i1 %5170, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph.i.i4645, !llvm.loop !49
+  %5172 = icmp eq i16 %5170, %.sroa.2932074.0
+  br i1 %5172, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph.i.i4645, !llvm.loop !49
 
 .lr.ph.i._crit_edge.i.i:                          ; preds = %.lr.ph.i.i.i4648
-  %5171 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5147, i64 %5166, i32 1
+  %5173 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5149, i64 %5168, i32 1
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread
 
-_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit: ; preds = %.lr.ph.i.i4645, %5134, %5163
-  %5172 = load ptr, ptr %129, align 8
-  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5172, i16 %.sroa.2932074.0)
+_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit: ; preds = %.lr.ph.i.i4645, %5136, %5165
+  %5174 = load ptr, ptr %129, align 8
+  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5174, i16 %.sroa.2932074.0)
           to label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i._crit_edge.i.i, %5161, %5152, %5139, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit
-  %5173 = phi ptr [ null, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit ], [ %5171, %.lr.ph.i._crit_edge.i.i ], [ %5162, %5161 ], [ %5153, %5152 ], [ %5141, %5139 ]
-  %5174 = load ptr, ptr %129, align 8
-  %5175 = load ptr, ptr %5173, align 8
-  %5176 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5174, ptr noundef %5175)
+_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i._crit_edge.i.i, %5163, %5154, %5141, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit
+  %5175 = phi ptr [ null, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit ], [ %5173, %.lr.ph.i._crit_edge.i.i ], [ %5164, %5163 ], [ %5155, %5154 ], [ %5143, %5141 ]
+  %5176 = load ptr, ptr %129, align 8
+  %5177 = load ptr, ptr %5175, align 8
+  %5178 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5176, ptr noundef %5177)
           to label %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
 _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653: ; preds = %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread
-  %5177 = add nsw i64 %5176, 1
+  %5179 = add nsw i64 %5178, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store i64 %5177, ptr %6, align 8
-  %or.cond.i4654 = icmp ult i64 %5177, 1152921504606846976
-  br i1 %or.cond.i4654, label %5178, label %5182
+  store i64 %5179, ptr %6, align 8
+  %or.cond.i4654 = icmp ult i64 %5179, 1152921504606846976
+  br i1 %or.cond.i4654, label %5180, label %5184
 
-5178:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653
-  %5179 = shl nuw nsw i64 %5177, 2
-  %5180 = or disjoint i64 %5179, 2
-  %5181 = inttoptr i64 %5180 to ptr
-  br label %5185
+5180:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653
+  %5181 = shl nuw nsw i64 %5179, 2
+  %5182 = or disjoint i64 %5181, 2
+  %5183 = inttoptr i64 %5182 to ptr
+  br label %5187
 
-5182:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653
-  %5183 = getelementptr inbounds i8, ptr %5174, i64 16
-  %5184 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5183, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %5185 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
+5184:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653
+  %5185 = getelementptr inbounds i8, ptr %5176, i64 16
+  %5186 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5185, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %5187 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5185:                                             ; preds = %5178, %5182
-  %.0.i4655 = phi ptr [ %5181, %5178 ], [ %5184, %5182 ]
+5187:                                             ; preds = %5180, %5184
+  %.0.i4655 = phi ptr [ %5183, %5180 ], [ %5186, %5184 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store ptr %.0.i4655, ptr %5173, align 8
-  %5186 = load i32, ptr %206, align 4
-  %5187 = add nsw i32 %5186, 1
-  store i32 %5187, ptr %206, align 4
-  store i32 %5186, ptr %.3, align 8
-  %5188 = sext i32 %5186 to i64
-  %5189 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5188
-  %.sroa.0623.0.copyload767 = load i8, ptr %5189, align 2
-  %.sroa.2932074.0..sroa_idx2361 = getelementptr inbounds i8, ptr %5189, i64 2
+  store ptr %.0.i4655, ptr %5175, align 8
+  %5188 = load i32, ptr %206, align 4
+  %5189 = add nsw i32 %5188, 1
+  store i32 %5189, ptr %206, align 4
+  store i32 %5188, ptr %.3, align 8
+  %5190 = sext i32 %5188 to i64
+  %5191 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5190
+  %.sroa.0623.0.copyload767 = load i8, ptr %5191, align 2
+  %.sroa.2932074.0..sroa_idx2361 = getelementptr inbounds i8, ptr %5191, i64 2
   %.sroa.2932074.0.copyload2362 = load i16, ptr %.sroa.2932074.0..sroa_idx2361, align 2
-  %5190 = load ptr, ptr %128, align 8
-  %.not3838 = icmp eq ptr %5190, null
-  br i1 %.not3838, label %.backedge.backedge, label %5191
+  %5192 = load ptr, ptr %128, align 8
+  %.not3838 = icmp eq ptr %5192, null
+  br i1 %.not3838, label %.backedge.backedge, label %5193
 
-5191:                                             ; preds = %5185
-  %.sroa.293.0..sroa_idx1490 = getelementptr inbounds i8, ptr %5189, i64 1
+5193:                                             ; preds = %5187
+  %.sroa.293.0..sroa_idx1490 = getelementptr inbounds i8, ptr %5191, i64 1
   %.sroa.293.0.copyload1491 = load i8, ptr %.sroa.293.0..sroa_idx1490, align 1
   %.sroa.2932074.0.insert.ext2365 = zext i16 %.sroa.2932074.0.copyload2362 to i32
   %.sroa.2932074.0.insert.shift2366 = shl nuw i32 %.sroa.2932074.0.insert.ext2365, 16
@@ -13894,143 +13900,143 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4653: ; preds = %_ZN4pkpy12Name
   %.sroa.0623.0.insert.ext769 = zext i8 %.sroa.0623.0.copyload767 to i32
   %.sroa.293.0.insert.insert1497 = or disjoint i32 %.sroa.2932074.0.insert.shift2366, %.sroa.0623.0.insert.ext769
   %.sroa.0623.0.insert.insert771 = or disjoint i32 %.sroa.293.0.insert.insert1497, %.sroa.293.0.insert.shift1495
-  invoke void %5190(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert771)
+  invoke void %5192(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert771)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5192:                                             ; preds = %.backedge
-  %5193 = load ptr, ptr %214, align 8
-  %5194 = getelementptr inbounds i8, ptr %5193, i64 16
-  %5195 = load ptr, ptr %5194, align 8
-  %5196 = load i8, ptr %5195, align 1
-  %5197 = trunc i8 %5196 to i1
-  br i1 %5197, label %5198, label %5208
+5194:                                             ; preds = %.backedge
+  %5195 = load ptr, ptr %214, align 8
+  %5196 = getelementptr inbounds i8, ptr %5195, i64 16
+  %5197 = load ptr, ptr %5196, align 8
+  %5198 = load i8, ptr %5197, align 1
+  %5199 = trunc i8 %5198 to i1
+  br i1 %5199, label %5200, label %5210
 
-5198:                                             ; preds = %5192
-  %5199 = getelementptr inbounds i8, ptr %5195, i64 4
-  br label %5201
+5200:                                             ; preds = %5194
+  %5201 = getelementptr inbounds i8, ptr %5197, i64 4
+  br label %5203
 
-5200:                                             ; preds = %5201
+5202:                                             ; preds = %5203
   %indvars.iv.next.i.i4664 = add nuw nsw i64 %indvars.iv.i.i4663, 1
   %exitcond.not.i.i4665 = icmp eq i64 %indvars.iv.next.i.i4664, 8
-  br i1 %exitcond.not.i.i4665, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, label %5201, !llvm.loop !48
+  br i1 %exitcond.not.i.i4665, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, label %5203, !llvm.loop !48
 
-5201:                                             ; preds = %5200, %5198
-  %indvars.iv.i.i4663 = phi i64 [ 0, %5198 ], [ %indvars.iv.next.i.i4664, %5200 ]
-  %5202 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %5199, i64 0, i64 %indvars.iv.i.i4663
-  %5203 = load i16, ptr %5202, align 2
-  %5204 = icmp eq i16 %5203, %.sroa.2932074.0
-  br i1 %5204, label %5205, label %5200
+5203:                                             ; preds = %5202, %5200
+  %indvars.iv.i.i4663 = phi i64 [ 0, %5200 ], [ %indvars.iv.next.i.i4664, %5202 ]
+  %5204 = getelementptr inbounds [8 x %"struct.pkpy::StrName"], ptr %5201, i64 0, i64 %indvars.iv.i.i4663
+  %5205 = load i16, ptr %5204, align 2
+  %5206 = icmp eq i16 %5205, %.sroa.2932074.0
+  br i1 %5206, label %5207, label %5202
 
-5205:                                             ; preds = %5201
-  %5206 = getelementptr inbounds i8, ptr %5195, i64 24
-  %5207 = getelementptr inbounds [8 x ptr], ptr %5206, i64 0, i64 %indvars.iv.i.i4663
+5207:                                             ; preds = %5203
+  %5208 = getelementptr inbounds i8, ptr %5197, i64 24
+  %5209 = getelementptr inbounds [8 x ptr], ptr %5208, i64 0, i64 %indvars.iv.i.i4663
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread
 
-5208:                                             ; preds = %5192
-  %5209 = getelementptr inbounds i8, ptr %5195, i64 14
-  %5210 = load i16, ptr %5209, align 2
-  %5211 = and i16 %5210, %.sroa.2932074.0
-  %5212 = getelementptr inbounds i8, ptr %5195, i64 16
-  %5213 = load ptr, ptr %5212, align 8
-  %5214 = zext i16 %5211 to i64
-  %5215 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5213, i64 %5214
-  %5216 = load i16, ptr %5215, align 2
-  %5217 = icmp eq i16 %5216, %.sroa.2932074.0
-  br i1 %5217, label %5218, label %5220
+5210:                                             ; preds = %5194
+  %5211 = getelementptr inbounds i8, ptr %5197, i64 14
+  %5212 = load i16, ptr %5211, align 2
+  %5213 = and i16 %5212, %.sroa.2932074.0
+  %5214 = getelementptr inbounds i8, ptr %5197, i64 16
+  %5215 = load ptr, ptr %5214, align 8
+  %5216 = zext i16 %5213 to i64
+  %5217 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5215, i64 %5216
+  %5218 = load i16, ptr %5217, align 2
+  %5219 = icmp eq i16 %5218, %.sroa.2932074.0
+  br i1 %5219, label %5220, label %5222
 
-5218:                                             ; preds = %5208
-  %5219 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5213, i64 %5214, i32 1
+5220:                                             ; preds = %5210
+  %5221 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5215, i64 %5216, i32 1
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread
 
-5220:                                             ; preds = %5208
-  %5221 = add i16 %5211, 1
-  %5222 = and i16 %5221, %5210
-  %5223 = zext i16 %5222 to i64
-  %5224 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5213, i64 %5223
-  %5225 = load i16, ptr %5224, align 2
-  %5226 = icmp eq i16 %5225, %.sroa.2932074.0
-  br i1 %5226, label %5227, label %5229
+5222:                                             ; preds = %5210
+  %5223 = add i16 %5213, 1
+  %5224 = and i16 %5223, %5212
+  %5225 = zext i16 %5224 to i64
+  %5226 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5215, i64 %5225
+  %5227 = load i16, ptr %5226, align 2
+  %5228 = icmp eq i16 %5227, %.sroa.2932074.0
+  br i1 %5228, label %5229, label %5231
 
-5227:                                             ; preds = %5220
-  %5228 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5213, i64 %5223, i32 1
+5229:                                             ; preds = %5222
+  %5230 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5215, i64 %5225, i32 1
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread
 
-5229:                                             ; preds = %5220
-  %5230 = icmp eq i16 %5216, 0
-  br i1 %5230, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, label %.lr.ph.i.i4658
+5231:                                             ; preds = %5222
+  %5232 = icmp eq i16 %5218, 0
+  br i1 %5232, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, label %.lr.ph.i.i4658
 
-.lr.ph.i.i4658:                                   ; preds = %5229, %.lr.ph.i.i.i4661
-  %.012.i9.i.i4659 = phi i16 [ %.0.i.i.i4660, %.lr.ph.i.i.i4661 ], [ %5211, %5229 ]
-  %5231 = add i16 %.012.i9.i.i4659, 1
-  %.0.i.i.i4660 = and i16 %5231, %5210
-  %5232 = zext i16 %.0.i.i.i4660 to i64
-  %5233 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5213, i64 %5232
-  %5234 = load i16, ptr %5233, align 2
-  %5235 = icmp eq i16 %5234, 0
-  br i1 %5235, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, label %.lr.ph.i.i.i4661, !llvm.loop !49
+.lr.ph.i.i4658:                                   ; preds = %5231, %.lr.ph.i.i.i4661
+  %.012.i9.i.i4659 = phi i16 [ %.0.i.i.i4660, %.lr.ph.i.i.i4661 ], [ %5213, %5231 ]
+  %5233 = add i16 %.012.i9.i.i4659, 1
+  %.0.i.i.i4660 = and i16 %5233, %5212
+  %5234 = zext i16 %.0.i.i.i4660 to i64
+  %5235 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5215, i64 %5234
+  %5236 = load i16, ptr %5235, align 2
+  %5237 = icmp eq i16 %5236, 0
+  br i1 %5237, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666, label %.lr.ph.i.i.i4661, !llvm.loop !49
 
 .lr.ph.i.i.i4661:                                 ; preds = %.lr.ph.i.i4658
-  %5236 = icmp eq i16 %5234, %.sroa.2932074.0
-  br i1 %5236, label %.lr.ph.i._crit_edge.i.i4662, label %.lr.ph.i.i4658, !llvm.loop !49
+  %5238 = icmp eq i16 %5236, %.sroa.2932074.0
+  br i1 %5238, label %.lr.ph.i._crit_edge.i.i4662, label %.lr.ph.i.i4658, !llvm.loop !49
 
 .lr.ph.i._crit_edge.i.i4662:                      ; preds = %.lr.ph.i.i.i4661
-  %5237 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5213, i64 %5232, i32 1
+  %5239 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %5215, i64 %5234, i32 1
   br label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread
 
-_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666: ; preds = %.lr.ph.i.i4658, %5200, %5229
-  %5238 = load ptr, ptr %129, align 8
-  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5238, i16 %.sroa.2932074.0)
+_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666: ; preds = %.lr.ph.i.i4658, %5202, %5231
+  %5240 = load ptr, ptr %129, align 8
+  invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5240, i16 %.sroa.2932074.0)
           to label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread: ; preds = %.lr.ph.i._crit_edge.i.i4662, %5227, %5218, %5205, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666
-  %5239 = phi ptr [ null, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666 ], [ %5237, %.lr.ph.i._crit_edge.i.i4662 ], [ %5228, %5227 ], [ %5219, %5218 ], [ %5207, %5205 ]
-  %5240 = load ptr, ptr %129, align 8
-  %5241 = load ptr, ptr %5239, align 8
-  %5242 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5240, ptr noundef %5241)
+_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread: ; preds = %.lr.ph.i._crit_edge.i.i4662, %5229, %5220, %5207, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666
+  %5241 = phi ptr [ null, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666 ], [ %5239, %.lr.ph.i._crit_edge.i.i4662 ], [ %5230, %5229 ], [ %5221, %5220 ], [ %5209, %5207 ]
+  %5242 = load ptr, ptr %129, align 8
+  %5243 = load ptr, ptr %5241, align 8
+  %5244 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5242, ptr noundef %5243)
           to label %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
 _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668: ; preds = %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4666.thread
-  %5243 = add nsw i64 %5242, -1
+  %5245 = add nsw i64 %5244, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i64 %5243, ptr %5, align 8
-  %or.cond.i4669 = icmp ult i64 %5243, 1152921504606846976
-  br i1 %or.cond.i4669, label %5244, label %5248
+  store i64 %5245, ptr %5, align 8
+  %or.cond.i4669 = icmp ult i64 %5245, 1152921504606846976
+  br i1 %or.cond.i4669, label %5246, label %5250
 
-5244:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668
-  %5245 = shl nuw nsw i64 %5243, 2
-  %5246 = or disjoint i64 %5245, 2
-  %5247 = inttoptr i64 %5246 to ptr
-  br label %5251
+5246:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668
+  %5247 = shl nuw nsw i64 %5245, 2
+  %5248 = or disjoint i64 %5247, 2
+  %5249 = inttoptr i64 %5248 to ptr
+  br label %5253
 
-5248:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668
-  %5249 = getelementptr inbounds i8, ptr %5240, i64 16
-  %5250 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5249, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %5251 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
+5250:                                             ; preds = %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668
+  %5251 = getelementptr inbounds i8, ptr %5242, i64 16
+  %5252 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %5251, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %5253 unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5251:                                             ; preds = %5244, %5248
-  %.0.i4670 = phi ptr [ %5247, %5244 ], [ %5250, %5248 ]
+5253:                                             ; preds = %5246, %5250
+  %.0.i4670 = phi ptr [ %5249, %5246 ], [ %5252, %5250 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  store ptr %.0.i4670, ptr %5239, align 8
-  %5252 = load i32, ptr %206, align 4
-  %5253 = add nsw i32 %5252, 1
-  store i32 %5253, ptr %206, align 4
-  store i32 %5252, ptr %.3, align 8
-  %5254 = sext i32 %5252 to i64
-  %5255 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5254
-  %.sroa.0623.0.copyload768 = load i8, ptr %5255, align 2
-  %.sroa.2932074.0..sroa_idx2363 = getelementptr inbounds i8, ptr %5255, i64 2
+  store ptr %.0.i4670, ptr %5241, align 8
+  %5254 = load i32, ptr %206, align 4
+  %5255 = add nsw i32 %5254, 1
+  store i32 %5255, ptr %206, align 4
+  store i32 %5254, ptr %.3, align 8
+  %5256 = sext i32 %5254 to i64
+  %5257 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5256
+  %.sroa.0623.0.copyload768 = load i8, ptr %5257, align 2
+  %.sroa.2932074.0..sroa_idx2363 = getelementptr inbounds i8, ptr %5257, i64 2
   %.sroa.2932074.0.copyload2364 = load i16, ptr %.sroa.2932074.0..sroa_idx2363, align 2
-  %5256 = load ptr, ptr %128, align 8
-  %.not3837 = icmp eq ptr %5256, null
-  br i1 %.not3837, label %.backedge.backedge, label %5257
+  %5258 = load ptr, ptr %128, align 8
+  %.not3837 = icmp eq ptr %5258, null
+  br i1 %.not3837, label %.backedge.backedge, label %5259
 
-.backedge.backedge:                               ; preds = %5251, %5257, %5185, %5191, %5119, %5125, %5090, %5096, %5032, %5040, %5000, %5009, %4993, %4999, %_ZN4pkpy2VM14AssertionErrorEv.exit, %4991, %4966, %4972, %4926, %4936, %4899, %4907, %4879, %4887, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit, %4867, %4789, %4798, %4779, %4788, %4772, %4778, %4726, %4732, %4677, %4683, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593, %4652, %4572, %4578, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, %4570, %4310, %4318, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519, %4290, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516, %4236, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514, %4205, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512, %4174, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit, %4143, %4105, %4113, %4091, %4099, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %4067, %4045, %4051, %4018, %4026, %4006, %4012, %3984, %3990, %3959, %3971, %3912, %3920, %3824, %3832, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495, %3807, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493, %3790, %3508, %3514, %3455, %3461, %3446, %3452, %3439, %3445, %3416, %3422, %3398, %3404, %3378, %3386, %3361, %3369, %3347, %3352, %3328, %3334, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit, %3327, %3268, %3283, %3261, %3267, %3212, %3218, %3169, %3177, %3139, %3145, %3096, %3104, %3067, %3073, %3024, %3032, %2995, %3001, %2952, %2960, %2920, %2926, %2877, %2885, %2842, %2851, %2828, %2838, %2805, %2814, %2790, %2801, %2767, %2776, %2749, %2758, %2731, %2740, %2717, %2727, %2694, %2703, %2679, %2690, %2659, %2665, %2616, %2624, %2578, %2584, %2535, %2543, %2497, %2503, %2433, %2441, %2401, %2407, %2337, %2345, %2305, %2311, %2241, %2249, %2209, %2215, %2160, %2166, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314, %2111, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304, %2067, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298, %2037, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290, %2002, %_ZN4pkpy7SStreamD2Ev.exit, %1971, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1942, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276, %1919, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265, %1884, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1852, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit, %1833, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1811, %_ZN4pkpy5BytesD2Ev.exit, %1788, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit, %1749, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit, %1684, %1615, %1621, %1582, %1588, %1571, %1577, %1556, %1562, %1523, %1531, %1506, %1512, %1461, %1467, %1422, %1430, %1409, %1415, %1395, %1401, %1359, %1371, %1350, %1358, %1313, %1321, %1268, %1276, %1228, %1239, %1216, %1222, %1207, %1215, %1154, %1162, %1102, %1110, %1066, %1074, %1054, %1060, %1045, %1053, %992, %1000, %942, %948, %933, %941, %880, %888, %828, %836, %818, %824, %809, %817, %756, %764, %704, %712, %691, %700, %674, %682, %655, %663, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110, %654, %362, %371, %351, %361, %341, %350, %331, %340, %321, %330, %308, %320, %299, %307, %265, %282, %253, %264, %242, %252, %233, %241, %226, %232
-  %.sroa.0623.0.be = phi i8 [ %.sroa.0623.0.copyload624, %232 ], [ %.sroa.0623.0.copyload624, %226 ], [ %.sroa.0623.0.copyload625, %241 ], [ %.sroa.0623.0.copyload625, %233 ], [ %.sroa.0623.0.copyload626, %252 ], [ %.sroa.0623.0.copyload626, %242 ], [ %.sroa.0623.0.copyload627, %264 ], [ %.sroa.0623.0.copyload627, %253 ], [ %.sroa.0623.0.copyload628, %282 ], [ %.sroa.0623.0.copyload628, %265 ], [ %.sroa.0623.0.copyload629, %307 ], [ %.sroa.0623.0.copyload629, %299 ], [ %.sroa.0623.0.copyload630, %320 ], [ %.sroa.0623.0.copyload630, %308 ], [ %.sroa.0623.0.copyload631, %330 ], [ %.sroa.0623.0.copyload631, %321 ], [ %.sroa.0623.0.copyload632, %340 ], [ %.sroa.0623.0.copyload632, %331 ], [ %.sroa.0623.0.copyload633, %350 ], [ %.sroa.0623.0.copyload633, %341 ], [ %.sroa.0623.0.copyload634, %361 ], [ %.sroa.0623.0.copyload634, %351 ], [ %.sroa.0623.0.copyload635, %371 ], [ %.sroa.0623.0.copyload635, %362 ], [ %.sroa.0623.0.copyload636, %654 ], [ %.sroa.0623.0.copyload636, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110 ], [ %.sroa.0623.0.copyload637, %663 ], [ %.sroa.0623.0.copyload637, %655 ], [ %.sroa.0623.0.copyload638, %682 ], [ %.sroa.0623.0.copyload638, %674 ], [ %.sroa.0623.0.copyload639, %700 ], [ %.sroa.0623.0.copyload639, %691 ], [ %.sroa.0623.0.copyload640, %712 ], [ %.sroa.0623.0.copyload640, %704 ], [ %.sroa.0623.0.copyload641, %764 ], [ %.sroa.0623.0.copyload641, %756 ], [ %.sroa.0623.0.copyload642, %817 ], [ %.sroa.0623.0.copyload642, %809 ], [ %.sroa.0623.0.copyload643, %824 ], [ %.sroa.0623.0.copyload643, %818 ], [ %.sroa.0623.0.copyload644, %836 ], [ %.sroa.0623.0.copyload644, %828 ], [ %.sroa.0623.0.copyload645, %888 ], [ %.sroa.0623.0.copyload645, %880 ], [ %.sroa.0623.0.copyload646, %941 ], [ %.sroa.0623.0.copyload646, %933 ], [ %.sroa.0623.0.copyload647, %948 ], [ %.sroa.0623.0.copyload647, %942 ], [ %.sroa.0623.0.copyload648, %1000 ], [ %.sroa.0623.0.copyload648, %992 ], [ %.sroa.0623.0.copyload649, %1053 ], [ %.sroa.0623.0.copyload649, %1045 ], [ %.sroa.0623.0.copyload650, %1060 ], [ %.sroa.0623.0.copyload650, %1054 ], [ %.sroa.0623.0.copyload651, %1074 ], [ %.sroa.0623.0.copyload651, %1066 ], [ %.sroa.0623.0.copyload652, %1110 ], [ %.sroa.0623.0.copyload652, %1102 ], [ %.sroa.0623.0.copyload653, %1162 ], [ %.sroa.0623.0.copyload653, %1154 ], [ %.sroa.0623.0.copyload654, %1215 ], [ %.sroa.0623.0.copyload654, %1207 ], [ %.sroa.0623.0.copyload655, %1222 ], [ %.sroa.0623.0.copyload655, %1216 ], [ %.sroa.0623.0.copyload656, %1239 ], [ %.sroa.0623.0.copyload656, %1228 ], [ %.sroa.0623.0.copyload657, %1276 ], [ %.sroa.0623.0.copyload657, %1268 ], [ %.sroa.0623.0.copyload658, %1321 ], [ %.sroa.0623.0.copyload658, %1313 ], [ %.sroa.0623.0.copyload659, %1358 ], [ %.sroa.0623.0.copyload659, %1350 ], [ %.sroa.0623.0.copyload660, %1371 ], [ %.sroa.0623.0.copyload660, %1359 ], [ %.sroa.0623.0.copyload661, %1401 ], [ %.sroa.0623.0.copyload661, %1395 ], [ %.sroa.0623.0.copyload662, %1415 ], [ %.sroa.0623.0.copyload662, %1409 ], [ %.sroa.0623.0.copyload663, %1430 ], [ %.sroa.0623.0.copyload663, %1422 ], [ %.sroa.0623.0.copyload664, %1467 ], [ %.sroa.0623.0.copyload664, %1461 ], [ %.sroa.0623.0.copyload665, %1512 ], [ %.sroa.0623.0.copyload665, %1506 ], [ %.sroa.0623.0.copyload666, %1531 ], [ %.sroa.0623.0.copyload666, %1523 ], [ %.sroa.0623.0.copyload667, %1562 ], [ %.sroa.0623.0.copyload667, %1556 ], [ %.sroa.0623.0.copyload668, %1577 ], [ %.sroa.0623.0.copyload668, %1571 ], [ %.sroa.0623.0.copyload669, %1588 ], [ %.sroa.0623.0.copyload669, %1582 ], [ %.sroa.0623.0.copyload670, %1621 ], [ %.sroa.0623.0.copyload670, %1615 ], [ %.sroa.0623.0.copyload671, %1684 ], [ %.sroa.0623.0.copyload671, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit ], [ %.sroa.0623.0.copyload672, %1749 ], [ %.sroa.0623.0.copyload672, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit ], [ %.sroa.0623.0.copyload673, %1788 ], [ %.sroa.0623.0.copyload673, %_ZN4pkpy5BytesD2Ev.exit ], [ %.sroa.0623.0.copyload674, %1811 ], [ %.sroa.0623.0.copyload674, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload675, %1833 ], [ %.sroa.0623.0.copyload675, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit ], [ %.sroa.0623.0.copyload676, %1852 ], [ %.sroa.0623.0.copyload676, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload677, %1884 ], [ %.sroa.0623.0.copyload677, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265 ], [ %.sroa.0623.0.copyload678, %1919 ], [ %.sroa.0623.0.copyload678, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276 ], [ %.sroa.0623.0.copyload679, %1942 ], [ %.sroa.0623.0.copyload679, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload680, %1971 ], [ %.sroa.0623.0.copyload680, %_ZN4pkpy7SStreamD2Ev.exit ], [ %.sroa.0623.0.copyload681, %2002 ], [ %.sroa.0623.0.copyload681, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290 ], [ %.sroa.0623.0.copyload682, %2037 ], [ %.sroa.0623.0.copyload682, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298 ], [ %.sroa.0623.0.copyload683, %2067 ], [ %.sroa.0623.0.copyload683, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304 ], [ %.sroa.0623.0.copyload684, %2111 ], [ %.sroa.0623.0.copyload684, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314 ], [ %.sroa.0623.0.copyload685, %2166 ], [ %.sroa.0623.0.copyload685, %2160 ], [ %.sroa.0623.0.copyload686, %2215 ], [ %.sroa.0623.0.copyload686, %2209 ], [ %.sroa.0623.0.copyload687, %2249 ], [ %.sroa.0623.0.copyload687, %2241 ], [ %.sroa.0623.0.copyload688, %2311 ], [ %.sroa.0623.0.copyload688, %2305 ], [ %.sroa.0623.0.copyload689, %2345 ], [ %.sroa.0623.0.copyload689, %2337 ], [ %.sroa.0623.0.copyload690, %2407 ], [ %.sroa.0623.0.copyload690, %2401 ], [ %.sroa.0623.0.copyload691, %2441 ], [ %.sroa.0623.0.copyload691, %2433 ], [ %.sroa.0623.0.copyload692, %2503 ], [ %.sroa.0623.0.copyload692, %2497 ], [ %.sroa.0623.0.copyload693, %2543 ], [ %.sroa.0623.0.copyload693, %2535 ], [ %.sroa.0623.0.copyload694, %2584 ], [ %.sroa.0623.0.copyload694, %2578 ], [ %.sroa.0623.0.copyload695, %2624 ], [ %.sroa.0623.0.copyload695, %2616 ], [ %.sroa.0623.0.copyload696, %2665 ], [ %.sroa.0623.0.copyload696, %2659 ], [ %.sroa.0623.0.copyload697, %2690 ], [ %.sroa.0623.0.copyload697, %2679 ], [ %.sroa.0623.0.copyload698, %2703 ], [ %.sroa.0623.0.copyload698, %2694 ], [ %.sroa.0623.0.copyload699, %2727 ], [ %.sroa.0623.0.copyload699, %2717 ], [ %.sroa.0623.0.copyload700, %2740 ], [ %.sroa.0623.0.copyload700, %2731 ], [ %.sroa.0623.0.copyload701, %2758 ], [ %.sroa.0623.0.copyload701, %2749 ], [ %.sroa.0623.0.copyload702, %2776 ], [ %.sroa.0623.0.copyload702, %2767 ], [ %.sroa.0623.0.copyload703, %2801 ], [ %.sroa.0623.0.copyload703, %2790 ], [ %.sroa.0623.0.copyload704, %2814 ], [ %.sroa.0623.0.copyload704, %2805 ], [ %.sroa.0623.0.copyload705, %2838 ], [ %.sroa.0623.0.copyload705, %2828 ], [ %.sroa.0623.0.copyload706, %2851 ], [ %.sroa.0623.0.copyload706, %2842 ], [ %.sroa.0623.0.copyload707, %2885 ], [ %.sroa.0623.0.copyload707, %2877 ], [ %.sroa.0623.0.copyload708, %2926 ], [ %.sroa.0623.0.copyload708, %2920 ], [ %.sroa.0623.0.copyload709, %2960 ], [ %.sroa.0623.0.copyload709, %2952 ], [ %.sroa.0623.0.copyload710, %3001 ], [ %.sroa.0623.0.copyload710, %2995 ], [ %.sroa.0623.0.copyload711, %3032 ], [ %.sroa.0623.0.copyload711, %3024 ], [ %.sroa.0623.0.copyload712, %3073 ], [ %.sroa.0623.0.copyload712, %3067 ], [ %.sroa.0623.0.copyload713, %3104 ], [ %.sroa.0623.0.copyload713, %3096 ], [ %.sroa.0623.0.copyload714, %3145 ], [ %.sroa.0623.0.copyload714, %3139 ], [ %.sroa.0623.0.copyload715, %3177 ], [ %.sroa.0623.0.copyload715, %3169 ], [ %.sroa.0623.0.copyload716, %3218 ], [ %.sroa.0623.0.copyload716, %3212 ], [ %.sroa.0623.0.copyload717, %3267 ], [ %.sroa.0623.0.copyload717, %3261 ], [ %.sroa.0623.0.copyload718, %3283 ], [ %.sroa.0623.0.copyload718, %3268 ], [ %.sroa.0623.0.copyload719, %3327 ], [ %.sroa.0623.0.copyload719, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit ], [ %.sroa.0623.0.copyload720, %3334 ], [ %.sroa.0623.0.copyload720, %3328 ], [ %.sroa.0623.0.copyload721, %3352 ], [ %.sroa.0623.0.copyload721, %3347 ], [ %.sroa.0623.0.copyload722, %3369 ], [ %.sroa.0623.0.copyload722, %3361 ], [ %.sroa.0623.0.copyload723, %3386 ], [ %.sroa.0623.0.copyload723, %3378 ], [ %.sroa.0623.0.copyload724, %3404 ], [ %.sroa.0623.0.copyload724, %3398 ], [ %.sroa.0623.0.copyload725, %3422 ], [ %.sroa.0623.0.copyload725, %3416 ], [ %.sroa.0623.0.copyload726, %3445 ], [ %.sroa.0623.0.copyload726, %3439 ], [ %.sroa.0623.0.copyload727, %3452 ], [ %.sroa.0623.0.copyload727, %3446 ], [ %.sroa.0623.0.copyload728, %3461 ], [ %.sroa.0623.0.copyload728, %3455 ], [ %.sroa.0623.0.copyload729, %3514 ], [ %.sroa.0623.0.copyload729, %3508 ], [ %.sroa.0623.0.copyload730, %3790 ], [ %.sroa.0623.0.copyload730, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493 ], [ %.sroa.0623.0.copyload731, %3807 ], [ %.sroa.0623.0.copyload731, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495 ], [ %.sroa.0623.0.copyload732, %3832 ], [ %.sroa.0623.0.copyload732, %3824 ], [ %.sroa.0623.0.copyload733, %3920 ], [ %.sroa.0623.0.copyload733, %3912 ], [ %.sroa.0623.0.copyload734, %3971 ], [ %.sroa.0623.0.copyload734, %3959 ], [ %.sroa.0623.0.copyload735, %3990 ], [ %.sroa.0623.0.copyload735, %3984 ], [ %.sroa.0623.0.copyload736, %4012 ], [ %.sroa.0623.0.copyload736, %4006 ], [ %.sroa.0623.0.copyload737, %4026 ], [ %.sroa.0623.0.copyload737, %4018 ], [ %.sroa.0623.0.copyload738, %4051 ], [ %.sroa.0623.0.copyload738, %4045 ], [ %.sroa.0623.0.copyload739, %4067 ], [ %.sroa.0623.0.copyload739, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload740, %4099 ], [ %.sroa.0623.0.copyload740, %4091 ], [ %.sroa.0623.0.copyload741, %4113 ], [ %.sroa.0623.0.copyload741, %4105 ], [ %.sroa.0623.0.copyload742, %4143 ], [ %.sroa.0623.0.copyload742, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit ], [ %.sroa.0623.0.copyload743, %4174 ], [ %.sroa.0623.0.copyload743, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512 ], [ %.sroa.0623.0.copyload744, %4205 ], [ %.sroa.0623.0.copyload744, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514 ], [ %.sroa.0623.0.copyload745, %4236 ], [ %.sroa.0623.0.copyload745, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516 ], [ %.sroa.0623.0.copyload746, %4290 ], [ %.sroa.0623.0.copyload746, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 ], [ %.sroa.0623.0.copyload747, %4318 ], [ %.sroa.0623.0.copyload747, %4310 ], [ %.sroa.0623.0.copyload748, %4570 ], [ %.sroa.0623.0.copyload748, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit ], [ %.sroa.0623.0.copyload749, %4578 ], [ %.sroa.0623.0.copyload749, %4572 ], [ %.sroa.0623.0.copyload750, %4652 ], [ %.sroa.0623.0.copyload750, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593 ], [ %.sroa.0623.0.copyload751, %4683 ], [ %.sroa.0623.0.copyload751, %4677 ], [ %.sroa.0623.0.copyload752, %4732 ], [ %.sroa.0623.0.copyload752, %4726 ], [ %.sroa.0623.0.copyload753, %4778 ], [ %.sroa.0623.0.copyload753, %4772 ], [ %.sroa.0623.0.copyload754, %4788 ], [ %.sroa.0623.0.copyload754, %4779 ], [ %.sroa.0623.0.copyload755, %4798 ], [ %.sroa.0623.0.copyload755, %4789 ], [ %.sroa.0623.0.copyload756, %4867 ], [ %.sroa.0623.0.copyload756, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.0623.0.copyload757, %4887 ], [ %.sroa.0623.0.copyload757, %4879 ], [ %.sroa.0623.0.copyload758, %4907 ], [ %.sroa.0623.0.copyload758, %4899 ], [ %.sroa.0623.0.copyload759, %4936 ], [ %.sroa.0623.0.copyload759, %4926 ], [ %.sroa.0623.0.copyload760, %4972 ], [ %.sroa.0623.0.copyload760, %4966 ], [ %.sroa.0623.0.copyload761, %4991 ], [ %.sroa.0623.0.copyload761, %_ZN4pkpy2VM14AssertionErrorEv.exit ], [ %.sroa.0623.0.copyload762, %4999 ], [ %.sroa.0623.0.copyload762, %4993 ], [ %.sroa.0623.0.copyload763, %5009 ], [ %.sroa.0623.0.copyload763, %5000 ], [ %.sroa.0623.0.copyload764, %5040 ], [ %.sroa.0623.0.copyload764, %5032 ], [ %.sroa.0623.0.copyload765, %5096 ], [ %.sroa.0623.0.copyload765, %5090 ], [ %.sroa.0623.0.copyload766, %5125 ], [ %.sroa.0623.0.copyload766, %5119 ], [ %.sroa.0623.0.copyload767, %5191 ], [ %.sroa.0623.0.copyload767, %5185 ], [ %.sroa.0623.0.copyload768, %5257 ], [ %.sroa.0623.0.copyload768, %5251 ]
-  %.sroa.2932074.0.be = phi i16 [ %.sroa.2932074.0.copyload2076, %232 ], [ %.sroa.2932074.0.copyload2076, %226 ], [ %.sroa.2932074.0.copyload2078, %241 ], [ %.sroa.2932074.0.copyload2078, %233 ], [ %.sroa.2932074.0.copyload2080, %252 ], [ %.sroa.2932074.0.copyload2080, %242 ], [ %.sroa.2932074.0.copyload2082, %264 ], [ %.sroa.2932074.0.copyload2082, %253 ], [ %.sroa.2932074.0.copyload2084, %282 ], [ %.sroa.2932074.0.copyload2084, %265 ], [ %.sroa.2932074.0.copyload2086, %307 ], [ %.sroa.2932074.0.copyload2086, %299 ], [ %.sroa.2932074.0.copyload2088, %320 ], [ %.sroa.2932074.0.copyload2088, %308 ], [ %.sroa.2932074.0.copyload2090, %330 ], [ %.sroa.2932074.0.copyload2090, %321 ], [ %.sroa.2932074.0.copyload2092, %340 ], [ %.sroa.2932074.0.copyload2092, %331 ], [ %.sroa.2932074.0.copyload2094, %350 ], [ %.sroa.2932074.0.copyload2094, %341 ], [ %.sroa.2932074.0.copyload2096, %361 ], [ %.sroa.2932074.0.copyload2096, %351 ], [ %.sroa.2932074.0.copyload2098, %371 ], [ %.sroa.2932074.0.copyload2098, %362 ], [ %.sroa.2932074.0.copyload2100, %654 ], [ %.sroa.2932074.0.copyload2100, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110 ], [ %.sroa.2932074.0.copyload2102, %663 ], [ %.sroa.2932074.0.copyload2102, %655 ], [ %.sroa.2932074.0.copyload2104, %682 ], [ %.sroa.2932074.0.copyload2104, %674 ], [ %.sroa.2932074.0.copyload2106, %700 ], [ %.sroa.2932074.0.copyload2106, %691 ], [ %.sroa.2932074.0.copyload2108, %712 ], [ %.sroa.2932074.0.copyload2108, %704 ], [ %.sroa.2932074.0.copyload2110, %764 ], [ %.sroa.2932074.0.copyload2110, %756 ], [ %.sroa.2932074.0.copyload2112, %817 ], [ %.sroa.2932074.0.copyload2112, %809 ], [ %.sroa.2932074.0.copyload2114, %824 ], [ %.sroa.2932074.0.copyload2114, %818 ], [ %.sroa.2932074.0.copyload2116, %836 ], [ %.sroa.2932074.0.copyload2116, %828 ], [ %.sroa.2932074.0.copyload2118, %888 ], [ %.sroa.2932074.0.copyload2118, %880 ], [ %.sroa.2932074.0.copyload2120, %941 ], [ %.sroa.2932074.0.copyload2120, %933 ], [ %.sroa.2932074.0.copyload2122, %948 ], [ %.sroa.2932074.0.copyload2122, %942 ], [ %.sroa.2932074.0.copyload2124, %1000 ], [ %.sroa.2932074.0.copyload2124, %992 ], [ %.sroa.2932074.0.copyload2126, %1053 ], [ %.sroa.2932074.0.copyload2126, %1045 ], [ %.sroa.2932074.0.copyload2128, %1060 ], [ %.sroa.2932074.0.copyload2128, %1054 ], [ %.sroa.2932074.0.copyload2130, %1074 ], [ %.sroa.2932074.0.copyload2130, %1066 ], [ %.sroa.2932074.0.copyload2132, %1110 ], [ %.sroa.2932074.0.copyload2132, %1102 ], [ %.sroa.2932074.0.copyload2134, %1162 ], [ %.sroa.2932074.0.copyload2134, %1154 ], [ %.sroa.2932074.0.copyload2136, %1215 ], [ %.sroa.2932074.0.copyload2136, %1207 ], [ %.sroa.2932074.0.copyload2138, %1222 ], [ %.sroa.2932074.0.copyload2138, %1216 ], [ %.sroa.2932074.0.copyload2140, %1239 ], [ %.sroa.2932074.0.copyload2140, %1228 ], [ %.sroa.2932074.0.copyload2142, %1276 ], [ %.sroa.2932074.0.copyload2142, %1268 ], [ %.sroa.2932074.0.copyload2144, %1321 ], [ %.sroa.2932074.0.copyload2144, %1313 ], [ %.sroa.2932074.0.copyload2146, %1358 ], [ %.sroa.2932074.0.copyload2146, %1350 ], [ %.sroa.2932074.0.copyload2148, %1371 ], [ %.sroa.2932074.0.copyload2148, %1359 ], [ %.sroa.2932074.0.copyload2150, %1401 ], [ %.sroa.2932074.0.copyload2150, %1395 ], [ %.sroa.2932074.0.copyload2152, %1415 ], [ %.sroa.2932074.0.copyload2152, %1409 ], [ %.sroa.2932074.0.copyload2154, %1430 ], [ %.sroa.2932074.0.copyload2154, %1422 ], [ %.sroa.2932074.0.copyload2156, %1467 ], [ %.sroa.2932074.0.copyload2156, %1461 ], [ %.sroa.2932074.0.copyload2158, %1512 ], [ %.sroa.2932074.0.copyload2158, %1506 ], [ %.sroa.2932074.0.copyload2160, %1531 ], [ %.sroa.2932074.0.copyload2160, %1523 ], [ %.sroa.2932074.0.copyload2162, %1562 ], [ %.sroa.2932074.0.copyload2162, %1556 ], [ %.sroa.2932074.0.copyload2164, %1577 ], [ %.sroa.2932074.0.copyload2164, %1571 ], [ %.sroa.2932074.0.copyload2166, %1588 ], [ %.sroa.2932074.0.copyload2166, %1582 ], [ %.sroa.2932074.0.copyload2168, %1621 ], [ %.sroa.2932074.0.copyload2168, %1615 ], [ %.sroa.2932074.0.copyload2170, %1684 ], [ %.sroa.2932074.0.copyload2170, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit ], [ %.sroa.2932074.0.copyload2172, %1749 ], [ %.sroa.2932074.0.copyload2172, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit ], [ %.sroa.2932074.0.copyload2174, %1788 ], [ %.sroa.2932074.0.copyload2174, %_ZN4pkpy5BytesD2Ev.exit ], [ %.sroa.2932074.0.copyload2176, %1811 ], [ %.sroa.2932074.0.copyload2176, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2178, %1833 ], [ %.sroa.2932074.0.copyload2178, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit ], [ %.sroa.2932074.0.copyload2180, %1852 ], [ %.sroa.2932074.0.copyload2180, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2182, %1884 ], [ %.sroa.2932074.0.copyload2182, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265 ], [ %.sroa.2932074.0.copyload2184, %1919 ], [ %.sroa.2932074.0.copyload2184, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276 ], [ %.sroa.2932074.0.copyload2186, %1942 ], [ %.sroa.2932074.0.copyload2186, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2188, %1971 ], [ %.sroa.2932074.0.copyload2188, %_ZN4pkpy7SStreamD2Ev.exit ], [ %.sroa.2932074.0.copyload2190, %2002 ], [ %.sroa.2932074.0.copyload2190, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290 ], [ %.sroa.2932074.0.copyload2192, %2037 ], [ %.sroa.2932074.0.copyload2192, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298 ], [ %.sroa.2932074.0.copyload2194, %2067 ], [ %.sroa.2932074.0.copyload2194, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304 ], [ %.sroa.2932074.0.copyload2196, %2111 ], [ %.sroa.2932074.0.copyload2196, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314 ], [ %.sroa.2932074.0.copyload2198, %2166 ], [ %.sroa.2932074.0.copyload2198, %2160 ], [ %.sroa.2932074.0.copyload2200, %2215 ], [ %.sroa.2932074.0.copyload2200, %2209 ], [ %.sroa.2932074.0.copyload2202, %2249 ], [ %.sroa.2932074.0.copyload2202, %2241 ], [ %.sroa.2932074.0.copyload2204, %2311 ], [ %.sroa.2932074.0.copyload2204, %2305 ], [ %.sroa.2932074.0.copyload2206, %2345 ], [ %.sroa.2932074.0.copyload2206, %2337 ], [ %.sroa.2932074.0.copyload2208, %2407 ], [ %.sroa.2932074.0.copyload2208, %2401 ], [ %.sroa.2932074.0.copyload2210, %2441 ], [ %.sroa.2932074.0.copyload2210, %2433 ], [ %.sroa.2932074.0.copyload2212, %2503 ], [ %.sroa.2932074.0.copyload2212, %2497 ], [ %.sroa.2932074.0.copyload2214, %2543 ], [ %.sroa.2932074.0.copyload2214, %2535 ], [ %.sroa.2932074.0.copyload2216, %2584 ], [ %.sroa.2932074.0.copyload2216, %2578 ], [ %.sroa.2932074.0.copyload2218, %2624 ], [ %.sroa.2932074.0.copyload2218, %2616 ], [ %.sroa.2932074.0.copyload2220, %2665 ], [ %.sroa.2932074.0.copyload2220, %2659 ], [ %.sroa.2932074.0.copyload2222, %2690 ], [ %.sroa.2932074.0.copyload2222, %2679 ], [ %.sroa.2932074.0.copyload2224, %2703 ], [ %.sroa.2932074.0.copyload2224, %2694 ], [ %.sroa.2932074.0.copyload2226, %2727 ], [ %.sroa.2932074.0.copyload2226, %2717 ], [ %.sroa.2932074.0.copyload2228, %2740 ], [ %.sroa.2932074.0.copyload2228, %2731 ], [ %.sroa.2932074.0.copyload2230, %2758 ], [ %.sroa.2932074.0.copyload2230, %2749 ], [ %.sroa.2932074.0.copyload2232, %2776 ], [ %.sroa.2932074.0.copyload2232, %2767 ], [ %.sroa.2932074.0.copyload2234, %2801 ], [ %.sroa.2932074.0.copyload2234, %2790 ], [ %.sroa.2932074.0.copyload2236, %2814 ], [ %.sroa.2932074.0.copyload2236, %2805 ], [ %.sroa.2932074.0.copyload2238, %2838 ], [ %.sroa.2932074.0.copyload2238, %2828 ], [ %.sroa.2932074.0.copyload2240, %2851 ], [ %.sroa.2932074.0.copyload2240, %2842 ], [ %.sroa.2932074.0.copyload2242, %2885 ], [ %.sroa.2932074.0.copyload2242, %2877 ], [ %.sroa.2932074.0.copyload2244, %2926 ], [ %.sroa.2932074.0.copyload2244, %2920 ], [ %.sroa.2932074.0.copyload2246, %2960 ], [ %.sroa.2932074.0.copyload2246, %2952 ], [ %.sroa.2932074.0.copyload2248, %3001 ], [ %.sroa.2932074.0.copyload2248, %2995 ], [ %.sroa.2932074.0.copyload2250, %3032 ], [ %.sroa.2932074.0.copyload2250, %3024 ], [ %.sroa.2932074.0.copyload2252, %3073 ], [ %.sroa.2932074.0.copyload2252, %3067 ], [ %.sroa.2932074.0.copyload2254, %3104 ], [ %.sroa.2932074.0.copyload2254, %3096 ], [ %.sroa.2932074.0.copyload2256, %3145 ], [ %.sroa.2932074.0.copyload2256, %3139 ], [ %.sroa.2932074.0.copyload2258, %3177 ], [ %.sroa.2932074.0.copyload2258, %3169 ], [ %.sroa.2932074.0.copyload2260, %3218 ], [ %.sroa.2932074.0.copyload2260, %3212 ], [ %.sroa.2932074.0.copyload2262, %3267 ], [ %.sroa.2932074.0.copyload2262, %3261 ], [ %.sroa.2932074.0.copyload2264, %3283 ], [ %.sroa.2932074.0.copyload2264, %3268 ], [ %.sroa.2932074.0.copyload2266, %3327 ], [ %.sroa.2932074.0.copyload2266, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit ], [ %.sroa.2932074.0.copyload2268, %3334 ], [ %.sroa.2932074.0.copyload2268, %3328 ], [ %.sroa.2932074.0.copyload2270, %3352 ], [ %.sroa.2932074.0.copyload2270, %3347 ], [ %.sroa.2932074.0.copyload2272, %3369 ], [ %.sroa.2932074.0.copyload2272, %3361 ], [ %.sroa.2932074.0.copyload2274, %3386 ], [ %.sroa.2932074.0.copyload2274, %3378 ], [ %.sroa.2932074.0.copyload2276, %3404 ], [ %.sroa.2932074.0.copyload2276, %3398 ], [ %.sroa.2932074.0.copyload2278, %3422 ], [ %.sroa.2932074.0.copyload2278, %3416 ], [ %.sroa.2932074.0.copyload2280, %3445 ], [ %.sroa.2932074.0.copyload2280, %3439 ], [ %.sroa.2932074.0.copyload2282, %3452 ], [ %.sroa.2932074.0.copyload2282, %3446 ], [ %.sroa.2932074.0.copyload2284, %3461 ], [ %.sroa.2932074.0.copyload2284, %3455 ], [ %.sroa.2932074.0.copyload2286, %3514 ], [ %.sroa.2932074.0.copyload2286, %3508 ], [ %.sroa.2932074.0.copyload2288, %3790 ], [ %.sroa.2932074.0.copyload2288, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493 ], [ %.sroa.2932074.0.copyload2290, %3807 ], [ %.sroa.2932074.0.copyload2290, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495 ], [ %.sroa.2932074.0.copyload2292, %3832 ], [ %.sroa.2932074.0.copyload2292, %3824 ], [ %.sroa.2932074.0.copyload2294, %3920 ], [ %.sroa.2932074.0.copyload2294, %3912 ], [ %.sroa.2932074.0.copyload2296, %3971 ], [ %.sroa.2932074.0.copyload2296, %3959 ], [ %.sroa.2932074.0.copyload2298, %3990 ], [ %.sroa.2932074.0.copyload2298, %3984 ], [ %.sroa.2932074.0.copyload2300, %4012 ], [ %.sroa.2932074.0.copyload2300, %4006 ], [ %.sroa.2932074.0.copyload2302, %4026 ], [ %.sroa.2932074.0.copyload2302, %4018 ], [ %.sroa.2932074.0.copyload2304, %4051 ], [ %.sroa.2932074.0.copyload2304, %4045 ], [ %.sroa.2932074.0.copyload2306, %4067 ], [ %.sroa.2932074.0.copyload2306, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2308, %4099 ], [ %.sroa.2932074.0.copyload2308, %4091 ], [ %.sroa.2932074.0.copyload2310, %4113 ], [ %.sroa.2932074.0.copyload2310, %4105 ], [ %.sroa.2932074.0.copyload2312, %4143 ], [ %.sroa.2932074.0.copyload2312, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit ], [ %.sroa.2932074.0.copyload2314, %4174 ], [ %.sroa.2932074.0.copyload2314, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512 ], [ %.sroa.2932074.0.copyload2316, %4205 ], [ %.sroa.2932074.0.copyload2316, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514 ], [ %.sroa.2932074.0.copyload2318, %4236 ], [ %.sroa.2932074.0.copyload2318, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516 ], [ %.sroa.2932074.0.copyload2320, %4290 ], [ %.sroa.2932074.0.copyload2320, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 ], [ %.sroa.2932074.0.copyload2322, %4318 ], [ %.sroa.2932074.0.copyload2322, %4310 ], [ %.sroa.2932074.0.copyload2324, %4570 ], [ %.sroa.2932074.0.copyload2324, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit ], [ %.sroa.2932074.0.copyload2326, %4578 ], [ %.sroa.2932074.0.copyload2326, %4572 ], [ %.sroa.2932074.0.copyload2328, %4652 ], [ %.sroa.2932074.0.copyload2328, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593 ], [ %.sroa.2932074.0.copyload2330, %4683 ], [ %.sroa.2932074.0.copyload2330, %4677 ], [ %.sroa.2932074.0.copyload2332, %4732 ], [ %.sroa.2932074.0.copyload2332, %4726 ], [ %.sroa.2932074.0.copyload2334, %4778 ], [ %.sroa.2932074.0.copyload2334, %4772 ], [ %.sroa.2932074.0.copyload2336, %4788 ], [ %.sroa.2932074.0.copyload2336, %4779 ], [ %.sroa.2932074.0.copyload2338, %4798 ], [ %.sroa.2932074.0.copyload2338, %4789 ], [ %.sroa.2932074.0.copyload2340, %4867 ], [ %.sroa.2932074.0.copyload2340, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.2932074.0.copyload2342, %4887 ], [ %.sroa.2932074.0.copyload2342, %4879 ], [ %.sroa.2932074.0.copyload2344, %4907 ], [ %.sroa.2932074.0.copyload2344, %4899 ], [ %.sroa.2932074.0.copyload2346, %4936 ], [ %.sroa.2932074.0.copyload2346, %4926 ], [ %.sroa.2932074.0.copyload2348, %4972 ], [ %.sroa.2932074.0.copyload2348, %4966 ], [ %.sroa.2932074.0.copyload2350, %4991 ], [ %.sroa.2932074.0.copyload2350, %_ZN4pkpy2VM14AssertionErrorEv.exit ], [ %.sroa.2932074.0.copyload2352, %4999 ], [ %.sroa.2932074.0.copyload2352, %4993 ], [ %.sroa.2932074.0.copyload2354, %5009 ], [ %.sroa.2932074.0.copyload2354, %5000 ], [ %.sroa.2932074.0.copyload2356, %5040 ], [ %.sroa.2932074.0.copyload2356, %5032 ], [ %.sroa.2932074.0.copyload2358, %5096 ], [ %.sroa.2932074.0.copyload2358, %5090 ], [ %.sroa.2932074.0.copyload2360, %5125 ], [ %.sroa.2932074.0.copyload2360, %5119 ], [ %.sroa.2932074.0.copyload2362, %5191 ], [ %.sroa.2932074.0.copyload2362, %5185 ], [ %.sroa.2932074.0.copyload2364, %5257 ], [ %.sroa.2932074.0.copyload2364, %5251 ]
+.backedge.backedge:                               ; preds = %5253, %5259, %5187, %5193, %5121, %5127, %5092, %5098, %5032, %5040, %5000, %5009, %4993, %4999, %_ZN4pkpy2VM14AssertionErrorEv.exit, %4991, %4966, %4972, %4926, %4936, %4899, %4907, %4879, %4887, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit, %4867, %4789, %4798, %4779, %4788, %4772, %4778, %4726, %4732, %4677, %4683, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593, %4652, %4572, %4578, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, %4570, %4310, %4318, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519, %4290, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516, %4236, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514, %4205, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512, %4174, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit, %4143, %4105, %4113, %4091, %4099, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %4067, %4045, %4051, %4018, %4026, %4006, %4012, %3984, %3990, %3959, %3971, %3912, %3920, %3824, %3832, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495, %3807, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493, %3790, %3508, %3514, %3455, %3461, %3446, %3452, %3439, %3445, %3416, %3422, %3398, %3404, %3378, %3386, %3361, %3369, %3347, %3352, %3328, %3334, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit, %3327, %3268, %3283, %3261, %3267, %3212, %3218, %3169, %3177, %3139, %3145, %3096, %3104, %3067, %3073, %3024, %3032, %2995, %3001, %2952, %2960, %2920, %2926, %2877, %2885, %2842, %2851, %2828, %2838, %2805, %2814, %2790, %2801, %2767, %2776, %2749, %2758, %2731, %2740, %2717, %2727, %2694, %2703, %2679, %2690, %2659, %2665, %2616, %2624, %2578, %2584, %2535, %2543, %2497, %2503, %2433, %2441, %2401, %2407, %2337, %2345, %2305, %2311, %2241, %2249, %2209, %2215, %2160, %2166, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314, %2111, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304, %2067, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298, %2037, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290, %2002, %_ZN4pkpy7SStreamD2Ev.exit, %1971, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1942, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276, %1919, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265, %1884, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1852, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit, %1833, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %1811, %_ZN4pkpy5BytesD2Ev.exit, %1788, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit, %1749, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit, %1684, %1615, %1621, %1582, %1588, %1571, %1577, %1556, %1562, %1523, %1531, %1506, %1512, %1461, %1467, %1422, %1430, %1409, %1415, %1395, %1401, %1359, %1371, %1350, %1358, %1313, %1321, %1268, %1276, %1228, %1239, %1216, %1222, %1207, %1215, %1154, %1162, %1102, %1110, %1066, %1074, %1054, %1060, %1045, %1053, %992, %1000, %942, %948, %933, %941, %880, %888, %828, %836, %818, %824, %809, %817, %756, %764, %704, %712, %691, %700, %674, %682, %655, %663, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110, %654, %362, %371, %351, %361, %341, %350, %331, %340, %321, %330, %308, %320, %299, %307, %265, %282, %253, %264, %242, %252, %233, %241, %226, %232
+  %.sroa.0623.0.be = phi i8 [ %.sroa.0623.0.copyload624, %232 ], [ %.sroa.0623.0.copyload624, %226 ], [ %.sroa.0623.0.copyload625, %241 ], [ %.sroa.0623.0.copyload625, %233 ], [ %.sroa.0623.0.copyload626, %252 ], [ %.sroa.0623.0.copyload626, %242 ], [ %.sroa.0623.0.copyload627, %264 ], [ %.sroa.0623.0.copyload627, %253 ], [ %.sroa.0623.0.copyload628, %282 ], [ %.sroa.0623.0.copyload628, %265 ], [ %.sroa.0623.0.copyload629, %307 ], [ %.sroa.0623.0.copyload629, %299 ], [ %.sroa.0623.0.copyload630, %320 ], [ %.sroa.0623.0.copyload630, %308 ], [ %.sroa.0623.0.copyload631, %330 ], [ %.sroa.0623.0.copyload631, %321 ], [ %.sroa.0623.0.copyload632, %340 ], [ %.sroa.0623.0.copyload632, %331 ], [ %.sroa.0623.0.copyload633, %350 ], [ %.sroa.0623.0.copyload633, %341 ], [ %.sroa.0623.0.copyload634, %361 ], [ %.sroa.0623.0.copyload634, %351 ], [ %.sroa.0623.0.copyload635, %371 ], [ %.sroa.0623.0.copyload635, %362 ], [ %.sroa.0623.0.copyload636, %654 ], [ %.sroa.0623.0.copyload636, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110 ], [ %.sroa.0623.0.copyload637, %663 ], [ %.sroa.0623.0.copyload637, %655 ], [ %.sroa.0623.0.copyload638, %682 ], [ %.sroa.0623.0.copyload638, %674 ], [ %.sroa.0623.0.copyload639, %700 ], [ %.sroa.0623.0.copyload639, %691 ], [ %.sroa.0623.0.copyload640, %712 ], [ %.sroa.0623.0.copyload640, %704 ], [ %.sroa.0623.0.copyload641, %764 ], [ %.sroa.0623.0.copyload641, %756 ], [ %.sroa.0623.0.copyload642, %817 ], [ %.sroa.0623.0.copyload642, %809 ], [ %.sroa.0623.0.copyload643, %824 ], [ %.sroa.0623.0.copyload643, %818 ], [ %.sroa.0623.0.copyload644, %836 ], [ %.sroa.0623.0.copyload644, %828 ], [ %.sroa.0623.0.copyload645, %888 ], [ %.sroa.0623.0.copyload645, %880 ], [ %.sroa.0623.0.copyload646, %941 ], [ %.sroa.0623.0.copyload646, %933 ], [ %.sroa.0623.0.copyload647, %948 ], [ %.sroa.0623.0.copyload647, %942 ], [ %.sroa.0623.0.copyload648, %1000 ], [ %.sroa.0623.0.copyload648, %992 ], [ %.sroa.0623.0.copyload649, %1053 ], [ %.sroa.0623.0.copyload649, %1045 ], [ %.sroa.0623.0.copyload650, %1060 ], [ %.sroa.0623.0.copyload650, %1054 ], [ %.sroa.0623.0.copyload651, %1074 ], [ %.sroa.0623.0.copyload651, %1066 ], [ %.sroa.0623.0.copyload652, %1110 ], [ %.sroa.0623.0.copyload652, %1102 ], [ %.sroa.0623.0.copyload653, %1162 ], [ %.sroa.0623.0.copyload653, %1154 ], [ %.sroa.0623.0.copyload654, %1215 ], [ %.sroa.0623.0.copyload654, %1207 ], [ %.sroa.0623.0.copyload655, %1222 ], [ %.sroa.0623.0.copyload655, %1216 ], [ %.sroa.0623.0.copyload656, %1239 ], [ %.sroa.0623.0.copyload656, %1228 ], [ %.sroa.0623.0.copyload657, %1276 ], [ %.sroa.0623.0.copyload657, %1268 ], [ %.sroa.0623.0.copyload658, %1321 ], [ %.sroa.0623.0.copyload658, %1313 ], [ %.sroa.0623.0.copyload659, %1358 ], [ %.sroa.0623.0.copyload659, %1350 ], [ %.sroa.0623.0.copyload660, %1371 ], [ %.sroa.0623.0.copyload660, %1359 ], [ %.sroa.0623.0.copyload661, %1401 ], [ %.sroa.0623.0.copyload661, %1395 ], [ %.sroa.0623.0.copyload662, %1415 ], [ %.sroa.0623.0.copyload662, %1409 ], [ %.sroa.0623.0.copyload663, %1430 ], [ %.sroa.0623.0.copyload663, %1422 ], [ %.sroa.0623.0.copyload664, %1467 ], [ %.sroa.0623.0.copyload664, %1461 ], [ %.sroa.0623.0.copyload665, %1512 ], [ %.sroa.0623.0.copyload665, %1506 ], [ %.sroa.0623.0.copyload666, %1531 ], [ %.sroa.0623.0.copyload666, %1523 ], [ %.sroa.0623.0.copyload667, %1562 ], [ %.sroa.0623.0.copyload667, %1556 ], [ %.sroa.0623.0.copyload668, %1577 ], [ %.sroa.0623.0.copyload668, %1571 ], [ %.sroa.0623.0.copyload669, %1588 ], [ %.sroa.0623.0.copyload669, %1582 ], [ %.sroa.0623.0.copyload670, %1621 ], [ %.sroa.0623.0.copyload670, %1615 ], [ %.sroa.0623.0.copyload671, %1684 ], [ %.sroa.0623.0.copyload671, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit ], [ %.sroa.0623.0.copyload672, %1749 ], [ %.sroa.0623.0.copyload672, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit ], [ %.sroa.0623.0.copyload673, %1788 ], [ %.sroa.0623.0.copyload673, %_ZN4pkpy5BytesD2Ev.exit ], [ %.sroa.0623.0.copyload674, %1811 ], [ %.sroa.0623.0.copyload674, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload675, %1833 ], [ %.sroa.0623.0.copyload675, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit ], [ %.sroa.0623.0.copyload676, %1852 ], [ %.sroa.0623.0.copyload676, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload677, %1884 ], [ %.sroa.0623.0.copyload677, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265 ], [ %.sroa.0623.0.copyload678, %1919 ], [ %.sroa.0623.0.copyload678, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276 ], [ %.sroa.0623.0.copyload679, %1942 ], [ %.sroa.0623.0.copyload679, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload680, %1971 ], [ %.sroa.0623.0.copyload680, %_ZN4pkpy7SStreamD2Ev.exit ], [ %.sroa.0623.0.copyload681, %2002 ], [ %.sroa.0623.0.copyload681, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290 ], [ %.sroa.0623.0.copyload682, %2037 ], [ %.sroa.0623.0.copyload682, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298 ], [ %.sroa.0623.0.copyload683, %2067 ], [ %.sroa.0623.0.copyload683, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304 ], [ %.sroa.0623.0.copyload684, %2111 ], [ %.sroa.0623.0.copyload684, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314 ], [ %.sroa.0623.0.copyload685, %2166 ], [ %.sroa.0623.0.copyload685, %2160 ], [ %.sroa.0623.0.copyload686, %2215 ], [ %.sroa.0623.0.copyload686, %2209 ], [ %.sroa.0623.0.copyload687, %2249 ], [ %.sroa.0623.0.copyload687, %2241 ], [ %.sroa.0623.0.copyload688, %2311 ], [ %.sroa.0623.0.copyload688, %2305 ], [ %.sroa.0623.0.copyload689, %2345 ], [ %.sroa.0623.0.copyload689, %2337 ], [ %.sroa.0623.0.copyload690, %2407 ], [ %.sroa.0623.0.copyload690, %2401 ], [ %.sroa.0623.0.copyload691, %2441 ], [ %.sroa.0623.0.copyload691, %2433 ], [ %.sroa.0623.0.copyload692, %2503 ], [ %.sroa.0623.0.copyload692, %2497 ], [ %.sroa.0623.0.copyload693, %2543 ], [ %.sroa.0623.0.copyload693, %2535 ], [ %.sroa.0623.0.copyload694, %2584 ], [ %.sroa.0623.0.copyload694, %2578 ], [ %.sroa.0623.0.copyload695, %2624 ], [ %.sroa.0623.0.copyload695, %2616 ], [ %.sroa.0623.0.copyload696, %2665 ], [ %.sroa.0623.0.copyload696, %2659 ], [ %.sroa.0623.0.copyload697, %2690 ], [ %.sroa.0623.0.copyload697, %2679 ], [ %.sroa.0623.0.copyload698, %2703 ], [ %.sroa.0623.0.copyload698, %2694 ], [ %.sroa.0623.0.copyload699, %2727 ], [ %.sroa.0623.0.copyload699, %2717 ], [ %.sroa.0623.0.copyload700, %2740 ], [ %.sroa.0623.0.copyload700, %2731 ], [ %.sroa.0623.0.copyload701, %2758 ], [ %.sroa.0623.0.copyload701, %2749 ], [ %.sroa.0623.0.copyload702, %2776 ], [ %.sroa.0623.0.copyload702, %2767 ], [ %.sroa.0623.0.copyload703, %2801 ], [ %.sroa.0623.0.copyload703, %2790 ], [ %.sroa.0623.0.copyload704, %2814 ], [ %.sroa.0623.0.copyload704, %2805 ], [ %.sroa.0623.0.copyload705, %2838 ], [ %.sroa.0623.0.copyload705, %2828 ], [ %.sroa.0623.0.copyload706, %2851 ], [ %.sroa.0623.0.copyload706, %2842 ], [ %.sroa.0623.0.copyload707, %2885 ], [ %.sroa.0623.0.copyload707, %2877 ], [ %.sroa.0623.0.copyload708, %2926 ], [ %.sroa.0623.0.copyload708, %2920 ], [ %.sroa.0623.0.copyload709, %2960 ], [ %.sroa.0623.0.copyload709, %2952 ], [ %.sroa.0623.0.copyload710, %3001 ], [ %.sroa.0623.0.copyload710, %2995 ], [ %.sroa.0623.0.copyload711, %3032 ], [ %.sroa.0623.0.copyload711, %3024 ], [ %.sroa.0623.0.copyload712, %3073 ], [ %.sroa.0623.0.copyload712, %3067 ], [ %.sroa.0623.0.copyload713, %3104 ], [ %.sroa.0623.0.copyload713, %3096 ], [ %.sroa.0623.0.copyload714, %3145 ], [ %.sroa.0623.0.copyload714, %3139 ], [ %.sroa.0623.0.copyload715, %3177 ], [ %.sroa.0623.0.copyload715, %3169 ], [ %.sroa.0623.0.copyload716, %3218 ], [ %.sroa.0623.0.copyload716, %3212 ], [ %.sroa.0623.0.copyload717, %3267 ], [ %.sroa.0623.0.copyload717, %3261 ], [ %.sroa.0623.0.copyload718, %3283 ], [ %.sroa.0623.0.copyload718, %3268 ], [ %.sroa.0623.0.copyload719, %3327 ], [ %.sroa.0623.0.copyload719, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit ], [ %.sroa.0623.0.copyload720, %3334 ], [ %.sroa.0623.0.copyload720, %3328 ], [ %.sroa.0623.0.copyload721, %3352 ], [ %.sroa.0623.0.copyload721, %3347 ], [ %.sroa.0623.0.copyload722, %3369 ], [ %.sroa.0623.0.copyload722, %3361 ], [ %.sroa.0623.0.copyload723, %3386 ], [ %.sroa.0623.0.copyload723, %3378 ], [ %.sroa.0623.0.copyload724, %3404 ], [ %.sroa.0623.0.copyload724, %3398 ], [ %.sroa.0623.0.copyload725, %3422 ], [ %.sroa.0623.0.copyload725, %3416 ], [ %.sroa.0623.0.copyload726, %3445 ], [ %.sroa.0623.0.copyload726, %3439 ], [ %.sroa.0623.0.copyload727, %3452 ], [ %.sroa.0623.0.copyload727, %3446 ], [ %.sroa.0623.0.copyload728, %3461 ], [ %.sroa.0623.0.copyload728, %3455 ], [ %.sroa.0623.0.copyload729, %3514 ], [ %.sroa.0623.0.copyload729, %3508 ], [ %.sroa.0623.0.copyload730, %3790 ], [ %.sroa.0623.0.copyload730, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493 ], [ %.sroa.0623.0.copyload731, %3807 ], [ %.sroa.0623.0.copyload731, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495 ], [ %.sroa.0623.0.copyload732, %3832 ], [ %.sroa.0623.0.copyload732, %3824 ], [ %.sroa.0623.0.copyload733, %3920 ], [ %.sroa.0623.0.copyload733, %3912 ], [ %.sroa.0623.0.copyload734, %3971 ], [ %.sroa.0623.0.copyload734, %3959 ], [ %.sroa.0623.0.copyload735, %3990 ], [ %.sroa.0623.0.copyload735, %3984 ], [ %.sroa.0623.0.copyload736, %4012 ], [ %.sroa.0623.0.copyload736, %4006 ], [ %.sroa.0623.0.copyload737, %4026 ], [ %.sroa.0623.0.copyload737, %4018 ], [ %.sroa.0623.0.copyload738, %4051 ], [ %.sroa.0623.0.copyload738, %4045 ], [ %.sroa.0623.0.copyload739, %4067 ], [ %.sroa.0623.0.copyload739, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.0623.0.copyload740, %4099 ], [ %.sroa.0623.0.copyload740, %4091 ], [ %.sroa.0623.0.copyload741, %4113 ], [ %.sroa.0623.0.copyload741, %4105 ], [ %.sroa.0623.0.copyload742, %4143 ], [ %.sroa.0623.0.copyload742, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit ], [ %.sroa.0623.0.copyload743, %4174 ], [ %.sroa.0623.0.copyload743, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512 ], [ %.sroa.0623.0.copyload744, %4205 ], [ %.sroa.0623.0.copyload744, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514 ], [ %.sroa.0623.0.copyload745, %4236 ], [ %.sroa.0623.0.copyload745, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516 ], [ %.sroa.0623.0.copyload746, %4290 ], [ %.sroa.0623.0.copyload746, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 ], [ %.sroa.0623.0.copyload747, %4318 ], [ %.sroa.0623.0.copyload747, %4310 ], [ %.sroa.0623.0.copyload748, %4570 ], [ %.sroa.0623.0.copyload748, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit ], [ %.sroa.0623.0.copyload749, %4578 ], [ %.sroa.0623.0.copyload749, %4572 ], [ %.sroa.0623.0.copyload750, %4652 ], [ %.sroa.0623.0.copyload750, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593 ], [ %.sroa.0623.0.copyload751, %4683 ], [ %.sroa.0623.0.copyload751, %4677 ], [ %.sroa.0623.0.copyload752, %4732 ], [ %.sroa.0623.0.copyload752, %4726 ], [ %.sroa.0623.0.copyload753, %4778 ], [ %.sroa.0623.0.copyload753, %4772 ], [ %.sroa.0623.0.copyload754, %4788 ], [ %.sroa.0623.0.copyload754, %4779 ], [ %.sroa.0623.0.copyload755, %4798 ], [ %.sroa.0623.0.copyload755, %4789 ], [ %.sroa.0623.0.copyload756, %4867 ], [ %.sroa.0623.0.copyload756, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.0623.0.copyload757, %4887 ], [ %.sroa.0623.0.copyload757, %4879 ], [ %.sroa.0623.0.copyload758, %4907 ], [ %.sroa.0623.0.copyload758, %4899 ], [ %.sroa.0623.0.copyload759, %4936 ], [ %.sroa.0623.0.copyload759, %4926 ], [ %.sroa.0623.0.copyload760, %4972 ], [ %.sroa.0623.0.copyload760, %4966 ], [ %.sroa.0623.0.copyload761, %4991 ], [ %.sroa.0623.0.copyload761, %_ZN4pkpy2VM14AssertionErrorEv.exit ], [ %.sroa.0623.0.copyload762, %4999 ], [ %.sroa.0623.0.copyload762, %4993 ], [ %.sroa.0623.0.copyload763, %5009 ], [ %.sroa.0623.0.copyload763, %5000 ], [ %.sroa.0623.0.copyload764, %5040 ], [ %.sroa.0623.0.copyload764, %5032 ], [ %.sroa.0623.0.copyload765, %5098 ], [ %.sroa.0623.0.copyload765, %5092 ], [ %.sroa.0623.0.copyload766, %5127 ], [ %.sroa.0623.0.copyload766, %5121 ], [ %.sroa.0623.0.copyload767, %5193 ], [ %.sroa.0623.0.copyload767, %5187 ], [ %.sroa.0623.0.copyload768, %5259 ], [ %.sroa.0623.0.copyload768, %5253 ]
+  %.sroa.2932074.0.be = phi i16 [ %.sroa.2932074.0.copyload2076, %232 ], [ %.sroa.2932074.0.copyload2076, %226 ], [ %.sroa.2932074.0.copyload2078, %241 ], [ %.sroa.2932074.0.copyload2078, %233 ], [ %.sroa.2932074.0.copyload2080, %252 ], [ %.sroa.2932074.0.copyload2080, %242 ], [ %.sroa.2932074.0.copyload2082, %264 ], [ %.sroa.2932074.0.copyload2082, %253 ], [ %.sroa.2932074.0.copyload2084, %282 ], [ %.sroa.2932074.0.copyload2084, %265 ], [ %.sroa.2932074.0.copyload2086, %307 ], [ %.sroa.2932074.0.copyload2086, %299 ], [ %.sroa.2932074.0.copyload2088, %320 ], [ %.sroa.2932074.0.copyload2088, %308 ], [ %.sroa.2932074.0.copyload2090, %330 ], [ %.sroa.2932074.0.copyload2090, %321 ], [ %.sroa.2932074.0.copyload2092, %340 ], [ %.sroa.2932074.0.copyload2092, %331 ], [ %.sroa.2932074.0.copyload2094, %350 ], [ %.sroa.2932074.0.copyload2094, %341 ], [ %.sroa.2932074.0.copyload2096, %361 ], [ %.sroa.2932074.0.copyload2096, %351 ], [ %.sroa.2932074.0.copyload2098, %371 ], [ %.sroa.2932074.0.copyload2098, %362 ], [ %.sroa.2932074.0.copyload2100, %654 ], [ %.sroa.2932074.0.copyload2100, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110 ], [ %.sroa.2932074.0.copyload2102, %663 ], [ %.sroa.2932074.0.copyload2102, %655 ], [ %.sroa.2932074.0.copyload2104, %682 ], [ %.sroa.2932074.0.copyload2104, %674 ], [ %.sroa.2932074.0.copyload2106, %700 ], [ %.sroa.2932074.0.copyload2106, %691 ], [ %.sroa.2932074.0.copyload2108, %712 ], [ %.sroa.2932074.0.copyload2108, %704 ], [ %.sroa.2932074.0.copyload2110, %764 ], [ %.sroa.2932074.0.copyload2110, %756 ], [ %.sroa.2932074.0.copyload2112, %817 ], [ %.sroa.2932074.0.copyload2112, %809 ], [ %.sroa.2932074.0.copyload2114, %824 ], [ %.sroa.2932074.0.copyload2114, %818 ], [ %.sroa.2932074.0.copyload2116, %836 ], [ %.sroa.2932074.0.copyload2116, %828 ], [ %.sroa.2932074.0.copyload2118, %888 ], [ %.sroa.2932074.0.copyload2118, %880 ], [ %.sroa.2932074.0.copyload2120, %941 ], [ %.sroa.2932074.0.copyload2120, %933 ], [ %.sroa.2932074.0.copyload2122, %948 ], [ %.sroa.2932074.0.copyload2122, %942 ], [ %.sroa.2932074.0.copyload2124, %1000 ], [ %.sroa.2932074.0.copyload2124, %992 ], [ %.sroa.2932074.0.copyload2126, %1053 ], [ %.sroa.2932074.0.copyload2126, %1045 ], [ %.sroa.2932074.0.copyload2128, %1060 ], [ %.sroa.2932074.0.copyload2128, %1054 ], [ %.sroa.2932074.0.copyload2130, %1074 ], [ %.sroa.2932074.0.copyload2130, %1066 ], [ %.sroa.2932074.0.copyload2132, %1110 ], [ %.sroa.2932074.0.copyload2132, %1102 ], [ %.sroa.2932074.0.copyload2134, %1162 ], [ %.sroa.2932074.0.copyload2134, %1154 ], [ %.sroa.2932074.0.copyload2136, %1215 ], [ %.sroa.2932074.0.copyload2136, %1207 ], [ %.sroa.2932074.0.copyload2138, %1222 ], [ %.sroa.2932074.0.copyload2138, %1216 ], [ %.sroa.2932074.0.copyload2140, %1239 ], [ %.sroa.2932074.0.copyload2140, %1228 ], [ %.sroa.2932074.0.copyload2142, %1276 ], [ %.sroa.2932074.0.copyload2142, %1268 ], [ %.sroa.2932074.0.copyload2144, %1321 ], [ %.sroa.2932074.0.copyload2144, %1313 ], [ %.sroa.2932074.0.copyload2146, %1358 ], [ %.sroa.2932074.0.copyload2146, %1350 ], [ %.sroa.2932074.0.copyload2148, %1371 ], [ %.sroa.2932074.0.copyload2148, %1359 ], [ %.sroa.2932074.0.copyload2150, %1401 ], [ %.sroa.2932074.0.copyload2150, %1395 ], [ %.sroa.2932074.0.copyload2152, %1415 ], [ %.sroa.2932074.0.copyload2152, %1409 ], [ %.sroa.2932074.0.copyload2154, %1430 ], [ %.sroa.2932074.0.copyload2154, %1422 ], [ %.sroa.2932074.0.copyload2156, %1467 ], [ %.sroa.2932074.0.copyload2156, %1461 ], [ %.sroa.2932074.0.copyload2158, %1512 ], [ %.sroa.2932074.0.copyload2158, %1506 ], [ %.sroa.2932074.0.copyload2160, %1531 ], [ %.sroa.2932074.0.copyload2160, %1523 ], [ %.sroa.2932074.0.copyload2162, %1562 ], [ %.sroa.2932074.0.copyload2162, %1556 ], [ %.sroa.2932074.0.copyload2164, %1577 ], [ %.sroa.2932074.0.copyload2164, %1571 ], [ %.sroa.2932074.0.copyload2166, %1588 ], [ %.sroa.2932074.0.copyload2166, %1582 ], [ %.sroa.2932074.0.copyload2168, %1621 ], [ %.sroa.2932074.0.copyload2168, %1615 ], [ %.sroa.2932074.0.copyload2170, %1684 ], [ %.sroa.2932074.0.copyload2170, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit ], [ %.sroa.2932074.0.copyload2172, %1749 ], [ %.sroa.2932074.0.copyload2172, %_ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit ], [ %.sroa.2932074.0.copyload2174, %1788 ], [ %.sroa.2932074.0.copyload2174, %_ZN4pkpy5BytesD2Ev.exit ], [ %.sroa.2932074.0.copyload2176, %1811 ], [ %.sroa.2932074.0.copyload2176, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2178, %1833 ], [ %.sroa.2932074.0.copyload2178, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit ], [ %.sroa.2932074.0.copyload2180, %1852 ], [ %.sroa.2932074.0.copyload2180, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2182, %1884 ], [ %.sroa.2932074.0.copyload2182, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4265 ], [ %.sroa.2932074.0.copyload2184, %1919 ], [ %.sroa.2932074.0.copyload2184, %_ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4276 ], [ %.sroa.2932074.0.copyload2186, %1942 ], [ %.sroa.2932074.0.copyload2186, %_ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2188, %1971 ], [ %.sroa.2932074.0.copyload2188, %_ZN4pkpy7SStreamD2Ev.exit ], [ %.sroa.2932074.0.copyload2190, %2002 ], [ %.sroa.2932074.0.copyload2190, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4290 ], [ %.sroa.2932074.0.copyload2192, %2037 ], [ %.sroa.2932074.0.copyload2192, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4298 ], [ %.sroa.2932074.0.copyload2194, %2067 ], [ %.sroa.2932074.0.copyload2194, %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4304 ], [ %.sroa.2932074.0.copyload2196, %2111 ], [ %.sroa.2932074.0.copyload2196, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4314 ], [ %.sroa.2932074.0.copyload2198, %2166 ], [ %.sroa.2932074.0.copyload2198, %2160 ], [ %.sroa.2932074.0.copyload2200, %2215 ], [ %.sroa.2932074.0.copyload2200, %2209 ], [ %.sroa.2932074.0.copyload2202, %2249 ], [ %.sroa.2932074.0.copyload2202, %2241 ], [ %.sroa.2932074.0.copyload2204, %2311 ], [ %.sroa.2932074.0.copyload2204, %2305 ], [ %.sroa.2932074.0.copyload2206, %2345 ], [ %.sroa.2932074.0.copyload2206, %2337 ], [ %.sroa.2932074.0.copyload2208, %2407 ], [ %.sroa.2932074.0.copyload2208, %2401 ], [ %.sroa.2932074.0.copyload2210, %2441 ], [ %.sroa.2932074.0.copyload2210, %2433 ], [ %.sroa.2932074.0.copyload2212, %2503 ], [ %.sroa.2932074.0.copyload2212, %2497 ], [ %.sroa.2932074.0.copyload2214, %2543 ], [ %.sroa.2932074.0.copyload2214, %2535 ], [ %.sroa.2932074.0.copyload2216, %2584 ], [ %.sroa.2932074.0.copyload2216, %2578 ], [ %.sroa.2932074.0.copyload2218, %2624 ], [ %.sroa.2932074.0.copyload2218, %2616 ], [ %.sroa.2932074.0.copyload2220, %2665 ], [ %.sroa.2932074.0.copyload2220, %2659 ], [ %.sroa.2932074.0.copyload2222, %2690 ], [ %.sroa.2932074.0.copyload2222, %2679 ], [ %.sroa.2932074.0.copyload2224, %2703 ], [ %.sroa.2932074.0.copyload2224, %2694 ], [ %.sroa.2932074.0.copyload2226, %2727 ], [ %.sroa.2932074.0.copyload2226, %2717 ], [ %.sroa.2932074.0.copyload2228, %2740 ], [ %.sroa.2932074.0.copyload2228, %2731 ], [ %.sroa.2932074.0.copyload2230, %2758 ], [ %.sroa.2932074.0.copyload2230, %2749 ], [ %.sroa.2932074.0.copyload2232, %2776 ], [ %.sroa.2932074.0.copyload2232, %2767 ], [ %.sroa.2932074.0.copyload2234, %2801 ], [ %.sroa.2932074.0.copyload2234, %2790 ], [ %.sroa.2932074.0.copyload2236, %2814 ], [ %.sroa.2932074.0.copyload2236, %2805 ], [ %.sroa.2932074.0.copyload2238, %2838 ], [ %.sroa.2932074.0.copyload2238, %2828 ], [ %.sroa.2932074.0.copyload2240, %2851 ], [ %.sroa.2932074.0.copyload2240, %2842 ], [ %.sroa.2932074.0.copyload2242, %2885 ], [ %.sroa.2932074.0.copyload2242, %2877 ], [ %.sroa.2932074.0.copyload2244, %2926 ], [ %.sroa.2932074.0.copyload2244, %2920 ], [ %.sroa.2932074.0.copyload2246, %2960 ], [ %.sroa.2932074.0.copyload2246, %2952 ], [ %.sroa.2932074.0.copyload2248, %3001 ], [ %.sroa.2932074.0.copyload2248, %2995 ], [ %.sroa.2932074.0.copyload2250, %3032 ], [ %.sroa.2932074.0.copyload2250, %3024 ], [ %.sroa.2932074.0.copyload2252, %3073 ], [ %.sroa.2932074.0.copyload2252, %3067 ], [ %.sroa.2932074.0.copyload2254, %3104 ], [ %.sroa.2932074.0.copyload2254, %3096 ], [ %.sroa.2932074.0.copyload2256, %3145 ], [ %.sroa.2932074.0.copyload2256, %3139 ], [ %.sroa.2932074.0.copyload2258, %3177 ], [ %.sroa.2932074.0.copyload2258, %3169 ], [ %.sroa.2932074.0.copyload2260, %3218 ], [ %.sroa.2932074.0.copyload2260, %3212 ], [ %.sroa.2932074.0.copyload2262, %3267 ], [ %.sroa.2932074.0.copyload2262, %3261 ], [ %.sroa.2932074.0.copyload2264, %3283 ], [ %.sroa.2932074.0.copyload2264, %3268 ], [ %.sroa.2932074.0.copyload2266, %3327 ], [ %.sroa.2932074.0.copyload2266, %_ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit ], [ %.sroa.2932074.0.copyload2268, %3334 ], [ %.sroa.2932074.0.copyload2268, %3328 ], [ %.sroa.2932074.0.copyload2270, %3352 ], [ %.sroa.2932074.0.copyload2270, %3347 ], [ %.sroa.2932074.0.copyload2272, %3369 ], [ %.sroa.2932074.0.copyload2272, %3361 ], [ %.sroa.2932074.0.copyload2274, %3386 ], [ %.sroa.2932074.0.copyload2274, %3378 ], [ %.sroa.2932074.0.copyload2276, %3404 ], [ %.sroa.2932074.0.copyload2276, %3398 ], [ %.sroa.2932074.0.copyload2278, %3422 ], [ %.sroa.2932074.0.copyload2278, %3416 ], [ %.sroa.2932074.0.copyload2280, %3445 ], [ %.sroa.2932074.0.copyload2280, %3439 ], [ %.sroa.2932074.0.copyload2282, %3452 ], [ %.sroa.2932074.0.copyload2282, %3446 ], [ %.sroa.2932074.0.copyload2284, %3461 ], [ %.sroa.2932074.0.copyload2284, %3455 ], [ %.sroa.2932074.0.copyload2286, %3514 ], [ %.sroa.2932074.0.copyload2286, %3508 ], [ %.sroa.2932074.0.copyload2288, %3790 ], [ %.sroa.2932074.0.copyload2288, %_ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4493 ], [ %.sroa.2932074.0.copyload2290, %3807 ], [ %.sroa.2932074.0.copyload2290, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495 ], [ %.sroa.2932074.0.copyload2292, %3832 ], [ %.sroa.2932074.0.copyload2292, %3824 ], [ %.sroa.2932074.0.copyload2294, %3920 ], [ %.sroa.2932074.0.copyload2294, %3912 ], [ %.sroa.2932074.0.copyload2296, %3971 ], [ %.sroa.2932074.0.copyload2296, %3959 ], [ %.sroa.2932074.0.copyload2298, %3990 ], [ %.sroa.2932074.0.copyload2298, %3984 ], [ %.sroa.2932074.0.copyload2300, %4012 ], [ %.sroa.2932074.0.copyload2300, %4006 ], [ %.sroa.2932074.0.copyload2302, %4026 ], [ %.sroa.2932074.0.copyload2302, %4018 ], [ %.sroa.2932074.0.copyload2304, %4051 ], [ %.sroa.2932074.0.copyload2304, %4045 ], [ %.sroa.2932074.0.copyload2306, %4067 ], [ %.sroa.2932074.0.copyload2306, %_ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %.sroa.2932074.0.copyload2308, %4099 ], [ %.sroa.2932074.0.copyload2308, %4091 ], [ %.sroa.2932074.0.copyload2310, %4113 ], [ %.sroa.2932074.0.copyload2310, %4105 ], [ %.sroa.2932074.0.copyload2312, %4143 ], [ %.sroa.2932074.0.copyload2312, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit ], [ %.sroa.2932074.0.copyload2314, %4174 ], [ %.sroa.2932074.0.copyload2314, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4512 ], [ %.sroa.2932074.0.copyload2316, %4205 ], [ %.sroa.2932074.0.copyload2316, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4514 ], [ %.sroa.2932074.0.copyload2318, %4236 ], [ %.sroa.2932074.0.copyload2318, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516 ], [ %.sroa.2932074.0.copyload2320, %4290 ], [ %.sroa.2932074.0.copyload2320, %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 ], [ %.sroa.2932074.0.copyload2322, %4318 ], [ %.sroa.2932074.0.copyload2322, %4310 ], [ %.sroa.2932074.0.copyload2324, %4570 ], [ %.sroa.2932074.0.copyload2324, %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit ], [ %.sroa.2932074.0.copyload2326, %4578 ], [ %.sroa.2932074.0.copyload2326, %4572 ], [ %.sroa.2932074.0.copyload2328, %4652 ], [ %.sroa.2932074.0.copyload2328, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4593 ], [ %.sroa.2932074.0.copyload2330, %4683 ], [ %.sroa.2932074.0.copyload2330, %4677 ], [ %.sroa.2932074.0.copyload2332, %4732 ], [ %.sroa.2932074.0.copyload2332, %4726 ], [ %.sroa.2932074.0.copyload2334, %4778 ], [ %.sroa.2932074.0.copyload2334, %4772 ], [ %.sroa.2932074.0.copyload2336, %4788 ], [ %.sroa.2932074.0.copyload2336, %4779 ], [ %.sroa.2932074.0.copyload2338, %4798 ], [ %.sroa.2932074.0.copyload2338, %4789 ], [ %.sroa.2932074.0.copyload2340, %4867 ], [ %.sroa.2932074.0.copyload2340, %_ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.2932074.0.copyload2342, %4887 ], [ %.sroa.2932074.0.copyload2342, %4879 ], [ %.sroa.2932074.0.copyload2344, %4907 ], [ %.sroa.2932074.0.copyload2344, %4899 ], [ %.sroa.2932074.0.copyload2346, %4936 ], [ %.sroa.2932074.0.copyload2346, %4926 ], [ %.sroa.2932074.0.copyload2348, %4972 ], [ %.sroa.2932074.0.copyload2348, %4966 ], [ %.sroa.2932074.0.copyload2350, %4991 ], [ %.sroa.2932074.0.copyload2350, %_ZN4pkpy2VM14AssertionErrorEv.exit ], [ %.sroa.2932074.0.copyload2352, %4999 ], [ %.sroa.2932074.0.copyload2352, %4993 ], [ %.sroa.2932074.0.copyload2354, %5009 ], [ %.sroa.2932074.0.copyload2354, %5000 ], [ %.sroa.2932074.0.copyload2356, %5040 ], [ %.sroa.2932074.0.copyload2356, %5032 ], [ %.sroa.2932074.0.copyload2358, %5098 ], [ %.sroa.2932074.0.copyload2358, %5092 ], [ %.sroa.2932074.0.copyload2360, %5127 ], [ %.sroa.2932074.0.copyload2360, %5121 ], [ %.sroa.2932074.0.copyload2362, %5193 ], [ %.sroa.2932074.0.copyload2362, %5187 ], [ %.sroa.2932074.0.copyload2364, %5259 ], [ %.sroa.2932074.0.copyload2364, %5253 ]
   br label %.backedge
 
-5257:                                             ; preds = %5251
-  %.sroa.293.0..sroa_idx1492 = getelementptr inbounds i8, ptr %5255, i64 1
+5259:                                             ; preds = %5253
+  %.sroa.293.0..sroa_idx1492 = getelementptr inbounds i8, ptr %5257, i64 1
   %.sroa.293.0.copyload1493 = load i8, ptr %.sroa.293.0..sroa_idx1492, align 1
   %.sroa.2932074.0.insert.ext = zext i16 %.sroa.2932074.0.copyload2364 to i32
   %.sroa.2932074.0.insert.shift = shl nuw i32 %.sroa.2932074.0.insert.ext, 16
@@ -14039,63 +14045,62 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668: ; preds = %_ZN4pkpy12Name
   %.sroa.0623.0.insert.ext = zext i8 %.sroa.0623.0.copyload768 to i32
   %.sroa.293.0.insert.insert = or disjoint i32 %.sroa.2932074.0.insert.shift, %.sroa.0623.0.insert.ext
   %.sroa.0623.0.insert.insert = or disjoint i32 %.sroa.293.0.insert.insert, %.sroa.293.0.insert.shift
-  invoke void %5256(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert)
+  invoke void %5258(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4959.loopexit.split-lp.loopexit
 
-5258:                                             ; preds = %.backedge
+5260:                                             ; preds = %.backedge
   unreachable
 
 .loopexit4990:                                    ; preds = %5050
   %lpad.loopexit4992 = landingpad { ptr, i32 }
           cleanup
-  br label %5269
+  br label %5271
 
-.loopexit.split-lp4991:                           ; preds = %5062, %5265
+.loopexit.split-lp4991:                           ; preds = %.invoke5721
   %lpad.loopexit.split-lp4993 = landingpad { ptr, i32 }
           cleanup
-  br label %5269
+  br label %5271
 
-5259:                                             ; preds = %5059
-  %5260 = landingpad { ptr, i32 }
+5261:                                             ; preds = %5059
+  %5262 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %5061) #23
-  br label %5269
+  br label %5271
 
-5261:                                             ; preds = %5056
-  %5262 = load ptr, ptr %125, align 8
-  %5263 = load ptr, ptr %131, align 8
-  %5264 = getelementptr inbounds i8, ptr %5263, i64 8
-  store ptr %5264, ptr %131, align 8
-  store ptr %5054, ptr %5263, align 8
-  br i1 %5055, label %5265, label %5267
+5263:                                             ; preds = %5056
+  %5264 = load ptr, ptr %125, align 8
+  %5265 = load ptr, ptr %131, align 8
+  %5266 = getelementptr inbounds i8, ptr %5265, i64 8
+  store ptr %5266, ptr %131, align 8
+  store ptr %5054, ptr %5265, align 8
+  br i1 %5055, label %5267, label %5269
 
-5265:                                             ; preds = %5261
-  %5266 = call ptr @__cxa_allocate_exception(i64 1) #23
-  invoke void @__cxa_throw(ptr %5266, ptr nonnull @_ZTIN4pkpy19ToBeRaisedExceptionE, ptr null) #24
-          to label %5273 unwind label %.loopexit.split-lp4991
+5267:                                             ; preds = %5263
+  %5268 = call ptr @__cxa_allocate_exception(i64 1) #23
+  br label %.invoke5721
 
-5267:                                             ; preds = %5261
-  %5268 = getelementptr inbounds i8, ptr %5262, i64 8
+5269:                                             ; preds = %5263
+  %5270 = getelementptr inbounds i8, ptr %5264, i64 8
   br label %.backedge4995
 
-5269:                                             ; preds = %.loopexit4990, %.loopexit.split-lp4991, %5259
-  %.pn4091 = phi { ptr, i32 } [ %5260, %5259 ], [ %lpad.loopexit4992, %.loopexit4990 ], [ %lpad.loopexit.split-lp4993, %.loopexit.split-lp4991 ]
+5271:                                             ; preds = %.loopexit4990, %.loopexit.split-lp4991, %5261
+  %.pn4091 = phi { ptr, i32 } [ %5262, %5261 ], [ %lpad.loopexit4992, %.loopexit4990 ], [ %lpad.loopexit.split-lp4993, %.loopexit.split-lp4991 ]
   invoke void @__cxa_end_catch()
-          to label %.loopexit4989 unwind label %5270
+          to label %.loopexit4989 unwind label %5272
 
 .loopexit4986:                                    ; preds = %3928, %4227, %3935
   %.0 = phi ptr [ %4230, %4227 ], [ %3936, %3935 ], [ %3927, %3928 ]
   ret ptr %.0
 
-.loopexit4989:                                    ; preds = %5063, %5269
-  %.merged = phi { ptr, i32 } [ %.pn4091, %5269 ], [ %.pn4089, %5063 ]
+.loopexit4989:                                    ; preds = %5065, %5271
+  %.merged = phi { ptr, i32 } [ %.pn4091, %5271 ], [ %.pn4089, %5065 ]
   resume { ptr, i32 } %.merged
 
-5270:                                             ; preds = %5269
-  %5271 = landingpad { ptr, i32 }
+5272:                                             ; preds = %5271
+  %5273 = landingpad { ptr, i32 }
           catch ptr null
-  %5272 = extractvalue { ptr, i32 } %5271, 0
-  call void @__clang_call_terminate(ptr %5272) #27
+  %5274 = extractvalue { ptr, i32 } %5273, 0
+  call void @__clang_call_terminate(ptr %5274) #27
   unreachable
 
 .loopexit4988.unreachable:                        ; preds = %4809
@@ -14108,9 +14113,6 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4668: ; preds = %_ZN4pkpy12Name
   unreachable
 
 .loopexit4988.unreachable5229:                    ; preds = %1085
-  unreachable
-
-5273:                                             ; preds = %5265, %5062
   unreachable
 }
 

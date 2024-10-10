@@ -838,7 +838,7 @@ if.then107:                                       ; preds = %invoke.cont104
   %call115 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString14appendPathPartENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %infile, ptr nonnull %call63, i32 %conv112, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end116 unwind label %lpad102
 
-lpad102:                                          ; preds = %call.i.noexc106, %if.else280, %if.then.i, %invoke.cont234, %if.else165, %invoke.cont103, %if.end282, %if.then277, %if.end274, %if.else267, %if.then262, %if.end256, %if.then250, %if.then245, %invoke.cont240, %cond.end238, %cond.false233, %if.then227, %if.then222, %invoke.cont218, %if.then217, %invoke.cont211, %if.end210, %if.then162, %if.then152, %if.else132, %if.then127, %if.then107, %if.else98
+lpad102:                                          ; preds = %if.then250.invoke, %call.i.noexc106, %if.else280, %if.then.i, %invoke.cont234, %if.else165, %invoke.cont103, %if.end282, %if.then277, %if.end274, %if.else267, %if.then262, %if.end256, %invoke.cont240, %cond.end238, %cond.false233, %if.then227, %if.then222, %invoke.cont218, %if.then217, %invoke.cont211, %if.end210, %if.then162, %if.then152, %if.else132, %if.then127, %if.then107, %if.else98
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1075,32 +1075,33 @@ invoke.cont240:                                   ; preds = %cond.end238
           to label %invoke.cont242 unwind label %lpad102
 
 invoke.cont242:                                   ; preds = %invoke.cont240
-  br i1 %tobool126.not118, label %if.else248, label %if.then245
-
-if.then245:                                       ; preds = %invoke.cont242
-  %call247 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.17, ptr noundef nonnull %thename.0116)
-          to label %if.end256 unwind label %lpad102
+  br i1 %tobool126.not118, label %if.else248, label %if.then250.invoke
 
 if.else248:                                       ; preds = %invoke.cont242
   br i1 %tobool89.not148, label %if.then250, label %if.end256
 
 if.then250:                                       ; preds = %if.else248
   %75 = load ptr, ptr %locale, align 8
-  %call254 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.18, ptr noundef %75)
+  br label %if.then250.invoke
+
+if.then250.invoke:                                ; preds = %invoke.cont242, %if.then250
+  %76 = phi ptr [ @.str.18, %if.then250 ], [ @.str.17, %invoke.cont242 ]
+  %77 = phi ptr [ %75, %if.then250 ], [ %thename.0116, %invoke.cont242 ]
+  %78 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull %76, ptr noundef %77)
           to label %if.end256 unwind label %lpad102
 
-if.end256:                                        ; preds = %if.else248, %if.then250, %if.then245
+if.end256:                                        ; preds = %if.then250.invoke, %if.else248
   %call258 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.19)
           to label %invoke.cont257 unwind label %lpad102
 
 invoke.cont257:                                   ; preds = %if.end256
-  %76 = load i32, ptr %len.i, align 8
-  %cmp.i104.not = icmp eq i32 %76, 0
+  %79 = load i32, ptr %len.i, align 8
+  %cmp.i104.not = icmp eq i32 %79, 0
   br i1 %cmp.i104.not, label %if.else267, label %if.then262
 
 if.then262:                                       ; preds = %invoke.cont257
-  %77 = load ptr, ptr %locale, align 8
-  %call266 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.17, ptr noundef %77)
+  %80 = load ptr, ptr %locale, align 8
+  %call266 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.17, ptr noundef %80)
           to label %if.end274 unwind label %lpad102
 
 if.else267:                                       ; preds = %invoke.cont257
@@ -1123,12 +1124,12 @@ if.then277:                                       ; preds = %invoke.cont275
           to label %if.end282 unwind label %lpad102
 
 if.else280:                                       ; preds = %if.end142
-  %78 = load ptr, ptr @_ZL7ustderr, align 8
+  %81 = load ptr, ptr @_ZL7ustderr, align 8
   %call.i107 = invoke ptr @u_errorName_75(i32 noundef %55)
           to label %call.i.noexc106 unwind label %lpad102
 
 call.i.noexc106:                                  ; preds = %if.else280
-  %call1.i109 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %78, ptr noundef nonnull @.str.47, ptr noundef %pname.0, i32 noundef %55, ptr noundef nonnull @.str.21, ptr noundef %call.i107)
+  %call1.i109 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %81, ptr noundef nonnull @.str.47, ptr noundef %pname.0, i32 noundef %55, ptr noundef nonnull @.str.21, ptr noundef %call.i107)
           to label %if.end282 unwind label %lpad102
 
 if.end282:                                        ; preds = %call.i.noexc106, %invoke.cont275, %if.then277

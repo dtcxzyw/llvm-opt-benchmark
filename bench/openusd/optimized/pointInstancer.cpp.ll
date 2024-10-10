@@ -23476,59 +23476,51 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread: ; preds 
 32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %39
 
-34:                                               ; preds = %38, %36, %24, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread
+34:                                               ; preds = %.critedge, %24, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
-  br label %42
+  br label %39
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit, %31
-  %.not = icmp eq ptr %2, null
   %.sroa.01.0.copyload = load double, ptr %1, align 8
-  br i1 %.not, label %38, label %36
-
-36:                                               ; preds = %.critedge
-  %37 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20_ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %3, double %.sroa.01.0.copyload, double %.sroa.01.0.copyload, ptr noundef nonnull %2)
+  %36 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20_ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %3, double %.sroa.01.0.copyload, double %.sroa.01.0.copyload, ptr noundef %2)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit unwind label %34
 
-38:                                               ; preds = %.critedge
-  %39 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20_ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %3, double %.sroa.01.0.copyload, double %.sroa.01.0.copyload, ptr noundef null)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit unwind label %34
-
-_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit: ; preds = %38, %36, %31
-  %.0 = phi i1 [ false, %31 ], [ %37, %36 ], [ %39, %38 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit: ; preds = %.critedge, %31
+  %.0 = phi i1 [ false, %31 ], [ %36, %.critedge ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  br i1 %10, label %40, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+  br i1 %10, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-40:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit
   fence syncscope("singlethread") seq_cst
-  %41 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !38
+  %38 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !38
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31_ComputeExtentForPointInstancerERKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE17TraceKeyData_1432, ptr %6, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %41) #23
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %38) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit, %40
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer19ComputeExtentAtTimeEPNS_7VtArrayINS_7GfVec3fEEENS_11UsdTimeCodeES5_RKNS_10GfMatrix4dE.exit, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %.0
 
-42:                                               ; preds = %34, %32
+39:                                               ; preds = %34, %32
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  br i1 %10, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit20
+  br i1 %10, label %40, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit20
 
-43:                                               ; preds = %42
+40:                                               ; preds = %39
   fence syncscope("singlethread") seq_cst
-  %44 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !38
+  %41 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !38
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31_ComputeExtentForPointInstancerERKNS_16UsdGeomBoundableERKNS_11UsdTimeCodeEPKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEEE17TraceKeyData_1432, ptr %5, align 8
   %.sroa.7.12.insert.insert26 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.7.12.insert.insert26, i64 noundef %44) #23
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.7.12.insert.insert26, i64 noundef %41) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit20
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit20: ; preds = %42, %43
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit20: ; preds = %39, %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }

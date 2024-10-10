@@ -46755,14 +46755,14 @@ _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit: ; preds =
   %tobool4 = trunc i8 %7 to i1
   br i1 %tobool4, label %if.then5.invoke, label %if.end7
 
-if.then5.invoke:                                  ; preds = %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit, %if.then41
+if.then5.invoke:                                  ; preds = %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit, %if.then41, %invoke.cont61, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58
   %scheduler_44 = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load ptr, ptr %scheduler_44, align 8
   invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %8, ptr noundef %op, i1 noundef zeroext %is_continuation)
           to label %cleanup unwind label %lpad
 
-lpad:                                             ; preds = %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke, %if.then5.invoke, %if.then20, %if.else, %invoke.cont34
-  %descriptor_lock.sroa.4.0 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.else ], [ %.sink.i, %if.then20 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
+lpad:                                             ; preds = %if.then5.invoke, %if.then20, %if.else, %invoke.cont34
+  %descriptor_lock.sroa.4.0 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.else ], [ %.sink.i, %if.then20 ], [ %.sink.i, %if.then5.invoke ]
   %9 = landingpad { ptr, i32 }
           cleanup
   %tobool.i45 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
@@ -46902,7 +46902,9 @@ if.else:                                          ; preds = %if.then52
 invoke.cont61:                                    ; preds = %if.else
   %ec_63 = getelementptr inbounds i8, ptr %op, i64 24
   store i32 %24, ptr %ec_63, align 8
-  br label %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke
+  %ref.tmp.sroa.265.0.ec_63.sroa_idx = getelementptr inbounds i8, ptr %op, i64 32
+  store ptr %call62, ptr %ref.tmp.sroa.265.0.ec_63.sroa_idx, align 8
+  br label %if.then5.invoke
 
 if.else70:                                        ; preds = %if.then10
   %registered_events_71 = getelementptr inbounds i8, ptr %6, i64 108
@@ -46934,16 +46936,9 @@ init.i.i.i.i57:                                   ; preds = %init.check.i.i.i.i5
 
 _ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58: ; preds = %if.then73, %init.check.i.i.i.i55, %init.i.i.i.i57
   store i32 95, ptr %ec_74, align 8
-  br label %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke
-
-_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke: ; preds = %invoke.cont61, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58
-  %call62.sink = phi ptr [ %call62, %invoke.cont61 ], [ @_ZZN4asio15system_categoryEvE8instance, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58 ]
-  %ref.tmp.sroa.265.0.ec_63.sroa_idx = getelementptr inbounds i8, ptr %op, i64 32
-  store ptr %call62.sink, ptr %ref.tmp.sroa.265.0.ec_63.sroa_idx, align 8
-  %scheduler_64 = getelementptr inbounds i8, ptr %this, i64 48
-  %30 = load ptr, ptr %scheduler_64, align 8
-  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %30, ptr noundef nonnull %op, i1 noundef zeroext %is_continuation)
-          to label %cleanup unwind label %lpad
+  %ref.tmp.sroa.21.0.this1.sroa_idx.i54 = getelementptr inbounds i8, ptr %op, i64 32
+  store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %ref.tmp.sroa.21.0.this1.sroa_idx.i54, align 8
+  br label %if.then5.invoke
 
 if.else79:                                        ; preds = %if.else70
   %cmp80 = icmp eq i32 %op_type, 1
@@ -46958,35 +46953,35 @@ if.then81:                                        ; preds = %if.else79
   br label %if.end84
 
 if.end84:                                         ; preds = %if.else70.thread, %if.then81, %if.else79
-  %31 = phi i32 [ %26, %if.else70.thread ], [ %.pre76, %if.then81 ], [ %25, %if.else79 ]
-  %32 = phi ptr [ %6, %if.else70.thread ], [ %.pre75, %if.then81 ], [ %6, %if.else79 ]
-  store i32 %31, ptr %ev85, align 4
+  %30 = phi i32 [ %26, %if.else70.thread ], [ %.pre76, %if.then81 ], [ %25, %if.else79 ]
+  %31 = phi ptr [ %6, %if.else70.thread ], [ %.pre75, %if.then81 ], [ %6, %if.else79 ]
+  store i32 %30, ptr %ev85, align 4
   %data88 = getelementptr inbounds i8, ptr %ev85, i64 4
-  store ptr %32, ptr %data88, align 4
+  store ptr %31, ptr %data88, align 4
   %epoll_fd_89 = getelementptr inbounds i8, ptr %this, i64 120
-  %33 = load i32, ptr %epoll_fd_89, align 8
-  %call90 = call i32 @epoll_ctl(i32 noundef %33, i32 noundef 3, i32 noundef %descriptor, ptr noundef nonnull %ev85) #35
+  %32 = load i32, ptr %epoll_fd_89, align 8
+  %call90 = call i32 @epoll_ctl(i32 noundef %32, i32 noundef 3, i32 noundef %descriptor, ptr noundef nonnull %ev85) #35
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end84, %if.then56, %if.end47, %if.end7
-  %34 = load ptr, ptr %descriptor_data, align 8
-  %op_queue_94 = getelementptr inbounds i8, ptr %34, i64 112
+  %33 = load ptr, ptr %descriptor_data, align 8
+  %op_queue_94 = getelementptr inbounds i8, ptr %33, i64 112
   %arrayidx96 = getelementptr inbounds [3 x %"class.asio::detail::op_queue.501"], ptr %op_queue_94, i64 0, i64 %idxprom
   store ptr null, ptr %op, align 8
   %back_.i = getelementptr inbounds i8, ptr %arrayidx96, i64 8
-  %35 = load ptr, ptr %back_.i, align 8
-  %tobool.not.i = icmp eq ptr %35, null
-  %this..i = select i1 %tobool.not.i, ptr %arrayidx96, ptr %35
+  %34 = load ptr, ptr %back_.i, align 8
+  %tobool.not.i = icmp eq ptr %34, null
+  %this..i = select i1 %tobool.not.i, ptr %arrayidx96, ptr %34
   store ptr %op, ptr %this..i, align 8
   store ptr %op, ptr %back_.i, align 8
   %scheduler_97 = getelementptr inbounds i8, ptr %this, i64 48
-  %36 = load ptr, ptr %scheduler_97, align 8
-  %outstanding_work_.i = getelementptr inbounds i8, ptr %36, i64 216
-  %37 = atomicrmw add ptr %outstanding_work_.i, i64 1 seq_cst, align 8
+  %35 = load ptr, ptr %scheduler_97, align 8
+  %outstanding_work_.i = getelementptr inbounds i8, ptr %35, i64 216
+  %36 = atomicrmw add ptr %outstanding_work_.i, i64 1 seq_cst, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke, %if.then5.invoke, %invoke.cont34, %if.end93
-  %descriptor_lock.sroa.4.1 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.end93 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
+cleanup:                                          ; preds = %if.then5.invoke, %invoke.cont34, %if.end93
+  %descriptor_lock.sroa.4.1 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.end93 ], [ %.sink.i, %if.then5.invoke ]
   %tobool.i60 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
   br i1 %tobool.i60, label %if.then.i61, label %cleanup.cont
 

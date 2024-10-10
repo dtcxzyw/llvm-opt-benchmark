@@ -2217,14 +2217,10 @@ invoke.cont132:                                   ; preds = %_ZNK4decl13get_fami
 
 if.then134:                                       ; preds = %call.i154.noexc, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i157, %invoke.cont132
   %84 = load ptr, ptr %m_model135, align 8
-  %vtable136 = load ptr, ptr %84, align 8
-  %vfn137 = getelementptr inbounds i8, ptr %vtable136, i64 48
-  %85 = load ptr, ptr %vfn137, align 8
-  %call139 = invoke noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(96) %84, ptr noundef nonnull %79)
-          to label %if.end154 unwind label %lpad115
+  br label %if.else148.invoke
 
-lpad115:                                          ; preds = %if.then.i.i199, %if.then.i.i178, %if.then130, %if.else165, %if.then156, %if.else148, %if.then145, %lor.lhs.false141, %if.then134, %land.lhs.true126
-  %86 = landingpad { ptr, i32 }
+lpad115:                                          ; preds = %if.else148.invoke, %if.then.i.i199, %if.then.i.i178, %if.then130, %if.else165, %if.then156, %if.then145, %lor.lhs.false141, %land.lhs.true126
+  %85 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2236,21 +2232,23 @@ lor.lhs.false141:                                 ; preds = %if.else
           to label %invoke.cont143 unwind label %lpad115
 
 invoke.cont143:                                   ; preds = %lor.lhs.false141
-  br i1 %call144, label %if.then145, label %if.else148
+  br i1 %call144, label %if.then145, label %if.else148.invoke
 
 if.then145:                                       ; preds = %invoke.cont143, %if.else
   %call147 = invoke noundef ptr @_ZN16datatype_factory22get_almost_fresh_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %79)
           to label %if.end154 unwind label %lpad115
 
-if.else148:                                       ; preds = %invoke.cont143
-  %vtable149 = load ptr, ptr %this, align 8
-  %vfn150 = getelementptr inbounds i8, ptr %vtable149, i64 32
-  %87 = load ptr, ptr %vfn150, align 8
-  %call152 = invoke noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %79)
+if.else148.invoke:                                ; preds = %invoke.cont143, %if.then134
+  %.sink434 = phi ptr [ %84, %if.then134 ], [ %this, %invoke.cont143 ]
+  %.sink433 = phi i64 [ 48, %if.then134 ], [ 32, %invoke.cont143 ]
+  %vtable136 = load ptr, ptr %.sink434, align 8
+  %vfn137 = getelementptr inbounds i8, ptr %vtable136, i64 %.sink433
+  %86 = load ptr, ptr %vfn137, align 8
+  %87 = invoke noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(96) %.sink434, ptr noundef nonnull %79)
           to label %if.end154 unwind label %lpad115
 
-if.end154:                                        ; preds = %if.else148, %if.then145, %if.then134
-  %maybe_new_arg.0 = phi ptr [ %call139, %if.then134 ], [ %call147, %if.then145 ], [ %call152, %if.else148 ]
+if.end154:                                        ; preds = %if.else148.invoke, %if.then145
+  %maybe_new_arg.0 = phi ptr [ %call147, %if.then145 ], [ %87, %if.else148.invoke ]
   %tobool155.not = icmp eq ptr %maybe_new_arg.0, null
   br i1 %tobool155.not, label %if.then156, label %if.then.i.i.i.i164
 
@@ -2339,12 +2337,12 @@ for.inc175.sink.split:                            ; preds = %if.then.i.i199, %if
   br label %for.inc175
 
 for.inc175:                                       ; preds = %for.inc175.sink.split, %lor.lhs.false.i.i191, %lor.lhs.false.i.i170
-  %.sink437 = phi i32 [ %92, %lor.lhs.false.i.i170 ], [ %98, %lor.lhs.false.i.i191 ], [ %.pre1.i.i202, %for.inc175.sink.split ]
-  %.sink436 = phi ptr [ %91, %lor.lhs.false.i.i170 ], [ %97, %lor.lhs.false.i.i191 ], [ %.pre.i.i200, %for.inc175.sink.split ]
+  %.sink439 = phi i32 [ %92, %lor.lhs.false.i.i170 ], [ %98, %lor.lhs.false.i.i191 ], [ %.pre1.i.i202, %for.inc175.sink.split ]
+  %.sink438 = phi ptr [ %91, %lor.lhs.false.i.i170 ], [ %97, %lor.lhs.false.i.i191 ], [ %.pre.i.i200, %for.inc175.sink.split ]
   %call171.sink = phi ptr [ %maybe_new_arg.1317, %lor.lhs.false.i.i170 ], [ %call171, %lor.lhs.false.i.i191 ], [ %call171.sink.ph, %for.inc175.sink.split ]
   %found_sibling.2 = phi i8 [ %found_sibling.1315, %lor.lhs.false.i.i170 ], [ %found_sibling.0362, %lor.lhs.false.i.i191 ], [ %found_sibling.2.ph, %for.inc175.sink.split ]
-  %idx.ext.i.i195 = zext i32 %.sink437 to i64
-  %add.ptr.i.i196 = getelementptr inbounds ptr, ptr %.sink436, i64 %idx.ext.i.i195
+  %idx.ext.i.i195 = zext i32 %.sink439 to i64
+  %add.ptr.i.i196 = getelementptr inbounds ptr, ptr %.sink438, i64 %idx.ext.i.i195
   store ptr %call171.sink, ptr %add.ptr.i.i196, align 8
   %100 = load ptr, ptr %m_nodes.i.i149, align 8
   %arrayidx10.i.i197 = getelementptr inbounds i8, ptr %100, i64 -4
@@ -2569,7 +2567,7 @@ return:                                           ; preds = %_ZN10ref_vectorI4ex
 
 eh.resume:                                        ; preds = %lpad115, %lpad184, %lpad19.body
   %args112.sink = phi ptr [ %args, %lpad19.body ], [ %args112, %lpad184 ], [ %args112, %lpad115 ]
-  %.pn51 = phi { ptr, i32 } [ %eh.lpad-body, %lpad19.body ], [ %115, %lpad184 ], [ %86, %lpad115 ]
+  %.pn51 = phi { ptr, i32 } [ %eh.lpad-body, %lpad19.body ], [ %115, %lpad184 ], [ %85, %lpad115 ]
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args112.sink) #17
   resume { ptr, i32 } %.pn51
 

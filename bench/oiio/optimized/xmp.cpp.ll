@@ -1289,7 +1289,7 @@ _ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit.lr.ph: ; preds = 
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit: ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit.lr.ph, %invoke.cont142
   %totalsize.0259 = phi i64 [ 0, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit.lr.ph ], [ %totalsize.5, %invoke.cont142 ]
-  %node.sroa.0.0256 = phi ptr [ %node.coerce, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit.lr.ph ], [ %20, %invoke.cont142 ]
+  %node.sroa.0.0256 = phi ptr [ %node.coerce, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit.lr.ph ], [ %22, %invoke.cont142 ]
   %first_attribute.i = getelementptr inbounds i8, ptr %node.sroa.0.0256, i64 56
   %storemerge250 = load ptr, ptr %first_attribute.i, align 8
   %tobool.not.i19251 = icmp eq ptr %storemerge250, null
@@ -1333,7 +1333,7 @@ lpad.loopexit:                                    ; preds = %_ZNK18OpenImageIO_v
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit214, %if.then124, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194, %invoke.cont88, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit122, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit106, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit
+lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit214, %if.then124, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit122, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit106, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit
   %lpad.loopexit247 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -1432,7 +1432,7 @@ _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit122: ; preds = %invoke.cont55
           to label %invoke.cont63 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont63:                                    ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit122
-  br i1 %call64, label %invoke.cont88, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138
+  br i1 %call64, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138: ; preds = %invoke.cont63
   %9 = load ptr, ptr %name.i87, align 8
@@ -1447,7 +1447,7 @@ _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138: ; preds = %invoke.cont63
           to label %invoke.cont70 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont70:                                    ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit138
-  br i1 %call71, label %invoke.cont88, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154
+  br i1 %call71, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154: ; preds = %invoke.cont70
   %10 = load ptr, ptr %name.i87, align 8
@@ -1462,7 +1462,7 @@ _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154: ; preds = %invoke.cont70
           to label %invoke.cont77 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont77:                                    ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit154
-  br i1 %call78, label %invoke.cont88, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170
+  br i1 %call78, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170: ; preds = %invoke.cont77
   %11 = load ptr, ptr %name.i87, align 8
@@ -1477,43 +1477,41 @@ _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170: ; preds = %invoke.cont77
           to label %invoke.cont84 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont84:                                    ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit170
-  br i1 %call85, label %invoke.cont88, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194
-
-invoke.cont88:                                    ; preds = %invoke.cont63, %invoke.cont70, %invoke.cont77, %invoke.cont84
-  %first_child.i = getelementptr inbounds i8, ptr %node.sroa.0.0256, i64 32
-  %12 = load ptr, ptr %first_child.i, align 8
-  %call94 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115decode_xmp_nodeENS_4pugi8xml_nodeERNS_9ImageSpecEiPKcb(ptr %12, ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %add100, ptr noundef %parentname, i1 noundef zeroext true)
-          to label %if.end108 unwind label %lpad.loopexit.split-lp.loopexit
+  br i1 %call85, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194: ; preds = %invoke.cont84
-  %first_child.i185 = getelementptr inbounds i8, ptr %node.sroa.0.0256, i64 32
-  %13 = load ptr, ptr %first_child.i185, align 8
-  %14 = load ptr, ptr %name.i87, align 8
-  %tobool3.not.i191 = icmp eq ptr %14, null
-  %spec.select.i192 = select i1 %tobool3.not.i191, ptr @.str.59, ptr %14
-  %call106 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115decode_xmp_nodeENS_4pugi8xml_nodeERNS_9ImageSpecEiPKcb(ptr %13, ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %add100, ptr noundef nonnull %spec.select.i192, i1 noundef zeroext %isList)
+  %12 = load ptr, ptr %name.i87, align 8
+  %tobool3.not.i191 = icmp eq ptr %12, null
+  %spec.select.i192 = select i1 %tobool3.not.i191, ptr @.str.59, ptr %12
+  br label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke
+
+_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke: ; preds = %invoke.cont84, %invoke.cont77, %invoke.cont70, %invoke.cont63, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194
+  %13 = phi ptr [ %spec.select.i192, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194 ], [ %parentname, %invoke.cont63 ], [ %parentname, %invoke.cont70 ], [ %parentname, %invoke.cont77 ], [ %parentname, %invoke.cont84 ]
+  %14 = phi i1 [ %isList, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194 ], [ true, %invoke.cont63 ], [ true, %invoke.cont70 ], [ true, %invoke.cont77 ], [ true, %invoke.cont84 ]
+  %.in = getelementptr inbounds i8, ptr %node.sroa.0.0256, i64 32
+  %15 = load ptr, ptr %.in, align 8
+  %16 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115decode_xmp_nodeENS_4pugi8xml_nodeERNS_9ImageSpecEiPKcb(ptr %15, ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %add100, ptr noundef %13, i1 noundef zeroext %14)
           to label %if.end108 unwind label %lpad.loopexit.split-lp.loopexit
 
-if.end108:                                        ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194, %invoke.cont88
-  %call94.pn = phi i64 [ %call94, %invoke.cont88 ], [ %call106, %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194 ]
-  %totalsize.6 = add i64 %call94.pn, %totalsize.3
+if.end108:                                        ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit194.invoke
+  %totalsize.6 = add i64 %16, %totalsize.3
   br i1 %tobool109.not, label %if.end134, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit201
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit201: ; preds = %if.end108
-  %15 = load ptr, ptr %name.i87, align 8
-  %tobool3.not.i198 = icmp eq ptr %15, null
-  %spec.select.i199 = select i1 %tobool3.not.i198, ptr @.str.59, ptr %15
-  %16 = load i8, ptr %spec.select.i199, align 1
-  %tobool114.not = icmp eq i8 %16, 0
+  %17 = load ptr, ptr %name.i87, align 8
+  %tobool3.not.i198 = icmp eq ptr %17, null
+  %spec.select.i199 = select i1 %tobool3.not.i198, ptr @.str.59, ptr %17
+  %18 = load i8, ptr %spec.select.i199, align 1
+  %tobool114.not = icmp eq i8 %18, 0
   br i1 %tobool114.not, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit, label %if.end134
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit: ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node4nameEv.exit201
   %value.i204 = getelementptr inbounds i8, ptr %node.sroa.0.0256, i64 16
-  %17 = load ptr, ptr %value.i204, align 8
-  %tobool3.not.i205 = icmp eq ptr %17, null
-  %spec.select.i206 = select i1 %tobool3.not.i205, ptr @.str.59, ptr %17
-  %18 = load i8, ptr %spec.select.i206, align 1
-  %tobool119.not = icmp eq i8 %18, 0
+  %19 = load ptr, ptr %value.i204, align 8
+  %tobool3.not.i205 = icmp eq ptr %19, null
+  %spec.select.i206 = select i1 %tobool3.not.i205, ptr @.str.59, ptr %19
+  %20 = load i8, ptr %spec.select.i206, align 1
+  %tobool119.not = icmp eq i8 %20, 0
   br i1 %tobool119.not, label %if.end134, label %if.then120
 
 if.then120:                                       ; preds = %_ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit
@@ -1528,9 +1526,9 @@ if.then124:                                       ; preds = %if.then120
           to label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit214 unwind label %lpad.loopexit.split-lp.loopexit
 
 _ZNK18OpenImageIO_v2_6_04pugi8xml_node5valueEv.exit214: ; preds = %if.then124, %if.then120
-  %19 = load ptr, ptr %value.i204, align 8
-  %tobool3.not.i211 = icmp eq ptr %19, null
-  %spec.select.i212 = select i1 %tobool3.not.i211, ptr @.str.59, ptr %19
+  %21 = load ptr, ptr %value.i204, align 8
+  %tobool3.not.i211 = icmp eq ptr %21, null
+  %spec.select.i212 = select i1 %tobool3.not.i211, ptr @.str.59, ptr %21
   %call131 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mylist, ptr noundef nonnull %spec.select.i212)
           to label %invoke.cont130 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1548,8 +1546,8 @@ if.end134:                                        ; preds = %invoke.cont130, %_Z
 invoke.cont142:                                   ; preds = %invoke.cont47, %invoke.cont55, %if.end134
   %totalsize.5 = phi i64 [ %totalsize.3, %invoke.cont47 ], [ %totalsize.3, %invoke.cont55 ], [ %totalsize.7, %if.end134 ]
   %next_sibling.i = getelementptr inbounds i8, ptr %node.sroa.0.0256, i64 48
-  %20 = load ptr, ptr %next_sibling.i, align 8
-  %tobool.not.i = icmp eq ptr %20, null
+  %22 = load ptr, ptr %next_sibling.i, align 8
+  %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %for.end145, label %_ZNK18OpenImageIO_v2_6_04pugi8xml_node15first_attributeEv.exit, !llvm.loop !20
 
 for.end145:                                       ; preds = %invoke.cont142, %if.end134, %entry

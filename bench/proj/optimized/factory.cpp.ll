@@ -14953,12 +14953,12 @@ define internal void @_ZN5osgeo4proj2ioL15formatStatementB5cxx11EPKcz(ptr dead_o
   br label %9
 
 9:                                                ; preds = %.loopexit, %2
-  %.0 = phi i32 [ 0, %2 ], [ %128, %.loopexit ]
+  %.0 = phi i32 [ 0, %2 ], [ %127, %.loopexit ]
   %10 = sext i32 %.0 to i64
   %11 = getelementptr inbounds i8, ptr %1, i64 %10
   %12 = load i8, ptr %11, align 1
-  switch i8 %12, label %126 [
-    i8 0, label %129
+  switch i8 %12, label %125 [
+    i8 0, label %128
     i8 37, label %13
   ]
 
@@ -14967,13 +14967,13 @@ define internal void @_ZN5osgeo4proj2ioL15formatStatementB5cxx11EPKcz(ptr dead_o
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %1, i64 %15
   %17 = load i8, ptr %16, align 1
-  switch i8 %17, label %121 [
+  switch i8 %17, label %120 [
     i8 37, label %.invoke
     i8 113, label %20
     i8 81, label %43
     i8 115, label %70
-    i8 102, label %85
-    i8 100, label %103
+    i8 102, label %84
+    i8 100, label %102
   ]
 
 .invoke:                                          ; preds = %.preheader, %13
@@ -14991,12 +14991,12 @@ define internal void @_ZN5osgeo4proj2ioL15formatStatementB5cxx11EPKcz(ptr dead_o
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %58, %60, %81, %96, %114, %126
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke73, %.invoke, %60, %95, %113, %125
   %lpad.loopexit65 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %123
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %122
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -15074,10 +15074,11 @@ define internal void @_ZN5osgeo4proj2ioL15formatStatementB5cxx11EPKcz(ptr dead_o
   %55 = phi ptr [ %49, %46 ], [ %52, %51 ]
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %60
+  br i1 %57, label %.invoke73, label %60
 
-58:                                               ; preds = %54
-  %59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.102)
+.invoke73:                                        ; preds = %54, %81
+  %58 = phi ptr [ %83, %81 ], [ @.str.102, %54 ]
+  %59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %58)
           to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 60:                                               ; preds = %54
@@ -15132,119 +15133,118 @@ define internal void @_ZN5osgeo4proj2ioL15formatStatementB5cxx11EPKcz(ptr dead_o
 81:                                               ; preds = %78, %73
   %82 = phi ptr [ %76, %73 ], [ %79, %78 ]
   %83 = load ptr, ptr %82, align 8
-  %84 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %83)
-          to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+  br label %.invoke73
 
-85:                                               ; preds = %13
-  %86 = load i32, ptr %8, align 4
-  %87 = icmp ult i32 %86, 161
-  br i1 %87, label %88, label %93
+84:                                               ; preds = %13
+  %85 = load i32, ptr %8, align 4
+  %86 = icmp ult i32 %85, 161
+  br i1 %86, label %87, label %92
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %7, align 16
-  %90 = zext nneg i32 %86 to i64
-  %91 = getelementptr i8, ptr %89, i64 %90
-  %92 = add nuw nsw i32 %86, 16
-  store i32 %92, ptr %8, align 4
-  br label %96
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %7, align 16
+  %89 = zext nneg i32 %85 to i64
+  %90 = getelementptr i8, ptr %88, i64 %89
+  %91 = add nuw nsw i32 %85, 16
+  store i32 %91, ptr %8, align 4
+  br label %95
 
-93:                                               ; preds = %85
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr i8, ptr %94, i64 8
-  store ptr %95, ptr %6, align 8
-  br label %96
+92:                                               ; preds = %84
+  %93 = load ptr, ptr %6, align 8
+  %94 = getelementptr i8, ptr %93, i64 8
+  store ptr %94, ptr %6, align 8
+  br label %95
 
-96:                                               ; preds = %93, %88
-  %97 = phi ptr [ %91, %88 ], [ %94, %93 ]
-  %98 = load double, ptr %97, align 8
-  invoke void @_ZN5osgeo4proj8internal8toStringB5cxx11Edi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, double noundef %98, i32 noundef 15)
-          to label %99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+95:                                               ; preds = %92, %87
+  %96 = phi ptr [ %90, %87 ], [ %93, %92 ]
+  %97 = load double, ptr %96, align 8
+  invoke void @_ZN5osgeo4proj8internal8toStringB5cxx11Edi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, double noundef %97, i32 noundef 15)
+          to label %98 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-99:                                               ; preds = %96
-  %100 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %.loopexit.sink.split unwind label %101
+98:                                               ; preds = %95
+  %99 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.loopexit.sink.split unwind label %100
 
-101:                                              ; preds = %99
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %98
+  %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   br label %.loopexit.split-lp
 
-103:                                              ; preds = %13
-  %104 = load i32, ptr %3, align 16
-  %105 = icmp ult i32 %104, 41
-  br i1 %105, label %106, label %111
+102:                                              ; preds = %13
+  %103 = load i32, ptr %3, align 16
+  %104 = icmp ult i32 %103, 41
+  br i1 %104, label %105, label %110
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %7, align 16
-  %108 = zext nneg i32 %104 to i64
-  %109 = getelementptr i8, ptr %107, i64 %108
-  %110 = add nuw nsw i32 %104, 8
-  store i32 %110, ptr %3, align 16
-  br label %114
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %7, align 16
+  %107 = zext nneg i32 %103 to i64
+  %108 = getelementptr i8, ptr %106, i64 %107
+  %109 = add nuw nsw i32 %103, 8
+  store i32 %109, ptr %3, align 16
+  br label %113
 
-111:                                              ; preds = %103
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr i8, ptr %112, i64 8
-  store ptr %113, ptr %6, align 8
-  br label %114
+110:                                              ; preds = %102
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr i8, ptr %111, i64 8
+  store ptr %112, ptr %6, align 8
+  br label %113
 
-114:                                              ; preds = %111, %106
-  %115 = phi ptr [ %109, %106 ], [ %112, %111 ]
-  %116 = load i32, ptr %115, align 4
-  invoke void @_ZN5osgeo4proj8internal8toStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %116)
-          to label %117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+113:                                              ; preds = %110, %105
+  %114 = phi ptr [ %108, %105 ], [ %111, %110 ]
+  %115 = load i32, ptr %114, align 4
+  invoke void @_ZN5osgeo4proj8internal8toStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %115)
+          to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-117:                                              ; preds = %114
-  %118 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.loopexit.sink.split unwind label %119
+116:                                              ; preds = %113
+  %117 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %.loopexit.sink.split unwind label %118
 
-119:                                              ; preds = %117
-  %120 = landingpad { ptr, i32 }
+118:                                              ; preds = %116
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   br label %.loopexit.split-lp
 
-121:                                              ; preds = %13
+120:                                              ; preds = %13
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %122 = call ptr @__cxa_allocate_exception(i64 40) #30
-  invoke void @_ZN5osgeo4proj2io16FactoryExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %122, ptr noundef nonnull @.str.530)
-          to label %123 unwind label %124
+  %121 = call ptr @__cxa_allocate_exception(i64 40) #30
+  invoke void @_ZN5osgeo4proj2io16FactoryExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull @.str.530)
+          to label %122 unwind label %123
 
-123:                                              ; preds = %121
-  invoke void @__cxa_throw(ptr %122, ptr nonnull @_ZTIN5osgeo4proj2io16FactoryExceptionE, ptr nonnull @_ZN5osgeo4proj2io16FactoryExceptionD1Ev) #33
-          to label %130 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+122:                                              ; preds = %120
+  invoke void @__cxa_throw(ptr %121, ptr nonnull @_ZTIN5osgeo4proj2io16FactoryExceptionE, ptr nonnull @_ZN5osgeo4proj2io16FactoryExceptionD1Ev) #33
+          to label %129 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-124:                                              ; preds = %121
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %120
+  %124 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %122) #30
+  call void @__cxa_free_exception(ptr %121) #30
   br label %.loopexit.split-lp
 
-126:                                              ; preds = %9
-  %127 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %12)
+125:                                              ; preds = %9
+  %126 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %12)
           to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.loopexit.sink.split:                             ; preds = %117, %99
-  %.sink = phi ptr [ %4, %99 ], [ %5, %117 ]
+.loopexit.sink.split:                             ; preds = %116, %98
+  %.sink = phi ptr [ %4, %98 ], [ %5, %116 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %.loopexit.sink.split, %.invoke, %58, %81, %126
-  %.1 = phi i32 [ %.0, %126 ], [ %14, %81 ], [ %14, %58 ], [ %14, %.invoke ], [ %14, %.loopexit.sink.split ], [ %14, %34 ]
-  %128 = add nsw i32 %.1, 1
+.loopexit:                                        ; preds = %34, %.loopexit.sink.split, %.invoke73, %.invoke, %125
+  %.1 = phi i32 [ %.0, %125 ], [ %14, %.invoke ], [ %14, %.invoke73 ], [ %14, %.loopexit.sink.split ], [ %14, %34 ]
+  %127 = add nsw i32 %.1, 1
   br label %9, !llvm.loop !69
 
-129:                                              ; preds = %9
+128:                                              ; preds = %9
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit61, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %124, %119, %101
-  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %120, %119 ], [ %125, %124 ], [ %lpad.loopexit, %.loopexit61 ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit65, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit61, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %123, %118, %100
+  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %119, %118 ], [ %124, %123 ], [ %lpad.loopexit, %.loopexit61 ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit65, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
   resume { ptr, i32 } %.pn
 
-130:                                              ; preds = %123
+129:                                              ; preds = %122
   unreachable
 }
 

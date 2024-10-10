@@ -12262,7 +12262,7 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %currentIngressBuf_.i, align 8
   br label %if.then.i125.sink.split
 
-lpad61:                                           ; preds = %if.then215, %if.then206, %if.else, %cond.false149, %cond.true139, %land.lhs.true, %cond.false89, %cond.true79
+lpad61:                                           ; preds = %if.then215.invoke, %if.else, %cond.false149, %cond.true139, %land.lhs.true, %cond.false89, %cond.true79
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -12482,37 +12482,40 @@ if.end202:                                        ; preds = %land.lhs.true198, %
 if.then206:                                       ; preds = %if.end202
   %vtable207 = load ptr, ptr %retval.0.i, align 8
   %vfn208 = getelementptr inbounds i8, ptr %vtable207, i64 152
-  %77 = load ptr, ptr %vfn208, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(912) %retval.0.i)
-          to label %if.then.i125 unwind label %lpad61
+  br label %if.then215.invoke
 
 if.end210:                                        ; preds = %if.end202
-  %78 = load i64, ptr %msg, align 8
-  store i64 %78, ptr %agg.tmp211, align 8
+  %77 = load i64, ptr %msg, align 8
+  store i64 %77, ptr %agg.tmp211, align 8
   store ptr null, ptr %msg, align 8
   invoke void @_ZN8proxygen15HTTPTransaction24onIngressHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(912) %retval.0.i, ptr noundef nonnull %agg.tmp211)
           to label %invoke.cont213 unwind label %lpad212
 
 invoke.cont213:                                   ; preds = %if.end210
-  %79 = load ptr, ptr %agg.tmp211, align 8
-  %cmp.not.i121 = icmp eq ptr %79, null
+  %78 = load ptr, ptr %agg.tmp211, align 8
+  %cmp.not.i121 = icmp eq ptr %78, null
   br i1 %cmp.not.i121, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %invoke.cont213
-  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %79) #41
-  call void @_ZdlPv(ptr noundef nonnull %79) #44
+  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %78) #41
+  call void @_ZdlPv(ptr noundef nonnull %78) #44
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont213, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp211, align 8
   %httpSessionActivityTracker_ = getelementptr inbounds i8, ptr %this, i64 2168
-  %80 = load ptr, ptr %httpSessionActivityTracker_, align 8
-  %cmp.i123.not = icmp eq ptr %80, null
+  %79 = load ptr, ptr %httpSessionActivityTracker_, align 8
+  %cmp.i123.not = icmp eq ptr %79, null
   br i1 %cmp.i123.not, label %if.then.i125, label %if.then215
 
 if.then215:                                       ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
-  %vtable218 = load ptr, ptr %80, align 8
-  %81 = load ptr, ptr %vtable218, align 8
+  %vtable218 = load ptr, ptr %79, align 8
+  br label %if.then215.invoke
+
+if.then215.invoke:                                ; preds = %if.then206, %if.then215
+  %80 = phi ptr [ %79, %if.then215 ], [ %retval.0.i, %if.then206 ]
+  %.in = phi ptr [ %vtable218, %if.then215 ], [ %vfn208, %if.then206 ]
+  %81 = load ptr, ptr %.in, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(48) %80)
           to label %if.then.i125 unwind label %lpad61
 
@@ -12530,7 +12533,7 @@ if.then.i125.sink.split:                          ; preds = %_ZN8proxygen13HTTPE
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex.sink142) #41
   br label %if.then.i125
 
-if.then.i125:                                     ; preds = %if.then.i125.sink.split, %land.lhs.true198, %if.then206, %if.then215, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
+if.then.i125:                                     ; preds = %if.then.i125.sink.split, %if.then215.invoke, %land.lhs.true198, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
   %83 = load i32, ptr %guardCount_.i, align 8
   %dec.i = add i32 %83, -1
   store i32 %dec.i, ptr %guardCount_.i, align 8

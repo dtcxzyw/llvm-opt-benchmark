@@ -14171,233 +14171,230 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit: ; p
   %23 = getelementptr inbounds i8, ptr %22, i64 163
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %35
+  br i1 %25, label %.invoke, label %34
 
-26:                                               ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8
-  invoke void @_ZN5boost4asio6detail9scheduler25post_immediate_completionEPNS1_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %28, ptr noundef %4, i1 noundef zeroext %5)
-          to label %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit unwind label %29
+.invoke.sink.split:                               ; preds = %109, %96, %77
+  %.sroa.2.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.2.0..sroa_idx.i57, align 8
+  br label %.invoke
 
-29:                                               ; preds = %.invoke, %52, %26, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
-  %.sroa.4.0 = phi i8 [ %.sink.i, %26 ], [ %.sroa.4.2, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ], [ %.sink.i, %52 ], [ %.sink.i, %.invoke ]
-  %30 = landingpad { ptr, i32 }
+.invoke:                                          ; preds = %.invoke.sink.split, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load ptr, ptr %26, align 8
+  invoke void @_ZN5boost4asio6detail9scheduler25post_immediate_completionEPNS1_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %27, ptr noundef %4, i1 noundef zeroext %5)
+          to label %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit unwind label %28
+
+28:                                               ; preds = %.invoke, %51, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
+  %.sroa.4.0 = phi i8 [ %.sroa.4.2, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ], [ %.sink.i, %51 ], [ %.sink.i, %.invoke ]
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %31 = trunc nuw i8 %.sroa.4.0 to i1
-  br i1 %31, label %32, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
+  %30 = trunc nuw i8 %.sroa.4.0 to i1
+  br i1 %30, label %31, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %10, i64 48
-  %34 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #31
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %10, i64 48
+  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #31
   br label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
-_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %29, %32
-  resume { ptr, i32 } %30
+_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %28, %31
+  resume { ptr, i32 } %29
 
-35:                                               ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit
-  %36 = getelementptr inbounds i8, ptr %22, i64 112
-  %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds [3 x %"class.boost::asio::detail::op_queue.49"], ptr %36, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %124
+34:                                               ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit
+  %35 = getelementptr inbounds i8, ptr %22, i64 112
+  %36 = sext i32 %1 to i64
+  %37 = getelementptr inbounds [3 x %"class.boost::asio::detail::op_queue.49"], ptr %35, i64 0, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %121
 
-41:                                               ; preds = %35
-  br i1 %6, label %42, label %103
+40:                                               ; preds = %34
+  br i1 %6, label %41, label %102
+
+41:                                               ; preds = %40
+  %.not53 = icmp eq i32 %1, 0
+  br i1 %.not53, label %42, label %46
 
 42:                                               ; preds = %41
-  %.not53 = icmp eq i32 %1, 0
-  br i1 %.not53, label %43, label %47
+  %43 = getelementptr inbounds i8, ptr %22, i64 144
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %.thread
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %22, i64 144
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %.thread
+46:                                               ; preds = %42, %41
+  %47 = getelementptr inbounds i8, ptr %22, i64 160
+  %48 = getelementptr inbounds [3 x i8], ptr %47, i64 0, i64 %36
+  %49 = load i8, ptr %48, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %72
 
-47:                                               ; preds = %43, %42
-  %48 = getelementptr inbounds i8, ptr %22, i64 160
-  %49 = getelementptr inbounds [3 x i8], ptr %48, i64 0, i64 %37
-  %50 = load i8, ptr %49, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %73
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %53 = load ptr, ptr %52, align 8
+  %54 = invoke noundef i32 %53(ptr noundef nonnull %4)
+          to label %_ZN5boost4asio6detail10reactor_op7performEv.exit unwind label %28
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %4, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %55 = invoke noundef i32 %54(ptr noundef nonnull %4)
-          to label %_ZN5boost4asio6detail10reactor_op7performEv.exit unwind label %29
-
-_ZN5boost4asio6detail10reactor_op7performEv.exit: ; preds = %52
-  switch i32 %55, label %63 [
+_ZN5boost4asio6detail10reactor_op7performEv.exit: ; preds = %51
+  switch i32 %54, label %62 [
     i32 0, label %_ZN5boost4asio6detail10reactor_op7performEv.exit._crit_edge
-    i32 2, label %56
+    i32 2, label %55
   ]
 
 _ZN5boost4asio6detail10reactor_op7performEv.exit._crit_edge: ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit
   %.pre69 = load ptr, ptr %3, align 8
-  br label %73
+  br label %72
 
-56:                                               ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 108
-  %59 = load i32, ptr %58, align 4
-  %.not55 = icmp eq i32 %59, 0
-  br i1 %.not55, label %63, label %60
+55:                                               ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 108
+  %58 = load i32, ptr %57, align 4
+  %.not55 = icmp eq i32 %58, 0
+  br i1 %.not55, label %62, label %59
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %57, i64 160
-  %62 = getelementptr inbounds [3 x i8], ptr %61, i64 0, i64 %37
-  store i8 0, ptr %62, align 1
-  br label %63
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds i8, ptr %56, i64 160
+  %61 = getelementptr inbounds [3 x i8], ptr %60, i64 0, i64 %36
+  store i8 0, ptr %61, align 1
+  br label %62
 
-63:                                               ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit, %56, %60
-  %64 = trunc nuw i8 %.sink.i to i1
-  br i1 %64, label %65, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
+62:                                               ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit, %55, %59
+  %63 = trunc nuw i8 %.sink.i to i1
+  br i1 %63, label %64, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
 
-65:                                               ; preds = %63
-  %66 = load i8, ptr %16, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
+64:                                               ; preds = %62
+  %65 = load i8, ptr %16, align 8
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %10, i64 48
-  %70 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %69) #31
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %10, i64 48
+  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %68) #31
   br label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
 
-_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ; preds = %63, %68, %65
-  %.sroa.4.2 = phi i8 [ %.sink.i, %63 ], [ 0, %68 ], [ 0, %65 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
-  %72 = load ptr, ptr %71, align 8
-  invoke void @_ZN5boost4asio6detail9scheduler25post_immediate_completionEPNS1_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %72, ptr noundef nonnull %4, i1 noundef zeroext %5)
-          to label %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit unwind label %29
+_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ; preds = %62, %67, %64
+  %.sroa.4.2 = phi i8 [ %.sink.i, %62 ], [ 0, %67 ], [ 0, %64 ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = load ptr, ptr %70, align 8
+  invoke void @_ZN5boost4asio6detail9scheduler25post_immediate_completionEPNS1_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %71, ptr noundef nonnull %4, i1 noundef zeroext %5)
+          to label %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit unwind label %28
 
-73:                                               ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit._crit_edge, %47
-  %74 = phi ptr [ %.pre69, %_ZN5boost4asio6detail10reactor_op7performEv.exit._crit_edge ], [ %22, %47 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 108
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %80
+72:                                               ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit._crit_edge, %46
+  %73 = phi ptr [ %.pre69, %_ZN5boost4asio6detail10reactor_op7performEv.exit._crit_edge ], [ %22, %46 ]
+  %74 = getelementptr inbounds i8, ptr %73, i64 108
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %79
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 4294967391, ptr %79, align 8
-  br label %.invoke
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 4294967391, ptr %78, align 8
+  br label %.invoke.sink.split
 
-80:                                               ; preds = %73
-  %81 = icmp eq i32 %1, 1
-  %82 = and i32 %76, 4
-  %83 = icmp eq i32 %82, 0
-  %or.cond = and i1 %81, %83
-  br i1 %or.cond, label %84, label %124
+79:                                               ; preds = %72
+  %80 = icmp eq i32 %1, 1
+  %81 = and i32 %75, 4
+  %82 = icmp eq i32 %81, 0
+  %or.cond = and i1 %80, %82
+  br i1 %or.cond, label %83, label %121
 
-84:                                               ; preds = %80
-  %85 = or disjoint i32 %76, 4
-  store i32 %85, ptr %8, align 4
-  %86 = getelementptr inbounds i8, ptr %8, i64 4
-  store ptr %74, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 112
-  %88 = load i32, ptr %87, align 8
-  %89 = call i32 @epoll_ctl(i32 noundef %88, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %8) #31
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %97
+83:                                               ; preds = %79
+  %84 = or disjoint i32 %75, 4
+  store i32 %84, ptr %8, align 4
+  %85 = getelementptr inbounds i8, ptr %8, i64 4
+  store ptr %73, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %0, i64 112
+  %87 = load i32, ptr %86, align 8
+  %88 = call i32 @epoll_ctl(i32 noundef %87, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %8) #31
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %96
 
-91:                                               ; preds = %84
-  %92 = load i32, ptr %8, align 4
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 108
-  %95 = load i32, ptr %94, align 4
-  %96 = or i32 %95, %92
-  store i32 %96, ptr %94, align 4
-  br label %124
+90:                                               ; preds = %83
+  %91 = load i32, ptr %8, align 4
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 108
+  %94 = load i32, ptr %93, align 4
+  %95 = or i32 %94, %91
+  store i32 %95, ptr %93, align 4
+  br label %121
 
-97:                                               ; preds = %84
-  %98 = tail call ptr @__errno_location() #35
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp ne i32 %99, 0
-  %101 = zext i1 %100 to i8
-  %102 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %99, ptr %102, align 8
+96:                                               ; preds = %83
+  %97 = tail call ptr @__errno_location() #35
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp ne i32 %98, 0
+  %100 = zext i1 %99 to i8
+  %101 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %98, ptr %101, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
-  store i8 %101, ptr %.sroa.2.0..sroa_idx, align 4
-  br label %.invoke
+  store i8 %100, ptr %.sroa.2.0..sroa_idx, align 4
+  br label %.invoke.sink.split
 
-103:                                              ; preds = %41
-  %104 = getelementptr inbounds i8, ptr %22, i64 108
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %110, label %114
+102:                                              ; preds = %40
+  %103 = getelementptr inbounds i8, ptr %22, i64 108
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %109, label %111
 
-.thread:                                          ; preds = %43
-  %107 = getelementptr inbounds i8, ptr %22, i64 108
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %.thread66
+.thread:                                          ; preds = %42
+  %106 = getelementptr inbounds i8, ptr %22, i64 108
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %.thread66
 
-110:                                              ; preds = %.thread, %103
-  %111 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 4294967391, ptr %111, align 8
-  br label %.invoke
+109:                                              ; preds = %.thread, %102
+  %110 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 4294967391, ptr %110, align 8
+  br label %.invoke.sink.split
 
-.invoke:                                          ; preds = %78, %97, %110
-  %.sroa.2.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.2.0..sroa_idx.i57, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 40
-  %113 = load ptr, ptr %112, align 8
-  invoke void @_ZN5boost4asio6detail9scheduler25post_immediate_completionEPNS1_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %113, ptr noundef nonnull %4, i1 noundef zeroext %5)
-          to label %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit unwind label %29
+111:                                              ; preds = %102
+  %112 = icmp eq i32 %1, 1
+  br i1 %112, label %113, label %.thread66
 
-114:                                              ; preds = %103
-  %115 = icmp eq i32 %1, 1
-  br i1 %115, label %116, label %.thread66
-
-116:                                              ; preds = %114
-  %117 = or i32 %105, 4
-  store i32 %117, ptr %104, align 4
+113:                                              ; preds = %111
+  %114 = or i32 %104, 4
+  store i32 %114, ptr %103, align 4
   %.pre67 = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre67, i64 108
   %.pre68 = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread66
 
-.thread66:                                        ; preds = %.thread, %116, %114
-  %118 = phi i32 [ %108, %.thread ], [ %.pre68, %116 ], [ %105, %114 ]
-  %119 = phi ptr [ %22, %.thread ], [ %.pre67, %116 ], [ %22, %114 ]
-  store i32 %118, ptr %9, align 4
-  %120 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %119, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %0, i64 112
-  %122 = load i32, ptr %121, align 8
-  %123 = call i32 @epoll_ctl(i32 noundef %122, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %9) #31
-  br label %124
+.thread66:                                        ; preds = %.thread, %113, %111
+  %115 = phi i32 [ %107, %.thread ], [ %.pre68, %113 ], [ %104, %111 ]
+  %116 = phi ptr [ %22, %.thread ], [ %.pre67, %113 ], [ %22, %111 ]
+  store i32 %115, ptr %9, align 4
+  %117 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %116, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %0, i64 112
+  %119 = load i32, ptr %118, align 8
+  %120 = call i32 @epoll_ctl(i32 noundef %119, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %9) #31
+  br label %121
 
-124:                                              ; preds = %.thread66, %91, %80, %35
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 112
-  %127 = getelementptr inbounds [3 x %"class.boost::asio::detail::op_queue.49"], ptr %126, i64 0, i64 %37
+121:                                              ; preds = %.thread66, %90, %79, %34
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 112
+  %124 = getelementptr inbounds [3 x %"class.boost::asio::detail::op_queue.49"], ptr %123, i64 0, i64 %36
   store ptr null, ptr %4, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %.not.i = icmp eq ptr %129, null
-  %..i = select i1 %.not.i, ptr %127, ptr %129
+  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %.not.i = icmp eq ptr %126, null
+  %..i = select i1 %.not.i, ptr %124, ptr %126
   store ptr %4, ptr %..i, align 8
-  store ptr %4, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 40
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 208
-  %133 = atomicrmw add ptr %132, i64 1 seq_cst, align 8
+  store ptr %4, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 40
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 208
+  %130 = atomicrmw add ptr %129, i64 1 seq_cst, align 8
   br label %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit
 
-_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit: ; preds = %.invoke, %26, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit, %124
-  %.sroa.4.1 = phi i8 [ %.sroa.4.2, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ], [ %.sink.i, %124 ], [ %.sink.i, %26 ], [ %.sink.i, %.invoke ]
-  %134 = trunc nuw i8 %.sroa.4.1 to i1
-  br i1 %134, label %135, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit59
+_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit: ; preds = %.invoke, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit, %121
+  %.sroa.4.1 = phi i8 [ %.sroa.4.2, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ], [ %.sink.i, %121 ], [ %.sink.i, %.invoke ]
+  %131 = trunc nuw i8 %.sroa.4.1 to i1
+  br i1 %131, label %132, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit59
 
-135:                                              ; preds = %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit
-  %136 = getelementptr inbounds i8, ptr %10, i64 48
-  %137 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %136) #31
+132:                                              ; preds = %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit
+  %133 = getelementptr inbounds i8, ptr %10, i64 48
+  %134 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %133) #31
   br label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit59
 
-_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit59: ; preds = %135, %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit, %11
+_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit59: ; preds = %132, %_ZN5boost4asio6detail13epoll_reactor25post_immediate_completionEPNS1_10reactor_opEb.exit, %11
   ret void
 }
 

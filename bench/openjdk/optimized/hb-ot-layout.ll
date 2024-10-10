@@ -45750,8 +45750,8 @@ define internal fastcc void @_ZN2OTL31context_closure_recurse_lookupsINS_7IntTyp
   %wide.trip.count = zext i32 %3 to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph, %258
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %258 ]
+43:                                               ; preds = %.lr.ph, %261
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %261 ]
   %44 = getelementptr inbounds %"struct.OT::LookupRecord", ptr %4, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
@@ -45761,9 +45761,9 @@ define internal fastcc void @_ZN2OTL31context_closure_recurse_lookupsINS_7IntTyp
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
   %.not = icmp ult i32 %51, %1
-  br i1 %.not, label %54, label %258
+  br i1 %.not, label %54, label %261
 
-52:                                               ; preds = %257, %252, %229, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit62, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, %147, %139, %173, %140
+52:                                               ; preds = %.invoke, %260, %255, %232, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit62, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, %147, %139
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #25
@@ -45992,8 +45992,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit: ; preds = %.noexc.t
   %145 = getelementptr inbounds %struct.hb_set_t, ptr %143, i64 %144
   %146 = load ptr, ptr %34, align 8
   %.0.i = select i1 %.not.i, ptr %146, ptr %145
-  invoke void %8(ptr noundef nonnull %.0.i, ptr noundef %7, i32 noundef %5, ptr noundef nonnull %13, ptr noundef %9)
-          to label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit unwind label %52
+  br label %.invoke
 
 147:                                              ; preds = %138
   %148 = load i32, ptr %35, align 4
@@ -46040,186 +46039,192 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit: ; preds = %.noexc.t
   %.047 = phi ptr [ %7, %163 ], [ %2, %161 ]
   %.046 = phi i32 [ %172, %163 ], [ %162, %161 ]
   %174 = load ptr, ptr %34, align 8
-  invoke void %8(ptr noundef %174, ptr noundef %.047, i32 noundef %.046, ptr noundef nonnull %13, ptr noundef %9)
+  br label %.invoke
+
+.invoke:                                          ; preds = %140, %173
+  %175 = phi ptr [ %174, %173 ], [ %.0.i, %140 ]
+  %176 = phi ptr [ %.047, %173 ], [ %7, %140 ]
+  %177 = phi i32 [ %.046, %173 ], [ %5, %140 ]
+  invoke void %8(ptr noundef %175, ptr noundef %176, i32 noundef %177, ptr noundef nonnull %13, ptr noundef %9)
           to label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit unwind label %52
 
-_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %157, %.noexc60, %139, %.thr_comm, %140, %138, %173, %82
-  %175 = phi i1 [ true, %.thr_comm ], [ false, %140 ], [ false, %138 ], [ false, %173 ], [ true, %82 ], [ false, %139 ], [ false, %.noexc60 ], [ false, %157 ]
+_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.invoke, %157, %.noexc60, %139, %.thr_comm, %138, %82
+  %178 = phi i1 [ true, %.thr_comm ], [ false, %138 ], [ true, %82 ], [ false, %139 ], [ false, %.noexc60 ], [ false, %157 ], [ false, %.invoke ]
   invoke void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %14, i32 noundef %51)
           to label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit62 unwind label %52
 
 _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit62: ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
-  %176 = load i32, ptr %35, align 4
-  %177 = add i32 %176, 1
-  %178 = invoke noundef zeroext i1 @_ZN11hb_vector_tI8hb_set_tLb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef %177, i1 noundef zeroext true, i1 noundef zeroext false)
+  %179 = load i32, ptr %35, align 4
+  %180 = add i32 %179, 1
+  %181 = invoke noundef zeroext i1 @_ZN11hb_vector_tI8hb_set_tLb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef %180, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %.noexc63 unwind label %52
 
 .noexc63:                                         ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit62
-  br i1 %178, label %180, label %179
+  br i1 %181, label %183, label %182
 
-179:                                              ; preds = %.noexc63
+182:                                              ; preds = %.noexc63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(72) @_hb_NullPool, i64 72, i1 false)
-  br label %186
+  br label %189
 
-180:                                              ; preds = %.noexc63
-  %181 = load ptr, ptr %36, align 8
-  %182 = load i32, ptr %35, align 4
-  %183 = add i32 %182, -1
-  %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds %struct.hb_set_t, ptr %181, i64 %184
-  br label %186
+183:                                              ; preds = %.noexc63
+  %184 = load ptr, ptr %36, align 8
+  %185 = load i32, ptr %35, align 4
+  %186 = add i32 %185, -1
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds %struct.hb_set_t, ptr %184, i64 %187
+  br label %189
 
-186:                                              ; preds = %180, %179
-  %.0.i.i = phi ptr [ %185, %180 ], [ @_hb_CrapPool, %179 ]
-  %187 = load i32, ptr %37, align 8
-  %188 = icmp slt i32 %187, 0
+189:                                              ; preds = %183, %182
+  %.0.i.i = phi ptr [ %188, %183 ], [ @_hb_CrapPool, %182 ]
+  %190 = load i32, ptr %37, align 8
+  %191 = icmp slt i32 %190, 0
   %.not5568 = icmp eq ptr %.0.i.i, null
-  %.not55 = select i1 %188, i1 true, i1 %.not5568
-  br i1 %.not55, label %._crit_edge, label %189
+  %.not55 = select i1 %191, i1 true, i1 %.not5568
+  br i1 %.not55, label %._crit_edge, label %192
 
-189:                                              ; preds = %186
-  br i1 %175, label %229, label %190
+192:                                              ; preds = %189
+  br i1 %178, label %232, label %193
 
-190:                                              ; preds = %189
-  %191 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %192 = load i8, ptr %191, align 8
-  %193 = trunc i8 %192 to i1
-  br i1 %193, label %194, label %_ZN8hb_set_taSEOS_.exit
-
-194:                                              ; preds = %190
-  %195 = load i8, ptr %20, align 8
+193:                                              ; preds = %192
+  %194 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %195 = load i8, ptr %194, align 8
   %196 = trunc i8 %195 to i1
   br i1 %196, label %197, label %_ZN8hb_set_taSEOS_.exit
 
-197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
-  %199 = load i8, ptr %198, align 1
-  %200 = and i8 %199, 1
-  %201 = load i8, ptr %33, align 8
-  %202 = and i8 %201, 1
-  store i8 %202, ptr %198, align 1
-  store i8 %200, ptr %33, align 8
-  %203 = load i8, ptr %191, align 8
-  %204 = trunc i8 %203 to i1
-  br i1 %204, label %205, label %_ZN8hb_set_taSEOS_.exit
+197:                                              ; preds = %193
+  %198 = load i8, ptr %20, align 8
+  %199 = trunc i8 %198 to i1
+  br i1 %199, label %200, label %_ZN8hb_set_taSEOS_.exit
 
-205:                                              ; preds = %197
-  %206 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
-  %207 = load i32, ptr %206, align 4
-  %208 = load i32, ptr %21, align 4
-  store i32 %208, ptr %206, align 4
-  store i32 %207, ptr %21, align 4
-  %209 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %209, align 4
-  %210 = load i32, ptr %22, align 8
-  store i32 %210, ptr %209, align 4
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %202 = load i8, ptr %201, align 1
+  %203 = and i8 %202, 1
+  %204 = load i8, ptr %33, align 8
+  %205 = and i8 %204, 1
+  store i8 %205, ptr %201, align 1
+  store i8 %203, ptr %33, align 8
+  %206 = load i8, ptr %194, align 8
+  %207 = trunc i8 %206 to i1
+  br i1 %207, label %208, label %_ZN8hb_set_taSEOS_.exit
+
+208:                                              ; preds = %200
+  %209 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %210 = load i32, ptr %209, align 4
+  %211 = load i32, ptr %21, align 4
+  store i32 %211, ptr %209, align 4
+  store i32 %210, ptr %21, align 4
+  %212 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %212, align 4
+  %213 = load i32, ptr %22, align 8
+  store i32 %213, ptr %212, align 4
   store i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr %22, align 8
-  %211 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  %212 = load i32, ptr %211, align 4
-  %213 = load i32, ptr %23, align 8
-  store i32 %213, ptr %211, align 4
-  store i32 %212, ptr %23, align 8
-  %214 = getelementptr inbounds i8, ptr %.0.i.i, i64 36
+  %214 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %215 = load i32, ptr %214, align 4
-  %216 = load i32, ptr %31, align 4
+  %216 = load i32, ptr %23, align 8
   store i32 %216, ptr %214, align 4
-  store i32 %215, ptr %31, align 4
-  %217 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
-  %218 = load ptr, ptr %217, align 8
-  %219 = load ptr, ptr %38, align 8
-  store ptr %219, ptr %217, align 8
-  store ptr %218, ptr %38, align 8
-  %220 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
-  %221 = load i32, ptr %220, align 4
-  %222 = load i32, ptr %29, align 8
-  store i32 %222, ptr %220, align 4
-  store i32 %221, ptr %29, align 8
-  %223 = getelementptr inbounds i8, ptr %.0.i.i, i64 52
+  store i32 %215, ptr %23, align 8
+  %217 = getelementptr inbounds i8, ptr %.0.i.i, i64 36
+  %218 = load i32, ptr %217, align 4
+  %219 = load i32, ptr %31, align 4
+  store i32 %219, ptr %217, align 4
+  store i32 %218, ptr %31, align 4
+  %220 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %221 = load ptr, ptr %220, align 8
+  %222 = load ptr, ptr %38, align 8
+  store ptr %222, ptr %220, align 8
+  store ptr %221, ptr %38, align 8
+  %223 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
   %224 = load i32, ptr %223, align 4
-  %225 = load i32, ptr %30, align 4
+  %225 = load i32, ptr %29, align 8
   store i32 %225, ptr %223, align 4
-  store i32 %224, ptr %30, align 4
-  %226 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %32, align 8
-  store ptr %228, ptr %226, align 8
-  store ptr %227, ptr %32, align 8
+  store i32 %224, ptr %29, align 8
+  %226 = getelementptr inbounds i8, ptr %.0.i.i, i64 52
+  %227 = load i32, ptr %226, align 4
+  %228 = load i32, ptr %30, align 4
+  store i32 %228, ptr %226, align 4
+  store i32 %227, ptr %30, align 4
+  %229 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %230 = load ptr, ptr %229, align 8
+  %231 = load ptr, ptr %32, align 8
+  store ptr %231, ptr %229, align 8
+  store ptr %230, ptr %32, align 8
   br label %_ZN8hb_set_taSEOS_.exit
 
-229:                                              ; preds = %189
-  %230 = load ptr, ptr %34, align 8
-  %231 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %232 = getelementptr inbounds i8, ptr %230, i64 16
-  invoke void @_ZN12hb_bit_set_t3setERKS_b(ptr noundef nonnull align 8 dereferenceable(48) %231, ptr noundef nonnull align 8 dereferenceable(48) %232, i1 noundef zeroext false)
+232:                                              ; preds = %192
+  %233 = load ptr, ptr %34, align 8
+  %234 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %235 = getelementptr inbounds i8, ptr %233, i64 16
+  invoke void @_ZN12hb_bit_set_t3setERKS_b(ptr noundef nonnull align 8 dereferenceable(48) %234, ptr noundef nonnull align 8 dereferenceable(48) %235, i1 noundef zeroext false)
           to label %.noexc64 unwind label %52
 
-.noexc64:                                         ; preds = %229
-  %233 = load i8, ptr %231, align 8
-  %234 = trunc i8 %233 to i1
-  br i1 %234, label %235, label %_ZN8hb_set_taSEOS_.exit
+.noexc64:                                         ; preds = %232
+  %236 = load i8, ptr %234, align 8
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %238, label %_ZN8hb_set_taSEOS_.exit
 
-235:                                              ; preds = %.noexc64
-  %236 = getelementptr inbounds i8, ptr %230, i64 64
-  %237 = load i8, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
-  %239 = and i8 %237, 1
-  store i8 %239, ptr %238, align 8
+238:                                              ; preds = %.noexc64
+  %239 = getelementptr inbounds i8, ptr %233, i64 64
+  %240 = load i8, ptr %239, align 8
+  %241 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %242 = and i8 %240, 1
+  store i8 %242, ptr %241, align 8
   br label %_ZN8hb_set_taSEOS_.exit
 
-_ZN8hb_set_taSEOS_.exit:                          ; preds = %235, %.noexc64, %205, %197, %194, %190
-  %240 = getelementptr inbounds i8, ptr %44, i64 2
-  %241 = load i8, ptr %240, align 1
-  %242 = zext i8 %241 to i32
-  %243 = shl nuw nsw i32 %242, 8
-  %244 = getelementptr inbounds i8, ptr %44, i64 3
-  %245 = load i8, ptr %244, align 1
-  %246 = zext i8 %245 to i32
-  %247 = or disjoint i32 %243, %246
-  %248 = load i32, ptr %41, align 8
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit, label %250
+_ZN8hb_set_taSEOS_.exit:                          ; preds = %238, %.noexc64, %208, %200, %197, %193
+  %243 = getelementptr inbounds i8, ptr %44, i64 2
+  %244 = load i8, ptr %243, align 1
+  %245 = zext i8 %244 to i32
+  %246 = shl nuw nsw i32 %245, 8
+  %247 = getelementptr inbounds i8, ptr %44, i64 3
+  %248 = load i8, ptr %247, align 1
+  %249 = zext i8 %248 to i32
+  %250 = or disjoint i32 %246, %249
+  %251 = load i32, ptr %41, align 8
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit, label %253
 
-250:                                              ; preds = %_ZN8hb_set_taSEOS_.exit
-  %251 = load ptr, ptr %42, align 8
-  %.not.i65 = icmp eq ptr %251, null
-  br i1 %.not.i65, label %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit, label %252
+253:                                              ; preds = %_ZN8hb_set_taSEOS_.exit
+  %254 = load ptr, ptr %42, align 8
+  %.not.i65 = icmp eq ptr %254, null
+  br i1 %.not.i65, label %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit, label %255
 
-252:                                              ; preds = %250
-  %253 = add i32 %248, -1
-  store i32 %253, ptr %41, align 8
-  invoke void %251(ptr noundef nonnull %0, i32 noundef %247, ptr noundef nonnull %12, i32 noundef %51, i32 noundef %spec.select)
+255:                                              ; preds = %253
+  %256 = add i32 %251, -1
+  store i32 %256, ptr %41, align 8
+  invoke void %254(ptr noundef nonnull %0, i32 noundef %250, ptr noundef nonnull %12, i32 noundef %51, i32 noundef %spec.select)
           to label %.noexc66 unwind label %52
 
-.noexc66:                                         ; preds = %252
-  %254 = load i32, ptr %41, align 8
-  %255 = add i32 %254, 1
-  store i32 %255, ptr %41, align 8
+.noexc66:                                         ; preds = %255
+  %257 = load i32, ptr %41, align 8
+  %258 = add i32 %257, 1
+  store i32 %258, ptr %41, align 8
   br label %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit
 
-_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit: ; preds = %.noexc66, %250, %_ZN8hb_set_taSEOS_.exit
+_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit: ; preds = %.noexc66, %253, %_ZN8hb_set_taSEOS_.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
-  %256 = load i32, ptr %35, align 4
-  %.not69 = icmp eq i32 %256, 0
-  br i1 %.not69, label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit, label %257
+  %259 = load i32, ptr %35, align 4
+  %.not69 = icmp eq i32 %259, 0
+  br i1 %.not69, label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit, label %260
 
-257:                                              ; preds = %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit
+260:                                              ; preds = %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit
   invoke void @_ZN11hb_vector_tI8hb_set_tLb0EE3popEv(ptr dead_on_unwind nonnull writable sret(%struct.hb_set_t) align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %37)
           to label %.noexc67 unwind label %52
 
-.noexc67:                                         ; preds = %257
+.noexc67:                                         ; preds = %260
   call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #25
   br label %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit
 
 _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %_ZN2OT20hb_closure_context_t7recurseEjP8hb_set_tjj.exit, %.noexc67
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11)
-  br label %258
+  br label %261
 
-258:                                              ; preds = %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit, %43
+261:                                              ; preds = %_ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !316
 
-._crit_edge:                                      ; preds = %186, %258, %10
+._crit_edge:                                      ; preds = %189, %261, %10
   call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #25
   call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #25
   ret void
