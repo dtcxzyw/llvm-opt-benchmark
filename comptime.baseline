@@ -6245,7 +6245,7 @@ duckdb/ub_duckdb_transformer_statement.cpp.ll 6404978231
 duckdb/ub_duckdb_transformer_tableref.cpp.ll 951285215
 duckdb/ub_duckdb_union_cast.cpp.ll 368770596
 duckdb/ub_duckdb_value_operations.cpp.ll 321057610
-duckdb/unoptimized_statement_verifier.cpp.ll 51141094
+duckdb/unoptimized_statement_verifier.cpp.ll 51192307
 duckdb/vector_copy.cpp.ll 675309357
 duckdb/vector_hash.cpp.ll 4684677912
 duckdb/vector_storage.cpp.ll 802501425
@@ -13540,7 +13540,7 @@ linux/vector.ll 381980508
 linux/version.ll 40109134
 linux/vfs_addr.ll 64558629
 linux/vfs_dentry.ll 55607448
-linux/vfs_dir.ll 83136546
+linux/vfs_dir.ll 83219701
 linux/vfs_file.ll 129477852
 linux/vfs_inode.ll 374616360
 linux/vfs_inode_dotl.ll 266353093
@@ -19752,7 +19752,7 @@ openblas/dlasd0.c.ll 106071176
 openblas/dlasd2.c.ll 169280939
 openblas/dlasd3.c.ll 156351906
 openblas/dlasd4.c.ll 345403600
-openblas/dlasd5.c.ll 48815879
+openblas/dlasd5.c.ll 48864719
 openblas/dlasd7.c.ll 127378821
 openblas/dlasd8.c.ll 96068483
 openblas/dlasda.c.ll 141461377
