@@ -33595,7 +33595,7 @@ spike/f32_to_i32.ll 45908679
 spike/f32_to_i32_r_minMag.ll 45473304
 spike/f32_to_i64.ll 47210296
 spike/f32_to_i64_r_minMag.ll 46971511
-spike/f32_to_ui32.ll 45867327
+spike/f32_to_ui32.ll 45913247
 spike/f32_to_ui32_r_minMag.ll 44572443
 spike/f32_to_ui64.ll 47512571
 spike/f32_to_ui64_r_minMag.ll 46327944
