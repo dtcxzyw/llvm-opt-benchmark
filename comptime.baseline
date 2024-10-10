@@ -19954,7 +19954,7 @@ openblas/lapacke_dtr_nancheck.c.ll 60031457
 openblas/lapacke_dtr_trans.c.ll 62937107
 openblas/lapacke_stp_trans.c.ll 65488916
 openblas/lapacke_str_nancheck.c.ll 60023060
-openblas/lapacke_str_trans.c.ll 62874152
+openblas/lapacke_str_trans.c.ll 62937061
 openblas/lapacke_ztp_trans.c.ll 66504550
 openblas/lapacke_ztr_nancheck.c.ll 61920919
 openblas/lapacke_ztr_trans.c.ll 64808490
