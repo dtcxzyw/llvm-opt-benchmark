@@ -9434,7 +9434,7 @@ hermes/HeapSnapshot.cpp.ll 116269277
 hermes/HermesABIRuntimeWrapper.cpp.ll 173764390
 hermes/HermesBuiltin.cpp.ll 1419130518
 hermes/HermesInternal.cpp.ll 836865112
-hermes/HermesValue.cpp.ll 181220509
+hermes/HermesValue.cpp.ll 181401737
 hermes/HiddenClass.cpp.ll 1267675156
 hermes/HoistStartGenerator.cpp.ll 119560367
 hermes/Host.cpp.ll 1178327570
@@ -14952,7 +14952,7 @@ llvm/MacroArgs.cpp.ll 525627200
 llvm/MacroCallReconstructor.cpp.ll 1752369434
 llvm/MacroExpander.cpp.ll 1314689292
 llvm/MacroExpansionContext.cpp.ll 1807050396
-llvm/MacroFusion.cpp.ll 472832723
+llvm/MacroFusion.cpp.ll 473305650
 llvm/MacroFusionPredicatorEmitter.cpp.ll 965146966
 llvm/MacroInfo.cpp.ll 553240395
 llvm/MacroPPCallbacks.cpp.ll 258353107
@@ -34777,7 +34777,7 @@ sundials/cvode_bbdpre.c.ll 194719473
 sundials/cvode_io.c.ll 238619735
 sundials/cvode_ls.c.ll 372262804
 sundials/cvode_nls.c.ll 88557821
-sundials/cvode_proj.c.ll 92765793
+sundials/cvode_proj.c.ll 92858653
 sundials/cvodea.c.ll 1162967485
 sundials/cvodea_io.c.ll 134942106
 sundials/cvodes.c.ll 3584450078
