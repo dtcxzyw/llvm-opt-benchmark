@@ -2889,7 +2889,7 @@ cmake/async.c.ll 91905056
 cmake/auto_decoder.c.ll 65140510
 cmake/base64.c.ll 94463761
 cmake/bindexplib.cxx.ll 343821241
-cmake/block_buffer_decoder.c.ll 41971344
+cmake/block_buffer_decoder.c.ll 42013466
 cmake/block_buffer_encoder.c.ll 96702185
 cmake/block_decoder.c.ll 79962943
 cmake/block_header_decoder.c.ll 63828536
@@ -12504,7 +12504,7 @@ linux/i915_gem_internal.ll 100226896
 linux/i915_gem_mman.ll 308219929
 linux/i915_gem_object.ll 223188674
 linux/i915_gem_pages.ll 244108794
-linux/i915_gem_phys.ll 100399782
+linux/i915_gem_phys.ll 100500230
 linux/i915_gem_region.ll 99063889
 linux/i915_gem_shmem.ll 248376518
 linux/i915_gem_shrinker.ll 215236006
@@ -23984,7 +23984,7 @@ openmpi/libmpi_c_profile_la-file_iread.ll 76079644
 openmpi/libmpi_c_profile_la-file_iread_all.ll 76950910
 openmpi/libmpi_c_profile_la-file_iread_at.ll 76094656
 openmpi/libmpi_c_profile_la-file_iread_at_all.ll 76967950
-openmpi/libmpi_c_profile_la-file_iread_shared.ll 75999237
+openmpi/libmpi_c_profile_la-file_iread_shared.ll 76075250
 openmpi/libmpi_c_profile_la-file_iwrite.ll 76058794
 openmpi/libmpi_c_profile_la-file_iwrite_all.ll 76954850
 openmpi/libmpi_c_profile_la-file_iwrite_at.ll 76081599
