@@ -2387,7 +2387,7 @@ casadi/transpose.cpp.ll 408181837
 casadi/unary_mx.cpp.ll 1917778457
 casadi/xml_file.cpp.ll 392847162
 casadi/xml_file_internal.cpp.ll 178069400
-casadi/xml_node.cpp.ll 551869823
+casadi/xml_node.cpp.ll 552421723
 ceres/array_utils.cc.ll 442470814
 ceres/block_jacobi_preconditioner.cc.ll 8511148504
 ceres/block_jacobian_writer.cc.ll 1568118955
@@ -4213,7 +4213,7 @@ coreutils-rs/5dkg43nox7s4d2qk.ll 95313175
 coreutils-rs/5dky785v0vqibnqi.ll 471024415
 coreutils-rs/5dmrxisq30bb0giv.ll 1332645915
 coreutils-rs/5duz89e24o9g6ghe.ll 73347581
-coreutils-rs/5dvkk2akux0dfxlk.ll 147941542
+coreutils-rs/5dvkk2akux0dfxlk.ll 148089611
 coreutils-rs/5dvo81hn4cx7e334.ll 780820817
 coreutils-rs/5e48q1wpjedhlmp9.ll 1679939539
 coreutils-rs/5e7s7r5wetyyt88y.ll 193047976
@@ -8011,7 +8011,7 @@ gromacs/gmx_helix.cpp.ll 253829432
 gromacs/gmx_helixorient.cpp.ll 512382814
 gromacs/gmx_hydorder.cpp.ll 936025893
 gromacs/gmx_internal_xdr.cpp.ll 141137223
-gromacs/gmx_lie.cpp.ll 196412839
+gromacs/gmx_lie.cpp.ll 196609291
 gromacs/gmx_lmcurve.cpp.ll 78823805
 gromacs/gmx_make_edi.cpp.ll 469883004
 gromacs/gmx_mdmat.cpp.ll 431737967
@@ -8266,7 +8266,7 @@ gromacs/muParserError.cpp.ll 281464437
 gromacs/muParserInt.cpp.ll 225115178
 gromacs/muParserTest.cpp.ll 2711729043
 gromacs/muParserTokenReader.cpp.ll 2058536009
-gromacs/multipletimestepping.cpp.ll 596763201
+gromacs/multipletimestepping.cpp.ll 597360285
 gromacs/multisim.cpp.ll 407258480
 gromacs/nb_free_energy.cpp.ll 39233297514
 gromacs/nbnxm.cpp.ll 400593435
@@ -8515,7 +8515,7 @@ gromacs/ssymv.cpp.ll 159123361
 gromacs/ssyr2.cpp.ll 124103514
 gromacs/ssyr2k.cpp.ll 271217764
 gromacs/ssytrd.cpp.ll 101391760
-gromacs/stat.cpp.ll 264279728
+gromacs/stat.cpp.ll 264544326
 gromacs/state.cpp.ll 2254581465
 gromacs/statepropagatordata.cpp.ll 3130977635
 gromacs/statistics.cpp.ll 308227103
@@ -13998,7 +13998,7 @@ llvm/CallPrinter.cpp.ll 1387264300
 llvm/CallPromotionUtils.cpp.ll 1939566161
 llvm/CallSiteSplitting.cpp.ll 3145257641
 llvm/CalledOnceCheck.cpp.ll 22295841934
-llvm/CalledValuePropagation.cpp.ll 2359468745
+llvm/CalledValuePropagation.cpp.ll 2361828673
 llvm/CallingConvEmitter.cpp.ll 1759845306
 llvm/CallingConvLower.cpp.ll 533452875
 llvm/CanonicalizeAliases.cpp.ll 252706476
@@ -14055,7 +14055,7 @@ llvm/CodeGenAction.cpp.ll 3062470074
 llvm/CodeGenCommonISel.cpp.ll 351092033
 llvm/CodeGenCoverage.cpp.ll 361480457
 llvm/CodeGenDAGPatterns.cpp.ll 14611368496
-llvm/CodeGenFunction.cpp.ll 8946847263
+llvm/CodeGenFunction.cpp.ll 8955796829
 llvm/CodeGenHwModes.cpp.ll 809249398
 llvm/CodeGenInstAlias.cpp.ll 714790122
 llvm/CodeGenInstruction.cpp.ll 1519797522
@@ -16057,7 +16057,7 @@ llvm/regfree.c.ll 38283741
 llvm/regstrlcpy.c.ll 41632794
 llvm/xxhash.cpp.ll 650251271
 lodepng/lodepng.cpp.ll 6658245094
-lodepng/lodepng_util.cpp.ll 2728988426
+lodepng/lodepng_util.cpp.ll 2731717573
 lodepng/pngdetail.cpp.ll 2309323414
 log-rs/17w0t1cr0ss4k7x8.ll 71561894
 log-rs/2fembjqwp89ywpt5.ll 226798065
@@ -18005,7 +18005,7 @@ ncnn/groupnorm_x86_fma.cpp.ll 410081137
 ncnn/gru.cpp.ll 1386304639
 ncnn/hardsigmoid.cpp.ll 65739969
 ncnn/hardsigmoid_x86.cpp.ll 86185045
-ncnn/hardsigmoid_x86_avx.cpp.ll 83401576
+ncnn/hardsigmoid_x86_avx.cpp.ll 83485166
 ncnn/hardsigmoid_x86_avx512.cpp.ll 96409575
 ncnn/hardsigmoid_x86_fma.cpp.ll 83821687
 ncnn/hardswish.cpp.ll 65797279
@@ -18527,7 +18527,7 @@ nlohmann_json/unit-no-mem-leak-on-adl-serialize.cpp.ll 1581192217
 nlohmann_json/unit-ordered_json.cpp.ll 5108476016
 nlohmann_json/unit-ordered_map.cpp.ll 1464117032
 nlohmann_json/unit-pointer_access.cpp.ll 4423868590
-nlohmann_json/unit-readme.cpp.ll 9609849162
+nlohmann_json/unit-readme.cpp.ll 9619464069
 nlohmann_json/unit-reference_access.cpp.ll 3920225969
 nlohmann_json/unit-regression1.cpp.ll 29085824263
 nlohmann_json/unit-regression2.cpp.ll 37482590205
@@ -20932,7 +20932,7 @@ opencv/node.cpp.ll 354729127
 opencv/non_linear_svms.cpp.ll 327294865
 opencv/nonrigid_icp.cpp.ll 2045189040
 opencv/norm.cpp.ll 1676283414
-opencv/normal.cpp.ll 2331417011
+opencv/normal.cpp.ll 2333754227
 opencv/normalize_bbox_layer.cpp.ll 743449317
 opencv/not_implemented_layer.cpp.ll 304831454
 opencv/npr.cpp.ll 942927731
@@ -21173,7 +21173,7 @@ opencv/perf_surf.ocl.cpp.ll 52627006
 opencv/perf_teblid.cpp.ll 52604636
 opencv/perf_thining.cpp.ll 1424697131
 opencv/perf_threshold.cpp.ll 4054739246
-opencv/perf_trackers.cpp.ll 2222201933
+opencv/perf_trackers.cpp.ll 2224425208
 opencv/perf_tsdf.cpp.ll 1135237291
 opencv/perf_tvl1optflow.cpp.ll 1178568115
 opencv/perf_umat.cpp.ll 1615748430
@@ -23966,7 +23966,7 @@ openmpi/libmpi_c_profile_la-error_string.ll 71059628
 openmpi/libmpi_c_profile_la-exscan.ll 109728351
 openmpi/libmpi_c_profile_la-exscan_init.ll 91324657
 openmpi/libmpi_c_profile_la-fetch_and_op.ll 82611950
-openmpi/libmpi_c_profile_la-file_call_errhandler.ll 60855736
+openmpi/libmpi_c_profile_la-file_call_errhandler.ll 60916664
 openmpi/libmpi_c_profile_la-file_close.ll 65627339
 openmpi/libmpi_c_profile_la-file_delete.ll 73911375
 openmpi/libmpi_c_profile_la-file_f2c.ll 46566165
@@ -24908,7 +24908,7 @@ openspiel/DealerPar.cpp.ll 632082865
 openspiel/File.cpp.ll 47100985
 openspiel/Init.cpp.ll 310368454
 openspiel/LaterTricks.cpp.ll 176494122
-openspiel/Memory.cpp.ll 261952055
+openspiel/Memory.cpp.ll 262214558
 openspiel/Moves.cpp.ll 2073638080
 openspiel/PBN.cpp.ll 84737093
 openspiel/Par.cpp.ll 662543906
@@ -30610,7 +30610,7 @@ quantlib/caphelper.ll 2483778165
 quantlib/capletcoterminalalphacalibration.ll 1450297192
 quantlib/capletcoterminalmaxhomogeneity.ll 1605432087
 quantlib/capletcoterminalperiodic.ll 1008967687
-quantlib/capletcoterminalswaptioncalibration.ll 1541149198
+quantlib/capletcoterminalswaptioncalibration.ll 1542692932
 quantlib/cashflow.ll 113598581
 quantlib/cashflows.ll 3039218284
 quantlib/cashflowvectors.ll 68798239
@@ -31336,7 +31336,7 @@ quantlib/treecallablebondengine.ll 2008406712
 quantlib/treecapfloorengine.ll 1918166406
 quantlib/treeswapengine.ll 1988978278
 quantlib/treeswaptionengine.ll 2365222385
-quantlib/tridiagonaloperator.ll 580710352
+quantlib/tridiagonaloperator.ll 581291103
 quantlib/triggeredswapexercise.ll 500358630
 quantlib/trinomialtree.ll 784813128
 quantlib/triplebandlinearop.ll 1205576022
