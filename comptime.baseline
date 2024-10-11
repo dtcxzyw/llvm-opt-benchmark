@@ -1201,7 +1201,7 @@ abseil-cpp/raw_logging.cc.ll 116829018
 abseil-cpp/raw_logging_test.cc.ll 550994204
 abseil-cpp/reflection.cc.ll 1400181957
 abseil-cpp/reflection_test.cc.ll 3237070865
-abseil-cpp/resize_uninitialized_test.cc.ll 539406746
+abseil-cpp/resize_uninitialized_test.cc.ll 538858699
 abseil-cpp/salted_seed_seq_test.cc.ll 2752186515
 abseil-cpp/sample_element_size_test.cc.ll 86830645
 abseil-cpp/sample_recorder_test.cc.ll 3664268708
@@ -1867,7 +1867,7 @@ brotli/bit_cost.c.ll 236056392
 brotli/block_splitter.c.ll 1767064366
 brotli/brotli.c.ll 814379654
 brotli/brotli_bit_stream.c.ll 1075170303
-brotli/cluster.c.ll 727604971
+brotli/cluster.c.ll 726872896
 brotli/compound_dictionary.c.ll 147014982
 brotli/compress_fragment.c.ll 3237275140
 brotli/compress_fragment_two_pass.c.ll 4450215213
@@ -2775,7 +2775,7 @@ clap-rs/13k6b4wdt6zxx7x5.ll 122746370
 clap-rs/1rbie63mhpvpjak.ll 2159752420
 clap-rs/1zp92zvstj9lufi9.ll 5612010509
 clap-rs/28kpmq8k0hu4re4f.ll 2223340324
-clap-rs/2n53bxup1mqegzwp.ll 124383661
+clap-rs/2n53bxup1mqegzwp.ll 124249135
 clap-rs/3b4nqkxyl1xqdcre.ll 3230423075
 clap-rs/3n9sdy3q5n8p0ad5.ll 2802745017
 clap-rs/41aqvwa12uhzibvi.ll 51608623
@@ -3416,7 +3416,7 @@ cmake/json_value.cpp.ll 1711741882
 cmake/json_writer.cpp.ll 1251253022
 cmake/jsoncpp_json_serializer.cpp.ll 945520078
 cmake/keylog.c.ll 70512447
-cmake/linux-core.c.ll 260018170
+cmake/linux-core.c.ll 259756556
 cmake/linux-inotify.c.ll 401608366
 cmake/loop.c.ll 80657084
 cmake/lz_decoder.c.ll 110500701
@@ -10173,7 +10173,7 @@ icu/reldtfmt.ll 336105659
 icu/rematch.ll 2558583346
 icu/remtrans.ll 63307206
 icu/repattrn.ll 272392122
-icu/resbund.ll 110177512
+icu/resbund.ll 110067075
 icu/resbund_cnv.ll 50027109
 icu/reslist.ll 1129451361
 icu/rle.ll 225157393
@@ -18707,7 +18707,7 @@ node/libnode.uv.ll 252763386
 node/libnode.worker_agent.ll 945760083
 node/libnode.worker_inspector.ll 871418287
 node/linux.ll 1049755543
-node/loop-watcher.ll 111191879
+node/loop-watcher.ll 111073005
 node/loop.ll 80599564
 node/node.node_snapshot.ll 2016974938
 node/pipe.ll 132218607
@@ -19205,7 +19205,7 @@ ockam-rs/10k16szy9z0gnoyc.ll 10289171372
 ockam-rs/111eznecj9pn2lkp.ll 2931538181
 ockam-rs/1145kugil9dl94a2.ll 35028455506
 ockam-rs/11bh5irimcsbm5u.ll 2550028042
-ockam-rs/11t2l14a5kpl8jvh.ll 6830115749
+ockam-rs/11t2l14a5kpl8jvh.ll 6823264559
 ockam-rs/12728p6i9xu7vxe7.ll 454758981
 ockam-rs/13b0iru6w2t4kov8.ll 2706373978
 ockam-rs/13hx4edwj16k9wur.ll 7917303002
@@ -21539,7 +21539,7 @@ opencv/videocapture_gstreamer_pipeline.cpp.ll 1103046078
 opencv/videocapture_image_sequence.cpp.ll 65056550
 opencv/videocapture_microphone.cpp.ll 214594520
 opencv/videocapture_obsensor.cpp.ll 108890648
-opencv/videocapture_openni.cpp.ll 270686219
+opencv/videocapture_openni.cpp.ll 270408542
 opencv/videocapture_realsense.cpp.ll 70164672
 opencv/videocapture_starter.cpp.ll 111057015
 opencv/videoio_c.cpp.ll 68235590
@@ -23476,7 +23476,7 @@ openjdk/zPageAllocator.ll 1357999564
 openjdk/zPageCache.ll 276854657
 openjdk/zPageTable.ll 151928778
 openjdk/zPhysicalMemory.ll 322943450
-openjdk/zPhysicalMemoryBacking_linux.ll 276445407
+openjdk/zPhysicalMemoryBacking_linux.ll 276158335
 openjdk/zReferenceProcessor.ll 1264670149
 openjdk/zRelocate.ll 2815762655
 openjdk/zRelocationSet.ll 1541748463
@@ -24144,7 +24144,7 @@ openmpi/libmpi_c_profile_la-rget.ll 89282245
 openmpi/libmpi_c_profile_la-rget_accumulate.ll 107661010
 openmpi/libmpi_c_profile_la-rput.ll 89584934
 openmpi/libmpi_c_profile_la-rsend.ll 98436507
-openmpi/libmpi_c_profile_la-rsend_init.ll 86243702
+openmpi/libmpi_c_profile_la-rsend_init.ll 86152684
 openmpi/libmpi_c_profile_la-scan.ll 112200933
 openmpi/libmpi_c_profile_la-scan_init.ll 93625482
 openmpi/libmpi_c_profile_la-scatter.ll 115414922
@@ -24164,7 +24164,7 @@ openmpi/libmpi_c_profile_la-session_get_num_psets.ll 65464033
 openmpi/libmpi_c_profile_la-session_get_pset_info.ll 67341455
 openmpi/libmpi_c_profile_la-session_init.ll 75756722
 openmpi/libmpi_c_profile_la-ssend.ll 98436750
-openmpi/libmpi_c_profile_la-ssend_init.ll 86244071
+openmpi/libmpi_c_profile_la-ssend_init.ll 86153031
 openmpi/libmpi_c_profile_la-start.ll 65453135
 openmpi/libmpi_c_profile_la-status_c2f08.ll 46508954
 openmpi/libmpi_c_profile_la-status_f082c.ll 47852113
@@ -24262,7 +24262,7 @@ openmpi/libprrte_la-prte_init.ll 206524194
 openmpi/libprrte_la-prte_mca_params.ll 89509882
 openmpi/libprrte_la-prte_progress_threads.ll 158303699
 openmpi/libprrte_la-prte_quit.ll 126488150
-openmpi/libprrte_la-prte_wait.ll 159448305
+openmpi/libprrte_la-prte_wait.ll 159277543
 openmpi/libprrte_la-prted_comm.ll 291506332
 openmpi/libprrte_la-prun_common.ll 479704723
 openmpi/libprrte_la-rml.ll 162570156
@@ -24364,7 +24364,7 @@ openmpi/ompi_datatype_match_size.ll 52386799
 openmpi/ompi_datatype_module.ll 414383066
 openmpi/ompi_datatype_sndrcv.ll 84541278
 openmpi/ompi_debugger_canary.ll 104213552
-openmpi/ompi_info.ll 103349921
+openmpi/ompi_info.ll 103240119
 openmpi/ompi_mpi_abort.ll 95210401
 openmpi/ompi_mpi_finalize.ll 70811348
 openmpi/ompi_mpi_init.ll 88394208
@@ -24762,7 +24762,7 @@ openmpi/reachable_base_select.ll 35028095
 openmpi/reachable_netlink_module.ll 72454080
 openmpi/reachable_netlink_utils_common.ll 74992961
 openmpi/reachable_weighted.ll 80808454
-openmpi/req_ft.ll 75332990
+openmpi/req_ft.ll 75256689
 openmpi/req_test.ll 141094577
 openmpi/req_wait.ll 344706247
 openmpi/request.ll 92173737
@@ -33222,7 +33222,7 @@ slurm/sack_api.ll 174402565
 slurm/sackd.ll 198864435
 slurm/sackd_mgr.ll 86543327
 slurm/salloc.ll 370068014
-slurm/sattach.ll 270770118
+slurm/sattach.ll 270498865
 slurm/sbatch.ll 301099311
 slurm/sbcast.ll 36228096
 slurm/scancel.ll 562119488
