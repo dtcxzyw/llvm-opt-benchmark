@@ -2147,7 +2147,7 @@ c3c/sema_types.c.ll 230717289
 c3c/semantic_analyser.c.ll 312192444
 c3c/source_file.c.ll 75832996
 c3c/stringutils.c.ll 175983029
-c3c/symtab.c.ll 616687472
+c3c/symtab.c.ll 617304386
 c3c/target.c.ll 834214296
 c3c/taskqueue.c.ll 54127320
 c3c/types.c.ll 1009830307
@@ -8241,7 +8241,7 @@ gromacs/membedholder.cpp.ll 48089383
 gromacs/mempool.cpp.ll 210484512
 gromacs/message_string_collector.cpp.ll 253715084
 gromacs/methane-water-integration.cpp.ll 3264376866
-gromacs/mimic.cpp.ll 772623243
+gromacs/mimic.cpp.ll 773395992
 gromacs/minimize.cpp.ll 3266932582
 gromacs/mk_angndx.cpp.ll 294711371
 gromacs/modularsimulator.cpp.ll 2308609284
@@ -9648,7 +9648,7 @@ html5ever-rs/4e9vfrmeneic1jap.ll 214672171
 html5ever-rs/4f0kix4z793pb47k.ll 300544190
 html5ever-rs/4l0iwfhw8y74ys7u.ll 152371278
 html5ever-rs/4l9grszihv10b8i4.ll 122774349
-html5ever-rs/59jk5zguloiuuwzu.ll 105889922
+html5ever-rs/59jk5zguloiuuwzu.ll 105995820
 html5ever-rs/6qwbbyxelav3qgo.ll 224909186
 html5ever-rs/dg2cb04337sswh6.ll 124294373
 html5ever-rs/iuandvk122jw87c.ll 89140260
@@ -9831,7 +9831,7 @@ hyperscan/ng_region_redundancy.cpp.ll 1877828983
 hyperscan/ng_repeat.cpp.ll 17419151508
 hyperscan/ng_reports.cpp.ll 541780248
 hyperscan/ng_restructuring.cpp.ll 1939739487
-hyperscan/ng_revacc.cpp.ll 843416163
+hyperscan/ng_revacc.cpp.ll 844260855
 hyperscan/ng_small_literal_set.cpp.ll 1754229935
 hyperscan/ng_som.cpp.ll 13911450766
 hyperscan/ng_som_add_redundancy.cpp.ll 1451412429
@@ -14834,7 +14834,7 @@ llvm/MCLabel.cpp.ll 38756448
 llvm/MCLinkerOptimizationHint.cpp.ll 86793638
 llvm/MCMachOStreamer.cpp.ll 1425107705
 llvm/MCMachObjectTargetWriter.cpp.ll 39751392
-llvm/MCNullStreamer.cpp.ll 91830885
+llvm/MCNullStreamer.cpp.ll 91922834
 llvm/MCObjectFileInfo.cpp.ll 746308998
 llvm/MCObjectStreamer.cpp.ll 1398160072
 llvm/MCObjectWriter.cpp.ll 153936752
@@ -22995,7 +22995,7 @@ openjdk/perfMemory.ll 103905920
 openjdk/perfMemory_posix.ll 488597835
 openjdk/phase.ll 96207096
 openjdk/phaseX.ll 1953165141
-openjdk/plab.ll 103594482
+openjdk/plab.ll 103698124
 openjdk/placeholders.ll 301251574
 openjdk/png.ll 1137619570
 openjdk/pngerror.ll 263679757
@@ -38776,7 +38776,7 @@ z3/pb2bv_tactic.cpp.ll 5604731823
 z3/pb_card.cpp.ll 346498314
 z3/pb_constraint.cpp.ll 249952528
 z3/pb_decl_plugin.cpp.ll 1178113675
-z3/pb_internalize.cpp.ll 847129039
+z3/pb_internalize.cpp.ll 847976976
 z3/pb_pb.cpp.ll 385116450
 z3/pb_preprocess_tactic.cpp.ll 2669183720
 z3/pb_rewriter.cpp.ll 2522154406
