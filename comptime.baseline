@@ -8780,7 +8780,7 @@ grpc/iam_credentials.cc.ll 2101993725
 grpc/init.cc.ll 158321469
 grpc/inproc_transport.cc.ll 2390470715
 grpc/insecure_credentials.cc.ll 163641028
-grpc/insecure_security_connector.cc.ll 194570787
+grpc/insecure_security_connector.cc.ll 194765478
 grpc/internal_errqueue.cc.ll 42805804
 grpc/iomgr.cc.ll 155367407
 grpc/iomgr_posix.cc.ll 186688623
@@ -23144,7 +23144,7 @@ openjdk/shenandoahNumberSeq.ll 113828252
 openjdk/shenandoahPacer.ll 259391033
 openjdk/shenandoahParallelCleaning.ll 53217985
 openjdk/shenandoahPassiveHeuristics.ll 98694049
-openjdk/shenandoahPassiveMode.ll 72496592
+openjdk/shenandoahPassiveMode.ll 72569098
 openjdk/shenandoahPhaseTimings.ll 956916394
 openjdk/shenandoahReferenceProcessor.ll 748374771
 openjdk/shenandoahRootProcessor.ll 972245305
