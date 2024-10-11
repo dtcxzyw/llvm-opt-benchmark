@@ -9288,7 +9288,7 @@ hdf5/H5VLdyn_ops.c.ll 62444875
 hdf5/H5VLint.c.ll 388653205
 hdf5/H5VLnative.c.ll 90759601
 hdf5/H5VLnative_attr.c.ll 125128731
-hdf5/H5VLnative_blob.c.ll 57890389
+hdf5/H5VLnative_blob.c.ll 57948438
 hdf5/H5VLnative_dataset.c.ll 175542766
 hdf5/H5VLnative_datatype.c.ll 63848196
 hdf5/H5VLnative_file.c.ll 144691816
@@ -27320,7 +27320,7 @@ openusd/shaderSection.cpp.ll 121040614
 openusd/shadowAPI.cpp.ll 901736310
 openusd/shapingAPI.cpp.ll 932363245
 openusd/simplify.cpp.ll 2056145676
-openusd/singleton.cpp.ll 32740311
+openusd/singleton.cpp.ll 32773236
 openusd/site.cpp.ll 447616693
 openusd/size2.cpp.ll 47746487
 openusd/size3.cpp.ll 48166288
