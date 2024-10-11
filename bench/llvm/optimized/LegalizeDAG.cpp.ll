@@ -2324,7 +2324,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread.i:                ; preds = %885, %._ZNK4llvm3EV
   br label %_ZNK4llvm3EVTeqES0_.exit.thread1004.i
 
 .critedge.i:                                      ; preds = %_ZNK4llvm18TargetLoweringBase16getLoadExtActionEjNS_3EVTES1_.exit.i, %_ZNK4llvm3EVTneES0_.exit.i, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit.i
-  %891 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract367997.i)
+  %891 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract367997.i)
   %or.cond1053.i = icmp eq i64 %891, 1
   br i1 %or.cond1053.i, label %1088, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.i
 
@@ -4079,7 +4079,7 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %_ZNK4llvm7details23
   br i1 %1525, label %1713, label %1526
 
 1526:                                             ; preds = %_ZNK4llvm3EVT8isVectorEv.exit.i, %1523
-  %1527 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract266631.i)
+  %1527 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract266631.i)
   %or.cond637.i = icmp eq i64 %1527, 1
   br i1 %or.cond637.i, label %1713, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.i540
 
@@ -9661,7 +9661,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit3353: ; pr
   %1939 = getelementptr inbounds nuw i8, ptr %1938, i64 64
   %1940 = load ptr, ptr %1939, align 8
   %1941 = call noundef i32 @_ZNK4llvm20MachineJumpTableInfo12getEntrySizeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(32) %1940, ptr noundef nonnull align 8 dereferenceable(512) %1929) #18
-  %1942 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1941)
+  %1942 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1941)
   %or.cond4098 = icmp eq i32 %1942, 1
   %1943 = load ptr, ptr %1925, align 8
   %1944 = getelementptr inbounds nuw i8, ptr %.sroa.03695.0.copyload, i64 48

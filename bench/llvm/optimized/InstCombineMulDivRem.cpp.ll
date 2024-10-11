@@ -24423,7 +24423,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 56:                                               ; preds = %51
   %57 = load i64, ptr %52, align 8
-  %58 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %57)
+  %58 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
   %or.cond = icmp eq i64 %58, 1
   br i1 %or.cond, label %62, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
@@ -24957,7 +24957,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch11api_pred_
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond = icmp eq i64 %11, 1
   br i1 %or.cond, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread
 
@@ -24997,7 +24997,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 31:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit
   %32 = load i64, ptr %27, align 8
-  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
   %or.cond29 = icmp eq i64 %33, 1
   br i1 %or.cond29, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread
 

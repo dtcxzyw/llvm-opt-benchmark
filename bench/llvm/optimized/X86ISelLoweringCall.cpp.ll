@@ -1370,7 +1370,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %35, %37
 
 _ZNK4llvm3EVT20getVectorNumElementsEv.exit.thread: ; preds = %_ZNK4llvm3EVT16isScalableVectorEv.exit.i, %33
   %44 = call noundef i32 @_ZNK4llvm3EVT28getExtendedVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
-  %45 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %44)
+  %45 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
   %or.cond126 = icmp eq i32 %45, 1
   br i1 %or.cond126, label %_ZNK4llvm3EVT16isScalableVectorEv.exit.i36, label %.critedge2.thread
 

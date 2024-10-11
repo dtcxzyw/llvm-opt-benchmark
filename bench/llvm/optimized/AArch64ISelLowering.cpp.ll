@@ -38803,7 +38803,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %_ZNK
   %140 = load ptr, ptr %136, align 8
   %.0.in.i.i.i.i.i = select i1 %139, ptr %136, ptr %140
   %.0.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i, align 8
-  %141 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
+  %141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
   %or.cond271 = icmp eq i64 %141, 1
   br i1 %or.cond271, label %142, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -38857,7 +38857,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %126, %133, %122
   %167 = load ptr, ptr %163, align 8
   %.0.in.i.i.i.i.i203 = select i1 %166, ptr %163, ptr %167
   %.0.i.i.i.i.i204 = load i64, ptr %.0.in.i.i.i.i.i203, align 8
-  %168 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i204)
+  %168 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i204)
   %or.cond273 = icmp eq i64 %168, 1
   br i1 %or.cond273, label %169, label %_ZN4llvm13isPowerOf2_64Em.exit206.thread
 
@@ -89482,7 +89482,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %70, %75
 _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %78
   store i8 0, ptr %3, align 1
   %81 = load i64, ptr %2, align 8
-  %82 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %81)
+  %82 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %81)
   %or.cond = icmp eq i64 %82, 1
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit22.thread, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -106193,7 +106193,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm16AArch64S
 
 61:                                               ; preds = %_ZNK4llvm3EVTneES0_.exit
   %62 = load i64, ptr %2, align 8
-  %63 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %62)
+  %63 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %62)
   %or.cond = icmp eq i64 %63, 1
   br i1 %or.cond, label %_ZNK4llvm5APInteqEm.exit, label %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge69
 
@@ -106488,7 +106488,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZNK4llvm16AArch64S
 
 74:                                               ; preds = %_ZNK4llvm3EVTneES0_.exit
   %75 = load i64, ptr %2, align 8
-  %76 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %75)
+  %76 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %75)
   %or.cond = icmp eq i64 %76, 1
   br i1 %or.cond, label %.thread, label %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge218
 
@@ -160680,7 +160680,7 @@ _ZNK4llvm5APInteqEm.exit:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %50 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
   %or.cond = icmp eq i64 %50, 1
   br i1 %or.cond, label %54, label %_ZN4llvm5APIntD2Ev.exit11
 
@@ -160888,7 +160888,7 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %53, %_ZN4llvm5APInt
 
 61:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit6
   %62 = load i64, ptr %6, align 8
-  %63 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %62)
+  %63 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %62)
   %or.cond = icmp eq i64 %63, 1
   br i1 %or.cond, label %67, label %_ZN4llvm5APIntD2Ev.exit14
 
@@ -161138,7 +161138,7 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %53, %_ZN4llvm5APInt
 
 61:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit6
   %62 = load i64, ptr %6, align 8
-  %63 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %62)
+  %63 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %62)
   %or.cond = icmp eq i64 %63, 1
   br i1 %or.cond, label %67, label %_ZN4llvm5APIntD2Ev.exit14
 

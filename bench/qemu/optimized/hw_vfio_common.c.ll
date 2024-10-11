@@ -3300,7 +3300,7 @@ int128_get64.exit49:                              ; preds = %do.end15
   %call27 = tail call i64 @ram_discard_manager_get_min_granularity(ptr noundef %call, ptr noundef %4) #17
   %granularity = getelementptr inbounds i8, ptr %call16, i64 32
   store i64 %call27, ptr %granularity, align 8
-  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call27)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call27)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %do.body36, label %if.else33
 

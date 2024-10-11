@@ -12823,7 +12823,7 @@ define internal fastcc noundef ptr @_ZL26foldIdentityPaddedShufflesRN4llvm17Shuf
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 8
-  %31 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %30)
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %30)
   %or.cond60 = icmp eq i32 %31, 1
   br i1 %or.cond60, label %32, label %.critedge
 
@@ -12832,14 +12832,14 @@ define internal fastcc noundef ptr @_ZL26foldIdentityPaddedShufflesRN4llvm17Shuf
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i32, ptr %35, align 8
-  %37 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %36)
+  %37 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %36)
   %or.cond62 = icmp eq i32 %37, 1
   br i1 %or.cond62, label %38, label %.critedge
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %40 = load i32, ptr %39, align 8
-  %41 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %40)
+  %41 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %40)
   %or.cond64 = icmp eq i32 %41, 1
   br i1 %or.cond64, label %42, label %.critedge
 

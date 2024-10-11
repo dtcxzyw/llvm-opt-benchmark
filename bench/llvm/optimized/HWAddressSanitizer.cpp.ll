@@ -6757,7 +6757,7 @@ _ZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERN4llvm6memtag9StackInfoE
 
 1889:                                             ; preds = %1881
   %1890 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %1885) #19
-  %1891 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1890)
+  %1891 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1890)
   %or.cond.i205 = icmp eq i64 %1891, 1
   br i1 %or.cond.i205, label %1892, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.i
 

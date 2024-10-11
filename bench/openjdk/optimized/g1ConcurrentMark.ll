@@ -1561,7 +1561,7 @@ define hidden noundef zeroext i1 @_ZN13G1CMMarkStack10initializeEv(ptr nocapture
   %25 = sub nsw i64 0, %22
   %26 = and i64 %24, %25
   %27 = lshr i64 %26, 10
-  %28 = tail call range(i64 1, 55) i64 @llvm.ctpop.i64(i64 %27)
+  %28 = tail call range(i64 0, 55) i64 @llvm.ctpop.i64(i64 %27)
   %or.cond.i = icmp eq i64 %28, 1
   %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
   %30 = sub nuw nsw i64 64, %29
@@ -1631,7 +1631,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN13G1CMMarkStack14ChunkAllocator10initializeEmm(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %or.cond = icmp eq i64 %4, 1
   br i1 %or.cond, label %6, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

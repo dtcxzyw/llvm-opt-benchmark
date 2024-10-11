@@ -31452,7 +31452,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit158:           ; preds = %145, %149, %152, %_
   br i1 %225, label %455, label %226
 
 226:                                              ; preds = %218
-  %227 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %104)
+  %227 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %104)
   %or.cond = icmp eq i32 %227, 1
   br i1 %or.cond, label %234, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -32420,7 +32420,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit163:           ; preds = %208, %211, %214, %_
   store i8 %.sroa.3.0.i156, ptr %.sroa.248.0..sroa_idx, align 8
   %224 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %16) #18
   %225 = trunc i64 %224 to i32
-  %226 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %225)
+  %226 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %225)
   %or.cond = icmp eq i32 %226, 1
   br i1 %or.cond, label %267, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -48839,7 +48839,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %71, %75, %78
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit45:      ; preds = %82, %86, %90
   %.0.in.i40 = phi i64 [ %83, %82 ], [ %92, %90 ], [ %spec.select.i44, %86 ]
   %.0.i41 = trunc i64 %.0.in.i40 to i32
-  %93 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %70)
+  %93 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %70)
   %or.cond = icmp eq i32 %93, 1
   %.not.i.i46 = icmp ne i32 %.0.i, 0
   %or.cond141.not147.not149.not152 = select i1 %or.cond, i1 %.not.i.i46, i1 false
@@ -49131,7 +49131,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %47, %51
   %52 = lshr i64 %.sroa.04.0.i, 3
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 65535
-  %55 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %54)
+  %55 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %54)
   %or.cond = icmp eq i32 %55, 1
   br i1 %or.cond, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit, label %_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit
 
@@ -49143,7 +49143,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %_ZNK4llvm3LLT14getN
   %spec.select.i = select i1 %.not.i.i, i64 %57, i64 %58
   %.0.in.i = select i1 %.not.i38, i64 %spec.select.i, i64 %52
   %.0.i = trunc i64 %.0.in.i to i32
-  %59 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
+  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
   %or.cond142 = icmp eq i32 %59, 1
   br i1 %or.cond142, label %60, label %_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit
 
@@ -49163,7 +49163,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit44:           ; preds = %60, %64
   %65 = lshr i64 %.sroa.04.0.i35, 3
   %66 = trunc i64 %65 to i32
   %67 = and i32 %66, 65535
-  %68 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %67)
+  %68 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %67)
   %or.cond144 = icmp eq i32 %68, 1
   br i1 %or.cond144, label %69, label %_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit
 
@@ -49190,7 +49190,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit44:           ; preds = %60, %64
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit53:      ; preds = %69, %73, %76
   %.0.in.i48 = phi i64 [ %77, %76 ], [ %spec.select.i52, %73 ], [ %65, %69 ]
   %.0.i49 = trunc i64 %.0.in.i48 to i32
-  %78 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i49)
+  %78 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i49)
   %or.cond146 = icmp eq i32 %78, 1
   br i1 %or.cond146, label %79, label %_ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit
 
@@ -50030,7 +50030,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit24.i:         ; preds = %97, %95
   br i1 %99, label %_ZL16clampVectorIndexRN4llvm16MachineIRBuilderENS_8RegisterENS_3LLTE.exit, label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13ConstantMatchIlEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i
 
 _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13ConstantMatchIlEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i: ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit24.i, %_ZNK4llvm3LLT14getNumElementsEv.exit.i
-  %100 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %90)
+  %100 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %90)
   %or.cond.i32 = icmp eq i32 %100, 1
   br i1 %or.cond.i32, label %101, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
 
@@ -54190,7 +54190,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit120:          ; preds = %._crit_edge235, %17
   %179 = trunc i64 %178 to i32
   %180 = lshr i32 %179, 3
   %181 = and i32 %180, 65535
-  %182 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %181)
+  %182 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %181)
   %or.cond220 = icmp eq i32 %182, 1
   br i1 %or.cond220, label %183, label %_ZN4llvm13isPowerOf2_32Ej.exit122.thread
 
@@ -54210,7 +54210,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit126:          ; preds = %183, %187
   %188 = trunc i64 %3 to i32
   %189 = lshr i32 %188, 3
   %190 = and i32 %189, 65535
-  %191 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %190)
+  %191 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %190)
   %or.cond222 = icmp eq i32 %191, 1
   br i1 %or.cond222, label %192, label %_ZN4llvm13isPowerOf2_32Ej.exit122.thread
 
@@ -54507,7 +54507,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %37, %41
   %43 = trunc i64 %42 to i32
   %44 = lshr i32 %43, 3
   %45 = and i32 %44, 65535
-  %46 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %45)
+  %46 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %45)
   %or.cond162 = icmp eq i32 %46, 1
   br i1 %or.cond162, label %47, label %_ZN4llvm11SmallVectorINS_8RegisterELj12EED2Ev.exit119
 
@@ -58870,7 +58870,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit65: ; preds = %_ZNK4llv
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %57, %61, %65
   %.0.in.i = phi i64 [ %58, %57 ], [ %67, %65 ], [ %spec.select.i, %61 ]
   %.0.i = trunc i64 %.0.in.i to i32
-  %68 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
+  %68 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
   %or.cond = icmp eq i32 %68, 1
   br i1 %or.cond, label %69, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -59380,7 +59380,7 @@ _ZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS_8RegisterEj.exi
   %148 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %98, ptr noundef nonnull align 8 dereferenceable(12) %38, i64 noundef %147) #18
   %149 = extractvalue { ptr, ptr } %148, 0
   %150 = extractvalue { ptr, ptr } %148, 1
-  %151 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
+  %151 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
   %or.cond = icmp eq i32 %151, 1
   %152 = load ptr, ptr %0, align 8
   br i1 %or.cond, label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread

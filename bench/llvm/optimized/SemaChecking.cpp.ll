@@ -9335,7 +9335,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema22BuiltinAllocaWithAlignEPNS_
 
 47:                                               ; preds = %41
   %48 = load i64, ptr %7, align 8
-  %49 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %48)
+  %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %48)
   %or.cond27 = icmp eq i64 %49, 1
   br i1 %or.cond27, label %57, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -9958,7 +9958,7 @@ _ZL20checkBuiltinArgumentRN5clang4SemaEPNS_8CallExprEj.exit.thread: ; preds = %1
 
 81:                                               ; preds = %78
   %82 = load i64, ptr %6, align 8
-  %83 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %82)
+  %83 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
   %or.cond = icmp eq i64 %83, 1
   br i1 %or.cond, label %94, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -20268,7 +20268,7 @@ _ZNK5clang4Decl7getAttrINS_14AllocAlignAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i
 
 873:                                              ; preds = %868
   %874 = load i64, ptr %869, align 8
-  %875 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %874)
+  %875 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %874)
   %or.cond365 = icmp eq i64 %875, 1
   br i1 %or.cond365, label %883, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

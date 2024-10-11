@@ -6826,7 +6826,7 @@ attribute_domain_to_string.exit.i:                ; preds = %68, %67, %66, %65, 
 
 207:                                              ; preds = %202
   %208 = call i64 @int_to_u64(ptr noundef nonnull byval(%struct.Int) align 8 %197) #10
-  %209 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %208)
+  %209 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %208)
   %or.cond268.i = icmp eq i64 %209, 1
   br i1 %or.cond268.i, label %212, label %is_power_of_two.exit.thread.i
 

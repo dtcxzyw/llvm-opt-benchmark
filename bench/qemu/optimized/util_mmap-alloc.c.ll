@@ -109,7 +109,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %align)
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align)
   %or.cond = icmp eq i64 %0, 1
   br i1 %or.cond, label %if.end4, label %if.else
 

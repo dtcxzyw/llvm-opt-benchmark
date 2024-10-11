@@ -2600,7 +2600,7 @@ if.else266.i:                                     ; preds = %if.else232.i
   br i1 %cmp.i541.i, label %if.then269.i, label %if.else329.i
 
 if.then269.i:                                     ; preds = %if.else266.i
-  %185 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %76)
+  %185 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %76)
   %or.cond.i = icmp eq i32 %185, 1
   br i1 %or.cond.i, label %invoke.cont283.i, label %if.then272.invoke.i
 
@@ -2928,7 +2928,7 @@ call21.i.noexc:                                   ; preds = %if.then20.i
   store i32 0, ptr %randomize.i.i, align 4, !noalias !93
   %pixel.i17.i = getelementptr inbounds i8, ptr %call21.i348, i64 12
   store i64 0, ptr %pixel.i17.i, align 4, !noalias !93
-  %214 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %211)
+  %214 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %211)
   %or.cond.i.i = icmp eq i32 %214, 1
   br i1 %or.cond.i.i, label %invoke.cont24.i, label %if.then.i.i338
 
@@ -2990,7 +2990,7 @@ call28.i.noexc:                                   ; preds = %if.then27.i337
   store i32 1, ptr %randomize.i24.i, align 4, !noalias !93
   %pixel.i25.i = getelementptr inbounds i8, ptr %call28.i349, i64 12
   store i64 0, ptr %pixel.i25.i, align 4, !noalias !93
-  %220 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %217)
+  %220 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %217)
   %or.cond.i26.i = icmp eq i32 %220, 1
   br i1 %or.cond.i26.i, label %invoke.cont31.i, label %if.then.i27.i
 
@@ -5861,7 +5861,7 @@ entry:
   store i32 %randomize, ptr %this, align 8
   %seed3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %seed, ptr %seed3, align 4
-  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
   %or.cond = icmp eq i32 %0, 1
   br i1 %or.cond, label %if.end, label %if.then
 
@@ -7503,7 +7503,7 @@ entry:
   store i32 %randomizer, ptr %randomize, align 4
   %pixel = getelementptr inbounds i8, ptr %this, i64 12
   store i64 0, ptr %pixel, align 4
-  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
   %or.cond = icmp eq i32 %0, 1
   br i1 %or.cond, label %if.end, label %if.then
 

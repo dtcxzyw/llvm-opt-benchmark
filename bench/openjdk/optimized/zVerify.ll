@@ -1733,7 +1733,7 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
   %80 = zext i32 %78 to i64
   %81 = shl i64 %79, %80
   %82 = and i64 %81, %3
-  %83 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %82)
+  %83 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
   %or.cond45.i = icmp eq i64 %83, 1
   br i1 %or.cond45.i, label %84, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
@@ -1745,14 +1745,14 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
 
 87:                                               ; preds = %84, %66
   %88 = and i64 %3, 61440
-  %89 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %88)
+  %89 = tail call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %88)
   %or.cond47.i = icmp eq i64 %89, 1
   br i1 %or.cond47.i, label %90, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
 90:                                               ; preds = %87
   %91 = and i64 %3, 768
   %92 = and i64 %3, 48
-  %93 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %91)
+  %93 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %91)
   %or.cond49.i = icmp eq i64 %93, 1
   br i1 %or.cond49.i, label %94, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 

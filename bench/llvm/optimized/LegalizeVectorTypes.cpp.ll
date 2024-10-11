@@ -43840,7 +43840,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %66, %70
   %.sroa.2147.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i8 %.fca.1.extract145, ptr %.sroa.2147.0..sroa_idx, align 8
   %72 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #14
-  %73 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %72)
+  %73 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %72)
   %or.cond = icmp eq i64 %73, 1
   br i1 %or.cond, label %74, label %_ZL9isSETCCOpj.exit186
 

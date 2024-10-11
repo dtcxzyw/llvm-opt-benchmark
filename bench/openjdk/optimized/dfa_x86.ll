@@ -42692,7 +42692,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, 1
-  %28 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %27)
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
   %or.cond119 = icmp eq i32 %28, 1
   br i1 %or.cond119, label %29, label %.thread109
 
@@ -43237,7 +43237,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 _ZNK4Node8get_longEv.exit160:                     ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
   %56 = getelementptr inbounds i8, ptr %53, i64 24
   %57 = load i64, ptr %56, align 8
-  %58 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %57)
+  %58 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
   %or.cond166 = icmp eq i64 %58, 1
   br i1 %or.cond166, label %59, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit162.thread
 

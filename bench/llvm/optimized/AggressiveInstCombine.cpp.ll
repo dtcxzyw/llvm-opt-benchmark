@@ -1247,7 +1247,7 @@ _ZL19foldAnyOrAllBitsSetRN4llvm11InstructionE.exit: ; preds = %.lr.ph, %.thread.
   %503 = getelementptr inbounds i8, ptr %.sroa.0226.0262, i64 -16
   %504 = load ptr, ptr %503, align 8
   %505 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %504) #18
-  %506 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %505)
+  %506 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %505)
   %or.cond.i = icmp eq i32 %506, 1
   br i1 %or.cond.i, label %507, label %_ZL22foldGuardedFunnelShiftRN4llvm11InstructionERKNS_13DominatorTreeE.exit
 
@@ -2292,7 +2292,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %952, %950
   br i1 %956, label %957, label %959
 
 957:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
-  %958 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %955)
+  %958 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %955)
   %or.cond.i76 = icmp eq i64 %958, 1
   br i1 %or.cond.i76, label %962, label %.critedge91.i
 
@@ -2499,7 +2499,7 @@ _ZN4llvm5APIntC2ERKS0_.exit105.i:                 ; preds = %1045, %1043
   br i1 %1049, label %1050, label %1052
 
 1050:                                             ; preds = %_ZN4llvm5APIntC2ERKS0_.exit105.i
-  %1051 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1048)
+  %1051 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1048)
   %or.cond.i.i = icmp eq i64 %1051, 1
   br i1 %or.cond.i.i, label %1055, label %_ZNK4llvm5APInt13exactLogBase2Ev.exit.i
 

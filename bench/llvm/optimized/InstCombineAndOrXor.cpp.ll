@@ -2052,7 +2052,7 @@ _ZNK4llvm5APInt3uleEm.exit.i:                     ; preds = %_ZNK4llvm5APInt13ge
 
 87:                                               ; preds = %82
   %88 = load i64, ptr %83, align 8
-  %89 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %88)
+  %89 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %88)
   %or.cond.i = icmp eq i64 %89, 1
   br i1 %or.cond.i, label %115, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -2092,7 +2092,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 109:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
   %110 = load i64, ptr %105, align 8
-  %111 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %110)
+  %111 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %110)
   %or.cond29.i = icmp eq i64 %111, 1
   br i1 %or.cond29.i, label %115, label %_ZL12matchIntPartPN4llvm5ValueE.exit
 
@@ -11668,7 +11668,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm5APInt13exactLogBase2Ev(ptr nou
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %0, align 8
-  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %11, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -19281,7 +19281,7 @@ _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit27
-  %149 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %139)
+  %149 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %139)
   %or.cond = icmp eq i64 %149, 1
   br i1 %or.cond, label %153, label %_ZN4llvm5APIntD2Ev.exit30
 
@@ -31638,7 +31638,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch11api_pred_
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond = icmp eq i64 %11, 1
   br i1 %or.cond, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread
 
@@ -31678,7 +31678,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 31:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit
   %32 = load i64, ptr %27, align 8
-  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
   %or.cond29 = icmp eq i64 %33, 1
   br i1 %or.cond29, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread
 
@@ -38690,7 +38690,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4ll
 
 27:                                               ; preds = %22
   %28 = load i64, ptr %23, align 8
-  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %28)
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %28)
   %or.cond.i18 = icmp eq i64 %29, 1
   br i1 %or.cond.i18, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11api_pred_tyINS0_9is_power2EEELj13ELb0EE5matchIS3_EEbPT_.exit.i.i, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i9
 
@@ -38730,7 +38730,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i14: ; pr
 
 49:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i14
   %50 = load i64, ptr %45, align 8
-  %51 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %50)
+  %51 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
   %or.cond29.i17 = icmp eq i64 %51, 1
   br i1 %or.cond29.i17, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11api_pred_tyINS0_9is_power2EEELj13ELb0EE5matchIS3_EEbPT_.exit.i.i, label %_ZN4llvm5APIntaSERKS0_.exit
 
@@ -38756,7 +38756,7 @@ _ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11api_pred_t
 
 63:                                               ; preds = %58
   %64 = load i64, ptr %59, align 8
-  %65 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %64)
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %64)
   %or.cond.i = icmp eq i64 %65, 1
   br i1 %or.cond.i, label %91, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -38796,7 +38796,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 85:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
   %86 = load i64, ptr %81, align 8
-  %87 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %86)
+  %87 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %86)
   %or.cond29.i = icmp eq i64 %87, 1
   br i1 %or.cond29.i, label %91, label %_ZN4llvm5APIntaSERKS0_.exit
 
@@ -43118,7 +43118,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 55:                                               ; preds = %50
   %56 = load i64, ptr %51, align 8
-  %57 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %56)
+  %57 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %56)
   %or.cond = icmp eq i64 %57, 1
   br i1 %or.cond, label %61, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 

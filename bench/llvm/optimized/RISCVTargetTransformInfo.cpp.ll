@@ -1084,7 +1084,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %121, %127, %130
 
 156:                                              ; preds = %155
   %157 = load i64, ptr %3, align 8
-  %158 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %157)
+  %158 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %157)
   %or.cond124 = icmp eq i64 %158, 1
   br i1 %or.cond124, label %289, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -1098,7 +1098,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %121, %127, %130
 
 163:                                              ; preds = %162
   %164 = load i64, ptr %3, align 8
-  %165 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %164)
+  %165 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %164)
   %or.cond126 = icmp eq i64 %165, 1
   br i1 %or.cond126, label %289, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit82.thread
 

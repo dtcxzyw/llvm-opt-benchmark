@@ -5807,7 +5807,7 @@ _ZN4llvm5APIntD2Ev.exit65.i:                      ; preds = %167, %165
   br i1 %172, label %174, label %176
 
 174:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit65.i
-  %175 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %161)
+  %175 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %161)
   %or.cond.i = icmp eq i64 %175, 1
   br i1 %or.cond.i, label %179, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
 
@@ -5832,7 +5832,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %176, %174
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
-  %187 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %171)
+  %187 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %171)
   %or.cond81.i = icmp eq i64 %187, 1
   br i1 %or.cond81.i, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit71.thread.i.thread4, label %_ZN4llvm5APIntD2Ev.exit75.i
 
@@ -6026,7 +6026,7 @@ _ZN4llvm5APIntD2Ev.exit85.i:                      ; preds = %265, %262, %_ZN4llv
   br i1 %266, label %267, label %269
 
 267:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit85.i
-  %268 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %230)
+  %268 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %230)
   %or.cond67.i = icmp eq i64 %268, 1
   br i1 %or.cond67.i, label %272, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit88.thread.i
 
@@ -6051,7 +6051,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit88.thread.i:    ; preds = %269, %267
   br i1 %278, label %279, label %281
 
 279:                                              ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit88.thread.i
-  %280 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %258)
+  %280 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %258)
   %or.cond85.i = icmp eq i64 %280, 1
   br i1 %or.cond85.i, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit94.thread.i.thread12, label %_ZN4llvm5APIntD2Ev.exit98.i
 

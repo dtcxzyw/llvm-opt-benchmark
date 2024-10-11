@@ -2572,7 +2572,7 @@ if.then73:                                        ; preds = %if.else69
 
 lor.lhs.false81:                                  ; preds = %if.then73
   %conv82 = and i64 %call74, 4294967295
-  %26 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv82)
+  %26 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %conv82)
   %or.cond199 = icmp eq i64 %26, 1
   br i1 %or.cond199, label %if.end119, label %if.then84
 

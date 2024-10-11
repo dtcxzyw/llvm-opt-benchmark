@@ -18179,7 +18179,7 @@ define dso_local noundef ptr @_ZN4llvm12ConstantExpr16getExactLogBase2EPNS_8Cons
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %17, align 8
-  %23 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %or.cond = icmp eq i64 %23, 1
   br i1 %or.cond, label %27, label %.critedge
 
@@ -18295,7 +18295,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %51, %55
 
 80:                                               ; preds = %75
   %81 = load i64, ptr %76, align 8
-  %82 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %81)
+  %82 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %81)
   %or.cond58 = icmp eq i64 %82, 1
   br i1 %or.cond58, label %86, label %.critedge2
 

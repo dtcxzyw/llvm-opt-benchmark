@@ -6748,7 +6748,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %39, %42
 
 60:                                               ; preds = %55
   %61 = load i64, ptr %56, align 8
-  %62 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %61)
+  %62 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %61)
   %or.cond = icmp eq i64 %62, 1
   br i1 %or.cond, label %_ZNKSt3mapIN4llvm7CmpInst9PredicateENS0_11SmallVectorINS0_17BranchProbabilityELj12EEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.thread, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

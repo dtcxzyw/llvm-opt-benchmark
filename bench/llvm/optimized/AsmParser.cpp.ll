@@ -13650,7 +13650,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDir
 
 95:                                               ; preds = %94, %90
   %96 = load i64, ptr %8, align 8
-  %97 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %96)
+  %97 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %96)
   %or.cond34 = icmp eq i64 %97, 1
   br i1 %or.cond34, label %101, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -22194,7 +22194,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser21parseDir
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %30 = load i64, ptr %29, align 8
-  %31 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %30)
+  %31 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %or.cond = icmp eq i64 %31, 1
   br i1 %or.cond, label %35, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 

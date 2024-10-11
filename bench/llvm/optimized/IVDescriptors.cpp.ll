@@ -1524,7 +1524,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %45, %47
   br i1 %52, label %54, label %56
 
 54:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %55 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %55 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
   %or.cond.i = icmp eq i64 %55, 1
   br i1 %or.cond.i, label %_ZNK4llvm5APInt13exactLogBase2Ev.exit, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit40
 

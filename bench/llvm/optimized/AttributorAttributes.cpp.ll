@@ -147256,7 +147256,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %114
 _ZNK4llvm5APInt3ugtEm.exit:                       ; preds = %.thread, %114
   %.0.i.i52 = load i64, ptr %12, align 8
   %119 = icmp ult i64 %.0.i.i52, 4294967297
-  %120 = call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %.0.i.i52)
+  %120 = call range(i64 0, 34) i64 @llvm.ctpop.i64(i64 %.0.i.i52)
   %or.cond = icmp eq i64 %120, 1
   %or.cond118 = select i1 %119, i1 %or.cond, i1 false
   br i1 %or.cond118, label %126, label %.sink.split

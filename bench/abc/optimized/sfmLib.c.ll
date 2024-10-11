@@ -3267,14 +3267,14 @@ Abc_Clock.exit:                                   ; preds = %5, %19
   %42 = zext nneg i32 %41 to i64
   %43 = lshr i64 -1, %42
   %44 = and i64 %43, %36
-  %45 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %44)
+  %45 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
   %or.cond.not = icmp eq i64 %45, 1
   br i1 %or.cond.not, label %49, label %Abc_Tt6IsAndType.exit.thread
 
 Abc_Tt6IsAndType.exit.thread:                     ; preds = %34
   %46 = xor i64 %36, -1
   %47 = and i64 %43, %46
-  %48 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %47)
+  %48 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
   %or.cond234.not = icmp eq i64 %48, 1
   br i1 %or.cond234.not, label %49, label %Abc_Tt6IsOrType.exit.thread
 

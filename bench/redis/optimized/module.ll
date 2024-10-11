@@ -3166,7 +3166,7 @@ if.end42.i:                                       ; preds = %for.body29.i
   %flags.i = getelementptr inbounds i8, ptr %add.ptr.i4072.i, i64 8
   %13 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %13, 15
-  %14 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %and.i)
+  %14 = tail call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %and.i)
   %or.cond.not.i = icmp eq i64 %14, 1
   br i1 %or.cond.not.i, label %if.end52.i, label %do.body46.i
 

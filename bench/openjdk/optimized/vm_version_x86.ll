@@ -1707,7 +1707,7 @@ _ZN10VM_Version23os_supports_avx_vectorsEv.exit:  ; preds = %.preheader23.i, %.p
 
 533:                                              ; preds = %532, %528
   %534 = phi i64 [ %530, %532 ], [ %529, %528 ]
-  %535 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %534)
+  %535 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %534)
   %or.cond153 = icmp eq i64 %535, 1
   br i1 %or.cond153, label %538, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

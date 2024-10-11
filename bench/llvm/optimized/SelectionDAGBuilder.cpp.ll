@@ -19271,7 +19271,7 @@ _ZNK4llvm5APIntneEm.exit.thread554:               ; preds = %_ZNK4llvm5APInt13ge
   br i1 %.not582, label %395, label %.thread553
 
 364:                                              ; preds = %_ZNK4llvm5APIntneEm.exit
-  %365 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i)
+  %365 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i)
   %or.cond567 = icmp eq i64 %365, 1
   br i1 %or.cond567, label %368, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

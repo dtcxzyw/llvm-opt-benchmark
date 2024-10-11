@@ -16347,7 +16347,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %436
   br label %.sink.split508
 
 457:                                              ; preds = %452
-  %458 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0295.0.extract.trunc)
+  %458 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0295.0.extract.trunc)
   %or.cond403 = icmp eq i32 %458, 1
   br i1 %or.cond403, label %461, label %_ZN4llvm13isPowerOf2_32Ej.exit135.thread
 
@@ -54220,7 +54220,7 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
   %573 = load ptr, ptr %569, align 8
   %.0.in.i.i = select i1 %572, ptr %569, ptr %573
   %.0.i.i367 = load i64, ptr %.0.in.i.i, align 8
-  %574 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i367)
+  %574 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i367)
   %or.cond461 = icmp eq i64 %574, 1
   br i1 %or.cond461, label %577, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 

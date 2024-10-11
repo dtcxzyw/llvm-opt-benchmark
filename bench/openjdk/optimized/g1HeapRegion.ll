@@ -549,7 +549,7 @@ define hidden void @_ZN12G1HeapRegion22setup_heap_region_sizeEm(i64 noundef %0) 
 
 9:                                                ; preds = %5, %1
   %.0 = phi i64 [ %8, %5 ], [ %3, %1 ]
-  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0)
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0)
   %or.cond.i = icmp eq i64 %10, 1
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0, i1 true)
   %12 = sub nuw nsw i64 64, %11

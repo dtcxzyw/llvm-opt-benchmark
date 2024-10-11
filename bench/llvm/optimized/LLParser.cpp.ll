@@ -16593,7 +16593,7 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit15: ; preds = %38
   br label %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit
 
 44:                                               ; preds = %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit15.thread, %37
-  %45 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.01922)
+  %45 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.01922)
   %or.cond = icmp eq i64 %45, 1
   br i1 %or.cond, label %49, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -17542,7 +17542,7 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit13: ; preds = %20
   %27 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %9) #25
   store i32 %27, ptr %6, align 8
   %28 = load i32, ptr %1, align 4
-  %29 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %28)
+  %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
   %or.cond = icmp eq i32 %29, 1
   br i1 %or.cond, label %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 

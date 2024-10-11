@@ -153,7 +153,7 @@ define dso_local range(i32 -1, 1) i32 @zend_fiber_init_context(ptr noundef %0, p
 
 6:                                                ; preds = %4
   %7 = tail call i64 @zend_get_page_size() #22
-  %8 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %7)
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
   %or.cond.i.i = icmp eq i64 %8, 1
   %spec.store.select.i.i = select i1 %or.cond.i.i, i64 %7, i64 4096
   store i64 %spec.store.select.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
@@ -271,7 +271,7 @@ define internal void @zend_fiber_trampoline(ptr %0, ptr nocapture readonly %1) #
 
 16:                                               ; preds = %12
   %17 = tail call i64 @zend_get_page_size() #22
-  %18 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
   %or.cond.i.i.i = icmp eq i64 %18, 1
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i64 %17, i64 4096
   store i64 %spec.store.select.i.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
@@ -325,7 +325,7 @@ define dso_local void @zend_fiber_destroy_context(ptr noundef %0) local_unnamed_
 
 9:                                                ; preds = %5
   %10 = tail call i64 @zend_get_page_size() #22
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond.i.i = icmp eq i64 %11, 1
   %spec.store.select.i.i = select i1 %or.cond.i.i, i64 %10, i64 4096
   store i64 %spec.store.select.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
@@ -429,7 +429,7 @@ define dso_local void @zend_fiber_switch_context(ptr noundef %0) local_unnamed_a
 
 42:                                               ; preds = %38
   %43 = tail call i64 @zend_get_page_size() #22
-  %44 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %43)
+  %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
   %or.cond.i.i.i = icmp eq i64 %44, 1
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i64 %43, i64 4096
   store i64 %spec.store.select.i.i.i, ptr @zend_fiber_get_page_size.page_size, align 8

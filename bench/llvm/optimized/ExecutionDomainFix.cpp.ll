@@ -1213,7 +1213,7 @@ _ZN4llvm18ExecutionDomainFix4killEi.exit:         ; preds = %68, %64, %52, %_ZN4
 
 .loopexit143:                                     ; preds = %.loopexit142, %13, %3
   %.0 = phi i32 [ %2, %3 ], [ %2, %13 ], [ %.2, %.loopexit142 ]
-  %73 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0)
+  %73 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0)
   %or.cond = icmp eq i32 %73, 1
   br i1 %or.cond, label %74, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 

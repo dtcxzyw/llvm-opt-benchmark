@@ -8245,7 +8245,7 @@ define dso_local { i64, i32 } @_ZNK4llvm10X86TTIImpl15getAltInstrCostEPNS_10Vect
 define dso_local noundef zeroext i1 @_ZNK4llvm10X86TTIImpl15isLegalAltInstrEPNS_10VectorTypeEjjRKNS_14SmallBitVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
-  %8 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %7)
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
   %or.cond29 = icmp eq i32 %8, 1
   br i1 %or.cond29, label %9, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -21210,7 +21210,7 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15C
   %368 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %369 = load i32, ptr %368, align 8
   %370 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
-  %371 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %369)
+  %371 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %369)
   %or.cond675 = icmp eq i32 %371, 1
   br i1 %or.cond675, label %372, label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE26getArithmeticReductionCostEjPNS_10VectorTypeESt8optionalINS_13FastMathFlagsEENS_19TargetTransformInfo14TargetCostKindE.exit429
 
@@ -22185,7 +22185,7 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15C
 _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIjEEPKNS1_IT_EENS0_8ArrayRefISA_EEiNS0_3MVTEEUlRS3_E_EEES9_S9_S9_T0_St26random_access_iterator_tag.exit348: ; preds = %289, %_ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIjEEPKNS1_IT_EENS0_8ArrayRefISA_EEiNS0_3MVTEEUlRS3_E_EEES9_S9_S9_T0_St26random_access_iterator_tag.exit345.thread451
   %296 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   %297 = load i32, ptr %156, align 8
-  %298 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %297)
+  %298 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %297)
   %or.cond460 = icmp eq i32 %298, 1
   br i1 %or.cond460, label %299, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 

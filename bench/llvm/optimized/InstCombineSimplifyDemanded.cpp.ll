@@ -4782,7 +4782,7 @@ _ZN4llvm5APIntD2Ev.exit1285:                      ; preds = %2122, %2119, %_ZN4l
 
 2139:                                             ; preds = %2136
   %2140 = load i64, ptr %2, align 8
-  %2141 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2140)
+  %2141 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2140)
   %or.cond = icmp eq i64 %2141, 1
   br i1 %or.cond, label %2145, label %.critedge27
 

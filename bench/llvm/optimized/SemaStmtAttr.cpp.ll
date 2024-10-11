@@ -972,7 +972,7 @@ _ZNK4llvm6APSIntgtEl.exit:                        ; preds = %32, %38, %41
 
 45:                                               ; preds = %43
   %46 = load i64, ptr %7, align 8
-  %47 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %46)
+  %47 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
   %or.cond = icmp eq i64 %47, 1
   br i1 %or.cond, label %111, label %thread-pre-split
 

@@ -90,7 +90,7 @@ define dso_local void @rhash_init_algorithms(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @rhash_info_by_id(i32 noundef %0) local_unnamed_addr #2 {
   %2 = and i32 %0, 1023
-  %3 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %2)
+  %3 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %10
 

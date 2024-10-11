@@ -39263,7 +39263,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread.i:          ; preds = %470, %464, %464
   %.0553906.i = phi i32 [ 189, %476 ], [ 58, %_ZN4llvm13isPowerOf2_64Em.exit.thread.i ]
   %482 = phi i1 [ true, %476 ], [ false, %_ZN4llvm13isPowerOf2_64Em.exit.thread.i ]
   %483 = phi i1 [ false, %476 ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.thread.i ]
-  %484 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %467)
+  %484 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %467)
   %or.cond929.i = icmp eq i32 %484, 1
   br i1 %or.cond929.i, label %485, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
 
@@ -73748,7 +73748,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit2267:   ; preds = %2205, %2210
   %.sroa.2349.0..sroa_idx = getelementptr inbounds i8, ptr %192, i64 8
   store i8 %.fca.1.extract347, ptr %.sroa.2349.0..sroa_idx, align 8
   %2223 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %192) #31
-  %2224 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2223)
+  %2224 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2223)
   %or.cond3044 = icmp eq i64 %2224, 1
   br i1 %or.cond3044, label %2225, label %_ZN4llvm5APIntD2Ev.exit2272
 
@@ -79092,7 +79092,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit439.i:         ; preds = %182, %179
 200:                                              ; preds = %.thread.i
   %201 = add i64 %.0.i.i.i436.i, -1
   %202 = and i64 %201, %.0.i.i.i436.i
-  %203 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %202)
+  %203 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %202)
   %or.cond538.i = icmp eq i64 %203, 1
   br i1 %or.cond538.i, label %204, label %_ZN4llvm13isPowerOf2_64Em.exit443.thread.i
 
@@ -79236,7 +79236,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit449.i:         ; preds = %237, %234
 254:                                              ; preds = %.split.us.i
   %255 = add i64 %.0.i.i.i436.i, -2
   %256 = and i64 %201, %255
-  %257 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %256)
+  %257 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %256)
   %or.cond540.i = icmp eq i64 %257, 1
   br i1 %or.cond540.i, label %258, label %_ZN4llvm13isPowerOf2_64Em.exit453.thread.i
 
@@ -79320,7 +79320,7 @@ _ZN4llvm13isPowerOf2_64Em.exit459.thread.i:       ; preds = %282, %_ZN4llvm13isP
   %283 = load i32, ptr %.0424.ptr.i, align 4
   %284 = sext i32 %283 to i64
   %285 = add i64 %.0.i.i.i436.i, %284
-  %286 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %285)
+  %286 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %285)
   %or.cond542.i = icmp eq i64 %286, 1
   br i1 %or.cond542.i, label %287, label %282
 
@@ -79386,7 +79386,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit461.i:         ; preds = %290, %287
   %309 = sub i64 0, %.0.i.i.i436.i
   %310 = and i64 %.0.i.i.i436.i, %309
   %311 = add i64 %310, %.0.i.i.i436.i
-  %312 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %311)
+  %312 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %311)
   %or.cond544.i = icmp eq i64 %312, 1
   br i1 %or.cond544.i, label %313, label %_ZL9expandMulPN4llvm6SDNodeERNS_12SelectionDAGERNS_14TargetLowering15DAGCombinerInfoERKNS_14RISCVSubtargetE.exit
 
@@ -84065,7 +84065,7 @@ define internal fastcc noundef zeroext i1 @_ZL10combine_CCRN4llvm7SDValueES1_S1_
   %144 = load ptr, ptr %140, align 8
   %.0.in.i.i.i.i.i161 = select i1 %143, ptr %140, ptr %144
   %.0.i.i.i.i.i162 = load i64, ptr %.0.in.i.i.i.i.i161, align 8
-  %145 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
+  %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
   %or.cond210 = icmp eq i64 %145, 1
   br i1 %or.cond210, label %146, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -84820,7 +84820,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit25:            ; preds = %32, %36
   store i8 %.fca.1.extract5, ptr %.sroa.27.0..sroa_idx, align 8
   %38 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #31
   %39 = trunc i64 %38 to i32
-  %40 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %39)
+  %40 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
   %or.cond = icmp eq i32 %40, 1
   br i1 %or.cond, label %41, label %.critedge
 
@@ -109726,7 +109726,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %67, %69
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %76 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %73)
+  %76 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %73)
   %or.cond = icmp eq i64 %76, 1
   br i1 %or.cond, label %.critedge55, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -109764,7 +109764,7 @@ _ZN4llvm5APIntC2ERKS0_.exit67:                    ; preds = %83, %85
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit67
-  %92 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %89)
+  %92 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %89)
   %or.cond175 = icmp eq i64 %92, 1
   br i1 %or.cond175, label %.critedge53, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit70.thread
 
@@ -109820,7 +109820,7 @@ _ZN4llvmmiEmNS_5APIntE.exit:                      ; preds = %_ZN4llvm5APInt15cle
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %_ZN4llvmmiEmNS_5APIntE.exit
-  %118 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %115)
+  %118 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %115)
   %or.cond177 = icmp eq i64 %118, 1
   br i1 %or.cond177, label %.critedge51, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit74.thread
 
@@ -110088,7 +110088,7 @@ _ZN4llvm5APIntC2ERKS0_.exit90:                    ; preds = %240, %241
   br i1 %246, label %247, label %249
 
 247:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit90
-  %248 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %245)
+  %248 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %245)
   %or.cond179 = icmp eq i64 %248, 1
   br i1 %or.cond179, label %.critedge59.thread, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit93.thread
 
@@ -110126,7 +110126,7 @@ _ZN4llvm5APIntC2ERKS0_.exit94:                    ; preds = %255, %257
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit94
-  %264 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %261)
+  %264 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %261)
   %or.cond181 = icmp eq i64 %264, 1
   br i1 %or.cond181, label %.critedge57, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit97.thread
 

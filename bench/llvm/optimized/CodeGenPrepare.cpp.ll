@@ -38869,7 +38869,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %45, %47
 
 74:                                               ; preds = %71
   %75 = load i64, ptr %5, align 8
-  %76 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %75)
+  %76 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %75)
   %or.cond = icmp eq i64 %76, 1
   %.pre136 = load i16, ptr %52, align 2
   %77 = and i16 %.pre136, 63

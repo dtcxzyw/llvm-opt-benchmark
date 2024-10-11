@@ -47274,7 +47274,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i266: ; preds = %_ZNSt11char_traits
   br label %89
 
 89:                                               ; preds = %88, %84
-  %90 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.0300)
+  %90 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.0300)
   %or.cond314 = icmp eq i32 %90, 1
   br i1 %or.cond314, label %94, label %_ZN7glslang6IsPow2IiEEbT_.exit.thread
 
@@ -47760,7 +47760,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %350 = getelementptr inbounds i8, ptr %349, i64 40
   %351 = load ptr, ptr %350, align 8
   tail call void %351(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL25E_GL_EXT_buffer_referenceE, ptr noundef nonnull @.str.688) #22
-  %352 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.0300)
+  %352 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.0300)
   %or.cond323 = icmp eq i32 %352, 1
   br i1 %or.cond323, label %.preheader, label %_ZN7glslang6IsPow2IiEEbT_.exit294.thread
 

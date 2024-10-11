@@ -8493,7 +8493,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit116:           ; preds = %123, %127, %130, %_
   store i8 %.sroa.3.0.i109, ptr %.sroa.231.0..sroa_idx, align 8
   %141 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #23
   %142 = trunc i64 %141 to i32
-  %143 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %142)
+  %143 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %142)
   %or.cond = icmp eq i32 %143, 1
   br i1 %or.cond, label %162, label %.critedge
 

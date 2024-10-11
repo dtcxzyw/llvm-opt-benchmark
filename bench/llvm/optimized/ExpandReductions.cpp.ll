@@ -596,7 +596,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_13IntrinsicInstEEEbRKT0_.exit.thread109: ; 
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %183 = load i32, ptr %182, align 8
-  %184 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %183)
+  %184 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %183)
   %or.cond = icmp eq i32 %184, 1
   br i1 %or.cond, label %185, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -620,7 +620,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_13IntrinsicInstEEEbRKT0_.exit.thread109: ; 
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %199 = load i32, ptr %198, align 8
-  %200 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %199)
+  %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %199)
   %or.cond113 = icmp eq i32 %200, 1
   br i1 %or.cond113, label %201, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -672,7 +672,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_13IntrinsicInstEEEbRKT0_.exit.thread109: ; 
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load i32, ptr %234, align 8
-  %236 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %235)
+  %236 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %235)
   %or.cond115 = icmp eq i32 %236, 1
   br i1 %or.cond115, label %237, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -693,7 +693,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_13IntrinsicInstEEEbRKT0_.exit.thread109: ; 
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %251 = load i32, ptr %250, align 8
-  %252 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %251)
+  %252 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %251)
   %or.cond117 = icmp eq i32 %252, 1
   %253 = and i32 %.sroa.078.0, 2
   %254 = icmp ne i32 %253, 0

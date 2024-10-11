@@ -138,7 +138,7 @@ _ZNK5clang12FileEntryRef7getSizeEv.exit:          ; preds = %6
   %47 = load i32, ptr %46, align 4
   %48 = call i32 @llvm.bswap.i32(i32 %47)
   %49 = select i1 %storemerge.i, i32 %48, i32 %47
-  %50 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %49)
+  %50 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %49)
   %or.cond.i = icmp eq i32 %50, 1
   br i1 %or.cond.i, label %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit, label %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread
 
@@ -235,7 +235,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13HeaderMapImpl11checkHeaderERKN4l
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 @llvm.bswap.i32(i32 %27)
   %29 = select i1 %25, i32 %28, i32 %27
-  %30 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
   %or.cond = icmp eq i32 %30, 1
   br i1 %or.cond, label %31, label %.thread
 

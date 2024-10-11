@@ -4991,14 +4991,14 @@ Dau_Dsd6DecomposeTripleVarsOuter.exit:            ; preds = %Dau_DsdTranslate.ex
   %178 = xor i32 %.018.lcssa.i, -1
   %179 = lshr i32 %178, 1
   %180 = and i32 %94, %179
-  %181 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %180)
+  %181 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %180)
   %or.cond.not = icmp eq i32 %181, 1
   br i1 %or.cond.not, label %182, label %Abc_TtSuppOnlyOne.exit.thread
 
 182:                                              ; preds = %177
   %183 = and i32 %178, 1431655765
   %184 = and i32 %183, %93
-  %185 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %184)
+  %185 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %184)
   %or.cond79.not = icmp eq i32 %185, 1
   br i1 %or.cond79.not, label %186, label %Abc_TtSuppOnlyOne.exit.thread
 
@@ -9998,14 +9998,14 @@ Dau_DsdDecomposeTripleVarsOuter.exit:             ; preds = %.lr.ph18.preheader.
   %504 = xor i32 %.1.i, -1
   %505 = lshr i32 %504, 1
   %506 = and i32 %373, %505
-  %507 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %506)
+  %507 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %506)
   %or.cond239.not = icmp eq i32 %507, 1
   br i1 %or.cond239.not, label %508, label %Abc_TtSuppOnlyOne.exit.thread
 
 508:                                              ; preds = %503
   %509 = and i32 %504, 1431655765
   %510 = and i32 %509, %372
-  %511 = call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %510)
+  %511 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %510)
   %or.cond241.not = icmp eq i32 %511, 1
   br i1 %or.cond241.not, label %512, label %Abc_TtSuppOnlyOne.exit.thread
 

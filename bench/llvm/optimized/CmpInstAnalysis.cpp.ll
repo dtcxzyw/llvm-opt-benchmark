@@ -640,7 +640,7 @@ _ZN4llvm5APIntD2Ev.exit54:                        ; preds = %212, %209, %_ZN4llv
 
 219:                                              ; preds = %215
   %220 = load i64, ptr %35, align 8
-  %221 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %220)
+  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
   %or.cond = icmp eq i64 %221, 1
   br i1 %or.cond, label %_ZN4llvm5APIntC2ERKS0_.exit.thread, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread
 
@@ -753,7 +753,7 @@ _ZN4llvm5APIntC2ERKS0_.exit59:                    ; preds = %262, %264
   br i1 %269, label %271, label %273
 
 271:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit59
-  %272 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %268)
+  %272 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %268)
   %or.cond171 = icmp eq i64 %272, 1
   br i1 %or.cond171, label %282, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread
 
@@ -891,7 +891,7 @@ _ZN4llvm5APIntC2ERKS0_.exit70:                    ; preds = %316, %318
   br i1 %323, label %325, label %327
 
 325:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit70
-  %326 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %322)
+  %326 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %322)
   %or.cond173 = icmp eq i64 %326, 1
   br i1 %or.cond173, label %336, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread
 
@@ -1006,7 +1006,7 @@ _ZN4llvm5APIntD2Ev.exit83:                        ; preds = %357
 
 369:                                              ; preds = %365
   %370 = load i64, ptr %35, align 8
-  %371 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %370)
+  %371 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %370)
   %or.cond143 = icmp eq i64 %371, 1
   br i1 %or.cond143, label %_ZN4llvm5APIntC2ERKS0_.exit88.thread, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread
 

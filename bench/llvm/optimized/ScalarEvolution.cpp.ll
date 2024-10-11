@@ -17640,7 +17640,7 @@ _ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4SCEV7get
 
 63:                                               ; preds = %16
   %64 = load i64, ptr %12, align 8
-  %65 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %64)
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %64)
   %or.cond = icmp eq i64 %65, 1
   br i1 %or.cond, label %tailrecurse.i20.preheader, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -77216,7 +77216,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm15ScalarEvolution22isKnownT
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %8, align 8
-  %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %or.cond = icmp eq i64 %14, 1
   br i1 %or.cond, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -90478,7 +90478,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm15ScalarEvolution16howManyL
 
 17:                                               ; preds = %10
   %18 = load i64, ptr %13, align 8
-  %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
   %or.cond.i = icmp eq i64 %19, 1
   br i1 %or.cond.i, label %_ZN4llvm15ScalarEvolution22isKnownToBeAPowerOfTwoEPKNS_4SCEVEbb.exit.thread, label %_ZN4llvm15ScalarEvolution22isKnownToBeAPowerOfTwoEPKNS_4SCEVEbb.exit.thread7
 

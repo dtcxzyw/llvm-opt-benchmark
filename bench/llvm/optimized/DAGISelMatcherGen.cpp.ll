@@ -2454,7 +2454,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit232.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %495 = getelementptr inbounds nuw i8, ptr %490, i64 24
   %496 = load i64, ptr %495, align 8
   %497 = trunc i64 %496 to i32
-  %498 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %497)
+  %498 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %497)
   %or.cond = icmp eq i32 %498, 1
   br i1 %or.cond, label %_ZN4llvmeqENS_9StringRefES0_.exit222.thread292, label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread
 

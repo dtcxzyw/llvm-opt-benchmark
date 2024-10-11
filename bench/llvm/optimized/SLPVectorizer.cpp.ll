@@ -4993,7 +4993,7 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntr
 
 28:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EEEE5clearEv.exit
   %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  %30 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %29)
+  %30 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
   %or.cond.not = icmp eq i64 %30, 1
   br i1 %or.cond.not, label %32, label %_ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry14isNonPowOf2VecEv.exit.thread
 
@@ -6465,7 +6465,7 @@ _ZL14getWidenedTypePN4llvm4TypeEj.exit:           ; preds = %_ZNK4llvm4Type13get
   %76 = zext i1 %75 to i8
   %77 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   %.sroa.244.0.copyload.pre = load i64, ptr %17, align 8
-  %78 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.244.0.copyload.pre)
+  %78 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.244.0.copyload.pre)
   %or.cond181 = icmp eq i64 %78, 1
   %or.cond269 = select i1 %77, i1 true, i1 %or.cond181
   br i1 %or.cond269, label %79, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit.thread
@@ -11220,7 +11220,7 @@ define dso_local void @_ZN4llvm13slpvectorizer7BoUpSLP17getReorderingDataERKNS1_
   %25 = alloca %"class.llvm::SmallVector.161", align 8
   %26 = alloca i32, align 4
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  %28 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %27)
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
   %or.cond.not = icmp eq i64 %28, 1
   br i1 %or.cond.not, label %30, label %_ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry14isNonPowOf2VecEv.exit.thread
 
@@ -19384,7 +19384,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13slpvectorizer7BoUpSLP18canReorder
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
-  %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %or.cond.not = icmp eq i64 %14, 1
   br i1 %or.cond.not, label %15, label %_ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry14isNonPowOf2VecEv.exit.thread
 
@@ -24564,7 +24564,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm13slpvectorizer7BoUpSLP18re
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
-  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %8)
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %or.cond.not = icmp eq i64 %9, 1
   br i1 %or.cond.not, label %10, label %_ZNSt8optionalIN4llvm11SmallVectorIjLj4EEEED2Ev.exit
 
@@ -33065,7 +33065,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6deta
 
 128:                                              ; preds = %124
   %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %127) #25
-  %130 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %129)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %129)
   %or.cond78.not = icmp eq i64 %130, 1
   br i1 %or.cond78.not, label %134, label %_ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry14isNonPowOf2VecEv.exit.thread
 
@@ -33251,14 +33251,14 @@ _ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry14isNonPowOf2VecEv.exit.thread: ; pred
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS2_8ArrayRefIPNS2_5ValueEEEjRKNS4_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS7_E_EclIPS7_EEbT_.exit44.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS2_8ArrayRefIPNS2_5ValueEEEjRKNS4_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS7_E_EclIPS7_EEbT_.exit47.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS2_8ArrayRefIPNS2_5ValueEEEjRKNS4_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS7_E_EclIPS7_EEbT_.exit50.i.i.i.i.i" ], [ %188, %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj6EEEZZNS_13slpvectorizer7BoUpSLP13buildTree_recENS_8ArrayRefIS3_EEjRKNS7_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %189, %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj6EEEZZNS_13slpvectorizer7BoUpSLP13buildTree_recENS_8ArrayRefIS3_EEjRKNS7_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit121" ], [ %190, %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj6EEEZZNS_13slpvectorizer7BoUpSLP13buildTree_recENS_8ArrayRefIS3_EEjRKNS7_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit123" ], [ %.02961.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS2_8ArrayRefIPNS2_5ValueEEEjRKNS4_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS7_E_EclIPS7_EEbT_.exit.i.i.i.i.i" ]
   %191 = icmp ne ptr %144, %.028.i.i.i.i.i
   %192 = trunc i64 %114 to i32
-  %193 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %192)
+  %193 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %192)
   %or.cond80 = icmp eq i32 %193, 1
   %or.cond82 = select i1 %191, i1 %or.cond80, i1 false
   br i1 %or.cond82, label %305, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj6EEEZZNS_13slpvectorizer7BoUpSLP13buildTree_recENS_8ArrayRefIS3_EEjRKNS7_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS3_E_EEbOT_T0_.exit.thread"
 
 194:                                              ; preds = %136
   %.old = trunc i64 %114 to i32
-  %.old81 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.old)
+  %.old81 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.old)
   %or.cond80.old = icmp eq i32 %.old81, 1
   br i1 %or.cond80.old, label %305, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj6EEEZZNS_13slpvectorizer7BoUpSLP13buildTree_recENS_8ArrayRefIS3_EEjRKNS7_8EdgeInfoEENK3$_3clERKN12_GLOBAL__N_117InstructionsStateEbEUlS3_E_EEbOT_T0_.exit.thread"
 
@@ -42790,7 +42790,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 78:                                               ; preds = %73
   %79 = load i64, ptr %74, align 8
-  %80 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %79)
+  %80 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
   %or.cond157.i.i.i.i.i = icmp eq i64 %80, 1
   br i1 %or.cond157.i.i.i.i.i, label %84, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit"
 
@@ -42815,7 +42815,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 92:                                               ; preds = %87
   %93 = load i64, ptr %88, align 8
-  %94 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %93)
+  %94 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %93)
   %or.cond.i.i.i.i = icmp eq i64 %94, 1
   br i1 %or.cond.i.i.i.i, label %98, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit.loopexit.split.loop.exit228"
 
@@ -42840,7 +42840,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 106:                                              ; preds = %101
   %107 = load i64, ptr %102, align 8
-  %108 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %107)
+  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %107)
   %or.cond4.i.i.i.i = icmp eq i64 %108, 1
   br i1 %or.cond4.i.i.i.i, label %112, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit.loopexit.split.loop.exit232"
 
@@ -42865,7 +42865,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 120:                                              ; preds = %115
   %121 = load i64, ptr %116, align 8
-  %122 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %121)
+  %122 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %121)
   %or.cond6.i.i.i.i = icmp eq i64 %122, 1
   br i1 %or.cond6.i.i.i.i, label %126, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit.loopexit.split.loop.exit236"
 
@@ -42908,7 +42908,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 138:                                              ; preds = %133
   %139 = load i64, ptr %134, align 8
-  %140 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %139)
+  %140 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %139)
   %or.cond.i.i.i.i.i = icmp eq i64 %140, 1
   br i1 %or.cond.i.i.i.i.i, label %144, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit"
 
@@ -42937,7 +42937,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 153:                                              ; preds = %148
   %154 = load i64, ptr %149, align 8
-  %155 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %154)
+  %155 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %154)
   %or.cond153.i.i.i.i.i = icmp eq i64 %155, 1
   br i1 %or.cond153.i.i.i.i.i, label %159, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit"
 
@@ -42966,7 +42966,7 @@ switch.early.test56.i.i.i.i.i:                    ; preds = %38
 
 168:                                              ; preds = %163
   %169 = load i64, ptr %164, align 8
-  %170 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %169)
+  %170 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %169)
   %or.cond155.i.i.i.i.i = icmp eq i64 %170, 1
   br i1 %or.cond155.i.i.i.i.i, label %174, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZNS_13slpvectorizer7BoUpSLP14getOperandInfoES4_E3$_2EEbOT_T0_.exit"
 
@@ -109027,7 +109027,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm17SLPVectorizerPass19vectorizeSt
   %22 = load ptr, ptr %1, align 8
   %23 = tail call noundef i32 @_ZN4llvm13slpvectorizer7BoUpSLP20getVectorElementSizeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(3008) %3, ptr noundef %22)
   %24 = trunc i64 %2 to i32
-  %25 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %23)
+  %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
   %or.cond140 = icmp ne i32 %25, 1
   %.not.i71 = icmp eq i32 %24, 0
   %or.cond141 = select i1 %or.cond140, i1 true, i1 %.not.i71
@@ -109196,7 +109196,7 @@ _ZN4llvm6all_ofIRNS_9SetVectorIPNS_5ValueENS_11SmallVectorIS3_Lj0EEENS_8DenseSet
   store ptr %38, ptr %16, align 8
   call void @_ZN4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_EC2IPKS3_EERKT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #25
-  %101 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %100)
+  %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %100)
   %or.cond143 = icmp eq i64 %101, 1
   br i1 %or.cond143, label %_ZN4llvm14has_single_bitImvEEbT_.exit75.thread133, label %_ZN4llvm14has_single_bitImvEEbT_.exit.thread
 
@@ -109208,7 +109208,7 @@ _ZN4llvm14has_single_bitImvEEbT_.exit.thread:     ; preds = %99
 104:                                              ; preds = %_ZN4llvm14has_single_bitImvEEbT_.exit.thread
   %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #25
   %106 = add i64 %105, 1
-  %107 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %106)
+  %107 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %106)
   %or.cond145 = icmp eq i64 %107, 1
   br i1 %or.cond145, label %_ZN4llvm14has_single_bitImvEEbT_.exit75.thread133, label %_ZN4llvm14has_single_bitImvEEbT_.exit75.thread
 
@@ -111388,7 +111388,7 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %133, %147
   %.sroa.speculate.load.false = call i32 @llvm.umax.i32(i32 %.0, i32 %160)
   %.sroa.speculated649 = select i1 %161, i32 %.sroa.speculated597, i32 %.sroa.speculate.load.false
   %162 = add i32 %.sroa.speculated649, 1
-  %163 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %162)
+  %163 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %162)
   %or.cond738 = icmp eq i32 %163, 1
   %spec.select743 = select i1 %or.cond738, i32 %.sroa.speculated649, i32 0
   br label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread
@@ -113955,7 +113955,7 @@ _ZL14getWidenedTypePN4llvm4TypeEj.exit..loopexit_crit_edge: ; preds = %_ZL14getW
   %.076232 = phi i32 [ %.072253, %.lr.ph236 ], [ %478, %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread ]
   %240 = sub nuw i32 %196, %.076232
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %storemerge251, i32 %240)
-  %241 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.speculated)
+  %241 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.speculated)
   %or.cond193 = icmp eq i32 %241, 1
   br i1 %or.cond193, label %242, label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread
 
@@ -162917,7 +162917,7 @@ _ZNK4llvm9MapVectorIPNS_5ValueEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6det
   %1972 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20VectorizeNonPowerOf2, i64 128), align 8
   %1973 = trunc i8 %1972 to i1
   %1974 = add i32 %.0351, 1
-  %1975 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1974)
+  %1975 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1974)
   %or.cond1619 = icmp eq i32 %1975, 1
   %or.cond2497 = select i1 %1973, i1 %or.cond1619, i1 false
   br i1 %or.cond2497, label %1979, label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread

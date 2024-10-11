@@ -21186,7 +21186,7 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo6mulImmERNS_15MachineFunctionERN
   %55 = alloca %"class.llvm::DebugLoc", align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %58 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
   %or.cond = icmp eq i32 %58, 1
   br i1 %or.cond, label %59, label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread
 

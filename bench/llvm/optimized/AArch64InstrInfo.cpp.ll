@@ -26901,7 +26901,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread130: ; preds =
   %85 = load i64, ptr %84, align 8
   %86 = select i1 %81, i32 64, i32 32
   %87 = tail call fastcc noundef i64 @_ZN4llvm10AArch64_AML22decodeLogicalImmediateEmj(i64 noundef %85, i32 noundef %86)
-  %88 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %87)
+  %88 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %87)
   %or.cond136 = icmp eq i64 %88, 1
   br i1 %or.cond136, label %89, label %.critedge80
 

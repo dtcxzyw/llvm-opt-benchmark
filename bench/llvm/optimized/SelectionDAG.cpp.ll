@@ -41428,7 +41428,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %302
 
 314:                                              ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   %315 = load i64, ptr %16, align 8
-  %316 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %315)
+  %316 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %315)
   %or.cond = icmp eq i64 %316, 1
   br i1 %or.cond, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_5SDUseEEEZNKS_12SelectionDAG22isKnownToBeAPowerOfTwoENS_7SDValueEjE3$_1EEbOT_T0_.exit.thread", label %_ZN4llvm5APIntD2Ev.exit.thread-pre-split_crit_edge
 
@@ -89063,7 +89063,7 @@ _ZN4llvm6APSIntC2Ejb.exit._ZNK4llvm5APInt13exactLogBase2Ev.exit_crit_edge: ; pre
 
 44:                                               ; preds = %42
   %45 = load i64, ptr %6, align 8
-  %46 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %45)
+  %46 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %45)
   %or.cond.i = icmp eq i64 %46, 1
   br i1 %or.cond.i, label %50, label %_ZN4llvm6APSIntD2Ev.exit
 

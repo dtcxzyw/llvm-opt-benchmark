@@ -27242,7 +27242,7 @@ _ZN12_GLOBAL__N_124AssumeAlignedAttrEmitterC2ERN5clang7CodeGen15CodeGenFunctionE
 
 1779:                                             ; preds = %1774
   %1780 = load i64, ptr %1775, align 8
-  %1781 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1780)
+  %1781 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1780)
   %or.cond17.i = icmp eq i64 %1781, 1
   br i1 %or.cond17.i, label %.thread.i, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
 
@@ -27433,7 +27433,7 @@ _ZN12_GLOBAL__N_121AllocAlignAttrEmitterC2ERN5clang7CodeGen15CodeGenFunctionEPKN
 
 1859:                                             ; preds = %1854
   %1860 = load i64, ptr %1855, align 8
-  %1861 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1860)
+  %1861 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1860)
   %or.cond17.i1058 = icmp eq i64 %1861, 1
   br i1 %or.cond17.i1058, label %.thread.i1059, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i1043
 

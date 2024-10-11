@@ -18255,7 +18255,7 @@ _ZN4llvm8dyn_castINS_21PossiblyExactOperatorENS_5ValueEEEDcPT0_.exit: ; preds = 
   br i1 %.not533, label %.critedge12, label %664
 
 664:                                              ; preds = %_ZN4llvm8dyn_castINS_21PossiblyExactOperatorENS_5ValueEEEDcPT0_.exit
-  %665 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract52)
+  %665 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract52)
   %or.cond525 = icmp eq i64 %665, 1
   br i1 %or.cond525, label %666, label %_ZN4llvm14has_single_bitImvEEbT_.exit.thread
 
@@ -18325,7 +18325,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit393:              ; preds = %691
 697:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit393
   %698 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 0, ptr %698, align 8
-  %699 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract52)
+  %699 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fca.0.extract52)
   %or.cond527 = icmp eq i64 %699, 1
   %700 = ptrtoint ptr %22 to i64
   br i1 %or.cond527, label %701, label %.critedge16
@@ -19909,7 +19909,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.i: ; preds = %108
 
 172:                                              ; preds = %167
   %173 = load i64, ptr %151, align 8
-  %174 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %173)
+  %174 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %173)
   %or.cond.i.i = icmp eq i64 %174, 1
   br i1 %or.cond.i.i, label %178, label %"_ZZL20isAllocSiteRemovablePN4llvm11InstructionERNS_15SmallVectorImplINS_14WeakTrackingVHEEERKNS_17TargetLibraryInfoEENK3$_0clEPNS_8CallBaseE.exit.thread.i"
 
@@ -26384,7 +26384,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %68, %74, %_ZNK4llvm
   br label %_ZN4llvm5APIntD2Ev.exit
 
 90:                                               ; preds = %74
-  %91 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %75)
+  %91 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %75)
   %or.cond = icmp eq i64 %91, 1
   br i1 %or.cond, label %95, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread
 

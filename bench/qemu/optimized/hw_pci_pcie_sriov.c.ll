@@ -321,7 +321,7 @@ if.end9:                                          ; preds = %if.end5
   %idxprom = zext nneg i32 %region_num to i64
   %arrayidx = getelementptr [7 x i8], ptr %vf_bar_type, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call1)
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call1)
   %or.cond = icmp eq i64 %2, 1
   br i1 %or.cond, label %if.end13, label %if.then12
 

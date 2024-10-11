@@ -6166,7 +6166,7 @@ _ZNK4llvm3EVT21getVectorElementCountEv.exit96:    ; preds = %72, %78
   br label %_ZNK4llvm3EVT6bitsLTES0_.exit.thread
 
 87:                                               ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
-  %88 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0131.sroa.0.0.extract.trunc)
+  %88 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.0131.sroa.0.0.extract.trunc)
   %or.cond = icmp eq i32 %88, 1
   %.sroa.0131.sroa.0.0 = select i1 %or.cond, i32 %.sroa.0131.sroa.0.0.extract.trunc, i32 1
   %.sroa.0131.sroa.10.0 = select i1 %or.cond, i8 %.sroa.0131.sroa.10.0.extract.trunc, i8 0
@@ -6394,7 +6394,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %146, %150
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store i8 %.fca.1.extract10, ptr %.sroa.212.0..sroa_idx, align 8
   %152 = trunc i64 %.fca.0.extract9 to i32
-  %153 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %152)
+  %153 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
   %or.cond178 = icmp eq i32 %153, 1
   br i1 %or.cond178, label %168, label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread
 

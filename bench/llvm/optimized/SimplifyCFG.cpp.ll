@@ -22922,7 +22922,7 @@ _ZL21initializeUniqueCasesPN4llvm10SwitchInstERPNS_7PHINodeERPNS_10BasicBlockERN
   %1480 = load ptr, ptr %1479, align 8
   %1481 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1479) #23
   %1482 = trunc i64 %1481 to i32
-  %1483 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1482)
+  %1483 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1482)
   %or.cond107.i.i = icmp eq i32 %1483, 1
   br i1 %or.cond107.i.i, label %1484, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i.i
 
@@ -24653,7 +24653,7 @@ _ZN4llvm23IntrinsicCostAttributesD2Ev.exit.i:     ; preds = %2191, %_ZN4llvm11Sm
   %2224 = load ptr, ptr %2220, align 8
   %.0.in.i.i = select i1 %2223, ptr %2220, ptr %2224
   %.0.i.i134 = load i64, ptr %.0.in.i.i, align 8
-  %2225 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i134)
+  %2225 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i134)
   %or.cond.i135 = icmp eq i64 %2225, 1
   br i1 %or.cond.i135, label %2226, label %_ZN4llvm14has_single_bitImvEEbT_.exit.thread.i
 
@@ -29977,7 +29977,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN4llvm5APIntC2ERK
 
 536:                                              ; preds = %thread-pre-split.i.i.i.i, %_ZN4llvm5APIntC2ERKS0_.exit89.thread.i.i.i.i
   %537 = phi i64 [ %.pr189.i.i.i.i, %thread-pre-split.i.i.i.i ], [ %534, %_ZN4llvm5APIntC2ERKS0_.exit89.thread.i.i.i.i ]
-  %538 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %537)
+  %538 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %537)
   %or.cond.i.i.i.i = icmp eq i64 %538, 1
   br i1 %or.cond.i.i.i.i, label %542, label %.critedge55.thread.i.i.i.i
 

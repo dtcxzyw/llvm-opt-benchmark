@@ -332,7 +332,7 @@ define hidden void @_ZN22G1RegionMarkStatsCacheC2EP17G1RegionMarkStatsj(ptr noca
   %6 = add i32 %2, -1
   %7 = zext i32 %6 to i64
   store i64 %7, ptr %5, align 8
-  %8 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %8, 1
   br i1 %or.cond, label %10, label %_Z13is_power_of_2IjTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

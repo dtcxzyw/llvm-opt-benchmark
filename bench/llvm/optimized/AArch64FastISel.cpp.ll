@@ -6714,7 +6714,7 @@ _ZNK4llvm4User10getOperandEj.exit52:              ; preds = %40, %43
 
 57:                                               ; preds = %52
   %58 = load i64, ptr %53, align 8
-  %59 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %58)
+  %59 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58)
   %or.cond109 = icmp eq i64 %59, 1
   br i1 %or.cond109, label %63, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -6742,7 +6742,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %57, %60, %63, %_ZNK
 
 70:                                               ; preds = %65
   %71 = load i64, ptr %66, align 8
-  %72 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %71)
+  %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
   %or.cond112 = icmp eq i64 %72, 1
   br i1 %or.cond112, label %76, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit58.thread
 
@@ -12766,7 +12766,7 @@ _ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZNK12
 
 59:                                               ; preds = %54
   %60 = load i64, ptr %55, align 8
-  %61 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %60)
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %or.cond.i = icmp eq i64 %61, 1
   br i1 %or.cond.i, label %.critedge, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
 
@@ -12791,7 +12791,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %62, %59, %_ZN4llvm8
 
 73:                                               ; preds = %68
   %74 = load i64, ptr %69, align 8
-  %75 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %74)
+  %75 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %74)
   %or.cond24.i = icmp eq i64 %75, 1
   br i1 %or.cond24.i, label %.critedge, label %_ZNK4llvm5Value9hasOneUseEv.exit112
 
@@ -13064,7 +13064,7 @@ _ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i130: ; preds = %_ZN
 
 218:                                              ; preds = %213
   %219 = load i64, ptr %214, align 8
-  %220 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %219)
+  %220 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %219)
   %or.cond.i135 = icmp eq i64 %220, 1
   br i1 %or.cond.i135, label %.thread, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i132
 
@@ -13089,7 +13089,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i132:   ; preds = %221, %218, %_ZN4llv
 
 232:                                              ; preds = %227
   %233 = load i64, ptr %228, align 8
-  %234 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %233)
+  %234 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %233)
   %or.cond24.i134 = icmp eq i64 %234, 1
   br i1 %or.cond24.i134, label %240, label %_ZNK4llvm5Value9hasOneUseEv.exit142
 
@@ -13279,7 +13279,7 @@ _ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4llvm
 
 19:                                               ; preds = %14
   %20 = load i64, ptr %15, align 8
-  %21 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
   %or.cond = icmp eq i64 %21, 1
   br i1 %or.cond, label %39, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -13304,7 +13304,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %19, %22, %_ZN4llvm8
 
 33:                                               ; preds = %28
   %34 = load i64, ptr %29, align 8
-  %35 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34)
+  %35 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %34)
   %or.cond24 = icmp eq i64 %35, 1
   br i1 %or.cond24, label %39, label %_ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.thread
 
@@ -15104,7 +15104,7 @@ _ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i: ; preds = %_ZNK12
 
 48:                                               ; preds = %43
   %49 = load i64, ptr %44, align 8
-  %50 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %49)
+  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
   %or.cond.i = icmp eq i64 %50, 1
   br i1 %or.cond.i, label %_ZL11isMulPowOf2PKN4llvm5ValueE.exit, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
 
@@ -15129,7 +15129,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %51, %48, %_ZN4llvm8
 
 62:                                               ; preds = %57
   %63 = load i64, ptr %58, align 8
-  %64 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %63)
+  %64 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
   %or.cond24.i = icmp eq i64 %64, 1
   br i1 %or.cond24.i, label %_ZL11isMulPowOf2PKN4llvm5ValueE.exit, label %_ZNK4llvm5Value9hasOneUseEv.exit57
 
@@ -15282,7 +15282,7 @@ _ZN4llvm8dyn_castINS_11MulOperatorEKNS_5ValueEEEDcPT0_.exit.i68: ; preds = %_ZNK
 
 145:                                              ; preds = %140
   %146 = load i64, ptr %141, align 8
-  %147 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %146)
+  %147 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %146)
   %or.cond.i73 = icmp eq i64 %147, 1
   br i1 %or.cond.i73, label %.thread, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i70
 
@@ -15307,7 +15307,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i70:    ; preds = %148, %145, %_ZN4llv
 
 159:                                              ; preds = %154
   %160 = load i64, ptr %155, align 8
-  %161 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %160)
+  %161 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %160)
   %or.cond24.i72 = icmp eq i64 %161, 1
   br i1 %or.cond24.i72, label %167, label %_ZNK4llvm5Value9hasOneUseEv.exit79
 
@@ -16968,7 +16968,7 @@ _ZNK4llvm4User10getOperandEj.exit369:             ; preds = %407, %410
   %.sroa.274.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i8 %.fca.1.extract72, ptr %.sroa.274.0..sroa_idx, align 8
   %432 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #21
-  %433 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %432)
+  %433 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %432)
   %or.cond553 = icmp eq i64 %433, 1
   br i1 %or.cond553, label %434, label %.critedge
 

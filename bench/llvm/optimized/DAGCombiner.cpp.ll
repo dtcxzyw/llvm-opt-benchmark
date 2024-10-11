@@ -30006,7 +30006,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZNK4llvm3EVT19getS
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr %71, align 8
-  %74 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %66)
+  %74 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %66)
   %or.cond340 = icmp eq i32 %74, 1
   br i1 %or.cond340, label %75, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -75299,7 +75299,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i250:         ; preds = %.thread.i271, %863
   store i8 %.fca.1.extract71.i, ptr %.sroa.273.0..sroa_idx.i, align 8
   %868 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %75) #32
   %869 = trunc i64 %868 to i32
-  %870 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %869)
+  %870 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %869)
   %or.cond213.i = icmp eq i32 %870, 1
   br i1 %or.cond213.i, label %871, label %.critedge.i
 
@@ -75332,7 +75332,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit122.i:         ; preds = %877, %873
   store i8 %.fca.1.extract67.i, ptr %.sroa.269.0..sroa_idx.i, align 8
   %879 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %76) #32
   %880 = trunc i64 %879 to i32
-  %881 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %880)
+  %881 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %880)
   %or.cond215.i = icmp eq i32 %881, 1
   br i1 %or.cond215.i, label %882, label %.critedge.i
 
@@ -75817,7 +75817,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i299:         ; preds = %1053, %1049
   %.sroa.246.0..sroa_idx.i = getelementptr inbounds i8, ptr %66, i64 8
   store i8 %.fca.1.extract44.i302, ptr %.sroa.246.0..sroa_idx.i, align 8
   %1055 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %66) #32
-  %1056 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1055)
+  %1056 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1055)
   %or.cond.i303 = icmp eq i64 %1056, 1
   br i1 %or.cond.i303, label %1057, label %.critedge.i304
 
@@ -123336,7 +123336,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %54, %56
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %63 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %60)
+  %63 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %or.cond41 = icmp eq i64 %63, 1
   br i1 %or.cond41, label %67, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -123447,7 +123447,7 @@ _ZN4llvm5APIntC2ERKS0_.exit75:                    ; preds = %107, %109
   br i1 %114, label %116, label %129
 
 116:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit75
-  %117 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %113)
+  %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %113)
   %or.cond.i = icmp eq i64 %117, 1
   br i1 %or.cond.i, label %_ZNK4llvm5APInt13exactLogBase2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit78.thread
 
@@ -124138,7 +124138,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm5APInt13exactLogBase2Ev(ptr nou
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %0, align 8
-  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %11, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -154551,7 +154551,7 @@ define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_111DAGCombiner12rebuildSetC
 
 54:                                               ; preds = %47
   %55 = load i64, ptr %50, align 8
-  %56 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %55)
+  %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %55)
   %or.cond = icmp eq i64 %56, 1
   br i1 %or.cond, label %60, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

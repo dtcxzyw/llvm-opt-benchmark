@@ -2066,7 +2066,7 @@ _ZN5clang36getFunctionOrMethodResultSourceRangeEPKNS_4DeclE.exit: ; preds = %40,
   br i1 %73, label %95, label %97
 
 95:                                               ; preds = %94
-  %96 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %67)
+  %96 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %67)
   %or.cond = icmp eq i64 %96, 1
   br i1 %or.cond, label %103, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -10198,7 +10198,7 @@ define dso_local void @_ZN5clang4Sema17AddAlignValueAttrEPNS_4DeclERKNS_19Attrib
 
 66:                                               ; preds = %63
   %67 = load i64, ptr %10, align 8
-  %68 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %67)
+  %68 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %67)
   %or.cond42 = icmp eq i64 %68, 1
   br i1 %or.cond42, label %75, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -10896,7 +10896,7 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %_ZNK5clang11Aligned
   br i1 %157, label %163, label %158
 
 158:                                              ; preds = %153, %_ZNK4llvm5APIntntEv.exit, %_ZNK5clang11AlignedAttr9isAlignasEv.exit54
-  %159 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i)
+  %159 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i)
   %or.cond76 = icmp eq i64 %159, 1
   br i1 %or.cond76, label %163, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
@@ -12864,7 +12864,7 @@ _ZL13normalizeNameRN4llvm9StringRefE.exit:        ; preds = %5, %_ZNK4llvm9Strin
 
 56:                                               ; preds = %55
   %57 = load i64, ptr %11, align 8
-  %58 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %57)
+  %58 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
   %or.cond = icmp eq i64 %58, 1
   br i1 %or.cond, label %62, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i
 

@@ -3117,7 +3117,7 @@ _ZNK4llvm6APSInteqEl.exit:                        ; preds = %90, %96, %99
 
 103:                                              ; preds = %101
   %104 = load i64, ptr %11, align 8
-  %105 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %104)
+  %105 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %104)
   %or.cond51 = icmp eq i64 %105, 1
   br i1 %or.cond51, label %_ZNK4llvm6APSInteqEl.exit._crit_edge, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

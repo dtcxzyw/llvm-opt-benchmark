@@ -103,7 +103,7 @@ define void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceab
   %13 = getelementptr inbounds i8, ptr %0, i64 152
   store i8 0, ptr %13, align 8
   %14 = load i64, ptr %8, align 8
-  %15 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %14)
+  %15 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
   %or.cond.i = icmp eq i64 %15, 1
   br i1 %or.cond.i, label %16, label %.invoke
 
@@ -262,7 +262,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN11cache_sim_t4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(153) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
-  %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3)
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
   %or.cond = icmp eq i64 %4, 1
   br i1 %or.cond, label %6, label %5
 

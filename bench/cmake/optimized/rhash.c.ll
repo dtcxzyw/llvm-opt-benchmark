@@ -865,7 +865,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 1023
-  %3 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %2)
+  %3 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %13
 

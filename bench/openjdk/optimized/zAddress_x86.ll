@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef range(i64 42, 45) i64 @_Z26ZPlatformAddressOffsetBitsv() local_unnamed_addr #0 {
   %1 = load i64, ptr @MaxHeapSize, align 8
   %2 = shl i64 %1, 4
-  %3 = tail call range(i64 1, 61) i64 @llvm.ctpop.i64(i64 %2)
+  %3 = tail call range(i64 0, 61) i64 @llvm.ctpop.i64(i64 %2)
   %or.cond.i = icmp eq i64 %3, 1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %5 = sub nuw nsw i64 64, %4
@@ -29,7 +29,7 @@ define hidden noundef range(i64 42, 45) i64 @_Z26ZPlatformAddressOffsetBitsv() l
 define hidden noundef range(i64 42, 45) i64 @_Z29ZPlatformAddressHeapBaseShiftv() local_unnamed_addr #0 {
   %1 = load i64, ptr @MaxHeapSize, align 8
   %2 = shl i64 %1, 4
-  %3 = tail call range(i64 1, 61) i64 @llvm.ctpop.i64(i64 %2)
+  %3 = tail call range(i64 0, 61) i64 @llvm.ctpop.i64(i64 %2)
   %or.cond.i.i = icmp eq i64 %3, 1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %5 = sub nuw nsw i64 64, %4

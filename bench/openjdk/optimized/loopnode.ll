@@ -2333,7 +2333,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit:       ; preds = %.loopexit
 
 74:                                               ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit
   %75 = add i32 %73, 1
-  %76 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %75)
+  %76 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %75)
   %or.cond.i.i.i = icmp eq i32 %76, 1
   %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %75, i1 true)
   %78 = sub nuw nsw i32 32, %77
@@ -2642,7 +2642,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit55:     ; preds = %243
 
 255:                                              ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit55
   %256 = add i32 %254, 1
-  %257 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %256)
+  %257 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %256)
   %or.cond.i.i.i57 = icmp eq i32 %257, 1
   %258 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %256, i1 true)
   %259 = sub nuw nsw i32 32, %258
@@ -2731,7 +2731,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit63:     ; preds = %296
 
 308:                                              ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit63
   %309 = add i32 %307, 1
-  %310 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %309)
+  %310 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %309)
   %or.cond.i.i.i65 = icmp eq i32 %310, 1
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %309, i1 true)
   %312 = sub nuw nsw i32 32, %311
@@ -2790,7 +2790,7 @@ define hidden void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr nocapture nounde
 
 9:                                                ; preds = %4
   %10 = add i32 %6, 1
-  %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %10)
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10)
   %or.cond.i.i = icmp eq i32 %11, 1
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %13 = sub nuw nsw i32 32, %12
@@ -6735,7 +6735,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit:       ; preds = %216
 
 231:                                              ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit
   %232 = add i32 %230, 1
-  %233 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %232)
+  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
   %or.cond.i.i.i = icmp eq i32 %233, 1
   %234 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %232, i1 true)
   %235 = sub nuw nsw i32 32, %234
@@ -7965,7 +7965,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit:       ; preds = %_ZNK14PhaseIdealLoo
 
 144:                                              ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit
   %145 = add i32 %143, 1
-  %146 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %145)
+  %146 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %145)
   %or.cond.i.i.i = icmp eq i32 %146, 1
   %147 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %145, i1 true)
   %148 = sub nuw nsw i32 32, %147
@@ -8073,7 +8073,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit51:     ; preds = %_ZNK14PhaseIdealLoo
 
 210:                                              ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit51
   %211 = add i32 %209, 1
-  %212 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %211)
+  %212 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %211)
   %or.cond.i.i.i53 = icmp eq i32 %212, 1
   %213 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %211, i1 true)
   %214 = sub nuw nsw i32 32, %213
@@ -13187,7 +13187,7 @@ define hidden noundef ptr @_ZN13LoopLimitNode5IdealEP8PhaseGVNb(ptr nocapture no
   br label %.sink.split
 
 116:                                              ; preds = %61
-  %117 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.064)
+  %117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.064)
   %or.cond = icmp eq i32 %117, 1
   br i1 %or.cond, label %119, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

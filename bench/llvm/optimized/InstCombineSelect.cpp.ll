@@ -6551,7 +6551,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_11class_matchIS2
 
 108:                                              ; preds = %105
   %109 = load i64, ptr %6, align 8
-  %110 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %109)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %109)
   %or.cond125 = icmp eq i64 %110, 1
   br i1 %or.cond125, label %114, label %thread-pre-split118
 
@@ -6666,7 +6666,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %137
 
 165:                                              ; preds = %164
   %.pr = load i64, ptr %spec.select, align 8
-  %166 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.pr)
+  %166 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.pr)
   %or.cond127 = icmp eq i64 %166, 1
   br i1 %or.cond127, label %.thread, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit99.thread
 
@@ -9322,7 +9322,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit: ; preds = 
 
 73:                                               ; preds = %68
   %74 = load i64, ptr %69, align 8
-  %75 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %74)
+  %75 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %74)
   %or.cond.i = icmp eq i64 %75, 1
   br i1 %or.cond.i, label %101, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -9362,7 +9362,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 95:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
   %96 = load i64, ptr %91, align 8
-  %97 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %96)
+  %97 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %96)
   %or.cond29.i = icmp eq i64 %97, 1
   br i1 %or.cond29.i, label %101, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_11class_matchIS2_EENS0_11api_pred_tyINS0_9is_power2EEELj28ELb0EEEEEbPT_RKT0_.exit.thread
 
@@ -9410,7 +9410,7 @@ _ZNK4llvm5APInt8logBase2Ev.exit:                  ; preds = %105, %110
 
 119:                                              ; preds = %117
   %120 = load i64, ptr %8, align 8
-  %121 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %120)
+  %121 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %120)
   %or.cond = icmp eq i64 %121, 1
   br i1 %or.cond, label %125, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_11class_matchIS2_EENS0_11api_pred_tyINS0_9is_power2EEELj28ELb0EEEEEbPT_RKT0_.exit.thread
 
@@ -21005,7 +21005,7 @@ define internal fastcc noundef ptr @_ZL21foldSelectFunnelShiftRN4llvm10SelectIns
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  %15 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %14)
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %or.cond121 = icmp eq i32 %15, 1
   br i1 %or.cond121, label %16, label %.critedge
 
@@ -27454,7 +27454,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch11api_pred_
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond = icmp eq i64 %11, 1
   br i1 %or.cond, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread
 
@@ -27494,7 +27494,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 31:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit
   %32 = load i64, ptr %27, align 8
-  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
   %or.cond29 = icmp eq i64 %33, 1
   br i1 %or.cond29, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread
 

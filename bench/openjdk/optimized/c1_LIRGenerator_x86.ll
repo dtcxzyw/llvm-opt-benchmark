@@ -1777,7 +1777,7 @@ _ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit:       ; preds = %_ZN22CompilationRes
   br label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit34.thread
 
 42:                                               ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
-  %43 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %43 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %8)
   %or.cond = icmp eq i32 %43, 1
   br i1 %or.cond, label %44, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit34.thread
 
@@ -4501,7 +4501,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br i1 %164, label %.thread139, label %165
 
 165:                                              ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
-  %166 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %162)
+  %166 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %162)
   %or.cond143 = icmp eq i32 %166, 1
   br i1 %or.cond143, label %171, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit102
 

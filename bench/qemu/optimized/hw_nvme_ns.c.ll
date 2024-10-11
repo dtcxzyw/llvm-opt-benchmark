@@ -807,7 +807,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %do.b
   %zone_size_log2.i.i = getelementptr inbounds i8, ptr %ns, i64 8632
   store i32 0, ptr %zone_size_log2.i.i, align 8
   %76 = load i64, ptr %zone_size22.i, align 8
-  %77 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %76)
+  %77 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
   %or.cond.i.i = icmp eq i64 %77, 1
   br i1 %or.cond.i.i, label %if.then41.i.i, label %nvme_ns_zoned_init_state.exit.i
 

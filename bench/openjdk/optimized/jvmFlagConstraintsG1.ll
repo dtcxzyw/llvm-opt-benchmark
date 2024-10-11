@@ -66,7 +66,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z36G1RemSetHowlNumBucketsConstraintF
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @G1RemSetHowlNumBuckets, align 4
-  %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %10)
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10)
   %or.cond = icmp eq i32 %11, 1
   br i1 %or.cond, label %12, label %_Z13is_power_of_2IjTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -91,7 +91,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z39G1RemSetHowlMaxNumBucketsConstrai
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @G1RemSetHowlMaxNumBuckets, align 4
-  %9 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
   %or.cond = icmp eq i32 %9, 1
   br i1 %or.cond, label %10, label %_Z13is_power_of_2IjTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

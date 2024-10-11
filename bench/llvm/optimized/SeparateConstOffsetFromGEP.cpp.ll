@@ -2037,7 +2037,7 @@ _ZNK4llvm5APIntneEm.exit.thread98.i.i:            ; preds = %_ZNK4llvm5APInt13ge
   br i1 %.not156.i.i, label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i.i, label %.thread.i98.i
 
 751:                                              ; preds = %_ZNK4llvm5APIntneEm.exit.i.i
-  %752 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
+  %752 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i)
   %or.cond.i.i = icmp eq i64 %752, 1
   br i1 %or.cond.i.i, label %755, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i
 
@@ -2828,7 +2828,7 @@ _ZNK4llvm5APIntneEm.exit.thread87.i:              ; preds = %_ZNK4llvm5APInt13ge
   br i1 %.not108.i, label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i, label %.thread.i59
 
 1119:                                             ; preds = %_ZNK4llvm5APIntneEm.exit.i
-  %1120 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i68)
+  %1120 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i68)
   %or.cond.i69 = icmp eq i64 %1120, 1
   br i1 %or.cond.i69, label %1123, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
 

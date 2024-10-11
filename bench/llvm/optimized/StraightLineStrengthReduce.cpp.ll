@@ -1440,7 +1440,7 @@ _ZN4llvm13IRBuilderBase17CreateSExtOrTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exi
 
 572:                                              ; preds = %_ZN4llvm13IRBuilderBase17CreateSExtOrTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit.i.i
   %573 = load i64, ptr %12, align 8
-  %574 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %573)
+  %574 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %573)
   %or.cond.i.i = icmp eq i64 %574, 1
   br i1 %or.cond.i.i, label %580, label %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge14.i.i
 

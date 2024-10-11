@@ -14550,7 +14550,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer22emitAlignmentDire
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 187
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
-  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %or.cond60 = icmp eq i64 %12, 1
   br i1 %11, label %13, label %35
 

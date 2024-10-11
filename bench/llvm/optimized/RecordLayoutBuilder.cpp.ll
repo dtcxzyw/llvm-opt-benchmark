@@ -17478,7 +17478,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit._crit_edge.i: ; preds 
   %576 = load ptr, ptr %0, align 8
   %577 = call i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %576, ptr noundef nonnull %571) #15
   %.not.i.i123.not = icmp eq i64 %577, 0
-  %578 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %577)
+  %578 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %577)
   %or.cond = icmp eq i64 %578, 1
   br i1 %or.cond, label %.thread, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 

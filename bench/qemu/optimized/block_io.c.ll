@@ -2617,7 +2617,7 @@ entry:
   %pnum = alloca i64, align 8
   %0 = load ptr, ptr %child, align 8
   %call = tail call i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, ptr noundef nonnull @error_abort)
-  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %align)
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align)
   %or.cond88 = icmp eq i64 %1, 1
   br i1 %or.cond88, label %if.end, label %if.else
 
@@ -3639,7 +3639,7 @@ if.end:                                           ; preds = %entry
   br i1 %call3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %align)
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %align)
   %or.cond89 = icmp eq i64 %2, 1
   br i1 %or.cond89, label %if.end8, label %if.else
 

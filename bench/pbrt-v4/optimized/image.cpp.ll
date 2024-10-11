@@ -3437,11 +3437,11 @@ entry:
   %2 = load i64, ptr %encoding, align 8
   %resolution = getelementptr inbounds i8, ptr %image, i64 4
   %3 = load i32, ptr %resolution, align 4
-  %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp eq i32 %4, 1
   %cond-lvalue.i = getelementptr inbounds i8, ptr %image, i64 8
   %6 = load i32, ptr %cond-lvalue.i, align 4
-  %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
   %8 = icmp eq i32 %7, 1
   %or.cond = select i1 %5, i1 %8, i1 false
   br i1 %or.cond, label %if.else, label %if.then

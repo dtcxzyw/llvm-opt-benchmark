@@ -9939,7 +9939,7 @@ entry:
   store i32 %1, ptr %randomize.i, align 4
   %pixel.i = getelementptr inbounds i8, ptr %p, i64 12
   store i64 0, ptr %pixel.i, align 4
-  %3 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %_ZN4pbrt18PaddedSobolSamplerC2EiNS_17RandomizeStrategyEi.exit, label %if.then.i
 
@@ -11129,7 +11129,7 @@ entry:
   store i32 %randomize, ptr %this, align 8
   %seed3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %seed, ptr %seed3, align 4
-  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
   %1 = icmp eq i32 %0, 1
   br i1 %1, label %if.end, label %if.then
 
@@ -14709,7 +14709,7 @@ entry:
   store i32 %randomize, ptr %randomize4, align 4
   %pixel = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %pixel, align 8
-  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %samplesPerPixel)
   %1 = icmp eq i32 %0, 1
   br i1 %1, label %if.end, label %if.then
 

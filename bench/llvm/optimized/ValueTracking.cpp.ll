@@ -7298,7 +7298,7 @@ _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %203
 
 222:                                              ; preds = %218
   %223 = load i64, ptr %193, align 8
-  %224 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %223)
+  %224 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %223)
   %or.cond136 = icmp eq i64 %224, 1
   br i1 %or.cond136, label %225, label %_ZN4llvm5APInt10setLowBitsEj.exit
 
@@ -53397,7 +53397,7 @@ _ZN4llvm12PatternMatch16match_combine_orINS0_14specificval_tyENS0_22PtrToIntSame
 
 984:                                              ; preds = %979
   %985 = load i64, ptr %980, align 8
-  %986 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %985)
+  %986 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %985)
   %or.cond.i = icmp eq i64 %986, 1
   br i1 %or.cond.i, label %1012, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -53437,7 +53437,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 1006:                                             ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
   %1007 = load i64, ptr %1002, align 8
-  %1008 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1007)
+  %1008 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1007)
   %or.cond29.i = icmp eq i64 %1008, 1
   br i1 %or.cond29.i, label %1012, label %.critedge
 
@@ -66148,7 +66148,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 56:                                               ; preds = %51
   %57 = load i64, ptr %52, align 8
-  %58 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %57)
+  %58 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
   %or.cond = icmp eq i64 %58, 1
   br i1 %or.cond, label %62, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 
@@ -66798,7 +66798,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 56:                                               ; preds = %51
   %57 = load i64, ptr %52, align 8
-  %58 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %57)
+  %58 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
   %or.cond = icmp eq i64 %58, 1
   br i1 %or.cond, label %62, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 

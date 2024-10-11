@@ -447,7 +447,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %158
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load i32, ptr %168, align 8
-  %170 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %169)
+  %170 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %169)
   %or.cond.i = icmp eq i32 %170, 1
   br i1 %or.cond.i, label %171, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit
 

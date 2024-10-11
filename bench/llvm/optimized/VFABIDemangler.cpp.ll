@@ -617,7 +617,7 @@ _ZN4llvm9StringRef14consumeIntegerImEEbjRT_.exit.thread.i: ; preds = %157
 161:                                              ; preds = %157
   %162 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %163 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %162)
+  %163 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %162)
   %or.cond.i = icmp eq i64 %163, 1
   br i1 %or.cond.i, label %164, label %_ZN12_GLOBAL__N_113tryParseAlignERN4llvm9StringRefERNS0_5AlignE.exit
 

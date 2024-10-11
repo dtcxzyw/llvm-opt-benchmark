@@ -7561,7 +7561,7 @@ _ZNK4llvm6APSIntltEl.exit:                        ; preds = %_ZNK5clang6interp7C
 
 115:                                              ; preds = %111
   %116 = load i64, ptr %8, align 8
-  %117 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %116)
+  %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %116)
   %or.cond = icmp eq i64 %117, 1
   br i1 %or.cond, label %123, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

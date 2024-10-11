@@ -10818,7 +10818,7 @@ _ZN4llvm5APIntD2Ev.exit3899:                      ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %cond20, label %2943, label %_ZN4llvm5APIntD2Ev.exit3523
 
 2943:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit3899, %2877
-  %2944 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %330)
+  %2944 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %330)
   %or.cond4703 = icmp eq i32 %2944, 1
   br i1 %or.cond4703, label %2945, label %_ZN4llvm5APIntD2Ev.exit3506
 
@@ -11117,7 +11117,7 @@ _ZN4llvm5APIntD2Ev.exit3938:                      ; preds = %_ZNK4llvm18TargetLo
   br i1 %cond18, label %3061, label %_ZN4llvm5APIntD2Ev.exit3523
 
 3061:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit3938, %2971
-  %3062 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %330)
+  %3062 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %330)
   %or.cond4705 = icmp eq i32 %3062, 1
   br i1 %or.cond4705, label %3063, label %_ZN4llvm5APIntD2Ev.exit3506
 
@@ -19933,7 +19933,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm5APInt13exactLogBase2Ev(ptr nou
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %0, align 8
-  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %or.cond = icmp eq i64 %7, 1
   br i1 %or.cond, label %11, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -25928,7 +25928,7 @@ _ZNK4llvm14ConstantSDNode6isZeroEv.exit:          ; preds = %20
 
 32:                                               ; preds = %27
   %33 = load i64, ptr %23, align 8
-  %34 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %33)
+  %34 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %33)
   %or.cond = icmp eq i64 %34, 1
   br i1 %or.cond, label %78, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -28374,7 +28374,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %125
 
 140:                                              ; preds = %133
   %141 = load i64, ptr %136, align 8
-  %142 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %141)
+  %142 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %141)
   %or.cond290 = icmp eq i64 %142, 1
   br i1 %or.cond290, label %146, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.thread
 
@@ -28790,7 +28790,7 @@ _ZN4llvm5APIntC2ERKS0_.exit63:                    ; preds = %56, %58
 
 63:                                               ; preds = %61
   %64 = load i64, ptr %13, align 8
-  %65 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %64)
+  %65 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %64)
   %or.cond.i = icmp eq i64 %65, 1
   br i1 %or.cond.i, label %69, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i
 
@@ -28806,7 +28806,7 @@ _ZN4llvm5APIntC2ERKS0_.exit63:                    ; preds = %56, %58
 
 72:                                               ; preds = %69
   %73 = load i64, ptr %14, align 8
-  %74 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %73)
+  %74 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %73)
   %or.cond = icmp eq i64 %74, 1
   br i1 %or.cond, label %124, label %"_ZZNK4llvm14TargetLowering36optimizeSetCCOfSignedTruncationCheckENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeERNS0_15DAGCombinerInfoERKNS_5SDLocEENK3$_0clEv.exit.thread"
 
@@ -28875,7 +28875,7 @@ _ZN4llvm5APInt6negateEv.exit66:                   ; preds = %_ZN4llvm5APInt15cle
 
 108:                                              ; preds = %105
   %109 = load i64, ptr %13, align 8
-  %110 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %109)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %109)
   %or.cond.i68 = icmp eq i64 %110, 1
   br i1 %or.cond.i68, label %114, label %"_ZZNK4llvm14TargetLowering36optimizeSetCCOfSignedTruncationCheckENS_3EVTENS_7SDValueES2_NS_3ISD8CondCodeERNS0_15DAGCombinerInfoERKNS_5SDLocEENK3$_0clEv.exit69.thread"
 
@@ -31139,7 +31139,7 @@ _ZNK4llvm5APInt6isZeroEv.exit2174:                ; preds = %719
 735:                                              ; preds = %728
   %736 = call noundef i64 @_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(12) %61)
   %737 = trunc i64 %736 to i32
-  %738 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %737)
+  %738 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %737)
   %or.cond2896 = icmp eq i32 %738, 1
   br i1 %or.cond2896, label %739, label %_ZN4llvm14has_single_bitIjvEEbT_.exit.thread
 
@@ -51199,7 +51199,7 @@ _ZL27isNonZeroModBitWidthOrUndefN4llvm7SDValueEj.exit.i: ; preds = %130, %_ZN4ll
   %143 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %2, i64 noundef %142, ptr noundef nonnull align 8 dereferenceable(12) %16, i16 %.sroa.0.0.copyload.i.i.i, ptr %.sroa.21.0.copyload.i.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %.fca.0.extract136.i = extractvalue { ptr, i32 } %143, 0
   %.fca.1.extract137.i = extractvalue { ptr, i32 } %143, 1
-  %144 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %112)
+  %144 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
   %or.cond.i = icmp eq i32 %144, 1
   br i1 %or.cond.i, label %145, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
 
@@ -51809,7 +51809,7 @@ _ZL27isNonZeroModBitWidthOrUndefN4llvm7SDValueEj.exit514: ; preds = %_ZNK4llvm18
   %297 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %2, i64 noundef %296, ptr noundef nonnull align 8 dereferenceable(12) %36, i16 %.sroa.0.0.copyload.i.i494, ptr %.sroa.21.0.copyload.i.i496, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %.fca.0.extract129 = extractvalue { ptr, i32 } %297, 0
   %.fca.1.extract130 = extractvalue { ptr, i32 } %297, 1
-  %298 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %219)
+  %298 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %219)
   %or.cond568 = icmp eq i32 %298, 1
   br i1 %or.cond568, label %299, label %_ZN4llvm13isPowerOf2_32Ej.exit516.thread
 
@@ -52258,7 +52258,7 @@ _ZNK4llvm18TargetLoweringBase33isOperationLegalOrCustomOrPromoteEjNS_3EVTEb.exit
   %129 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %3, i64 noundef %128, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %.fca.0.extract120 = extractvalue { ptr, i32 } %129, 0
   %.fca.1.extract121 = extractvalue { ptr, i32 } %129, 1
-  %130 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %54)
+  %130 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %54)
   %or.cond330 = icmp eq i32 %130, 1
   br i1 %or.cond330, label %131, label %_ZN4llvm13isPowerOf2_32Ej.exit283.thread
 
@@ -60720,7 +60720,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %65, %_ZNK4llvm18Tar
 
 114:                                              ; preds = %.thread, %_ZNK4llvm3EVT8isVectorEv.exit
   %.sroa.0110.0.copyload229 = phi i16 [ %.sroa.0110.0.copyload.pr.pre, %.thread ], [ 0, %_ZNK4llvm3EVT8isVectorEv.exit ]
-  %115 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %61)
+  %115 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
   %or.cond = icmp eq i32 %115, 1
   br i1 %or.cond, label %116, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -61778,7 +61778,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %62, %_ZNK4llvm18Tar
 
 112:                                              ; preds = %.thread, %_ZNK4llvm3EVT8isVectorEv.exit
   %.sroa.0155.0.copyload312 = phi i16 [ %.sroa.0155.0.copyload.pr.pre, %.thread ], [ 0, %_ZNK4llvm3EVT8isVectorEv.exit ]
-  %113 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %58)
+  %113 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
   %or.cond = icmp eq i32 %113, 1
   br i1 %or.cond, label %114, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -77941,7 +77941,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %5, %45
 
 78:                                               ; preds = %71
   %79 = load i64, ptr %74, align 8
-  %80 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %79)
+  %80 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
   %or.cond = icmp eq i64 %80, 1
   br i1 %or.cond, label %.thread484, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

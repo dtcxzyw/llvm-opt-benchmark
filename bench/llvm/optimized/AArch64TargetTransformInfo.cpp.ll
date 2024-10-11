@@ -15424,7 +15424,7 @@ thread-pre-split:                                 ; preds = %_ZN4llvm5APIntC2ERK
 40:                                               ; preds = %thread-pre-split, %_ZN4llvm5APIntC2ERKS0_.exit.thread
   %41 = phi i64 [ %.pr85, %thread-pre-split ], [ %38, %_ZN4llvm5APIntC2ERKS0_.exit.thread ]
   %42 = phi i32 [ %.pr, %thread-pre-split ], [ %36, %_ZN4llvm5APIntC2ERKS0_.exit.thread ]
-  %43 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %43 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
   %or.cond = icmp eq i64 %43, 1
   br i1 %or.cond, label %47, label %91
 
@@ -20546,7 +20546,7 @@ _ZNK4llvm3EVTeqES0_.exit110:                      ; preds = %139
   %150 = extractvalue { i16, ptr } %148, 1
   store ptr %150, ptr %146, align 8
   %151 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  %152 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %151)
+  %152 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %151)
   %or.cond191 = icmp eq i32 %152, 1
   br i1 %or.cond191, label %.outer, label %_ZN4llvm13isPowerOf2_32Ej.exit112.thread
 

@@ -5545,7 +5545,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APInt15cle
   store i32 %114, ptr %115, align 8, !alias.scope !202
   store i64 %113, ptr %13, align 8, !alias.scope !202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %116 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %19)
+  %116 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
   %or.cond.i = icmp eq i32 %116, 1
   %117 = inttoptr i64 %113 to ptr
   br i1 %or.cond.i, label %118, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
@@ -6603,7 +6603,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APInt15cle
   store i32 %89, ptr %90, align 8, !alias.scope !217
   store i64 %88, ptr %8, align 8, !alias.scope !217
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %91 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %14)
+  %91 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %or.cond.i = icmp eq i32 %91, 1
   %92 = inttoptr i64 %88 to ptr
   br i1 %or.cond.i, label %93, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
@@ -7482,7 +7482,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APInt15cle
   store i32 %118, ptr %119, align 8, !alias.scope !231
   store i64 %117, ptr %8, align 8, !alias.scope !231
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %120 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %14)
+  %120 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %or.cond.i = icmp eq i32 %120, 1
   %121 = inttoptr i64 %117 to ptr
   br i1 %or.cond.i, label %122, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
@@ -15446,7 +15446,7 @@ _ZNK4llvm9KnownBits10isConstantEv.exit.thread:    ; preds = %_ZNK4llvm5APInt8pop
 
 28:                                               ; preds = %_ZNK4llvm9KnownBits10isConstantEv.exit
   %29 = load i64, ptr %16, align 8
-  %30 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %29)
+  %30 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
   %or.cond = icmp eq i64 %30, 1
   br i1 %or.cond, label %33, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -15681,7 +15681,7 @@ _ZNK4llvm9KnownBits10isConstantEv.exit.thread:    ; preds = %_ZNK4llvm5APInt8pop
 
 31:                                               ; preds = %_ZNK4llvm9KnownBits10isConstantEv.exit
   %32 = load i64, ptr %19, align 8
-  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
   %or.cond = icmp eq i64 %33, 1
   br i1 %or.cond, label %36, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

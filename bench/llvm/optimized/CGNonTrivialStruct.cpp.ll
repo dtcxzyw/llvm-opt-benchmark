@@ -8334,7 +8334,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenCopyConstr
   call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
-  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond = icmp eq i32 %17, 1
   %or.cond139 = select i1 %15, i1 %or.cond, i1 false
   %18 = load ptr, ptr %13, align 8
@@ -10600,7 +10600,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenCopyAssign
   call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
-  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond = icmp eq i32 %17, 1
   %or.cond139 = select i1 %15, i1 %or.cond, i1 false
   %18 = load ptr, ptr %13, align 8
@@ -13760,7 +13760,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenMoveConstr
   call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
-  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond = icmp eq i32 %17, 1
   %or.cond139 = select i1 %15, i1 %or.cond, i1 false
   %18 = load ptr, ptr %13, align 8
@@ -16021,7 +16021,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenMoveAssign
   call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
-  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond = icmp eq i32 %17, 1
   %or.cond139 = select i1 %15, i1 %or.cond, i1 false
   %18 = load ptr, ptr %13, align 8

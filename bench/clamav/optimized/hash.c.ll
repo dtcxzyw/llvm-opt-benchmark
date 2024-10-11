@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 21) i32 @onas_ht_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %10
 

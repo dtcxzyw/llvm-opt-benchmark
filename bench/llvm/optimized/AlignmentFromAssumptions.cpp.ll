@@ -120,7 +120,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread23:       ; preds = %_ZN4llvmneENS_9Stri
 
 50:                                               ; preds = %43
   %51 = load i64, ptr %46, align 8
-  %52 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
   %or.cond = icmp eq i64 %52, 1
   br i1 %or.cond, label %56, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 

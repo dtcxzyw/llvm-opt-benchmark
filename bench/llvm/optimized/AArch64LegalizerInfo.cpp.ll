@@ -31977,7 +31977,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i:       ; preds = %11, %7
   %12 = lshr i64 %.val.val, 3
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 65535
-  %15 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %14)
+  %15 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %14)
   %or.cond.i.i.i = icmp eq i32 %15, 1
   br i1 %or.cond.i.i.i, label %16, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_61JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 

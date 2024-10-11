@@ -3742,7 +3742,7 @@ thread-pre-split:                                 ; preds = %48
 
 59:                                               ; preds = %54
   %60 = load i64, ptr %55, align 8
-  %61 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %60)
+  %61 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %or.cond.i = icmp eq i64 %61, 1
   br i1 %or.cond.i, label %_ZN4llvm12PatternMatch11api_pred_tyINS0_9is_power2EE5matchINS_5ValueEEEbPT_.exit, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -3782,7 +3782,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 81:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
   %82 = load i64, ptr %77, align 8
-  %83 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %82)
+  %83 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
   %or.cond29.i = icmp eq i64 %83, 1
   br i1 %or.cond29.i, label %_ZN4llvm12PatternMatch11api_pred_tyINS0_9is_power2EE5matchINS_5ValueEEEbPT_.exit, label %114
 
@@ -3981,7 +3981,7 @@ define dso_local noundef ptr @_ZN4llvm12SCEVExpander13visitUDivExprEPKNS_12SCEVU
 
 18:                                               ; preds = %11
   %19 = load i64, ptr %14, align 8
-  %20 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %or.cond = icmp eq i64 %20, 1
   br i1 %or.cond, label %24, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -11010,7 +11010,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %._ZN4llvm15Instruct
 124:                                              ; preds = %117
   %125 = load i64, ptr %120, align 8
   %.fr76.i = freeze i64 %125
-  %126 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr76.i)
+  %126 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr76.i)
   %or.cond.i = icmp eq i64 %126, 1
   br i1 %or.cond.i, label %130, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i
 
@@ -11406,7 +11406,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit72:         ; preds = %251, %254
 289:                                              ; preds = %282
   %290 = load i64, ptr %285, align 8
   %.fr76.i120 = freeze i64 %290
-  %291 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr76.i120)
+  %291 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr76.i120)
   %or.cond.i121 = icmp eq i64 %291, 1
   br i1 %or.cond.i121, label %295, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i115
 
@@ -11998,7 +11998,7 @@ define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDi
 45:                                               ; preds = %38
   %46 = load i64, ptr %41, align 8
   %.fr77 = freeze i64 %46
-  %47 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr77)
+  %47 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr77)
   %or.cond = icmp eq i64 %47, 1
   br i1 %or.cond, label %51, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
@@ -12426,7 +12426,7 @@ define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAdd
 47:                                               ; preds = %40
   %48 = load i64, ptr %43, align 8
   %.fr76 = freeze i64 %48
-  %49 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr76)
+  %49 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr76)
   %or.cond = icmp eq i64 %49, 1
   br i1 %or.cond, label %53, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

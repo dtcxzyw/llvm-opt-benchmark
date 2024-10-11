@@ -17608,7 +17608,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %112, %119
 
 123:                                              ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
   %124 = trunc i64 %.0.i to i32
-  %125 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %124)
+  %125 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %124)
   %or.cond = icmp eq i32 %125, 1
   br i1 %or.cond, label %126, label %.loopexit.sink.split
 
@@ -21527,7 +21527,7 @@ _ZNK4llvm5APInteqEm.exit.i.i:                     ; preds = %_ZNK4llvm5APInt13ge
 
 312:                                              ; preds = %308
   %313 = load i64, ptr %9, align 8
-  %314 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %313)
+  %314 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %313)
   %or.cond.i.i.i.i = icmp eq i64 %314, 1
   br i1 %or.cond.i.i.i.i, label %318, label %_ZNK4llvm5APInt13exactLogBase2Ev.exit.thread.i.i.i
 

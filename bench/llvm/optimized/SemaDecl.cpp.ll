@@ -101661,7 +101661,7 @@ _ZNK5clang16EnumConstantDecl10getInitValEv.exit:  ; preds = %74
 99:                                               ; preds = %_ZNK5clang16EnumConstantDecl10getInitValEv.exit.thread, %_ZNK5clang16EnumConstantDecl10getInitValEv.exit
   %100 = phi i32 [ %77, %_ZNK5clang16EnumConstantDecl10getInitValEv.exit.thread ], [ %.pre.i, %_ZNK5clang16EnumConstantDecl10getInitValEv.exit ]
   %101 = phi i64 [ %86, %_ZNK5clang16EnumConstantDecl10getInitValEv.exit.thread ], [ %.pre1.i, %_ZNK5clang16EnumConstantDecl10getInitValEv.exit ]
-  %102 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %101)
+  %102 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %101)
   %or.cond = icmp eq i64 %102, 1
   br i1 %or.cond, label %106, label %_ZN4llvm5APIntD2Ev.exit27
 
@@ -103781,7 +103781,7 @@ _ZNK4llvm6APSIntneEl.exit:                        ; preds = %_ZNK5clang16EnumCon
 
 838:                                              ; preds = %835
   %839 = load i64, ptr %42, align 8
-  %840 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %839)
+  %840 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %839)
   %or.cond315 = icmp eq i64 %840, 1
   br i1 %or.cond315, label %851, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 

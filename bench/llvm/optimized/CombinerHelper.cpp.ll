@@ -2880,7 +2880,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit64:            ; preds = %_ZNK4llvm3LLT13getS
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #27
   %37 = trunc i64 %36 to i32
-  %38 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %37)
+  %38 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
   %or.cond = icmp eq i32 %38, 1
   br i1 %or.cond, label %39, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
@@ -10487,7 +10487,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper20matchCombineMulTo
 
 18:                                               ; preds = %14
   %19 = load i64, ptr %4, align 8
-  %20 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %20 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %or.cond.i = icmp eq i64 %20, 1
   br i1 %or.cond.i, label %28, label %.thread9
 
@@ -53650,7 +53650,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond.i.i.i = icmp eq i64 %11, 1
   br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
 
@@ -53761,7 +53761,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond.i.i.i = icmp eq i64 %11, 1
   br i1 %or.cond.i.i.i, label %15, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
@@ -57905,7 +57905,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i:       ; preds = %_ZNK4llvm3LLT19getS
 
 41:                                               ; preds = %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i
   %42 = load i64, ptr %37, align 8
-  %43 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %42)
+  %43 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
   %or.cond.i.i.i.i = icmp eq i64 %43, 1
   br i1 %or.cond.i.i.i.i, label %47, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_6JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 

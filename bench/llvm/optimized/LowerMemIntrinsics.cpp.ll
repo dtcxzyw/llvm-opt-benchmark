@@ -1219,7 +1219,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %11, %92
 122:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
-  %123 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %88)
+  %123 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
   %or.cond.i = icmp eq i32 %123, 1
   br i1 %or.cond.i, label %124, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
 
@@ -2336,7 +2336,7 @@ define internal fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLa
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
-  %8 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %or.cond = icmp eq i32 %8, 1
   br i1 %or.cond, label %9, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
@@ -4142,7 +4142,7 @@ _ZL26createMemMoveLoopKnownSizePN4llvm11InstructionEPNS_5ValueES3_PNS_11Constant
   %832 = trunc i64 %806 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
-  %833 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %832)
+  %833 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %832)
   %or.cond.i.i = icmp eq i32 %833, 1
   br i1 %or.cond.i.i, label %834, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i.i
 

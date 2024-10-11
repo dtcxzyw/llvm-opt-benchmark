@@ -8412,7 +8412,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %47
 
 58:                                               ; preds = %53
   %59 = load i64, ptr %54, align 8
-  %60 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %59)
+  %60 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %59)
   %or.cond.i = icmp eq i64 %60, 1
   br i1 %or.cond.i, label %64, label %_ZL21processUGT_ADDCST_ADDRN4llvm8ICmpInstEPNS_5ValueES3_PNS_11ConstantIntES5_RNS_16InstCombinerImplE.exit.thread
 
@@ -12646,7 +12646,7 @@ thread-pre-split:                                 ; preds = %_ZN4llvm5APIntaSERK
 
 62:                                               ; preds = %thread-pre-split, %_ZN4llvm5APIntaSERKS0_.exit.thread
   %63 = phi i64 [ %.pr48, %thread-pre-split ], [ %24, %_ZN4llvm5APIntaSERKS0_.exit.thread ]
-  %64 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %63)
+  %64 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
   %or.cond = icmp eq i64 %64, 1
   br i1 %or.cond, label %68, label %_ZN4llvm5APIntD2Ev.exit31
 
@@ -16836,7 +16836,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %183, %185
   br i1 %190, label %192, label %194
 
 192:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %193 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %189)
+  %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %189)
   %or.cond217 = icmp eq i64 %193, 1
   br i1 %or.cond217, label %203, label %.critedge76.thread
 
@@ -20769,7 +20769,7 @@ _ZN4llvm8ICmpInstC2ENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit237: ; 
 
 191:                                              ; preds = %188
   %192 = load i64, ptr %138, align 8
-  %193 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %192)
+  %193 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %192)
   %or.cond = icmp eq i64 %193, 1
   br i1 %or.cond, label %197, label %.critedge
 
@@ -22693,7 +22693,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %21
 
 37:                                               ; preds = %32
   %38 = load i64, ptr %33, align 8
-  %39 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
   %or.cond.i = icmp eq i64 %39, 1
   br i1 %or.cond.i, label %_ZN4llvm12PatternMatch11api_pred_tyINS0_9is_power2EE5matchINS_5ValueEEEbPT_.exit, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i
 
@@ -22733,7 +22733,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; pred
 
 59:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
   %60 = load i64, ptr %55, align 8
-  %61 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %60)
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %or.cond29.i = icmp eq i64 %61, 1
   br i1 %or.cond29.i, label %_ZN4llvm12PatternMatch11api_pred_tyINS0_9is_power2EE5matchINS_5ValueEEEbPT_.exit, label %_ZN4llvm5APIntD2Ev.exit64
 
@@ -25126,7 +25126,7 @@ _ZNK4llvm5APInt5isOneEv.exit:                     ; preds = %_ZNK4llvm5APInt6isZ
 
 286:                                              ; preds = %282
   %287 = load i64, ptr %3, align 8
-  %288 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %287)
+  %288 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %287)
   %or.cond256 = icmp eq i64 %288, 1
   br i1 %or.cond256, label %292, label %.critedge113.thread
 
@@ -25407,7 +25407,7 @@ _ZN4llvm5APIntC2ERKS0_.exit185:                   ; preds = %403, %405
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit185
-  %412 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %409)
+  %412 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %409)
   %or.cond258 = icmp eq i64 %412, 1
   br i1 %or.cond258, label %416, label %.critedge111.thread
 
@@ -44619,7 +44619,7 @@ _ZN4llvmcoENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APIntC2ERK
 
 201:                                              ; preds = %_ZN4llvmcoENS_5APIntE.exit.thread, %_ZN4llvmcoENS_5APIntE.exit
   %202 = phi i64 [ %196, %_ZN4llvmcoENS_5APIntE.exit.thread ], [ %.pre1.i, %_ZN4llvmcoENS_5APIntE.exit ]
-  %203 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %202)
+  %203 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %202)
   %or.cond = icmp eq i64 %203, 1
   br i1 %or.cond, label %213, label %.critedge41.thread
 
@@ -72146,7 +72146,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch11api_pred_
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond = icmp eq i64 %11, 1
   br i1 %or.cond, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread
 
@@ -72186,7 +72186,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 31:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit
   %32 = load i64, ptr %27, align 8
-  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
   %or.cond29 = icmp eq i64 %33, 1
   br i1 %or.cond29, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread
 

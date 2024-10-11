@@ -3143,7 +3143,7 @@ define dso_local range(i64 0, 17179869184) i64 @_ZN4llvm19TargetTransformInfo14g
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond108 = icmp eq i64 %11, 1
   %12 = inttoptr i64 %10 to ptr
   br i1 %or.cond108, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit.thread, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
@@ -3263,7 +3263,7 @@ _ZNK4llvm17ShuffleVectorInst14isZeroEltSplatEv.exit.thread: ; preds = %_ZNK4llvm
 
 71:                                               ; preds = %66
   %72 = load i64, ptr %67, align 8
-  %73 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %72)
+  %73 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %72)
   %or.cond111 = icmp eq i64 %73, 1
   %74 = inttoptr i64 %72 to ptr
   br i1 %or.cond111, label %.thread103, label %_ZNK4llvm5APInt10isPowerOf2Ev.exit55.thread

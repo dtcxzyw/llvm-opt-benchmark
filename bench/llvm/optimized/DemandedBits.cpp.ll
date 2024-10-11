@@ -371,7 +371,7 @@ _ZN4llvm5APIntD2Ev.exit138:                       ; preds = %142, %139, %_ZNK4ll
   br i1 %147, label %148, label %154
 
 148:                                              ; preds = %146
-  %149 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %57)
+  %149 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
   %or.cond313 = icmp eq i32 %149, 1
   br i1 %or.cond313, label %150, label %_ZN4llvm5APIntaSERKS0_.exit
 

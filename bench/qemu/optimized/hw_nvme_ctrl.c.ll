@@ -4235,7 +4235,7 @@ if.then28.i:                                      ; preds = %if.then25.i
 if.end32.i:                                       ; preds = %if.then25.i
   %size.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load i64, ptr %size.i, align 8
-  %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %or.cond64.i = icmp eq i64 %14, 1
   br i1 %or.cond64.i, label %if.end37.i, label %if.then36.i
 

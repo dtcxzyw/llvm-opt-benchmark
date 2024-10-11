@@ -1378,7 +1378,7 @@ if.else7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call)
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call)
   %or.cond53 = icmp eq i64 %1, 1
   br i1 %or.cond53, label %if.end12, label %if.else11
 

@@ -248,7 +248,7 @@ if.end:                                           ; preds = %entry
   %and3 = and i32 %0, 61889
   %and4 = and i32 %0, 67104816
   %error_status.0 = select i1 %tobool1.not, i32 %and4, i32 %and3
-  %4 = tail call range(i32 1, 21) i32 @llvm.ctpop.i32(i32 %error_status.0)
+  %4 = tail call range(i32 0, 21) i32 @llvm.ctpop.i32(i32 %error_status.0)
   %or.cond = icmp eq i32 %4, 1
   br i1 %or.cond, label %if.end10, label %return
 

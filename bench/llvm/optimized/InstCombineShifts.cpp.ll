@@ -16202,7 +16202,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 55:                                               ; preds = %50
   %56 = load i64, ptr %51, align 8
-  %57 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %56)
+  %57 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %56)
   %or.cond = icmp eq i64 %57, 1
   br i1 %or.cond, label %61, label %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit
 

@@ -1066,7 +1066,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %223, %_ZN4llvm26ge
   store i8 %.fca.1.extract9.i.i, ptr %.sroa.211.0..sroa_idx.i.i, align 8, !noalias !18
   %238 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #17
   %239 = trunc i64 %238 to i32
-  %240 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %239)
+  %240 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %239)
   %or.cond.i.i = icmp ne i32 %240, 1
   %.old.i.i = lshr i32 %230, 1
   %.old81.i.i = icmp ult i32 %.old.i.i, %203

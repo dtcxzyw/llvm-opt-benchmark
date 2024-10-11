@@ -11449,7 +11449,7 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i231, %112
 
 1142:                                             ; preds = %_ZSt4iotaIPiiEvT_S1_T0_.exit.i
   %1143 = trunc i64 %1126 to i32
-  %1144 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1143)
+  %1144 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1143)
   %or.cond49.i = icmp eq i32 %1144, 1
   br i1 %or.cond49.i, label %.preheader50.i, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
 

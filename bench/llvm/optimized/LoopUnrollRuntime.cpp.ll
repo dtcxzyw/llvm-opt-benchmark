@@ -2123,7 +2123,7 @@ define internal fastcc noundef ptr @_ZL19CreateTripRemainderRN4llvm9IRBuilderINS
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
-  %12 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %or.cond = icmp eq i32 %12, 1
   br i1 %or.cond, label %13, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
