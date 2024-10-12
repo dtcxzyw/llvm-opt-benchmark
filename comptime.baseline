@@ -1824,7 +1824,7 @@ bdwgc/gc.c.ll 8103454419
 box2d/b2_body.cpp.ll 200053446
 box2d/b2_broad_phase.cpp.ll 78433550
 box2d/b2_chain_circle_contact.cpp.ll 48433020
-box2d/b2_chain_polygon_contact.cpp.ll 48413128
+box2d/b2_chain_polygon_contact.cpp.ll 48461618
 box2d/b2_chain_shape.cpp.ll 94578929
 box2d/b2_circle_contact.cpp.ll 41733040
 box2d/b2_circle_shape.cpp.ll 78293979
@@ -10351,7 +10351,7 @@ icu/ustdio.ll 193076389
 icu/ustr.ll 124548694
 icu/ustr_titlecase_brkiter.ll 112982805
 icu/ustrcase.ll 717567891
-icu/ustream.ll 101875723
+icu/ustream.ll 101977714
 icu/ustrenum.ll 139660515
 icu/ustrfmt.ll 52892603
 icu/ustring.ll 705724345
@@ -37185,7 +37185,7 @@ wireshark/packet-openflow_v6.c.ll 1555307530
 wireshark/packet-opensafety.c.ll 1072040605
 wireshark/packet-openvpn.c.ll 116634714
 wireshark/packet-openwire.c.ll 459592932
-wireshark/packet-opsi.c.ll 129937130
+wireshark/packet-opsi.c.ll 130067097
 wireshark/packet-optommp.c.ll 155784930
 wireshark/packet-opus.c.ll 145446547
 wireshark/packet-oran.c.ll 884765948
