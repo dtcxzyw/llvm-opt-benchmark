@@ -19072,7 +19072,7 @@ ocio/Displays.cpp.ll 1085773872
 ocio/DynamicProperty.cpp.ll 889844974
 ocio/Exception.cpp.ll 40802798
 ocio/ExponentOp.cpp.ll 940064248
-ocio/ExponentTransform.cpp.ll 250999877
+ocio/ExponentTransform.cpp.ll 251250878
 ocio/ExponentWithLinearTransform.cpp.ll 338741279
 ocio/ExposureContrastOp.cpp.ll 579378239
 ocio/ExposureContrastOpCPU.cpp.ll 754374935
@@ -29307,7 +29307,7 @@ proj/nell.cpp.ll 47516723
 proj/networkfilemanager.cpp.ll 2374280577
 proj/nicol.cpp.ll 47973674
 proj/noop.cpp.ll 38722446
-proj/nsper.cpp.ll 78754422
+proj/nsper.cpp.ll 78833308
 proj/nzmg.cpp.ll 60253852
 proj/ob_tran.cpp.ll 135467616
 proj/ocea.cpp.ll 60194674
@@ -30246,7 +30246,7 @@ qemu/monitor_hmp-cmds-target.c.ll 164060541
 qemu/monitor_hmp-target.c.ll 112415549
 qemu/monitor_hmp.c.ll 762208931
 qemu/monitor_monitor.c.ll 305861882
-qemu/monitor_qmp-cmds-control.c.ll 113057638
+qemu/monitor_qmp-cmds-control.c.ll 113170841
 qemu/monitor_qmp-cmds.c.ll 84496556
 qemu/monitor_qmp.c.ll 266904694
 qemu/nbd_client-connection.c.ll 149992602
