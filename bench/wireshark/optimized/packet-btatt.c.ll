@@ -6785,9 +6785,9 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
   br label %1
 
 1:                                                ; preds = %0, %12
-  %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %12 ]
-  %2 = phi ptr [ @.str.2287, %0 ], [ %14, %12 ]
-  %3 = phi ptr [ @__const.proto_reg_handoff_btgatt.uuid_dissectors, %0 ], [ %13, %12 ]
+  %2 = phi ptr [ @.str.2287, %0 ], [ %16, %12 ]
+  %3 = phi ptr [ @__const.proto_reg_handoff_btgatt.uuid_dissectors, %0 ], [ %15, %12 ]
+  %.010 = phi i32 [ 0, %0 ], [ %13, %12 ]
   %4 = load ptr, ptr @bluetooth_uuids, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6804,13 +6804,14 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
   br label %12
 
 12:                                               ; preds = %1, %9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr [36 x %struct.uuid_dissectors_t], ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 0, i64 %indvars.iv.next
-  %14 = load ptr, ptr %13, align 8
-  %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %15, label %1, !llvm.loop !13
+  %13 = add nuw nsw i32 %.010, 1
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr [36 x %struct.uuid_dissectors_t], ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %exitcond = icmp eq i32 %13, 35
+  br i1 %exitcond, label %17, label %1, !llvm.loop !13
 
-15:                                               ; preds = %12
+17:                                               ; preds = %12
   ret void
 }
 

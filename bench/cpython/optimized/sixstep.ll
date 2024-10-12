@@ -86,16 +86,16 @@ for.body19.lr.ph:                                 ; preds = %if.end14
   %and20.i107 = and i64 %0, 17179869184
   %tobool21.not.i108 = icmp eq i64 %and20.i107, 0
   %umax = tail call i64 @llvm.umax.i64(i64 %shl2, i64 2)
-  br label %while.body.i.preheader
+  br label %for.body19
 
-while.body.i.preheader:                           ; preds = %for.inc40, %for.body19.lr.ph
+for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc40
   %i.0466 = phi i64 [ 1, %for.body19.lr.ph ], [ %inc, %for.inc40 ]
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
-  %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
-  %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call15, %while.body.i.preheader ]
-  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0466, %while.body.i.preheader ]
+while.body.i:                                     ; preds = %for.body19, %x64_mulmod.exit
+  %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %for.body19 ]
+  %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call15, %for.body19 ]
+  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0466, %for.body19 ]
   %and.i = and i64 %exp.addr.08.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i.if.end.i_crit_edge, label %if.then.i
@@ -276,19 +276,19 @@ x64_mulmod.exit:                                  ; preds = %if.then.i64, %if.th
   %spec.select93.i = sub i64 %add99.i, %sub108.i
   %shr.i56 = lshr i64 %exp.addr.08.i, 1
   %cmp.not.i57 = icmp ult i64 %exp.addr.08.i, 2
-  br i1 %cmp.not.i57, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
+  br i1 %cmp.not.i57, label %x64_powmod.exit.loopexit, label %while.body.i, !llvm.loop !6
 
-x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
+x64_powmod.exit.loopexit:                         ; preds = %x64_mulmod.exit
   %call21 = tail call fastcc i64 @x64_mulmod(i64 noundef %r.1.i, i64 noundef %r.1.i, i64 noundef %0)
   %mul55 = shl i64 %i.0466, %div54
   %1 = getelementptr i64, ptr %a, i64 %mul55
   %conv1.i.i377 = zext i64 %call21 to i128
   br label %for.body25
 
-for.body25:                                       ; preds = %x64_powmod.exit, %x64_mulmod.exit375
-  %k.0464 = phi i64 [ 0, %x64_powmod.exit ], [ %add38, %x64_mulmod.exit375 ]
-  %w1.0463 = phi i64 [ %r.1.i, %x64_powmod.exit ], [ %spec.select93.i336, %x64_mulmod.exit375 ]
-  %w0.0462 = phi i64 [ 1, %x64_powmod.exit ], [ %spec.select93.i413, %x64_mulmod.exit375 ]
+for.body25:                                       ; preds = %x64_powmod.exit.loopexit, %x64_mulmod.exit375
+  %k.0464 = phi i64 [ 0, %x64_powmod.exit.loopexit ], [ %add38, %x64_mulmod.exit375 ]
+  %w1.0463 = phi i64 [ %r.1.i, %x64_powmod.exit.loopexit ], [ %spec.select93.i336, %x64_mulmod.exit375 ]
+  %w0.0462 = phi i64 [ 1, %x64_powmod.exit.loopexit ], [ %spec.select93.i413, %x64_mulmod.exit375 ]
   %arrayidx = getelementptr i64, ptr %1, i64 %k.0464
   %2 = load i64, ptr %arrayidx, align 8
   %arrayidx29 = getelementptr i8, ptr %arrayidx, i64 8
@@ -630,7 +630,7 @@ x64_mulmod.exit375:                               ; preds = %if.then.i307, %if.t
 for.inc40:                                        ; preds = %x64_mulmod.exit375
   %inc = add nuw i64 %i.0466, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end41, label %while.body.i.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end41, label %for.body19, !llvm.loop !8
 
 for.end41:                                        ; preds = %for.inc40, %if.end14
   %cmp42.not = icmp eq i64 %shl, %shl2
@@ -837,16 +837,16 @@ for.body12.lr.ph:                                 ; preds = %for.end
   %and20.i107 = and i64 %0, 17179869184
   %tobool21.not.i108 = icmp eq i64 %and20.i107, 0
   %umax = tail call i64 @llvm.umax.i64(i64 %shl2, i64 2)
-  br label %while.body.i.preheader
+  br label %for.body12
 
-while.body.i.preheader:                           ; preds = %for.inc33, %for.body12.lr.ph
+for.body12:                                       ; preds = %for.body12.lr.ph, %for.inc33
   %i.0466 = phi i64 [ 1, %for.body12.lr.ph ], [ %inc, %for.inc33 ]
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
-  %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
-  %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call8, %while.body.i.preheader ]
-  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0466, %while.body.i.preheader ]
+while.body.i:                                     ; preds = %for.body12, %x64_mulmod.exit
+  %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %for.body12 ]
+  %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call8, %for.body12 ]
+  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0466, %for.body12 ]
   %and.i = and i64 %exp.addr.08.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i.if.end.i_crit_edge, label %if.then.i
@@ -1027,19 +1027,19 @@ x64_mulmod.exit:                                  ; preds = %if.then.i64, %if.th
   %spec.select93.i = sub i64 %add99.i, %sub108.i
   %shr.i56 = lshr i64 %exp.addr.08.i, 1
   %cmp.not.i57 = icmp ult i64 %exp.addr.08.i, 2
-  br i1 %cmp.not.i57, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
+  br i1 %cmp.not.i57, label %x64_powmod.exit.loopexit, label %while.body.i, !llvm.loop !6
 
-x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
+x64_powmod.exit.loopexit:                         ; preds = %x64_mulmod.exit
   %call14 = tail call fastcc i64 @x64_mulmod(i64 noundef %r.1.i, i64 noundef %r.1.i, i64 noundef %0)
   %mul55 = shl i64 %i.0466, %div54
   %1 = getelementptr i64, ptr %a, i64 %mul55
   %conv1.i.i377 = zext i64 %call14 to i128
   br label %for.body18
 
-for.body18:                                       ; preds = %x64_powmod.exit, %x64_mulmod.exit375
-  %k.0464 = phi i64 [ 0, %x64_powmod.exit ], [ %add31, %x64_mulmod.exit375 ]
-  %w1.0463 = phi i64 [ %r.1.i, %x64_powmod.exit ], [ %spec.select93.i336, %x64_mulmod.exit375 ]
-  %w0.0462 = phi i64 [ 1, %x64_powmod.exit ], [ %spec.select93.i413, %x64_mulmod.exit375 ]
+for.body18:                                       ; preds = %x64_powmod.exit.loopexit, %x64_mulmod.exit375
+  %k.0464 = phi i64 [ 0, %x64_powmod.exit.loopexit ], [ %add31, %x64_mulmod.exit375 ]
+  %w1.0463 = phi i64 [ %r.1.i, %x64_powmod.exit.loopexit ], [ %spec.select93.i336, %x64_mulmod.exit375 ]
+  %w0.0462 = phi i64 [ 1, %x64_powmod.exit.loopexit ], [ %spec.select93.i413, %x64_mulmod.exit375 ]
   %arrayidx = getelementptr i64, ptr %1, i64 %k.0464
   %2 = load i64, ptr %arrayidx, align 8
   %arrayidx22 = getelementptr i8, ptr %arrayidx, i64 8
@@ -1381,7 +1381,7 @@ x64_mulmod.exit375:                               ; preds = %if.then.i307, %if.t
 for.inc33:                                        ; preds = %x64_mulmod.exit375
   %inc = add nuw i64 %i.0466, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end34, label %while.body.i.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end34, label %for.body12, !llvm.loop !12
 
 for.end34:                                        ; preds = %for.inc33, %for.end
   %call35 = tail call i32 @transpose_pow2(ptr noundef %a, i64 noundef %shl2, i64 noundef %shl) #4

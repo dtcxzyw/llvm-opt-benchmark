@@ -324,12 +324,12 @@ xmemmem.exit.thread25.i:                          ; preds = %98, %xmemmem.exit.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %108
   %110 = load i8, ptr %106, align 1
-  %scevgep.i.i = getelementptr i8, ptr %106, i64 2
   %111 = load i8, ptr %.04855.i.i.i, align 1
   %112 = xor i8 %110, 10
   %113 = sext i8 %112 to i32
   %114 = icmp eq i8 %111, 10
-  %115 = icmp uge ptr %scevgep.i.i, %spec.select.i265
+  %.048.i.i.i = getelementptr inbounds i8, ptr %106, i64 2
+  %115 = icmp uge ptr %.048.i.i.i, %spec.select.i265
   %brmerge.i23.i = or i1 %115, %114
   br i1 %brmerge.i23.i, label %_warc_find_eol.exit.i, label %.lr.ph68.i.preheader.i.i
 
@@ -341,7 +341,7 @@ xmemmem.exit.thread25.i:                          ; preds = %98, %xmemmem.exit.i
 .lr.ph68.i.i.i:                                   ; preds = %128, %.lr.ph68.i.preheader.i.i
   %.167.i.i.i = phi i32 [ %124, %128 ], [ %117, %.lr.ph68.i.preheader.i.i ]
   %.04666.i.i.i = phi ptr [ %118, %128 ], [ %106, %.lr.ph68.i.preheader.i.i ]
-  %.14965.i.i.i = phi ptr [ %129, %128 ], [ %scevgep.i.i, %.lr.ph68.i.preheader.i.i ]
+  %.14965.i.i.i = phi ptr [ %129, %128 ], [ %.048.i.i.i, %.lr.ph68.i.preheader.i.i ]
   %118 = getelementptr inbounds i8, ptr %.04666.i.i.i, i64 1
   %119 = load i8, ptr %.04666.i.i.i, align 1
   %120 = sext i8 %119 to i32
@@ -514,12 +514,12 @@ xmemmem.exit.thread14.i:                          ; preds = %174, %xmemmem.exit.
 
 .lr.ph.preheader.i.i.i130:                        ; preds = %184
   %186 = load i8, ptr %182, align 1
-  %scevgep.i.i131 = getelementptr i8, ptr %182, i64 2
   %187 = load i8, ptr %.04855.i.i.i129, align 1
   %188 = xor i8 %186, 10
   %189 = sext i8 %188 to i32
   %190 = icmp eq i8 %187, 10
-  %191 = icmp uge ptr %scevgep.i.i131, %spec.select.i265
+  %.048.i.i.i131 = getelementptr inbounds i8, ptr %182, i64 2
+  %191 = icmp uge ptr %.048.i.i.i131, %spec.select.i265
   %brmerge.i12.i = or i1 %191, %190
   br i1 %brmerge.i12.i, label %_warc_find_eol.exit.i139, label %.lr.ph68.i.preheader.i.i132
 
@@ -531,7 +531,7 @@ xmemmem.exit.thread14.i:                          ; preds = %174, %xmemmem.exit.
 .lr.ph68.i.i.i133:                                ; preds = %204, %.lr.ph68.i.preheader.i.i132
   %.167.i.i.i134 = phi i32 [ %200, %204 ], [ %193, %.lr.ph68.i.preheader.i.i132 ]
   %.04666.i.i.i135 = phi ptr [ %194, %204 ], [ %182, %.lr.ph68.i.preheader.i.i132 ]
-  %.14965.i.i.i136 = phi ptr [ %205, %204 ], [ %scevgep.i.i131, %.lr.ph68.i.preheader.i.i132 ]
+  %.14965.i.i.i136 = phi ptr [ %205, %204 ], [ %.048.i.i.i131, %.lr.ph68.i.preheader.i.i132 ]
   %194 = getelementptr inbounds i8, ptr %.04666.i.i.i135, i64 1
   %195 = load i8, ptr %.04666.i.i.i135, align 1
   %196 = sext i8 %195 to i32
@@ -679,12 +679,12 @@ xmemmem.exit.thread24.i:                          ; preds = %242, %xmemmem.exit.
 
 .lr.ph.preheader.i.i.i161:                        ; preds = %252
   %254 = load i8, ptr %250, align 1
-  %scevgep.i.i162 = getelementptr i8, ptr %250, i64 2
   %255 = load i8, ptr %.04855.i.i.i160, align 1
   %256 = xor i8 %254, 10
   %257 = sext i8 %256 to i32
   %258 = icmp eq i8 %255, 10
-  %259 = icmp uge ptr %scevgep.i.i162, %spec.select.i265
+  %.048.i.i.i162 = getelementptr inbounds i8, ptr %250, i64 2
+  %259 = icmp uge ptr %.048.i.i.i162, %spec.select.i265
   %brmerge.i22.i = or i1 %259, %258
   br i1 %brmerge.i22.i, label %_warc_find_eol.exit.i178, label %.lr.ph68.i.preheader.i.i163
 
@@ -696,7 +696,7 @@ xmemmem.exit.thread24.i:                          ; preds = %242, %xmemmem.exit.
 .lr.ph68.i.i.i164:                                ; preds = %272, %.lr.ph68.i.preheader.i.i163
   %.167.i.i.i165 = phi i32 [ %268, %272 ], [ %261, %.lr.ph68.i.preheader.i.i163 ]
   %.04666.i.i.i166 = phi ptr [ %262, %272 ], [ %250, %.lr.ph68.i.preheader.i.i163 ]
-  %.14965.i.i.i167 = phi ptr [ %273, %272 ], [ %scevgep.i.i162, %.lr.ph68.i.preheader.i.i163 ]
+  %.14965.i.i.i167 = phi ptr [ %273, %272 ], [ %.048.i.i.i162, %.lr.ph68.i.preheader.i.i163 ]
   %262 = getelementptr inbounds i8, ptr %.04666.i.i.i166, i64 1
   %263 = load i8, ptr %.04666.i.i.i166, align 1
   %264 = sext i8 %263 to i32
@@ -857,12 +857,12 @@ xmemmem.exit.thread67.i:                          ; preds = %312, %xmemmem.exit.
 
 .lr.ph.preheader.i.i.i200:                        ; preds = %322
   %324 = load i8, ptr %320, align 1
-  %scevgep.i.i201 = getelementptr i8, ptr %320, i64 2
   %325 = load i8, ptr %.04855.i.i.i199, align 1
   %326 = xor i8 %324, 10
   %327 = sext i8 %326 to i32
   %328 = icmp eq i8 %325, 10
-  %329 = icmp uge ptr %scevgep.i.i201, %spec.select.i265
+  %.048.i.i.i201 = getelementptr inbounds i8, ptr %320, i64 2
+  %329 = icmp uge ptr %.048.i.i.i201, %spec.select.i265
   %brmerge.i44.i = or i1 %329, %328
   br i1 %brmerge.i44.i, label %_warc_find_eol.exit.i218, label %.lr.ph68.i.preheader.i.i202
 
@@ -874,7 +874,7 @@ xmemmem.exit.thread67.i:                          ; preds = %312, %xmemmem.exit.
 .lr.ph68.i.i.i203:                                ; preds = %342, %.lr.ph68.i.preheader.i.i202
   %.167.i.i.i204 = phi i32 [ %338, %342 ], [ %331, %.lr.ph68.i.preheader.i.i202 ]
   %.04666.i.i.i205 = phi ptr [ %332, %342 ], [ %320, %.lr.ph68.i.preheader.i.i202 ]
-  %.14965.i.i.i206 = phi ptr [ %343, %342 ], [ %scevgep.i.i201, %.lr.ph68.i.preheader.i.i202 ]
+  %.14965.i.i.i206 = phi ptr [ %343, %342 ], [ %.048.i.i.i201, %.lr.ph68.i.preheader.i.i202 ]
   %332 = getelementptr inbounds i8, ptr %.04666.i.i.i205, i64 1
   %333 = load i8, ptr %.04666.i.i.i205, align 1
   %334 = sext i8 %333 to i32
@@ -1185,12 +1185,12 @@ xmemmem.exit.thread14.i240:                       ; preds = %452, %xmemmem.exit.
 
 .lr.ph.preheader.i.i.i243:                        ; preds = %462
   %464 = load i8, ptr %460, align 1
-  %scevgep.i.i244 = getelementptr i8, ptr %460, i64 2
   %465 = load i8, ptr %.04855.i.i.i242, align 1
   %466 = xor i8 %464, 10
   %467 = sext i8 %466 to i32
   %468 = icmp eq i8 %465, 10
-  %469 = icmp uge ptr %scevgep.i.i244, %spec.select.i265
+  %.048.i.i.i244 = getelementptr inbounds i8, ptr %460, i64 2
+  %469 = icmp uge ptr %.048.i.i.i244, %spec.select.i265
   %brmerge.i12.i245 = or i1 %469, %468
   br i1 %brmerge.i12.i245, label %_warc_find_eol.exit.i256, label %.lr.ph68.i.preheader.i.i246
 
@@ -1202,7 +1202,7 @@ xmemmem.exit.thread14.i240:                       ; preds = %452, %xmemmem.exit.
 .lr.ph68.i.i.i247:                                ; preds = %482, %.lr.ph68.i.preheader.i.i246
   %.167.i.i.i248 = phi i32 [ %478, %482 ], [ %471, %.lr.ph68.i.preheader.i.i246 ]
   %.04666.i.i.i249 = phi ptr [ %472, %482 ], [ %460, %.lr.ph68.i.preheader.i.i246 ]
-  %.14965.i.i.i250 = phi ptr [ %483, %482 ], [ %scevgep.i.i244, %.lr.ph68.i.preheader.i.i246 ]
+  %.14965.i.i.i250 = phi ptr [ %483, %482 ], [ %.048.i.i.i244, %.lr.ph68.i.preheader.i.i246 ]
   %472 = getelementptr inbounds i8, ptr %.04666.i.i.i249, i64 1
   %473 = load i8, ptr %.04666.i.i.i249, align 1
   %474 = sext i8 %473 to i32

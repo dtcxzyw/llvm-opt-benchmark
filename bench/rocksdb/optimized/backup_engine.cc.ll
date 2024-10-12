@@ -1510,11 +1510,11 @@ lpad.body.i.i:                                    ; preds = %lpad.i.i, %lpad23.i
   br label %lpad3.body
 
 _ZN7rocksdb7channelINS_12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemEEC2Ev.exit.i: ; preds = %call5.i.i2.i.i1.i.i.i.noexc.i.i
-  %add.ptr.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i.i1.i.i, i64 24
-  store ptr %call5.i.i.i5.i.i.i.i.i.i.i, ptr %add.ptr.ptr.i.i.i.i.i.i, align 8
+  %__cur.03.i.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i.i1.i.i, i64 24
+  store ptr %call5.i.i.i5.i.i.i.i.i.i.i, ptr %__cur.03.i.ptr.i.i.i.i.i.i, align 8
   %_M_start.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %_M_node.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  store ptr %add.ptr.ptr.i.i.i.i.i.i, ptr %_M_node.i.i.i.i.i.i.i, align 8
+  store ptr %__cur.03.i.ptr.i.i.i.i.i.i, ptr %_M_node.i.i.i.i.i.i.i, align 8
   %_M_first.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   store ptr %call5.i.i.i5.i.i.i.i.i.i.i, ptr %_M_first.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i, i64 392
@@ -1522,7 +1522,7 @@ _ZN7rocksdb7channelINS_12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemEEC
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_last.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %_M_node.i10.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr %add.ptr.ptr.i.i.i.i.i.i, ptr %_M_node.i10.i.i.i.i.i.i, align 8
+  store ptr %__cur.03.i.ptr.i.i.i.i.i.i, ptr %_M_node.i10.i.i.i.i.i.i, align 8
   %_M_first.i11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %call5.i.i.i5.i.i.i.i.i.i.i, ptr %_M_first.i11.i.i.i.i.i.i, align 8
   %_M_last.i13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
@@ -27007,11 +27007,11 @@ unreachable.i.i.i:                                ; preds = %lpad.body.i.i.i
   unreachable
 
 invoke.cont104:                                   ; preds = %call5.i.i2.i.i1.i.i.noexc
-  %add.ptr.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i178, i64 24
-  store ptr %call5.i.i.i5.i.i.i.i, ptr %add.ptr.ptr.i.i.i, align 8
+  %__cur.03.i.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i178, i64 24
+  store ptr %call5.i.i.i5.i.i.i.i, ptr %__cur.03.i.ptr.i.i.i, align 8
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 16
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 40
-  store ptr %add.ptr.ptr.i.i.i, ptr %_M_node.i.i.i.i, align 8
+  store ptr %__cur.03.i.ptr.i.i.i, ptr %_M_node.i.i.i.i, align 8
   %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 24
   store ptr %call5.i.i.i5.i.i.i.i, ptr %_M_first.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 520
@@ -27019,7 +27019,7 @@ invoke.cont104:                                   ; preds = %call5.i.i2.i.i1.i.i
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 48
   %_M_node.i10.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 72
-  store ptr %add.ptr.ptr.i.i.i, ptr %_M_node.i10.i.i.i, align 8
+  store ptr %__cur.03.i.ptr.i.i.i, ptr %_M_node.i10.i.i.i, align 8
   %_M_first.i11.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 56
   store ptr %call5.i.i.i5.i.i.i.i, ptr %_M_first.i11.i.i.i, align 8
   %_M_last.i13.i.i.i = getelementptr inbounds i8, ptr %excludable_items, i64 64
@@ -27087,11 +27087,11 @@ unreachable.i.i.i188:                             ; preds = %lpad.body.i.i.i184
   unreachable
 
 invoke.cont106:                                   ; preds = %call5.i.i2.i.i1.i.i.noexc200
-  %add.ptr.ptr.i.i.i190 = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i201, i64 24
-  store ptr %call5.i.i.i5.i.i.i.i181, ptr %add.ptr.ptr.i.i.i190, align 8
+  %__cur.03.i.ptr.i.i.i190 = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i201, i64 24
+  store ptr %call5.i.i.i5.i.i.i.i181, ptr %__cur.03.i.ptr.i.i.i190, align 8
   %_M_start.i.i.i191 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 16
   %_M_node.i.i.i.i192 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 40
-  store ptr %add.ptr.ptr.i.i.i190, ptr %_M_node.i.i.i.i192, align 8
+  store ptr %__cur.03.i.ptr.i.i.i190, ptr %_M_node.i.i.i.i192, align 8
   %_M_first.i.i.i.i193 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 24
   store ptr %call5.i.i.i5.i.i.i.i181, ptr %_M_first.i.i.i.i193, align 8
   %add.ptr.i.i.i.i194 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i181, i64 512
@@ -27099,7 +27099,7 @@ invoke.cont106:                                   ; preds = %call5.i.i2.i.i1.i.i
   store ptr %add.ptr.i.i.i.i194, ptr %_M_last.i.i.i.i195, align 8
   %_M_finish.i.i.i196 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 48
   %_M_node.i10.i.i.i197 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 72
-  store ptr %add.ptr.ptr.i.i.i190, ptr %_M_node.i10.i.i.i197, align 8
+  store ptr %__cur.03.i.ptr.i.i.i190, ptr %_M_node.i10.i.i.i197, align 8
   %_M_first.i11.i.i.i198 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 56
   store ptr %call5.i.i.i5.i.i.i.i181, ptr %_M_first.i11.i.i.i198, align 8
   %_M_last.i13.i.i.i199 = getelementptr inbounds i8, ptr %backup_items_to_finish, i64 64

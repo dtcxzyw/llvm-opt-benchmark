@@ -16619,29 +16619,28 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h099491527f
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h207422a097b25489E.llvm.15419814201757598265(ptr noalias noundef align 8 dereferenceable(1120) %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.promoted = load i64, ptr %2, align 8
-  %4 = add i64 %.promoted, %1
-  br label %5
+  br label %4
 
-5:                                                ; preds = %9, %3
-  %6 = phi i64 [ %.promoted, %3 ], [ %10, %9 ]
-  %.sroa.01.0 = phi i64 [ %1, %3 ], [ %11, %9 ]
-  %7 = tail call noundef align 8 dereferenceable_or_null(88) ptr @"_ZN85_$LT$worktree..ChildEntriesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa50a1e425d8faeaE"(ptr noalias noundef nonnull align 8 dereferenceable(1120) %0)
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
+4:                                                ; preds = %8, %3
+  %5 = phi i64 [ %.promoted, %3 ], [ %9, %8 ]
+  %.sroa.01.0 = phi i64 [ %1, %3 ], [ %10, %8 ]
+  %6 = tail call noundef align 8 dereferenceable_or_null(88) ptr @"_ZN85_$LT$worktree..ChildEntriesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa50a1e425d8faeaE"(ptr noalias noundef nonnull align 8 dereferenceable(1120) %0)
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-9:                                                ; preds = %5
-  %10 = add i64 %6, -1
-  store i64 %10, ptr %2, align 8
-  %11 = add i64 %.sroa.01.0, 1
-  %12 = icmp eq i64 %10, 0
-  br i1 %12, label %13, label %5
+8:                                                ; preds = %4
+  %9 = add i64 %5, -1
+  store i64 %9, ptr %2, align 8
+  %10 = add i64 %.sroa.01.0, 1
+  %11 = icmp eq i64 %9, 0
+  br i1 %11, label %12, label %4
 
-13:                                               ; preds = %5, %9
-  %.sroa.01.0.pn = phi i64 [ %4, %9 ], [ %.sroa.01.0, %5 ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 0, %5 ]
-  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.01.0.pn, 1
-  ret { i64, i64 } %15
+12:                                               ; preds = %4, %8
+  %.sroa.01.0.pn = phi i64 [ %10, %8 ], [ %.sroa.01.0, %4 ]
+  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %4 ]
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.01.0.pn, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

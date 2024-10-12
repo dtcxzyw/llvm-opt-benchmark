@@ -1034,13 +1034,13 @@ lpad18:                                           ; preds = %lpad18.loopexit.spl
 
 for.inc33:                                        ; preds = %for.inc
   %inc34 = add nuw nsw i32 %byte3.094, 1
-  %exitcond109.not = icmp eq i32 %inc34, 192
-  br i1 %exitcond109.not, label %for.inc36, label %for.cond28.preheader, !llvm.loop !10
+  %exitcond107.not = icmp eq i32 %inc34, 192
+  br i1 %exitcond107.not, label %for.inc36, label %for.cond28.preheader, !llvm.loop !10
 
 for.inc36:                                        ; preds = %for.inc33
   %inc37 = add nuw nsw i32 %byte2.095, 1
-  %exitcond110.not = icmp eq i32 %inc37, 192
-  br i1 %exitcond110.not, label %if.end, label %for.cond25.preheader, !llvm.loop !11
+  %exitcond108.not = icmp eq i32 %inc37, 192
+  br i1 %exitcond108.not, label %if.end, label %for.cond25.preheader, !llvm.loop !11
 
 if.end:                                           ; preds = %for.inc36, %invoke.cont19
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp13) #24
@@ -1107,8 +1107,8 @@ invoke.cont78:                                    ; preds = %for.body77
 
 for.inc80:                                        ; preds = %invoke.cont78
   %inc81 = add nuw nsw i32 %byte274.096, 1
-  %exitcond111.not = icmp eq i32 %inc81, 192
-  br i1 %exitcond111.not, label %if.end86, label %for.body77, !llvm.loop !12
+  %exitcond109.not = icmp eq i32 %inc81, 192
+  br i1 %exitcond109.not, label %if.end86, label %for.body77, !llvm.loop !12
 
 lpad64:                                           ; preds = %invoke.cont63
   %7 = landingpad { ptr, i32 }
@@ -1163,8 +1163,8 @@ invoke.cont108:                                   ; preds = %for.body107
 
 for.inc110:                                       ; preds = %invoke.cont108
   %inc111 = add nuw nsw i32 %byte3104.097, 1
-  %exitcond112.not = icmp eq i32 %inc111, 192
-  br i1 %exitcond112.not, label %for.inc113, label %for.body107, !llvm.loop !13
+  %exitcond110.not = icmp eq i32 %inc111, 192
+  br i1 %exitcond110.not, label %for.inc113, label %for.body107, !llvm.loop !13
 
 lpad90:                                           ; preds = %invoke.cont89
   %8 = landingpad { ptr, i32 }
@@ -1189,8 +1189,8 @@ lpad92:                                           ; preds = %lpad92.loopexit.spl
 
 for.inc113:                                       ; preds = %for.inc110
   %inc114 = add nuw nsw i32 %byte2100.098, 1
-  %exitcond113.not = icmp eq i32 %inc114, 192
-  br i1 %exitcond113.not, label %if.end119, label %for.cond105.preheader, !llvm.loop !14
+  %exitcond111.not = icmp eq i32 %inc114, 192
+  br i1 %exitcond111.not, label %if.end119, label %for.cond105.preheader, !llvm.loop !14
 
 if.end119:                                        ; preds = %for.inc113, %invoke.cont93
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp87) #24
@@ -1251,18 +1251,18 @@ invoke.cont149:                                   ; preds = %for.body148
 
 for.inc151:                                       ; preds = %invoke.cont149
   %inc152 = add nuw nsw i32 %byte4145.099, 1
-  %exitcond114.not = icmp eq i32 %inc152, 192
-  br i1 %exitcond114.not, label %for.inc154, label %for.body148, !llvm.loop !15
+  %exitcond112.not = icmp eq i32 %inc152, 192
+  br i1 %exitcond112.not, label %for.inc154, label %for.body148, !llvm.loop !15
 
 for.inc154:                                       ; preds = %for.inc151
   %inc155 = add nuw nsw i32 %byte3141.0100, 1
-  %exitcond115.not = icmp eq i32 %inc155, 192
-  br i1 %exitcond115.not, label %for.inc157, label %for.cond146.preheader, !llvm.loop !16
+  %exitcond113.not = icmp eq i32 %inc155, 192
+  br i1 %exitcond113.not, label %for.inc157, label %for.cond146.preheader, !llvm.loop !16
 
 for.inc157:                                       ; preds = %for.inc154, %for.body136
   %inc158 = add nuw nsw i32 %byte2133.0101, 1
-  %exitcond116.not = icmp eq i32 %inc158, 256
-  br i1 %exitcond116.not, label %if.end163, label %for.body136, !llvm.loop !17
+  %exitcond114.not = icmp eq i32 %inc158, 256
+  br i1 %exitcond114.not, label %if.end163, label %for.body136, !llvm.loop !17
 
 if.end163:                                        ; preds = %for.inc157, %invoke.cont126
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp120) #24
@@ -1323,18 +1323,18 @@ invoke.cont194:                                   ; preds = %for.body193
 
 for.inc196:                                       ; preds = %invoke.cont194
   %inc197 = add nuw nsw i32 %byte4190.0102, 1
-  %exitcond117.not = icmp eq i32 %inc197, 192
-  br i1 %exitcond117.not, label %for.inc199, label %for.body193, !llvm.loop !18
+  %exitcond115.not = icmp eq i32 %inc197, 192
+  br i1 %exitcond115.not, label %for.inc199, label %for.body193, !llvm.loop !18
 
 for.inc199:                                       ; preds = %for.inc196, %for.body184
   %inc200 = add nuw nsw i32 %byte3181.0103, 1
-  %exitcond118.not = icmp eq i32 %inc200, 256
-  br i1 %exitcond118.not, label %for.inc202, label %for.body184, !llvm.loop !19
+  %exitcond116.not = icmp eq i32 %inc200, 256
+  br i1 %exitcond116.not, label %for.inc202, label %for.body184, !llvm.loop !19
 
 for.inc202:                                       ; preds = %for.inc199
   %inc203 = add nuw nsw i32 %byte2177.0104, 1
-  %exitcond119.not = icmp eq i32 %inc203, 192
-  br i1 %exitcond119.not, label %if.end208, label %for.cond182.preheader, !llvm.loop !20
+  %exitcond117.not = icmp eq i32 %inc203, 192
+  br i1 %exitcond117.not, label %if.end208, label %for.cond182.preheader, !llvm.loop !20
 
 if.end208:                                        ; preds = %for.inc202, %invoke.cont170
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp164) #24
@@ -1348,11 +1348,7 @@ invoke.cont211:                                   ; preds = %if.end208
 invoke.cont213:                                   ; preds = %invoke.cont211
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp210) #24
   %call216 = invoke noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp209)
-          to label %invoke.cont215 unwind label %lpad214
-
-invoke.cont215:                                   ; preds = %invoke.cont213
-  call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp209) #24
-  br label %if.end254
+          to label %if.end253 unwind label %lpad214.loopexit.split-lp
 
 lpad212:                                          ; preds = %invoke.cont211
   %13 = landingpad { ptr, i32 }
@@ -1360,18 +1356,22 @@ lpad212:                                          ; preds = %invoke.cont211
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp210) #24
   br label %ehcleanup
 
-lpad214:                                          ; preds = %invoke.cont213
+lpad214.loopexit.split-lp:                        ; preds = %invoke.cont213
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp209) #24
   br label %ehcleanup
 
-if.end254:                                        ; preds = %invoke.cont215, %invoke.cont10
+if.end253:                                        ; preds = %invoke.cont213
+  call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp209) #24
+  br label %if.end254
+
+if.end254:                                        ; preds = %if.end253, %invoke.cont10
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp4) #24
   br label %if.end255
 
-ehcleanup:                                        ; preds = %lpad214, %lpad212, %lpad169, %lpad167, %lpad125, %lpad123, %lpad92, %lpad90, %lpad66, %lpad64, %lpad47, %lpad45, %lpad18, %lpad16, %lpad9
-  %.pn = phi { ptr, i32 } [ %lpad.phi92, %lpad18 ], [ %6, %lpad47 ], [ %lpad.phi89, %lpad66 ], [ %lpad.phi86, %lpad92 ], [ %lpad.phi83, %lpad125 ], [ %lpad.phi80, %lpad169 ], [ %lpad.loopexit.split-lp, %lpad214 ], [ %13, %lpad212 ], [ %3, %lpad9 ], [ %12, %lpad167 ], [ %10, %lpad123 ], [ %8, %lpad90 ], [ %7, %lpad64 ], [ %5, %lpad45 ], [ %4, %lpad16 ]
+ehcleanup:                                        ; preds = %lpad214.loopexit.split-lp, %lpad212, %lpad169, %lpad167, %lpad125, %lpad123, %lpad92, %lpad90, %lpad66, %lpad64, %lpad47, %lpad45, %lpad18, %lpad16, %lpad9
+  %.pn = phi { ptr, i32 } [ %lpad.phi92, %lpad18 ], [ %6, %lpad47 ], [ %lpad.phi89, %lpad66 ], [ %lpad.phi86, %lpad92 ], [ %lpad.phi83, %lpad125 ], [ %lpad.phi80, %lpad169 ], [ %lpad.loopexit.split-lp, %lpad214.loopexit.split-lp ], [ %13, %lpad212 ], [ %3, %lpad9 ], [ %12, %lpad167 ], [ %10, %lpad123 ], [ %8, %lpad90 ], [ %7, %lpad64 ], [ %5, %lpad45 ], [ %4, %lpad16 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp4) #24
   br label %ehcleanup256
 

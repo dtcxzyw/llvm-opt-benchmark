@@ -1070,15 +1070,15 @@ _ZN12_GLOBAL__N_112from32FTo32SERN2cv3MatES2_iPf.exit: ; preds = %._crit_edge164
   store i32 33619968, ptr %16, align 8
   store ptr %15, ptr %414, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 4, double noundef 1.000000e+00, double noundef 0.000000e+00)
-          to label %416 unwind label %434
+          to label %416 unwind label %435
 
 416:                                              ; preds = %413
   %417 = invoke noalias noundef nonnull dereferenceable(2048) ptr @_Znam(i64 noundef 2048) #18
-          to label %.noexc.i unwind label %432
+          to label %.noexc.i unwind label %433
 
 .noexc.i:                                         ; preds = %416
   %418 = invoke noalias noundef nonnull dereferenceable(262144) ptr @_Znam(i64 noundef 262144) #18
-          to label %.noexc208.i unwind label %432
+          to label %.noexc208.i unwind label %433
 
 .noexc208.i:                                      ; preds = %.noexc.i
   store ptr %418, ptr %417, align 8
@@ -1104,80 +1104,78 @@ _ZN12_GLOBAL__N_112from32FTo32SERN2cv3MatES2_iPf.exit: ; preds = %._crit_edge164
 .lr.ph324.i:                                      ; preds = %.preheader.lr.ph.i, %._crit_edge325.i
   %indvars.iv371.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next372.i, %._crit_edge325.i ]
   %425 = trunc nuw nsw i64 %indvars.iv371.i to i32
-  %426 = getelementptr inbounds ptr, ptr %417, i64 %indvars.iv371.i
-  br label %427
+  %426 = uitofp nneg i32 %425 to double
+  %427 = getelementptr inbounds ptr, ptr %417, i64 %indvars.iv371.i
+  br label %428
 
-427:                                              ; preds = %458, %.lr.ph324.i
+428:                                              ; preds = %458, %.lr.ph324.i
   %indvars.iv373.i = phi i64 [ %indvars.iv371.i, %.lr.ph324.i ], [ %indvars.iv.next374.i, %458 ]
-  %428 = sub nsw i64 %indvars.iv371.i, %indvars.iv373.i
-  %429 = trunc nsw i64 %428 to i32
-  %430 = sitofp i32 %429 to float
-  %431 = call noundef float @llvm.fabs.f32(float %430)
+  %429 = sub nsw i64 %indvars.iv371.i, %indvars.iv373.i
+  %430 = trunc nsw i64 %429 to i32
+  %431 = sitofp i32 %430 to float
+  %432 = call noundef float @llvm.fabs.f32(float %431)
   switch i32 %5, label %453 [
-    i32 1, label %436
-    i32 2, label %441
-    i32 4, label %444
+    i32 1, label %437
+    i32 2, label %442
+    i32 4, label %445
     i32 8, label %458
-    i32 16, label %447
+    i32 16, label %448
     i32 32, label %458
   ]
 
-432:                                              ; preds = %.loopexit.i, %._crit_edge.i89, %.noexc.i, %416
-  %433 = landingpad { ptr, i32 }
+433:                                              ; preds = %.loopexit.i, %._crit_edge.i89, %.noexc.i, %416
+  %434 = landingpad { ptr, i32 }
           cleanup
   br label %701
 
-434:                                              ; preds = %413
-  %435 = landingpad { ptr, i32 }
+435:                                              ; preds = %413
+  %436 = landingpad { ptr, i32 }
           cleanup
   br label %701
 
-436:                                              ; preds = %427
-  %437 = fneg float %431
-  %438 = fmul float %431, %437
-  %439 = fmul float %423, %438
-  %440 = call noundef float @expf(float noundef %439) #16
+437:                                              ; preds = %428
+  %438 = fneg float %432
+  %439 = fmul float %432, %438
+  %440 = fmul float %423, %439
+  %441 = call noundef float @expf(float noundef %440) #16
   br label %458
 
-441:                                              ; preds = %427
-  %442 = fadd float %431, %404
-  %443 = fdiv float 1.000000e+00, %442
+442:                                              ; preds = %428
+  %443 = fadd float %432, %404
+  %444 = fdiv float 1.000000e+00, %443
   br label %458
 
-444:                                              ; preds = %427
-  %445 = call float @llvm.fmuladd.f32(float %430, float %430, float %424)
-  %446 = fdiv float 1.000000e+00, %445
+445:                                              ; preds = %428
+  %446 = call float @llvm.fmuladd.f32(float %431, float %431, float %424)
+  %447 = fdiv float 1.000000e+00, %446
   br label %458
 
-447:                                              ; preds = %427
-  %448 = trunc nuw nsw i64 %indvars.iv373.i to i32
-  %.sroa.speculated270.i = call i32 @llvm.umin.i32(i32 %448, i32 %425)
-  %449 = uitofp nneg i32 %.sroa.speculated270.i to double
-  %.sroa.speculated267.i = call i32 @llvm.umax.i32(i32 %425, i32 %448)
-  %450 = uitofp nneg i32 %.sroa.speculated267.i to double
-  %451 = fdiv double %449, %450
+448:                                              ; preds = %428
+  %449 = trunc nuw nsw i64 %indvars.iv373.i to i32
+  %450 = uitofp nneg i32 %449 to double
+  %451 = fdiv double %426, %450
   %452 = fptrunc double %451 to float
   br label %458
 
-453:                                              ; preds = %427
-  %454 = fneg float %431
-  %455 = fmul float %431, %454
+453:                                              ; preds = %428
+  %454 = fneg float %432
+  %455 = fmul float %432, %454
   %456 = fmul float %423, %455
   %457 = call noundef float @expf(float noundef %456) #16
   br label %458
 
-458:                                              ; preds = %453, %447, %444, %441, %436, %427, %427
-  %.0179.i = phi float [ %457, %453 ], [ %452, %447 ], [ %446, %444 ], [ %443, %441 ], [ %440, %436 ], [ 1.000000e+00, %427 ], [ 1.000000e+00, %427 ]
+458:                                              ; preds = %453, %448, %445, %442, %437, %428, %428
+  %.0179.i = phi float [ %457, %453 ], [ %452, %448 ], [ %447, %445 ], [ %444, %442 ], [ %441, %437 ], [ 1.000000e+00, %428 ], [ 1.000000e+00, %428 ]
   %459 = getelementptr inbounds ptr, ptr %417, i64 %indvars.iv373.i
   %460 = load ptr, ptr %459, align 8
   %461 = getelementptr inbounds float, ptr %460, i64 %indvars.iv371.i
   store float %.0179.i, ptr %461, align 4
-  %462 = load ptr, ptr %426, align 8
+  %462 = load ptr, ptr %427, align 8
   %463 = getelementptr inbounds float, ptr %462, i64 %indvars.iv373.i
   store float %.0179.i, ptr %463, align 4
   %indvars.iv.next374.i = add nuw nsw i64 %indvars.iv373.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next374.i, 256
-  br i1 %exitcond.not, label %._crit_edge325.i, label %427, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge325.i, label %428, !llvm.loop !24
 
 ._crit_edge325.i:                                 ; preds = %458
   %indvars.iv.next372.i = add nuw nsw i64 %indvars.iv371.i, 1
@@ -1227,7 +1225,7 @@ _ZN12_GLOBAL__N_112from32FTo32SERN2cv3MatES2_iPf.exit: ; preds = %._crit_edge164
   %.0286.lcssa.i = phi i32 [ 0, %464 ], [ %.1.i95, %484 ]
   %.sroa.speculated257.i = call i32 @llvm.smin.i32(i32 %.0286.lcssa.i, i32 256)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.0286.lcssa.i, i32 noundef 3, i32 noundef 5)
-          to label %.preheader295.i unwind label %432
+          to label %.preheader295.i unwind label %433
 
 .preheader295.i:                                  ; preds = %._crit_edge.i89
   %486 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1663,10 +1661,10 @@ _ZN12_GLOBAL__N_17float2DEii.exit217.i:           ; preds = %.lr.ph.i211.i, %.no
   %.0167 = phi i32 [ 256, %._crit_edge ], [ %.sroa.speculated257.i, %._crit_edge322.i ], [ 256, %._crit_edge325.i ]
   %.0166 = phi ptr [ null, %._crit_edge ], [ %584, %._crit_edge322.i ], [ %417, %._crit_edge325.i ]
   %700 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(96) %15)
-          to label %_ZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifi.exit unwind label %432
+          to label %_ZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifi.exit unwind label %433
 
-701:                                              ; preds = %699, %434, %432
-  %.pn205.i = phi { ptr, i32 } [ %433, %432 ], [ %435, %434 ], [ %.pn202.i, %699 ]
+701:                                              ; preds = %699, %435, %433
+  %.pn205.i = phi { ptr, i32 } [ %434, %433 ], [ %436, %435 ], [ %.pn202.i, %699 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #16
   br label %_ZNSt6vectorIPfSaIS0_EED2Ev.exit147
 
@@ -3515,12 +3513,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #14

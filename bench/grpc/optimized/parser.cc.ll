@@ -1706,18 +1706,18 @@ do.end39.i.i.i.loopexit:                          ; preds = %land.rhsthread-pre-
   br label %do.end39.i.i.i
 
 do.end39.i.i.i:                                   ; preds = %do.end39.i.i.i.loopexit, %land.rhs.preheader.i.i.i
-  %cur.0.idx102.i.lcssa56.i.i = phi i64 [ 32, %land.rhs.preheader.i.i.i ], [ %cur.0.add.i.i.i, %do.end39.i.i.i.loopexit ]
-  %cur.0.ptr103.i.lcssa55.i.i = phi ptr [ %invariant.gep, %land.rhs.preheader.i.i.i ], [ %cur.0.ptr.i.i.i.le, %do.end39.i.i.i.loopexit ]
-  %add.i.i.i.i = add nsw i64 %cur.0.idx102.i.lcssa56.i.i, -31
+  %cur.0.ptr103.i.lcssa.i.i = phi ptr [ %invariant.gep, %land.rhs.preheader.i.i.i ], [ %cur.0.ptr.i.i.i.le, %do.end39.i.i.i.loopexit ]
+  %cur.0.idx102.i.lcssa.i.i = phi i64 [ 32, %land.rhs.preheader.i.i.i ], [ %cur.0.add.i.i.i, %do.end39.i.i.i.loopexit ]
+  %add.i.i.i.i = add nsw i64 %cur.0.idx102.i.lcssa.i.i, -31
   %call.i90.i.i.i = invoke noundef ptr @gpr_malloc(i64 noundef %add.i.i.i.i)
           to label %_ZL7buf2strPvm.exit.i.i.i unwind label %lpad.i.i.i.loopexit, !noalias !38
 
 _ZL7buf2strPvm.exit.i.i.i:                        ; preds = %do.end39.i.i.i
-  %gepdiff.i.i.i = add nsw i64 %cur.0.idx102.i.lcssa56.i.i, -32
+  %gepdiff.i.i.i = add nsw i64 %cur.0.idx102.i.lcssa.i.i, -32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i90.i.i.i, ptr nonnull readonly align 1 %invariant.gep, i64 %gepdiff.i.i.i, i1 false), !noalias !38
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call.i90.i.i.i, i64 %gepdiff.i.i.i
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !38
-  %cur.1104.i.i.i = getelementptr inbounds i8, ptr %cur.0.ptr103.i.lcssa55.i.i, i64 1
+  %cur.1104.i.i.i = getelementptr inbounds i8, ptr %cur.0.ptr103.i.lcssa.i.i, i64 1
   %cmp44.not105.i.i.i = icmp eq ptr %cur.1104.i.i.i, %add.ptr.ptr.i.i.i
   br i1 %cmp44.not105.i.i.i, label %do.body54.i.i.i, label %land.rhs45.preheader.i.i.i
 
@@ -1727,7 +1727,7 @@ land.rhs45.preheader.i.i.i:                       ; preds = %_ZL7buf2strPvm.exit
 
 land.rhs45.i.i.i:                                 ; preds = %while.body51.i.i.i, %land.rhs45.preheader.i.i.i
   %cur.1107.i.i.i = phi ptr [ %cur.1.i.i.i, %while.body51.i.i.i ], [ %cur.1104.i.i.i, %land.rhs45.preheader.i.i.i ]
-  %cur.0.ptr.pn106.i.i.i = phi ptr [ %cur.1107.i.i.i, %while.body51.i.i.i ], [ %cur.0.ptr103.i.lcssa55.i.i, %land.rhs45.preheader.i.i.i ]
+  %cur.0.ptr.pn106.i.i.i = phi ptr [ %cur.1107.i.i.i, %while.body51.i.i.i ], [ %cur.0.ptr103.i.lcssa.i.i, %land.rhs45.preheader.i.i.i ]
   %151 = load i8, ptr %cur.1107.i.i.i, align 1, !noalias !38
   switch i8 %151, label %do.body54.i.i.i [
     i8 32, label %while.body51.i.i.i
@@ -1740,7 +1740,7 @@ while.body51.i.i.i:                               ; preds = %land.rhs45.i.i.i, %
   br i1 %cmp44.not.i.i.i, label %do.body54.i.i.i, label %land.rhs45.i.i.i, !llvm.loop !40
 
 do.body54.i.i.i:                                  ; preds = %while.body51.i.i.i, %land.rhs45.i.i.i, %_ZL7buf2strPvm.exit.i.i.i
-  %cur.0.ptr.pn.lcssa.i.i.i = phi ptr [ %cur.0.ptr103.i.lcssa55.i.i, %_ZL7buf2strPvm.exit.i.i.i ], [ %scevgep.i.i.i, %while.body51.i.i.i ], [ %cur.0.ptr.pn106.i.i.i, %land.rhs45.i.i.i ]
+  %cur.0.ptr.pn.lcssa.i.i.i = phi ptr [ %cur.0.ptr103.i.lcssa.i.i, %_ZL7buf2strPvm.exit.i.i.i ], [ %scevgep.i.i.i, %while.body51.i.i.i ], [ %cur.0.ptr.pn106.i.i.i, %land.rhs45.i.i.i ]
   %cur.1.lcssa.i.i.i = phi ptr [ %add.ptr.ptr.i.i.i, %_ZL7buf2strPvm.exit.i.i.i ], [ %add.ptr.ptr.i.i.i, %while.body51.i.i.i ], [ %cur.1107.i.i.i, %land.rhs45.i.i.i ]
   %sub.ptr.lhs.cast55.i.i.i = ptrtoint ptr %add.ptr.ptr.i.i.i to i64
   %sub.ptr.rhs.cast56.i.i.i = ptrtoint ptr %cur.1.lcssa.i.i.i to i64

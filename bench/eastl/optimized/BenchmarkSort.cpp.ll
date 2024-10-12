@@ -25012,10 +25012,9 @@ for.inc24.i:                                      ; preds = %if.end17.i
 for.end26.i:                                      ; preds = %for.inc24.i, %if.end17.i, %for.cond13.preheader.i
   %curr.2.lcssa.i = phi i64 [ %add.i, %for.cond13.preheader.i ], [ %sub14.i, %for.inc24.i ], [ %curr.231.i, %if.end17.i ]
   %sub27.i = add nsw i64 %curr.2.lcssa.i, -1
-  %cmp6.i.i = icmp slt i64 %0, %sub27.i
-  br i1 %cmp6.i.i, label %while.body.i.i, label %if.end28.i
+  br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %for.end26.i, %while.body.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i, %for.end26.i
   %end.addr.08.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %sub27.i, %for.end26.i ]
   %start.addr.07.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %0, %for.end26.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %first, i64 %start.addr.07.i.i
@@ -25029,8 +25028,8 @@ while.body.i.i:                                   ; preds = %for.end26.i, %while
   %cmp.i25.i = icmp slt i64 %inc.i.i, %dec.i.i
   br i1 %cmp.i25.i, label %while.body.i.i, label %if.end28.i, !llvm.loop !304
 
-if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.body.i.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.2.lcssa.i, %while.body.i.i ], [ %sub14.i, %for.inc.i ], [ %curr.028.i, %if.end.i ]
+if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.body.i.i, %for.cond.preheader.i
+  %curr.1.i = phi i64 [ %add.i, %for.cond.preheader.i ], [ %curr.2.lcssa.i, %while.body.i.i ], [ %sub14.i, %for.inc.i ], [ %curr.028.i, %if.end.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPjNS_4lessIjEEEElT_llT0_.exit
 
@@ -28278,10 +28277,9 @@ for.end26.sink.split.i:                           ; preds = %for.inc24.i, %if.en
 for.end26.i:                                      ; preds = %for.end26.sink.split.i, %for.cond13.preheader.i
   %curr.2.lcssa.i = phi i64 [ %add.i, %for.cond13.preheader.i ], [ %curr.2.lcssa.ph.i, %for.end26.sink.split.i ]
   %sub27.i = add nsw i64 %curr.2.lcssa.i, -1
-  %cmp6.i.i = icmp slt i64 %0, %sub27.i
-  br i1 %cmp6.i.i, label %while.body.i.i, label %if.end28.i
+  br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %for.end26.i, %while.body.i.i
+while.body.i.i:                                   ; preds = %while.body.i.i, %for.end26.i
   %end.addr.08.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %sub27.i, %for.end26.i ]
   %start.addr.07.i.i = phi i64 [ %inc.i49.i, %while.body.i.i ], [ %0, %for.end26.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %first, i64 %start.addr.07.i.i
@@ -28301,8 +28299,8 @@ if.end28.sink.split.i:                            ; preds = %for.inc.i, %if.end.
   store i32 %.us-phi.sink.i, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   br label %if.end28.i
 
-if.end28.i:                                       ; preds = %while.body.i.i, %if.end28.sink.split.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.1.ph.i, %if.end28.sink.split.i ], [ %curr.2.lcssa.i, %while.body.i.i ]
+if.end28.i:                                       ; preds = %while.body.i.i, %if.end28.sink.split.i, %for.cond.preheader.i
+  %curr.1.i = phi i64 [ %add.i, %for.cond.preheader.i ], [ %curr.1.ph.i, %if.end28.sink.split.i ], [ %curr.2.lcssa.i, %while.body.i.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPiN12_GLOBAL__N_111SlowCompareIiEEEElT_llT0_.exit
 
@@ -31723,17 +31721,13 @@ for.inc24.i:                                      ; preds = %if.end17.i
 for.end26.i:                                      ; preds = %for.inc24.i, %if.end17.i, %for.cond13.preheader.i
   %curr.2.lcssa.i = phi i64 [ %add.i, %for.cond13.preheader.i ], [ %sub14.i, %for.inc24.i ], [ %curr.229.i, %if.end17.i ]
   %sub27.i = add nsw i64 %curr.2.lcssa.i, -1
-  %cmp7.i.i = icmp slt i64 %0, %sub27.i
-  br i1 %cmp7.i.i, label %while.body.preheader.i.i, label %if.end28.i
-
-while.body.preheader.i.i:                         ; preds = %for.end26.i
   %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i = load i32, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
-  %end.addr.010.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %sub27.i, %while.body.preheader.i.i ]
-  %start.addr.09.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %0, %while.body.preheader.i.i ]
-  %inc.i4.i68.i.i = phi i32 [ %inc.i4.i.i.i, %while.body.i.i ], [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %while.body.preheader.i.i ]
+while.body.i.i:                                   ; preds = %while.body.i.i, %for.end26.i
+  %end.addr.010.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %sub27.i, %for.end26.i ]
+  %start.addr.09.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %0, %for.end26.i ]
+  %inc.i4.i68.i.i = phi i32 [ %inc.i4.i.i.i, %while.body.i.i ], [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i, %for.end26.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %start.addr.09.i.i
   %add.ptr1.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %end.addr.010.i.i
   %call.val.i.i.i = load i32, ptr %add.ptr.i.i, align 4
@@ -31751,8 +31745,8 @@ while.cond.while.end_crit_edge.i.i:               ; preds = %while.body.i.i
   store i32 %inc.i4.i.i.i, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   br label %if.end28.i
 
-if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.cond.while.end_crit_edge.i.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %curr.2.lcssa.i, %while.cond.while.end_crit_edge.i.i ], [ %add.i, %for.cond.preheader.i ], [ %sub14.i, %for.inc.i ], [ %curr.026.i, %if.end.i ]
+if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.cond.while.end_crit_edge.i.i, %for.cond.preheader.i
+  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %while.cond.while.end_crit_edge.i.i ], [ %add.i, %for.cond.preheader.i ], [ %sub14.i, %for.inc.i ], [ %curr.026.i, %if.end.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS4_EEEElT_llT0_.exit
 

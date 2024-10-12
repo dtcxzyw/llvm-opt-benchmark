@@ -10051,11 +10051,11 @@ define hidden noundef zeroext i1 @_ZN15ClassFileParser31check_inner_classes_circ
   br label %9, !llvm.loop !47
 
 9:                                                ; preds = %.loopexit32, %.lr.ph43
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next62, %.loopexit32 ]
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next60, %.loopexit32 ]
   %indvars.iv = phi i64 [ 4, %.lr.ph43 ], [ %indvars.iv.next, %.loopexit32 ]
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 4
-  %12 = getelementptr i16, ptr %11, i64 %indvars.iv61
+  %12 = getelementptr i16, ptr %11, i64 %indvars.iv59
   %13 = getelementptr i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2
   %.not52.i = icmp eq i16 %14, 0
@@ -10169,42 +10169,42 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i: ; pre
   br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !49
 
 .loopexit:                                        ; preds = %_ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i, %_ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit.us.i, %27, %43, %9
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 4
-  %65 = trunc nuw i64 %indvars.iv.next62 to i32
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 4
+  %65 = trunc nuw i64 %indvars.iv.next60 to i32
   %66 = icmp sgt i32 %2, %65
   br i1 %66, label %.lr.ph, label %_ZL38inner_classes_check_loop_through_outerPK5ArrayItEiPK12ConstantPooli.exit
 
 .lr.ph:                                           ; preds = %.loopexit
-  %67 = or disjoint i64 %indvars.iv61, 1
-  %68 = or disjoint i64 %indvars.iv61, 2
-  %69 = or disjoint i64 %indvars.iv61, 3
+  %67 = or disjoint i64 %indvars.iv59, 1
+  %68 = or disjoint i64 %indvars.iv59, 2
+  %69 = or disjoint i64 %indvars.iv59, 3
   %70 = load i16, ptr %7, align 4
   %71 = icmp ugt i16 %70, 48
-  %.pre64.pre = load ptr, ptr %6, align 8
+  %.pre62.pre = load ptr, ptr %6, align 8
   br i1 %71, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %72 = getelementptr inbounds i8, ptr %.pre64.pre, i64 4
-  %73 = getelementptr inbounds i16, ptr %72, i64 %indvars.iv61
+  %72 = getelementptr inbounds i8, ptr %.pre62.pre, i64 4
+  %73 = getelementptr inbounds i16, ptr %72, i64 %indvars.iv59
   %74 = load i16, ptr %73, align 2
   br label %75
 
 75:                                               ; preds = %79, %.lr.ph.split.us
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %79 ], [ %indvars.iv, %.lr.ph.split.us ]
-  %76 = getelementptr inbounds i16, ptr %72, i64 %indvars.iv55
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %79 ], [ %indvars.iv, %.lr.ph.split.us ]
+  %76 = getelementptr inbounds i16, ptr %72, i64 %indvars.iv53
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, %74
   br i1 %78, label %_ZL38inner_classes_check_loop_through_outerPK5ArrayItEiPK12ConstantPooli.exit, label %79
 
 79:                                               ; preds = %75
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 4
-  %80 = trunc nuw i64 %indvars.iv.next56 to i32
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 4
+  %80 = trunc nuw i64 %indvars.iv.next54 to i32
   %81 = icmp sgt i32 %2, %80
   br i1 %81, label %75, label %.loopexit32, !llvm.loop !50
 
 82:                                               ; preds = %113
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 4
-  %83 = trunc nuw i64 %indvars.iv.next59 to i32
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 4
+  %83 = trunc nuw i64 %indvars.iv.next57 to i32
   %84 = icmp sgt i32 %2, %83
   br i1 %84, label %.lr.ph.splitthread-pre-split, label %.loopexit32, !llvm.loop !51
 
@@ -10214,16 +10214,16 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i: ; pre
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %85 = phi i16 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %70, %.lr.ph ]
-  %.pre64 = phi ptr [ %.pre6465, %.lr.ph.splitthread-pre-split ], [ %.pre64.pre, %.lr.ph ]
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.lr.ph.splitthread-pre-split ], [ %indvars.iv, %.lr.ph ]
+  %.pre62 = phi ptr [ %.pre6263, %.lr.ph.splitthread-pre-split ], [ %.pre62.pre, %.lr.ph ]
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.splitthread-pre-split ], [ %indvars.iv, %.lr.ph ]
   %86 = icmp ugt i16 %85, 48
   br i1 %86, label %87, label %113
 
 87:                                               ; preds = %.lr.ph.split
-  %88 = getelementptr inbounds i8, ptr %.pre64, i64 4
-  %89 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv61
+  %88 = getelementptr inbounds i8, ptr %.pre62, i64 4
+  %89 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv59
   %90 = load i16, ptr %89, align 2
-  %91 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv58
+  %91 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv56
   %92 = load i16, ptr %91, align 2
   %.not = icmp eq i16 %90, %92
   br i1 %.not, label %93, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
@@ -10231,7 +10231,7 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i: ; pre
 93:                                               ; preds = %87
   %94 = getelementptr inbounds i16, ptr %88, i64 %67
   %95 = load i16, ptr %94, align 2
-  %96 = or disjoint i64 %indvars.iv58, 1
+  %96 = or disjoint i64 %indvars.iv56, 1
   %97 = getelementptr inbounds i16, ptr %88, i64 %96
   %98 = load i16, ptr %97, align 2
   %.not26 = icmp eq i16 %95, %98
@@ -10240,7 +10240,7 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i: ; pre
 99:                                               ; preds = %93
   %100 = getelementptr inbounds i16, ptr %88, i64 %68
   %101 = load i16, ptr %100, align 2
-  %102 = or disjoint i64 %indvars.iv58, 2
+  %102 = or disjoint i64 %indvars.iv56, 2
   %103 = getelementptr inbounds i16, ptr %88, i64 %102
   %104 = load i16, ptr %103, align 2
   %.not27 = icmp eq i16 %101, %104
@@ -10249,7 +10249,7 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i: ; pre
 105:                                              ; preds = %99
   %106 = getelementptr inbounds i16, ptr %88, i64 %69
   %107 = load i16, ptr %106, align 2
-  %108 = or disjoint i64 %indvars.iv58, 3
+  %108 = or disjoint i64 %indvars.iv56, 3
   %109 = getelementptr inbounds i16, ptr %88, i64 %108
   %110 = load i16, ptr %109, align 2
   %.not29 = icmp eq i16 %107, %110
@@ -10269,11 +10269,11 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit._crit_edge: ; p
   br label %113
 
 113:                                              ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit._crit_edge, %.lr.ph.split
-  %.pre6465 = phi ptr [ %.pre, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit._crit_edge ], [ %.pre64, %.lr.ph.split ]
-  %114 = getelementptr inbounds i8, ptr %.pre6465, i64 4
-  %115 = getelementptr inbounds i16, ptr %114, i64 %indvars.iv58
+  %.pre6263 = phi ptr [ %.pre, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit._crit_edge ], [ %.pre62, %.lr.ph.split ]
+  %114 = getelementptr inbounds i8, ptr %.pre6263, i64 4
+  %115 = getelementptr inbounds i16, ptr %114, i64 %indvars.iv56
   %116 = load i16, ptr %115, align 2
-  %117 = getelementptr inbounds i16, ptr %114, i64 %indvars.iv61
+  %117 = getelementptr inbounds i16, ptr %114, i64 %indvars.iv59
   %118 = load i16, ptr %117, align 2
   %119 = icmp eq i16 %116, %118
   br i1 %119, label %_ZL38inner_classes_check_loop_through_outerPK5ArrayItEiPK12ConstantPooli.exit, label %82

@@ -34684,31 +34684,30 @@ while.end:                                        ; preds = %if.end, %entry
   %or.cond.i = select i1 %cmp.i20, i1 true, i1 %cmp1.not5.i
   br i1 %or.cond.i, label %_ZN4pugi4impl12_GLOBAL__N_114insertion_sortINS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_RKT0_.exit, label %for.body.i21
 
-for.body.i21:                                     ; preds = %while.end, %while.end.i
-  %it.06.i = phi ptr [ %it.0.i, %while.end.i ], [ %it.04.i, %while.end ]
+for.body.i21:                                     ; preds = %while.end, %while.end.i.loopexit
+  %it.06.i = phi ptr [ %it.0.i, %while.end.i.loopexit ], [ %it.04.i, %while.end ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val.i, ptr noundef nonnull align 8 dereferenceable(16) %it.06.i, i64 16, i1 false)
-  %cmp21.i = icmp ugt ptr %it.06.i, %begin.addr.0.lcssa
-  br i1 %cmp21.i, label %land.rhs.i, label %while.end.i
+  br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body.i21, %while.body.i23
   %hole.02.i = phi ptr [ %add.ptr3.i, %while.body.i23 ], [ %it.06.i, %for.body.i21 ]
   %add.ptr3.i = getelementptr inbounds i8, ptr %hole.02.i, i64 -16
   %call.i22 = call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull align 8 dereferenceable(16) %val.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i)
-  br i1 %call.i22, label %while.body.i23, label %while.end.i
+  br i1 %call.i22, label %while.body.i23, label %while.end.i.loopexit
 
 while.body.i23:                                   ; preds = %land.rhs.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hole.02.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
   %cmp2.i = icmp ugt ptr %add.ptr3.i, %begin.addr.0.lcssa
-  br i1 %cmp2.i, label %land.rhs.i, label %while.end.i, !llvm.loop !335
+  br i1 %cmp2.i, label %land.rhs.i, label %while.end.i.loopexit, !llvm.loop !335
 
-while.end.i:                                      ; preds = %while.body.i23, %land.rhs.i, %for.body.i21
-  %hole.0.lcssa.i = phi ptr [ %it.06.i, %for.body.i21 ], [ %hole.02.i, %land.rhs.i ], [ %add.ptr3.i, %while.body.i23 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hole.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(16) %val.i, i64 16, i1 false)
+while.end.i.loopexit:                             ; preds = %land.rhs.i, %while.body.i23
+  %hole.0.lcssa.i.ph = phi ptr [ %hole.02.i, %land.rhs.i ], [ %add.ptr3.i, %while.body.i23 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hole.0.lcssa.i.ph, ptr noundef nonnull align 8 dereferenceable(16) %val.i, i64 16, i1 false)
   %it.0.i = getelementptr inbounds i8, ptr %it.06.i, i64 16
   %cmp1.not.i = icmp eq ptr %it.0.i, %end.addr.0.lcssa
   br i1 %cmp1.not.i, label %_ZN4pugi4impl12_GLOBAL__N_114insertion_sortINS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_RKT0_.exit, label %for.body.i21, !llvm.loop !336
 
-_ZN4pugi4impl12_GLOBAL__N_114insertion_sortINS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_RKT0_.exit: ; preds = %while.end.i, %while.end
+_ZN4pugi4impl12_GLOBAL__N_114insertion_sortINS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_RKT0_.exit: ; preds = %while.end.i.loopexit, %while.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %val.i)
   ret void
 }

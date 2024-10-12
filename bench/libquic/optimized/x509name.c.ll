@@ -50,13 +50,9 @@ for.body.i:                                       ; preds = %for.cond.i
   %3 = load ptr, ptr %call7.i, align 8
   %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #7
   %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %X509_NAME_get_index_by_OBJ.exit, label %for.cond.i, !llvm.loop !7
+  br i1 %cmp9.i, label %if.end, label %for.cond.i, !llvm.loop !7
 
-X509_NAME_get_index_by_OBJ.exit:                  ; preds = %for.body.i
-  %cmp = icmp slt i64 %indvars.iv.i, -1
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %X509_NAME_get_index_by_OBJ.exit
+if.end:                                           ; preds = %for.body.i
   %4 = load ptr, ptr %name, align 8
   %call.i13 = tail call i64 @sk_num(ptr noundef %4) #7
   %conv.i = and i64 %indvars.iv.next.i, 4294967295
@@ -84,8 +80,8 @@ if.end9:                                          ; preds = %if.end
   store i8 0, ptr %arrayidx, align 1
   br label %return
 
-return:                                           ; preds = %for.cond.i, %entry, %if.end, %X509_NAME_get_index_by_OBJ.exit, %if.end9
-  %retval.0 = phi i32 [ %cond, %if.end9 ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ %7, %if.end ], [ -1, %entry ], [ -1, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %entry, %if.end, %if.end9
+  %retval.0 = phi i32 [ %cond, %if.end9 ], [ %7, %if.end ], [ -1, %entry ], [ -1, %for.cond.i ]
   ret i32 %retval.0
 }
 

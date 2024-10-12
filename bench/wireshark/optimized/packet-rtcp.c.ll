@@ -1741,21 +1741,22 @@ define hidden void @proto_reg_handoff_rtcp() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %0, %4
-  %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %5 = phi ptr [ @rtcp_ms_profile_extension_vals, %0 ], [ %8, %4 ]
+  %5 = phi ptr [ @rtcp_ms_profile_extension_vals, %0 ], [ %10, %4 ]
+  %.03 = phi i32 [ 0, %0 ], [ %8, %4 ]
   %6 = load i32, ptr %5, align 16
   %7 = load ptr, ptr @ms_pse_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.656, i32 noundef %6, ptr noundef %7) #7
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr [13 x %struct._value_string], ptr @rtcp_ms_profile_extension_vals, i64 0, i64 %indvars.iv.next
-  %exitcond = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond, label %9, label %4, !llvm.loop !4
+  %8 = add nuw nsw i32 %.03, 1
+  %9 = zext nneg i32 %8 to i64
+  %10 = getelementptr [13 x %struct._value_string], ptr @rtcp_ms_profile_extension_vals, i64 0, i64 %9
+  %exitcond = icmp eq i32 %8, 12
+  br i1 %exitcond, label %11, label %4, !llvm.loop !4
 
-9:                                                ; preds = %4
-  %10 = load i32, ptr @proto_rtcp, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.664, ptr noundef nonnull @dissect_rtcp_heur, ptr noundef nonnull @.str.665, ptr noundef nonnull @.str.666, i32 noundef %10, i32 noundef 1) #7
-  %11 = load i32, ptr @proto_rtcp, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.667, ptr noundef nonnull @dissect_rtcp_heur, ptr noundef nonnull @.str.668, ptr noundef nonnull @.str.669, i32 noundef %11, i32 noundef 1) #7
+11:                                               ; preds = %4
+  %12 = load i32, ptr @proto_rtcp, align 4
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.664, ptr noundef nonnull @dissect_rtcp_heur, ptr noundef nonnull @.str.665, ptr noundef nonnull @.str.666, i32 noundef %12, i32 noundef 1) #7
+  %13 = load i32, ptr @proto_rtcp, align 4
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.667, ptr noundef nonnull @dissect_rtcp_heur, ptr noundef nonnull @.str.668, ptr noundef nonnull @.str.669, i32 noundef %13, i32 noundef 1) #7
   ret void
 }
 

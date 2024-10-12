@@ -6103,11 +6103,11 @@ _ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE15_M_allocate_mapEm.e
           to label %invoke.cont.i unwind label %_ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE15_M_allocate_mapEm.exit
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %call5.i.i2.i, i64 24
-  store ptr %call5.i.i.i5.i, ptr %add.ptr.ptr, align 8
+  %__cur.03.i.ptr = getelementptr inbounds i8, ptr %call5.i.i2.i, i64 24
+  store ptr %call5.i.i.i5.i, ptr %__cur.03.i.ptr, align 8
   %_M_start = getelementptr inbounds i8, ptr %this, i64 16
   %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %add.ptr.ptr, ptr %_M_node.i, align 8
+  store ptr %__cur.03.i.ptr, ptr %_M_node.i, align 8
   %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call5.i.i.i5.i, ptr %_M_first.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i, i64 408
@@ -6115,7 +6115,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt11_Deque_baseI
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
   %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %add.ptr.ptr, ptr %_M_node.i10, align 8
+  store ptr %__cur.03.i.ptr, ptr %_M_node.i10, align 8
   %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call5.i.i.i5.i, ptr %_M_first.i11, align 8
   %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64

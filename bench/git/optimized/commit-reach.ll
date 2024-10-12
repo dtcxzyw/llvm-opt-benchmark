@@ -900,9 +900,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i64 @commit_graph_generation(ptr noundef %0) #11
   %cmp2 = icmp ult i64 %call1, 9223372036854775807
-  br i1 %cmp2, label %st_mult.exit.i, label %for.cond
+  br i1 %cmp2, label %if.then3, label %for.cond
 
-st_mult.exit.i:                                   ; preds = %for.body
+if.then3:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stack.i)
   %mul.i.i = shl nuw nsw i64 %wide.trip.count, 3
   %call2.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #11
@@ -910,11 +910,11 @@ st_mult.exit.i:                                   ; preds = %for.body
   %cmp.i.not.i = icmp eq i32 %cnt, 1
   br i1 %cmp.i.not.i, label %st_mult.exit87.i, label %if.then.i82.i
 
-if.then.i82.i:                                    ; preds = %st_mult.exit.i
+if.then.i82.i:                                    ; preds = %if.then3
   tail call void @qsort(ptr noundef %call2.i, i64 noundef %wide.trip.count, i64 noundef 8, ptr noundef nonnull @compare_commits_by_gen) #11
   br label %st_mult.exit87.i
 
-st_mult.exit87.i:                                 ; preds = %if.then.i82.i, %st_mult.exit.i
+st_mult.exit87.i:                                 ; preds = %if.then.i82.i, %if.then3
   %1 = load ptr, ptr %call2.i, align 8
   %call4.i = tail call i64 @commit_graph_generation(ptr noundef %1) #11
   %call6.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #11
@@ -1212,8 +1212,6 @@ while.end183.i:                                   ; preds = %while.cond93.backed
 for.end186.i:                                     ; preds = %while.end183.i, %for.end71.i, %sane_qsort.exit96.i
   %36 = phi i32 [ %11, %for.end71.i ], [ 0, %sane_qsort.exit96.i ], [ %11, %while.end183.i ]
   call void @free(ptr noundef %call2.i) #11
-  %smax173.i = call i32 @llvm.smax.i32(i32 %cnt, i32 1)
-  %wide.trip.count174.i = zext nneg i32 %smax173.i to i64
   br label %for.body190.i
 
 for.body190.i:                                    ; preds = %for.body190.i, %for.end186.i
@@ -1224,7 +1222,7 @@ for.body190.i:                                    ; preds = %for.body190.i, %for
   %bf.set201.i = and i32 %bf.load194.i, -8388609
   store i32 %bf.set201.i, ptr %37, align 8
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
-  %exitcond175.not.i = icmp eq i64 %indvars.iv.next171.i, %wide.trip.count174.i
+  %exitcond175.not.i = icmp eq i64 %indvars.iv.next171.i, %wide.trip.count
   br i1 %exitcond175.not.i, label %for.body208.i, label %for.body190.i, !llvm.loop !37
 
 for.body208.i:                                    ; preds = %for.body190.i, %for.inc223.i
@@ -1247,7 +1245,7 @@ if.then216.i:                                     ; preds = %for.body208.i
 for.inc223.i:                                     ; preds = %if.then216.i, %for.body208.i
   %count_non_stale.1.i = phi i32 [ %count_non_stale.0152.i, %for.body208.i ], [ %inc219.i, %if.then216.i ]
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
-  %exitcond181.not.i = icmp eq i64 %indvars.iv.next177.i, %wide.trip.count174.i
+  %exitcond181.not.i = icmp eq i64 %indvars.iv.next177.i, %wide.trip.count
   br i1 %exitcond181.not.i, label %remove_redundant_with_gen.exit, label %for.body208.i, !llvm.loop !38
 
 remove_redundant_with_gen.exit:                   ; preds = %for.inc223.i
@@ -3139,9 +3137,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

@@ -522,20 +522,19 @@ if.end5.thread:                                   ; preds = %if.end
   br label %if.end12
 
 if.end.i10:                                       ; preds = %if.end
-  %2 = tail call i32 @llvm.smax.i32(i32 %lastpos.addr.0.i, i32 -1)
   %call4.i11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %x) #3
   br label %for.cond.i12
 
 for.cond.i12:                                     ; preds = %for.body.i17, %if.end.i10
-  %lastpos.addr.0.in.i13 = phi i32 [ %2, %if.end.i10 ], [ %lastpos.addr.0.i14, %for.body.i17 ]
+  %lastpos.addr.0.in.i13 = phi i32 [ %lastpos.addr.0.i, %if.end.i10 ], [ %lastpos.addr.0.i14, %for.body.i17 ]
   %lastpos.addr.0.i14 = add nuw nsw i32 %lastpos.addr.0.in.i13, 1
   %cmp5.i15 = icmp slt i32 %lastpos.addr.0.i14, %call4.i11
   br i1 %cmp5.i15, label %for.body.i17, label %if.end5
 
 for.body.i17:                                     ; preds = %for.cond.i12
   %call7.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %x, i32 noundef %lastpos.addr.0.i14) #3
-  %3 = load ptr, ptr %call7.i18, align 8
-  %call8.i19 = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #3
+  %2 = load ptr, ptr %call7.i18, align 8
+  %call8.i19 = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef %obj) #3
   %cmp9.i20 = icmp eq i32 %call8.i19, 0
   br i1 %cmp9.i20, label %return, label %for.cond.i12, !llvm.loop !4
 
@@ -550,8 +549,8 @@ land.lhs.true8:                                   ; preds = %if.end5
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %land.lhs.true8
   %set.i = getelementptr inbounds i8, ptr %call6, i64 8
-  %4 = load ptr, ptr %set.i, align 8
-  %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #3
+  %3 = load ptr, ptr %set.i, align 8
+  %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #3
   %cmp10.not = icmp eq i32 %call1.i, 1
   br i1 %cmp10.not, label %if.end12, label %return
 

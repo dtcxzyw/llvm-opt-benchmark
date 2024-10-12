@@ -4847,10 +4847,9 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching9Median9x1IsED0Ev(ptr nou
 define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca [9 x i16], align 16
   %4 = load i32, ptr %1, align 4
-  %.fr = freeze i32 %4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %.fr, %6
+  %7 = icmp slt i32 %4, %6
   br i1 %7, label %.preheader46.lr.ph, label %._crit_edge57
 
 .preheader46.lr.ph:                               ; preds = %2
@@ -4864,18 +4863,18 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
   br i1 %14, label %.preheader46.preheader, label %._crit_edge57
 
 .preheader46.preheader:                           ; preds = %.preheader46.lr.ph
-  %15 = sext i32 %.fr to i64
+  %15 = sext i32 %4 to i64
   br label %.preheader46
 
 .preheader46:                                     ; preds = %.preheader46.preheader, %._crit_edge54
-  %16 = phi i32 [ %13, %.preheader46.preheader ], [ %74, %._crit_edge54 ]
+  %16 = phi i32 [ %13, %.preheader46.preheader ], [ %75, %._crit_edge54 ]
   %indvars.iv77 = phi i64 [ %15, %.preheader46.preheader ], [ %indvars.iv.next78, %._crit_edge54 ]
   %17 = icmp sgt i32 %16, 8
   br i1 %17, label %.lr.ph53, label %._crit_edge54
 
 .lr.ph53:                                         ; preds = %.preheader46
   %18 = icmp slt i64 %indvars.iv77, 1
-  br i1 %18, label %.lr.ph53.split.us, label %.lr.ph53.split.preheader
+  br i1 %18, label %.lr.ph53.split.us, label %.lr.ph53.split
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %.lr.ph53.split.us
   %.04352.us = phi i32 [ %28, %.lr.ph53.split.us ], [ 4, %.lr.ph53 ]
@@ -4895,104 +4894,104 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
   %31 = icmp slt i32 %28, %30
   br i1 %31, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !54
 
-.lr.ph53.split.preheader:                         ; preds = %.lr.ph53, %69
-  %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph53 ]
-  %.04352 = phi i32 [ %70, %69 ], [ 4, %.lr.ph53 ]
+.lr.ph53.split:                                   ; preds = %.lr.ph53, %70
+  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph53 ]
+  %.04352 = phi i32 [ %71, %70 ], [ 4, %.lr.ph53 ]
   %32 = load i32, ptr %9, align 4
   %33 = add nsw i32 %32, -1
   %34 = sext i32 %33 to i64
   %.not = icmp slt i64 %indvars.iv77, %34
   %35 = load ptr, ptr %10, align 8
-  br i1 %.not, label %43, label %._crit_edge80
+  br i1 %.not, label %44, label %36
 
-._crit_edge80:                                    ; preds = %.lr.ph53.split.preheader
-  %36 = mul nsw i32 %32, %.04352
-  %37 = sext i32 %36 to i64
-  %38 = add nsw i64 %indvars.iv77, %37
-  %39 = getelementptr inbounds i16, ptr %35, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds i16, ptr %41, i64 %38
-  store i16 %40, ptr %42, align 2
-  br label %69
+36:                                               ; preds = %.lr.ph53.split
+  %37 = mul nsw i32 %32, %.04352
+  %38 = sext i32 %37 to i64
+  %39 = add nsw i64 %indvars.iv77, %38
+  %40 = getelementptr inbounds i16, ptr %35, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = load ptr, ptr %12, align 8
+  %43 = getelementptr inbounds i16, ptr %42, i64 %39
+  store i16 %41, ptr %43, align 2
+  br label %70
 
-43:                                               ; preds = %.lr.ph53.split.preheader
-  %44 = sext i32 %32 to i64
+44:                                               ; preds = %.lr.ph53.split
+  %45 = sext i32 %32 to i64
   %invariant.gep = getelementptr i16, ptr %35, i64 %indvars.iv77
-  br label %45
+  br label %46
 
-45:                                               ; preds = %43, %45
-  %indvars.iv62 = phi i64 [ 0, %43 ], [ %indvars.iv.next63, %45 ]
-  %indvars.iv60 = phi i64 [ %indvars.iv, %43 ], [ %indvars.iv.next61, %45 ]
-  %46 = mul nsw i64 %indvars.iv60, %44
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %46
-  %47 = load i16, ptr %gep, align 2
+46:                                               ; preds = %44, %46
+  %indvars.iv62 = phi i64 [ 0, %44 ], [ %indvars.iv.next63, %46 ]
+  %indvars.iv60 = phi i64 [ %indvars.iv, %44 ], [ %indvars.iv.next61, %46 ]
+  %47 = mul nsw i64 %indvars.iv60, %45
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %47
+  %48 = load i16, ptr %gep, align 2
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %48 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv62
-  store i16 %47, ptr %48, align 2
+  %49 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv62
+  store i16 %48, ptr %49, align 2
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, 9
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %45, !llvm.loop !55
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %46, !llvm.loop !55
 
-.lr.ph.preheader:                                 ; preds = %45, %._crit_edge
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %._crit_edge ], [ 0, %45 ]
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %._crit_edge ], [ 1, %45 ]
+.lr.ph.preheader:                                 ; preds = %46, %._crit_edge
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %._crit_edge ], [ 0, %46 ]
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %._crit_edge ], [ 1, %46 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %49 = trunc nuw nsw i64 %indvars.iv73 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv73 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv69 = phi i64 [ %indvars.iv67, %.lr.ph.preheader ], [ %indvars.iv.next70, %.lr.ph ]
-  %.03949 = phi i32 [ %49, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %50 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv69
-  %51 = load i16, ptr %50, align 2
-  %52 = sext i32 %.03949 to i64
-  %53 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2
-  %55 = icmp slt i16 %51, %54
-  %56 = trunc nuw nsw i64 %indvars.iv69 to i32
-  %spec.select = select i1 %55, i32 %56, i32 %.03949
+  %.03949 = phi i32 [ %50, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %51 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv69
+  %52 = load i16, ptr %51, align 2
+  %53 = sext i32 %.03949 to i64
+  %54 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = icmp slt i16 %52, %55
+  %57 = trunc nuw nsw i64 %indvars.iv69 to i32
+  %spec.select = select i1 %56, i32 %57, i32 %.03949
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 9
   br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %57 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv73
-  %58 = load i16, ptr %57, align 2
-  %59 = sext i32 %spec.select to i64
-  %60 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %59
-  %61 = load i16, ptr %60, align 2
-  store i16 %61, ptr %57, align 2
-  store i16 %58, ptr %60, align 2
+  %58 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv73
+  %59 = load i16, ptr %58, align 2
+  %60 = sext i32 %spec.select to i64
+  %61 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %60
+  %62 = load i16, ptr %61, align 2
+  store i16 %62, ptr %58, align 2
+  store i16 %59, ptr %61, align 2
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 5
-  br i1 %exitcond76.not, label %62, label %.lr.ph.preheader, !llvm.loop !57
+  br i1 %exitcond76.not, label %63, label %.lr.ph.preheader, !llvm.loop !57
 
-62:                                               ; preds = %._crit_edge
-  %63 = load i16, ptr %11, align 8
-  %64 = load ptr, ptr %12, align 8
-  %65 = mul nsw i32 %32, %.04352
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr i16, ptr %64, i64 %indvars.iv77
-  %68 = getelementptr i16, ptr %67, i64 %66
-  store i16 %63, ptr %68, align 2
-  br label %69
+63:                                               ; preds = %._crit_edge
+  %64 = load i16, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = mul nsw i32 %32, %.04352
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr i16, ptr %65, i64 %indvars.iv77
+  %69 = getelementptr i16, ptr %68, i64 %67
+  store i16 %64, ptr %69, align 2
+  br label %70
 
-69:                                               ; preds = %62, %._crit_edge80
-  %70 = add nuw nsw i32 %.04352, 1
-  %71 = load i32, ptr %8, align 8
-  %72 = add nsw i32 %71, -4
-  %73 = icmp slt i32 %70, %72
+70:                                               ; preds = %63, %36
+  %71 = add nuw nsw i32 %.04352, 1
+  %72 = load i32, ptr %8, align 8
+  %73 = add nsw i32 %72, -4
+  %74 = icmp slt i32 %71, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %73, label %.lr.ph53.split.preheader, label %._crit_edge54, !llvm.loop !54
+  br i1 %74, label %.lr.ph53.split, label %._crit_edge54, !llvm.loop !54
 
-._crit_edge54:                                    ; preds = %69, %.lr.ph53.split.us, %.preheader46
-  %74 = phi i32 [ %16, %.preheader46 ], [ %29, %.lr.ph53.split.us ], [ %71, %69 ]
+._crit_edge54:                                    ; preds = %70, %.lr.ph53.split.us, %.preheader46
+  %75 = phi i32 [ %16, %.preheader46 ], [ %29, %.lr.ph53.split.us ], [ %72, %70 ]
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
-  %75 = load i32, ptr %5, align 4
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next78, %76
-  br i1 %77, label %.preheader46, label %._crit_edge57, !llvm.loop !58
+  %76 = load i32, ptr %5, align 4
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next78, %77
+  br i1 %78, label %.preheader46, label %._crit_edge57, !llvm.loop !58
 
 ._crit_edge57:                                    ; preds = %._crit_edge54, %.preheader46.lr.ph, %2
   ret void

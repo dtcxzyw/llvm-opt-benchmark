@@ -1186,12 +1186,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %cmp13.i = icmp sgt i64 %add.i, 1
   br i1 %cmp13.i, label %for.cond.preheader.i, label %_ZN5o3dgc5MergeEPll.exit
 
-for.cond.preheader.i:                             ; preds = %for.body, %for.end.i
-  %a.015.in.i = phi i64 [ %a.015.i, %for.end.i ], [ %add.i, %for.body ]
-  %b.014.i = phi i64 [ %inc.i, %for.end.i ], [ %add.i, %for.body ]
+for.cond.preheader.i:                             ; preds = %for.body, %for.end.i.loopexit
+  %a.015.in.i = phi i64 [ %a.015.i, %for.end.i.loopexit ], [ %add.i, %for.body ]
+  %b.014.i = phi i64 [ %inc.i, %for.end.i.loopexit ], [ %add.i, %for.body ]
   %a.015.i = add nsw i64 %a.015.in.i, -1
-  %cmp110.not.i = icmp sgt i64 %a.015.in.i, %b.014.i
-  br i1 %cmp110.not.i, label %for.end.i, label %for.body.i
+  br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.011.i = phi i64 [ %add4.i, %for.body.i ], [ %a.015.i, %for.cond.preheader.i ]
@@ -1203,14 +1202,14 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   store i64 %1, ptr %arrayidx3.i, align 8
   %add4.i = add nsw i64 %i.011.i, 2
   %cmp1.i = icmp slt i64 %add4.i, %b.014.i
-  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !7
+  br i1 %cmp1.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !7
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i.loopexit:                               ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %b.014.i, 1
   %cmp.i = icmp sgt i64 %a.015.in.i, 2
   br i1 %cmp.i, label %for.cond.preheader.i, label %_ZN5o3dgc5MergeEPll.exit, !llvm.loop !8
 
-_ZN5o3dgc5MergeEPll.exit:                         ; preds = %for.end.i, %for.body
+_ZN5o3dgc5MergeEPll.exit:                         ; preds = %for.end.i.loopexit, %for.body
   %sub.i = add nsw i64 %sub11, -1
   %3 = load i64, ptr %arrayidx.i17, align 8
   %shr.i18 = ashr i64 %3, 1

@@ -2460,16 +2460,16 @@ cvPredict.exit.i:                                 ; preds = %592, %583
   %622 = sub nsw i32 0, %.01217.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %607
-  br i1 %exitcond.not.i.i.i.i.i, label %cvAltSum.exit.i.i.i.i, label %.preheader.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i, label %cvAltSum.exit.loopexit.i.i.i.i, label %.preheader.i.i.i.i.i
 
-cvAltSum.exit.i.i.i.i:                            ; preds = %.preheader.i.i.i.i.i
+cvAltSum.exit.loopexit.i.i.i.i:                   ; preds = %.preheader.i.i.i.i.i
   %623 = fmul double %621, %608
   %624 = load double, ptr %gep.i.i.i.i, align 8
   %625 = fdiv double %623, %624
   store double %625, ptr %378, align 8
   br label %626
 
-626:                                              ; preds = %cvAltSum.exit.i.i.i.i, %611, %609
+626:                                              ; preds = %cvAltSum.exit.loopexit.i.i.i.i, %611, %609
   %627 = fdiv double %603, %.03440.i.i.i.i
   br label %628
 
@@ -2553,12 +2553,12 @@ cvAltSum.exit27.i.i.i:                            ; preds = %.preheader.i20.i.i.
   br i1 %exitcond.not.i34.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i30.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i30.i.i.i, %cvAltSum.exit27.thread.i.i.i
-  %.034.lcssa.i60.i.i.i = phi double [ %603, %cvAltSum.exit27.thread.i.i.i ], [ %638, %.lr.ph.i30.i.i.i ]
+  %.034.lcssa.i58.i.i.i = phi double [ %603, %cvAltSum.exit27.thread.i.i.i ], [ %638, %.lr.ph.i30.i.i.i ]
   %665 = phi double [ 0x7FF0000000000000, %cvAltSum.exit27.thread.i.i.i ], [ %657, %.lr.ph.i30.i.i.i ]
-  %.014.i2649.i.i.i = phi double [ 0.000000e+00, %cvAltSum.exit27.thread.i.i.i ], [ %655, %.lr.ph.i30.i.i.i ]
-  %666 = fdiv double %.034.lcssa.i60.i.i.i, %603
+  %.014.i2647.i.i.i = phi double [ 0.000000e+00, %cvAltSum.exit27.thread.i.i.i ], [ %655, %.lr.ph.i30.i.i.i ]
+  %666 = fdiv double %.034.lcssa.i58.i.i.i, %603
   %667 = fdiv double 1.000000e+00, %666
-  %668 = fmul double %665, %.014.i2649.i.i.i
+  %668 = fmul double %665, %.014.i2647.i.i.i
   %669 = fdiv double %668, %666
   store double %669, ptr %376, align 8
   %670 = sext i32 %595 to i64
@@ -2592,7 +2592,7 @@ cvAltSum.exit27.i.i.i:                            ; preds = %.preheader.i20.i.i.
 
 ._crit_edge46.i.i.i.i:                            ; preds = %.lr.ph45.i.i.i.i, %.preheader.i35.i.i.i
   %684 = icmp slt i32 %595, 0
-  br i1 %684, label %cvAltSum.exit.i42.i.i.i, label %.preheader.preheader.i.i.i.i.i
+  br i1 %684, label %cvAltSum.exit.i.i.i.i, label %.preheader.preheader.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i:                   ; preds = %._crit_edge46.i.i.i.i
   %685 = add nuw i32 %595, 1
@@ -2614,18 +2614,18 @@ cvAltSum.exit27.i.i.i:                            ; preds = %.preheader.i20.i.i.
   %694 = sub nsw i32 0, %.01217.i.i39.i.i.i
   %indvars.iv.next.i.i40.i.i.i = add nuw nsw i64 %indvars.iv.i.i37.i.i.i, 1
   %exitcond.not.i.i41.i.i.i = icmp eq i64 %indvars.iv.next.i.i40.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i41.i.i.i, label %cvAltSum.exit.i42.i.i.i, label %.preheader.i.i36.i.i.i
+  br i1 %exitcond.not.i.i41.i.i.i, label %cvAltSum.exit.i.i.i.i, label %.preheader.i.i36.i.i.i
 
-cvAltSum.exit.i42.i.i.i:                          ; preds = %.preheader.i.i36.i.i.i, %._crit_edge46.i.i.i.i
-  %.014.i.i43.i.i.i = phi double [ 0.000000e+00, %._crit_edge46.i.i.i.i ], [ %693, %.preheader.i.i36.i.i.i ]
-  %695 = fmul double %665, %.014.i.i43.i.i.i
+cvAltSum.exit.i.i.i.i:                            ; preds = %.preheader.i.i36.i.i.i, %._crit_edge46.i.i.i.i
+  %.014.i.i.i.i.i = phi double [ 0.000000e+00, %._crit_edge46.i.i.i.i ], [ %693, %.preheader.i.i36.i.i.i ]
+  %695 = fmul double %665, %.014.i.i.i.i.i
   %696 = load i32, ptr %360, align 8
   %697 = sitofp i32 %696 to double
   %698 = fdiv double %695, %697
   store double %698, ptr %379, align 8
   br label %cvAdamsFinish.exit.i.i.i
 
-cvAdamsFinish.exit.i.i.i:                         ; preds = %cvAltSum.exit.i42.i.i.i, %._crit_edge.i.i.i.i
+cvAdamsFinish.exit.i.i.i:                         ; preds = %cvAltSum.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %699 = load double, ptr %380, align 8
   %700 = fdiv double %699, %669
   br label %cvSetAdams.exit.i.i
