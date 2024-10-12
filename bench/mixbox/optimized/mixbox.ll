@@ -431,30 +431,30 @@ define dso_local void @mixbox_latent_to_rgb(ptr nocapture noundef readonly %0, p
   %102 = fcmp olt float %101, 0.000000e+00
   %103 = fcmp ogt float %101, 1.000000e+00
   %104 = select i1 %103, float 1.000000e+00, float %101
-  %105 = select i1 %102, float 0.000000e+00, float %104
+  %105 = tail call float @llvm.fmuladd.f32(float %104, float 2.550000e+02, float 5.000000e-01)
   %106 = getelementptr inbounds i8, ptr %0, i64 20
   %107 = load float, ptr %106, align 4
   %108 = fadd float %107, %97
   %109 = fcmp olt float %108, 0.000000e+00
   %110 = fcmp ogt float %108, 1.000000e+00
   %111 = select i1 %110, float 1.000000e+00, float %108
-  %112 = select i1 %109, float 0.000000e+00, float %111
+  %112 = tail call float @llvm.fmuladd.f32(float %111, float 2.550000e+02, float 5.000000e-01)
   %113 = getelementptr inbounds i8, ptr %0, i64 24
   %114 = load float, ptr %113, align 4
   %115 = fadd float %114, %98
   %116 = fcmp olt float %115, 0.000000e+00
   %117 = fcmp ogt float %115, 1.000000e+00
   %118 = select i1 %117, float 1.000000e+00, float %115
-  %119 = select i1 %116, float 0.000000e+00, float %118
-  %120 = tail call float @llvm.fmuladd.f32(float %105, float 2.550000e+02, float 5.000000e-01)
+  %119 = tail call float @llvm.fmuladd.f32(float %118, float 2.550000e+02, float 5.000000e-01)
+  %120 = select i1 %102, float 5.000000e-01, float %105
   %121 = fptosi float %120 to i32
   %122 = trunc i32 %121 to i8
   store i8 %122, ptr %1, align 1
-  %123 = tail call float @llvm.fmuladd.f32(float %112, float 2.550000e+02, float 5.000000e-01)
+  %123 = select i1 %109, float 5.000000e-01, float %112
   %124 = fptosi float %123 to i32
   %125 = trunc i32 %124 to i8
   store i8 %125, ptr %2, align 1
-  %126 = tail call float @llvm.fmuladd.f32(float %119, float 2.550000e+02, float 5.000000e-01)
+  %126 = select i1 %116, float 5.000000e-01, float %119
   %127 = fptosi float %126 to i32
   %128 = trunc i32 %127 to i8
   store i8 %128, ptr %3, align 1
@@ -1995,30 +1995,30 @@ define dso_local void @mixbox_lerp(i8 noundef zeroext %0, i8 noundef zeroext %1,
   %623 = fcmp olt float %622, 0.000000e+00
   %624 = fcmp ogt float %622, 1.000000e+00
   %625 = select i1 %624, float 1.000000e+00, float %622
-  %626 = select i1 %623, float 0.000000e+00, float %625
+  %626 = tail call float @llvm.fmuladd.f32(float %625, float 2.550000e+02, float 5.000000e-01)
   %627 = getelementptr inbounds i8, ptr %13, i64 20
   %628 = load float, ptr %627, align 4
   %629 = fadd float %628, %618
   %630 = fcmp olt float %629, 0.000000e+00
   %631 = fcmp ogt float %629, 1.000000e+00
   %632 = select i1 %631, float 1.000000e+00, float %629
-  %633 = select i1 %630, float 0.000000e+00, float %632
+  %633 = tail call float @llvm.fmuladd.f32(float %632, float 2.550000e+02, float 5.000000e-01)
   %634 = getelementptr inbounds i8, ptr %13, i64 24
   %635 = load float, ptr %634, align 8
   %636 = fadd float %635, %619
   %637 = fcmp olt float %636, 0.000000e+00
   %638 = fcmp ogt float %636, 1.000000e+00
   %639 = select i1 %638, float 1.000000e+00, float %636
-  %640 = select i1 %637, float 0.000000e+00, float %639
-  %641 = tail call float @llvm.fmuladd.f32(float %626, float 2.550000e+02, float 5.000000e-01)
+  %640 = tail call float @llvm.fmuladd.f32(float %639, float 2.550000e+02, float 5.000000e-01)
+  %641 = select i1 %623, float 5.000000e-01, float %626
   %642 = fptosi float %641 to i32
   %643 = trunc i32 %642 to i8
   store i8 %643, ptr %7, align 1
-  %644 = tail call float @llvm.fmuladd.f32(float %633, float 2.550000e+02, float 5.000000e-01)
+  %644 = select i1 %630, float 5.000000e-01, float %633
   %645 = fptosi float %644 to i32
   %646 = trunc i32 %645 to i8
   store i8 %646, ptr %8, align 1
-  %647 = tail call float @llvm.fmuladd.f32(float %640, float 2.550000e+02, float 5.000000e-01)
+  %647 = select i1 %637, float 5.000000e-01, float %640
   %648 = fptosi float %647 to i32
   %649 = trunc i32 %648 to i8
   store i8 %649, ptr %9, align 1

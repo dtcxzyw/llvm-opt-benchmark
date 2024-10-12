@@ -3366,55 +3366,55 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef %0, i64 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
-  %spec.select = select i1 %3, i64 %1, i64 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
-  %6 = load ptr, ptr %5, align 8
-  tail call void @resetStringInfo(ptr noundef %6) #16
-  %7 = load ptr, ptr %5, align 8
-  tail call void @enlargeStringInfo(ptr noundef %7, i32 noundef 1) #16
+  %5 = tail call i64 @llvm.bswap.i64(i64 %1)
+  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = load ptr, ptr %6, align 8
+  tail call void @resetStringInfo(ptr noundef %7) #16
+  %8 = load ptr, ptr %6, align 8
+  tail call void @enlargeStringInfo(ptr noundef %8, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !57
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i32, ptr %9, align 8, !alias.scope !57
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr i8, ptr %8, i64 %11
-  store i8 119, ptr %12, align 1, !noalias !57
-  %13 = add i32 %10, 1
-  store i32 %13, ptr %9, align 8, !alias.scope !57
-  %14 = load ptr, ptr %5, align 8
-  tail call void @enlargeStringInfo(ptr noundef %14, i32 noundef 8) #16
+  %9 = load ptr, ptr %8, align 8, !alias.scope !57
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load i32, ptr %10, align 8, !alias.scope !57
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr i8, ptr %9, i64 %12
+  store i8 119, ptr %13, align 1, !noalias !57
+  %14 = add i32 %11, 1
+  store i32 %14, ptr %10, align 8, !alias.scope !57
+  %15 = load ptr, ptr %6, align 8
+  tail call void @enlargeStringInfo(ptr noundef %15, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %15 = tail call i64 @llvm.bswap.i64(i64 %spec.select)
-  %16 = load ptr, ptr %14, align 8, !alias.scope !60
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
-  %18 = load i32, ptr %17, align 8, !alias.scope !60
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr i8, ptr %16, i64 %19
-  store i64 %15, ptr %20, align 1, !noalias !60
-  %21 = add i32 %18, 8
-  store i32 %21, ptr %17, align 8, !alias.scope !60
-  %22 = load ptr, ptr %5, align 8
-  tail call void @enlargeStringInfo(ptr noundef %22, i32 noundef 8) #16
+  %16 = select i1 %3, i64 %5, i64 0
+  %17 = load ptr, ptr %15, align 8, !alias.scope !60
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = load i32, ptr %18, align 8, !alias.scope !60
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr i8, ptr %17, i64 %20
+  store i64 %16, ptr %21, align 1, !noalias !60
+  %22 = add i32 %19, 8
+  store i32 %22, ptr %18, align 8, !alias.scope !60
+  %23 = load ptr, ptr %6, align 8
+  tail call void @enlargeStringInfo(ptr noundef %23, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %23 = load ptr, ptr %22, align 8, !alias.scope !63
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = load i32, ptr %24, align 8, !alias.scope !63
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr i8, ptr %23, i64 %26
-  store i64 %15, ptr %27, align 1, !noalias !63
-  %28 = add i32 %25, 8
-  store i32 %28, ptr %24, align 8, !alias.scope !63
-  %29 = load ptr, ptr %5, align 8
-  tail call void @enlargeStringInfo(ptr noundef %29, i32 noundef 8) #16
+  %24 = load ptr, ptr %23, align 8, !alias.scope !63
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = load i32, ptr %25, align 8, !alias.scope !63
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr i8, ptr %24, i64 %27
+  store i64 %16, ptr %28, align 1, !noalias !63
+  %29 = add i32 %26, 8
+  store i32 %29, ptr %25, align 8, !alias.scope !63
+  %30 = load ptr, ptr %6, align 8
+  tail call void @enlargeStringInfo(ptr noundef %30, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %30 = load ptr, ptr %29, align 8, !alias.scope !66
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 8, !alias.scope !66
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr i8, ptr %30, i64 %33
-  store i64 0, ptr %34, align 1, !noalias !66
-  %35 = add i32 %32, 8
-  store i32 %35, ptr %31, align 8, !alias.scope !66
+  %31 = load ptr, ptr %30, align 8, !alias.scope !66
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = load i32, ptr %32, align 8, !alias.scope !66
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr i8, ptr %31, i64 %34
+  store i64 0, ptr %35, align 1, !noalias !66
+  %36 = add i32 %33, 8
+  store i32 %36, ptr %32, align 8, !alias.scope !66
   ret void
 }
 

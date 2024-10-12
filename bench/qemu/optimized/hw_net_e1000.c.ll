@@ -1608,7 +1608,7 @@ entry:
 entry.if.end93_crit_edge:                         ; preds = %entry
   %sum_needed94.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 208451
   %.pre = load i8, ptr %sum_needed94.phi.trans.insert, align 1
-  %.pre113 = and i8 %.pre, 2
+  %.pre112 = and i8 %.pre, 2
   br label %if.end93
 
 if.then:                                          ; preds = %entry
@@ -1743,7 +1743,7 @@ if.end91:                                         ; preds = %if.then79, %if.end7
   br label %if.end93
 
 if.end93:                                         ; preds = %entry.if.end93_crit_edge, %if.end91
-  %.pre-phi = phi i8 [ %.pre113, %entry.if.end93_crit_edge ], [ %24, %if.end91 ]
+  %.pre-phi = phi i8 [ %.pre112, %entry.if.end93_crit_edge ], [ %24, %if.end91 ]
   %28 = phi i8 [ %.pre, %entry.if.end93_crit_edge ], [ %23, %if.end91 ]
   %sum_needed94 = getelementptr inbounds i8, ptr %s, i64 208451
   %tobool97.not = icmp eq i8 %.pre-phi, 0
@@ -1781,30 +1781,30 @@ if.then2.i:                                       ; preds = %if.then98
   %add.ptr5.i = getelementptr i8, ptr %data99, i64 %idx.ext4.i
   %call.i8.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #13
   %tobool.not.i.i = icmp eq i16 %call.i8.i, 0
-  %narrow.i.i = select i1 %tobool.not.i.i, i16 -1, i16 %call.i8.i
-  %33 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i)
-  store i16 %33, ptr %add.ptr5.i, align 1
-  %.pre112 = load i8, ptr %sum_needed94, align 1
+  %33 = tail call i16 @llvm.bswap.i16(i16 %call.i8.i)
+  %34 = select i1 %tobool.not.i.i, i16 -1, i16 %33
+  store i16 %34, ptr %add.ptr5.i, align 1
+  %.pre111 = load i8, ptr %sum_needed94, align 1
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then2.i, %if.then98, %if.end93
-  %34 = phi i8 [ %.pre112, %if.then2.i ], [ %28, %if.then98 ], [ %28, %if.end93 ]
-  %35 = and i8 %34, 1
-  %tobool112.not = icmp eq i8 %35, 0
+  %35 = phi i8 [ %.pre111, %if.then2.i ], [ %28, %if.then98 ], [ %28, %if.end93 ]
+  %36 = and i8 %35, 1
+  %tobool112.not = icmp eq i8 %36, 0
   br i1 %tobool112.not, label %if.end122, label %if.then113
 
 if.then113:                                       ; preds = %if.end108
   %size116 = getelementptr inbounds i8, ptr %s, i64 208448
-  %36 = load i16, ptr %size116, align 4
-  %conv117 = zext i16 %36 to i32
+  %37 = load i16, ptr %size116, align 4
+  %conv117 = zext i16 %37 to i32
   %ipcso = getelementptr inbounds i8, ptr %cond, i64 1
-  %37 = load i8, ptr %ipcso, align 1
-  %conv118 = zext i8 %37 to i32
+  %38 = load i8, ptr %ipcso, align 1
+  %conv118 = zext i8 %38 to i32
   %ipcse = getelementptr inbounds i8, ptr %cond, i64 2
-  %38 = load i16, ptr %ipcse, align 2
-  %conv121 = zext i16 %38 to i32
-  %tobool.not.i76 = icmp ne i16 %38, 0
-  %cmp.i77 = icmp ult i16 %38, %36
+  %39 = load i16, ptr %ipcse, align 2
+  %conv121 = zext i16 %39 to i32
+  %tobool.not.i76 = icmp ne i16 %39, 0
+  %cmp.i77 = icmp ult i16 %39, %37
   %or.cond.i78 = and i1 %tobool.not.i76, %cmp.i77
   %add.i79 = add nuw nsw i32 %conv121, 1
   %n.addr.0.i80 = select i1 %or.cond.i78, i32 %add.i79, i32 %conv117
@@ -1813,43 +1813,43 @@ if.then113:                                       ; preds = %if.end108
   br i1 %cmp1.i82, label %if.then2.i83, label %if.end122
 
 if.then2.i83:                                     ; preds = %if.then113
-  %39 = load i8, ptr %cond, align 4
-  %conv120 = zext i8 %39 to i32
+  %40 = load i8, ptr %cond, align 4
+  %conv120 = zext i8 %40 to i32
   %data114 = getelementptr inbounds i8, ptr %s, i64 142912
   %sub3.i84 = sub nsw i32 %n.addr.0.i80, %conv120
-  %idx.ext.i85 = zext i8 %39 to i64
+  %idx.ext.i85 = zext i8 %40 to i64
   %add.ptr.i86 = getelementptr i8, ptr %data114, i64 %idx.ext.i85
   %call.i.i87 = tail call i32 @net_checksum_add_cont(i32 noundef %sub3.i84, ptr noundef %add.ptr.i86, i32 noundef 0) #13
-  %idx.ext4.i88 = zext i8 %37 to i64
+  %idx.ext4.i88 = zext i8 %38 to i64
   %add.ptr5.i89 = getelementptr i8, ptr %data114, i64 %idx.ext4.i88
   %call.i8.i90 = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i87) #13
   %tobool.not.i.i91 = icmp eq i16 %call.i8.i90, 0
-  %narrow.i.i92 = select i1 %tobool.not.i.i91, i16 -1, i16 %call.i8.i90
-  %40 = tail call i16 @llvm.bswap.i16(i16 %narrow.i.i92)
-  store i16 %40, ptr %add.ptr5.i89, align 1
+  %41 = tail call i16 @llvm.bswap.i16(i16 %call.i8.i90)
+  %42 = select i1 %tobool.not.i.i91, i16 -1, i16 %41
+  store i16 %42, ptr %add.ptr5.i89, align 1
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then2.i83, %if.then113, %if.end108
   %vlan_needed = getelementptr inbounds i8, ptr %s, i64 208450
-  %41 = load i8, ptr %vlan_needed, align 2
-  %tobool123.not = icmp eq i8 %41, 0
+  %43 = load i8, ptr %vlan_needed, align 2
+  %tobool123.not = icmp eq i8 %43, 0
   br i1 %tobool123.not, label %if.else142, label %if.then124
 
 if.then124:                                       ; preds = %if.end122
   %vlan = getelementptr inbounds i8, ptr %s, i64 142908
   %data126 = getelementptr inbounds i8, ptr %s, i64 142912
-  %42 = load i32, ptr %data126, align 4
-  store i32 %42, ptr %vlan, align 4
+  %44 = load i32, ptr %data126, align 4
+  store i32 %44, ptr %vlan, align 4
   %add.ptr132 = getelementptr i8, ptr %s, i64 142916
-  %43 = load i64, ptr %add.ptr132, align 1
-  store i64 %43, ptr %data126, align 4
+  %45 = load i64, ptr %add.ptr132, align 1
+  store i64 %45, ptr %data126, align 4
   %add.ptr135 = getelementptr i8, ptr %s, i64 142920
   %vlan_header = getelementptr inbounds i8, ptr %s, i64 142904
-  %44 = load i32, ptr %vlan_header, align 4
-  store i32 %44, ptr %add.ptr135, align 1
+  %46 = load i32, ptr %vlan_header, align 4
+  store i32 %46, ptr %add.ptr135, align 1
   %size139 = getelementptr inbounds i8, ptr %s, i64 208448
-  %45 = load i16, ptr %size139, align 4
-  %conv140 = zext i16 %45 to i32
+  %47 = load i16, ptr %size139, align 4
+  %conv140 = zext i16 %47 to i32
   %add141 = add nuw nsw i32 %conv140, 4
   tail call fastcc void @e1000_send_packet(ptr noundef nonnull %s, ptr noundef nonnull %vlan, i32 noundef %add141)
   br label %if.end147
@@ -1857,56 +1857,56 @@ if.then124:                                       ; preds = %if.end122
 if.else142:                                       ; preds = %if.end122
   %data143 = getelementptr inbounds i8, ptr %s, i64 142912
   %size145 = getelementptr inbounds i8, ptr %s, i64 208448
-  %46 = load i16, ptr %size145, align 4
-  %conv146 = zext i16 %46 to i32
+  %48 = load i16, ptr %size145, align 4
+  %conv146 = zext i16 %48 to i32
   tail call fastcc void @e1000_send_packet(ptr noundef nonnull %s, ptr noundef nonnull %data143, i32 noundef %conv146)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.else142, %if.then124
-  %arrayidx.i94 = getelementptr i8, ptr %s, i64 27972
-  %47 = load i32, ptr %arrayidx.i94, align 4
-  %cmp.not.i95 = icmp eq i32 %47, -1
-  br i1 %cmp.not.i95, label %e1000x_inc_reg_if_not_full.exit98, label %if.then.i96
+  %arrayidx.i93 = getelementptr i8, ptr %s, i64 27972
+  %49 = load i32, ptr %arrayidx.i93, align 4
+  %cmp.not.i94 = icmp eq i32 %49, -1
+  br i1 %cmp.not.i94, label %e1000x_inc_reg_if_not_full.exit97, label %if.then.i95
 
-if.then.i96:                                      ; preds = %if.end147
-  %inc.i97 = add nuw i32 %47, 1
-  store i32 %inc.i97, ptr %arrayidx.i94, align 4
-  br label %e1000x_inc_reg_if_not_full.exit98
+if.then.i95:                                      ; preds = %if.end147
+  %inc.i96 = add nuw i32 %49, 1
+  store i32 %inc.i96, ptr %arrayidx.i93, align 4
+  br label %e1000x_inc_reg_if_not_full.exit97
 
-e1000x_inc_reg_if_not_full.exit98:                ; preds = %if.end147, %if.then.i96
+e1000x_inc_reg_if_not_full.exit97:                ; preds = %if.end147, %if.then.i95
   %size153 = getelementptr inbounds i8, ptr %s, i64 208448
-  %48 = load i16, ptr %size153, align 8
-  %conv154 = zext i16 %48 to i64
+  %50 = load i16, ptr %size153, align 8
+  %conv154 = zext i16 %50 to i64
   %add155 = add nuw nsw i64 %conv154, 4
-  %arrayidx.i99 = getelementptr i8, ptr %s, i64 27960
-  %49 = load i64, ptr %arrayidx.i99, align 4
+  %arrayidx.i98 = getelementptr i8, ptr %s, i64 27960
+  %51 = load i64, ptr %arrayidx.i98, align 4
   %arrayidx2.i = getelementptr i8, ptr %s, i64 27964
-  %.add5.i = tail call i64 @llvm.uadd.sat.i64(i64 %49, i64 %add155)
+  %.add5.i = tail call i64 @llvm.uadd.sat.i64(i64 %51, i64 %add155)
   %conv9.i = trunc i64 %.add5.i to i32
-  store i32 %conv9.i, ptr %arrayidx.i99, align 4
+  store i32 %conv9.i, ptr %arrayidx.i98, align 4
   %shr.i = lshr i64 %.add5.i, 32
   %conv12.i = trunc nuw i64 %shr.i to i32
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
-  %arrayidx.i100 = getelementptr i8, ptr %s, i64 27888
-  %50 = load i32, ptr %arrayidx.i100, align 4
-  %cmp.not.i101 = icmp eq i32 %50, -1
-  br i1 %cmp.not.i101, label %e1000x_inc_reg_if_not_full.exit104, label %if.then.i102
+  %arrayidx.i99 = getelementptr i8, ptr %s, i64 27888
+  %52 = load i32, ptr %arrayidx.i99, align 4
+  %cmp.not.i100 = icmp eq i32 %52, -1
+  br i1 %cmp.not.i100, label %e1000x_inc_reg_if_not_full.exit103, label %if.then.i101
 
-if.then.i102:                                     ; preds = %e1000x_inc_reg_if_not_full.exit98
-  %inc.i103 = add nuw i32 %50, 1
-  store i32 %inc.i103, ptr %arrayidx.i100, align 4
-  br label %e1000x_inc_reg_if_not_full.exit104
+if.then.i101:                                     ; preds = %e1000x_inc_reg_if_not_full.exit97
+  %inc.i102 = add nuw i32 %52, 1
+  store i32 %inc.i102, ptr %arrayidx.i99, align 4
+  br label %e1000x_inc_reg_if_not_full.exit103
 
-e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_not_full.exit98, %if.then.i102
-  %arrayidx.i105 = getelementptr i8, ptr %s, i64 27904
-  %51 = load i64, ptr %arrayidx.i105, align 4
-  %arrayidx2.i106 = getelementptr i8, ptr %s, i64 27908
-  %.add5.i108 = tail call i64 @llvm.uadd.sat.i64(i64 %51, i64 %add155)
-  %conv9.i109 = trunc i64 %.add5.i108 to i32
-  store i32 %conv9.i109, ptr %arrayidx.i105, align 4
-  %shr.i110 = lshr i64 %.add5.i108, 32
-  %conv12.i111 = trunc nuw i64 %shr.i110 to i32
-  store i32 %conv12.i111, ptr %arrayidx2.i106, align 4
+e1000x_inc_reg_if_not_full.exit103:               ; preds = %e1000x_inc_reg_if_not_full.exit97, %if.then.i101
+  %arrayidx.i104 = getelementptr i8, ptr %s, i64 27904
+  %53 = load i64, ptr %arrayidx.i104, align 4
+  %arrayidx2.i105 = getelementptr i8, ptr %s, i64 27908
+  %.add5.i107 = tail call i64 @llvm.uadd.sat.i64(i64 %53, i64 %add155)
+  %conv9.i108 = trunc i64 %.add5.i107 to i32
+  store i32 %conv9.i108, ptr %arrayidx.i104, align 4
+  %shr.i109 = lshr i64 %.add5.i107, 32
+  %conv12.i110 = trunc nuw i64 %shr.i109 to i32
+  store i32 %conv12.i110, ptr %arrayidx2.i105, align 4
   ret void
 }
 

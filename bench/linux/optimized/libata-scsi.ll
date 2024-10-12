@@ -3471,9 +3471,9 @@ define internal noundef i32 @ata_scsiop_inq_b0(ptr nocapture noundef readonly %0
   %11 = icmp eq i16 %10, 24576
   %12 = and i16 %9, 15
   %13 = shl nuw i16 1, %12
-  %14 = select i1 %11, i16 %13, i16 1
+  %14 = tail call i16 @llvm.bswap.i16(i16 %13)
   %15 = getelementptr i8, ptr %1, i64 6
-  %16 = tail call i16 @llvm.bswap.i16(i16 %14)
+  %16 = select i1 %11, i16 %14, i16 256
   store i16 %16, ptr %15, align 1
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr i8, ptr %17, i64 160
@@ -3513,12 +3513,11 @@ define internal noundef i32 @ata_scsiop_inq_b0(ptr nocapture noundef readonly %0
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 67108864
   %42 = icmp eq i32 %41, 0
-  %43 = select i1 %42, i64 4194240, i64 262144
-  %44 = getelementptr i8, ptr %1, i64 36
-  %45 = tail call i64 @llvm.bswap.i64(i64 %43)
-  store i64 %45, ptr %44, align 1
-  %46 = getelementptr i8, ptr %1, i64 28
-  store i32 16777216, ptr %46, align 1
+  %43 = getelementptr i8, ptr %1, i64 36
+  %44 = select i1 %42, i64 -4539840630133620736, i64 4398046511104
+  store i64 %44, ptr %43, align 1
+  %45 = getelementptr i8, ptr %1, i64 28
+  store i32 16777216, ptr %45, align 1
   br label %.thread
 
 .thread:                                          ; preds = %28, %38, %33, %31, %2

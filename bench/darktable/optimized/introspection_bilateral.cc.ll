@@ -964,9 +964,9 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   %25 = fpext float %24 to double
   %26 = fcmp reassoc nsz arcp contract afn olt double %25, 1.000000e-01
   %27 = fmul reassoc nsz arcp contract afn double %25, 2.000000e-02
-  %28 = select i1 %26, double 2.000000e-03, double %27
-  %29 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %28)
-  %30 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %29)
+  %28 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %27)
+  %29 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %28)
+  %30 = select i1 %26, double 0x3FCA323591D23FB1, double %29
   %31 = uitofp i64 %1 to double
   %32 = fmul reassoc nsz arcp contract afn double %30, %31
   %33 = fptoui double %32 to i64
@@ -2988,9 +2988,9 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %51 = fpext float %50 to double
   %52 = fcmp reassoc nsz arcp contract afn olt double %51, 1.000000e-01
   %53 = fmul reassoc nsz arcp contract afn double %51, 2.000000e-02
-  %54 = select i1 %52, double 2.000000e-03, double %53
-  %55 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %54)
-  %56 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %55)
+  %54 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %53)
+  %55 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %54)
+  %56 = select i1 %52, double 0x3FCA323591D23FB1, double %55
   %57 = uitofp i64 %38 to double
   %58 = fmul reassoc nsz arcp contract afn double %56, %57
   %59 = fptoui double %58 to i64

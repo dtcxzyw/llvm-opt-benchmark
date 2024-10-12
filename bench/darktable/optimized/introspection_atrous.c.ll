@@ -266,8 +266,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %45 = fcmp reassoc nsz arcp contract afn ogt float %44, 5.130000e+02
   %46 = fmul reassoc nsz arcp contract afn float %43, 0x3FB99999A0000000
   %47 = fadd reassoc nsz arcp contract afn float %46, -5.000000e-01
-  %48 = select i1 %45, float 2.560000e+02, float %47
-  %49 = tail call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %48)
+  %48 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %47)
+  %49 = select i1 %45, float 8.000000e+00, float %48
   %50 = fdiv reassoc nsz arcp contract afn float 2.500000e+00, %38
   %51 = fadd reassoc nsz arcp contract afn float %50, -5.000000e-01
   %52 = tail call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %51)
@@ -663,15 +663,15 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %27 = fcmp reassoc nsz arcp contract afn ogt float %26, 5.130000e+02
   %28 = fmul reassoc nsz arcp contract afn float %25, 0x3FB99999A0000000
   %29 = fadd reassoc nsz arcp contract afn float %28, -5.000000e-01
-  %30 = select i1 %27, float 2.560000e+02, float %29
-  %31 = tail call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %30)
+  %30 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %29)
+  %31 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %30
   %32 = fmul reassoc nsz arcp contract afn float %.104.val, 5.000000e-01
   %33 = getelementptr inbounds i8, ptr %3, i64 8
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   %35 = getelementptr inbounds i8, ptr %3, i64 32
   %36 = getelementptr inbounds i8, ptr %3, i64 40
   %37 = getelementptr inbounds i8, ptr %3, i64 24
-  %38 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %31
+  %38 = select i1 %27, float 1.250000e-01, float %31
   %invariant.op = fmul reassoc nsz arcp contract afn float %38, -7.000000e+00
   %39 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %17
   br label %40

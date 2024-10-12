@@ -74,85 +74,85 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr nocapture nound
   %11 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 10) #9
   %12 = load i8, ptr %1, align 1
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %42, label %14
+  br i1 %13, label %43, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %4, align 8
   %16 = load i8, ptr %15, align 1
   %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %17, label %42
+  br i1 %.not, label %17, label %43
 
 17:                                               ; preds = %14, %7
   %.030 = phi i64 [ %9, %7 ], [ %11, %14 ]
-  switch i32 %2, label %42 [
+  switch i32 %2, label %43 [
     i32 2, label %18
-    i32 10, label %24
+    i32 10, label %25
   ]
 
 18:                                               ; preds = %17
   %or.cond = icmp ugt i64 %.030, 32
-  br i1 %or.cond, label %42, label %19
+  br i1 %or.cond, label %43, label %19
 
 19:                                               ; preds = %18
   %.not32 = icmp eq i64 %.030, 0
   %20 = sub nuw nsw i64 32, %.030
   %21 = shl nuw nsw i64 4294967295, %20
   %22 = trunc i64 %21 to i32
-  %.028 = select i1 %.not32, i32 0, i32 %22
-  %23 = tail call i32 @llvm.bswap.i32(i32 %.028)
+  %23 = tail call i32 @llvm.bswap.i32(i32 %22)
+  %24 = select i1 %.not32, i32 0, i32 %23
   store i32 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %23, ptr %.sroa.2.0..sroa_idx, align 4
+  store i32 %24, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %40
+  br label %41
 
-24:                                               ; preds = %17
+25:                                               ; preds = %17
   %or.cond3 = icmp ugt i64 %.030, 128
-  br i1 %or.cond3, label %42, label %25
+  br i1 %or.cond3, label %43, label %26
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %27
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %28
 
-27:                                               ; preds = %25, %36
-  %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %36 ]
-  %.133 = phi i64 [ %.030, %25 ], [ %38, %36 ]
-  %28 = icmp slt i64 %.133, 1
-  br i1 %28, label %36, label %29
+28:                                               ; preds = %26, %37
+  %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %37 ]
+  %.133 = phi i64 [ %.030, %26 ], [ %39, %37 ]
+  %29 = icmp slt i64 %.133, 1
+  br i1 %29, label %37, label %30
 
-29:                                               ; preds = %27
-  %30 = icmp ugt i64 %.133, 7
-  br i1 %30, label %36, label %31
+30:                                               ; preds = %28
+  %31 = icmp ugt i64 %.133, 7
+  br i1 %31, label %37, label %32
 
-31:                                               ; preds = %29
-  %32 = trunc nuw i64 %.133 to i16
-  %33 = sub nuw nsw i16 8, %32
-  %34 = shl nuw nsw i16 255, %33
-  %35 = trunc i16 %34 to i8
-  br label %36
+32:                                               ; preds = %30
+  %33 = trunc nuw i64 %.133 to i16
+  %34 = sub nuw nsw i16 8, %33
+  %35 = shl nuw nsw i16 255, %34
+  %36 = trunc i16 %35 to i8
+  br label %37
 
-36:                                               ; preds = %29, %27, %31
-  %.sink = phi i8 [ %35, %31 ], [ 0, %27 ], [ -1, %29 ]
-  %37 = getelementptr [16 x i8], ptr %26, i64 0, i64 %indvars.iv
-  store i8 %.sink, ptr %37, align 1
-  %38 = add i64 %.133, -8
+37:                                               ; preds = %30, %28, %32
+  %.sink = phi i8 [ %36, %32 ], [ 0, %28 ], [ -1, %30 ]
+  %38 = getelementptr [16 x i8], ptr %27, i64 0, i64 %indvars.iv
+  store i8 %.sink, ptr %38, align 1
+  %39 = add i64 %.133, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %39, label %27, !llvm.loop !7
+  br i1 %exitcond.not, label %40, label %28, !llvm.loop !7
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %19
-  %41 = trunc i32 %2 to i16
-  store i16 %41, ptr %0, align 8
-  br label %42
+41:                                               ; preds = %40, %19
+  %42 = trunc i32 %2 to i16
+  store i16 %42, ptr %0, align 8
+  br label %43
 
-42:                                               ; preds = %17, %24, %18, %10, %14, %40
-  %.029 = phi i32 [ 0, %40 ], [ -1, %14 ], [ -1, %10 ], [ -1, %18 ], [ -1, %24 ], [ -1, %17 ]
+43:                                               ; preds = %17, %25, %18, %10, %14, %41
+  %.029 = phi i32 [ 0, %41 ], [ -1, %14 ], [ -1, %10 ], [ -1, %18 ], [ -1, %25 ], [ -1, %17 ]
   ret i32 %.029
 }
 
