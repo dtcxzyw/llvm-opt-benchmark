@@ -13139,7 +13139,7 @@ linux/processor_throttling.ll 263488472
 linux/profile.ll 154385478
 linux/property.ll 541271162
 linux/protocol.ll 67136506
-linux/psargs.ll 150469548
+linux/psargs.ll 150620027
 linux/psmouse-base.ll 472113206
 linux/psmouse-smbus.ll 82000185
 linux/psopinfo.ll 41882609
