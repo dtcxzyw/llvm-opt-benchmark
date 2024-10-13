@@ -7575,7 +7575,7 @@ graphviz/node_distinct_coloring.c.ll 176765052
 graphviz/nodelist.c.ll 130917456
 graphviz/nop.c.ll 49188905
 graphviz/ns.c.ll 1093074888
-graphviz/obj.c.ll 87759371
+graphviz/obj.c.ll 87847151
 graphviz/opt_arrangement.c.ll 76170549
 graphviz/ortho.c.ll 980938804
 graphviz/osageinit.c.ll 269217660
@@ -10471,7 +10471,7 @@ ipopt/IpDenseSymMatrix.ll 1056903081
 ipopt/IpDenseVector.ll 997051842
 ipopt/IpDiagMatrix.ll 281122924
 ipopt/IpEquilibrationScaling.ll 413012912
-ipopt/IpExactHessianUpdater.ll 90371409
+ipopt/IpExactHessianUpdater.ll 90461852
 ipopt/IpExpandedMultiVectorMatrix.ll 1112369375
 ipopt/IpExpansionMatrix.ll 412656897
 ipopt/IpFilterLSAcceptor.ll 1634665873
@@ -40463,7 +40463,7 @@ zxing/ODUPCEWriter.cpp.ll 224020218
 zxing/ODWriterHelper.cpp.ll 161858875
 zxing/PDFBarcodeValue.cpp.ll 272092558
 zxing/PDFBoundingBox.cpp.ll 114007824
-zxing/PDFCodewordDecoder.cpp.ll 298411667
+zxing/PDFCodewordDecoder.cpp.ll 298710146
 zxing/PDFDecoder.cpp.ll 1324929836
 zxing/PDFDetectionResult.cpp.ll 682451590
 zxing/PDFDetectionResultColumn.cpp.ll 438456554
