@@ -5082,8 +5082,8 @@ define hidden void @"_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$G
   br label %24
 
 24:                                               ; preds = %21, %19
-  %storemerge.i.i = phi i64 [ 0, %19 ], [ 1, %21 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !903, !noalias !904
+  %.sink.i.i = phi i64 [ 1, %21 ], [ 0, %19 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !903, !noalias !904
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !895
   call void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !895
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !895
@@ -5657,8 +5657,8 @@ define hidden void @"_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$G
   br label %24
 
 24:                                               ; preds = %21, %19
-  %storemerge.i.i = phi i64 [ 0, %19 ], [ 1, %21 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !978, !noalias !979
+  %.sink.i.i = phi i64 [ 1, %21 ], [ 0, %19 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !978, !noalias !979
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4), !noalias !970
   call void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !970
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !970
@@ -5875,8 +5875,8 @@ define hidden void @"_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$G
   br label %24
 
 24:                                               ; preds = %21, %19
-  %storemerge.i.i = phi i64 [ 0, %19 ], [ 1, %21 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !1008, !noalias !1009
+  %.sink.i.i = phi i64 [ 1, %21 ], [ 0, %19 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !1008, !noalias !1009
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1000
   call void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !1000
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1000
@@ -10130,8 +10130,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %98
 
 98:                                               ; preds = %96, %94
-  %storemerge.i = phi i64 [ 0, %94 ], [ 1, %96 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !1740, !noalias !1735
+  %.sink.i = phi i64 [ 1, %96 ], [ 0, %94 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !1740, !noalias !1735
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.14.sroa.9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.22.sroa.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.22.sroa.5)
@@ -10218,8 +10218,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %32
 
 32:                                               ; preds = %29, %27
-  %storemerge.i = phi i64 [ 0, %27 ], [ 1, %29 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !1741, !noalias !1744
+  %.sink.i = phi i64 [ 1, %29 ], [ 0, %27 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !1741, !noalias !1744
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -10502,8 +10502,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %32
 
 32:                                               ; preds = %29, %27
-  %storemerge.i = phi i64 [ 0, %27 ], [ 1, %29 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !1765, !noalias !1768
+  %.sink.i = phi i64 [ 1, %29 ], [ 0, %27 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !1765, !noalias !1768
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -10588,8 +10588,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %32
 
 32:                                               ; preds = %29, %27
-  %storemerge.i = phi i64 [ 0, %27 ], [ 1, %29 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !1771, !noalias !1774
+  %.sink.i = phi i64 [ 1, %29 ], [ 0, %27 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !1771, !noalias !1774
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)

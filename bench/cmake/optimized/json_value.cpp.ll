@@ -8256,7 +8256,8 @@ define dso_local { ptr, i8 } @_ZNK4Json5Value3endEv(ptr nocapture noundef nonnul
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = select i1 %switch, i1 true, i1 %.not
   %.sroa.01.0 = select i1 %7, ptr null, ptr %6
-  %.sroa.3.0 = zext i1 %7 to i8
+  %narrow = select i1 %switch, i1 true, i1 %.not
+  %.sroa.3.0 = zext i1 %narrow to i8
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.01.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert

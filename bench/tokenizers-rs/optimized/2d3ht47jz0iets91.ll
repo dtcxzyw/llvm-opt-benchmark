@@ -3965,12 +3965,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %17 = load ptr, ptr %10, align 8, !nonnull !4, !align !17, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %17, ptr %6, align 8, !noalias !937
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !941
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !946
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !937
   store ptr %.sroa.3.0.copyload, ptr %5, align 8, !noalias !941
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %6, ptr %18, align 8, !noalias !941
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !941
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !946
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !941
   store ptr %5, ptr %4, align 8, !noalias !947
   call void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h8d44b3ab17d63c82E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.sroa.25.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(8) %4), !noalias !951
@@ -25381,7 +25381,7 @@ attributes #59 = { nounwind }
 !943 = distinct !{!943, !"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdb67f82680f69042E"}
 !944 = distinct !{!944, !943, !"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdb67f82680f69042E: argument 1"}
 !945 = distinct !{!945, !943, !"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdb67f82680f69042E: argument 2"}
-!946 = !{!944, !945, !940}
+!946 = !{!940}
 !947 = !{!948, !950, !942, !944, !945, !938, !940}
 !948 = distinct !{!948, !949, !"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09742aa74850480dE.llvm.15403311311865522351: argument 0"}
 !949 = distinct !{!949, !"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09742aa74850480dE.llvm.15403311311865522351"}

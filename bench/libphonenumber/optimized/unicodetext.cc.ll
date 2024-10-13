@@ -1931,40 +1931,41 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText4findERKS1_NS1_14const_iteratorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 2 {
+_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE.exit:
+  %4 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
   %5 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
-  %6 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
-  %7 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %8 = load ptr, ptr %1, align 8, !noalias !17
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !noalias !17
-  %11 = sext i32 %10 to i64
-  store ptr %8, ptr %5, align 8, !noalias !17
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %11, ptr %12, align 8, !noalias !17
-  %13 = load ptr, ptr %2, align 8, !noalias !17
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  %15 = load i32, ptr %14, align 8, !noalias !17
-  %16 = sext i32 %15 to i64
-  store ptr %13, ptr %6, align 8, !noalias !17
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %16, ptr %17, align 8, !noalias !17
+  %7 = load ptr, ptr %1, align 8, !noalias !17
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load i32, ptr %8, align 8, !noalias !17
+  %10 = sext i32 %9 to i64
+  store ptr %7, ptr %4, align 8, !noalias !17
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %10, ptr %11, align 8, !noalias !17
+  %12 = load ptr, ptr %2, align 8, !noalias !17
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = load i32, ptr %13, align 8, !noalias !17
+  %15 = sext i32 %14 to i64
+  store ptr %12, ptr %5, align 8, !noalias !17
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %15, ptr %16, align 8, !noalias !17
+  %17 = ptrtoint ptr %6 to i64
   %18 = ptrtoint ptr %7 to i64
-  %19 = ptrtoint ptr %8 to i64
-  %20 = sub i64 %18, %19
-  %21 = call noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %20), !noalias !17
-  %22 = load i64, ptr @_ZN4i18n12phonenumbers11StringPiece4nposE, align 8, !noalias !17
-  %23 = icmp eq i64 %21, %22
-  %24 = load ptr, ptr %1, align 8, !noalias !17
-  %25 = load i32, ptr %9, align 8, !noalias !17
-  %26 = sext i32 %25 to i64
-  %.sink.i = select i1 %23, i64 %26, i64 %21
-  %27 = getelementptr inbounds i8, ptr %24, i64 %.sink.i
-  store ptr %27, ptr %0, align 8, !alias.scope !17
+  %19 = sub i64 %17, %18
+  %20 = call noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %19), !noalias !17
+  %21 = load i64, ptr @_ZN4i18n12phonenumbers11StringPiece4nposE, align 8, !noalias !17
+  %22 = icmp eq i64 %20, %21
+  %23 = load ptr, ptr %1, align 8
+  %24 = load i32, ptr %8, align 8
+  %25 = sext i32 %24 to i64
+  %storemerge.i.v = select i1 %22, i64 %25, i64 %20
+  %storemerge.i = getelementptr inbounds i8, ptr %23, i64 %storemerge.i.v
+  store ptr %storemerge.i, ptr %0, align 8, !alias.scope !17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 }
 
@@ -2004,36 +2005,37 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText4findERKS1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 {
+_ZNK4i18n12phonenumbers11UnicodeText10UnsafeFindERKS1_NS1_14const_iteratorE.exit:
+  %3 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
   %4 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
-  %5 = alloca %"class.i18n::phonenumbers::StringPiece", align 8
-  %6 = load ptr, ptr %1, align 8, !noalias !20
+  %5 = load ptr, ptr %1, align 8, !noalias !20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !noalias !21
-  %9 = sext i32 %8 to i64
-  store ptr %6, ptr %4, align 8, !noalias !21
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %9, ptr %10, align 8, !noalias !21
-  %11 = load ptr, ptr %2, align 8, !noalias !21
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load i32, ptr %12, align 8, !noalias !21
-  %14 = sext i32 %13 to i64
-  store ptr %11, ptr %5, align 8, !noalias !21
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %14, ptr %15, align 8, !noalias !21
-  %16 = call noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0), !noalias !21
-  %17 = load i64, ptr @_ZN4i18n12phonenumbers11StringPiece4nposE, align 8, !noalias !21
-  %18 = icmp eq i64 %16, %17
-  %19 = load ptr, ptr %1, align 8, !noalias !21
-  %20 = load i32, ptr %7, align 8, !noalias !21
-  %21 = sext i32 %20 to i64
-  %.sink.i = select i1 %18, i64 %21, i64 %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 %.sink.i
-  store ptr %22, ptr %0, align 8, !alias.scope !21
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load i32, ptr %6, align 8, !noalias !21
+  %8 = sext i32 %7 to i64
+  store ptr %5, ptr %3, align 8, !noalias !21
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %8, ptr %9, align 8, !noalias !21
+  %10 = load ptr, ptr %2, align 8, !noalias !21
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load i32, ptr %11, align 8, !noalias !21
+  %13 = sext i32 %12 to i64
+  store ptr %10, ptr %4, align 8, !noalias !21
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %13, ptr %14, align 8, !noalias !21
+  %15 = call noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0), !noalias !21
+  %16 = load i64, ptr @_ZN4i18n12phonenumbers11StringPiece4nposE, align 8, !noalias !21
+  %17 = icmp eq i64 %15, %16
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %6, align 8
+  %20 = sext i32 %19 to i64
+  %storemerge.i.v = select i1 %17, i64 %20, i64 %15
+  %storemerge.i = getelementptr inbounds i8, ptr %18, i64 %storemerge.i.v
+  store ptr %storemerge.i, ptr %0, align 8, !alias.scope !21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
 

@@ -53906,8 +53906,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7bc710afdd2cba3fE.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7bc710afdd2cba3fE.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !10693, !noalias !10694
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !10693, !noalias !10694
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !10683
   br label %44
 
@@ -54029,8 +54029,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h0eb4fa6a17ce8dc7E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h0eb4fa6a17ce8dc7E.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !10746, !noalias !10747
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !10746, !noalias !10747
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !10736
   br label %44
 
@@ -54400,8 +54400,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h75d21fce34c719cbE.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h75d21fce34c719cbE.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !10889, !noalias !10890
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !10889, !noalias !10890
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !10879
   br label %44
 
@@ -54643,8 +54643,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h24d9d2e2832227acE.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h24d9d2e2832227acE.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !10985, !noalias !10986
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !10985, !noalias !10986
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !10975
   br label %44
 
@@ -54765,8 +54765,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7c2dd226b2d77b32E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7c2dd226b2d77b32E.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !11034, !noalias !11035
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !11034, !noalias !11035
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !11024
   br label %44
 
@@ -55249,8 +55249,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h684f8896b346abb8E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h684f8896b346abb8E.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !11225, !noalias !11226
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !11225, !noalias !11226
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !11215
   br label %44
 
@@ -55990,8 +55990,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h0478c154467f0c24E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h0478c154467f0c24E.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !11507, !noalias !11508
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !11507, !noalias !11508
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !11497
   br label %44
 
@@ -56594,8 +56594,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h2cba80567ca0de31E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h2cba80567ca0de31E.exit": ; preds = %20, %22
-  %storemerge.i.i = phi i64 [ 0, %20 ], [ 1, %22 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !11761, !noalias !11762
+  %.sink.i.i = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !11761, !noalias !11762
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !11751
   br label %44
 

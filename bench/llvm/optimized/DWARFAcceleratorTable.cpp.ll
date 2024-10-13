@@ -4265,6 +4265,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %13 = load i8, ptr %12, align 8
   %14 = or i8 %13, 1
   store i8 %14, ptr %12, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %15 = load ptr, ptr %6, align 8, !noalias !189
   br label %28
 

@@ -17022,8 +17022,8 @@ define hidden void @"_ZN14ockam_identity14secure_channel3api1_108_$LT$impl$u20$s
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9E.llvm.4791013001715523264.exit.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9E.llvm.4791013001715523264.exit.i.i": ; preds = %18, %16
-  %storemerge.i.i.i = phi i64 [ 0, %16 ], [ 1, %18 ]
-  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !2081, !noalias !2082
+  %.sink.i.i.i = phi i64 [ 1, %18 ], [ 0, %16 ]
+  store i64 %.sink.i.i.i, ptr %0, align 8, !alias.scope !2081, !noalias !2082
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2073
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h97a0aace3f547595E.exit"
 
@@ -17042,11 +17042,11 @@ define hidden void @"_ZN14ockam_identity14secure_channel3api1_108_$LT$impl$u20$s
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fb1b58f7eb3affcE.llvm.4791013001715523264.exit.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fb1b58f7eb3affcE.llvm.4791013001715523264.exit.i.i": ; preds = %27, %22
-  %.sink.i.i.i = phi ptr [ null, %27 ], [ %25, %22 ]
-  %storemerge.i5.i.i = phi i64 [ 0, %27 ], [ 1, %22 ]
+  %.sink.i5.i.i = phi ptr [ null, %27 ], [ %25, %22 ]
+  %storemerge.i.i.i = phi i64 [ 0, %27 ], [ 1, %22 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i.i.i, ptr %28, align 8, !alias.scope !2083, !noalias !2072
-  store i64 %storemerge.i5.i.i, ptr %0, align 8, !alias.scope !2083, !noalias !2072
+  store ptr %.sink.i5.i.i, ptr %28, align 8, !alias.scope !2083, !noalias !2072
+  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !2083, !noalias !2072
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h97a0aace3f547595E.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h97a0aace3f547595E.exit": ; preds = %11, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9E.llvm.4791013001715523264.exit.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fb1b58f7eb3affcE.llvm.4791013001715523264.exit.i.i"
@@ -17102,8 +17102,8 @@ define hidden void @"_ZN14ockam_identity14secure_channel3api1_108_$LT$impl$u20$s
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670E.llvm.4791013001715523264.exit.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670E.llvm.4791013001715523264.exit.i.i": ; preds = %18, %16
-  %storemerge.i.i.i = phi i64 [ 0, %16 ], [ 1, %18 ]
-  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !2112, !noalias !2113
+  %.sink.i.i.i = phi i64 [ 1, %18 ], [ 0, %16 ]
+  store i64 %.sink.i.i.i, ptr %0, align 8, !alias.scope !2112, !noalias !2113
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2104
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h5921849c904f2080E.exit"
 
@@ -17122,11 +17122,11 @@ define hidden void @"_ZN14ockam_identity14secure_channel3api1_108_$LT$impl$u20$s
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h773796296dedf56dE.llvm.4791013001715523264.exit.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h773796296dedf56dE.llvm.4791013001715523264.exit.i.i": ; preds = %27, %22
-  %.sink.i.i.i = phi ptr [ null, %27 ], [ %25, %22 ]
-  %storemerge.i5.i.i = phi i64 [ 0, %27 ], [ 1, %22 ]
+  %.sink.i5.i.i = phi ptr [ null, %27 ], [ %25, %22 ]
+  %storemerge.i.i.i = phi i64 [ 0, %27 ], [ 1, %22 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i.i.i, ptr %28, align 8, !alias.scope !2114, !noalias !2103
-  store i64 %storemerge.i5.i.i, ptr %0, align 8, !alias.scope !2114, !noalias !2103
+  store ptr %.sink.i5.i.i, ptr %28, align 8, !alias.scope !2114, !noalias !2103
+  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !2114, !noalias !2103
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h5921849c904f2080E.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h5921849c904f2080E.exit": ; preds = %11, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670E.llvm.4791013001715523264.exit.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h773796296dedf56dE.llvm.4791013001715523264.exit.i.i"
@@ -39137,8 +39137,8 @@ define hidden void @"_ZN210_$LT$ockam_identity..secure_channel..api.._..$LT$impl
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9E.llvm.4791013001715523264.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9E.llvm.4791013001715523264.exit": ; preds = %16, %18
-  %storemerge.i = phi i64 [ 0, %16 ], [ 1, %18 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !4799, !noalias !4802
+  %.sink.i = phi i64 [ 1, %18 ], [ 0, %16 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !4799, !noalias !4802
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %29
 
@@ -39157,11 +39157,11 @@ define hidden void @"_ZN210_$LT$ockam_identity..secure_channel..api.._..$LT$impl
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fb1b58f7eb3affcE.llvm.4791013001715523264.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fb1b58f7eb3affcE.llvm.4791013001715523264.exit": ; preds = %22, %27
-  %.sink.i = phi ptr [ null, %27 ], [ %25, %22 ]
-  %storemerge.i5 = phi i64 [ 0, %27 ], [ 1, %22 ]
+  %.sink.i5 = phi ptr [ null, %27 ], [ %25, %22 ]
+  %storemerge.i = phi i64 [ 0, %27 ], [ 1, %22 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !4805
-  store i64 %storemerge.i5, ptr %0, align 8, !alias.scope !4805
+  store ptr %.sink.i5, ptr %28, align 8, !alias.scope !4805
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !4805
   br label %29
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9E.llvm.4791013001715523264.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fb1b58f7eb3affcE.llvm.4791013001715523264.exit", %11
@@ -39215,8 +39215,8 @@ define hidden void @"_ZN210_$LT$ockam_identity..secure_channel..api.._..$LT$impl
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670E.llvm.4791013001715523264.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670E.llvm.4791013001715523264.exit": ; preds = %16, %18
-  %storemerge.i = phi i64 [ 0, %16 ], [ 1, %18 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !4816, !noalias !4819
+  %.sink.i = phi i64 [ 1, %18 ], [ 0, %16 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !4816, !noalias !4819
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %29
 
@@ -39235,11 +39235,11 @@ define hidden void @"_ZN210_$LT$ockam_identity..secure_channel..api.._..$LT$impl
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h773796296dedf56dE.llvm.4791013001715523264.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h773796296dedf56dE.llvm.4791013001715523264.exit": ; preds = %22, %27
-  %.sink.i = phi ptr [ null, %27 ], [ %25, %22 ]
-  %storemerge.i5 = phi i64 [ 0, %27 ], [ 1, %22 ]
+  %.sink.i5 = phi ptr [ null, %27 ], [ %25, %22 ]
+  %storemerge.i = phi i64 [ 0, %27 ], [ 1, %22 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %28, align 8, !alias.scope !4822
-  store i64 %storemerge.i5, ptr %0, align 8, !alias.scope !4822
+  store ptr %.sink.i5, ptr %28, align 8, !alias.scope !4822
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !4822
   br label %29
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670E.llvm.4791013001715523264.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h773796296dedf56dE.llvm.4791013001715523264.exit", %11
@@ -68251,8 +68251,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h985608dbe31a47d9
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -68275,8 +68275,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcc61ee2529ebb670
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

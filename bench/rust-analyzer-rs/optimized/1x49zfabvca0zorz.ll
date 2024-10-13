@@ -65193,8 +65193,8 @@ define void @"_ZN55_$LT$hir..TypeParam$u20$as$u20$hir..attrs..HasAttrs$GT$5attrs
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN55_$LT$hir..TypeParam$u20$as$u20$hir..attrs..HasAttrs$GT$7attr_id17h0c2799aa5655afadE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @"_ZN55_$LT$hir..TypeParam$u20$as$u20$hir..attrs..HasAttrs$GT$7attr_id17h0c2799aa5655afadE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #14 {
   store i32 0, ptr %0, align 4, !alias.scope !14132, !noalias !14135
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !14135
@@ -65219,8 +65219,8 @@ define void @"_ZN56_$LT$hir..ConstParam$u20$as$u20$hir..attrs..HasAttrs$GT$5attr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN56_$LT$hir..ConstParam$u20$as$u20$hir..attrs..HasAttrs$GT$7attr_id17h18a6ad0cc864adacE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @"_ZN56_$LT$hir..ConstParam$u20$as$u20$hir..attrs..HasAttrs$GT$7attr_id17h18a6ad0cc864adacE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #14 {
   store i32 1, ptr %0, align 4, !alias.scope !14144, !noalias !14147
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !14147
@@ -65245,8 +65245,8 @@ define void @"_ZN59_$LT$hir..LifetimeParam$u20$as$u20$hir..attrs..HasAttrs$GT$5a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN59_$LT$hir..LifetimeParam$u20$as$u20$hir..attrs..HasAttrs$GT$7attr_id17hf425aa486584c10bE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @"_ZN59_$LT$hir..LifetimeParam$u20$as$u20$hir..attrs..HasAttrs$GT$7attr_id17hf425aa486584c10bE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #14 {
   store i32 2, ptr %0, align 4, !alias.scope !14156, !noalias !14159
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !14159
