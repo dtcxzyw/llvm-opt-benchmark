@@ -1951,37 +1951,40 @@ _ZL17InfoSignalHandleri.exit:                     ; preds = %5, %9
 _ZL19RemoveFilesToRemovev.exit:                   ; preds = %25, %11
   %28 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 %12 seq_cst, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  switch i32 %3, label %.preheader [
+  switch i32 %3, label %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit [
     i32 15, label %_ZN4llvm3sys17RunSignalHandlersEv.exit
-    i32 13, label %_ZN4llvm3sys17RunSignalHandlersEv.exit
-    i32 12, label %_ZN4llvm3sys17RunSignalHandlersEv.exit
     i32 2, label %_ZN4llvm3sys17RunSignalHandlersEv.exit
     i32 1, label %_ZN4llvm3sys17RunSignalHandlersEv.exit
   ]
 
-.preheader:                                       ; preds = %_ZL19RemoveFilesToRemovev.exit, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
-  %.0.idx13.i = phi i64 [ %.0.add.i, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i ], [ 0, %_ZL19RemoveFilesToRemovev.exit ]
-  %.0.ptr14.i = getelementptr inbounds i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx13.i
-  %29 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 16
-  %30 = cmpxchg ptr %29, i32 2, i32 3 seq_cst seq_cst, align 4
-  %31 = extractvalue { i32, i1 } %30, 1
-  br i1 %31, label %32, label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
+_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit:   ; preds = %_ZL19RemoveFilesToRemovev.exit
+  %29 = and i32 %3, -2
+  %or.cond = icmp eq i32 %29, 12
+  br i1 %or.cond, label %_ZN4llvm3sys17RunSignalHandlersEv.exit, label %.preheader
 
-32:                                               ; preds = %.preheader
-  %33 = load ptr, ptr %.0.ptr14.i, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 8
-  %35 = load ptr, ptr %34, align 8
-  tail call void %33(ptr noundef %35) #25
+.preheader:                                       ; preds = %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
+  %.0.idx13.i = phi i64 [ %.0.add.i, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i ], [ 0, %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit ]
+  %.0.ptr14.i = getelementptr inbounds i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx13.i
+  %30 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 16
+  %31 = cmpxchg ptr %30, i32 2, i32 3 seq_cst seq_cst, align 4
+  %32 = extractvalue { i32, i1 } %31, 1
+  br i1 %32, label %33, label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
+
+33:                                               ; preds = %.preheader
+  %34 = load ptr, ptr %.0.ptr14.i, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 8
+  %36 = load ptr, ptr %35, align 8
+  tail call void %34(ptr noundef %36) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.ptr14.i, i8 0, i64 16, i1 false)
-  store atomic i32 0, ptr %29 seq_cst, align 8
+  store atomic i32 0, ptr %30 seq_cst, align 8
   br label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
 
-_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i: ; preds = %32, %.preheader
+_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i: ; preds = %33, %.preheader
   %.0.add.i = add nuw nsw i64 %.0.idx13.i, 24
   %.not.i2 = icmp eq i64 %.0.add.i, 192
   br i1 %.not.i2, label %_ZN4llvm3sys17RunSignalHandlersEv.exit, label %.preheader
 
-_ZN4llvm3sys17RunSignalHandlersEv.exit:           ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL17InfoSignalHandleri.exit
+_ZN4llvm3sys17RunSignalHandlersEv.exit:           ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit, %_ZL17InfoSignalHandleri.exit
   ret void
 }
 
@@ -3200,59 +3203,59 @@ _ZL19RemoveFilesToRemovev.exit:                   ; preds = %26, %_ZN4llvm3sys18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   switch i32 %0, label %.preheader [
     i32 13, label %30
-    i32 15, label %33
-    i32 12, label %33
-    i32 2, label %33
-    i32 1, label %33
+    i32 15, label %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread
+    i32 12, label %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread
+    i32 2, label %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread
+    i32 1, label %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread
   ]
 
 30:                                               ; preds = %_ZL19RemoveFilesToRemovev.exit
   %31 = atomicrmw xchg ptr @_ZL25OneShotPipeSignalFunction, i64 0 seq_cst, align 8
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %.thread, label %32
+  br i1 %.not, label %.thread18, label %32
 
 32:                                               ; preds = %30
   %.0.i = inttoptr i64 %31 to ptr
   call void %.0.i() #25
   br label %_ZN4llvm3sys17RunSignalHandlersEv.exit
 
-33:                                               ; preds = %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit
-  %34 = atomicrmw xchg ptr @_ZL17InterruptFunction, i64 0 seq_cst, align 8
-  %.not6 = icmp eq i64 %34, 0
-  br i1 %.not6, label %.thread, label %35
+_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread: ; preds = %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit
+  %33 = atomicrmw xchg ptr @_ZL17InterruptFunction, i64 0 seq_cst, align 8
+  %.not6 = icmp eq i64 %33, 0
+  br i1 %.not6, label %.thread18, label %34
 
-35:                                               ; preds = %33
-  %.0.i7 = inttoptr i64 %34 to ptr
+34:                                               ; preds = %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread
+  %.0.i7 = inttoptr i64 %33 to ptr
   call void %.0.i7() #25
   br label %_ZN4llvm3sys17RunSignalHandlersEv.exit
 
-.thread:                                          ; preds = %30, %33
-  %36 = call i32 @raise(i32 noundef %0) #25
+.thread18:                                        ; preds = %30, %_ZN4llvm12is_containedIRA4_KiiEEbOT_RKT0_.exit.thread
+  %35 = call i32 @raise(i32 noundef %0) #25
   br label %_ZN4llvm3sys17RunSignalHandlersEv.exit
 
 .preheader:                                       ; preds = %_ZL19RemoveFilesToRemovev.exit, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
   %.0.idx13.i = phi i64 [ %.0.add.i, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i ], [ 0, %_ZL19RemoveFilesToRemovev.exit ]
   %.0.ptr14.i = getelementptr inbounds i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx13.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 16
-  %38 = cmpxchg ptr %37, i32 2, i32 3 seq_cst seq_cst, align 4
-  %39 = extractvalue { i32, i1 } %38, 1
-  br i1 %39, label %40, label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
+  %36 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 16
+  %37 = cmpxchg ptr %36, i32 2, i32 3 seq_cst seq_cst, align 4
+  %38 = extractvalue { i32, i1 } %37, 1
+  br i1 %38, label %39, label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
 
-40:                                               ; preds = %.preheader
-  %41 = load ptr, ptr %.0.ptr14.i, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 8
-  %43 = load ptr, ptr %42, align 8
-  call void %41(ptr noundef %43) #25
+39:                                               ; preds = %.preheader
+  %40 = load ptr, ptr %.0.ptr14.i, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 8
+  %42 = load ptr, ptr %41, align 8
+  call void %40(ptr noundef %42) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.ptr14.i, i8 0, i64 16, i1 false)
-  store atomic i32 0, ptr %37 seq_cst, align 8
+  store atomic i32 0, ptr %36 seq_cst, align 8
   br label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
 
-_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i: ; preds = %40, %.preheader
+_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i: ; preds = %39, %.preheader
   %.0.add.i = add nuw nsw i64 %.0.idx13.i, 24
   %.not.i8 = icmp eq i64 %.0.add.i, 192
   br i1 %.not.i8, label %_ZN4llvm3sys17RunSignalHandlersEv.exit, label %.preheader
 
-_ZN4llvm3sys17RunSignalHandlersEv.exit:           ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i, %.thread, %35, %32
+_ZN4llvm3sys17RunSignalHandlersEv.exit:           ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i, %.thread18, %34, %32
   ret void
 }
 

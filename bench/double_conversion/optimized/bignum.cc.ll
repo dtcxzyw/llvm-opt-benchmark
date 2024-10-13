@@ -2225,8 +2225,6 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i.i
   %33 = add nsw i64 %32, %31
   %34 = sext i16 %29 to i64
   %35 = sext i16 %30 to i64
-  %36 = sext i32 %add.i.i.i to i64
-  %37 = sext i32 %add.i16.i.i to i64
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end12.i.i, %for.cond.preheader.i.i
@@ -2236,32 +2234,28 @@ for.cond.i.i:                                     ; preds = %if.end12.i.i, %for.
   br i1 %cmp7.not.not.i.i, label %for.body.i.i, label %while.body52
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %cmp.not.i.i.i = icmp sgt i64 %indvars.iv.i.i, %36
-  %cmp2.i.i.i = icmp sle i64 %indvars.iv.i.i, %32
-  %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp.not.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i, label %if.end4.i.i.i
+  %cmp2.i.not.i.i = icmp sgt i64 %indvars.iv.i.i, %32
+  br i1 %cmp2.i.not.i.i, label %if.end4.i.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
 
 if.end4.i.i.i:                                    ; preds = %for.body.i.i
-  %38 = sub nsw i64 %indvars.iv.next.i.i, %32
-  %arrayidx.i.i.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i46, i64 0, i64 %38
-  %39 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %36 = sub nsw i64 %indvars.iv.next.i.i, %32
+  %arrayidx.i.i.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i46, i64 0, i64 %36
+  %37 = load i32, ptr %arrayidx.i.i.i.i, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i: ; preds = %if.end4.i.i.i, %for.body.i.i
-  %retval.0.i.i.i = phi i32 [ %39, %if.end4.i.i.i ], [ 0, %for.body.i.i ]
-  %cmp.not.i21.i.i = icmp sgt i64 %indvars.iv.i.i, %37
-  %cmp2.i22.i.i = icmp sle i64 %indvars.iv.i.i, %34
-  %or.cond.i23.i.i = or i1 %cmp2.i22.i.i, %cmp.not.i21.i.i
-  br i1 %or.cond.i23.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30.i.i, label %if.end4.i24.i.i
+  %retval.0.i.i.i = phi i32 [ %37, %if.end4.i.i.i ], [ 0, %for.body.i.i ]
+  %cmp2.i22.not.i.i = icmp sgt i64 %indvars.iv.i.i, %34
+  br i1 %cmp2.i22.not.i.i, label %if.end4.i24.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30.i.i
 
 if.end4.i24.i.i:                                  ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
-  %40 = sub nsw i64 %indvars.iv.next.i.i, %34
-  %arrayidx.i.i28.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i43, i64 0, i64 %40
-  %41 = load i32, ptr %arrayidx.i.i28.i.i, align 4
+  %38 = sub nsw i64 %indvars.iv.next.i.i, %34
+  %arrayidx.i.i28.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i43, i64 0, i64 %38
+  %39 = load i32, ptr %arrayidx.i.i28.i.i, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30.i.i
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30.i.i: ; preds = %if.end4.i24.i.i, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
-  %retval.0.i29.i.i = phi i32 [ %41, %if.end4.i24.i.i ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i ]
+  %retval.0.i29.i.i = phi i32 [ %39, %if.end4.i24.i.i ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i ]
   %cmp10.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i29.i.i
   br i1 %cmp10.i.i, label %while.body52, label %if.end12.i.i
 
@@ -2628,8 +2622,6 @@ for.cond.preheader:                               ; preds = %if.end
   %8 = sext i16 %1 to i64
   %9 = sext i16 %3 to i64
   %10 = sext i16 %4 to i64
-  %11 = sext i32 %add.i to i64
-  %12 = sext i32 %add.i16 to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end12
@@ -2639,32 +2631,28 @@ for.cond:                                         ; preds = %for.cond.preheader,
   br i1 %cmp7.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
-  %cmp.not.i = icmp sgt i64 %indvars.iv, %11
-  %cmp2.i = icmp sle i64 %indvars.iv, %8
-  %or.cond.i = or i1 %cmp2.i, %cmp.not.i
-  br i1 %or.cond.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, label %if.end4.i
+  %cmp2.i.not = icmp sgt i64 %indvars.iv, %8
+  br i1 %cmp2.i.not, label %if.end4.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
 
 if.end4.i:                                        ; preds = %for.body
-  %13 = sub nsw i64 %indvars.iv.next, %8
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %13
-  %14 = load i32, ptr %arrayidx.i.i, align 4
+  %11 = sub nsw i64 %indvars.iv.next, %8
+  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %11
+  %12 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %for.body, %if.end4.i
-  %retval.0.i = phi i32 [ %14, %if.end4.i ], [ 0, %for.body ]
-  %cmp.not.i21 = icmp sgt i64 %indvars.iv, %12
-  %cmp2.i22 = icmp sle i64 %indvars.iv, %9
-  %or.cond.i23 = or i1 %cmp2.i22, %cmp.not.i21
-  br i1 %or.cond.i23, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30, label %if.end4.i24
+  %retval.0.i = phi i32 [ %12, %if.end4.i ], [ 0, %for.body ]
+  %cmp2.i22.not = icmp sgt i64 %indvars.iv, %9
+  br i1 %cmp2.i22.not, label %if.end4.i24, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30
 
 if.end4.i24:                                      ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
-  %15 = sub nsw i64 %indvars.iv.next, %9
-  %arrayidx.i.i28 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i26, i64 0, i64 %15
-  %16 = load i32, ptr %arrayidx.i.i28, align 4
+  %13 = sub nsw i64 %indvars.iv.next, %9
+  %arrayidx.i.i28 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i26, i64 0, i64 %13
+  %14 = load i32, ptr %arrayidx.i.i28, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit30: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, %if.end4.i24
-  %retval.0.i29 = phi i32 [ %16, %if.end4.i24 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit ]
+  %retval.0.i29 = phi i32 [ %14, %if.end4.i24 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit ]
   %cmp10 = icmp ult i32 %retval.0.i, %retval.0.i29
   br i1 %cmp10, label %return, label %if.end12
 
@@ -2741,62 +2729,59 @@ for.body.lr.ph:                                   ; preds = %if.end19
   %9 = sext i16 %5 to i64
   %10 = add nsw i64 %8, %9
   %11 = sext i16 %5 to i64
-  %12 = sext i32 %add.i39 to i64
-  %13 = sext i16 %3 to i64
-  %14 = sext i32 %add.i31 to i64
-  %15 = sext i16 %0 to i64
-  %16 = sext i32 %add.i to i64
-  %17 = sext i16 %7 to i64
+  %12 = sext i16 %3 to i64
+  %13 = sext i32 %add.i31 to i64
+  %14 = sext i16 %0 to i64
+  %15 = sext i32 %add.i to i64
+  %16 = sext i16 %7 to i64
   br label %for.body
 
 for.cond:                                         ; preds = %if.else
   %shl = shl nuw nsw i32 %sub36, 28
-  %cmp27.not.not = icmp sgt i64 %indvars.iv.next, %17
+  %cmp27.not.not = icmp sgt i64 %indvars.iv.next, %16
   br i1 %cmp27.not.not, label %for.body, label %for.end.loopexit, !llvm.loop !44
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ %10, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %borrow.0101 = phi i32 [ 0, %for.body.lr.ph ], [ %shl, %for.cond ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp.not.i = icmp sgt i64 %indvars.iv, %16
-  %cmp2.i = icmp sle i64 %indvars.iv, %15
+  %cmp.not.i = icmp sgt i64 %indvars.iv, %15
+  %cmp2.i = icmp sle i64 %indvars.iv, %14
   %or.cond.i = or i1 %cmp2.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %for.body
-  %18 = sub nsw i64 %indvars.iv.next, %15
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %18
-  %19 = load i32, ptr %arrayidx.i.i, align 4
+  %17 = sub nsw i64 %indvars.iv.next, %14
+  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %17
+  %18 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %for.body, %if.end4.i
-  %retval.0.i = phi i32 [ %19, %if.end4.i ], [ 0, %for.body ]
-  %cmp.not.i70 = icmp sgt i64 %indvars.iv, %14
-  %cmp2.i71 = icmp sle i64 %indvars.iv, %13
+  %retval.0.i = phi i32 [ %18, %if.end4.i ], [ 0, %for.body ]
+  %cmp.not.i70 = icmp sgt i64 %indvars.iv, %13
+  %cmp2.i71 = icmp sle i64 %indvars.iv, %12
   %or.cond.i72 = or i1 %cmp2.i71, %cmp.not.i70
   br i1 %or.cond.i72, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79, label %if.end4.i73
 
 if.end4.i73:                                      ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
-  %20 = sub nsw i64 %indvars.iv.next, %13
-  %arrayidx.i.i77 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i75, i64 0, i64 %20
-  %21 = load i32, ptr %arrayidx.i.i77, align 4
+  %19 = sub nsw i64 %indvars.iv.next, %12
+  %arrayidx.i.i77 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i75, i64 0, i64 %19
+  %20 = load i32, ptr %arrayidx.i.i77, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, %if.end4.i73
-  %retval.0.i78 = phi i32 [ %21, %if.end4.i73 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit ]
-  %cmp.not.i84 = icmp sgt i64 %indvars.iv, %12
-  %cmp2.i85 = icmp sle i64 %indvars.iv, %11
-  %or.cond.i86 = or i1 %cmp2.i85, %cmp.not.i84
-  br i1 %or.cond.i86, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93, label %if.end4.i87
+  %retval.0.i78 = phi i32 [ %20, %if.end4.i73 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit ]
+  %cmp2.i85.not = icmp sgt i64 %indvars.iv, %11
+  br i1 %cmp2.i85.not, label %if.end4.i87, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93
 
 if.end4.i87:                                      ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79
-  %22 = sub nsw i64 %indvars.iv.next, %11
-  %arrayidx.i.i91 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i89, i64 0, i64 %22
-  %23 = load i32, ptr %arrayidx.i.i91, align 4
+  %21 = sub nsw i64 %indvars.iv.next, %11
+  %arrayidx.i.i91 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i89, i64 0, i64 %21
+  %22 = load i32, ptr %arrayidx.i.i91, align 4
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93
 
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79, %if.end4.i87
-  %retval.0.i92 = phi i32 [ %23, %if.end4.i87 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79 ]
+  %retval.0.i92 = phi i32 [ %22, %if.end4.i87 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit79 ]
   %add31 = add i32 %retval.0.i78, %retval.0.i
   %add32 = add i32 %retval.0.i92, %borrow.0101
   %cmp33 = icmp ugt i32 %add31, %add32
@@ -2808,12 +2793,12 @@ if.else:                                          ; preds = %_ZNK17double_conver
   br i1 %cmp37, label %return, label %for.cond
 
 for.end.loopexit:                                 ; preds = %for.cond
-  %24 = icmp ne i32 %add32, %add31
-  %25 = sext i1 %24 to i32
+  %23 = icmp ne i32 %add32, %add31
+  %24 = sext i1 %23 to i32
   br label %return
 
 return:                                           ; preds = %if.else, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93, %if.end19, %for.end.loopexit, %if.end12, %if.end7, %if.end
-  %retval.0 = phi i32 [ -1, %if.end ], [ 1, %if.end7 ], [ -1, %if.end12 ], [ 0, %if.end19 ], [ %25, %for.end.loopexit ], [ -1, %if.else ], [ 1, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93 ]
+  %retval.0 = phi i32 [ -1, %if.end ], [ 1, %if.end7 ], [ -1, %if.end12 ], [ 0, %if.end19 ], [ %24, %for.end.loopexit ], [ -1, %if.else ], [ 1, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93 ]
   ret i32 %retval.0
 }
 

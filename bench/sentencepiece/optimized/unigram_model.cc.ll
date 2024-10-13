@@ -7864,7 +7864,7 @@ _ZNSt6vectorIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_string_
   br label %43
 
 43:                                               ; preds = %.lr.ph, %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge
-  %.059140 = phi i32 [ 0, %.lr.ph ], [ %.pre165, %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge ]
+  %.059140 = phi i32 [ 0, %.lr.ph ], [ %.pre155, %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge ]
   %44 = sext i32 %.059140 to i64
   %45 = getelementptr inbounds %struct.BestPathNode, ptr %.sroa.0.0, i64 %44, i32 1
   %46 = load float, ptr %45, align 4
@@ -7882,19 +7882,19 @@ _ZNSt6vectorIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_string_
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %123, %43
-  %.0103.ph.ph = phi i64 [ %73, %123 ], [ 0, %43 ]
-  %.0.ph.ph = phi i64 [ %63, %123 ], [ %44, %43 ]
+  %.0103.ph.ph = phi i64 [ %72, %123 ], [ 0, %43 ]
+  %.0.ph.ph = phi i64 [ %76, %123 ], [ %44, %43 ]
   %.061.ph.ph = phi i8 [ %spec.select, %123 ], [ 0, %43 ]
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit.i, %.outer.outer
-  %.0103.ph = phi i64 [ %.0103.ph.ph, %.outer.outer ], [ %73, %.loopexit.i ]
-  %.0.ph = phi i64 [ %.0.ph.ph, %.outer.outer ], [ %63, %.loopexit.i ]
+  %.0103.ph = phi i64 [ %.0103.ph.ph, %.outer.outer ], [ %72, %.loopexit.i ]
+  %.0.ph = phi i64 [ %.0.ph.ph, %.outer.outer ], [ %76, %.loopexit.i ]
   br label %57
 
 57:                                               ; preds = %.outer, %78
-  %.0103 = phi i64 [ %73, %78 ], [ %.0103.ph, %.outer ]
-  %.0 = phi i64 [ %63, %78 ], [ %.0.ph, %.outer ]
+  %.0103 = phi i64 [ %72, %78 ], [ %.0103.ph, %.outer ]
+  %.0 = phi i64 [ %76, %78 ], [ %.0.ph, %.outer ]
   %58 = icmp ult i64 %.0, %32
   br i1 %58, label %.preheader39.i, label %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit
 
@@ -7903,34 +7903,34 @@ _ZNSt6vectorIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_string_
   %60 = load ptr, ptr %35, align 8
   %61 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %60, i64 %.0103
   %62 = load i32, ptr %61, align 4
-  %63 = add nuw nsw i64 %.0, 1
-  %64 = lshr i32 %62, 10
-  %65 = lshr i32 %62, 6
-  %66 = and i32 %65, 8
-  %67 = shl nuw nsw i32 %64, %66
-  %68 = getelementptr inbounds i8, ptr %3, i64 %.0
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = xor i32 %67, %59
-  %72 = xor i32 %71, %70
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %60, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = and i32 %75, -2147483393
-  %.not30.i = icmp eq i32 %76, %70
+  %63 = lshr i32 %62, 10
+  %64 = lshr i32 %62, 6
+  %65 = and i32 %64, 8
+  %66 = shl nuw nsw i32 %63, %65
+  %67 = getelementptr inbounds i8, ptr %3, i64 %.0
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = xor i32 %66, %59
+  %71 = xor i32 %70, %69
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %60, i64 %72
+  %74 = load i32, ptr %73, align 4
+  %75 = and i32 %74, -2147483393
+  %.not30.i = icmp eq i32 %75, %69
   br i1 %.not30.i, label %.loopexit.i, label %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit
 
 .loopexit.i:                                      ; preds = %.preheader39.i
-  %77 = and i32 %75, 256
+  %76 = add nuw nsw i64 %.0, 1
+  %77 = and i32 %74, 256
   %.not37.i = icmp eq i32 %77, 0
   br i1 %.not37.i, label %.outer, label %78, !llvm.loop !58
 
 78:                                               ; preds = %.loopexit.i
-  %79 = lshr i32 %75, 10
-  %80 = lshr i32 %75, 6
+  %79 = lshr i32 %74, 10
+  %80 = lshr i32 %74, 6
   %81 = and i32 %80, 8
   %82 = shl nuw nsw i32 %79, %81
-  %83 = xor i32 %82, %72
+  %83 = xor i32 %82, %71
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %60, i64 %84
   %86 = load i32, ptr %85, align 4
@@ -7946,8 +7946,8 @@ _ZNSt6vectorIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_string_
   br i1 %95, label %57, label %96, !llvm.loop !58
 
 96:                                               ; preds = %78
-  %97 = getelementptr inbounds %struct.BestPathNode, ptr %.sroa.0.0, i64 %63
-  %98 = sub i64 %63, %44
+  %97 = getelementptr inbounds %struct.BestPathNode, ptr %.sroa.0.0, i64 %76
+  %98 = sub i64 %76, %44
   %99 = icmp eq i32 %94, 4
   br i1 %99, label %100, label %105
 
@@ -7996,11 +7996,11 @@ _ZNSt6vectorIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_string_
 
 _ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit: ; preds = %57, %.preheader39.i
   %126 = trunc nuw i8 %.061.ph.ph to i1
-  %.pre165 = add nsw i32 %.sroa.speculated, %.059140
+  %.pre155 = add nsw i32 %.sroa.speculated, %.059140
   br i1 %126, label %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge, label %127
 
 127:                                              ; preds = %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit
-  %128 = sext i32 %.pre165 to i64
+  %128 = sext i32 %.pre155 to i64
   %129 = getelementptr inbounds %struct.BestPathNode, ptr %.sroa.0.0, i64 %128
   %130 = fadd float %19, %46
   %131 = getelementptr inbounds i8, ptr %129, i64 8
@@ -8022,7 +8022,7 @@ _ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit: ; preds = %57, %.preh
   br label %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge
 
 _ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge: ; preds = %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit, %134, %138
-  %140 = icmp slt i32 %.pre165, %16
+  %140 = icmp slt i32 %.pre155, %16
   br i1 %140, label %43, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge
@@ -8107,16 +8107,16 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12empla
 
 ._crit_edge144:                                   ; preds = %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12emplace_backIJS4_RKiEEERS5_DpOT_.exit
   %.pre = load ptr, ptr %0, align 8
-  %.pre164 = load ptr, ptr %142, align 8
-  %174 = icmp ne ptr %.pre, %.pre164
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %.pre164, i64 -24
+  %.pre154 = load ptr, ptr %142, align 8
+  %174 = icmp ne ptr %.pre, %.pre154
+  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %.pre154, i64 -24
   %175 = icmp ult ptr %.pre, %.sroa.0.08.i.i
   %or.cond.i.i = select i1 %174, i1 %175, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge144, %.lr.ph.i.i
   %.sroa.0.011.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %._crit_edge144 ]
-  %.pn10.i.i = phi ptr [ %.sroa.0.011.i.i, %.lr.ph.i.i ], [ %.pre164, %._crit_edge144 ]
+  %.pn10.i.i = phi ptr [ %.sroa.0.011.i.i, %.lr.ph.i.i ], [ %.pre154, %._crit_edge144 ]
   %.sroa.05.09.i.i = phi ptr [ %180, %.lr.ph.i.i ], [ %.pre, %._crit_edge144 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.09.i.i, i64 16, i1 false)

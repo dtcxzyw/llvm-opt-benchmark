@@ -649,8 +649,8 @@ define hidden void @_ZN10CodeBuffer25verify_section_allocationEv(ptr nocapture n
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %50
-  %indvars.iv55 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next56, %50 ]
-  %30 = getelementptr inbounds %class.CodeSection, ptr %29, i64 %indvars.iv55
+  %indvars.iv54 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next55, %50 ]
+  %30 = getelementptr inbounds %class.CodeSection, ptr %29, i64 %indvars.iv54
   %31 = load ptr, ptr %30, align 8
   %.not34.us = icmp eq ptr %31, null
   br i1 %.not34.us, label %50, label %32
@@ -662,48 +662,46 @@ define hidden void @_ZN10CodeBuffer25verify_section_allocationEv(ptr nocapture n
   br i1 %35, label %50, label %36
 
 36:                                               ; preds = %32
-  %37 = icmp ult i64 %indvars.iv55, 2
+  %37 = icmp ult i64 %indvars.iv54, 2
   br i1 %37, label %.lr.ph.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_ZNK11CodeSection8disjointEPS_.exit.thread.us, %36
   %.not31.us = icmp ugt ptr %34, %9
-  br i1 %.not31.us, label %.split42.us, label %38
+  br i1 %.not31.us, label %.split41.us, label %38
 
 38:                                               ; preds = %._crit_edge.us
   %39 = getelementptr inbounds i8, ptr %30, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not32.us = icmp ugt ptr %34, %40
-  br i1 %.not32.us, label %.split44.us, label %50
+  br i1 %.not32.us, label %.split43.us, label %50
 
 41:                                               ; preds = %.lr.ph.us, %_ZNK11CodeSection8disjointEPS_.exit.thread.us
-  %indvars.iv57 = phi i64 [ %indvars.iv55, %.lr.ph.us ], [ 1, %_ZNK11CodeSection8disjointEPS_.exit.thread.us ]
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %42 = getelementptr inbounds %class.CodeSection, ptr %29, i64 %indvars.iv.next58
-  %43 = load ptr, ptr %42, align 8
-  %.not35.us = icmp eq ptr %43, null
-  %44 = icmp eq i64 %indvars.iv.next58, %indvars.iv55
-  %or.cond.us = or i1 %44, %.not35.us
-  br i1 %or.cond.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread.us, label %45
+  %indvars.iv56 = phi i64 [ %indvars.iv54, %.lr.ph.us ], [ 1, %_ZNK11CodeSection8disjointEPS_.exit.thread.us ]
+  %42 = getelementptr inbounds %class.CodeSection, ptr %29, i64 %indvars.iv56
+  %43 = getelementptr inbounds i8, ptr %42, i64 88
+  %44 = load ptr, ptr %43, align 8
+  %.not35.us = icmp eq ptr %44, null
+  br i1 %.not35.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread.us, label %45
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %51, align 8
-  %.not.i.us = icmp ugt ptr %46, %43
+  %.not.i.us = icmp ugt ptr %46, %44
   br i1 %.not.i.us, label %_ZNK11CodeSection8disjointEPS_.exit.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread.us
 
 _ZNK11CodeSection8disjointEPS_.exit.us:           ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %42, i64 24
+  %47 = getelementptr inbounds i8, ptr %42, i64 112
   %48 = load ptr, ptr %47, align 8
   %.not36.us = icmp ult ptr %31, %48
-  br i1 %.not36.us, label %.split46.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread.us
+  br i1 %.not36.us, label %.split45.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread.us
 
 _ZNK11CodeSection8disjointEPS_.exit.thread.us:    ; preds = %_ZNK11CodeSection8disjointEPS_.exit.us, %45, %41
-  %49 = icmp eq i64 %indvars.iv57, 0
+  %49 = icmp eq i64 %indvars.iv56, 0
   br i1 %49, label %41, label %._crit_edge.us, !llvm.loop !11
 
 50:                                               ; preds = %38, %32, %.split.us
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next56, 3
-  br i1 %exitcond61.not, label %.loopexit, label %.split.us, !llvm.loop !12
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next55, 3
+  br i1 %exitcond60.not, label %.loopexit, label %.split.us, !llvm.loop !12
 
 .lr.ph.us:                                        ; preds = %36
   %51 = getelementptr inbounds i8, ptr %30, i64 24
@@ -771,41 +769,39 @@ _ZNK11CodeSection9alignmentEv.exit:               ; preds = %58, %61, %66
   br label %79
 
 79:                                               ; preds = %.lr.ph, %_ZNK11CodeSection8disjointEPS_.exit.thread
-  %indvars.iv51 = phi i64 [ %indvars.iv, %.lr.ph ], [ 1, %_ZNK11CodeSection8disjointEPS_.exit.thread ]
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %80 = getelementptr inbounds %class.CodeSection, ptr %26, i64 %indvars.iv.next52
-  %81 = load ptr, ptr %80, align 8
-  %.not35 = icmp eq ptr %81, null
-  %82 = icmp eq i64 %indvars.iv.next52, %indvars.iv
-  %or.cond = or i1 %82, %.not35
-  br i1 %or.cond, label %_ZNK11CodeSection8disjointEPS_.exit.thread, label %83
+  %indvars.iv50 = phi i64 [ %indvars.iv, %.lr.ph ], [ 1, %_ZNK11CodeSection8disjointEPS_.exit.thread ]
+  %80 = getelementptr inbounds %class.CodeSection, ptr %26, i64 %indvars.iv50
+  %81 = getelementptr inbounds i8, ptr %80, i64 88
+  %82 = load ptr, ptr %81, align 8
+  %.not35 = icmp eq ptr %82, null
+  br i1 %.not35, label %_ZNK11CodeSection8disjointEPS_.exit.thread, label %83
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %78, align 8
-  %.not.i = icmp ugt ptr %84, %81
+  %.not.i = icmp ugt ptr %84, %82
   br i1 %.not.i, label %_ZNK11CodeSection8disjointEPS_.exit, label %_ZNK11CodeSection8disjointEPS_.exit.thread
 
 _ZNK11CodeSection8disjointEPS_.exit:              ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %80, i64 24
+  %85 = getelementptr inbounds i8, ptr %80, i64 112
   %86 = load ptr, ptr %85, align 8
   %.not36 = icmp ult ptr %53, %86
-  br i1 %.not36, label %.split46.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread
+  br i1 %.not36, label %.split45.us, label %_ZNK11CodeSection8disjointEPS_.exit.thread
 
-.split46.us:                                      ; preds = %_ZNK11CodeSection8disjointEPS_.exit, %_ZNK11CodeSection8disjointEPS_.exit.us
+.split45.us:                                      ; preds = %_ZNK11CodeSection8disjointEPS_.exit, %_ZNK11CodeSection8disjointEPS_.exit.us
   %87 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %87, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1003, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9) #17
   unreachable
 
 _ZNK11CodeSection8disjointEPS_.exit.thread:       ; preds = %83, %_ZNK11CodeSection8disjointEPS_.exit, %79
-  %88 = icmp eq i64 %indvars.iv51, 0
+  %88 = icmp eq i64 %indvars.iv50, 0
   br i1 %88, label %79, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZNK11CodeSection8disjointEPS_.exit.thread, %76
   %.not31 = icmp ugt ptr %56, %9
-  br i1 %.not31, label %.split42.us, label %90
+  br i1 %.not31, label %.split41.us, label %90
 
-.split42.us:                                      ; preds = %._crit_edge, %._crit_edge.us
+.split41.us:                                      ; preds = %._crit_edge, %._crit_edge.us
   %89 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %89, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1005, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9) #17
@@ -815,9 +811,9 @@ _ZNK11CodeSection8disjointEPS_.exit.thread:       ; preds = %83, %_ZNK11CodeSect
   %91 = getelementptr inbounds i8, ptr %52, i64 24
   %92 = load ptr, ptr %91, align 8
   %.not32 = icmp ugt ptr %56, %92
-  br i1 %.not32, label %.split44.us, label %94
+  br i1 %.not32, label %.split43.us, label %94
 
-.split44.us:                                      ; preds = %90, %38
+.split43.us:                                      ; preds = %90, %38
   %93 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %93, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1006, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9) #17

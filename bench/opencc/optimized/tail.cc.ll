@@ -5177,119 +5177,118 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit160
   %.0.lcssa = phi ptr [ %0, %3 ], [ %.1, %228 ]
   %.lcssa166 = phi i64 [ %7, %3 ], [ %232, %228 ]
   %234 = icmp sgt i64 %.lcssa166, 1
-  br i1 %234, label %235, label %280
+  br i1 %234, label %235, label %279
 
 235:                                              ; preds = %._crit_edge196
   %.01739.i = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
   %236 = icmp ult ptr %.01739.i, %.0127.lcssa
   br i1 %236, label %.preheader.i, label %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit
 
-.preheader.i:                                     ; preds = %235, %276
-  %.01741.i = phi ptr [ %.017.i, %276 ], [ %.01739.i, %235 ]
-  %.01840.i = phi i64 [ %277, %276 ], [ 1, %235 ]
-  %237 = icmp ugt ptr %.01741.i, %.0.lcssa
-  br i1 %237, label %.lr.ph.i, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i
+.preheader.i:                                     ; preds = %235, %275
+  %.01741.i = phi ptr [ %.017.i, %275 ], [ %.01739.i, %235 ]
+  %.01840.i = phi i64 [ %276, %275 ], [ 1, %235 ]
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i
-  %.037.i = phi ptr [ %238, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i ], [ %.01741.i, %.preheader.i ]
-  %238 = getelementptr inbounds i8, ptr %.037.i, i64 -16
-  %239 = getelementptr inbounds i8, ptr %.037.i, i64 -8
-  %240 = load i32, ptr %239, align 8
-  %241 = zext i32 %240 to i64
-  %242 = icmp ult i64 %.0129.lcssa, %241
-  %243 = getelementptr inbounds i8, ptr %.037.i, i64 8
-  %244 = load i32, ptr %243, align 8
-  br i1 %242, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.037.i = phi ptr [ %237, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i ], [ %.01741.i, %.preheader.i ]
+  %237 = getelementptr inbounds i8, ptr %.037.i, i64 -16
+  %238 = getelementptr inbounds i8, ptr %.037.i, i64 -8
+  %239 = load i32, ptr %238, align 8
+  %240 = zext i32 %239 to i64
+  %241 = icmp ult i64 %.0129.lcssa, %240
+  %242 = getelementptr inbounds i8, ptr %.037.i, i64 8
+  %243 = load i32, ptr %242, align 8
+  br i1 %241, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %245 = zext i32 %244 to i64
-  %246 = load ptr, ptr %238, align 8
-  %247 = load ptr, ptr %.037.i, align 8
-  br label %250
+  %244 = zext i32 %243 to i64
+  %245 = load ptr, ptr %237, align 8
+  %246 = load ptr, ptr %.037.i, align 8
+  br label %249
 
-248:                                              ; preds = %252
-  %249 = add i64 %.023.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %249, %241
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %250, !llvm.loop !32
+247:                                              ; preds = %251
+  %248 = add i64 %.023.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %248, %240
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %249, !llvm.loop !32
 
-250:                                              ; preds = %248, %.lr.ph.i.i
-  %.023.i.i = phi i64 [ %.0129.lcssa, %.lr.ph.i.i ], [ %249, %248 ]
-  %251 = icmp eq i64 %.023.i.i, %245
-  br i1 %251, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i, label %252
+249:                                              ; preds = %247, %.lr.ph.i.i
+  %.023.i.i = phi i64 [ %.0129.lcssa, %.lr.ph.i.i ], [ %248, %247 ]
+  %250 = icmp eq i64 %.023.i.i, %244
+  br i1 %250, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i, label %251
 
-252:                                              ; preds = %250
-  %253 = sub nsw i64 0, %.023.i.i
-  %254 = getelementptr inbounds i8, ptr %246, i64 %253
-  %255 = load i8, ptr %254, align 1
-  %256 = getelementptr inbounds i8, ptr %247, i64 %253
-  %257 = load i8, ptr %256, align 1
-  %.not.i.i = icmp eq i8 %255, %257
-  br i1 %.not.i.i, label %248, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i
+251:                                              ; preds = %249
+  %252 = sub nsw i64 0, %.023.i.i
+  %253 = getelementptr inbounds i8, ptr %245, i64 %252
+  %254 = load i8, ptr %253, align 1
+  %255 = getelementptr inbounds i8, ptr %246, i64 %252
+  %256 = load i8, ptr %255, align 1
+  %.not.i.i = icmp eq i8 %254, %256
+  br i1 %.not.i.i, label %247, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i
 
-._crit_edge.i.i:                                  ; preds = %248, %.lr.ph.i
-  %258 = icmp eq i32 %240, %244
-  br i1 %258, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i, label %259
+._crit_edge.i.i:                                  ; preds = %247, %.lr.ph.i
+  %257 = icmp eq i32 %239, %243
+  br i1 %257, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i, label %258
 
-259:                                              ; preds = %._crit_edge.i.i
-  %260 = icmp ult i32 %240, %244
-  br i1 %260, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i, label %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i
+258:                                              ; preds = %._crit_edge.i.i
+  %259 = icmp ult i32 %239, %243
+  br i1 %259, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i, label %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i
 
-._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i: ; preds = %259
-  %.pre.i = load ptr, ptr %238, align 8
+._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i: ; preds = %258
+  %.pre.i = load ptr, ptr %237, align 8
   %.pre47.i = load ptr, ptr %.037.i, align 8
   br label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i
 
-_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i: ; preds = %259
-  %261 = add i64 %.01840.i, 1
-  br label %276
+_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i: ; preds = %258
+  %260 = add i64 %.01840.i, 1
+  br label %275
 
-_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i: ; preds = %252
-  %262 = zext i8 %255 to i32
-  %263 = zext i8 %257 to i32
-  %264 = sub nsw i32 %262, %263
-  %265 = icmp slt i32 %264, 1
-  br i1 %265, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i
+_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i: ; preds = %251
+  %261 = zext i8 %254 to i32
+  %262 = zext i8 %256 to i32
+  %263 = sub nsw i32 %261, %262
+  %264 = icmp slt i32 %263, 1
+  br i1 %264, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i
 
-_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i: ; preds = %250, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i
-  %266 = phi ptr [ %247, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ], [ %.pre47.i, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i ], [ %247, %250 ]
-  %267 = phi ptr [ %246, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ], [ %.pre.i, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i ], [ %246, %250 ]
-  %.018.i26.i = phi i32 [ %264, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ], [ 1, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i ], [ 1, %250 ]
-  %268 = getelementptr inbounds i8, ptr %.037.i, i64 -4
-  %269 = load i32, ptr %268, align 4
-  store ptr %266, ptr %238, align 8
-  store i32 %244, ptr %239, align 8
-  %270 = getelementptr inbounds i8, ptr %.037.i, i64 12
-  %271 = load i32, ptr %270, align 4
-  store i32 %271, ptr %268, align 4
-  store ptr %267, ptr %.037.i, align 8
-  store i32 %240, ptr %243, align 8
-  store i32 %269, ptr %270, align 4
-  %272 = icmp ugt ptr %238, %.0.lcssa
-  br i1 %272, label %.lr.ph.i, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, !llvm.loop !33
+_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i: ; preds = %249, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i
+  %265 = phi ptr [ %246, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ], [ %.pre47.i, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i ], [ %246, %249 ]
+  %266 = phi ptr [ %245, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ], [ %.pre.i, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i ], [ %245, %249 ]
+  %.018.i26.i = phi i32 [ %263, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ], [ 1, %._ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24_crit_edge.i ], [ 1, %249 ]
+  %267 = getelementptr inbounds i8, ptr %.037.i, i64 -4
+  %268 = load i32, ptr %267, align 4
+  store ptr %265, ptr %237, align 8
+  store i32 %243, ptr %238, align 8
+  %269 = getelementptr inbounds i8, ptr %.037.i, i64 12
+  %270 = load i32, ptr %269, align 4
+  store i32 %270, ptr %267, align 4
+  store ptr %266, ptr %.037.i, align 8
+  store i32 %239, ptr %242, align 8
+  store i32 %268, ptr %269, align 4
+  %271 = icmp ugt ptr %237, %.0.lcssa
+  br i1 %271, label %.lr.ph.i, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, !llvm.loop !33
 
 _ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i: ; preds = %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i
-  %.1.ph.i = phi i32 [ %.018.i26.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i ], [ %264, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ]
-  %273 = freeze i32 %.1.ph.i
-  %274 = icmp eq i32 %273, 0
-  %275 = add i64 %.01840.i, 1
-  br i1 %274, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i, label %276
+  %.1.ph.i = phi i32 [ %.018.i26.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread24.i ], [ %263, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.i ]
+  %272 = freeze i32 %.1.ph.i
+  %273 = icmp eq i32 %272, 0
+  %274 = add i64 %.01840.i, 1
+  br i1 %273, label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i, label %275
 
-_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i: ; preds = %._crit_edge.i.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, %.preheader.i
-  br label %276
+_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i: ; preds = %._crit_edge.i.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i
+  br label %275
 
-276:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i
-  %277 = phi i64 [ %.01840.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i ], [ %275, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i ], [ %261, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i ]
+275:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i
+  %276 = phi i64 [ %.01840.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i ], [ %274, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i ], [ %260, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i ]
   %.017.i = getelementptr inbounds i8, ptr %.01741.i, i64 16
-  %278 = icmp ult ptr %.017.i, %.0127.lcssa
-  br i1 %278, label %.preheader.i, label %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit, !llvm.loop !34
+  %277 = icmp ult ptr %.017.i, %.0127.lcssa
+  br i1 %277, label %.preheader.i, label %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit, !llvm.loop !34
 
-_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit: ; preds = %276, %235
-  %.018.lcssa.i = phi i64 [ 1, %235 ], [ %277, %276 ]
-  %279 = add i64 %.018.lcssa.i, %.0144.lcssa
-  br label %280
+_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit: ; preds = %275, %235
+  %.018.lcssa.i = phi i64 [ 1, %235 ], [ %276, %275 ]
+  %278 = add i64 %.018.lcssa.i, %.0144.lcssa
+  br label %279
 
-280:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit, %._crit_edge196
-  %.7 = phi i64 [ %279, %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit ], [ %.0144.lcssa, %._crit_edge196 ]
+279:                                              ; preds = %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit, %._crit_edge196
+  %.7 = phi i64 [ %278, %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit ], [ %.0144.lcssa, %._crit_edge196 ]
   ret i64 %.7
 }
 

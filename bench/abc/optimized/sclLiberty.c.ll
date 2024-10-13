@@ -1896,7 +1896,7 @@ define noundef ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %1) local_unnam
   %5 = alloca ptr, align 8
   %6 = tail call ptr @Scl_LibertyStart(ptr noundef %0)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %89, label %8
+  br i1 %7, label %87, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1915,7 +1915,7 @@ define noundef ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %1) local_unnam
   br label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %.loopexit.i, %.lr.ph50.preheader.i
-  %.03049.i = phi ptr [ %50, %.loopexit.i ], [ %10, %.lr.ph50.preheader.i ]
+  %.03049.i = phi ptr [ %48, %.loopexit.i ], [ %10, %.lr.ph50.preheader.i ]
   %.0304958.i = ptrtoint ptr %.03049.i to i64
   %18 = load i8, ptr %.03049.i, align 1
   %19 = icmp eq i8 %18, 47
@@ -1925,7 +1925,7 @@ define noundef ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %1) local_unnam
   %21 = getelementptr inbounds i8, ptr %.03049.i, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 42
-  br i1 %23, label %.preheader33.i, label %40
+  br i1 %23, label %.preheader33.i, label %38
 
 .preheader33.i:                                   ; preds = %20
   %24 = icmp ult ptr %.03049.i, %15
@@ -1938,85 +1938,80 @@ define noundef ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %1) local_unnam
   %scevgep64.i = getelementptr i8, ptr %.03049.i, i64 2
   br label %.lr.ph45.i
 
-.lr.ph45.i:                                       ; preds = %38, %.lr.ph45.preheader.i
-  %indvars.iv.i = phi ptr [ %scevgep64.i, %.lr.ph45.preheader.i ], [ %scevgep65.i, %38 ]
-  %.13144.i = phi ptr [ %.03049.i, %.lr.ph45.preheader.i ], [ %39, %38 ]
+.lr.ph45.i:                                       ; preds = %36, %.lr.ph45.preheader.i
+  %indvars.iv.i = phi ptr [ %scevgep64.i, %.lr.ph45.preheader.i ], [ %scevgep65.i, %36 ]
+  %.13144.i = phi ptr [ %.03049.i, %.lr.ph45.preheader.i ], [ %37, %36 ]
   %26 = load i8, ptr %.13144.i, align 1
   %27 = icmp eq i8 %26, 42
-  br i1 %27, label %28, label %38
+  br i1 %27, label %28, label %36
 
 28:                                               ; preds = %.lr.ph45.i
   %29 = getelementptr inbounds i8, ptr %.13144.i, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 47
-  br i1 %31, label %.preheader.i, label %38
+  br i1 %31, label %.lr.ph48.i, label %36
 
-.preheader.i:                                     ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.13144.i, i64 2
-  %33 = icmp ult ptr %.03049.i, %32
-  br i1 %33, label %.lr.ph48.i, label %.loopexit.i
+.lr.ph48.i:                                       ; preds = %28, %34
+  %.047.i = phi ptr [ %35, %34 ], [ %.03049.i, %28 ]
+  %32 = load i8, ptr %.047.i, align 1
+  %.not.i = icmp eq i8 %32, 10
+  br i1 %.not.i, label %34, label %33
 
-.lr.ph48.i:                                       ; preds = %.preheader.i, %36
-  %.047.i = phi ptr [ %37, %36 ], [ %.03049.i, %.preheader.i ]
-  %34 = load i8, ptr %.047.i, align 1
-  %.not.i = icmp eq i8 %34, 10
-  br i1 %.not.i, label %36, label %35
-
-35:                                               ; preds = %.lr.ph48.i
+33:                                               ; preds = %.lr.ph48.i
   store i8 32, ptr %.047.i, align 1
-  br label %36
+  br label %34
 
-36:                                               ; preds = %35, %.lr.ph48.i
-  %37 = getelementptr inbounds i8, ptr %.047.i, i64 1
-  %exitcond67.not.i = icmp eq ptr %37, %indvars.iv.i
+34:                                               ; preds = %33, %.lr.ph48.i
+  %35 = getelementptr inbounds i8, ptr %.047.i, i64 1
+  %exitcond67.not.i = icmp eq ptr %35, %indvars.iv.i
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph48.i, !llvm.loop !8
 
-38:                                               ; preds = %28, %.lr.ph45.i
-  %39 = getelementptr inbounds i8, ptr %.13144.i, i64 1
-  %exitcond63.not.i = icmp eq ptr %39, %scevgep62.i
+36:                                               ; preds = %28, %.lr.ph45.i
+  %37 = getelementptr inbounds i8, ptr %.13144.i, i64 1
+  %exitcond63.not.i = icmp eq ptr %37, %scevgep62.i
   %scevgep65.i = getelementptr i8, ptr %indvars.iv.i, i64 1
   br i1 %exitcond63.not.i, label %.loopexit.i, label %.lr.ph45.i, !llvm.loop !9
 
-40:                                               ; preds = %20
-  %41 = icmp eq i8 %22, 47
-  %42 = icmp ult ptr %.03049.i, %13
-  %or.cond51.i = and i1 %42, %41
+38:                                               ; preds = %20
+  %39 = icmp eq i8 %22, 47
+  %40 = icmp ult ptr %.03049.i, %13
+  %or.cond51.i = and i1 %40, %39
   br i1 %or.cond51.i, label %.lr.ph.preheader.i, label %.loopexit.i
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %38
   %scevgep.i = getelementptr i8, ptr %.03049.i, i64 %14
-  %43 = sub i64 0, %.0304958.i
-  %scevgep59.i = getelementptr i8, ptr %scevgep.i, i64 %43
+  %41 = sub i64 0, %.0304958.i
+  %scevgep59.i = getelementptr i8, ptr %scevgep.i, i64 %41
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
-  %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %48 ]
-  %.241.i = phi ptr [ %.03049.i, %.lr.ph.preheader.i ], [ %49, %48 ]
-  %44 = load i8, ptr %.241.i, align 1
-  %45 = icmp eq i8 %44, 10
-  %46 = icmp eq ptr %.241.i, %15
-  %or.cond.i = or i1 %46, %45
-  br i1 %or.cond.i, label %.preheader35.i, label %48
+.lr.ph.i:                                         ; preds = %46, %.lr.ph.preheader.i
+  %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %46 ]
+  %.241.i = phi ptr [ %.03049.i, %.lr.ph.preheader.i ], [ %47, %46 ]
+  %42 = load i8, ptr %.241.i, align 1
+  %43 = icmp eq i8 %42, 10
+  %44 = icmp eq ptr %.241.i, %15
+  %or.cond.i = or i1 %44, %43
+  br i1 %or.cond.i, label %.preheader35.i, label %46
 
 .preheader35.i:                                   ; preds = %.lr.ph.i
-  %47 = icmp ult ptr %.03049.i, %.241.i
-  br i1 %47, label %.lr.ph43.preheader.i, label %.loopexit.i
+  %45 = icmp ult ptr %.03049.i, %.241.i
+  br i1 %45, label %.lr.ph43.preheader.i, label %.loopexit.i
 
 .lr.ph43.preheader.i:                             ; preds = %.preheader35.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.03049.i, i8 32, i64 %indvar.i, i1 false)
   br label %.loopexit.i
 
-48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds i8, ptr %.241.i, i64 1
-  %exitcond.not.i = icmp eq ptr %49, %scevgep59.i
+46:                                               ; preds = %.lr.ph.i
+  %47 = getelementptr inbounds i8, ptr %.241.i, i64 1
+  %exitcond.not.i = icmp eq ptr %47, %scevgep59.i
   %indvar.next.i = add i64 %indvar.i, 1
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
-.loopexit.i:                                      ; preds = %48, %38, %36, %.lr.ph43.preheader.i, %.preheader35.i, %40, %.preheader.i, %.preheader33.i, %.lr.ph50.i
-  %.3.i = phi ptr [ %.03049.i, %40 ], [ %.03049.i, %.lr.ph50.i ], [ %.13144.i, %.preheader.i ], [ %.03049.i, %.preheader33.i ], [ %.241.i, %.preheader35.i ], [ %.241.i, %.lr.ph43.preheader.i ], [ %.13144.i, %36 ], [ %scevgep62.i, %38 ], [ %scevgep59.i, %48 ]
-  %50 = getelementptr inbounds i8, ptr %.3.i, i64 1
-  %51 = icmp ult ptr %50, %15
-  br i1 %51, label %.lr.ph50.i, label %Scl_LibertyWipeOutComments.exit.loopexit, !llvm.loop !11
+.loopexit.i:                                      ; preds = %46, %36, %34, %.lr.ph43.preheader.i, %.preheader35.i, %38, %.preheader33.i, %.lr.ph50.i
+  %.3.i = phi ptr [ %.03049.i, %38 ], [ %.03049.i, %.lr.ph50.i ], [ %.03049.i, %.preheader33.i ], [ %.241.i, %.preheader35.i ], [ %.241.i, %.lr.ph43.preheader.i ], [ %.13144.i, %34 ], [ %scevgep62.i, %36 ], [ %scevgep59.i, %46 ]
+  %48 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %49 = icmp ult ptr %48, %15
+  br i1 %49, label %.lr.ph50.i, label %Scl_LibertyWipeOutComments.exit.loopexit, !llvm.loop !11
 
 Scl_LibertyWipeOutComments.exit.loopexit:         ; preds = %.loopexit.i
   %.pre = load ptr, ptr %9, align 8
@@ -2024,81 +2019,81 @@ Scl_LibertyWipeOutComments.exit.loopexit:         ; preds = %.loopexit.i
   br label %Scl_LibertyWipeOutComments.exit
 
 Scl_LibertyWipeOutComments.exit:                  ; preds = %Scl_LibertyWipeOutComments.exit.loopexit, %8
-  %52 = phi i64 [ %.pre32, %Scl_LibertyWipeOutComments.exit.loopexit ], [ %12, %8 ]
-  %53 = phi ptr [ %.pre, %Scl_LibertyWipeOutComments.exit.loopexit ], [ %10, %8 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 %52
-  %55 = call i32 @Scl_LibertyBuildItem(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %54)
-  %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %72, label %56
+  %50 = phi i64 [ %.pre32, %Scl_LibertyWipeOutComments.exit.loopexit ], [ %12, %8 ]
+  %51 = phi ptr [ %.pre, %Scl_LibertyWipeOutComments.exit.loopexit ], [ %10, %8 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 %50
+  %53 = call i32 @Scl_LibertyBuildItem(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %52)
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %70, label %54
 
-56:                                               ; preds = %Scl_LibertyWipeOutComments.exit
-  %57 = getelementptr inbounds i8, ptr %6, i64 48
-  %58 = load ptr, ptr %57, align 8
-  %.not17 = icmp eq ptr %58, null
-  br i1 %.not17, label %61, label %59
+54:                                               ; preds = %Scl_LibertyWipeOutComments.exit
+  %55 = getelementptr inbounds i8, ptr %6, i64 48
+  %56 = load ptr, ptr %55, align 8
+  %.not17 = icmp eq ptr %56, null
+  br i1 %.not17, label %59, label %57
 
-59:                                               ; preds = %56
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %58)
-  br label %61
+57:                                               ; preds = %54
+  %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %56)
+  br label %59
 
-61:                                               ; preds = %59, %56
-  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
+59:                                               ; preds = %57, %54
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %63 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %Abc_Clock.exit, label %65
+  %61 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %Abc_Clock.exit, label %63
 
-65:                                               ; preds = %61
-  %66 = load i64, ptr %4, align 8
-  %67 = mul nsw i64 %66, 1000000
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = sdiv i64 %69, 1000
-  %71 = add nsw i64 %70, %67
+63:                                               ; preds = %59
+  %64 = load i64, ptr %4, align 8
+  %65 = mul nsw i64 %64, 1000000
+  %66 = getelementptr inbounds i8, ptr %4, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = sdiv i64 %67, 1000
+  %69 = add nsw i64 %68, %65
   br label %Abc_Clock.exit
 
-Abc_Clock.exit:                                   ; preds = %61, %65
-  %.0.i = phi i64 [ %71, %65 ], [ -1, %61 ]
+Abc_Clock.exit:                                   ; preds = %59, %63
+  %.0.i = phi i64 [ %69, %63 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.sink.split
 
-72:                                               ; preds = %Scl_LibertyWipeOutComments.exit
+70:                                               ; preds = %Scl_LibertyWipeOutComments.exit
   %.not16 = icmp eq i32 %1, 0
-  br i1 %.not16, label %89, label %73
+  br i1 %.not16, label %87, label %71
 
-73:                                               ; preds = %72
-  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
+71:                                               ; preds = %70
+  %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %75 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %Abc_Clock.exit19, label %77
+  %73 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %Abc_Clock.exit19, label %75
 
-77:                                               ; preds = %73
-  %78 = load i64, ptr %3, align 8
-  %79 = mul nsw i64 %78, 1000000
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = sdiv i64 %81, 1000
-  %83 = add nsw i64 %82, %79
+75:                                               ; preds = %71
+  %76 = load i64, ptr %3, align 8
+  %77 = mul nsw i64 %76, 1000000
+  %78 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = sdiv i64 %79, 1000
+  %81 = add nsw i64 %80, %77
   br label %Abc_Clock.exit19
 
-Abc_Clock.exit19:                                 ; preds = %73, %77
-  %.0.i18 = phi i64 [ %83, %77 ], [ -1, %73 ]
+Abc_Clock.exit19:                                 ; preds = %71, %75
+  %.0.i18 = phi i64 [ %81, %75 ], [ -1, %71 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Abc_Clock.exit19, %Abc_Clock.exit
   %.0.i.sink = phi i64 [ %.0.i, %Abc_Clock.exit ], [ %.0.i18, %Abc_Clock.exit19 ]
-  %84 = getelementptr inbounds i8, ptr %6, i64 56
-  %85 = load i64, ptr %84, align 8
-  %86 = sub nsw i64 %.0.i.sink, %85
+  %82 = getelementptr inbounds i8, ptr %6, i64 56
+  %83 = load i64, ptr %82, align 8
+  %84 = sub nsw i64 %.0.i.sink, %83
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.19)
-  %87 = sitofp i64 %86 to double
-  %88 = fdiv double %87, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.16, double noundef %88)
-  br label %89
+  %85 = sitofp i64 %84 to double
+  %86 = fdiv double %85, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.16, double noundef %86)
+  br label %87
 
-89:                                               ; preds = %.sink.split, %72, %2
+87:                                               ; preds = %.sink.split, %70, %2
   ret ptr %6
 }
 

@@ -5347,22 +5347,19 @@ invoke.cont:                                      ; preds = %if.then4
 
 for.body:                                         ; preds = %invoke.cont, %invoke.cont19
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont19 ], [ 1, %invoke.cont ]
-  %8 = phi i16 [ %11, %invoke.cont19 ], [ %6, %invoke.cont ]
-  %cmp.i32 = icmp ult i16 %8, 2
-  %9 = load ptr, ptr %3, align 8
-  %retval.0.i33 = select i1 %cmp.i32, ptr %3, ptr %9
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i33, i64 %indvars.iv
-  %10 = load ptr, ptr %arrayidx16, align 8
-  %call18 = invoke noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+  %8 = load ptr, ptr %3, align 8
+  %arrayidx16 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = load ptr, ptr %arrayidx16, align 8
+  %call18 = invoke noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %invoke.cont19 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit
 
 invoke.cont19:                                    ; preds = %for.body
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %call5.i3.i, i64 %indvars.iv
   store ptr %call18, ptr %arrayidx.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i16, ptr %nsub_.i, align 2
-  %12 = zext i16 %11 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next, %12
+  %10 = load i16, ptr %nsub_.i, align 2
+  %11 = zext i16 %10 to i64
+  %cmp13 = icmp ult i64 %indvars.iv.next, %11
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !25
 
 _ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit: ; preds = %for.body
@@ -5381,11 +5378,11 @@ _ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit:          ; preds = %_ZN3re28PODArrayIPN
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %invoke.cont19, %invoke.cont
-  %conv.i30.lcssa.in = phi i16 [ %6, %invoke.cont ], [ %11, %invoke.cont19 ]
+  %conv.i30.lcssa.in = phi i16 [ %6, %invoke.cont ], [ %10, %invoke.cont19 ]
   %conv.i30.lcssa = zext i16 %conv.i30.lcssa.in to i32
   %parse_flags_.i = getelementptr inbounds i8, ptr %0, i64 2
-  %13 = load i16, ptr %parse_flags_.i, align 2
-  %conv.i39 = zext i16 %13 to i32
+  %12 = load i16, ptr %parse_flags_.i, align 2
+  %conv.i39 = zext i16 %12 to i32
   %call27 = invoke noundef ptr @_ZN3re26Regexp6ConcatEPPS0_iNS0_10ParseFlagsE(ptr noundef nonnull %call5.i3.i, i32 noundef %conv.i30.lcssa, i32 noundef %conv.i39)
           to label %invoke.cont26 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit.split-lp
 
@@ -5399,44 +5396,44 @@ _ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43:        ; preds = %invoke.cont26
   br label %return
 
 if.end29:                                         ; preds = %if.then4
-  %14 = load ptr, ptr %sub, align 8
-  tail call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %14)
+  %13 = load ptr, ptr %sub, align 8
+  tail call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
   br label %return
 
 sw.bb31:                                          ; preds = %if.end
   %nsub_.i44 = getelementptr inbounds i8, ptr %0, i64 6
-  %15 = load i16, ptr %nsub_.i44, align 2
-  %cmp.i45 = icmp ult i16 %15, 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %retval.0.i46 = select i1 %cmp.i45, ptr %16, ptr %17
-  %18 = load ptr, ptr %retval.0.i46, align 8
-  %call34 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
+  %14 = load i16, ptr %nsub_.i44, align 2
+  %cmp.i45 = icmp ult i16 %14, 2
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %retval.0.i46 = select i1 %cmp.i45, ptr %15, ptr %16
+  %17 = load ptr, ptr %retval.0.i46, align 8
+  %call34 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   store ptr %call34, ptr %sub, align 8
   %add35 = add nuw nsw i32 %depth, 1
   %call36 = call fastcc noundef zeroext i1 @_ZN3re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef %sub, i32 noundef %add35)
-  %19 = load ptr, ptr %sub, align 8
+  %18 = load ptr, ptr %sub, align 8
   br i1 %call36, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %sw.bb31
   %parse_flags_.i47 = getelementptr inbounds i8, ptr %0, i64 2
-  %20 = load i16, ptr %parse_flags_.i47, align 2
-  %conv.i48 = zext i16 %20 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load i32, ptr %21, align 8
-  %call40 = tail call noundef ptr @_ZN3re26Regexp7CaptureEPS0_NS0_10ParseFlagsEi(ptr noundef %19, i32 noundef %conv.i48, i32 noundef %22)
+  %19 = load i16, ptr %parse_flags_.i47, align 2
+  %conv.i48 = zext i16 %19 to i32
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8
+  %call40 = tail call noundef ptr @_ZN3re26Regexp7CaptureEPS0_NS0_10ParseFlagsEi(ptr noundef %18, i32 noundef %conv.i48, i32 noundef %21)
   store ptr %call40, ptr %pre, align 8
   tail call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   br label %return
 
 if.end41:                                         ; preds = %sw.bb31
-  tail call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
+  tail call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %return
 
 sw.bb42:                                          ; preds = %if.end
   %parse_flags_.i49 = getelementptr inbounds i8, ptr %0, i64 2
-  %23 = load i16, ptr %parse_flags_.i49, align 2
-  %conv.i50 = zext i16 %23 to i32
+  %22 = load i16, ptr %parse_flags_.i49, align 2
+  %conv.i50 = zext i16 %22 to i32
   %call44 = tail call noundef ptr @_ZN3re26Regexp13LiteralStringEPiiNS0_10ParseFlagsE(ptr noundef null, i32 noundef 0, i32 noundef %conv.i50)
   store ptr %call44, ptr %pre, align 8
   tail call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %0)

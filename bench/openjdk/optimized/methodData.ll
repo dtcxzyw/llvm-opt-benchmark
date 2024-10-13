@@ -6556,11 +6556,11 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %24, %24, %26
 
 32:                                               ; preds = %15
   %33 = icmp eq i32 %.01839, 0
-  %.pr.pre52 = load i8, ptr %.040, align 8
+  %.pr.pre51 = load i8, ptr %.040, align 8
   br i1 %33, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit, label %34
 
 34:                                               ; preds = %32
-  switch i8 %.pr.pre52, label %36 [
+  switch i8 %.pr.pre51, label %36 [
     i8 1, label %.lr.ph.i
     i8 0, label %.lr.ph.i
     i8 13, label %35
@@ -6639,9 +6639,9 @@ _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit: ; preds 
   %.pr.pre = load i8, ptr %.040, align 8
   br label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
 
-_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit: ; preds = %.lr.ph.i19, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, %32, %_ZN10MethodData10next_extraEP10DataLayout.exit
-  %.pr = phi i8 [ %.pr.pre52, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %54, %.lr.ph.i19 ]
-  %.1.ph = phi i32 [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %.01839, %.lr.ph.i19 ]
+_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit: ; preds = %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, %.lr.ph.i19, %32, %_ZN10MethodData10next_extraEP10DataLayout.exit
+  %.pr = phi i8 [ %.pr.pre51, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %54, %.lr.ph.i19 ], [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ]
+  %.1.ph = phi i32 [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %.lr.ph.i19 ], [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ]
   switch i8 %.pr, label %74 [
     i8 1, label %_ZN10MethodData10next_extraEP10DataLayout.exit25
     i8 0, label %_ZN10MethodData10next_extraEP10DataLayout.exit25

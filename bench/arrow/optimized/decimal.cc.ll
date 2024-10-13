@@ -2898,11 +2898,12 @@ for.body.i.preheader.i.i:
   %buffer.i = alloca %"struct.std::array.10", align 1
   %copy = alloca %"struct.std::array.3", align 8
   %segments = alloca %"struct.std::array.35", align 4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %array, i64 32
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %array to i64
   %0 = getelementptr inbounds i8, ptr %array, i64 24
   %agg.tmp.val.val.i.i.i = load i64, ptr %0, align 8, !noalias !74
   %cmp.i.i.not.i.i.i = icmp eq i64 %agg.tmp.val.val.i.i.i, 0
-  br i1 %cmp.i.i.not.i.i.i, label %if.end.i.i.i, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit
+  br i1 %cmp.i.i.not.i.i.i, label %if.end.i.i.i, label %if.end
 
 if.end.i.i.i:                                     ; preds = %for.body.i.preheader.i.i
   %1 = getelementptr inbounds i8, ptr %array, i64 16
@@ -2921,16 +2922,12 @@ if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
   %cmp.i.i6.not.i.i.i = icmp eq i64 %agg.tmp14.val.val.i.i.i, 0
   br i1 %cmp.i.i6.not.i.i.i, label %if.then, label %if.end
 
-_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit: ; preds = %for.body.i.preheader.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %array, i64 32
-  br label %if.end
-
 if.then:                                          ; preds = %if.end12.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %result, i8 noundef signext 48)
   br label %return
 
-if.end:                                           ; preds = %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit, %if.end.i.i.i, %if.end7.i.i.i, %if.end12.i.i.i
-  %.sink.i.i.i = phi ptr [ %add.ptr.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit ], [ %0, %if.end.i.i.i ], [ %1, %if.end7.i.i.i ], [ %2, %if.end12.i.i.i ]
+if.end:                                           ; preds = %for.body.i.preheader.i.i, %if.end.i.i.i, %if.end7.i.i.i, %if.end12.i.i.i
+  %.sink.i.i.i = phi ptr [ %add.ptr.i.i, %for.body.i.preheader.i.i ], [ %0, %if.end.i.i.i ], [ %1, %if.end7.i.i.i ], [ %2, %if.end12.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %.sink.i.i.i, i64 -8
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i

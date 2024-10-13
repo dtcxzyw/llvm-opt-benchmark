@@ -4210,7 +4210,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   %24 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %1, i32 noundef %2, i32 noundef %23, ptr noundef nonnull %7) #11
   %25 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %65, label %26
+  br i1 %.not, label %70, label %26
 
 26:                                               ; preds = %proto_item_set_generated.exit
   %27 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %25, i32 noundef 0) #11
@@ -4260,7 +4260,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
 
 48:                                               ; preds = %46, %43
   %.not33 = icmp eq i32 %28, 0
-  br i1 %.not33, label %65, label %49
+  br i1 %.not33, label %70, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4268,29 +4268,32 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   call void @col_append_str(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.235) #11
-  br label %54
+  %54 = trunc i32 %27 to i8
+  br label %55
 
-54:                                               ; preds = %49, %54
-  %indvars.iv = phi i32 [ 0, %49 ], [ %indvars.iv.next, %54 ]
-  %55 = load ptr, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %58, i32 noundef %indvars.iv) #11
-  %60 = zext i8 %59 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.236, i32 noundef %60) #11
-  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %61, label %54, !llvm.loop !6
+55:                                               ; preds = %49, %55
+  %56 = phi i32 [ 0, %49 ], [ %64, %55 ]
+  %.034 = phi i8 [ 0, %49 ], [ %63, %55 ]
+  %57 = load ptr, ptr %50, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = call zeroext i8 @tvb_get_guint8(ptr noundef %60, i32 noundef %56) #11
+  %62 = zext i8 %61 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.236, i32 noundef %62) #11
+  %63 = add nuw i8 %.034, 1
+  %64 = zext i8 %63 to i32
+  %65 = icmp ult i8 %63, %54
+  br i1 %65, label %55, label %66, !llvm.loop !6
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %50, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  call void @col_append_str(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.237) #11
-  br label %65
+66:                                               ; preds = %55
+  %67 = load ptr, ptr %50, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.237) #11
+  br label %70
 
-65:                                               ; preds = %48, %61, %proto_item_set_generated.exit
+70:                                               ; preds = %48, %66, %proto_item_set_generated.exit
   ret i32 %24
 }
 
@@ -4344,7 +4347,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   %24 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %1, i32 noundef %2, i32 noundef %23, ptr noundef nonnull %7) #11
   %25 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %65, label %26
+  br i1 %.not, label %70, label %26
 
 26:                                               ; preds = %proto_item_set_generated.exit
   %27 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %25, i32 noundef 0) #11
@@ -4394,7 +4397,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
 
 48:                                               ; preds = %46, %43
   %.not33 = icmp eq i32 %28, 0
-  br i1 %.not33, label %65, label %49
+  br i1 %.not33, label %70, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4402,29 +4405,32 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   call void @col_append_str(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.240) #11
-  br label %54
+  %54 = trunc i32 %27 to i8
+  br label %55
 
-54:                                               ; preds = %49, %54
-  %indvars.iv = phi i32 [ 0, %49 ], [ %indvars.iv.next, %54 ]
-  %55 = load ptr, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %58, i32 noundef %indvars.iv) #11
-  %60 = zext i8 %59 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.236, i32 noundef %60) #11
-  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %61, label %54, !llvm.loop !7
+55:                                               ; preds = %49, %55
+  %56 = phi i32 [ 0, %49 ], [ %64, %55 ]
+  %.034 = phi i8 [ 0, %49 ], [ %63, %55 ]
+  %57 = load ptr, ptr %50, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = call zeroext i8 @tvb_get_guint8(ptr noundef %60, i32 noundef %56) #11
+  %62 = zext i8 %61 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.236, i32 noundef %62) #11
+  %63 = add nuw i8 %.034, 1
+  %64 = zext i8 %63 to i32
+  %65 = icmp ult i8 %63, %54
+  br i1 %65, label %55, label %66, !llvm.loop !7
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %50, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  call void @col_append_str(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.237) #11
-  br label %65
+66:                                               ; preds = %55
+  %67 = load ptr, ptr %50, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.237) #11
+  br label %70
 
-65:                                               ; preds = %48, %61, %proto_item_set_generated.exit
+70:                                               ; preds = %48, %66, %proto_item_set_generated.exit
   ret i32 %24
 }
 

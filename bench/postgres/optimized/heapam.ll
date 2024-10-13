@@ -11251,23 +11251,19 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture nou
   %18 = sext i32 %16 to i64
   br label %.lr.ph10.i
 
-.lr.ph10.i:                                       ; preds = %.critedge.i, %.lr.ph10.preheader.i
-  %indvars.iv.i = phi i64 [ %18, %.lr.ph10.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
+.lr.ph10.i:                                       ; preds = %.critedge.i.loopexit, %.lr.ph10.preheader.i
+  %indvars.iv.i = phi i64 [ %18, %.lr.ph10.preheader.i ], [ %indvars.iv.next.i, %.critedge.i.loopexit ]
   %19 = getelementptr %struct.TM_IndexDelete, ptr %.val141, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 2
   %.sroa.4.0.extract.shift.i = lshr i64 %20, 32
   %.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.4.0.extract.shift.i to i16
-  %.not3.i = icmp slt i64 %indvars.iv.i, %18
   %21 = trunc nsw i64 %indvars.iv.i to i32
-  br i1 %.not3.i, label %.critedge.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph10.i
   %22 = trunc i64 %20 to i32
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 16)
   br label %24
 
-24:                                               ; preds = %38, %.lr.ph.i
-  %.04.i = phi i32 [ %21, %.lr.ph.i ], [ %25, %38 ]
+24:                                               ; preds = %38, %.lr.ph10.i
+  %.04.i = phi i32 [ %21, %.lr.ph10.i ], [ %25, %38 ]
   %25 = sub i32 %.04.i, %16
   %26 = sext i32 %25 to i64
   %27 = getelementptr %struct.TM_IndexDelete, ptr %.val141, i64 %26
@@ -11283,13 +11279,13 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture nou
 
 33:                                               ; preds = %24
   %34 = icmp ult i32 %32, %23
-  br i1 %34, label %.critedge.i, label %38
+  br i1 %34, label %.critedge.i.loopexit, label %38
 
 35:                                               ; preds = %24
   %36 = getelementptr i8, ptr %27, i64 4
   %.val23.i.i = load i16, ptr %36, align 2
   %37 = icmp ult i16 %.val23.i.i, %.sroa.4.0.extract.trunc.i
-  br i1 %37, label %.critedge.i, label %38
+  br i1 %37, label %.critedge.i.loopexit, label %38
 
 38:                                               ; preds = %35, %33
   %39 = sext i32 %.04.i to i64
@@ -11297,18 +11293,18 @@ define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture nou
   %41 = load i64, ptr %27, align 2
   store i64 %41, ptr %40, align 2
   %.not.i = icmp slt i32 %25, %16
-  br i1 %.not.i, label %.critedge.i, label %24, !llvm.loop !34
+  br i1 %.not.i, label %.critedge.i.loopexit, label %24, !llvm.loop !34
 
-.critedge.i:                                      ; preds = %38, %35, %33, %.lr.ph10.i
-  %.0.lcssa.i = phi i32 [ %21, %.lr.ph10.i ], [ %25, %38 ], [ %.04.i, %33 ], [ %.04.i, %35 ]
-  %42 = sext i32 %.0.lcssa.i to i64
+.critedge.i.loopexit:                             ; preds = %33, %35, %38
+  %.0.lcssa.i.ph = phi i32 [ %25, %38 ], [ %.04.i, %33 ], [ %.04.i, %35 ]
+  %42 = sext i32 %.0.lcssa.i.ph to i64
   %43 = getelementptr %struct.TM_IndexDelete, ptr %.val141, i64 %42
   store i64 %20, ptr %43, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph10.i, !llvm.loop !35
 
-._crit_edge.i:                                    ; preds = %.critedge.i, %14
+._crit_edge.i:                                    ; preds = %.critedge.i.loopexit, %14
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 9
   br i1 %exitcond16.not.i, label %index_delete_sort.exit, label %14, !llvm.loop !36

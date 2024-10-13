@@ -6936,8 +6936,8 @@ define internal fastcc noundef nonnull ptr @_ZN9Stockfish12_GLOBAL__N_19set_size
   %spec.select = select i1 %39, ptr %37, ptr %17
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %14, %28, %24, %20, %._crit_edge._crit_edge52.i.i.i, %._crit_edge.loopexit.i.i.i, %._crit_edge._crit_edge.i.i.i
-  %.028.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %34, %._crit_edge._crit_edge.i.i.i ], [ %spec.select, %._crit_edge._crit_edge52.i.i.i ], [ %21, %20 ], [ %25, %24 ], [ %29, %28 ], [ %16, %14 ]
+_ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %28, %24, %20, %14, %._crit_edge._crit_edge52.i.i.i, %._crit_edge.loopexit.i.i.i, %._crit_edge._crit_edge.i.i.i
+  %.028.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %34, %._crit_edge._crit_edge.i.i.i ], [ %spec.select, %._crit_edge._crit_edge52.i.i.i ], [ %16, %14 ], [ %21, %20 ], [ %25, %24 ], [ %29, %28 ]
   %40 = ptrtoint ptr %.028.i.i.i to i64
   %41 = ptrtoint ptr %16 to i64
   %42 = sub i64 %40, %41
@@ -7024,8 +7024,8 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit: ; preds = %_ZSt4findIPiiET_
   %88 = sub nuw nsw i64 %78, %85
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %88)
   %.pre = load ptr, ptr %79, align 8
-  %.pre134 = load ptr, ptr %74, align 8
-  %.pre138 = ptrtoint ptr %.pre134 to i64
+  %.pre130 = load ptr, ptr %74, align 8
+  %.pre134 = ptrtoint ptr %.pre130 to i64
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 89:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit
@@ -7042,7 +7042,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit: ; preds = %_ZSt4findIPiiET_
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
-  %.pre-phi = phi i64 [ %.pre138, %87 ], [ %83, %89 ], [ %83, %91 ], [ %83, %93 ]
+  %.pre-phi = phi i64 [ %.pre134, %87 ], [ %83, %89 ], [ %83, %91 ], [ %83, %93 ]
   %94 = phi ptr [ %.pre, %87 ], [ %80, %89 ], [ %80, %91 ], [ %92, %93 ]
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %.pre-phi
@@ -7096,23 +7096,23 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
   %116 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv
   store i64 %115, ptr %116, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not146 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not146, label %.preheader, label %103, !llvm.loop !156
+  %.not142 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not142, label %.preheader, label %103, !llvm.loop !156
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next132, %.lr.ph120 ]
+  %indvars.iv127 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next128, %.lr.ph120 ]
   %117 = load i8, ptr %72, align 2
   %118 = zext i8 %117 to i64
-  %119 = add nuw i64 %indvars.iv131, %118
+  %119 = add nuw i64 %indvars.iv127, %118
   %120 = sub i64 64, %119
   %121 = load ptr, ptr %74, align 8
-  %122 = getelementptr inbounds i64, ptr %121, i64 %indvars.iv131
+  %122 = getelementptr inbounds i64, ptr %121, i64 %indvars.iv127
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %120, 4294967295
   %125 = shl i64 %123, %124
   store i64 %125, ptr %122, align 8
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %.lr.ph120, %.preheader
@@ -7149,9 +7149,9 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
   br i1 %.not.i.i.i, label %._crit_edge._ZNSt6vectorIbSaIbEEC2EmRKS0_.exit_crit_edge, label %139
 
 ._crit_edge._ZNSt6vectorIbSaIbEEC2EmRKS0_.exit_crit_edge: ; preds = %._crit_edge
-  %.pre139 = ptrtoint ptr %133 to i64
-  %.pre141 = ptrtoint ptr %134 to i64
-  %.pre143 = sub i64 %.pre139, %.pre141
+  %.pre135 = ptrtoint ptr %133 to i64
+  %.pre137 = ptrtoint ptr %134 to i64
+  %.pre139 = sub i64 %.pre135, %.pre137
   br label %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
 
 139:                                              ; preds = %._crit_edge
@@ -7182,9 +7182,9 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
   br label %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %._crit_edge._ZNSt6vectorIbSaIbEEC2EmRKS0_.exit_crit_edge, %139
-  %.pre-phi144 = phi i64 [ %.pre143, %._crit_edge._ZNSt6vectorIbSaIbEEC2EmRKS0_.exit_crit_edge ], [ %142, %139 ]
+  %.pre-phi140 = phi i64 [ %.pre139, %._crit_edge._ZNSt6vectorIbSaIbEEC2EmRKS0_.exit_crit_edge ], [ %142, %139 ]
   %155 = phi ptr [ null, %._crit_edge._ZNSt6vectorIbSaIbEEC2EmRKS0_.exit_crit_edge ], [ %146, %139 ]
-  %.not124 = icmp eq i64 %.pre-phi144, 0
+  %.not124 = icmp eq i64 %.pre-phi140, 0
   br i1 %.not124, label %._crit_edge123, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit, %172
@@ -7211,13 +7211,13 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %._crit_edge._ZNSt6v
   %170 = load ptr, ptr %128, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 %.0121
   store i8 %169, ptr %171, align 1
-  %.pre135 = load ptr, ptr %132, align 8
-  %.pre136 = load ptr, ptr %128, align 8
+  %.pre131 = load ptr, ptr %132, align 8
+  %.pre132 = load ptr, ptr %128, align 8
   br label %172
 
 172:                                              ; preds = %.lr.ph122, %167
-  %173 = phi ptr [ %156, %.lr.ph122 ], [ %.pre136, %167 ]
-  %174 = phi ptr [ %157, %.lr.ph122 ], [ %.pre135, %167 ]
+  %173 = phi ptr [ %156, %.lr.ph122 ], [ %.pre132, %167 ]
+  %174 = phi ptr [ %157, %.lr.ph122 ], [ %.pre131, %167 ]
   %175 = add nuw i64 %.0121, 1
   %176 = ptrtoint ptr %174 to i64
   %177 = ptrtoint ptr %173 to i64
@@ -7226,11 +7226,11 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %._crit_edge._ZNSt6v
   br i1 %179, label %.lr.ph122, label %._crit_edge123.loopexit, !llvm.loop !158
 
 ._crit_edge123.loopexit:                          ; preds = %172
-  %.pre137 = load ptr, ptr %3, align 8
+  %.pre133 = load ptr, ptr %3, align 8
   br label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
-  %180 = phi ptr [ %155, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %.pre137, %._crit_edge123.loopexit ]
+  %180 = phi ptr [ %155, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %.pre133, %._crit_edge123.loopexit ]
   %.lcssa = phi i64 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %178, %._crit_edge123.loopexit ]
   %181 = mul i64 %.lcssa, 3
   %182 = getelementptr inbounds i8, ptr %130, i64 %181

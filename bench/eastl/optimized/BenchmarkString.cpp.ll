@@ -1203,9 +1203,9 @@ if.end.i.i.i:                                     ; preds = %.noexc159, %for.bod
   %sub.i.i.i16.i.i.i139 = sub nsw i64 11, %conv.i.i.i15.i.i.i138
   %add.ptr.i1.i.i.i.i140 = getelementptr inbounds i16, ptr %es16, i64 %sub.i.i.i16.i.i.i139
   %cond.i17.i.i.i141 = select i1 %tobool.i.i13.i.i.i136, ptr %add.ptr.i.i.i.i.i137, ptr %add.ptr.i1.i.i.i.i140
-  store i16 %conv.i127, ptr %cond.i17.i.i.i141, align 2
   %cond.i17.i.i.i141.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.i.i13.i.i.i136, ptr %add.ptr.i.i.i.i.i137, ptr %add.ptr.i1.i.i.i.i140
   %cond.i17.i.i.i141.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.i17.i.i.i141.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 2
+  store i16 %conv.i127, ptr %cond.i17.i.i.i141, align 2
   store i16 0, ptr %cond.i17.i.i.i141.sroa.sel.v.sroa.sel.v.sroa.sel, align 2
   %78 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   %tobool.i.i20.i.i.i143 = icmp slt i8 %78, 0

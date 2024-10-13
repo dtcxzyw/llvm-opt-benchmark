@@ -321,9 +321,9 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   %.0.lcssa.i = phi double [ %16, %.lr.ph71.i ], [ %.1.i106, %152 ]
   %155 = fadd double %storemerge67.i, %.0.lcssa.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next77.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %get_12_norm.exit, label %.lr.ph71.i
+  br i1 %exitcond.not.i, label %get_12_norm.exit.loopexit, label %.lr.ph71.i
 
-get_12_norm.exit:                                 ; preds = %._crit_edge.i101
+get_12_norm.exit.loopexit:                        ; preds = %._crit_edge.i101
   %156 = fdiv double %155, %16
   %157 = tail call i64 @clock() #6
   %158 = sub nsw i64 %157, %8
@@ -332,7 +332,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.3, double noundef %160, double noundef %.sroa.0135.6, double noundef %156) #6
   br label %162
 
-162:                                              ; preds = %._crit_edge, %get_12_norm.exit
+162:                                              ; preds = %._crit_edge, %get_12_norm.exit.loopexit
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count.i
   br i1 %exitcond171.not, label %._crit_edge155, label %.lr.ph154

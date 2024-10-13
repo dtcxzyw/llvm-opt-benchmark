@@ -1963,12 +1963,12 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; 
   %463 = getelementptr inbounds i8, ptr %11, i64 256
   %464 = fcmp uno double %.sroa.8.24.copyload3.i.i.i.i.i.i.i, 0.000000e+00
   %465 = fcmp uno double %.sroa.8.24.copyload3.i41.i.i.i.i.i.i, 0.000000e+00
-  %or.cond467.i = select i1 %464, i1 true, i1 %465
+  %or.cond455.i = select i1 %464, i1 true, i1 %465
   %466 = fcmp uno double %.sroa.8.24.copyload3.i54.i.i.i.i.i.i, 0.000000e+00
-  %or.cond468.i = select i1 %or.cond467.i, i1 true, i1 %466
+  %or.cond456.i = select i1 %or.cond455.i, i1 true, i1 %466
   %467 = fcmp uno double %.sroa.8.24.copyload3.i67.i.i.i.i.i.i, 0.000000e+00
-  %or.cond469.i = select i1 %or.cond468.i, i1 true, i1 %467
-  br i1 %or.cond469.i, label %.loopexit353.i, label %.thread.i
+  %or.cond457.i = select i1 %or.cond456.i, i1 true, i1 %467
+  br i1 %or.cond457.i, label %.loopexit353.i, label %.thread.i
 
 .thread.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
   store ptr %107, ptr %12, align 8, !noalias !29
@@ -2054,10 +2054,10 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; 
   br label %506
 
 506:                                              ; preds = %506, %505
-  %indvars.iv437.i = phi i64 [ 0, %505 ], [ %indvars.iv.next438.i, %506 ]
-  %507 = getelementptr inbounds [4 x %"class.ZXing::RegressionLine"], ptr %11, i64 0, i64 %indvars.iv437.i
-  %indvars.iv.next438.i = add nuw nsw i64 %indvars.iv437.i, 1
-  %508 = and i64 %indvars.iv.next438.i, 3
+  %indvars.iv425.i = phi i64 [ 0, %505 ], [ %indvars.iv.next426.i, %506 ]
+  %507 = getelementptr inbounds [4 x %"class.ZXing::RegressionLine"], ptr %11, i64 0, i64 %indvars.iv425.i
+  %indvars.iv.next426.i = add nuw nsw i64 %indvars.iv425.i, 1
+  %508 = and i64 %indvars.iv.next426.i, 3
   %509 = getelementptr inbounds [4 x %"class.ZXing::RegressionLine"], ptr %11, i64 0, i64 %508
   %510 = getelementptr inbounds i8, ptr %507, i64 40
   %511 = load double, ptr %510, align 8, !noalias !29
@@ -2081,12 +2081,12 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; 
   %529 = fmul double %522, %518
   %530 = call double @llvm.fmuladd.f64(double %511, double %524, double %529)
   %531 = fdiv double %530, %520
-  %532 = getelementptr inbounds [4 x %"struct.ZXing::PointT"], ptr %14, i64 0, i64 %indvars.iv437.i
+  %532 = getelementptr inbounds [4 x %"struct.ZXing::PointT"], ptr %14, i64 0, i64 %indvars.iv425.i
   store double %528, ptr %532, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %532, i64 8
   store double %531, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %exitcond440.not.i = icmp eq i64 %indvars.iv.next438.i, 4
-  br i1 %exitcond440.not.i, label %.loopexit353.i, label %506, !llvm.loop !43
+  %exitcond428.not.i = icmp eq i64 %indvars.iv.next426.i, 4
+  br i1 %exitcond428.not.i, label %.loopexit353.i, label %506, !llvm.loop !43
 
 .loopexit353.i:                                   ; preds = %498, %506, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
   %.sink.i = phi i8 [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i" ], [ 1, %506 ], [ 0, %498 ]
@@ -2175,14 +2175,14 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit: ; preds = %"_ZSt11max_elementI
 
 565:                                              ; preds = %539, %555, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread, %564
   %.sink.i.sink = phi i8 [ %.sink.i, %564 ], [ 0, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ 0, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ 0, %555 ], [ 0, %539 ]
-  %.sroa.021.037 = phi ptr [ %.sroa.040.4.i, %564 ], [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.040.4.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ %.sroa.040.4.i, %555 ], [ %.sroa.040.4.i, %539 ]
+  %.sroa.021.035 = phi ptr [ %.sroa.040.4.i, %564 ], [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.040.4.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ %.sroa.040.4.i, %555 ], [ %.sroa.040.4.i, %539 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %.sink.i.sink, ptr %.sroa.3.0..sroa_idx, align 8
-  %.not.i.i.i19 = icmp eq ptr %.sroa.021.037, null
+  %.not.i.i.i19 = icmp eq ptr %.sroa.021.035, null
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit20, label %566
 
 566:                                              ; preds = %565
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.021.037) #16
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.021.035) #16
   br label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit20
 
 _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit20: ; preds = %565, %566

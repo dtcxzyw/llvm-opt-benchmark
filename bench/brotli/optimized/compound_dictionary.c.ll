@@ -39,11 +39,9 @@ while.end:                                        ; preds = %while.body, %entry
   %add13.i = add i64 %add10.i, %shl9.i
   %add14.i = add i64 %add13.i, %shl12.i
   %cmp.i = icmp ugt i32 %slot_bits.0.lcssa, 16
-  %cmp15.i = icmp ugt i32 %slot_bits.0.lcssa, %bucket_bits.0.lcssa
-  %or.cond.i = or i1 %cmp.i, %cmp15.i
   %sub18.i = sub nuw i32 %bucket_bits.0.lcssa, %slot_bits.0.lcssa
   %cmp19.i = icmp ugt i32 %sub18.i, 15
-  %or.cond126.i = select i1 %or.cond.i, i1 true, i1 %cmp19.i
+  %or.cond126.i = select i1 %cmp.i, i1 true, i1 %cmp19.i
   br i1 %or.cond126.i, label %CreatePreparedDictionaryWithParams.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %while.end

@@ -424,18 +424,18 @@ define dso_local noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %7 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %8 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
-  %.not38 = icmp eq ptr %7, %8
-  br i1 %.not38, label %._crit_edge.thread, label %.lr.ph
+  %.not37 = icmp eq ptr %7, %8
+  br i1 %.not37, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
-  %.01840 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %.sroa.020.039 = phi ptr [ %7, %.lr.ph ], [ %78, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %11 = load i8, ptr %.sroa.020.039, align 1
-  switch i32 %.01840, label %default.unreachable [
+  %.01839 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %.sroa.020.038 = phi ptr [ %7, %.lr.ph ], [ %78, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %11 = load i8, ptr %.sroa.020.038, align 1
+  switch i32 %.01839, label %default.unreachable [
     i32 0, label %12
     i32 1, label %16
     i32 2, label %62
@@ -455,17 +455,17 @@ define dso_local noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNS
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %76, %60, %58, %35, %33, %31, %29, %14
-  %lpad.loopexit27 = landingpad { ptr, i32 }
+  %lpad.loopexit26 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %81, %79
-  %lpad.loopexit.split-lp28 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp27 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -594,7 +594,7 @@ _ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  switch i32 %72, label %.loopexit26 [
+  switch i32 %72, label %.loopexit25 [
     i32 1, label %67
     i32 0, label %75
   ]
@@ -603,7 +603,7 @@ _ZN27cmCMakePresetsGraphInternal11ExpandMacroERNSt7__cxx1112basic_stringIcSt11ch
   %73 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str) #21
   %74 = icmp eq i32 %73, 0
   %..i = select i1 %74, i32 1, i32 2
-  br label %.loopexit26
+  br label %.loopexit25
 
 75:                                               ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -621,15 +621,15 @@ _ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_t
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #21
   br label %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.sink.split, %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit45.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit51.thread.i.i.i.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i.i.i, %18, %24, %21, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %12, %14, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %76
-  %.1 = phi i32 [ 2, %76 ], [ 1, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %14 ], [ 1, %12 ], [ 2, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %21 ], [ 2, %24 ], [ 2, %18 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i.i.i ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit51.thread.i.i.i.i.i.i" ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit45.thread.i.i.i.i.i.i" ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i.i.i" ], [ 1, %37 ], [ 0, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.sink.split ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.020.039, i64 1
+_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.sink.split, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit45.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit51.thread.i.i.i.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i.i.i, %37, %24, %21, %18, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %12, %14, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %76
+  %.1 = phi i32 [ 2, %76 ], [ 1, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %14 ], [ 1, %12 ], [ 2, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %18 ], [ 2, %21 ], [ 2, %24 ], [ 1, %37 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i.i.i ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit51.thread.i.i.i.i.i.i" ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit45.thread.i.i.i.i.i.i" ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i.i.i" ], [ 0, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.sink.split ]
+  %78 = getelementptr inbounds i8, ptr %.sroa.020.038, i64 1
   %.not = icmp eq ptr %78, %8
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
   switch i32 %.1, label %._crit_edge.thread [
-    i32 2, label %.loopexit26
+    i32 2, label %.loopexit25
     i32 1, label %79
   ]
 
@@ -643,9 +643,9 @@ _ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_t
 
 ._crit_edge.thread:                               ; preds = %3, %81, %._crit_edge
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
-  br label %.loopexit26
+  br label %.loopexit25
 
-.loopexit26:                                      ; preds = %.noexc, %_ZN27cmCMakePresetsGraphInternal11ExpandMacroERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_S8_RKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteISB_EESaISE_EEi.exit.thread, %._crit_edge, %._crit_edge.thread
+.loopexit25:                                      ; preds = %.noexc, %_ZN27cmCMakePresetsGraphInternal11ExpandMacroERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_S8_RKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteISB_EESaISE_EEi.exit.thread, %._crit_edge, %._crit_edge.thread
   %.0 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ], [ %..i, %_ZN27cmCMakePresetsGraphInternal11ExpandMacroERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_S8_RKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteISB_EESaISE_EEi.exit.thread ], [ %72, %.noexc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21

@@ -3963,7 +3963,6 @@ _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i: ; preds = %97
   %109 = urem i64 %102, %.sroa.speculated.i.i.i
   %110 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.speculated.i.i.i, i64 1)
   %112 = getelementptr inbounds i8, ptr %17, i64 8
   br label %113
 
@@ -4004,7 +4003,7 @@ _ZNSt6vectorIP15LLVMOpaqueErrorSaIS1_EEC2EmRKS1_RKS2_.exit.i.i.i: ; preds = %97
 
 _ZNSt8functionIFvvEED2Ev.exit.i.i.i:              ; preds = %121, %113
   %123 = add nuw nsw i64 %.02439.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %123, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %123, %.sroa.speculated.i.i.i
   br i1 %exitcond.not.i.i.i, label %124, label %113, !llvm.loop !65
 
 124:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit.i.i.i

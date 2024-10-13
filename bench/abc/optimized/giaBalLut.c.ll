@@ -3446,7 +3446,7 @@ Vec_IntSelectSortCostLit.exit.i:                  ; preds = %._crit_edge.i.i
 503:                                              ; preds = %505, %.lr.ph.i85
   %.012.in.i.i.i = phi i32 [ %.val52139.i, %.lr.ph.i85 ], [ %.012.i.i.i, %505 ]
   %504 = icmp sgt i32 %.012.in.i.i.i, 1
-  br i1 %504, label %505, label %.lr.ph52.i.i.preheader
+  br i1 %504, label %505, label %.lr.ph52.preheader.i.i
 
 505:                                              ; preds = %503
   %.012.i.i.i = add nsw i32 %.012.in.i.i.i, -1
@@ -3462,10 +3462,6 @@ Vec_IntSelectSortCostLit.exit.i:                  ; preds = %._crit_edge.i.i
   br i1 %513, label %.preheader.lr.ph.i.i, label %503, !llvm.loop !38
 
 .preheader.lr.ph.i.i:                             ; preds = %505
-  %.not9420.not.i.not.i = icmp slt i32 %.val52139.i, %.012.in.i.i.i
-  br i1 %.not9420.not.i.not.i, label %._crit_edge53.thread.i.i, label %.preheader.preheader.i.i
-
-.preheader.preheader.i.i:                         ; preds = %.preheader.lr.ph.i.i
   %.08227.i.i = add nsw i32 %.012.in.i.i.i, -2
   %514 = zext nneg i32 %.012.i.i.i to i64
   %515 = zext nneg i32 %.08227.i.i to i64
@@ -3476,11 +3472,11 @@ Vec_IntSelectSortCostLit.exit.i:                  ; preds = %._crit_edge.i.i
   %516 = icmp sgt i64 %indvars.iv63.i.i, 0
   br i1 %516, label %.preheader.i.i, label %._crit_edge.i88.i, !llvm.loop !39
 
-.preheader.i.i:                                   ; preds = %..loopexit3_crit_edge.i.i, %.preheader.preheader.i.i
-  %indvars.iv63.i.i = phi i64 [ %515, %.preheader.preheader.i.i ], [ %indvars.iv.next64.i.i, %..loopexit3_crit_edge.i.i ]
-  %.030.i.i = phi i32 [ 1000000000, %.preheader.preheader.i.i ], [ %.2.i.i, %..loopexit3_crit_edge.i.i ]
-  %.07029.i.i = phi i32 [ -1, %.preheader.preheader.i.i ], [ %.272.i.i, %..loopexit3_crit_edge.i.i ]
-  %.07628.i.i = phi i32 [ -1, %.preheader.preheader.i.i ], [ %.278.i.i, %..loopexit3_crit_edge.i.i ]
+.preheader.i.i:                                   ; preds = %..loopexit3_crit_edge.i.i, %.preheader.lr.ph.i.i
+  %indvars.iv63.i.i = phi i64 [ %515, %.preheader.lr.ph.i.i ], [ %indvars.iv.next64.i.i, %..loopexit3_crit_edge.i.i ]
+  %.030.i.i = phi i32 [ 1000000000, %.preheader.lr.ph.i.i ], [ %.2.i.i, %..loopexit3_crit_edge.i.i ]
+  %.07029.i.i = phi i32 [ -1, %.preheader.lr.ph.i.i ], [ %.272.i.i, %..loopexit3_crit_edge.i.i ]
+  %.07628.i.i = phi i32 [ -1, %.preheader.lr.ph.i.i ], [ %.278.i.i, %..loopexit3_crit_edge.i.i ]
   %517 = getelementptr inbounds i32, ptr %.val57.i, i64 %indvars.iv63.i.i
   %518 = trunc nuw nsw i64 %indvars.iv63.i.i to i32
   br label %Gia_ObjIsXor.exit.i87.i
@@ -3583,13 +3579,14 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_Man
   br label %Bal_ManFindBestPair.exit.i
 
 ._crit_edge.thread.i.i:                           ; preds = %562, %._crit_edge.i88.i
-  %575 = sext i32 %.012.i.i.i to i64
-  br label %.lr.ph52.i.i.preheader
+  %.not91.not46.i.i.not = icmp sgt i32 %.012.in.i.i.i, %.val52139.i
+  br i1 %.not91.not46.i.i.not, label %._crit_edge53.thread.i.i, label %.lr.ph52.preheader.i.i
 
-.lr.ph52.i.i.preheader:                           ; preds = %503, %._crit_edge.thread.i.i
-  %indvars.iv71.i.i.ph = phi i64 [ %575, %._crit_edge.thread.i.i ], [ 0, %503 ]
-  %.37349.i.i.ph = phi i32 [ %.272.i.i, %._crit_edge.thread.i.i ], [ -1, %503 ]
-  %.37948.i.i.ph = phi i32 [ %.278.i.i, %._crit_edge.thread.i.i ], [ -1, %503 ]
+.lr.ph52.preheader.i.i:                           ; preds = %503, %._crit_edge.thread.i.i
+  %.012.lcssa.i7783.i.i100 = phi i32 [ %.012.i.i.i, %._crit_edge.thread.i.i ], [ 0, %503 ]
+  %.076.lcssa84.i.i99 = phi i32 [ %.278.i.i, %._crit_edge.thread.i.i ], [ -1, %503 ]
+  %.070.lcssa85.i.i98 = phi i32 [ %.272.i.i, %._crit_edge.thread.i.i ], [ -1, %503 ]
+  %575 = sext i32 %.012.lcssa.i7783.i.i100 to i64
   br label %.lr.ph52.i.i
 
 .loopexit.i.i:                                    ; preds = %Bal_ManEvalTwo.exit111.thread.i.i, %.lr.ph52.i.i
@@ -3599,11 +3596,11 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_Man
   %exitcond74.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, %494
   br i1 %exitcond74.not.i.i, label %._crit_edge53.i.i, label %.lr.ph52.i.i, !llvm.loop !41
 
-.lr.ph52.i.i:                                     ; preds = %.lr.ph52.i.i.preheader, %.loopexit.i.i
-  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %.loopexit.i.i ], [ %indvars.iv71.i.i.ph, %.lr.ph52.i.i.preheader ]
-  %.350.i.i = phi i32 [ %.4.lcssa.i.i, %.loopexit.i.i ], [ 1000000000, %.lr.ph52.i.i.preheader ]
-  %.37349.i.i = phi i32 [ %.474.lcssa.i.i, %.loopexit.i.i ], [ %.37349.i.i.ph, %.lr.ph52.i.i.preheader ]
-  %.37948.i.i = phi i32 [ %.480.lcssa.i.i, %.loopexit.i.i ], [ %.37948.i.i.ph, %.lr.ph52.i.i.preheader ]
+.lr.ph52.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph52.preheader.i.i
+  %indvars.iv71.i.i = phi i64 [ %575, %.lr.ph52.preheader.i.i ], [ %indvars.iv.next72.i.i, %.loopexit.i.i ]
+  %.350.i.i = phi i32 [ 1000000000, %.lr.ph52.preheader.i.i ], [ %.4.lcssa.i.i, %.loopexit.i.i ]
+  %.37349.i.i = phi i32 [ %.070.lcssa85.i.i98, %.lr.ph52.preheader.i.i ], [ %.474.lcssa.i.i, %.loopexit.i.i ]
+  %.37948.i.i = phi i32 [ %.076.lcssa84.i.i99, %.lr.ph52.preheader.i.i ], [ %.480.lcssa.i.i, %.loopexit.i.i ]
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
   %.not93.not37.i.i = icmp ult i64 %indvars.iv.next72.i.i, %494
   br i1 %.not93.not37.i.i, label %.lr.ph.i82.i, label %.loopexit.i.i
@@ -3702,7 +3699,7 @@ Bal_ManEvalTwo.exit111.thread.i.i:                ; preds = %625, %623, %Bal_Man
   %630 = or i32 %629, %.480.lcssa.i.i
   br label %Bal_ManFindBestPair.exit.i
 
-._crit_edge53.thread.i.i:                         ; preds = %.preheader.lr.ph.i.i, %._crit_edge53.i.i
+._crit_edge53.thread.i.i:                         ; preds = %._crit_edge53.i.i, %._crit_edge.thread.i.i
   %631 = shl i32 %.val52139.i, 16
   %632 = add i32 %631, -65536
   %633 = add nsw i32 %.val52139.i, -2

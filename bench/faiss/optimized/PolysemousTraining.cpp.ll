@@ -5205,7 +5205,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
 
 31:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %.057 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %85 ]
+  %.056 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %85 ]
   %.04655 = phi ptr [ %6, %.lr.ph ], [ %86, %85 ]
   %32 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
@@ -5232,7 +5232,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %53 = icmp ult i64 %52, %22
   %54 = fsub double %.0.i, %48
   %.1.i = select i1 %53, double %54, double %.0.i
-  %55 = fadd double %.057, %.1.i
+  %55 = fadd double %.056, %.1.i
   %56 = getelementptr inbounds float, ptr %.04655, i64 %14
   %57 = load float, ptr %56, align 4
   %58 = icmp ult i64 %46, %25
@@ -5280,14 +5280,14 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %.1.i53 = phi double [ %.025.i, %.lr.ph.i ], [ %82, %81 ], [ %.2.i, %66 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit.loopexit, label %.lr.ph.i, !llvm.loop !64
 
-_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit: ; preds = %83
+_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit.loopexit: ; preds = %83
   %84 = fadd double %63, %.1.i53
   br label %85
 
-85:                                               ; preds = %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit, %31
-  %.1 = phi double [ %84, %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit ], [ %63, %31 ]
+85:                                               ; preds = %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit.loopexit, %31
+  %.1 = phi double [ %84, %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit.loopexit ], [ %63, %31 ]
   %86 = getelementptr inbounds float, ptr %.04655, i64 %wide.trip.count.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
