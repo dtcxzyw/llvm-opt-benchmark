@@ -1816,7 +1816,7 @@ base64-rs/2meibirbg7u92q2v.ll 46241275
 base64-rs/3c0hk3pl6t4wwl8d.ll 47440079
 base64-rs/3i18zkzed1c7jyoe.ll 646721900
 base64-rs/3zjdkvvcu9nhnxnu.ll 60700950
-base64-rs/r7oyewqnuirpg2o.ll 101827550
+base64-rs/r7oyewqnuirpg2o.ll 101929444
 bdwgc/cordbscs.c.ll 393150428
 bdwgc/cordprnt.c.ll 231864353
 bdwgc/cordxtra.c.ll 236259826
@@ -7600,7 +7600,7 @@ graphviz/prune.c.ll 169757992
 graphviz/psusershape.c.ll 209598271
 graphviz/quad_prog_solve.c.ll 305258959
 graphviz/quad_prog_vpsc.c.ll 411971256
-graphviz/queue.c.ll 45704547
+graphviz/queue.c.ll 45750349
 graphviz/randomkit.c.ll 75843207
 graphviz/rank.c.ll 778456402
 graphviz/rec.c.ll 133645412
@@ -8529,7 +8529,7 @@ gromacs/strmv.cpp.ll 185397883
 gromacs/strsm.cpp.ll 416606675
 gromacs/surfacearea.cpp.ll 1910209225
 gromacs/swapcoords.cpp.ll 1597439530
-gromacs/sycl_version_information.cpp.ll 167323033
+gromacs/sycl_version_information.cpp.ll 167490398
 gromacs/symrec.cpp.ll 632826965
 gromacs/symtab.cpp.ll 707711002
 gromacs/sysinfo.cpp.ll 68397236
@@ -8702,7 +8702,7 @@ grpc/credentials_generic.cc.ll 79114873
 grpc/deadline_filter.cc.ll 1235427036
 grpc/default_event_engine.cc.ll 351129694
 grpc/default_event_engine_factory.cc.ll 68351014
-grpc/directory_reader.cc.ll 102998667
+grpc/directory_reader.cc.ll 103101729
 grpc/dns_resolver.cc.ll 762506935
 grpc/dns_resolver_ares.cc.ll 2044305688
 grpc/dns_resolver_plugin.cc.ll 105113039
@@ -9484,7 +9484,7 @@ hermes/Logging.cpp.ll 34352131
 hermes/LowerBuiltinCalls.cpp.ll 1477302208
 hermes/Lowering.cpp.ll 2210355114
 hermes/MD5.cpp.ll 525758188
-hermes/Math.cpp.ll 513844324
+hermes/Math.cpp.ll 514358192
 hermes/Mem2Reg.cpp.ll 4950616514
 hermes/Memory.cpp.ll 80255663
 hermes/MemoryBuffer.cpp.ll 507022203
@@ -11169,7 +11169,7 @@ libquic/quic_random.cc.ll 61289930
 libquic/quic_received_packet_manager.cc.ll 509175860
 libquic/quic_sent_entropy_manager.cc.ll 298110202
 libquic/quic_sent_packet_manager.cc.ll 975491389
-libquic/quic_server_id.cc.ll 114664642
+libquic/quic_server_id.cc.ll 114779347
 libquic/quic_server_session_base.cc.ll 217952599
 libquic/quic_session.cc.ll 1832597071
 libquic/quic_socket_address_coder.cc.ll 163315738
@@ -16010,7 +16010,7 @@ llvm/X86ShuffleDecodeConstantPool.cpp.ll 301644257
 llvm/X86SpeculativeExecutionSideEffectSuppression.cpp.ll 466416076
 llvm/X86SpeculativeLoadHardening.cpp.ll 6780083986
 llvm/X86Subtarget.cpp.ll 1915322656
-llvm/X86TargetInfo.cpp.ll 45675200
+llvm/X86TargetInfo.cpp.ll 45720902
 llvm/X86TargetMachine.cpp.ll 3887638974
 llvm/X86TargetObjectFile.cpp.ll 82760018
 llvm/X86TargetParser.cpp.ll 1086052054
@@ -19917,7 +19917,7 @@ openblas/dtrmv_thread_NUN.c.ll 79073080
 openblas/dtrmv_thread_NUU.c.ll 78089699
 openblas/dtrmv_thread_TLN.c.ll 77662643
 openblas/dtrmv_thread_TLU.c.ll 76659282
-openblas/dtrmv_thread_TUN.c.ll 74286219
+openblas/dtrmv_thread_TUN.c.ll 74360601
 openblas/dtrmv_thread_TUU.c.ll 73396705
 openblas/dtrrfs.c.ll 194550524
 openblas/dtrsen.c.ll 116660178
