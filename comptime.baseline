@@ -6060,7 +6060,7 @@ draco/mesh_io.cc.ll 329463151
 draco/mesh_sequential_decoder.cc.ll 579507865
 draco/mesh_sequential_encoder.cc.ll 774440842
 draco/mesh_stripifier.cc.ll 269242316
-draco/metadata.cc.ll 968485773
+draco/metadata.cc.ll 967517210
 draco/metadata_decoder.cc.ll 382405778
 draco/metadata_encoder.cc.ll 259859962
 draco/obj_decoder.cc.ll 1088663546
@@ -22742,7 +22742,7 @@ openjdk/jvmtiTagMap.ll 3752526879
 openjdk/jvmtiTagMapTable.ll 955507470
 openjdk/jvmtiThreadState.ll 1281722338
 openjdk/jvmtiTrace.ll 214407546
-openjdk/jvmtiUtil.ll 48816713
+openjdk/jvmtiUtil.ll 48767823
 openjdk/keepStackGCProcessed.ll 68122493
 openjdk/klass.ll 1554569183
 openjdk/klassFactory.ll 510856024
@@ -22786,7 +22786,7 @@ openjdk/loopUnswitch.ll 413705961
 openjdk/loopnode.ll 4619269784
 openjdk/loopopts.ll 3929676100
 openjdk/lowMemoryDetector.ll 789663186
-openjdk/machnode.ll 357695167
+openjdk/machnode.ll 357337358
 openjdk/macro.ll 2170956742
 openjdk/macroArrayCopy.ll 1120357960
 openjdk/macroAssembler_x86.ll 5627823639
@@ -30428,7 +30428,7 @@ qemu/util_memalign.c.ll 60822760
 qemu/util_memfd.c.ll 59849741
 qemu/util_mmap-alloc.c.ll 105479699
 qemu/util_module.c.ll 59218897
-qemu/util_osdep.c.ll 126349966
+qemu/util_osdep.c.ll 126223593
 qemu/util_oslib-posix.c.ll 205994170
 qemu/util_qdist.c.ll 157423981
 qemu/util_qemu-config.c.ll 259506271
