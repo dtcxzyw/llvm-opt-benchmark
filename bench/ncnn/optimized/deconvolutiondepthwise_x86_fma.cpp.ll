@@ -2897,10 +2897,10 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_fma7forwardERKN
   %.sroa.speculated2545.us = select i1 %703, float 0x40561814A0000000, float %.1.lcssa.us
   %704 = fcmp fast olt float %.sroa.speculated2545.us, 0xC0561814A0000000
   %.sroa.speculated2545.neg.us = fneg fast float %.sroa.speculated2545.us
-  %705 = select fast i1 %704, float 0x40561814A0000000, float %.sroa.speculated2545.neg.us
-  %706 = call fast float @llvm.exp.f32(float %705)
-  %707 = fadd fast float %706, 1.000000e+00
-  %708 = fdiv fast float 1.000000e+00, %707
+  %705 = call fast float @llvm.exp.f32(float %.sroa.speculated2545.neg.us)
+  %706 = fadd fast float %705, 1.000000e+00
+  %707 = fdiv fast float 1.000000e+00, %706
+  %708 = select i1 %704, float 0x37F6A0A880000000, float %707
   br label %725
 
 709:                                              ; preds = %._crit_edge2718.us

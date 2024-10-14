@@ -883,9 +883,9 @@ define internal noundef i32 @get_text_gray_cmyk_row(ptr noundef %0, ptr nocaptur
   %26 = fsub double 1.000000e+00, %23
   %27 = fneg double %25
   %.neg109 = fdiv double %27, %26
-  %28 = select i1 %24, double -0.000000e+00, double %.neg109
-  %29 = tail call double @llvm.fmuladd.f64(double %28, double 4.095000e+03, double 4.095000e+03)
-  %30 = fadd double %29, 5.000000e-01
+  %28 = tail call double @llvm.fmuladd.f64(double %.neg109, double 4.095000e+03, double 4.095000e+03)
+  %29 = fadd double %28, 5.000000e-01
+  %30 = select i1 %24, double 4.095500e+03, double %29
   %31 = fptosi double %30 to i16
   store i16 %31, ptr %.0100115, align 2
   store i16 %31, ptr %18, align 2
@@ -921,9 +921,9 @@ define internal noundef i32 @get_text_gray_cmyk_row(ptr noundef %0, ptr nocaptur
   %51 = fsub double 1.000000e+00, %48
   %52 = fneg double %50
   %.neg = fdiv double %52, %51
-  %53 = select i1 %49, double -0.000000e+00, double %.neg
-  %54 = tail call double @llvm.fmuladd.f64(double %53, double 4.095000e+03, double 4.095000e+03)
-  %55 = fadd double %54, 5.000000e-01
+  %53 = tail call double @llvm.fmuladd.f64(double %.neg, double 4.095000e+03, double 4.095000e+03)
+  %54 = fadd double %53, 5.000000e-01
+  %55 = select i1 %49, double 4.095500e+03, double %54
   %56 = fptosi double %55 to i16
   store i16 %56, ptr %.1101112, align 2
   store i16 %56, ptr %43, align 2
@@ -1588,9 +1588,9 @@ define internal noundef i32 @get_word_gray_cmyk_row(ptr noundef %0, ptr nocaptur
   %54 = fsub double 1.000000e+00, %51
   %55 = fneg double %53
   %.neg = fdiv double %55, %54
-  %56 = select i1 %52, double -0.000000e+00, double %.neg
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double 4.095000e+03, double 4.095000e+03)
-  %58 = fadd double %57, 5.000000e-01
+  %56 = tail call double @llvm.fmuladd.f64(double %.neg, double 4.095000e+03, double 4.095000e+03)
+  %57 = fadd double %56, 5.000000e-01
+  %58 = select i1 %52, double 4.095500e+03, double %57
   %59 = fptosi double %58 to i16
   store i16 %59, ptr %.06771, align 2
   store i16 %59, ptr %46, align 2
@@ -1906,9 +1906,9 @@ define internal noundef i32 @get_gray_cmyk_row(ptr noundef %0, ptr nocapture nou
   %40 = fsub double 1.000000e+00, %37
   %41 = fneg double %39
   %.neg112 = fdiv double %41, %40
-  %42 = select i1 %38, double -0.000000e+00, double %.neg112
-  %43 = tail call double @llvm.fmuladd.f64(double %42, double 4.095000e+03, double 4.095000e+03)
-  %44 = fadd double %43, 5.000000e-01
+  %42 = tail call double @llvm.fmuladd.f64(double %.neg112, double 4.095000e+03, double 4.095000e+03)
+  %43 = fadd double %42, 5.000000e-01
+  %44 = select i1 %38, double 4.095500e+03, double %43
   %45 = fptosi double %44 to i16
   store i16 %45, ptr %.0105119, align 2
   store i16 %45, ptr %32, align 2
@@ -1946,9 +1946,9 @@ define internal noundef i32 @get_gray_cmyk_row(ptr noundef %0, ptr nocapture nou
   %66 = fsub double 1.000000e+00, %63
   %67 = fneg double %65
   %.neg = fdiv double %67, %66
-  %68 = select i1 %64, double -0.000000e+00, double %.neg
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double 4.095000e+03, double 4.095000e+03)
-  %70 = fadd double %69, 5.000000e-01
+  %68 = tail call double @llvm.fmuladd.f64(double %.neg, double 4.095000e+03, double 4.095000e+03)
+  %69 = fadd double %68, 5.000000e-01
+  %70 = select i1 %64, double 4.095500e+03, double %69
   %71 = fptosi double %70 to i16
   store i16 %71, ptr %.1106115, align 2
   store i16 %71, ptr %58, align 2

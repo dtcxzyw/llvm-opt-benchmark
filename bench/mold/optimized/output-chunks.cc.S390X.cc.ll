@@ -2676,10 +2676,10 @@ if.then51:                                        ; preds = %if.end48
   %div6038 = lshr i64 %26, 6
   %cmp61 = icmp ult i64 %26, 4194304
   %27 = trunc i64 %div6038 to i16
-  %conv62 = select i1 %cmp61, i16 %27, i16 0
+  %28 = tail call i16 @llvm.bswap.i16(i16 %27)
   %e_shnum = getelementptr inbounds i8, ptr %add.ptr, i64 60
-  %28 = tail call noundef i16 @llvm.bswap.i16(i16 %conv62)
-  store i16 %28, ptr %e_shnum, align 1
+  %29 = select i1 %cmp61, i16 %28, i16 0
+  store i16 %29, ptr %e_shnum, align 1
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then51, %if.end48
@@ -9274,10 +9274,10 @@ for.body35:                                       ; preds = %for.end24, %for.bod
 for.end43:                                        ; preds = %for.body35, %for.end24
   %offset.2.lcssa = phi i64 [ %offset.1.lcssa, %for.end24 ], [ %add40, %for.body35 ]
   %cmp = icmp eq i64 %offset.2.lcssa, 1
-  %cond = select i1 %cmp, i64 0, i64 %offset.2.lcssa
+  %12 = tail call i64 @llvm.bswap.i64(i64 %offset.2.lcssa)
   %sh_size = getelementptr inbounds i8, ptr %this, i64 56
-  %12 = tail call noundef i64 @llvm.bswap.i64(i64 %cond)
-  store i64 %12, ptr %sh_size, align 8
+  %13 = select i1 %cmp, i64 0, i64 %12
+  store i64 %13, ptr %sh_size, align 8
   ret void
 }
 
@@ -10582,10 +10582,10 @@ for.end78:                                        ; preds = %for.body70, %for.en
   store i32 %22, ptr %sh_link, align 8
   %cmp = icmp eq i64 %nsyms.5.lcssa, 1
   %mul = mul i64 %nsyms.5.lcssa, 24
-  %cond = select i1 %cmp, i64 0, i64 %mul
+  %23 = tail call i64 @llvm.bswap.i64(i64 %mul)
   %sh_size = getelementptr inbounds i8, ptr %this, i64 56
-  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %cond)
-  store i64 %23, ptr %sh_size, align 8
+  %24 = select i1 %cmp, i64 0, i64 %23
+  store i64 %24, ptr %sh_size, align 8
   ret void
 }
 
@@ -16566,28 +16566,28 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   %ver_idx = getelementptr inbounds i8, ptr %37, i64 44
   %38 = load i16, ptr %ver_idx, align 4
   %cmp = icmp eq i16 %38, -1
-  %narrow = select i1 %cmp, i16 1, i16 %38
-  %39 = load ptr, ptr %versym, align 8
-  %contents52 = getelementptr inbounds i8, ptr %39, i64 200
+  %39 = call i16 @llvm.bswap.i16(i16 %38)
+  %40 = load ptr, ptr %versym, align 8
+  %contents52 = getelementptr inbounds i8, ptr %40, i64 200
   %aux_idx.i = getelementptr inbounds i8, ptr %37, i64 40
-  %40 = load i32, ptr %aux_idx.i, align 8
-  %cmp.i47 = icmp eq i32 %40, -1
+  %41 = load i32, ptr %aux_idx.i, align 8
+  %cmp.i47 = icmp eq i32 %41, -1
   br i1 %cmp.i47, label %_ZNK4mold3elf6SymbolINS0_5S390XEE14get_dynsym_idxERNS0_7ContextIS2_EE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body46
-  %conv.i = sext i32 %40 to i64
-  %41 = load ptr, ptr %symbol_aux.i, align 8
-  %dynsym_idx.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %41, i64 %conv.i, i32 6
-  %42 = load i32, ptr %dynsym_idx.i, align 4
-  %43 = sext i32 %42 to i64
+  %conv.i = sext i32 %41 to i64
+  %42 = load ptr, ptr %symbol_aux.i, align 8
+  %dynsym_idx.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %42, i64 %conv.i, i32 6
+  %43 = load i32, ptr %dynsym_idx.i, align 4
+  %44 = sext i32 %43 to i64
   br label %_ZNK4mold3elf6SymbolINS0_5S390XEE14get_dynsym_idxERNS0_7ContextIS2_EE.exit
 
 _ZNK4mold3elf6SymbolINS0_5S390XEE14get_dynsym_idxERNS0_7ContextIS2_EE.exit: ; preds = %for.body46, %cond.false.i
-  %cond.i = phi i64 [ %43, %cond.false.i ], [ -1, %for.body46 ]
-  %44 = load ptr, ptr %contents52, align 8
-  %add.ptr.i48 = getelementptr inbounds %"class.mold::BigEndian.244", ptr %44, i64 %cond.i
-  %45 = call noundef i16 @llvm.bswap.i16(i16 %narrow)
-  store i16 %45, ptr %add.ptr.i48, align 1
+  %cond.i = phi i64 [ %44, %cond.false.i ], [ -1, %for.body46 ]
+  %45 = load ptr, ptr %contents52, align 8
+  %add.ptr.i48 = getelementptr inbounds %"class.mold::BigEndian.244", ptr %45, i64 %cond.i
+  %46 = select i1 %cmp, i16 256, i16 %39
+  store i16 %46, ptr %add.ptr.i48, align 1
   %__begin137.sroa.0.0 = getelementptr inbounds i8, ptr %__begin137.sroa.0.061, i64 8
   %cmp.i46 = icmp eq ptr %__begin137.sroa.0.0, %36
   br i1 %cmp.i46, label %cleanup, label %for.body46

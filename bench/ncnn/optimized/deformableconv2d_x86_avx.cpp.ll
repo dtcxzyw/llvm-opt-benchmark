@@ -5974,10 +5974,10 @@ _ZN4ncnnL29deformableconv2d_pack4to8_avxERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %.sroa.speculated2.us.us.us.i = select i1 %2755, float 0x40561814A0000000, float %.1717.lcssa.us.us.us.i
   %2756 = fcmp fast olt float %.sroa.speculated2.us.us.us.i, 0xC0561814A0000000
   %.sroa.speculated2.neg.us.us.us.i = fneg fast float %.sroa.speculated2.us.us.us.i
-  %2757 = select fast i1 %2756, float 0x40561814A0000000, float %.sroa.speculated2.neg.us.us.us.i
-  %2758 = tail call fast float @llvm.exp.f32(float %2757)
-  %2759 = fadd fast float %2758, 1.000000e+00
-  %2760 = fdiv fast float 1.000000e+00, %2759
+  %2757 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2.neg.us.us.us.i)
+  %2758 = fadd fast float %2757, 1.000000e+00
+  %2759 = fdiv fast float 1.000000e+00, %2758
+  %2760 = select i1 %2756, float 0x37F6A0A880000000, float %2759
   br label %2777
 
 2761:                                             ; preds = %._crit_edge34.us.us.us.i
@@ -9069,10 +9069,10 @@ _ZN4ncnnL29deformableconv2d_pack1to4_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %.sroa.speculated2.us.us.us.i2704 = select i1 %4893, float 0x40561814A0000000, float %.1605.lcssa.us.us.us.i
   %4894 = fcmp fast olt float %.sroa.speculated2.us.us.us.i2704, 0xC0561814A0000000
   %.sroa.speculated2.neg.us.us.us.i2705 = fneg fast float %.sroa.speculated2.us.us.us.i2704
-  %4895 = select fast i1 %4894, float 0x40561814A0000000, float %.sroa.speculated2.neg.us.us.us.i2705
-  %4896 = tail call fast float @llvm.exp.f32(float %4895)
-  %4897 = fadd fast float %4896, 1.000000e+00
-  %4898 = fdiv fast float 1.000000e+00, %4897
+  %4895 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2.neg.us.us.us.i2705)
+  %4896 = fadd fast float %4895, 1.000000e+00
+  %4897 = fdiv fast float 1.000000e+00, %4896
+  %4898 = select i1 %4894, float 0x37F6A0A880000000, float %4897
   br label %4915
 
 4899:                                             ; preds = %._crit_edge34.us.us.us.i2694
@@ -9927,10 +9927,10 @@ _ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3MatESaIS1_EERS1_RKS1_S8
   %.sroa.speculated2738 = select i1 %5457, float 0x40561814A0000000, float %.1.lcssa
   %5458 = fcmp fast olt float %.sroa.speculated2738, 0xC0561814A0000000
   %.sroa.speculated2738.neg = fneg fast float %.sroa.speculated2738
-  %5459 = select fast i1 %5458, float 0x40561814A0000000, float %.sroa.speculated2738.neg
-  %5460 = tail call fast float @llvm.exp.f32(float %5459)
-  %5461 = fadd fast float %5460, 1.000000e+00
-  %5462 = fdiv fast float 1.000000e+00, %5461
+  %5459 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2738.neg)
+  %5460 = fadd fast float %5459, 1.000000e+00
+  %5461 = fdiv fast float 1.000000e+00, %5460
+  %5462 = select i1 %5458, float 0x37F6A0A880000000, float %5461
   br label %5485
 
 5463:                                             ; preds = %._crit_edge2858

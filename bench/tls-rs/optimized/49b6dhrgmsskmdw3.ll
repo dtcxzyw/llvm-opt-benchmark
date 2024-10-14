@@ -9584,9 +9584,9 @@ define noundef i16 @"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define i16 @_ZN6rustls4msgs5enums10EchVersion8to_array17h066b4e56c9facc3fE(i16 noundef %0, i16 %1) unnamed_addr #6 {
   %switch.i = icmp eq i16 %0, 0
-  %..i = select i1 %switch.i, i16 -499, i16 %1
-  %3 = tail call i16 @llvm.bswap.i16(i16 %..i)
-  ret i16 %3
+  %3 = tail call i16 @llvm.bswap.i16(i16 %1)
+  %4 = select i1 %switch.i, i16 3582, i16 %3
+  ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -9622,15 +9622,15 @@ define void @"_ZN78_$LT$rustls..msgs..enums..EchVersion$u20$as$u20$rustls..msgs.
 "_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit": ; preds = %2, %11
   %15 = phi i64 [ %7, %2 ], [ %.pre.i.i.i, %11 ]
   %switch.i = icmp eq i16 %3, 0
-  %..i = select i1 %switch.i, i16 -499, i16 %5
-  %16 = tail call i16 @llvm.bswap.i16(i16 %..i)
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !1010, !noalias !1017, !nonnull !9, !noundef !9
-  %19 = getelementptr inbounds i8, ptr %18, i64 %15
-  store i16 %16, ptr %19, align 1, !noalias !1023
-  %20 = load i64, ptr %6, align 8, !alias.scope !1010, !noalias !1017, !noundef !9
-  %21 = add i64 %20, 2
-  store i64 %21, ptr %6, align 8, !alias.scope !1010, !noalias !1017
+  %16 = tail call i16 @llvm.bswap.i16(i16 %5)
+  %17 = select i1 %switch.i, i16 3582, i16 %16
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8, !alias.scope !1010, !noalias !1017, !nonnull !9, !noundef !9
+  %20 = getelementptr inbounds i8, ptr %19, i64 %15
+  store i16 %17, ptr %20, align 1, !noalias !1023
+  %21 = load i64, ptr %6, align 8, !alias.scope !1010, !noalias !1017, !noundef !9
+  %22 = add i64 %21, 2
+  store i64 %22, ptr %6, align 8, !alias.scope !1010, !noalias !1017
   ret void
 }
 

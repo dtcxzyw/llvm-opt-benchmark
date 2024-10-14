@@ -1212,10 +1212,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.sroa.speculated311 = select i1 %203, float 0x40561814A0000000, float %.1210.lcssa
   %204 = fcmp fast olt float %.sroa.speculated311, 0xC0561814A0000000
   %.sroa.speculated311.neg = fneg fast float %.sroa.speculated311
-  %205 = select fast i1 %204, float 0x40561814A0000000, float %.sroa.speculated311.neg
-  %206 = call fast float @llvm.exp.f32(float %205)
-  %207 = fadd fast float %206, 1.000000e+00
-  %208 = fdiv fast float 1.000000e+00, %207
+  %205 = call fast float @llvm.exp.f32(float %.sroa.speculated311.neg)
+  %206 = fadd fast float %205, 1.000000e+00
+  %207 = fdiv fast float 1.000000e+00, %206
+  %208 = select i1 %204, float 0x37F6A0A880000000, float %207
   br label %231
 
 209:                                              ; preds = %._crit_edge354

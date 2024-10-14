@@ -1497,23 +1497,23 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
 
 _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %70, %79
   %.sink = phi i64 [ %80, %79 ], [ %71, %70 ]
-  %.sink137 = phi float [ %83, %79 ], [ %74, %70 ]
-  %.sink135 = phi float [ %86, %79 ], [ %77, %70 ]
-  %.sink133 = phi float [ %87, %79 ], [ %78, %70 ]
+  %.sink139 = phi float [ %83, %79 ], [ %74, %70 ]
+  %.sink137 = phi float [ %86, %79 ], [ %77, %70 ]
+  %.sink135 = phi float [ %87, %79 ], [ %78, %70 ]
   %88 = or disjoint i64 %.sink, 1
   %89 = getelementptr inbounds [8 x float], ptr %6, i64 0, i64 %88
   %90 = load float, ptr %89, align 4
-  %91 = fsub float %90, %.sink137
-  %92 = fdiv float %91, %.sink135
-  %93 = fcmp ogt float %.sink133, %92
-  %.094 = select i1 %93, float %92, float %.sink133
-  %.093 = select i1 %93, float %.sink133, float %92
+  %91 = fsub float %90, %.sink139
+  %92 = fdiv float %91, %.sink137
+  %93 = fcmp ogt float %.sink135, %92
+  %.094 = select i1 %93, float %92, float %.sink135
+  %.093 = select i1 %93, float %.sink135, float %92
   %94 = fcmp olt float %.094, 0.000000e+00
   %95 = fcmp ogt float %.094, 1.000000e+00
   %96 = select i1 %95, float 1.000000e+00, float %.094
   %97 = fmul float %96, 2.550000e+02
-  %98 = select i1 %94, float 0.000000e+00, float %97
-  %99 = tail call float @llvm.round.f32(float %98)
+  %98 = tail call float @llvm.round.f32(float %97)
+  %99 = select i1 %94, float 0.000000e+00, float %98
   %100 = fptoui float %99 to i8
   %101 = getelementptr inbounds i8, ptr %63, i64 10
   store i8 %100, ptr %101, align 2
@@ -1521,8 +1521,8 @@ _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %70, %79
   %103 = fcmp ogt float %.093, 1.000000e+00
   %104 = select i1 %103, float 1.000000e+00, float %.093
   %105 = fmul float %104, 2.550000e+02
-  %106 = select i1 %102, float 0.000000e+00, float %105
-  %107 = tail call float @llvm.round.f32(float %106)
+  %106 = tail call float @llvm.round.f32(float %105)
+  %107 = select i1 %102, float 0.000000e+00, float %106
   %108 = fptoui float %107 to i8
   %109 = getelementptr inbounds i8, ptr %63, i64 11
   store i8 %108, ptr %109, align 1

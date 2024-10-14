@@ -72,10 +72,10 @@ define hidden noundef i32 @_ZNK4ncnn7Sigmoid15forward_inplaceERNS_3MatERKNS_6Opt
   %.sroa.speculated61.us = select i1 %27, float 0x40561814A0000000, float %26
   %28 = fcmp fast olt float %.sroa.speculated61.us, 0xC0561814A0000000
   %.sroa.speculated61.neg.us = fneg fast float %.sroa.speculated61.us
-  %29 = select fast i1 %28, float 0x40561814A0000000, float %.sroa.speculated61.neg.us
-  %30 = tail call fast float @llvm.exp.f32(float %29)
-  %31 = fadd fast float %30, 1.000000e+00
-  %32 = fdiv fast float 1.000000e+00, %31
+  %29 = tail call fast float @llvm.exp.f32(float %.sroa.speculated61.neg.us)
+  %30 = fadd fast float %29, 1.000000e+00
+  %31 = fdiv fast float 1.000000e+00, %30
+  %32 = select i1 %28, float 0x37F6A0A880000000, float %31
   store float %32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

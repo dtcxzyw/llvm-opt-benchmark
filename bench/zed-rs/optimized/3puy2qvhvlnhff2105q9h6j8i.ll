@@ -176669,8 +176669,8 @@ define hidden void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePt
   store i64 %33, ptr %16, align 8, !noalias !45192
   br label %34
 
-34:                                               ; preds = %118, %30
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %118 ], [ %31, %30 ]
+34:                                               ; preds = %119, %30
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %119 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn
 
 35:                                               ; preds = %19, %"._ZN89_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnMut$LT$Args$GT$$GT$8call_mut17he945896eb4cb0123E.exit_crit_edge"
@@ -176824,7 +176824,7 @@ _ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.e
   store i64 -1, ptr %5, align 8
   %86 = getelementptr inbounds i8, ptr %4, i64 2680
   invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface13ack_configure17h9f07ed30af10763bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %86, i32 noundef %1)
-          to label %88 unwind label %118
+          to label %88 unwind label %119
 
 87:                                               ; preds = %82
   tail call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.880) #51
@@ -176846,59 +176846,58 @@ _ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.e
   %94 = trunc i32 %.sroa.020.0.copyload to i1
   %95 = fadd float %.sroa.061.0, 0.000000e+00
   %96 = fsub float %.sroa.4130.0.copyload, %.sroa.061.0
-  %.sroa.6124.0 = select i1 %94, float 0.000000e+00, float %95
+  %97 = tail call i32 @llvm.fptosi.sat.i32.f32(float %95)
   %.sroa.16.0 = select i1 %94, float %.sroa.4130.0.copyload, float %96
-  %97 = and i32 %.sroa.020.0.copyload, 16777216
-  %.not.i79 = icmp eq i32 %97, 0
-  %98 = fsub float %.sroa.16.0, %.sroa.061.0
-  %.sroa.16.1 = select i1 %.not.i79, float %98, float %.sroa.16.0
-  %99 = and i32 %.sroa.020.0.copyload, 256
-  %.not3.i = icmp eq i32 %99, 0
-  %100 = fsub float %.sroa.3129.0.copyload, %.sroa.061.0
-  %.sroa.0123.0 = select i1 %.not3.i, float %95, float 0.000000e+00
-  %.sroa.10125.0 = select i1 %.not3.i, float %100, float %.sroa.3129.0.copyload
-  %101 = and i32 %.sroa.020.0.copyload, 65536
-  %.not4.i = icmp eq i32 %101, 0
-  %102 = fsub float %.sroa.10125.0, %.sroa.061.0
-  %.sroa.10125.1 = select i1 %.not4.i, float %102, float %.sroa.10125.0
-  %103 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.0123.0)
-  %104 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.6124.0)
-  %105 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.10125.1)
-  %106 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.16.1)
-  %..i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %105, i32 1)
-  %..i2.i.i = tail call noundef i32 @llvm.smax.i32(i32 %106, i32 1)
-  invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface19set_window_geometry17hc2720b7099082ac1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %86, i32 noundef %103, i32 noundef %104, i32 noundef %..i.i.i, i32 noundef %..i2.i.i)
-          to label %107 unwind label %118
+  %98 = and i32 %.sroa.020.0.copyload, 16777216
+  %.not.i79 = icmp eq i32 %98, 0
+  %99 = fsub float %.sroa.16.0, %.sroa.061.0
+  %.sroa.16.1 = select i1 %.not.i79, float %99, float %.sroa.16.0
+  %100 = and i32 %.sroa.020.0.copyload, 256
+  %.not3.i = icmp eq i32 %100, 0
+  %101 = fsub float %.sroa.3129.0.copyload, %.sroa.061.0
+  %.sroa.10125.0 = select i1 %.not3.i, float %101, float %.sroa.3129.0.copyload
+  %102 = and i32 %.sroa.020.0.copyload, 65536
+  %.not4.i = icmp eq i32 %102, 0
+  %103 = fsub float %.sroa.10125.0, %.sroa.061.0
+  %.sroa.10125.1 = select i1 %.not4.i, float %103, float %.sroa.10125.0
+  %104 = select i1 %.not3.i, i32 %97, i32 0
+  %105 = select i1 %94, i32 0, i32 %97
+  %106 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.10125.1)
+  %107 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.16.1)
+  %..i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %106, i32 1)
+  %..i2.i.i = tail call noundef i32 @llvm.smax.i32(i32 %107, i32 1)
+  invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface19set_window_geometry17hc2720b7099082ac1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %86, i32 noundef %104, i32 noundef %105, i32 noundef %..i.i.i, i32 noundef %..i2.i.i)
+          to label %108 unwind label %119
 
-107:                                              ; preds = %88
-  %108 = getelementptr inbounds i8, ptr %4, i64 4132
-  %109 = load i8, ptr %108, align 4, !range !237, !noundef !4
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %115
+108:                                              ; preds = %88
+  %109 = getelementptr inbounds i8, ptr %4, i64 4132
+  %110 = load i8, ptr %109, align 4, !range !237, !noundef !4
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %112, label %116
 
-111:                                              ; preds = %107
-  %112 = load i64, ptr %5, align 8, !noalias !45216, !noundef !4
-  %113 = add i64 %112, 1
-  store i64 %113, ptr %5, align 8, !noalias !45216
-  br label %114
+112:                                              ; preds = %108
+  %113 = load i64, ptr %5, align 8, !noalias !45216, !noundef !4
+  %114 = add i64 %113, 1
+  store i64 %114, ptr %5, align 8, !noalias !45216
+  br label %115
 
-114:                                              ; preds = %115, %111
+115:                                              ; preds = %116, %112
   ret void
 
-115:                                              ; preds = %107
-  store i8 1, ptr %108, align 4
-  %116 = load i64, ptr %5, align 8, !noalias !45223, !noundef !4
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %5, align 8, !noalias !45223
+116:                                              ; preds = %108
+  store i8 1, ptr %109, align 4
+  %117 = load i64, ptr %5, align 8, !noalias !45223, !noundef !4
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %5, align 8, !noalias !45223
   tail call void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePtr5frame17hc749f47bd235e760E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
-  br label %114
+  br label %115
 
-118:                                              ; preds = %88, %.thread173
+119:                                              ; preds = %88, %.thread173
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %119 = load i64, ptr %5, align 8, !noalias !45230, !noundef !4
-  %120 = add i64 %119, 1
-  store i64 %120, ptr %5, align 8, !noalias !45230
+  %120 = load i64, ptr %5, align 8, !noalias !45230, !noundef !4
+  %121 = add i64 %120, 1
+  store i64 %121, ptr %5, align 8, !noalias !45230
   br label %34
 }
 

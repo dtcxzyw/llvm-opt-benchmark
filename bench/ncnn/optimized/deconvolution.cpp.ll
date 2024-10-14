@@ -1425,10 +1425,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.sroa.speculated6 = select i1 %150, float 0x40561814A0000000, float %132
   %151 = fcmp fast olt float %.sroa.speculated6, 0xC0561814A0000000
   %.sroa.speculated6.neg = fneg fast float %.sroa.speculated6
-  %152 = select fast i1 %151, float 0x40561814A0000000, float %.sroa.speculated6.neg
-  %153 = tail call fast float @llvm.exp.f32(float %152)
-  %154 = fadd fast float %153, 1.000000e+00
-  %155 = fdiv fast float 1.000000e+00, %154
+  %152 = tail call fast float @llvm.exp.f32(float %.sroa.speculated6.neg)
+  %153 = fadd fast float %152, 1.000000e+00
+  %154 = fdiv fast float 1.000000e+00, %153
+  %155 = select i1 %151, float 0x37F6A0A880000000, float %154
   br label %178
 
 156:                                              ; preds = %.lr.ph53

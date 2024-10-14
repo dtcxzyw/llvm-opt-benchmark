@@ -206,8 +206,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %72 = fadd reassoc nsz arcp contract afn double %70, %71
   %73 = fptrunc double %72 to float
   %74 = fcmp reassoc nsz arcp contract afn ugt float %73, 0.000000e+00
-  %75 = select i1 %74, float %73, float 0x3EB0C6F7A0000000
-  %76 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %75)
+  %75 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %73)
+  %76 = select i1 %74, float %75, float 0xC02BA18AA0000000
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #25
   %77 = uitofp nneg i32 %61 to float
   %78 = fmul reassoc nsz arcp contract afn float %41, %77
@@ -354,8 +354,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %180 = fadd reassoc nsz arcp contract afn double %178, %179
   %181 = fptrunc double %180 to float
   %182 = fcmp reassoc nsz arcp contract afn ugt float %181, 0.000000e+00
-  %183 = select i1 %182, float %181, float 0x3EB0C6F7A0000000
-  %184 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %183)
+  %183 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %181)
+  %184 = select i1 %182, float %183, float 0xC02BA18AA0000000
   %185 = fdiv reassoc nsz arcp contract afn float %164, %168
   %186 = fmul reassoc nsz arcp contract afn float %185, %101
   %187 = fsub reassoc nsz arcp contract afn float -1.000000e+00, %185
@@ -406,8 +406,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %223 = fadd reassoc nsz arcp contract afn double %222, %216
   %224 = fptrunc double %223 to float
   %225 = fcmp reassoc nsz arcp contract afn ugt float %224, 0.000000e+00
-  %226 = select i1 %225, float %224, float 0x3EB0C6F7A0000000
-  %227 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %226)
+  %226 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %224)
+  %227 = select i1 %225, float %226, float 0xC02BA18AA0000000
   %228 = fmul reassoc nsz arcp contract afn float %227, %209
   %229 = fadd reassoc nsz arcp contract afn float %228, -1.000000e+00
   %230 = call reassoc nsz arcp contract afn float @llvm.exp.f32(float %229)
@@ -473,9 +473,9 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr n
   %23 = fpext float %22 to double
   %24 = fcmp reassoc nsz arcp contract afn olt double %23, 1.000000e-01
   %25 = fmul reassoc nsz arcp contract afn double %23, 2.000000e-02
-  %26 = select i1 %24, double 2.000000e-03, double %25
-  %27 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %26)
-  %28 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %27)
+  %26 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %25)
+  %27 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %26)
+  %28 = select i1 %24, double 0x3FCA323591D23FB1, double %27
   %29 = uitofp i64 %1 to double
   %30 = fmul reassoc nsz arcp contract afn double %28, %29
   %31 = fptoui double %30 to i64

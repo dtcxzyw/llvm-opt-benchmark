@@ -3952,54 +3952,54 @@ if.then.i:                                        ; preds = %entry
   %cmp3.i.i.i = fcmp ogt float %div.i1.i, 1.000000e+00
   %conv2.val.i.i.i = select i1 %cmp3.i.i.i, float 1.000000e+00, float %div.i1.i
   %4 = fmul float %conv2.val.i.i.i, 6.553500e+04
-  %mul.i.i = select i1 %cmp.i.i.i, float 0.000000e+00, float %4
-  %5 = tail call noundef float @llvm.round.f32(float %mul.i.i)
+  %5 = tail call float @llvm.round.f32(float %4)
+  %6 = select i1 %cmp.i.i.i, float 0.000000e+00, float %5
   br label %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
 
 if.else.i:                                        ; preds = %entry
-  %6 = tail call noundef float @llvm.fabs.f32(float %div2.i.i20)
-  %sub.i = fsub float 1.000000e+00, %6
-  %7 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %div.i.i19)
-  %mul.i = fmul float %7, %sub.i
-  %add.i9.i = fadd float %mul.i, 1.000000e+00
-  %div.i10.i = fmul float %add.i9.i, 5.000000e-01
-  %cmp.i.i11.i = fcmp olt float %div.i10.i, 0.000000e+00
-  %cmp3.i.i12.i = fcmp ogt float %div.i10.i, 1.000000e+00
-  %conv2.val.i.i13.i = select i1 %cmp3.i.i12.i, float 1.000000e+00, float %div.i10.i
-  %8 = fmul float %conv2.val.i.i13.i, 6.553500e+04
-  %mul.i14.i = select i1 %cmp.i.i11.i, float 0.000000e+00, float %8
-  %9 = tail call noundef float @llvm.round.f32(float %mul.i14.i)
-  %10 = tail call noundef float @llvm.fabs.f32(float %div.i.i19)
-  %sub21.i = fsub float 1.000000e+00, %10
-  %11 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %div2.i.i20)
-  %mul24.i = fmul float %11, %sub21.i
+  %7 = tail call noundef float @llvm.fabs.f32(float %div2.i.i20)
+  %sub.i = fsub float 1.000000e+00, %7
+  %8 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %div.i.i19)
+  %mul.i = fmul float %8, %sub.i
+  %add.i8.i = fadd float %mul.i, 1.000000e+00
+  %div.i9.i = fmul float %add.i8.i, 5.000000e-01
+  %cmp.i.i10.i = fcmp olt float %div.i9.i, 0.000000e+00
+  %cmp3.i.i11.i = fcmp ogt float %div.i9.i, 1.000000e+00
+  %conv2.val.i.i12.i = select i1 %cmp3.i.i11.i, float 1.000000e+00, float %div.i9.i
+  %9 = fmul float %conv2.val.i.i12.i, 6.553500e+04
+  %10 = tail call float @llvm.round.f32(float %9)
+  %11 = select i1 %cmp.i.i10.i, float 0.000000e+00, float %10
+  %12 = tail call noundef float @llvm.fabs.f32(float %div.i.i19)
+  %sub21.i = fsub float 1.000000e+00, %12
+  %13 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %div2.i.i20)
+  %mul24.i = fmul float %13, %sub21.i
   br label %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
 
 _ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit: ; preds = %if.then.i, %if.else.i
   %mul24.sink.i = phi float [ %mul24.i, %if.else.i ], [ %div2.i.i20, %if.then.i ]
-  %conv.i.sink.in.i = phi float [ %9, %if.else.i ], [ %5, %if.then.i ]
-  %add.i16.i = fadd float %mul24.sink.i, 1.000000e+00
-  %div.i17.i = fmul float %add.i16.i, 5.000000e-01
-  %cmp.i.i18.i = fcmp olt float %div.i17.i, 0.000000e+00
-  %cmp3.i.i19.i = fcmp ogt float %div.i17.i, 1.000000e+00
-  %conv2.val.i.i20.i = select i1 %cmp3.i.i19.i, float 1.000000e+00, float %div.i17.i
-  %12 = fmul float %conv2.val.i.i20.i, 6.553500e+04
-  %mul.i21.i = select i1 %cmp.i.i18.i, float 0.000000e+00, float %12
-  %13 = tail call noundef float @llvm.round.f32(float %mul.i21.i)
-  %conv.i8.sink.i = fptoui float %13 to i16
+  %conv.i.sink.in.i = phi float [ %11, %if.else.i ], [ %6, %if.then.i ]
+  %add.i14.i = fadd float %mul24.sink.i, 1.000000e+00
+  %div.i15.i = fmul float %add.i14.i, 5.000000e-01
+  %cmp.i.i16.i = fcmp olt float %div.i15.i, 0.000000e+00
+  %cmp3.i.i17.i = fcmp ogt float %div.i15.i, 1.000000e+00
+  %conv2.val.i.i18.i = select i1 %cmp3.i.i17.i, float 1.000000e+00, float %div.i15.i
+  %14 = fmul float %conv2.val.i.i18.i, 6.553500e+04
+  %15 = tail call float @llvm.round.f32(float %14)
+  %16 = select i1 %cmp.i.i16.i, float 0.000000e+00, float %15
+  %conv.i7.sink.i = fptoui float %16 to i16
   %conv.i.sink.i = fptoui float %conv.i.sink.in.i to i16
   store i16 %conv.i.sink.i, ptr %this, align 4
-  %14 = getelementptr inbounds i8, ptr %this, i64 2
-  store i16 %conv.i8.sink.i, ptr %14, align 2
+  %17 = getelementptr inbounds i8, ptr %this, i64 2
+  store i16 %conv.i7.sink.i, ptr %17, align 2
   %phi = getelementptr inbounds i8, ptr %this, i64 4
   %phi4 = getelementptr inbounds i8, ptr %lb, i64 24
-  %15 = load float, ptr %phi4, align 4
-  store float %15, ptr %phi, align 4
-  %16 = getelementptr inbounds i8, ptr %this, i64 8
+  %18 = load float, ptr %phi4, align 4
+  store float %18, ptr %phi, align 4
+  %19 = getelementptr inbounds i8, ptr %this, i64 8
   %cosTheta_o = getelementptr inbounds i8, ptr %lb, i64 40
-  %17 = load float, ptr %cosTheta_o, align 4
-  %18 = tail call float @llvm.fabs.f32(float %17)
-  %or.cond.i = fcmp ugt float %18, 1.000000e+00
+  %20 = load float, ptr %cosTheta_o, align 4
+  %21 = tail call float @llvm.fabs.f32(float %20)
+  %or.cond.i = fcmp ugt float %21, 1.000000e+00
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
 
 land.rhs.i:                                       ; preds = %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
@@ -4007,20 +4007,20 @@ land.rhs.i:                                       ; preds = %_ZN4pbrt16Octahedra
   unreachable
 
 _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit: ; preds = %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
-  %add.i22 = fadd float %17, 1.000000e+00
+  %add.i22 = fadd float %20, 1.000000e+00
   %div.i = fmul float %add.i22, 5.000000e-01
   %mul.i23 = fmul float %div.i, 3.276700e+04
-  %19 = tail call noundef float @llvm.floor.f32(float %mul.i23)
-  %conv.i = fptoui float %19 to i32
-  %bf.load = load i32, ptr %16, align 4
+  %22 = tail call noundef float @llvm.floor.f32(float %mul.i23)
+  %conv.i = fptoui float %22 to i32
+  %bf.load = load i32, ptr %19, align 4
   %bf.value = and i32 %conv.i, 32767
   %bf.clear = and i32 %bf.load, -32768
   %bf.set = or disjoint i32 %bf.clear, %bf.value
-  store i32 %bf.set, ptr %16, align 4
+  store i32 %bf.set, ptr %19, align 4
   %cosTheta_e = getelementptr inbounds i8, ptr %lb, i64 44
-  %20 = load float, ptr %cosTheta_e, align 4
-  %21 = tail call float @llvm.fabs.f32(float %20)
-  %or.cond.i24 = fcmp ugt float %21, 1.000000e+00
+  %23 = load float, ptr %cosTheta_e, align 4
+  %24 = tail call float @llvm.fabs.f32(float %23)
+  %or.cond.i24 = fcmp ugt float %24, 1.000000e+00
   br i1 %or.cond.i24, label %land.rhs.i29, label %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30
 
 land.rhs.i29:                                     ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
@@ -4028,24 +4028,24 @@ land.rhs.i29:                                     ; preds = %_ZN4pbrt18CompactLi
   unreachable
 
 _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30: ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
-  %add.i25 = fadd float %20, 1.000000e+00
+  %add.i25 = fadd float %23, 1.000000e+00
   %div.i26 = fmul float %add.i25, 5.000000e-01
   %mul.i27 = fmul float %div.i26, 3.276700e+04
-  %22 = tail call noundef float @llvm.floor.f32(float %mul.i27)
-  %conv.i28 = fptoui float %22 to i32
+  %25 = tail call noundef float @llvm.floor.f32(float %mul.i27)
+  %conv.i28 = fptoui float %25 to i32
   %bf.value8 = shl i32 %conv.i28, 15
   %bf.shl = and i32 %bf.value8, 1073709056
   %bf.clear9 = and i32 %bf.set, -1073709057
   %bf.set10 = or disjoint i32 %bf.shl, %bf.clear9
-  store i32 %bf.set10, ptr %16, align 4
+  store i32 %bf.set10, ptr %19, align 4
   %twoSided = getelementptr inbounds i8, ptr %lb, i64 48
-  %23 = load i8, ptr %twoSided, align 4
-  %24 = and i8 %23, 1
-  %bf.value12 = zext nneg i8 %24 to i32
+  %26 = load i8, ptr %twoSided, align 4
+  %27 = and i8 %26, 1
+  %bf.value12 = zext nneg i8 %27 to i32
   %bf.shl13 = shl nuw nsw i32 %bf.value12, 30
   %bf.clear14 = and i32 %bf.set10, -1073741825
   %bf.set15 = or disjoint i32 %bf.shl13, %bf.clear14
-  store i32 %bf.set15, ptr %16, align 4
+  store i32 %bf.set15, ptr %19, align 4
   %y.i32 = getelementptr inbounds i8, ptr %allb, i64 4
   %pMax = getelementptr inbounds i8, ptr %allb, i64 12
   %y.i37 = getelementptr inbounds i8, ptr %allb, i64 16
@@ -4061,8 +4061,8 @@ _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30: ; preds = %_ZN4pbrt18Compact
 for.body:                                         ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90
   %indvars.iv = phi i64 [ 0, %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30 ], [ %indvars.iv.next, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90 ]
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %lb, align 4
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %25, label %if.end4.i40 [
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %28, label %if.end4.i40 [
     i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106
     i32 1, label %if.then3.i36
   ]
@@ -4105,18 +4105,18 @@ if.end.i:                                         ; preds = %land.end.i
   %cmp.i.i = fcmp olt float %div.i46, 0.000000e+00
   %cmp3.i.i = fcmp ogt float %div.i46, 1.000000e+00
   %conv2.val.i.i = select i1 %cmp3.i.i, float 1.000000e+00, float %div.i46
-  %26 = fmul float %conv2.val.i.i, 6.553500e+04
-  %mul.i47 = select i1 %cmp.i.i, float 0.000000e+00, float %26
+  %29 = fmul float %conv2.val.i.i, 6.553500e+04
+  %mul.i47 = select i1 %cmp.i.i, float 0.000000e+00, float %29
   br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit: ; preds = %land.end.i, %if.end.i
   %retval.0.i48 = phi float [ %mul.i47, %if.end.i ], [ 0.000000e+00, %land.end.i ]
-  %27 = tail call noundef float @llvm.floor.f32(float %retval.0.i48)
-  %conv24 = fptoui float %27 to i16
+  %30 = tail call noundef float @llvm.floor.f32(float %retval.0.i48)
+  %conv24 = fptoui float %30 to i16
   %arrayidx25 = getelementptr inbounds [3 x i16], ptr %qb, i64 0, i64 %indvars.iv
   store i16 %conv24, ptr %arrayidx25, align 2
   %retval.sroa.0.0.copyload.i50 = load <2 x float>, ptr %cond-lvalue.i, align 4
-  switch i32 %25, label %if.end4.i72 [
+  switch i32 %28, label %if.end4.i72 [
     i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123
     i32 1, label %if.then3.i68
   ]
@@ -4159,14 +4159,14 @@ if.end.i80:                                       ; preds = %land.end.i78
   %cmp.i.i84 = fcmp olt float %div.i83, 0.000000e+00
   %cmp3.i.i85 = fcmp ogt float %div.i83, 1.000000e+00
   %conv2.val.i.i86 = select i1 %cmp3.i.i85, float 1.000000e+00, float %div.i83
-  %28 = fmul float %conv2.val.i.i86, 6.553500e+04
-  %mul.i87 = select i1 %cmp.i.i84, float 0.000000e+00, float %28
+  %31 = fmul float %conv2.val.i.i86, 6.553500e+04
+  %mul.i87 = select i1 %cmp.i.i84, float 0.000000e+00, float %31
   br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90: ; preds = %land.end.i78, %if.end.i80
   %retval.0.i88 = phi float [ %mul.i87, %if.end.i80 ], [ 0.000000e+00, %land.end.i78 ]
-  %29 = tail call noundef float @llvm.ceil.f32(float %retval.0.i88)
-  %conv38 = fptoui float %29 to i16
+  %32 = tail call noundef float @llvm.ceil.f32(float %retval.0.i88)
+  %conv38 = fptoui float %32 to i16
   %arrayidx42 = getelementptr inbounds [3 x i16], ptr %arrayidx40, i64 0, i64 %indvars.iv
   store i16 %conv38, ptr %arrayidx42, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

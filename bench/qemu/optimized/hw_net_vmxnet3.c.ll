@@ -2641,38 +2641,38 @@ if.end19.i:                                       ; preds = %if.end11.i
   %call.i.i = call i32 @net_checksum_add_cont(i32 noundef %conv24.i, ptr noundef %add.ptr.i, i32 noundef 0) #15
   %call.i12.i = call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #15
   %tobool.not.i.i32 = icmp eq i16 %call.i12.i, 0
-  %narrow.i.i = select i1 %tobool.not.i.i32, i16 -1, i16 %call.i12.i
-  %39 = call i16 @llvm.bswap.i16(i16 %narrow.i.i)
-  store i16 %39, ptr %add.ptr28.i, align 1
-  %40 = load i8, ptr %call.i29, align 2
-  %41 = and i8 %40, -4
-  %42 = or disjoint i8 %41, 2
-  store i8 %42, ptr %call.i29, align 2
+  %39 = call i16 @llvm.bswap.i16(i16 %call.i12.i)
+  %40 = select i1 %tobool.not.i.i32, i16 -1, i16 %39
+  store i16 %40, ptr %add.ptr28.i, align 1
+  %41 = load i8, ptr %call.i29, align 2
+  %42 = and i8 %41, -4
+  %43 = or disjoint i8 %42, 2
+  store i8 %43, ptr %call.i29, align 2
   br label %vmxnet3_rx_need_csum_calculate.exit
 
 vmxnet3_rx_need_csum_calculate.exit:              ; preds = %if.then8, %lor.lhs.false.i, %lor.lhs.false5.i, %if.end11.i, %if.end19.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i)
-  %43 = load ptr, ptr %rx_pkt5, align 8
+  %44 = load ptr, ptr %rx_pkt5, align 8
   %rx_vlan_stripping = getelementptr inbounds i8, ptr %call, i64 14170
-  %44 = load i8, ptr %rx_vlan_stripping, align 2
-  %tobool12 = trunc i8 %44 to i1
+  %45 = load i8, ptr %rx_vlan_stripping, align 2
+  %tobool12 = trunc i8 %45 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
   store ptr %buf.addr.0, ptr %iov.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %size.addr.0, ptr %iov_len.i, align 8
-  call void @net_rx_pkt_attach_iovec(ptr noundef %43, ptr noundef nonnull %iov.i, i32 noundef 1, i64 noundef 0, i1 noundef zeroext %tobool12) #15
+  call void @net_rx_pkt_attach_iovec(ptr noundef %44, ptr noundef nonnull %iov.i, i32 noundef 1, i64 noundef 0, i1 noundef zeroext %tobool12) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rxd.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rxcd.i)
   %call.i.i33 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %45 = load ptr, ptr %rx_pkt5, align 8
-  %call1.i = call ptr @net_rx_pkt_get_iovec(ptr noundef %45) #15
   %46 = load ptr, ptr %rx_pkt5, align 8
-  %call3.i35 = call i64 @net_rx_pkt_get_total_len(ptr noundef %46) #15
+  %call1.i = call ptr @net_rx_pkt_get_iovec(ptr noundef %46) #15
   %47 = load ptr, ptr %rx_pkt5, align 8
-  call void @net_rx_pkt_dump(ptr noundef %47) #15
+  %call3.i35 = call i64 @net_rx_pkt_get_total_len(ptr noundef %47) #15
+  %48 = load ptr, ptr %rx_pkt5, align 8
+  call void @net_rx_pkt_dump(ptr noundef %48) #15
   %cmp.not95.i = icmp eq i64 %call3.i35, 0
   br i1 %cmp.not95.i, label %if.end69.i, label %while.body.lr.ph.i
 
@@ -2681,28 +2681,28 @@ while.body.lr.ph.i:                               ; preds = %vmxnet3_rx_need_csu
   %comp_ring.i.i = getelementptr inbounds i8, ptr %call, i64 11696
   %next.i.i.i = getelementptr inbounds i8, ptr %call, i64 11712
   %cell_size.i.i.i = getelementptr inbounds i8, ptr %call, i64 11708
-  %48 = getelementptr inbounds i8, ptr %rxcd.i.i, i64 12
-  %49 = getelementptr i8, ptr %call, i64 11716
+  %49 = getelementptr inbounds i8, ptr %rxcd.i.i, i64 12
+  %50 = getelementptr i8, ptr %call, i64 11716
   %size.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 11704
   %rx_packets_compound.i.i = getelementptr inbounds i8, ptr %call, i64 14169
   %rxq_descr.i.i7.i.i = getelementptr inbounds i8, ptr %call, i64 11648
-  %50 = getelementptr i8, ptr %call, i64 11664
+  %51 = getelementptr i8, ptr %call, i64 11664
   %cell_size.i.i.i.i9.i.i = getelementptr inbounds i8, ptr %call, i64 11660
-  %51 = getelementptr inbounds i8, ptr %rxd.i, i64 8
+  %52 = getelementptr inbounds i8, ptr %rxd.i, i64 8
   %gen.i.i18.i.i = getelementptr i8, ptr %call, i64 11668
   %size.i.i.i23.i.i = getelementptr inbounds i8, ptr %call, i64 11656
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call, i64 11672
-  %52 = getelementptr i8, ptr %call, i64 11688
+  %53 = getelementptr i8, ptr %call, i64 11688
   %cell_size.i.i.i34.i.i.i = getelementptr i8, ptr %call, i64 11684
   %gen.i42.i.i.i = getelementptr i8, ptr %call, i64 11692
   %size.i.i58.i.i.i = getelementptr i8, ptr %call, i64 11680
   %bus_master_as.i.i.i.i40.i = getelementptr inbounds i8, ptr %call.i.i33, i64 576
-  %53 = getelementptr inbounds i8, ptr %rxcd.i, i64 8
-  %54 = getelementptr inbounds i8, ptr %rxcd.i, i64 12
+  %54 = getelementptr inbounds i8, ptr %rxcd.i, i64 8
+  %55 = getelementptr inbounds i8, ptr %rxcd.i, i64 12
   %rxq_num.i = getelementptr inbounds i8, ptr %call, i64 14172
-  %55 = getelementptr inbounds i8, ptr %rxcd.i, i64 4
-  %56 = load i16, ptr %max_rx_frags.i, align 8
-  %cmp6.i60 = icmp eq i16 %56, 0
+  %56 = getelementptr inbounds i8, ptr %rxcd.i, i64 4
+  %57 = load i16, ptr %max_rx_frags.i, align 8
+  %cmp6.i60 = icmp eq i16 %57, 0
   br i1 %cmp6.i60, label %if.end69.i, label %if.end.i36
 
 if.end.i36:                                       ; preds = %while.body.lr.ph.i, %do.end.i
@@ -2712,20 +2712,20 @@ if.end.i36:                                       ; preds = %while.body.lr.ph.i,
   %ready_rxcd_pa.099.i62 = phi i64 [ %add.i.i.i, %do.end.i ], [ 0, %while.body.lr.ph.i ]
   %is_head.0100.i61 = phi i1 [ false, %do.end.i ], [ true, %while.body.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rxcd.i.i)
-  %57 = load i64, ptr %comp_ring.i.i, align 8
-  %58 = load i32, ptr %next.i.i.i, align 8
-  %59 = load i32, ptr %cell_size.i.i.i, align 4
-  %mul.i.i.i = mul i32 %59, %58
+  %58 = load i64, ptr %comp_ring.i.i, align 8
+  %59 = load i32, ptr %next.i.i.i, align 8
+  %60 = load i32, ptr %cell_size.i.i.i, align 4
+  %mul.i.i.i = mul i32 %60, %59
   %conv.i.i.i = zext i32 %mul.i.i.i to i64
-  %add.i.i.i = add i64 %57, %conv.i.i.i
+  %add.i.i.i = add i64 %58, %conv.i.i.i
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef nonnull %rxcd.i.i, i64 noundef 16, i1 noundef zeroext false) #15
-  %60 = load i32, ptr %48, align 4
-  %comp_ring.val.i.i = load i8, ptr %49, align 4
-  %bf.lshr.i.i = lshr i32 %60, 31
+  %61 = load i32, ptr %49, align 4
+  %comp_ring.val.i.i = load i8, ptr %50, align 4
+  %bf.lshr.i.i = lshr i32 %61, 31
   %conv.i.i = zext i8 %comp_ring.val.i.i to i32
   %cmp.not.i.i = icmp eq i32 %bf.lshr.i.i, %conv.i.i
   br i1 %cmp.not.i.i, label %vmxnet3_pop_rxc_descr.exit.thread.i, label %if.then.i.i
@@ -2735,17 +2735,17 @@ vmxnet3_pop_rxc_descr.exit.thread.i:              ; preds = %if.end.i36
   br label %while.end.i
 
 if.then.i.i:                                      ; preds = %if.end.i36
-  %61 = load i32, ptr %next.i.i.i, align 8
-  %inc.i.i.i.i = add i32 %61, 1
+  %62 = load i32, ptr %next.i.i.i, align 8
+  %inc.i.i.i.i = add i32 %62, 1
   store i32 %inc.i.i.i.i, ptr %next.i.i.i, align 8
-  %62 = load i32, ptr %size.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ult i32 %inc.i.i.i.i, %62
+  %63 = load i32, ptr %size.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp ult i32 %inc.i.i.i.i, %63
   br i1 %cmp.not.i.i.i.i, label %vmxnet3_pop_rxc_descr.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   store i32 0, ptr %next.i.i.i, align 8
-  %63 = xor i8 %comp_ring.val.i.i, 1
-  store i8 %63, ptr %49, align 4
+  %64 = xor i8 %comp_ring.val.i.i, 1
+  store i8 %64, ptr %50, align 4
   br label %vmxnet3_pop_rxc_descr.exit.i
 
 vmxnet3_pop_rxc_descr.exit.i:                     ; preds = %if.then.i.i.i.i, %if.then.i.i
@@ -2757,8 +2757,8 @@ if.end10.i:                                       ; preds = %vmxnet3_pop_rxc_des
   br i1 %is_head.0100.i61, label %for.cond.i.i.i.preheader, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end10.i
-  %64 = load i8, ptr %rx_packets_compound.i.i, align 1
-  %tobool1.i.i = trunc i8 %64 to i1
+  %65 = load i8, ptr %rx_packets_compound.i.i, align 1
+  %tobool1.i.i = trunc i8 %65 to i1
   br i1 %tobool1.i.i, label %if.else.i.i, label %for.cond.i.i.i.preheader
 
 for.cond.i.i.i.preheader:                         ; preds = %lor.lhs.false.i.i, %if.end10.i
@@ -2766,20 +2766,20 @@ for.cond.i.i.i.preheader:                         ; preds = %lor.lhs.false.i.i, 
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %vmxnet3_inc_rx_consumption_counter.exit.i.i.i
   %call.i.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %arrayidx2.val.i.i.i.i = load i32, ptr %50, align 8
-  %65 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
-  %66 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
-  %mul.i.i.i.i.i.i = mul i32 %66, %arrayidx2.val.i.i.i.i
+  %arrayidx2.val.i.i.i.i = load i32, ptr %51, align 8
+  %66 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
+  %67 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
+  %mul.i.i.i.i.i.i = mul i32 %67, %arrayidx2.val.i.i.i.i
   %conv.i.i.i.i.i.i = zext i32 %mul.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i = add i64 %65, %conv.i.i.i.i.i.i
-  %conv.i2.i.i.i.i.i = sext i32 %66 to i64
+  %add.i.i.i.i.i.i = add i64 %66, %conv.i.i.i.i.i.i
+  %conv.i2.i.i.i.i.i = sext i32 %67 to i64
   %bus_master_as.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i.i.i.i, i1 noundef zeroext false) #15
-  %67 = load i8, ptr %gen.i.i18.i.i, align 4
-  %conv.i.i38.i = zext i8 %67 to i32
-  %bf.load.i.i.i = load i32, ptr %51, align 8
+  %68 = load i8, ptr %gen.i.i18.i.i, align 4
+  %conv.i.i38.i = zext i8 %68 to i32
+  %bf.load.i.i.i = load i32, ptr %52, align 8
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i, 31
   %cmp.not.i.i.i = icmp eq i32 %bf.lshr.i.i.i, %conv.i.i38.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %while.end.i
@@ -2788,54 +2788,54 @@ if.end.i.i.i:                                     ; preds = %for.cond.i.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
   fence acquire
   %call.i.i9.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %arrayidx2.val.i11.i.i.i = load i32, ptr %50, align 8
-  %68 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
-  %69 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
-  %mul.i.i.i13.i.i.i = mul i32 %69, %arrayidx2.val.i11.i.i.i
+  %arrayidx2.val.i11.i.i.i = load i32, ptr %51, align 8
+  %69 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
+  %70 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
+  %mul.i.i.i13.i.i.i = mul i32 %70, %arrayidx2.val.i11.i.i.i
   %conv.i.i.i14.i.i.i = zext i32 %mul.i.i.i13.i.i.i to i64
-  %add.i.i.i15.i.i.i = add i64 %68, %conv.i.i.i14.i.i.i
-  %conv.i2.i.i16.i.i.i = sext i32 %69 to i64
+  %add.i.i.i15.i.i.i = add i64 %69, %conv.i.i.i14.i.i.i
+  %conv.i2.i.i16.i.i.i = sext i32 %70 to i64
   %bus_master_as.i.i.i.i.i.i17.i.i.i = getelementptr inbounds i8, ptr %call.i.i9.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i18.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i17.i.i.i, i64 noundef %add.i.i.i15.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i16.i.i.i, i1 noundef zeroext false) #15
-  %70 = load i32, ptr %50, align 8
-  %inc.i.i.i.i.i = add i32 %70, 1
-  store i32 %inc.i.i.i.i.i, ptr %50, align 8
-  %71 = load i32, ptr %size.i.i.i23.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ult i32 %inc.i.i.i.i.i, %71
+  %71 = load i32, ptr %51, align 8
+  %inc.i.i.i.i.i = add i32 %71, 1
+  store i32 %inc.i.i.i.i.i, ptr %51, align 8
+  %72 = load i32, ptr %size.i.i.i23.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp ult i32 %inc.i.i.i.i.i, %72
   br i1 %cmp.not.i.i.i.i.i, label %vmxnet3_inc_rx_consumption_counter.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  store i32 0, ptr %50, align 8
-  %72 = load i8, ptr %gen.i.i18.i.i, align 4
-  %73 = xor i8 %72, 1
-  store i8 %73, ptr %gen.i.i18.i.i, align 4
+  store i32 0, ptr %51, align 8
+  %73 = load i8, ptr %gen.i.i18.i.i, align 4
+  %74 = xor i8 %73, 1
+  store i8 %74, ptr %gen.i.i18.i.i, align 4
   br label %vmxnet3_inc_rx_consumption_counter.exit.i.i.i
 
 vmxnet3_inc_rx_consumption_counter.exit.i.i.i:    ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
-  %bf.load2.i.i.i = load i32, ptr %51, align 8
-  %74 = and i32 %bf.load2.i.i.i, 16384
-  %cmp4.i.i.i = icmp eq i32 %74, 0
+  %bf.load2.i.i.i = load i32, ptr %52, align 8
+  %75 = and i32 %bf.load2.i.i.i, 16384
+  %cmp4.i.i.i = icmp eq i32 %75, 0
   br i1 %cmp4.i.i.i, label %if.end14.i, label %for.cond.i.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
   %call.i.i.i6.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %arrayidx2.val.i.i8.i.i = load i32, ptr %50, align 8
-  %75 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
-  %76 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
-  %mul.i.i.i.i10.i.i = mul i32 %76, %arrayidx2.val.i.i8.i.i
+  %arrayidx2.val.i.i8.i.i = load i32, ptr %51, align 8
+  %76 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
+  %77 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
+  %mul.i.i.i.i10.i.i = mul i32 %77, %arrayidx2.val.i.i8.i.i
   %conv.i.i.i.i11.i.i = zext i32 %mul.i.i.i.i10.i.i to i64
-  %add.i.i.i.i12.i.i = add i64 %75, %conv.i.i.i.i11.i.i
-  %conv.i2.i.i.i13.i.i = sext i32 %76 to i64
+  %add.i.i.i.i12.i.i = add i64 %76, %conv.i.i.i.i11.i.i
+  %conv.i2.i.i.i13.i.i = sext i32 %77 to i64
   %bus_master_as.i.i.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i6.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i.i15.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i14.i.i, i64 noundef %add.i.i.i.i12.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i.i13.i.i, i1 noundef zeroext false) #15
-  %bf.load.i16.i.i = load i32, ptr %51, align 8
+  %bf.load.i16.i.i = load i32, ptr %52, align 8
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i16.i.i, 31
-  %77 = load i8, ptr %gen.i.i18.i.i, align 4
-  %conv.i19.i.i = zext i8 %77 to i32
+  %78 = load i8, ptr %gen.i.i18.i.i, align 4
+  %conv.i19.i.i = zext i8 %78 to i32
   %cmp.i.i.i = icmp eq i32 %bf.lshr.i17.i.i, %conv.i19.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end7.i.i.i
 
@@ -2843,54 +2843,54 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
   fence acquire
   %call.i.i20.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %arrayidx2.val.i22.i.i.i = load i32, ptr %50, align 8
-  %78 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
-  %79 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
-  %mul.i.i.i24.i.i.i = mul i32 %79, %arrayidx2.val.i22.i.i.i
+  %arrayidx2.val.i22.i.i.i = load i32, ptr %51, align 8
+  %79 = load i64, ptr %rxq_descr.i.i7.i.i, align 8
+  %80 = load i32, ptr %cell_size.i.i.i.i9.i.i, align 4
+  %mul.i.i.i24.i.i.i = mul i32 %80, %arrayidx2.val.i22.i.i.i
   %conv.i.i.i25.i.i.i = zext i32 %mul.i.i.i24.i.i.i to i64
-  %add.i.i.i26.i.i.i = add i64 %78, %conv.i.i.i25.i.i.i
-  %conv.i2.i.i27.i.i.i = sext i32 %79 to i64
+  %add.i.i.i26.i.i.i = add i64 %79, %conv.i.i.i25.i.i.i
+  %conv.i2.i.i27.i.i.i = sext i32 %80 to i64
   %bus_master_as.i.i.i.i.i.i28.i.i.i = getelementptr inbounds i8, ptr %call.i.i20.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i29.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i28.i.i.i, i64 noundef %add.i.i.i26.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i27.i.i.i, i1 noundef zeroext false) #15
-  %bf.load2.i20.i.i = load i32, ptr %51, align 8
-  %80 = and i32 %bf.load2.i20.i.i, 16384
-  %cmp4.not.i.i.i = icmp eq i32 %80, 0
+  %bf.load2.i20.i.i = load i32, ptr %52, align 8
+  %81 = and i32 %bf.load2.i20.i.i, 16384
+  %cmp4.not.i.i.i = icmp eq i32 %81, 0
   br i1 %cmp4.not.i.i.i, label %if.end7.i.i.i, label %if.then6.i21.i.i
 
 if.then6.i21.i.i:                                 ; preds = %if.then.i.i.i
-  %81 = load i32, ptr %50, align 8
-  %inc.i.i.i22.i.i = add i32 %81, 1
-  store i32 %inc.i.i.i22.i.i, ptr %50, align 8
-  %82 = load i32, ptr %size.i.i.i23.i.i, align 8
-  %cmp.not.i.i.i24.i.i = icmp ult i32 %inc.i.i.i22.i.i, %82
+  %82 = load i32, ptr %51, align 8
+  %inc.i.i.i22.i.i = add i32 %82, 1
+  store i32 %inc.i.i.i22.i.i, ptr %51, align 8
+  %83 = load i32, ptr %size.i.i.i23.i.i, align 8
+  %cmp.not.i.i.i24.i.i = icmp ult i32 %inc.i.i.i22.i.i, %83
   br i1 %cmp.not.i.i.i24.i.i, label %if.end14.i, label %if.then.i.i.i25.i.i
 
 if.then.i.i.i25.i.i:                              ; preds = %if.then6.i21.i.i
-  store i32 0, ptr %50, align 8
-  %83 = load i8, ptr %gen.i.i18.i.i, align 4
-  %84 = xor i8 %83, 1
-  store i8 %84, ptr %gen.i.i18.i.i, align 4
+  store i32 0, ptr %51, align 8
+  %84 = load i8, ptr %gen.i.i18.i.i, align 4
+  %85 = xor i8 %84, 1
+  store i8 %85, ptr %gen.i.i18.i.i, align 4
   br label %if.end14.i
 
 if.end7.i.i.i:                                    ; preds = %if.then.i.i.i, %if.else.i.i
   %call.i.i31.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %arrayidx2.val.i33.i.i.i = load i32, ptr %52, align 8
-  %85 = load i64, ptr %arrayidx2.i.i.i.i, align 8
-  %86 = load i32, ptr %cell_size.i.i.i34.i.i.i, align 4
-  %mul.i.i.i35.i.i.i = mul i32 %86, %arrayidx2.val.i33.i.i.i
+  %arrayidx2.val.i33.i.i.i = load i32, ptr %53, align 8
+  %86 = load i64, ptr %arrayidx2.i.i.i.i, align 8
+  %87 = load i32, ptr %cell_size.i.i.i34.i.i.i, align 4
+  %mul.i.i.i35.i.i.i = mul i32 %87, %arrayidx2.val.i33.i.i.i
   %conv.i.i.i36.i.i.i = zext i32 %mul.i.i.i35.i.i.i to i64
-  %add.i.i.i37.i.i.i = add i64 %85, %conv.i.i.i36.i.i.i
-  %conv.i2.i.i38.i.i.i = sext i32 %86 to i64
+  %add.i.i.i37.i.i.i = add i64 %86, %conv.i.i.i36.i.i.i
+  %conv.i2.i.i38.i.i.i = sext i32 %87 to i64
   %bus_master_as.i.i.i.i.i.i39.i.i.i = getelementptr inbounds i8, ptr %call.i.i31.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i40.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i39.i.i.i, i64 noundef %add.i.i.i37.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i38.i.i.i, i1 noundef zeroext false) #15
-  %bf.load8.i.i.i = load i32, ptr %51, align 8
+  %bf.load8.i.i.i = load i32, ptr %52, align 8
   %bf.lshr9.i.i.i = lshr i32 %bf.load8.i.i.i, 31
-  %87 = load i8, ptr %gen.i42.i.i.i, align 4
-  %conv11.i.i.i = zext i8 %87 to i32
+  %88 = load i8, ptr %gen.i42.i.i.i, align 4
+  %conv11.i.i.i = zext i8 %88 to i32
   %cmp12.i.i.i = icmp eq i32 %bf.lshr9.i.i.i, %conv11.i.i.i
   br i1 %cmp12.i.i.i, label %if.then14.i.i.i, label %while.end.i
 
@@ -2898,20 +2898,20 @@ if.then14.i.i.i:                                  ; preds = %if.end7.i.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   fence acquire
   %call.i.i43.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
-  %arrayidx2.val.i46.i.i.i = load i32, ptr %52, align 8
-  %88 = load i64, ptr %arrayidx2.i.i.i.i, align 8
-  %89 = load i32, ptr %cell_size.i.i.i34.i.i.i, align 4
-  %mul.i.i.i48.i.i.i = mul i32 %89, %arrayidx2.val.i46.i.i.i
+  %arrayidx2.val.i46.i.i.i = load i32, ptr %53, align 8
+  %89 = load i64, ptr %arrayidx2.i.i.i.i, align 8
+  %90 = load i32, ptr %cell_size.i.i.i34.i.i.i, align 4
+  %mul.i.i.i48.i.i.i = mul i32 %90, %arrayidx2.val.i46.i.i.i
   %conv.i.i.i49.i.i.i = zext i32 %mul.i.i.i48.i.i.i to i64
-  %add.i.i.i50.i.i.i = add i64 %88, %conv.i.i.i49.i.i.i
-  %conv.i2.i.i51.i.i.i = sext i32 %89 to i64
+  %add.i.i.i50.i.i.i = add i64 %89, %conv.i.i.i49.i.i.i
+  %conv.i2.i.i51.i.i.i = sext i32 %90 to i64
   %bus_master_as.i.i.i.i.i.i52.i.i.i = getelementptr inbounds i8, ptr %call.i.i43.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i53.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i52.i.i.i, i64 noundef %add.i.i.i50.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i51.i.i.i, i1 noundef zeroext false) #15
-  %bf.load15.i.i.i = load i32, ptr %51, align 8
-  %90 = and i32 %bf.load15.i.i.i, 16384
-  %cmp18.not.i.i.i = icmp eq i32 %90, 0
+  %bf.load15.i.i.i = load i32, ptr %52, align 8
+  %91 = and i32 %bf.load15.i.i.i, 16384
+  %cmp18.not.i.i.i = icmp eq i32 %91, 0
   br i1 %cmp18.not.i.i.i, label %if.else.i.i.i, label %if.end21.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then14.i.i.i
@@ -2919,18 +2919,18 @@ if.else.i.i.i:                                    ; preds = %if.then14.i.i.i
   unreachable
 
 if.end21.i.i.i:                                   ; preds = %if.then14.i.i.i
-  %91 = load i32, ptr %52, align 8
-  %inc.i.i57.i.i.i = add i32 %91, 1
-  store i32 %inc.i.i57.i.i.i, ptr %52, align 8
-  %92 = load i32, ptr %size.i.i58.i.i.i, align 8
-  %cmp.not.i.i59.i.i.i = icmp ult i32 %inc.i.i57.i.i.i, %92
+  %92 = load i32, ptr %53, align 8
+  %inc.i.i57.i.i.i = add i32 %92, 1
+  store i32 %inc.i.i57.i.i.i, ptr %53, align 8
+  %93 = load i32, ptr %size.i.i58.i.i.i, align 8
+  %cmp.not.i.i59.i.i.i = icmp ult i32 %inc.i.i57.i.i.i, %93
   br i1 %cmp.not.i.i59.i.i.i, label %if.end14.i, label %if.then.i.i60.i.i.i
 
 if.then.i.i60.i.i.i:                              ; preds = %if.end21.i.i.i
-  store i32 0, ptr %52, align 8
-  %93 = load i8, ptr %gen.i42.i.i.i, align 4
-  %94 = xor i8 %93, 1
-  store i8 %94, ptr %gen.i42.i.i.i, align 4
+  store i32 0, ptr %53, align 8
+  %94 = load i8, ptr %gen.i42.i.i.i, align 4
+  %95 = xor i8 %94, 1
+  store i8 %95, ptr %gen.i42.i.i.i, align 4
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %vmxnet3_inc_rx_consumption_counter.exit.i.i.i, %if.then.i.i60.i.i.i, %if.end21.i.i.i, %if.then.i.i.i25.i.i, %if.then6.i21.i.i
@@ -2940,7 +2940,7 @@ if.end14.i:                                       ; preds = %vmxnet3_inc_rx_cons
   %bf.clear.i = and i32 %bf.load.i, 16383
   %conv15.i = zext nneg i32 %bf.clear.i to i64
   %cond.i = call i64 @llvm.umin.i64(i64 %bytes_left.097.i65, i64 %conv15.i)
-  %95 = load i64, ptr %rxd.i, align 8
+  %96 = load i64, ptr %rxd.i, align 8
   %tobool.not20.i.i = icmp eq i32 %bf.clear.i, 0
   br i1 %tobool.not20.i.i, label %vmxnet3_pci_dma_writev.exit.i, label %while.body.i.i
 
@@ -2951,17 +2951,17 @@ while.body.i.i:                                   ; preds = %if.end14.i, %if.end
   %curr_off.022.i.i = phi i64 [ %curr_off.1.i.i, %if.end.i.i ], [ 0, %if.end14.i ]
   %copied.021.i.i = phi i64 [ %copied.1.i.i, %if.end.i.i ], [ 0, %if.end14.i ]
   %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.025.i.i, i64 8
-  %96 = load i64, ptr %iov_len.i.i, align 8
-  %add.i.i = add i64 %96, %curr_off.022.i.i
+  %97 = load i64, ptr %iov_len.i.i, align 8
+  %add.i.i = add i64 %97, %curr_off.022.i.i
   %cmp.i.i = icmp ult i64 %start_iov_off.addr.024.i.i, %add.i.i
   br i1 %cmp.i.i, label %if.then.i41.i, label %if.end.i.i
 
 if.then.i41.i:                                    ; preds = %while.body.i.i
   %sub.i.i = sub nuw i64 %add.i.i, %start_iov_off.addr.024.i.i
   %cond.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %bytes_to_copy.addr.023.i.i)
-  %add4.i.i = add i64 %copied.021.i.i, %95
-  %97 = load ptr, ptr %iov.addr.025.i.i, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %97, i64 %start_iov_off.addr.024.i.i
+  %add4.i.i = add i64 %copied.021.i.i, %96
+  %98 = load ptr, ptr %iov.addr.025.i.i, align 8
+  %add.ptr.i.i = getelementptr i8, ptr %98, i64 %start_iov_off.addr.024.i.i
   %idx.neg.i.i = sub i64 0, %curr_off.022.i.i
   %add.ptr5.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
@@ -2994,16 +2994,16 @@ if.then20.i:                                      ; preds = %vmxnet3_pci_dma_wri
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then20.i, %vmxnet3_pci_dma_writev.exit.i
-  store i32 0, ptr %55, align 4
+  store i32 0, ptr %56, align 4
   %bf.value.i = and i32 %rxd_idx.0.ph.i, 4095
   %conv24.i44 = trunc nuw nsw i64 %cond.i to i32
-  store i32 %conv24.i44, ptr %53, align 4
+  store i32 %conv24.i44, ptr %54, align 4
   %bf.shl.i = select i1 %is_head.0100.i61, i32 32768, i32 0
   %bf.set34.i = or disjoint i32 %bf.shl.i, %bf.value.i
   %bf.value36.i = shl i32 %conv.i.i, 31
-  store i32 %bf.value36.i, ptr %54, align 4
-  %98 = load i8, ptr %rxq_num.i, align 4
-  %conv40.i = zext i8 %98 to i32
+  store i32 %bf.value36.i, ptr %55, align 4
+  %99 = load i8, ptr %rxq_num.i, align 4
+  %conv40.i = zext i8 %99 to i32
   %bf.value43.i = mul nuw nsw i32 %rx_ridx.1.ph.i, %conv40.i
   %bf.set46.i = or disjoint i32 %bf.value43.i, %bf.set34.i
   store i32 %bf.set46.i, ptr %rxcd.i, align 4
@@ -3011,48 +3011,48 @@ if.end21.i:                                       ; preds = %if.then20.i, %vmxne
   br i1 %cmp47.i, label %if.then49.i, label %do.end.i
 
 if.then49.i:                                      ; preds = %if.end21.i
-  %99 = load ptr, ptr %rx_pkt5, align 8
+  %100 = load ptr, ptr %rx_pkt5, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hasip4.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hasip6.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l4hdr_proto.i.i)
-  %call.i45.i = call zeroext i1 @net_rx_pkt_is_vlan_stripped(ptr noundef %99) #15
+  %call.i45.i = call zeroext i1 @net_rx_pkt_is_vlan_stripped(ptr noundef %100) #15
   br i1 %call.i45.i, label %if.then.i48.i, label %if.end.i46.i
 
 if.then.i48.i:                                    ; preds = %if.then49.i
-  %bf.load.i.i = load i32, ptr %53, align 4
+  %bf.load.i.i = load i32, ptr %54, align 4
   %bf.set.i.i = or i32 %bf.load.i.i, 32768
-  store i32 %bf.set.i.i, ptr %53, align 4
-  %call1.i.i = call zeroext i16 @net_rx_pkt_get_vlan_tag(ptr noundef %99) #15
+  store i32 %bf.set.i.i, ptr %54, align 4
+  %call1.i.i = call zeroext i16 @net_rx_pkt_get_vlan_tag(ptr noundef %100) #15
   %conv.i49.i = zext i16 %call1.i.i to i32
-  %bf.load2.i.i = load i32, ptr %53, align 4
+  %bf.load2.i.i = load i32, ptr %54, align 4
   %bf.shl.i.i = shl nuw i32 %conv.i49.i, 16
   %bf.clear3.i.i = and i32 %bf.load2.i.i, 65535
   %bf.set4.i.i = or disjoint i32 %bf.clear3.i.i, %bf.shl.i.i
-  store i32 %bf.set4.i.i, ptr %53, align 4
+  store i32 %bf.set4.i.i, ptr %54, align 4
   br label %if.end.i46.i
 
 if.end.i46.i:                                     ; preds = %if.then.i48.i, %if.then49.i
-  %call5.i.i = call ptr @net_rx_pkt_get_vhdr(ptr noundef %99) #15
-  %100 = load i8, ptr %call5.i.i, align 2
-  %101 = and i8 %100, 3
-  %102 = icmp ne i8 %101, 0
+  %call5.i.i = call ptr @net_rx_pkt_get_vhdr(ptr noundef %100) #15
+  %101 = load i8, ptr %call5.i.i, align 2
+  %102 = and i8 %101, 3
+  %103 = icmp ne i8 %102, 0
   %gso_type.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %103 = load i8, ptr %gso_type.i.i, align 1
-  %104 = and i8 %103, 127
-  %cmp17.i.i = icmp ne i8 %104, 0
-  %or.cond.i.i = select i1 %102, i1 true, i1 %cmp17.i.i
+  %104 = load i8, ptr %gso_type.i.i, align 1
+  %105 = and i8 %104, 127
+  %cmp17.i.i = icmp ne i8 %105, 0
+  %or.cond.i.i = select i1 %103, i1 true, i1 %cmp17.i.i
   br i1 %or.cond.i.i, label %if.end21.i.i, label %nocsum.i.i
 
 if.end21.i.i:                                     ; preds = %if.end.i46.i
-  call void @net_rx_pkt_get_protocols(ptr noundef %99, ptr noundef nonnull %hasip4.i.i, ptr noundef nonnull %hasip6.i.i, ptr noundef nonnull %l4hdr_proto.i.i) #15
-  %105 = load i32, ptr %l4hdr_proto.i.i, align 4
-  %106 = add i32 %105, -3
-  %or.cond1.i.i = icmp ult i32 %106, -2
+  call void @net_rx_pkt_get_protocols(ptr noundef %100, ptr noundef nonnull %hasip4.i.i, ptr noundef nonnull %hasip6.i.i, ptr noundef nonnull %l4hdr_proto.i.i) #15
+  %106 = load i32, ptr %l4hdr_proto.i.i, align 4
+  %107 = add i32 %106, -3
+  %or.cond1.i.i = icmp ult i32 %107, -2
   br i1 %or.cond1.i.i, label %nocsum.i.i, label %lor.lhs.false.i47.i
 
 lor.lhs.false.i47.i:                              ; preds = %if.end21.i.i
-  %107 = load i8, ptr %hasip4.i.i, align 1
-  %tobool27.i.i = trunc i8 %107 to i1
+  %108 = load i8, ptr %hasip4.i.i, align 1
+  %tobool27.i.i = trunc i8 %108 to i1
   %.pre.i.i = load i8, ptr %hasip6.i.i, align 1
   br i1 %tobool27.i.i, label %if.end31.i.i, label %land.lhs.true28.i.i
 
@@ -3064,23 +3064,23 @@ if.end31.i.i:                                     ; preds = %land.lhs.true28.i.i
   %bf.load32.i.i = load i32, ptr %rxcd.i, align 4
   %bf.clear33.i.i = and i32 %bf.load32.i.i, -1073741825
   store i32 %bf.clear33.i.i, ptr %rxcd.i, align 4
-  %108 = and i8 %107, 1
-  %cond37.i.i = zext nneg i8 %108 to i32
-  %bf.load38.i.i = load i32, ptr %54, align 4
+  %109 = and i8 %108, 1
+  %cond37.i.i = zext nneg i8 %109 to i32
+  %bf.load38.i.i = load i32, ptr %55, align 4
   %bf.shl40.i.i = shl nuw nsw i32 %cond37.i.i, 21
   %bf.clear41.i.i = and i32 %bf.load38.i.i, -12517377
-  %109 = and i8 %.pre.i.i, 1
-  %cond45.i.i = zext nneg i8 %109 to i32
+  %110 = and i8 %.pre.i.i, 1
+  %cond45.i.i = zext nneg i8 %110 to i32
   %bf.shl48.i.i = shl nuw nsw i32 %cond45.i.i, 20
-  %cmp51.i.i = icmp eq i32 %105, 1
+  %cmp51.i.i = icmp eq i32 %106, 1
   %bf.shl55.i.i = select i1 %cmp51.i.i, i32 262144, i32 0
-  %cmp58.i.i = icmp eq i32 %105, 2
+  %cmp58.i.i = icmp eq i32 %106, 2
   %bf.set42.i.i = select i1 %cmp58.i.i, i32 9109504, i32 8978432
   %bf.set50.i.i = or disjoint i32 %bf.set42.i.i, %bf.shl55.i.i
   %bf.set57.i.i = or disjoint i32 %bf.set50.i.i, %bf.shl40.i.i
   %bf.set64.i.i = or disjoint i32 %bf.set57.i.i, %bf.shl48.i.i
   %bf.set73.i.i = or disjoint i32 %bf.set64.i.i, %bf.clear41.i.i
-  store i32 %bf.set73.i.i, ptr %54, align 4
+  store i32 %bf.set73.i.i, ptr %55, align 4
   br label %do.end.thread.i
 
 nocsum.i.i:                                       ; preds = %land.lhs.true28.i.i, %if.end21.i.i, %if.end.i46.i
@@ -3098,8 +3098,8 @@ do.end.thread.i:                                  ; preds = %nocsum.i.i, %if.end
 
 do.end.i:                                         ; preds = %if.end21.i
   %inc.i = add i16 %num_frags.098.i63, 1
-  %110 = load i16, ptr %max_rx_frags.i, align 8
-  %cmp6.i = icmp eq i16 %inc.i, %110
+  %111 = load i16, ptr %max_rx_frags.i, align 8
+  %cmp6.i = icmp eq i16 %inc.i, %111
   br i1 %cmp6.i, label %while.end.i, label %if.end.i36, !llvm.loop !26
 
 while.end.i:                                      ; preds = %do.end.i, %vmxnet3_pop_rxc_descr.exit.i, %if.end7.i.i.i, %for.cond.i.i.i, %do.end.thread.i, %vmxnet3_pop_rxc_descr.exit.thread.i
@@ -3114,11 +3114,11 @@ if.then54.i:                                      ; preds = %while.end.i
   %bf.load55.i = load i32, ptr %rxcd.i, align 4
   %bf.set57.i = or i32 %bf.load55.i, 16384
   store i32 %bf.set57.i, ptr %rxcd.i, align 4
-  %bf.load60.i = load i32, ptr %53, align 4
+  %bf.load60.i = load i32, ptr %54, align 4
   %bf.shl62.i = select i1 %cmp.not86.i, i32 0, i32 16384
   %bf.clear63.i = and i32 %bf.load60.i, -16385
   %bf.set64.i = or disjoint i32 %bf.clear63.i, %bf.shl62.i
-  store i32 %bf.set64.i, ptr %53, align 4
+  store i32 %bf.set64.i, ptr %54, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i51.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i40.i, i64 noundef %ready_rxcd_pa.090.i, i32 1, ptr noundef nonnull %rxcd.i, i64 noundef 16, i1 noundef zeroext true) #15
@@ -3130,37 +3130,37 @@ if.end65.i:                                       ; preds = %while.end.i
   br i1 %cmp66.not.i, label %if.end69.i, label %if.then68.i
 
 if.then68.i:                                      ; preds = %if.end65.i, %if.then54.i
-  %111 = load i32, ptr %next.i.i.i, align 8
-  %dec.i.i.i.i = add i32 %111, -1
+  %112 = load i32, ptr %next.i.i.i, align 8
+  %dec.i.i.i.i = add i32 %112, -1
   store i32 %dec.i.i.i.i, ptr %next.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq i32 %111, 0
+  %cmp.i.i.i.i = icmp eq i32 %112, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i52.i, label %if.end69.i
 
 if.then.i.i.i52.i:                                ; preds = %if.then68.i
-  %112 = load i32, ptr %size.i.i.i.i, align 8
-  %sub.i.i.i.i = add i32 %112, -1
+  %113 = load i32, ptr %size.i.i.i.i, align 8
+  %sub.i.i.i.i = add i32 %113, -1
   store i32 %sub.i.i.i.i, ptr %next.i.i.i, align 8
-  %113 = load i8, ptr %49, align 4
-  %114 = xor i8 %113, 1
-  store i8 %114, ptr %49, align 4
+  %114 = load i8, ptr %50, align 4
+  %115 = xor i8 %114, 1
+  store i8 %115, ptr %50, align 4
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %while.body.lr.ph.i, %if.then.i.i.i52.i, %if.then68.i, %if.end65.i, %if.then54.i, %vmxnet3_rx_need_csum_calculate.exit
   %num_frags.094131138.i = phi i16 [ %num_frags.094.i, %if.then.i.i.i52.i ], [ %num_frags.094.i, %if.then68.i ], [ %num_frags.094.i, %if.end65.i ], [ %num_frags.094.i, %if.then54.i ], [ 0, %vmxnet3_rx_need_csum_calculate.exit ], [ 0, %while.body.lr.ph.i ]
   %cmp.not86132137.i = phi i1 [ %cmp.not86.i, %if.then.i.i.i52.i ], [ %cmp.not86.i, %if.then68.i ], [ %cmp.not86.i, %if.end65.i ], [ %cmp.not86.i, %if.then54.i ], [ true, %vmxnet3_rx_need_csum_calculate.exit ], [ false, %while.body.lr.ph.i ]
   %intr_idx.i = getelementptr inbounds i8, ptr %call, i64 11720
-  %115 = load i8, ptr %intr_idx.i, align 8
-  %conv70.i = zext i8 %115 to i32
+  %116 = load i8, ptr %intr_idx.i, align 8
+  %conv70.i = zext i8 %116 to i32
   %call.i.i55.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   %interrupt_states.i.i = getelementptr inbounds i8, ptr %call, i64 14240
-  %idxprom.i.i38 = zext i8 %115 to i64
+  %idxprom.i.i38 = zext i8 %116 to i64
   %arrayidx.i.i39 = getelementptr [25 x %struct.Vmxnet3IntState], ptr %interrupt_states.i.i, i64 0, i64 %idxprom.i.i38
   %is_pending.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i39, i64 1
   store i8 1, ptr %is_pending.i.i, align 1
   call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef %conv70.i)
   %msix_used.i.i = getelementptr inbounds i8, ptr %call, i64 14144
-  %116 = load i8, ptr %msix_used.i.i, align 16
-  %tobool.i.i = trunc i8 %116 to i1
+  %117 = load i8, ptr %msix_used.i.i, align 16
+  %tobool.i.i = trunc i8 %117 to i1
   br i1 %tobool.i.i, label %land.lhs.true.i.i, label %if.end.i56.i
 
 land.lhs.true.i.i:                                ; preds = %if.end69.i
@@ -3170,8 +3170,8 @@ land.lhs.true.i.i:                                ; preds = %if.end69.i
 
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
   %auto_int_masking.i.i = getelementptr inbounds i8, ptr %call, i64 14187
-  %117 = load i8, ptr %auto_int_masking.i.i, align 1
-  %tobool4.i.i = trunc i8 %117 to i1
+  %118 = load i8, ptr %auto_int_masking.i.i, align 1
+  %tobool4.i.i = trunc i8 %118 to i1
   br i1 %tobool4.i.i, label %do_automask.i.i, label %if.end.i56.i
 
 if.end.i56.i:                                     ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %if.end69.i
@@ -3180,8 +3180,8 @@ if.end.i56.i:                                     ; preds = %land.lhs.true3.i.i,
 
 land.lhs.true6.i.i:                               ; preds = %if.end.i56.i
   %auto_int_masking7.i.i = getelementptr inbounds i8, ptr %call, i64 14187
-  %118 = load i8, ptr %auto_int_masking7.i.i, align 1
-  %tobool8.i.i = trunc i8 %118 to i1
+  %119 = load i8, ptr %auto_int_masking7.i.i, align 1
+  %tobool8.i.i = trunc i8 %119 to i1
   br i1 %tobool8.i.i, label %do_automask.i.i, label %vmxnet3_trigger_interrupt.exit.i
 
 do_automask.i.i:                                  ; preds = %land.lhs.true6.i.i, %land.lhs.true3.i.i
@@ -3194,51 +3194,51 @@ vmxnet3_trigger_interrupt.exit.i:                 ; preds = %do_automask.i.i, %l
 
 if.then73.i:                                      ; preds = %vmxnet3_trigger_interrupt.exit.i
   %rxq_stats.i.i = getelementptr inbounds i8, ptr %call, i64 11736
-  %119 = load ptr, ptr %rx_pkt5, align 8
-  %call.i59.i = call i64 @net_rx_pkt_get_total_len(ptr noundef %119) #15
   %120 = load ptr, ptr %rx_pkt5, align 8
-  %call5.i60.i = call i32 @net_rx_pkt_get_packet_type(ptr noundef %120) #15
+  %call.i59.i = call i64 @net_rx_pkt_get_total_len(ptr noundef %120) #15
+  %121 = load ptr, ptr %rx_pkt5, align 8
+  %call5.i60.i = call i32 @net_rx_pkt_get_packet_type(ptr noundef %121) #15
   %switch.tableidx = add i32 %call5.i60.i, 1430533120
-  %121 = icmp ult i32 %switch.tableidx, 3
-  br i1 %121, label %switch.lookup, label %do.body.i.i
+  %122 = icmp ult i32 %switch.tableidx, 3
+  br i1 %122, label %switch.lookup, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.then73.i
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 564, ptr noundef nonnull @__func__.vmxnet3_on_rx_done_update_stats, ptr noundef null) #16
   unreachable
 
 switch.lookup:                                    ; preds = %if.then73.i
-  %122 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive, i64 0, i64 %122
-  %switch.load = load i64, ptr %switch.gep, align 8
   %123 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep127 = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive.16, i64 0, i64 %123
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive, i64 0, i64 %123
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %124 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep127 = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive.16, i64 0, i64 %124
   %switch.load128 = load i64, ptr %switch.gep127, align 8
   %ucastPktsRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %switch.load
-  %124 = load i64, ptr %ucastPktsRxOK.i.i, align 8
-  %inc12.i.i = add i64 %124, 1
+  %125 = load i64, ptr %ucastPktsRxOK.i.i, align 8
+  %inc12.i.i = add i64 %125, 1
   store i64 %inc12.i.i, ptr %ucastPktsRxOK.i.i, align 8
   %ucastBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %switch.load128
-  %125 = load i64, ptr %ucastBytesRxOK.i.i, align 8
-  %add13.i.i = add i64 %125, %call.i59.i
+  %126 = load i64, ptr %ucastBytesRxOK.i.i, align 8
+  %add13.i.i = add i64 %126, %call.i59.i
   store i64 %add13.i.i, ptr %ucastBytesRxOK.i.i, align 8
   %mtu.i.i = getelementptr inbounds i8, ptr %call, i64 14176
-  %126 = load i32, ptr %mtu.i.i, align 16
-  %conv.i61.i = zext i32 %126 to i64
+  %127 = load i32, ptr %mtu.i.i, align 16
+  %conv.i61.i = zext i32 %127 to i64
   %cmp.i62.i = icmp ugt i64 %call.i59.i, %conv.i61.i
   br i1 %cmp.i62.i, label %if.then.i63.i, label %vmxnet3_indicate_packet.exit
 
 if.then.i63.i:                                    ; preds = %switch.lookup
-  %127 = load i64, ptr %rxq_stats.i.i, align 8
-  %inc15.i.i = add i64 %127, 1
+  %128 = load i64, ptr %rxq_stats.i.i, align 8
+  %inc15.i.i = add i64 %128, 1
   store i64 %inc15.i.i, ptr %rxq_stats.i.i, align 8
   br label %return.sink.split.i
 
 if.else.i:                                        ; preds = %vmxnet3_trigger_interrupt.exit.i
   %max_rx_frags75.i = getelementptr inbounds i8, ptr %call, i64 14184
-  %128 = load i16, ptr %max_rx_frags75.i, align 8
-  %cmp77.i = icmp eq i16 %num_frags.094131138.i, %128
-  %129 = load ptr, ptr %rx_pkt5, align 8
-  %call.i66.i = call i64 @net_rx_pkt_get_total_len(ptr noundef %129) #15
+  %129 = load i16, ptr %max_rx_frags75.i, align 8
+  %cmp77.i = icmp eq i16 %num_frags.094131138.i, %129
+  %130 = load ptr, ptr %rx_pkt5, align 8
+  %call.i66.i = call i64 @net_rx_pkt_get_total_len(ptr noundef %130) #15
   %..i40 = select i1 %cmp77.i, i64 11808, i64 11800
   br label %return.sink.split.i
 
@@ -3246,8 +3246,8 @@ return.sink.split.i:                              ; preds = %if.else.i, %if.then
   %.sink.i = phi i64 [ 11744, %if.then.i63.i ], [ %..i40, %if.else.i ]
   %call.i59.sink.i = phi i64 [ %call.i59.i, %if.then.i63.i ], [ 1, %if.else.i ]
   %LROBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %.sink.i
-  %130 = load i64, ptr %LROBytesRxOK.i.i, align 8
-  %add16.i.i = add i64 %130, %call.i59.sink.i
+  %131 = load i64, ptr %LROBytesRxOK.i.i, align 8
+  %add16.i.i = add i64 %131, %call.i59.sink.i
   store i64 %add16.i.i, ptr %LROBytesRxOK.i.i, align 8
   br label %vmxnet3_indicate_packet.exit
 

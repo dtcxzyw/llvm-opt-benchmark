@@ -4611,8 +4611,8 @@ define dso_local void @jbd2_journal_abort(ptr noundef %0, i32 noundef %1) #1 ali
   %51 = phi ptr [ %16, %14 ], [ %38, %36 ], [ %48, %45 ]
   %52 = load i32, ptr %50, align 8
   %53 = icmp eq i32 %52, -108
-  %54 = select i1 %53, i32 0, i32 %52
-  %55 = tail call i32 @llvm.bswap.i32(i32 %54)
+  %54 = tail call i32 @llvm.bswap.i32(i32 %52)
+  %55 = select i1 %53, i32 0, i32 %54
   %56 = getelementptr inbounds i8, ptr %51, i64 32
   store i32 %55, ptr %56, align 4
   %57 = tail call fastcc i32 @jbd2_write_superblock(ptr noundef %0, i32 noundef 131072), !range !48
@@ -7581,8 +7581,8 @@ define dso_local void @jbd2_journal_update_sb_errno(ptr noundef %0) #1 align 16 
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -108
-  %15 = select i1 %14, i32 0, i32 %13
-  %16 = tail call i32 @llvm.bswap.i32(i32 %15)
+  %15 = tail call i32 @llvm.bswap.i32(i32 %13)
+  %16 = select i1 %14, i32 0, i32 %15
   %17 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %16, ptr %17, align 4
   %18 = tail call fastcc i32 @jbd2_write_superblock(ptr noundef %0, i32 noundef 131072), !range !48

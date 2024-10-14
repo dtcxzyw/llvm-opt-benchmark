@@ -1242,10 +1242,10 @@ define internal fastcc void @_ZN4ncnnL24deconvolutiondepthwise1dERKNS_3MatERS0_S
   %.sroa.speculated13 = select i1 %98, float 0x40561814A0000000, float %80
   %99 = fcmp fast olt float %.sroa.speculated13, 0xC0561814A0000000
   %.sroa.speculated13.neg = fneg fast float %.sroa.speculated13
-  %100 = select fast i1 %99, float 0x40561814A0000000, float %.sroa.speculated13.neg
-  %101 = tail call fast float @llvm.exp.f32(float %100)
-  %102 = fadd fast float %101, 1.000000e+00
-  %103 = fdiv fast float 1.000000e+00, %102
+  %100 = tail call fast float @llvm.exp.f32(float %.sroa.speculated13.neg)
+  %101 = fadd fast float %100, 1.000000e+00
+  %102 = fdiv fast float 1.000000e+00, %101
+  %103 = select i1 %99, float 0x37F6A0A880000000, float %102
   br label %126
 
 104:                                              ; preds = %.lr.ph66
@@ -1412,10 +1412,10 @@ define internal fastcc void @_ZN4ncnnL24deconvolutiondepthwise1dERKNS_3MatERS0_S
   %.sroa.speculated2.us = select i1 %193, float 0x40561814A0000000, float %169
   %194 = fcmp fast olt float %.sroa.speculated2.us, 0xC0561814A0000000
   %.sroa.speculated2.neg.us = fneg fast float %.sroa.speculated2.us
-  %195 = select fast i1 %194, float 0x40561814A0000000, float %.sroa.speculated2.neg.us
-  %196 = tail call fast float @llvm.exp.f32(float %195)
-  %197 = fadd fast float %196, 1.000000e+00
-  %198 = fdiv fast float 1.000000e+00, %197
+  %195 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2.neg.us)
+  %196 = fadd fast float %195, 1.000000e+00
+  %197 = fdiv fast float 1.000000e+00, %196
+  %198 = select i1 %194, float 0x37F6A0A880000000, float %197
   br label %215
 
 199:                                              ; preds = %.lr.ph45.us

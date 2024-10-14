@@ -1234,10 +1234,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn16DeformableConv2D7forwar
   %.sroa.speculated644 = select i1 %296, float 0x40561814A0000000, float %.1.lcssa
   %297 = fcmp fast olt float %.sroa.speculated644, 0xC0561814A0000000
   %.sroa.speculated644.neg = fneg fast float %.sroa.speculated644
-  %298 = select fast i1 %297, float 0x40561814A0000000, float %.sroa.speculated644.neg
-  %299 = tail call fast float @llvm.exp.f32(float %298)
-  %300 = fadd fast float %299, 1.000000e+00
-  %301 = fdiv fast float 1.000000e+00, %300
+  %298 = tail call fast float @llvm.exp.f32(float %.sroa.speculated644.neg)
+  %299 = fadd fast float %298, 1.000000e+00
+  %300 = fdiv fast float 1.000000e+00, %299
+  %301 = select i1 %297, float 0x37F6A0A880000000, float %300
   br label %324
 
 302:                                              ; preds = %._crit_edge677

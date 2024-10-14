@@ -1558,23 +1558,23 @@ if.end18:                                         ; preds = %iov_from_buf.exit, 
   %add24 = add i32 %call23, %csum_cntr.0
   %call.i17 = call zeroext i16 @net_checksum_finish(i32 noundef %add24) #17
   %tobool.not.i = icmp eq i16 %call.i17, 0
-  %narrow.i = select i1 %tobool.not.i, i16 -1, i16 %call.i17
-  %12 = call noundef i16 @llvm.bswap.i16(i16 %narrow.i)
-  store i16 %12, ptr %csum, align 2
+  %12 = call i16 @llvm.bswap.i16(i16 %call.i17)
+  %13 = select i1 %tobool.not.i, i16 -1, i16 %12
+  store i16 %13, ptr %csum, align 2
   br i1 %tobool.i.not, label %if.else.i19, label %land.lhs.true1.i22
 
 land.lhs.true1.i22:                               ; preds = %if.end18
-  %13 = load i64, ptr %iov_len5, align 8
-  %cmp.not.i24 = icmp ugt i64 %add, %13
-  %sub.i25 = sub nuw i64 %13, %add
+  %14 = load i64, ptr %iov_len5, align 8
+  %cmp.not.i24 = icmp ugt i64 %add, %14
+  %sub.i25 = sub nuw i64 %14, %add
   %cmp5.not.i26 = icmp ult i64 %sub.i25, 2
   %or.cond13.i27 = select i1 %cmp.not.i24, i1 true, i1 %cmp5.not.i26
   br i1 %or.cond13.i27, label %if.else.i19, label %if.then.i28
 
 if.then.i28:                                      ; preds = %land.lhs.true1.i22
-  %14 = load ptr, ptr %iov, align 8
-  %add.ptr.i29 = getelementptr i8, ptr %14, i64 %add
-  store i16 %12, ptr %add.ptr.i29, align 1
+  %15 = load ptr, ptr %iov, align 8
+  %add.ptr.i29 = getelementptr i8, ptr %15, i64 %add
+  store i16 %13, ptr %add.ptr.i29, align 1
   br label %iov_from_buf.exit30
 
 if.else.i19:                                      ; preds = %land.lhs.true1.i22, %if.end18

@@ -1250,10 +1250,10 @@ define internal fastcc void @_ZN4ncnnL15deconvolution1dERKNS_3MatERS0_S2_S2_iiii
   %.sroa.speculated2 = select i1 %98, float 0x40561814A0000000, float %80
   %99 = fcmp fast olt float %.sroa.speculated2, 0xC0561814A0000000
   %.sroa.speculated2.neg = fneg fast float %.sroa.speculated2
-  %100 = select fast i1 %99, float 0x40561814A0000000, float %.sroa.speculated2.neg
-  %101 = tail call fast float @llvm.exp.f32(float %100)
-  %102 = fadd fast float %101, 1.000000e+00
-  %103 = fdiv fast float 1.000000e+00, %102
+  %100 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2.neg)
+  %101 = fadd fast float %100, 1.000000e+00
+  %102 = fdiv fast float 1.000000e+00, %101
+  %103 = select i1 %99, float 0x37F6A0A880000000, float %102
   br label %126
 
 104:                                              ; preds = %.lr.ph26

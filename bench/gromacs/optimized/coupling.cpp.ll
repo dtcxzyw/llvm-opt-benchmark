@@ -4749,10 +4749,10 @@ define linkonce_odr noundef float @_ZN3gmx18NormalDistributionIfEclINS_12ThreeFr
   store i8 0, ptr %4, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   %11 = load float, ptr %10, align 4
-  br label %53
+  br label %55
 
 12:                                               ; preds = %.preheader, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
-  %13 = phi i32 [ %.pre, %.preheader ], [ %32, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26 ]
+  %13 = phi i32 [ %.pre, %.preheader ], [ %33, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26 ]
   %14 = icmp ugt i32 %13, 1
   br i1 %14, label %16, label %._crit_edge.i.i.i.i
 
@@ -4779,10 +4779,10 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %22 = uitofp i64 %20 to float
   %23 = fmul float %22, 0x3BF0000000000000
   %24 = fcmp oeq float %23, 1.000000e+00
-  %.013.i.i.i = select i1 %24, float 0.000000e+00, float %23
-  %25 = tail call noundef float @llvm.fmuladd.f32(float %.013.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %26 = icmp ugt i32 %21, 1
-  br i1 %26, label %27, label %._crit_edge.i.i.i.i19
+  %25 = tail call float @llvm.fmuladd.f32(float %23, float 2.000000e+00, float -1.000000e+00)
+  %26 = select i1 %24, float -1.000000e+00, float %25
+  %27 = icmp ugt i32 %21, 1
+  br i1 %27, label %28, label %._crit_edge.i.i.i.i19
 
 ._crit_edge.i.i.i.i19:                            ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
   %.phi.trans.insert1.i.i.i.i21 = zext nneg i32 %21 to i64
@@ -4790,53 +4790,53 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %.pre.i.i.i.i23 = load i64, ptr %.phi.trans.insert2.i.i.i.i22, align 8
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
 
-27:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
+28:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
   tail call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull %8)
-  %28 = tail call { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %29 = extractvalue { i64, i64 } %28, 0
-  %30 = extractvalue { i64, i64 } %28, 1
-  store i64 %29, ptr %.phi.trans.insert.i.i.i.i, align 8
-  store i64 %30, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
+  %29 = tail call { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %30 = extractvalue { i64, i64 } %29, 0
+  %31 = extractvalue { i64, i64 } %29, 1
+  store i64 %30, ptr %.phi.trans.insert.i.i.i.i, align 8
+  store i64 %31, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
 
-_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26: ; preds = %._crit_edge.i.i.i.i19, %27
-  %31 = phi i64 [ %29, %27 ], [ %.pre.i.i.i.i23, %._crit_edge.i.i.i.i19 ]
-  %32 = phi i32 [ 1, %27 ], [ 2, %._crit_edge.i.i.i.i19 ]
-  store i32 %32, ptr %7, align 8
-  %33 = uitofp i64 %31 to float
-  %34 = fmul float %33, 0x3BF0000000000000
-  %35 = fcmp oeq float %34, 1.000000e+00
-  %.013.i.i.i24 = select i1 %35, float 0.000000e+00, float %34
-  %36 = tail call noundef float @llvm.fmuladd.f32(float %.013.i.i.i24, float 2.000000e+00, float -1.000000e+00)
-  %37 = fmul float %36, %36
-  %38 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %37)
-  %39 = fcmp ogt float %38, 1.000000e+00
-  %40 = fcmp oeq float %38, 0.000000e+00
-  %41 = or i1 %39, %40
-  br i1 %41, label %12, label %42, !llvm.loop !87
+_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26: ; preds = %._crit_edge.i.i.i.i19, %28
+  %32 = phi i64 [ %30, %28 ], [ %.pre.i.i.i.i23, %._crit_edge.i.i.i.i19 ]
+  %33 = phi i32 [ 1, %28 ], [ 2, %._crit_edge.i.i.i.i19 ]
+  store i32 %33, ptr %7, align 8
+  %34 = uitofp i64 %32 to float
+  %35 = fmul float %34, 0x3BF0000000000000
+  %36 = fcmp oeq float %35, 1.000000e+00
+  %37 = tail call float @llvm.fmuladd.f32(float %35, float 2.000000e+00, float -1.000000e+00)
+  %38 = select i1 %36, float -1.000000e+00, float %37
+  %39 = fmul float %38, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %39)
+  %41 = fcmp ogt float %40, 1.000000e+00
+  %42 = fcmp oeq float %40, 0.000000e+00
+  %43 = or i1 %41, %42
+  br i1 %43, label %12, label %44, !llvm.loop !87
 
-42:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
-  %43 = fpext float %38 to double
-  %44 = tail call noundef float @logf(float noundef %38) #21
-  %45 = fpext float %44 to double
-  %46 = fmul double %45, -2.000000e+00
-  %47 = fdiv double %46, %43
-  %48 = tail call double @sqrt(double noundef %47) #21
-  %49 = fptrunc double %48 to float
-  %50 = fmul float %36, %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 12
-  store float %50, ptr %51, align 4
+44:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
+  %45 = fpext float %40 to double
+  %46 = tail call noundef float @logf(float noundef %40) #21
+  %47 = fpext float %46 to double
+  %48 = fmul double %47, -2.000000e+00
+  %49 = fdiv double %48, %45
+  %50 = tail call double @sqrt(double noundef %49) #21
+  %51 = fptrunc double %50 to float
+  %52 = fmul float %38, %51
+  %53 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %52, ptr %53, align 4
   store i8 1, ptr %4, align 4
-  %52 = fmul float %25, %49
-  br label %53
+  %54 = fmul float %26, %51
+  br label %55
 
-53:                                               ; preds = %42, %9
-  %.0 = phi float [ %11, %9 ], [ %52, %42 ]
-  %54 = getelementptr inbounds i8, ptr %2, i64 4
-  %55 = load float, ptr %54, align 4
-  %56 = load float, ptr %2, align 4
-  %57 = tail call float @llvm.fmuladd.f32(float %.0, float %55, float %56)
-  ret float %57
+55:                                               ; preds = %44, %9
+  %.0 = phi float [ %11, %9 ], [ %54, %44 ]
+  %56 = getelementptr inbounds i8, ptr %2, i64 4
+  %57 = load float, ptr %56, align 4
+  %58 = load float, ptr %2, align 4
+  %59 = tail call float @llvm.fmuladd.f32(float %.0, float %57, float %58)
+  ret float %59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8026,11 +8026,11 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %33 = getelementptr inbounds i8, ptr %2, i64 4
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %32
-  br label %330
+  br label %332
 
 36:                                               ; preds = %3
   %37 = fcmp ogt float %11, 1.000000e+00
-  br i1 %37, label %.preheader, label %305
+  br i1 %37, label %.preheader, label %307
 
 .preheader:                                       ; preds = %36
   %38 = fadd float %11, 0xBFD5555560000000
@@ -8042,9 +8042,9 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   br label %43
 
-43:                                               ; preds = %.preheader, %292
-  %.sroa.4.0 = phi i1 [ %.sroa.4.2, %292 ], [ false, %.preheader ]
-  %.sroa.8.0 = phi float [ %.sroa.8.2, %292 ], [ 0.000000e+00, %.preheader ]
+43:                                               ; preds = %.preheader, %294
+  %.sroa.4.0 = phi i1 [ %.sroa.4.2, %294 ], [ false, %.preheader ]
+  %.sroa.8.0 = phi float [ %.sroa.8.2, %294 ], [ 0.000000e+00, %.preheader ]
   %44 = tail call noundef float @sqrtf(float noundef %38) #21
   %45 = fdiv float 1.000000e+00, %44
   %46 = fmul float %45, 0x3FD5555560000000
@@ -8072,8 +8072,8 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   br label %58
 
 58:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i, %.preheader.i
-  %59 = phi i64 [ %.promoted, %.preheader.i ], [ %241, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
-  %60 = phi i32 [ %.pre.i, %.preheader.i ], [ %243, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
+  %59 = phi i64 [ %.promoted, %.preheader.i ], [ %242, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
+  %60 = phi i32 [ %.pre.i, %.preheader.i ], [ %244, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
   %61 = icmp ugt i32 %60, 1
   br i1 %61, label %63, label %._crit_edge.i.i.i.i.i
 
@@ -8138,14 +8138,14 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #21
   br i1 %.0.i68, label %common.resume.sink.split, label %common.resume
 
-common.resume.sink.split:                         ; preds = %.thread.i62, %.thread22.i65, %74, %.thread.i, %.thread22.i, %167
-  %.sink = phi ptr [ %160, %167 ], [ %160, %.thread22.i ], [ %160, %.thread.i ], [ %67, %74 ], [ %67, %.thread22.i65 ], [ %67, %.thread.i62 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %168, %167 ], [ %166, %.thread22.i ], [ %165, %.thread.i ], [ %75, %74 ], [ %73, %.thread22.i65 ], [ %72, %.thread.i62 ]
+common.resume.sink.split:                         ; preds = %.thread.i62, %.thread22.i65, %74, %.thread.i, %.thread22.i, %168
+  %.sink = phi ptr [ %161, %168 ], [ %161, %.thread22.i ], [ %161, %.thread.i ], [ %67, %74 ], [ %67, %.thread22.i65 ], [ %67, %.thread.i62 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %169, %168 ], [ %167, %.thread22.i ], [ %166, %.thread.i ], [ %75, %74 ], [ %73, %.thread22.i65 ], [ %72, %.thread.i62 ]
   call void @__cxa_free_exception(ptr %.sink) #21
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %167, %74
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %168, %167 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %168, %74
+  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %169, %168 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 76:                                               ; preds = %71
@@ -8238,10 +8238,10 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %151 = uitofp i64 %149 to float
   %152 = fmul float %151, 0x3BF0000000000000
   %153 = fcmp oeq float %152, 1.000000e+00
-  %.013.i.i.i.i = select i1 %153, float 0.000000e+00, float %152
-  %154 = tail call noundef float @llvm.fmuladd.f32(float %.013.i.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %155 = icmp ugt i32 %150, 1
-  br i1 %155, label %156, label %._crit_edge.i.i.i.i19.i
+  %154 = tail call float @llvm.fmuladd.f32(float %152, float 2.000000e+00, float -1.000000e+00)
+  %155 = select i1 %153, float -1.000000e+00, float %154
+  %156 = icmp ugt i32 %150, 1
+  br i1 %156, label %157, label %._crit_edge.i.i.i.i19.i
 
 ._crit_edge.i.i.i.i19.i:                          ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
   %.phi.trans.insert1.i.i.i.i21.i = zext nneg i32 %150 to i64
@@ -8249,289 +8249,289 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %.pre.i.i.i.i23.i = load i64, ptr %.phi.trans.insert2.i.i.i.i22.i, align 8
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
 
-156:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
+157:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %157 = add i64 %148, 1
-  store i64 %157, ptr %41, align 8
-  %158 = icmp eq i64 %157, 0
-  br i1 %158, label %159, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit
+  %158 = add i64 %148, 1
+  store i64 %158, ptr %41, align 8
+  %159 = icmp eq i64 %158, 0
+  br i1 %159, label %160, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit
 
-159:                                              ; preds = %156
-  %160 = tail call ptr @__cxa_allocate_exception(i64 24) #21
+160:                                              ; preds = %157
+  %161 = tail call ptr @__cxa_allocate_exception(i64 24) #21
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.18)
-          to label %161 unwind label %.thread.i
+          to label %162 unwind label %.thread.i
 
-161:                                              ; preds = %159
+162:                                              ; preds = %160
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-          to label %162 unwind label %.thread22.i
+          to label %163 unwind label %.thread22.i
 
-162:                                              ; preds = %161
+163:                                              ; preds = %162
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %9, align 8
-  %163 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE, ptr %164, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr @.str.19, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 24
   store i32 280, ptr %.sroa.3.0..sroa_idx.i, align 8
-  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %160, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %164 unwind label %167
+  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %161, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %165 unwind label %168
 
-164:                                              ; preds = %162
-  invoke void @__cxa_throw(ptr %160, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #27
-          to label %169 unwind label %167
+165:                                              ; preds = %163
+  invoke void @__cxa_throw(ptr %161, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #27
+          to label %170 unwind label %168
 
-.thread.i:                                        ; preds = %159
-  %165 = landingpad { ptr, i32 }
+.thread.i:                                        ; preds = %160
+  %166 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-.thread22.i:                                      ; preds = %161
-  %166 = landingpad { ptr, i32 }
+.thread22.i:                                      ; preds = %162
+  %167 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #21
   br label %common.resume.sink.split
 
-167:                                              ; preds = %164, %162
-  %.0.i56 = phi i1 [ false, %164 ], [ true, %162 ]
-  %168 = landingpad { ptr, i32 }
+168:                                              ; preds = %165, %163
+  %.0.i56 = phi i1 [ false, %165 ], [ true, %163 ]
+  %169 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #21
   br i1 %.0.i56, label %common.resume.sink.split, label %common.resume
 
-169:                                              ; preds = %164
+170:                                              ; preds = %165
   unreachable
 
-_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit: ; preds = %156
+_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit: ; preds = %157
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %170 = add i64 %50, %157
-  %171 = add i64 %49, %170
-  %172 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 16)
-  %173 = xor i64 %172, %171
-  %174 = add i64 %173, %171
-  %175 = tail call i64 @llvm.fshl.i64(i64 %173, i64 %173, i64 42)
-  %176 = xor i64 %175, %174
-  %177 = add i64 %176, %174
-  %178 = tail call i64 @llvm.fshl.i64(i64 %176, i64 %176, i64 12)
-  %179 = xor i64 %178, %177
-  %180 = add i64 %179, %177
-  %181 = tail call i64 @llvm.fshl.i64(i64 %179, i64 %179, i64 31)
-  %182 = xor i64 %181, %180
-  %183 = add i64 %180, %50
-  %184 = add i64 %53, %182
-  %185 = add i64 %183, %184
-  %186 = tail call i64 @llvm.fshl.i64(i64 %184, i64 %184, i64 16)
-  %187 = xor i64 %186, %185
-  %188 = add i64 %187, %185
-  %189 = tail call i64 @llvm.fshl.i64(i64 %187, i64 %187, i64 32)
-  %190 = xor i64 %189, %188
-  %191 = add i64 %190, %188
-  %192 = tail call i64 @llvm.fshl.i64(i64 %190, i64 %190, i64 24)
-  %193 = xor i64 %192, %191
-  %194 = add i64 %193, %191
-  %195 = tail call i64 @llvm.fshl.i64(i64 %193, i64 %193, i64 21)
-  %196 = xor i64 %195, %194
-  %197 = add i64 %194, %52
-  %198 = add i64 %54, %196
-  %199 = add i64 %197, %198
-  %200 = tail call i64 @llvm.fshl.i64(i64 %198, i64 %198, i64 16)
-  %201 = xor i64 %200, %199
-  %202 = add i64 %201, %199
-  %203 = tail call i64 @llvm.fshl.i64(i64 %201, i64 %201, i64 42)
-  %204 = xor i64 %203, %202
-  %205 = add i64 %204, %202
-  %206 = tail call i64 @llvm.fshl.i64(i64 %204, i64 %204, i64 12)
-  %207 = xor i64 %206, %205
-  %208 = add i64 %207, %205
-  %209 = tail call i64 @llvm.fshl.i64(i64 %207, i64 %207, i64 31)
-  %210 = xor i64 %209, %208
-  %211 = add i64 %208, %48
-  %212 = add i64 %55, %210
-  %213 = add i64 %211, %212
-  %214 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 16)
-  %215 = xor i64 %214, %213
-  %216 = add i64 %215, %213
-  %217 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 32)
-  %218 = xor i64 %217, %216
-  %219 = add i64 %218, %216
-  %220 = tail call i64 @llvm.fshl.i64(i64 %218, i64 %218, i64 24)
-  %221 = xor i64 %220, %219
-  %222 = add i64 %221, %219
-  %223 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 21)
-  %224 = xor i64 %223, %222
-  %225 = add i64 %222, %50
-  %226 = add i64 %56, %224
-  %227 = add i64 %225, %226
-  %228 = tail call i64 @llvm.fshl.i64(i64 %226, i64 %226, i64 16)
-  %229 = xor i64 %228, %227
-  %230 = add i64 %229, %227
-  %231 = tail call i64 @llvm.fshl.i64(i64 %229, i64 %229, i64 42)
-  %232 = xor i64 %231, %230
-  %233 = add i64 %232, %230
-  %234 = tail call i64 @llvm.fshl.i64(i64 %232, i64 %232, i64 12)
-  %235 = xor i64 %234, %233
-  %236 = add i64 %235, %233
-  %237 = tail call i64 @llvm.fshl.i64(i64 %235, i64 %235, i64 31)
-  %238 = xor i64 %237, %236
-  %239 = add i64 %236, %52
-  %240 = add i64 %57, %238
-  store i64 %239, ptr %.phi.trans.insert.i.i.i.i.i, align 8
-  store i64 %240, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
+  %171 = add i64 %50, %158
+  %172 = add i64 %49, %171
+  %173 = tail call i64 @llvm.fshl.i64(i64 %171, i64 %171, i64 16)
+  %174 = xor i64 %173, %172
+  %175 = add i64 %174, %172
+  %176 = tail call i64 @llvm.fshl.i64(i64 %174, i64 %174, i64 42)
+  %177 = xor i64 %176, %175
+  %178 = add i64 %177, %175
+  %179 = tail call i64 @llvm.fshl.i64(i64 %177, i64 %177, i64 12)
+  %180 = xor i64 %179, %178
+  %181 = add i64 %180, %178
+  %182 = tail call i64 @llvm.fshl.i64(i64 %180, i64 %180, i64 31)
+  %183 = xor i64 %182, %181
+  %184 = add i64 %181, %50
+  %185 = add i64 %53, %183
+  %186 = add i64 %184, %185
+  %187 = tail call i64 @llvm.fshl.i64(i64 %185, i64 %185, i64 16)
+  %188 = xor i64 %187, %186
+  %189 = add i64 %188, %186
+  %190 = tail call i64 @llvm.fshl.i64(i64 %188, i64 %188, i64 32)
+  %191 = xor i64 %190, %189
+  %192 = add i64 %191, %189
+  %193 = tail call i64 @llvm.fshl.i64(i64 %191, i64 %191, i64 24)
+  %194 = xor i64 %193, %192
+  %195 = add i64 %194, %192
+  %196 = tail call i64 @llvm.fshl.i64(i64 %194, i64 %194, i64 21)
+  %197 = xor i64 %196, %195
+  %198 = add i64 %195, %52
+  %199 = add i64 %54, %197
+  %200 = add i64 %198, %199
+  %201 = tail call i64 @llvm.fshl.i64(i64 %199, i64 %199, i64 16)
+  %202 = xor i64 %201, %200
+  %203 = add i64 %202, %200
+  %204 = tail call i64 @llvm.fshl.i64(i64 %202, i64 %202, i64 42)
+  %205 = xor i64 %204, %203
+  %206 = add i64 %205, %203
+  %207 = tail call i64 @llvm.fshl.i64(i64 %205, i64 %205, i64 12)
+  %208 = xor i64 %207, %206
+  %209 = add i64 %208, %206
+  %210 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 31)
+  %211 = xor i64 %210, %209
+  %212 = add i64 %209, %48
+  %213 = add i64 %55, %211
+  %214 = add i64 %212, %213
+  %215 = tail call i64 @llvm.fshl.i64(i64 %213, i64 %213, i64 16)
+  %216 = xor i64 %215, %214
+  %217 = add i64 %216, %214
+  %218 = tail call i64 @llvm.fshl.i64(i64 %216, i64 %216, i64 32)
+  %219 = xor i64 %218, %217
+  %220 = add i64 %219, %217
+  %221 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 24)
+  %222 = xor i64 %221, %220
+  %223 = add i64 %222, %220
+  %224 = tail call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 21)
+  %225 = xor i64 %224, %223
+  %226 = add i64 %223, %50
+  %227 = add i64 %56, %225
+  %228 = add i64 %226, %227
+  %229 = tail call i64 @llvm.fshl.i64(i64 %227, i64 %227, i64 16)
+  %230 = xor i64 %229, %228
+  %231 = add i64 %230, %228
+  %232 = tail call i64 @llvm.fshl.i64(i64 %230, i64 %230, i64 42)
+  %233 = xor i64 %232, %231
+  %234 = add i64 %233, %231
+  %235 = tail call i64 @llvm.fshl.i64(i64 %233, i64 %233, i64 12)
+  %236 = xor i64 %235, %234
+  %237 = add i64 %236, %234
+  %238 = tail call i64 @llvm.fshl.i64(i64 %236, i64 %236, i64 31)
+  %239 = xor i64 %238, %237
+  %240 = add i64 %237, %52
+  %241 = add i64 %57, %239
+  store i64 %240, ptr %.phi.trans.insert.i.i.i.i.i, align 8
+  store i64 %241, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
 
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i: ; preds = %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit, %._crit_edge.i.i.i.i19.i
-  %241 = phi i64 [ %157, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %148, %._crit_edge.i.i.i.i19.i ]
-  %242 = phi i64 [ %239, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %.pre.i.i.i.i23.i, %._crit_edge.i.i.i.i19.i ]
-  %243 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ 2, %._crit_edge.i.i.i.i19.i ]
-  store i32 %243, ptr %39, align 8
-  %244 = uitofp i64 %242 to float
-  %245 = fmul float %244, 0x3BF0000000000000
-  %246 = fcmp oeq float %245, 1.000000e+00
-  %.013.i.i.i24.i = select i1 %246, float 0.000000e+00, float %245
-  %247 = tail call noundef float @llvm.fmuladd.f32(float %.013.i.i.i24.i, float 2.000000e+00, float -1.000000e+00)
-  %248 = fmul float %247, %247
-  %249 = tail call float @llvm.fmuladd.f32(float %154, float %154, float %248)
-  %250 = fcmp ogt float %249, 1.000000e+00
-  %251 = fcmp oeq float %249, 0.000000e+00
-  %252 = or i1 %250, %251
-  br i1 %252, label %58, label %253, !llvm.loop !87
+  %242 = phi i64 [ %158, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %148, %._crit_edge.i.i.i.i19.i ]
+  %243 = phi i64 [ %240, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %.pre.i.i.i.i23.i, %._crit_edge.i.i.i.i19.i ]
+  %244 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ 2, %._crit_edge.i.i.i.i19.i ]
+  store i32 %244, ptr %39, align 8
+  %245 = uitofp i64 %243 to float
+  %246 = fmul float %245, 0x3BF0000000000000
+  %247 = fcmp oeq float %246, 1.000000e+00
+  %248 = tail call float @llvm.fmuladd.f32(float %246, float 2.000000e+00, float -1.000000e+00)
+  %249 = select i1 %247, float -1.000000e+00, float %248
+  %250 = fmul float %249, %249
+  %251 = tail call float @llvm.fmuladd.f32(float %155, float %155, float %250)
+  %252 = fcmp ogt float %251, 1.000000e+00
+  %253 = fcmp oeq float %251, 0.000000e+00
+  %254 = or i1 %252, %253
+  br i1 %254, label %58, label %255, !llvm.loop !87
 
-253:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
-  %254 = fpext float %249 to double
-  %255 = tail call noundef float @logf(float noundef %249) #21
-  %256 = fpext float %255 to double
-  %257 = fmul double %256, -2.000000e+00
-  %258 = fdiv double %257, %254
-  %259 = tail call double @sqrt(double noundef %258) #21
-  %260 = fptrunc double %259 to float
-  %261 = fmul float %247, %260
-  %262 = fmul float %154, %260
+255:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
+  %256 = fpext float %251 to double
+  %257 = tail call noundef float @logf(float noundef %251) #21
+  %258 = fpext float %257 to double
+  %259 = fmul double %258, -2.000000e+00
+  %260 = fdiv double %259, %256
+  %261 = tail call double @sqrt(double noundef %260) #21
+  %262 = fptrunc double %261 to float
+  %263 = fmul float %249, %262
+  %264 = fmul float %155, %262
   br label %_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE.exit
 
-_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE.exit: ; preds = %47, %253
-  %.sroa.8.2 = phi float [ %261, %253 ], [ %.sroa.8.1, %47 ]
-  %.0.i = phi float [ %262, %253 ], [ %.sroa.8.1, %47 ]
+_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE.exit: ; preds = %47, %255
+  %.sroa.8.2 = phi float [ %263, %255 ], [ %.sroa.8.1, %47 ]
+  %.0.i = phi float [ %264, %255 ], [ %.sroa.8.1, %47 ]
   %.sroa.4.2 = xor i1 %.sroa.4.1, true
-  %263 = fadd float %.0.i, 0.000000e+00
-  %264 = tail call float @llvm.fmuladd.f32(float %46, float %263, float 1.000000e+00)
-  %265 = fcmp ugt float %264, 0.000000e+00
-  br i1 %265, label %266, label %47, !llvm.loop !124
+  %265 = fadd float %.0.i, 0.000000e+00
+  %266 = tail call float @llvm.fmuladd.f32(float %46, float %265, float 1.000000e+00)
+  %267 = fcmp ugt float %266, 0.000000e+00
+  br i1 %267, label %268, label %47, !llvm.loop !124
 
-266:                                              ; preds = %_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE.exit
-  %267 = fmul float %264, %264
-  %268 = fmul float %264, %267
-  %269 = load i32, ptr %39, align 8
-  %270 = icmp ugt i32 %269, 1
-  br i1 %270, label %272, label %._crit_edge.i.i.i.i42
+268:                                              ; preds = %_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE.exit
+  %269 = fmul float %266, %266
+  %270 = fmul float %266, %269
+  %271 = load i32, ptr %39, align 8
+  %272 = icmp ugt i32 %271, 1
+  br i1 %272, label %274, label %._crit_edge.i.i.i.i42
 
-._crit_edge.i.i.i.i42:                            ; preds = %266
-  %.phi.trans.insert1.i.i.i.i44 = zext nneg i32 %269 to i64
+._crit_edge.i.i.i.i42:                            ; preds = %268
+  %.phi.trans.insert1.i.i.i.i44 = zext nneg i32 %271 to i64
   %.phi.trans.insert2.i.i.i.i45 = getelementptr inbounds [2 x i64], ptr %.phi.trans.insert.i.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i44
   %.pre.i.i.i.i46 = load i64, ptr %.phi.trans.insert2.i.i.i.i45, align 8
-  %271 = add nuw nsw i32 %269, 1
+  %273 = add nuw nsw i32 %271, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
 
-272:                                              ; preds = %266
+274:                                              ; preds = %268
   tail call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull %40)
-  %273 = tail call { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %40)
-  %274 = extractvalue { i64, i64 } %273, 0
-  %275 = extractvalue { i64, i64 } %273, 1
-  store i64 %274, ptr %.phi.trans.insert.i.i.i.i.i, align 8
-  store i64 %275, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
+  %275 = tail call { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %276 = extractvalue { i64, i64 } %275, 0
+  %277 = extractvalue { i64, i64 } %275, 1
+  store i64 %276, ptr %.phi.trans.insert.i.i.i.i.i, align 8
+  store i64 %277, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
 
-_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; preds = %._crit_edge.i.i.i.i42, %272
-  %276 = phi i64 [ %274, %272 ], [ %.pre.i.i.i.i46, %._crit_edge.i.i.i.i42 ]
-  %277 = phi i32 [ 1, %272 ], [ %271, %._crit_edge.i.i.i.i42 ]
-  store i32 %277, ptr %39, align 8
-  %278 = uitofp i64 %276 to float
-  %279 = fmul float %278, 0x3BF0000000000000
-  %280 = fcmp oeq float %279, 1.000000e+00
-  %281 = fadd float %279, 0x3810000000000000
-  %282 = select i1 %280, float 0x3810000000000000, float %281
-  %283 = fmul float %263, %263
-  %284 = fmul float %283, 0xBFA0F27BC0000000
-  %285 = tail call float @llvm.fmuladd.f32(float %284, float %283, float 1.000000e+00)
-  %286 = fcmp olt float %282, %285
-  br i1 %286, label %287, label %292
+_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; preds = %._crit_edge.i.i.i.i42, %274
+  %278 = phi i64 [ %276, %274 ], [ %.pre.i.i.i.i46, %._crit_edge.i.i.i.i42 ]
+  %279 = phi i32 [ 1, %274 ], [ %273, %._crit_edge.i.i.i.i42 ]
+  store i32 %279, ptr %39, align 8
+  %280 = uitofp i64 %278 to float
+  %281 = fmul float %280, 0x3BF0000000000000
+  %282 = fcmp oeq float %281, 1.000000e+00
+  %283 = fadd float %281, 0x3810000000000000
+  %284 = select i1 %282, float 0x3810000000000000, float %283
+  %285 = fmul float %265, %265
+  %286 = fmul float %285, 0xBFA0F27BC0000000
+  %287 = tail call float @llvm.fmuladd.f32(float %286, float %285, float 1.000000e+00)
+  %288 = fcmp olt float %284, %287
+  br i1 %288, label %289, label %294
 
-287:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
-  %288 = fmul float %38, %268
-  %289 = getelementptr inbounds i8, ptr %2, i64 4
-  %290 = load float, ptr %289, align 4
-  %291 = fmul float %288, %290
-  br label %330
+289:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
+  %290 = fmul float %38, %270
+  %291 = getelementptr inbounds i8, ptr %2, i64 4
+  %292 = load float, ptr %291, align 4
+  %293 = fmul float %290, %292
+  br label %332
 
-292:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
-  %293 = tail call noundef float @logf(float noundef %282) #21
-  %294 = fsub float 1.000000e+00, %268
-  %295 = tail call noundef float @logf(float noundef %268) #21
-  %296 = fadd float %294, %295
-  %297 = fmul float %38, %296
-  %298 = tail call float @llvm.fmuladd.f32(float %283, float 5.000000e-01, float %297)
-  %299 = fcmp olt float %293, %298
-  br i1 %299, label %300, label %43, !llvm.loop !125
+294:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
+  %295 = tail call noundef float @logf(float noundef %284) #21
+  %296 = fsub float 1.000000e+00, %270
+  %297 = tail call noundef float @logf(float noundef %270) #21
+  %298 = fadd float %296, %297
+  %299 = fmul float %38, %298
+  %300 = tail call float @llvm.fmuladd.f32(float %285, float 5.000000e-01, float %299)
+  %301 = fcmp olt float %295, %300
+  br i1 %301, label %302, label %43, !llvm.loop !125
 
-300:                                              ; preds = %292
-  %301 = fmul float %38, %268
-  %302 = getelementptr inbounds i8, ptr %2, i64 4
-  %303 = load float, ptr %302, align 4
-  %304 = fmul float %301, %303
-  br label %330
+302:                                              ; preds = %294
+  %303 = fmul float %38, %270
+  %304 = getelementptr inbounds i8, ptr %2, i64 4
+  %305 = load float, ptr %304, align 4
+  %306 = fmul float %303, %305
+  br label %332
 
-305:                                              ; preds = %36
-  %306 = fadd float %11, 1.000000e+00
-  %307 = getelementptr inbounds i8, ptr %2, i64 4
-  %308 = load float, ptr %307, align 4
-  call void @_ZN3gmx17GammaDistributionIfE10param_typeC2Eff(ptr noundef nonnull align 4 dereferenceable(8) %10, float noundef %306, float noundef %308)
-  %309 = call noundef float @_ZN3gmx17GammaDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  %310 = getelementptr inbounds i8, ptr %1, i64 48
-  %311 = load i32, ptr %310, align 8
-  %312 = icmp ugt i32 %311, 1
-  br i1 %312, label %314, label %._crit_edge.i.i.i.i48
+307:                                              ; preds = %36
+  %308 = fadd float %11, 1.000000e+00
+  %309 = getelementptr inbounds i8, ptr %2, i64 4
+  %310 = load float, ptr %309, align 4
+  call void @_ZN3gmx17GammaDistributionIfE10param_typeC2Eff(ptr noundef nonnull align 4 dereferenceable(8) %10, float noundef %308, float noundef %310)
+  %311 = call noundef float @_ZN3gmx17GammaDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %312 = getelementptr inbounds i8, ptr %1, i64 48
+  %313 = load i32, ptr %312, align 8
+  %314 = icmp ugt i32 %313, 1
+  br i1 %314, label %316, label %._crit_edge.i.i.i.i48
 
-._crit_edge.i.i.i.i48:                            ; preds = %305
+._crit_edge.i.i.i.i48:                            ; preds = %307
   %.phi.trans.insert.i.i.i.i49 = getelementptr inbounds i8, ptr %1, i64 32
-  %.phi.trans.insert1.i.i.i.i50 = zext nneg i32 %311 to i64
+  %.phi.trans.insert1.i.i.i.i50 = zext nneg i32 %313 to i64
   %.phi.trans.insert2.i.i.i.i51 = getelementptr inbounds [2 x i64], ptr %.phi.trans.insert.i.i.i.i49, i64 0, i64 %.phi.trans.insert1.i.i.i.i50
   %.pre.i.i.i.i52 = load i64, ptr %.phi.trans.insert2.i.i.i.i51, align 8
-  %313 = add nuw nsw i32 %311, 1
+  %315 = add nuw nsw i32 %313, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55
 
-314:                                              ; preds = %305
-  %315 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull %315)
-  %316 = call { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %315)
-  %317 = extractvalue { i64, i64 } %316, 0
-  %318 = extractvalue { i64, i64 } %316, 1
-  %319 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 %317, ptr %319, align 8
+316:                                              ; preds = %307
+  %317 = getelementptr inbounds i8, ptr %1, i64 16
+  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull %317)
+  %318 = call { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %317)
+  %319 = extractvalue { i64, i64 } %318, 0
+  %320 = extractvalue { i64, i64 } %318, 1
+  %321 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 %319, ptr %321, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i54 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %318, ptr %.sroa.2.0..sroa_idx.i.i.i.i54, align 8
+  store i64 %320, ptr %.sroa.2.0..sroa_idx.i.i.i.i54, align 8
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55
 
-_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55: ; preds = %._crit_edge.i.i.i.i48, %314
-  %320 = phi i64 [ %317, %314 ], [ %.pre.i.i.i.i52, %._crit_edge.i.i.i.i48 ]
-  %321 = phi i32 [ 1, %314 ], [ %313, %._crit_edge.i.i.i.i48 ]
-  store i32 %321, ptr %310, align 8
-  %322 = uitofp i64 %320 to float
-  %323 = fmul float %322, 0x3BF0000000000000
-  %324 = fcmp oeq float %323, 1.000000e+00
-  %325 = fadd float %323, 0x3810000000000000
-  %326 = select i1 %324, float 0x3810000000000000, float %325
-  %327 = fdiv float 1.000000e+00, %11
-  %328 = call noundef float @powf(float noundef %326, float noundef %327) #21
-  %329 = fmul float %309, %328
-  br label %330
+_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55: ; preds = %._crit_edge.i.i.i.i48, %316
+  %322 = phi i64 [ %319, %316 ], [ %.pre.i.i.i.i52, %._crit_edge.i.i.i.i48 ]
+  %323 = phi i32 [ 1, %316 ], [ %315, %._crit_edge.i.i.i.i48 ]
+  store i32 %323, ptr %312, align 8
+  %324 = uitofp i64 %322 to float
+  %325 = fmul float %324, 0x3BF0000000000000
+  %326 = fcmp oeq float %325, 1.000000e+00
+  %327 = fadd float %325, 0x3810000000000000
+  %328 = select i1 %326, float 0x3810000000000000, float %327
+  %329 = fdiv float 1.000000e+00, %11
+  %330 = call noundef float @powf(float noundef %328, float noundef %329) #21
+  %331 = fmul float %311, %330
+  br label %332
 
-330:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55, %300, %287, %_ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
-  %.0 = phi float [ %35, %_ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit ], [ %291, %287 ], [ %304, %300 ], [ %329, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55 ]
+332:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55, %302, %289, %_ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
+  %.0 = phi float [ %35, %_ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit ], [ %293, %289 ], [ %306, %302 ], [ %331, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit55 ]
   ret float %.0
 }
 

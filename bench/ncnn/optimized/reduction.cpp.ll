@@ -12533,8 +12533,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   %5165 = getelementptr inbounds float, ptr %5164, i64 %indvars.iv19.i.i
   %5166 = load float, ptr %5165, align 4
   %5167 = fcmp fast olt float %5166, 0x3810000000000000
-  %5168 = select fast i1 %5167, float 0.000000e+00, float %5166
-  %5169 = tail call fast noundef float @llvm.sqrt.f32(float %5168)
+  %5168 = tail call fast float @llvm.sqrt.f32(float %5166)
+  %5169 = select i1 %5167, float 0.000000e+00, float %5168
   store float %5169, ptr %5165, align 4
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond23.not.i.i = icmp eq i64 %indvars.iv.next20.i.i, %wide.trip.count22.i.i
@@ -12559,8 +12559,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   %5178 = getelementptr inbounds float, ptr %5177, i64 %indvars.iv.i.i1134
   %5179 = load float, ptr %5178, align 4
   %5180 = fcmp fast olt float %5179, 0x3810000000000000
-  %5181 = select fast i1 %5180, float 0.000000e+00, float %5179
-  %5182 = tail call fast noundef float @llvm.sqrt.f32(float %5181)
+  %5181 = tail call fast float @llvm.sqrt.f32(float %5179)
+  %5182 = select i1 %5180, float 0.000000e+00, float %5181
   store float %5182, ptr %5178, align 4
   %indvars.iv.next.i.i1135 = add nuw nsw i64 %indvars.iv.i.i1134, 1
   %exitcond.not.i.i1136 = icmp eq i64 %indvars.iv.next.i.i1135, %wide.trip.count.i.i1132
@@ -12615,8 +12615,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   %5208 = getelementptr inbounds float, ptr %5206, i64 %indvars.iv24.i.i
   %5209 = load float, ptr %5208, align 4
   %5210 = fcmp fast olt float %5209, 0x3810000000000000
-  %5211 = select fast i1 %5210, float 0.000000e+00, float %5209
-  %5212 = tail call fast noundef float @llvm.sqrt.f32(float %5211)
+  %5211 = tail call fast float @llvm.sqrt.f32(float %5209)
+  %5212 = select i1 %5210, float 0.000000e+00, float %5211
   store float %5212, ptr %5208, align 4
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, %wide.trip.count27.i.i
@@ -12641,8 +12641,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   %5215 = getelementptr inbounds float, ptr %5214, i64 %indvars.iv34.i.i
   %5216 = load float, ptr %5215, align 4
   %5217 = fcmp fast olt float %5216, 0x3810000000000000
-  %5218 = select fast i1 %5217, float 0.000000e+00, float %5216
-  %5219 = tail call fast noundef float @llvm.sqrt.f32(float %5218)
+  %5218 = tail call fast float @llvm.sqrt.f32(float %5216)
+  %5219 = select i1 %5217, float 0.000000e+00, float %5218
   store float %5219, ptr %5215, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %exitcond38.not.i.i = icmp eq i64 %indvars.iv.next35.i.i, %wide.trip.count37.i.i

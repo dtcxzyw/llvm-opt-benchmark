@@ -226,37 +226,37 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %37 = fadd double %36, 2.000000e+00
   %38 = tail call double @llvm.floor.f64(double %37)
   %39 = fcmp ult double %38, 4.000000e+00
-  %.0.i9 = select i1 %39, double %38, double 3.000000e+00
-  %40 = tail call double @llvm.fmuladd.f64(double %.0.i9, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %41 = fsub double %0, %40
-  %42 = tail call double @llvm.fmuladd.f64(double %41, double %34, double %40)
-  %43 = fcmp ogt double %23, 0.000000e+00
-  %44 = fcmp olt double %23, 0.000000e+00
-  %45 = sitofp i1 %44 to double
-  %46 = fmul double %45, 0x3FE921FB54442D18
-  %47 = select i1 %43, double 0x3FE921FB54442D18, double %46
-  %48 = fsub double 2.000000e+00, %34
-  %49 = fmul double %47, %48
+  %40 = tail call double @llvm.fmuladd.f64(double %38, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %41 = select i1 %39, double %40, double 0x4002D97C7F3321D2
+  %42 = fsub double %0, %41
+  %43 = tail call double @llvm.fmuladd.f64(double %42, double %34, double %41)
+  %44 = fcmp ogt double %23, 0.000000e+00
+  %45 = fcmp olt double %23, 0.000000e+00
+  %46 = sitofp i1 %45 to double
+  %47 = fmul double %46, 0x3FE921FB54442D18
+  %48 = select i1 %44, double 0x3FE921FB54442D18, double %47
+  %49 = fsub double 2.000000e+00, %34
+  %50 = fmul double %48, %49
   br label %_ZL14healpix_sphere5PJ_LP.exit
 
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %28, %30
-  %.sroa.014.0.i = phi double [ %0, %28 ], [ %42, %30 ]
-  %.sroa.3.0.i = phi double [ %29, %28 ], [ %49, %30 ]
-  %50 = getelementptr inbounds i8, ptr %24, i64 8
-  %51 = load double, ptr %50, align 8
-  %52 = fneg double %51
-  %53 = tail call double @cos(double noundef %52) #11
-  %54 = tail call double @sin(double noundef %52) #11
-  %55 = fneg double %54
-  %56 = fmul double %.sroa.3.0.i, %55
-  %57 = tail call double @llvm.fmuladd.f64(double %.sroa.014.0.i, double %53, double %56)
-  %58 = tail call double @cos(double noundef %52) #11
-  %59 = tail call double @sin(double noundef %52) #11
-  %60 = fmul double %.sroa.014.0.i, %59
-  %61 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.i, double %58, double %60)
-  %.fca.0.insert.i10 = insertvalue { double, double } poison, double %57, 0
-  %.fca.1.insert.i11 = insertvalue { double, double } %.fca.0.insert.i10, double %61, 1
-  ret { double, double } %.fca.1.insert.i11
+  %.sroa.014.0.i = phi double [ %0, %28 ], [ %43, %30 ]
+  %.sroa.3.0.i = phi double [ %29, %28 ], [ %50, %30 ]
+  %51 = getelementptr inbounds i8, ptr %24, i64 8
+  %52 = load double, ptr %51, align 8
+  %53 = fneg double %52
+  %54 = tail call double @cos(double noundef %53) #11
+  %55 = tail call double @sin(double noundef %53) #11
+  %56 = fneg double %55
+  %57 = fmul double %.sroa.3.0.i, %56
+  %58 = tail call double @llvm.fmuladd.f64(double %.sroa.014.0.i, double %54, double %57)
+  %59 = tail call double @cos(double noundef %53) #11
+  %60 = tail call double @sin(double noundef %53) #11
+  %61 = fmul double %.sroa.014.0.i, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.i, double %59, double %61)
+  %.fca.0.insert.i9 = insertvalue { double, double } poison, double %58, 0
+  %.fca.1.insert.i10 = insertvalue { double, double } %.fca.0.insert.i9, double %62, 1
+  ret { double, double } %.fca.1.insert.i10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -354,7 +354,7 @@ _ZL8in_imageddiii.exit:                           ; preds = %53
 56:                                               ; preds = %_ZL8in_imageddiii.exit
   %57 = load ptr, ptr %2, align 8
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %57, i32 noundef 2050)
-  br label %97
+  br label %98
 
 _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imageddiii.exit
   %58 = tail call double @llvm.fabs.f64(double %16)
@@ -369,7 +369,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
 
 64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
   %65 = fcmp olt double %58, 0x3FF921FB54442D18
-  br i1 %65, label %66, label %87
+  br i1 %65, label %66, label %88
 
 66:                                               ; preds = %64
   %67 = fmul double %12, 2.000000e+00
@@ -377,44 +377,44 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %69 = fadd double %68, 2.000000e+00
   %70 = tail call double @llvm.floor.f64(double %69)
   %71 = fcmp ult double %70, 4.000000e+00
-  %.0.i14 = select i1 %71, double %70, double 3.000000e+00
-  %72 = tail call double @llvm.fmuladd.f64(double %.0.i14, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %73 = fmul double %58, 4.000000e+00
-  %74 = fdiv double %73, 0x400921FB54442D18
-  %75 = fsub double 2.000000e+00, %74
-  %76 = fsub double %12, %72
-  %77 = fdiv double %76, %75
-  %78 = fadd double %72, %77
-  %79 = fcmp ogt double %16, 0.000000e+00
-  %80 = fcmp olt double %16, 0.000000e+00
-  %81 = sitofp i1 %80 to double
-  %82 = select i1 %79, double 1.000000e+00, double %81
-  %square.i = fmul double %75, %75
-  %83 = fdiv double %square.i, 3.000000e+00
-  %84 = fsub double 1.000000e+00, %83
-  %85 = tail call double @asin(double noundef %84) #11
-  %86 = fmul double %82, %85
+  %72 = tail call double @llvm.fmuladd.f64(double %70, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %73 = select i1 %71, double %72, double 0x4002D97C7F3321D2
+  %74 = fmul double %58, 4.000000e+00
+  %75 = fdiv double %74, 0x400921FB54442D18
+  %76 = fsub double 2.000000e+00, %75
+  %77 = fsub double %12, %73
+  %78 = fdiv double %77, %76
+  %79 = fadd double %73, %78
+  %80 = fcmp ogt double %16, 0.000000e+00
+  %81 = fcmp olt double %16, 0.000000e+00
+  %82 = sitofp i1 %81 to double
+  %83 = select i1 %80, double 1.000000e+00, double %82
+  %square.i = fmul double %76, %76
+  %84 = fdiv double %square.i, 3.000000e+00
+  %85 = fsub double 1.000000e+00, %84
+  %86 = tail call double @asin(double noundef %85) #11
+  %87 = fmul double %83, %86
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-87:                                               ; preds = %64
-  %88 = fcmp ogt double %16, 0.000000e+00
-  %89 = fcmp olt double %16, 0.000000e+00
-  %90 = sitofp i1 %89 to double
-  %91 = fmul double %90, 0x3FF921FB54442D18
-  %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
+88:                                               ; preds = %64
+  %89 = fcmp ogt double %16, 0.000000e+00
+  %90 = fcmp olt double %16, 0.000000e+00
+  %91 = sitofp i1 %90 to double
+  %92 = fmul double %91, 0x3FF921FB54442D18
+  %93 = select i1 %89, double 0x3FF921FB54442D18, double %92
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %87
-  %.sroa.016.0.i = phi double [ %12, %60 ], [ %78, %66 ], [ 0xC00921FB54442D18, %87 ]
-  %.sroa.4.0.i = phi double [ %63, %60 ], [ %86, %66 ], [ %92, %87 ]
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %95)
-  br label %97
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %88
+  %.sroa.016.0.i = phi double [ %12, %60 ], [ %79, %66 ], [ 0xC00921FB54442D18, %88 ]
+  %.sroa.4.0.i = phi double [ %63, %60 ], [ %87, %66 ], [ %93, %88 ]
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %96)
+  br label %98
 
-97:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %56
-  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %56 ], [ %96, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+98:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %56
+  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %56 ], [ %97, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
   %.sroa.011.0 = phi double [ 0x7FF0000000000000, %56 ], [ %.sroa.016.0.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
@@ -444,36 +444,36 @@ define internal { double, double } @_ZL17s_healpix_forward5PJ_LPP8PJconsts(doubl
   %18 = fadd double %17, 2.000000e+00
   %19 = tail call double @llvm.floor.f64(double %18)
   %20 = fcmp ult double %19, 4.000000e+00
-  %.0.i = select i1 %20, double %19, double 3.000000e+00
-  %21 = tail call double @llvm.fmuladd.f64(double %.0.i, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %22 = fsub double %0, %21
-  %23 = tail call double @llvm.fmuladd.f64(double %22, double %15, double %21)
-  %24 = fcmp ogt double %1, 0.000000e+00
-  %25 = fcmp olt double %1, 0.000000e+00
-  %26 = sitofp i1 %25 to double
-  %27 = fmul double %26, 0x3FE921FB54442D18
-  %28 = select i1 %24, double 0x3FE921FB54442D18, double %27
-  %29 = fsub double 2.000000e+00, %15
-  %30 = fmul double %28, %29
+  %21 = tail call double @llvm.fmuladd.f64(double %19, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %22 = select i1 %20, double %21, double 0x4002D97C7F3321D2
+  %23 = fsub double %0, %22
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double %15, double %22)
+  %25 = fcmp ogt double %1, 0.000000e+00
+  %26 = fcmp olt double %1, 0.000000e+00
+  %27 = sitofp i1 %26 to double
+  %28 = fmul double %27, 0x3FE921FB54442D18
+  %29 = select i1 %25, double 0x3FE921FB54442D18, double %28
+  %30 = fsub double 2.000000e+00, %15
+  %31 = fmul double %29, %30
   br label %_ZL14healpix_sphere5PJ_LP.exit
 
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
-  %.sroa.014.0.i = phi double [ %0, %9 ], [ %23, %11 ]
-  %.sroa.3.0.i = phi double [ %10, %9 ], [ %30, %11 ]
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
-  %32 = load double, ptr %31, align 8
-  %33 = fneg double %32
-  %34 = tail call double @cos(double noundef %33) #11
-  %35 = tail call double @sin(double noundef %33) #11
-  %36 = fneg double %35
-  %37 = fmul double %.sroa.3.0.i, %36
-  %38 = tail call double @llvm.fmuladd.f64(double %.sroa.014.0.i, double %34, double %37)
-  %39 = tail call double @cos(double noundef %33) #11
-  %40 = tail call double @sin(double noundef %33) #11
-  %41 = fmul double %.sroa.014.0.i, %40
-  %42 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.i, double %39, double %41)
-  %.fca.0.insert.i8 = insertvalue { double, double } poison, double %38, 0
-  %.fca.1.insert.i9 = insertvalue { double, double } %.fca.0.insert.i8, double %42, 1
+  %.sroa.014.0.i = phi double [ %0, %9 ], [ %24, %11 ]
+  %.sroa.3.0.i = phi double [ %10, %9 ], [ %31, %11 ]
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = load double, ptr %32, align 8
+  %34 = fneg double %33
+  %35 = tail call double @cos(double noundef %34) #11
+  %36 = tail call double @sin(double noundef %34) #11
+  %37 = fneg double %36
+  %38 = fmul double %.sroa.3.0.i, %37
+  %39 = tail call double @llvm.fmuladd.f64(double %.sroa.014.0.i, double %35, double %38)
+  %40 = tail call double @cos(double noundef %34) #11
+  %41 = tail call double @sin(double noundef %34) #11
+  %42 = fmul double %.sroa.014.0.i, %41
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.i, double %40, double %42)
+  %.fca.0.insert.i8 = insertvalue { double, double } poison, double %39, 0
+  %.fca.1.insert.i9 = insertvalue { double, double } %.fca.0.insert.i8, double %43, 1
   ret { double, double } %.fca.1.insert.i9
 }
 
@@ -587,7 +587,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
 
 64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
   %65 = fcmp olt double %58, 0x3FF921FB54442D18
-  br i1 %65, label %66, label %87
+  br i1 %65, label %66, label %88
 
 66:                                               ; preds = %64
   %67 = fmul double %12, 2.000000e+00
@@ -595,36 +595,36 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %69 = fadd double %68, 2.000000e+00
   %70 = tail call double @llvm.floor.f64(double %69)
   %71 = fcmp ult double %70, 4.000000e+00
-  %.0.i11 = select i1 %71, double %70, double 3.000000e+00
-  %72 = tail call double @llvm.fmuladd.f64(double %.0.i11, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %73 = fmul double %58, 4.000000e+00
-  %74 = fdiv double %73, 0x400921FB54442D18
-  %75 = fsub double 2.000000e+00, %74
-  %76 = fsub double %12, %72
-  %77 = fdiv double %76, %75
-  %78 = fadd double %72, %77
-  %79 = fcmp ogt double %16, 0.000000e+00
-  %80 = fcmp olt double %16, 0.000000e+00
-  %81 = sitofp i1 %80 to double
-  %82 = select i1 %79, double 1.000000e+00, double %81
-  %square.i = fmul double %75, %75
-  %83 = fdiv double %square.i, 3.000000e+00
-  %84 = fsub double 1.000000e+00, %83
-  %85 = tail call double @asin(double noundef %84) #11
-  %86 = fmul double %82, %85
+  %72 = tail call double @llvm.fmuladd.f64(double %70, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %73 = select i1 %71, double %72, double 0x4002D97C7F3321D2
+  %74 = fmul double %58, 4.000000e+00
+  %75 = fdiv double %74, 0x400921FB54442D18
+  %76 = fsub double 2.000000e+00, %75
+  %77 = fsub double %12, %73
+  %78 = fdiv double %77, %76
+  %79 = fadd double %73, %78
+  %80 = fcmp ogt double %16, 0.000000e+00
+  %81 = fcmp olt double %16, 0.000000e+00
+  %82 = sitofp i1 %81 to double
+  %83 = select i1 %80, double 1.000000e+00, double %82
+  %square.i = fmul double %76, %76
+  %84 = fdiv double %square.i, 3.000000e+00
+  %85 = fsub double 1.000000e+00, %84
+  %86 = tail call double @asin(double noundef %85) #11
+  %87 = fmul double %83, %86
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-87:                                               ; preds = %64
-  %88 = fcmp ogt double %16, 0.000000e+00
-  %89 = fcmp olt double %16, 0.000000e+00
-  %90 = sitofp i1 %89 to double
-  %91 = fmul double %90, 0x3FF921FB54442D18
-  %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
+88:                                               ; preds = %64
+  %89 = fcmp ogt double %16, 0.000000e+00
+  %90 = fcmp olt double %16, 0.000000e+00
+  %91 = sitofp i1 %90 to double
+  %92 = fmul double %91, 0x3FF921FB54442D18
+  %93 = select i1 %89, double 0x3FF921FB54442D18, double %92
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %87, %66, %60, %56
-  %.sroa.08.0 = phi double [ 0x7FF0000000000000, %56 ], [ %12, %60 ], [ %78, %66 ], [ 0xC00921FB54442D18, %87 ]
-  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %56 ], [ %63, %60 ], [ %86, %66 ], [ %92, %87 ]
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %88, %66, %60, %56
+  %.sroa.08.0 = phi double [ 0x7FF0000000000000, %56 ], [ %12, %60 ], [ %79, %66 ], [ 0xC00921FB54442D18, %88 ]
+  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %56 ], [ %63, %60 ], [ %87, %66 ], [ %93, %88 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -843,163 +843,163 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %36 = fadd double %35, 2.000000e+00
   %37 = tail call double @llvm.floor.f64(double %36)
   %38 = fcmp ult double %37, 4.000000e+00
-  %.0.i12 = select i1 %38, double %37, double 3.000000e+00
-  %39 = tail call double @llvm.fmuladd.f64(double %.0.i12, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %40 = fsub double %0, %39
-  %41 = tail call double @llvm.fmuladd.f64(double %40, double %33, double %39)
-  %42 = fcmp ogt double %23, 0.000000e+00
-  %43 = fcmp olt double %23, 0.000000e+00
-  %44 = sitofp i1 %43 to double
-  %45 = fmul double %44, 0x3FE921FB54442D18
-  %46 = select i1 %42, double 0x3FE921FB54442D18, double %45
-  %47 = fsub double 2.000000e+00, %33
-  %48 = fmul double %46, %47
+  %39 = tail call double @llvm.fmuladd.f64(double %37, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %40 = select i1 %38, double %39, double 0x4002D97C7F3321D2
+  %41 = fsub double %0, %40
+  %42 = tail call double @llvm.fmuladd.f64(double %41, double %33, double %40)
+  %43 = fcmp ogt double %23, 0.000000e+00
+  %44 = fcmp olt double %23, 0.000000e+00
+  %45 = sitofp i1 %44 to double
+  %46 = fmul double %45, 0x3FE921FB54442D18
+  %47 = select i1 %43, double 0x3FE921FB54442D18, double %46
+  %48 = fsub double 2.000000e+00, %33
+  %49 = fmul double %47, %48
   br label %_ZL14healpix_sphere5PJ_LP.exit
 
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %27, %29
-  %.sroa.014.0.i = phi double [ %0, %27 ], [ %41, %29 ]
-  %.sroa.3.0.i = phi double [ %28, %27 ], [ %48, %29 ]
-  %49 = load i32, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 4
-  %51 = load i32, ptr %50, align 4
+  %.sroa.014.0.i = phi double [ %0, %27 ], [ %42, %29 ]
+  %.sroa.3.0.i = phi double [ %28, %27 ], [ %49, %29 ]
+  %50 = load i32, ptr %5, align 8
+  %51 = getelementptr inbounds i8, ptr %5, i64 4
+  %52 = load i32, ptr %51, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.051.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.252.i)
-  %52 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
-  br i1 %52, label %55, label %53
+  %53 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
+  br i1 %53, label %56, label %54
 
-53:                                               ; preds = %_ZL14healpix_sphere5PJ_LP.exit
-  %54 = fcmp olt double %.sroa.3.0.i, 0xBFE921FB54442D18
-  br i1 %54, label %55, label %_ZL12combine_capsddiii.exit
+54:                                               ; preds = %_ZL14healpix_sphere5PJ_LP.exit
+  %55 = fcmp olt double %.sroa.3.0.i, 0xBFE921FB54442D18
+  br i1 %55, label %56, label %_ZL12combine_capsddiii.exit
 
-55:                                               ; preds = %53, %_ZL14healpix_sphere5PJ_LP.exit
-  %.0.i.i = phi double [ 0x3FF921FB54442D18, %_ZL14healpix_sphere5PJ_LP.exit ], [ 0xBFF921FB54442D18, %53 ]
-  %56 = fcmp olt double %.sroa.014.0.i, 0xBFF921FB54442D18
-  br i1 %56, label %64, label %57
+56:                                               ; preds = %54, %_ZL14healpix_sphere5PJ_LP.exit
+  %.0.i.i = phi double [ 0x3FF921FB54442D18, %_ZL14healpix_sphere5PJ_LP.exit ], [ 0xBFF921FB54442D18, %54 ]
+  %57 = fcmp olt double %.sroa.014.0.i, 0xBFF921FB54442D18
+  br i1 %57, label %65, label %58
 
-57:                                               ; preds = %55
-  %58 = fcmp oge double %.sroa.014.0.i, 0xBFF921FB54442D18
-  %59 = fcmp olt double %.sroa.014.0.i, 0.000000e+00
-  %or.cond.i.i = and i1 %58, %59
-  br i1 %or.cond.i.i, label %64, label %60
+58:                                               ; preds = %56
+  %59 = fcmp oge double %.sroa.014.0.i, 0xBFF921FB54442D18
+  %60 = fcmp olt double %.sroa.014.0.i, 0.000000e+00
+  %or.cond.i.i = and i1 %59, %60
+  br i1 %or.cond.i.i, label %65, label %61
 
-60:                                               ; preds = %57
-  %61 = fcmp oge double %.sroa.014.0.i, 0.000000e+00
-  %62 = fcmp olt double %.sroa.014.0.i, 0x3FF921FB54442D18
-  %or.cond3.i.i = and i1 %61, %62
-  br i1 %or.cond3.i.i, label %64, label %63
+61:                                               ; preds = %58
+  %62 = fcmp oge double %.sroa.014.0.i, 0.000000e+00
+  %63 = fcmp olt double %.sroa.014.0.i, 0x3FF921FB54442D18
+  %or.cond3.i.i = and i1 %62, %63
+  br i1 %or.cond3.i.i, label %65, label %64
 
-63:                                               ; preds = %60
-  br label %64
+64:                                               ; preds = %61
+  br label %65
 
-64:                                               ; preds = %63, %60, %57, %55
-  %.sroa.039.0.ph.i = phi i32 [ 2, %60 ], [ 1, %57 ], [ 0, %55 ], [ 3, %63 ]
-  %.sroa.19.0.ph.i = phi double [ 0x3FE921FB54442D18, %60 ], [ 0xBFE921FB54442D18, %57 ], [ 0xC002D97C7F3321D2, %55 ], [ 0x4002D97C7F3321D2, %63 ]
-  br i1 %52, label %65, label %73
+65:                                               ; preds = %64, %61, %58, %56
+  %.sroa.039.0.ph.i = phi i32 [ 2, %61 ], [ 1, %58 ], [ 0, %56 ], [ 3, %64 ]
+  %.sroa.19.0.ph.i = phi double [ 0x3FE921FB54442D18, %61 ], [ 0xBFE921FB54442D18, %58 ], [ 0xC002D97C7F3321D2, %56 ], [ 0x4002D97C7F3321D2, %64 ]
+  br i1 %53, label %66, label %74
 
-65:                                               ; preds = %64
-  %66 = sub nsw i32 %.sroa.039.0.ph.i, %49
-  switch i32 %66, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
-    i32 -3, label %72
-    i32 1, label %67
-    i32 2, label %68
-    i32 3, label %69
-    i32 -1, label %70
-    i32 -2, label %71
+66:                                               ; preds = %65
+  %67 = sub nsw i32 %.sroa.039.0.ph.i, %50
+  switch i32 %67, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
+    i32 -3, label %73
+    i32 1, label %68
+    i32 2, label %69
+    i32 3, label %70
+    i32 -1, label %71
+    i32 -2, label %72
   ]
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-68:                                               ; preds = %65
+69:                                               ; preds = %66
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-69:                                               ; preds = %65
+70:                                               ; preds = %66
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-70:                                               ; preds = %65
+71:                                               ; preds = %66
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-71:                                               ; preds = %65
+72:                                               ; preds = %66
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-72:                                               ; preds = %65
+73:                                               ; preds = %66
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-73:                                               ; preds = %64
-  %.neg19.i = sub nsw i32 %51, %.sroa.039.0.ph.i
+74:                                               ; preds = %65
+  %.neg19.i = sub nsw i32 %52, %.sroa.039.0.ph.i
   switch i32 %.neg19.i, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
-    i32 -3, label %79
-    i32 1, label %74
-    i32 2, label %75
-    i32 3, label %76
-    i32 -1, label %77
-    i32 -2, label %78
+    i32 -3, label %80
+    i32 1, label %75
+    i32 2, label %76
+    i32 3, label %77
+    i32 -1, label %78
+    i32 -2, label %79
   ]
 
-74:                                               ; preds = %73
+75:                                               ; preds = %74
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-77:                                               ; preds = %73
+78:                                               ; preds = %74
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-78:                                               ; preds = %73
+79:                                               ; preds = %74
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-79:                                               ; preds = %73
+80:                                               ; preds = %74
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-_ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %65
-  %.0.i23.sink.i = phi i64 [ 6, %72 ], [ 5, %71 ], [ 4, %70 ], [ 3, %69 ], [ 2, %68 ], [ 1, %67 ], [ 0, %65 ], [ 6, %79 ], [ 5, %78 ], [ 4, %77 ], [ 3, %76 ], [ 2, %75 ], [ 1, %74 ], [ 0, %73 ]
-  %80 = phi i32 [ %49, %72 ], [ %49, %71 ], [ %49, %70 ], [ %49, %69 ], [ %49, %68 ], [ %49, %67 ], [ %49, %65 ], [ %51, %79 ], [ %51, %78 ], [ %51, %77 ], [ %51, %76 ], [ %51, %75 ], [ %51, %74 ], [ %51, %73 ]
-  %81 = phi double [ 0x3FF921FB54442D18, %72 ], [ 0x3FF921FB54442D18, %71 ], [ 0x3FF921FB54442D18, %70 ], [ 0x3FF921FB54442D18, %69 ], [ 0x3FF921FB54442D18, %68 ], [ 0x3FF921FB54442D18, %67 ], [ 0x3FF921FB54442D18, %65 ], [ 0xBFF921FB54442D18, %79 ], [ 0xBFF921FB54442D18, %78 ], [ 0xBFF921FB54442D18, %77 ], [ 0xBFF921FB54442D18, %76 ], [ 0xBFF921FB54442D18, %75 ], [ 0xBFF921FB54442D18, %74 ], [ 0xBFF921FB54442D18, %73 ]
-  %82 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
-  %83 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
-  %84 = fsub double %.sroa.3.0.i, %.0.i.i
-  br label %85
+_ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %66
+  %.0.i23.sink.i = phi i64 [ 6, %73 ], [ 5, %72 ], [ 4, %71 ], [ 3, %70 ], [ 2, %69 ], [ 1, %68 ], [ 0, %66 ], [ 6, %80 ], [ 5, %79 ], [ 4, %78 ], [ 3, %77 ], [ 2, %76 ], [ 1, %75 ], [ 0, %74 ]
+  %81 = phi i32 [ %50, %73 ], [ %50, %72 ], [ %50, %71 ], [ %50, %70 ], [ %50, %69 ], [ %50, %68 ], [ %50, %66 ], [ %52, %80 ], [ %52, %79 ], [ %52, %78 ], [ %52, %77 ], [ %52, %76 ], [ %52, %75 ], [ %52, %74 ]
+  %82 = phi double [ 0x3FF921FB54442D18, %73 ], [ 0x3FF921FB54442D18, %72 ], [ 0x3FF921FB54442D18, %71 ], [ 0x3FF921FB54442D18, %70 ], [ 0x3FF921FB54442D18, %69 ], [ 0x3FF921FB54442D18, %68 ], [ 0x3FF921FB54442D18, %66 ], [ 0xBFF921FB54442D18, %80 ], [ 0xBFF921FB54442D18, %79 ], [ 0xBFF921FB54442D18, %78 ], [ 0xBFF921FB54442D18, %77 ], [ 0xBFF921FB54442D18, %76 ], [ 0xBFF921FB54442D18, %75 ], [ 0xBFF921FB54442D18, %74 ]
+  %83 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
+  %84 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
+  %85 = fsub double %.sroa.3.0.i, %.0.i.i
+  br label %86
 
-85:                                               ; preds = %93, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
-  %86 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %93 ]
-  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.051.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.252.i, %93 ]
-  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %93 ]
-  br label %87
+86:                                               ; preds = %94, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+  %87 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %94 ]
+  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.051.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.252.i, %94 ]
+  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %94 ]
+  br label %88
 
-87:                                               ; preds = %87, %85
-  %88 = phi i1 [ true, %85 ], [ false, %87 ]
-  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %83, %85 ], [ %84, %87 ]
-  %indvars.iv.i27.i = phi i64 [ 0, %85 ], [ 1, %87 ]
-  %89 = phi double [ 0.000000e+00, %85 ], [ %92, %87 ]
-  %90 = getelementptr inbounds [2 x double], ptr %82, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
-  %91 = load double, ptr %90, align 8
-  %92 = tail call double @llvm.fmuladd.f64(double %91, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %89)
-  br i1 %88, label %87, label %93, !llvm.loop !7
+88:                                               ; preds = %88, %86
+  %89 = phi i1 [ true, %86 ], [ false, %88 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %84, %86 ], [ %85, %88 ]
+  %indvars.iv.i27.i = phi i64 [ 0, %86 ], [ 1, %88 ]
+  %90 = phi double [ 0.000000e+00, %86 ], [ %93, %88 ]
+  %91 = getelementptr inbounds [2 x double], ptr %83, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
+  %92 = load double, ptr %91, align 8
+  %93 = tail call double @llvm.fmuladd.f64(double %92, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %90)
+  br i1 %89, label %88, label %94, !llvm.loop !7
 
-93:                                               ; preds = %87
-  store double %92, ptr %indvars.iv18.i.sroa.phi.i, align 8
-  br i1 %86, label %85, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !8
+94:                                               ; preds = %88
+  store double %93, ptr %indvars.iv18.i.sroa.phi.i, align 8
+  br i1 %87, label %86, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !8
 
-_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %93
-  %94 = sitofp i32 %80 to double
-  %95 = tail call double @llvm.fmuladd.f64(double %94, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %94
+  %95 = sitofp i32 %81 to double
+  %96 = tail call double @llvm.fmuladd.f64(double %95, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i = load double, ptr %.sroa.051.i, align 16
-  %96 = fadd double %95, %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i
+  %97 = fadd double %96, %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i
   %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i = load double, ptr %.sroa.252.i, align 8
-  %97 = fadd double %81, %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i
+  %98 = fadd double %82, %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i
   br label %_ZL12combine_capsddiii.exit
 
-_ZL12combine_capsddiii.exit:                      ; preds = %53, %_ZL11dot_productPA2_KdPS_Pd.exit.i
-  %.sroa.0.0.i = phi double [ %96, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %53 ]
-  %.sroa.3.0.i13 = phi double [ %97, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %53 ]
-  %.fca.0.insert.i14 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
-  %.fca.1.insert.i15 = insertvalue { double, double } %.fca.0.insert.i14, double %.sroa.3.0.i13, 1
+_ZL12combine_capsddiii.exit:                      ; preds = %54, %_ZL11dot_productPA2_KdPS_Pd.exit.i
+  %.sroa.0.0.i = phi double [ %97, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %54 ]
+  %.sroa.3.0.i12 = phi double [ %98, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %54 ]
+  %.fca.0.insert.i13 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
+  %.fca.1.insert.i14 = insertvalue { double, double } %.fca.0.insert.i13, double %.sroa.3.0.i12, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.051.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.252.i)
-  ret { double, double } %.fca.1.insert.i15
+  ret { double, double } %.fca.1.insert.i14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1016,7 +1016,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
 11:                                               ; preds = %3
   %12 = load ptr, ptr %2, align 8
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %12, i32 noundef 2050)
-  br label %56
+  br label %57
 
 13:                                               ; preds = %3
   %14 = tail call fastcc { double, double } @_ZL12combine_capsddiii(double noundef %0, double noundef %1, i32 noundef %6, i32 noundef %8, i32 noundef 1)
@@ -1034,7 +1034,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
 
 23:                                               ; preds = %13
   %24 = fcmp olt double %17, 0x3FF921FB54442D18
-  br i1 %24, label %25, label %46
+  br i1 %24, label %25, label %47
 
 25:                                               ; preds = %23
   %26 = fmul double %15, 2.000000e+00
@@ -1042,44 +1042,44 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %28 = fadd double %27, 2.000000e+00
   %29 = tail call double @llvm.floor.f64(double %28)
   %30 = fcmp ult double %29, 4.000000e+00
-  %.0.i = select i1 %30, double %29, double 3.000000e+00
-  %31 = tail call double @llvm.fmuladd.f64(double %.0.i, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %32 = fmul double %17, 4.000000e+00
-  %33 = fdiv double %32, 0x400921FB54442D18
-  %34 = fsub double 2.000000e+00, %33
-  %35 = fsub double %15, %31
-  %36 = fdiv double %35, %34
-  %37 = fadd double %31, %36
-  %38 = fcmp ogt double %16, 0.000000e+00
-  %39 = fcmp olt double %16, 0.000000e+00
-  %40 = sitofp i1 %39 to double
-  %41 = select i1 %38, double 1.000000e+00, double %40
-  %square.i = fmul double %34, %34
-  %42 = fdiv double %square.i, 3.000000e+00
-  %43 = fsub double 1.000000e+00, %42
-  %44 = tail call double @asin(double noundef %43) #11
-  %45 = fmul double %41, %44
+  %31 = tail call double @llvm.fmuladd.f64(double %29, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %32 = select i1 %30, double %31, double 0x4002D97C7F3321D2
+  %33 = fmul double %17, 4.000000e+00
+  %34 = fdiv double %33, 0x400921FB54442D18
+  %35 = fsub double 2.000000e+00, %34
+  %36 = fsub double %15, %32
+  %37 = fdiv double %36, %35
+  %38 = fadd double %32, %37
+  %39 = fcmp ogt double %16, 0.000000e+00
+  %40 = fcmp olt double %16, 0.000000e+00
+  %41 = sitofp i1 %40 to double
+  %42 = select i1 %39, double 1.000000e+00, double %41
+  %square.i = fmul double %35, %35
+  %43 = fdiv double %square.i, 3.000000e+00
+  %44 = fsub double 1.000000e+00, %43
+  %45 = tail call double @asin(double noundef %44) #11
+  %46 = fmul double %42, %45
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-46:                                               ; preds = %23
-  %47 = fcmp ogt double %16, 0.000000e+00
-  %48 = fcmp olt double %16, 0.000000e+00
-  %49 = sitofp i1 %48 to double
-  %50 = fmul double %49, 0x3FF921FB54442D18
-  %51 = select i1 %47, double 0x3FF921FB54442D18, double %50
+47:                                               ; preds = %23
+  %48 = fcmp ogt double %16, 0.000000e+00
+  %49 = fcmp olt double %16, 0.000000e+00
+  %50 = sitofp i1 %49 to double
+  %51 = fmul double %50, 0x3FF921FB54442D18
+  %52 = select i1 %48, double 0x3FF921FB54442D18, double %51
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %19, %25, %46
-  %.sroa.016.0.i = phi double [ %15, %19 ], [ %37, %25 ], [ 0xC00921FB54442D18, %46 ]
-  %.sroa.4.0.i = phi double [ %22, %19 ], [ %45, %25 ], [ %51, %46 ]
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %54)
-  br label %56
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %19, %25, %47
+  %.sroa.016.0.i = phi double [ %15, %19 ], [ %38, %25 ], [ 0xC00921FB54442D18, %47 ]
+  %.sroa.4.0.i = phi double [ %22, %19 ], [ %46, %25 ], [ %52, %47 ]
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %55)
+  br label %57
 
-56:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %11
-  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %11 ], [ %55, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+57:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %11
+  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %11 ], [ %56, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
   %.sroa.014.0 = phi double [ 0x7FF0000000000000, %11 ], [ %.sroa.016.0.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.014.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
@@ -1111,158 +1111,158 @@ define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(doub
   %18 = fadd double %17, 2.000000e+00
   %19 = tail call double @llvm.floor.f64(double %18)
   %20 = fcmp ult double %19, 4.000000e+00
-  %.0.i = select i1 %20, double %19, double 3.000000e+00
-  %21 = tail call double @llvm.fmuladd.f64(double %.0.i, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %22 = fsub double %0, %21
-  %23 = tail call double @llvm.fmuladd.f64(double %22, double %15, double %21)
-  %24 = fcmp ogt double %1, 0.000000e+00
-  %25 = fcmp olt double %1, 0.000000e+00
-  %26 = sitofp i1 %25 to double
-  %27 = fmul double %26, 0x3FE921FB54442D18
-  %28 = select i1 %24, double 0x3FE921FB54442D18, double %27
-  %29 = fsub double 2.000000e+00, %15
-  %30 = fmul double %28, %29
+  %21 = tail call double @llvm.fmuladd.f64(double %19, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %22 = select i1 %20, double %21, double 0x4002D97C7F3321D2
+  %23 = fsub double %0, %22
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double %15, double %22)
+  %25 = fcmp ogt double %1, 0.000000e+00
+  %26 = fcmp olt double %1, 0.000000e+00
+  %27 = sitofp i1 %26 to double
+  %28 = fmul double %27, 0x3FE921FB54442D18
+  %29 = select i1 %25, double 0x3FE921FB54442D18, double %28
+  %30 = fsub double 2.000000e+00, %15
+  %31 = fmul double %29, %30
   br label %_ZL14healpix_sphere5PJ_LP.exit
 
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
-  %.sroa.014.0.i = phi double [ %0, %9 ], [ %23, %11 ]
-  %.sroa.3.0.i = phi double [ %10, %9 ], [ %30, %11 ]
-  %31 = load i32, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 4
-  %33 = load i32, ptr %32, align 4
+  %.sroa.014.0.i = phi double [ %0, %9 ], [ %24, %11 ]
+  %.sroa.3.0.i = phi double [ %10, %9 ], [ %31, %11 ]
+  %32 = load i32, ptr %5, align 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.051.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.252.i)
-  %34 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
-  br i1 %34, label %37, label %35
+  %35 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
+  br i1 %35, label %38, label %36
 
-35:                                               ; preds = %_ZL14healpix_sphere5PJ_LP.exit
-  %36 = fcmp olt double %.sroa.3.0.i, 0xBFE921FB54442D18
-  br i1 %36, label %37, label %_ZL12combine_capsddiii.exit
+36:                                               ; preds = %_ZL14healpix_sphere5PJ_LP.exit
+  %37 = fcmp olt double %.sroa.3.0.i, 0xBFE921FB54442D18
+  br i1 %37, label %38, label %_ZL12combine_capsddiii.exit
 
-37:                                               ; preds = %35, %_ZL14healpix_sphere5PJ_LP.exit
-  %.0.i.i = phi double [ 0x3FF921FB54442D18, %_ZL14healpix_sphere5PJ_LP.exit ], [ 0xBFF921FB54442D18, %35 ]
-  %38 = fcmp olt double %.sroa.014.0.i, 0xBFF921FB54442D18
-  br i1 %38, label %46, label %39
+38:                                               ; preds = %36, %_ZL14healpix_sphere5PJ_LP.exit
+  %.0.i.i = phi double [ 0x3FF921FB54442D18, %_ZL14healpix_sphere5PJ_LP.exit ], [ 0xBFF921FB54442D18, %36 ]
+  %39 = fcmp olt double %.sroa.014.0.i, 0xBFF921FB54442D18
+  br i1 %39, label %47, label %40
 
-39:                                               ; preds = %37
-  %40 = fcmp oge double %.sroa.014.0.i, 0xBFF921FB54442D18
-  %41 = fcmp olt double %.sroa.014.0.i, 0.000000e+00
-  %or.cond.i.i = and i1 %40, %41
-  br i1 %or.cond.i.i, label %46, label %42
+40:                                               ; preds = %38
+  %41 = fcmp oge double %.sroa.014.0.i, 0xBFF921FB54442D18
+  %42 = fcmp olt double %.sroa.014.0.i, 0.000000e+00
+  %or.cond.i.i = and i1 %41, %42
+  br i1 %or.cond.i.i, label %47, label %43
 
-42:                                               ; preds = %39
-  %43 = fcmp oge double %.sroa.014.0.i, 0.000000e+00
-  %44 = fcmp olt double %.sroa.014.0.i, 0x3FF921FB54442D18
-  %or.cond3.i.i = and i1 %43, %44
-  br i1 %or.cond3.i.i, label %46, label %45
+43:                                               ; preds = %40
+  %44 = fcmp oge double %.sroa.014.0.i, 0.000000e+00
+  %45 = fcmp olt double %.sroa.014.0.i, 0x3FF921FB54442D18
+  %or.cond3.i.i = and i1 %44, %45
+  br i1 %or.cond3.i.i, label %47, label %46
 
-45:                                               ; preds = %42
-  br label %46
+46:                                               ; preds = %43
+  br label %47
 
-46:                                               ; preds = %45, %42, %39, %37
-  %.sroa.039.0.ph.i = phi i32 [ 2, %42 ], [ 1, %39 ], [ 0, %37 ], [ 3, %45 ]
-  %.sroa.19.0.ph.i = phi double [ 0x3FE921FB54442D18, %42 ], [ 0xBFE921FB54442D18, %39 ], [ 0xC002D97C7F3321D2, %37 ], [ 0x4002D97C7F3321D2, %45 ]
-  br i1 %34, label %47, label %55
+47:                                               ; preds = %46, %43, %40, %38
+  %.sroa.039.0.ph.i = phi i32 [ 2, %43 ], [ 1, %40 ], [ 0, %38 ], [ 3, %46 ]
+  %.sroa.19.0.ph.i = phi double [ 0x3FE921FB54442D18, %43 ], [ 0xBFE921FB54442D18, %40 ], [ 0xC002D97C7F3321D2, %38 ], [ 0x4002D97C7F3321D2, %46 ]
+  br i1 %35, label %48, label %56
 
-47:                                               ; preds = %46
-  %48 = sub nsw i32 %.sroa.039.0.ph.i, %31
-  switch i32 %48, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
-    i32 -3, label %54
-    i32 1, label %49
-    i32 2, label %50
-    i32 3, label %51
-    i32 -1, label %52
-    i32 -2, label %53
+48:                                               ; preds = %47
+  %49 = sub nsw i32 %.sroa.039.0.ph.i, %32
+  switch i32 %49, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
+    i32 -3, label %55
+    i32 1, label %50
+    i32 2, label %51
+    i32 3, label %52
+    i32 -1, label %53
+    i32 -2, label %54
   ]
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-51:                                               ; preds = %47
+52:                                               ; preds = %48
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-53:                                               ; preds = %47
+54:                                               ; preds = %48
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-54:                                               ; preds = %47
+55:                                               ; preds = %48
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-55:                                               ; preds = %46
-  %.neg19.i = sub nsw i32 %33, %.sroa.039.0.ph.i
+56:                                               ; preds = %47
+  %.neg19.i = sub nsw i32 %34, %.sroa.039.0.ph.i
   switch i32 %.neg19.i, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
-    i32 -3, label %61
-    i32 1, label %56
-    i32 2, label %57
-    i32 3, label %58
-    i32 -1, label %59
-    i32 -2, label %60
+    i32 -3, label %62
+    i32 1, label %57
+    i32 2, label %58
+    i32 3, label %59
+    i32 -1, label %60
+    i32 -2, label %61
   ]
 
-56:                                               ; preds = %55
+57:                                               ; preds = %56
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-57:                                               ; preds = %55
+58:                                               ; preds = %56
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-59:                                               ; preds = %55
+60:                                               ; preds = %56
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-60:                                               ; preds = %55
+61:                                               ; preds = %56
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-61:                                               ; preds = %55
+62:                                               ; preds = %56
   br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
 
-_ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %47
-  %.0.i23.sink.i = phi i64 [ 6, %54 ], [ 5, %53 ], [ 4, %52 ], [ 3, %51 ], [ 2, %50 ], [ 1, %49 ], [ 0, %47 ], [ 6, %61 ], [ 5, %60 ], [ 4, %59 ], [ 3, %58 ], [ 2, %57 ], [ 1, %56 ], [ 0, %55 ]
-  %62 = phi i32 [ %31, %54 ], [ %31, %53 ], [ %31, %52 ], [ %31, %51 ], [ %31, %50 ], [ %31, %49 ], [ %31, %47 ], [ %33, %61 ], [ %33, %60 ], [ %33, %59 ], [ %33, %58 ], [ %33, %57 ], [ %33, %56 ], [ %33, %55 ]
-  %63 = phi double [ 0x3FF921FB54442D18, %54 ], [ 0x3FF921FB54442D18, %53 ], [ 0x3FF921FB54442D18, %52 ], [ 0x3FF921FB54442D18, %51 ], [ 0x3FF921FB54442D18, %50 ], [ 0x3FF921FB54442D18, %49 ], [ 0x3FF921FB54442D18, %47 ], [ 0xBFF921FB54442D18, %61 ], [ 0xBFF921FB54442D18, %60 ], [ 0xBFF921FB54442D18, %59 ], [ 0xBFF921FB54442D18, %58 ], [ 0xBFF921FB54442D18, %57 ], [ 0xBFF921FB54442D18, %56 ], [ 0xBFF921FB54442D18, %55 ]
-  %64 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
-  %65 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
-  %66 = fsub double %.sroa.3.0.i, %.0.i.i
-  br label %67
+_ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %48
+  %.0.i23.sink.i = phi i64 [ 6, %55 ], [ 5, %54 ], [ 4, %53 ], [ 3, %52 ], [ 2, %51 ], [ 1, %50 ], [ 0, %48 ], [ 6, %62 ], [ 5, %61 ], [ 4, %60 ], [ 3, %59 ], [ 2, %58 ], [ 1, %57 ], [ 0, %56 ]
+  %63 = phi i32 [ %32, %55 ], [ %32, %54 ], [ %32, %53 ], [ %32, %52 ], [ %32, %51 ], [ %32, %50 ], [ %32, %48 ], [ %34, %62 ], [ %34, %61 ], [ %34, %60 ], [ %34, %59 ], [ %34, %58 ], [ %34, %57 ], [ %34, %56 ]
+  %64 = phi double [ 0x3FF921FB54442D18, %55 ], [ 0x3FF921FB54442D18, %54 ], [ 0x3FF921FB54442D18, %53 ], [ 0x3FF921FB54442D18, %52 ], [ 0x3FF921FB54442D18, %51 ], [ 0x3FF921FB54442D18, %50 ], [ 0x3FF921FB54442D18, %48 ], [ 0xBFF921FB54442D18, %62 ], [ 0xBFF921FB54442D18, %61 ], [ 0xBFF921FB54442D18, %60 ], [ 0xBFF921FB54442D18, %59 ], [ 0xBFF921FB54442D18, %58 ], [ 0xBFF921FB54442D18, %57 ], [ 0xBFF921FB54442D18, %56 ]
+  %65 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
+  %66 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
+  %67 = fsub double %.sroa.3.0.i, %.0.i.i
+  br label %68
 
-67:                                               ; preds = %75, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
-  %68 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %75 ]
-  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.051.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.252.i, %75 ]
-  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %75 ]
-  br label %69
+68:                                               ; preds = %76, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+  %69 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %76 ]
+  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.051.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.252.i, %76 ]
+  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %76 ]
+  br label %70
 
-69:                                               ; preds = %69, %67
-  %70 = phi i1 [ true, %67 ], [ false, %69 ]
-  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %65, %67 ], [ %66, %69 ]
-  %indvars.iv.i27.i = phi i64 [ 0, %67 ], [ 1, %69 ]
-  %71 = phi double [ 0.000000e+00, %67 ], [ %74, %69 ]
-  %72 = getelementptr inbounds [2 x double], ptr %64, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
-  %73 = load double, ptr %72, align 8
-  %74 = tail call double @llvm.fmuladd.f64(double %73, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %71)
-  br i1 %70, label %69, label %75, !llvm.loop !7
+70:                                               ; preds = %70, %68
+  %71 = phi i1 [ true, %68 ], [ false, %70 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %66, %68 ], [ %67, %70 ]
+  %indvars.iv.i27.i = phi i64 [ 0, %68 ], [ 1, %70 ]
+  %72 = phi double [ 0.000000e+00, %68 ], [ %75, %70 ]
+  %73 = getelementptr inbounds [2 x double], ptr %65, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
+  %74 = load double, ptr %73, align 8
+  %75 = tail call double @llvm.fmuladd.f64(double %74, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %72)
+  br i1 %71, label %70, label %76, !llvm.loop !7
 
-75:                                               ; preds = %69
-  store double %74, ptr %indvars.iv18.i.sroa.phi.i, align 8
-  br i1 %68, label %67, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !8
+76:                                               ; preds = %70
+  store double %75, ptr %indvars.iv18.i.sroa.phi.i, align 8
+  br i1 %69, label %68, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !8
 
-_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %75
-  %76 = sitofp i32 %62 to double
-  %77 = tail call double @llvm.fmuladd.f64(double %76, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %76
+  %77 = sitofp i32 %63 to double
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i = load double, ptr %.sroa.051.i, align 16
-  %78 = fadd double %77, %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i
+  %79 = fadd double %78, %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i
   %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i = load double, ptr %.sroa.252.i, align 8
-  %79 = fadd double %63, %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i
+  %80 = fadd double %64, %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i
   br label %_ZL12combine_capsddiii.exit
 
-_ZL12combine_capsddiii.exit:                      ; preds = %35, %_ZL11dot_productPA2_KdPS_Pd.exit.i
-  %.sroa.0.0.i = phi double [ %78, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %35 ]
-  %.sroa.3.0.i9 = phi double [ %79, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %35 ]
+_ZL12combine_capsddiii.exit:                      ; preds = %36, %_ZL11dot_productPA2_KdPS_Pd.exit.i
+  %.sroa.0.0.i = phi double [ %79, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %36 ]
+  %.sroa.3.0.i9 = phi double [ %80, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %36 ]
   %.fca.0.insert.i10 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
   %.fca.1.insert.i11 = insertvalue { double, double } %.fca.0.insert.i10, double %.sroa.3.0.i9, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.051.i)
@@ -1302,7 +1302,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
 
 23:                                               ; preds = %13
   %24 = fcmp olt double %17, 0x3FF921FB54442D18
-  br i1 %24, label %25, label %46
+  br i1 %24, label %25, label %47
 
 25:                                               ; preds = %23
   %26 = fmul double %15, 2.000000e+00
@@ -1310,36 +1310,36 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %28 = fadd double %27, 2.000000e+00
   %29 = tail call double @llvm.floor.f64(double %28)
   %30 = fcmp ult double %29, 4.000000e+00
-  %.0.i = select i1 %30, double %29, double 3.000000e+00
-  %31 = tail call double @llvm.fmuladd.f64(double %.0.i, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %32 = fmul double %17, 4.000000e+00
-  %33 = fdiv double %32, 0x400921FB54442D18
-  %34 = fsub double 2.000000e+00, %33
-  %35 = fsub double %15, %31
-  %36 = fdiv double %35, %34
-  %37 = fadd double %31, %36
-  %38 = fcmp ogt double %16, 0.000000e+00
-  %39 = fcmp olt double %16, 0.000000e+00
-  %40 = sitofp i1 %39 to double
-  %41 = select i1 %38, double 1.000000e+00, double %40
-  %square.i = fmul double %34, %34
-  %42 = fdiv double %square.i, 3.000000e+00
-  %43 = fsub double 1.000000e+00, %42
-  %44 = tail call double @asin(double noundef %43) #11
-  %45 = fmul double %41, %44
+  %31 = tail call double @llvm.fmuladd.f64(double %29, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %32 = select i1 %30, double %31, double 0x4002D97C7F3321D2
+  %33 = fmul double %17, 4.000000e+00
+  %34 = fdiv double %33, 0x400921FB54442D18
+  %35 = fsub double 2.000000e+00, %34
+  %36 = fsub double %15, %32
+  %37 = fdiv double %36, %35
+  %38 = fadd double %32, %37
+  %39 = fcmp ogt double %16, 0.000000e+00
+  %40 = fcmp olt double %16, 0.000000e+00
+  %41 = sitofp i1 %40 to double
+  %42 = select i1 %39, double 1.000000e+00, double %41
+  %square.i = fmul double %35, %35
+  %43 = fdiv double %square.i, 3.000000e+00
+  %44 = fsub double 1.000000e+00, %43
+  %45 = tail call double @asin(double noundef %44) #11
+  %46 = fmul double %42, %45
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-46:                                               ; preds = %23
-  %47 = fcmp ogt double %16, 0.000000e+00
-  %48 = fcmp olt double %16, 0.000000e+00
-  %49 = sitofp i1 %48 to double
-  %50 = fmul double %49, 0x3FF921FB54442D18
-  %51 = select i1 %47, double 0x3FF921FB54442D18, double %50
+47:                                               ; preds = %23
+  %48 = fcmp ogt double %16, 0.000000e+00
+  %49 = fcmp olt double %16, 0.000000e+00
+  %50 = sitofp i1 %49 to double
+  %51 = fmul double %50, 0x3FF921FB54442D18
+  %52 = select i1 %48, double 0x3FF921FB54442D18, double %51
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %46, %25, %19, %11
-  %.sroa.011.0 = phi double [ 0x7FF0000000000000, %11 ], [ %15, %19 ], [ %37, %25 ], [ 0xC00921FB54442D18, %46 ]
-  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %11 ], [ %22, %19 ], [ %45, %25 ], [ %51, %46 ]
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %47, %25, %19, %11
+  %.sroa.011.0 = phi double [ 0x7FF0000000000000, %11 ], [ %15, %19 ], [ %38, %25 ], [ 0xC00921FB54442D18, %47 ]
+  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %11 ], [ %22, %19 ], [ %46, %25 ], [ %52, %47 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert

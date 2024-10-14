@@ -4604,18 +4604,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Convolution1D_x86_avx7f
   %.sroa.speculated25.i = select i1 %1601, float 0x40561814A0000000, float %.34085.lcssa.i
   %1602 = fcmp fast olt float %.sroa.speculated25.i, 0xC0561814A0000000
   %.sroa.speculated25.neg.i = fneg fast float %.sroa.speculated25.i
-  %1603 = select fast i1 %1602, float 0x40561814A0000000, float %.sroa.speculated25.neg.i
-  %1604 = call fast float @llvm.exp.f32(float %1603)
-  %1605 = fadd fast float %1604, 1.000000e+00
-  %1606 = fdiv fast float 1.000000e+00, %1605
+  %1603 = call fast float @llvm.exp.f32(float %.sroa.speculated25.neg.i)
+  %1604 = fadd fast float %1603, 1.000000e+00
+  %1605 = fdiv fast float 1.000000e+00, %1604
+  %1606 = select i1 %1602, float 0x37F6A0A880000000, float %1605
   %1607 = fcmp fast ogt float %.34080.lcssa.i, 0x40561814A0000000
   %.sroa.speculated13.i = select i1 %1607, float 0x40561814A0000000, float %.34080.lcssa.i
   %1608 = fcmp fast olt float %.sroa.speculated13.i, 0xC0561814A0000000
   %.sroa.speculated13.neg.i = fneg fast float %.sroa.speculated13.i
-  %1609 = select fast i1 %1608, float 0x40561814A0000000, float %.sroa.speculated13.neg.i
-  %1610 = call fast float @llvm.exp.f32(float %1609)
-  %1611 = fadd fast float %1610, 1.000000e+00
-  %1612 = fdiv fast float 1.000000e+00, %1611
+  %1609 = call fast float @llvm.exp.f32(float %.sroa.speculated13.neg.i)
+  %1610 = fadd fast float %1609, 1.000000e+00
+  %1611 = fdiv fast float 1.000000e+00, %1610
+  %1612 = select i1 %1608, float 0x37F6A0A880000000, float %1611
   br label %1649
 
 .thread62.i:                                      ; preds = %._crit_edge566.i
@@ -4863,10 +4863,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Convolution1D_x86_avx7f
   %.sroa.speculated2.us.i = select i1 %1759, float 0x40561814A0000000, float %.34034.lcssa.us.i
   %1760 = fcmp fast olt float %.sroa.speculated2.us.i, 0xC0561814A0000000
   %.sroa.speculated2.neg.us.i = fneg fast float %.sroa.speculated2.us.i
-  %1761 = select fast i1 %1760, float 0x40561814A0000000, float %.sroa.speculated2.neg.us.i
-  %1762 = call fast float @llvm.exp.f32(float %1761)
-  %1763 = fadd fast float %1762, 1.000000e+00
-  %1764 = fdiv fast float 1.000000e+00, %1763
+  %1761 = call fast float @llvm.exp.f32(float %.sroa.speculated2.neg.us.i)
+  %1762 = fadd fast float %1761, 1.000000e+00
+  %1763 = fdiv fast float 1.000000e+00, %1762
+  %1764 = select i1 %1760, float 0x37F6A0A880000000, float %1763
   br label %1781
 
 1765:                                             ; preds = %._crit_edge693.us.i

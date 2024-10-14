@@ -125,8 +125,8 @@ define void @_ZN2cv7MomentsC2Edddddddddd(ptr nocapture noundef nonnull writeonly
   %53 = getelementptr inbounds i8, ptr %0, i64 128
   store double %52, ptr %53, align 8
   %54 = tail call double @llvm.fabs.f64(double %23)
-  %55 = select i1 %22, double %54, double 0.000000e+00
-  %sqrt = tail call double @llvm.sqrt.f64(double %55)
+  %55 = tail call double @llvm.sqrt.f64(double %54)
+  %sqrt = select i1 %22, double %55, double 0.000000e+00
   %56 = fmul double %.039, %.039
   %57 = fmul double %56, %sqrt
   %58 = fmul double %56, %27
@@ -560,8 +560,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %38, %41
   %216 = getelementptr inbounds i8, ptr %0, i64 128
   store double %215, ptr %216, align 8
   %217 = call double @llvm.fabs.f64(double %187)
-  %218 = select i1 %186, double %217, double 0.000000e+00
-  %sqrt.i119 = call double @llvm.sqrt.f64(double %218)
+  %218 = call double @llvm.sqrt.f64(double %217)
+  %sqrt.i119 = select i1 %186, double %218, double 0.000000e+00
   %219 = fmul double %.080.i116, %.080.i116
   %220 = fmul double %219, %sqrt.i119
   %221 = fmul double %219, %191

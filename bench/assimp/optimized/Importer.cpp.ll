@@ -7740,12 +7740,12 @@ entry:
   %conv = sitofp i32 %currentStep to float
   %conv2 = sitofp i32 %numberOfSteps to float
   %div = fdiv float %conv, %conv2
-  %cond = select i1 %tobool.not, float 1.000000e+00, float %div
-  %0 = tail call float @llvm.fmuladd.f32(float %cond, float 5.000000e-01, float 5.000000e-01)
+  %0 = tail call float @llvm.fmuladd.f32(float %div, float 5.000000e-01, float 5.000000e-01)
+  %1 = select i1 %tobool.not, float 1.000000e+00, float %0
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %1 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %0)
+  %2 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %1)
   ret void
 }
 

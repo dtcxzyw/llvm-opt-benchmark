@@ -815,13 +815,13 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noc
   %155 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %154, <float 0x3EF0000000000000, float 0x3EF0000000000000>
   %156 = extractelement <2 x i1> %155, i64 1
   %157 = extractelement <2 x float> %154, i64 1
-  %158 = select reassoc nsz arcp contract afn i1 %156, float %157, float 0x3EF0000000000000
-  %159 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %158)
+  %158 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %157)
+  %159 = select i1 %156, float %158, float 0xC0262E4300000000
   %160 = fmul reassoc nsz arcp contract afn float %159, %137
   %161 = extractelement <2 x i1> %155, i64 0
   %162 = extractelement <2 x float> %154, i64 0
-  %163 = select reassoc nsz arcp contract afn i1 %161, float %162, float 0x3EF0000000000000
-  %164 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %163)
+  %163 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %162)
+  %164 = select i1 %161, float %163, float 0xC0262E4300000000
   %165 = fmul reassoc nsz arcp contract afn float %164, %137
   %166 = getelementptr inbounds i8, ptr %117, i64 20
   store float %160, ptr %166, align 4, !tbaa !17

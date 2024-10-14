@@ -7090,10 +7090,10 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2718:                ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.speculated2759 = select i1 %1158, float 0x40561814A0000000, float %.01991
   %1159 = fcmp fast olt float %.sroa.speculated2759, 0xC0561814A0000000
   %.sroa.speculated2759.neg = fneg fast float %.sroa.speculated2759
-  %1160 = select fast i1 %1159, float 0x40561814A0000000, float %.sroa.speculated2759.neg
-  %1161 = call fast float @llvm.exp.f32(float %1160)
-  %1162 = fadd fast float %1161, 1.000000e+00
-  %1163 = fdiv fast float 1.000000e+00, %1162
+  %1160 = call fast float @llvm.exp.f32(float %.sroa.speculated2759.neg)
+  %1161 = fadd fast float %1160, 1.000000e+00
+  %1162 = fdiv fast float 1.000000e+00, %1161
+  %1163 = select i1 %1159, float 0x37F6A0A880000000, float %1162
   br label %1186
 
 1164:                                             ; preds = %1139

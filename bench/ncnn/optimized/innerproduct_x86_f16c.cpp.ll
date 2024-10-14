@@ -1959,10 +1959,10 @@ define hidden void @_ZN4ncnn27innerproduct_fp16s_sse_f16cERKNS_3MatERS0_S2_S2_iS
   %.sroa.speculated2.i = select i1 %1397, float 0x40561814A0000000, float %1379
   %1398 = fcmp fast olt float %.sroa.speculated2.i, 0xC0561814A0000000
   %.sroa.speculated2.neg.i = fneg fast float %.sroa.speculated2.i
-  %1399 = select fast i1 %1398, float 0x40561814A0000000, float %.sroa.speculated2.neg.i
-  %1400 = tail call fast float @llvm.exp.f32(float %1399)
-  %1401 = fadd fast float %1400, 1.000000e+00
-  %1402 = fdiv fast float 1.000000e+00, %1401
+  %1399 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2.neg.i)
+  %1400 = fadd fast float %1399, 1.000000e+00
+  %1401 = fdiv fast float 1.000000e+00, %1400
+  %1402 = select i1 %1398, float 0x37F6A0A880000000, float %1401
   br label %1425
 
 1403:                                             ; preds = %._crit_edge254.i
@@ -7384,10 +7384,10 @@ define internal fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS
   %.sroa.speculated2 = select i1 %4532, float 0x40561814A0000000, float %4514
   %4533 = fcmp fast olt float %.sroa.speculated2, 0xC0561814A0000000
   %.sroa.speculated2.neg = fneg fast float %.sroa.speculated2
-  %4534 = select fast i1 %4533, float 0x40561814A0000000, float %.sroa.speculated2.neg
-  %4535 = tail call fast float @llvm.exp.f32(float %4534)
-  %4536 = fadd fast float %4535, 1.000000e+00
-  %4537 = fdiv fast float 1.000000e+00, %4536
+  %4534 = tail call fast float @llvm.exp.f32(float %.sroa.speculated2.neg)
+  %4535 = fadd fast float %4534, 1.000000e+00
+  %4536 = fdiv fast float 1.000000e+00, %4535
+  %4537 = select i1 %4533, float 0x37F6A0A880000000, float %4536
   br label %4560
 
 4538:                                             ; preds = %._crit_edge1035

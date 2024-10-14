@@ -17105,9 +17105,9 @@ _ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeE
   %92 = or disjoint i16 %91, 256
   %93 = trunc nuw i16 %92 to i9
   %94 = xor i9 %93, -255
-  %95 = select i1 %or.cond.i.i, i9 -255, i9 %94
-  %96 = tail call i9 @llvm.bitreverse.i9(i9 %95)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %96 to i16
+  %95 = tail call i9 @llvm.bitreverse.i9(i9 %94)
+  %96 = zext i9 %95 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %96
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %10, align 2
   %97 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %10)
   br i1 %97, label %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit, label %98
@@ -22652,9 +22652,9 @@ _ZN4CGAL13orientationC2INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4Si
   %93 = or disjoint i16 %92, 256
   %94 = trunc nuw i16 %93 to i9
   %95 = xor i9 %94, -255
-  %96 = select i1 %or.cond.i.i, i9 -255, i9 %95
-  %97 = tail call i9 @llvm.bitreverse.i9(i9 %96)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %97 to i16
+  %96 = tail call i9 @llvm.bitreverse.i9(i9 %95)
+  %97 = zext i9 %96 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %97
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %10, align 2
   %98 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %10)
   br i1 %98, label %265, label %99
@@ -22759,9 +22759,9 @@ _ZN4CGAL13orientationC2INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4Si
   %181 = or disjoint i16 %180, 256
   %182 = trunc nuw i16 %181 to i9
   %183 = xor i9 %182, -255
-  %184 = select i1 %or.cond.i.i31, i9 -255, i9 %183
-  %185 = call i9 @llvm.bitreverse.i9(i9 %184)
-  %.sroa.01.0.insert.insert.i.i32 = zext i9 %185 to i16
+  %184 = call i9 @llvm.bitreverse.i9(i9 %183)
+  %185 = zext i9 %184 to i16
+  %.sroa.01.0.insert.insert.i.i32 = select i1 %or.cond.i.i31, i16 257, i16 %185
   store i16 %.sroa.01.0.insert.insert.i.i32, ptr %11, align 2
   %186 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %11)
   br i1 %186, label %265, label %187
@@ -86012,7 +86012,7 @@ _ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKN
   store i16 %.sroa.06.0.i.i.i20, ptr %5, align 2
   %108 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  br i1 %108, label %250, label %109
+  br i1 %108, label %226, label %109
 
 109:                                              ; preds = %_ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit22, %_ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -86022,277 +86022,217 @@ _ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKN
   %113 = load double, ptr %14, align 8
   %114 = fcmp olt double %113, %112
   %115 = extractelement <2 x double> %110, i64 1
-  br i1 %114, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i, label %116
+  br i1 %114, label %.thread.i.i24, label %116
 
 116:                                              ; preds = %109
   %117 = load <2 x double>, ptr %0, align 16
   %118 = extractelement <2 x double> %117, i64 0
   %119 = fneg double %118
   %120 = fcmp olt double %115, %119
-  br i1 %120, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23
+  br i1 %120, label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23
 
 _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23: ; preds = %116
-  %121 = fcmp oeq double %115, %119
-  %122 = fcmp oeq double %113, %112
-  %or.cond.not.i.i.i.not.i.i24 = and i1 %122, %121
-  %cond.fr.i.i25 = freeze i1 %or.cond.not.i.i.i.not.i.i24
-  %123 = zext i1 %cond.fr.i.i25 to i16
-  %124 = or disjoint i16 %123, 256
-  %125 = trunc nuw i16 %124 to i9
-  %126 = xor i9 %125, -255
-  br i1 %cond.fr.i.i25, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i
+  %121 = fcmp une double %115, %119
+  %122 = fcmp une double %113, %112
+  %or.cond.not.i.i.i.i.i = or i1 %122, %121
+  %or.cond.not.i.i.i.fr.i.i = freeze i1 %or.cond.not.i.i.i.i.i
+  %spec.select = select i1 %or.cond.not.i.i.i.fr.i.i, i16 256, i16 257
+  br label %.thread.i.i24
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23, %109
-  br label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i
+.thread.i.i24:                                    ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23, %109
+  %123 = phi i16 [ 257, %109 ], [ %spec.select, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23 ]
+  %124 = load <2 x double>, ptr %7, align 16
+  %125 = extractelement <2 x double> %124, i64 0
+  %126 = fneg double %125
+  %127 = getelementptr inbounds i8, ptr %0, i64 24
+  %128 = load double, ptr %127, align 8
+  %129 = fcmp olt double %128, %126
+  %130 = extractelement <2 x double> %124, i64 1
+  br i1 %129, label %.thread.i.i.i.i26, label %131
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23, %116
-  %127 = phi i9 [ -255, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i ], [ %126, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i23 ], [ 0, %116 ]
-  %128 = call i9 @llvm.bitreverse.i9(i9 %127)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %128 to i16
-  %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked.i.i = and i16 %.sroa.01.0.insert.insert.i.i.i.i, 1
-  %129 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i.i, %.sroa.01.0.insert.insert.i.i.masked.i.i
-  %130 = trunc i9 %128 to i1
-  %.not7.i.i.i = or i1 %129, %130
-  br i1 %.not7.i.i.i, label %131, label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
-
-131:                                              ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i
-  %132 = load <2 x double>, ptr %7, align 16
+131:                                              ; preds = %.thread.i.i24
+  %132 = load <2 x double>, ptr %9, align 16
   %133 = extractelement <2 x double> %132, i64 0
   %134 = fneg double %133
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
-  %136 = load double, ptr %135, align 8
-  %137 = fcmp olt double %136, %134
-  %138 = extractelement <2 x double> %132, i64 1
-  br i1 %137, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i, label %139
+  %135 = fcmp olt double %130, %134
+  br i1 %135, label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i25
 
-139:                                              ; preds = %131
-  %140 = load <2 x double>, ptr %9, align 16
-  %141 = extractelement <2 x double> %140, i64 0
-  %142 = fneg double %141
-  %143 = fcmp olt double %138, %142
-  br i1 %143, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i27
+_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i25: ; preds = %131
+  %136 = fcmp une double %130, %134
+  %137 = fcmp une double %128, %126
+  %or.cond.not.i.i.i.i.i.i.i = or i1 %137, %136
+  %or.cond.not.i.i.i.fr.i.i.i.i = freeze i1 %or.cond.not.i.i.i.i.i.i.i
+  %spec.select.i.i = select i1 %or.cond.not.i.i.i.fr.i.i.i.i, i16 256, i16 257
+  br label %.thread.i.i.i.i26
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i27: ; preds = %139
-  %144 = fcmp oeq double %138, %142
-  %145 = fcmp oeq double %136, %134
-  %or.cond.not.i.i.i.not.i.i.i.i28 = and i1 %145, %144
-  %cond.fr.i.i.i.i29 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i28
-  %146 = zext i1 %cond.fr.i.i.i.i29 to i16
-  %147 = or disjoint i16 %146, 256
-  %148 = trunc nuw i16 %147 to i9
-  %149 = xor i9 %148, -255
-  br i1 %cond.fr.i.i.i.i29, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i
+.thread.i.i.i.i26:                                ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i25, %.thread.i.i24
+  %138 = phi i16 [ 257, %.thread.i.i24 ], [ %spec.select.i.i, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i25 ]
+  %139 = load <2 x double>, ptr %8, align 16
+  %140 = extractelement <2 x double> %139, i64 0
+  %141 = fneg double %140
+  %142 = getelementptr inbounds i8, ptr %0, i64 40
+  %143 = load double, ptr %142, align 8
+  %144 = fcmp olt double %143, %141
+  %145 = extractelement <2 x double> %139, i64 1
+  br i1 %144, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i, label %146
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i27, %131
-  br label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i
+146:                                              ; preds = %.thread.i.i.i.i26
+  %147 = load <2 x double>, ptr %10, align 16
+  %148 = extractelement <2 x double> %147, i64 0
+  %149 = fneg double %148
+  %150 = fcmp olt double %145, %149
+  br i1 %150, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i, label %151
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i27, %139
-  %150 = phi i9 [ -255, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i ], [ %149, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i27 ], [ 0, %139 ]
-  %151 = call i9 @llvm.bitreverse.i9(i9 %150)
-  %.sroa.01.0.insert.insert.i.i.i.i.i.i = zext i9 %151 to i16
-  %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i.i.i.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked.i.i.i.i = and i16 %.sroa.01.0.insert.insert.i.i.i.i.i.i, 1
-  %152 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i, %.sroa.01.0.insert.insert.i.i.masked.i.i.i.i
-  %153 = trunc i9 %151 to i1
-  %.not7.i.i.i.i.i = or i1 %152, %153
-  br i1 %.not7.i.i.i.i.i, label %154, label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i
-
-154:                                              ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i
-  %155 = load <2 x double>, ptr %8, align 16
-  %156 = extractelement <2 x double> %155, i64 0
-  %157 = fneg double %156
-  %158 = getelementptr inbounds i8, ptr %0, i64 40
-  %159 = load double, ptr %158, align 8
-  %160 = fcmp olt double %159, %157
-  %161 = extractelement <2 x double> %155, i64 1
-  br i1 %160, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i35, label %162
-
-162:                                              ; preds = %154
-  %163 = load <2 x double>, ptr %10, align 16
-  %164 = extractelement <2 x double> %163, i64 0
-  %165 = fneg double %164
-  %166 = fcmp olt double %161, %165
-  br i1 %166, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i32
-
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i32: ; preds = %162
-  %167 = fcmp oeq double %161, %165
-  %168 = fcmp oeq double %159, %157
-  %or.cond.not.i.i.i.not.i.i.i.i.i.i33 = and i1 %168, %167
-  %cond.fr.i.i.i.i.i.i34 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i.i.i33
-  %169 = zext i1 %cond.fr.i.i.i.i.i.i34 to i16
-  %170 = or disjoint i16 %169, 256
-  %171 = trunc nuw i16 %170 to i9
-  %172 = xor i9 %171, -255
-  br i1 %cond.fr.i.i.i.i.i.i34, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i35, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i
-
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i35: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i32, %154
+151:                                              ; preds = %146
+  %152 = fcmp une double %145, %149
+  %153 = fcmp une double %143, %141
+  %or.cond.not.i.i.i.i.i.i.i.i.i = or i1 %153, %152
+  %or.cond.not.i.i.i.fr.i.i.i.i.i.i = freeze i1 %or.cond.not.i.i.i.i.i.i.i.i.i
+  %154 = sext i1 %or.cond.not.i.i.i.fr.i.i.i.i.i.i to i32
+  %155 = zext i1 %or.cond.not.i.i.i.fr.i.i.i.i.i.i to i32
   br label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i
 
-_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i35, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i32, %162
-  %173 = phi i9 [ -255, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i35 ], [ %172, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i32 ], [ 0, %162 ]
-  %174 = call i9 @llvm.bitreverse.i9(i9 %173)
-  %.sroa.03.0.insert.insert.i.i.i8.i.i.i = and i9 %174, %151
-  %.sroa.03.0.insert.insert.i.i.i.i.i.i = zext i9 %.sroa.03.0.insert.insert.i.i.i8.i.i.i to i16
+_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i: ; preds = %151, %146, %.thread.i.i.i.i26
+  %.sroa.5.0.i.i.i.i.i.i.i.i.i = phi i32 [ 1, %.thread.i.i.i.i26 ], [ -1, %146 ], [ %155, %151 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i32 [ 1, %.thread.i.i.i.i26 ], [ -1, %146 ], [ %154, %151 ]
+  %156 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i, -1
+  %157 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i.i.i
+  %158 = zext i1 %157 to i16
+  %159 = or disjoint i16 %158, 256
+  %160 = trunc nuw i16 %159 to i9
+  %161 = xor i9 %160, -255
+  %162 = call i9 @llvm.bitreverse.i9(i9 %161)
+  %163 = zext i9 %162 to i16
+  %spec.select55 = select i1 %156, i16 257, i16 %163
+  %.sroa.03.0.insert.insert.i.i.i.i.i.i = and i16 %spec.select55, %138
   br label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i
 
-_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i: ; preds = %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i
-  %.sroa.06.0.i.i.i.i.i30 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i.i.i, %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i ], [ 0, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i ]
-  %175 = and i16 %.sroa.01.0.insert.insert.i.i.i.i, 257
-  %.sroa.03.0.insert.insert.i.i.i.i31 = and i16 %175, %.sroa.06.0.i.i.i.i.i30
+_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i: ; preds = %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i, %131
+  %.sroa.06.0.i.i.i.i.i27 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i.i.i, %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i ], [ 0, %131 ]
+  %.sroa.03.0.insert.insert.i.i.i.i28 = and i16 %.sroa.06.0.i.i.i.i.i27, %123
   br label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
 
-_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i
-  %.sroa.06.0.i.i.i26 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i31, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i ], [ 0, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i ]
-  store i16 %.sroa.06.0.i.i.i26, ptr %4, align 2
-  %176 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
+_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit: ; preds = %116, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i
+  %.sroa.06.0.i.i.i29 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i28, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i ], [ 0, %116 ]
+  store i16 %.sroa.06.0.i.i.i29, ptr %4, align 2
+  %164 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  br i1 %176, label %177, label %249
+  br i1 %164, label %165, label %225
 
-177:                                              ; preds = %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
-  %178 = getelementptr inbounds i8, ptr %0, i64 48
+165:                                              ; preds = %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
+  %166 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  %179 = getelementptr inbounds i8, ptr %0, i64 64
-  %180 = getelementptr inbounds i8, ptr %0, i64 80
-  %181 = load <2 x double>, ptr %178, align 16
-  %182 = extractelement <2 x double> %181, i64 0
-  %183 = fneg double %182
-  %184 = getelementptr inbounds i8, ptr %1, i64 8
-  %185 = load double, ptr %184, align 8
-  %186 = fcmp olt double %185, %183
-  %187 = extractelement <2 x double> %181, i64 1
-  br i1 %186, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i64, label %188
+  %167 = getelementptr inbounds i8, ptr %0, i64 64
+  %168 = getelementptr inbounds i8, ptr %0, i64 80
+  %169 = load <2 x double>, ptr %166, align 16
+  %170 = extractelement <2 x double> %169, i64 0
+  %171 = fneg double %170
+  %172 = getelementptr inbounds i8, ptr %1, i64 8
+  %173 = load double, ptr %172, align 8
+  %174 = fcmp olt double %173, %171
+  %175 = extractelement <2 x double> %169, i64 1
+  br i1 %174, label %.thread.i.i33, label %176
 
-188:                                              ; preds = %177
-  %189 = load <2 x double>, ptr %1, align 16
-  %190 = extractelement <2 x double> %189, i64 0
-  %191 = fneg double %190
-  %192 = fcmp olt double %187, %191
-  br i1 %192, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i36
+176:                                              ; preds = %165
+  %177 = load <2 x double>, ptr %1, align 16
+  %178 = extractelement <2 x double> %177, i64 0
+  %179 = fneg double %178
+  %180 = fcmp olt double %175, %179
+  br i1 %180, label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit51, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i30
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i36: ; preds = %188
-  %193 = fcmp oeq double %187, %191
-  %194 = fcmp oeq double %185, %183
-  %or.cond.not.i.i.i.not.i.i37 = and i1 %194, %193
-  %cond.fr.i.i38 = freeze i1 %or.cond.not.i.i.i.not.i.i37
-  %195 = zext i1 %cond.fr.i.i38 to i16
-  %196 = or disjoint i16 %195, 256
-  %197 = trunc nuw i16 %196 to i9
-  %198 = xor i9 %197, -255
-  br i1 %cond.fr.i.i38, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i64, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39
+_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i30: ; preds = %176
+  %181 = fcmp une double %175, %179
+  %182 = fcmp une double %173, %171
+  %or.cond.not.i.i.i.i.i31 = or i1 %182, %181
+  %or.cond.not.i.i.i.fr.i.i32 = freeze i1 %or.cond.not.i.i.i.i.i31
+  %spec.select53 = select i1 %or.cond.not.i.i.i.fr.i.i32, i16 256, i16 257
+  br label %.thread.i.i33
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i64: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i36, %177
-  br label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39
+.thread.i.i33:                                    ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i30, %165
+  %183 = phi i16 [ 257, %165 ], [ %spec.select53, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i30 ]
+  %184 = load <2 x double>, ptr %167, align 16
+  %185 = extractelement <2 x double> %184, i64 0
+  %186 = fneg double %185
+  %187 = getelementptr inbounds i8, ptr %1, i64 24
+  %188 = load double, ptr %187, align 8
+  %189 = fcmp olt double %188, %186
+  %190 = extractelement <2 x double> %184, i64 1
+  br i1 %189, label %.thread.i.i.i.i38, label %191
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i64, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i36, %188
-  %199 = phi i9 [ -255, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i64 ], [ %198, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i36 ], [ 0, %188 ]
-  %200 = call i9 @llvm.bitreverse.i9(i9 %199)
-  %.sroa.01.0.insert.insert.i.i.i.i40 = zext i9 %200 to i16
-  %.sroa.2.0.extract.shift.i.i.i.i.i41 = lshr i16 %.sroa.01.0.insert.insert.i.i.i.i40, 8
-  %.sroa.01.0.insert.insert.i.i.masked.i.i42 = and i16 %.sroa.01.0.insert.insert.i.i.i.i40, 1
-  %201 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i.i41, %.sroa.01.0.insert.insert.i.i.masked.i.i42
-  %202 = trunc i9 %200 to i1
-  %.not7.i.i.i43 = or i1 %201, %202
-  br i1 %.not7.i.i.i43, label %203, label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit65
+191:                                              ; preds = %.thread.i.i33
+  %192 = load <2 x double>, ptr %7, align 16
+  %193 = extractelement <2 x double> %192, i64 0
+  %194 = fneg double %193
+  %195 = fcmp olt double %190, %194
+  br i1 %195, label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i46, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i34
 
-203:                                              ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39
-  %204 = load <2 x double>, ptr %179, align 16
-  %205 = extractelement <2 x double> %204, i64 0
-  %206 = fneg double %205
-  %207 = getelementptr inbounds i8, ptr %1, i64 24
-  %208 = load double, ptr %207, align 8
-  %209 = fcmp olt double %208, %206
-  %210 = extractelement <2 x double> %204, i64 1
-  br i1 %209, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i63, label %211
+_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i34: ; preds = %191
+  %196 = fcmp une double %190, %194
+  %197 = fcmp une double %188, %186
+  %or.cond.not.i.i.i.i.i.i.i35 = or i1 %197, %196
+  %or.cond.not.i.i.i.fr.i.i.i.i36 = freeze i1 %or.cond.not.i.i.i.i.i.i.i35
+  %spec.select.i.i37 = select i1 %or.cond.not.i.i.i.fr.i.i.i.i36, i16 256, i16 257
+  br label %.thread.i.i.i.i38
 
-211:                                              ; preds = %203
-  %212 = load <2 x double>, ptr %7, align 16
-  %213 = extractelement <2 x double> %212, i64 0
-  %214 = fneg double %213
-  %215 = fcmp olt double %210, %214
-  br i1 %215, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i45
+.thread.i.i.i.i38:                                ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i34, %.thread.i.i33
+  %198 = phi i16 [ 257, %.thread.i.i33 ], [ %spec.select.i.i37, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i34 ]
+  %199 = load <2 x double>, ptr %168, align 16
+  %200 = extractelement <2 x double> %199, i64 0
+  %201 = fneg double %200
+  %202 = getelementptr inbounds i8, ptr %1, i64 40
+  %203 = load double, ptr %202, align 8
+  %204 = fcmp olt double %203, %201
+  %205 = extractelement <2 x double> %199, i64 1
+  br i1 %204, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i41, label %206
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i45: ; preds = %211
-  %216 = fcmp oeq double %210, %214
-  %217 = fcmp oeq double %208, %206
-  %or.cond.not.i.i.i.not.i.i.i.i46 = and i1 %217, %216
-  %cond.fr.i.i.i.i47 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i46
-  %218 = zext i1 %cond.fr.i.i.i.i47 to i16
+206:                                              ; preds = %.thread.i.i.i.i38
+  %207 = load <2 x double>, ptr %8, align 16
+  %208 = extractelement <2 x double> %207, i64 0
+  %209 = fneg double %208
+  %210 = fcmp olt double %205, %209
+  br i1 %210, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i41, label %211
+
+211:                                              ; preds = %206
+  %212 = fcmp une double %205, %209
+  %213 = fcmp une double %203, %201
+  %or.cond.not.i.i.i.i.i.i.i.i.i39 = or i1 %213, %212
+  %or.cond.not.i.i.i.fr.i.i.i.i.i.i40 = freeze i1 %or.cond.not.i.i.i.i.i.i.i.i.i39
+  %214 = sext i1 %or.cond.not.i.i.i.fr.i.i.i.i.i.i40 to i32
+  %215 = zext i1 %or.cond.not.i.i.i.fr.i.i.i.i.i.i40 to i32
+  br label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i41
+
+_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i41: ; preds = %211, %206, %.thread.i.i.i.i38
+  %.sroa.5.0.i.i.i.i.i.i.i.i.i42 = phi i32 [ 1, %.thread.i.i.i.i38 ], [ -1, %206 ], [ %215, %211 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i43 = phi i32 [ 1, %.thread.i.i.i.i38 ], [ -1, %206 ], [ %214, %211 ]
+  %216 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i43, -1
+  %217 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i43, %.sroa.5.0.i.i.i.i.i.i.i.i.i42
+  %218 = zext i1 %217 to i16
   %219 = or disjoint i16 %218, 256
   %220 = trunc nuw i16 %219 to i9
   %221 = xor i9 %220, -255
-  br i1 %cond.fr.i.i.i.i47, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i63, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48
+  %222 = call i9 @llvm.bitreverse.i9(i9 %221)
+  %223 = zext i9 %222 to i16
+  %spec.select56 = select i1 %216, i16 257, i16 %223
+  %.sroa.03.0.insert.insert.i.i.i.i.i.i45 = and i16 %spec.select56, %198
+  br label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i46
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i63: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i45, %203
-  br label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48
+_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i46: ; preds = %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i41, %191
+  %.sroa.06.0.i.i.i.i.i47 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i.i.i45, %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i41 ], [ 0, %191 ]
+  %.sroa.03.0.insert.insert.i.i.i.i48 = and i16 %.sroa.06.0.i.i.i.i.i47, %183
+  br label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit51
 
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i63, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i45, %211
-  %222 = phi i9 [ -255, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i63 ], [ %221, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i45 ], [ 0, %211 ]
-  %223 = call i9 @llvm.bitreverse.i9(i9 %222)
-  %.sroa.01.0.insert.insert.i.i.i.i.i.i49 = zext i9 %223 to i16
-  %.sroa.2.0.extract.shift.i.i.i.i.i.i.i50 = lshr i16 %.sroa.01.0.insert.insert.i.i.i.i.i.i49, 8
-  %.sroa.01.0.insert.insert.i.i.masked.i.i.i.i51 = and i16 %.sroa.01.0.insert.insert.i.i.i.i.i.i49, 1
-  %224 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i50, %.sroa.01.0.insert.insert.i.i.masked.i.i.i.i51
-  %225 = trunc i9 %223 to i1
-  %.not7.i.i.i.i.i52 = or i1 %224, %225
-  br i1 %.not7.i.i.i.i.i52, label %226, label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i53
-
-226:                                              ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48
-  %227 = load <2 x double>, ptr %180, align 16
-  %228 = extractelement <2 x double> %227, i64 0
-  %229 = fneg double %228
-  %230 = getelementptr inbounds i8, ptr %1, i64 40
-  %231 = load double, ptr %230, align 8
-  %232 = fcmp olt double %231, %229
-  %233 = extractelement <2 x double> %227, i64 1
-  br i1 %232, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i62, label %234
-
-234:                                              ; preds = %226
-  %235 = load <2 x double>, ptr %8, align 16
-  %236 = extractelement <2 x double> %235, i64 0
-  %237 = fneg double %236
-  %238 = fcmp olt double %233, %237
-  br i1 %238, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i56
-
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i56: ; preds = %234
-  %239 = fcmp oeq double %233, %237
-  %240 = fcmp oeq double %231, %229
-  %or.cond.not.i.i.i.not.i.i.i.i.i.i57 = and i1 %240, %239
-  %cond.fr.i.i.i.i.i.i58 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i.i.i57
-  %241 = zext i1 %cond.fr.i.i.i.i.i.i58 to i16
-  %242 = or disjoint i16 %241, 256
-  %243 = trunc nuw i16 %242 to i9
-  %244 = xor i9 %243, -255
-  br i1 %cond.fr.i.i.i.i.i.i58, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i62, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59
-
-_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i62: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i56, %226
-  br label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59
-
-_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i62, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i56, %234
-  %245 = phi i9 [ -255, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i62 ], [ %244, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.i.i.i.i.i.i56 ], [ 0, %234 ]
-  %246 = call i9 @llvm.bitreverse.i9(i9 %245)
-  %.sroa.03.0.insert.insert.i.i.i8.i.i.i60 = and i9 %246, %223
-  %.sroa.03.0.insert.insert.i.i.i.i.i.i61 = zext i9 %.sroa.03.0.insert.insert.i.i.i8.i.i.i60 to i16
-  br label %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i53
-
-_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i53: ; preds = %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48
-  %.sroa.06.0.i.i.i.i.i54 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i.i.i61, %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59 ], [ 0, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48 ]
-  %247 = and i16 %.sroa.01.0.insert.insert.i.i.i.i40, 257
-  %.sroa.03.0.insert.insert.i.i.i.i55 = and i16 %247, %.sroa.06.0.i.i.i.i.i54
-  br label %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit65
-
-_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit65: ; preds = %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i53
-  %.sroa.06.0.i.i.i44 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i55, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i53 ], [ 0, %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39 ]
-  store i16 %.sroa.06.0.i.i.i44, ptr %3, align 2
-  %248 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit51: ; preds = %176, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i46
+  %.sroa.06.0.i.i.i49 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i48, %_ZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i.i.i46 ], [ 0, %176 ]
+  store i16 %.sroa.06.0.i.i.i49, ptr %3, align 2
+  %224 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  br i1 %248, label %250, label %249
+  br i1 %224, label %226, label %225
 
-249:                                              ; preds = %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit65, %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
-  br label %250
+225:                                              ; preds = %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit51, %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit
+  br label %226
 
-250:                                              ; preds = %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit65, %_ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit22, %249
-  %.0 = phi i32 [ -1, %249 ], [ 1, %_ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit22 ], [ 0, %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit65 ]
+226:                                              ; preds = %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit51, %_ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit22, %225
+  %.0 = phi i32 [ -1, %225 ], [ 1, %_ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit22 ], [ 0, %_ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7PointC3IT_EES9_.exit51 ]
   ret i32 %.0
 }
 
@@ -113480,25 +113420,25 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %30, %27, %26
   br label %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
-  %.sink65 = phi ptr [ %6, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %5, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink64 = phi i64 [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink67 = phi ptr [ %6, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %5, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink66 = phi i64 [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = phi i64 [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %31 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %.sink65)
-  %32 = getelementptr inbounds i8, ptr %2, i64 %.sink64
+  %31 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %.sink67)
+  %32 = getelementptr inbounds i8, ptr %2, i64 %.sink66
   %33 = load double, ptr %32, align 8
   %34 = fneg double %33
   %35 = insertelement <2 x double> poison, double %34, i64 0
   %36 = insertelement <2 x double> %35, double %33, i64 1
   %37 = getelementptr inbounds i8, ptr %2, i64 %.sink
-  %.55 = select i1 %31, i64 16, i64 40
-  %.56 = select i1 %31, i64 40, i64 16
-  %38 = getelementptr inbounds i8, ptr %2, i64 %.55
+  %.57 = select i1 %31, i64 16, i64 40
+  %.58 = select i1 %31, i64 40, i64 16
+  %38 = getelementptr inbounds i8, ptr %2, i64 %.57
   %39 = load double, ptr %38, align 8
   %40 = fneg double %39
   %41 = insertelement <2 x double> poison, double %40, i64 0
   %42 = insertelement <2 x double> %41, double %39, i64 1
   %.sink.i = load double, ptr %37, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 %.56
+  %43 = getelementptr inbounds i8, ptr %2, i64 %.58
   %44 = load double, ptr %43, align 8
   %45 = fneg double %.sink.i
   %46 = insertelement <2 x double> poison, double %45, i64 0
@@ -113571,212 +113511,228 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %110 = fadd <2 x double> %108, %109
   %111 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %110) #23, !srcloc !218
   %112 = extractelement <2 x double> %111, i64 0
-  %113 = fcmp olt double %112, 0.000000e+00
-  br i1 %113, label %123, label %114
-
-114:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %113 = fneg double %112
+  %114 = fcmp olt double %112, 0.000000e+00
   %115 = extractelement <2 x double> %111, i64 1
-  %116 = fneg double %112
+  br i1 %114, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %116
+
+116:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %117 = fcmp olt double %115, 0.000000e+00
-  %118 = fcmp une double %115, %116
-  %or.cond67.not = or i1 %118, %117
-  br i1 %or.cond67.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %123
+  br i1 %117, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %118
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %114
-  %119 = zext i1 %117 to i16
-  %120 = or disjoint i16 %119, 256
-  %121 = trunc nuw i16 %120 to i9
-  %122 = xor i9 %121, -255
-  br label %123
+118:                                              ; preds = %116
+  %119 = fcmp oeq double %115, %113
+  br i1 %119, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %120
 
-123:                                              ; preds = %114, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %124 = phi i9 [ %122, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %114 ]
-  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %125 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+120:                                              ; preds = %118
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %116, %118, %120
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %120 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %116 ], [ 0, %118 ]
+  %121 = phi i1 [ false, %120 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %116 ], [ true, %118 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %120 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %116 ], [ 0, %118 ]
+  %122 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %123 = zext i1 %122 to i16
+  %124 = or disjoint i16 %123, 256
+  %125 = trunc nuw i16 %124 to i9
+  %126 = xor i9 %125, -255
+  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
+  %128 = zext i9 %127 to i16
+  %spec.select54 = select i1 %121, i16 257, i16 %128
+  store i16 %spec.select54, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select54, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select54, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %126, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %129, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
 
-126:                                              ; preds = %123
-  %127 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %127, ptr %0, ptr %8
-  %spec.select46 = select i1 %127, ptr %8, ptr %0
-  %128 = getelementptr inbounds i8, ptr %spec.select46, i64 16
-  %129 = load <2 x double>, ptr %128, align 16
-  %130 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %131 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %36) #23, !srcloc !218
-  %132 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %130) #46, !srcloc !219
-  %133 = fadd <2 x double> %131, %132
-  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #23, !srcloc !218
-  %135 = bitcast <2 x double> %134 to <2 x i64>
-  %136 = getelementptr inbounds i8, ptr %spec.select46, i64 32
-  %137 = load <2 x double>, ptr %136, align 16
-  %138 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %139 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %42) #23, !srcloc !218
-  %140 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %138) #46, !srcloc !219
-  %141 = fadd <2 x double> %139, %140
-  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #23, !srcloc !218
-  %143 = bitcast <2 x double> %142 to <2 x i64>
-  %144 = load <2 x double>, ptr %9, align 16
-  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %146 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %145) #46, !srcloc !219
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %148 = fneg <2 x double> %147
-  %149 = xor <2 x i64> %135, <i64 -9223372036854775808, i64 0>
-  %150 = bitcast <2 x i64> %149 to <2 x double>
-  %151 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %150) #23, !srcloc !218
-  %152 = shufflevector <2 x double> %151, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %153 = fmul <2 x double> %146, %151
-  %154 = fmul <2 x double> %146, %152
-  %155 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %154, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %156 = fmul <2 x double> %151, %148
-  %157 = fmul <2 x double> %152, %148
+129:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %130 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %130, ptr %0, ptr %8
+  %spec.select46 = select i1 %130, ptr %8, ptr %0
+  %131 = getelementptr inbounds i8, ptr %spec.select46, i64 16
+  %132 = load <2 x double>, ptr %131, align 16
+  %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %36) #23, !srcloc !218
+  %135 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #46, !srcloc !219
+  %136 = fadd <2 x double> %134, %135
+  %137 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %136) #23, !srcloc !218
+  %138 = bitcast <2 x double> %137 to <2 x i64>
+  %139 = getelementptr inbounds i8, ptr %spec.select46, i64 32
+  %140 = load <2 x double>, ptr %139, align 16
+  %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %42) #23, !srcloc !218
+  %143 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #46, !srcloc !219
+  %144 = fadd <2 x double> %142, %143
+  %145 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #23, !srcloc !218
+  %146 = bitcast <2 x double> %145 to <2 x i64>
+  %147 = load <2 x double>, ptr %9, align 16
+  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %149 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %148) #46, !srcloc !219
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %151 = fneg <2 x double> %150
+  %152 = xor <2 x i64> %138, <i64 -9223372036854775808, i64 0>
+  %153 = bitcast <2 x i64> %152 to <2 x double>
+  %154 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %153) #23, !srcloc !218
+  %155 = shufflevector <2 x double> %154, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %156 = fmul <2 x double> %149, %154
+  %157 = fmul <2 x double> %149, %155
   %158 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %157, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %159 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %153, <2 x double> %155)
-  %160 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %160)
-  %162 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #23, !srcloc !218
-  %163 = load <2 x double>, ptr %11, align 16
-  %164 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #46, !srcloc !219
-  %165 = shufflevector <2 x double> %164, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %166 = fneg <2 x double> %165
-  %167 = xor <2 x i64> %143, <i64 -9223372036854775808, i64 0>
-  %168 = bitcast <2 x i64> %167 to <2 x double>
-  %169 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #23, !srcloc !218
-  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %171 = fmul <2 x double> %164, %169
-  %172 = fmul <2 x double> %164, %170
-  %173 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %172, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %174 = fmul <2 x double> %169, %166
-  %175 = fmul <2 x double> %170, %166
+  %159 = fmul <2 x double> %154, %151
+  %160 = fmul <2 x double> %155, %151
+  %161 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %160, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
+  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %161)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %162, <2 x double> %163)
+  %165 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #23, !srcloc !218
+  %166 = load <2 x double>, ptr %11, align 16
+  %167 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #46, !srcloc !219
+  %168 = shufflevector <2 x double> %167, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %169 = fneg <2 x double> %168
+  %170 = xor <2 x i64> %146, <i64 -9223372036854775808, i64 0>
+  %171 = bitcast <2 x i64> %170 to <2 x double>
+  %172 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %171) #23, !srcloc !218
+  %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %174 = fmul <2 x double> %167, %172
+  %175 = fmul <2 x double> %167, %173
   %176 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %175, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %177 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %171, <2 x double> %173)
-  %178 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %178)
-  %180 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %179) #23, !srcloc !218
-  %181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %162) #23, !srcloc !218
-  %182 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #46, !srcloc !219
-  %183 = fadd <2 x double> %181, %182
-  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #23, !srcloc !218
-  %185 = extractelement <2 x double> %184, i64 0
-  %186 = fcmp olt double %185, 0.000000e+00
-  br i1 %186, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %187
-
-187:                                              ; preds = %126
-  %188 = extractelement <2 x double> %184, i64 1
-  %189 = fneg double %185
+  %177 = fmul <2 x double> %172, %169
+  %178 = fmul <2 x double> %173, %169
+  %179 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %178, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
+  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %179)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %180, <2 x double> %181)
+  %183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #23, !srcloc !218
+  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
+  %185 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #46, !srcloc !219
+  %186 = fadd <2 x double> %184, %185
+  %187 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %186) #23, !srcloc !218
+  %188 = extractelement <2 x double> %187, i64 0
+  %189 = fneg double %188
   %190 = fcmp olt double %188, 0.000000e+00
-  %191 = fcmp oeq double %188, %189
-  %or.cond = or i1 %190, %191
-  br i1 %or.cond, label %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %191 = extractelement <2 x double> %187, i64 1
+  br i1 %190, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %192
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %187, %126
-  %192 = zext i1 %186 to i16
-  %193 = or disjoint i16 %192, 256
-  %194 = trunc nuw i16 %193 to i9
-  %195 = xor i9 %194, -255
-  br label %196
+192:                                              ; preds = %129
+  %193 = fcmp olt double %191, 0.000000e+00
+  br i1 %193, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %194
 
-196:                                              ; preds = %187, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %197 = phi i9 [ %195, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %187 ]
-  %198 = call i9 @llvm.bitreverse.i9(i9 %197)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %198 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %199 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %200 = trunc i9 %198 to i1
-  %.not8.i = or i1 %199, %200
-  br i1 %.not8.i, label %201, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
+194:                                              ; preds = %192
+  %195 = fcmp oeq double %191, %189
+  br i1 %195, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %196
 
-201:                                              ; preds = %196
-  %202 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %203 = load <2 x double>, ptr %202, align 16
-  %204 = shufflevector <2 x double> %203, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %205 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47) #23, !srcloc !218
-  %206 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %204) #46, !srcloc !219
-  %207 = fadd <2 x double> %205, %206
-  %208 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %207) #23, !srcloc !218
-  %209 = bitcast <2 x double> %208 to <2 x i64>
-  %210 = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %211 = load <2 x double>, ptr %210, align 16
-  %212 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
-  %214 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #46, !srcloc !219
-  %215 = fadd <2 x double> %213, %214
-  %216 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %215) #23, !srcloc !218
-  %217 = bitcast <2 x double> %216 to <2 x i64>
-  %218 = load <2 x double>, ptr %9, align 16
-  %219 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #46, !srcloc !219
-  %221 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %222 = fneg <2 x double> %221
-  %223 = xor <2 x i64> %209, <i64 -9223372036854775808, i64 0>
-  %224 = bitcast <2 x i64> %223 to <2 x double>
-  %225 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #23, !srcloc !218
+196:                                              ; preds = %194
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %129, %192, %194, %196
+  %197 = phi i1 [ false, %196 ], [ false, %129 ], [ true, %192 ], [ true, %194 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %196 ], [ 1, %129 ], [ -1, %192 ], [ 0, %194 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %196 ], [ 1, %129 ], [ -1, %192 ], [ 0, %194 ]
+  br i1 %197, label %.thread, label %198
+
+198:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %199 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %200 = zext i1 %199 to i16
+  %201 = or disjoint i16 %200, 256
+  %202 = trunc nuw i16 %201 to i9
+  %203 = xor i9 %202, -255
+  %204 = call i9 @llvm.bitreverse.i9(i9 %203)
+  %205 = zext i9 %204 to i16
+  br i1 %199, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %198
+  %206 = phi i16 [ %205, %198 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %207 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %208 = load <2 x double>, ptr %207, align 16
+  %209 = shufflevector <2 x double> %208, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %210 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47) #23, !srcloc !218
+  %211 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #46, !srcloc !219
+  %212 = fadd <2 x double> %210, %211
+  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #23, !srcloc !218
+  %214 = bitcast <2 x double> %213 to <2 x i64>
+  %215 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %216 = load <2 x double>, ptr %215, align 16
+  %217 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %218 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
+  %219 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %217) #46, !srcloc !219
+  %220 = fadd <2 x double> %218, %219
+  %221 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #23, !srcloc !218
+  %222 = bitcast <2 x double> %221 to <2 x i64>
+  %223 = load <2 x double>, ptr %9, align 16
+  %224 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %225 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #46, !srcloc !219
   %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %227 = fmul <2 x double> %220, %225
-  %228 = fmul <2 x double> %220, %226
-  %229 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %228, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %230 = fmul <2 x double> %225, %222
-  %231 = fmul <2 x double> %226, %222
-  %232 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %231, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %233 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %227, <2 x double> %229)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %230, <2 x double> %232)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %234)
-  %236 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %235) #23, !srcloc !218
-  %237 = load <2 x double>, ptr %11, align 16
-  %238 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #46, !srcloc !219
-  %239 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %240 = fneg <2 x double> %239
-  %241 = xor <2 x i64> %217, <i64 -9223372036854775808, i64 0>
-  %242 = bitcast <2 x i64> %241 to <2 x double>
-  %243 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %227 = fneg <2 x double> %226
+  %228 = xor <2 x i64> %214, <i64 -9223372036854775808, i64 0>
+  %229 = bitcast <2 x i64> %228 to <2 x double>
+  %230 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %229) #23, !srcloc !218
+  %231 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %232 = fmul <2 x double> %225, %230
+  %233 = fmul <2 x double> %225, %231
+  %234 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %233, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %235 = fmul <2 x double> %230, %227
+  %236 = fmul <2 x double> %231, %227
+  %237 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %236, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %238 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %234)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %235, <2 x double> %237)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %238, <2 x double> %239)
+  %241 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #23, !srcloc !218
+  %242 = load <2 x double>, ptr %11, align 16
+  %243 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #46, !srcloc !219
   %244 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %245 = fmul <2 x double> %238, %243
-  %246 = fmul <2 x double> %238, %244
-  %247 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %246, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %248 = fmul <2 x double> %243, %240
-  %249 = fmul <2 x double> %244, %240
-  %250 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %249, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %251 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %245, <2 x double> %247)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %248, <2 x double> %250)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %252)
-  %254 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %253) #23, !srcloc !218
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #46, !srcloc !219
-  %257 = fadd <2 x double> %255, %256
-  %258 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #23, !srcloc !218
-  %259 = extractelement <2 x double> %258, i64 0
-  %260 = fcmp olt double %259, 0.000000e+00
-  br i1 %260, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %261
+  %245 = fneg <2 x double> %244
+  %246 = xor <2 x i64> %222, <i64 -9223372036854775808, i64 0>
+  %247 = bitcast <2 x i64> %246 to <2 x double>
+  %248 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %247) #23, !srcloc !218
+  %249 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %250 = fmul <2 x double> %243, %248
+  %251 = fmul <2 x double> %243, %249
+  %252 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %251, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %253 = fmul <2 x double> %248, %245
+  %254 = fmul <2 x double> %249, %245
+  %255 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %254, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %256 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %252)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %253, <2 x double> %255)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %256, <2 x double> %257)
+  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #46, !srcloc !219
+  %262 = fadd <2 x double> %260, %261
+  %263 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %262) #23, !srcloc !218
+  %264 = extractelement <2 x double> %263, i64 0
+  %265 = fneg double %264
+  %266 = fcmp olt double %264, 0.000000e+00
+  %267 = extractelement <2 x double> %263, i64 1
+  br i1 %266, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %268
 
-261:                                              ; preds = %201
-  %262 = extractelement <2 x double> %258, i64 1
-  %263 = fneg double %259
-  %264 = fcmp olt double %262, 0.000000e+00
-  %265 = fcmp une double %262, %263
-  %or.cond.not.i = or i1 %265, %264
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
+268:                                              ; preds = %.thread
+  %269 = fcmp olt double %267, 0.000000e+00
+  br i1 %269, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %270
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %261
-  %266 = zext i1 %264 to i16
-  %267 = or disjoint i16 %266, 256
-  %268 = trunc nuw i16 %267 to i9
-  %269 = xor i9 %268, -255
+270:                                              ; preds = %268
+  %271 = fcmp oeq double %267, %265
+  br i1 %271, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %272
+
+272:                                              ; preds = %270
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %261, %201
-  %270 = phi i9 [ %269, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %201 ], [ -255, %261 ]
-  %271 = call i9 @llvm.bitreverse.i9(i9 %270)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %271 to i16
-  %272 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %272, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i: ; preds = %272, %270, %268, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %273 = phi i1 [ false, %272 ], [ true, %.thread ], [ false, %268 ], [ true, %270 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %274 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %275 = zext i1 %274 to i16
+  %276 = or disjoint i16 %275, 256
+  %277 = trunc nuw i16 %276 to i9
+  %278 = xor i9 %277, -255
+  %279 = call i9 @llvm.bitreverse.i9(i9 %278)
+  %280 = zext i9 %279 to i16
+  %spec.select55 = select i1 %273, i16 257, i16 %280
+  %281 = and i16 %206, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %281, %spec.select55
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, %196, %123
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %123 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i ], [ 0, %196 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, %198, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i ], [ 0, %198 ]
   ret i16 %.sroa.016.0
 }
 
@@ -113853,25 +113809,25 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %30, %27, %26
   br label %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
-  %.sink65 = phi ptr [ %6, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %5, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink64 = phi i64 [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink67 = phi ptr [ %6, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %5, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink66 = phi i64 [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = phi i64 [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %31 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %.sink65)
-  %32 = getelementptr inbounds i8, ptr %2, i64 %.sink64
+  %31 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %.sink67)
+  %32 = getelementptr inbounds i8, ptr %2, i64 %.sink66
   %33 = load double, ptr %32, align 8
   %34 = fneg double %33
   %35 = insertelement <2 x double> poison, double %34, i64 0
   %36 = insertelement <2 x double> %35, double %33, i64 1
   %37 = getelementptr inbounds i8, ptr %2, i64 %.sink
-  %.55 = select i1 %31, i64 16, i64 40
-  %.56 = select i1 %31, i64 40, i64 16
-  %38 = getelementptr inbounds i8, ptr %2, i64 %.55
+  %.57 = select i1 %31, i64 16, i64 40
+  %.58 = select i1 %31, i64 40, i64 16
+  %38 = getelementptr inbounds i8, ptr %2, i64 %.57
   %39 = load double, ptr %38, align 8
   %40 = fneg double %39
   %41 = insertelement <2 x double> poison, double %40, i64 0
   %42 = insertelement <2 x double> %41, double %39, i64 1
   %.sink.i = load double, ptr %37, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 %.56
+  %43 = getelementptr inbounds i8, ptr %2, i64 %.58
   %44 = load double, ptr %43, align 8
   %45 = fneg double %.sink.i
   %46 = insertelement <2 x double> poison, double %45, i64 0
@@ -113944,212 +113900,228 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %110 = fadd <2 x double> %108, %109
   %111 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %110) #23, !srcloc !218
   %112 = extractelement <2 x double> %111, i64 0
-  %113 = fcmp olt double %112, 0.000000e+00
-  br i1 %113, label %123, label %114
-
-114:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %113 = fneg double %112
+  %114 = fcmp olt double %112, 0.000000e+00
   %115 = extractelement <2 x double> %111, i64 1
-  %116 = fneg double %112
+  br i1 %114, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %116
+
+116:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %117 = fcmp olt double %115, 0.000000e+00
-  %118 = fcmp une double %115, %116
-  %or.cond67.not = or i1 %118, %117
-  br i1 %or.cond67.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %123
+  br i1 %117, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %118
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %114
-  %119 = zext i1 %117 to i16
-  %120 = or disjoint i16 %119, 256
-  %121 = trunc nuw i16 %120 to i9
-  %122 = xor i9 %121, -255
-  br label %123
+118:                                              ; preds = %116
+  %119 = fcmp oeq double %115, %113
+  br i1 %119, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %120
 
-123:                                              ; preds = %114, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %124 = phi i9 [ %122, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %114 ]
-  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %125 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+120:                                              ; preds = %118
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %116, %118, %120
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %120 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %116 ], [ 0, %118 ]
+  %121 = phi i1 [ false, %120 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %116 ], [ true, %118 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %120 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %116 ], [ 0, %118 ]
+  %122 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %123 = zext i1 %122 to i16
+  %124 = or disjoint i16 %123, 256
+  %125 = trunc nuw i16 %124 to i9
+  %126 = xor i9 %125, -255
+  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
+  %128 = zext i9 %127 to i16
+  %spec.select54 = select i1 %121, i16 257, i16 %128
+  store i16 %spec.select54, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select54, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select54, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %126, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %129, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
 
-126:                                              ; preds = %123
-  %127 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %127, ptr %8, ptr %0
-  %spec.select46 = select i1 %127, ptr %0, ptr %8
-  %128 = getelementptr inbounds i8, ptr %spec.select46, i64 16
-  %129 = load <2 x double>, ptr %128, align 16
-  %130 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %131 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %36) #23, !srcloc !218
-  %132 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %130) #46, !srcloc !219
-  %133 = fadd <2 x double> %131, %132
-  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #23, !srcloc !218
-  %135 = bitcast <2 x double> %134 to <2 x i64>
-  %136 = getelementptr inbounds i8, ptr %spec.select46, i64 32
-  %137 = load <2 x double>, ptr %136, align 16
-  %138 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %139 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %42) #23, !srcloc !218
-  %140 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %138) #46, !srcloc !219
-  %141 = fadd <2 x double> %139, %140
-  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #23, !srcloc !218
-  %143 = bitcast <2 x double> %142 to <2 x i64>
-  %144 = load <2 x double>, ptr %9, align 16
-  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %146 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %145) #46, !srcloc !219
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %148 = fneg <2 x double> %147
-  %149 = xor <2 x i64> %135, <i64 -9223372036854775808, i64 0>
-  %150 = bitcast <2 x i64> %149 to <2 x double>
-  %151 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %150) #23, !srcloc !218
-  %152 = shufflevector <2 x double> %151, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %153 = fmul <2 x double> %146, %151
-  %154 = fmul <2 x double> %146, %152
-  %155 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %154, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %156 = fmul <2 x double> %151, %148
-  %157 = fmul <2 x double> %152, %148
+129:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %130 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %130, ptr %8, ptr %0
+  %spec.select46 = select i1 %130, ptr %0, ptr %8
+  %131 = getelementptr inbounds i8, ptr %spec.select46, i64 16
+  %132 = load <2 x double>, ptr %131, align 16
+  %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %36) #23, !srcloc !218
+  %135 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #46, !srcloc !219
+  %136 = fadd <2 x double> %134, %135
+  %137 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %136) #23, !srcloc !218
+  %138 = bitcast <2 x double> %137 to <2 x i64>
+  %139 = getelementptr inbounds i8, ptr %spec.select46, i64 32
+  %140 = load <2 x double>, ptr %139, align 16
+  %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %42) #23, !srcloc !218
+  %143 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #46, !srcloc !219
+  %144 = fadd <2 x double> %142, %143
+  %145 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #23, !srcloc !218
+  %146 = bitcast <2 x double> %145 to <2 x i64>
+  %147 = load <2 x double>, ptr %9, align 16
+  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %149 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %148) #46, !srcloc !219
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %151 = fneg <2 x double> %150
+  %152 = xor <2 x i64> %138, <i64 -9223372036854775808, i64 0>
+  %153 = bitcast <2 x i64> %152 to <2 x double>
+  %154 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %153) #23, !srcloc !218
+  %155 = shufflevector <2 x double> %154, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %156 = fmul <2 x double> %149, %154
+  %157 = fmul <2 x double> %149, %155
   %158 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %157, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %159 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %153, <2 x double> %155)
-  %160 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %160)
-  %162 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #23, !srcloc !218
-  %163 = load <2 x double>, ptr %11, align 16
-  %164 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #46, !srcloc !219
-  %165 = shufflevector <2 x double> %164, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %166 = fneg <2 x double> %165
-  %167 = xor <2 x i64> %143, <i64 -9223372036854775808, i64 0>
-  %168 = bitcast <2 x i64> %167 to <2 x double>
-  %169 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #23, !srcloc !218
-  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %171 = fmul <2 x double> %164, %169
-  %172 = fmul <2 x double> %164, %170
-  %173 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %172, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %174 = fmul <2 x double> %169, %166
-  %175 = fmul <2 x double> %170, %166
+  %159 = fmul <2 x double> %154, %151
+  %160 = fmul <2 x double> %155, %151
+  %161 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %160, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
+  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %161)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %162, <2 x double> %163)
+  %165 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #23, !srcloc !218
+  %166 = load <2 x double>, ptr %11, align 16
+  %167 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #46, !srcloc !219
+  %168 = shufflevector <2 x double> %167, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %169 = fneg <2 x double> %168
+  %170 = xor <2 x i64> %146, <i64 -9223372036854775808, i64 0>
+  %171 = bitcast <2 x i64> %170 to <2 x double>
+  %172 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %171) #23, !srcloc !218
+  %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %174 = fmul <2 x double> %167, %172
+  %175 = fmul <2 x double> %167, %173
   %176 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %175, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %177 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %171, <2 x double> %173)
-  %178 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %178)
-  %180 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %179) #23, !srcloc !218
-  %181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %162) #23, !srcloc !218
-  %182 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #46, !srcloc !219
-  %183 = fadd <2 x double> %181, %182
-  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #23, !srcloc !218
-  %185 = extractelement <2 x double> %184, i64 0
-  %186 = fcmp olt double %185, 0.000000e+00
-  br i1 %186, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %187
-
-187:                                              ; preds = %126
-  %188 = extractelement <2 x double> %184, i64 1
-  %189 = fneg double %185
+  %177 = fmul <2 x double> %172, %169
+  %178 = fmul <2 x double> %173, %169
+  %179 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %178, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
+  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %179)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %180, <2 x double> %181)
+  %183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #23, !srcloc !218
+  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
+  %185 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #46, !srcloc !219
+  %186 = fadd <2 x double> %184, %185
+  %187 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %186) #23, !srcloc !218
+  %188 = extractelement <2 x double> %187, i64 0
+  %189 = fneg double %188
   %190 = fcmp olt double %188, 0.000000e+00
-  %191 = fcmp oeq double %188, %189
-  %or.cond = or i1 %190, %191
-  br i1 %or.cond, label %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %191 = extractelement <2 x double> %187, i64 1
+  br i1 %190, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %192
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %187, %126
-  %192 = zext i1 %186 to i16
-  %193 = or disjoint i16 %192, 256
-  %194 = trunc nuw i16 %193 to i9
-  %195 = xor i9 %194, -255
-  br label %196
+192:                                              ; preds = %129
+  %193 = fcmp olt double %191, 0.000000e+00
+  br i1 %193, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %194
 
-196:                                              ; preds = %187, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %197 = phi i9 [ %195, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %187 ]
-  %198 = call i9 @llvm.bitreverse.i9(i9 %197)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %198 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %199 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %200 = trunc i9 %198 to i1
-  %.not8.i = or i1 %199, %200
-  br i1 %.not8.i, label %201, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
+194:                                              ; preds = %192
+  %195 = fcmp oeq double %191, %189
+  br i1 %195, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %196
 
-201:                                              ; preds = %196
-  %202 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %203 = load <2 x double>, ptr %202, align 16
-  %204 = shufflevector <2 x double> %203, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %205 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47) #23, !srcloc !218
-  %206 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %204) #46, !srcloc !219
-  %207 = fadd <2 x double> %205, %206
-  %208 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %207) #23, !srcloc !218
-  %209 = bitcast <2 x double> %208 to <2 x i64>
-  %210 = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %211 = load <2 x double>, ptr %210, align 16
-  %212 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
-  %214 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #46, !srcloc !219
-  %215 = fadd <2 x double> %213, %214
-  %216 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %215) #23, !srcloc !218
-  %217 = bitcast <2 x double> %216 to <2 x i64>
-  %218 = load <2 x double>, ptr %9, align 16
-  %219 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #46, !srcloc !219
-  %221 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %222 = fneg <2 x double> %221
-  %223 = xor <2 x i64> %209, <i64 -9223372036854775808, i64 0>
-  %224 = bitcast <2 x i64> %223 to <2 x double>
-  %225 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #23, !srcloc !218
+196:                                              ; preds = %194
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %129, %192, %194, %196
+  %197 = phi i1 [ false, %196 ], [ false, %129 ], [ true, %192 ], [ true, %194 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %196 ], [ 1, %129 ], [ -1, %192 ], [ 0, %194 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %196 ], [ 1, %129 ], [ -1, %192 ], [ 0, %194 ]
+  br i1 %197, label %.thread, label %198
+
+198:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %199 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %200 = zext i1 %199 to i16
+  %201 = or disjoint i16 %200, 256
+  %202 = trunc nuw i16 %201 to i9
+  %203 = xor i9 %202, -255
+  %204 = call i9 @llvm.bitreverse.i9(i9 %203)
+  %205 = zext i9 %204 to i16
+  br i1 %199, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %198
+  %206 = phi i16 [ %205, %198 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %207 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %208 = load <2 x double>, ptr %207, align 16
+  %209 = shufflevector <2 x double> %208, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %210 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47) #23, !srcloc !218
+  %211 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #46, !srcloc !219
+  %212 = fadd <2 x double> %210, %211
+  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #23, !srcloc !218
+  %214 = bitcast <2 x double> %213 to <2 x i64>
+  %215 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %216 = load <2 x double>, ptr %215, align 16
+  %217 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %218 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
+  %219 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %217) #46, !srcloc !219
+  %220 = fadd <2 x double> %218, %219
+  %221 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #23, !srcloc !218
+  %222 = bitcast <2 x double> %221 to <2 x i64>
+  %223 = load <2 x double>, ptr %9, align 16
+  %224 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %225 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #46, !srcloc !219
   %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %227 = fmul <2 x double> %220, %225
-  %228 = fmul <2 x double> %220, %226
-  %229 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %228, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %230 = fmul <2 x double> %225, %222
-  %231 = fmul <2 x double> %226, %222
-  %232 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %231, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %233 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %227, <2 x double> %229)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %230, <2 x double> %232)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %234)
-  %236 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %235) #23, !srcloc !218
-  %237 = load <2 x double>, ptr %11, align 16
-  %238 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #46, !srcloc !219
-  %239 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %240 = fneg <2 x double> %239
-  %241 = xor <2 x i64> %217, <i64 -9223372036854775808, i64 0>
-  %242 = bitcast <2 x i64> %241 to <2 x double>
-  %243 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %227 = fneg <2 x double> %226
+  %228 = xor <2 x i64> %214, <i64 -9223372036854775808, i64 0>
+  %229 = bitcast <2 x i64> %228 to <2 x double>
+  %230 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %229) #23, !srcloc !218
+  %231 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %232 = fmul <2 x double> %225, %230
+  %233 = fmul <2 x double> %225, %231
+  %234 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %233, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %235 = fmul <2 x double> %230, %227
+  %236 = fmul <2 x double> %231, %227
+  %237 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %236, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %238 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %234)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %235, <2 x double> %237)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %238, <2 x double> %239)
+  %241 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #23, !srcloc !218
+  %242 = load <2 x double>, ptr %11, align 16
+  %243 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #46, !srcloc !219
   %244 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %245 = fmul <2 x double> %238, %243
-  %246 = fmul <2 x double> %238, %244
-  %247 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %246, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %248 = fmul <2 x double> %243, %240
-  %249 = fmul <2 x double> %244, %240
-  %250 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %249, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %251 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %245, <2 x double> %247)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %248, <2 x double> %250)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %252)
-  %254 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %253) #23, !srcloc !218
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #46, !srcloc !219
-  %257 = fadd <2 x double> %255, %256
-  %258 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #23, !srcloc !218
-  %259 = extractelement <2 x double> %258, i64 0
-  %260 = fcmp olt double %259, 0.000000e+00
-  br i1 %260, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %261
+  %245 = fneg <2 x double> %244
+  %246 = xor <2 x i64> %222, <i64 -9223372036854775808, i64 0>
+  %247 = bitcast <2 x i64> %246 to <2 x double>
+  %248 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %247) #23, !srcloc !218
+  %249 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %250 = fmul <2 x double> %243, %248
+  %251 = fmul <2 x double> %243, %249
+  %252 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %251, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %253 = fmul <2 x double> %248, %245
+  %254 = fmul <2 x double> %249, %245
+  %255 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %254, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %256 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %252)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %253, <2 x double> %255)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %256, <2 x double> %257)
+  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #46, !srcloc !219
+  %262 = fadd <2 x double> %260, %261
+  %263 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %262) #23, !srcloc !218
+  %264 = extractelement <2 x double> %263, i64 0
+  %265 = fneg double %264
+  %266 = fcmp olt double %264, 0.000000e+00
+  %267 = extractelement <2 x double> %263, i64 1
+  br i1 %266, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %268
 
-261:                                              ; preds = %201
-  %262 = extractelement <2 x double> %258, i64 1
-  %263 = fneg double %259
-  %264 = fcmp olt double %262, 0.000000e+00
-  %265 = fcmp une double %262, %263
-  %or.cond.not.i = or i1 %265, %264
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
+268:                                              ; preds = %.thread
+  %269 = fcmp olt double %267, 0.000000e+00
+  br i1 %269, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %270
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %261
-  %266 = zext i1 %264 to i16
-  %267 = or disjoint i16 %266, 256
-  %268 = trunc nuw i16 %267 to i9
-  %269 = xor i9 %268, -255
+270:                                              ; preds = %268
+  %271 = fcmp oeq double %267, %265
+  br i1 %271, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %272
+
+272:                                              ; preds = %270
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %261, %201
-  %270 = phi i9 [ %269, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %201 ], [ -255, %261 ]
-  %271 = call i9 @llvm.bitreverse.i9(i9 %270)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %271 to i16
-  %272 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %272, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i: ; preds = %272, %270, %268, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %273 = phi i1 [ false, %272 ], [ true, %.thread ], [ false, %268 ], [ true, %270 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %274 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %275 = zext i1 %274 to i16
+  %276 = or disjoint i16 %275, 256
+  %277 = trunc nuw i16 %276 to i9
+  %278 = xor i9 %277, -255
+  %279 = call i9 @llvm.bitreverse.i9(i9 %278)
+  %280 = zext i9 %279 to i16
+  %spec.select55 = select i1 %273, i16 257, i16 %280
+  %281 = and i16 %206, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %281, %spec.select55
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, %196, %123
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %123 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i ], [ 0, %196 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, %198, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i ], [ 0, %198 ]
   ret i16 %.sroa.016.0
 }
 
@@ -114227,25 +114199,25 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %31, %28, %27
   br label %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
-  %.sink65 = phi ptr [ %6, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %5, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink64 = phi i64 [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink67 = phi ptr [ %6, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %5, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink66 = phi i64 [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = phi i64 [ 8, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ 32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %32 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %.sink65)
-  %33 = getelementptr inbounds i8, ptr %2, i64 %.sink64
+  %32 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %.sink67)
+  %33 = getelementptr inbounds i8, ptr %2, i64 %.sink66
   %34 = load double, ptr %33, align 8
   %35 = fneg double %34
   %36 = insertelement <2 x double> poison, double %35, i64 0
   %37 = insertelement <2 x double> %36, double %34, i64 1
   %38 = getelementptr inbounds i8, ptr %2, i64 %.sink
-  %.55 = select i1 %32, i64 16, i64 40
-  %.56 = select i1 %32, i64 40, i64 16
-  %39 = getelementptr inbounds i8, ptr %2, i64 %.55
+  %.57 = select i1 %32, i64 16, i64 40
+  %.58 = select i1 %32, i64 40, i64 16
+  %39 = getelementptr inbounds i8, ptr %2, i64 %.57
   %40 = load double, ptr %39, align 8
   %41 = fneg double %40
   %42 = insertelement <2 x double> poison, double %41, i64 0
   %43 = insertelement <2 x double> %42, double %40, i64 1
   %.sink.i = load double, ptr %38, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 %.56
+  %44 = getelementptr inbounds i8, ptr %2, i64 %.58
   %45 = load double, ptr %44, align 8
   %46 = fneg double %.sink.i
   %47 = insertelement <2 x double> poison, double %46, i64 0
@@ -114318,212 +114290,228 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %111 = fadd <2 x double> %109, %110
   %112 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %111) #23, !srcloc !218
   %113 = extractelement <2 x double> %112, i64 0
-  %114 = fcmp olt double %113, 0.000000e+00
-  br i1 %114, label %124, label %115
-
-115:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %114 = fneg double %113
+  %115 = fcmp olt double %113, 0.000000e+00
   %116 = extractelement <2 x double> %112, i64 1
-  %117 = fneg double %113
+  br i1 %115, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %117
+
+117:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %118 = fcmp olt double %116, 0.000000e+00
-  %119 = fcmp une double %116, %117
-  %or.cond67.not = or i1 %119, %118
-  br i1 %or.cond67.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %124
+  br i1 %118, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %119
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %115
-  %120 = zext i1 %118 to i16
-  %121 = or disjoint i16 %120, 256
-  %122 = trunc nuw i16 %121 to i9
-  %123 = xor i9 %122, -255
-  br label %124
+119:                                              ; preds = %117
+  %120 = fcmp oeq double %116, %114
+  br i1 %120, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %121
 
-124:                                              ; preds = %115, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %125 = phi i9 [ %123, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %115 ]
-  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %126 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+121:                                              ; preds = %119
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %117, %119, %121
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %121 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %117 ], [ 0, %119 ]
+  %122 = phi i1 [ false, %121 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %117 ], [ true, %119 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %121 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi0EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %117 ], [ 0, %119 ]
+  %123 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %124 = zext i1 %123 to i16
+  %125 = or disjoint i16 %124, 256
+  %126 = trunc nuw i16 %125 to i9
+  %127 = xor i9 %126, -255
+  %128 = call i9 @llvm.bitreverse.i9(i9 %127)
+  %129 = zext i9 %128 to i16
+  %spec.select54 = select i1 %122, i16 257, i16 %129
+  store i16 %spec.select54, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select54, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select54, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %127, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %130, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
 
-127:                                              ; preds = %124
-  %128 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %128, ptr %8, ptr %9
-  %spec.select46 = select i1 %128, ptr %9, ptr %8
-  %129 = getelementptr inbounds i8, ptr %spec.select46, i64 16
-  %130 = load <2 x double>, ptr %129, align 16
-  %131 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %132 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %37) #23, !srcloc !218
-  %133 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %131) #46, !srcloc !219
-  %134 = fadd <2 x double> %132, %133
-  %135 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #23, !srcloc !218
-  %136 = bitcast <2 x double> %135 to <2 x i64>
-  %137 = getelementptr inbounds i8, ptr %spec.select46, i64 32
-  %138 = load <2 x double>, ptr %137, align 16
-  %139 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %140 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43) #23, !srcloc !218
-  %141 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %139) #46, !srcloc !219
-  %142 = fadd <2 x double> %140, %141
-  %143 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %142) #23, !srcloc !218
-  %144 = bitcast <2 x double> %143 to <2 x i64>
-  %145 = load <2 x double>, ptr %10, align 16
-  %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %147 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #46, !srcloc !219
-  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %149 = fneg <2 x double> %148
-  %150 = xor <2 x i64> %136, <i64 -9223372036854775808, i64 0>
-  %151 = bitcast <2 x i64> %150 to <2 x double>
-  %152 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %151) #23, !srcloc !218
-  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %154 = fmul <2 x double> %147, %152
-  %155 = fmul <2 x double> %147, %153
-  %156 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %155, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %157 = fmul <2 x double> %152, %149
-  %158 = fmul <2 x double> %153, %149
+130:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %131 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %131, ptr %8, ptr %9
+  %spec.select46 = select i1 %131, ptr %9, ptr %8
+  %132 = getelementptr inbounds i8, ptr %spec.select46, i64 16
+  %133 = load <2 x double>, ptr %132, align 16
+  %134 = shufflevector <2 x double> %133, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %135 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %37) #23, !srcloc !218
+  %136 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #46, !srcloc !219
+  %137 = fadd <2 x double> %135, %136
+  %138 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %137) #23, !srcloc !218
+  %139 = bitcast <2 x double> %138 to <2 x i64>
+  %140 = getelementptr inbounds i8, ptr %spec.select46, i64 32
+  %141 = load <2 x double>, ptr %140, align 16
+  %142 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %143 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43) #23, !srcloc !218
+  %144 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %142) #46, !srcloc !219
+  %145 = fadd <2 x double> %143, %144
+  %146 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %145) #23, !srcloc !218
+  %147 = bitcast <2 x double> %146 to <2 x i64>
+  %148 = load <2 x double>, ptr %10, align 16
+  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %150 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %149) #46, !srcloc !219
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %152 = fneg <2 x double> %151
+  %153 = xor <2 x i64> %139, <i64 -9223372036854775808, i64 0>
+  %154 = bitcast <2 x i64> %153 to <2 x double>
+  %155 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %154) #23, !srcloc !218
+  %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %157 = fmul <2 x double> %150, %155
+  %158 = fmul <2 x double> %150, %156
   %159 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %158, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %160 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %154, <2 x double> %156)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %157, <2 x double> %159)
-  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %161)
-  %163 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %162) #23, !srcloc !218
-  %164 = load <2 x double>, ptr %12, align 16
-  %165 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #46, !srcloc !219
-  %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %167 = fneg <2 x double> %166
-  %168 = xor <2 x i64> %144, <i64 -9223372036854775808, i64 0>
-  %169 = bitcast <2 x i64> %168 to <2 x double>
-  %170 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %169) #23, !srcloc !218
-  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %172 = fmul <2 x double> %165, %170
-  %173 = fmul <2 x double> %165, %171
-  %174 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %173, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %175 = fmul <2 x double> %170, %167
-  %176 = fmul <2 x double> %171, %167
+  %160 = fmul <2 x double> %155, %152
+  %161 = fmul <2 x double> %156, %152
+  %162 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %161, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %157, <2 x double> %159)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %162)
+  %165 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %163, <2 x double> %164)
+  %166 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
+  %167 = load <2 x double>, ptr %12, align 16
+  %168 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %167) #46, !srcloc !219
+  %169 = shufflevector <2 x double> %168, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %170 = fneg <2 x double> %169
+  %171 = xor <2 x i64> %147, <i64 -9223372036854775808, i64 0>
+  %172 = bitcast <2 x i64> %171 to <2 x double>
+  %173 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %172) #23, !srcloc !218
+  %174 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %175 = fmul <2 x double> %168, %173
+  %176 = fmul <2 x double> %168, %174
   %177 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %176, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %178 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %172, <2 x double> %174)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
-  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %179)
-  %181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #23, !srcloc !218
-  %182 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #23, !srcloc !218
-  %183 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %181) #46, !srcloc !219
-  %184 = fadd <2 x double> %182, %183
-  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #23, !srcloc !218
-  %186 = extractelement <2 x double> %185, i64 0
-  %187 = fcmp olt double %186, 0.000000e+00
-  br i1 %187, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %188
-
-188:                                              ; preds = %127
-  %189 = extractelement <2 x double> %185, i64 1
-  %190 = fneg double %186
+  %178 = fmul <2 x double> %173, %170
+  %179 = fmul <2 x double> %174, %170
+  %180 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %179, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %180)
+  %183 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %181, <2 x double> %182)
+  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #23, !srcloc !218
+  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #23, !srcloc !218
+  %186 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #46, !srcloc !219
+  %187 = fadd <2 x double> %185, %186
+  %188 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %187) #23, !srcloc !218
+  %189 = extractelement <2 x double> %188, i64 0
+  %190 = fneg double %189
   %191 = fcmp olt double %189, 0.000000e+00
-  %192 = fcmp oeq double %189, %190
-  %or.cond = or i1 %191, %192
-  br i1 %or.cond, label %197, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %192 = extractelement <2 x double> %188, i64 1
+  br i1 %191, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %193
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %188, %127
-  %193 = zext i1 %187 to i16
-  %194 = or disjoint i16 %193, 256
-  %195 = trunc nuw i16 %194 to i9
-  %196 = xor i9 %195, -255
-  br label %197
+193:                                              ; preds = %130
+  %194 = fcmp olt double %192, 0.000000e+00
+  br i1 %194, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %195
 
-197:                                              ; preds = %188, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %198 = phi i9 [ %196, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %188 ]
-  %199 = call i9 @llvm.bitreverse.i9(i9 %198)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %199 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %200 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %201 = trunc i9 %199 to i1
-  %.not8.i = or i1 %200, %201
-  br i1 %.not8.i, label %202, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
+195:                                              ; preds = %193
+  %196 = fcmp oeq double %192, %190
+  br i1 %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %197
 
-202:                                              ; preds = %197
-  %203 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %204 = load <2 x double>, ptr %203, align 16
-  %205 = shufflevector <2 x double> %204, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %206 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %48) #23, !srcloc !218
-  %207 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %205) #46, !srcloc !219
-  %208 = fadd <2 x double> %206, %207
-  %209 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %208) #23, !srcloc !218
-  %210 = bitcast <2 x double> %209 to <2 x i64>
-  %211 = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %212 = load <2 x double>, ptr %211, align 16
-  %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %214 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51) #23, !srcloc !218
-  %215 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %213) #46, !srcloc !219
-  %216 = fadd <2 x double> %214, %215
-  %217 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %216) #23, !srcloc !218
-  %218 = bitcast <2 x double> %217 to <2 x i64>
-  %219 = load <2 x double>, ptr %10, align 16
-  %220 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %221 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #46, !srcloc !219
-  %222 = shufflevector <2 x double> %221, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %223 = fneg <2 x double> %222
-  %224 = xor <2 x i64> %210, <i64 -9223372036854775808, i64 0>
-  %225 = bitcast <2 x i64> %224 to <2 x double>
-  %226 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #23, !srcloc !218
+197:                                              ; preds = %195
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %130, %193, %195, %197
+  %198 = phi i1 [ false, %197 ], [ false, %130 ], [ true, %193 ], [ true, %195 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %197 ], [ 1, %130 ], [ -1, %193 ], [ 0, %195 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %197 ], [ 1, %130 ], [ -1, %193 ], [ 0, %195 ]
+  br i1 %198, label %.thread, label %199
+
+199:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %200 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %201 = zext i1 %200 to i16
+  %202 = or disjoint i16 %201, 256
+  %203 = trunc nuw i16 %202 to i9
+  %204 = xor i9 %203, -255
+  %205 = call i9 @llvm.bitreverse.i9(i9 %204)
+  %206 = zext i9 %205 to i16
+  br i1 %200, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %199
+  %207 = phi i16 [ %206, %199 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %208 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %209 = load <2 x double>, ptr %208, align 16
+  %210 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %211 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %48) #23, !srcloc !218
+  %212 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %210) #46, !srcloc !219
+  %213 = fadd <2 x double> %211, %212
+  %214 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %213) #23, !srcloc !218
+  %215 = bitcast <2 x double> %214 to <2 x i64>
+  %216 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %217 = load <2 x double>, ptr %216, align 16
+  %218 = shufflevector <2 x double> %217, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %219 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51) #23, !srcloc !218
+  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %218) #46, !srcloc !219
+  %221 = fadd <2 x double> %219, %220
+  %222 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %221) #23, !srcloc !218
+  %223 = bitcast <2 x double> %222 to <2 x i64>
+  %224 = load <2 x double>, ptr %10, align 16
+  %225 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %226 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #46, !srcloc !219
   %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %228 = fmul <2 x double> %221, %226
-  %229 = fmul <2 x double> %221, %227
-  %230 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %229, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %231 = fmul <2 x double> %226, %223
-  %232 = fmul <2 x double> %227, %223
-  %233 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %232, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %228, <2 x double> %230)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %231, <2 x double> %233)
-  %236 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %234, <2 x double> %235)
-  %237 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %238 = load <2 x double>, ptr %12, align 16
-  %239 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %238) #46, !srcloc !219
-  %240 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %241 = fneg <2 x double> %240
-  %242 = xor <2 x i64> %218, <i64 -9223372036854775808, i64 0>
-  %243 = bitcast <2 x i64> %242 to <2 x double>
-  %244 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #23, !srcloc !218
+  %228 = fneg <2 x double> %227
+  %229 = xor <2 x i64> %215, <i64 -9223372036854775808, i64 0>
+  %230 = bitcast <2 x i64> %229 to <2 x double>
+  %231 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %230) #23, !srcloc !218
+  %232 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %233 = fmul <2 x double> %226, %231
+  %234 = fmul <2 x double> %226, %232
+  %235 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %234, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %236 = fmul <2 x double> %231, %228
+  %237 = fmul <2 x double> %232, %228
+  %238 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %237, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %235)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %236, <2 x double> %238)
+  %241 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %239, <2 x double> %240)
+  %242 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %243 = load <2 x double>, ptr %12, align 16
+  %244 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #46, !srcloc !219
   %245 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %246 = fmul <2 x double> %239, %244
-  %247 = fmul <2 x double> %239, %245
-  %248 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %247, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %249 = fmul <2 x double> %244, %241
-  %250 = fmul <2 x double> %245, %241
-  %251 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %250, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %246, <2 x double> %248)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %249, <2 x double> %251)
-  %254 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %252, <2 x double> %253)
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #23, !srcloc !218
-  %257 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %255) #46, !srcloc !219
-  %258 = fadd <2 x double> %256, %257
-  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
-  %260 = extractelement <2 x double> %259, i64 0
-  %261 = fcmp olt double %260, 0.000000e+00
-  br i1 %261, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %262
+  %246 = fneg <2 x double> %245
+  %247 = xor <2 x i64> %223, <i64 -9223372036854775808, i64 0>
+  %248 = bitcast <2 x i64> %247 to <2 x double>
+  %249 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %248) #23, !srcloc !218
+  %250 = shufflevector <2 x double> %249, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %251 = fmul <2 x double> %244, %249
+  %252 = fmul <2 x double> %244, %250
+  %253 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %252, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %254 = fmul <2 x double> %249, %246
+  %255 = fmul <2 x double> %250, %246
+  %256 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %255, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %253)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %254, <2 x double> %256)
+  %259 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %257, <2 x double> %258)
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %262 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %260) #46, !srcloc !219
+  %263 = fadd <2 x double> %261, %262
+  %264 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %263) #23, !srcloc !218
+  %265 = extractelement <2 x double> %264, i64 0
+  %266 = fneg double %265
+  %267 = fcmp olt double %265, 0.000000e+00
+  %268 = extractelement <2 x double> %264, i64 1
+  br i1 %267, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %269
 
-262:                                              ; preds = %202
-  %263 = extractelement <2 x double> %259, i64 1
-  %264 = fneg double %260
-  %265 = fcmp olt double %263, 0.000000e+00
-  %266 = fcmp une double %263, %264
-  %or.cond.not.i = or i1 %266, %265
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
+269:                                              ; preds = %.thread
+  %270 = fcmp olt double %268, 0.000000e+00
+  br i1 %270, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %271
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
-  %267 = zext i1 %265 to i16
-  %268 = or disjoint i16 %267, 256
-  %269 = trunc nuw i16 %268 to i9
-  %270 = xor i9 %269, -255
+271:                                              ; preds = %269
+  %272 = fcmp oeq double %268, %266
+  br i1 %272, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, label %273
+
+273:                                              ; preds = %271
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %262, %202
-  %271 = phi i9 [ %270, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %202 ], [ -255, %262 ]
-  %272 = call i9 @llvm.bitreverse.i9(i9 %271)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %272 to i16
-  %273 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %273, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i: ; preds = %273, %271, %269, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %273 ], [ 1, %.thread ], [ -1, %269 ], [ 0, %271 ]
+  %274 = phi i1 [ false, %273 ], [ true, %.thread ], [ false, %269 ], [ true, %271 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %273 ], [ 1, %.thread ], [ -1, %269 ], [ 0, %271 ]
+  %275 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %276 = zext i1 %275 to i16
+  %277 = or disjoint i16 %276, 256
+  %278 = trunc nuw i16 %277 to i9
+  %279 = xor i9 %278, -255
+  %280 = call i9 @llvm.bitreverse.i9(i9 %279)
+  %281 = zext i9 %280 to i16
+  %spec.select55 = select i1 %274, i16 257, i16 %281
+  %282 = and i16 %207, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %282, %spec.select55
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, %197, %124
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %124 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i ], [ 0, %197 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i, %199, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i ], [ 0, %199 ]
   ret i16 %.sroa.016.0
 }
 
@@ -114612,20 +114600,20 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %35, %32, %31
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
   %.sink.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %30, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink58 = phi i1 [ %36, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %25, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink60 = phi i1 [ %36, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %25, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sroa.040.0 = phi <2 x double> [ %41, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %29, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = load double, ptr %.sink.in, align 8
   %42 = fneg double %.sink
   %43 = insertelement <2 x double> poison, double %42, i64 0
   %44 = insertelement <2 x double> %43, double %.sink, i64 1
-  %.55 = select i1 %.sink58, i64 16, i64 40
-  %.56 = select i1 %.sink58, i64 40, i64 16
-  %45 = getelementptr inbounds i8, ptr %2, i64 %.55
+  %.57 = select i1 %.sink60, i64 16, i64 40
+  %.58 = select i1 %.sink60, i64 40, i64 16
+  %45 = getelementptr inbounds i8, ptr %2, i64 %.57
   %46 = load double, ptr %45, align 8
   %47 = fneg double %46
   %48 = insertelement <2 x double> poison, double %47, i64 0
   %49 = insertelement <2 x double> %48, double %46, i64 1
-  %50 = getelementptr inbounds i8, ptr %2, i64 %.56
+  %50 = getelementptr inbounds i8, ptr %2, i64 %.58
   %51 = load double, ptr %50, align 8
   %52 = fneg double %51
   %53 = insertelement <2 x double> poison, double %52, i64 0
@@ -114693,210 +114681,226 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %112 = fadd <2 x double> %110, %111
   %113 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %112) #23, !srcloc !218
   %114 = extractelement <2 x double> %113, i64 0
-  %115 = fcmp olt double %114, 0.000000e+00
-  br i1 %115, label %125, label %116
-
-116:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %115 = fneg double %114
+  %116 = fcmp olt double %114, 0.000000e+00
   %117 = extractelement <2 x double> %113, i64 1
-  %118 = fneg double %114
+  br i1 %116, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %118
+
+118:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %119 = fcmp olt double %117, 0.000000e+00
-  %120 = fcmp une double %117, %118
-  %or.cond62.not = or i1 %120, %119
-  br i1 %or.cond62.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %125
+  br i1 %119, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %120
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %116
-  %121 = zext i1 %119 to i16
-  %122 = or disjoint i16 %121, 256
-  %123 = trunc nuw i16 %122 to i9
-  %124 = xor i9 %123, -255
-  br label %125
+120:                                              ; preds = %118
+  %121 = fcmp oeq double %117, %115
+  br i1 %121, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %122
 
-125:                                              ; preds = %116, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %126 = phi i9 [ %124, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %116 ]
-  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %127 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+122:                                              ; preds = %120
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %118, %120, %122
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %122 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %118 ], [ 0, %120 ]
+  %123 = phi i1 [ false, %122 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %118 ], [ true, %120 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %122 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %118 ], [ 0, %120 ]
+  %124 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %125 = zext i1 %124 to i16
+  %126 = or disjoint i16 %125, 256
+  %127 = trunc nuw i16 %126 to i9
+  %128 = xor i9 %127, -255
+  %129 = call i9 @llvm.bitreverse.i9(i9 %128)
+  %130 = zext i9 %129 to i16
+  %spec.select54 = select i1 %123, i16 257, i16 %130
+  store i16 %spec.select54, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select54, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select54, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %128, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %131, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
 
-128:                                              ; preds = %125
-  %129 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %129, ptr %0, ptr %8
-  %spec.select46 = select i1 %129, ptr %8, ptr %0
-  %130 = load <2 x double>, ptr %spec.select46, align 16
-  %131 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %132 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
-  %133 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %131) #46, !srcloc !219
-  %134 = fadd <2 x double> %132, %133
-  %135 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #23, !srcloc !218
-  %136 = bitcast <2 x double> %135 to <2 x i64>
-  %137 = getelementptr inbounds i8, ptr %spec.select46, i64 32
-  %138 = load <2 x double>, ptr %137, align 16
-  %139 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %140 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49) #23, !srcloc !218
-  %141 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %139) #46, !srcloc !219
-  %142 = fadd <2 x double> %140, %141
-  %143 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %142) #23, !srcloc !218
-  %144 = bitcast <2 x double> %143 to <2 x i64>
-  %145 = load <2 x double>, ptr %1, align 16
-  %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %147 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #46, !srcloc !219
-  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %149 = fneg <2 x double> %148
-  %150 = xor <2 x i64> %144, <i64 -9223372036854775808, i64 0>
-  %151 = bitcast <2 x i64> %150 to <2 x double>
-  %152 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %151) #23, !srcloc !218
-  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %154 = fmul <2 x double> %147, %152
-  %155 = fmul <2 x double> %147, %153
-  %156 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %155, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %157 = fmul <2 x double> %152, %149
-  %158 = fmul <2 x double> %153, %149
+131:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %132 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %132, ptr %0, ptr %8
+  %spec.select46 = select i1 %132, ptr %8, ptr %0
+  %133 = load <2 x double>, ptr %spec.select46, align 16
+  %134 = shufflevector <2 x double> %133, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %135 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
+  %136 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #46, !srcloc !219
+  %137 = fadd <2 x double> %135, %136
+  %138 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %137) #23, !srcloc !218
+  %139 = bitcast <2 x double> %138 to <2 x i64>
+  %140 = getelementptr inbounds i8, ptr %spec.select46, i64 32
+  %141 = load <2 x double>, ptr %140, align 16
+  %142 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %143 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49) #23, !srcloc !218
+  %144 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %142) #46, !srcloc !219
+  %145 = fadd <2 x double> %143, %144
+  %146 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %145) #23, !srcloc !218
+  %147 = bitcast <2 x double> %146 to <2 x i64>
+  %148 = load <2 x double>, ptr %1, align 16
+  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %150 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %149) #46, !srcloc !219
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %152 = fneg <2 x double> %151
+  %153 = xor <2 x i64> %147, <i64 -9223372036854775808, i64 0>
+  %154 = bitcast <2 x i64> %153 to <2 x double>
+  %155 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %154) #23, !srcloc !218
+  %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %157 = fmul <2 x double> %150, %155
+  %158 = fmul <2 x double> %150, %156
   %159 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %158, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %160 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %154, <2 x double> %156)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %157, <2 x double> %159)
-  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %161)
-  %163 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %162) #23, !srcloc !218
-  %164 = load <2 x double>, ptr %9, align 16
-  %165 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #46, !srcloc !219
-  %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %167 = fneg <2 x double> %166
-  %168 = xor <2 x i64> %136, <i64 -9223372036854775808, i64 0>
-  %169 = bitcast <2 x i64> %168 to <2 x double>
-  %170 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %169) #23, !srcloc !218
-  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %172 = fmul <2 x double> %165, %170
-  %173 = fmul <2 x double> %165, %171
-  %174 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %173, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %175 = fmul <2 x double> %170, %167
-  %176 = fmul <2 x double> %171, %167
+  %160 = fmul <2 x double> %155, %152
+  %161 = fmul <2 x double> %156, %152
+  %162 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %161, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %157, <2 x double> %159)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %162)
+  %165 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %163, <2 x double> %164)
+  %166 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
+  %167 = load <2 x double>, ptr %9, align 16
+  %168 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %167) #46, !srcloc !219
+  %169 = shufflevector <2 x double> %168, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %170 = fneg <2 x double> %169
+  %171 = xor <2 x i64> %139, <i64 -9223372036854775808, i64 0>
+  %172 = bitcast <2 x i64> %171 to <2 x double>
+  %173 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %172) #23, !srcloc !218
+  %174 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %175 = fmul <2 x double> %168, %173
+  %176 = fmul <2 x double> %168, %174
   %177 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %176, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %178 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %172, <2 x double> %174)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
-  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %179)
-  %181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #23, !srcloc !218
-  %182 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #23, !srcloc !218
-  %183 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %181) #46, !srcloc !219
-  %184 = fadd <2 x double> %182, %183
-  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #23, !srcloc !218
-  %186 = extractelement <2 x double> %185, i64 0
-  %187 = fcmp olt double %186, 0.000000e+00
-  br i1 %187, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %188
-
-188:                                              ; preds = %128
-  %189 = extractelement <2 x double> %185, i64 1
-  %190 = fneg double %186
+  %178 = fmul <2 x double> %173, %170
+  %179 = fmul <2 x double> %174, %170
+  %180 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %179, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %180)
+  %183 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %181, <2 x double> %182)
+  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #23, !srcloc !218
+  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #23, !srcloc !218
+  %186 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #46, !srcloc !219
+  %187 = fadd <2 x double> %185, %186
+  %188 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %187) #23, !srcloc !218
+  %189 = extractelement <2 x double> %188, i64 0
+  %190 = fneg double %189
   %191 = fcmp olt double %189, 0.000000e+00
-  %192 = fcmp oeq double %189, %190
-  %or.cond = or i1 %191, %192
-  br i1 %or.cond, label %197, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %192 = extractelement <2 x double> %188, i64 1
+  br i1 %191, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %193
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %188, %128
-  %193 = zext i1 %187 to i16
-  %194 = or disjoint i16 %193, 256
-  %195 = trunc nuw i16 %194 to i9
-  %196 = xor i9 %195, -255
-  br label %197
+193:                                              ; preds = %131
+  %194 = fcmp olt double %192, 0.000000e+00
+  br i1 %194, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %195
 
-197:                                              ; preds = %188, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %198 = phi i9 [ %196, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %188 ]
-  %199 = call i9 @llvm.bitreverse.i9(i9 %198)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %199 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %200 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %201 = trunc i9 %199 to i1
-  %.not8.i = or i1 %200, %201
-  br i1 %.not8.i, label %202, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
+195:                                              ; preds = %193
+  %196 = fcmp oeq double %192, %190
+  br i1 %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %197
 
-202:                                              ; preds = %197
-  %203 = load <2 x double>, ptr %spec.select, align 16
-  %204 = shufflevector <2 x double> %203, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %205 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #23, !srcloc !218
-  %206 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %204) #46, !srcloc !219
-  %207 = fadd <2 x double> %205, %206
-  %208 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %207) #23, !srcloc !218
-  %209 = bitcast <2 x double> %208 to <2 x i64>
-  %210 = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %211 = load <2 x double>, ptr %210, align 16
-  %212 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %54) #23, !srcloc !218
-  %214 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #46, !srcloc !219
-  %215 = fadd <2 x double> %213, %214
-  %216 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %215) #23, !srcloc !218
-  %217 = bitcast <2 x double> %216 to <2 x i64>
-  %218 = load <2 x double>, ptr %1, align 16
-  %219 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #46, !srcloc !219
-  %221 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %222 = fneg <2 x double> %221
-  %223 = xor <2 x i64> %217, <i64 -9223372036854775808, i64 0>
-  %224 = bitcast <2 x i64> %223 to <2 x double>
-  %225 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #23, !srcloc !218
+197:                                              ; preds = %195
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %131, %193, %195, %197
+  %198 = phi i1 [ false, %197 ], [ false, %131 ], [ true, %193 ], [ true, %195 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %197 ], [ 1, %131 ], [ -1, %193 ], [ 0, %195 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %197 ], [ 1, %131 ], [ -1, %193 ], [ 0, %195 ]
+  br i1 %198, label %.thread, label %199
+
+199:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %200 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %201 = zext i1 %200 to i16
+  %202 = or disjoint i16 %201, 256
+  %203 = trunc nuw i16 %202 to i9
+  %204 = xor i9 %203, -255
+  %205 = call i9 @llvm.bitreverse.i9(i9 %204)
+  %206 = zext i9 %205 to i16
+  br i1 %200, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %199
+  %207 = phi i16 [ %206, %199 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %208 = load <2 x double>, ptr %spec.select, align 16
+  %209 = shufflevector <2 x double> %208, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %210 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #23, !srcloc !218
+  %211 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #46, !srcloc !219
+  %212 = fadd <2 x double> %210, %211
+  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #23, !srcloc !218
+  %214 = bitcast <2 x double> %213 to <2 x i64>
+  %215 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %216 = load <2 x double>, ptr %215, align 16
+  %217 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %218 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %54) #23, !srcloc !218
+  %219 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %217) #46, !srcloc !219
+  %220 = fadd <2 x double> %218, %219
+  %221 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #23, !srcloc !218
+  %222 = bitcast <2 x double> %221 to <2 x i64>
+  %223 = load <2 x double>, ptr %1, align 16
+  %224 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %225 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #46, !srcloc !219
   %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %227 = fmul <2 x double> %220, %225
-  %228 = fmul <2 x double> %220, %226
-  %229 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %228, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %230 = fmul <2 x double> %225, %222
-  %231 = fmul <2 x double> %226, %222
-  %232 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %231, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %233 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %227, <2 x double> %229)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %230, <2 x double> %232)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %234)
-  %236 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %235) #23, !srcloc !218
-  %237 = load <2 x double>, ptr %9, align 16
-  %238 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #46, !srcloc !219
-  %239 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %240 = fneg <2 x double> %239
-  %241 = xor <2 x i64> %209, <i64 -9223372036854775808, i64 0>
-  %242 = bitcast <2 x i64> %241 to <2 x double>
-  %243 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %227 = fneg <2 x double> %226
+  %228 = xor <2 x i64> %222, <i64 -9223372036854775808, i64 0>
+  %229 = bitcast <2 x i64> %228 to <2 x double>
+  %230 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %229) #23, !srcloc !218
+  %231 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %232 = fmul <2 x double> %225, %230
+  %233 = fmul <2 x double> %225, %231
+  %234 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %233, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %235 = fmul <2 x double> %230, %227
+  %236 = fmul <2 x double> %231, %227
+  %237 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %236, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %238 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %234)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %235, <2 x double> %237)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %238, <2 x double> %239)
+  %241 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #23, !srcloc !218
+  %242 = load <2 x double>, ptr %9, align 16
+  %243 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #46, !srcloc !219
   %244 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %245 = fmul <2 x double> %238, %243
-  %246 = fmul <2 x double> %238, %244
-  %247 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %246, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %248 = fmul <2 x double> %243, %240
-  %249 = fmul <2 x double> %244, %240
-  %250 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %249, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %251 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %245, <2 x double> %247)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %248, <2 x double> %250)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %252)
-  %254 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %253) #23, !srcloc !218
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #46, !srcloc !219
-  %257 = fadd <2 x double> %255, %256
-  %258 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #23, !srcloc !218
-  %259 = extractelement <2 x double> %258, i64 0
-  %260 = fcmp olt double %259, 0.000000e+00
-  br i1 %260, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %261
+  %245 = fneg <2 x double> %244
+  %246 = xor <2 x i64> %214, <i64 -9223372036854775808, i64 0>
+  %247 = bitcast <2 x i64> %246 to <2 x double>
+  %248 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %247) #23, !srcloc !218
+  %249 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %250 = fmul <2 x double> %243, %248
+  %251 = fmul <2 x double> %243, %249
+  %252 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %251, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %253 = fmul <2 x double> %248, %245
+  %254 = fmul <2 x double> %249, %245
+  %255 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %254, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %256 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %252)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %253, <2 x double> %255)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %256, <2 x double> %257)
+  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #46, !srcloc !219
+  %262 = fadd <2 x double> %260, %261
+  %263 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %262) #23, !srcloc !218
+  %264 = extractelement <2 x double> %263, i64 0
+  %265 = fneg double %264
+  %266 = fcmp olt double %264, 0.000000e+00
+  %267 = extractelement <2 x double> %263, i64 1
+  br i1 %266, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %268
 
-261:                                              ; preds = %202
-  %262 = extractelement <2 x double> %258, i64 1
-  %263 = fneg double %259
-  %264 = fcmp olt double %262, 0.000000e+00
-  %265 = fcmp une double %262, %263
-  %or.cond.not.i = or i1 %265, %264
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
+268:                                              ; preds = %.thread
+  %269 = fcmp olt double %267, 0.000000e+00
+  br i1 %269, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %270
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %261
-  %266 = zext i1 %264 to i16
-  %267 = or disjoint i16 %266, 256
-  %268 = trunc nuw i16 %267 to i9
-  %269 = xor i9 %268, -255
+270:                                              ; preds = %268
+  %271 = fcmp oeq double %267, %265
+  br i1 %271, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %272
+
+272:                                              ; preds = %270
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %261, %202
-  %270 = phi i9 [ %269, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %202 ], [ -255, %261 ]
-  %271 = call i9 @llvm.bitreverse.i9(i9 %270)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %271 to i16
-  %272 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %272, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i: ; preds = %272, %270, %268, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %273 = phi i1 [ false, %272 ], [ true, %.thread ], [ false, %268 ], [ true, %270 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %274 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %275 = zext i1 %274 to i16
+  %276 = or disjoint i16 %275, 256
+  %277 = trunc nuw i16 %276 to i9
+  %278 = xor i9 %277, -255
+  %279 = call i9 @llvm.bitreverse.i9(i9 %278)
+  %280 = zext i9 %279 to i16
+  %spec.select55 = select i1 %273, i16 257, i16 %280
+  %281 = and i16 %207, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %281, %spec.select55
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, %197, %125
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %125 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i ], [ 0, %197 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, %199, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i ], [ 0, %199 ]
   ret i16 %.sroa.016.0
 }
 
@@ -114986,20 +114990,20 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %36, %33, %32
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
   %.sink.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %31, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink58 = phi i1 [ %37, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %26, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink60 = phi i1 [ %37, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %26, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sroa.040.0 = phi <2 x double> [ %42, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %30, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = load double, ptr %.sink.in, align 8
   %43 = fneg double %.sink
   %44 = insertelement <2 x double> poison, double %43, i64 0
   %45 = insertelement <2 x double> %44, double %.sink, i64 1
-  %.55 = select i1 %.sink58, i64 16, i64 40
-  %.56 = select i1 %.sink58, i64 40, i64 16
-  %46 = getelementptr inbounds i8, ptr %2, i64 %.55
+  %.57 = select i1 %.sink60, i64 16, i64 40
+  %.58 = select i1 %.sink60, i64 40, i64 16
+  %46 = getelementptr inbounds i8, ptr %2, i64 %.57
   %47 = load double, ptr %46, align 8
   %48 = fneg double %47
   %49 = insertelement <2 x double> poison, double %48, i64 0
   %50 = insertelement <2 x double> %49, double %47, i64 1
-  %51 = getelementptr inbounds i8, ptr %2, i64 %.56
+  %51 = getelementptr inbounds i8, ptr %2, i64 %.58
   %52 = load double, ptr %51, align 8
   %53 = fneg double %52
   %54 = insertelement <2 x double> poison, double %53, i64 0
@@ -115067,210 +115071,226 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %113 = fadd <2 x double> %111, %112
   %114 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %113) #23, !srcloc !218
   %115 = extractelement <2 x double> %114, i64 0
-  %116 = fcmp olt double %115, 0.000000e+00
-  br i1 %116, label %126, label %117
-
-117:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %116 = fneg double %115
+  %117 = fcmp olt double %115, 0.000000e+00
   %118 = extractelement <2 x double> %114, i64 1
-  %119 = fneg double %115
+  br i1 %117, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %119
+
+119:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %120 = fcmp olt double %118, 0.000000e+00
-  %121 = fcmp une double %118, %119
-  %or.cond62.not = or i1 %121, %120
-  br i1 %or.cond62.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %126
+  br i1 %120, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %121
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %117
-  %122 = zext i1 %120 to i16
-  %123 = or disjoint i16 %122, 256
-  %124 = trunc nuw i16 %123 to i9
-  %125 = xor i9 %124, -255
-  br label %126
+121:                                              ; preds = %119
+  %122 = fcmp oeq double %118, %116
+  br i1 %122, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %123
 
-126:                                              ; preds = %117, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %127 = phi i9 [ %125, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %117 ]
-  %128 = call i9 @llvm.bitreverse.i9(i9 %127)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %128 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+123:                                              ; preds = %121
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %119, %121, %123
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %123 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %119 ], [ 0, %121 ]
+  %124 = phi i1 [ false, %123 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %119 ], [ true, %121 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %123 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %119 ], [ 0, %121 ]
+  %125 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %126 = zext i1 %125 to i16
+  %127 = or disjoint i16 %126, 256
+  %128 = trunc nuw i16 %127 to i9
+  %129 = xor i9 %128, -255
+  %130 = call i9 @llvm.bitreverse.i9(i9 %129)
+  %131 = zext i9 %130 to i16
+  %spec.select54 = select i1 %124, i16 257, i16 %131
+  store i16 %spec.select54, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select54, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select54, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %129, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %132, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
 
-129:                                              ; preds = %126
-  %130 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %130, ptr %8, ptr %0
-  %spec.select46 = select i1 %130, ptr %0, ptr %8
-  %131 = load <2 x double>, ptr %spec.select46, align 16
-  %132 = shufflevector <2 x double> %131, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %133 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
-  %134 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %132) #46, !srcloc !219
-  %135 = fadd <2 x double> %133, %134
-  %136 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %135) #23, !srcloc !218
-  %137 = bitcast <2 x double> %136 to <2 x i64>
-  %138 = getelementptr inbounds i8, ptr %spec.select46, i64 32
-  %139 = load <2 x double>, ptr %138, align 16
-  %140 = shufflevector <2 x double> %139, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %141 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
-  %142 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %140) #46, !srcloc !219
-  %143 = fadd <2 x double> %141, %142
-  %144 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %143) #23, !srcloc !218
-  %145 = bitcast <2 x double> %144 to <2 x i64>
-  %146 = load <2 x double>, ptr %9, align 16
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %148 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %147) #46, !srcloc !219
-  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %150 = fneg <2 x double> %149
-  %151 = xor <2 x i64> %145, <i64 -9223372036854775808, i64 0>
-  %152 = bitcast <2 x i64> %151 to <2 x double>
-  %153 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %152) #23, !srcloc !218
-  %154 = shufflevector <2 x double> %153, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %155 = fmul <2 x double> %148, %153
-  %156 = fmul <2 x double> %148, %154
-  %157 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %156, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %158 = fmul <2 x double> %153, %150
-  %159 = fmul <2 x double> %154, %150
+132:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %133 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %133, ptr %8, ptr %0
+  %spec.select46 = select i1 %133, ptr %0, ptr %8
+  %134 = load <2 x double>, ptr %spec.select46, align 16
+  %135 = shufflevector <2 x double> %134, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %136 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
+  %137 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %135) #46, !srcloc !219
+  %138 = fadd <2 x double> %136, %137
+  %139 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %138) #23, !srcloc !218
+  %140 = bitcast <2 x double> %139 to <2 x i64>
+  %141 = getelementptr inbounds i8, ptr %spec.select46, i64 32
+  %142 = load <2 x double>, ptr %141, align 16
+  %143 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %144 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
+  %145 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %143) #46, !srcloc !219
+  %146 = fadd <2 x double> %144, %145
+  %147 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #23, !srcloc !218
+  %148 = bitcast <2 x double> %147 to <2 x i64>
+  %149 = load <2 x double>, ptr %9, align 16
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %151 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %150) #46, !srcloc !219
+  %152 = shufflevector <2 x double> %151, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %153 = fneg <2 x double> %152
+  %154 = xor <2 x i64> %148, <i64 -9223372036854775808, i64 0>
+  %155 = bitcast <2 x i64> %154 to <2 x double>
+  %156 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %155) #23, !srcloc !218
+  %157 = shufflevector <2 x double> %156, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %158 = fmul <2 x double> %151, %156
+  %159 = fmul <2 x double> %151, %157
   %160 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %159, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %155, <2 x double> %157)
-  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %158, <2 x double> %160)
-  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %161, <2 x double> %162)
-  %164 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #23, !srcloc !218
-  %165 = load <2 x double>, ptr %10, align 16
-  %166 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #46, !srcloc !219
-  %167 = shufflevector <2 x double> %166, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %168 = fneg <2 x double> %167
-  %169 = xor <2 x i64> %137, <i64 -9223372036854775808, i64 0>
-  %170 = bitcast <2 x i64> %169 to <2 x double>
-  %171 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %170) #23, !srcloc !218
-  %172 = shufflevector <2 x double> %171, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %173 = fmul <2 x double> %166, %171
-  %174 = fmul <2 x double> %166, %172
-  %175 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %174, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %176 = fmul <2 x double> %171, %168
-  %177 = fmul <2 x double> %172, %168
+  %161 = fmul <2 x double> %156, %153
+  %162 = fmul <2 x double> %157, %153
+  %163 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %162, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %158, <2 x double> %160)
+  %165 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %161, <2 x double> %163)
+  %166 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %164, <2 x double> %165)
+  %167 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #23, !srcloc !218
+  %168 = load <2 x double>, ptr %10, align 16
+  %169 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #46, !srcloc !219
+  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %171 = fneg <2 x double> %170
+  %172 = xor <2 x i64> %140, <i64 -9223372036854775808, i64 0>
+  %173 = bitcast <2 x i64> %172 to <2 x double>
+  %174 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %173) #23, !srcloc !218
+  %175 = shufflevector <2 x double> %174, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %176 = fmul <2 x double> %169, %174
+  %177 = fmul <2 x double> %169, %175
   %178 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %177, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %173, <2 x double> %175)
-  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %176, <2 x double> %178)
-  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %179, <2 x double> %180)
-  %182 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %181) #23, !srcloc !218
-  %183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #23, !srcloc !218
-  %184 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #46, !srcloc !219
-  %185 = fadd <2 x double> %183, %184
-  %186 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %185) #23, !srcloc !218
-  %187 = extractelement <2 x double> %186, i64 0
-  %188 = fcmp olt double %187, 0.000000e+00
-  br i1 %188, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %189
-
-189:                                              ; preds = %129
-  %190 = extractelement <2 x double> %186, i64 1
-  %191 = fneg double %187
+  %179 = fmul <2 x double> %174, %171
+  %180 = fmul <2 x double> %175, %171
+  %181 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %180, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %176, <2 x double> %178)
+  %183 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %179, <2 x double> %181)
+  %184 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %182, <2 x double> %183)
+  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #23, !srcloc !218
+  %186 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %167) #23, !srcloc !218
+  %187 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %185) #46, !srcloc !219
+  %188 = fadd <2 x double> %186, %187
+  %189 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %188) #23, !srcloc !218
+  %190 = extractelement <2 x double> %189, i64 0
+  %191 = fneg double %190
   %192 = fcmp olt double %190, 0.000000e+00
-  %193 = fcmp oeq double %190, %191
-  %or.cond = or i1 %192, %193
-  br i1 %or.cond, label %198, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %193 = extractelement <2 x double> %189, i64 1
+  br i1 %192, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %194
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %189, %129
-  %194 = zext i1 %188 to i16
-  %195 = or disjoint i16 %194, 256
-  %196 = trunc nuw i16 %195 to i9
-  %197 = xor i9 %196, -255
-  br label %198
+194:                                              ; preds = %132
+  %195 = fcmp olt double %193, 0.000000e+00
+  br i1 %195, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %196
 
-198:                                              ; preds = %189, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %199 = phi i9 [ %197, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %189 ]
-  %200 = call i9 @llvm.bitreverse.i9(i9 %199)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %200 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %201 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %202 = trunc i9 %200 to i1
-  %.not8.i = or i1 %201, %202
-  br i1 %.not8.i, label %203, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
+196:                                              ; preds = %194
+  %197 = fcmp oeq double %193, %191
+  br i1 %197, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %198
 
-203:                                              ; preds = %198
-  %204 = load <2 x double>, ptr %spec.select, align 16
-  %205 = shufflevector <2 x double> %204, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %206 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %45) #23, !srcloc !218
-  %207 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %205) #46, !srcloc !219
-  %208 = fadd <2 x double> %206, %207
-  %209 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %208) #23, !srcloc !218
-  %210 = bitcast <2 x double> %209 to <2 x i64>
-  %211 = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %212 = load <2 x double>, ptr %211, align 16
-  %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %214 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %55) #23, !srcloc !218
-  %215 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %213) #46, !srcloc !219
-  %216 = fadd <2 x double> %214, %215
-  %217 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %216) #23, !srcloc !218
-  %218 = bitcast <2 x double> %217 to <2 x i64>
-  %219 = load <2 x double>, ptr %9, align 16
-  %220 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %221 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #46, !srcloc !219
-  %222 = shufflevector <2 x double> %221, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %223 = fneg <2 x double> %222
-  %224 = xor <2 x i64> %218, <i64 -9223372036854775808, i64 0>
-  %225 = bitcast <2 x i64> %224 to <2 x double>
-  %226 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #23, !srcloc !218
+198:                                              ; preds = %196
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %132, %194, %196, %198
+  %199 = phi i1 [ false, %198 ], [ false, %132 ], [ true, %194 ], [ true, %196 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %198 ], [ 1, %132 ], [ -1, %194 ], [ 0, %196 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %198 ], [ 1, %132 ], [ -1, %194 ], [ 0, %196 ]
+  br i1 %199, label %.thread, label %200
+
+200:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %201 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %202 = zext i1 %201 to i16
+  %203 = or disjoint i16 %202, 256
+  %204 = trunc nuw i16 %203 to i9
+  %205 = xor i9 %204, -255
+  %206 = call i9 @llvm.bitreverse.i9(i9 %205)
+  %207 = zext i9 %206 to i16
+  br i1 %201, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %200
+  %208 = phi i16 [ %207, %200 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %209 = load <2 x double>, ptr %spec.select, align 16
+  %210 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %211 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %45) #23, !srcloc !218
+  %212 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %210) #46, !srcloc !219
+  %213 = fadd <2 x double> %211, %212
+  %214 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %213) #23, !srcloc !218
+  %215 = bitcast <2 x double> %214 to <2 x i64>
+  %216 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %217 = load <2 x double>, ptr %216, align 16
+  %218 = shufflevector <2 x double> %217, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %219 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %55) #23, !srcloc !218
+  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %218) #46, !srcloc !219
+  %221 = fadd <2 x double> %219, %220
+  %222 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %221) #23, !srcloc !218
+  %223 = bitcast <2 x double> %222 to <2 x i64>
+  %224 = load <2 x double>, ptr %9, align 16
+  %225 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %226 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #46, !srcloc !219
   %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %228 = fmul <2 x double> %221, %226
-  %229 = fmul <2 x double> %221, %227
-  %230 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %229, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %231 = fmul <2 x double> %226, %223
-  %232 = fmul <2 x double> %227, %223
-  %233 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %232, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %228, <2 x double> %230)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %231, <2 x double> %233)
-  %236 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %234, <2 x double> %235)
-  %237 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %238 = load <2 x double>, ptr %10, align 16
-  %239 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %238) #46, !srcloc !219
-  %240 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %241 = fneg <2 x double> %240
-  %242 = xor <2 x i64> %210, <i64 -9223372036854775808, i64 0>
-  %243 = bitcast <2 x i64> %242 to <2 x double>
-  %244 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #23, !srcloc !218
+  %228 = fneg <2 x double> %227
+  %229 = xor <2 x i64> %223, <i64 -9223372036854775808, i64 0>
+  %230 = bitcast <2 x i64> %229 to <2 x double>
+  %231 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %230) #23, !srcloc !218
+  %232 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %233 = fmul <2 x double> %226, %231
+  %234 = fmul <2 x double> %226, %232
+  %235 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %234, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %236 = fmul <2 x double> %231, %228
+  %237 = fmul <2 x double> %232, %228
+  %238 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %237, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %235)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %236, <2 x double> %238)
+  %241 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %239, <2 x double> %240)
+  %242 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %243 = load <2 x double>, ptr %10, align 16
+  %244 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #46, !srcloc !219
   %245 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %246 = fmul <2 x double> %239, %244
-  %247 = fmul <2 x double> %239, %245
-  %248 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %247, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %249 = fmul <2 x double> %244, %241
-  %250 = fmul <2 x double> %245, %241
-  %251 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %250, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %246, <2 x double> %248)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %249, <2 x double> %251)
-  %254 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %252, <2 x double> %253)
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #23, !srcloc !218
-  %257 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %255) #46, !srcloc !219
-  %258 = fadd <2 x double> %256, %257
-  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
-  %260 = extractelement <2 x double> %259, i64 0
-  %261 = fcmp olt double %260, 0.000000e+00
-  br i1 %261, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %262
+  %246 = fneg <2 x double> %245
+  %247 = xor <2 x i64> %215, <i64 -9223372036854775808, i64 0>
+  %248 = bitcast <2 x i64> %247 to <2 x double>
+  %249 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %248) #23, !srcloc !218
+  %250 = shufflevector <2 x double> %249, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %251 = fmul <2 x double> %244, %249
+  %252 = fmul <2 x double> %244, %250
+  %253 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %252, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %254 = fmul <2 x double> %249, %246
+  %255 = fmul <2 x double> %250, %246
+  %256 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %255, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %253)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %254, <2 x double> %256)
+  %259 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %257, <2 x double> %258)
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %262 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %260) #46, !srcloc !219
+  %263 = fadd <2 x double> %261, %262
+  %264 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %263) #23, !srcloc !218
+  %265 = extractelement <2 x double> %264, i64 0
+  %266 = fneg double %265
+  %267 = fcmp olt double %265, 0.000000e+00
+  %268 = extractelement <2 x double> %264, i64 1
+  br i1 %267, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %269
 
-262:                                              ; preds = %203
-  %263 = extractelement <2 x double> %259, i64 1
-  %264 = fneg double %260
-  %265 = fcmp olt double %263, 0.000000e+00
-  %266 = fcmp une double %263, %264
-  %or.cond.not.i = or i1 %266, %265
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
+269:                                              ; preds = %.thread
+  %270 = fcmp olt double %268, 0.000000e+00
+  br i1 %270, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %271
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
-  %267 = zext i1 %265 to i16
-  %268 = or disjoint i16 %267, 256
-  %269 = trunc nuw i16 %268 to i9
-  %270 = xor i9 %269, -255
+271:                                              ; preds = %269
+  %272 = fcmp oeq double %268, %266
+  br i1 %272, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %273
+
+273:                                              ; preds = %271
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %262, %203
-  %271 = phi i9 [ %270, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %203 ], [ -255, %262 ]
-  %272 = call i9 @llvm.bitreverse.i9(i9 %271)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %272 to i16
-  %273 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %273, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i: ; preds = %273, %271, %269, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %273 ], [ 1, %.thread ], [ -1, %269 ], [ 0, %271 ]
+  %274 = phi i1 [ false, %273 ], [ true, %.thread ], [ false, %269 ], [ true, %271 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %273 ], [ 1, %.thread ], [ -1, %269 ], [ 0, %271 ]
+  %275 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %276 = zext i1 %275 to i16
+  %277 = or disjoint i16 %276, 256
+  %278 = trunc nuw i16 %277 to i9
+  %279 = xor i9 %278, -255
+  %280 = call i9 @llvm.bitreverse.i9(i9 %279)
+  %281 = zext i9 %280 to i16
+  %spec.select55 = select i1 %274, i16 257, i16 %281
+  %282 = and i16 %208, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %282, %spec.select55
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, %198, %126
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %126 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i ], [ 0, %198 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, %200, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i ], [ 0, %200 ]
   ret i16 %.sroa.016.0
 }
 
@@ -115361,20 +115381,20 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %37, %34, %33
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
   %.sink.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink58 = phi i1 [ %38, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %27, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink60 = phi i1 [ %38, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %27, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sroa.040.0 = phi <2 x double> [ %43, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %31, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = load double, ptr %.sink.in, align 8
   %44 = fneg double %.sink
   %45 = insertelement <2 x double> poison, double %44, i64 0
   %46 = insertelement <2 x double> %45, double %.sink, i64 1
-  %.55 = select i1 %.sink58, i64 16, i64 40
-  %.56 = select i1 %.sink58, i64 40, i64 16
-  %47 = getelementptr inbounds i8, ptr %2, i64 %.55
+  %.57 = select i1 %.sink60, i64 16, i64 40
+  %.58 = select i1 %.sink60, i64 40, i64 16
+  %47 = getelementptr inbounds i8, ptr %2, i64 %.57
   %48 = load double, ptr %47, align 8
   %49 = fneg double %48
   %50 = insertelement <2 x double> poison, double %49, i64 0
   %51 = insertelement <2 x double> %50, double %48, i64 1
-  %52 = getelementptr inbounds i8, ptr %2, i64 %.56
+  %52 = getelementptr inbounds i8, ptr %2, i64 %.58
   %53 = load double, ptr %52, align 8
   %54 = fneg double %53
   %55 = insertelement <2 x double> poison, double %54, i64 0
@@ -115442,210 +115462,226 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %114 = fadd <2 x double> %112, %113
   %115 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %114) #23, !srcloc !218
   %116 = extractelement <2 x double> %115, i64 0
-  %117 = fcmp olt double %116, 0.000000e+00
-  br i1 %117, label %127, label %118
-
-118:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %117 = fneg double %116
+  %118 = fcmp olt double %116, 0.000000e+00
   %119 = extractelement <2 x double> %115, i64 1
-  %120 = fneg double %116
+  br i1 %118, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %120
+
+120:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %121 = fcmp olt double %119, 0.000000e+00
-  %122 = fcmp une double %119, %120
-  %or.cond62.not = or i1 %122, %121
-  br i1 %or.cond62.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %127
+  br i1 %121, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %122
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %118
-  %123 = zext i1 %121 to i16
-  %124 = or disjoint i16 %123, 256
-  %125 = trunc nuw i16 %124 to i9
-  %126 = xor i9 %125, -255
-  br label %127
+122:                                              ; preds = %120
+  %123 = fcmp oeq double %119, %117
+  br i1 %123, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %124
 
-127:                                              ; preds = %118, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %128 = phi i9 [ %126, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %118 ]
-  %129 = call i9 @llvm.bitreverse.i9(i9 %128)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %129 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+124:                                              ; preds = %122
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %120, %122, %124
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %124 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %120 ], [ 0, %122 ]
+  %125 = phi i1 [ false, %124 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %120 ], [ true, %122 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %124 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi1EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %120 ], [ 0, %122 ]
+  %126 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %127 = zext i1 %126 to i16
+  %128 = or disjoint i16 %127, 256
+  %129 = trunc nuw i16 %128 to i9
+  %130 = xor i9 %129, -255
+  %131 = call i9 @llvm.bitreverse.i9(i9 %130)
+  %132 = zext i9 %131 to i16
+  %spec.select54 = select i1 %125, i16 257, i16 %132
+  store i16 %spec.select54, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select54, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select54, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %130, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %133, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
 
-130:                                              ; preds = %127
-  %131 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %131, ptr %8, ptr %9
-  %spec.select46 = select i1 %131, ptr %9, ptr %8
-  %132 = load <2 x double>, ptr %spec.select46, align 16
-  %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
-  %135 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #46, !srcloc !219
-  %136 = fadd <2 x double> %134, %135
-  %137 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %136) #23, !srcloc !218
-  %138 = bitcast <2 x double> %137 to <2 x i64>
-  %139 = getelementptr inbounds i8, ptr %spec.select46, i64 32
-  %140 = load <2 x double>, ptr %139, align 16
-  %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51) #23, !srcloc !218
-  %143 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #46, !srcloc !219
-  %144 = fadd <2 x double> %142, %143
-  %145 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #23, !srcloc !218
-  %146 = bitcast <2 x double> %145 to <2 x i64>
-  %147 = load <2 x double>, ptr %10, align 16
-  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %149 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %148) #46, !srcloc !219
-  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %151 = fneg <2 x double> %150
-  %152 = xor <2 x i64> %146, <i64 -9223372036854775808, i64 0>
-  %153 = bitcast <2 x i64> %152 to <2 x double>
-  %154 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %153) #23, !srcloc !218
-  %155 = shufflevector <2 x double> %154, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %156 = fmul <2 x double> %149, %154
-  %157 = fmul <2 x double> %149, %155
-  %158 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %157, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %159 = fmul <2 x double> %154, %151
-  %160 = fmul <2 x double> %155, %151
+133:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %134 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %134, ptr %8, ptr %9
+  %spec.select46 = select i1 %134, ptr %9, ptr %8
+  %135 = load <2 x double>, ptr %spec.select46, align 16
+  %136 = shufflevector <2 x double> %135, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %137 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
+  %138 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %136) #46, !srcloc !219
+  %139 = fadd <2 x double> %137, %138
+  %140 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %139) #23, !srcloc !218
+  %141 = bitcast <2 x double> %140 to <2 x i64>
+  %142 = getelementptr inbounds i8, ptr %spec.select46, i64 32
+  %143 = load <2 x double>, ptr %142, align 16
+  %144 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %145 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51) #23, !srcloc !218
+  %146 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #46, !srcloc !219
+  %147 = fadd <2 x double> %145, %146
+  %148 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %147) #23, !srcloc !218
+  %149 = bitcast <2 x double> %148 to <2 x i64>
+  %150 = load <2 x double>, ptr %10, align 16
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %152 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %151) #46, !srcloc !219
+  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %154 = fneg <2 x double> %153
+  %155 = xor <2 x i64> %149, <i64 -9223372036854775808, i64 0>
+  %156 = bitcast <2 x i64> %155 to <2 x double>
+  %157 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %156) #23, !srcloc !218
+  %158 = shufflevector <2 x double> %157, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %159 = fmul <2 x double> %152, %157
+  %160 = fmul <2 x double> %152, %158
   %161 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %160, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
-  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %161)
-  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %162, <2 x double> %163)
-  %165 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #23, !srcloc !218
-  %166 = load <2 x double>, ptr %11, align 16
-  %167 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #46, !srcloc !219
-  %168 = shufflevector <2 x double> %167, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %169 = fneg <2 x double> %168
-  %170 = xor <2 x i64> %138, <i64 -9223372036854775808, i64 0>
-  %171 = bitcast <2 x i64> %170 to <2 x double>
-  %172 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %171) #23, !srcloc !218
-  %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %174 = fmul <2 x double> %167, %172
-  %175 = fmul <2 x double> %167, %173
-  %176 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %175, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %177 = fmul <2 x double> %172, %169
-  %178 = fmul <2 x double> %173, %169
+  %162 = fmul <2 x double> %157, %154
+  %163 = fmul <2 x double> %158, %154
+  %164 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %163, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %165 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %161)
+  %166 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %162, <2 x double> %164)
+  %167 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %165, <2 x double> %166)
+  %168 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %167) #23, !srcloc !218
+  %169 = load <2 x double>, ptr %11, align 16
+  %170 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %169) #46, !srcloc !219
+  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %172 = fneg <2 x double> %171
+  %173 = xor <2 x i64> %141, <i64 -9223372036854775808, i64 0>
+  %174 = bitcast <2 x i64> %173 to <2 x double>
+  %175 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %174) #23, !srcloc !218
+  %176 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %177 = fmul <2 x double> %170, %175
+  %178 = fmul <2 x double> %170, %176
   %179 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %178, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
-  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %179)
-  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %180, <2 x double> %181)
-  %183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #23, !srcloc !218
-  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
-  %185 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #46, !srcloc !219
-  %186 = fadd <2 x double> %184, %185
-  %187 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %186) #23, !srcloc !218
-  %188 = extractelement <2 x double> %187, i64 0
-  %189 = fcmp olt double %188, 0.000000e+00
-  br i1 %189, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %190
-
-190:                                              ; preds = %130
-  %191 = extractelement <2 x double> %187, i64 1
-  %192 = fneg double %188
+  %180 = fmul <2 x double> %175, %172
+  %181 = fmul <2 x double> %176, %172
+  %182 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %181, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %183 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %179)
+  %184 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %180, <2 x double> %182)
+  %185 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %183, <2 x double> %184)
+  %186 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %185) #23, !srcloc !218
+  %187 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #23, !srcloc !218
+  %188 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %186) #46, !srcloc !219
+  %189 = fadd <2 x double> %187, %188
+  %190 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %189) #23, !srcloc !218
+  %191 = extractelement <2 x double> %190, i64 0
+  %192 = fneg double %191
   %193 = fcmp olt double %191, 0.000000e+00
-  %194 = fcmp oeq double %191, %192
-  %or.cond = or i1 %193, %194
-  br i1 %or.cond, label %199, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %194 = extractelement <2 x double> %190, i64 1
+  br i1 %193, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %195
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %190, %130
-  %195 = zext i1 %189 to i16
-  %196 = or disjoint i16 %195, 256
-  %197 = trunc nuw i16 %196 to i9
-  %198 = xor i9 %197, -255
-  br label %199
+195:                                              ; preds = %133
+  %196 = fcmp olt double %194, 0.000000e+00
+  br i1 %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %197
 
-199:                                              ; preds = %190, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %200 = phi i9 [ %198, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %190 ]
-  %201 = call i9 @llvm.bitreverse.i9(i9 %200)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %201 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %202 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %203 = trunc i9 %201 to i1
-  %.not8.i = or i1 %202, %203
-  br i1 %.not8.i, label %204, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
+197:                                              ; preds = %195
+  %198 = fcmp oeq double %194, %192
+  br i1 %198, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %199
 
-204:                                              ; preds = %199
-  %205 = load <2 x double>, ptr %spec.select, align 16
-  %206 = shufflevector <2 x double> %205, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %207 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %46) #23, !srcloc !218
-  %208 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %206) #46, !srcloc !219
-  %209 = fadd <2 x double> %207, %208
-  %210 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #23, !srcloc !218
-  %211 = bitcast <2 x double> %210 to <2 x i64>
-  %212 = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %213 = load <2 x double>, ptr %212, align 16
-  %214 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %215 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %56) #23, !srcloc !218
-  %216 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %214) #46, !srcloc !219
-  %217 = fadd <2 x double> %215, %216
-  %218 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %217) #23, !srcloc !218
-  %219 = bitcast <2 x double> %218 to <2 x i64>
-  %220 = load <2 x double>, ptr %10, align 16
-  %221 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %222 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %221) #46, !srcloc !219
-  %223 = shufflevector <2 x double> %222, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %224 = fneg <2 x double> %223
-  %225 = xor <2 x i64> %219, <i64 -9223372036854775808, i64 0>
-  %226 = bitcast <2 x i64> %225 to <2 x double>
-  %227 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %226) #23, !srcloc !218
+199:                                              ; preds = %197
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %133, %195, %197, %199
+  %200 = phi i1 [ false, %199 ], [ false, %133 ], [ true, %195 ], [ true, %197 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %199 ], [ 1, %133 ], [ -1, %195 ], [ 0, %197 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %199 ], [ 1, %133 ], [ -1, %195 ], [ 0, %197 ]
+  br i1 %200, label %.thread, label %201
+
+201:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %202 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %203 = zext i1 %202 to i16
+  %204 = or disjoint i16 %203, 256
+  %205 = trunc nuw i16 %204 to i9
+  %206 = xor i9 %205, -255
+  %207 = call i9 @llvm.bitreverse.i9(i9 %206)
+  %208 = zext i9 %207 to i16
+  br i1 %202, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %201
+  %209 = phi i16 [ %208, %201 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %210 = load <2 x double>, ptr %spec.select, align 16
+  %211 = shufflevector <2 x double> %210, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %212 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %46) #23, !srcloc !218
+  %213 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %211) #46, !srcloc !219
+  %214 = fadd <2 x double> %212, %213
+  %215 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %214) #23, !srcloc !218
+  %216 = bitcast <2 x double> %215 to <2 x i64>
+  %217 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %218 = load <2 x double>, ptr %217, align 16
+  %219 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %220 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %56) #23, !srcloc !218
+  %221 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #46, !srcloc !219
+  %222 = fadd <2 x double> %220, %221
+  %223 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %222) #23, !srcloc !218
+  %224 = bitcast <2 x double> %223 to <2 x i64>
+  %225 = load <2 x double>, ptr %10, align 16
+  %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %227 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %226) #46, !srcloc !219
   %228 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %229 = fmul <2 x double> %222, %227
-  %230 = fmul <2 x double> %222, %228
-  %231 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %230, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %232 = fmul <2 x double> %227, %224
-  %233 = fmul <2 x double> %228, %224
-  %234 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %233, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %229, <2 x double> %231)
-  %236 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %234)
-  %237 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %235, <2 x double> %236)
-  %238 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #23, !srcloc !218
-  %239 = load <2 x double>, ptr %11, align 16
-  %240 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %239) #46, !srcloc !219
-  %241 = shufflevector <2 x double> %240, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %242 = fneg <2 x double> %241
-  %243 = xor <2 x i64> %211, <i64 -9223372036854775808, i64 0>
-  %244 = bitcast <2 x i64> %243 to <2 x double>
-  %245 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %244) #23, !srcloc !218
+  %229 = fneg <2 x double> %228
+  %230 = xor <2 x i64> %224, <i64 -9223372036854775808, i64 0>
+  %231 = bitcast <2 x i64> %230 to <2 x double>
+  %232 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %231) #23, !srcloc !218
+  %233 = shufflevector <2 x double> %232, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %234 = fmul <2 x double> %227, %232
+  %235 = fmul <2 x double> %227, %233
+  %236 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %235, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %237 = fmul <2 x double> %232, %229
+  %238 = fmul <2 x double> %233, %229
+  %239 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %238, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %234, <2 x double> %236)
+  %241 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %237, <2 x double> %239)
+  %242 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %240, <2 x double> %241)
+  %243 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %244 = load <2 x double>, ptr %11, align 16
+  %245 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %244) #46, !srcloc !219
   %246 = shufflevector <2 x double> %245, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %247 = fmul <2 x double> %240, %245
-  %248 = fmul <2 x double> %240, %246
-  %249 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %248, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %250 = fmul <2 x double> %245, %242
-  %251 = fmul <2 x double> %246, %242
-  %252 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %251, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %247, <2 x double> %249)
-  %254 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %252)
-  %255 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %253, <2 x double> %254)
-  %256 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %255) #23, !srcloc !218
-  %257 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %238) #23, !srcloc !218
-  %258 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %256) #46, !srcloc !219
-  %259 = fadd <2 x double> %257, %258
-  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #23, !srcloc !218
-  %261 = extractelement <2 x double> %260, i64 0
-  %262 = fcmp olt double %261, 0.000000e+00
-  br i1 %262, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %263
+  %247 = fneg <2 x double> %246
+  %248 = xor <2 x i64> %216, <i64 -9223372036854775808, i64 0>
+  %249 = bitcast <2 x i64> %248 to <2 x double>
+  %250 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %249) #23, !srcloc !218
+  %251 = shufflevector <2 x double> %250, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %252 = fmul <2 x double> %245, %250
+  %253 = fmul <2 x double> %245, %251
+  %254 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %253, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %255 = fmul <2 x double> %250, %247
+  %256 = fmul <2 x double> %251, %247
+  %257 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %256, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %252, <2 x double> %254)
+  %259 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %255, <2 x double> %257)
+  %260 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %258, <2 x double> %259)
+  %261 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %260) #23, !srcloc !218
+  %262 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #23, !srcloc !218
+  %263 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %261) #46, !srcloc !219
+  %264 = fadd <2 x double> %262, %263
+  %265 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %264) #23, !srcloc !218
+  %266 = extractelement <2 x double> %265, i64 0
+  %267 = fneg double %266
+  %268 = fcmp olt double %266, 0.000000e+00
+  %269 = extractelement <2 x double> %265, i64 1
+  br i1 %268, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %270
 
-263:                                              ; preds = %204
-  %264 = extractelement <2 x double> %260, i64 1
-  %265 = fneg double %261
-  %266 = fcmp olt double %264, 0.000000e+00
-  %267 = fcmp une double %264, %265
-  %or.cond.not.i = or i1 %267, %266
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
+270:                                              ; preds = %.thread
+  %271 = fcmp olt double %269, 0.000000e+00
+  br i1 %271, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %272
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %263
-  %268 = zext i1 %266 to i16
-  %269 = or disjoint i16 %268, 256
-  %270 = trunc nuw i16 %269 to i9
-  %271 = xor i9 %270, -255
+272:                                              ; preds = %270
+  %273 = fcmp oeq double %269, %267
+  br i1 %273, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, label %274
+
+274:                                              ; preds = %272
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %263, %204
-  %272 = phi i9 [ %271, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %204 ], [ -255, %263 ]
-  %273 = call i9 @llvm.bitreverse.i9(i9 %272)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %273 to i16
-  %274 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %274, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i: ; preds = %274, %272, %270, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %274 ], [ 1, %.thread ], [ -1, %270 ], [ 0, %272 ]
+  %275 = phi i1 [ false, %274 ], [ true, %.thread ], [ false, %270 ], [ true, %272 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %274 ], [ 1, %.thread ], [ -1, %270 ], [ 0, %272 ]
+  %276 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %277 = zext i1 %276 to i16
+  %278 = or disjoint i16 %277, 256
+  %279 = trunc nuw i16 %278 to i9
+  %280 = xor i9 %279, -255
+  %281 = call i9 @llvm.bitreverse.i9(i9 %280)
+  %282 = zext i9 %281 to i16
+  %spec.select55 = select i1 %275, i16 257, i16 %282
+  %283 = and i16 %209, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %283, %spec.select55
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, %199, %127
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %127 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i ], [ 0, %199 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE0_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i, %201, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i ], [ 0, %201 ]
   ret i16 %.sroa.016.0
 }
 
@@ -115733,21 +115769,21 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %35, %32, %31
   br label %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
-  %.sink64.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %30, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink66.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %30, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = phi i1 [ %36, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %25, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sroa.040.0 = phi <2 x double> [ %41, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %29, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink64 = load double, ptr %.sink64.in, align 8
-  %42 = fneg double %.sink64
+  %.sink66 = load double, ptr %.sink66.in, align 8
+  %42 = fneg double %.sink66
   %43 = insertelement <2 x double> poison, double %42, i64 0
-  %44 = insertelement <2 x double> %43, double %.sink64, i64 1
-  %.58 = select i1 %.sink, i64 8, i64 32
-  %.59 = select i1 %.sink, i64 32, i64 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 %.58
+  %44 = insertelement <2 x double> %43, double %.sink66, i64 1
+  %.60 = select i1 %.sink, i64 8, i64 32
+  %.61 = select i1 %.sink, i64 32, i64 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 %.60
   %46 = load double, ptr %45, align 8
   %47 = fneg double %46
   %48 = insertelement <2 x double> poison, double %47, i64 0
   %49 = insertelement <2 x double> %48, double %46, i64 1
-  %50 = getelementptr inbounds i8, ptr %2, i64 %.59
+  %50 = getelementptr inbounds i8, ptr %2, i64 %.61
   %.sink.i = load double, ptr %50, align 8
   %51 = fneg double %.sink.i
   %52 = insertelement <2 x double> poison, double %51, i64 0
@@ -115815,210 +115851,226 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %111 = fadd <2 x double> %109, %110
   %112 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %111) #23, !srcloc !218
   %113 = extractelement <2 x double> %112, i64 0
-  %114 = fcmp olt double %113, 0.000000e+00
-  br i1 %114, label %124, label %115
-
-115:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %114 = fneg double %113
+  %115 = fcmp olt double %113, 0.000000e+00
   %116 = extractelement <2 x double> %112, i64 1
-  %117 = fneg double %113
+  br i1 %115, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %117
+
+117:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %118 = fcmp olt double %116, 0.000000e+00
-  %119 = fcmp une double %116, %117
-  %or.cond66.not = or i1 %119, %118
-  br i1 %or.cond66.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %124
+  br i1 %118, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %119
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %115
-  %120 = zext i1 %118 to i16
-  %121 = or disjoint i16 %120, 256
-  %122 = trunc nuw i16 %121 to i9
-  %123 = xor i9 %122, -255
-  br label %124
+119:                                              ; preds = %117
+  %120 = fcmp oeq double %116, %114
+  br i1 %120, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %121
 
-124:                                              ; preds = %115, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %125 = phi i9 [ %123, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %115 ]
-  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %126 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+121:                                              ; preds = %119
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %117, %119, %121
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %121 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %117 ], [ 0, %119 ]
+  %122 = phi i1 [ false, %121 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %117 ], [ true, %119 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %121 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %117 ], [ 0, %119 ]
+  %123 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %124 = zext i1 %123 to i16
+  %125 = or disjoint i16 %124, 256
+  %126 = trunc nuw i16 %125 to i9
+  %127 = xor i9 %126, -255
+  %128 = call i9 @llvm.bitreverse.i9(i9 %127)
+  %129 = zext i9 %128 to i16
+  %spec.select57 = select i1 %122, i16 257, i16 %129
+  store i16 %spec.select57, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select57, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select57, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %127, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %130, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
 
-127:                                              ; preds = %124
-  %128 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %128, ptr %0, ptr %8
-  %spec.select46 = select i1 %128, ptr %8, ptr %0
-  %129 = load <2 x double>, ptr %spec.select46, align 16
-  %130 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %131 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
-  %132 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %130) #46, !srcloc !219
-  %133 = fadd <2 x double> %131, %132
-  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #23, !srcloc !218
-  %135 = bitcast <2 x double> %134 to <2 x i64>
-  %136 = getelementptr inbounds i8, ptr %spec.select46, i64 16
-  %137 = load <2 x double>, ptr %136, align 16
-  %138 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %139 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49) #23, !srcloc !218
-  %140 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %138) #46, !srcloc !219
-  %141 = fadd <2 x double> %139, %140
-  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #23, !srcloc !218
-  %143 = bitcast <2 x double> %142 to <2 x i64>
-  %144 = load <2 x double>, ptr %9, align 16
-  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %146 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %145) #46, !srcloc !219
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %148 = fneg <2 x double> %147
-  %149 = xor <2 x i64> %135, <i64 -9223372036854775808, i64 0>
-  %150 = bitcast <2 x i64> %149 to <2 x double>
-  %151 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %150) #23, !srcloc !218
-  %152 = shufflevector <2 x double> %151, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %153 = fmul <2 x double> %146, %151
-  %154 = fmul <2 x double> %146, %152
-  %155 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %154, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %156 = fmul <2 x double> %151, %148
-  %157 = fmul <2 x double> %152, %148
+130:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %131 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %131, ptr %0, ptr %8
+  %spec.select46 = select i1 %131, ptr %8, ptr %0
+  %132 = load <2 x double>, ptr %spec.select46, align 16
+  %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %134 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
+  %135 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %133) #46, !srcloc !219
+  %136 = fadd <2 x double> %134, %135
+  %137 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %136) #23, !srcloc !218
+  %138 = bitcast <2 x double> %137 to <2 x i64>
+  %139 = getelementptr inbounds i8, ptr %spec.select46, i64 16
+  %140 = load <2 x double>, ptr %139, align 16
+  %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %142 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49) #23, !srcloc !218
+  %143 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %141) #46, !srcloc !219
+  %144 = fadd <2 x double> %142, %143
+  %145 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #23, !srcloc !218
+  %146 = bitcast <2 x double> %145 to <2 x i64>
+  %147 = load <2 x double>, ptr %9, align 16
+  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %149 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %148) #46, !srcloc !219
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %151 = fneg <2 x double> %150
+  %152 = xor <2 x i64> %138, <i64 -9223372036854775808, i64 0>
+  %153 = bitcast <2 x i64> %152 to <2 x double>
+  %154 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %153) #23, !srcloc !218
+  %155 = shufflevector <2 x double> %154, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %156 = fmul <2 x double> %149, %154
+  %157 = fmul <2 x double> %149, %155
   %158 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %157, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %159 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %153, <2 x double> %155)
-  %160 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %160)
-  %162 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #23, !srcloc !218
-  %163 = load <2 x double>, ptr %1, align 16
-  %164 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #46, !srcloc !219
-  %165 = shufflevector <2 x double> %164, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %166 = fneg <2 x double> %165
-  %167 = xor <2 x i64> %143, <i64 -9223372036854775808, i64 0>
-  %168 = bitcast <2 x i64> %167 to <2 x double>
-  %169 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #23, !srcloc !218
-  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %171 = fmul <2 x double> %164, %169
-  %172 = fmul <2 x double> %164, %170
-  %173 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %172, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %174 = fmul <2 x double> %169, %166
-  %175 = fmul <2 x double> %170, %166
+  %159 = fmul <2 x double> %154, %151
+  %160 = fmul <2 x double> %155, %151
+  %161 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %160, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %156, <2 x double> %158)
+  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %159, <2 x double> %161)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %162, <2 x double> %163)
+  %165 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #23, !srcloc !218
+  %166 = load <2 x double>, ptr %1, align 16
+  %167 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #46, !srcloc !219
+  %168 = shufflevector <2 x double> %167, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %169 = fneg <2 x double> %168
+  %170 = xor <2 x i64> %146, <i64 -9223372036854775808, i64 0>
+  %171 = bitcast <2 x i64> %170 to <2 x double>
+  %172 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %171) #23, !srcloc !218
+  %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %174 = fmul <2 x double> %167, %172
+  %175 = fmul <2 x double> %167, %173
   %176 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %175, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %177 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %171, <2 x double> %173)
-  %178 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %178)
-  %180 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %179) #23, !srcloc !218
-  %181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %162) #23, !srcloc !218
-  %182 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #46, !srcloc !219
-  %183 = fadd <2 x double> %181, %182
-  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #23, !srcloc !218
-  %185 = extractelement <2 x double> %184, i64 0
-  %186 = fcmp olt double %185, 0.000000e+00
-  br i1 %186, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %187
-
-187:                                              ; preds = %127
-  %188 = extractelement <2 x double> %184, i64 1
-  %189 = fneg double %185
+  %177 = fmul <2 x double> %172, %169
+  %178 = fmul <2 x double> %173, %169
+  %179 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %178, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
+  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %179)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %180, <2 x double> %181)
+  %183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #23, !srcloc !218
+  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
+  %185 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #46, !srcloc !219
+  %186 = fadd <2 x double> %184, %185
+  %187 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %186) #23, !srcloc !218
+  %188 = extractelement <2 x double> %187, i64 0
+  %189 = fneg double %188
   %190 = fcmp olt double %188, 0.000000e+00
-  %191 = fcmp oeq double %188, %189
-  %or.cond = or i1 %190, %191
-  br i1 %or.cond, label %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %191 = extractelement <2 x double> %187, i64 1
+  br i1 %190, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %192
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %187, %127
-  %192 = zext i1 %186 to i16
-  %193 = or disjoint i16 %192, 256
-  %194 = trunc nuw i16 %193 to i9
-  %195 = xor i9 %194, -255
-  br label %196
+192:                                              ; preds = %130
+  %193 = fcmp olt double %191, 0.000000e+00
+  br i1 %193, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %194
 
-196:                                              ; preds = %187, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %197 = phi i9 [ %195, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %187 ]
-  %198 = call i9 @llvm.bitreverse.i9(i9 %197)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %198 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %199 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %200 = trunc i9 %198 to i1
-  %.not8.i = or i1 %199, %200
-  br i1 %.not8.i, label %201, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
+194:                                              ; preds = %192
+  %195 = fcmp oeq double %191, %189
+  br i1 %195, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %196
 
-201:                                              ; preds = %196
-  %202 = load <2 x double>, ptr %spec.select, align 16
-  %203 = shufflevector <2 x double> %202, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %204 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #23, !srcloc !218
-  %205 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %203) #46, !srcloc !219
-  %206 = fadd <2 x double> %204, %205
-  %207 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %206) #23, !srcloc !218
-  %208 = bitcast <2 x double> %207 to <2 x i64>
-  %209 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %210 = load <2 x double>, ptr %209, align 16
-  %211 = shufflevector <2 x double> %210, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %212 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %53) #23, !srcloc !218
-  %213 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %211) #46, !srcloc !219
-  %214 = fadd <2 x double> %212, %213
-  %215 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %214) #23, !srcloc !218
-  %216 = bitcast <2 x double> %215 to <2 x i64>
-  %217 = load <2 x double>, ptr %9, align 16
-  %218 = shufflevector <2 x double> %217, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %219 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %218) #46, !srcloc !219
-  %220 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %221 = fneg <2 x double> %220
-  %222 = xor <2 x i64> %208, <i64 -9223372036854775808, i64 0>
-  %223 = bitcast <2 x i64> %222 to <2 x double>
-  %224 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %223) #23, !srcloc !218
+196:                                              ; preds = %194
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %130, %192, %194, %196
+  %197 = phi i1 [ false, %196 ], [ false, %130 ], [ true, %192 ], [ true, %194 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %196 ], [ 1, %130 ], [ -1, %192 ], [ 0, %194 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %196 ], [ 1, %130 ], [ -1, %192 ], [ 0, %194 ]
+  br i1 %197, label %.thread, label %198
+
+198:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %199 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %200 = zext i1 %199 to i16
+  %201 = or disjoint i16 %200, 256
+  %202 = trunc nuw i16 %201 to i9
+  %203 = xor i9 %202, -255
+  %204 = call i9 @llvm.bitreverse.i9(i9 %203)
+  %205 = zext i9 %204 to i16
+  br i1 %199, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %198
+  %206 = phi i16 [ %205, %198 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %207 = load <2 x double>, ptr %spec.select, align 16
+  %208 = shufflevector <2 x double> %207, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %209 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #23, !srcloc !218
+  %210 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %208) #46, !srcloc !219
+  %211 = fadd <2 x double> %209, %210
+  %212 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %211) #23, !srcloc !218
+  %213 = bitcast <2 x double> %212 to <2 x i64>
+  %214 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %215 = load <2 x double>, ptr %214, align 16
+  %216 = shufflevector <2 x double> %215, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %217 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %53) #23, !srcloc !218
+  %218 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %216) #46, !srcloc !219
+  %219 = fadd <2 x double> %217, %218
+  %220 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #23, !srcloc !218
+  %221 = bitcast <2 x double> %220 to <2 x i64>
+  %222 = load <2 x double>, ptr %9, align 16
+  %223 = shufflevector <2 x double> %222, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %224 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %223) #46, !srcloc !219
   %225 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %226 = fmul <2 x double> %219, %224
-  %227 = fmul <2 x double> %219, %225
-  %228 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %227, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %229 = fmul <2 x double> %224, %221
-  %230 = fmul <2 x double> %225, %221
-  %231 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %230, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %232 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %226, <2 x double> %228)
-  %233 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %229, <2 x double> %231)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %233)
-  %235 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %234) #23, !srcloc !218
-  %236 = load <2 x double>, ptr %1, align 16
-  %237 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #46, !srcloc !219
-  %238 = shufflevector <2 x double> %237, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %239 = fneg <2 x double> %238
-  %240 = xor <2 x i64> %216, <i64 -9223372036854775808, i64 0>
-  %241 = bitcast <2 x i64> %240 to <2 x double>
-  %242 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %226 = fneg <2 x double> %225
+  %227 = xor <2 x i64> %213, <i64 -9223372036854775808, i64 0>
+  %228 = bitcast <2 x i64> %227 to <2 x double>
+  %229 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %228) #23, !srcloc !218
+  %230 = shufflevector <2 x double> %229, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %231 = fmul <2 x double> %224, %229
+  %232 = fmul <2 x double> %224, %230
+  %233 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %232, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %234 = fmul <2 x double> %229, %226
+  %235 = fmul <2 x double> %230, %226
+  %236 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %235, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %237 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %231, <2 x double> %233)
+  %238 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %234, <2 x double> %236)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %237, <2 x double> %238)
+  %240 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %239) #23, !srcloc !218
+  %241 = load <2 x double>, ptr %1, align 16
+  %242 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #46, !srcloc !219
   %243 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %244 = fmul <2 x double> %237, %242
-  %245 = fmul <2 x double> %237, %243
-  %246 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %245, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %247 = fmul <2 x double> %242, %239
-  %248 = fmul <2 x double> %243, %239
-  %249 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %248, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %250 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %244, <2 x double> %246)
-  %251 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %247, <2 x double> %249)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %251)
-  %253 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %252) #23, !srcloc !218
-  %254 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %235) #23, !srcloc !218
-  %255 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %253) #46, !srcloc !219
-  %256 = fadd <2 x double> %254, %255
-  %257 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %256) #23, !srcloc !218
-  %258 = extractelement <2 x double> %257, i64 0
-  %259 = fcmp olt double %258, 0.000000e+00
-  br i1 %259, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %260
+  %244 = fneg <2 x double> %243
+  %245 = xor <2 x i64> %221, <i64 -9223372036854775808, i64 0>
+  %246 = bitcast <2 x i64> %245 to <2 x double>
+  %247 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %246) #23, !srcloc !218
+  %248 = shufflevector <2 x double> %247, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %249 = fmul <2 x double> %242, %247
+  %250 = fmul <2 x double> %242, %248
+  %251 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %250, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %252 = fmul <2 x double> %247, %244
+  %253 = fmul <2 x double> %248, %244
+  %254 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %253, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %255 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %249, <2 x double> %251)
+  %256 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %252, <2 x double> %254)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %255, <2 x double> %256)
+  %258 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #23, !srcloc !218
+  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #23, !srcloc !218
+  %260 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #46, !srcloc !219
+  %261 = fadd <2 x double> %259, %260
+  %262 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %261) #23, !srcloc !218
+  %263 = extractelement <2 x double> %262, i64 0
+  %264 = fneg double %263
+  %265 = fcmp olt double %263, 0.000000e+00
+  %266 = extractelement <2 x double> %262, i64 1
+  br i1 %265, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %267
 
-260:                                              ; preds = %201
-  %261 = extractelement <2 x double> %257, i64 1
-  %262 = fneg double %258
-  %263 = fcmp olt double %261, 0.000000e+00
-  %264 = fcmp une double %261, %262
-  %or.cond.not.i = or i1 %264, %263
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
+267:                                              ; preds = %.thread
+  %268 = fcmp olt double %266, 0.000000e+00
+  br i1 %268, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %269
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %260
-  %265 = zext i1 %263 to i16
-  %266 = or disjoint i16 %265, 256
-  %267 = trunc nuw i16 %266 to i9
-  %268 = xor i9 %267, -255
+269:                                              ; preds = %267
+  %270 = fcmp oeq double %266, %264
+  br i1 %270, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %271
+
+271:                                              ; preds = %269
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %260, %201
-  %269 = phi i9 [ %268, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %201 ], [ -255, %260 ]
-  %270 = call i9 @llvm.bitreverse.i9(i9 %269)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %270 to i16
-  %271 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %271, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i: ; preds = %271, %269, %267, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %271 ], [ 1, %.thread ], [ -1, %267 ], [ 0, %269 ]
+  %272 = phi i1 [ false, %271 ], [ true, %.thread ], [ false, %267 ], [ true, %269 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %271 ], [ 1, %.thread ], [ -1, %267 ], [ 0, %269 ]
+  %273 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %274 = zext i1 %273 to i16
+  %275 = or disjoint i16 %274, 256
+  %276 = trunc nuw i16 %275 to i9
+  %277 = xor i9 %276, -255
+  %278 = call i9 @llvm.bitreverse.i9(i9 %277)
+  %279 = zext i9 %278 to i16
+  %spec.select58 = select i1 %272, i16 257, i16 %279
+  %280 = and i16 %206, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %280, %spec.select58
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, %196, %124
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %124 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i ], [ 0, %196 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, %198, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select57, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i ], [ 0, %198 ]
   ret i16 %.sroa.016.0
 }
 
@@ -116107,21 +116159,21 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %36, %33, %32
   br label %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
-  %.sink64.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %31, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink66.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %31, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = phi i1 [ %37, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %26, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sroa.040.0 = phi <2 x double> [ %42, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %30, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink64 = load double, ptr %.sink64.in, align 8
-  %43 = fneg double %.sink64
+  %.sink66 = load double, ptr %.sink66.in, align 8
+  %43 = fneg double %.sink66
   %44 = insertelement <2 x double> poison, double %43, i64 0
-  %45 = insertelement <2 x double> %44, double %.sink64, i64 1
-  %.58 = select i1 %.sink, i64 8, i64 32
-  %.59 = select i1 %.sink, i64 32, i64 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 %.58
+  %45 = insertelement <2 x double> %44, double %.sink66, i64 1
+  %.60 = select i1 %.sink, i64 8, i64 32
+  %.61 = select i1 %.sink, i64 32, i64 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 %.60
   %47 = load double, ptr %46, align 8
   %48 = fneg double %47
   %49 = insertelement <2 x double> poison, double %48, i64 0
   %50 = insertelement <2 x double> %49, double %47, i64 1
-  %51 = getelementptr inbounds i8, ptr %2, i64 %.59
+  %51 = getelementptr inbounds i8, ptr %2, i64 %.61
   %.sink.i = load double, ptr %51, align 8
   %52 = fneg double %.sink.i
   %53 = insertelement <2 x double> poison, double %52, i64 0
@@ -116189,210 +116241,226 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %112 = fadd <2 x double> %110, %111
   %113 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %112) #23, !srcloc !218
   %114 = extractelement <2 x double> %113, i64 0
-  %115 = fcmp olt double %114, 0.000000e+00
-  br i1 %115, label %125, label %116
-
-116:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %115 = fneg double %114
+  %116 = fcmp olt double %114, 0.000000e+00
   %117 = extractelement <2 x double> %113, i64 1
-  %118 = fneg double %114
+  br i1 %116, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %118
+
+118:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %119 = fcmp olt double %117, 0.000000e+00
-  %120 = fcmp une double %117, %118
-  %or.cond66.not = or i1 %120, %119
-  br i1 %or.cond66.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %125
+  br i1 %119, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %120
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %116
-  %121 = zext i1 %119 to i16
-  %122 = or disjoint i16 %121, 256
-  %123 = trunc nuw i16 %122 to i9
-  %124 = xor i9 %123, -255
-  br label %125
+120:                                              ; preds = %118
+  %121 = fcmp oeq double %117, %115
+  br i1 %121, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %122
 
-125:                                              ; preds = %116, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %126 = phi i9 [ %124, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %116 ]
-  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %127 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+122:                                              ; preds = %120
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %118, %120, %122
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %122 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %118 ], [ 0, %120 ]
+  %123 = phi i1 [ false, %122 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %118 ], [ true, %120 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %122 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %118 ], [ 0, %120 ]
+  %124 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %125 = zext i1 %124 to i16
+  %126 = or disjoint i16 %125, 256
+  %127 = trunc nuw i16 %126 to i9
+  %128 = xor i9 %127, -255
+  %129 = call i9 @llvm.bitreverse.i9(i9 %128)
+  %130 = zext i9 %129 to i16
+  %spec.select57 = select i1 %123, i16 257, i16 %130
+  store i16 %spec.select57, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select57, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select57, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %128, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %131, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
 
-128:                                              ; preds = %125
-  %129 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %129, ptr %8, ptr %0
-  %spec.select46 = select i1 %129, ptr %0, ptr %8
-  %130 = load <2 x double>, ptr %spec.select46, align 16
-  %131 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %132 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
-  %133 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %131) #46, !srcloc !219
-  %134 = fadd <2 x double> %132, %133
-  %135 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #23, !srcloc !218
-  %136 = bitcast <2 x double> %135 to <2 x i64>
-  %137 = getelementptr inbounds i8, ptr %spec.select46, i64 16
-  %138 = load <2 x double>, ptr %137, align 16
-  %139 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %140 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
-  %141 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %139) #46, !srcloc !219
-  %142 = fadd <2 x double> %140, %141
-  %143 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %142) #23, !srcloc !218
-  %144 = bitcast <2 x double> %143 to <2 x i64>
-  %145 = load <2 x double>, ptr %10, align 16
-  %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %147 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #46, !srcloc !219
-  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %149 = fneg <2 x double> %148
-  %150 = xor <2 x i64> %136, <i64 -9223372036854775808, i64 0>
-  %151 = bitcast <2 x i64> %150 to <2 x double>
-  %152 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %151) #23, !srcloc !218
-  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %154 = fmul <2 x double> %147, %152
-  %155 = fmul <2 x double> %147, %153
-  %156 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %155, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %157 = fmul <2 x double> %152, %149
-  %158 = fmul <2 x double> %153, %149
+131:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %132 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %132, ptr %8, ptr %0
+  %spec.select46 = select i1 %132, ptr %0, ptr %8
+  %133 = load <2 x double>, ptr %spec.select46, align 16
+  %134 = shufflevector <2 x double> %133, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %135 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
+  %136 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #46, !srcloc !219
+  %137 = fadd <2 x double> %135, %136
+  %138 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %137) #23, !srcloc !218
+  %139 = bitcast <2 x double> %138 to <2 x i64>
+  %140 = getelementptr inbounds i8, ptr %spec.select46, i64 16
+  %141 = load <2 x double>, ptr %140, align 16
+  %142 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %143 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50) #23, !srcloc !218
+  %144 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %142) #46, !srcloc !219
+  %145 = fadd <2 x double> %143, %144
+  %146 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %145) #23, !srcloc !218
+  %147 = bitcast <2 x double> %146 to <2 x i64>
+  %148 = load <2 x double>, ptr %10, align 16
+  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %150 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %149) #46, !srcloc !219
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %152 = fneg <2 x double> %151
+  %153 = xor <2 x i64> %139, <i64 -9223372036854775808, i64 0>
+  %154 = bitcast <2 x i64> %153 to <2 x double>
+  %155 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %154) #23, !srcloc !218
+  %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %157 = fmul <2 x double> %150, %155
+  %158 = fmul <2 x double> %150, %156
   %159 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %158, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %160 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %154, <2 x double> %156)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %157, <2 x double> %159)
-  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %161)
-  %163 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %162) #23, !srcloc !218
-  %164 = load <2 x double>, ptr %9, align 16
-  %165 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #46, !srcloc !219
-  %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %167 = fneg <2 x double> %166
-  %168 = xor <2 x i64> %144, <i64 -9223372036854775808, i64 0>
-  %169 = bitcast <2 x i64> %168 to <2 x double>
-  %170 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %169) #23, !srcloc !218
-  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %172 = fmul <2 x double> %165, %170
-  %173 = fmul <2 x double> %165, %171
-  %174 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %173, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %175 = fmul <2 x double> %170, %167
-  %176 = fmul <2 x double> %171, %167
+  %160 = fmul <2 x double> %155, %152
+  %161 = fmul <2 x double> %156, %152
+  %162 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %161, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %157, <2 x double> %159)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %162)
+  %165 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %163, <2 x double> %164)
+  %166 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #23, !srcloc !218
+  %167 = load <2 x double>, ptr %9, align 16
+  %168 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %167) #46, !srcloc !219
+  %169 = shufflevector <2 x double> %168, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %170 = fneg <2 x double> %169
+  %171 = xor <2 x i64> %147, <i64 -9223372036854775808, i64 0>
+  %172 = bitcast <2 x i64> %171 to <2 x double>
+  %173 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %172) #23, !srcloc !218
+  %174 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %175 = fmul <2 x double> %168, %173
+  %176 = fmul <2 x double> %168, %174
   %177 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %176, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %178 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %172, <2 x double> %174)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
-  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %179)
-  %181 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #23, !srcloc !218
-  %182 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #23, !srcloc !218
-  %183 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %181) #46, !srcloc !219
-  %184 = fadd <2 x double> %182, %183
-  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #23, !srcloc !218
-  %186 = extractelement <2 x double> %185, i64 0
-  %187 = fcmp olt double %186, 0.000000e+00
-  br i1 %187, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %188
-
-188:                                              ; preds = %128
-  %189 = extractelement <2 x double> %185, i64 1
-  %190 = fneg double %186
+  %178 = fmul <2 x double> %173, %170
+  %179 = fmul <2 x double> %174, %170
+  %180 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %179, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %180)
+  %183 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %181, <2 x double> %182)
+  %184 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %183) #23, !srcloc !218
+  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #23, !srcloc !218
+  %186 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #46, !srcloc !219
+  %187 = fadd <2 x double> %185, %186
+  %188 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %187) #23, !srcloc !218
+  %189 = extractelement <2 x double> %188, i64 0
+  %190 = fneg double %189
   %191 = fcmp olt double %189, 0.000000e+00
-  %192 = fcmp oeq double %189, %190
-  %or.cond = or i1 %191, %192
-  br i1 %or.cond, label %197, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %192 = extractelement <2 x double> %188, i64 1
+  br i1 %191, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %193
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %188, %128
-  %193 = zext i1 %187 to i16
-  %194 = or disjoint i16 %193, 256
-  %195 = trunc nuw i16 %194 to i9
-  %196 = xor i9 %195, -255
-  br label %197
+193:                                              ; preds = %131
+  %194 = fcmp olt double %192, 0.000000e+00
+  br i1 %194, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %195
 
-197:                                              ; preds = %188, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %198 = phi i9 [ %196, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %188 ]
-  %199 = call i9 @llvm.bitreverse.i9(i9 %198)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %199 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %200 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %201 = trunc i9 %199 to i1
-  %.not8.i = or i1 %200, %201
-  br i1 %.not8.i, label %202, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
+195:                                              ; preds = %193
+  %196 = fcmp oeq double %192, %190
+  br i1 %196, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %197
 
-202:                                              ; preds = %197
-  %203 = load <2 x double>, ptr %spec.select, align 16
-  %204 = shufflevector <2 x double> %203, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %205 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %45) #23, !srcloc !218
-  %206 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %204) #46, !srcloc !219
-  %207 = fadd <2 x double> %205, %206
-  %208 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %207) #23, !srcloc !218
-  %209 = bitcast <2 x double> %208 to <2 x i64>
-  %210 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %211 = load <2 x double>, ptr %210, align 16
-  %212 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %54) #23, !srcloc !218
-  %214 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #46, !srcloc !219
-  %215 = fadd <2 x double> %213, %214
-  %216 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %215) #23, !srcloc !218
-  %217 = bitcast <2 x double> %216 to <2 x i64>
-  %218 = load <2 x double>, ptr %10, align 16
-  %219 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %219) #46, !srcloc !219
-  %221 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %222 = fneg <2 x double> %221
-  %223 = xor <2 x i64> %209, <i64 -9223372036854775808, i64 0>
-  %224 = bitcast <2 x i64> %223 to <2 x double>
-  %225 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #23, !srcloc !218
+197:                                              ; preds = %195
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %131, %193, %195, %197
+  %198 = phi i1 [ false, %197 ], [ false, %131 ], [ true, %193 ], [ true, %195 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %197 ], [ 1, %131 ], [ -1, %193 ], [ 0, %195 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %197 ], [ 1, %131 ], [ -1, %193 ], [ 0, %195 ]
+  br i1 %198, label %.thread, label %199
+
+199:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %200 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %201 = zext i1 %200 to i16
+  %202 = or disjoint i16 %201, 256
+  %203 = trunc nuw i16 %202 to i9
+  %204 = xor i9 %203, -255
+  %205 = call i9 @llvm.bitreverse.i9(i9 %204)
+  %206 = zext i9 %205 to i16
+  br i1 %200, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %199
+  %207 = phi i16 [ %206, %199 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %208 = load <2 x double>, ptr %spec.select, align 16
+  %209 = shufflevector <2 x double> %208, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %210 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %45) #23, !srcloc !218
+  %211 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #46, !srcloc !219
+  %212 = fadd <2 x double> %210, %211
+  %213 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %212) #23, !srcloc !218
+  %214 = bitcast <2 x double> %213 to <2 x i64>
+  %215 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %216 = load <2 x double>, ptr %215, align 16
+  %217 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %218 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %54) #23, !srcloc !218
+  %219 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %217) #46, !srcloc !219
+  %220 = fadd <2 x double> %218, %219
+  %221 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #23, !srcloc !218
+  %222 = bitcast <2 x double> %221 to <2 x i64>
+  %223 = load <2 x double>, ptr %10, align 16
+  %224 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %225 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224) #46, !srcloc !219
   %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %227 = fmul <2 x double> %220, %225
-  %228 = fmul <2 x double> %220, %226
-  %229 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %228, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %230 = fmul <2 x double> %225, %222
-  %231 = fmul <2 x double> %226, %222
-  %232 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %231, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %233 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %227, <2 x double> %229)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %230, <2 x double> %232)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %234)
-  %236 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %235) #23, !srcloc !218
-  %237 = load <2 x double>, ptr %9, align 16
-  %238 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #46, !srcloc !219
-  %239 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %240 = fneg <2 x double> %239
-  %241 = xor <2 x i64> %217, <i64 -9223372036854775808, i64 0>
-  %242 = bitcast <2 x i64> %241 to <2 x double>
-  %243 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %227 = fneg <2 x double> %226
+  %228 = xor <2 x i64> %214, <i64 -9223372036854775808, i64 0>
+  %229 = bitcast <2 x i64> %228 to <2 x double>
+  %230 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %229) #23, !srcloc !218
+  %231 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %232 = fmul <2 x double> %225, %230
+  %233 = fmul <2 x double> %225, %231
+  %234 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %233, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %235 = fmul <2 x double> %230, %227
+  %236 = fmul <2 x double> %231, %227
+  %237 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %236, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %238 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %234)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %235, <2 x double> %237)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %238, <2 x double> %239)
+  %241 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #23, !srcloc !218
+  %242 = load <2 x double>, ptr %9, align 16
+  %243 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #46, !srcloc !219
   %244 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %245 = fmul <2 x double> %238, %243
-  %246 = fmul <2 x double> %238, %244
-  %247 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %246, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %248 = fmul <2 x double> %243, %240
-  %249 = fmul <2 x double> %244, %240
-  %250 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %249, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %251 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %245, <2 x double> %247)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %248, <2 x double> %250)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %252)
-  %254 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %253) #23, !srcloc !218
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #46, !srcloc !219
-  %257 = fadd <2 x double> %255, %256
-  %258 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #23, !srcloc !218
-  %259 = extractelement <2 x double> %258, i64 0
-  %260 = fcmp olt double %259, 0.000000e+00
-  br i1 %260, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %261
+  %245 = fneg <2 x double> %244
+  %246 = xor <2 x i64> %222, <i64 -9223372036854775808, i64 0>
+  %247 = bitcast <2 x i64> %246 to <2 x double>
+  %248 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %247) #23, !srcloc !218
+  %249 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %250 = fmul <2 x double> %243, %248
+  %251 = fmul <2 x double> %243, %249
+  %252 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %251, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %253 = fmul <2 x double> %248, %245
+  %254 = fmul <2 x double> %249, %245
+  %255 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %254, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %256 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %252)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %253, <2 x double> %255)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %256, <2 x double> %257)
+  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #46, !srcloc !219
+  %262 = fadd <2 x double> %260, %261
+  %263 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %262) #23, !srcloc !218
+  %264 = extractelement <2 x double> %263, i64 0
+  %265 = fneg double %264
+  %266 = fcmp olt double %264, 0.000000e+00
+  %267 = extractelement <2 x double> %263, i64 1
+  br i1 %266, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %268
 
-261:                                              ; preds = %202
-  %262 = extractelement <2 x double> %258, i64 1
-  %263 = fneg double %259
-  %264 = fcmp olt double %262, 0.000000e+00
-  %265 = fcmp une double %262, %263
-  %or.cond.not.i = or i1 %265, %264
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
+268:                                              ; preds = %.thread
+  %269 = fcmp olt double %267, 0.000000e+00
+  br i1 %269, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %270
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %261
-  %266 = zext i1 %264 to i16
-  %267 = or disjoint i16 %266, 256
-  %268 = trunc nuw i16 %267 to i9
-  %269 = xor i9 %268, -255
+270:                                              ; preds = %268
+  %271 = fcmp oeq double %267, %265
+  br i1 %271, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %272
+
+272:                                              ; preds = %270
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %261, %202
-  %270 = phi i9 [ %269, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %202 ], [ -255, %261 ]
-  %271 = call i9 @llvm.bitreverse.i9(i9 %270)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %271 to i16
-  %272 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %272, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i: ; preds = %272, %270, %268, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %273 = phi i1 [ false, %272 ], [ true, %.thread ], [ false, %268 ], [ true, %270 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %272 ], [ 1, %.thread ], [ -1, %268 ], [ 0, %270 ]
+  %274 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %275 = zext i1 %274 to i16
+  %276 = or disjoint i16 %275, 256
+  %277 = trunc nuw i16 %276 to i9
+  %278 = xor i9 %277, -255
+  %279 = call i9 @llvm.bitreverse.i9(i9 %278)
+  %280 = zext i9 %279 to i16
+  %spec.select58 = select i1 %273, i16 257, i16 %280
+  %281 = and i16 %207, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %281, %spec.select58
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, %197, %125
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %125 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i ], [ 0, %197 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, %199, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select57, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i ], [ 0, %199 ]
   ret i16 %.sroa.016.0
 }
 
@@ -116482,21 +116550,21 @@ _ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i:   ; preds = %37, %34, %33
   br label %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
 
 _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit: ; preds = %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i
-  %.sink64.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
+  %.sink66.in = phi ptr [ %2, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %32, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sink = phi i1 [ %38, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %27, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
   %.sroa.040.0 = phi <2 x double> [ %43, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit42.i ], [ %31, %_ZN4CGALgtERKNS_11Interval_ntILb0EEEd.exit38.i ]
-  %.sink64 = load double, ptr %.sink64.in, align 8
-  %44 = fneg double %.sink64
+  %.sink66 = load double, ptr %.sink66.in, align 8
+  %44 = fneg double %.sink66
   %45 = insertelement <2 x double> poison, double %44, i64 0
-  %46 = insertelement <2 x double> %45, double %.sink64, i64 1
-  %.58 = select i1 %.sink, i64 8, i64 32
-  %.59 = select i1 %.sink, i64 32, i64 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 %.58
+  %46 = insertelement <2 x double> %45, double %.sink66, i64 1
+  %.60 = select i1 %.sink, i64 8, i64 32
+  %.61 = select i1 %.sink, i64 32, i64 8
+  %47 = getelementptr inbounds i8, ptr %2, i64 %.60
   %48 = load double, ptr %47, align 8
   %49 = fneg double %48
   %50 = insertelement <2 x double> poison, double %49, i64 0
   %51 = insertelement <2 x double> %50, double %48, i64 1
-  %52 = getelementptr inbounds i8, ptr %2, i64 %.59
+  %52 = getelementptr inbounds i8, ptr %2, i64 %.61
   %.sink.i = load double, ptr %52, align 8
   %53 = fneg double %.sink.i
   %54 = insertelement <2 x double> poison, double %53, i64 0
@@ -116564,210 +116632,226 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
   %113 = fadd <2 x double> %111, %112
   %114 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %113) #23, !srcloc !218
   %115 = extractelement <2 x double> %114, i64 0
-  %116 = fcmp olt double %115, 0.000000e+00
-  br i1 %116, label %126, label %117
-
-117:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
+  %116 = fneg double %115
+  %117 = fcmp olt double %115, 0.000000e+00
   %118 = extractelement <2 x double> %114, i64 1
-  %119 = fneg double %115
+  br i1 %117, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %119
+
+119:                                              ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit
   %120 = fcmp olt double %118, 0.000000e+00
-  %121 = fcmp une double %118, %119
-  %or.cond66.not = or i1 %121, %120
-  br i1 %or.cond66.not, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %126
+  br i1 %120, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %121
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %117
-  %122 = zext i1 %120 to i16
-  %123 = or disjoint i16 %122, 256
-  %124 = trunc nuw i16 %123 to i9
-  %125 = xor i9 %124, -255
-  br label %126
+121:                                              ; preds = %119
+  %122 = fcmp oeq double %118, %116
+  br i1 %122, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit, label %123
 
-126:                                              ; preds = %117, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
-  %127 = phi i9 [ %125, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ -255, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -255, %117 ]
-  %128 = call i9 @llvm.bitreverse.i9(i9 %127)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %128 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %7, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+123:                                              ; preds = %121
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit, %119, %121, %123
+  %.sroa.5.0.i.i.i.i.i = phi i32 [ 1, %123 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %119 ], [ 0, %121 ]
+  %124 = phi i1 [ false, %123 ], [ true, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ false, %119 ], [ true, %121 ]
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ -1, %123 ], [ 1, %_ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3ELi2EEEvRKT_S8_S8_RKT0_RSt5arrayIS6_Lm3EESE_.exit ], [ -1, %119 ], [ 0, %121 ]
+  %125 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
+  %126 = zext i1 %125 to i16
+  %127 = or disjoint i16 %126, 256
+  %128 = trunc nuw i16 %127 to i9
+  %129 = xor i9 %128, -255
+  %130 = call i9 @llvm.bitreverse.i9(i9 %129)
+  %131 = zext i9 %130 to i16
+  %spec.select57 = select i1 %124, i16 257, i16 %131
+  store i16 %spec.select57, ptr %7, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select57, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select57, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %129, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
+  br i1 %.not, label %132, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
 
-129:                                              ; preds = %126
-  %130 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  %spec.select = select i1 %130, ptr %8, ptr %9
-  %spec.select46 = select i1 %130, ptr %9, ptr %8
-  %131 = load <2 x double>, ptr %spec.select46, align 16
-  %132 = shufflevector <2 x double> %131, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %133 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
-  %134 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %132) #46, !srcloc !219
-  %135 = fadd <2 x double> %133, %134
-  %136 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %135) #23, !srcloc !218
-  %137 = bitcast <2 x double> %136 to <2 x i64>
-  %138 = getelementptr inbounds i8, ptr %spec.select46, i64 16
-  %139 = load <2 x double>, ptr %138, align 16
-  %140 = shufflevector <2 x double> %139, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %141 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51) #23, !srcloc !218
-  %142 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %140) #46, !srcloc !219
-  %143 = fadd <2 x double> %141, %142
-  %144 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %143) #23, !srcloc !218
-  %145 = bitcast <2 x double> %144 to <2 x i64>
-  %146 = load <2 x double>, ptr %11, align 16
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %148 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %147) #46, !srcloc !219
-  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %150 = fneg <2 x double> %149
-  %151 = xor <2 x i64> %137, <i64 -9223372036854775808, i64 0>
-  %152 = bitcast <2 x i64> %151 to <2 x double>
-  %153 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %152) #23, !srcloc !218
-  %154 = shufflevector <2 x double> %153, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %155 = fmul <2 x double> %148, %153
-  %156 = fmul <2 x double> %148, %154
-  %157 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %156, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %158 = fmul <2 x double> %153, %150
-  %159 = fmul <2 x double> %154, %150
+132:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %133 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
+  %spec.select = select i1 %133, ptr %8, ptr %9
+  %spec.select46 = select i1 %133, ptr %9, ptr %8
+  %134 = load <2 x double>, ptr %spec.select46, align 16
+  %135 = shufflevector <2 x double> %134, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %136 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.040.0) #23, !srcloc !218
+  %137 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %135) #46, !srcloc !219
+  %138 = fadd <2 x double> %136, %137
+  %139 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %138) #23, !srcloc !218
+  %140 = bitcast <2 x double> %139 to <2 x i64>
+  %141 = getelementptr inbounds i8, ptr %spec.select46, i64 16
+  %142 = load <2 x double>, ptr %141, align 16
+  %143 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %144 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51) #23, !srcloc !218
+  %145 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %143) #46, !srcloc !219
+  %146 = fadd <2 x double> %144, %145
+  %147 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #23, !srcloc !218
+  %148 = bitcast <2 x double> %147 to <2 x i64>
+  %149 = load <2 x double>, ptr %11, align 16
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %151 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %150) #46, !srcloc !219
+  %152 = shufflevector <2 x double> %151, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %153 = fneg <2 x double> %152
+  %154 = xor <2 x i64> %140, <i64 -9223372036854775808, i64 0>
+  %155 = bitcast <2 x i64> %154 to <2 x double>
+  %156 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %155) #23, !srcloc !218
+  %157 = shufflevector <2 x double> %156, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %158 = fmul <2 x double> %151, %156
+  %159 = fmul <2 x double> %151, %157
   %160 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %159, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %161 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %155, <2 x double> %157)
-  %162 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %158, <2 x double> %160)
-  %163 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %161, <2 x double> %162)
-  %164 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %163) #23, !srcloc !218
-  %165 = load <2 x double>, ptr %10, align 16
-  %166 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %165) #46, !srcloc !219
-  %167 = shufflevector <2 x double> %166, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %168 = fneg <2 x double> %167
-  %169 = xor <2 x i64> %145, <i64 -9223372036854775808, i64 0>
-  %170 = bitcast <2 x i64> %169 to <2 x double>
-  %171 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %170) #23, !srcloc !218
-  %172 = shufflevector <2 x double> %171, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %173 = fmul <2 x double> %166, %171
-  %174 = fmul <2 x double> %166, %172
-  %175 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %174, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %176 = fmul <2 x double> %171, %168
-  %177 = fmul <2 x double> %172, %168
+  %161 = fmul <2 x double> %156, %153
+  %162 = fmul <2 x double> %157, %153
+  %163 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %162, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %164 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %158, <2 x double> %160)
+  %165 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %161, <2 x double> %163)
+  %166 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %164, <2 x double> %165)
+  %167 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %166) #23, !srcloc !218
+  %168 = load <2 x double>, ptr %10, align 16
+  %169 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #46, !srcloc !219
+  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %171 = fneg <2 x double> %170
+  %172 = xor <2 x i64> %148, <i64 -9223372036854775808, i64 0>
+  %173 = bitcast <2 x i64> %172 to <2 x double>
+  %174 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %173) #23, !srcloc !218
+  %175 = shufflevector <2 x double> %174, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %176 = fmul <2 x double> %169, %174
+  %177 = fmul <2 x double> %169, %175
   %178 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %177, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %179 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %173, <2 x double> %175)
-  %180 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %176, <2 x double> %178)
-  %181 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %179, <2 x double> %180)
-  %182 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %181) #23, !srcloc !218
-  %183 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %164) #23, !srcloc !218
-  %184 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #46, !srcloc !219
-  %185 = fadd <2 x double> %183, %184
-  %186 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %185) #23, !srcloc !218
-  %187 = extractelement <2 x double> %186, i64 0
-  %188 = fcmp olt double %187, 0.000000e+00
-  br i1 %188, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %189
-
-189:                                              ; preds = %129
-  %190 = extractelement <2 x double> %186, i64 1
-  %191 = fneg double %187
+  %179 = fmul <2 x double> %174, %171
+  %180 = fmul <2 x double> %175, %171
+  %181 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %180, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %182 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %176, <2 x double> %178)
+  %183 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %179, <2 x double> %181)
+  %184 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %182, <2 x double> %183)
+  %185 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %184) #23, !srcloc !218
+  %186 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %167) #23, !srcloc !218
+  %187 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %185) #46, !srcloc !219
+  %188 = fadd <2 x double> %186, %187
+  %189 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %188) #23, !srcloc !218
+  %190 = extractelement <2 x double> %189, i64 0
+  %191 = fneg double %190
   %192 = fcmp olt double %190, 0.000000e+00
-  %193 = fcmp oeq double %190, %191
-  %or.cond = or i1 %192, %193
-  br i1 %or.cond, label %198, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %193 = extractelement <2 x double> %189, i64 1
+  br i1 %192, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %194
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %189, %129
-  %194 = zext i1 %188 to i16
-  %195 = or disjoint i16 %194, 256
-  %196 = trunc nuw i16 %195 to i9
-  %197 = xor i9 %196, -255
-  br label %198
+194:                                              ; preds = %132
+  %195 = fcmp olt double %193, 0.000000e+00
+  br i1 %195, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %196
 
-198:                                              ; preds = %189, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
-  %199 = phi i9 [ %197, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ], [ -255, %189 ]
-  %200 = call i9 @llvm.bitreverse.i9(i9 %199)
-  %.sroa.01.0.insert.insert.i.i25 = zext i9 %200 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i25, 8
-  %.sroa.01.0.insert.insert.i.i25.masked = and i16 %.sroa.01.0.insert.insert.i.i25, 1
-  %201 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i25.masked
-  %202 = trunc i9 %200 to i1
-  %.not8.i = or i1 %201, %202
-  br i1 %.not8.i, label %203, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
+196:                                              ; preds = %194
+  %197 = fcmp oeq double %193, %191
+  br i1 %197, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, label %198
 
-203:                                              ; preds = %198
-  %204 = load <2 x double>, ptr %spec.select, align 16
-  %205 = shufflevector <2 x double> %204, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %206 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %46) #23, !srcloc !218
-  %207 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %205) #46, !srcloc !219
-  %208 = fadd <2 x double> %206, %207
-  %209 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %208) #23, !srcloc !218
-  %210 = bitcast <2 x double> %209 to <2 x i64>
-  %211 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %212 = load <2 x double>, ptr %211, align 16
-  %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %214 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %55) #23, !srcloc !218
-  %215 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %213) #46, !srcloc !219
-  %216 = fadd <2 x double> %214, %215
-  %217 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %216) #23, !srcloc !218
-  %218 = bitcast <2 x double> %217 to <2 x i64>
-  %219 = load <2 x double>, ptr %11, align 16
-  %220 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %221 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %220) #46, !srcloc !219
-  %222 = shufflevector <2 x double> %221, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %223 = fneg <2 x double> %222
-  %224 = xor <2 x i64> %210, <i64 -9223372036854775808, i64 0>
-  %225 = bitcast <2 x i64> %224 to <2 x double>
-  %226 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #23, !srcloc !218
+198:                                              ; preds = %196
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %132, %194, %196, %198
+  %199 = phi i1 [ false, %198 ], [ false, %132 ], [ true, %194 ], [ true, %196 ]
+  %.sroa.5.0.i.i.i.i.i17 = phi i32 [ 1, %198 ], [ 1, %132 ], [ -1, %194 ], [ 0, %196 ]
+  %.sroa.0.0.i.i.i.i.i18 = phi i32 [ -1, %198 ], [ 1, %132 ], [ -1, %194 ], [ 0, %196 ]
+  br i1 %199, label %.thread, label %200
+
+200:                                              ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20
+  %201 = icmp eq i32 %.sroa.0.0.i.i.i.i.i18, %.sroa.5.0.i.i.i.i.i17
+  %202 = zext i1 %201 to i16
+  %203 = or disjoint i16 %202, 256
+  %204 = trunc nuw i16 %203 to i9
+  %205 = xor i9 %204, -255
+  %206 = call i9 @llvm.bitreverse.i9(i9 %205)
+  %207 = zext i9 %206 to i16
+  br i1 %201, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit, label %.thread
+
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20, %200
+  %208 = phi i16 [ %207, %200 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20 ]
+  %209 = load <2 x double>, ptr %spec.select, align 16
+  %210 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %211 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %46) #23, !srcloc !218
+  %212 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %210) #46, !srcloc !219
+  %213 = fadd <2 x double> %211, %212
+  %214 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %213) #23, !srcloc !218
+  %215 = bitcast <2 x double> %214 to <2 x i64>
+  %216 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %217 = load <2 x double>, ptr %216, align 16
+  %218 = shufflevector <2 x double> %217, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %219 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %55) #23, !srcloc !218
+  %220 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %218) #46, !srcloc !219
+  %221 = fadd <2 x double> %219, %220
+  %222 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %221) #23, !srcloc !218
+  %223 = bitcast <2 x double> %222 to <2 x i64>
+  %224 = load <2 x double>, ptr %11, align 16
+  %225 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %226 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #46, !srcloc !219
   %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %228 = fmul <2 x double> %221, %226
-  %229 = fmul <2 x double> %221, %227
-  %230 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %229, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %231 = fmul <2 x double> %226, %223
-  %232 = fmul <2 x double> %227, %223
-  %233 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %232, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %234 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %228, <2 x double> %230)
-  %235 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %231, <2 x double> %233)
-  %236 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %234, <2 x double> %235)
-  %237 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %236) #23, !srcloc !218
-  %238 = load <2 x double>, ptr %10, align 16
-  %239 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %238) #46, !srcloc !219
-  %240 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %241 = fneg <2 x double> %240
-  %242 = xor <2 x i64> %218, <i64 -9223372036854775808, i64 0>
-  %243 = bitcast <2 x i64> %242 to <2 x double>
-  %244 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #23, !srcloc !218
+  %228 = fneg <2 x double> %227
+  %229 = xor <2 x i64> %215, <i64 -9223372036854775808, i64 0>
+  %230 = bitcast <2 x i64> %229 to <2 x double>
+  %231 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %230) #23, !srcloc !218
+  %232 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %233 = fmul <2 x double> %226, %231
+  %234 = fmul <2 x double> %226, %232
+  %235 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %234, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %236 = fmul <2 x double> %231, %228
+  %237 = fmul <2 x double> %232, %228
+  %238 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %237, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %239 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %233, <2 x double> %235)
+  %240 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %236, <2 x double> %238)
+  %241 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %239, <2 x double> %240)
+  %242 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #23, !srcloc !218
+  %243 = load <2 x double>, ptr %10, align 16
+  %244 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %243) #46, !srcloc !219
   %245 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %246 = fmul <2 x double> %239, %244
-  %247 = fmul <2 x double> %239, %245
-  %248 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %247, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %249 = fmul <2 x double> %244, %241
-  %250 = fmul <2 x double> %245, %241
-  %251 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %250, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
-  %252 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %246, <2 x double> %248)
-  %253 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %249, <2 x double> %251)
-  %254 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %252, <2 x double> %253)
-  %255 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #23, !srcloc !218
-  %256 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %237) #23, !srcloc !218
-  %257 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %255) #46, !srcloc !219
-  %258 = fadd <2 x double> %256, %257
-  %259 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %258) #23, !srcloc !218
-  %260 = extractelement <2 x double> %259, i64 0
-  %261 = fcmp olt double %260, 0.000000e+00
-  br i1 %261, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %262
+  %246 = fneg <2 x double> %245
+  %247 = xor <2 x i64> %223, <i64 -9223372036854775808, i64 0>
+  %248 = bitcast <2 x i64> %247 to <2 x double>
+  %249 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %248) #23, !srcloc !218
+  %250 = shufflevector <2 x double> %249, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %251 = fmul <2 x double> %244, %249
+  %252 = fmul <2 x double> %244, %250
+  %253 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %252, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %254 = fmul <2 x double> %249, %246
+  %255 = fmul <2 x double> %250, %246
+  %256 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %255, <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>)
+  %257 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %251, <2 x double> %253)
+  %258 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %254, <2 x double> %256)
+  %259 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %257, <2 x double> %258)
+  %260 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %259) #23, !srcloc !218
+  %261 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %242) #23, !srcloc !218
+  %262 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %260) #46, !srcloc !219
+  %263 = fadd <2 x double> %261, %262
+  %264 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %263) #23, !srcloc !218
+  %265 = extractelement <2 x double> %264, i64 0
+  %266 = fneg double %265
+  %267 = fcmp olt double %265, 0.000000e+00
+  %268 = extractelement <2 x double> %264, i64 1
+  br i1 %267, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %269
 
-262:                                              ; preds = %203
-  %263 = extractelement <2 x double> %259, i64 1
-  %264 = fneg double %260
-  %265 = fcmp olt double %263, 0.000000e+00
-  %266 = fcmp une double %263, %264
-  %or.cond.not.i = or i1 %266, %265
-  br i1 %or.cond.not.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
+269:                                              ; preds = %.thread
+  %270 = fcmp olt double %268, 0.000000e+00
+  br i1 %270, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %271
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
-  %267 = zext i1 %265 to i16
-  %268 = or disjoint i16 %267, 256
-  %269 = trunc nuw i16 %268 to i9
-  %270 = xor i9 %269, -255
+271:                                              ; preds = %269
+  %272 = fcmp oeq double %268, %266
+  br i1 %272, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, label %273
+
+273:                                              ; preds = %271
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i, %262, %203
-  %271 = phi i9 [ %270, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i ], [ -255, %203 ], [ -255, %262 ]
-  %272 = call i9 @llvm.bitreverse.i9(i9 %271)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %272 to i16
-  %273 = and i16 %.sroa.01.0.insert.insert.i.i25, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %273, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i: ; preds = %273, %271, %269, %.thread
+  %.sroa.5.0.i.i.i.i.i.i.i = phi i32 [ 1, %273 ], [ 1, %.thread ], [ -1, %269 ], [ 0, %271 ]
+  %274 = phi i1 [ false, %273 ], [ true, %.thread ], [ false, %269 ], [ true, %271 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ -1, %273 ], [ 1, %.thread ], [ -1, %269 ], [ 0, %271 ]
+  %275 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i.i
+  %276 = zext i1 %275 to i16
+  %277 = or disjoint i16 %276, 256
+  %278 = trunc nuw i16 %277 to i9
+  %279 = xor i9 %278, -255
+  %280 = call i9 @llvm.bitreverse.i9(i9 %279)
+  %281 = zext i9 %280 to i16
+  %spec.select58 = select i1 %274, i16 257, i16 %281
+  %282 = and i16 %208, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %282, %spec.select58
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, %198, %126
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %126 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i ], [ 0, %198 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS6_EES7_EENT_7BooleanERKNSB_10Triangle_3ERKT0_RKSB_EUlRKS6_SM_SM_SM_E_EENS_9UncertainIbEERKSt5arrayISQ_ISB_Lm3EELm3EESU_SI_T3_EUlvE1_EESP_RKSP_OSB_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i, %200, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select57, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i ], [ 0, %200 ]
   ret i16 %.sroa.016.0
 }
 
@@ -128217,9 +128301,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %123 = or disjoint i16 %122, 256
   %124 = trunc nuw i16 %123 to i9
   %125 = xor i9 %124, -255
-  %126 = select i1 %or.cond.i.i, i9 -255, i9 %125
-  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %127 to i16
+  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
+  %127 = zext i9 %126 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %127
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %128 = load ptr, ptr %15, align 8
   br label %129
@@ -128457,9 +128541,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %218 = or disjoint i16 %217, 256
   %219 = trunc nuw i16 %218 to i9
   %220 = xor i9 %219, -255
-  %221 = select i1 %or.cond.i.i80, i9 -255, i9 %220
-  %222 = call i9 @llvm.bitreverse.i9(i9 %221)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %222 to i16
+  %221 = call i9 @llvm.bitreverse.i9(i9 %220)
+  %222 = zext i9 %221 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %222
   store ptr %9, ptr %18, align 8
   %223 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %223, align 8
@@ -128470,7 +128554,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %226 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %227 = trunc i9 %222 to i1
+  %227 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %226, %227
   br i1 %.not7.i, label %228, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi0ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE_EESO_RKSO_OSA_.exit
 
@@ -128917,9 +129001,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %123 = or disjoint i16 %122, 256
   %124 = trunc nuw i16 %123 to i9
   %125 = xor i9 %124, -255
-  %126 = select i1 %or.cond.i.i, i9 -255, i9 %125
-  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %127 to i16
+  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
+  %127 = zext i9 %126 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %127
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %128 = load ptr, ptr %15, align 8
   br label %129
@@ -129157,9 +129241,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %218 = or disjoint i16 %217, 256
   %219 = trunc nuw i16 %218 to i9
   %220 = xor i9 %219, -255
-  %221 = select i1 %or.cond.i.i80, i9 -255, i9 %220
-  %222 = call i9 @llvm.bitreverse.i9(i9 %221)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %222 to i16
+  %221 = call i9 @llvm.bitreverse.i9(i9 %220)
+  %222 = zext i9 %221 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %222
   store ptr %9, ptr %18, align 8
   %223 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %223, align 8
@@ -129170,7 +129254,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %226 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %227 = trunc i9 %222 to i1
+  %227 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %226, %227
   br i1 %.not7.i, label %228, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi0ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE_EESO_RKSO_OSA_.exit
 
@@ -129618,9 +129702,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %124 = or disjoint i16 %123, 256
   %125 = trunc nuw i16 %124 to i9
   %126 = xor i9 %125, -255
-  %127 = select i1 %or.cond.i.i, i9 -255, i9 %126
-  %128 = call i9 @llvm.bitreverse.i9(i9 %127)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %128 to i16
+  %127 = call i9 @llvm.bitreverse.i9(i9 %126)
+  %128 = zext i9 %127 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %128
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %129 = load ptr, ptr %15, align 8
   br label %130
@@ -129858,9 +129942,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %219 = or disjoint i16 %218, 256
   %220 = trunc nuw i16 %219 to i9
   %221 = xor i9 %220, -255
-  %222 = select i1 %or.cond.i.i80, i9 -255, i9 %221
-  %223 = call i9 @llvm.bitreverse.i9(i9 %222)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %223 to i16
+  %222 = call i9 @llvm.bitreverse.i9(i9 %221)
+  %223 = zext i9 %222 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %223
   store ptr %9, ptr %18, align 8
   %224 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %224, align 8
@@ -129871,7 +129955,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %227 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %228 = trunc i9 %223 to i1
+  %228 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %227, %228
   br i1 %.not7.i, label %229, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi0ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE_EESO_RKSO_OSA_.exit
 
@@ -130315,9 +130399,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %120 = or disjoint i16 %119, 256
   %121 = trunc nuw i16 %120 to i9
   %122 = xor i9 %121, -255
-  %123 = select i1 %or.cond.i.i, i9 -255, i9 %122
-  %124 = call i9 @llvm.bitreverse.i9(i9 %123)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %124 to i16
+  %123 = call i9 @llvm.bitreverse.i9(i9 %122)
+  %124 = zext i9 %123 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %124
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %125 = load ptr, ptr %15, align 8
   br label %126
@@ -130547,9 +130631,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %211 = or disjoint i16 %210, 256
   %212 = trunc nuw i16 %211 to i9
   %213 = xor i9 %212, -255
-  %214 = select i1 %or.cond.i.i80, i9 -255, i9 %213
-  %215 = call i9 @llvm.bitreverse.i9(i9 %214)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %215 to i16
+  %214 = call i9 @llvm.bitreverse.i9(i9 %213)
+  %215 = zext i9 %214 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %215
   store ptr %9, ptr %18, align 8
   %216 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %216, align 8
@@ -130560,7 +130644,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %219 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %220 = trunc i9 %215 to i1
+  %220 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %219, %220
   br i1 %.not7.i, label %221, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi1ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE0_EESO_RKSO_OSA_.exit
 
@@ -131005,9 +131089,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %121 = or disjoint i16 %120, 256
   %122 = trunc nuw i16 %121 to i9
   %123 = xor i9 %122, -255
-  %124 = select i1 %or.cond.i.i, i9 -255, i9 %123
-  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %125 to i16
+  %124 = call i9 @llvm.bitreverse.i9(i9 %123)
+  %125 = zext i9 %124 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %125
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %126 = load ptr, ptr %15, align 8
   br label %127
@@ -131237,9 +131321,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %212 = or disjoint i16 %211, 256
   %213 = trunc nuw i16 %212 to i9
   %214 = xor i9 %213, -255
-  %215 = select i1 %or.cond.i.i80, i9 -255, i9 %214
-  %216 = call i9 @llvm.bitreverse.i9(i9 %215)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %216 to i16
+  %215 = call i9 @llvm.bitreverse.i9(i9 %214)
+  %216 = zext i9 %215 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %216
   store ptr %9, ptr %18, align 8
   %217 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %217, align 8
@@ -131250,7 +131334,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %220 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %221 = trunc i9 %216 to i1
+  %221 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %220, %221
   br i1 %.not7.i, label %222, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi1ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE0_EESO_RKSO_OSA_.exit
 
@@ -131696,9 +131780,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %122 = or disjoint i16 %121, 256
   %123 = trunc nuw i16 %122 to i9
   %124 = xor i9 %123, -255
-  %125 = select i1 %or.cond.i.i, i9 -255, i9 %124
-  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %126 to i16
+  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
+  %126 = zext i9 %125 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %126
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %127 = load ptr, ptr %15, align 8
   br label %128
@@ -131928,9 +132012,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %213 = or disjoint i16 %212, 256
   %214 = trunc nuw i16 %213 to i9
   %215 = xor i9 %214, -255
-  %216 = select i1 %or.cond.i.i80, i9 -255, i9 %215
-  %217 = call i9 @llvm.bitreverse.i9(i9 %216)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %217 to i16
+  %216 = call i9 @llvm.bitreverse.i9(i9 %215)
+  %217 = zext i9 %216 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %217
   store ptr %9, ptr %18, align 8
   %218 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %218, align 8
@@ -131941,7 +132025,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %221 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %222 = trunc i9 %217 to i1
+  %222 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %221, %222
   br i1 %.not7.i, label %223, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi1ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE0_EESO_RKSO_OSA_.exit
 
@@ -132385,9 +132469,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %120 = or disjoint i16 %119, 256
   %121 = trunc nuw i16 %120 to i9
   %122 = xor i9 %121, -255
-  %123 = select i1 %or.cond.i.i, i9 -255, i9 %122
-  %124 = call i9 @llvm.bitreverse.i9(i9 %123)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %124 to i16
+  %123 = call i9 @llvm.bitreverse.i9(i9 %122)
+  %124 = zext i9 %123 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %124
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %125 = load ptr, ptr %15, align 8
   br label %126
@@ -132617,9 +132701,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %211 = or disjoint i16 %210, 256
   %212 = trunc nuw i16 %211 to i9
   %213 = xor i9 %212, -255
-  %214 = select i1 %or.cond.i.i80, i9 -255, i9 %213
-  %215 = call i9 @llvm.bitreverse.i9(i9 %214)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %215 to i16
+  %214 = call i9 @llvm.bitreverse.i9(i9 %213)
+  %215 = zext i9 %214 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %215
   store ptr %9, ptr %18, align 8
   %216 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %216, align 8
@@ -132630,7 +132714,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %219 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %220 = trunc i9 %215 to i1
+  %220 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %219, %220
   br i1 %.not7.i, label %221, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi2ELi0EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE1_EESO_RKSO_OSA_.exit
 
@@ -133075,9 +133159,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %121 = or disjoint i16 %120, 256
   %122 = trunc nuw i16 %121 to i9
   %123 = xor i9 %122, -255
-  %124 = select i1 %or.cond.i.i, i9 -255, i9 %123
-  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %125 to i16
+  %124 = call i9 @llvm.bitreverse.i9(i9 %123)
+  %125 = zext i9 %124 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %125
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %126 = load ptr, ptr %15, align 8
   br label %127
@@ -133307,9 +133391,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %212 = or disjoint i16 %211, 256
   %213 = trunc nuw i16 %212 to i9
   %214 = xor i9 %213, -255
-  %215 = select i1 %or.cond.i.i80, i9 -255, i9 %214
-  %216 = call i9 @llvm.bitreverse.i9(i9 %215)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %216 to i16
+  %215 = call i9 @llvm.bitreverse.i9(i9 %214)
+  %216 = zext i9 %215 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %216
   store ptr %9, ptr %18, align 8
   %217 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %217, align 8
@@ -133320,7 +133404,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %220 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %221 = trunc i9 %216 to i1
+  %221 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %220, %221
   br i1 %.not7.i, label %222, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi2ELi1EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE1_EESO_RKSO_OSA_.exit
 
@@ -133766,9 +133850,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %122 = or disjoint i16 %121, 256
   %123 = trunc nuw i16 %122 to i9
   %124 = xor i9 %123, -255
-  %125 = select i1 %or.cond.i.i, i9 -255, i9 %124
-  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %126 to i16
+  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
+  %126 = zext i9 %125 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %126
   store i16 %.sroa.01.0.insert.insert.i.i, ptr %13, align 2
   %127 = load ptr, ptr %15, align 8
   br label %128
@@ -133998,9 +134082,9 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %213 = or disjoint i16 %212, 256
   %214 = trunc nuw i16 %213 to i9
   %215 = xor i9 %214, -255
-  %216 = select i1 %or.cond.i.i80, i9 -255, i9 %215
-  %217 = call i9 @llvm.bitreverse.i9(i9 %216)
-  %.sroa.01.0.insert.insert.i.i81 = zext i9 %217 to i16
+  %216 = call i9 @llvm.bitreverse.i9(i9 %215)
+  %217 = zext i9 %216 to i16
+  %.sroa.01.0.insert.insert.i.i81 = select i1 %or.cond.i.i80, i16 257, i16 %217
   store ptr %9, ptr %18, align 8
   %218 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %7, ptr %218, align 8
@@ -134011,7 +134095,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i81, 8
   %.sroa.01.0.insert.insert.i.i81.masked = and i16 %.sroa.01.0.insert.insert.i.i81, 1
   %221 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i81.masked
-  %222 = trunc i9 %217 to i1
+  %222 = trunc i16 %.sroa.01.0.insert.insert.i.i81 to i1
   %.not7.i = or i1 %221, %222
   br i1 %.not7.i, label %223, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectINS_4MpzfENS_6Bbox_3ELi2ELi2EZNS3_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS5_EES6_EENT_7BooleanERKNSA_10Triangle_3ERKT0_RKSA_EUlRKS5_SL_SL_SL_E_EENS_9UncertainIbEERKSt5arrayISP_ISA_Lm3EELm3EEST_SH_T3_EUlvE1_EESO_RKSO_OSA_.exit
 
@@ -136913,9 +136997,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %40, %43
   %48 = or disjoint i16 %47, 256
   %49 = trunc nuw i16 %48 to i9
   %50 = xor i9 %49, -255
-  %51 = select i1 %or.cond.i.i, i9 -255, i9 %50
-  %52 = call i9 @llvm.bitreverse.i9(i9 %51)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %52 to i16
+  %51 = call i9 @llvm.bitreverse.i9(i9 %50)
+  %52 = zext i9 %51 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %52
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 53:                                               ; preds = %1
@@ -137066,9 +137150,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %40, %43
   %48 = or disjoint i16 %47, 256
   %49 = trunc nuw i16 %48 to i9
   %50 = xor i9 %49, -255
-  %51 = select i1 %or.cond.i.i, i9 -255, i9 %50
-  %52 = call i9 @llvm.bitreverse.i9(i9 %51)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %52 to i16
+  %51 = call i9 @llvm.bitreverse.i9(i9 %50)
+  %52 = zext i9 %51 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %52
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 53:                                               ; preds = %1
@@ -137219,9 +137303,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %40, %43
   %48 = or disjoint i16 %47, 256
   %49 = trunc nuw i16 %48 to i9
   %50 = xor i9 %49, -255
-  %51 = select i1 %or.cond.i.i, i9 -255, i9 %50
-  %52 = call i9 @llvm.bitreverse.i9(i9 %51)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %52 to i16
+  %51 = call i9 @llvm.bitreverse.i9(i9 %50)
+  %52 = zext i9 %51 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %52
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 53:                                               ; preds = %1
@@ -139525,9 +139609,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %37, %40
   %45 = or disjoint i16 %44, 256
   %46 = trunc nuw i16 %45 to i9
   %47 = xor i9 %46, -255
-  %48 = select i1 %or.cond.i.i, i9 -255, i9 %47
-  %49 = call i9 @llvm.bitreverse.i9(i9 %48)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %49 to i16
+  %48 = call i9 @llvm.bitreverse.i9(i9 %47)
+  %49 = zext i9 %48 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %49
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 50:                                               ; preds = %1
@@ -139676,9 +139760,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %46 = or disjoint i16 %45, 256
   %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
-  %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
-  %50 = call i9 @llvm.bitreverse.i9(i9 %49)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %50 to i16
+  %49 = call i9 @llvm.bitreverse.i9(i9 %48)
+  %50 = zext i9 %49 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %50
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 51:                                               ; preds = %1
@@ -139827,9 +139911,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %46 = or disjoint i16 %45, 256
   %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
-  %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
-  %50 = call i9 @llvm.bitreverse.i9(i9 %49)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %50 to i16
+  %49 = call i9 @llvm.bitreverse.i9(i9 %48)
+  %50 = zext i9 %49 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %50
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 51:                                               ; preds = %1
@@ -142133,9 +142217,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %37, %40
   %45 = or disjoint i16 %44, 256
   %46 = trunc nuw i16 %45 to i9
   %47 = xor i9 %46, -255
-  %48 = select i1 %or.cond.i.i, i9 -255, i9 %47
-  %49 = call i9 @llvm.bitreverse.i9(i9 %48)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %49 to i16
+  %48 = call i9 @llvm.bitreverse.i9(i9 %47)
+  %49 = zext i9 %48 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %49
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 50:                                               ; preds = %1
@@ -142284,9 +142368,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %46 = or disjoint i16 %45, 256
   %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
-  %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
-  %50 = call i9 @llvm.bitreverse.i9(i9 %49)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %50 to i16
+  %49 = call i9 @llvm.bitreverse.i9(i9 %48)
+  %50 = zext i9 %49 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %50
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 51:                                               ; preds = %1
@@ -142435,9 +142519,9 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %46 = or disjoint i16 %45, 256
   %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
-  %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
-  %50 = call i9 @llvm.bitreverse.i9(i9 %49)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %50 to i16
+  %49 = call i9 @llvm.bitreverse.i9(i9 %48)
+  %50 = zext i9 %49 to i16
+  %.sroa.01.0.insert.insert.i.i = select i1 %or.cond.i.i, i16 257, i16 %50
   ret i16 %.sroa.01.0.insert.insert.i.i
 
 51:                                               ; preds = %1
@@ -143025,16 +143109,16 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi0EEEvRKT_S6_S6_RKT0_
   %10 = fcmp olt double %6, 0.000000e+00
   %11 = fcmp ogt double %9, 0.000000e+00
   %. = select i1 %10, i64 8, i64 32
-  %.55 = select i1 %10, i64 32, i64 8
+  %.57 = select i1 %10, i64 32, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 %.
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.55
-  %.51 = select i1 %11, i64 16, i64 40
-  %.52 = select i1 %11, i64 40, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.57
+  %.53 = select i1 %11, i64 16, i64 40
+  %.54 = select i1 %11, i64 40, i64 16
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.53
   %.sroa.9.0 = load double, ptr %15, align 8
   %.sink79.i = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 %.52
+  %16 = getelementptr inbounds i8, ptr %2, i64 %.54
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load double, ptr %18, align 8
@@ -143072,168 +143156,175 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi0EEEvRKT_S6_S6_RKT0_
   %41 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %42 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %41, %42
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %43
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %43
 
 43:                                               ; preds = %40
   %44 = fmul double %.020.i.i, %.019.i.i
   %45 = fmul double %44, 0x3CD0028010000004
   %46 = fcmp ogt double %29, %45
-  br i1 %46, label %54, label %47
+  br i1 %46, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %47
 
 47:                                               ; preds = %43
   %48 = fneg double %45
   %49 = fcmp olt double %29, %48
-  br i1 %49, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %50
+  br i1 %49, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %50
 
 50:                                               ; preds = %47
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %50, %40, %47
-  %51 = phi i16 [ 257, %47 ], [ 256, %40 ], [ 256, %50 ]
-  %52 = trunc nuw i16 %51 to i9
-  %53 = xor i9 %52, -255
-  br label %54
-
-54:                                               ; preds = %43, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %55 = phi i9 [ %53, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %43 ]
-  %56 = tail call i9 @llvm.bitreverse.i9(i9 %55)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %56 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %40, %43, %47, %50
+  %51 = phi i1 [ false, %50 ], [ false, %40 ], [ true, %43 ], [ false, %47 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %50 ], [ -1, %40 ], [ 1, %43 ], [ -1, %47 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %50 ], [ 1, %40 ], [ 1, %43 ], [ -1, %47 ]
+  %52 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %53 = zext i1 %52 to i16
+  %54 = or disjoint i16 %53, 256
+  %55 = trunc nuw i16 %54 to i9
+  %56 = xor i9 %55, -255
+  %57 = tail call i9 @llvm.bitreverse.i9(i9 %56)
+  %58 = zext i9 %57 to i16
+  %spec.select50 = select i1 %51, i16 257, i16 %58
+  store i16 %spec.select50, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select50, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select50, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %57, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %59, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
 
-57:                                               ; preds = %54
-  %58 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %58, ptr %0, ptr %4
-  %spec.select45 = select i1 %58, ptr %4, ptr %0
-  %59 = getelementptr inbounds i8, ptr %spec.select45, i64 8
-  %60 = load double, ptr %59, align 8
-  %61 = fsub double %13, %60
-  %62 = getelementptr inbounds i8, ptr %spec.select45, i64 16
-  %63 = load double, ptr %62, align 8
-  %64 = fsub double %.sroa.9.0, %63
-  %65 = load double, ptr %5, align 8
-  %66 = load double, ptr %8, align 8
-  %67 = fneg double %65
-  %68 = fmul double %64, %66
-  %69 = call double @llvm.fmuladd.f64(double %67, double %61, double %68)
-  %70 = call noundef double @llvm.fabs.f64(double %65)
-  %71 = call noundef double @llvm.fabs.f64(double %66)
-  %72 = fcmp olt double %70, %71
-  %.020.i.i18 = select i1 %72, double %71, double %70
-  %73 = call noundef double @llvm.fabs.f64(double %61)
-  %74 = call noundef double @llvm.fabs.f64(double %64)
-  %75 = fcmp olt double %73, %74
-  %.019.i.i19 = select i1 %75, double %74, double %73
-  %76 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %76, label %80, label %77
+59:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %60 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %60, ptr %0, ptr %4
+  %spec.select45 = select i1 %60, ptr %4, ptr %0
+  %61 = getelementptr inbounds i8, ptr %spec.select45, i64 8
+  %62 = load double, ptr %61, align 8
+  %63 = fsub double %13, %62
+  %64 = getelementptr inbounds i8, ptr %spec.select45, i64 16
+  %65 = load double, ptr %64, align 8
+  %66 = fsub double %.sroa.9.0, %65
+  %67 = load double, ptr %5, align 8
+  %68 = load double, ptr %8, align 8
+  %69 = fneg double %67
+  %70 = fmul double %66, %68
+  %71 = call double @llvm.fmuladd.f64(double %69, double %63, double %70)
+  %72 = call noundef double @llvm.fabs.f64(double %67)
+  %73 = call noundef double @llvm.fabs.f64(double %68)
+  %74 = fcmp olt double %72, %73
+  %.020.i.i18 = select i1 %74, double %73, double %72
+  %75 = call noundef double @llvm.fabs.f64(double %63)
+  %76 = call noundef double @llvm.fabs.f64(double %66)
+  %77 = fcmp olt double %75, %76
+  %.019.i.i19 = select i1 %77, double %76, double %75
+  %78 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %78, label %82, label %79
 
-77:                                               ; preds = %57
-  %78 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %78, label %79, label %80
+79:                                               ; preds = %59
+  %80 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %77
-  br label %80
+81:                                               ; preds = %79
+  br label %82
 
-80:                                               ; preds = %79, %77, %57
-  %.018.i.i20 = phi double [ %.020.i.i18, %79 ], [ %.020.i.i18, %77 ], [ %.019.i.i19, %57 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %79 ], [ %.020.i.i18, %77 ], [ %.020.i.i18, %57 ]
-  %81 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %82 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %81, %82
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %83
+82:                                               ; preds = %81, %79, %59
+  %.018.i.i20 = phi double [ %.020.i.i18, %81 ], [ %.020.i.i18, %79 ], [ %.019.i.i19, %59 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %81 ], [ %.020.i.i18, %79 ], [ %.020.i.i18, %59 ]
+  %83 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %84 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %83, %84
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %85
 
-83:                                               ; preds = %80
-  %84 = fmul double %.019.i.i19, %.020.i.i18
-  %85 = fmul double %84, 0x3CD0028010000004
-  %86 = fcmp ogt double %69, %85
-  br i1 %86, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %87
+85:                                               ; preds = %82
+  %86 = fmul double %.019.i.i19, %.020.i.i18
+  %87 = fmul double %86, 0x3CD0028010000004
+  %88 = fcmp ogt double %71, %87
+  br i1 %88, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %89
 
-87:                                               ; preds = %83
-  %88 = fneg double %85
-  %89 = fcmp olt double %69, %88
-  br i1 %89, label %93, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+89:                                               ; preds = %85
+  %90 = fneg double %87
+  %91 = fcmp olt double %71, %90
+  br i1 %91, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %92
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %80, %83, %87
-  %90 = phi i16 [ 257, %83 ], [ 256, %80 ], [ 256, %87 ]
-  %91 = trunc nuw i16 %90 to i9
-  %92 = xor i9 %91, -255
-  br label %93
+92:                                               ; preds = %89
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-93:                                               ; preds = %87, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %94 = phi i9 [ %92, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %87 ]
-  %95 = call i9 @llvm.bitreverse.i9(i9 %94)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %95 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %96 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %97 = trunc i9 %95 to i1
-  %.not7.i = or i1 %96, %97
-  br i1 %.not7.i, label %98, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %82, %85, %89, %92
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %92 ], [ -1, %82 ], [ 1, %85 ], [ -1, %89 ]
+  %93 = phi i1 [ false, %92 ], [ false, %82 ], [ false, %85 ], [ true, %89 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %92 ], [ 1, %82 ], [ 1, %85 ], [ -1, %89 ]
+  br i1 %93, label %.thread, label %94
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %100 = load double, ptr %99, align 8
-  %101 = fsub double %.sink79.i, %100
-  %102 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %103 = load double, ptr %102, align 8
-  %104 = fsub double %17, %103
-  %105 = fmul double %66, %104
-  %106 = call double @llvm.fmuladd.f64(double %67, double %101, double %105)
-  %107 = call noundef double @llvm.fabs.f64(double %101)
-  %108 = call noundef double @llvm.fabs.f64(double %104)
-  %109 = fcmp olt double %107, %108
-  %.019.i.i.i.i = select i1 %109, double %108, double %107
-  %110 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %110, label %114, label %111
+94:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %95 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %96 = zext i1 %95 to i16
+  %97 = or disjoint i16 %96, 256
+  %98 = trunc nuw i16 %97 to i9
+  %99 = xor i9 %98, -255
+  %100 = call i9 @llvm.bitreverse.i9(i9 %99)
+  %101 = zext i9 %100 to i16
+  br i1 %95, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit, label %.thread
 
-111:                                              ; preds = %98
-  %112 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %112, label %113, label %114
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %94
+  %102 = phi i16 [ %101, %94 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %103 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %104 = load double, ptr %103, align 8
+  %105 = fsub double %.sink79.i, %104
+  %106 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %107 = load double, ptr %106, align 8
+  %108 = fsub double %17, %107
+  %109 = fmul double %68, %108
+  %110 = call double @llvm.fmuladd.f64(double %69, double %105, double %109)
+  %111 = call noundef double @llvm.fabs.f64(double %105)
+  %112 = call noundef double @llvm.fabs.f64(double %108)
+  %113 = fcmp olt double %111, %112
+  %.019.i.i.i.i = select i1 %113, double %112, double %111
+  %114 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %114, label %118, label %115
 
-113:                                              ; preds = %111
-  br label %114
+115:                                              ; preds = %.thread
+  %116 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %116, label %117, label %118
 
-114:                                              ; preds = %113, %111, %98
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %113 ], [ %.020.i.i18, %111 ], [ %.019.i.i.i.i, %98 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %113 ], [ %.020.i.i18, %111 ], [ %.020.i.i18, %98 ]
-  %115 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %116 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %115, %116
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %117
+117:                                              ; preds = %115
+  br label %118
 
-117:                                              ; preds = %114
-  %118 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %119 = fmul double %118, 0x3CD0028010000004
-  %120 = fcmp ogt double %106, %119
-  br i1 %120, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %121
+118:                                              ; preds = %117, %115, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %117 ], [ %.020.i.i18, %115 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %117 ], [ %.020.i.i18, %115 ], [ %.020.i.i18, %.thread ]
+  %119 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %120 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %119, %120
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %121
 
-121:                                              ; preds = %117
-  %122 = fneg double %119
-  %123 = fcmp olt double %106, %122
-  br i1 %123, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %124
+121:                                              ; preds = %118
+  %122 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %123 = fmul double %122, 0x3CD0028010000004
+  %124 = fcmp ogt double %110, %123
+  br i1 %124, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %125
 
-124:                                              ; preds = %121
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+125:                                              ; preds = %121
+  %126 = fneg double %123
+  %127 = fcmp olt double %110, %126
+  br i1 %127, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %128
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %124, %121, %114
-  %125 = phi i16 [ 257, %121 ], [ 256, %114 ], [ 256, %124 ]
-  %126 = trunc nuw i16 %125 to i9
-  %127 = xor i9 %126, -255
+128:                                              ; preds = %125
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %117
-  %128 = phi i9 [ %127, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %117 ]
-  %129 = call i9 @llvm.bitreverse.i9(i9 %128)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %129 to i16
-  %130 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %130, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i: ; preds = %128, %125, %121, %118
+  %129 = phi i1 [ false, %128 ], [ false, %118 ], [ true, %121 ], [ false, %125 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %128 ], [ -1, %118 ], [ 1, %121 ], [ -1, %125 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %128 ], [ 1, %118 ], [ 1, %121 ], [ -1, %125 ]
+  %130 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %131 = zext i1 %130 to i16
+  %132 = or disjoint i16 %131, 256
+  %133 = trunc nuw i16 %132 to i9
+  %134 = xor i9 %133, -255
+  %135 = call i9 @llvm.bitreverse.i9(i9 %134)
+  %136 = zext i9 %135 to i16
+  %spec.select51 = select i1 %129, i16 257, i16 %136
+  %137 = and i16 %102, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %137, %spec.select51
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, %93, %54
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %54 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i ], [ 0, %93 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, %94, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select50, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i ], [ 0, %94 ]
   ret i16 %.sroa.016.0
 }
 
@@ -143249,16 +143340,16 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi0EEEvRKT_S6_S6_RKT0_
   %9 = fcmp olt double %6, 0.000000e+00
   %10 = fcmp ogt double %8, 0.000000e+00
   %. = select i1 %9, i64 8, i64 32
-  %.55 = select i1 %9, i64 32, i64 8
+  %.57 = select i1 %9, i64 32, i64 8
   %11 = getelementptr inbounds i8, ptr %2, i64 %.
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 %.55
-  %.51 = select i1 %10, i64 16, i64 40
-  %.52 = select i1 %10, i64 40, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %13 = getelementptr inbounds i8, ptr %2, i64 %.57
+  %.53 = select i1 %10, i64 16, i64 40
+  %.54 = select i1 %10, i64 40, i64 16
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.53
   %.sroa.9.0 = load double, ptr %14, align 8
   %.sink79.i = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.52
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.54
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load double, ptr %17, align 8
@@ -143297,168 +143388,175 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi0EEEvRKT_S6_S6_RKT0_
   %41 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %42 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %41, %42
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %43
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %43
 
 43:                                               ; preds = %40
   %44 = fmul double %.019.i.i, %.020.i.i
   %45 = fmul double %44, 0x3CD0028010000004
   %46 = fcmp ogt double %29, %45
-  br i1 %46, label %54, label %47
+  br i1 %46, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %47
 
 47:                                               ; preds = %43
   %48 = fneg double %45
   %49 = fcmp olt double %29, %48
-  br i1 %49, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %50
+  br i1 %49, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %50
 
 50:                                               ; preds = %47
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %50, %40, %47
-  %51 = phi i16 [ 257, %47 ], [ 256, %40 ], [ 256, %50 ]
-  %52 = trunc nuw i16 %51 to i9
-  %53 = xor i9 %52, -255
-  br label %54
-
-54:                                               ; preds = %43, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %55 = phi i9 [ %53, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %43 ]
-  %56 = tail call i9 @llvm.bitreverse.i9(i9 %55)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %56 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %40, %43, %47, %50
+  %51 = phi i1 [ false, %50 ], [ false, %40 ], [ true, %43 ], [ false, %47 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %50 ], [ -1, %40 ], [ 1, %43 ], [ -1, %47 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %50 ], [ 1, %40 ], [ 1, %43 ], [ -1, %47 ]
+  %52 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %53 = zext i1 %52 to i16
+  %54 = or disjoint i16 %53, 256
+  %55 = trunc nuw i16 %54 to i9
+  %56 = xor i9 %55, -255
+  %57 = tail call i9 @llvm.bitreverse.i9(i9 %56)
+  %58 = zext i9 %57 to i16
+  %spec.select50 = select i1 %51, i16 257, i16 %58
+  store i16 %spec.select50, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select50, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select50, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %57, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %59, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
 
-57:                                               ; preds = %54
-  %58 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %58, ptr %4, ptr %0
-  %spec.select45 = select i1 %58, ptr %0, ptr %4
-  %59 = getelementptr inbounds i8, ptr %spec.select45, i64 8
-  %60 = load double, ptr %59, align 8
-  %61 = fsub double %12, %60
-  %62 = getelementptr inbounds i8, ptr %spec.select45, i64 16
-  %63 = load double, ptr %62, align 8
-  %64 = fsub double %.sroa.9.0, %63
-  %65 = load double, ptr %5, align 8
-  %66 = load double, ptr %7, align 8
-  %67 = fneg double %65
-  %68 = fmul double %64, %66
-  %69 = call double @llvm.fmuladd.f64(double %67, double %61, double %68)
-  %70 = call noundef double @llvm.fabs.f64(double %65)
-  %71 = call noundef double @llvm.fabs.f64(double %66)
-  %72 = fcmp olt double %70, %71
-  %.020.i.i18 = select i1 %72, double %71, double %70
-  %73 = call noundef double @llvm.fabs.f64(double %61)
-  %74 = call noundef double @llvm.fabs.f64(double %64)
-  %75 = fcmp olt double %73, %74
-  %.019.i.i19 = select i1 %75, double %74, double %73
-  %76 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %76, label %80, label %77
+59:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %60 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %60, ptr %4, ptr %0
+  %spec.select45 = select i1 %60, ptr %0, ptr %4
+  %61 = getelementptr inbounds i8, ptr %spec.select45, i64 8
+  %62 = load double, ptr %61, align 8
+  %63 = fsub double %12, %62
+  %64 = getelementptr inbounds i8, ptr %spec.select45, i64 16
+  %65 = load double, ptr %64, align 8
+  %66 = fsub double %.sroa.9.0, %65
+  %67 = load double, ptr %5, align 8
+  %68 = load double, ptr %7, align 8
+  %69 = fneg double %67
+  %70 = fmul double %66, %68
+  %71 = call double @llvm.fmuladd.f64(double %69, double %63, double %70)
+  %72 = call noundef double @llvm.fabs.f64(double %67)
+  %73 = call noundef double @llvm.fabs.f64(double %68)
+  %74 = fcmp olt double %72, %73
+  %.020.i.i18 = select i1 %74, double %73, double %72
+  %75 = call noundef double @llvm.fabs.f64(double %63)
+  %76 = call noundef double @llvm.fabs.f64(double %66)
+  %77 = fcmp olt double %75, %76
+  %.019.i.i19 = select i1 %77, double %76, double %75
+  %78 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %78, label %82, label %79
 
-77:                                               ; preds = %57
-  %78 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %78, label %79, label %80
+79:                                               ; preds = %59
+  %80 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %77
-  br label %80
+81:                                               ; preds = %79
+  br label %82
 
-80:                                               ; preds = %79, %77, %57
-  %.018.i.i20 = phi double [ %.020.i.i18, %79 ], [ %.020.i.i18, %77 ], [ %.019.i.i19, %57 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %79 ], [ %.020.i.i18, %77 ], [ %.020.i.i18, %57 ]
-  %81 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %82 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %81, %82
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %83
+82:                                               ; preds = %81, %79, %59
+  %.018.i.i20 = phi double [ %.020.i.i18, %81 ], [ %.020.i.i18, %79 ], [ %.019.i.i19, %59 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %81 ], [ %.020.i.i18, %79 ], [ %.020.i.i18, %59 ]
+  %83 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %84 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %83, %84
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %85
 
-83:                                               ; preds = %80
-  %84 = fmul double %.019.i.i19, %.020.i.i18
-  %85 = fmul double %84, 0x3CD0028010000004
-  %86 = fcmp ogt double %69, %85
-  br i1 %86, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %87
+85:                                               ; preds = %82
+  %86 = fmul double %.019.i.i19, %.020.i.i18
+  %87 = fmul double %86, 0x3CD0028010000004
+  %88 = fcmp ogt double %71, %87
+  br i1 %88, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %89
 
-87:                                               ; preds = %83
-  %88 = fneg double %85
-  %89 = fcmp olt double %69, %88
-  br i1 %89, label %93, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+89:                                               ; preds = %85
+  %90 = fneg double %87
+  %91 = fcmp olt double %71, %90
+  br i1 %91, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %92
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %80, %83, %87
-  %90 = phi i16 [ 257, %83 ], [ 256, %80 ], [ 256, %87 ]
-  %91 = trunc nuw i16 %90 to i9
-  %92 = xor i9 %91, -255
-  br label %93
+92:                                               ; preds = %89
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-93:                                               ; preds = %87, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %94 = phi i9 [ %92, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %87 ]
-  %95 = call i9 @llvm.bitreverse.i9(i9 %94)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %95 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %96 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %97 = trunc i9 %95 to i1
-  %.not7.i = or i1 %96, %97
-  br i1 %.not7.i, label %98, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %82, %85, %89, %92
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %92 ], [ -1, %82 ], [ 1, %85 ], [ -1, %89 ]
+  %93 = phi i1 [ false, %92 ], [ false, %82 ], [ false, %85 ], [ true, %89 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %92 ], [ 1, %82 ], [ 1, %85 ], [ -1, %89 ]
+  br i1 %93, label %.thread, label %94
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %100 = load double, ptr %99, align 8
-  %101 = fsub double %.sink79.i, %100
-  %102 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %103 = load double, ptr %102, align 8
-  %104 = fsub double %16, %103
-  %105 = fmul double %66, %104
-  %106 = call double @llvm.fmuladd.f64(double %67, double %101, double %105)
-  %107 = call noundef double @llvm.fabs.f64(double %101)
-  %108 = call noundef double @llvm.fabs.f64(double %104)
-  %109 = fcmp olt double %107, %108
-  %.019.i.i.i.i = select i1 %109, double %108, double %107
-  %110 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %110, label %114, label %111
+94:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %95 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %96 = zext i1 %95 to i16
+  %97 = or disjoint i16 %96, 256
+  %98 = trunc nuw i16 %97 to i9
+  %99 = xor i9 %98, -255
+  %100 = call i9 @llvm.bitreverse.i9(i9 %99)
+  %101 = zext i9 %100 to i16
+  br i1 %95, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit, label %.thread
 
-111:                                              ; preds = %98
-  %112 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %112, label %113, label %114
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %94
+  %102 = phi i16 [ %101, %94 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %103 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %104 = load double, ptr %103, align 8
+  %105 = fsub double %.sink79.i, %104
+  %106 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %107 = load double, ptr %106, align 8
+  %108 = fsub double %16, %107
+  %109 = fmul double %68, %108
+  %110 = call double @llvm.fmuladd.f64(double %69, double %105, double %109)
+  %111 = call noundef double @llvm.fabs.f64(double %105)
+  %112 = call noundef double @llvm.fabs.f64(double %108)
+  %113 = fcmp olt double %111, %112
+  %.019.i.i.i.i = select i1 %113, double %112, double %111
+  %114 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %114, label %118, label %115
 
-113:                                              ; preds = %111
-  br label %114
+115:                                              ; preds = %.thread
+  %116 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %116, label %117, label %118
 
-114:                                              ; preds = %113, %111, %98
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %113 ], [ %.020.i.i18, %111 ], [ %.019.i.i.i.i, %98 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %113 ], [ %.020.i.i18, %111 ], [ %.020.i.i18, %98 ]
-  %115 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %116 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %115, %116
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %117
+117:                                              ; preds = %115
+  br label %118
 
-117:                                              ; preds = %114
-  %118 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %119 = fmul double %118, 0x3CD0028010000004
-  %120 = fcmp ogt double %106, %119
-  br i1 %120, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %121
+118:                                              ; preds = %117, %115, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %117 ], [ %.020.i.i18, %115 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %117 ], [ %.020.i.i18, %115 ], [ %.020.i.i18, %.thread ]
+  %119 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %120 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %119, %120
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %121
 
-121:                                              ; preds = %117
-  %122 = fneg double %119
-  %123 = fcmp olt double %106, %122
-  br i1 %123, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %124
+121:                                              ; preds = %118
+  %122 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %123 = fmul double %122, 0x3CD0028010000004
+  %124 = fcmp ogt double %110, %123
+  br i1 %124, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %125
 
-124:                                              ; preds = %121
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+125:                                              ; preds = %121
+  %126 = fneg double %123
+  %127 = fcmp olt double %110, %126
+  br i1 %127, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %128
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %124, %121, %114
-  %125 = phi i16 [ 257, %121 ], [ 256, %114 ], [ 256, %124 ]
-  %126 = trunc nuw i16 %125 to i9
-  %127 = xor i9 %126, -255
+128:                                              ; preds = %125
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %117
-  %128 = phi i9 [ %127, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %117 ]
-  %129 = call i9 @llvm.bitreverse.i9(i9 %128)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %129 to i16
-  %130 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %130, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i: ; preds = %128, %125, %121, %118
+  %129 = phi i1 [ false, %128 ], [ false, %118 ], [ true, %121 ], [ false, %125 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %128 ], [ -1, %118 ], [ 1, %121 ], [ -1, %125 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %128 ], [ 1, %118 ], [ 1, %121 ], [ -1, %125 ]
+  %130 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %131 = zext i1 %130 to i16
+  %132 = or disjoint i16 %131, 256
+  %133 = trunc nuw i16 %132 to i9
+  %134 = xor i9 %133, -255
+  %135 = call i9 @llvm.bitreverse.i9(i9 %134)
+  %136 = zext i9 %135 to i16
+  %spec.select51 = select i1 %129, i16 257, i16 %136
+  %137 = and i16 %102, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %137, %spec.select51
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, %93, %54
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %54 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i ], [ 0, %93 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, %94, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select50, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i ], [ 0, %94 ]
   ret i16 %.sroa.016.0
 }
 
@@ -143475,16 +143573,16 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi0EEEvRKT_S6_S6_RKT0_
   %10 = fcmp olt double %7, 0.000000e+00
   %11 = fcmp ogt double %9, 0.000000e+00
   %. = select i1 %10, i64 8, i64 32
-  %.55 = select i1 %10, i64 32, i64 8
+  %.57 = select i1 %10, i64 32, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 %.
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.55
-  %.51 = select i1 %11, i64 16, i64 40
-  %.52 = select i1 %11, i64 40, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.57
+  %.53 = select i1 %11, i64 16, i64 40
+  %.54 = select i1 %11, i64 40, i64 16
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.53
   %.sroa.9.0 = load double, ptr %15, align 8
   %.sink79.i = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 %.52
+  %16 = getelementptr inbounds i8, ptr %2, i64 %.54
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load double, ptr %18, align 8
@@ -143523,168 +143621,175 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi0EEEvRKT_S6_S6_RKT0_
   %42 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %43 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %42, %43
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %44
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %44
 
 44:                                               ; preds = %41
   %45 = fmul double %.019.i.i, %.020.i.i
   %46 = fmul double %45, 0x3CD0028010000004
   %47 = fcmp ogt double %30, %46
-  br i1 %47, label %55, label %48
+  br i1 %47, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %48
 
 48:                                               ; preds = %44
   %49 = fneg double %46
   %50 = fcmp olt double %30, %49
-  br i1 %50, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %51
+  br i1 %50, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %51
 
 51:                                               ; preds = %48
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %51, %41, %48
-  %52 = phi i16 [ 257, %48 ], [ 256, %41 ], [ 256, %51 ]
-  %53 = trunc nuw i16 %52 to i9
-  %54 = xor i9 %53, -255
-  br label %55
-
-55:                                               ; preds = %44, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %56 = phi i9 [ %54, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %44 ]
-  %57 = tail call i9 @llvm.bitreverse.i9(i9 %56)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %57 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %41, %44, %48, %51
+  %52 = phi i1 [ false, %51 ], [ false, %41 ], [ true, %44 ], [ false, %48 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %51 ], [ -1, %41 ], [ 1, %44 ], [ -1, %48 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %51 ], [ 1, %41 ], [ 1, %44 ], [ -1, %48 ]
+  %53 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %54 = zext i1 %53 to i16
+  %55 = or disjoint i16 %54, 256
+  %56 = trunc nuw i16 %55 to i9
+  %57 = xor i9 %56, -255
+  %58 = tail call i9 @llvm.bitreverse.i9(i9 %57)
+  %59 = zext i9 %58 to i16
+  %spec.select50 = select i1 %52, i16 257, i16 %59
+  store i16 %spec.select50, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select50, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select50, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %58, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %60, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
 
-58:                                               ; preds = %55
-  %59 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %59, ptr %4, ptr %5
-  %spec.select45 = select i1 %59, ptr %5, ptr %4
-  %60 = getelementptr inbounds i8, ptr %spec.select45, i64 8
-  %61 = load double, ptr %60, align 8
-  %62 = fsub double %13, %61
-  %63 = getelementptr inbounds i8, ptr %spec.select45, i64 16
-  %64 = load double, ptr %63, align 8
-  %65 = fsub double %.sroa.9.0, %64
-  %66 = load double, ptr %6, align 8
-  %67 = load double, ptr %8, align 8
-  %68 = fneg double %66
-  %69 = fmul double %65, %67
-  %70 = call double @llvm.fmuladd.f64(double %68, double %62, double %69)
-  %71 = call noundef double @llvm.fabs.f64(double %66)
-  %72 = call noundef double @llvm.fabs.f64(double %67)
-  %73 = fcmp olt double %71, %72
-  %.020.i.i18 = select i1 %73, double %72, double %71
-  %74 = call noundef double @llvm.fabs.f64(double %62)
-  %75 = call noundef double @llvm.fabs.f64(double %65)
-  %76 = fcmp olt double %74, %75
-  %.019.i.i19 = select i1 %76, double %75, double %74
-  %77 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %77, label %81, label %78
+60:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %61 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %61, ptr %4, ptr %5
+  %spec.select45 = select i1 %61, ptr %5, ptr %4
+  %62 = getelementptr inbounds i8, ptr %spec.select45, i64 8
+  %63 = load double, ptr %62, align 8
+  %64 = fsub double %13, %63
+  %65 = getelementptr inbounds i8, ptr %spec.select45, i64 16
+  %66 = load double, ptr %65, align 8
+  %67 = fsub double %.sroa.9.0, %66
+  %68 = load double, ptr %6, align 8
+  %69 = load double, ptr %8, align 8
+  %70 = fneg double %68
+  %71 = fmul double %67, %69
+  %72 = call double @llvm.fmuladd.f64(double %70, double %64, double %71)
+  %73 = call noundef double @llvm.fabs.f64(double %68)
+  %74 = call noundef double @llvm.fabs.f64(double %69)
+  %75 = fcmp olt double %73, %74
+  %.020.i.i18 = select i1 %75, double %74, double %73
+  %76 = call noundef double @llvm.fabs.f64(double %64)
+  %77 = call noundef double @llvm.fabs.f64(double %67)
+  %78 = fcmp olt double %76, %77
+  %.019.i.i19 = select i1 %78, double %77, double %76
+  %79 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %79, label %83, label %80
 
-78:                                               ; preds = %58
-  %79 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %79, label %80, label %81
+80:                                               ; preds = %60
+  %81 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %81, label %82, label %83
 
-80:                                               ; preds = %78
-  br label %81
+82:                                               ; preds = %80
+  br label %83
 
-81:                                               ; preds = %80, %78, %58
-  %.018.i.i20 = phi double [ %.020.i.i18, %80 ], [ %.020.i.i18, %78 ], [ %.019.i.i19, %58 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %80 ], [ %.020.i.i18, %78 ], [ %.020.i.i18, %58 ]
-  %82 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %83 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %82, %83
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %84
+83:                                               ; preds = %82, %80, %60
+  %.018.i.i20 = phi double [ %.020.i.i18, %82 ], [ %.020.i.i18, %80 ], [ %.019.i.i19, %60 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %82 ], [ %.020.i.i18, %80 ], [ %.020.i.i18, %60 ]
+  %84 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %85 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %84, %85
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %86
 
-84:                                               ; preds = %81
-  %85 = fmul double %.019.i.i19, %.020.i.i18
-  %86 = fmul double %85, 0x3CD0028010000004
-  %87 = fcmp ogt double %70, %86
-  br i1 %87, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %88
+86:                                               ; preds = %83
+  %87 = fmul double %.019.i.i19, %.020.i.i18
+  %88 = fmul double %87, 0x3CD0028010000004
+  %89 = fcmp ogt double %72, %88
+  br i1 %89, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %90
 
-88:                                               ; preds = %84
-  %89 = fneg double %86
-  %90 = fcmp olt double %70, %89
-  br i1 %90, label %94, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+90:                                               ; preds = %86
+  %91 = fneg double %88
+  %92 = fcmp olt double %72, %91
+  br i1 %92, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %93
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %81, %84, %88
-  %91 = phi i16 [ 257, %84 ], [ 256, %81 ], [ 256, %88 ]
-  %92 = trunc nuw i16 %91 to i9
-  %93 = xor i9 %92, -255
-  br label %94
+93:                                               ; preds = %90
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-94:                                               ; preds = %88, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %95 = phi i9 [ %93, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %88 ]
-  %96 = call i9 @llvm.bitreverse.i9(i9 %95)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %96 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %97 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %98 = trunc i9 %96 to i1
-  %.not7.i = or i1 %97, %98
-  br i1 %.not7.i, label %99, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %83, %86, %90, %93
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %93 ], [ -1, %83 ], [ 1, %86 ], [ -1, %90 ]
+  %94 = phi i1 [ false, %93 ], [ false, %83 ], [ false, %86 ], [ true, %90 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %93 ], [ 1, %83 ], [ 1, %86 ], [ -1, %90 ]
+  br i1 %94, label %.thread, label %95
 
-99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %101 = load double, ptr %100, align 8
-  %102 = fsub double %.sink79.i, %101
-  %103 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %104 = load double, ptr %103, align 8
-  %105 = fsub double %17, %104
-  %106 = fmul double %67, %105
-  %107 = call double @llvm.fmuladd.f64(double %68, double %102, double %106)
-  %108 = call noundef double @llvm.fabs.f64(double %102)
-  %109 = call noundef double @llvm.fabs.f64(double %105)
-  %110 = fcmp olt double %108, %109
-  %.019.i.i.i.i = select i1 %110, double %109, double %108
-  %111 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %111, label %115, label %112
+95:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %96 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %97 = zext i1 %96 to i16
+  %98 = or disjoint i16 %97, 256
+  %99 = trunc nuw i16 %98 to i9
+  %100 = xor i9 %99, -255
+  %101 = call i9 @llvm.bitreverse.i9(i9 %100)
+  %102 = zext i9 %101 to i16
+  br i1 %96, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit, label %.thread
 
-112:                                              ; preds = %99
-  %113 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %113, label %114, label %115
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %95
+  %103 = phi i16 [ %102, %95 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %104 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %105 = load double, ptr %104, align 8
+  %106 = fsub double %.sink79.i, %105
+  %107 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %108 = load double, ptr %107, align 8
+  %109 = fsub double %17, %108
+  %110 = fmul double %69, %109
+  %111 = call double @llvm.fmuladd.f64(double %70, double %106, double %110)
+  %112 = call noundef double @llvm.fabs.f64(double %106)
+  %113 = call noundef double @llvm.fabs.f64(double %109)
+  %114 = fcmp olt double %112, %113
+  %.019.i.i.i.i = select i1 %114, double %113, double %112
+  %115 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %115, label %119, label %116
 
-114:                                              ; preds = %112
-  br label %115
+116:                                              ; preds = %.thread
+  %117 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %117, label %118, label %119
 
-115:                                              ; preds = %114, %112, %99
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %114 ], [ %.020.i.i18, %112 ], [ %.019.i.i.i.i, %99 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %114 ], [ %.020.i.i18, %112 ], [ %.020.i.i18, %99 ]
-  %116 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %117 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %116, %117
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %118
+118:                                              ; preds = %116
+  br label %119
 
-118:                                              ; preds = %115
-  %119 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %120 = fmul double %119, 0x3CD0028010000004
-  %121 = fcmp ogt double %107, %120
-  br i1 %121, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %122
+119:                                              ; preds = %118, %116, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %118 ], [ %.020.i.i18, %116 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %118 ], [ %.020.i.i18, %116 ], [ %.020.i.i18, %.thread ]
+  %120 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %121 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %120, %121
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %122
 
-122:                                              ; preds = %118
-  %123 = fneg double %120
-  %124 = fcmp olt double %107, %123
-  br i1 %124, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %125
+122:                                              ; preds = %119
+  %123 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %124 = fmul double %123, 0x3CD0028010000004
+  %125 = fcmp ogt double %111, %124
+  br i1 %125, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %126
 
-125:                                              ; preds = %122
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+126:                                              ; preds = %122
+  %127 = fneg double %124
+  %128 = fcmp olt double %111, %127
+  br i1 %128, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %129
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %125, %122, %115
-  %126 = phi i16 [ 257, %122 ], [ 256, %115 ], [ 256, %125 ]
-  %127 = trunc nuw i16 %126 to i9
-  %128 = xor i9 %127, -255
+129:                                              ; preds = %126
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %118
-  %129 = phi i9 [ %128, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %118 ]
-  %130 = call i9 @llvm.bitreverse.i9(i9 %129)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %130 to i16
-  %131 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %131, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i: ; preds = %129, %126, %122, %119
+  %130 = phi i1 [ false, %129 ], [ false, %119 ], [ true, %122 ], [ false, %126 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %129 ], [ -1, %119 ], [ 1, %122 ], [ -1, %126 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %129 ], [ 1, %119 ], [ 1, %122 ], [ -1, %126 ]
+  %131 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %132 = zext i1 %131 to i16
+  %133 = or disjoint i16 %132, 256
+  %134 = trunc nuw i16 %133 to i9
+  %135 = xor i9 %134, -255
+  %136 = call i9 @llvm.bitreverse.i9(i9 %135)
+  %137 = zext i9 %136 to i16
+  %spec.select51 = select i1 %130, i16 257, i16 %137
+  %138 = and i16 %103, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %138, %spec.select51
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, %94, %55
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %55 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i ], [ 0, %94 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, %95, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select50, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i ], [ 0, %95 ]
   ret i16 %.sroa.016.0
 }
 
@@ -143705,12 +143810,12 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
   %.sroa.038.0 = select i1 %9, double %11, double %13
   %.sink80.in.i.idx = select i1 %9, i64 24, i64 0
   %.sink80.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink80.in.i.idx
-  %.50 = select i1 %10, i64 16, i64 40
-  %.51 = select i1 %10, i64 40, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.50
+  %.52 = select i1 %10, i64 16, i64 40
+  %.53 = select i1 %10, i64 40, i64 16
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.52
   %.sroa.9.0 = load double, ptr %14, align 8
   %.sink80.i = load double, ptr %.sink80.in.i, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.53
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %4, align 8
   %18 = load double, ptr %0, align 8
@@ -143746,166 +143851,173 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
   %38 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %39 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %38, %39
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %40
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %40
 
 40:                                               ; preds = %37
   %41 = fmul double %.020.i.i, %.019.i.i
   %42 = fmul double %41, 0x3CD0028010000004
   %43 = fcmp ogt double %26, %42
-  br i1 %43, label %51, label %44
+  br i1 %43, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %44
 
 44:                                               ; preds = %40
   %45 = fneg double %42
   %46 = fcmp olt double %26, %45
-  br i1 %46, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %47
+  br i1 %46, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %47
 
 47:                                               ; preds = %44
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %47, %37, %44
-  %48 = phi i16 [ 257, %44 ], [ 256, %37 ], [ 256, %47 ]
-  %49 = trunc nuw i16 %48 to i9
-  %50 = xor i9 %49, -255
-  br label %51
-
-51:                                               ; preds = %40, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %52 = phi i9 [ %50, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %40 ]
-  %53 = tail call i9 @llvm.bitreverse.i9(i9 %52)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %53 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %37, %40, %44, %47
+  %48 = phi i1 [ false, %47 ], [ false, %37 ], [ true, %40 ], [ false, %44 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %47 ], [ -1, %37 ], [ 1, %40 ], [ -1, %44 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %47 ], [ 1, %37 ], [ 1, %40 ], [ -1, %44 ]
+  %49 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %50 = zext i1 %49 to i16
+  %51 = or disjoint i16 %50, 256
+  %52 = trunc nuw i16 %51 to i9
+  %53 = xor i9 %52, -255
+  %54 = tail call i9 @llvm.bitreverse.i9(i9 %53)
+  %55 = zext i9 %54 to i16
+  %spec.select49 = select i1 %48, i16 257, i16 %55
+  store i16 %spec.select49, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select49, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select49, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %54, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %56, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
 
-54:                                               ; preds = %51
-  %55 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %55, ptr %0, ptr %4
-  %spec.select44 = select i1 %55, ptr %4, ptr %0
-  %56 = load double, ptr %spec.select44, align 8
-  %57 = fsub double %.sroa.038.0, %56
-  %58 = getelementptr inbounds i8, ptr %spec.select44, i64 16
-  %59 = load double, ptr %58, align 8
-  %60 = fsub double %.sroa.9.0, %59
-  %61 = load double, ptr %1, align 8
-  %62 = load double, ptr %5, align 8
-  %63 = fneg double %61
-  %64 = fmul double %57, %62
-  %65 = call double @llvm.fmuladd.f64(double %63, double %60, double %64)
-  %66 = call noundef double @llvm.fabs.f64(double %61)
-  %67 = call noundef double @llvm.fabs.f64(double %62)
-  %68 = fcmp olt double %66, %67
-  %.020.i.i18 = select i1 %68, double %67, double %66
-  %69 = call noundef double @llvm.fabs.f64(double %60)
-  %70 = call noundef double @llvm.fabs.f64(double %57)
-  %71 = fcmp olt double %69, %70
-  %.019.i.i19 = select i1 %71, double %70, double %69
-  %72 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %72, label %76, label %73
+56:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %57 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %57, ptr %0, ptr %4
+  %spec.select44 = select i1 %57, ptr %4, ptr %0
+  %58 = load double, ptr %spec.select44, align 8
+  %59 = fsub double %.sroa.038.0, %58
+  %60 = getelementptr inbounds i8, ptr %spec.select44, i64 16
+  %61 = load double, ptr %60, align 8
+  %62 = fsub double %.sroa.9.0, %61
+  %63 = load double, ptr %1, align 8
+  %64 = load double, ptr %5, align 8
+  %65 = fneg double %63
+  %66 = fmul double %59, %64
+  %67 = call double @llvm.fmuladd.f64(double %65, double %62, double %66)
+  %68 = call noundef double @llvm.fabs.f64(double %63)
+  %69 = call noundef double @llvm.fabs.f64(double %64)
+  %70 = fcmp olt double %68, %69
+  %.020.i.i18 = select i1 %70, double %69, double %68
+  %71 = call noundef double @llvm.fabs.f64(double %62)
+  %72 = call noundef double @llvm.fabs.f64(double %59)
+  %73 = fcmp olt double %71, %72
+  %.019.i.i19 = select i1 %73, double %72, double %71
+  %74 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %74, label %78, label %75
 
-73:                                               ; preds = %54
-  %74 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %74, label %75, label %76
+75:                                               ; preds = %56
+  %76 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %76, label %77, label %78
 
-75:                                               ; preds = %73
-  br label %76
+77:                                               ; preds = %75
+  br label %78
 
-76:                                               ; preds = %75, %73, %54
-  %.018.i.i20 = phi double [ %.020.i.i18, %75 ], [ %.020.i.i18, %73 ], [ %.019.i.i19, %54 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %75 ], [ %.020.i.i18, %73 ], [ %.020.i.i18, %54 ]
-  %77 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %78 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %77, %78
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %79
+78:                                               ; preds = %77, %75, %56
+  %.018.i.i20 = phi double [ %.020.i.i18, %77 ], [ %.020.i.i18, %75 ], [ %.019.i.i19, %56 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %77 ], [ %.020.i.i18, %75 ], [ %.020.i.i18, %56 ]
+  %79 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %80 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %79, %80
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %81
 
-79:                                               ; preds = %76
-  %80 = fmul double %.019.i.i19, %.020.i.i18
-  %81 = fmul double %80, 0x3CD0028010000004
-  %82 = fcmp ogt double %65, %81
-  br i1 %82, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %83
+81:                                               ; preds = %78
+  %82 = fmul double %.019.i.i19, %.020.i.i18
+  %83 = fmul double %82, 0x3CD0028010000004
+  %84 = fcmp ogt double %67, %83
+  br i1 %84, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %85
 
-83:                                               ; preds = %79
-  %84 = fneg double %81
-  %85 = fcmp olt double %65, %84
-  br i1 %85, label %89, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+85:                                               ; preds = %81
+  %86 = fneg double %83
+  %87 = fcmp olt double %67, %86
+  br i1 %87, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %88
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %76, %79, %83
-  %86 = phi i16 [ 257, %79 ], [ 256, %76 ], [ 256, %83 ]
-  %87 = trunc nuw i16 %86 to i9
-  %88 = xor i9 %87, -255
-  br label %89
+88:                                               ; preds = %85
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-89:                                               ; preds = %83, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %90 = phi i9 [ %88, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %83 ]
-  %91 = call i9 @llvm.bitreverse.i9(i9 %90)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %91 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %92 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %93 = trunc i9 %91 to i1
-  %.not7.i = or i1 %92, %93
-  br i1 %.not7.i, label %94, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %78, %81, %85, %88
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %88 ], [ -1, %78 ], [ 1, %81 ], [ -1, %85 ]
+  %89 = phi i1 [ false, %88 ], [ false, %78 ], [ false, %81 ], [ true, %85 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %88 ], [ 1, %78 ], [ 1, %81 ], [ -1, %85 ]
+  br i1 %89, label %.thread, label %90
 
-94:                                               ; preds = %89
-  %95 = load double, ptr %spec.select, align 8
-  %96 = fsub double %.sink80.i, %95
-  %97 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %98 = load double, ptr %97, align 8
-  %99 = fsub double %16, %98
-  %100 = fmul double %62, %96
-  %101 = call double @llvm.fmuladd.f64(double %63, double %99, double %100)
-  %102 = call noundef double @llvm.fabs.f64(double %99)
-  %103 = call noundef double @llvm.fabs.f64(double %96)
-  %104 = fcmp olt double %102, %103
-  %.019.i.i.i.i = select i1 %104, double %103, double %102
-  %105 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %105, label %109, label %106
+90:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %91 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %92 = zext i1 %91 to i16
+  %93 = or disjoint i16 %92, 256
+  %94 = trunc nuw i16 %93 to i9
+  %95 = xor i9 %94, -255
+  %96 = call i9 @llvm.bitreverse.i9(i9 %95)
+  %97 = zext i9 %96 to i16
+  br i1 %91, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit, label %.thread
 
-106:                                              ; preds = %94
-  %107 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %107, label %108, label %109
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %90
+  %98 = phi i16 [ %97, %90 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %99 = load double, ptr %spec.select, align 8
+  %100 = fsub double %.sink80.i, %99
+  %101 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %102 = load double, ptr %101, align 8
+  %103 = fsub double %16, %102
+  %104 = fmul double %64, %100
+  %105 = call double @llvm.fmuladd.f64(double %65, double %103, double %104)
+  %106 = call noundef double @llvm.fabs.f64(double %103)
+  %107 = call noundef double @llvm.fabs.f64(double %100)
+  %108 = fcmp olt double %106, %107
+  %.019.i.i.i.i = select i1 %108, double %107, double %106
+  %109 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %109, label %113, label %110
 
-108:                                              ; preds = %106
-  br label %109
+110:                                              ; preds = %.thread
+  %111 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %111, label %112, label %113
 
-109:                                              ; preds = %108, %106, %94
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %108 ], [ %.020.i.i18, %106 ], [ %.019.i.i.i.i, %94 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %108 ], [ %.020.i.i18, %106 ], [ %.020.i.i18, %94 ]
-  %110 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %111 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %110, %111
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %112
+112:                                              ; preds = %110
+  br label %113
 
-112:                                              ; preds = %109
-  %113 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %114 = fmul double %113, 0x3CD0028010000004
-  %115 = fcmp ogt double %101, %114
-  br i1 %115, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %116
+113:                                              ; preds = %112, %110, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %112 ], [ %.020.i.i18, %110 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %112 ], [ %.020.i.i18, %110 ], [ %.020.i.i18, %.thread ]
+  %114 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %115 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %114, %115
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %116
 
-116:                                              ; preds = %112
-  %117 = fneg double %114
-  %118 = fcmp olt double %101, %117
-  br i1 %118, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %119
+116:                                              ; preds = %113
+  %117 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %118 = fmul double %117, 0x3CD0028010000004
+  %119 = fcmp ogt double %105, %118
+  br i1 %119, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %120
 
-119:                                              ; preds = %116
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+120:                                              ; preds = %116
+  %121 = fneg double %118
+  %122 = fcmp olt double %105, %121
+  br i1 %122, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %123
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %119, %116, %109
-  %120 = phi i16 [ 257, %116 ], [ 256, %109 ], [ 256, %119 ]
-  %121 = trunc nuw i16 %120 to i9
-  %122 = xor i9 %121, -255
+123:                                              ; preds = %120
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %112
-  %123 = phi i9 [ %122, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %112 ]
-  %124 = call i9 @llvm.bitreverse.i9(i9 %123)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %124 to i16
-  %125 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %125, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i: ; preds = %123, %120, %116, %113
+  %124 = phi i1 [ false, %123 ], [ false, %113 ], [ true, %116 ], [ false, %120 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %123 ], [ -1, %113 ], [ 1, %116 ], [ -1, %120 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %123 ], [ 1, %113 ], [ 1, %116 ], [ -1, %120 ]
+  %125 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %126 = zext i1 %125 to i16
+  %127 = or disjoint i16 %126, 256
+  %128 = trunc nuw i16 %127 to i9
+  %129 = xor i9 %128, -255
+  %130 = call i9 @llvm.bitreverse.i9(i9 %129)
+  %131 = zext i9 %130 to i16
+  %spec.select50 = select i1 %124, i16 257, i16 %131
+  %132 = and i16 %98, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %132, %spec.select50
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, %89, %51
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %51 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i ], [ 0, %89 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, %90, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select49, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i ], [ 0, %90 ]
   ret i16 %.sroa.016.0
 }
 
@@ -143927,12 +144039,12 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
   %.sroa.038.0 = select i1 %10, double %12, double %14
   %.sink80.in.i.idx = select i1 %10, i64 24, i64 0
   %.sink80.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink80.in.i.idx
-  %.50 = select i1 %11, i64 16, i64 40
-  %.51 = select i1 %11, i64 40, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.50
+  %.52 = select i1 %11, i64 16, i64 40
+  %.53 = select i1 %11, i64 40, i64 16
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.52
   %.sroa.9.0 = load double, ptr %15, align 8
   %.sink80.i = load double, ptr %.sink80.in.i, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %16 = getelementptr inbounds i8, ptr %2, i64 %.53
   %17 = load double, ptr %16, align 8
   %18 = load double, ptr %0, align 8
   %19 = load double, ptr %4, align 8
@@ -143968,166 +144080,173 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
   %39 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %40 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %39, %40
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %41
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %41
 
 41:                                               ; preds = %38
   %42 = fmul double %.019.i.i, %.020.i.i
   %43 = fmul double %42, 0x3CD0028010000004
   %44 = fcmp ogt double %27, %43
-  br i1 %44, label %52, label %45
+  br i1 %44, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %45
 
 45:                                               ; preds = %41
   %46 = fneg double %43
   %47 = fcmp olt double %27, %46
-  br i1 %47, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %48
+  br i1 %47, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %48
 
 48:                                               ; preds = %45
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %48, %38, %45
-  %49 = phi i16 [ 257, %45 ], [ 256, %38 ], [ 256, %48 ]
-  %50 = trunc nuw i16 %49 to i9
-  %51 = xor i9 %50, -255
-  br label %52
-
-52:                                               ; preds = %41, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %53 = phi i9 [ %51, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %41 ]
-  %54 = tail call i9 @llvm.bitreverse.i9(i9 %53)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %54 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %38, %41, %45, %48
+  %49 = phi i1 [ false, %48 ], [ false, %38 ], [ true, %41 ], [ false, %45 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %48 ], [ -1, %38 ], [ 1, %41 ], [ -1, %45 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %48 ], [ 1, %38 ], [ 1, %41 ], [ -1, %45 ]
+  %50 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %51 = zext i1 %50 to i16
+  %52 = or disjoint i16 %51, 256
+  %53 = trunc nuw i16 %52 to i9
+  %54 = xor i9 %53, -255
+  %55 = tail call i9 @llvm.bitreverse.i9(i9 %54)
+  %56 = zext i9 %55 to i16
+  %spec.select49 = select i1 %49, i16 257, i16 %56
+  store i16 %spec.select49, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select49, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select49, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %55, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %57, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
 
-55:                                               ; preds = %52
-  %56 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %56, ptr %4, ptr %0
-  %spec.select44 = select i1 %56, ptr %0, ptr %4
-  %57 = load double, ptr %spec.select44, align 8
-  %58 = fsub double %.sroa.038.0, %57
-  %59 = getelementptr inbounds i8, ptr %spec.select44, i64 16
-  %60 = load double, ptr %59, align 8
-  %61 = fsub double %.sroa.9.0, %60
-  %62 = load double, ptr %5, align 8
-  %63 = load double, ptr %6, align 8
-  %64 = fneg double %62
-  %65 = fmul double %58, %63
-  %66 = call double @llvm.fmuladd.f64(double %64, double %61, double %65)
-  %67 = call noundef double @llvm.fabs.f64(double %62)
-  %68 = call noundef double @llvm.fabs.f64(double %63)
-  %69 = fcmp olt double %67, %68
-  %.020.i.i18 = select i1 %69, double %68, double %67
-  %70 = call noundef double @llvm.fabs.f64(double %61)
-  %71 = call noundef double @llvm.fabs.f64(double %58)
-  %72 = fcmp olt double %70, %71
-  %.019.i.i19 = select i1 %72, double %71, double %70
-  %73 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %73, label %77, label %74
+57:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %58 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %58, ptr %4, ptr %0
+  %spec.select44 = select i1 %58, ptr %0, ptr %4
+  %59 = load double, ptr %spec.select44, align 8
+  %60 = fsub double %.sroa.038.0, %59
+  %61 = getelementptr inbounds i8, ptr %spec.select44, i64 16
+  %62 = load double, ptr %61, align 8
+  %63 = fsub double %.sroa.9.0, %62
+  %64 = load double, ptr %5, align 8
+  %65 = load double, ptr %6, align 8
+  %66 = fneg double %64
+  %67 = fmul double %60, %65
+  %68 = call double @llvm.fmuladd.f64(double %66, double %63, double %67)
+  %69 = call noundef double @llvm.fabs.f64(double %64)
+  %70 = call noundef double @llvm.fabs.f64(double %65)
+  %71 = fcmp olt double %69, %70
+  %.020.i.i18 = select i1 %71, double %70, double %69
+  %72 = call noundef double @llvm.fabs.f64(double %63)
+  %73 = call noundef double @llvm.fabs.f64(double %60)
+  %74 = fcmp olt double %72, %73
+  %.019.i.i19 = select i1 %74, double %73, double %72
+  %75 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %75, label %79, label %76
 
-74:                                               ; preds = %55
-  %75 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %75, label %76, label %77
+76:                                               ; preds = %57
+  %77 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %77, label %78, label %79
 
-76:                                               ; preds = %74
-  br label %77
+78:                                               ; preds = %76
+  br label %79
 
-77:                                               ; preds = %76, %74, %55
-  %.018.i.i20 = phi double [ %.020.i.i18, %76 ], [ %.020.i.i18, %74 ], [ %.019.i.i19, %55 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %76 ], [ %.020.i.i18, %74 ], [ %.020.i.i18, %55 ]
-  %78 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %79 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %78, %79
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %80
+79:                                               ; preds = %78, %76, %57
+  %.018.i.i20 = phi double [ %.020.i.i18, %78 ], [ %.020.i.i18, %76 ], [ %.019.i.i19, %57 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %78 ], [ %.020.i.i18, %76 ], [ %.020.i.i18, %57 ]
+  %80 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %81 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %80, %81
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %82
 
-80:                                               ; preds = %77
-  %81 = fmul double %.019.i.i19, %.020.i.i18
-  %82 = fmul double %81, 0x3CD0028010000004
-  %83 = fcmp ogt double %66, %82
-  br i1 %83, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %84
+82:                                               ; preds = %79
+  %83 = fmul double %.019.i.i19, %.020.i.i18
+  %84 = fmul double %83, 0x3CD0028010000004
+  %85 = fcmp ogt double %68, %84
+  br i1 %85, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %86
 
-84:                                               ; preds = %80
-  %85 = fneg double %82
-  %86 = fcmp olt double %66, %85
-  br i1 %86, label %90, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+86:                                               ; preds = %82
+  %87 = fneg double %84
+  %88 = fcmp olt double %68, %87
+  br i1 %88, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %89
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %77, %80, %84
-  %87 = phi i16 [ 257, %80 ], [ 256, %77 ], [ 256, %84 ]
-  %88 = trunc nuw i16 %87 to i9
-  %89 = xor i9 %88, -255
-  br label %90
+89:                                               ; preds = %86
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-90:                                               ; preds = %84, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %91 = phi i9 [ %89, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %84 ]
-  %92 = call i9 @llvm.bitreverse.i9(i9 %91)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %92 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %93 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %94 = trunc i9 %92 to i1
-  %.not7.i = or i1 %93, %94
-  br i1 %.not7.i, label %95, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %79, %82, %86, %89
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %89 ], [ -1, %79 ], [ 1, %82 ], [ -1, %86 ]
+  %90 = phi i1 [ false, %89 ], [ false, %79 ], [ false, %82 ], [ true, %86 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %89 ], [ 1, %79 ], [ 1, %82 ], [ -1, %86 ]
+  br i1 %90, label %.thread, label %91
 
-95:                                               ; preds = %90
-  %96 = load double, ptr %spec.select, align 8
-  %97 = fsub double %.sink80.i, %96
-  %98 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %99 = load double, ptr %98, align 8
-  %100 = fsub double %17, %99
-  %101 = fmul double %63, %97
-  %102 = call double @llvm.fmuladd.f64(double %64, double %100, double %101)
-  %103 = call noundef double @llvm.fabs.f64(double %100)
-  %104 = call noundef double @llvm.fabs.f64(double %97)
-  %105 = fcmp olt double %103, %104
-  %.019.i.i.i.i = select i1 %105, double %104, double %103
-  %106 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %106, label %110, label %107
+91:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %92 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %93 = zext i1 %92 to i16
+  %94 = or disjoint i16 %93, 256
+  %95 = trunc nuw i16 %94 to i9
+  %96 = xor i9 %95, -255
+  %97 = call i9 @llvm.bitreverse.i9(i9 %96)
+  %98 = zext i9 %97 to i16
+  br i1 %92, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit, label %.thread
 
-107:                                              ; preds = %95
-  %108 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %108, label %109, label %110
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %91
+  %99 = phi i16 [ %98, %91 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %100 = load double, ptr %spec.select, align 8
+  %101 = fsub double %.sink80.i, %100
+  %102 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %103 = load double, ptr %102, align 8
+  %104 = fsub double %17, %103
+  %105 = fmul double %65, %101
+  %106 = call double @llvm.fmuladd.f64(double %66, double %104, double %105)
+  %107 = call noundef double @llvm.fabs.f64(double %104)
+  %108 = call noundef double @llvm.fabs.f64(double %101)
+  %109 = fcmp olt double %107, %108
+  %.019.i.i.i.i = select i1 %109, double %108, double %107
+  %110 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %110, label %114, label %111
 
-109:                                              ; preds = %107
-  br label %110
+111:                                              ; preds = %.thread
+  %112 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %112, label %113, label %114
 
-110:                                              ; preds = %109, %107, %95
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %109 ], [ %.020.i.i18, %107 ], [ %.019.i.i.i.i, %95 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %109 ], [ %.020.i.i18, %107 ], [ %.020.i.i18, %95 ]
-  %111 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %112 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %111, %112
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %113
+113:                                              ; preds = %111
+  br label %114
 
-113:                                              ; preds = %110
-  %114 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %115 = fmul double %114, 0x3CD0028010000004
-  %116 = fcmp ogt double %102, %115
-  br i1 %116, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %117
+114:                                              ; preds = %113, %111, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %113 ], [ %.020.i.i18, %111 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %113 ], [ %.020.i.i18, %111 ], [ %.020.i.i18, %.thread ]
+  %115 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %116 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %115, %116
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %117
 
-117:                                              ; preds = %113
-  %118 = fneg double %115
-  %119 = fcmp olt double %102, %118
-  br i1 %119, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %120
+117:                                              ; preds = %114
+  %118 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %119 = fmul double %118, 0x3CD0028010000004
+  %120 = fcmp ogt double %106, %119
+  br i1 %120, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %121
 
-120:                                              ; preds = %117
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+121:                                              ; preds = %117
+  %122 = fneg double %119
+  %123 = fcmp olt double %106, %122
+  br i1 %123, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %124
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %120, %117, %110
-  %121 = phi i16 [ 257, %117 ], [ 256, %110 ], [ 256, %120 ]
-  %122 = trunc nuw i16 %121 to i9
-  %123 = xor i9 %122, -255
+124:                                              ; preds = %121
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %113
-  %124 = phi i9 [ %123, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %113 ]
-  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %125 to i16
-  %126 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %126, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i: ; preds = %124, %121, %117, %114
+  %125 = phi i1 [ false, %124 ], [ false, %114 ], [ true, %117 ], [ false, %121 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %124 ], [ -1, %114 ], [ 1, %117 ], [ -1, %121 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %124 ], [ 1, %114 ], [ 1, %117 ], [ -1, %121 ]
+  %126 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %127 = zext i1 %126 to i16
+  %128 = or disjoint i16 %127, 256
+  %129 = trunc nuw i16 %128 to i9
+  %130 = xor i9 %129, -255
+  %131 = call i9 @llvm.bitreverse.i9(i9 %130)
+  %132 = zext i9 %131 to i16
+  %spec.select50 = select i1 %125, i16 257, i16 %132
+  %133 = and i16 %99, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %133, %spec.select50
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, %90, %52
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %52 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i ], [ 0, %90 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, %91, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select49, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i ], [ 0, %91 ]
   ret i16 %.sroa.016.0
 }
 
@@ -144150,12 +144269,12 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
   %.sroa.038.0 = select i1 %11, double %13, double %15
   %.sink80.in.i.idx = select i1 %11, i64 24, i64 0
   %.sink80.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink80.in.i.idx
-  %.50 = select i1 %12, i64 16, i64 40
-  %.51 = select i1 %12, i64 40, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 %.50
+  %.52 = select i1 %12, i64 16, i64 40
+  %.53 = select i1 %12, i64 40, i64 16
+  %16 = getelementptr inbounds i8, ptr %2, i64 %.52
   %.sroa.9.0 = load double, ptr %16, align 8
   %.sink80.i = load double, ptr %.sink80.in.i, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %17 = getelementptr inbounds i8, ptr %2, i64 %.53
   %18 = load double, ptr %17, align 8
   %19 = load double, ptr %5, align 8
   %20 = load double, ptr %4, align 8
@@ -144191,166 +144310,173 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
   %40 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %41 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %40, %41
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %42
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %42
 
 42:                                               ; preds = %39
   %43 = fmul double %.019.i.i, %.020.i.i
   %44 = fmul double %43, 0x3CD0028010000004
   %45 = fcmp ogt double %28, %44
-  br i1 %45, label %53, label %46
+  br i1 %45, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %46
 
 46:                                               ; preds = %42
   %47 = fneg double %44
   %48 = fcmp olt double %28, %47
-  br i1 %48, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %49
+  br i1 %48, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %49
 
 49:                                               ; preds = %46
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %49, %39, %46
-  %50 = phi i16 [ 257, %46 ], [ 256, %39 ], [ 256, %49 ]
-  %51 = trunc nuw i16 %50 to i9
-  %52 = xor i9 %51, -255
-  br label %53
-
-53:                                               ; preds = %42, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %54 = phi i9 [ %52, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %42 ]
-  %55 = tail call i9 @llvm.bitreverse.i9(i9 %54)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %55 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %39, %42, %46, %49
+  %50 = phi i1 [ false, %49 ], [ false, %39 ], [ true, %42 ], [ false, %46 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %49 ], [ -1, %39 ], [ 1, %42 ], [ -1, %46 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %49 ], [ 1, %39 ], [ 1, %42 ], [ -1, %46 ]
+  %51 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %52 = zext i1 %51 to i16
+  %53 = or disjoint i16 %52, 256
+  %54 = trunc nuw i16 %53 to i9
+  %55 = xor i9 %54, -255
+  %56 = tail call i9 @llvm.bitreverse.i9(i9 %55)
+  %57 = zext i9 %56 to i16
+  %spec.select49 = select i1 %50, i16 257, i16 %57
+  store i16 %spec.select49, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select49, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select49, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %56, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %58, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
 
-56:                                               ; preds = %53
-  %57 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %57, ptr %4, ptr %5
-  %spec.select44 = select i1 %57, ptr %5, ptr %4
-  %58 = load double, ptr %spec.select44, align 8
-  %59 = fsub double %.sroa.038.0, %58
-  %60 = getelementptr inbounds i8, ptr %spec.select44, i64 16
-  %61 = load double, ptr %60, align 8
-  %62 = fsub double %.sroa.9.0, %61
-  %63 = load double, ptr %6, align 8
-  %64 = load double, ptr %7, align 8
-  %65 = fneg double %63
-  %66 = fmul double %59, %64
-  %67 = call double @llvm.fmuladd.f64(double %65, double %62, double %66)
-  %68 = call noundef double @llvm.fabs.f64(double %63)
-  %69 = call noundef double @llvm.fabs.f64(double %64)
-  %70 = fcmp olt double %68, %69
-  %.020.i.i18 = select i1 %70, double %69, double %68
-  %71 = call noundef double @llvm.fabs.f64(double %62)
-  %72 = call noundef double @llvm.fabs.f64(double %59)
-  %73 = fcmp olt double %71, %72
-  %.019.i.i19 = select i1 %73, double %72, double %71
-  %74 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %74, label %78, label %75
+58:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %59 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %59, ptr %4, ptr %5
+  %spec.select44 = select i1 %59, ptr %5, ptr %4
+  %60 = load double, ptr %spec.select44, align 8
+  %61 = fsub double %.sroa.038.0, %60
+  %62 = getelementptr inbounds i8, ptr %spec.select44, i64 16
+  %63 = load double, ptr %62, align 8
+  %64 = fsub double %.sroa.9.0, %63
+  %65 = load double, ptr %6, align 8
+  %66 = load double, ptr %7, align 8
+  %67 = fneg double %65
+  %68 = fmul double %61, %66
+  %69 = call double @llvm.fmuladd.f64(double %67, double %64, double %68)
+  %70 = call noundef double @llvm.fabs.f64(double %65)
+  %71 = call noundef double @llvm.fabs.f64(double %66)
+  %72 = fcmp olt double %70, %71
+  %.020.i.i18 = select i1 %72, double %71, double %70
+  %73 = call noundef double @llvm.fabs.f64(double %64)
+  %74 = call noundef double @llvm.fabs.f64(double %61)
+  %75 = fcmp olt double %73, %74
+  %.019.i.i19 = select i1 %75, double %74, double %73
+  %76 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %76, label %80, label %77
 
-75:                                               ; preds = %56
-  %76 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %76, label %77, label %78
+77:                                               ; preds = %58
+  %78 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %78, label %79, label %80
 
-77:                                               ; preds = %75
-  br label %78
+79:                                               ; preds = %77
+  br label %80
 
-78:                                               ; preds = %77, %75, %56
-  %.018.i.i20 = phi double [ %.020.i.i18, %77 ], [ %.020.i.i18, %75 ], [ %.019.i.i19, %56 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %77 ], [ %.020.i.i18, %75 ], [ %.020.i.i18, %56 ]
-  %79 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %80 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %79, %80
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %81
+80:                                               ; preds = %79, %77, %58
+  %.018.i.i20 = phi double [ %.020.i.i18, %79 ], [ %.020.i.i18, %77 ], [ %.019.i.i19, %58 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %79 ], [ %.020.i.i18, %77 ], [ %.020.i.i18, %58 ]
+  %81 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %82 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %81, %82
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %83
 
-81:                                               ; preds = %78
-  %82 = fmul double %.019.i.i19, %.020.i.i18
-  %83 = fmul double %82, 0x3CD0028010000004
-  %84 = fcmp ogt double %67, %83
-  br i1 %84, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %85
+83:                                               ; preds = %80
+  %84 = fmul double %.019.i.i19, %.020.i.i18
+  %85 = fmul double %84, 0x3CD0028010000004
+  %86 = fcmp ogt double %69, %85
+  br i1 %86, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %87
 
-85:                                               ; preds = %81
-  %86 = fneg double %83
-  %87 = fcmp olt double %67, %86
-  br i1 %87, label %91, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+87:                                               ; preds = %83
+  %88 = fneg double %85
+  %89 = fcmp olt double %69, %88
+  br i1 %89, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %90
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %78, %81, %85
-  %88 = phi i16 [ 257, %81 ], [ 256, %78 ], [ 256, %85 ]
-  %89 = trunc nuw i16 %88 to i9
-  %90 = xor i9 %89, -255
-  br label %91
+90:                                               ; preds = %87
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-91:                                               ; preds = %85, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %92 = phi i9 [ %90, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %85 ]
-  %93 = call i9 @llvm.bitreverse.i9(i9 %92)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %93 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %94 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %95 = trunc i9 %93 to i1
-  %.not7.i = or i1 %94, %95
-  br i1 %.not7.i, label %96, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %80, %83, %87, %90
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %90 ], [ -1, %80 ], [ 1, %83 ], [ -1, %87 ]
+  %91 = phi i1 [ false, %90 ], [ false, %80 ], [ false, %83 ], [ true, %87 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %90 ], [ 1, %80 ], [ 1, %83 ], [ -1, %87 ]
+  br i1 %91, label %.thread, label %92
 
-96:                                               ; preds = %91
-  %97 = load double, ptr %spec.select, align 8
-  %98 = fsub double %.sink80.i, %97
-  %99 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %100 = load double, ptr %99, align 8
-  %101 = fsub double %18, %100
-  %102 = fmul double %64, %98
-  %103 = call double @llvm.fmuladd.f64(double %65, double %101, double %102)
-  %104 = call noundef double @llvm.fabs.f64(double %101)
-  %105 = call noundef double @llvm.fabs.f64(double %98)
-  %106 = fcmp olt double %104, %105
-  %.019.i.i.i.i = select i1 %106, double %105, double %104
-  %107 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %107, label %111, label %108
+92:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %93 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %94 = zext i1 %93 to i16
+  %95 = or disjoint i16 %94, 256
+  %96 = trunc nuw i16 %95 to i9
+  %97 = xor i9 %96, -255
+  %98 = call i9 @llvm.bitreverse.i9(i9 %97)
+  %99 = zext i9 %98 to i16
+  br i1 %93, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit, label %.thread
 
-108:                                              ; preds = %96
-  %109 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %109, label %110, label %111
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %92
+  %100 = phi i16 [ %99, %92 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %101 = load double, ptr %spec.select, align 8
+  %102 = fsub double %.sink80.i, %101
+  %103 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %104 = load double, ptr %103, align 8
+  %105 = fsub double %18, %104
+  %106 = fmul double %66, %102
+  %107 = call double @llvm.fmuladd.f64(double %67, double %105, double %106)
+  %108 = call noundef double @llvm.fabs.f64(double %105)
+  %109 = call noundef double @llvm.fabs.f64(double %102)
+  %110 = fcmp olt double %108, %109
+  %.019.i.i.i.i = select i1 %110, double %109, double %108
+  %111 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %111, label %115, label %112
 
-110:                                              ; preds = %108
-  br label %111
+112:                                              ; preds = %.thread
+  %113 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %113, label %114, label %115
 
-111:                                              ; preds = %110, %108, %96
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %110 ], [ %.020.i.i18, %108 ], [ %.019.i.i.i.i, %96 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %110 ], [ %.020.i.i18, %108 ], [ %.020.i.i18, %96 ]
-  %112 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %113 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %112, %113
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %114
+114:                                              ; preds = %112
+  br label %115
 
-114:                                              ; preds = %111
-  %115 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %116 = fmul double %115, 0x3CD0028010000004
-  %117 = fcmp ogt double %103, %116
-  br i1 %117, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %118
+115:                                              ; preds = %114, %112, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %114 ], [ %.020.i.i18, %112 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %114 ], [ %.020.i.i18, %112 ], [ %.020.i.i18, %.thread ]
+  %116 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %117 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %116, %117
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %118
 
-118:                                              ; preds = %114
-  %119 = fneg double %116
-  %120 = fcmp olt double %103, %119
-  br i1 %120, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %121
+118:                                              ; preds = %115
+  %119 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %120 = fmul double %119, 0x3CD0028010000004
+  %121 = fcmp ogt double %107, %120
+  br i1 %121, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %122
 
-121:                                              ; preds = %118
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+122:                                              ; preds = %118
+  %123 = fneg double %120
+  %124 = fcmp olt double %107, %123
+  br i1 %124, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %125
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %121, %118, %111
-  %122 = phi i16 [ 257, %118 ], [ 256, %111 ], [ 256, %121 ]
-  %123 = trunc nuw i16 %122 to i9
-  %124 = xor i9 %123, -255
+125:                                              ; preds = %122
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %114
-  %125 = phi i9 [ %124, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %114 ]
-  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %126 to i16
-  %127 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %127, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i: ; preds = %125, %122, %118, %115
+  %126 = phi i1 [ false, %125 ], [ false, %115 ], [ true, %118 ], [ false, %122 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %125 ], [ -1, %115 ], [ 1, %118 ], [ -1, %122 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %125 ], [ 1, %115 ], [ 1, %118 ], [ -1, %122 ]
+  %127 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %128 = zext i1 %127 to i16
+  %129 = or disjoint i16 %128, 256
+  %130 = trunc nuw i16 %129 to i9
+  %131 = xor i9 %130, -255
+  %132 = call i9 @llvm.bitreverse.i9(i9 %131)
+  %133 = zext i9 %132 to i16
+  %spec.select50 = select i1 %126, i16 257, i16 %133
+  %134 = and i16 %100, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %134, %spec.select50
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, %91, %53
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %53 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i ], [ 0, %91 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE0_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, %92, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select49, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i ], [ 0, %92 ]
   ret i16 %.sroa.016.0
 }
 
@@ -144371,12 +144497,12 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
   %.sroa.038.0 = select i1 %9, double %11, double %13
   %.sink80.in.i.idx = select i1 %9, i64 24, i64 0
   %.sink80.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink80.in.i.idx
-  %.50 = select i1 %10, i64 8, i64 32
-  %.51 = select i1 %10, i64 32, i64 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.50
+  %.52 = select i1 %10, i64 8, i64 32
+  %.53 = select i1 %10, i64 32, i64 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.52
   %.sroa.5.0 = load double, ptr %14, align 8
   %.sink80.i = load double, ptr %.sink80.in.i, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.53
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %4, align 8
   %18 = load double, ptr %0, align 8
@@ -144412,166 +144538,173 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
   %38 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %39 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %38, %39
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %40
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %40
 
 40:                                               ; preds = %37
   %41 = fmul double %.020.i.i, %.019.i.i
   %42 = fmul double %41, 0x3CD0028010000004
   %43 = fcmp ogt double %26, %42
-  br i1 %43, label %51, label %44
+  br i1 %43, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %44
 
 44:                                               ; preds = %40
   %45 = fneg double %42
   %46 = fcmp olt double %26, %45
-  br i1 %46, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %47
+  br i1 %46, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %47
 
 47:                                               ; preds = %44
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %47, %37, %44
-  %48 = phi i16 [ 257, %44 ], [ 256, %37 ], [ 256, %47 ]
-  %49 = trunc nuw i16 %48 to i9
-  %50 = xor i9 %49, -255
-  br label %51
-
-51:                                               ; preds = %40, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %52 = phi i9 [ %50, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %40 ]
-  %53 = tail call i9 @llvm.bitreverse.i9(i9 %52)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %53 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %37, %40, %44, %47
+  %48 = phi i1 [ false, %47 ], [ false, %37 ], [ true, %40 ], [ false, %44 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %47 ], [ -1, %37 ], [ 1, %40 ], [ -1, %44 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %47 ], [ 1, %37 ], [ 1, %40 ], [ -1, %44 ]
+  %49 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %50 = zext i1 %49 to i16
+  %51 = or disjoint i16 %50, 256
+  %52 = trunc nuw i16 %51 to i9
+  %53 = xor i9 %52, -255
+  %54 = tail call i9 @llvm.bitreverse.i9(i9 %53)
+  %55 = zext i9 %54 to i16
+  %spec.select49 = select i1 %48, i16 257, i16 %55
+  store i16 %spec.select49, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select49, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select49, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %54, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %56, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
 
-54:                                               ; preds = %51
-  %55 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %55, ptr %0, ptr %4
-  %spec.select44 = select i1 %55, ptr %4, ptr %0
-  %56 = load double, ptr %spec.select44, align 8
-  %57 = fsub double %.sroa.038.0, %56
-  %58 = getelementptr inbounds i8, ptr %spec.select44, i64 8
-  %59 = load double, ptr %58, align 8
-  %60 = fsub double %.sroa.5.0, %59
-  %61 = load double, ptr %5, align 8
-  %62 = load double, ptr %1, align 8
-  %63 = fneg double %61
-  %64 = fmul double %60, %62
-  %65 = call double @llvm.fmuladd.f64(double %63, double %57, double %64)
-  %66 = call noundef double @llvm.fabs.f64(double %61)
-  %67 = call noundef double @llvm.fabs.f64(double %62)
-  %68 = fcmp olt double %66, %67
-  %.020.i.i18 = select i1 %68, double %67, double %66
-  %69 = call noundef double @llvm.fabs.f64(double %57)
-  %70 = call noundef double @llvm.fabs.f64(double %60)
-  %71 = fcmp olt double %69, %70
-  %.019.i.i19 = select i1 %71, double %70, double %69
-  %72 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %72, label %76, label %73
+56:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %57 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %57, ptr %0, ptr %4
+  %spec.select44 = select i1 %57, ptr %4, ptr %0
+  %58 = load double, ptr %spec.select44, align 8
+  %59 = fsub double %.sroa.038.0, %58
+  %60 = getelementptr inbounds i8, ptr %spec.select44, i64 8
+  %61 = load double, ptr %60, align 8
+  %62 = fsub double %.sroa.5.0, %61
+  %63 = load double, ptr %5, align 8
+  %64 = load double, ptr %1, align 8
+  %65 = fneg double %63
+  %66 = fmul double %62, %64
+  %67 = call double @llvm.fmuladd.f64(double %65, double %59, double %66)
+  %68 = call noundef double @llvm.fabs.f64(double %63)
+  %69 = call noundef double @llvm.fabs.f64(double %64)
+  %70 = fcmp olt double %68, %69
+  %.020.i.i18 = select i1 %70, double %69, double %68
+  %71 = call noundef double @llvm.fabs.f64(double %59)
+  %72 = call noundef double @llvm.fabs.f64(double %62)
+  %73 = fcmp olt double %71, %72
+  %.019.i.i19 = select i1 %73, double %72, double %71
+  %74 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %74, label %78, label %75
 
-73:                                               ; preds = %54
-  %74 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %74, label %75, label %76
+75:                                               ; preds = %56
+  %76 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %76, label %77, label %78
 
-75:                                               ; preds = %73
-  br label %76
+77:                                               ; preds = %75
+  br label %78
 
-76:                                               ; preds = %75, %73, %54
-  %.018.i.i20 = phi double [ %.020.i.i18, %75 ], [ %.020.i.i18, %73 ], [ %.019.i.i19, %54 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %75 ], [ %.020.i.i18, %73 ], [ %.020.i.i18, %54 ]
-  %77 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %78 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %77, %78
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %79
+78:                                               ; preds = %77, %75, %56
+  %.018.i.i20 = phi double [ %.020.i.i18, %77 ], [ %.020.i.i18, %75 ], [ %.019.i.i19, %56 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %77 ], [ %.020.i.i18, %75 ], [ %.020.i.i18, %56 ]
+  %79 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %80 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %79, %80
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %81
 
-79:                                               ; preds = %76
-  %80 = fmul double %.019.i.i19, %.020.i.i18
-  %81 = fmul double %80, 0x3CD0028010000004
-  %82 = fcmp ogt double %65, %81
-  br i1 %82, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %83
+81:                                               ; preds = %78
+  %82 = fmul double %.019.i.i19, %.020.i.i18
+  %83 = fmul double %82, 0x3CD0028010000004
+  %84 = fcmp ogt double %67, %83
+  br i1 %84, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %85
 
-83:                                               ; preds = %79
-  %84 = fneg double %81
-  %85 = fcmp olt double %65, %84
-  br i1 %85, label %89, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+85:                                               ; preds = %81
+  %86 = fneg double %83
+  %87 = fcmp olt double %67, %86
+  br i1 %87, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %88
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %76, %79, %83
-  %86 = phi i16 [ 257, %79 ], [ 256, %76 ], [ 256, %83 ]
-  %87 = trunc nuw i16 %86 to i9
-  %88 = xor i9 %87, -255
-  br label %89
+88:                                               ; preds = %85
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-89:                                               ; preds = %83, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %90 = phi i9 [ %88, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %83 ]
-  %91 = call i9 @llvm.bitreverse.i9(i9 %90)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %91 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %92 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %93 = trunc i9 %91 to i1
-  %.not7.i = or i1 %92, %93
-  br i1 %.not7.i, label %94, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %78, %81, %85, %88
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %88 ], [ -1, %78 ], [ 1, %81 ], [ -1, %85 ]
+  %89 = phi i1 [ false, %88 ], [ false, %78 ], [ false, %81 ], [ true, %85 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %88 ], [ 1, %78 ], [ 1, %81 ], [ -1, %85 ]
+  br i1 %89, label %.thread, label %90
 
-94:                                               ; preds = %89
-  %95 = load double, ptr %spec.select, align 8
-  %96 = fsub double %.sink80.i, %95
-  %97 = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %98 = load double, ptr %97, align 8
-  %99 = fsub double %16, %98
-  %100 = fmul double %62, %99
-  %101 = call double @llvm.fmuladd.f64(double %63, double %96, double %100)
-  %102 = call noundef double @llvm.fabs.f64(double %96)
-  %103 = call noundef double @llvm.fabs.f64(double %99)
-  %104 = fcmp olt double %102, %103
-  %.019.i.i.i.i = select i1 %104, double %103, double %102
-  %105 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %105, label %109, label %106
+90:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %91 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %92 = zext i1 %91 to i16
+  %93 = or disjoint i16 %92, 256
+  %94 = trunc nuw i16 %93 to i9
+  %95 = xor i9 %94, -255
+  %96 = call i9 @llvm.bitreverse.i9(i9 %95)
+  %97 = zext i9 %96 to i16
+  br i1 %91, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit, label %.thread
 
-106:                                              ; preds = %94
-  %107 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %107, label %108, label %109
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %90
+  %98 = phi i16 [ %97, %90 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %99 = load double, ptr %spec.select, align 8
+  %100 = fsub double %.sink80.i, %99
+  %101 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %102 = load double, ptr %101, align 8
+  %103 = fsub double %16, %102
+  %104 = fmul double %64, %103
+  %105 = call double @llvm.fmuladd.f64(double %65, double %100, double %104)
+  %106 = call noundef double @llvm.fabs.f64(double %100)
+  %107 = call noundef double @llvm.fabs.f64(double %103)
+  %108 = fcmp olt double %106, %107
+  %.019.i.i.i.i = select i1 %108, double %107, double %106
+  %109 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %109, label %113, label %110
 
-108:                                              ; preds = %106
-  br label %109
+110:                                              ; preds = %.thread
+  %111 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %111, label %112, label %113
 
-109:                                              ; preds = %108, %106, %94
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %108 ], [ %.020.i.i18, %106 ], [ %.019.i.i.i.i, %94 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %108 ], [ %.020.i.i18, %106 ], [ %.020.i.i18, %94 ]
-  %110 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %111 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %110, %111
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %112
+112:                                              ; preds = %110
+  br label %113
 
-112:                                              ; preds = %109
-  %113 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %114 = fmul double %113, 0x3CD0028010000004
-  %115 = fcmp ogt double %101, %114
-  br i1 %115, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %116
+113:                                              ; preds = %112, %110, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %112 ], [ %.020.i.i18, %110 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %112 ], [ %.020.i.i18, %110 ], [ %.020.i.i18, %.thread ]
+  %114 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %115 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %114, %115
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %116
 
-116:                                              ; preds = %112
-  %117 = fneg double %114
-  %118 = fcmp olt double %101, %117
-  br i1 %118, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %119
+116:                                              ; preds = %113
+  %117 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %118 = fmul double %117, 0x3CD0028010000004
+  %119 = fcmp ogt double %105, %118
+  br i1 %119, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %120
 
-119:                                              ; preds = %116
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+120:                                              ; preds = %116
+  %121 = fneg double %118
+  %122 = fcmp olt double %105, %121
+  br i1 %122, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %123
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %119, %116, %109
-  %120 = phi i16 [ 257, %116 ], [ 256, %109 ], [ 256, %119 ]
-  %121 = trunc nuw i16 %120 to i9
-  %122 = xor i9 %121, -255
+123:                                              ; preds = %120
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %112
-  %123 = phi i9 [ %122, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %112 ]
-  %124 = call i9 @llvm.bitreverse.i9(i9 %123)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %124 to i16
-  %125 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %125, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i: ; preds = %123, %120, %116, %113
+  %124 = phi i1 [ false, %123 ], [ false, %113 ], [ true, %116 ], [ false, %120 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %123 ], [ -1, %113 ], [ 1, %116 ], [ -1, %120 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %123 ], [ 1, %113 ], [ 1, %116 ], [ -1, %120 ]
+  %125 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %126 = zext i1 %125 to i16
+  %127 = or disjoint i16 %126, 256
+  %128 = trunc nuw i16 %127 to i9
+  %129 = xor i9 %128, -255
+  %130 = call i9 @llvm.bitreverse.i9(i9 %129)
+  %131 = zext i9 %130 to i16
+  %spec.select50 = select i1 %124, i16 257, i16 %131
+  %132 = and i16 %98, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %132, %spec.select50
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, %89, %51
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %51 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i ], [ 0, %89 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, %90, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select49, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i ], [ 0, %90 ]
   ret i16 %.sroa.016.0
 }
 
@@ -144592,12 +144725,12 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
   %.sroa.038.0 = select i1 %9, double %11, double %13
   %.sink80.in.i.idx = select i1 %9, i64 24, i64 0
   %.sink80.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink80.in.i.idx
-  %.50 = select i1 %10, i64 8, i64 32
-  %.51 = select i1 %10, i64 32, i64 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.50
+  %.52 = select i1 %10, i64 8, i64 32
+  %.53 = select i1 %10, i64 32, i64 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.52
   %.sroa.5.0 = load double, ptr %14, align 8
   %.sink80.i = load double, ptr %.sink80.in.i, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.53
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %0, align 8
   %18 = load double, ptr %4, align 8
@@ -144634,166 +144767,173 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
   %39 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %40 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %39, %40
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %41
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %41
 
 41:                                               ; preds = %38
   %42 = fmul double %.019.i.i, %.020.i.i
   %43 = fmul double %42, 0x3CD0028010000004
   %44 = fcmp ogt double %27, %43
-  br i1 %44, label %52, label %45
+  br i1 %44, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %45
 
 45:                                               ; preds = %41
   %46 = fneg double %43
   %47 = fcmp olt double %27, %46
-  br i1 %47, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %48
+  br i1 %47, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %48
 
 48:                                               ; preds = %45
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %48, %38, %45
-  %49 = phi i16 [ 257, %45 ], [ 256, %38 ], [ 256, %48 ]
-  %50 = trunc nuw i16 %49 to i9
-  %51 = xor i9 %50, -255
-  br label %52
-
-52:                                               ; preds = %41, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %53 = phi i9 [ %51, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %41 ]
-  %54 = tail call i9 @llvm.bitreverse.i9(i9 %53)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %54 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %38, %41, %45, %48
+  %49 = phi i1 [ false, %48 ], [ false, %38 ], [ true, %41 ], [ false, %45 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %48 ], [ -1, %38 ], [ 1, %41 ], [ -1, %45 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %48 ], [ 1, %38 ], [ 1, %41 ], [ -1, %45 ]
+  %50 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %51 = zext i1 %50 to i16
+  %52 = or disjoint i16 %51, 256
+  %53 = trunc nuw i16 %52 to i9
+  %54 = xor i9 %53, -255
+  %55 = tail call i9 @llvm.bitreverse.i9(i9 %54)
+  %56 = zext i9 %55 to i16
+  %spec.select49 = select i1 %49, i16 257, i16 %56
+  store i16 %spec.select49, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select49, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select49, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %55, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %57, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
 
-55:                                               ; preds = %52
-  %56 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %56, ptr %4, ptr %0
-  %spec.select44 = select i1 %56, ptr %0, ptr %4
-  %57 = load double, ptr %spec.select44, align 8
-  %58 = fsub double %.sroa.038.0, %57
-  %59 = getelementptr inbounds i8, ptr %spec.select44, i64 8
-  %60 = load double, ptr %59, align 8
-  %61 = fsub double %.sroa.5.0, %60
-  %62 = load double, ptr %6, align 8
-  %63 = load double, ptr %5, align 8
-  %64 = fneg double %62
-  %65 = fmul double %61, %63
-  %66 = call double @llvm.fmuladd.f64(double %64, double %58, double %65)
-  %67 = call noundef double @llvm.fabs.f64(double %62)
-  %68 = call noundef double @llvm.fabs.f64(double %63)
-  %69 = fcmp olt double %67, %68
-  %.020.i.i18 = select i1 %69, double %68, double %67
-  %70 = call noundef double @llvm.fabs.f64(double %58)
-  %71 = call noundef double @llvm.fabs.f64(double %61)
-  %72 = fcmp olt double %70, %71
-  %.019.i.i19 = select i1 %72, double %71, double %70
-  %73 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %73, label %77, label %74
+57:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %58 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %58, ptr %4, ptr %0
+  %spec.select44 = select i1 %58, ptr %0, ptr %4
+  %59 = load double, ptr %spec.select44, align 8
+  %60 = fsub double %.sroa.038.0, %59
+  %61 = getelementptr inbounds i8, ptr %spec.select44, i64 8
+  %62 = load double, ptr %61, align 8
+  %63 = fsub double %.sroa.5.0, %62
+  %64 = load double, ptr %6, align 8
+  %65 = load double, ptr %5, align 8
+  %66 = fneg double %64
+  %67 = fmul double %63, %65
+  %68 = call double @llvm.fmuladd.f64(double %66, double %60, double %67)
+  %69 = call noundef double @llvm.fabs.f64(double %64)
+  %70 = call noundef double @llvm.fabs.f64(double %65)
+  %71 = fcmp olt double %69, %70
+  %.020.i.i18 = select i1 %71, double %70, double %69
+  %72 = call noundef double @llvm.fabs.f64(double %60)
+  %73 = call noundef double @llvm.fabs.f64(double %63)
+  %74 = fcmp olt double %72, %73
+  %.019.i.i19 = select i1 %74, double %73, double %72
+  %75 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %75, label %79, label %76
 
-74:                                               ; preds = %55
-  %75 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %75, label %76, label %77
+76:                                               ; preds = %57
+  %77 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %77, label %78, label %79
 
-76:                                               ; preds = %74
-  br label %77
+78:                                               ; preds = %76
+  br label %79
 
-77:                                               ; preds = %76, %74, %55
-  %.018.i.i20 = phi double [ %.020.i.i18, %76 ], [ %.020.i.i18, %74 ], [ %.019.i.i19, %55 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %76 ], [ %.020.i.i18, %74 ], [ %.020.i.i18, %55 ]
-  %78 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %79 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %78, %79
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %80
+79:                                               ; preds = %78, %76, %57
+  %.018.i.i20 = phi double [ %.020.i.i18, %78 ], [ %.020.i.i18, %76 ], [ %.019.i.i19, %57 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %78 ], [ %.020.i.i18, %76 ], [ %.020.i.i18, %57 ]
+  %80 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %81 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %80, %81
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %82
 
-80:                                               ; preds = %77
-  %81 = fmul double %.019.i.i19, %.020.i.i18
-  %82 = fmul double %81, 0x3CD0028010000004
-  %83 = fcmp ogt double %66, %82
-  br i1 %83, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %84
+82:                                               ; preds = %79
+  %83 = fmul double %.019.i.i19, %.020.i.i18
+  %84 = fmul double %83, 0x3CD0028010000004
+  %85 = fcmp ogt double %68, %84
+  br i1 %85, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %86
 
-84:                                               ; preds = %80
-  %85 = fneg double %82
-  %86 = fcmp olt double %66, %85
-  br i1 %86, label %90, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+86:                                               ; preds = %82
+  %87 = fneg double %84
+  %88 = fcmp olt double %68, %87
+  br i1 %88, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %89
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %77, %80, %84
-  %87 = phi i16 [ 257, %80 ], [ 256, %77 ], [ 256, %84 ]
-  %88 = trunc nuw i16 %87 to i9
-  %89 = xor i9 %88, -255
-  br label %90
+89:                                               ; preds = %86
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-90:                                               ; preds = %84, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %91 = phi i9 [ %89, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %84 ]
-  %92 = call i9 @llvm.bitreverse.i9(i9 %91)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %92 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %93 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %94 = trunc i9 %92 to i1
-  %.not7.i = or i1 %93, %94
-  br i1 %.not7.i, label %95, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %79, %82, %86, %89
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %89 ], [ -1, %79 ], [ 1, %82 ], [ -1, %86 ]
+  %90 = phi i1 [ false, %89 ], [ false, %79 ], [ false, %82 ], [ true, %86 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %89 ], [ 1, %79 ], [ 1, %82 ], [ -1, %86 ]
+  br i1 %90, label %.thread, label %91
 
-95:                                               ; preds = %90
-  %96 = load double, ptr %spec.select, align 8
-  %97 = fsub double %.sink80.i, %96
-  %98 = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %99 = load double, ptr %98, align 8
-  %100 = fsub double %16, %99
-  %101 = fmul double %63, %100
-  %102 = call double @llvm.fmuladd.f64(double %64, double %97, double %101)
-  %103 = call noundef double @llvm.fabs.f64(double %97)
-  %104 = call noundef double @llvm.fabs.f64(double %100)
-  %105 = fcmp olt double %103, %104
-  %.019.i.i.i.i = select i1 %105, double %104, double %103
-  %106 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %106, label %110, label %107
+91:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %92 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %93 = zext i1 %92 to i16
+  %94 = or disjoint i16 %93, 256
+  %95 = trunc nuw i16 %94 to i9
+  %96 = xor i9 %95, -255
+  %97 = call i9 @llvm.bitreverse.i9(i9 %96)
+  %98 = zext i9 %97 to i16
+  br i1 %92, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit, label %.thread
 
-107:                                              ; preds = %95
-  %108 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %108, label %109, label %110
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %91
+  %99 = phi i16 [ %98, %91 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %100 = load double, ptr %spec.select, align 8
+  %101 = fsub double %.sink80.i, %100
+  %102 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %103 = load double, ptr %102, align 8
+  %104 = fsub double %16, %103
+  %105 = fmul double %65, %104
+  %106 = call double @llvm.fmuladd.f64(double %66, double %101, double %105)
+  %107 = call noundef double @llvm.fabs.f64(double %101)
+  %108 = call noundef double @llvm.fabs.f64(double %104)
+  %109 = fcmp olt double %107, %108
+  %.019.i.i.i.i = select i1 %109, double %108, double %107
+  %110 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %110, label %114, label %111
 
-109:                                              ; preds = %107
-  br label %110
+111:                                              ; preds = %.thread
+  %112 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %112, label %113, label %114
 
-110:                                              ; preds = %109, %107, %95
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %109 ], [ %.020.i.i18, %107 ], [ %.019.i.i.i.i, %95 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %109 ], [ %.020.i.i18, %107 ], [ %.020.i.i18, %95 ]
-  %111 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %112 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %111, %112
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %113
+113:                                              ; preds = %111
+  br label %114
 
-113:                                              ; preds = %110
-  %114 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %115 = fmul double %114, 0x3CD0028010000004
-  %116 = fcmp ogt double %102, %115
-  br i1 %116, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %117
+114:                                              ; preds = %113, %111, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %113 ], [ %.020.i.i18, %111 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %113 ], [ %.020.i.i18, %111 ], [ %.020.i.i18, %.thread ]
+  %115 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %116 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %115, %116
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %117
 
-117:                                              ; preds = %113
-  %118 = fneg double %115
-  %119 = fcmp olt double %102, %118
-  br i1 %119, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %120
+117:                                              ; preds = %114
+  %118 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %119 = fmul double %118, 0x3CD0028010000004
+  %120 = fcmp ogt double %106, %119
+  br i1 %120, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %121
 
-120:                                              ; preds = %117
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+121:                                              ; preds = %117
+  %122 = fneg double %119
+  %123 = fcmp olt double %106, %122
+  br i1 %123, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %124
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %120, %117, %110
-  %121 = phi i16 [ 257, %117 ], [ 256, %110 ], [ 256, %120 ]
-  %122 = trunc nuw i16 %121 to i9
-  %123 = xor i9 %122, -255
+124:                                              ; preds = %121
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %113
-  %124 = phi i9 [ %123, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %113 ]
-  %125 = call i9 @llvm.bitreverse.i9(i9 %124)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %125 to i16
-  %126 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %126, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i: ; preds = %124, %121, %117, %114
+  %125 = phi i1 [ false, %124 ], [ false, %114 ], [ true, %117 ], [ false, %121 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %124 ], [ -1, %114 ], [ 1, %117 ], [ -1, %121 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %124 ], [ 1, %114 ], [ 1, %117 ], [ -1, %121 ]
+  %126 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %127 = zext i1 %126 to i16
+  %128 = or disjoint i16 %127, 256
+  %129 = trunc nuw i16 %128 to i9
+  %130 = xor i9 %129, -255
+  %131 = call i9 @llvm.bitreverse.i9(i9 %130)
+  %132 = zext i9 %131 to i16
+  %spec.select50 = select i1 %125, i16 257, i16 %132
+  %133 = and i16 %99, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %133, %spec.select50
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, %90, %52
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %52 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i ], [ 0, %90 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, %91, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select49, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i ], [ 0, %91 ]
   ret i16 %.sroa.016.0
 }
 
@@ -144815,12 +144955,12 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
   %.sroa.038.0 = select i1 %10, double %12, double %14
   %.sink80.in.i.idx = select i1 %10, i64 24, i64 0
   %.sink80.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink80.in.i.idx
-  %.50 = select i1 %11, i64 8, i64 32
-  %.51 = select i1 %11, i64 32, i64 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.50
+  %.52 = select i1 %11, i64 8, i64 32
+  %.53 = select i1 %11, i64 32, i64 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 %.52
   %.sroa.5.0 = load double, ptr %15, align 8
   %.sink80.i = load double, ptr %.sink80.in.i, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 %.51
+  %16 = getelementptr inbounds i8, ptr %2, i64 %.53
   %17 = load double, ptr %16, align 8
   %18 = load double, ptr %5, align 8
   %19 = load double, ptr %4, align 8
@@ -144857,166 +144997,173 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
   %40 = fcmp olt double %.018.i.i, 0x218FFD803AF9FCA4
   %41 = fcmp ogt double %.0.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i = or i1 %40, %41
-  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %42
+  br i1 %or.cond.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %42
 
 42:                                               ; preds = %39
   %43 = fmul double %.019.i.i, %.020.i.i
   %44 = fmul double %43, 0x3CD0028010000004
   %45 = fcmp ogt double %28, %44
-  br i1 %45, label %53, label %46
+  br i1 %45, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %46
 
 46:                                               ; preds = %42
   %47 = fneg double %44
   %48 = fcmp olt double %28, %47
-  br i1 %48, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread, label %49
+  br i1 %48, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit, label %49
 
 49:                                               ; preds = %46
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %49, %39, %46
-  %50 = phi i16 [ 257, %46 ], [ 256, %39 ], [ 256, %49 ]
-  %51 = trunc nuw i16 %50 to i9
-  %52 = xor i9 %51, -255
-  br label %53
-
-53:                                               ; preds = %42, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread
-  %54 = phi i9 [ %52, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread ], [ -255, %42 ]
-  %55 = tail call i9 @llvm.bitreverse.i9(i9 %54)
-  %.sroa.01.0.insert.insert.i.i = zext i9 %55 to i16
-  store i16 %.sroa.01.0.insert.insert.i.i, ptr %3, align 2
-  %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.01.0.insert.insert.i.i, 8
-  %.sroa.01.0.insert.insert.i.i.masked = and i16 %.sroa.01.0.insert.insert.i.i, 1
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit: ; preds = %39, %42, %46, %49
+  %50 = phi i1 [ false, %49 ], [ false, %39 ], [ true, %42 ], [ false, %46 ]
+  %.sroa.0.0.i.i = phi i32 [ -1, %49 ], [ -1, %39 ], [ 1, %42 ], [ -1, %46 ]
+  %.sroa.6.0.i.i = phi i32 [ 1, %49 ], [ 1, %39 ], [ 1, %42 ], [ -1, %46 ]
+  %51 = icmp eq i32 %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  %52 = zext i1 %51 to i16
+  %53 = or disjoint i16 %52, 256
+  %54 = trunc nuw i16 %53 to i9
+  %55 = xor i9 %54, -255
+  %56 = tail call i9 @llvm.bitreverse.i9(i9 %55)
+  %57 = zext i9 %56 to i16
+  %spec.select49 = select i1 %50, i16 257, i16 %57
+  store i16 %spec.select49, ptr %3, align 2
+  %.sroa.2.0.extract.shift.i = lshr i16 %spec.select49, 8
+  %.sroa.01.0.insert.insert.i.i.masked = and i16 %spec.select49, 1
   %.not = icmp eq i16 %.sroa.2.0.extract.shift.i, %.sroa.01.0.insert.insert.i.i.masked
-  br i1 %.not, label %56, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
+  br i1 %.not, label %58, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
 
-56:                                               ; preds = %53
-  %57 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
-  %spec.select = select i1 %57, ptr %4, ptr %5
-  %spec.select44 = select i1 %57, ptr %5, ptr %4
-  %58 = load double, ptr %spec.select44, align 8
-  %59 = fsub double %.sroa.038.0, %58
-  %60 = getelementptr inbounds i8, ptr %spec.select44, i64 8
-  %61 = load double, ptr %60, align 8
-  %62 = fsub double %.sroa.5.0, %61
-  %63 = load double, ptr %7, align 8
-  %64 = load double, ptr %6, align 8
-  %65 = fneg double %63
-  %66 = fmul double %62, %64
-  %67 = call double @llvm.fmuladd.f64(double %65, double %59, double %66)
-  %68 = call noundef double @llvm.fabs.f64(double %63)
-  %69 = call noundef double @llvm.fabs.f64(double %64)
-  %70 = fcmp olt double %68, %69
-  %.020.i.i18 = select i1 %70, double %69, double %68
-  %71 = call noundef double @llvm.fabs.f64(double %59)
-  %72 = call noundef double @llvm.fabs.f64(double %62)
-  %73 = fcmp olt double %71, %72
-  %.019.i.i19 = select i1 %73, double %72, double %71
-  %74 = fcmp olt double %.019.i.i19, %.020.i.i18
-  br i1 %74, label %78, label %75
+58:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %59 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %3)
+  %spec.select = select i1 %59, ptr %4, ptr %5
+  %spec.select44 = select i1 %59, ptr %5, ptr %4
+  %60 = load double, ptr %spec.select44, align 8
+  %61 = fsub double %.sroa.038.0, %60
+  %62 = getelementptr inbounds i8, ptr %spec.select44, i64 8
+  %63 = load double, ptr %62, align 8
+  %64 = fsub double %.sroa.5.0, %63
+  %65 = load double, ptr %7, align 8
+  %66 = load double, ptr %6, align 8
+  %67 = fneg double %65
+  %68 = fmul double %64, %66
+  %69 = call double @llvm.fmuladd.f64(double %67, double %61, double %68)
+  %70 = call noundef double @llvm.fabs.f64(double %65)
+  %71 = call noundef double @llvm.fabs.f64(double %66)
+  %72 = fcmp olt double %70, %71
+  %.020.i.i18 = select i1 %72, double %71, double %70
+  %73 = call noundef double @llvm.fabs.f64(double %61)
+  %74 = call noundef double @llvm.fabs.f64(double %64)
+  %75 = fcmp olt double %73, %74
+  %.019.i.i19 = select i1 %75, double %74, double %73
+  %76 = fcmp olt double %.019.i.i19, %.020.i.i18
+  br i1 %76, label %80, label %77
 
-75:                                               ; preds = %56
-  %76 = fcmp ogt double %.019.i.i19, %.020.i.i18
-  br i1 %76, label %77, label %78
+77:                                               ; preds = %58
+  %78 = fcmp ogt double %.019.i.i19, %.020.i.i18
+  br i1 %78, label %79, label %80
 
-77:                                               ; preds = %75
-  br label %78
+79:                                               ; preds = %77
+  br label %80
 
-78:                                               ; preds = %77, %75, %56
-  %.018.i.i20 = phi double [ %.020.i.i18, %77 ], [ %.020.i.i18, %75 ], [ %.019.i.i19, %56 ]
-  %.0.i.i21 = phi double [ %.019.i.i19, %77 ], [ %.020.i.i18, %75 ], [ %.020.i.i18, %56 ]
-  %79 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
-  %80 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i22 = or i1 %79, %80
-  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %81
+80:                                               ; preds = %79, %77, %58
+  %.018.i.i20 = phi double [ %.020.i.i18, %79 ], [ %.020.i.i18, %77 ], [ %.019.i.i19, %58 ]
+  %.0.i.i21 = phi double [ %.019.i.i19, %79 ], [ %.020.i.i18, %77 ], [ %.020.i.i18, %58 ]
+  %81 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
+  %82 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i22 = or i1 %81, %82
+  br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %83
 
-81:                                               ; preds = %78
-  %82 = fmul double %.019.i.i19, %.020.i.i18
-  %83 = fmul double %82, 0x3CD0028010000004
-  %84 = fcmp ogt double %67, %83
-  br i1 %84, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %85
+83:                                               ; preds = %80
+  %84 = fmul double %.019.i.i19, %.020.i.i18
+  %85 = fmul double %84, 0x3CD0028010000004
+  %86 = fcmp ogt double %69, %85
+  br i1 %86, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %87
 
-85:                                               ; preds = %81
-  %86 = fneg double %83
-  %87 = fcmp olt double %67, %86
-  br i1 %87, label %91, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
+87:                                               ; preds = %83
+  %88 = fneg double %85
+  %89 = fcmp olt double %69, %88
+  br i1 %89, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, label %90
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %78, %81, %85
-  %88 = phi i16 [ 257, %81 ], [ 256, %78 ], [ 256, %85 ]
-  %89 = trunc nuw i16 %88 to i9
-  %90 = xor i9 %89, -255
-  br label %91
+90:                                               ; preds = %87
+  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
 
-91:                                               ; preds = %85, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread
-  %92 = phi i9 [ %90, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread ], [ -255, %85 ]
-  %93 = call i9 @llvm.bitreverse.i9(i9 %92)
-  %.sroa.01.0.insert.insert.i.i31 = zext i9 %93 to i16
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert.i.i31, 8
-  %.sroa.01.0.insert.insert.i.i31.masked = and i16 %.sroa.01.0.insert.insert.i.i31, 1
-  %94 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.01.0.insert.insert.i.i31.masked
-  %95 = trunc i9 %93 to i1
-  %.not7.i = or i1 %94, %95
-  br i1 %.not7.i, label %96, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
+_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26: ; preds = %80, %83, %87, %90
+  %.sroa.0.0.i.i23 = phi i32 [ -1, %90 ], [ -1, %80 ], [ 1, %83 ], [ -1, %87 ]
+  %91 = phi i1 [ false, %90 ], [ false, %80 ], [ false, %83 ], [ true, %87 ]
+  %.sroa.6.0.i.i24 = phi i32 [ 1, %90 ], [ 1, %80 ], [ 1, %83 ], [ -1, %87 ]
+  br i1 %91, label %.thread, label %92
 
-96:                                               ; preds = %91
-  %97 = load double, ptr %spec.select, align 8
-  %98 = fsub double %.sink80.i, %97
-  %99 = getelementptr inbounds i8, ptr %spec.select, i64 8
-  %100 = load double, ptr %99, align 8
-  %101 = fsub double %17, %100
-  %102 = fmul double %64, %101
-  %103 = call double @llvm.fmuladd.f64(double %65, double %98, double %102)
-  %104 = call noundef double @llvm.fabs.f64(double %98)
-  %105 = call noundef double @llvm.fabs.f64(double %101)
-  %106 = fcmp olt double %104, %105
-  %.019.i.i.i.i = select i1 %106, double %105, double %104
-  %107 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %107, label %111, label %108
+92:                                               ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26
+  %93 = icmp eq i32 %.sroa.0.0.i.i23, %.sroa.6.0.i.i24
+  %94 = zext i1 %93 to i16
+  %95 = or disjoint i16 %94, 256
+  %96 = trunc nuw i16 %95 to i9
+  %97 = xor i9 %96, -255
+  %98 = call i9 @llvm.bitreverse.i9(i9 %97)
+  %99 = zext i9 %98 to i16
+  br i1 %93, label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit, label %.thread
 
-108:                                              ; preds = %96
-  %109 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
-  br i1 %109, label %110, label %111
+.thread:                                          ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26, %92
+  %100 = phi i16 [ %99, %92 ], [ 257, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26 ]
+  %101 = load double, ptr %spec.select, align 8
+  %102 = fsub double %.sink80.i, %101
+  %103 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %104 = load double, ptr %103, align 8
+  %105 = fsub double %17, %104
+  %106 = fmul double %66, %105
+  %107 = call double @llvm.fmuladd.f64(double %67, double %102, double %106)
+  %108 = call noundef double @llvm.fabs.f64(double %102)
+  %109 = call noundef double @llvm.fabs.f64(double %105)
+  %110 = fcmp olt double %108, %109
+  %.019.i.i.i.i = select i1 %110, double %109, double %108
+  %111 = fcmp olt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %111, label %115, label %112
 
-110:                                              ; preds = %108
-  br label %111
+112:                                              ; preds = %.thread
+  %113 = fcmp ogt double %.019.i.i.i.i, %.020.i.i18
+  br i1 %113, label %114, label %115
 
-111:                                              ; preds = %110, %108, %96
-  %.018.i.i.i.i = phi double [ %.020.i.i18, %110 ], [ %.020.i.i18, %108 ], [ %.019.i.i.i.i, %96 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %110 ], [ %.020.i.i18, %108 ], [ %.020.i.i18, %96 ]
-  %112 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
-  %113 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
-  %or.cond.i.i.i.i = or i1 %112, %113
-  br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %114
+114:                                              ; preds = %112
+  br label %115
 
-114:                                              ; preds = %111
-  %115 = fmul double %.020.i.i18, %.019.i.i.i.i
-  %116 = fmul double %115, 0x3CD0028010000004
-  %117 = fcmp ogt double %103, %116
-  br i1 %117, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %118
+115:                                              ; preds = %114, %112, %.thread
+  %.018.i.i.i.i = phi double [ %.020.i.i18, %114 ], [ %.020.i.i18, %112 ], [ %.019.i.i.i.i, %.thread ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %114 ], [ %.020.i.i18, %112 ], [ %.020.i.i18, %.thread ]
+  %116 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
+  %117 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
+  %or.cond.i.i.i.i = or i1 %116, %117
+  br i1 %or.cond.i.i.i.i, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %118
 
-118:                                              ; preds = %114
-  %119 = fneg double %116
-  %120 = fcmp olt double %103, %119
-  br i1 %120, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %121
+118:                                              ; preds = %115
+  %119 = fmul double %.020.i.i18, %.019.i.i.i.i
+  %120 = fmul double %119, 0x3CD0028010000004
+  %121 = fcmp ogt double %107, %120
+  br i1 %121, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %122
 
-121:                                              ; preds = %118
-  br label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i
+122:                                              ; preds = %118
+  %123 = fneg double %120
+  %124 = fcmp olt double %107, %123
+  br i1 %124, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %125
 
-_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %121, %118, %111
-  %122 = phi i16 [ 257, %118 ], [ 256, %111 ], [ 256, %121 ]
-  %123 = trunc nuw i16 %122 to i9
-  %124 = xor i9 %123, -255
+125:                                              ; preds = %122
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i
 
-_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i: ; preds = %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, %114
-  %125 = phi i9 [ %124, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i ], [ -255, %114 ]
-  %126 = call i9 @llvm.bitreverse.i9(i9 %125)
-  %.sroa.01.0.insert.insert.i.i.i.i = zext i9 %126 to i16
-  %127 = and i16 %.sroa.01.0.insert.insert.i.i31, 257
-  %.sroa.03.0.insert.insert.i.i = and i16 %127, %.sroa.01.0.insert.insert.i.i.i.i
+_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i: ; preds = %125, %122, %118, %115
+  %126 = phi i1 [ false, %125 ], [ false, %115 ], [ true, %118 ], [ false, %122 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ -1, %125 ], [ -1, %115 ], [ 1, %118 ], [ -1, %122 ]
+  %.sroa.6.0.i.i.i.i = phi i32 [ 1, %125 ], [ 1, %115 ], [ 1, %118 ], [ -1, %122 ]
+  %127 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.6.0.i.i.i.i
+  %128 = zext i1 %127 to i16
+  %129 = or disjoint i16 %128, 256
+  %130 = trunc nuw i16 %129 to i9
+  %131 = xor i9 %130, -255
+  %132 = call i9 @llvm.bitreverse.i9(i9 %131)
+  %133 = zext i9 %132 to i16
+  %spec.select50 = select i1 %126, i16 257, i16 %133
+  %134 = and i16 %100, 257
+  %.sroa.03.0.insert.insert.i.i = and i16 %134, %spec.select50
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, %91, %53
-  %.sroa.016.0 = phi i16 [ %.sroa.01.0.insert.insert.i.i, %53 ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i ], [ 0, %91 ]
+_ZN4CGAL8internal13cgal_and_implIZNS_13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS0_25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESB_EEEENS0_14Static_filtersISE_EEEclERKNS_10Triangle_3ISB_EERKS5_EUlddddE_EENS_9UncertainIbEERKSt5arrayISR_IT_Lm3EELm3EESW_RKT0_T3_EUlvE1_EESQ_RKSQ_OSS_.exit: ; preds = %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, %92, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit
+  %.sroa.016.0 = phi i16 [ %spec.select49, %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit ], [ %.sroa.03.0.insert.insert.i.i, %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i ], [ 0, %92 ]
   ret i16 %.sroa.016.0
 }
 
@@ -161546,18 +161693,17 @@ _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69: ; preds = %
   %364 = or disjoint i16 %363, 256
   %365 = trunc nuw i16 %364 to i9
   %366 = xor i9 %365, -255
-  %367 = select i1 %or.cond.i79, i9 -255, i9 %366
-  %368 = call i9 @llvm.bitreverse.i9(i9 %367)
-  %369 = and i9 %368, -256
-  %.sroa.5.0.extract.shift = zext i9 %369 to i16
-  %370 = and i9 %368, 255
-  %371 = zext nneg i9 %370 to i16
+  %367 = call i9 @llvm.bitreverse.i9(i9 %366)
+  %368 = zext i9 %367 to i16
+  %.sroa.01.0.insert.insert.i = select i1 %or.cond.i79, i16 257, i16 %368
+  %.sroa.5.0.extract.shift = and i16 %.sroa.01.0.insert.insert.i, 256
+  %369 = and i16 %.sroa.01.0.insert.insert.i, 255
   br label %.critedge
 
 .critedge:                                        ; preds = %354, %348, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56, %358
-  %.sroa.081.0 = phi i16 [ %371, %358 ], [ 1, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56 ], [ 1, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit ], [ 1, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69 ], [ 0, %348 ], [ 1, %354 ]
+  %.sroa.081.0 = phi i16 [ %369, %358 ], [ 1, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56 ], [ 1, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit ], [ 1, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69 ], [ 0, %348 ], [ 1, %354 ]
   %.sroa.5.0 = phi i16 [ %.sroa.5.0.extract.shift, %358 ], [ 256, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56 ], [ 256, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit ], [ 256, %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69 ], [ 0, %348 ], [ 256, %354 ]
-  %.sroa.081.0.insert.insert = or i16 %.sroa.5.0, %.sroa.081.0
+  %.sroa.081.0.insert.insert = or disjoint i16 %.sroa.5.0, %.sroa.081.0
   ret i16 %.sroa.081.0.insert.insert
 }
 

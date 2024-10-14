@@ -1416,10 +1416,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.sroa.speculated17 = select i1 %147, float 0x40561814A0000000, float %129
   %148 = fcmp fast olt float %.sroa.speculated17, 0xC0561814A0000000
   %.sroa.speculated17.neg = fneg fast float %.sroa.speculated17
-  %149 = select fast i1 %148, float 0x40561814A0000000, float %.sroa.speculated17.neg
-  %150 = tail call fast float @llvm.exp.f32(float %149)
-  %151 = fadd fast float %150, 1.000000e+00
-  %152 = fdiv fast float 1.000000e+00, %151
+  %149 = tail call fast float @llvm.exp.f32(float %.sroa.speculated17.neg)
+  %150 = fadd fast float %149, 1.000000e+00
+  %151 = fdiv fast float 1.000000e+00, %150
+  %152 = select i1 %148, float 0x37F6A0A880000000, float %151
   br label %175
 
 153:                                              ; preds = %.lr.ph106
@@ -1634,10 +1634,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.sroa.speculated6.us = select i1 %273, float 0x40561814A0000000, float %249
   %274 = fcmp fast olt float %.sroa.speculated6.us, 0xC0561814A0000000
   %.sroa.speculated6.neg.us = fneg fast float %.sroa.speculated6.us
-  %275 = select fast i1 %274, float 0x40561814A0000000, float %.sroa.speculated6.neg.us
-  %276 = tail call fast float @llvm.exp.f32(float %275)
-  %277 = fadd fast float %276, 1.000000e+00
-  %278 = fdiv fast float 1.000000e+00, %277
+  %275 = tail call fast float @llvm.exp.f32(float %.sroa.speculated6.neg.us)
+  %276 = fadd fast float %275, 1.000000e+00
+  %277 = fdiv fast float 1.000000e+00, %276
+  %278 = select i1 %274, float 0x37F6A0A880000000, float %277
   br label %295
 
 279:                                              ; preds = %.lr.ph70.us

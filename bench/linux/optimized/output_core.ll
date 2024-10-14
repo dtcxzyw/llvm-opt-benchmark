@@ -244,8 +244,8 @@ define dso_local i32 @__ip6_local_out(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = add i32 %6, -40
   %8 = icmp sgt i32 %7, 65535
   %9 = trunc i32 %7 to i16
-  %10 = select i1 %8, i16 0, i16 %9
-  %11 = tail call i16 @llvm.bswap.i16(i16 %10)
+  %10 = tail call i16 @llvm.bswap.i16(i16 %9)
+  %11 = select i1 %8, i16 0, i16 %10
   %12 = getelementptr inbounds i8, ptr %2, i64 192
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 180
@@ -350,8 +350,8 @@ define dso_local i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = add i32 %6, -40
   %8 = icmp sgt i32 %7, 65535
   %9 = trunc i32 %7 to i16
-  %10 = select i1 %8, i16 0, i16 %9
-  %11 = tail call i16 @llvm.bswap.i16(i16 %10)
+  %10 = tail call i16 @llvm.bswap.i16(i16 %9)
+  %11 = select i1 %8, i16 0, i16 %10
   %12 = getelementptr inbounds i8, ptr %2, i64 192
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 180
