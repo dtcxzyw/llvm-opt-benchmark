@@ -3931,7 +3931,7 @@ coreutils-rs/3m1smiyhplnzbj8w.ll 321097711
 coreutils-rs/3mcap5ib5r2yxefa.ll 399367737
 coreutils-rs/3ms64fx2j1h00m7c.ll 415056636
 coreutils-rs/3nl2cacg8s1rqdjn.ll 97813573
-coreutils-rs/3nmxw9dycbo014fv.ll 199384339
+coreutils-rs/3nmxw9dycbo014fv.ll 199583725
 coreutils-rs/3ntjj58b904wujzh.ll 1470814387
 coreutils-rs/3o7ufmaqrkpdgf6g.ll 101373511
 coreutils-rs/3obi02gm4lxq1sl.ll 297051016
@@ -4813,7 +4813,7 @@ cvc5/arith_utilities.cpp.ll 874420917
 cvc5/array_core_solver.cpp.ll 3083248002
 cvc5/array_info.cpp.ll 1848887896
 cvc5/array_solver.cpp.ll 2395859697
-cvc5/array_store_all.cpp.ll 249370896
+cvc5/array_store_all.cpp.ll 249620278
 cvc5/ascription_type.cpp.ll 148883294
 cvc5/assertion_list.cpp.ll 838475687
 cvc5/assertion_pipeline.cpp.ll 682250771
@@ -19101,7 +19101,7 @@ ocio/FileFormatVF.cpp.ll 894003080
 ocio/FileRules.cpp.ll 8009895102
 ocio/FileTransform.cpp.ll 2150816716
 ocio/FixedFunctionOp.cpp.ll 647160433
-ocio/FixedFunctionOpCPU.cpp.ll 1329566232
+ocio/FixedFunctionOpCPU.cpp.ll 1330895909
 ocio/FixedFunctionOpData.cpp.ll 379931141
 ocio/FixedFunctionOpGPU.cpp.ll 766932755
 ocio/FixedFunctionTransform.cpp.ll 371042395
@@ -29368,7 +29368,7 @@ proj/util.cpp.ll 1331308197
 proj/utils.cpp.ll 168961073
 proj/vandg.cpp.ll 65375952
 proj/vandg2.cpp.ll 55722145
-proj/vandg4.cpp.ll 47849540
+proj/vandg4.cpp.ll 47897398
 proj/vectorofvaluesparams.cpp.ll 436501720
 proj/vgridshift.cpp.ll 333661520
 proj/wag2.cpp.ll 42174235
