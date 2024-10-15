@@ -635,10 +635,6 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @_ZTVN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestE, ptr @_ZN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestD2Ev, ptr @_ZN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestE = internal constant [67 x i8] c"N12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestE\00", align 1
 @_ZTIN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_TestE, ptr @_ZTIN7testing4TestE }, align 8
-@.str.99 = private unnamed_addr constant [2 x i8] c"a\00", align 1
-@.str.100 = private unnamed_addr constant [27 x i8] c"5.42101086242752217004e-20\00", align 1
-@.str.101 = private unnamed_addr constant [24 x i8] c"0.693147180559945175204\00", align 1
-@.str.102 = private unnamed_addr constant [23 x i8] c"36.7368005696771007251\00", align 1
 @.str.103 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.104 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @_ZTIf = external constant ptr
@@ -9267,32 +9263,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_148ExponentialDistributionTest_AlgorithmBounds_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %a = alloca double, align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp2 = alloca double, align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
   %ref.tmp8 = alloca %"class.testing::internal::AssertHelper", align 8
-  %a24 = alloca double, align 8
   %gtest_ar28 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp29 = alloca double, align 8
   %ref.tmp34 = alloca %"class.testing::Message", align 8
   %ref.tmp37 = alloca %"class.testing::internal::AssertHelper", align 8
-  %a56 = alloca double, align 8
   %gtest_ar60 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp61 = alloca double, align 8
   %ref.tmp66 = alloca %"class.testing::Message", align 8
   %ref.tmp69 = alloca %"class.testing::internal::AssertHelper", align 8
-  %a88 = alloca double, align 8
   %gtest_ar92 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp93 = alloca double, align 8
   %ref.tmp98 = alloca %"class.testing::Message", align 8
   %ref.tmp101 = alloca %"class.testing::internal::AssertHelper", align 8
-  %call3.i.i = tail call double @log1p(double noundef 0xBBF0000000000000) #34
-  %mul.i.i = fneg double %call3.i.i
-  store double %mul.i.i, ptr %a, align 8
-  store double 0x3BF0000000000000, ptr %ref.tmp2, align 8
-  %cmp.i.i = fcmp oeq double %call3.i.i, 0xBBF0000000000000
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
+  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
+  %0 = load i8, ptr %gtest_ar, align 8
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 common.resume:                                    ; preds = %lpad99, %_ZN7testing7MessageD2Ev.exit209, %lpad67, %_ZN7testing7MessageD2Ev.exit145, %lpad35, %_ZN7testing7MessageD2Ev.exit81, %lpad6, %_ZN7testing7MessageD2Ev.exit22
   %gtest_ar92.sink = phi ptr [ %gtest_ar, %_ZN7testing7MessageD2Ev.exit22 ], [ %gtest_ar, %lpad6 ], [ %gtest_ar28, %_ZN7testing7MessageD2Ev.exit81 ], [ %gtest_ar28, %lpad35 ], [ %gtest_ar60, %_ZN7testing7MessageD2Ev.exit145 ], [ %gtest_ar60, %lpad67 ], [ %gtest_ar92, %_ZN7testing7MessageD2Ev.exit209 ], [ %gtest_ar92, %lpad99 ]
@@ -9300,20 +9286,7 @@ common.resume:                                    ; preds = %lpad99, %_ZN7testin
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar92.sink) #34
   resume { ptr, i32 } %common.resume.op
 
-if.then.i.i:                                      ; preds = %entry
-  call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
-  br label %invoke.cont3
-
-if.end.i.i:                                       ; preds = %entry
-  call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
-  br label %invoke.cont3
-
-invoke.cont3:                                     ; preds = %if.then.i.i, %if.end.i.i
-  %0 = load i8, ptr %gtest_ar, align 8
-  %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %if.end, label %if.else
-
-if.else:                                          ; preds = %invoke.cont3
+if.else:                                          ; preds = %entry
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -9386,7 +9359,7 @@ _ZN7testing7MessageD2Ev.exit22:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp5, align 8
   br label %common.resume
 
-if.end:                                           ; preds = %invoke.cont3, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %entry, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %9 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i23 = icmp eq ptr %9, null
@@ -9399,27 +9372,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  %call3.i.i53 = call double @log1p(double noundef 0xBFDFFFFFFFFFFFFF) #34
-  %mul.i.i54 = fneg double %call3.i.i53
-  store double %mul.i.i54, ptr %a24, align 8
-  store double 0x3FE62E42FEFA39EE, ptr %ref.tmp29, align 8
-  %cmp.i.i55 = fcmp oeq double %call3.i.i53, 0xBFE62E42FEFA39EE
-  br i1 %cmp.i.i55, label %if.then.i.i57, label %if.end.i.i56
-
-if.then.i.i57:                                    ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar28)
-  br label %invoke.cont30
-
-if.end.i.i56:                                     ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
-  call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar28, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(8) %a24, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29)
-  br label %invoke.cont30
-
-invoke.cont30:                                    ; preds = %if.then.i.i57, %if.end.i.i56
   %10 = load i8, ptr %gtest_ar28, align 8
   %tobool.i61 = trunc i8 %10 to i1
   br i1 %tobool.i61, label %if.end46, label %if.else33
 
-if.else33:                                        ; preds = %invoke.cont30
+if.else33:                                        ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp34)
           to label %invoke.cont36 unwind label %lpad35
 
@@ -9492,7 +9450,7 @@ _ZN7testing7MessageD2Ev.exit81:                   ; preds = %ehcleanup45, %_ZNKS
   store ptr null, ptr %ref.tmp34, align 8
   br label %common.resume
 
-if.end46:                                         ; preds = %invoke.cont30, %_ZN7testing7MessageD2Ev.exit76
+if.end46:                                         ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit, %_ZN7testing7MessageD2Ev.exit76
   %message_.i82 = getelementptr inbounds i8, ptr %gtest_ar28, i64 8
   %19 = load ptr, ptr %message_.i82, align 8
   %cmp.not.i.i83 = icmp eq ptr %19, null
@@ -9505,27 +9463,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit89: ; preds = %if.end46, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i84
   store ptr null, ptr %message_.i82, align 8
-  %call3.i.i117 = call double @log1p(double noundef 0xBFEFFFFFFFFFFFFF) #34
-  %mul.i.i118 = fneg double %call3.i.i117
-  store double %mul.i.i118, ptr %a56, align 8
-  store double 0x40425E4F7B2737FA, ptr %ref.tmp61, align 8
-  %cmp.i.i119 = fcmp oeq double %call3.i.i117, 0xC0425E4F7B2737FA
-  br i1 %cmp.i.i119, label %if.then.i.i121, label %if.end.i.i120
-
-if.then.i.i121:                                   ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit89
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar60)
-  br label %invoke.cont62
-
-if.end.i.i120:                                    ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit89
-  call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar60, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.102, ptr noundef nonnull align 8 dereferenceable(8) %a56, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61)
-  br label %invoke.cont62
-
-invoke.cont62:                                    ; preds = %if.then.i.i121, %if.end.i.i120
   %20 = load i8, ptr %gtest_ar60, align 8
   %tobool.i125 = trunc i8 %20 to i1
   br i1 %tobool.i125, label %if.end78, label %if.else65
 
-if.else65:                                        ; preds = %invoke.cont62
+if.else65:                                        ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit89
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp66)
           to label %invoke.cont68 unwind label %lpad67
 
@@ -9598,7 +9541,7 @@ _ZN7testing7MessageD2Ev.exit145:                  ; preds = %ehcleanup77, %_ZNKS
   store ptr null, ptr %ref.tmp66, align 8
   br label %common.resume
 
-if.end78:                                         ; preds = %invoke.cont62, %_ZN7testing7MessageD2Ev.exit140
+if.end78:                                         ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit89, %_ZN7testing7MessageD2Ev.exit140
   %message_.i146 = getelementptr inbounds i8, ptr %gtest_ar60, i64 8
   %29 = load ptr, ptr %message_.i146, align 8
   %cmp.not.i.i147 = icmp eq ptr %29, null
@@ -9611,27 +9554,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit153: ; preds = %if.end78, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i148
   store ptr null, ptr %message_.i146, align 8
-  %call3.i.i181 = call double @log1p(double noundef 0xBFEFFFFFFFFFFFFF) #34
-  %mul.i.i182 = fneg double %call3.i.i181
-  store double %mul.i.i182, ptr %a88, align 8
-  store double 0x40425E4F7B2737FA, ptr %ref.tmp93, align 8
-  %cmp.i.i183 = fcmp oeq double %call3.i.i181, 0xC0425E4F7B2737FA
-  br i1 %cmp.i.i183, label %if.then.i.i185, label %if.end.i.i184
-
-if.then.i.i185:                                   ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit153
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar92)
-  br label %invoke.cont94
-
-if.end.i.i184:                                    ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit153
-  call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar92, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.102, ptr noundef nonnull align 8 dereferenceable(8) %a88, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
-  br label %invoke.cont94
-
-invoke.cont94:                                    ; preds = %if.then.i.i185, %if.end.i.i184
   %30 = load i8, ptr %gtest_ar92, align 8
   %tobool.i189 = trunc i8 %30 to i1
   br i1 %tobool.i189, label %if.end110, label %if.else97
 
-if.else97:                                        ; preds = %invoke.cont94
+if.else97:                                        ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit153
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp98)
           to label %invoke.cont100 unwind label %lpad99
 
@@ -9704,7 +9632,7 @@ _ZN7testing7MessageD2Ev.exit209:                  ; preds = %ehcleanup109, %_ZNK
   store ptr null, ptr %ref.tmp98, align 8
   br label %common.resume
 
-if.end110:                                        ; preds = %invoke.cont94, %_ZN7testing7MessageD2Ev.exit204
+if.end110:                                        ; preds = %_ZN4absl15random_internal13sequence_urbgD2Ev.exit153, %_ZN7testing7MessageD2Ev.exit204
   %message_.i210 = getelementptr inbounds i8, ptr %gtest_ar92, i64 8
   %39 = load ptr, ptr %message_.i210, align 8
   %cmp.not.i.i211 = icmp eq ptr %39, null
