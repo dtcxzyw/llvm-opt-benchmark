@@ -28053,7 +28053,7 @@ php/phpdbg_btree.ll 188416979
 php/phpdbg_cmd.ll 386646842
 php/phpdbg_frame.ll 338652864
 php/phpdbg_help.ll 231096400
-php/phpdbg_info.ll 249077932
+php/phpdbg_info.ll 249327059
 php/phpdbg_io.ll 86001627
 php/phpdbg_lexer.ll 644538325
 php/phpdbg_list.ll 335122698
@@ -34005,7 +34005,7 @@ spike/rsubw.ll 461226232
 spike/s_add256M.ll 39135715
 spike/s_addCarryM.ll 39677012
 spike/s_addComplCarryM.ll 39873390
-spike/s_addM.ll 40988355
+spike/s_addM.ll 41029564
 spike/s_addMagsF128.ll 64087411
 spike/s_addMagsF16.ll 73881778
 spike/s_addMagsF32.ll 66593655
