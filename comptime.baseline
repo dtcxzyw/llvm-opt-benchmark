@@ -8069,7 +8069,7 @@ gromacs/hbond.cpp.ll 5179079466
 gromacs/helpformat.cpp.ll 724381527
 gromacs/helpmanager.cpp.ll 332726119
 gromacs/helptopic.cpp.ll 462634555
-gromacs/helpwritercontext.cpp.ll 1011908288
+gromacs/helpwritercontext.cpp.ll 1012920329
 gromacs/histogram.cpp.ll 1666667504
 gromacs/histogramsize.cpp.ll 127962109
 gromacs/hizzie.cpp.ll 250544566
@@ -19156,7 +19156,7 @@ ocio/Lut1DOpCPU_AVX.cpp.ll 822935047
 ocio/Lut1DOpCPU_AVX2.cpp.ll 456744802
 ocio/Lut1DOpCPU_SSE2.cpp.ll 623896488
 ocio/Lut1DOpData.cpp.ll 1073866309
-ocio/Lut1DOpGPU.cpp.ll 778303457
+ocio/Lut1DOpGPU.cpp.ll 779081804
 ocio/Lut1DTransform.cpp.ll 292861637
 ocio/Lut3DOp.cpp.ll 713167525
 ocio/Lut3DOpCPU.cpp.ll 2413342730
