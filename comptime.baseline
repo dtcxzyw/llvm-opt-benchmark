@@ -4081,7 +4081,7 @@ coreutils-rs/4l9vhhaykgv9gwpd.ll 402201254
 coreutils-rs/4li64bjtdvfqomjr.ll 250682115
 coreutils-rs/4lw4oxxh21t66h4h.ll 293810593
 coreutils-rs/4m55vsr06mfoz5n9.ll 597317115
-coreutils-rs/4ml5jdnndh9c71tl.ll 90856492
+coreutils-rs/4ml5jdnndh9c71tl.ll 90947429
 coreutils-rs/4mlyvoaplnk0x351.ll 1120600654
 coreutils-rs/4mp8yj8jciru6ppi.ll 88260183
 coreutils-rs/4mquwr4iuxmmsn1o.ll 90952037
@@ -11866,7 +11866,7 @@ lief/x509_create.c.ll 133456504
 lief/x509_crl.c.ll 206628219
 lief/x509_crt.c.ll 1123822855
 lief/x509_csr.c.ll 106523219
-lief/x509write_crt.c.ll 136702388
+lief/x509write_crt.c.ll 136839200
 lightgbm/application.cpp.ll 5146680597
 lightgbm/bin.cpp.ll 25491158911
 lightgbm/boosting.cpp.ll 2802503113
@@ -19725,7 +19725,7 @@ openblas/dlamch.c.ll 215156239
 openblas/dlansf.c.ll 536894661
 openblas/dlantp.c.ll 198537830
 openblas/dlanv2.c.ll 74636491
-openblas/dlaorhr_col_getrfnp2.c.ll 61746078
+openblas/dlaorhr_col_getrfnp2.c.ll 61807976
 openblas/dlapmr.c.ll 65481358
 openblas/dlapmt.c.ll 66019994
 openblas/dlaqp3rk.c.ll 143708456
@@ -20031,7 +20031,7 @@ opencv/CannyDetector_Demo.cpp.ll 95050227
 opencv/CmFile.cpp.ll 40817583
 opencv/CmShow.cpp.ll 430074391
 opencv/CsvReader.cpp.ll 316800721
-opencv/CsvWriter.cpp.ll 80047415
+opencv/CsvWriter.cpp.ll 80127569
 opencv/Drawing_1.cpp.ll 132546743
 opencv/Drawing_2.cpp.ll 365575590
 opencv/EqualizeHist_Demo.cpp.ll 71948115
@@ -24686,7 +24686,7 @@ openmpi/prtedl_dlopen_module.ll 94964384
 openmpi/prteinstalldirs_base_components.ll 116207077
 openmpi/prteinstalldirs_base_expand.ll 124848647
 openmpi/prun.ll 72195675
-openmpi/psched.ll 210242015
+openmpi/psched.ll 210452322
 openmpi/psec_base_fns.ll 57349793
 openmpi/psec_base_frame.ll 65801153
 openmpi/psec_base_select.ll 85566108
@@ -25158,7 +25158,7 @@ openspiel/solitaire.cc.ll 5189611979
 openspiel/solitaire_test.cc.ll 659340432
 openspiel/spades.cc.ll 2597884520
 openspiel/spades_scoring.cc.ll 54237224
-openspiel/spades_test.cc.ll 248858770
+openspiel/spades_test.cc.ll 248609910
 openspiel/spiel.cc.ll 5279371202
 openspiel/spiel_bots.cc.ll 2275952787
 openspiel/spiel_utils.cc.ll 426070416
@@ -32370,7 +32370,7 @@ ruby/unixsocket.ll 158476011
 ruby/utf8_mac.ll 357117626
 ruby/utf_16_32.ll 224748303
 ruby/utf_32be.ll 61310159
-ruby/utf_32le.ll 60102128
+ruby/utf_32le.ll 60162234
 ruby/utf_8.ll 95857679
 ruby/util.ll 1378020813
 ruby/variable.ll 1458577239
