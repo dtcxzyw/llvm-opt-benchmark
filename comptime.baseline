@@ -11634,7 +11634,7 @@ libzmq/zmtp_engine.cpp.ll 222970342
 lief/AArch64Feature.cpp.ll 10728161878
 lief/ASN1Reader.cpp.ll 12562369017
 lief/AndroidIdent.cpp.ll 11977438676
-lief/Attribute.cpp.ll 79778620
+lief/Attribute.cpp.ll 79858456
 lief/BinaryParser.cpp.ll 21565490824
 lief/BinaryStream.cpp.ll 1120396571
 lief/BindingInfo.cpp.ll 84465635
@@ -34669,7 +34669,7 @@ spike/vwmulu_vv.ll 1240499013
 spike/vwmulu_vx.ll 1146533606
 spike/vwredsum_vs.ll 945797713
 spike/vwredsumu_vs.ll 949061520
-spike/vwsll_vi.ll 1146323578
+spike/vwsll_vi.ll 1147469931
 spike/vwsll_vv.ll 1297354448
 spike/vwsll_vx.ll 1183202881
 spike/vwsub_vv.ll 1244090859
@@ -35813,7 +35813,7 @@ wasmtime-rs/1kan0u7yfu7u6hal.ll 3749050742
 wasmtime-rs/1kbx45vk8r0v0j11.ll 49946306
 wasmtime-rs/1kzxwcli27ht1701.ll 34424779
 wasmtime-rs/1l4d79e6nzulcsk2.ll 52381911
-wasmtime-rs/1l7vvy5g6vlq5vfq.ll 60843938
+wasmtime-rs/1l7vvy5g6vlq5vfq.ll 60904956
 wasmtime-rs/1mhgud7mrzoemrrh.ll 2121108699
 wasmtime-rs/1n98gc3fnn7orta.ll 154433145
 wasmtime-rs/1ng3meuck556w4vz.ll 294918816
