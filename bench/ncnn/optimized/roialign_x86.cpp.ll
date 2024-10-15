@@ -858,9 +858,9 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_interpolateIfEEviiiiiiT_S1_S1_S1_iiRSt6vectorINS_7PreCalcIS1_EESaIS4_EE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef nofpclass(nan inf) %6, float noundef nofpclass(nan inf) %7, float noundef nofpclass(nan inf) %8, float noundef nofpclass(nan inf) %9, i32 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %12) local_unnamed_addr #2 comdat {
   %14 = icmp sgt i32 %2, 0
-  br i1 %14, label %.preheader111.lr.ph, label %._crit_edge143
+  br i1 %14, label %.preheader110.lr.ph, label %._crit_edge142
 
-.preheader111.lr.ph:                              ; preds = %13
+.preheader110.lr.ph:                              ; preds = %13
   %15 = icmp slt i32 %3, 1
   %16 = icmp slt i32 %5, 1
   %17 = sitofp i32 %0 to float
@@ -870,37 +870,37 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %21 = add nsw i32 %1, -1
   %22 = sitofp i32 %21 to float
   %23 = icmp slt i32 %4, 1
-  %or.cond.not167 = or i1 %15, %23
-  %brmerge = or i1 %or.cond.not167, %16
-  br i1 %brmerge, label %._crit_edge143, label %.preheader111.us.us.us.preheader
+  %or.cond.not166 = or i1 %15, %23
+  %brmerge = or i1 %or.cond.not166, %16
+  br i1 %brmerge, label %._crit_edge142, label %.preheader110.us.us.us.preheader
 
-.preheader111.us.us.us.preheader:                 ; preds = %.preheader111.lr.ph
+.preheader110.us.us.us.preheader:                 ; preds = %.preheader110.lr.ph
   %24 = sitofp i32 %11 to float
   %25 = sitofp i32 %10 to float
   %26 = fdiv fast float 1.000000e+00, %25
   %27 = fdiv fast float 1.000000e+00, %24
-  br label %.preheader111.us.us.us
+  br label %.preheader110.us.us.us
 
-.preheader111.us.us.us:                           ; preds = %.preheader111.us.us.us.preheader, %._crit_edge.split.us.split.us.us.us.us
-  %.0142.us.us.us = phi i64 [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader111.us.us.us.preheader ]
-  %.087141.us.us.us = phi i32 [ %82, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader111.us.us.us.preheader ]
-  %28 = uitofp nneg i32 %.087141.us.us.us to float
+.preheader110.us.us.us:                           ; preds = %.preheader110.us.us.us.preheader, %._crit_edge.split.us.split.us.us.us.us
+  %.0141.us.us.us = phi i64 [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
+  %.087140.us.us.us = phi i32 [ %82, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
+  %28 = uitofp nneg i32 %.087140.us.us.us to float
   %29 = fmul fast float %8, %28
   %30 = fadd fast float %29, %6
   br label %.preheader.us.us.us.us.us
 
-.preheader.us.us.us.us.us:                        ; preds = %._crit_edge117.split.us.us.us.us.us.us, %.preheader111.us.us.us
-  %.1135.us.us.us.us.us = phi i64 [ %.0142.us.us.us, %.preheader111.us.us.us ], [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge117.split.us.us.us.us.us.us ]
-  %.088134.us.us.us.us.us = phi i32 [ 0, %.preheader111.us.us.us ], [ %81, %._crit_edge117.split.us.us.us.us.us.us ]
-  %31 = uitofp nneg i32 %.088134.us.us.us.us.us to float
+.preheader.us.us.us.us.us:                        ; preds = %._crit_edge116.split.us.us.us.us.us.us, %.preheader110.us.us.us
+  %.1134.us.us.us.us.us = phi i64 [ %.0141.us.us.us, %.preheader110.us.us.us ], [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge116.split.us.us.us.us.us.us ]
+  %.088133.us.us.us.us.us = phi i32 [ 0, %.preheader110.us.us.us ], [ %81, %._crit_edge116.split.us.us.us.us.us.us ]
+  %31 = uitofp nneg i32 %.088133.us.us.us.us.us to float
   %32 = fmul fast float %9, %31
   %33 = fadd fast float %32, %7
   br label %.lr.ph.us.us.us.us.us.us
 
 .lr.ph.us.us.us.us.us.us:                         ; preds = %._crit_edge.us.us.us.us.us.us, %.preheader.us.us.us.us.us
-  %.2115.us.us.us.us.us.us = phi i64 [ %.1135.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge.us.us.us.us.us.us ]
-  %.089114.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us ], [ %77, %._crit_edge.us.us.us.us.us.us ]
-  %34 = uitofp nneg i32 %.089114.us.us.us.us.us.us to float
+  %.2114.us.us.us.us.us.us = phi i64 [ %.1134.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge.us.us.us.us.us.us ]
+  %.089113.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us ], [ %77, %._crit_edge.us.us.us.us.us.us ]
+  %34 = uitofp nneg i32 %.089113.us.us.us.us.us.us to float
   %35 = fadd fast float %34, 5.000000e-01
   %36 = fmul fast float %8, %35
   %37 = fmul fast float %36, %26
@@ -908,8 +908,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %39 = fcmp fast olt float %38, -1.000000e+00
   %40 = fcmp fast ogt float %38, %17
   %or.cond.us.us.us.us.us.us = select i1 %39, i1 true, i1 %40
-  %.inv.us.us.us.us.us.us = fcmp fast ole float %38, 0.000000e+00
-  %.093.us.us.us.us.us.us = select fast i1 %.inv.us.us.us.us.us.us, float 0.000000e+00, float %38
+  %.093.us.us.us.us.us.us = tail call fast float @llvm.maxnum.f32(float %38, float 0.000000e+00)
   %41 = fptosi float %.093.us.us.us.us.us.us to i32
   %.not.us.us.us.us.us.us = icmp sgt i32 %19, %41
   %42 = add nsw i32 %41, 1
@@ -922,14 +921,14 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %46 = mul nsw i32 %.095.us.us.us.us.us.us, %1
   %47 = mul nsw i32 %.097.us.us.us.us.us.us, %1
   %or.cond.fr.us.us.us.us.us.us = freeze i1 %or.cond.us.us.us.us.us.us
-  %sext = shl i64 %.2115.us.us.us.us.us.us, 32
+  %sext = shl i64 %.2114.us.us.us.us.us.us, 32
   %48 = ashr exact i64 %sext, 32
-  br i1 %or.cond.fr.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us131.us.us.us.us.us
+  br i1 %or.cond.fr.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us130.us.us.us.us.us
 
-.lr.ph.split.us131.us.us.us.us.us:                ; preds = %.lr.ph.us.us.us.us.us.us, %75
+.lr.ph.split.us130.us.us.us.us.us:                ; preds = %.lr.ph.us.us.us.us.us.us, %75
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ %48, %.lr.ph.us.us.us.us.us.us ]
-  %.090112.us120.us.us.us.us.us = phi i32 [ %76, %75 ], [ 0, %.lr.ph.us.us.us.us.us.us ]
-  %49 = uitofp nneg i32 %.090112.us120.us.us.us.us.us to float
+  %.090111.us119.us.us.us.us.us = phi i32 [ %76, %75 ], [ 0, %.lr.ph.us.us.us.us.us.us ]
+  %49 = uitofp nneg i32 %.090111.us119.us.us.us.us.us to float
   %50 = fadd fast float %49, 5.000000e-01
   %51 = fmul fast float %9, %50
   %52 = fmul fast float %51, %27
@@ -939,9 +938,8 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %or.cond109.us.us.us.us.us.us = select i1 %54, i1 true, i1 %55
   br i1 %or.cond109.us.us.us.us.us.us, label %72, label %56
 
-56:                                               ; preds = %.lr.ph.split.us131.us.us.us.us.us
-  %.inv110.us.us.us.us.us.us = fcmp fast ole float %53, 0.000000e+00
-  %.091.us.us.us.us.us.us = select fast i1 %.inv110.us.us.us.us.us.us, float 0.000000e+00, float %53
+56:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
+  %.091.us.us.us.us.us.us = tail call fast float @llvm.maxnum.f32(float %53, float 0.000000e+00)
   %57 = fptosi float %.091.us.us.us.us.us.us to i32
   %.not105.us.us.us.us.us.us = icmp sgt i32 %21, %57
   %58 = add nsw i32 %57, 1
@@ -978,7 +976,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   store float %65, ptr %.sroa.8.0..sroa_idx.us.us.us.us.us.us, align 4
   br label %75
 
-72:                                               ; preds = %.lr.ph.split.us131.us.us.us.us.us
+72:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
   %73 = load ptr, ptr %12, align 8
   %74 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %73, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %74, i8 0, i64 32, i1 false)
@@ -986,38 +984,38 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
 
 75:                                               ; preds = %72, %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %76 = add nuw nsw i32 %.090112.us120.us.us.us.us.us, 1
+  %76 = add nuw nsw i32 %.090111.us119.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %76, %5
-  br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %.lr.ph.split.us131.us.us.us.us.us, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %.lr.ph.split.us130.us.us.us.us.us, !llvm.loop !21
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %75, %.lr.ph.split.us.us.us.us.us.us.us
-  %.us-phi.us.us.us.us.us.us.in = phi i64 [ %indvars.iv.next158, %.lr.ph.split.us.us.us.us.us.us.us ], [ %indvars.iv.next, %75 ]
-  %77 = add nuw nsw i32 %.089114.us.us.us.us.us.us, 1
-  %exitcond161.not = icmp eq i32 %77, %4
-  br i1 %exitcond161.not, label %._crit_edge117.split.us.us.us.us.us.us, label %.lr.ph.us.us.us.us.us.us, !llvm.loop !22
+  %.us-phi.us.us.us.us.us.us.in = phi i64 [ %indvars.iv.next157, %.lr.ph.split.us.us.us.us.us.us.us ], [ %indvars.iv.next, %75 ]
+  %77 = add nuw nsw i32 %.089113.us.us.us.us.us.us, 1
+  %exitcond160.not = icmp eq i32 %77, %4
+  br i1 %exitcond160.not, label %._crit_edge116.split.us.us.us.us.us.us, label %.lr.ph.us.us.us.us.us.us, !llvm.loop !22
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.lr.ph.us.us.us.us.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph.split.us.us.us.us.us.us.us ], [ %48, %.lr.ph.us.us.us.us.us.us ]
-  %.090112.us.us.us.us.us.us.us = phi i32 [ %80, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.lr.ph.us.us.us.us.us.us ]
+  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph.split.us.us.us.us.us.us.us ], [ %48, %.lr.ph.us.us.us.us.us.us ]
+  %.090111.us.us.us.us.us.us.us = phi i32 [ %80, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.lr.ph.us.us.us.us.us.us ]
   %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %78, i64 %indvars.iv157
-  %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
-  %80 = add nuw nsw i32 %.090112.us.us.us.us.us.us.us, 1
-  %exitcond160.not = icmp eq i32 %80, %5
+  %79 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %78, i64 %indvars.iv156
+  %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
+  %80 = add nuw nsw i32 %.090111.us.us.us.us.us.us.us, 1
+  %exitcond159.not = icmp eq i32 %80, %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %79, i8 0, i64 32, i1 false)
-  br i1 %exitcond160.not, label %._crit_edge.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us, !llvm.loop !21
+  br i1 %exitcond159.not, label %._crit_edge.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us, !llvm.loop !21
 
-._crit_edge117.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us
-  %81 = add nuw nsw i32 %.088134.us.us.us.us.us, 1
-  %exitcond162.not = icmp eq i32 %81, %3
-  br i1 %exitcond162.not, label %._crit_edge.split.us.split.us.us.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !23
+._crit_edge116.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us
+  %81 = add nuw nsw i32 %.088133.us.us.us.us.us, 1
+  %exitcond161.not = icmp eq i32 %81, %3
+  br i1 %exitcond161.not, label %._crit_edge.split.us.split.us.us.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !23
 
-._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge117.split.us.us.us.us.us.us
-  %82 = add nuw nsw i32 %.087141.us.us.us, 1
-  %exitcond163.not = icmp eq i32 %82, %2
-  br i1 %exitcond163.not, label %._crit_edge143, label %.preheader111.us.us.us, !llvm.loop !24
+._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge116.split.us.us.us.us.us.us
+  %82 = add nuw nsw i32 %.087140.us.us.us, 1
+  %exitcond162.not = icmp eq i32 %82, %2
+  br i1 %exitcond162.not, label %._crit_edge142, label %.preheader110.us.us.us, !llvm.loop !24
 
-._crit_edge143:                                   ; preds = %._crit_edge.split.us.split.us.us.us.us, %.preheader111.lr.ph, %13
+._crit_edge142:                                   ; preds = %._crit_edge.split.us.split.us.us.us.us, %.preheader110.lr.ph, %13
   ret void
 }
 
@@ -1068,6 +1066,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
