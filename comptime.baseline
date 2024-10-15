@@ -8980,7 +8980,7 @@ hdf5/H5A.c.ll 555582235
 hdf5/H5AC.c.ll 282365280
 hdf5/H5ACdbg.c.ll 33359464
 hdf5/H5ACproxy_entry.c.ll 86604932
-hdf5/H5Abtree2.c.ll 80474436
+hdf5/H5Abtree2.c.ll 80555046
 hdf5/H5Adense.c.ll 373454863
 hdf5/H5Adeprec.c.ll 98664661
 hdf5/H5Aint.c.ll 470310433
@@ -26816,7 +26816,7 @@ openusd/expressionVariablesSource.cpp.ll 290602958
 openusd/extComputation.cpp.ll 548961894
 openusd/extComputationContext.cpp.ll 33472846
 openusd/extComputationContextInternal.cpp.ll 360743589
-openusd/extComputationInputComputationSchema.cpp.ll 438022236
+openusd/extComputationInputComputationSchema.cpp.ll 438460309
 openusd/extComputationOutputSchema.cpp.ll 400238410
 openusd/extComputationPrimvarPruningSceneIndex.cpp.ll 5701381097
 openusd/extComputationPrimvarSchema.cpp.ll 558137750
