@@ -25592,7 +25592,7 @@ openssl/libcrypto-lib-provider_core.ll 516318719
 openssl/libcrypto-lib-punycode.ll 154540964
 openssl/libcrypto-lib-pvkfmt.ll 334426093
 openssl/libcrypto-lib-quic_vlint.ll 77096491
-openssl/libcrypto-lib-rand_lib.ll 217588720
+openssl/libcrypto-lib-rand_lib.ll 217370937
 openssl/libcrypto-lib-rand_pool.ll 91057584
 openssl/libcrypto-lib-rand_uniform.ll 58829454
 openssl/libcrypto-lib-rc2_cbc.ll 189801124
