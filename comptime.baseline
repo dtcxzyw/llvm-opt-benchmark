@@ -6867,7 +6867,7 @@ freetype/raster.c.ll 773238249
 freetype/sdf.c.ll 2032315411
 freetype/sfnt.c.ll 5697223966
 freetype/smooth.c.ll 600663917
-freetype/svg.c.ll 86497230
+freetype/svg.c.ll 86583886
 freetype/truetype.c.ll 4636855423
 freetype/type1.c.ll 1486875967
 freetype/type1cid.c.ll 638561383
@@ -18500,7 +18500,7 @@ nlohmann_json/unit-class_iterator.cpp.ll 2999290527
 nlohmann_json/unit-class_lexer.cpp.ll 949211680
 nlohmann_json/unit-class_parser.cpp.ll 20106455621
 nlohmann_json/unit-comparison.cpp.ll 6042893653
-nlohmann_json/unit-concepts.cpp.ll 1461024856
+nlohmann_json/unit-concepts.cpp.ll 1462485962
 nlohmann_json/unit-constructor1.cpp.ll 12226265182
 nlohmann_json/unit-constructor2.cpp.ll 2595466575
 nlohmann_json/unit-convenience.cpp.ll 1267658607
@@ -28617,7 +28617,7 @@ postgres/latch.ll 203345249
 postgres/launcher.ll 344122796
 postgres/libpq-events.ll 90516888
 postgres/libpq_source.ll 179836630
-postgres/libpqwalreceiver.ll 255471159
+postgres/libpqwalreceiver.ll 255726683
 postgres/like.ll 483600686
 postgres/like_support.ll 366307056
 postgres/list.ll 603615883
@@ -33844,7 +33844,7 @@ spike/khm8.ll 682692001
 spike/khmbb.ll 512569121
 spike/khmbb16.ll 541355226
 spike/khmbt.ll 528207901
-spike/khmbt16.ll 544374714
+spike/khmbt16.ll 544919160
 spike/khmtt.ll 513355388
 spike/khmtt16.ll 546461289
 spike/khmx16.ll 800660398
