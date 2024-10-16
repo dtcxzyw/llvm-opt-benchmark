@@ -22659,7 +22659,7 @@ openjdk/jfrSymbolTable.ll 733342869
 openjdk/jfrThreadCPULoadEvent.ll 666398659
 openjdk/jfrThreadDumpEvent.ll 76319158
 openjdk/jfrThreadGroup.ll 1179183728
-openjdk/jfrThreadIterator.ll 125106789
+openjdk/jfrThreadIterator.ll 124981657
 openjdk/jfrThreadLocal.ll 809030218
 openjdk/jfrThreadSampler.ll 924110930
 openjdk/jfrThreadState.ll 255188299
