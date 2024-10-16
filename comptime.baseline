@@ -20470,7 +20470,7 @@ opencv/face_alignment.cpp.ll 1245418003
 opencv/face_basic.cpp.ll 376768559
 opencv/face_beautification.cpp.ll 7899632430
 opencv/face_detect.cpp.ll 387833545
-opencv/face_detection_mtcnn.cpp.ll 11376062103
+opencv/face_detection_mtcnn.cpp.ll 11364685598
 opencv/face_recognize.cpp.ll 490989041
 opencv/facedetect.cpp.ll 339702666
 opencv/facemark.cpp.ll 765556103
@@ -31337,7 +31337,7 @@ quantlib/treecapfloorengine.ll 1908194829
 quantlib/treeswapengine.ll 1980140797
 quantlib/treeswaptionengine.ll 2353438092
 quantlib/tridiagonaloperator.ll 578701363
-quantlib/triggeredswapexercise.ll 496984409
+quantlib/triggeredswapexercise.ll 496487376
 quantlib/trinomialtree.ll 779273703
 quantlib/triplebandlinearop.ll 1200058176
 quantlib/turkey.ll 308411990
