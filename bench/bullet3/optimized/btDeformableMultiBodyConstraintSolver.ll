@@ -2922,8 +2922,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %., -1
   br label %for.body
 
-for.body:                                         ; preds = %_ZN37btDeformableMultiBodyConstraintSolver19solverBodyWriteBackERK19btContactSolverInfo.exit, %for.body.lr.ph
-  %iteration.036 = phi i32 [ 0, %for.body.lr.ph ], [ %inc31, %_ZN37btDeformableMultiBodyConstraintSolver19solverBodyWriteBackERK19btContactSolverInfo.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %iteration.036 = phi i32 [ 0, %for.body.lr.ph ], [ %inc31, %for.inc ]
   %vtable5 = load ptr, ptr %this, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 96
   %3 = load ptr, ptr %vfn6, align 8
@@ -3032,8 +3032,7 @@ _ZN37btDeformableMultiBodyConstraintSolver19solverBodyWriteBackERK19btContactSol
   %cmp14 = fcmp ugt float %31, %32
   %cmp15.not = icmp slt i32 %iteration.036, %sub
   %or.cond = select i1 %cmp14, i1 %cmp15.not, i1 false
-  %inc31 = add nuw nsw i32 %iteration.036, 1
-  br i1 %or.cond, label %for.body, label %if.then
+  br i1 %or.cond, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %_ZN37btDeformableMultiBodyConstraintSolver19solverBodyWriteBackERK19btContactSolverInfo.exit
   %m_analyticsData = getelementptr inbounds i8, ptr %this, i64 376
@@ -3070,7 +3069,12 @@ if.end:                                           ; preds = %if.then19, %if.then
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(609) %36)
   br label %for.end
 
-for.end:                                          ; preds = %entry, %if.end
+for.inc:                                          ; preds = %_ZN37btDeformableMultiBodyConstraintSolver19solverBodyWriteBackERK19btContactSolverInfo.exit
+  %inc31 = add nuw nsw i32 %iteration.036, 1
+  %exitcond.not = icmp eq i32 %inc31, %.
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+
+for.end:                                          ; preds = %for.inc, %entry, %if.end
   ret float 0.000000e+00
 }
 
@@ -3152,13 +3156,13 @@ for.inc:                                          ; preds = %for.body7, %if.then
   %16 = load i32, ptr %m_size.i, align 4
   %17 = sext i32 %16 to i64
   %cmp6 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %cmp6, label %for.body7, label %for.inc24, !llvm.loop !26
+  br i1 %cmp6, label %for.body7, label %for.inc24, !llvm.loop !27
 
 for.inc24:                                        ; preds = %for.inc, %for.cond3.preheader
   %18 = phi ptr [ %3, %for.cond3.preheader ], [ %15, %for.inc ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
-  br i1 %exitcond.not, label %for.end26, label %for.cond3.preheader, !llvm.loop !27
+  br i1 %exitcond.not, label %for.end26, label %for.cond3.preheader, !llvm.loop !28
 
 for.end26:                                        ; preds = %for.inc24, %entry
   ret void
@@ -3359,7 +3363,7 @@ if.then8:                                         ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -3460,7 +3464,7 @@ invoke.cont15:                                    ; preds = %for.body4
   %.sroa.speculated26 = select i1 %cmp.i, float %leastSquaresResidual.032, float %mul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !30
 
 lpad.loopexit:                                    ; preds = %for.body4
   %lpad.loopexit28 = landingpad { ptr, i32 }
@@ -3501,7 +3505,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont20
   %inc31 = add nuw nsw i32 %iteration.035, 1
   %cmp = icmp slt i32 %inc31, %13
   %or.cond = select i1 %cmp28.not, i1 %cmp, i1 false
-  br i1 %or.cond, label %for.body, label %if.end33, !llvm.loop !30
+  br i1 %or.cond, label %for.body, label %if.end33, !llvm.loop !31
 
 if.end33:                                         ; preds = %invoke.cont20, %lor.lhs.false, %for.cond.preheader, %entry
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #14
@@ -4097,7 +4101,7 @@ lpad3:                                            ; preds = %lpad3.loopexit.spli
 for.inc:                                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit, %invoke.cont14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %cmp, label %invoke.cont14, label %if.then3.i.i.i176, !llvm.loop !31
+  br i1 %cmp, label %invoke.cont14, label %if.then3.i.i.i176, !llvm.loop !32
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit
   %tobool.not.i.i.i171 = icmp eq ptr %6, null
@@ -4575,7 +4579,7 @@ _ZN15btReducedVectorD2Ev.exit.i:                  ; preds = %if.then3.i.i.i9.i.i
   store i32 0, ptr %m_capacity.i.i.i8.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %10, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %for.body.i, !llvm.loop !32
+  br i1 %10, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %for.body.i, !llvm.loop !33
 
 _ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit: ; preds = %_ZN15btReducedVectorD2Ev.exit.i, %entry
   %m_data.i1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -4719,7 +4723,7 @@ _ZN15btReducedVectorD2Ev.exit.i:                  ; preds = %if.then3.i.i.i9.i.i
   store i32 0, ptr %m_capacity.i.i.i8.i.i, align 8
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %13 = icmp eq i64 %indvars.iv.next.i10, %zext16
-  br i1 %13, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %for.body.i7, !llvm.loop !32
+  br i1 %13, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %for.body.i7, !llvm.loop !33
 
 _ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit: ; preds = %_ZN15btReducedVectorD2Ev.exit.i, %_ZN20btAlignedObjectArrayI15btReducedVectorE8allocateEi.exit, %_ZNK20btAlignedObjectArrayI15btReducedVectorE4copyEiiPS0_.exit
   %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 16
@@ -4816,3 +4820,4 @@ attributes #14 = { nounwind }
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}

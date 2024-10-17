@@ -323,7 +323,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   br i1 %135, label %a2av_sched_inplace.exit, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i159
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %132, i32 2)
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %132, i32 2)
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %183, %.lr.ph.split.preheader.i
@@ -401,8 +401,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   br i1 %.not133.i, label %183, label %.loopexit
 
 183:                                              ; preds = %180, %.thread.i
-  %184 = add nuw nsw i32 %.0111137.i, 1
-  %exitcond.not.i = icmp eq i32 %184, %smax.i
+  %184 = add nuw i32 %.0111137.i, 1
+  %exitcond.not.i = icmp eq i32 %184, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %183, %.critedge
@@ -1084,6 +1084,9 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @NBC_Sched_send(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 declare i32 @NBC_Sched_recv(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

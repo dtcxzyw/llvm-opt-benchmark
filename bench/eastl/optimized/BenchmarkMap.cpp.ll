@@ -364,8 +364,7 @@ lpad5:                                            ; preds = %invoke.cont3
   br label %ehcleanup295
 
 _ZN10TestObjectD2Ev.exit181:                      ; preds = %for.cond37.preheader, %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEED2Ev.exit
-  %cmp68 = phi i1 [ false, %for.cond37.preheader ], [ true, %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEED2Ev.exit ]
-  %cmp38 = phi i1 [ true, %for.cond37.preheader ], [ false, %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEED2Ev.exit ]
+  %cmp68.not = phi i1 [ true, %for.cond37.preheader ], [ false, %_ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEED2Ev.exit ]
   store i32 0, ptr %7, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_left.i.i.i.i.i, align 8
@@ -762,7 +761,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_jEENS_4lessIS1_EENS_9allocatorENS_9use
 
 invoke.cont67:                                    ; preds = %.noexc214
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
-  br i1 %cmp68, label %if.then, label %invoke.cont81
+  br i1 %cmp68.not, label %invoke.cont81, label %if.then
 
 if.then:                                          ; preds = %invoke.cont67
   %85 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1023,7 +1022,7 @@ _ZN10TestObjectD2Ev.exit339:                      ; preds = %if.then.i320, %.noe
   store i64 %dec.i337, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i338 = add nsw i64 %112, 2
   store i64 %inc3.i338, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  br i1 %cmp68, label %if.then97, label %if.end105
+  br i1 %cmp68.not, label %if.end105, label %if.then97
 
 if.then97:                                        ; preds = %_ZN10TestObjectD2Ev.exit339
   %113 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1532,7 +1531,7 @@ while.end.i437:                                   ; preds = %.noexc443, %_ZN2EA4
           to label %invoke.cont115 unwind label %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont115:                                   ; preds = %while.end.i437
-  br i1 %cmp68, label %if.then117, label %if.end125
+  br i1 %cmp68.not, label %if.end125, label %if.then117
 
 if.then117:                                       ; preds = %invoke.cont115
   %189 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1724,7 +1723,7 @@ while.end.i509:                                   ; preds = %.noexc513, %_ZN2EA4
           to label %invoke.cont135 unwind label %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont135:                                   ; preds = %while.end.i509
-  br i1 %cmp68, label %if.then137, label %if.end145
+  br i1 %cmp68.not, label %if.end145, label %if.then137
 
 if.then137:                                       ; preds = %invoke.cont135
   %211 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1910,7 +1909,7 @@ while.end.i591:                                   ; preds = %_ZNK5eastl3mapI10Te
 
 invoke.cont155:                                   ; preds = %while.end.i591
   %call1.i593 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %temp.0.lcssa.i592) #7
-  br i1 %cmp68, label %if.then157, label %if.end165
+  br i1 %cmp68.not, label %if.end165, label %if.then157
 
 if.then157:                                       ; preds = %invoke.cont155
   %227 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2070,7 +2069,7 @@ while.end.i675:                                   ; preds = %.noexc679, %_ZN2EA4
           to label %invoke.cont175 unwind label %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont175:                                   ; preds = %while.end.i675
-  br i1 %cmp68, label %if.then177, label %if.end185
+  br i1 %cmp68.not, label %if.end185, label %if.then177
 
 if.then177:                                       ; preds = %invoke.cont175
   %243 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2230,7 +2229,7 @@ while.end.i766:                                   ; preds = %.noexc770, %_ZN2EA4
           to label %invoke.cont195 unwind label %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont195:                                   ; preds = %while.end.i766
-  br i1 %cmp68, label %if.then197, label %if.end205
+  br i1 %cmp68.not, label %if.end205, label %if.then197
 
 if.then197:                                       ; preds = %invoke.cont195
   %259 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2431,7 +2430,7 @@ while.end.i848:                                   ; preds = %.noexc853, %_ZN2EA4
           to label %invoke.cont215 unwind label %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont215:                                   ; preds = %while.end.i848
-  br i1 %cmp68, label %if.then217, label %if.end225
+  br i1 %cmp68.not, label %if.end225, label %if.then217
 
 if.then217:                                       ; preds = %invoke.cont215
   %277 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2759,7 +2758,7 @@ invoke.cont237:                                   ; preds = %while.end.i938
   %313 = load i64, ptr %mnSize.i.i, align 8
   %conv.i940 = trunc i64 %313 to i32
   %call2.i941 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %conv.i940) #7
-  br i1 %cmp68, label %if.then239, label %if.end247
+  br i1 %cmp68.not, label %if.end247, label %if.then239
 
 if.then239:                                       ; preds = %invoke.cont237
   %314 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2951,7 +2950,7 @@ for.end.i995:                                     ; preds = %call.i8.i992.noexc,
 invoke.cont249:                                   ; preds = %for.end.i995
   %call4.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef nonnull %eaMapTOUint32, ptr noundef nonnull %it.i970) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %it.i970)
-  br i1 %cmp68, label %if.then251, label %if.end262
+  br i1 %cmp68.not, label %if.end262, label %if.then251
 
 if.then251:                                       ; preds = %invoke.cont249
   %338 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -3100,7 +3099,7 @@ invoke.cont264:                                   ; preds = %.noexc1063
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %it1.i1033)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %it2.i1034)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i1035)
-  br i1 %cmp68, label %if.then266, label %if.end274
+  br i1 %cmp68.not, label %if.end274, label %if.then266
 
 if.then266:                                       ; preds = %invoke.cont264
   %353 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -3216,7 +3215,7 @@ invoke.cont276:                                   ; preds = %.noexc1107
   %367 = load i64, ptr %mnSize.i.i, align 8
   %conv.i1102 = trunc i64 %367 to i32
   %call1.i1103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %conv.i1102) #7
-  br i1 %cmp68, label %if.then278, label %if.end286
+  br i1 %cmp68.not, label %if.end286, label %if.then278
 
 if.then278:                                       ; preds = %invoke.cont276
   %368 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -3290,7 +3289,7 @@ terminate.lpad.i.i1126:                           ; preds = %_ZN5eastl3mapI10Tes
   unreachable
 
 _ZNSt3mapI10TestObjectjSt4lessIS0_ESaISt4pairIKS0_jEEED2Ev.exit: ; preds = %_ZN5eastl3mapI10TestObjectjNS_4lessIS1_EENS_9allocatorEED2Ev.exit
-  br i1 %cmp38, label %_ZN10TestObjectD2Ev.exit181, label %for.end293, !llvm.loop !99
+  br i1 %cmp68.not, label %_ZN10TestObjectD2Ev.exit181, label %for.end293, !llvm.loop !99
 
 ehcleanup287:                                     ; preds = %lpad61.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad61.loopexit.split-lp.loopexit, %lpad.i, %_ZN5eastl4pairIK10TestObjectjED2Ev.exit361, %_ZNSt4pairIK10TestObjectjED2Ev.exit347
   %.pn24 = phi { ptr, i32 } [ %lpad.phi1385, %_ZN5eastl4pairIK10TestObjectjED2Ev.exit361 ], [ %114, %_ZNSt4pairIK10TestObjectjED2Ev.exit347 ], [ %141, %lpad.i ], [ %lpad.loopexit, %lpad61.loopexit ], [ %lpad.loopexit1353, %lpad61.loopexit.split-lp.loopexit ], [ %lpad.loopexit1356, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1358, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1361, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1363, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1366, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1368, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1371, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1373, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1376, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1378, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1381, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1386, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1389, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad61.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]

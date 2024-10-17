@@ -16219,7 +16219,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp10 = icmp ugt i32 %sub6, %sub5
+  %cmp10 = icmp samesign ugt i32 %sub6, %sub5
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end
@@ -20938,35 +20938,36 @@ for.body61.lr.ph.i:                               ; preds = %if.then57.i
   %cipherSuite0.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 16
   %8 = load i8, ptr %cipherSuite0.i, align 8
   %cipherSuite.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 17
+  %9 = zext nneg i32 %idx.0.i to i64
   br label %for.body61.i
 
 for.body61.i:                                     ; preds = %for.inc.i, %for.body61.lr.ph.i
   %indvars.iv60.i = phi i64 [ 0, %for.body61.lr.ph.i ], [ %indvars.iv.next61.i, %for.inc.i ]
   %arrayidx64.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %indvars.iv60.i
-  %9 = load i8, ptr %arrayidx64.i, align 1
-  %cmp69.i = icmp eq i8 %9, %8
+  %10 = load i8, ptr %arrayidx64.i, align 1
+  %cmp69.i = icmp eq i8 %10, %8
   br i1 %cmp69.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body61.i
-  %10 = or disjoint i64 %indvars.iv60.i, 1
-  %arrayidx74.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %10
-  %11 = load i8, ptr %arrayidx74.i, align 1
-  %12 = load i8, ptr %cipherSuite.i, align 1
-  %cmp79.i = icmp eq i8 %11, %12
-  br i1 %cmp79.i, label %for.end.loopexit.split.loop.exit.i, label %for.inc.i
+  %11 = or disjoint i64 %indvars.iv60.i, 1
+  %arrayidx74.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %11
+  %12 = load i8, ptr %arrayidx74.i, align 1
+  %13 = load i8, ptr %cipherSuite.i, align 1
+  %cmp79.i = icmp eq i8 %12, %13
+  br i1 %cmp79.i, label %for.end.loopexit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body61.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 2
-  %indvars.i = trunc i64 %indvars.iv.next61.i to i32
-  %cmp59.i = icmp sgt i32 %idx.0.i, %indvars.i
-  br i1 %cmp59.i, label %for.body61.i, label %for.end.i, !llvm.loop !37
+  %cmp59.i = icmp samesign ult i64 %indvars.iv.next61.i, %9
+  br i1 %cmp59.i, label %for.body61.i, label %for.end.loopexit.i, !llvm.loop !37
 
-for.end.loopexit.split.loop.exit.i:               ; preds = %land.lhs.true.i
-  %13 = trunc nuw nsw i64 %indvars.iv60.i to i32
+for.end.loopexit.i:                               ; preds = %for.inc.i, %land.lhs.true.i
+  %j.0.lcssa.ph.in.i = phi i64 [ %indvars.iv.next61.i, %for.inc.i ], [ %indvars.iv60.i, %land.lhs.true.i ]
+  %j.0.lcssa.ph.i = trunc i64 %j.0.lcssa.ph.in.i to i32
   br label %for.end.i
 
-for.end.i:                                        ; preds = %for.inc.i, %for.end.loopexit.split.loop.exit.i, %if.then57.i
-  %j.0.lcssa.i = phi i32 [ 0, %if.then57.i ], [ %13, %for.end.loopexit.split.loop.exit.i ], [ %indvars.i, %for.inc.i ]
+for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then57.i
+  %j.0.lcssa.i = phi i32 [ 0, %if.then57.i ], [ %j.0.lcssa.ph.i, %for.end.loopexit.i ]
   %cmp84.not.i = icmp eq i32 %j.0.lcssa.i, %idx.0.i
   br i1 %cmp84.not.i, label %if.end87.i, label %do.cond.i
 

@@ -177,7 +177,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignUpdate(ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %.052 = phi i32 [ %44, %43 ], [ %5, %.lr.ph.preheader ]
   %.04151 = phi i32 [ %45, %43 ], [ %6, %.lr.ph.preheader ]
-  %30 = call i32 @llvm.smin.i32(i32 %.04259, i32 %.04151)
+  %30 = call i32 @llvm.umin.i32(i32 %.04259, i32 %.04151)
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 1600
   %33 = load ptr, ptr %32, align 8
@@ -546,7 +546,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyUpdate(ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %.056 = phi i32 [ %43, %42 ], [ %5, %.lr.ph.preheader ]
   %.04155 = phi i32 [ %44, %42 ], [ %6, %.lr.ph.preheader ]
-  %29 = call i32 @llvm.smin.i32(i32 %.04264, i32 %.04155)
+  %29 = call i32 @llvm.umin.i32(i32 %.04264, i32 %.04155)
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1600
   %32 = load ptr, ptr %31, align 8
@@ -753,9 +753,6 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecover(ptr noundef
   %.0 = phi i32 [ %61, %59 ], [ 0, %21 ], [ 0, %9 ]
   ret i32 %.0
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4

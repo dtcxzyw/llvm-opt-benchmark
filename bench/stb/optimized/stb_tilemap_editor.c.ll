@@ -1585,7 +1585,7 @@ if.end:                                           ; preds = %for.body
   %i.1 = add nuw nsw i32 %i.1.v, %i.014
   %pos.1.in.v = select i1 %cmp7, i32 8388603, i32 8388604
   %pos.1.in = add nuw nsw i32 %pos.1.in.v, %pos.015
-  %cmp = icmp slt i32 %i.1, %0
+  %cmp = icmp samesign ult i32 %i.1, %0
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %if.end, %for.body, %entry
@@ -1625,7 +1625,7 @@ if.end.i:                                         ; preds = %for.body.i
   %i.1.i = add nuw nsw i32 %i.1.v.i, %i.014.i
   %pos.1.in.v.i = select i1 %cmp7.i, i32 8388603, i32 8388604
   %pos.1.in.i = add nuw nsw i32 %pos.1.in.v.i, %pos.015.i
-  %cmp.i = icmp slt i32 %i.1.i, %0
+  %cmp.i = icmp samesign ult i32 %i.1.i, %0
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !16
 
 if.end:                                           ; preds = %for.body.i
@@ -1924,7 +1924,7 @@ if.end:                                           ; preds = %for.body
   %i.1.v = select i1 %cmp7, i32 5, i32 4
   %i.1 = add nuw nsw i32 %i.1.v, %i.014
   %pos.1.in = add nuw nsw i32 %i.1.v, %pos.015
-  %cmp = icmp slt i32 %i.1, %0
+  %cmp = icmp samesign ult i32 %i.1, %0
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end, %for.body, %entry
@@ -1963,7 +1963,7 @@ if.end.i:                                         ; preds = %for.body.i
   %i.1.v.i = select i1 %cmp7.i, i32 5, i32 4
   %i.1.i = add nuw nsw i32 %i.1.v.i, %i.014.i
   %pos.1.in.i = add nuw nsw i32 %i.1.v.i, %pos.015.i
-  %cmp.i = icmp slt i32 %i.1.i, %0
+  %cmp.i = icmp samesign ult i32 %i.1.i, %0
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !18
 
 if.end:                                           ; preds = %for.body.i
@@ -2263,7 +2263,7 @@ if.end.i:                                         ; preds = %for.body.i
   %i.1.i = add nuw nsw i32 %i.1.v.i, %i.014.i
   %pos.1.in.v.i = select i1 %cmp7.i, i32 8388603, i32 8388604
   %pos.1.in.i = add nuw nsw i32 %pos.1.in.v.i, %pos.015.i
-  %cmp.i = icmp slt i32 %i.1.i, %0
+  %cmp.i = icmp samesign ult i32 %i.1.i, %0
   br i1 %cmp.i, label %for.body.i, label %stbte__undo_find_end.exit, !llvm.loop !16
 
 stbte__undo_find_end.exit:                        ; preds = %for.body.i, %if.end.i, %entry
@@ -2298,7 +2298,7 @@ if.end.i16:                                       ; preds = %for.body.i9
   %i.1.v.i18 = select i1 %cmp7.i17, i32 5, i32 4
   %i.1.i19 = add nuw nsw i32 %i.1.v.i18, %i.014.i11
   %pos.1.in.i20 = add nuw nsw i32 %i.1.v.i18, %pos.015.i12
-  %cmp.i21 = icmp slt i32 %i.1.i19, %4
+  %cmp.i21 = icmp samesign ult i32 %i.1.i19, %4
   br i1 %cmp.i21, label %for.body.i9, label %stbte__redo_find_end.exit, !llvm.loop !18
 
 stbte__redo_find_end.exit:                        ; preds = %for.body.i9, %if.end.i16, %stbte__undo_find_end.exit
@@ -2351,7 +2351,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %i.1.i.i = add nuw nsw i32 %i.1.v.i.i, %i.014.i.i
   %pos.1.in.v.i.i = select i1 %cmp7.i.i, i32 8388603, i32 8388604
   %pos.1.in.i.i = add nuw nsw i32 %pos.1.in.v.i.i, %pos.015.i.i
-  %cmp.i.i = icmp slt i32 %i.1.i.i, %1
+  %cmp.i.i = icmp samesign ult i32 %i.1.i.i, %1
   br i1 %cmp.i.i, label %for.body.i.i, label %stbte__undo_find_end.exit.i, !llvm.loop !16
 
 stbte__undo_find_end.exit.i:                      ; preds = %if.end.i.i, %for.body.i.i, %if.then
@@ -2386,7 +2386,7 @@ if.end.i16.i:                                     ; preds = %for.body.i9.i
   %i.1.v.i18.i = select i1 %cmp7.i17.i, i32 5, i32 4
   %i.1.i19.i = add nuw nsw i32 %i.1.v.i18.i, %i.014.i11.i
   %pos.1.in.i20.i = add nuw nsw i32 %i.1.v.i18.i, %pos.015.i12.i
-  %cmp.i21.i = icmp slt i32 %i.1.i19.i, %5
+  %cmp.i21.i = icmp samesign ult i32 %i.1.i19.i, %5
   br i1 %cmp.i21.i, label %for.body.i9.i, label %stbte__recompute_undo_available.exit, !llvm.loop !18
 
 stbte__recompute_undo_available.exit:             ; preds = %for.body.i9.i, %if.end.i16.i, %stbte__undo_find_end.exit.i
@@ -2444,7 +2444,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %i.1.i.i = add nuw nsw i32 %i.1.v.i.i, %i.014.i.i
   %pos.1.in.v.i.i = select i1 %cmp7.i.i, i32 8388603, i32 8388604
   %pos.1.in.i.i = add nuw nsw i32 %pos.1.in.v.i.i, %pos.015.i.i
-  %cmp.i.i = icmp slt i32 %i.1.i.i, %1
+  %cmp.i.i = icmp samesign ult i32 %i.1.i.i, %1
   br i1 %cmp.i.i, label %for.body.i.i, label %stbte__undo_find_end.exit.i, !llvm.loop !16
 
 stbte__undo_find_end.exit.i:                      ; preds = %if.end.i.i, %for.body.i.i, %if.then
@@ -2479,7 +2479,7 @@ if.end.i16.i:                                     ; preds = %for.body.i9.i
   %i.1.v.i18.i = select i1 %cmp7.i17.i, i32 5, i32 4
   %i.1.i19.i = add nuw nsw i32 %i.1.v.i18.i, %i.014.i11.i
   %pos.1.in.i20.i = add nuw nsw i32 %i.1.v.i18.i, %pos.015.i12.i
-  %cmp.i21.i = icmp slt i32 %i.1.i19.i, %5
+  %cmp.i21.i = icmp samesign ult i32 %i.1.i19.i, %5
   br i1 %cmp.i21.i, label %for.body.i9.i, label %stbte__recompute_undo_available.exit, !llvm.loop !18
 
 stbte__recompute_undo_available.exit:             ; preds = %for.body.i9.i, %if.end.i16.i, %stbte__undo_find_end.exit.i
@@ -2645,7 +2645,7 @@ if.end14.i:                                       ; preds = %if.then6.i, %if.els
   br i1 %tobool.not.i, label %stbte__draw_bitmask_as_columns.exit, label %while.body.i, !llvm.loop !20
 
 stbte__draw_bitmask_as_columns.exit:              ; preds = %if.end14.i, %for.body
-  %inc = add nuw nsw i32 %i.05, 1
+  %inc = add nuw i32 %i.05, 1
   %exitcond.not = icmp eq i32 %inc, %w
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
@@ -5249,6 +5249,7 @@ for.body130:                                      ; preds = %for.body130.lr.ph, 
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc178 ], [ %19, %for.body130.lr.ph ]
   %arrayidx132 = getelementptr inbounds i16, ptr %result, i64 %indvars.iv93
   %24 = load i16, ptr %arrayidx132, align 2
+  %conv133 = zext i16 %24 to i32
   %cmp134 = icmp slt i16 %24, 0
   br i1 %cmp134, label %for.inc178, label %if.end137
 
@@ -5271,7 +5272,8 @@ if.end150:                                        ; preds = %lor.lhs.false143
 
 land.lhs.true153:                                 ; preds = %if.end150
   %27 = load i16, ptr %background_tile157, align 8
-  %cmp159 = icmp eq i16 %24, %27
+  %conv158 = sext i16 %27 to i32
+  %cmp159 = icmp eq i32 %conv133, %conv158
   br i1 %cmp159, label %return, label %cond.end169
 
 cond.end169:                                      ; preds = %land.lhs.true153, %if.end150
@@ -5489,14 +5491,14 @@ for.body188.lr.ph:                                ; preds = %if.end182
   br i1 %cmp102, label %for.body188.us, label %for.body188
 
 for.body188.us:                                   ; preds = %for.body188.lr.ph, %for.inc259.us
-  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %for.inc259.us ], [ %21, %for.body188.lr.ph ]
-  %arrayidx195.us = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom190, i64 %idxprom192, i64 %indvars.iv153
+  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %for.inc259.us ], [ %21, %for.body188.lr.ph ]
+  %arrayidx195.us = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom190, i64 %idxprom192, i64 %indvars.iv155
   %22 = load i16, ptr %arrayidx195.us, align 2
   %cmp197.us = icmp slt i16 %22, 0
   br i1 %cmp197.us, label %for.inc259.us, label %if.end200.us
 
 if.end200.us:                                     ; preds = %for.body188.us
-  %arrayidx203.us = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo201, i64 0, i64 %indvars.iv153
+  %arrayidx203.us = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo201, i64 0, i64 %indvars.iv155
   %locked204.us = getelementptr inbounds i8, ptr %arrayidx203.us, i64 8
   %23 = load i32, ptr %locked204.us, align 8
   %tobool205.not.us = icmp eq i32 %23, 0
@@ -5509,11 +5511,11 @@ lor.lhs.false206.us:                              ; preds = %if.end200.us
   br i1 %tobool211.not.us, label %if.end213.us, label %for.inc259.us
 
 if.end213.us:                                     ; preds = %lor.lhs.false206.us
-  %cmp214.us = icmp eq i64 %indvars.iv153, 0
+  %cmp214.us = icmp eq i64 %indvars.iv155, 0
   br i1 %cmp214.us, label %land.lhs.true216.us, label %if.end230.us
 
 if.end230.us:                                     ; preds = %if.end213.us
-  %25 = trunc nuw nsw i64 %indvars.iv153 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv155 to i32
   %conv238126.us = zext nneg i16 %22 to i32
   tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef %25, i32 noundef %conv238126.us)
   br label %cond.end245.us
@@ -5535,19 +5537,20 @@ cond.end245.us:                                   ; preds = %cond.true241.us, %i
   br label %return
 
 for.inc259.us:                                    ; preds = %lor.lhs.false206.us, %if.end200.us, %for.body188.us
-  %indvars.iv.next154 = add nsw i64 %indvars.iv153, -1
-  %cmp186.us = icmp sgt i64 %indvars.iv153, 0
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, -1
+  %cmp186.us = icmp sgt i64 %indvars.iv155, 0
   br i1 %cmp186.us, label %for.body188.us, label %for.end261, !llvm.loop !34
 
 for.body188:                                      ; preds = %for.body188.lr.ph, %for.inc259
-  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %for.inc259 ], [ %21, %for.body188.lr.ph ]
-  %arrayidx195 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom190, i64 %idxprom192, i64 %indvars.iv150
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %for.inc259 ], [ %21, %for.body188.lr.ph ]
+  %arrayidx195 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom190, i64 %idxprom192, i64 %indvars.iv152
   %28 = load i16, ptr %arrayidx195, align 2
+  %conv196 = zext i16 %28 to i32
   %cmp197 = icmp slt i16 %28, 0
   br i1 %cmp197, label %for.inc259, label %if.end200
 
 if.end200:                                        ; preds = %for.body188
-  %arrayidx203 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo201, i64 0, i64 %indvars.iv150
+  %arrayidx203 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo201, i64 0, i64 %indvars.iv152
   %locked204 = getelementptr inbounds i8, ptr %arrayidx203, i64 8
   %29 = load i32, ptr %locked204, align 8
   %tobool205.not = icmp eq i32 %29, 0
@@ -5560,23 +5563,22 @@ lor.lhs.false206:                                 ; preds = %if.end200
   br i1 %tobool211.not, label %if.end213, label %for.inc259
 
 if.end213:                                        ; preds = %lor.lhs.false206
-  %cmp214 = icmp eq i64 %indvars.iv150, 0
+  %cmp214 = icmp eq i64 %indvars.iv152, 0
   br i1 %cmp214, label %land.lhs.true216, label %if.end230
 
 land.lhs.true216:                                 ; preds = %if.end213
   %31 = load i16, ptr %background_tile225, align 8
-  %cmp227 = icmp eq i16 %28, %31
+  %conv226 = sext i16 %31 to i32
+  %cmp227 = icmp eq i32 %conv196, %conv226
   br i1 %cmp227, label %return, label %cond.true241
 
 if.end230:                                        ; preds = %if.end213
-  %conv238126 = zext nneg i16 %28 to i32
-  %32 = trunc nuw nsw i64 %indvars.iv150 to i32
-  tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef %32, i32 noundef %conv238126)
+  %32 = trunc nuw nsw i64 %indvars.iv152 to i32
+  tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef %32, i32 noundef %conv196)
   br label %cond.end245
 
 cond.true241:                                     ; preds = %land.lhs.true216
-  %conv238127 = zext nneg i16 %28 to i32
-  tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef 0, i32 noundef %conv238127)
+  tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef 0, i32 noundef %conv196)
   %33 = load i16, ptr %background_tile225, align 8
   br label %cond.end245
 
@@ -5586,8 +5588,8 @@ cond.end245:                                      ; preds = %if.end230, %cond.tr
   br label %for.inc259
 
 for.inc259:                                       ; preds = %cond.end245, %if.end200, %lor.lhs.false206, %for.body188
-  %indvars.iv.next151 = add nsw i64 %indvars.iv150, -1
-  %cmp186 = icmp sgt i64 %indvars.iv150, 0
+  %indvars.iv.next153 = add nsw i64 %indvars.iv152, -1
+  %cmp186 = icmp sgt i64 %indvars.iv152, 0
   br i1 %cmp186, label %for.body188, label %for.end261, !llvm.loop !34
 
 for.end261:                                       ; preds = %for.inc259, %for.inc259.us, %if.end182
@@ -5779,7 +5781,7 @@ return.loopexit.i50:                              ; preds = %for.body.i42
   br label %for.end.sink.split
 
 for.inc:                                          ; preds = %if.end36, %for.body
-  %inc = add nuw nsw i32 %j.057, 1
+  %inc = add nuw i32 %j.057, 1
   %exitcond.not = icmp eq i32 %inc, %10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
@@ -9240,7 +9242,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %i.1.i.i.i = add nuw nsw i32 %i.1.v.i.i.i, %i.014.i.i.i
   %pos.1.in.v.i.i.i = select i1 %cmp7.i.i.i, i32 8388603, i32 8388604
   %pos.1.in.i.i.i = add nuw nsw i32 %pos.1.in.v.i.i.i, %pos.015.i.i.i
-  %cmp.i.i.i = icmp slt i32 %i.1.i.i.i, %7
+  %cmp.i.i.i = icmp samesign ult i32 %i.1.i.i.i, %7
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %stbte__undo_find_end.exit.i.i, !llvm.loop !16
 
 stbte__undo_find_end.exit.i.i:                    ; preds = %if.end.i.i.i, %for.body.i.i.i, %if.then.i
@@ -9271,7 +9273,7 @@ if.end.i16.i.i:                                   ; preds = %for.body.i9.i.i
   %i.1.v.i18.i.i = select i1 %cmp7.i17.i.i, i32 5, i32 4
   %i.1.i19.i.i = add nuw nsw i32 %i.1.v.i18.i.i, %i.014.i11.i.i
   %pos.1.in.i20.i.i = add nuw nsw i32 %i.1.v.i18.i.i, %pos.015.i12.i.i
-  %cmp.i21.i.i = icmp slt i32 %i.1.i19.i.i, %11
+  %cmp.i21.i.i = icmp samesign ult i32 %i.1.i19.i.i, %11
   br i1 %cmp.i21.i.i, label %for.body.i9.i.i, label %stbte__recompute_undo_available.exit.i, !llvm.loop !18
 
 stbte__recompute_undo_available.exit.i:           ; preds = %if.end.i16.i.i, %for.body.i9.i.i, %stbte__undo_find_end.exit.i.i
@@ -9326,7 +9328,7 @@ if.end.i.i.i83:                                   ; preds = %for.body.i.i.i76
   %i.1.i.i.i86 = add nuw nsw i32 %i.1.v.i.i.i85, %i.014.i.i.i78
   %pos.1.in.v.i.i.i87 = select i1 %cmp7.i.i.i84, i32 8388603, i32 8388604
   %pos.1.in.i.i.i88 = add nuw nsw i32 %pos.1.in.v.i.i.i87, %pos.015.i.i.i79
-  %cmp.i.i.i89 = icmp slt i32 %i.1.i.i.i86, %17
+  %cmp.i.i.i89 = icmp samesign ult i32 %i.1.i.i.i86, %17
   br i1 %cmp.i.i.i89, label %for.body.i.i.i76, label %stbte__undo_find_end.exit.i.i47, !llvm.loop !16
 
 stbte__undo_find_end.exit.i.i47:                  ; preds = %if.end.i.i.i83, %for.body.i.i.i76, %if.then.i44
@@ -9357,7 +9359,7 @@ if.end.i16.i.i66:                                 ; preds = %for.body.i9.i.i59
   %i.1.v.i18.i.i68 = select i1 %cmp7.i17.i.i67, i32 5, i32 4
   %i.1.i19.i.i69 = add nuw nsw i32 %i.1.v.i18.i.i68, %i.014.i11.i.i61
   %pos.1.in.i20.i.i70 = add nuw nsw i32 %i.1.v.i18.i.i68, %pos.015.i12.i.i62
-  %cmp.i21.i.i71 = icmp slt i32 %i.1.i19.i.i69, %21
+  %cmp.i21.i.i71 = icmp samesign ult i32 %i.1.i19.i.i69, %21
   br i1 %cmp.i21.i.i71, label %for.body.i9.i.i59, label %stbte__recompute_undo_available.exit.i52, !llvm.loop !18
 
 stbte__recompute_undo_available.exit.i52:         ; preds = %if.end.i16.i.i66, %for.body.i9.i.i59, %stbte__undo_find_end.exit.i.i47
@@ -9631,11 +9633,11 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp23, label %if.end31, label %if.else
 
 if.else:                                          ; preds = %if.then3
-  %15 = tail call i32 @llvm.umin.i32(i32 %val.addr.2, i32 4096)
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %val.addr.2, i32 4096)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then3, %if.else, %if.end
-  %val.addr.0 = phi i32 [ %15, %if.else ], [ %val, %if.end ], [ 1, %if.then3 ]
+  %val.addr.0 = phi i32 [ %spec.store.select, %if.else ], [ %val, %if.end ], [ 1, %if.then3 ]
   ret i32 %val.addr.0
 }
 
@@ -10917,7 +10919,7 @@ for.body92:                                       ; preds = %if.then76, %for.bod
   %add97 = add nsw i32 %66, %x77.0263
   %67 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5332), align 4
   %cmp90 = icmp slt i32 %add97, %67
-  %cmp91 = icmp slt i32 %i.1264, %spec.select
+  %cmp91 = icmp samesign ult i32 %i.1264, %spec.select
   %68 = select i1 %cmp90, i1 %cmp91, i1 false
   br i1 %68, label %for.body92, label %for.cond99.preheader, !llvm.loop !64
 
@@ -10933,7 +10935,7 @@ for.body104:                                      ; preds = %for.cond99.preheade
   %add109 = add nsw i32 %71, %y83.0267
   %72 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5336), align 8
   %cmp100 = icmp slt i32 %add109, %72
-  %cmp102 = icmp slt i32 %j.1268, %j1.0
+  %cmp102 = icmp samesign ult i32 %j.1268, %j1.0
   %73 = select i1 %cmp100, i1 %cmp102, i1 false
   br i1 %73, label %for.body104, label %for.inc112, !llvm.loop !65
 
@@ -10993,7 +10995,7 @@ for.body137:                                      ; preds = %if.then119, %for.bo
   %add142 = add nsw i32 %89, %x120.0274
   %90 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5332), align 4
   %cmp133 = icmp slt i32 %add142, %90
-  %cmp135 = icmp slt i32 %i.2275, %spec.select
+  %cmp135 = icmp samesign ult i32 %i.2275, %spec.select
   %91 = select i1 %cmp133, i1 %cmp135, i1 false
   br i1 %91, label %for.body137, label %for.cond144.preheader, !llvm.loop !67
 
@@ -11009,7 +11011,7 @@ for.body149:                                      ; preds = %for.cond144.prehead
   %add154 = add nsw i32 %94, %y126.0278
   %95 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5336), align 8
   %cmp145 = icmp slt i32 %add154, %95
-  %cmp147 = icmp slt i32 %j.2279, %j1.0
+  %cmp147 = icmp samesign ult i32 %j.2279, %j1.0
   %96 = select i1 %cmp145, i1 %cmp147, i1 false
   br i1 %96, label %for.body149, label %if.end157, !llvm.loop !68
 

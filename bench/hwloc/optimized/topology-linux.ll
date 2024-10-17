@@ -639,7 +639,7 @@ hwloc_open.exit:                                  ; preds = %.preheader.i.i.i, %
   %25 = shl nuw nsw i64 %24, 3
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #27
   %.not58 = icmp eq ptr %26, null
-  br i1 %.not58, label %81, label %27
+  br i1 %.not58, label %82, label %27
 
 27:                                               ; preds = %22
   tail call void @hwloc_bitmap_zero(ptr noundef %1) #26
@@ -667,7 +667,7 @@ hwloc_open.exit:                                  ; preds = %.preheader.i.i.i, %
   %36 = shl nsw i64 %35, 3
   %37 = call ptr @realloc(ptr noundef %.04771, i64 noundef %36) #28
   %.not59 = icmp eq ptr %37, null
-  br i1 %.not59, label %80, label %38
+  br i1 %.not59, label %81, label %38
 
 38:                                               ; preds = %33, %.lr.ph
   %.253 = phi i32 [ %.05168, %.lr.ph ], [ %34, %33 ]
@@ -716,59 +716,60 @@ hwloc_open.exit:                                  ; preds = %.preheader.i.i.i, %
   %58 = add nuw nsw i32 %.149, 1
   %59 = lshr i32 %58, 1
   %60 = zext nneg i32 %.149 to i64
+  %61 = zext nneg i32 %.149 to i64
   %wide.trip.count = zext nneg i32 %59 to i64
   br label %.lr.ph75
 
-.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %74
-  %indvars.iv = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next, %74 ]
-  %61 = shl nuw nsw i64 %indvars.iv, 1
-  %62 = sub nsw i64 %60, %61
-  %63 = add nsw i64 %62, -1
-  %64 = getelementptr inbounds i64, ptr %.2, i64 %63
-  %65 = load i64, ptr %64, align 8
-  %66 = or disjoint i64 %61, 1
-  %67 = icmp samesign ult i64 %66, %60
-  br i1 %67, label %68, label %74
+.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next, %75 ]
+  %62 = shl nuw nsw i64 %indvars.iv, 1
+  %63 = sub nsw i64 %60, %62
+  %64 = add nsw i64 %63, -1
+  %65 = getelementptr inbounds i64, ptr %.2, i64 %64
+  %66 = load i64, ptr %65, align 8
+  %67 = or disjoint i64 %62, 1
+  %68 = icmp samesign ult i64 %67, %61
+  br i1 %68, label %69, label %75
 
-68:                                               ; preds = %.lr.ph75
-  %69 = add nsw i64 %62, -2
-  %70 = getelementptr inbounds i64, ptr %.2, i64 %69
-  %71 = load i64, ptr %70, align 8
-  %72 = shl i64 %71, 32
-  %73 = or i64 %72, %65
-  br label %74
+69:                                               ; preds = %.lr.ph75
+  %70 = add nsw i64 %63, -2
+  %71 = getelementptr inbounds i64, ptr %.2, i64 %70
+  %72 = load i64, ptr %71, align 8
+  %73 = shl i64 %72, 32
+  %74 = or i64 %73, %66
+  br label %75
 
-74:                                               ; preds = %68, %.lr.ph75
-  %.0 = phi i64 [ %73, %68 ], [ %65, %.lr.ph75 ]
-  %75 = trunc nuw nsw i64 %indvars.iv to i32
-  %76 = call i32 @hwloc_bitmap_set_ith_ulong(ptr noundef %1, i32 noundef %75, i64 noundef %.0) #26
+75:                                               ; preds = %69, %.lr.ph75
+  %.0 = phi i64 [ %74, %69 ], [ %66, %.lr.ph75 ]
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
+  %77 = call i32 @hwloc_bitmap_set_ith_ulong(ptr noundef %1, i32 noundef %76, i64 noundef %.0) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph75, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %74, %.loopexit.thread, %.loopexit
-  %.187 = phi ptr [ %26, %.loopexit.thread ], [ %.2, %.loopexit ], [ %.2, %74 ]
-  %.15286 = phi i32 [ %7, %.loopexit.thread ], [ %.253, %.loopexit ], [ %.253, %74 ]
+._crit_edge:                                      ; preds = %75, %.loopexit.thread, %.loopexit
+  %.187 = phi ptr [ %26, %.loopexit.thread ], [ %.2, %.loopexit ], [ %.2, %75 ]
+  %.15286 = phi i32 [ %7, %.loopexit.thread ], [ %.253, %.loopexit ], [ %.253, %75 ]
   call void @free(ptr noundef %.187) #26
-  %77 = load i32, ptr @hwloc__read_path_as_cpumask._nr_maps_allocated, align 4
-  %78 = icmp sgt i32 %.15286, %77
-  br i1 %78, label %79, label %hwloc_open.exit.thread
+  %78 = load i32, ptr @hwloc__read_path_as_cpumask._nr_maps_allocated, align 4
+  %79 = icmp sgt i32 %.15286, %78
+  br i1 %79, label %80, label %hwloc_open.exit.thread
 
-79:                                               ; preds = %._crit_edge
+80:                                               ; preds = %._crit_edge
   store i32 %.15286, ptr @hwloc__read_path_as_cpumask._nr_maps_allocated, align 4
   br label %hwloc_open.exit.thread
 
-80:                                               ; preds = %33
+81:                                               ; preds = %33
   call void @free(ptr noundef %.04771) #26
-  br label %81
+  br label %82
 
-81:                                               ; preds = %22, %80
-  %82 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %82) #26
+82:                                               ; preds = %22, %81
+  %83 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %83) #26
   br label %hwloc_open.exit.thread
 
-hwloc_open.exit.thread:                           ; preds = %hwloc_checkat.exit.i.i, %81, %hwloc_open.exit, %18, %._crit_edge, %79
-  %.045 = phi i32 [ 0, %79 ], [ 0, %._crit_edge ], [ -1, %18 ], [ -1, %hwloc_open.exit ], [ -1, %81 ], [ -1, %hwloc_checkat.exit.i.i ]
+hwloc_open.exit.thread:                           ; preds = %hwloc_checkat.exit.i.i, %82, %hwloc_open.exit, %18, %._crit_edge, %80
+  %.045 = phi i32 [ 0, %80 ], [ 0, %._crit_edge ], [ -1, %18 ], [ -1, %hwloc_open.exit ], [ -1, %82 ], [ -1, %hwloc_checkat.exit.i.i ]
   ret i32 %.045
 }
 
@@ -16527,14 +16528,14 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

@@ -1265,9 +1265,9 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   store i8 0, ptr %7, align 1
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %.lr.ph144, label %.loopexit
+  br i1 %9, label %.lr.ph, label %.loopexit
 
-.lr.ph144:                                        ; preds = %6
+.lr.ph:                                           ; preds = %6
   %10 = xor i64 %2, -1
   %11 = add i64 %1, %10
   %12 = and i32 %4, 1
@@ -1275,10 +1275,10 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   %13 = load ptr, ptr @g_ascii_table, align 8
   br label %14
 
-14:                                               ; preds = %.lr.ph144, %.backedge
-  %.0123142 = phi i64 [ %2, %.lr.ph144 ], [ %.0123.be, %.backedge ]
-  %.0124141 = phi i64 [ %11, %.lr.ph144 ], [ %.0124.be, %.backedge ]
-  %.0126140 = phi i64 [ 0, %.lr.ph144 ], [ %.0126.be, %.backedge ]
+14:                                               ; preds = %.lr.ph, %.backedge
+  %.0123142 = phi i64 [ %2, %.lr.ph ], [ %.0123.be, %.backedge ]
+  %.0124141 = phi i64 [ %11, %.lr.ph ], [ %.0124.be, %.backedge ]
+  %.0126140 = phi i64 [ 0, %.lr.ph ], [ %.0126.be, %.backedge ]
   %15 = getelementptr i8, ptr %3, i64 %.0126140
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
@@ -1462,30 +1462,29 @@ switch.lookup:                                    ; preds = %38
 
 114:                                              ; preds = %22, %87, %85
   %.not131 = icmp slt i64 %.0124141, %20
-  br i1 %.not131, label %123, label %.lr.ph
+  br i1 %.not131, label %123, label %.preheader
 
-.lr.ph:                                           ; preds = %114
+.preheader:                                       ; preds = %114
   %115 = getelementptr i8, ptr %0, i64 %.0123142
-  %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %116
 
-116:                                              ; preds = %.lr.ph, %116
-  %.0139 = phi i64 [ 0, %.lr.ph ], [ %120, %116 ]
+116:                                              ; preds = %.preheader, %116
+  %.0139 = phi i64 [ 0, %.preheader ], [ %120, %116 ]
   %117 = getelementptr i8, ptr %15, i64 %.0139
   %118 = load i8, ptr %117, align 1
   %119 = getelementptr i8, ptr %115, i64 %.0139
   store i8 %118, ptr %119, align 1
   %120 = add nuw nsw i64 %.0139, 1
-  %exitcond.not = icmp eq i64 %120, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !18
+  %exitcond.not = icmp eq i64 %120, %umax
+  br i1 %exitcond.not, label %121, label %116, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %116
-  %121 = getelementptr i8, ptr %0, i64 %.0123142
-  %122 = getelementptr i8, ptr %121, i64 %20
+121:                                              ; preds = %116
+  %122 = getelementptr i8, ptr %115, i64 %20
   store i8 0, ptr %122, align 1
   br label %123
 
-123:                                              ; preds = %._crit_edge, %114
+123:                                              ; preds = %121, %114
   %124 = add i64 %.0123142, %20
   %125 = add i64 %.0126140, %20
   %126 = sub i64 %.0124141, %20
@@ -1509,7 +1508,7 @@ declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) loc
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

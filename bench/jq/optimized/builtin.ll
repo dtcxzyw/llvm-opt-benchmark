@@ -456,7 +456,7 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   br i1 %.not79.not, label %52, label %._crit_edge
 
 52:                                               ; preds = %.lr.ph
-  %53 = add nuw nsw i32 %.17193, 1
+  %53 = add nuw i32 %.17193, 1
   %exitcond.not = icmp eq i32 %53, %41
   br i1 %exitcond.not, label %.loopexit113, label %.lr.ph, !llvm.loop !4
 
@@ -473,7 +473,7 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   %.sroa.065.3 = phi i64 [ %58, %.loopexit113 ], [ %.sroa.065.2102, %.lr.ph ]
   %.sroa.6.3 = phi ptr [ %59, %.loopexit113 ], [ %.sroa.6.2103, %.lr.ph ]
   tail call void @jv_free(i64 %36, ptr %37) #14
-  %60 = add nuw nsw i32 %.1101, 1
+  %60 = add nuw i32 %.1101, 1
   %exitcond111.not = icmp eq i32 %60, %31
   br i1 %exitcond111.not, label %.loopexit, label %.lr.ph104, !llvm.loop !6
 
@@ -4181,7 +4181,7 @@ define internal { i64, ptr } @f_string_implode(ptr nocapture readnone %0, i64 %1
   %or.cond48 = or i1 %or.cond, %or.cond3
   %.0 = select i1 %or.cond48, i32 65533, i32 %37
   %39 = tail call { i64, ptr } @jv_string_append_codepoint(i64 %.sroa.022.057, ptr %.sroa.5.056, i32 noundef %.0) #14
-  %40 = add nuw nsw i32 %.04355, 1
+  %40 = add nuw i32 %.04355, 1
   %exitcond.not = icmp eq i32 %40, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -4862,7 +4862,7 @@ define internal { i64, ptr } @f_format(ptr nocapture readnone %0, i64 %1, ptr %2
 116:                                              ; preds = %73, %74, %93, %86, %85
   %.sroa.0194.3 = phi i64 [ %104, %93 ], [ %.sroa.0194.2, %85 ], [ %91, %86 ], [ %79, %74 ], [ %.sroa.0194.2, %73 ]
   %.sroa.15.3 = phi ptr [ %105, %93 ], [ %.sroa.15.2, %85 ], [ %92, %86 ], [ %80, %74 ], [ %.sroa.15.2, %73 ]
-  %117 = add nuw nsw i32 %.1329456, 1
+  %117 = add nuw i32 %.1329456, 1
   %exitcond499.not = icmp eq i32 %117, %60
   br i1 %exitcond499.not, label %.loopexit, label %.lr.ph459, !llvm.loop !10
 
@@ -5089,7 +5089,7 @@ sub_1:                                            ; preds = %sub_0
   %.pn369 = phi { i64, ptr } [ %220, %210 ], [ %209, %205 ]
   %.sroa.13.3 = extractvalue { i64, ptr } %.pn369, 1
   %.sroa.0110.3 = extractvalue { i64, ptr } %.pn369, 0
-  %226 = add nuw nsw i32 %.1339433, 1
+  %226 = add nuw i32 %.1339433, 1
   %exitcond497.not = icmp eq i32 %226, %192
   br i1 %exitcond497.not, label %.loopexit393, label %.lr.ph436, !llvm.loop !13
 
@@ -5124,6 +5124,7 @@ sub_1:                                            ; preds = %sub_0
   %239 = getelementptr inbounds i8, ptr %10, i64 3
   %240 = getelementptr inbounds i8, ptr %10, i64 2
   %241 = zext nneg i32 %237 to i64
+  %zext = zext nneg i32 %237 to i64
   br label %242
 
 242:                                              ; preds = %.lr.ph429, %.thread390
@@ -5188,7 +5189,7 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 3
   %.sroa.22316.3 = extractvalue { i64, ptr } %267, 1
   %.sroa.0312.3 = extractvalue { i64, ptr } %267, 0
-  %268 = icmp samesign ult i64 %indvars.iv.next495, %241
+  %268 = icmp samesign ult i64 %indvars.iv.next495, %zext
   br i1 %268, label %242, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.thread390, %228
@@ -5645,7 +5646,7 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
 103:                                              ; preds = %.lr.ph, %77, %79, %81, %83, %85, %87, %89
   %.2385 = phi i32 [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %.1384451, %.lr.ph ]
   %.2 = phi i32 [ %.1452, %89 ], [ %.1452, %87 ], [ %.1452, %85 ], [ %.1452, %83 ], [ %.1452, %81 ], [ %.1452, %79 ], [ %.1452, %77 ], [ 1, %.lr.ph ]
-  %104 = add nuw nsw i32 %.1388450, 1
+  %104 = add nuw i32 %.1388450, 1
   %exitcond.not = icmp eq i32 %104, %68
   br i1 %exitcond.not, label %.loopexit436.loopexit, label %.lr.ph, !llvm.loop !19
 
@@ -6459,7 +6460,7 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   %52 = add nsw i32 %51, 1900
   %53 = sdiv i32 %52, 100
   %54 = srem i32 %52, 100
-  %55 = icmp ult i32 %47, 2
+  %55 = icmp samesign ult i32 %47, 2
   %56 = sext i1 %55 to i32
   %spec.select.i = add nsw i32 %54, %56
   %.016.v.i = select i1 %55, i32 11, i32 -1
@@ -6497,7 +6498,7 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   br i1 %or.cond17, label %81, label %98
 
 81:                                               ; preds = %78
-  %82 = icmp ugt i32 %47, 1
+  %82 = icmp samesign ugt i32 %47, 1
   br i1 %82, label %83, label %set_tm_yday.exit
 
 83:                                               ; preds = %81

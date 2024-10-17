@@ -2234,7 +2234,7 @@ if.then1.i38.i:                                   ; preds = %if.end.i35.i
 if.end31.i:                                       ; preds = %_PyObject_CallNoArgs.exit.i
   %arrayidx.i.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %i.047.i
   store ptr %retval.0.i.i.i, ptr %arrayidx.i.i, align 8
-  %inc.i = add nuw nsw i64 %i.047.i, 1
+  %inc.i = add nuw i64 %i.047.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %n.0202430
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !5
 
@@ -5054,7 +5054,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.then.i
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ugt i64 %r, 1152921504606846975
+  %cmp5 = icmp samesign ugt i64 %r, 1152921504606846975
   br i1 %cmp5, label %if.then8, label %cond.end
 
 cond.end:                                         ; preds = %if.end4
@@ -6649,7 +6649,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.then.i
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ugt i64 %r, 1152921504606846975
+  %cmp5 = icmp samesign ugt i64 %r, 1152921504606846975
   br i1 %cmp5, label %if.then8, label %cond.end
 
 cond.end:                                         ; preds = %if.end4
@@ -10364,7 +10364,7 @@ cond.false.i:                                     ; preds = %if.end17.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.end17.i
   %cond.i = phi ptr [ %call19.i, %cond.false.i ], [ null, %if.end17.i ]
-  %cmp20.i = icmp ugt i64 %r.0.i, 1152921504606846975
+  %cmp20.i = icmp samesign ugt i64 %r.0.i, 1152921504606846975
   br i1 %cmp20.i, label %if.then29.i, label %cond.end25.i
 
 cond.end25.i:                                     ; preds = %cond.end.i
@@ -10386,11 +10386,7 @@ if.then29.i:                                      ; preds = %cond.end25.i, %cond
 
 for.cond33.preheader.i:                           ; preds = %for.body.i, %for.cond.preheader.i
   %cmp3456.not.i = icmp eq i64 %r.0.i, 0
-  br i1 %cmp3456.not.i, label %for.end39.i, label %for.body35.preheader.i
-
-for.body35.preheader.i:                           ; preds = %for.cond33.preheader.i
-  %smax.i = call i64 @llvm.smax.i64(i64 %r.0.i, i64 1)
-  br label %for.body35.i
+  br i1 %cmp3456.not.i, label %for.end39.i, label %for.body35.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.055.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
@@ -10400,13 +10396,13 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %exitcond.not.i = icmp eq i64 %inc.i, %call.val.i
   br i1 %exitcond.not.i, label %for.cond33.preheader.i, label %for.body.i, !llvm.loop !28
 
-for.body35.i:                                     ; preds = %for.body35.i, %for.body35.preheader.i
-  %i.157.i = phi i64 [ %inc38.i, %for.body35.i ], [ 0, %for.body35.preheader.i ]
+for.body35.i:                                     ; preds = %for.cond33.preheader.i, %for.body35.i
+  %i.157.i = phi i64 [ %inc38.i, %for.body35.i ], [ 0, %for.cond33.preheader.i ]
   %sub.i = sub i64 %call.val.i, %i.157.i
   %arrayidx36.i = getelementptr i64, ptr %call24.i, i64 %i.157.i
   store i64 %sub.i, ptr %arrayidx36.i, align 8
   %inc38.i = add nuw nsw i64 %i.157.i, 1
-  %exitcond58.not.i = icmp eq i64 %inc38.i, %smax.i
+  %exitcond58.not.i = icmp eq i64 %inc38.i, %r.0.i
   br i1 %exitcond58.not.i, label %for.end39.i, label %for.body35.i, !llvm.loop !29
 
 for.end39.i:                                      ; preds = %for.body35.i, %for.cond33.preheader.i
@@ -10539,7 +10535,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.end21:                                         ; preds = %for.body
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.053
   store ptr %call18, ptr %arrayidx.i, align 8
-  %inc = add nuw nsw i64 %i.053, 1
+  %inc = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc, %.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
@@ -10727,7 +10723,7 @@ if.end29:                                         ; preds = %land.lhs.true, %if.
   %16 = load ptr, ptr %indices30, align 8
   %arrayidx31 = getelementptr i64, ptr %16, i64 %i.049
   store i64 %index.0, ptr %arrayidx31, align 8
-  %inc = add nuw nsw i64 %i.049, 1
+  %inc = add nuw i64 %i.049, 1
   %exitcond.not = icmp eq i64 %inc, %.val43
   br i1 %exitcond.not, label %for.cond32.preheader.loopexit, label %for.body, !llvm.loop !32
 
@@ -11031,7 +11027,7 @@ if.end.i108:                                      ; preds = %if.end13
 Py_INCREF.exit110:                                ; preds = %if.end13, %if.end.i108
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.083
   store ptr %6, ptr %arrayidx.i, align 8
-  %inc = add nuw nsw i64 %i.083, 1
+  %inc = add nuw i64 %i.083, 1
   %exitcond.not = icmp eq i64 %inc, %.val68
   br i1 %exitcond.not, label %if.end60, label %for.body, !llvm.loop !35
 
@@ -11318,7 +11314,7 @@ if.end52.thread71:                                ; preds = %if.end23
   br label %return
 
 for.cond34.preheader:                             ; preds = %if.end32, %for.cond.preheader
-  %cmp3578 = icmp slt i64 %nargs.0, %mul
+  %cmp3578 = icmp samesign ult i64 %nargs.0, %mul
   br i1 %cmp3578, label %for.body36.lr.ph, label %for.end43
 
 for.body36.lr.ph:                                 ; preds = %for.cond34.preheader
@@ -11338,7 +11334,7 @@ if.end32:                                         ; preds = %for.body
   store ptr %call29, ptr %arrayidx.i, align 8
   %arrayidx33 = getelementptr i64, ptr %call19, i64 %i.077
   store i64 0, ptr %arrayidx33, align 8
-  %inc = add nuw nsw i64 %i.077, 1
+  %inc = add nuw i64 %i.077, 1
   %exitcond.not = icmp eq i64 %inc, %nargs.0
   br i1 %exitcond.not, label %for.cond34.preheader, label %for.body, !llvm.loop !37
 
@@ -11485,7 +11481,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end20:                                         ; preds = %for.body
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.022
   store ptr %call17, ptr %arrayidx.i, align 8
-  %inc = add nuw nsw i64 %i.022, 1
+  %inc = add nuw i64 %i.022, 1
   %exitcond.not = icmp eq i64 %inc, %.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
 
@@ -11577,7 +11573,7 @@ if.end21:                                         ; preds = %if.end14
   %12 = load ptr, ptr %indices, align 8
   %arrayidx29 = getelementptr i64, ptr %12, i64 %i.037
   store i64 %index.0, ptr %arrayidx29, align 8
-  %inc = add nuw nsw i64 %i.037, 1
+  %inc = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %.val33
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
@@ -13804,7 +13800,7 @@ if.then1.i88:                                     ; preds = %if.end.i85
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i85, %if.then1.i88, %if.end27
-  %inc = add nuw nsw i64 %i.085, 1
+  %inc = add nuw i64 %i.085, 1
   %exitcond86.not = icmp eq i64 %inc, %0
   br i1 %exitcond86.not, label %for.end, label %for.body, !llvm.loop !47
 
@@ -13940,7 +13936,7 @@ if.end68:                                         ; preds = %if.end.i.i72, %if.t
   %item.1 = phi ptr [ %35, %_Py_NewRef.exit77 ], [ %35, %if.then1.i ], [ %35, %if.end.i ], [ %call50, %if.else49 ], [ %30, %if.then46 ], [ %30, %if.end.i.i72 ]
   %arrayidx.i81 = getelementptr [1 x ptr], ptr %ob_item.i80, i64 0, i64 %i.183
   store ptr %item.1, ptr %arrayidx.i81, align 8
-  %inc70 = add nuw nsw i64 %i.183, 1
+  %inc70 = add nuw i64 %i.183, 1
   %exitcond.not = icmp eq i64 %inc70, %0
   br i1 %exitcond.not, label %return, label %for.body41, !llvm.loop !48
 
@@ -14030,7 +14026,7 @@ if.then1.i69:                                     ; preds = %if.end.i66
 if.end25:                                         ; preds = %for.body
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.052
   store ptr %call22, ptr %arrayidx.i, align 8
-  %inc = add nuw nsw i64 %i.052, 1
+  %inc = add nuw i64 %i.052, 1
   %exitcond.not = icmp eq i64 %inc, %args.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 

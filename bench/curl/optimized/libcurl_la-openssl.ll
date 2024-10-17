@@ -773,7 +773,7 @@ if.end204:                                        ; preds = %do.body193, %if.end
   %58 = load ptr, ptr %ptr, align 8
   %call209 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull @.str.26, ptr noundef %58, i64 noundef %call208) #13
   %call210 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
-  %inc218 = add nuw nsw i32 %i.0228, 1
+  %inc218 = add nuw i32 %i.0228, 1
   %exitcond.not = icmp eq i32 %inc218, %call2
   br i1 %exitcond.not, label %for.end219, label %for.body, !llvm.loop !8
 
@@ -1743,7 +1743,7 @@ for.inc.us:                                       ; preds = %if.end29.us, %for.b
   %iPAddress.2.us142 = phi i1 [ %iPAddress.192.us, %if.then32.us ], [ %iPAddress.192.us, %if.end29.us ], [ %iPAddress.192.us, %if.then2.i.us ], [ %iPAddress.192.us, %land.lhs.true.i.us ], [ %iPAddress.192.us, %land.lhs.true39.us ], [ true, %for.body.us ]
   %dnsmatched.1.us = phi i1 [ false, %if.then32.us ], [ false, %if.end29.us ], [ %call.i.us, %if.then2.i.us ], [ %call.i.us, %land.lhs.true.i.us ], [ %call.i.us, %land.lhs.true39.us ], [ false, %for.body.us ]
   %inc.us = add nuw nsw i32 %i.089.us, 1
-  %cmp.us = icmp sge i32 %inc.us, %call18
+  %cmp.us = icmp samesign uge i32 %inc.us, %call18
   %.not.us = or i1 %cmp.us, %dnsmatched.1.us
   br i1 %.not.us, label %for.end, label %for.body.us, !llvm.loop !11
 
@@ -1795,7 +1795,7 @@ for.inc.us119:                                    ; preds = %for.body.us101, %if
   %dNSName.2.us112154 = phi i1 [ %dNSName.193.us102, %land.lhs.true48.us ], [ %dNSName.193.us102, %if.then59.us ], [ %dNSName.193.us102, %land.lhs.true53.us ], [ %dNSName.193.us102, %if.then32.us114 ], [ %dNSName.193.us102, %if.end29.fold.split.us109 ], [ true, %for.body.us101 ]
   %iPAddress.2.us111153 = phi i1 [ true, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ true, %if.then32.us114 ], [ %iPAddress.192.us103, %if.end29.fold.split.us109 ], [ %iPAddress.192.us103, %for.body.us101 ]
   %ipmatched.1.us121 = phi i1 [ %ipmatched.091.us104.mux, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ %ipmatched.091.us104, %if.then32.us114 ], [ %ipmatched.091.us104, %if.end29.fold.split.us109 ], [ %ipmatched.091.us104, %for.body.us101 ]
-  %inc.us122 = add nuw nsw i32 %i.089.us106, 1
+  %inc.us122 = add nuw i32 %i.089.us106, 1
   %exitcond.not = icmp eq i32 %inc.us122, %call18
   br i1 %exitcond.not, label %for.end, label %for.body.us101, !llvm.loop !11
 
@@ -1831,7 +1831,7 @@ if.then32:                                        ; preds = %if.end29
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then32, %if.end29
-  %inc = add nuw nsw i32 %i.089, 1
+  %inc = add nuw i32 %i.089, 1
   %exitcond136.not = icmp eq i32 %inc, %call18
   br i1 %exitcond136.not, label %for.end.thread, label %for.body, !llvm.loop !11
 
@@ -2111,8 +2111,8 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true5.i
   %call1.i.i = tail call i64 @Curl_timediff(i64 %9, i32 %10, i64 %11, i32 %13) #13
   %14 = load i32, ptr %ca_cache_timeout, align 8
   %cmp.i.i = icmp sgt i32 %14, -1
-  %conv.i.i = sext i32 %14 to i64
-  %mul.i.i = mul nsw i64 %conv.i.i, 1000
+  %conv.i.i = zext nneg i32 %14 to i64
+  %mul.i.i = mul nuw nsw i64 %conv.i.i, 1000
   %cmp3.i.i = icmp sge i64 %call1.i.i, %mul.i.i
   %retval.0.i.i = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br i1 %retval.0.i.i, label %if.else, label %land.lhs.true11.i
@@ -5977,8 +5977,7 @@ if.then53:                                        ; preds = %if.end42
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end8, %if.end42, %if.then53, %sw.epilog
-  %cmp58 = icmp eq i32 %direction, 1
-  %cond60 = select i1 %cmp58, i32 6, i32 5
+  %cond60 = select i1 %tobool6.not, i32 5, i32 6
   call void @Curl_debug(ptr noundef nonnull %1, i32 noundef %cond60, ptr noundef %buf, i64 noundef %len) #13
   br label %return
 

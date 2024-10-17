@@ -4380,7 +4380,7 @@ if.then3.i:                                       ; preds = %_ZNK3org6apache5arr
   br label %_ZN5arrow6StatusD2Ev.exit142
 
 if.end.i:                                         ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i
-  %cmp.i.i.i11.i = icmp ugt i16 %39, 4
+  %cmp.i.i.i11.i = icmp samesign ugt i16 %39, 4
   br i1 %cmp.i.i.i11.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i, label %if.end12.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i: ; preds = %if.end.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i102
@@ -14648,7 +14648,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 for.inc:                                          ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont14
   call void @_ZN5arrow6ResultISt10shared_ptrINS_11RecordBatchEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #32
-  %inc = add nuw nsw i32 %i.012, 1
+  %inc = add nuw i32 %i.012, 1
   %exitcond.not = icmp eq i32 %inc, %call
   br i1 %exitcond.not, label %invoke.cont.i.thread, label %for.body, !llvm.loop !190
 
@@ -28441,7 +28441,7 @@ invoke.cont316:                                   ; preds = %for.body.preheader.
   %344 = getelementptr inbounds i8, ptr %indptr_data, i64 16
   store ptr %add.ptr.i.i.i1210, ptr %344, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %cmp.i.i1213 = icmp ugt i64 %sub.ptr.div.i1208, 576460752303423487
+  %cmp.i.i1213 = icmp samesign ugt i64 %sub.ptr.div.i1208, 576460752303423487
   br i1 %cmp.i.i1213, label %if.then.i.i1224, label %for.body.preheader.i.i.i.i.i1216
 
 if.then.i.i1224:                                  ; preds = %invoke.cont316
@@ -28467,18 +28467,19 @@ invoke.cont320:                                   ; preds = %for.body.preheader.
   %345 = getelementptr inbounds i8, ptr %indices_data, i64 16
   store ptr %add.ptr.i.i.i1218, ptr %345, align 8
   store ptr %scevgep.i.i.i.i.i1219, ptr %_M_finish.i.i7.i1222, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.body330.lr.ph, label %for.body.lr.ph
+  br i1 %cmp.not.i.i.i.i, label %for.cond328.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont320
   %body_buffers323 = getelementptr inbounds i8, ptr %payload, i64 24
   br label %for.body
 
-for.cond328.preheader:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
-  %cmp3291601 = icmp sgt i64 %sub.ptr.div.i1208, 0
-  br i1 %cmp3291601, label %for.body330.lr.ph, label %for.end338
+for.cond328.preheader:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit, %invoke.cont320
+  %cmp3291601.not = icmp eq ptr %342, %343
+  br i1 %cmp3291601.not, label %for.end338, label %for.body330.lr.ph
 
-for.body330.lr.ph:                                ; preds = %invoke.cont320, %for.cond328.preheader
+for.body330.lr.ph:                                ; preds = %for.cond328.preheader
   %body_buffers331 = getelementptr inbounds i8, ptr %payload, i64 24
+  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i1208, i64 1)
   br label %for.body330
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
@@ -28598,7 +28599,7 @@ if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit:  ; preds = %for.body, %if.end9.i.i.i
-  %inc = add nuw nsw i64 %i.01600, 1
+  %inc = add nuw i64 %i.01600, 1
   %exitcond.not = icmp eq i64 %inc, %sub
   br i1 %exitcond.not, label %for.cond328.preheader, label %for.body, !llvm.loop !451
 
@@ -28737,8 +28738,8 @@ if.end9.i.i.i1290:                                ; preds = %if.end8.sink.split.
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit1311
 
 _ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit1311: ; preds = %for.body330, %if.end9.i.i.i1290
-  %inc337 = add nuw nsw i64 %i327.01602, 1
-  %exitcond1603.not = icmp eq i64 %inc337, %sub.ptr.div.i1208
+  %inc337 = add nuw i64 %i327.01602, 1
+  %exitcond1603.not = icmp eq i64 %inc337, %umax
   br i1 %exitcond1603.not, label %for.end338, label %for.body330, !llvm.loop !452
 
 for.end338:                                       ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit1311, %for.cond328.preheader
@@ -33871,7 +33872,7 @@ call5.i.i.i.i2.i.i50.i.noexc:                     ; preds = %for.body.preheader.
   %270 = getelementptr inbounds i8, ptr %indptr_data.i, i64 16
   store ptr %add.ptr.i.i.i49.i, ptr %270, align 8, !noalias !593
   store ptr %scevgep.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i570, align 8, !noalias !593
-  %cmp.i.i51.i = icmp ugt i64 %sub.ptr.div.i.i567, 576460752303423487
+  %cmp.i.i51.i = icmp samesign ugt i64 %sub.ptr.div.i.i567, 576460752303423487
   br i1 %cmp.i.i51.i, label %if.then.i.i62.i, label %for.body.preheader.i.i.i.i.i54.i
 
 if.then.i.i62.i:                                  ; preds = %call5.i.i.i.i2.i.i50.i.noexc
@@ -39740,7 +39741,7 @@ if.end8.sink.split.i.i.i.i129:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 for.inc:                                          ; preds = %if.end8.sink.split.i.i.i.i129, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i126, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i116, %_ZN5arrow6StatusD2Ev.exit
   call void @_ZN5arrow6ResultISt10shared_ptrINS_11RecordBatchEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp20) #32
-  %inc = add nuw nsw i32 %i.0244, 1
+  %inc = add nuw i32 %i.0244, 1
   %exitcond.not = icmp eq i32 %inc, %call19
   br i1 %exitcond.not, label %cleanup45.thread.loopexit, label %for.body, !llvm.loop !709
 
@@ -50259,7 +50260,7 @@ cond.true.i.i.i153:                               ; preds = %_ZNK22arrow_vendore
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163
 
 _ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit: ; preds = %land.lhs.true23
-  %cmp.i.i.i161 = icmp ugt i16 %42, 12
+  %cmp.i.i.i161 = icmp samesign ugt i16 %42, 12
   br i1 %cmp.i.i.i161, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163, label %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163: ; preds = %cond.true.i.i.i153, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i150, %_ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit
@@ -55312,7 +55313,7 @@ ehcleanup.i.i:                                    ; preds = %lpad25.i.i, %lpad4.
   br label %"_ZN5arrow8internal19OptionalParallelForIZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS2_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISC_EEE3$_0EENS_6StatusEbiOT_PNS0_8ExecutorE.exit"
 
 for.cond.i:                                       ; preds = %.noexc19
-  %inc.i = add nuw nsw i32 %i.089.i, 1
+  %inc.i = add nuw i32 %i.089.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv
   br i1 %exitcond.not.i, label %for.end.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1435
 
@@ -79157,7 +79158,7 @@ if.then3.i.i:                                     ; preds = %_ZNK3org6apache5arr
           to label %_ZN5arrow6StatusD2Ev.exit.i unwind label %lpad14
 
 if.end.i.i:                                       ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i.i
-  %cmp.i.i.i11.i.i = icmp ugt i16 %58, 4
+  %cmp.i.i.i11.i.i = icmp samesign ugt i16 %58, 4
   br i1 %cmp.i.i.i11.i.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i, label %if.end12.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i: ; preds = %if.end.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i
@@ -87797,7 +87798,7 @@ if.then3.i:                                       ; preds = %_ZNK3org6apache5arr
   br label %_ZN5arrow6StatusD2Ev.exit144
 
 if.end.i:                                         ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i
-  %cmp.i.i.i11.i = icmp ugt i16 %20, 4
+  %cmp.i.i.i11.i = icmp samesign ugt i16 %20, 4
   br i1 %cmp.i.i.i11.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i, label %do.end34
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i: ; preds = %if.end.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i104

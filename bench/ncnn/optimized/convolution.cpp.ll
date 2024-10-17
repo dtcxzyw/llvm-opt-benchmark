@@ -2926,9 +2926,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %or.cond398, label %.critedge4, label %.preheader.lr.ph.preheader
 
 .preheader.lr.ph.preheader:                       ; preds = %.lr.ph
-  %smax = call i32 @llvm.smax.i32(i32 %106, i32 1)
   %wide.trip.count390 = zext nneg i32 %11 to i64
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %106 to i64
   br label %.preheader.lr.ph
 
 164:                                              ; preds = %._crit_edge349
@@ -3497,14 +3496,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %or.cond88, label %.preheader.lr.ph.us.us.preheader, label %._crit_edge
 
 .preheader.lr.ph.us.us.preheader:                 ; preds = %.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %33, i32 1)
   %63 = sext i32 %6 to i64
   %64 = sext i32 %7 to i64
   %wide.trip.count85 = zext nneg i32 %22 to i64
   %wide.trip.count80 = zext nneg i32 %20 to i64
   %wide.trip.count75 = zext nneg i32 %18 to i64
   %wide.trip.count70 = zext nneg i32 %16 to i64
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %33 to i64
   br label %.preheader.lr.ph.us.us
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader.lr.ph.us.us.preheader, %._crit_edge41.split.us.us.us

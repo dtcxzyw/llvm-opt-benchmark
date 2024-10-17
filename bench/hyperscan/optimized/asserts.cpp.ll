@@ -350,7 +350,6 @@ for.body22.lr.ph.i:                               ; preds = %if.end18.i
   %out_edge_list.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.fr.i.i.i, i64 128
   %m_header.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.fr.i.i.i, i64 136
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.fr.i.i.i, i64 144
-  %cmp7.i9.i.i.i.i.not = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.fr.i.i.i, null
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %for.inc.i, %for.body22.lr.ph.i
@@ -451,7 +450,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeISt4p
   %agg.tmp.sroa.2.0.first1.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load i64, ptr %agg.tmp.sroa.2.0.first1.sroa_idx.i.i.i.i, align 8
   %tobool3.i.i.i.i.not.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, null
-  br i1 %tobool3.i.i.i.i.not.i, label %_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit14.i.i.i.i, label %if.then.i.i.i.i.i
+  br i1 %tobool3.i.i.i.i.not.i, label %if.else.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i59.i = icmp ult i64 %17, %agg.tmp.sroa.2.0.copyload.i.i.i.i
@@ -461,10 +460,7 @@ if.then.i11.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   %cmp.i13.i.i.i.i = icmp ult i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i, %17
   br i1 %cmp.i13.i.i.i.i, label %if.else.i, label %land.rhs.i.i.i.i
 
-_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit14.i.i.i.i: ; preds = %lor.lhs.false.i.i
-  br i1 %cmp7.i9.i.i.i.i.not, label %land.rhs.i.i.i.i, label %if.else.i
-
-land.rhs.i.i.i.i:                                 ; preds = %_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit14.i.i.i.i, %if.then.i11.i.i.i.i
+land.rhs.i.i.i.i:                                 ; preds = %if.then.i11.i.i.i.i
   %second7.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 48
   %agg.tmp6.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %second7.i.i.i.i, align 8
   %tobool.i15.i.i.i.i = icmp ne ptr %agg.tmp6.sroa.0.0.copyload.i.i.fr.i.i.i, null
@@ -615,7 +611,7 @@ cleanup.action.i:                                 ; preds = %ehcleanup.i, %ehcle
   call void @__cxa_free_exception(ptr %exception.i) #20
   br label %lpad.body
 
-if.else.i:                                        ; preds = %_ZNKSt4lessISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_EEclERKSA_SD_.exit.i.i, %if.then.i21.i.i.i.i, %_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit14.i.i.i.i, %if.then.i11.i.i.i.i
+if.else.i:                                        ; preds = %lor.lhs.false.i.i, %_ZNKSt4lessISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_EEclERKSA_SD_.exit.i.i, %if.then.i21.i.i.i.i, %if.then.i11.i.i.i.i
   %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %e77.sroa.0.0.copyload.i = load ptr, ptr %second.i, align 8
   %assert_flags84.i = getelementptr inbounds i8, ptr %e77.sroa.0.0.copyload.i, i64 96
@@ -2888,7 +2884,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 2305843009213693951
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 2305843009213693951
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4

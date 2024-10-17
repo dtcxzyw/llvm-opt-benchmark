@@ -492,11 +492,11 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %13, %7
   %25 = getelementptr inbounds i8, ptr %17, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ugt i64 %24, %27
+  %28 = icmp samesign ugt i64 %24, %27
   br i1 %28, label %.preheader.i.i.i, label %compile_data_alloc2.exit
 
 .preheader.i.i.i:                                 ; preds = %20
-  %29 = icmp ugt i64 %10, %27
+  %29 = icmp samesign ugt i64 %10, %27
   br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %32
@@ -511,7 +511,7 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %13, %7
 32:                                               ; preds = %.lr.ph.i.i.i
   %33 = shl nuw nsw i32 %.027.i.i.i, 1
   %34 = zext nneg i32 %33 to i64
-  %35 = icmp ugt i64 %10, %34
+  %35 = icmp samesign ugt i64 %10, %34
   br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i:                                ; preds = %32, %.preheader.i.i.i
@@ -3794,8 +3794,7 @@ rbimpl_size_mul_or_raise.exit.i111:               ; preds = %rb_array_const_ptr.
 .lr.ph.preheader.i:                               ; preds = %rbimpl_size_mul_or_raise.exit.i111
   %219 = shl nuw nsw i64 %207, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr readonly align 1 %.0.i.i, i64 %219, i1 false)
-  %smax.i = call i32 @llvm.smax.i32(i32 %indvars.iv190.i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext i32 %indvars.iv190.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -22331,7 +22330,7 @@ get_lvar_level.exit:                              ; preds = %.lr.ph.i, %rb_obj_w
   %2913 = add i32 %.037605400, %2908
   %2914 = sub i32 %2912, %2913
   call fastcc void @iseq_add_getlocal(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %10, i32 noundef %2914, i32 noundef %.0.lcssa.i)
-  %2915 = add nuw nsw i32 %.037605400, 1
+  %2915 = add nuw i32 %.037605400, 1
   %exitcond5544.not = icmp eq i32 %2915, %2906
   br i1 %exitcond5544.not, label %._crit_edge5403.loopexit, label %2911, !llvm.loop !97
 
@@ -35479,11 +35478,11 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %8, %3
   %20 = getelementptr inbounds i8, ptr %12, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i, label %compile_data_alloc.exit
 
 .preheader.i.i:                                   ; preds = %15
-  %24 = icmp ugt i64 %5, %22
+  %24 = icmp samesign ugt i64 %5, %22
   br i1 %24, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %27
@@ -35498,7 +35497,7 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %8, %3
 27:                                               ; preds = %.lr.ph.i.i
   %28 = shl nuw nsw i32 %.027.i.i, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ugt i64 %5, %29
+  %30 = icmp samesign ugt i64 %5, %29
   br i1 %30, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %27, %.preheader.i.i
@@ -49977,7 +49976,7 @@ define internal fastcc void @compile_massign(ptr noundef %0, ptr noundef nonnull
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %get_nd_vid.exit ], [ 0, %.preheader63 ]
   %.041.i76 = phi ptr [ %42, %get_nd_vid.exit ], [ %18, %.preheader63 ]
   %indvars101 = trunc i64 %indvars.iv99 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %indvars101, i32 1)
+  %umax = tail call i32 @llvm.umax.i32(i32 %indvars101, i32 1)
   %25 = getelementptr inbounds i8, ptr %.041.i76, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %26, align 8
@@ -50008,7 +50007,7 @@ define internal fastcc void @compile_massign(ptr noundef %0, ptr noundef nonnull
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %.0.in.i56 = getelementptr inbounds i8, ptr %26, i64 32
   %.0.i57 = load i64, ptr %.0.in.i56, align 8
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext i32 %umax to i64
   br label %get_nd_vid.exit58
 
 32:                                               ; preds = %get_nd_vid.exit58
@@ -50136,7 +50135,7 @@ iseq_compile_each.exit54:                         ; preds = %66, %61, %48, %47
   %84 = getelementptr inbounds i8, ptr %82, i64 8
   store ptr %81, ptr %84, align 8
   store ptr %81, ptr %24, align 8
-  %85 = add nuw nsw i32 %.042.i80, 1
+  %85 = add nuw i32 %.042.i80, 1
   %exitcond106.not = icmp eq i32 %85, %indvars.iv104
   br i1 %exitcond106.not, label %compile_massign_opt.exit, label %76, !llvm.loop !193
 
@@ -55761,7 +55760,7 @@ get_lvar_level.exit:                              ; preds = %.lr.ph.i, %38
   %119 = add i32 %.0152192, %112
   %120 = sub i32 %118, %119
   call fastcc void @iseq_add_getlocal(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %120, i32 noundef %.0.lcssa.i)
-  %121 = add nuw nsw i32 %.0152192, 1
+  %121 = add nuw i32 %.0152192, 1
   %exitcond.not = icmp eq i32 %121, %110
   br i1 %exitcond.not, label %._crit_edge194.loopexit, label %117, !llvm.loop !202
 
@@ -55794,7 +55793,7 @@ get_lvar_level.exit:                              ; preds = %.lr.ph.i, %38
   %137 = add i32 %.0153196, %112
   %138 = sub i32 %136, %137
   call fastcc void @iseq_add_getlocal(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %138, i32 noundef %.0.lcssa.i)
-  %139 = add nuw nsw i32 %.0153196, 1
+  %139 = add nuw i32 %.0153196, 1
   %exitcond210.not = icmp eq i32 %139, %110
   br i1 %exitcond210.not, label %._crit_edge198, label %135, !llvm.loop !203
 
@@ -66404,7 +66403,7 @@ new_label_body.exit1533:                          ; preds = %ISEQ_COMPILE_DATA.e
   %2072 = load ptr, ptr %1800, align 8
   %2073 = getelementptr inbounds i8, ptr %2072, i64 48
   %2074 = load ptr, ptr %2073, align 8
-  %2075 = add nuw nsw i32 %.011421593, 1
+  %2075 = add nuw i32 %.011421593, 1
   %exitcond.not = icmp eq i32 %2075, %1778
   br i1 %exitcond.not, label %._crit_edge, label %1797, !llvm.loop !224
 
@@ -96677,7 +96676,7 @@ pm_multi_target_state_push.exit183:               ; preds = %355, %357
   %381 = getelementptr inbounds i8, ptr %379, i64 8
   store ptr %378, ptr %381, align 8
   store ptr %378, ptr %339, align 8
-  %382 = add nuw nsw i32 %.0151191, 1
+  %382 = add nuw i32 %.0151191, 1
   %exitcond.not = icmp eq i32 %382, %328
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !304
 

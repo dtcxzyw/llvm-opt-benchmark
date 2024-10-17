@@ -1296,25 +1296,25 @@ entry:
 if.then:                                          ; preds = %entry
   %shr = lshr i64 %and.i, 16
   %xor = xor i64 %shr, %and.i
-  %cmp2 = icmp ult i32 %n, 257
+  %cmp2 = icmp samesign ult i32 %n, 257
   br i1 %cmp2, label %if.then3, label %if.end21
 
 if.then3:                                         ; preds = %if.then
   %shr4 = lshr i64 %xor, 8
   %xor5 = xor i64 %shr4, %xor
-  %cmp6 = icmp ult i32 %n, 17
+  %cmp6 = icmp samesign ult i32 %n, 17
   br i1 %cmp6, label %if.then7, label %if.end21
 
 if.then7:                                         ; preds = %if.then3
   %shr8 = lshr i64 %xor5, 4
   %xor9 = xor i64 %shr8, %xor5
-  %cmp10 = icmp ult i32 %n, 5
+  %cmp10 = icmp samesign ult i32 %n, 5
   br i1 %cmp10, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %if.then7
   %shr12 = lshr i64 %xor9, 2
   %xor13 = xor i64 %shr12, %xor9
-  %cmp14 = icmp ult i32 %n, 3
+  %cmp14 = icmp samesign ult i32 %n, 3
   br i1 %cmp14, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.then11
@@ -7237,7 +7237,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %sub = add nsw i32 %., -1
   br label %for.body
 
-for.body:                                         ; preds = %for.inc, %for.body.lr.ph
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %iteration.027 = phi i32 [ 0, %for.body.lr.ph ], [ %inc24, %for.inc ]
   %vtable5 = load ptr, ptr %this, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 96
@@ -7300,9 +7300,10 @@ if.end:                                           ; preds = %if.then14, %if.then
 
 for.inc:                                          ; preds = %invoke.cont7
   %inc24 = add nuw nsw i32 %iteration.027, 1
-  br label %for.body
+  %exitcond.not = icmp eq i32 %inc24, %.
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
-for.end:                                          ; preds = %invoke.cont, %if.end
+for.end:                                          ; preds = %for.inc, %invoke.cont, %if.end
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #23
   ret float 0.000000e+00
 }
@@ -7358,7 +7359,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -7559,7 +7560,7 @@ if.then60:                                        ; preds = %if.end
 for.inc:                                          ; preds = %if.end, %if.then60
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -7737,7 +7738,7 @@ for.inc:                                          ; preds = %for.body, %if.end34
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -7913,7 +7914,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !36
 
 lpad:                                             ; preds = %if.then3.i.i.i101, %if.then3.i.i.i76, %if.then3.i.i.i49, %if.then3.i.i.i22, %if.then3.i.i.i, %if.end
   %15 = landingpad { ptr, i32 }
@@ -8611,3 +8612,4 @@ attributes #23 = { nounwind }
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}

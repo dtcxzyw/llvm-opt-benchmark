@@ -1003,8 +1003,8 @@ if.then182:                                       ; preds = %if.end136
 
 if.end184:                                        ; preds = %if.then182, %if.end136
   store ptr null, ptr %tail, align 8
-  %cmp186205 = icmp sgt i32 %call, 1
-  br i1 %cmp186205, label %for.body187.preheader, label %for.end195.thread
+  %cmp186205.not = icmp eq i32 %call, 0
+  br i1 %cmp186205.not, label %for.end195.thread, label %for.body187.preheader
 
 for.end195.thread:                                ; preds = %if.end184
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tail.i)
@@ -1013,7 +1013,8 @@ for.end195.thread:                                ; preds = %if.end184
   br label %if.end201
 
 for.body187.preheader:                            ; preds = %if.end184
-  %wide.trip.count = zext nneg i32 %call to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %call, i32 2)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %for.body187
 
 for.body187:                                      ; preds = %for.body187.preheader, %for.body187
@@ -3060,6 +3061,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

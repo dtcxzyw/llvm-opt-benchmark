@@ -4947,14 +4947,14 @@ define internal fastcc i32 @write_dot_dot_entry(ptr noundef %0, ptr nocapture no
 .lr.ph:                                           ; preds = %10
   %14 = shl i32 %12, 2
   %15 = getelementptr inbounds i8, ptr %4, i64 88
-  %smax = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
+  %umax = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %.02329 = phi i32 [ 0, %.lr.ph ], [ %18, %16 ]
   %17 = tail call ptr @archive_strappend_char(ptr noundef nonnull %15, i8 noundef signext 32) #14
-  %18 = add nuw nsw i32 %.02329, 1
-  %exitcond.not = icmp eq i32 %18, %smax
+  %18 = add nuw i32 %.02329, 1
+  %exitcond.not = icmp eq i32 %18, %umax
   br i1 %exitcond.not, label %.loopexit.loopexit, label %16, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %16
@@ -5086,7 +5086,7 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader96, %.lr.ph
   %.08398 = phi i32 [ %31, %.lr.ph ], [ 0, %.preheader96 ]
   %30 = tail call ptr @archive_strappend_char(ptr noundef nonnull %23, i8 noundef signext 32) #14
-  %31 = add nuw nsw i32 %.08398, 1
+  %31 = add nuw i32 %.08398, 1
   %exitcond.not = icmp eq i32 %31, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
@@ -5176,7 +5176,7 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
 68:                                               ; preds = %.lr.ph118, %68
   %.4117 = phi i32 [ 0, %.lr.ph118 ], [ %70, %68 ]
   %69 = tail call ptr @archive_strappend_char(ptr noundef nonnull %67, i8 noundef signext 32) #14
-  %70 = add nuw nsw i32 %.4117, 1
+  %70 = add nuw i32 %.4117, 1
   %exitcond128.not = icmp eq i32 %70, %21
   br i1 %exitcond128.not, label %._crit_edge119, label %68, !llvm.loop !34
 
@@ -5249,6 +5249,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -25321,18 +25321,22 @@ invoke.cont102:                                   ; preds = %if.then92
 
 if.end111:                                        ; preds = %invoke.cont102, %for.end90
   invoke void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull @.str.1778)
-          to label %for.body117 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %for.body117.lr.ph unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-for.body117:                                      ; preds = %if.end111, %for.inc121
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %for.inc121 ], [ 0, %if.end111 ]
+for.body117.lr.ph:                                ; preds = %if.end111
+  %41 = zext nneg i32 %24 to i64
+  br label %for.body117
+
+for.body117:                                      ; preds = %for.body117.lr.ph, %for.inc121
+  %indvars.iv113 = phi i64 [ 0, %for.body117.lr.ph ], [ %indvars.iv.next114, %for.inc121 ]
   %arrayidx.i79 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv113
-  %41 = load ptr, ptr %arrayidx.i79, align 8
-  invoke void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull @.str.1779, ptr noundef %41)
+  %42 = load ptr, ptr %arrayidx.i79, align 8
+  invoke void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull @.str.1779, ptr noundef %42)
           to label %for.inc121 unwind label %lpad.loopexit
 
 for.inc121:                                       ; preds = %for.body117
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %cmp116 = icmp samesign ult i64 %indvars.iv.next114, %32
+  %cmp116 = icmp samesign ult i64 %indvars.iv.next114, %41
   br i1 %cmp116, label %for.body117, label %if.then.i82, !llvm.loop !189
 
 if.end125:                                        ; preds = %if.then26
@@ -25342,62 +25346,62 @@ if.end125:                                        ; preds = %if.then26
   br i1 %tobool.not.i81, label %sw.epilog, label %if.then.i82
 
 if.then.i82:                                      ; preds = %for.inc121, %invoke.cont48, %if.end125
-  %42 = phi ptr [ %.pre118, %if.end125 ], [ %28, %invoke.cont48 ], [ %31, %for.inc121 ]
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %42)
+  %43 = phi ptr [ %.pre118, %if.end125 ], [ %28, %invoke.cont48 ], [ %31, %for.inc121 ]
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %43)
           to label %sw.epilog unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i82
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #32
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #32
   unreachable
 
 sw.bb126:                                         ; preds = %entry
   %HistoryPos = getelementptr inbounds i8, ptr %this, i64 304
-  %45 = load i32, ptr %HistoryPos, align 8
+  %46 = load i32, ptr %HistoryPos, align 8
   %EventKey = getelementptr inbounds i8, ptr %data, i64 28
-  %46 = load i32, ptr %EventKey, align 4
-  switch i32 %46, label %sw.epilog [
+  %47 = load i32, ptr %EventKey, align 4
+  switch i32 %47, label %sw.epilog [
     i32 515, label %if.then128
     i32 516, label %if.then144
   ]
 
 if.then128:                                       ; preds = %sw.bb126
-  %cmp130 = icmp eq i32 %45, -1
+  %cmp130 = icmp eq i32 %46, -1
   br i1 %cmp130, label %if.then131, label %if.else134
 
 if.then131:                                       ; preds = %if.then128
   %History = getelementptr inbounds i8, ptr %this, i64 288
-  %47 = load i32, ptr %History, align 8
-  %sub = add nsw i32 %47, -1
+  %48 = load i32, ptr %History, align 8
+  %sub = add nsw i32 %48, -1
   br label %if.end158
 
 if.else134:                                       ; preds = %if.then128
-  %cmp136 = icmp sgt i32 %45, 0
+  %cmp136 = icmp sgt i32 %46, 0
   br i1 %cmp136, label %if.then161.thread, label %sw.epilog
 
 if.then161.thread:                                ; preds = %if.else134
-  %dec = add nsw i32 %45, -1
+  %dec = add nsw i32 %46, -1
   store i32 %dec, ptr %HistoryPos, align 8
   br label %cond.true
 
 if.then144:                                       ; preds = %sw.bb126
-  %cmp146.not = icmp eq i32 %45, -1
+  %cmp146.not = icmp eq i32 %46, -1
   br i1 %cmp146.not, label %sw.epilog, label %if.then147
 
 if.then147:                                       ; preds = %if.then144
-  %inc149 = add nuw nsw i32 %45, 1
+  %inc149 = add nuw nsw i32 %46, 1
   %History150 = getelementptr inbounds i8, ptr %this, i64 288
-  %48 = load i32, ptr %History150, align 8
-  %cmp152.not = icmp slt i32 %inc149, %48
+  %49 = load i32, ptr %History150, align 8
+  %cmp152.not = icmp slt i32 %inc149, %49
   %spec.store.select = select i1 %cmp152.not, i32 %inc149, i32 -1
   br label %if.end158
 
 if.end158:                                        ; preds = %if.then147, %if.then131
   %spec.store.select.sink = phi i32 [ %spec.store.select, %if.then147 ], [ %sub, %if.then131 ]
   store i32 %spec.store.select.sink, ptr %HistoryPos, align 8
-  %cmp160.not = icmp eq i32 %45, %spec.store.select.sink
+  %cmp160.not = icmp eq i32 %46, %spec.store.select.sink
   br i1 %cmp160.not, label %sw.epilog, label %if.then161
 
 if.then161:                                       ; preds = %if.end158
@@ -25405,19 +25409,19 @@ if.then161:                                       ; preds = %if.end158
   br i1 %cmp163, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then161.thread, %if.then161
-  %49 = phi i32 [ %dec, %if.then161.thread ], [ %spec.store.select.sink, %if.then161 ]
+  %50 = phi i32 [ %dec, %if.then161.thread ], [ %spec.store.select.sink, %if.then161 ]
   %Data.i83 = getelementptr inbounds i8, ptr %this, i64 296
-  %50 = load ptr, ptr %Data.i83, align 8
-  %idxprom.i84 = zext nneg i32 %49 to i64
-  %arrayidx.i85 = getelementptr inbounds ptr, ptr %50, i64 %idxprom.i84
-  %51 = load ptr, ptr %arrayidx.i85, align 8
+  %51 = load ptr, ptr %Data.i83, align 8
+  %idxprom.i84 = zext nneg i32 %50 to i64
+  %arrayidx.i85 = getelementptr inbounds ptr, ptr %51, i64 %idxprom.i84
+  %52 = load ptr, ptr %arrayidx.i85, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then161, %cond.true
-  %cond = phi ptr [ %51, %cond.true ], [ @.str.224, %if.then161 ]
+  %cond = phi ptr [ %52, %cond.true ], [ @.str.224, %if.then161 ]
   %BufTextLen = getelementptr inbounds i8, ptr %data, i64 40
-  %52 = load i32, ptr %BufTextLen, align 8
-  tail call void @_ZN26ImGuiInputTextCallbackData11DeleteCharsEii(ptr noundef nonnull align 8 dereferenceable(64) %data, i32 noundef 0, i32 noundef %52)
+  %53 = load i32, ptr %BufTextLen, align 8
+  tail call void @_ZN26ImGuiInputTextCallbackData11DeleteCharsEii(ptr noundef nonnull align 8 dereferenceable(64) %data, i32 noundef 0, i32 noundef %53)
   tail call void @_ZN26ImGuiInputTextCallbackData11InsertCharsEiPKcS1_(ptr noundef nonnull align 8 dereferenceable(64) %data, i32 noundef 0, ptr noundef %cond, ptr noundef null)
   br label %sw.epilog
 

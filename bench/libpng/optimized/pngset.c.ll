@@ -699,8 +699,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %.not100, label %._crit_edge99, label %.lr.ph98.preheader
 
 .lr.ph98.preheader:                               ; preds = %59
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count106 = zext nneg i32 %smax to i64
+  %wide.trip.count106 = zext nneg i32 %6 to i64
   br label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %72
@@ -1235,7 +1234,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
 
 16:                                               ; preds = %9
   %17 = sub nsw i32 2147483647, %13
-  %.not = icmp ugt i32 %3, %17
+  %.not = icmp samesign ugt i32 %3, %17
   br i1 %.not, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %16
@@ -1416,11 +1415,11 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %115 = load i32, ptr %38, align 8
   %116 = icmp sgt i32 %115, 0
   %spec.select = select i1 %116, i64 0, i64 %.0131
-  %spec.select155 = select i1 %116, i64 %.0131, i64 0
+  %spec.select156 = select i1 %116, i64 %.0131, i64 0
   %117 = getelementptr inbounds i8, ptr %38, i64 24
   store i64 %spec.select, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %38, i64 32
-  store i64 %spec.select155, ptr %118, align 8
+  store i64 %spec.select156, ptr %118, align 8
   %119 = load i32, ptr %12, align 4
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %12, align 4
@@ -2307,7 +2306,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
   br label %28
 
 18:                                               ; preds = %14
-  %19 = icmp ult i64 %1, 6
+  %19 = icmp samesign ult i64 %1, 6
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
@@ -2547,9 +2546,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

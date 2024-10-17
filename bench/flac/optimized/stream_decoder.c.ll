@@ -7747,9 +7747,7 @@ sw.bb51:                                          ; preds = %if.end38
   %residual60 = getelementptr inbounds i8, ptr %28, i64 160
   %arrayidx62 = getelementptr inbounds [8 x ptr], ptr %residual60, i64 0, i64 %idxprom
   %29 = load ptr, ptr %arrayidx62, align 8
-  %cmp65 = icmp eq i32 %22, 1
-  %conv = zext i1 %cmp65 to i32
-  %call66 = call fastcc i32 @read_residual_partitioned_rice_(ptr noundef nonnull %decoder, i32 noundef %order, i32 noundef %15, ptr noundef nonnull %arrayidx58, ptr noundef %29, i32 noundef %conv)
+  %call66 = call fastcc i32 @read_residual_partitioned_rice_(ptr noundef nonnull %decoder, i32 noundef %order, i32 noundef %15, ptr noundef nonnull %arrayidx58, ptr noundef %29, i32 noundef %22)
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %return, label %sw.epilog71
 
@@ -7786,7 +7784,7 @@ for.body80:                                       ; preds = %for.body80.lr.ph, %
 
 for.end92:                                        ; preds = %for.body80, %for.cond77.preheader
   %add = add nuw nsw i32 %order, %bps
-  %cmp93 = icmp ult i32 %add, 33
+  %cmp93 = icmp samesign ult i32 %add, 33
   %33 = load ptr, ptr %private_, align 8
   %residual97 = getelementptr inbounds i8, ptr %33, i64 160
   %arrayidx99 = getelementptr inbounds [8 x ptr], ptr %residual97, i64 0, i64 %idxprom
@@ -8081,9 +8079,7 @@ sw.bb89:                                          ; preds = %if.end76
   %residual98 = getelementptr inbounds i8, ptr %51, i64 160
   %arrayidx100 = getelementptr inbounds [8 x ptr], ptr %residual98, i64 0, i64 %idxprom
   %52 = load ptr, ptr %arrayidx100, align 8
-  %cmp103 = icmp eq i32 %45, 1
-  %conv = zext i1 %cmp103 to i32
-  %call104 = call fastcc i32 @read_residual_partitioned_rice_(ptr noundef nonnull %decoder, i32 noundef %order, i32 noundef %38, ptr noundef nonnull %arrayidx96, ptr noundef %52, i32 noundef %conv)
+  %call104 = call fastcc i32 @read_residual_partitioned_rice_(ptr noundef nonnull %decoder, i32 noundef %order, i32 noundef %38, ptr noundef nonnull %arrayidx96, ptr noundef %52, i32 noundef %45)
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %return, label %sw.epilog109
 

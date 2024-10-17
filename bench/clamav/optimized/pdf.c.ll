@@ -718,7 +718,7 @@ findNextNonWS.exit153:                            ; preds = %.lr.ph.i149, %.crit
   br label %178
 
 147:                                              ; preds = %143
-  %.not137 = icmp ugt i64 %144, %66
+  %.not137 = icmp samesign ugt i64 %144, %66
   br i1 %.not137, label %149, label %148
 
 148:                                              ; preds = %147
@@ -1622,7 +1622,7 @@ define internal fastcc void @aes_256cbc_decrypt(ptr noundef %0, ptr nocapture no
   %48 = zext nneg i8 %41 to i64
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds i8, ptr %34, i64 %49
-  %51 = icmp ugt i8 %41, 1
+  %51 = icmp samesign ugt i8 %41, 1
   br i1 %51, label %.lr.ph84, label %._crit_edge85
 
 52:                                               ; preds = %.lr.ph84
@@ -2952,7 +2952,7 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
   %.ptr = getelementptr inbounds i8, ptr %12, i64 1
   %storemerge120126 = add nsw i32 %14, -1
   store i32 %storemerge120126, ptr %7, align 4
-  %20 = icmp ugt i32 %14, 1
+  %20 = icmp samesign ugt i32 %14, 1
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %19, %29
@@ -3165,7 +3165,7 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
 
 101:                                              ; preds = %16
   %102 = icmp eq i8 %17, 60
-  %103 = icmp ugt i32 %14, 2
+  %103 = icmp samesign ugt i32 %14, 2
   %or.cond3 = select i1 %102, i1 %103, i1 false
   br i1 %or.cond3, label %.preheader124.preheader, label %133
 
@@ -3938,7 +3938,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %.thr
 
 .preheader439:                                    ; preds = %.split.us
   %.ptr545 = getelementptr inbounds i8, ptr %.us-phi, i64 %183
-  %186 = icmp ugt i64 %183, 2
+  %186 = icmp samesign ugt i64 %.add, 4
   br i1 %186, label %.lr.ph457, label %.critedge383.thread
 
 .lr.ph457:                                        ; preds = %.preheader439
@@ -5317,7 +5317,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   %109 = phi i32 [ %108, %._crit_edge.i205 ], [ -1, %101 ], [ -1, %104 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %110 = icmp ult i32 %95, 6
+  %110 = icmp samesign ult i32 %95, 6
   %111 = icmp eq i32 %109, -1
   %or.cond9 = select i1 %110, i1 %111, i1 false
   br i1 %or.cond9, label %112, label %113
@@ -5327,7 +5327,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   br label %190
 
 113:                                              ; preds = %pdf_readint.exit207
-  %114 = icmp ult i32 %95, 5
+  %114 = icmp samesign ult i32 %95, 5
   %. = select i1 %114, i32 32, i32 48
   %115 = and i32 %95, 6
   %or.cond3 = icmp eq i32 %115, 2
@@ -9277,31 +9277,33 @@ define internal void @Colors_cb(ptr noundef readonly %0, ptr nocapture noundef r
   %57 = call i32 @cli_strntol_wrap(ptr noundef nonnull %.0.lcssa, i64 noundef %56, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %4) #23
   %58 = icmp ne i32 %57, 0
   %59 = load i64, ptr %4, align 8
-  %60 = icmp slt i64 %59, 16777216
-  %or.cond53 = select i1 %58, i1 true, i1 %60
-  br i1 %or.cond53, label %.critedge.thread, label %61
+  %60 = icmp slt i64 %59, 0
+  %or.cond = select i1 %58, i1 true, i1 %60
+  %61 = icmp samesign ult i64 %59, 16777216
+  %or.cond53 = select i1 %or.cond, i1 true, i1 %61
+  br i1 %or.cond53, label %.critedge.thread, label %62
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 160
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @cli_jsonobj(ptr noundef %64, ptr noundef nonnull @.str.94) #23
-  %.not51 = icmp eq ptr %65, null
-  br i1 %.not51, label %.critedge.thread, label %66
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %14, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 160
+  %65 = load ptr, ptr %64, align 8
+  %66 = call ptr @cli_jsonobj(ptr noundef %65, ptr noundef nonnull @.str.94) #23
+  %.not51 = icmp eq ptr %66, null
+  br i1 %.not51, label %.critedge.thread, label %67
 
-66:                                               ; preds = %61
-  %67 = call ptr @cli_jsonarray(ptr noundef nonnull %65, ptr noundef nonnull @.str.289) #23
-  %.not52 = icmp eq ptr %67, null
-  br i1 %.not52, label %.critedge.thread, label %68
+67:                                               ; preds = %62
+  %68 = call ptr @cli_jsonarray(ptr noundef nonnull %66, ptr noundef nonnull @.str.289) #23
+  %.not52 = icmp eq ptr %68, null
+  br i1 %.not52, label %.critedge.thread, label %69
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = load i32, ptr %69, align 8
-  %71 = lshr i32 %70, 8
-  %72 = call i32 @cli_jsonint_array(ptr noundef nonnull %67, i32 noundef %71) #23
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %1, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = lshr i32 %71, 8
+  %73 = call i32 @cli_jsonint_array(ptr noundef nonnull %68, i32 noundef %72) #23
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph71, %66, %61, %55, %.critedge, %28, %24, %19, %10, %12, %16, %68
+.critedge.thread:                                 ; preds = %.lr.ph71, %67, %62, %55, %.critedge, %28, %24, %19, %10, %12, %16, %69
   ret void
 }
 

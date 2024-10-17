@@ -140,8 +140,7 @@ invoke.cont6:                                     ; preds = %entry, %invoke.cont
   br i1 %exitcond.not, label %for.cond11.preheader, label %invoke.cont6, !llvm.loop !5
 
 invoke.cont17:                                    ; preds = %for.cond11.preheader, %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit
-  %cmp28 = phi i1 [ false, %for.cond11.preheader ], [ true, %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit ]
-  %cmp12 = phi i1 [ true, %for.cond11.preheader ], [ false, %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit ]
+  %cmp28.not = phi i1 [ true, %for.cond11.preheader ], [ false, %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit ]
   store i32 0, ptr %0, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_left.i.i.i.i.i, align 8
@@ -420,7 +419,7 @@ _ZN5eastl6rbtreeIjjNS_4lessIjEENS_9allocatorENS_8use_selfIjEELb0ELb1EE17DoInsert
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %.noexc61, %_ZN5eastl6rbtreeIjjNS_4lessIjEENS_9allocatorENS_8use_selfIjEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKj.exit.i.i
-  br i1 %cmp28, label %if.then, label %if.end
+  br i1 %cmp28.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont27
   %25 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -610,7 +609,7 @@ if.then.i100:                                     ; preds = %.noexc106
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %if.then.i100, %.noexc106
-  br i1 %cmp28, label %if.then39, label %if.end47
+  br i1 %cmp28.not, label %if.end47, label %if.then39
 
 if.then39:                                        ; preds = %invoke.cont37
   %40 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -800,7 +799,7 @@ while.end.i160:                                   ; preds = %_ZN5eastl6rbtreeIjj
 
 invoke.cont57:                                    ; preds = %while.end.i160
   %call2.i162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %temp.0.lcssa.i161) #7
-  br i1 %cmp28, label %if.then59, label %if.end67
+  br i1 %cmp28.not, label %if.end67, label %if.then59
 
 if.then59:                                        ; preds = %invoke.cont57
   %62 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -982,7 +981,7 @@ while.end.i245:                                   ; preds = %_ZNK5eastl3setIjNS_
 
 invoke.cont77:                                    ; preds = %while.end.i245
   %call1.i247 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %temp.0.lcssa.i246) #7
-  br i1 %cmp28, label %if.then79, label %if.end87
+  br i1 %cmp28.not, label %if.end87, label %if.then79
 
 if.then79:                                        ; preds = %invoke.cont77
   %78 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1148,7 +1147,7 @@ while.end.i335:                                   ; preds = %_ZN5eastl6rbtreeIjj
 
 invoke.cont97:                                    ; preds = %while.end.i335
   %call2.i337 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %temp.0.lcssa.i336) #7
-  br i1 %cmp28, label %if.then99, label %if.end107
+  br i1 %cmp28.not, label %if.end107, label %if.then99
 
 if.then99:                                        ; preds = %invoke.cont97
   %98 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1314,7 +1313,7 @@ while.end.i436:                                   ; preds = %_ZN5eastl6rbtreeIjj
 
 invoke.cont117:                                   ; preds = %while.end.i436
   %call2.i438 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %temp.0.lcssa.i437) #7
-  br i1 %cmp28, label %if.then119, label %if.end127
+  br i1 %cmp28.not, label %if.end127, label %if.then119
 
 if.then119:                                       ; preds = %invoke.cont117
   %118 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1530,7 +1529,7 @@ while.end.i531:                                   ; preds = %_ZN5eastl3setIjNS_4
 
 invoke.cont137:                                   ; preds = %while.end.i531
   %call2.i533 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %temp.0.lcssa.i532) #7
-  br i1 %cmp28, label %if.then139, label %if.end147
+  br i1 %cmp28.not, label %if.end147, label %if.then139
 
 if.then139:                                       ; preds = %invoke.cont137
   %142 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1804,7 +1803,7 @@ invoke.cont161:                                   ; preds = %while.end.i610
   %168 = load i64, ptr %mnSize.i.i, align 8
   %conv.i612 = trunc i64 %168 to i32
   %call2.i613 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv.i612) #7
-  br i1 %cmp28, label %if.then163, label %if.end171
+  br i1 %cmp28.not, label %if.end171, label %if.then163
 
 if.then163:                                       ; preds = %invoke.cont161
   %169 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1961,7 +1960,7 @@ for.end.i665:                                     ; preds = %call.i7.i662.noexc,
           to label %invoke.cont173 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont173:                                   ; preds = %for.end.i665
-  br i1 %cmp28, label %if.then175, label %if.end186
+  br i1 %cmp28.not, label %if.end186, label %if.then175
 
 if.then175:                                       ; preds = %invoke.cont173
   %184 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2175,7 +2174,7 @@ _ZN5eastl3setIjNS_4lessIjEENS_9allocatorEE5eraseENS_15rbtree_iteratorIjPKjRS6_EE
           to label %invoke.cont188 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont188:                                   ; preds = %_ZN5eastl3setIjNS_4lessIjEENS_9allocatorEE5eraseENS_15rbtree_iteratorIjPKjRS6_EES9_.exit.i
-  br i1 %cmp28, label %if.then190, label %if.end198
+  br i1 %cmp28.not, label %if.end198, label %if.then190
 
 if.then190:                                       ; preds = %invoke.cont188
   %206 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2291,7 +2290,7 @@ invoke.cont200:                                   ; preds = %.noexc785
   %220 = load i64, ptr %mnSize.i.i, align 8
   %conv.i780 = trunc i64 %220 to i32
   %call1.i781 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv.i780) #7
-  br i1 %cmp28, label %if.then202, label %if.end210
+  br i1 %cmp28.not, label %if.end210, label %if.then202
 
 if.then202:                                       ; preds = %invoke.cont200
   %221 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2331,7 +2330,7 @@ terminate.lpad.i.i790:                            ; preds = %_ZN5eastl3setIjNS_4
   unreachable
 
 _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %_ZN5eastl3setIjNS_4lessIjEENS_9allocatorEED2Ev.exit
-  br i1 %cmp12, label %invoke.cont17, label %for.end213, !llvm.loop !38
+  br i1 %cmp28.not, label %invoke.cont17, label %for.end213, !llvm.loop !38
 
 for.end213:                                       ; preds = %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit
   %tobool.not.i.i791 = icmp eq ptr %call.i.i.i.i.i24, null

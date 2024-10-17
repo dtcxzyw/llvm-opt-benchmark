@@ -140,8 +140,7 @@ for.cond.preheader:                               ; preds = %for.body.i
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %for.cond.preheader, %_ZNSt6vectorImSaImEED2Ev.exit
-  %cmp14 = phi i1 [ false, %for.cond.preheader ], [ true, %_ZNSt6vectorImSaImEED2Ev.exit ]
-  %cmp = phi i1 [ true, %for.cond.preheader ], [ false, %_ZNSt6vectorImSaImEED2Ev.exit ]
+  %cmp14.not = phi i1 [ true, %for.cond.preheader ], [ false, %_ZNSt6vectorImSaImEED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i24 = icmp eq i32 %4, 1
@@ -355,7 +354,7 @@ for.end.i56:                                      ; preds = %_ZN5eastl6vectorImN
           to label %invoke.cont13 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont13:                                    ; preds = %for.end.i56
-  br i1 %cmp14, label %if.then, label %if.end
+  br i1 %cmp14.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont13
   %16 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -529,7 +528,7 @@ for.end.i116:                                     ; preds = %for.end.loopexit.i1
 
 invoke.cont23:                                    ; preds = %for.end.i116
   %call2.i118 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %temp.0.lcssa.i117) #7
-  br i1 %cmp14, label %if.then25, label %if.end33
+  br i1 %cmp14.not, label %if.end33, label %if.then25
 
 if.then25:                                        ; preds = %invoke.cont23
   %29 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -781,7 +780,7 @@ if.then.i221:                                     ; preds = %.noexc227
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %if.then.i221, %.noexc227
-  br i1 %cmp14, label %if.then39, label %if.end47
+  br i1 %cmp14.not, label %if.end47, label %if.then39
 
 if.then39:                                        ; preds = %invoke.cont37
   %54 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1095,7 +1094,7 @@ invoke.cont49:                                    ; preds = %_ZN5eastl10quick_so
   %82 = load i64, ptr %eaVectorUint64.sroa.0.4, align 8
   %conv.i286 = trunc i64 %82 to i32
   %call3.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %conv.i286) #7
-  br i1 %cmp14, label %if.then51, label %if.end59
+  br i1 %cmp14.not, label %if.end59, label %if.then51
 
 if.then51:                                        ; preds = %invoke.cont49
   %83 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1424,7 +1423,7 @@ for.end.i347:                                     ; preds = %_ZN5eastl6vectorImN
           to label %invoke.cont61 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont61:                                    ; preds = %for.end.i347
-  br i1 %cmp14, label %if.then63, label %if.end71
+  br i1 %cmp14.not, label %if.end71, label %if.then63
 
 if.then63:                                        ; preds = %invoke.cont61
   %97 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1580,7 +1579,7 @@ for.end.i422:                                     ; preds = %_ZN5eastl6vectorImN
           to label %invoke.cont73 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont73:                                    ; preds = %for.end.i422
-  br i1 %cmp14, label %if.then75, label %invoke.cont85
+  br i1 %cmp14.not, label %invoke.cont85, label %if.then75
 
 if.then75:                                        ; preds = %invoke.cont73
   %112 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2100,7 +2099,7 @@ while.end.i469:                                   ; preds = %_ZN5eastl6vectorIN1
           to label %invoke.cont88 unwind label %lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont88:                                    ; preds = %while.end.i469
-  br i1 %cmp14, label %if.then90, label %if.end98
+  br i1 %cmp14.not, label %if.end98, label %if.then90
 
 if.then90:                                        ; preds = %invoke.cont88
   %142 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2324,7 +2323,7 @@ while.end.i565:                                   ; preds = %_ZN5eastl6vectorIN1
           to label %invoke.cont100 unwind label %lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont100:                                   ; preds = %while.end.i565
-  br i1 %cmp14, label %if.then102, label %if.end110
+  br i1 %cmp14.not, label %if.end110, label %if.then102
 
 if.then102:                                       ; preds = %invoke.cont100
   %153 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2829,7 +2828,7 @@ invoke.cont133:                                   ; preds = %while.end.i720
           to label %invoke.cont134 unwind label %lpad117.loopexit.split-lp
 
 invoke.cont134:                                   ; preds = %invoke.cont133
-  br i1 %cmp14, label %if.then136, label %if.end144
+  br i1 %cmp14.not, label %if.end144, label %if.then136
 
 if.then136:                                       ; preds = %invoke.cont134
   %196 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -3000,7 +2999,7 @@ if.then.i.i.i807:                                 ; preds = %_ZN5eastl6vectorImN
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5eastl6vectorImNS_9allocatorEED2Ev.exit, %if.then.i.i.i807
-  br i1 %cmp, label %invoke.cont10, label %for.end152, !llvm.loop !57
+  br i1 %cmp14.not, label %invoke.cont10, label %for.end152, !llvm.loop !57
 
 ehcleanup:                                        ; preds = %lpad117.loopexit, %lpad117.loopexit.split-lp, %lpad129, %lpad122
   %.pn = phi { ptr, i32 } [ %168, %lpad129 ], [ %lpad.phi938, %lpad122 ], [ %lpad.loopexit934, %lpad117.loopexit ], [ %lpad.loopexit.split-lp, %lpad117.loopexit.split-lp ]

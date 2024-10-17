@@ -4456,13 +4456,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i46: ; preds = %.noexc50
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i46, %.noexc50
-  %wide.trip.count = zext nneg i32 %27 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
-  %.019106 = phi i32 [ 0, %.lr.ph.preheader ], [ %.120, %54 ]
-  %.021105 = phi i64 [ 0, %.lr.ph.preheader ], [ %.223, %54 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph.preheader ]
+  %.019106 = phi i32 [ %.120, %54 ], [ 0, %.lr.ph.preheader ]
+  %.021105 = phi i64 [ %.223, %54 ], [ 0, %.lr.ph.preheader ]
   %37 = getelementptr inbounds float, ptr %.sroa.071.0, i64 %indvars.iv
   %38 = load float, ptr %37, align 4
   %39 = call float @llvm.fabs.f32(float %38)
@@ -4504,7 +4503,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60.thread:           ; preds = %20
   %.223 = phi i64 [ %.122, %42 ], [ %.021105, %.lr.ph ]
   %.120 = phi i32 [ %47, %42 ], [ %.019106, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %54, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i44
@@ -5589,7 +5588,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %12
   %.04184.in = phi i32 [ %4, %.preheader.lr.ph ], [ %.04184, %._crit_edge ]
   %.04383 = phi i32 [ 1, %.preheader.lr.ph ], [ %70, %._crit_edge ]
   %.04184 = lshr i32 %.04184.in, 1
-  %.not = icmp ult i32 %.04184.in, 2
+  %.not = icmp samesign ult i32 %.04184.in, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.preheader

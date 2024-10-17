@@ -1675,13 +1675,7 @@ if.end29.fold.split:                              ; preds = %if.then
   br label %if.end29
 
 if.end29:                                         ; preds = %for.end.thread, %if.then, %if.end29.fold.split, %invoke.cont.i.i107, %for.end, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit
-  %s.sroa.0.0 = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %5, %for.end.thread ], [ %5, %for.end ], [ %5, %invoke.cont.i.i107 ], [ 0, %if.end29.fold.split ], [ 0, %if.then ]
-  %s.sroa.16.0 = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %6, %for.end.thread ], [ %6, %for.end ], [ %6, %invoke.cont.i.i107 ], [ 0, %if.end29.fold.split ], [ 0, %if.then ]
-  %s.sroa.25.0 = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %7, %for.end.thread ], [ %7, %for.end ], [ %7, %invoke.cont.i.i107 ], [ 0, %if.end29.fold.split ], [ 0, %if.then ]
-  %s.sroa.34.0 = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %frombool.i, %for.end.thread ], [ %frombool.i, %for.end ], [ %frombool.i, %invoke.cont.i.i107 ], [ 0, %if.end29.fold.split ], [ 0, %if.then ]
-  %s.sroa.43.0 = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %frombool12.i, %for.end.thread ], [ %frombool12.i, %for.end ], [ %frombool12.i, %invoke.cont.i.i107 ], [ 0, %if.end29.fold.split ], [ 0, %if.then ]
   %s.sroa.61.0 = phi ptr [ null, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %11, %for.end.thread ], [ %11, %for.end ], [ %11, %invoke.cont.i.i107 ], [ null, %if.end29.fold.split ], [ null, %if.then ]
-  %s.sroa.52.0 = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %10, %for.end.thread ], [ %10, %for.end ], [ %10, %invoke.cont.i.i107 ], [ 0, %if.end29.fold.split ], [ 0, %if.then ]
   %flush_memtable.0 = phi i1 [ true, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE5clearEv.exit ], [ %cmp24619, %for.end.thread ], [ %cmp24, %for.end ], [ %cmp24, %invoke.cont.i.i107 ], [ true, %if.end29.fold.split ], [ false, %if.then ]
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 1856
   invoke void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_)
@@ -2490,7 +2484,7 @@ invoke.cont278:                                   ; preds = %if.then276
 
 if.end283:                                        ; preds = %invoke.cont278, %invoke.cont269
   %cmp284.not = icmp eq i64 %85, 0
-  br i1 %cmp284.not, label %invoke.cont315, label %if.then285
+  br i1 %cmp284.not, label %if.then317, label %if.then285
 
 if.then285:                                       ; preds = %if.end283
   %101 = load ptr, ptr %_M_finish.i170, align 8
@@ -2561,7 +2555,7 @@ invoke.cont299:                                   ; preds = %invoke.cont296
   store i64 %86, ptr %size303, align 8
   %106 = load i8, ptr %opts, align 8
   %tobool305 = trunc i8 %106 to i1
-  br i1 %tobool305, label %if.then306, label %invoke.cont315
+  br i1 %tobool305, label %if.then306, label %if.then317
 
 if.then306:                                       ; preds = %invoke.cont299
   %file_checksum_func_name307 = getelementptr inbounds i8, ptr %104, i64 -72
@@ -2571,13 +2565,9 @@ if.then306:                                       ; preds = %invoke.cont299
 invoke.cont308:                                   ; preds = %if.then306
   %file_checksum310 = getelementptr inbounds i8, ptr %104, i64 -104
   %call312 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %file_checksum310, ptr noundef nonnull @.str.2)
-          to label %invoke.cont315 unwind label %lpad225
+          to label %if.then317 unwind label %lpad225
 
-invoke.cont315:                                   ; preds = %if.end283, %invoke.cont308, %invoke.cont299
-  %cmp.i234 = icmp eq i8 %s.sroa.0.0, 0
-  br i1 %cmp.i234, label %if.then317, label %if.then344
-
-if.then317:                                       ; preds = %invoke.cont315
+if.then317:                                       ; preds = %invoke.cont299, %invoke.cont308, %if.end283
   %track_and_verify_wals_in_manifest = getelementptr inbounds i8, ptr %this, i64 854
   %107 = load i8, ptr %track_and_verify_wals_in_manifest, align 2
   %tobool320 = trunc i8 %107 to i1
@@ -2696,14 +2686,14 @@ invoke.cont342:                                   ; preds = %_ZNKSt14default_del
   %cmp.i307 = icmp eq i8 %118, 0
   br i1 %cmp.i307, label %if.end345, label %if.then344
 
-if.then344:                                       ; preds = %invoke.cont333, %invoke.cont315, %invoke.cont342
-  %s.sroa.16.2 = phi i8 [ %119, %invoke.cont342 ], [ %s.sroa.16.1, %invoke.cont333 ], [ %s.sroa.16.0, %invoke.cont315 ]
-  %s.sroa.25.2 = phi i8 [ %120, %invoke.cont342 ], [ %s.sroa.25.1, %invoke.cont333 ], [ %s.sroa.25.0, %invoke.cont315 ]
-  %s.sroa.34.2 = phi i8 [ %frombool.i292, %invoke.cont342 ], [ %s.sroa.34.1, %invoke.cont333 ], [ %s.sroa.34.0, %invoke.cont315 ]
-  %s.sroa.43.2 = phi i8 [ %frombool12.i295, %invoke.cont342 ], [ %s.sroa.43.1, %invoke.cont333 ], [ %s.sroa.43.0, %invoke.cont315 ]
-  %s.sroa.61.7 = phi ptr [ %124, %invoke.cont342 ], [ %s.sroa.61.5, %invoke.cont333 ], [ %s.sroa.61.0, %invoke.cont315 ]
-  %s.sroa.52.2 = phi i8 [ %123, %invoke.cont342 ], [ %s.sroa.52.1, %invoke.cont333 ], [ %s.sroa.52.0, %invoke.cont315 ]
-  %125 = phi i8 [ %118, %invoke.cont342 ], [ %116, %invoke.cont333 ], [ %s.sroa.0.0, %invoke.cont315 ]
+if.then344:                                       ; preds = %invoke.cont333, %invoke.cont342
+  %s.sroa.16.2 = phi i8 [ %119, %invoke.cont342 ], [ %s.sroa.16.1, %invoke.cont333 ]
+  %s.sroa.25.2 = phi i8 [ %120, %invoke.cont342 ], [ %s.sroa.25.1, %invoke.cont333 ]
+  %s.sroa.34.2 = phi i8 [ %frombool.i292, %invoke.cont342 ], [ %s.sroa.34.1, %invoke.cont333 ]
+  %s.sroa.43.2 = phi i8 [ %frombool12.i295, %invoke.cont342 ], [ %s.sroa.43.1, %invoke.cont333 ]
+  %s.sroa.61.7 = phi ptr [ %124, %invoke.cont342 ], [ %s.sroa.61.5, %invoke.cont333 ]
+  %s.sroa.52.2 = phi i8 [ %123, %invoke.cont342 ], [ %s.sroa.52.1, %invoke.cont333 ]
+  %125 = phi i8 [ %118, %invoke.cont342 ], [ %116, %invoke.cont333 ]
   %state_.i.i308 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i308, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)

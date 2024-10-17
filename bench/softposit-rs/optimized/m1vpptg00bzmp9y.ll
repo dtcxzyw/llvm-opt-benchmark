@@ -412,7 +412,7 @@ define noundef i8 @"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0.
 
 5:                                                ; preds = %1
   %6 = sub nsw i8 0, %0
-  %7 = icmp ult i8 %6, 65
+  %7 = icmp samesign ult i8 %6, 65
   br i1 %7, label %16, label %14
 
 8:                                                ; preds = %3
@@ -429,7 +429,7 @@ define noundef i8 @"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0.
   br i1 %13, label %38, label %.lr.ph
 
 14:                                               ; preds = %5
-  %15 = icmp ult i8 %6, 97
+  %15 = icmp samesign ult i8 %6, 97
   br i1 %15, label %19, label %17
 
 16:                                               ; preds = %5
@@ -438,7 +438,7 @@ define noundef i8 @"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0.
   br label %39
 
 17:                                               ; preds = %14
-  %18 = icmp ult i8 %6, 105
+  %18 = icmp samesign ult i8 %6, 105
   br i1 %18, label %20, label %12
 
 19:                                               ; preds = %14
@@ -509,7 +509,7 @@ define noundef i8 @"_ZN9softposit4p8e04math5floor39_$LT$impl$u20$softposit..p8e0
 
 5:                                                ; preds = %1
   %6 = sub nsw i8 0, %0
-  %7 = icmp ult i8 %6, 64
+  %7 = icmp samesign ult i8 %6, 64
   br i1 %7, label %39, label %14
 
 8:                                                ; preds = %3
@@ -526,7 +526,7 @@ define noundef i8 @"_ZN9softposit4p8e04math5floor39_$LT$impl$u20$softposit..p8e0
   br i1 %13, label %19, label %17
 
 14:                                               ; preds = %5
-  %15 = icmp ult i8 %6, 96
+  %15 = icmp samesign ult i8 %6, 96
   br i1 %15, label %16, label %12
 
 16:                                               ; preds = %14
@@ -1902,7 +1902,7 @@ define noundef i8 @"_ZN9softposit4p8e03ops73_$LT$impl$u20$core..ops..arith..Rem$
 
 9:                                                ; preds = %5
   %10 = sub nsw i8 0, %3
-  %11 = icmp ult i8 %10, 65
+  %11 = icmp samesign ult i8 %10, 65
   br i1 %11, label %16, label %14
 
 12:                                               ; preds = %17, %7
@@ -1911,7 +1911,7 @@ define noundef i8 @"_ZN9softposit4p8e03ops73_$LT$impl$u20$core..ops..arith..Rem$
   br i1 %13, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %.lr.ph.i.i
 
 14:                                               ; preds = %9
-  %15 = icmp ult i8 %10, 97
+  %15 = icmp samesign ult i8 %10, 97
   br i1 %15, label %19, label %17
 
 16:                                               ; preds = %9
@@ -1920,7 +1920,7 @@ define noundef i8 @"_ZN9softposit4p8e03ops73_$LT$impl$u20$core..ops..arith..Rem$
   br label %38
 
 17:                                               ; preds = %14
-  %18 = icmp ult i8 %10, 105
+  %18 = icmp samesign ult i8 %10, 105
   br i1 %18, label %20, label %12
 
 19:                                               ; preds = %14
@@ -1968,19 +1968,19 @@ define noundef i8 @"_ZN9softposit4p8e03ops73_$LT$impl$u20$core..ops..arith..Rem$
   br label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i"
 
 40:                                               ; preds = %2
-  %41 = icmp ult i8 %3, 64
+  %41 = icmp samesign ult i8 %3, 64
   br i1 %41, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i8 %3, 96
+  %43 = icmp samesign ult i8 %3, 96
   br i1 %43, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ult i8 %3, 104
+  %45 = icmp samesign ult i8 %3, 104
   br i1 %45, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %46
 
 46:                                               ; preds = %44
-  %47 = icmp ugt i8 %3, 119
+  %47 = icmp samesign ugt i8 %3, 119
   br i1 %47, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %.lr.ph.i5.i
 
 ._crit_edge.loopexit.i6.i:                        ; preds = %.lr.ph.i5.i
@@ -2240,7 +2240,7 @@ define { i64, i64 } @"_ZN71_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..cas
   br i1 %or.cond, label %_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50cf89ab6bE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i8 %2, 80
+  %4 = icmp samesign ult i8 %2, 80
   br i1 %4, label %_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50cf89ab6bE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
@@ -2538,7 +2538,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 5:                                                ; preds = %1
   %6 = sub nsw i8 0, %0
-  %7 = icmp ult i8 %6, 64
+  %7 = icmp samesign ult i8 %6, 64
   br i1 %7, label %38, label %14
 
 8:                                                ; preds = %3
@@ -2555,7 +2555,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br i1 %13, label %19, label %17
 
 14:                                               ; preds = %5
-  %15 = icmp ult i8 %6, 96
+  %15 = icmp samesign ult i8 %6, 96
   br i1 %15, label %16, label %12
 
 16:                                               ; preds = %14
@@ -2623,7 +2623,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 5:                                                ; preds = %1
   %6 = sub nsw i8 0, %0
-  %7 = icmp ult i8 %6, 65
+  %7 = icmp samesign ult i8 %6, 65
   br i1 %7, label %16, label %14
 
 8:                                                ; preds = %3
@@ -2640,7 +2640,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br i1 %13, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit", label %.lr.ph.i
 
 14:                                               ; preds = %5
-  %15 = icmp ult i8 %6, 97
+  %15 = icmp samesign ult i8 %6, 97
   br i1 %15, label %19, label %17
 
 16:                                               ; preds = %5
@@ -2649,7 +2649,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br label %38
 
 17:                                               ; preds = %14
-  %18 = icmp ult i8 %6, 105
+  %18 = icmp samesign ult i8 %6, 105
   br i1 %18, label %20, label %12
 
 19:                                               ; preds = %14
@@ -2781,7 +2781,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 7:                                                ; preds = %3
   %8 = sub nsw i8 0, %0
-  %9 = icmp ult i8 %8, 65
+  %9 = icmp samesign ult i8 %8, 65
   br i1 %9, label %14, label %12
 
 10:                                               ; preds = %5, %15
@@ -2790,7 +2790,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br i1 %11, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit", label %.lr.ph.i
 
 12:                                               ; preds = %7
-  %13 = icmp ult i8 %8, 97
+  %13 = icmp samesign ult i8 %8, 97
   br i1 %13, label %17, label %15
 
 14:                                               ; preds = %7
@@ -2799,7 +2799,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br label %36
 
 15:                                               ; preds = %12
-  %16 = icmp ult i8 %8, 105
+  %16 = icmp samesign ult i8 %8, 105
   br i1 %16, label %18, label %10
 
 17:                                               ; preds = %12
@@ -2847,19 +2847,19 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit"
 
 38:                                               ; preds = %1
-  %39 = icmp ult i8 %0, 64
+  %39 = icmp samesign ult i8 %0, 64
   br i1 %39, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit", label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ult i8 %0, 96
+  %41 = icmp samesign ult i8 %0, 96
   br i1 %41, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit", label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i8 %0, 104
+  %43 = icmp samesign ult i8 %0, 104
   br i1 %43, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit", label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i8 %0, 119
+  %45 = icmp samesign ugt i8 %0, 119
   br i1 %45, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit", label %.lr.ph.i5
 
 ._crit_edge.loopexit.i6:                          ; preds = %.lr.ph.i5
@@ -2900,7 +2900,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 7:                                                ; preds = %3
   %8 = sub nsw i8 0, %0
-  %9 = icmp ult i8 %8, 65
+  %9 = icmp samesign ult i8 %8, 65
   br i1 %9, label %14, label %12
 
 10:                                               ; preds = %15, %5
@@ -2909,7 +2909,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br i1 %11, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %.lr.ph.i.i
 
 12:                                               ; preds = %7
-  %13 = icmp ult i8 %8, 97
+  %13 = icmp samesign ult i8 %8, 97
   br i1 %13, label %17, label %15
 
 14:                                               ; preds = %7
@@ -2918,7 +2918,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br label %36
 
 15:                                               ; preds = %12
-  %16 = icmp ult i8 %8, 105
+  %16 = icmp samesign ult i8 %8, 105
   br i1 %16, label %18, label %10
 
 17:                                               ; preds = %12
@@ -2966,19 +2966,19 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   br label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i"
 
 38:                                               ; preds = %1
-  %39 = icmp ult i8 %0, 64
+  %39 = icmp samesign ult i8 %0, 64
   br i1 %39, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ult i8 %0, 96
+  %41 = icmp samesign ult i8 %0, 96
   br i1 %41, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i8 %0, 104
+  %43 = icmp samesign ult i8 %0, 104
   br i1 %43, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i8 %0, 119
+  %45 = icmp samesign ugt i8 %0, 119
   br i1 %45, label %"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0..P8E0$GT$4ceil17h2e41c350e9f90939E.exit.i", label %.lr.ph.i5.i
 
 ._crit_edge.loopexit.i6.i:                        ; preds = %.lr.ph.i5.i
@@ -3388,32 +3388,31 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   ]
 
 16:                                               ; preds = %12
-  %17 = xor i8 %15, %0
-  %18 = icmp sgt i8 %17, -1
-  br i1 %18, label %19, label %21
+  %17 = icmp sgt i8 %15, -1
+  br i1 %17, label %18, label %20
 
-19:                                               ; preds = %16
-  %20 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8add_mags17h9a00cd23be3a2e8cE"(i8 noundef %0, i8 noundef %15)
+18:                                               ; preds = %16
+  %19 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8add_mags17h9a00cd23be3a2e8cE"(i8 noundef %0, i8 noundef %15)
   br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i"
 
-21:                                               ; preds = %16
-  %22 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8sub_mags17ha4f3a95c6ccd881bE"(i8 noundef %0, i8 noundef %15)
+20:                                               ; preds = %16
+  %21 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8sub_mags17ha4f3a95c6ccd881bE"(i8 noundef %0, i8 noundef %15)
   br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i"
 
-"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i": ; preds = %21, %19
-  %.0.i7.i = phi i8 [ %20, %19 ], [ %22, %21 ]
-  %23 = icmp slt i8 %.0.i7.i, 0
-  br i1 %23, label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit", label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
+"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i": ; preds = %20, %18
+  %.0.i7.i = phi i8 [ %19, %18 ], [ %21, %20 ]
+  %22 = icmp slt i8 %.0.i7.i, 0
+  br i1 %22, label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit", label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
 
 "_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i": ; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %12
   %.0.i718.i = phi i8 [ %.0.i7.i, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ %0, %12 ]
-  %24 = zext nneg i8 %.0.i718.i to i64
-  %25 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !noundef !4
+  %23 = zext nneg i8 %.0.i718.i to i64
+  %24 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1, !noundef !4
   br label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit"
 
 "_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit": ; preds = %1, %3, %3, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i", %12, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
-  %.04.i = phi i8 [ -128, %1 ], [ %26, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i" ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ -128, %3 ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i" ], [ -128, %3 ], [ %15, %12 ]
+  %.04.i = phi i8 [ -128, %1 ], [ %25, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i" ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ -128, %3 ], [ -128, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i" ], [ -128, %3 ], [ %15, %12 ]
   ret i8 %.04.i
 }
 

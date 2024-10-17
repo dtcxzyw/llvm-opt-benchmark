@@ -2822,13 +2822,11 @@ for.inc110.i.i:                                   ; preds = %for.inc110.i.i.sink
 
 while.end.i:                                      ; preds = %for.end.i.i
   tail call void @free(ptr noundef %call1.i) #21
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %nr.242, i32 1)
-  %wide.trip.count25.i = zext nneg i32 %smax.i to i64
   br label %for.body6.i
 
 for.cond3.i:                                      ; preds = %for.body6.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
+  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count.i
   br i1 %exitcond26.not.i, label %if.end83, label %for.body6.i, !llvm.loop !15
 
 for.body6.i:                                      ; preds = %for.cond3.i, %while.end.i
@@ -4199,9 +4197,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
