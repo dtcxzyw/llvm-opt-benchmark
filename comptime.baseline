@@ -16523,7 +16523,7 @@ luau/ldo.cpp.ll 225882064
 luau/lfunc.cpp.ll 96955150
 luau/lgc.cpp.ll 548536963
 luau/lgcdebug.cpp.ll 674317888
-luau/linit.cpp.ll 49614896
+luau/linit.cpp.ll 49664557
 luau/lmathlib.cpp.ll 163002928
 luau/lmem.cpp.ll 241687113
 luau/lnumprint.cpp.ll 216694826
@@ -25483,7 +25483,7 @@ openssl/libcrypto-lib-ec_key.ll 252465228
 openssl/libcrypto-lib-ec_lib.ll 454778298
 openssl/libcrypto-lib-ec_mult.ll 331920204
 openssl/libcrypto-lib-ec_support.ll 63003479
-openssl/libcrypto-lib-ecb3_enc.ll 40715996
+openssl/libcrypto-lib-ecb3_enc.ll 40756716
 openssl/libcrypto-lib-ecb_enc.ll 41160707
 openssl/libcrypto-lib-ecdh_ossl.ll 54482277
 openssl/libcrypto-lib-ecdsa_ossl.ll 168349057
@@ -28395,7 +28395,7 @@ postgres/dependency.ll 673733410
 postgres/describe.ll 1230171935
 postgres/detoast.ll 161557668
 postgres/dfmgr.ll 131242833
-postgres/dict.ll 67827029
+postgres/dict.ll 67894859
 postgres/dict_ispell.ll 69031887
 postgres/dict_simple.ll 57196401
 postgres/dict_snowball.ll 102590319
